@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-CADORET-HUI-TAMAGAWA-17",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Geometric monodromy — semisimplicity and maximality",
     "authors": "Anna Cadoret, Chun-Yin Hui, Akio Tamagawa",
@@ -44,11 +44,17 @@
         "sha256": "c11e6e28cbc3f1e7c1a0dc4f75bfcff54257a327f9bcfe4605e76970519cd704",
         "accessed": "2026-09-22",
         "read": "Author version pp.10–12, especially §4.2.1 and Lemma4.2.1.1 on p.11. CHT cites the corresponding result as CT16 Lemma4.1; the numbering is version-specific. This is not a full read of CT16 or its published 2019 version."
+      },
+      {
+        "citation": "Milne–Ramachandran2004 submitted author version",
+        "url": "https://math.umd.edu/~atma/mf1-jsmweb.pdf",
+        "sha256": "49a1930884210eab50055ce5fae7065a0603e96a442451c21ab49000f46ba8e3",
+        "read": "§3 standing hypotheses p.10 and Lemma3.1 plus its proof p.11. Not the whole 58-page article. Milne erratum page concerns Theorem9.6, not this lemma."
       }
     ],
-    "continuation": "Codex codex-c83e7a has freshly reread all32 pages205–236 of the official CHT article in this continuation. The source hash is unchanged. Full Larsen2010 and selected CT16 readings are inherited from the prior continuation; no new full read of their recursive references is claimed."
+    "continuation": "Codex codex-hjdg0j independently read all published pp.205–236 and all of Larsen2010 pp.1029–1038 on 2026-09-23; CT author pp.10–12 and MR author §3 pp.10–11 were inspected at the cited inputs. Selected GSS passages were compared. No full recursive-source read is claimed."
   },
-  "summary": "For a smooth proper f: Y → X over an algebraically closed field of characteristic p, the paper proves that tensor invariants of bounded length of π₁(X) on H*(Y_x, F_ℓ) are reductions of those on H*(Y_x, Z_ℓ) for ℓ ≫ 0 (Theorem 1.3). From this it deduces F_ℓ-semisimplicity for ℓ ≫ 0 (Theorem 1.1) and its equivalence with almost hyperspecial image (Theorem 1.2). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and five findings are recorded; Theorem 9.1's first two assertions are proved only for ℓ ≥ r (E3). Supplier proofs are deferred. Not formalised.",
+  "summary": "Uniform geometric mod-ℓ semisimplicity and almost-hyperspecial geometric images for smooth proper families, with invariant reduction on bounded mixed Schur tensors and arithmetic-stable saturated submodules/free quotients. Both proof branches and the conditional arithmetic corollary are retained. Independent review corrects ownership and source interfaces, confirms five inherited findings and adds three external Larsen misprints. Recursive source closure remains open; this extraction is partial.",
   "conventions": {
     "F": "All schemes finite type. X is connected smooth separated over algebraically closed k, char(k)=p≥0; f:Y→X smooth proper; x geometric. Choose a model f₀:Y₀→X₀ over finitely generated k₀⊂k, with X₀ smooth geometrically connected and separated, and x→X₀. Write π=π₁(X,x), π₀=π₁(X₀,x), Hℓ∞=H*(Yx,Zℓ), Hℓ=H*(Yx,Fℓ), Vℓ∞=Hℓ∞⊗Qℓ, ℓ prime ≠p. Large ℓ means a bound depending on the fixed family and, when specified, fixed tensor degrees, never a bound uniform over all families.",
     "C": "Convention F with k₀ finite and X₀ a smooth geometrically connected curve; F is geometric |k₀|-Frobenius at a chosen rational point after a finite constant-field extension. Cohomology of X,Y means geometric base change. H^w is a single cohomological degree; total H* is its finite direct sum.",
@@ -130,7 +136,7 @@
       "kind": "theorem",
       "name": "Geometric semisimplicity for all large primes",
       "statement": "In F there is B(f) such that π acts semisimply on Hℓ for every prime ℓ> B(f), ℓ≠p. Both proof branches §§9 and 10 are extracted separately; no arithmetic Frobenius semisimplicity is assumed.",
-      "locator": "Theorem 1.1 p.205; §§9–10",
+      "locator": "Theorem 1.1 p.206; §§9–10",
       "status": "missing",
       "dependencies": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/99",
@@ -177,7 +183,7 @@
       "kind": "theorem",
       "name": "Almost-hyperspecial geometric image",
       "statement": "In F, after replacing X by one connected finite étale cover independent of ℓ, for all sufficiently large ℓ the geometric image Π∞ is almost hyperspecial in its connected semisimple Qℓ-Zariski closure. This is the equivalence with Theorem 1.1 established in Corollary 8.2, not an assertion that Π∞ itself is hyperspecial.",
-      "locator": "Theorem 1.2 p.207; Corollary 8.2",
+      "locator": "Theorem 1.2 p.206; §8",
       "status": "missing",
       "dependencies": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/03",
@@ -230,8 +236,16 @@
         "At ℓ dividing nλ the normalized expression is unavailable"
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/06"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Define row and signed column sums in Z[S_d]. Their product has identity coefficient 1, because row and column stabilizers intersect trivially. Map coefficientwise into the existing rational group algebra.",
+        "Read item06: c²=(d!/dim Specht)c. Taking the identity coefficient shows the rational scalar is an integer n, namely the identity coefficient of the integral c². Since dim Specht is a positive integer, n>0 and n*dim Specht=d!, hence n divides d!.",
+        "Injectivity of Z[S_d]→Q[S_d] descends c²=nc. If d! is a unit in R, n is a unit and e=n⁻¹c is idempotent. Transport to Zℓ/Fℓ for ℓ>d.",
+        "For a right action, transport through the group-algebra anti-involution σ↦σ⁻¹; record the resulting reversal of row/column product. Base change commutes with the finite sums and this identity."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/08",
@@ -250,6 +264,11 @@
           "name": "integralSchur.baseChange",
           "role": "compatibility",
           "statement": "The image of the idempotent projector commutes with scalar extension; over Zℓ it is finite free and a direct summand. Mixed functors use the contragredient dual."
+        },
+        {
+          "name": "mixedSchur.transportIso",
+          "role": "functoriality",
+          "statement": "An equivariant lattice isomorphism transports the covariant tensor factors by f and the contragredient factors by the dual of f inverse. For arbitrary maps use the bifunctor covariant in M and contravariant in N; a mixed tensor of a single module is not covariant under arbitrary linear maps."
         }
       ],
       "uses": [
@@ -264,8 +283,16 @@
         "degree zero gives unit; ℓ≤d needs a separate construction"
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/07",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/98"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The diagonal action on tensor powers commutes with factor permutations. Its image under the integral idempotent is an equivariant direct summand.",
+        "A finite projective summand over Zℓ is finite free. Base change preserves the idempotent decomposition, hence identifies its image with the image after scalar extension.",
+        "Tensor these constructions with the contragredient construction on the dual. Use the two-variable variance in the API; joint continuity follows from finite matrix coordinates."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/09",
@@ -375,7 +402,7 @@
       "kind": "construction",
       "name": "Lisse sheaves and fundamental-group representations",
       "statement": "For connected X in F and Λ=Zℓ or Fℓ, identify the relevant lisse Λ-sheaves with continuous finite-generated Λ-representations of π₁(X,x), with stalk transport up to the chosen path. Establish H⁰(X,F)=F_x^π and the arithmetic action under descent.",
-      "locator": "§2.1 pp.209–210",
+      "locator": "§2.2 pp.210–211",
       "status": "missing",
       "api": [
         {
@@ -409,10 +436,14 @@
       "kind": "theorem",
       "name": "Arithmetic fundamental-group sequence and fibre Frobenius",
       "statement": "For the geometrically connected model X₀/k₀, π₁(X,x)→π₁(X₀,x)→Gal(k₀)→1 is exact. A k₀-rational point supplies a section and realizes the Galois action on geometric global sections by its fibre action. Do not add left injectivity without its hypotheses.",
-      "locator": "§2.1 p.210",
-      "status": "missing",
+      "locator": "§2.2 p.211",
+      "status": "planned",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/17",
@@ -517,7 +548,14 @@
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "libraryInputs": [
+        "mathlib:IsLocalization.integerNormalization",
+        "mathlib:IsLocalization.integerNormalization_spec",
+        "mathlib:Polynomial.primPart",
+        "mathlib:Polynomial.isPrimitive_primPart"
+      ],
+      "note": "Read Localization/Integral.lean50–55 and Polynomial/Content.lean227–247 at082e2d3. Clear denominators with the existing integerNormalization and take its existing primPart. Only the positive-rational scalar/valuation-product comparison, fixed sign and nonzero reductions belong to this adapter; do not rebuild denominator clearing or polynomial content."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/20",
@@ -671,12 +709,12 @@
         {
           "name": "bertiniMonodromyCurve.map",
           "role": "projection",
-          "statement": "Expose the smooth connected curve and its morphism into the original base under the Bertini hypotheses."
+          "statement": "Expose the smooth geometrically connected curve and its map after the permitted base change."
         },
         {
-          "name": "bertiniMonodromyCurve.pi1_surjective",
+          "name": "bertiniMonodromyCurve.image_surjective",
           "role": "structure",
-          "statement": "The supplied fundamental-group map is surjective, so restricting any representation preserves its image."
+          "statement": "The geometric fundamental-group map surjects onto the specified simultaneous monodromy quotient; restricting representations factoring through that quotient preserves their images."
         }
       ],
       "uses": [
@@ -688,7 +726,7 @@
       "tests": [
         "A curve may use its identity morphism",
         "A constant map into a positive-genus base need not surject on π₁",
-        "Surjectivity preserves the image for each coefficient at once"
+        "Restriction preserves the images of all coefficient representations factoring through the specified quotient; it says nothing about other representations."
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
       "dependencies": [],
@@ -722,16 +760,23 @@
       "kind": "theorem",
       "name": "Fibre-power Künneth realization of total tensor powers",
       "statement": "For the d-fold fibre product of the smooth proper family, integral Künneth gives H*(Yx^[d],Zℓ)≅H*(Yx,Zℓ)⊗d after all torsion terms vanish; the comparison is arithmetic-equivariant and compatible with reduction. Rational or derived Künneth alone is not the integral direct-sum statement.",
-      "locator": "§4 pp.212–215; §10.1",
-      "status": "missing",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "locator": "§4.3.1 p.215; §10.1 p.231",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/21",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/22"
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ],
+      "note": " Import the finite/integral derived Künneth package through EDC.0/PR196, then use uniform torsion freeness to obtain this ordinary graded comparison. No new six-functor construction."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/34",
       "kind": "theorem",
       "name": "Poincaré duality with twist and support retained",
-      "statement": "For smooth pure-dimensional Y over an algebraically closed field, coefficients Λ=Qℓ or Fℓ, ℓ≠p, there is Frobenius-equivariant perfect duality H^i(Y,Λ)≅H_c^(2dimY−i)(Y,Λ)(dimY)∨. For proper smooth fibres this identifies dual cohomology with complementary degree and the correct Tate twist; integral use requires its torsion-free comparison.",
+      "statement": "For smooth pure-dimensional Y over an algebraically closed field, coefficients Λ=Qℓ or Fℓ, ℓ≠p, there is perfect duality, equivariant for descent data (in particular geometric Frobenius when a finite-field model is given), H^i(Y,Λ)≅H_c^(2dimY−i)(Y,Λ)(dimY)∨. For proper smooth fibres this identifies dual cohomology with complementary degree and the correct Tate twist; integral use requires its torsion-free comparison.",
       "locator": "§4; Lemma 5.3 p.218",
       "status": "planned",
       "planned": [
@@ -747,8 +792,15 @@
       "statement": "For 0≤d,e<ℓ, the normalized Young projectors make Sλ,μ(M) a Π-equivariant direct summand of M⊗d⊗(M∨)⊗e. Inv for the ambient tensor object implies Inv for that summand; extend the reduction to arithmetic-stable free quotients and saturated submodules with the induced projector maps.",
       "locator": "Lemma 4.4 p.215",
       "status": "missing",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/08",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/09"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Write the equivariant projector decomposition T=S⊕S′. Taking fixed vectors and reducing both commute with this finite direct sum. The invariant-reduction comparison is block diagonal, so an isomorphism on T gives an isomorphism on S.",
+        "A free quotient of S extends to a free quotient of T by mapping S′ to zero. A saturated submodule of S is saturated in T. The same exceptional-prime bound therefore works for these subquotients."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/36",
@@ -906,7 +958,7 @@
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/46",
       "kind": "theorem",
       "name": "Curve Leray edge and high-weight annihilator",
-      "statement": "In C, for Λ=Qℓ (all ℓ≠p) or Fℓ (all sufficiently large ℓ), H¹(X,R^wf_*Λ)=E₂^(1,w)=E∞^(1,w) is a subquotient of H^(w+1)(Y,Λ). Smooth duality and 42–43 produce a common rational annihilator P≥w+1 with roots of weights≥w+1; for dimY=D use T^degP P(q^D/T) from P≤2D−w−1.",
+      "statement": "In C, for Λ=Qℓ (all ℓ≠p) or Fℓ (all sufficiently large ℓ), H¹(X,R^wf_*Λ)=E₂^(1,w)=E∞^(1,w) is a subquotient of H^(w+1)(Y,Λ). Smooth duality and 42–43 produce a common rational annihilator P≥w+1 with roots of weights≥w+1; for dimY=D use T^degP P(q^D/T) from P≤2D−w−1. The formula with D applies to a pure-dimensional component. For nonpure Y, first pass to a finite constant-field extension fixing its finitely many components, apply the formula with each component dimension, multiply the resulting annihilators, and descend the Frobenius power using44. No single pure-dimensional duality formula is asserted for a nonpure Y.",
       "locator": "Lemma 5.3 p.218",
       "status": "missing",
       "dependencies": [
@@ -991,8 +1043,14 @@
         "An arithmetic nontrivial character can be geometrically trivial"
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/98"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "In a basis of the rank-m free lattice M, wedge evaluation v↦(u↦v∧u) gives M≅Hom(Λ^(m−1)M,det M); the basis matrix has entries ±1. It is basis independent and equivariant.",
+        "Dualizing a saturated inclusion gives a free quotient. Exterior powers and the determinant identity implement the submodule-to-quotient reduction. Retain the arithmetic determinant character; untwist only the geometric action after item49. Treat M=0 separately."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/51",
@@ -1406,7 +1464,7 @@
       "name": "Hyperspecial points and semisimple integral models",
       "statement": "For connected semisimple G/Qℓ use the building of Gsc with Gad(Qℓ)-action. Semisimple Zℓ-models with their generic identifications correspond to hyperspecial points; an isogeny extends uniquely between the models attached to the same point. Import buildings and parahoric models, and prove this precise hyperspecial correspondence.",
       "locator": "§8 p.223, [Tit79, §3.8]",
-      "status": "missing",
+      "status": "planned",
       "api": [
         {
           "name": "hyperspecialModel.genericIdentification",
@@ -1432,7 +1490,11 @@
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "note": " RG2.3 is the sole owner of the model construction. CHT supplies the precise hyperspecial/isogeny interface to check there; G4 still blocks a proved claim."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/73",
@@ -1871,7 +1933,11 @@
       "dependencies": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/26"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The determinant of A is trivial because the acting finite group is generated by elements of order ℓ and Fℓ× has order prime to ℓ.",
+        "Compose the assumed equivariant retraction onto the full invariant space with any linear projection of that trivial representation onto the determinant line. No projection from a nontrivial representation is assumed."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/97",
@@ -1880,8 +1946,14 @@
       "statement": "For a finite-dimensional representation H over a field and a stable a-dimensional subspace A, a≥1, an equivariant retraction s:Λ^aH→Λ^aA induces H→A by v↦[u↦s(v∧Λ^(a−1)ι(u))] and A≅Hom(Λ^(a−1)A,Λ^aA). It retracts A↪H, with no division by a. The zero-dimensional subspace splits separately.",
       "locator": "Lemma 10.1, (10.1.2)→(10.1.1), p.231",
       "status": "missing",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/98"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Let s:Λ^aH→det A retract the determinant inclusion. Send h∈H to the map u↦s(h∧u) on Λ^(a−1)A and then use the inverse of A≅Hom(Λ^(a−1)A,det A).",
+        "On A this is the identity by wedge evaluation. Every map is equivariant; no factor 1/a occurs. For a=0 use the unique map H→0."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/98",
@@ -2080,7 +2152,7 @@
       "name": "Arithmetic semisimplicity and Tate fullness assertions",
       "statement": "For K₀ finitely generated over F_p, smooth proper d-dimensional Y₀/K₀, Y=Y₀×K̄₀ and w≥0, (11.1,Λ,w) asks semisimplicity of Gal(K₀) on H^(2w)(Y,Λ); (11.2,Λ,w) asks surjectivity of Z^w(Y₀)⊗Λ→H^(2w)(Y,Λ(w))^Gal(K₀). Keep Λ=Zℓ,Fℓ,Qℓ separate and do not assert these conjectures.",
       "locator": "§11 p.232",
-      "status": "missing",
+      "status": "planned",
       "api": [
         {
           "name": "arithmeticTateAssertions.cycleMap",
@@ -2106,7 +2178,10 @@
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planned": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/105",
@@ -2140,11 +2215,17 @@
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/107",
       "kind": "theorem",
       "name": "Integral cycle saturation from rational Tate hypotheses",
-      "statement": "In 104 under the rational assumptions of Corollary 11.1, for all sufficiently large ℓ the cycle map Z^w(Y₀)⊗Zℓ→H^(2w)(Y,Zℓ(w))^Gal(K₀) is surjective and its map to all integral cohomology has torsion-free cokernel. This is the precise Milne–Ramachandran Lemma 3.1 input; exact external hypotheses and ℓ quantifiers remain G7.",
-      "locator": "§11 proof p.232, [MR04, Lem.3.1]",
+      "statement": "For a smooth projective d-dimensional V over a field k finitely generated over its prime field, assume rational Tate fullness in codimensions w and d−w and the isomorphism H^(2w)(Vbar,Qℓ(w))^Gal(k)→H^(2w)(Vbar,Qℓ(w))_Gal(k), for almost all ℓ. Milne–Ramachandran Lemma3.1 gives surjectivity of the integral cycle map onto the integral fixed lattice for almost all ℓ. Rational semisimplicity implies the invariants-to-coinvariants hypothesis. After excluding cohomological torsion primes, the fixed lattice is saturated in all cohomology. CHT §11 uses this conclusion for smooth proper Y₀; carrying the argument from the projective source to that scope remains a stated extraction obligation G7.",
+      "locator": "CHT §11 p.232; MR04 submitted author version §3 pp.10–11, Lemma3.1 (standing smooth-projective hypothesis on p.10)",
       "status": "missing",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Use the cited Tate1994 §2.9 input to identify homological and numerical equivalence in both complementary degrees.",
+        "Numerical cycle groups modulo torsion are finitely generated and their nondegenerate intersection pairing has a single nonzero integral discriminant D independent of ℓ.",
+        "Rational fullness makes the integral cycle maps have finite cokernel. Away from D and the cohomological torsion primes, the unimodular pairing on the cycle lattices forces those cokernels to vanish.",
+        "The numerical-equivalence, finite-generation and proper-versus-projective inputs are not proved by merely quoting the lemma; they remain G1/G7. This argument occurs before the finite extension used to connect monodromy in CHT."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/108",
@@ -2311,7 +2392,14 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/23",
         "PAPER-CADORET-HUI-TAMAGAWA-17/41"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Outside the torsion and coefficient-denominator primes, each rational Frobenius polynomial P_w annihilates the degree-w lattice by Cayley–Hamilton and torsion freeness.",
+        "Disjoint pure weights make the finitely many P_w pairwise coprime over Q. Exclude their pairwise resultants and leading coefficients. CRT then supplies e_w in Zℓ[T] with residues 1 modulo P_w and 0 modulo the other P_v.",
+        "On total cohomology e_w(F) is exactly the existing degree projector. Thus it commutes with the full arithmetic action even though F need not be central.",
+        "Every arithmetic-stable submodule or quotient is F-stable and hence e_w(F)-stable. The orthogonal idempotents split it into degree pieces; freeness and saturation pass to these direct summands.",
+        "The finite excluded set depends on the original degree polynomials, not on the submodule or quotient. This closes the degree-splitting part of G2; the uniform dual/fibre-power assembly remains separately recorded."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/117",
@@ -2319,7 +2407,7 @@
       "name": "Semisimple group scheme over Zℓ",
       "statement": "A semisimple Zℓ-group scheme is smooth affine with connected semisimple geometric fibres. It is simply connected when each geometric fibre is. The fibre root data are constant in the sense used by SGA3 XXII Proposition 2.8; this relative notion is distinct from the built field predicates.",
       "locator": "§7.1 p.221",
-      "status": "missing",
+      "status": "planned",
       "api": [
         {
           "name": "semisimpleIntegralModel.geometricFibres",
@@ -2345,7 +2433,11 @@
       ],
       "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon"
+      ],
+      "note": " Upstream Layer8 already reserves relative theory. Request the smooth affine semisimple fibre predicate there; the field-level predicates alone do not implement it."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/118",
@@ -2505,7 +2597,8 @@
           "how": "Supply a finite-type family for stratification"
         }
       ],
-      "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed."
+      "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
+      "sourceCorrection": "Use the corrected notation in E6–E8: the compactification is K union boundary in projective space; the parameterized Lie algebras are nilpotently generated, not necessarily nilpotent."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/122",
@@ -2689,7 +2782,8 @@
         "G1",
         "G5"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "sourceCorrection": "Use the corrected notation in E6–E8: the compactification is K union boundary in projective space; the parameterized Lie algebras are nilpotently generated, not necessarily nilpotent."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/130",
@@ -2712,7 +2806,8 @@
       "openGaps": [
         "G1"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "sourceCorrection": "Use the corrected notation in E6–E8: the compactification is K union boundary in projective space; the parameterized Lie algebras are nilpotently generated, not necessarily nilpotent."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/131",
@@ -2938,7 +3033,8 @@
       "openGaps": [
         "G1"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "sourceCorrection": "Use the corrected notation in E6–E8: the compactification is K union boundary in projective space; the parameterized Lie algebras are nilpotently generated, not necessarily nilpotent."
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/140",
@@ -3467,7 +3563,6 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/99",
         "PAPER-CADORET-HUI-TAMAGAWA-17/102",
         "PAPER-CADORET-HUI-TAMAGAWA-17/103",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/104",
         "PAPER-CADORET-HUI-TAMAGAWA-17/105",
         "PAPER-CADORET-HUI-TAMAGAWA-17/106",
         "PAPER-CADORET-HUI-TAMAGAWA-17/107",
@@ -3477,7 +3572,7 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/111"
       ],
       "reason": "R01/G7 supplies continuous representations and operations, but no existing layer states uniform geometric mod-ℓ semisimplicity, Nori-special-fibre equality or almost-hyperspecial geometric images. PotentialModularityAndCompatibleSystems concerns different arithmetic existence/descent theorems; no duplicate compatible-system infrastructure is proposed.",
-      "brief": "Import Arithmetic Galois representations (ArithmeticGaloisRepresentations:R01.1,G7), Global Galois duality and compact coefficients (ArithmeticGaloisDuality:R02.1–2), Scheme and stack foundations (SchemeAndStackFoundations:SF.2), Deligne weights and purity (DeligneWeightsAndPurity:DWP.7–8), and the proposed uniform-integral-weight, integral-Schur and monodromy-model extensions below. For a connected smooth separated X over algebraically closed k and smooth proper f:Y→X, prove Theorem 1.3 separately for bounded mixed Schur tensors, every arithmetic-stable free quotient and every arithmetic-stable saturated submodule, uniformly outside finitely many primes. Prove Theorem 1.1 for geometric π₁ only and, after ONE finite étale cover independent of ℓ, Theorem 1.2's almost-hyperspecial image. Include the finite-field-curve reduction, Gabber/Suh interface, connected/perfect image covers, compatible Frobenius tori, special-fibre=Nori envelope and bounded-index/plus-image comparison. Preserve both proofs: Lie-dual exterior quotients use Theorem 1.3(1), while extension classes use its saturated-submodule part (2). End with Corollary 11.1 conditional on rational semisimplicity and Tate fullness in BOTH w and d−w. Separate geometric determinant triviality from arithmetic twists; resolve mixed-degree and external-input gaps before claiming closure. Suggested file TauCeti/RepresentationTheory/GeometricMonodromy.lean. Give maps, continuity/base-change API, ≥3 tests per definition and theorem dependencies; do not install theorem-shaped axioms."
+      "brief": "Import Arithmetic Galois representations (ArithmeticGaloisRepresentations:R01.1,G7), Global Galois duality and compact coefficients (ArithmeticGaloisDuality:R02.1–2), Scheme and stack foundations (SchemeAndStackFoundations:SF.2), Deligne weights and purity (DeligneWeightsAndPurity:DWP.7–8), and the proposed uniform-integral-weight, integral-Schur and monodromy-model extensions below. For a connected smooth separated X over algebraically closed k and smooth proper f:Y→X, prove Theorem 1.3 separately for bounded mixed Schur tensors, every arithmetic-stable free quotient and every arithmetic-stable saturated submodule, uniformly outside finitely many primes. Prove Theorem 1.1 for geometric π₁ only and, after ONE finite étale cover independent of ℓ, Theorem 1.2's almost-hyperspecial image. Include the finite-field-curve reduction, Gabber/Suh interface, connected/perfect image covers, compatible Frobenius tori, special-fibre=Nori envelope and bounded-index/plus-image comparison. Preserve both proofs: Lie-dual exterior quotients use Theorem 1.3(1), while extension classes use its saturated-submodule part (2). End with Corollary 11.1 conditional on rational semisimplicity and Tate fullness in BOTH w and d−w. Separate geometric determinant triviality from arithmetic twists; resolve mixed-degree and external-input gaps before claiming closure. Suggested file TauCeti/RepresentationTheory/GeometricMonodromy.lean. Give maps, continuity/base-change API, ≥3 tests per definition and theorem dependencies; do not install theorem-shaped axioms. Import the corrected ownership boundaries in routes3 and7–11. An open source gap remains a prerequisite task and cannot be treated as an available theorem."
     },
     {
       "route": "part-ii",
@@ -3500,7 +3595,6 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/67",
         "PAPER-CADORET-HUI-TAMAGAWA-17/68",
         "PAPER-CADORET-HUI-TAMAGAWA-17/69",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/72",
         "PAPER-CADORET-HUI-TAMAGAWA-17/73",
         "PAPER-CADORET-HUI-TAMAGAWA-17/74",
         "PAPER-CADORET-HUI-TAMAGAWA-17/75",
@@ -3520,7 +3614,6 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/91",
         "PAPER-CADORET-HUI-TAMAGAWA-17/113",
         "PAPER-CADORET-HUI-TAMAGAWA-17/114",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/117",
         "PAPER-CADORET-HUI-TAMAGAWA-17/118",
         "PAPER-CADORET-HUI-TAMAGAWA-17/120",
         "PAPER-CADORET-HUI-TAMAGAWA-17/121",
@@ -3547,24 +3640,19 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/142"
       ],
       "reason": "Generic algebraic groups and Bruhat–Tits foundations already have owners. The missing layer is the characteristic-uniform envelope, bounded tensor stabilizer, composition-factor comparison and dual-Lie-defect criterion; neither the upstream field theory nor RG2.1–3 promises it.",
-      "brief": "Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.0–3), the pinned field-level semisimple/reductive Hopf predicates, exterior powers, and root data from tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems. Do not reconstruct buildings, parahorics, split Chevalley carriers or general affine Hopf anti-equivalence. Construct Nori envelopes and plus subgroups, truncated exp/log, T≤d with separate s,t bounds, and pointwise tensor stabilizers. Prove Nori and Cadoret–Tamagawa uniformity inputs and Larsen's dimension/bounded-index theorem with its unipotent-radical hypothesis. Prove Lemma 8.1 and Corollary 8.2's group-theoretic interfaces from finite Lie-type nonabelian-factor bounds, smooth reduction, simply connected isogenies and hyperspecial compactness. CFSGStatement supplies candidate carriers, not simplicity or order bounds; prove the required Tits/Steinberg/Lang facts here or locate an actual existing theorem owner before implementation. Construct nice torus models and Δ_H; prove the sufficiently-large-characteristic form of Theorem 9.1 via the big cell and exterior-adjoint Poincaré polynomials. Keep E3's small-prime scope unclaimed. Suggested file TauCeti/AlgebraicGeometry/MonodromyModels.lean. Tests include SL₂, a torus excluded from semisimple conclusions, disconnected/nonsmooth special fibres, and the difference between pointwise and setwise stabilizers. Every definition needs construction API and ≥3 tests. The continuation decomposes the two external bottlenecks into120–142: finite-support tensor multiplicities, finite-type exponential families, scheme-level Chevalley stratification, determinant-line fixing, antisymmetrization and multiplicity elimination; then Nori dimension, positive congruence levels, lift powers, analytic growth, equal first kernels, components, ramified splitting, Hilbert families and finite-field point counts. Import generic Chevalley/character and Plücker foundations from their existing reductive-group/representation owners; these nodes specify the exact uses rather than create competing carriers. The family/spreading step and Larsen Lemma4 corrected-image proof remain gaps, and E5 is unreviewed."
+      "brief": "Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.0–3), the pinned field-level semisimple/reductive Hopf predicates, exterior powers, and root data from tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems. Do not reconstruct buildings, parahorics, split Chevalley carriers or general affine Hopf anti-equivalence. Construct Nori envelopes and plus subgroups, truncated exp/log, T≤d with separate s,t bounds, and pointwise tensor stabilizers. Prove Nori and Cadoret–Tamagawa uniformity inputs and Larsen's dimension/bounded-index theorem with its unipotent-radical hypothesis. Prove Lemma 8.1 and Corollary 8.2's group-theoretic interfaces from finite Lie-type nonabelian-factor bounds, smooth reduction, simply connected isogenies and hyperspecial compactness. CFSGStatement supplies candidate carriers, not simplicity or order bounds; prove the required Tits/Steinberg/Lang facts here or locate an actual existing theorem owner before implementation. Construct nice torus models and Δ_H; prove the sufficiently-large-characteristic form of Theorem 9.1 via the big cell and exterior-adjoint Poincaré polynomials. Keep E3's small-prime scope unclaimed. Suggested file TauCeti/AlgebraicGeometry/MonodromyModels.lean. Tests include SL₂, a torus excluded from semisimple conclusions, disconnected/nonsmooth special fibres, and the difference between pointwise and setwise stabilizers. Every definition needs construction API and ≥3 tests. The continuation decomposes the two external bottlenecks into120–142: finite-support tensor multiplicities, finite-type exponential families, scheme-level Chevalley stratification, determinant-line fixing, antisymmetrization and multiplicity elimination; then Nori dimension, positive congruence levels, lift powers, analytic growth, equal first kernels, components, ramified splitting, Hilbert families and finite-field point counts. Import generic Chevalley/character and Plücker foundations from their existing reductive-group/representation owners; these nodes specify the exact uses rather than create competing carriers. The family/spreading step and Larsen Lemma4 corrected-image proof remain gaps, and E5 is confirmed, but the recursive reduced-image inputs remain open. Import the corrected ownership boundaries in routes3 and7–11. An open source gap remains a prerequisite task and cannot be treated as an available theorem. In particular import the relative semisimple predicate117 from upstream ReductiveGroups Layer8 and the hyperspecial construction72 from RG2.3. Generic Hilbert-family/spreading statements must be matched to R09.1 before a final design; do not allocate a second generic parameter-space construction here."
     },
     {
       "route": "part-ii",
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
       "roadmap": "SchurWeylIntegralFunctors",
-      "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality, Part II: integral Schur functors and determinant splittings",
+      "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality, Part II: integral Young symmetrizers",
       "area": "representations",
       "items": [
-        "PAPER-CADORET-HUI-TAMAGAWA-17/07",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/08",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/35",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/50",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/96",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/97"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/07"
       ],
-      "reason": "The pinned rational symmetrizer and Q-algebra Weyl module are genuine existing work. Their integral Zℓ/Fℓ functor, commuting reduction projectors and determinant retractions are a coefficient-general extension, not a re-plan of rational Schur–Weyl duality.",
-      "brief": "Import Representations of the symmetric group, Specht modules, and Schur-Weyl duality (tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl), Classical groups representation theory (tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups), the pinned TauCeti.YoungTableau rational idempotence, and Mathlib exterior/tensor power carriers. Define integral Young symmetrizers first, compare the paper's right-action convention with the existing left-action image, prove the integral scalar identity and invertibility of nλ when ℓ>d, and construct finite-free Schur functors on arbitrary lattices, not only values at a standard vector space over a Q-algebra. Prove continuity, equivariant functoriality, tensor/dual/base-change maps, direct summands and symmetric/exterior extreme partitions. Export Lemma 4.4 and the determinant-dual reduction used in §5.3 without losing arithmetic twists. Prove both implications of Lemma 10.1, with the explicit wedge/Hom retraction and the separate zero-rank case; never divide by the subspace dimension. Suggested file TauCeti/RepresentationTheory/Schur/Integral.lean. Test trivial/row/column partitions, rank below number of rows, ℓ≤d failure, and a=p in characteristic p for the denominator-free splitting. Include ≥3 tests per definition and all public map laws."
+      "reason": "SchurWeyl Layer2 owns the symmetric-group algebra and its rational symmetrizer. The missing coefficient-general integral projector extends that direction. ClassicalGroups Layer2 explicitly owns the GL-equivariant image, handled in route9.",
+      "brief": "Import Representations of the symmetric group, Specht modules, and Schur-Weyl duality (tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl), especially the pinned rational identity in item06. Construct row and signed-column sums over Z, descend c²=nλc through the injective Z→Q map, and prove nλ is a positive divisor of d! by taking the identity coefficient. For rings where nλ is invertible construct its normalized idempotent and prove base-change, relabeling and right/left-action anti-involution identities. Export projectors for Zℓ and Fℓ when ℓ>d, without imposing a Q-algebra instance. The finite-free representation images belong to ClassicalGroupsIntegralSchurFunctors, which imports this result. Suggested file TauCeti/RepresentationTheory/Symmetric/IntegralSymmetrizer.lean. Test d=0, row/column partitions and failure of normalization at a prime dividing nλ. Do not duplicate the rational Specht theory or the GL-equivariant image."
     },
     {
       "route": "part-ii",
@@ -3585,10 +3673,11 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/44",
         "PAPER-CADORET-HUI-TAMAGAWA-17/46",
         "PAPER-CADORET-HUI-TAMAGAWA-17/47",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/116"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/116",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/48"
       ],
       "reason": "DWP.0/7/8 and WC.3 plan rational weights and ℓ-independent pure factors, not Gabber–Suh uniform lattice torsion-freeness, common mod-ℓ annihilators or the finite-field-curve Inv theorem. The extension imports these owners and owns only the integral uniform step.",
-      "brief": "Import Deligne weights and purity (DeligneWeightsAndPurity:DWP.0,7,8), The Weil conjectures (WeilConjectures:WC.3), Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0–2), Adic coefficients and comparisons (AdicCoefficientsAndComparisons:L5), and Global Galois duality and compact coefficients (ArithmeticGaloisDuality:R02.1). Construct primitive integral reduction of rational annihilators with explicit finite exceptional-prime sets. Prove the Gabber/Suh torsion-free and reduction isomorphisms for all degrees of a fixed smooth proper fibre. Prove Lemma 5.1's torsion characteristic-polynomial divisibility; Lemma 5.2's common Qℓ/Fℓ compact-support annihilator through alteration/localization, retaining compact support as corrected in E1; and Lemma 5.3's high-weight annihilator through Leray and duality. Use resultants to kill H¹ torsion and prove all three parts of Theorem 4.5, including affine-curve quotient surjectivity and the determinant/exterior submodule reduction supplied by the Schur extension. Mixed-degree dévissage and uniformity over the subquotient are explicit proof gates, not consequences of separate pure-degree estimates. Suggested file TauCeti/AlgebraicGeometry/Etale/UniformAnnihilator.lean. Tests cover denominator primes, nonproper A¹, extension F_q→F_q^d, ℓ dividing alteration degree, and the failure of arbitrary mod-ℓ 'weights'. Give ≥3 tests per definition."
+      "brief": "Import Deligne weights and purity (DeligneWeightsAndPurity:DWP.0,7,8), The Weil conjectures (WeilConjectures:WC.3), Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0–2), Adic coefficients and comparisons (AdicCoefficientsAndComparisons:L5), and Global Galois duality and compact coefficients (ArithmeticGaloisDuality:R02.1). Import IsLocalization.integerNormalization and Polynomial.primPart, then prove the positive-scalar/valuation normalization adapter and nonzero reductions with explicit finite exceptional-prime sets. Prove the Gabber/Suh torsion-free and reduction isomorphisms for all degrees of a fixed smooth proper fibre. Prove Lemma 5.1's torsion characteristic-polynomial divisibility; Lemma 5.2's common Qℓ/Fℓ compact-support annihilator through alteration/localization, retaining compact support as corrected in E1; and Lemma 5.3's high-weight annihilator through Leray and duality. Use resultants to kill H¹ torsion and prove all three parts of Theorem 4.5, including affine-curve quotient surjectivity and the determinant/exterior submodule reduction supplied by the Schur extension. Mixed-degree dévissage and uniformity over the subquotient are explicit proof gates, not consequences of separate pure-degree estimates. Suggested file TauCeti/AlgebraicGeometry/Etale/UniformAnnihilator.lean. Tests cover denominator primes, nonproper A¹, extension F_q→F_q^d, ℓ dividing alteration degree, and the failure of arbitrary mod-ℓ 'weights'. Give ≥3 tests per definition. Import the corrected ownership boundaries in routes3 and7–11. An open source gap remains a prerequisite task and cannot be treated as an available theorem."
     },
     {
       "route": "source",
@@ -3602,7 +3691,6 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/10",
         "PAPER-CADORET-HUI-TAMAGAWA-17/27",
         "PAPER-CADORET-HUI-TAMAGAWA-17/28",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/48",
         "PAPER-CADORET-HUI-TAMAGAWA-17/100",
         "PAPER-CADORET-HUI-TAMAGAWA-17/101",
         "PAPER-CADORET-HUI-TAMAGAWA-17/147",
@@ -3615,7 +3703,7 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/154",
         "PAPER-CADORET-HUI-TAMAGAWA-17/155"
       ],
-      "reason": "R02.1 already owns compact/topological coefficients and coefficient-tower comparisons; R02.2 owns descent. Items147–155 and the refinements10/101 make that existing scope precise using the built explicit and canonical carriers. Upstream ProfiniteCohomology owns the discrete finite-level long exact sequence; it is imported only at the finite levels. No new cohomology roadmap is proposed."
+      "reason": "R02.1 already owns compact/topological coefficients and coefficient-tower comparisons; R02.2 owns descent. Items147–155 and the refinements10/101 make that existing scope precise using the built explicit and canonical carriers. Upstream ProfiniteCohomology owns the discrete finite-level long exact sequence; it is imported only at the finite levels. No new cohomology roadmap is proposed. The geometric curve theorem48 belongs to the uniform étale-weight route; this source route retains the precisely conditional coefficient lemma155. It asserts no group/sheaf comparison or geometric cd bound."
     },
     {
       "route": "source",
@@ -3624,22 +3712,71 @@
         "SchemeAndStackFoundations:SF.2"
       ],
       "items": [
-        "PAPER-CADORET-HUI-TAMAGAWA-17/15",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/16",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/33"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/15"
       ],
-      "reason": "The paper supplies concrete requirements for the common scheme étale carrier: lisse/stalk/fundamental-group equivalence, arithmetic action and integral fibre-power Künneth. SF.2 imports PR196 and the existing site/sheaf APIs; this is not analytic adic cohomology or a new six-functor construction."
+      "reason": "SF.2 supplies the lisse-sheaf/coefficient comparison in item15, importing the scheme fundamental group from IG.0. The arithmetic exact sequence16 is imported from IG.1/NC.0, and integral Künneth33 from EDC.0; neither is re-planned in SF.2."
     },
     {
       "route": "source",
       "roadmap": "EtaleDualityAndPerverseSheaves",
       "stages": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.2"
       ],
       "items": [
-        "PAPER-CADORET-HUI-TAMAGAWA-17/45"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/45",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/33"
       ],
-      "reason": "Lemma 5.2 is an application/test of the already planned finite étale trace normalization. Preserve compact support and the invertible-degree hypothesis; E1 supplies a concrete regression against the printed missing subscript."
+      "reason": "EDC.0 already imports finite/integral derived Künneth from PR196; item33 supplies the smooth-proper torsion-free graded specialization. EDC.2 already owns finite étale trace with its degree normalization; item45 tests compact support and invertibility of the degree. These are existing-owner applications."
+    },
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "items": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/72"
+      ],
+      "reason": "The existing local-model layer owns hyperspecial models and their matched-building-point functoriality. CHT §8 supplies a precise isogeny-extension application; G4 records the unverified original proof, so this source route is an input request, not a certification of it."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "roadmap": "ClassicalGroupsIntegralSchurFunctors",
+      "title": "Finite-dimensional representations of the classical groups, Part II: integral Schur functors and determinant splittings",
+      "area": "representations",
+      "items": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/08",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/35",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/50",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/96",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/97"
+      ],
+      "reason": "ClassicalGroups Layer2 explicitly owns the GL-equivariant Young-symmetrizer image. Its current Q-algebra construction does not cover Zℓ/Fℓ or functoriality on arbitrary finite-free lattices. This is its coefficient extension; the group-algebra projector has the separate SchurWeyl supplier.",
+      "brief": "Import Representations of the symmetric group, Specht modules, and Schur-Weyl duality (tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl), Classical groups representation theory (tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups), the pinned TauCeti.YoungTableau rational idempotence, and Mathlib exterior/tensor power carriers. Import integral Young projectors from SchurWeylIntegralFunctors (route3); construct finite-free Schur functors on arbitrary lattices, not only values at a standard vector space over a Q-algebra. Prove continuity, equivariant functoriality, tensor/dual/base-change maps, direct summands and symmetric/exterior extreme partitions. Export Lemma 4.4 and the determinant-dual reduction used in §5.3 without losing arithmetic twists. Prove both implications of Lemma 10.1, with the explicit wedge/Hom retraction and the separate zero-rank case; never divide by the subspace dimension. Suggested file TauCeti/RepresentationTheory/ClassicalGroups/IntegralSchur.lean. Treat mixed Schur functors as covariant/contravariant bifunctors, or transport a single-module mixed tensor along isomorphisms. Import continuous-action packaging from ArithmeticGaloisRepresentations:G7. Test trivial/row/column partitions, rank below number of rows, ℓ≤d failure, and a=p in characteristic p for the denominator-free splitting. Include ≥3 tests per definition and all public map laws."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "items": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/16"
+      ],
+      "reason": "IG.1 explicitly owns the arithmetic fundamental-group exact sequence and finite-field Frobenius. Import rational-point sections from NC.0. CHT §2.2 gives its action on geometric global sections; no second fundamental group is constructed."
+    },
+    {
+      "route": "source",
+      "roadmap": "MotivesAndAlgebraicCycles",
+      "stages": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "items": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/104"
+      ],
+      "reason": "MC.7 owns typed Tate assertions and implication maps with base field, codimension, coefficients and semisimplicity hypotheses. CHT §11 gives a concrete conditional use. The still-open integral saturation theorem107 is not included in this accepted source route."
     }
   ],
   "prerequisites": [
@@ -3676,7 +3813,7 @@
     {
       "citation": "M. Larsen, Exponential generation and largeness for compact p-adic Lie groups (2010), Theorem7",
       "link": "https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf",
-      "why": "Full proof read; explicit extraction128–141 retains the unipotent-radical assumption, unchanged residue field, analytic-growth and Nori inputs. Lemma4 proof notation requires E5 review.",
+      "why": "Full proof read; explicit extraction128–141 retains the unipotent-radical assumption, unchanged residue field, analytic-growth and Nori inputs. Lemma4 proof notation is corrected by confirmed E5; E6–E8 correct further notation.",
       "coverage": "No unread remainder of Larsen2010 remains. Its recursively cited Nori, Borel, EGA/Hilbert, Serre, Kneser and finite-field group-count inputs are not closed."
     },
     {
@@ -3700,7 +3837,7 @@
     {
       "citation": "J. S. Milne and N. Ramachandran, Integral motives and special values of zeta functions (2004), Lemma3.1",
       "link": "https://doi.org/10.1090/S0894-0347-04-00458-8",
-      "why": "Integral cycle saturation under rational semisimplicity and two complementary Tate hypotheses; precise ℓ quantifiers still a gap.",
+      "why": "Lemma3.1 read directly; exact projective statement, almost-all-ℓ scope and pairing proof recorded in107. Proper-scheme and recursive pairing inputs remain G1/G7.",
       "coverage": "The exact input has not been found fully planned/proved at theorem granularity; these are prerequisite verification/extraction requests, not requests to duplicate generic foundations."
     },
     {
@@ -3743,8 +3880,16 @@
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
         "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found.",
+        "2026-09-23: Annals article page https://annals.math.princeton.edu/2017/186-1/p05 and official PDF; no linked correction found.",
+        "2026-09-23: https://arxiv.org/abs/1702.07017 and exact-title erratum/corrigendum search; no correction identified in this search.",
+        "2026-09-23: author publication page https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and selected passages of its GSS.pdf; E1/E2 also occur there, while its Bruhat–Tits page interval is correct. The preprint is not a later erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked published p.218 and the author trace paragraph. The composite uses H_c on both sides. The identity cover of A¹ has nonzero H_c² and zero ordinary H², so the printed direct-factor target loses an essential subscript.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E2",
@@ -3760,16 +3905,24 @@
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
         "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found.",
+        "2026-09-23: Annals article page https://annals.math.princeton.edu/2017/186-1/p05 and official PDF; no linked correction found.",
+        "2026-09-23: https://arxiv.org/abs/1702.07017 and exact-title erratum/corrigendum search; no correction identified in this search.",
+        "2026-09-23: author publication page https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and selected passages of its GSS.pdf; E1/E2 also occur there, while its Bruhat–Tits page interval is correct. The preprint is not a later erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked published p.229 and author p.17. The chosen objects are closed points with Frobenius conjugacy classes, not elements of the fundamental group; replace the membership target by the closed points of X₀.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E3",
       "kind": "gap",
       "locator": "Published Theorem 9.1(1)–(2), p.226, versus the root-exponential step p.227; author version has the same scope",
-      "printed": "For ℓ ≥ r",
-      "correction": "Either supply a proof of the first two assertions also for ℓ<r, or restrict them to the sufficiently-large-ℓ scope actually used in the application. The extraction exports only this restricted version.",
-      "reason": "Only item (9.1.3) carries an explicit sufficiently-large-prime qualifier in the statement. The proof of smoothness and the reductive-rank/root assertion first requires ℓ≥r for the integral root-group exponential embedding. No argument for the omitted range is given in that proof. This records a proof-scope gap, not a counterexample to the unrestricted assertions. (cc-442dc5) Reclassified to affect a stated result. Assertions (9.1.1) and (9.1.2) of Theorem 9.1 carry no restriction on ℓ, but the proof identifies U_α with the image of t ↦ exp(tN_α) only for ℓ ≥ r, where exp(tN_α) = Σ_{k<r} t^k N_α^k/k! is integral. So for ℓ < r these assertions are not established. §9.2 applies Theorem 9.1 only for ℓ ≫ 0, so Theorem 1.1 is unaffected.",
+      "printed": "(9.1.1) G is smooth over Zℓ; (9.1.2) the reductive quotient has the stated rank/root comparison, with no ℓ bound attached.",
+      "correction": "Either supply an argument for the missing small-prime range, or restrict parts(9.1.1)–(9.1.2) to the sufficiently-large-prime scope justified by the proof. No counterexample to these assertions is claimed.",
+      "reason": "Independently checked Theorem9.1 p.226 and its proof p.227. Parts(1) and(2) have no prime bound in the statement, but the displayed integral root exponential is justified only for ℓ≥r. This verifies a proof-scope gap, not a counterexample to unrestricted smoothness or rank. The geometric application uses sufficiently large primes.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -3777,8 +3930,16 @@
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
         "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found.",
+        "2026-09-23: Annals article page https://annals.math.princeton.edu/2017/186-1/p05 and official PDF; no linked correction found.",
+        "2026-09-23: https://arxiv.org/abs/1702.07017 and exact-title erratum/corrigendum search; no correction identified in this search.",
+        "2026-09-23: author publication page https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and selected passages of its GSS.pdf; E1/E2 also occur there, while its Bruhat–Tits page interval is correct. The preprint is not a later erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked Theorem9.1 p.226 and its proof p.227. Parts(1) and(2) have no prime bound in the statement, but the displayed integral root exponential is justified only for ℓ≥r. This verifies a proof-scope gap, not a counterexample to unrestricted smoothness or rank. The geometric application uses sufficiently large primes.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E4",
@@ -3797,8 +3958,16 @@
         "Numdam original BT84 record https://www.numdam.org/item/PMIHES_1984__60__5_0/",
         "Printed identifier resolved at https://www.numdam.org/item/SB_1988-1989__31__7_0/",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found.",
-        "Earlier note: Correct page interval already in the author's GSS.pdf bibliography [BrT84]; correct article locator in Numdam. No journal corrigendum found. (the author's preprint predates publication, so it is not a later correction; the published bibliography entry is uncorrected)"
-      ]
+        "Earlier note: Correct page interval already in the author's GSS.pdf bibliography [BrT84]; correct article locator in Numdam. No journal corrigendum found. (the author's preprint predates publication, so it is not a later correction; the published bibliography entry is uncorrected)",
+        "2026-09-23: Annals article page https://annals.math.princeton.edu/2017/186-1/p05 and official PDF; no linked correction found.",
+        "2026-09-23: https://arxiv.org/abs/1702.07017 and exact-title erratum/corrigendum search; no correction identified in this search.",
+        "2026-09-23: author publication page https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and selected passages of its GSS.pdf; E1/E2 also occur there, while its Bruhat–Tits page interval is correct. The preprint is not a later erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked published p.233, the author bibliography, and both Numdam records. PMIHES_1984__60__5_0 is Bruhat–Tits II, pp.5–184, DOI10.1007/BF02700560; the printed SB identifier is Tits’s 1989 Kac–Moody talk.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E5",
@@ -3812,8 +3981,71 @@
       "searched": [
         "Official MSP published PDF and rendered pp.1033–1034 inspected 2026-09-22.",
         "MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title erratum/corrigendum web search on2026-09-22: no matching correction located; absence from this search is not proof of novelty.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
-      ]
+        "2026-09-23: official MSP article PDF https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf read in full, rendered pp.1032 and1036 checked for E6–E8.",
+        "2026-09-23: MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title searches with erratum, correction and arxiv; no matching corrigendum or revised version located. This is the scope of the search, not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the complete Larsen Lemma4 proof. W is a boundary and U avoids its image, so W_U is empty. For X=Z=Y=Spec Q and ξ=id, the claimed fibre must instead be a point. The open-stratum family must be the reduced closed image C_U; ψ restricts on U. This confirms the printed construction fails, while the corrected family still needs the geometric-reducedness and base-change argument.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E6",
+      "kind": "misprint",
+      "locator": "External Larsen2010 p.1032, paragraph defining the projective compactification before Proposition3",
+      "printed": "Z ∪ (P^(n²)_Z ∖ GL_(n,Z))",
+      "correction": "Replace Z by K in the union, and give that closed subset its reduced scheme structure.",
+      "reason": "Z is the parameter base, while K is the closed subvariety of the GL open being compactified. There is no specified embedding of the base Z into projective space. The following uses and p.1036 correctly form G_F union the entire projective boundary.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: official MSP article PDF https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf read in full, rendered pp.1032 and1036 checked for E6–E8.",
+        "2026-09-23: MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title searches with erratum, correction and arxiv; no matching corrigendum or revised version located. This is the scope of the search, not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Z is the parameter base, while K is the closed subvariety of the GL open being compactified. There is no specified embedding of the base Z into projective space. The following uses and p.1036 correctly form G_F union the entire projective boundary. Checked in the rendered publisher PDF.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E7",
+      "kind": "misprint",
+      "locator": "External Larsen2010 p.1032, Proposition3 proof, immediately after stratifying W",
+      "printed": "nilpotent Lie algebras",
+      "correction": "Replace nilpotent by nilpotently generated.",
+      "reason": "The stratum parametrizes spans of nilpotent matrices closed under bracket. Such a Lie algebra need not be nilpotent: over Q, E=E₁₂, F=E₂₁ and N=[[1,1],[-1,-1]] are nilpotent and span sl₂ because N−E+F=diag(1,−1). Their span is perfect, hence not nilpotent. The surrounding definition and Nori correspondence require nilpotently generated.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: official MSP article PDF https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf read in full, rendered pp.1032 and1036 checked for E6–E8.",
+        "2026-09-23: MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title searches with erratum, correction and arxiv; no matching corrigendum or revised version located. This is the scope of the search, not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The stratum parametrizes spans of nilpotent matrices closed under bracket. Such a Lie algebra need not be nilpotent: over Q, E=E₁₂, F=E₂₁ and N=[[1,1],[-1,-1]] are nilpotent and span sl₂ because N−E+F=diag(1,−1). Their span is perfect, hence not nilpotent. The surrounding definition and Nori correspondence require nilpotently generated. Checked in the rendered publisher PDF.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E8",
+      "kind": "misprint",
+      "locator": "External Larsen2010 p.1036, Theorem7 proof, Hilbert-scheme pullback paragraph",
+      "printed": "an O-flat subscheme of GL_(n,O)",
+      "correction": "The pulled-back universal closed subscheme lies in P^(n²)_O; its generic fibre is the compactification Gbar_F. Intersect with GL_(n,O) only in the next sentence.",
+      "reason": "The universal Hilbert family was defined inside projective space and includes the whole projective boundary, so its pullback cannot lie in the GL open. The next sentence performs exactly the required open intersection to obtain the affine group model.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: official MSP article PDF https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf read in full, rendered pp.1032 and1036 checked for E6–E8.",
+        "2026-09-23: MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title searches with erratum, correction and arxiv; no matching corrigendum or revised version located. This is the scope of the search, not proof that none exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The universal Hilbert family was defined inside projective space and includes the whole projective boundary, so its pullback cannot lie in the GL open. The next sentence performs exactly the required open intersection to obtain the affine group model. Checked in the rendered publisher PDF.",
+        "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+      }
     }
   ],
   "gaps": [
@@ -3844,7 +4076,7 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/140",
         "PAPER-CADORET-HUI-TAMAGAWA-17/141"
       ],
-      "status": "deferred",
+      "status": "open",
       "resolution": "Gabber/Suh, CT13, CT16, CT12, Nori, Jantzen/Larsen, Larsen–Pink and Milne–Ramachandran are cited suppliers; E5 records the Larsen 2010 slip."
     },
     {
@@ -3857,8 +4089,8 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/13",
         "PAPER-CADORET-HUI-TAMAGAWA-17/116"
       ],
-      "status": "deferred",
-      "resolution": "Typing the weight-projector argument of item 116 is design work."
+      "status": "open",
+      "resolution": "The full CRT lattice/subquotient argument is now in116. Remaining work is the uniform finite assembly with fibre powers, duals, relative-dimension components and determinant twists. Typed Lean implementation alone is not an extraction blocker."
     },
     {
       "id": "G3",
@@ -3868,7 +4100,7 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/48",
         "PAPER-CADORET-HUI-TAMAGAWA-17/155"
       ],
-      "status": "deferred",
+      "status": "open",
       "resolution": "The affine-curve cd ≤ 1, finite-coefficient H¹ and group/étale-sheaf comparisons are SGA suppliers."
     },
     {
@@ -3884,7 +4116,7 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/87",
         "PAPER-CADORET-HUI-TAMAGAWA-17/94"
       ],
-      "status": "deferred",
+      "status": "open",
       "resolution": "Bruhat–Tits big-cell and closure statements are suppliers; the ℓ-range of Theorem 9.1 is E3, and §9.2 uses E_ℓ unramified (ℓ prime to the discriminant)."
     },
     {
@@ -3898,7 +4130,7 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/122",
         "PAPER-CADORET-HUI-TAMAGAWA-17/129"
       ],
-      "status": "deferred",
+      "status": "open",
       "resolution": "The CT16 exponential-family and Chevalley spreading statements are suppliers."
     },
     {
@@ -3911,12 +4143,12 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/109",
         "PAPER-CADORET-HUI-TAMAGAWA-17/111"
       ],
-      "status": "deferred",
+      "status": "open",
       "resolution": "Larsen–Pink's Γ-regular and common-Frobenius statements are suppliers."
     },
     {
       "id": "G7",
-      "task": "Resolve the precise rational-coefficient ℓ quantification and finite-extension stability in Corollary11.1/MR04 Lemma3.1, with both complementary Tate assumptions and integral cycle saturation.",
+      "task": "Complete the smooth-projective-to-smooth-proper passage in107 and verify Tate1994 §2.9 plus finite generation/nondegeneracy of the numerical pairing. For the later connected-monodromy reduction use Lemma4.2 to descend the semisimplicity and invariant-comparison goals; do not reapply the original Tate assumptions over the extension without proof.",
       "blocks": "Do not strengthen the conditional arithmetic corollary to a one-prime or unconditional assertion.",
       "neededBy": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/105",
@@ -3924,8 +4156,8 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/107",
         "PAPER-CADORET-HUI-TAMAGAWA-17/109"
       ],
-      "status": "resolved",
-      "resolution": "In Corollary 11.1 the Q_ℓ-hypotheses are for all ℓ ≠ p, as the proof requires (MR04 Lemma 3.1 and the ℓ-independent minimal polynomial); item 105/106 records this reading."
+      "status": "open",
+      "resolution": "MR04 Lemma3.1 was read in the author PDF: it assumes almost-all-ℓ rational Tate hypotheses and invariants→coinvariants, with smooth projectivity in the standing assumptions. The proper-scheme extension and recursive intersection-pairing inputs remain. Its saturation argument precedes the finite extension in CHT; no Tate-fullness preservation under arbitrary finite extension is asserted or needed for that order of argument."
     },
     {
       "id": "G8",
@@ -3935,10 +4167,14 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/78",
         "PAPER-CADORET-HUI-TAMAGAWA-17/89",
         "PAPER-CADORET-HUI-TAMAGAWA-17/124",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/140"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/140",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/130",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/131",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/139",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/142"
       ],
-      "status": "deferred",
-      "resolution": "Owner reconciliation is design work."
+      "status": "open",
+      "resolution": "The independent search found existing ownership for16,33,72,104,117 and the Schur/GL image boundary. Still match generic Hilbert-family/spreading inputs130/131/139 to R09.1 and generic dimension142 to its scheme/algebra foundation before accepting route2; the reviewed CFSG carrier scope supplies no simplicity/order theorem."
     },
     {
       "id": "G9",
@@ -3983,244 +4219,238 @@
       ],
       "negativeScope": "The pinned GroupCohomologyIso H1 comparison assumes a discrete group; ShortExact assumes discrete coefficients. No compact H1 canonical comparison or scalar/localization theorem was found in the searched continuous-cohomology files. Absence claims are limited to those files and the reviewed audit.",
       "relatedPlannedSupplier": "PAPER-KALETHA-16/P03 already routes the general compact coefficient inverse-limit comparison to ArithmeticGaloisDuality:R02.1. Item154 refines its finite-coefficient degree-one case at that same owner."
+    },
+    "independentReview": {
+      "by": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
+      "date": "2026-09-23",
+      "repositoryBase": "8a86675b073825a0770eff62d93596aa991300af",
+      "searchGroups": [
+        {
+          "name": "geometric",
+          "items": [
+            1,
+            2,
+            3,
+            5,
+            11,
+            12,
+            13,
+            14,
+            18,
+            24,
+            25,
+            26,
+            29,
+            30,
+            31,
+            36,
+            49,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            81,
+            92,
+            93,
+            94,
+            95,
+            99,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111
+          ],
+          "query": "geometric.?monodromy|hyperspecial|Gamma.regular|Γ.regular|Frobenius.tor|Bertini|Tate.*conjecture|compatible.system",
+          "libraryHitCount": 8,
+          "atlasStageCount": 76
+        },
+        {
+          "name": "schur",
+          "items": [
+            7,
+            8,
+            35,
+            50,
+            96,
+            97
+          ],
+          "query": "youngSymmetrizer|SchurFunctor|WeylModule|determinant.*exterior|wedge.*retraction",
+          "libraryHitCount": 326,
+          "atlasStageCount": 4
+        },
+        {
+          "name": "cohomology",
+          "items": [
+            9,
+            10,
+            27,
+            28,
+            48,
+            100,
+            101,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155
+          ],
+          "query": "continuousCohomology|DiscreteShortExact|explicitCoeff1|compact.coefficient|lattice.*cohomology|finite.inverse.system|corestriction",
+          "libraryHitCount": 525,
+          "atlasStageCount": 54
+        },
+        {
+          "name": "etale",
+          "items": [
+            15,
+            16,
+            33
+          ],
+          "query": "Künneth|Kunneth|lisse|fundamental.group|etale.*cohomology",
+          "libraryHitCount": 425,
+          "atlasStageCount": 69
+        },
+        {
+          "name": "weights",
+          "items": [
+            19,
+            21,
+            22,
+            37,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44,
+            46,
+            47,
+            116
+          ],
+          "query": "Gabber|torsion.free.*cohomology|uniform.*annihilat|Weil.*weight|resultant|primitive.*polynomial",
+          "libraryHitCount": 378,
+          "atlasStageCount": 32
+        },
+        {
+          "name": "models",
+          "items": [
+            4,
+            51,
+            60,
+            69,
+            72,
+            73,
+            79,
+            80,
+            83,
+            84,
+            85,
+            87,
+            117,
+            118
+          ],
+          "query": "hyperspecial|semisimple.*model|schematic.closure|parahoric|big.cell|relative.theory|finite.free.*representation",
+          "libraryHitCount": 23,
+          "atlasStageCount": 19
+        },
+        {
+          "name": "nori",
+          "items": [
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            67,
+            68,
+            113,
+            114,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142
+          ],
+          "query": "\\bNori\\b|exponentially.generated|pointwise.*stabilizer|Chevalley|Hilbert.polynomial|congruence.*filtration|antisymmetr|nilpotently|Lang.Steinberg|Lang.s.theorem",
+          "libraryHitCount": 2255,
+          "atlasStageCount": 40
+        },
+        {
+          "name": "composition",
+          "items": [
+            74,
+            75,
+            77,
+            78
+          ],
+          "query": "composition.factor|IsSimpleGroup|JordanHolder|Lie.type|Lang.s.theorem",
+          "libraryHitCount": 668,
+          "atlasStageCount": 12
+        },
+        {
+          "name": "lie",
+          "items": [
+            82,
+            86,
+            88,
+            89,
+            90,
+            91
+          ],
+          "query": "exterior.*adjoint|Poincar.*polynomial|invariant.*defect|semisimple.*Lie|root.system",
+          "libraryHitCount": 579,
+          "atlasStageCount": 23
+        },
+        {
+          "name": "trace",
+          "items": [
+            45
+          ],
+          "query": "finite.flat.*trace|finite.etale.*trace|trace.*degree",
+          "libraryHitCount": 12,
+          "atlasStageCount": 9
+        }
+      ],
+      "read": [
+        "Reviewed audits AUDIT-01,02,18,19,31 for the original supplier layers; DWP.5 separately checked.",
+        "AUDIT-09 IG.1 and AUDIT-08 NC.0 checked against the current layer descriptions.",
+        "No reviewed entry for RG2.0–3 or MC.7 in this snapshot; their authoritative layer descriptions were read.",
+        "Upstream SchurWeyl Layer2, ClassicalGroups Layers1–2 and ReductiveGroups Layers0–9; CFSG carrier scope checked."
+      ],
+      "scope": "Grouped semantic searches cover every original missing item. Broad keyword hits are discovery evidence, not declarations supplying the claimed theorem. Search results and all reads are at the pinned snapshots."
     }
-  },
-  "verification": {
-    "paperChecker": "PASS: current156-item extraction.",
-    "certificate": {
-      "rootSystemProducts": 166,
-      "equalRankDimensionWitnesses": 4714,
-      "expLogGroupLaws": 4356,
-      "determinantSplittings": 84,
-      "weightProjectorEntries": 162,
-      "scope": "Exact finite regressions only. Poincaré inputs are the listed exponent data; no algebraic group representation theorem, geometric cohomology or uniform-prime theorem is proved by the computation."
-    },
-    "lean": "No Lean file required or produced; no Lean compilation claimed.",
-    "routing": "All missing items assigned exactly once; independently checked again before submission.",
-    "tests": "All 9 tests in tests.test_check_paper passed.",
-    "intake": "PASS:3 deliverable files,0 problems.",
-    "dependencies": "PASS:156 items and209 acyclic internal dependency edges.",
-    "continuation": "Structural check, new exact finite certificate and both unchanged inherited certificates passed. No Lean file produced or compilation claimed.",
-    "structural": {
-      "result": "PASS",
-      "items": 156,
-      "statuses": {
-        "missing": 125,
-        "library": 12,
-        "planned": 19
-      },
-      "definitions": 45,
-      "apiEntries": 96,
-      "tests": 135,
-      "inputHashes": 506,
-      "internalEdges": 209,
-      "proofOutlines": 44,
-      "checks": "Preserved142 IDs and all5 unreviewed source findings; all dependency endpoints resolve and DAG is acyclic; every missing item routed once; no library item routed; every definition/construction has structured API statements, uses and at least3 tests; all planned stages exist; gap consumers valid; every input hash verified."
-    },
-    "diagnostics": {
-      "liftedExponentialCongruences": 18156,
-      "gradedPowerCongruences": 6052,
-      "tensorDegreeExpansions": 408,
-      "finitePointSchemeCounterexamples": 5,
-      "determinantLineStabilizers": 2544,
-      "smallPrimeCounterexample": 1,
-      "factorialNormalizationBoundary": 1,
-      "scope": "Finite rank-two congruences, tensor bounds and explicit counterexamples only; no Chevalley spreading, Nori theorem, Hilbert family or geometric semisimplicity proved."
-    },
-    "priorCertificateRerun": "The standard-library Python certificate embedded in codex-a71f92’s merged report was extracted unchanged and rerun successfully:166 root-system products,4714 coefficient witnesses,4356 exp/log laws,84 determinant splittings,162 weight-projector entries.",
-    "topologicalOrder": [
-      "PAPER-CADORET-HUI-TAMAGAWA-17/01",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/02",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/33",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/35",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/26",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/96",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/97",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/99",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/23",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/24",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/09",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/36",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/40",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/41",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/34",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/32",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/45",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/44",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/42",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/21",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/22",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/43",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/46",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/47",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/37",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/11",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/100",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/143",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/147",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/20",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/144",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/145",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/148",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/149",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/101",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/146",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/154",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/156",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/155",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/48",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/116",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/38",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/25",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/49",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/50",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/39",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/13",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/153",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/150",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/151",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/10",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/102",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/103",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/03",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/04",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/51",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/56",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/70",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/118",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/53",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/120",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/54",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/121",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/55",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/129",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/122",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/98",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/123",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/124",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/125",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/127",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/126",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/58",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/59",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/132",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/133",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/134",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/135",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/113",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/142",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/61",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/136",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/137",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/128",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/138",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/131",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/130",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/139",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/140",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/141",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/114",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/63",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/64",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/65",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/57",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/66",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/67",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/68",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/117",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/69",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/74",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/75",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/76",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/77",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/78",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/79",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/60",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/72",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/73",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/80",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/81",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/05",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/06",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/07",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/08",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/12",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/14",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/15",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/16",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/17",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/18",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/19",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/27",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/28",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/29",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/30",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/31",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/52",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/62",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/71",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/82",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/83",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/87",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/84",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/85",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/88",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/89",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/90",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/91",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/86",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/92",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/93",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/94",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/95",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/104",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/107",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/108",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/109",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/110",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/105",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/111",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/106",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/112",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/115",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/119",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/152"
-    ],
-    "publicationBase": "c3871b26d8be80b80f78073ab7e3c396d671a001",
-    "newDiagnostics": {
-      "integralMatrixIdentities": 3,
-      "cyclicQuotientOrders": 12,
-      "boundaryMembership": 7380,
-      "torsionKilledByThree": 7380,
-      "rationalPrimitives": 7380,
-      "towerTransitions": 3,
-      "invariantConnectingMap": 7,
-      "changeOfLift": 27,
-      "cochainInverse": 2187,
-      "homogeneousEquivariance": 19683,
-      "differentialComparison": 19683,
-      "cocycleCoordinates": 9,
-      "boundaryComparison": 81,
-      "extensionSection": 81,
-      "extensionCocycle": 81,
-      "nonsplitExtension": 1,
-      "homBlockEquivariance": 2952,
-      "scope": "Finite cocycle, torsion, denominator, section and block regressions only; no infinite topological comparison or geometric theorem is established by enumeration."
-    },
-    "sourceIssues": "All five inherited sourceIssues are preserved byte-for-byte as JSON values and remain unreviewed; no additional source mistake claimed.",
-    "newDiagnosticTotal": 66950,
-    "inheritedDiagnosticReruns": [
-      {
-        "program": 1,
-        "sha256": "fbcc48a8afce44dac1f52cac5cf0ef42f1555c802b98a6901c5009dc39b8389d",
-        "status": "Extracted unchanged from PR2008 report and rerun successfully."
-      },
-      {
-        "program": 2,
-        "sha256": "c4ed2385e517b12ace3d9b31019b4480a195ad1df7494e9f75863ec879cd4b91",
-        "status": "Extracted unchanged from PR2008 report and rerun successfully."
-      }
-    ]
   },
   "continuation": {
     "agent": "Codex",
@@ -6766,13 +6996,2001 @@
     "previousSnapshotCommit": "1a0040f450a9b8ee8f63b0dcfd8610dc3a4a6a63"
   },
   "summaryBefore": "Full published-paper extraction checkpoint: geometric mod-ℓ semisimplicity, uniform bounded Schur-tensor invariant reduction (including arithmetic-stable free quotients and saturated submodules), its almost-hyperspecial equivalence, the Lie-defect and cohomological proofs, and conditional arithmetic Tate/semisimplicity transfer. Four proposed extensions import existing cohomology, weights, algebraic groups and rational Schur theory. Status remains partial: external-input closure, integral carrier comparisons and the small-prime scope of Theorem 9.1 require further verification; no formalization or theorem-proof closure is claimed. Continuation: all119 prior IDs retained;23 external-proof interfaces120–142 added; every definition/construction now has statement-level API, uses and mathematical test cases. Full Larsen2010 and CT16’s author-version tensor lemma were read. G1/G5 are narrowed, not declared closed; E5 records an unreviewed external-proof notation error. Second continuation: fourteen degree-one coefficient interfaces143–156 credit five pinned inputs and refine the existing ArithmeticGaloisDuality owner. Direct proofs remove the compact-LES assumption from invariant lifting and the §10 splitting argument. Finite-tower and conditional quotient-lifting arguments narrow G3 to its geometric inputs; canonical comparison is stated only on underlying modules. Source closure remains partial.",
-  "completion": {
+  "completionBeforeReview": {
     "agent": "Claude Code",
     "session": "cc-442dc5",
     "issue": 1157,
     "date": "2026-09-23",
     "status": "complete",
     "reading": "Published PDF (SHA-256 3aa67f68…, matching) read at §§1–5, 9 and 11 and at the findings.",
-    "changes": "E3 reclassified; E4's known set to 'new'; gap statuses recorded; status complete."
+    "changes": "E3 reclassified; E4's known set to 'new'; gap statuses recorded; status complete.",
+    "supersededBy": "REV-PAPER-CADORET-HUI-TAMAGAWA-17"
+  },
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-CADORET-HUI-TAMAGAWA-17",
+    "reason": "Independent review finished. Source closure and the rejected Part II briefs remain incomplete; extraction status restored to partial."
+  },
+  "reviewChanges": [
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/03",
+      "field": "locator",
+      "reason": "Corrected against the published pagination."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/05",
+      "field": "locator",
+      "reason": "Corrected against the published pagination."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/15",
+      "field": "locator",
+      "reason": "Corrected against the published pagination."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/16",
+      "field": "locator",
+      "reason": "Corrected against the published pagination."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/33",
+      "field": "locator",
+      "reason": "Corrected against the published pagination."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/30",
+      "field": "api",
+      "reason": "The original API asserted unrestricted surjectivity onto the entire fundamental group, stronger than the qualified item statement."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/08",
+      "field": "api",
+      "reason": "Made the variance of mixed Schur functors explicit."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/16",
+      "field": "status",
+      "reason": "The named existing layer owns this construction; planned does not mean proved."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/33",
+      "field": "status",
+      "reason": "The named existing layer owns this construction; planned does not mean proved."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/72",
+      "field": "status",
+      "reason": "The named existing layer owns this construction; planned does not mean proved."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/104",
+      "field": "status",
+      "reason": "The named existing layer owns this construction; planned does not mean proved."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/117",
+      "field": "status",
+      "reason": "The named existing layer owns this construction; planned does not mean proved."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/107",
+      "field": "statement/proofSteps",
+      "reason": "Read the primary MR lemma: almost-all-prime hypotheses, invariants-to-coinvariants condition and smooth-projective scope are now explicit."
+    },
+    {
+      "scope": "routes",
+      "reason": "Split SchurWeyl integral projectors from ClassicalGroups integral Schur images; move48 into the geometric route; import16,33,72,104,117 from existing owners."
+    },
+    {
+      "scope": "status/gaps",
+      "reason": "Reopen G1–G8 where the recorded source, scope or ownership question has not been established; distinguish downstream Lean work G9."
+    },
+    {
+      "scope": "sourceIssues",
+      "reason": "Confirmed all five inherited findings, corrected E3’s printed/correction fields, and added independently checked Larsen misprints E6–E8."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/19",
+      "field": "proof/API/imports",
+      "reason": "Import existing denominator clearing and primitive-part construction; only the signed valuation/reduction adapter is missing."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/34",
+      "field": "proof/API/imports",
+      "reason": "Qualify Frobenius by finite-field descent data."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/46",
+      "field": "proof/API/imports",
+      "reason": "Make pure-dimensional/componentwise use of Poincaré duality explicit."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/07",
+      "field": "proof/API/imports",
+      "reason": "Supply the integral scalar-identity proof."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/08",
+      "field": "proof/API/imports",
+      "reason": "Supply the finite-free direct-summand construction and its variance."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/35",
+      "field": "proof/API/imports",
+      "reason": "Supply direct-factor and subquotient inheritance."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/50",
+      "field": "proof/API/imports",
+      "reason": "Supply equivariant determinant duality."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/96",
+      "field": "proof/API/imports",
+      "reason": "Supply the projection through the trivial invariant representation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/97",
+      "field": "proof/API/imports",
+      "reason": "Supply the denominator-free wedge/Hom retraction."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/116",
+      "field": "proof/API/imports",
+      "reason": "Supply the complete CRT degree-projector argument; retain the remaining uniform assembly task."
+    }
+  ],
+  "itemReview": [
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/01",
+      "verdict": "checked",
+      "locator": "§1 pp.205–208; §2.1; §6",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/02",
+      "verdict": "checked",
+      "locator": "§1, Theorem 1.1",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/03",
+      "verdict": "corrected",
+      "locator": "Theorem 1.1 p.206; §§9–10",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/04",
+      "verdict": "checked",
+      "locator": "§1.2 p.206; §8 pp.223–224",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/05",
+      "verdict": "corrected",
+      "locator": "Theorem 1.2 p.206; §8",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/06",
+      "verdict": "checked",
+      "locator": "§1.3 p.208, rational precursor",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "tauceti:TauCeti.YoungTableau.youngSymmetrizer_sq",
+        "tauceti:TauCeti.YoungTableau.isIdempotentElem_smul_youngSymmetrizer"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/07",
+      "verdict": "corrected",
+      "locator": "§1.3 p.208; Lemma 4.4",
+      "status": "missing",
+      "searchGroups": [
+        "schur"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/08",
+      "verdict": "corrected",
+      "locator": "§1.3 p.208; §4",
+      "status": "missing",
+      "searchGroups": [
+        "schur"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/09",
+      "verdict": "checked",
+      "locator": "§1.3 p.208",
+      "status": "missing",
+      "searchGroups": [
+        "cohomology"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/10",
+      "verdict": "checked",
+      "locator": "§1.3 p.208, (Inv)",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/11",
+      "verdict": "checked",
+      "locator": "Theorem 1.3(0) p.208",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/12",
+      "verdict": "checked",
+      "locator": "Theorem 1.3(1) p.208",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/13",
+      "verdict": "checked",
+      "locator": "Theorem 1.3(2) p.208",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/14",
+      "verdict": "checked",
+      "locator": "§1.3 following Theorem 1.3",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/15",
+      "verdict": "corrected",
+      "locator": "§2.2 pp.210–211",
+      "status": "missing",
+      "searchGroups": [
+        "etale"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/16",
+      "verdict": "corrected",
+      "locator": "§2.2 p.211",
+      "status": "planned",
+      "suppliers": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/17",
+      "verdict": "checked",
+      "locator": "§2.2 p.210",
+      "status": "planned",
+      "suppliers": [
+        "DeligneWeightsAndPurity:DWP.0"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/18",
+      "verdict": "checked",
+      "locator": "§2.2 pp.210–211",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/19",
+      "verdict": "corrected",
+      "locator": "§2.3 p.211",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/20",
+      "verdict": "checked",
+      "locator": "§1.3 and §§2,5,10, foundational carrier",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "mathlib:continuousCohomology"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/21",
+      "verdict": "checked",
+      "locator": "Fact 3.1 p.212",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/22",
+      "verdict": "checked",
+      "locator": "Fact 3.1 p.212",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/23",
+      "verdict": "checked",
+      "locator": "Fact 3.2 p.212; §5",
+      "status": "planned",
+      "suppliers": [
+        "DeligneWeightsAndPurity:DWP.7",
+        "DeligneWeightsAndPurity:DWP.8",
+        "WeilConjectures:WC.3"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/24",
+      "verdict": "checked",
+      "locator": "Fact 3.3 p.212; condition (6.2.2)",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/25",
+      "verdict": "checked",
+      "locator": "Fact 3.4 p.212; condition (6.2.1)",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/26",
+      "verdict": "checked",
+      "locator": "Fact 3.4 p.212; condition (6.2.1)",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/27",
+      "verdict": "checked",
+      "locator": "Lemma 4.2(1) p.213",
+      "status": "missing",
+      "searchGroups": [
+        "cohomology"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/28",
+      "verdict": "checked",
+      "locator": "Lemma 4.2(2) p.213",
+      "status": "missing",
+      "searchGroups": [
+        "cohomology"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/29",
+      "verdict": "checked",
+      "locator": "Lemma 4.3 pp.213–214",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/30",
+      "verdict": "corrected",
+      "locator": "Lemma 4.3 proof p.214, [Jou83, Thm. 6.10]",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/31",
+      "verdict": "checked",
+      "locator": "Lemma 4.3 proof p.214",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/32",
+      "verdict": "checked",
+      "locator": "Lemma 4.3; Lemma 5.2, [dJ96, Thm. 4.1]",
+      "status": "planned",
+      "suppliers": [
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/33",
+      "verdict": "corrected",
+      "locator": "§4.3.1 p.215; §10.1 p.231",
+      "status": "planned",
+      "suppliers": [
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/34",
+      "verdict": "corrected",
+      "locator": "§4; Lemma 5.3 p.218",
+      "status": "planned",
+      "suppliers": [
+        "EtaleDualityAndPerverseSheaves:EDC.2"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/35",
+      "verdict": "corrected",
+      "locator": "Lemma 4.4 p.215",
+      "status": "missing",
+      "searchGroups": [
+        "schur"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/36",
+      "verdict": "checked",
+      "locator": "Proposition 4.1 pp.212–213",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/37",
+      "verdict": "checked",
+      "locator": "Theorem 4.5(0) p.216",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/38",
+      "verdict": "checked",
+      "locator": "Theorem 4.5(1) p.216; §5.2",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/39",
+      "verdict": "checked",
+      "locator": "Theorem 4.5(2) p.216; §5.3",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/40",
+      "verdict": "checked",
+      "locator": "Lemma 5.1 p.217",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/41",
+      "verdict": "checked",
+      "locator": "§5.1 and §11, coefficient comparisons",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "mathlib:LinearMap.charpoly_baseChange"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/42",
+      "verdict": "checked",
+      "locator": "Lemma 5.2 p.217",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/43",
+      "verdict": "checked",
+      "locator": "Lemma 5.2 pp.217–218",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/44",
+      "verdict": "checked",
+      "locator": "Lemma 5.2 proof pp.217–218",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/45",
+      "verdict": "checked",
+      "locator": "Lemma 5.2 p.218; corrected E1",
+      "status": "planned",
+      "suppliers": [
+        "EtaleDualityAndPerverseSheaves:EDC.2"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/46",
+      "verdict": "corrected",
+      "locator": "Lemma 5.3 p.218",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/47",
+      "verdict": "checked",
+      "locator": "§5.1 pp.216–217",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/48",
+      "verdict": "checked",
+      "locator": "§5.2 pp.218–219",
+      "status": "missing",
+      "searchGroups": [
+        "cohomology"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/49",
+      "verdict": "checked",
+      "locator": "§5.3 p.219, [CT12, Thm.5.7]",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/50",
+      "verdict": "corrected",
+      "locator": "§5.3 p.219",
+      "status": "missing",
+      "searchGroups": [
+        "schur"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/51",
+      "verdict": "checked",
+      "locator": "§6 p.220, (6.1)",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/52",
+      "verdict": "checked",
+      "locator": "§7.1 pp.220–221",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/53",
+      "verdict": "checked",
+      "locator": "§7.1 pp.220–221",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/54",
+      "verdict": "checked",
+      "locator": "§7.1 p.221",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/55",
+      "verdict": "checked",
+      "locator": "§7.1 p.221",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/56",
+      "verdict": "checked",
+      "locator": "Lemma 7.1(1) p.221",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/57",
+      "verdict": "checked",
+      "locator": "Lemma 7.1(1) p.221",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/58",
+      "verdict": "checked",
+      "locator": "Lemma 7.1(2) p.221, [CT16, Lem.4.1]",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/59",
+      "verdict": "checked",
+      "locator": "Lemma 7.1(3) pp.221–222",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/60",
+      "verdict": "checked",
+      "locator": "Lemma 7.2 p.221",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/61",
+      "verdict": "checked",
+      "locator": "Theorem 7.3 pp.221–222",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/62",
+      "verdict": "checked",
+      "locator": "Theorem 7.3(1) p.221",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/63",
+      "verdict": "checked",
+      "locator": "Theorem 7.3(2) p.222",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/64",
+      "verdict": "checked",
+      "locator": "Theorem 7.3(2) p.222",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/65",
+      "verdict": "checked",
+      "locator": "Corollary 7.4 p.222",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/66",
+      "verdict": "checked",
+      "locator": "Corollary 7.5, (1)↔(2), p.222",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/67",
+      "verdict": "checked",
+      "locator": "Corollary 7.5, (2)→(3), p.222",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/68",
+      "verdict": "checked",
+      "locator": "Corollary 7.5, (3)→(2), p.222; [Jan97, Prop.3.2], [Lar95b, Thm.3.5]",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/69",
+      "verdict": "checked",
+      "locator": "Corollary 7.5, (3)↔(4), p.222",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/70",
+      "verdict": "checked",
+      "locator": "§§6–9, underlying algebraic group notions",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "tauceti:TauCeti.semisimpleCommHopfAlgProperty",
+        "tauceti:TauCeti.semisimpleCommHopfAlgProperty_iff",
+        "tauceti:TauCeti.reductiveAffineGroupSchemeProperty"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/71",
+      "verdict": "checked",
+      "locator": "§§7–9, structural algebraic-group input",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "tauceti:TauCeti.semisimpleCommHopfAlgProperty.reductive"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/72",
+      "verdict": "corrected",
+      "locator": "§8 p.223, [Tit79, §3.8]",
+      "status": "planned",
+      "suppliers": [
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/73",
+      "verdict": "checked",
+      "locator": "§8 p.223, [Tit79, §3.8.2]",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/74",
+      "verdict": "checked",
+      "locator": "Lemma 8.1 proof pp.223–224",
+      "status": "missing",
+      "searchGroups": [
+        "composition"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/75",
+      "verdict": "checked",
+      "locator": "Lemma 8.1 proof pp.223–224",
+      "status": "missing",
+      "searchGroups": [
+        "composition"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/76",
+      "verdict": "checked",
+      "locator": "Lemma 8.1 proof (1) p.223",
+      "status": "planned",
+      "suppliers": [
+        "ReductiveGroupsPartII:RG2.0",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/77",
+      "verdict": "checked",
+      "locator": "Lemma 8.1 proof (2) p.224",
+      "status": "missing",
+      "searchGroups": [
+        "composition"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/78",
+      "verdict": "checked",
+      "locator": "Lemma 8.1 proof (3) p.224; [Tit64], [Nor87, Lem.3.5]",
+      "status": "missing",
+      "searchGroups": [
+        "composition"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/79",
+      "verdict": "checked",
+      "locator": "Lemma 8.1 pp.223–225",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/80",
+      "verdict": "checked",
+      "locator": "Corollary 8.2 proof, (i)–(ii), p.225",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/81",
+      "verdict": "checked",
+      "locator": "Corollary 8.2 p.225",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/82",
+      "verdict": "checked",
+      "locator": "§9.1 p.226",
+      "status": "missing",
+      "searchGroups": [
+        "lie"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/83",
+      "verdict": "checked",
+      "locator": "§9.1 p.226",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/84",
+      "verdict": "checked",
+      "locator": "Theorem 9.1(1) p.226; proof p.227",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/85",
+      "verdict": "checked",
+      "locator": "Theorem 9.1(2) pp.226–227; scoped by E3",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/86",
+      "verdict": "checked",
+      "locator": "Theorem 9.1(3) p.226",
+      "status": "missing",
+      "searchGroups": [
+        "lie"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/87",
+      "verdict": "checked",
+      "locator": "Theorem 9.1 proof pp.226–227; [BT84, 2.2.3(iii)]",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/88",
+      "verdict": "checked",
+      "locator": "§9.1 Claim 1 pp.227–228",
+      "status": "missing",
+      "searchGroups": [
+        "lie"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/89",
+      "verdict": "checked",
+      "locator": "§9.1 Claim 2 p.228; [Baz01], [Car72], [Jan97], [Ste68b]",
+      "status": "missing",
+      "searchGroups": [
+        "lie"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/90",
+      "verdict": "checked",
+      "locator": "§9.1 Claim 2 p.228",
+      "status": "missing",
+      "searchGroups": [
+        "lie"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/91",
+      "verdict": "checked",
+      "locator": "§9.1 conclusion p.229, [Con14, Prop.3.1.3]",
+      "status": "missing",
+      "searchGroups": [
+        "lie"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/92",
+      "verdict": "checked",
+      "locator": "§9.2.1 footnote 2 p.229",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/93",
+      "verdict": "checked",
+      "locator": "§9.2.1 pp.229–230; [LP92, Prop.7.2], [LP95, Prop.1.3]",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/94",
+      "verdict": "checked",
+      "locator": "§9.2.2 p.230",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/95",
+      "verdict": "checked",
+      "locator": "§9.2.2 p.230, (9.2.2.1)–(9.2.2.2)",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/96",
+      "verdict": "corrected",
+      "locator": "Lemma 10.1, (10.1.3)→(10.1.2), pp.230–231",
+      "status": "missing",
+      "searchGroups": [
+        "schur"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/97",
+      "verdict": "corrected",
+      "locator": "Lemma 10.1, (10.1.2)→(10.1.1), p.231",
+      "status": "missing",
+      "searchGroups": [
+        "schur"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/98",
+      "verdict": "checked",
+      "locator": "§§4,9,10, exterior-power carrier",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "mathlib:exteriorPower.presentation",
+        "mathlib:exteriorPower.map"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/99",
+      "verdict": "checked",
+      "locator": "§10.1 p.231",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/100",
+      "verdict": "checked",
+      "locator": "§10.2 p.231",
+      "status": "missing",
+      "searchGroups": [
+        "cohomology"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/101",
+      "verdict": "checked",
+      "locator": "§10.1–10.2 pp.231–232",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/102",
+      "verdict": "checked",
+      "locator": "§10.2 p.232",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/103",
+      "verdict": "checked",
+      "locator": "§10.2 p.232",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/104",
+      "verdict": "corrected",
+      "locator": "§11 p.232",
+      "status": "planned",
+      "suppliers": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/105",
+      "verdict": "checked",
+      "locator": "Corollary 11.1, semisimplicity conclusion, p.232",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/106",
+      "verdict": "checked",
+      "locator": "Corollary 11.1, fullness conclusion, pp.232–233",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/107",
+      "verdict": "corrected",
+      "locator": "CHT §11 p.232; MR04 submitted author version §3 pp.10–11, Lemma3.1 (standing smooth-projective hypothesis on p.10)",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/108",
+      "verdict": "checked",
+      "locator": "§11 finite-field case p.233",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/109",
+      "verdict": "checked",
+      "locator": "§11 general-field case p.233, [LP95]",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/110",
+      "verdict": "checked",
+      "locator": "§11 p.233, [Ser94, Lem.5(b)]",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/111",
+      "verdict": "checked",
+      "locator": "§11 p.233, [LP95, Prop.2.1]",
+      "status": "missing",
+      "searchGroups": [
+        "geometric"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/112",
+      "verdict": "checked",
+      "locator": "Lemma 4.2 and §11, finite-cover descent precursor",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "tauceti:TauCeti.ContCohomology.explicitCor1_comp_res1"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/113",
+      "verdict": "checked",
+      "locator": "Theorem 7.3 proof; Larsen 2010, Theorem 7 pp.1034–1035",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/114",
+      "verdict": "checked",
+      "locator": "Theorem 7.3(2) proof; Larsen 2010, Theorem 7(3) p.1035",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/115",
+      "verdict": "checked",
+      "locator": "§8 pp.223–225",
+      "status": "planned",
+      "suppliers": [
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/116",
+      "verdict": "corrected",
+      "locator": "Explicit extraction dévissage for §5.2–5.3 pp.218–219; based on Fact 3.2 and the CRT",
+      "status": "missing",
+      "searchGroups": [
+        "weights"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/117",
+      "verdict": "corrected",
+      "locator": "§7.1 p.221",
+      "status": "planned",
+      "suppliers": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/118",
+      "verdict": "checked",
+      "locator": "§9.1 p.226",
+      "status": "missing",
+      "searchGroups": [
+        "models"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/119",
+      "verdict": "checked",
+      "locator": "§2.2 pp.210–211",
+      "status": "planned",
+      "suppliers": [
+        "DeligneWeightsAndPurity:DWP.5"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/120",
+      "verdict": "checked",
+      "locator": "CT16 author TI.pdf §4.2 pp.10–11; definition preceding Lemma4.2.1.1",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/121",
+      "verdict": "checked",
+      "locator": "CT16 §4.2.1 p.11; Larsen Proposition3 pp.1032–1033",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/122",
+      "verdict": "checked",
+      "locator": "CT16 Lemma4.2.1.1 proof p.11",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/123",
+      "verdict": "checked",
+      "locator": "CT16 Lemma4.2.1.1 proof p.11; Plücker step",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/124",
+      "verdict": "checked",
+      "locator": "CT16 Lemma4.2.1.1 p.11; Larsen Proposition1 p.1030",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/125",
+      "verdict": "checked",
+      "locator": "CT16 Lemma4.2.1.1 last paragraph p.11",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/126",
+      "verdict": "checked",
+      "locator": "CHT §7.1 Lemma7.1.2 from CT16 Lemma4.2.1.1",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/127",
+      "verdict": "checked",
+      "locator": "CHT §7.1; CT16 Lemma4.2.1.1",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/128",
+      "verdict": "checked",
+      "locator": "Larsen Proposition2 pp.1030–1031",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/129",
+      "verdict": "checked",
+      "locator": "Larsen Proposition3 pp.1032–1033 and Theorem7 p.1035, citing Nori TheoremA",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/130",
+      "verdict": "checked",
+      "locator": "Larsen Proposition3 pp.1032–1033",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/131",
+      "verdict": "checked",
+      "locator": "Larsen Lemma4 pp.1033–1034",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/132",
+      "verdict": "checked",
+      "locator": "Larsen Definition5 p.1034",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/133",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7 proof p.1035",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/134",
+      "verdict": "checked",
+      "locator": "Larsen Lemma6 p.1034",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/135",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7 proof p.1035",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/136",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7(1) proof p.1035",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/137",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7(2) proof pp.1035–1036",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/138",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7(3) proof p.1036",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/139",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7(3) proof p.1036",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/140",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7(3) proof pp.1036–1037",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/141",
+      "verdict": "checked",
+      "locator": "Larsen Theorem7(3) proof p.1037",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/142",
+      "verdict": "checked",
+      "locator": "CHT Theorem7.3 proof p.222",
+      "status": "missing",
+      "searchGroups": [
+        "nori"
+      ],
+      "evidence": "Checked against the published statement or the explicitly derived continuation argument. Independent library/atlas search did not identify the full interface; related foundations are imports. Open gaps retain their stated force."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "tauceti:TauCeti.ContCohomology.Z1",
+        "tauceti:TauCeti.ContCohomology.H1",
+        "tauceti:TauCeti.ContCohomology.H1pi_eq_zero_iff",
+        "tauceti:TauCeti.ContCohomology.explicitCoeff1"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/144",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "mathlib:TopModuleCat.ker",
+        "mathlib:TopModuleCat.coker",
+        "mathlib:TopModuleCat.isLimitKer",
+        "mathlib:TopModuleCat.isColimitCoker"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/145",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "mathlib:ContinuousMap.curry",
+        "mathlib:ContinuousMap.uncurry",
+        "mathlib:Homeomorph.curry"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/146",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "mathlib:nonempty_sections_of_finite_inverse_system"
+      ]
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/147",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/149",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/152",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/153",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/155",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "suppliers": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "evidence": "Read these layer descriptions and the available reviewed audit; this is ownership, not a claim of implementation."
+    },
+    {
+      "item": "PAPER-CADORET-HUI-TAMAGAWA-17/156",
+      "verdict": "checked",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "evidence": "Read the declarations and their hypotheses at Mathlib082e2d3/TauCeti f790474; credit only the stated carrier or theorem, not its absent integral/geometric adapters.",
+      "declarations": [
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H1B",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H1C"
+      ]
+    }
+  ],
+  "verificationBeforeReview": {
+    "paperChecker": "PASS: current156-item extraction.",
+    "certificate": {
+      "rootSystemProducts": 166,
+      "equalRankDimensionWitnesses": 4714,
+      "expLogGroupLaws": 4356,
+      "determinantSplittings": 84,
+      "weightProjectorEntries": 162,
+      "scope": "Exact finite regressions only. Poincaré inputs are the listed exponent data; no algebraic group representation theorem, geometric cohomology or uniform-prime theorem is proved by the computation."
+    },
+    "lean": "No Lean file required or produced; no Lean compilation claimed.",
+    "routing": "All missing items assigned exactly once; independently checked again before submission.",
+    "tests": "All 9 tests in tests.test_check_paper passed.",
+    "intake": "PASS:3 deliverable files,0 problems.",
+    "dependencies": "PASS:156 items and209 acyclic internal dependency edges.",
+    "continuation": "Structural check, new exact finite certificate and both unchanged inherited certificates passed. No Lean file produced or compilation claimed.",
+    "structural": {
+      "result": "PASS",
+      "items": 156,
+      "statuses": {
+        "missing": 125,
+        "library": 12,
+        "planned": 19
+      },
+      "definitions": 45,
+      "apiEntries": 96,
+      "tests": 135,
+      "inputHashes": 506,
+      "internalEdges": 209,
+      "proofOutlines": 44,
+      "checks": "Preserved142 IDs and all5 unreviewed source findings; all dependency endpoints resolve and DAG is acyclic; every missing item routed once; no library item routed; every definition/construction has structured API statements, uses and at least3 tests; all planned stages exist; gap consumers valid; every input hash verified."
+    },
+    "diagnostics": {
+      "liftedExponentialCongruences": 18156,
+      "gradedPowerCongruences": 6052,
+      "tensorDegreeExpansions": 408,
+      "finitePointSchemeCounterexamples": 5,
+      "determinantLineStabilizers": 2544,
+      "smallPrimeCounterexample": 1,
+      "factorialNormalizationBoundary": 1,
+      "scope": "Finite rank-two congruences, tensor bounds and explicit counterexamples only; no Chevalley spreading, Nori theorem, Hilbert family or geometric semisimplicity proved."
+    },
+    "priorCertificateRerun": "The standard-library Python certificate embedded in codex-a71f92’s merged report was extracted unchanged and rerun successfully:166 root-system products,4714 coefficient witnesses,4356 exp/log laws,84 determinant splittings,162 weight-projector entries.",
+    "topologicalOrder": [
+      "PAPER-CADORET-HUI-TAMAGAWA-17/01",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/02",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/33",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/35",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/26",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/96",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/97",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/99",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/23",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/24",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/09",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/36",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/40",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/41",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/34",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/32",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/45",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/44",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/42",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/21",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/22",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/43",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/46",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/47",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/37",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/11",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/100",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/147",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/20",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/144",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/145",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/149",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/101",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/146",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/156",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/155",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/48",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/116",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/38",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/25",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/49",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/50",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/39",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/13",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/153",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/10",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/102",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/103",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/03",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/04",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/51",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/56",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/70",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/118",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/53",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/120",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/54",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/121",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/55",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/129",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/122",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/98",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/123",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/124",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/125",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/127",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/126",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/58",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/59",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/132",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/133",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/134",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/135",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/113",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/142",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/61",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/136",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/137",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/128",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/138",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/131",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/130",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/139",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/140",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/141",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/114",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/63",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/64",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/65",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/57",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/66",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/67",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/68",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/117",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/69",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/74",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/75",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/76",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/77",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/78",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/79",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/60",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/72",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/73",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/80",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/81",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/05",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/06",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/07",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/08",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/12",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/14",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/15",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/16",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/17",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/18",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/19",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/27",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/28",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/29",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/30",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/31",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/52",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/62",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/71",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/82",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/83",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/87",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/84",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/85",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/88",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/89",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/90",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/91",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/86",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/92",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/93",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/94",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/95",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/104",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/107",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/108",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/109",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/110",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/105",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/111",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/106",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/112",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/115",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/119",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/152"
+    ],
+    "publicationBase": "c3871b26d8be80b80f78073ab7e3c396d671a001",
+    "newDiagnostics": {
+      "integralMatrixIdentities": 3,
+      "cyclicQuotientOrders": 12,
+      "boundaryMembership": 7380,
+      "torsionKilledByThree": 7380,
+      "rationalPrimitives": 7380,
+      "towerTransitions": 3,
+      "invariantConnectingMap": 7,
+      "changeOfLift": 27,
+      "cochainInverse": 2187,
+      "homogeneousEquivariance": 19683,
+      "differentialComparison": 19683,
+      "cocycleCoordinates": 9,
+      "boundaryComparison": 81,
+      "extensionSection": 81,
+      "extensionCocycle": 81,
+      "nonsplitExtension": 1,
+      "homBlockEquivariance": 2952,
+      "scope": "Finite cocycle, torsion, denominator, section and block regressions only; no infinite topological comparison or geometric theorem is established by enumeration."
+    },
+    "sourceIssues": "All five inherited sourceIssues are preserved byte-for-byte as JSON values and remain unreviewed; no additional source mistake claimed.",
+    "newDiagnosticTotal": 66950,
+    "inheritedDiagnosticReruns": [
+      {
+        "program": 1,
+        "sha256": "fbcc48a8afce44dac1f52cac5cf0ef42f1555c802b98a6901c5009dc39b8389d",
+        "status": "Extracted unchanged from PR2008 report and rerun successfully."
+      },
+      {
+        "program": 2,
+        "sha256": "c4ed2385e517b12ace3d9b31019b4480a195ad1df7494e9f75863ec879cd4b91",
+        "status": "Extracted unchanged from PR2008 report and rerun successfully."
+      }
+    ]
+  },
+  "verification": {
+    "reviewer": "Codex codex-hjdg0j",
+    "date": "2026-09-23",
+    "sourceRead": "All published CHT32 pages; all Larsen mathematical pages1029–1038; selected CT/MR/author comparisons as recorded.",
+    "items": 156,
+    "statuses": {
+      "missing": 120,
+      "library": 12,
+      "planned": 24
+    },
+    "definitionsWithApi": 45,
+    "apiEntries": 97,
+    "planningTests": 135,
+    "sourceFindings": 8,
+    "inheritedFiniteChecks": [
+      {
+        "program": 1,
+        "sha256": "ecb6116d0197adc31e195c5a6b809827dac456832b9d710b371bc4dfa03fff7d",
+        "result": "PASS; extracted unchanged from the input report and rerun with Python3."
+      },
+      {
+        "program": 2,
+        "sha256": "fbcc48a8afce44dac1f52cac5cf0ef42f1555c802b98a6901c5009dc39b8389d",
+        "result": "PASS; extracted unchanged from the input report and rerun with Python3."
+      },
+      {
+        "program": 3,
+        "sha256": "c4ed2385e517b12ace3d9b31019b4480a195ad1df7494e9f75863ec879cd4b91",
+        "result": "PASS; extracted unchanged from the input report and rerun with Python3."
+      }
+    ],
+    "mathematicalScope": "Finite cocycle, congruence, determinant, tensor, exponent-product and CRT regressions; they do not prove infinite cohomology, geometric or uniform-prime theorems.",
+    "lean": "No Lean file requested, written or compiled. No formalization claim.",
+    "structuralChecks": "PASS: paper checker; intake (five files, zero problems); all156 preserved IDs;218 acyclic dependency edges; all supplier stages;120 uniquely routed missing items;11 route verdicts;8 independent source verdicts;45 definition APIs and135 planning tests; exact five-file scope against the archive; both input files unchanged on refreshed main."
   }
 }
