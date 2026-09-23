@@ -9,6 +9,31 @@ Issue [#1314](https://github.com/CBirkbeck/tauceti-explorer/issues/1314). Status
 - **Items.** The result has **183 items: 17 library, 32 planned and 134 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** The twelve findings of the earlier checkpoints are kept under `sourceIssues`.
 
+## Independent review (REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md`; the counts in the sections below it are the
+earlier ones and are superseded by these.
+
+- **Items: 244** (16 library, 38 planned, 190 missing), each missing item routed once.
+  - 53 fields corrected: 38 statements, 15 locators.
+  - 71 items added for definitions, constructions and cited inputs the proofs use, 7 of them planned.
+  - Ten removed as not in the paper: L05 and N05 (an isocrystal classification and a cone adapter the paper never states)
+    and C03–C10 (the extraction's own quaternion counterexample chain, now recorded in E8). C02 is kept as the corrected,
+    quasi-split form of §1.3.15.
+- **Routes.** All six stand; the briefs of routes 2–4 and the items of the source routes carry the confirmed corrections.
+- **Prerequisites.** Rebuilt as 30 cited works with DOIs or stable links.
+- **Mistakes: 48 confirmed** (32 misprints, 5 gaps, 11 errors); 5 reach a stated result and 8 a proof. E10 is rejected.
+  - **E1–E12:** eleven confirmed; E5 and E9 are revised from gaps to errors, and E8 now has an instance inside the paper's
+    setting (a quaternionic Shimura curve ramified at p).
+  - **E13–E49** are new, each checked independently. The main ones:
+    - **E41:** Lemma 2.3.13 is false as stated; the lift of Proposition 2.3.11 satisfies the missing condition.
+    - **E27:** Corollary 1.3.18 drops hypotheses of [KP18, Cor. 0.3].
+    - **E24, E17, E32:** errors in the proofs of Proposition 1.3.10 (the place v′), Proposition 1.1.13 (coinvariants are
+      not exact) and Proposition 2.2.2 (G″ is not inside GSp(V″)), all repairable.
+    - **E28, E34, E49:** gaps in §2.1.5, §2.2.7 and Corollary A.7, all fillable.
+  - Theorems 1, 2 and 4–6 stand. Theorem 3 and Corollaries 1.3.16 and 1.3.18 need G quasi-split at p (E8).
+
 ## This continuation (cc-442dc5)
 
 - **Conjecture 2.3.8.** Added as a statement-only item (T45), placed before Proposition 2.3.11. It asks for isogeny CM lifts with respect to every maximal torus when G is quasi-split at p.
