@@ -1,0 +1,383 @@
+{
+  "paper": "PAPER-MAO-WAN-ZHANG-26",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "AL.0 explicitly owns local Schwartz–Bruhat/Fourier theory, self-dual Haar conventions and character orthogonality. The p-adic box integral (4.2) is a reusable consequence of that theory, not a second Fourier foundation inside a BZSV application. This accepts ownership, not a claim that these targets are already formalized."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "MP.0/MP.2 own Heisenberg and Schrödinger generators; MP.4/MP.5 own adelic Weil representations and theta kernels. This source route supplies the six-model specialization with the algebraic representations and anomaly splittings as explicit inputs. It does not duplicate AL.0 function spaces or assert the unresolved splittings. This accepts ownership, not a claim that these targets are already formalized."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AS.4 owns discrete L² embeddings and multiplicities, and AS.6 owns the automorphic kernel. Relative periods are consumers of that same kernel. Ordinary invariant trace formulas do not already supply the rank-one relative formula below. This accepts ownership, not a claim that these targets are already formalized."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "The direction extends MP beyond its specified classical dual-pair splittings, but the cited proof and absolute-cohomology supplier have not been decomposed (G2/G3). Hold design activation until these contracts and their owner are fixed."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "The existing partial Ciubotaru–Harris candidate already proposes nilpotent-orbit and SL₂ weight infrastructure. Reuse its ID, but its review is absent and BV/general group adapters are still unresolved inputs (G2/G9)."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "The original single BZSV route duplicated both an existing Albert carrier and Jordan constructions in the Gan–Savin candidate. A single generic norm owner has not yet been settled; this is a held coordination proposal, not an accepted second Jordan roadmap (G4/G9)."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The full upstream spin and highest-weight plans were read: their complex/Lie prototypes do not provide the required p-adic group/integral adapter. This direction is a Part II, with the E₇ supplier explicitly held by G7; require that import before declaring item 85 complete."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "AS.6 plans ordinary kernels and invariant trace expansions, but no two-Whittaker/Kuznetsov or singular-germ theory. GL2AutomorphicRepresentationsAndTransfer only supplies representation/Whittaker expansion specializations; ET and the Jacquet–Rallis and unitary Friedberg–Jacquet candidates have different relative spaces. This reusable rank-one extension prevents burying Kuznetsov foundations in the BZSV application."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The freshly read Jiang–Zhang route and its accepted review explicitly place nilpotent Fourier coefficients and GRS descent infrastructure in this candidate. Coalesce that existing owner; source proof hypotheses remain a separate explicit gap, not an ownership excuse for duplication."
+    },
+    {
+      "route": 10,
+      "verdict": "reject",
+      "reason": "The distinctive BZSV direction is not covered by the existing unitary/GGP relative-comparison candidates, but this extraction is not ready for its design job: the source, proof, Model 6, branching and supplier gates remain. The former all-in-one route is rejected and replaced by this narrower held application route."
+    }
+  ],
+  "notes": "Finished independent review by Codex, session codex-c83e7a, of extraction authored by cc-39fac3 (PR #2054). Read the entire 35-page April 2025 author draft; inspected selected BZSV/Kudla suppliers, all original items and recorded source findings, pinned declarations and current ownership candidates. Corrected the extraction in place to 105 items with explicit dependencies and definition contracts. It remains partial: full journal collation, imported proofs, generic norm ownership, exact arithmetic representation/splitting adapters, the rest of Table 3 and Model 6 normalization are not established. Every route and every source finding has an independent verdict; accepting a routing boundary does not certify an unimplemented theorem.",
+  "status": "complete",
+  "reviewer": "Codex",
+  "session": "codex-c83e7a",
+  "job": "REV-PAPER-MAO-WAN-ZHANG-26",
+  "checked": {
+    "items": 105,
+    "edges": 241,
+    "definitionContracts": 70,
+    "libraryItems": 8,
+    "plannedItems": 8,
+    "missingExactOnce": 89,
+    "routes": 10,
+    "verifiedPinReferences": 18,
+    "sourceFindingsConfirmed": 18,
+    "explicitGaps": 12,
+    "originalMissingSearchCoverage": 72,
+    "modelOneDimensions": {
+      "correct": 35,
+      "printed": 27
+    },
+    "nilpotentRanks": [
+      4,
+      2,
+      0
+    ],
+    "polarization": {
+      "dimension": 8,
+      "correctedIsotropic": true,
+      "printedIsotropic": false
+    },
+    "haarVolumes": 5,
+    "finiteCharacterCases": 72,
+    "scope": "Exact algebra/character diagnostics and structural checks. No Lean compilation and no claimed proof of the global conjectures, imported trace identities or Model 6 normalization."
+  },
+  "sourceScope": [
+    "Independent reviewer read all 35 pages of the April 2025 author draft, including §§1–6, all proofs and references.",
+    "Selected arXiv 2310.17837v3 passages: p. 2 splitting assertion and p. 11 Table 3. Not a full reading of this older version.",
+    "Publisher abstract, bibliographic record and all public notes; subscription main text unavailable. Published notes add local-character/normalization discussion absent from the April draft."
+  ],
+  "sourceFindings": [
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E1",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The Model 2 roots e_i−e_(i+1), e_(n−1)+e_n are D_n roots; B_n ends with e_n. Confirm the type label, not a change of model."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E2",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "An Euler product of local integrals is indexed by places v. A sum over a∈k× already occurs separately in (3.1)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E3",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The two singular Bruhat orbits require I+ and I−. The regular term is a sum over rational a of products of local I_v(a,…); the second printed plus and omitted local product cannot describe that decomposition."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E4",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "If φ is fixed by K, then Ω(1_K)φ=vol(K)φ. Multiplying the characteristic function by vol(K) yields vol(K)²φ. The normalized operator uses 1_K/vol(K), independently on K′; a remains the free orbital parameter."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E5",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "Controlling only (tr(A)−N(A))/a leaves the terms ⟨Y,A⟩/a and ⟨A,A⟩/(2a²) uncontrolled. Choose the A,Y boxes sufficiently small that |⟨Y,A⟩|≤|a₀| and |⟨A,A⟩|≤|2||a₀|²; continuity and shrinking around zero provide the missing control."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E6",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The lowest weight of the 32-dimensional B₅ spin representation is (−e₁−e₂−e₃−e₄−e₅)/2. The missing sign before e₅ is typographical."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E7",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "For v_i=X_i+((-1)^i/2)f_(7−i), the printed B(X_i,X_j)=0 gives B(v_i,v_(7−i))=−(-1)^i≠0. Thus the footnote’s claimed isotropic complement fails. Restoring B(X_i,X_j)=(-1)^iδ_(i+j,7) cancels it. Checked the rendered p. 21 and exact rational 8×8 form."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E8",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The factorization is N=N₁N₀. After integrating N₁ the remaining factor is N₀, the Siegel radical; no N₂ was introduced."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E9",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "Take n=u_(e_i)(t), i=2,…,5, a≠0, A=atX_(e_i). Here tr(A)=N(A)=⟨A,A⟩=0. Formula (5.8) gives ψ(+tY_i); the printed negative mixed term gives ψ(−tY_i). The later p. 29 integral has the positive term. This establishes an internal sign inconsistency; it does not by itself certify every corrected model theorem."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E10",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The preceding (5.13) and the definition of I_v immediately following the displayed sum both have the quadratic term ⟨A,A⟩/(2a²). The extra Y in the second pairing of the displayed global sum is inconsistent with both."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E11",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "In the p. 27 linear phase the coefficient is ΣY_iA_i, not ΣAY_iA_i, and the integration domain must be 𝒥(𝒪_F), not the scalar ring. These are the coordinates already fixed in §5.2."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E12",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The ambient group is Sp₄ₙ, whose dual is SO₄ₙ₊₁; the principal orbit of the dual Levi lies in 𝔤̂. The nilpotent matrix is a Lie algebra element and must be mapped by dι, not by the group homomorphism ι."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E13",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The periods in Conjecture 6.1 and Proposition 6.4 are defined on G=Sp₄ₙ. Replacing G by its orthogonal dual in the automorphic representation changes their domain."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E14",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "Checked the individual locators against their surrounding definitions: local k_v replaces the undefined F; λ is the scalar character; group action arguments are (u,a); the commuting group in §6 is Ĥ×SL₂; and the proof refers to a finite-place product 𝔸_S. The last correction does not establish the unread GRS proof."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E15",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The specified nilpotent E₃₁+E₄₂+E₅₃+E₆₄ has two length-three Jordan blocks. Hence V₆=Std₂⊗Sym², and End(V₆)−1=Ad_H⊗Sym⁰ ⊕ (1⊕Ad_H)⊗(Sym²⊕Sym⁴). The full two-variable weight character has dimension 35; the printed row has dimension 27 if std₂ denotes the 3-dimensional PGL₂ representation. The extraction makes that dimension convention explicit. A two-dimensional PGL₂ standard representation would not repair it. This refutes the row as a full decomposition, not the evenness consequence."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E16",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The third slot throughout §1.1 is a symplectic representation, and the fourth is an SL₂ homomorphism. The printed order reverses their types; item 20 originally copied it."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E17",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "The u on the left is bound by integration over N₁; the printed right side retains a free u. Equations (5.2) and (5.8) say N₁ fixes 0 in 𝒥 and acts on Y′ by translation, giving item 96."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E18",
+      "by": "REV-PAPER-MAO-WAN-ZHANG-26",
+      "verdict": "confirmed",
+      "reason": "BZSV arXiv 2409.04677v1 Proposition 5.1.1 assumes an algebraic F-subgroup, a square of a character Chern class in absolute H⁴_et(BH,ℤ/2), and nonarchimedean residue characteristic ≠2. Its footnote 36 changes to an S¹-pushout elsewhere, and Remark 5.1.3 explicitly distinguishes geometric from absolute anomaly. These conditions and gluing do not follow just from the geometric definition quoted by MWZ. No counterexample to the six particular splittings is asserted."
+    }
+  ],
+  "openGaps": [
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G1",
+      "title": "Published-version collation",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/1",
+        "PAPER-MAO-WAN-ZHANG-26/28",
+        "PAPER-MAO-WAN-ZHANG-26/62",
+        "PAPER-MAO-WAN-ZHANG-26/68",
+        "PAPER-MAO-WAN-ZHANG-26/71"
+      ],
+      "status": "open",
+      "required": "Read the subscription main text and compare every numbered result, sign and local-character normalization. Published notes 4–6 and 8 contain additions absent from the author draft. All source-error confirmations are version bounded."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G2",
+      "title": "BZSV geometric and cohomological supplier closure",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/2",
+        "PAPER-MAO-WAN-ZHANG-26/5",
+        "PAPER-MAO-WAN-ZHANG-26/80",
+        "PAPER-MAO-WAN-ZHANG-26/81",
+        "PAPER-MAO-WAN-ZHANG-26/82",
+        "PAPER-MAO-WAN-ZHANG-26/102"
+      ],
+      "status": "open",
+      "required": "Decompose Hamiltonian reduction, symplectic normal bundles, Slodowy slices, BB contraction, Luna finiteness, Losev/Rosenlicht and equivariant Chern classes with exact owners. Selected BZSV definitions and proofs were read, not the entire book or their cited suppliers. Characteristic-zero structure theory must not silently extend to arbitrary global fields."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G3",
+      "title": "Arithmetic anomaly and adelic splitting",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/6",
+        "PAPER-MAO-WAN-ZHANG-26/7",
+        "PAPER-MAO-WAN-ZHANG-26/8",
+        "PAPER-MAO-WAN-ZHANG-26/36",
+        "PAPER-MAO-WAN-ZHANG-26/91"
+      ],
+      "status": "open",
+      "required": "Read BZSV Appendix E.3 and verify the six image/pullback splittings, absolute versus geometric anomaly, dyadic/real S¹ versus double-cover conventions, rational compatibility and the central quotients."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G4",
+      "title": "Mao–Rallis 1997 coordinate identities",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/46",
+        "PAPER-MAO-WAN-ZHANG-26/49",
+        "PAPER-MAO-WAN-ZHANG-26/52",
+        "PAPER-MAO-WAN-ZHANG-26/53",
+        "PAPER-MAO-WAN-ZHANG-26/55",
+        "PAPER-MAO-WAN-ZHANG-26/56",
+        "PAPER-MAO-WAN-ZHANG-26/57",
+        "PAPER-MAO-WAN-ZHANG-26/90"
+      ],
+      "status": "open",
+      "required": "Acquire and read §2, Proposition 3, Theorems 1–2 and Lemmas 4–5. Record the cubic norm/cross-product normalization, integral lattices, coordinate derivative signs and Model 2 extension. The main paper cites these proof steps without supplying them in full."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G5",
+      "title": "Model 6 Fourier–Jacobi and dyadic normalization",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/28",
+        "PAPER-MAO-WAN-ZHANG-26/58",
+        "PAPER-MAO-WAN-ZHANG-26/66",
+        "PAPER-MAO-WAN-ZHANG-26/68",
+        "PAPER-MAO-WAN-ZHANG-26/69",
+        "PAPER-MAO-WAN-ZHANG-26/70",
+        "PAPER-MAO-WAN-ZHANG-26/71",
+        "PAPER-MAO-WAN-ZHANG-26/94"
+      ],
+      "status": "open",
+      "required": "Derive the n=3 analogue including every coordinate, lattice, singular slice measure and Gaussian pair. The detailed Model 5 computation uses two pairs and |4|; the Model 6 analogue is omitted. Do not extrapolate its dyadic factor or infer a confirmed source error from dimensional suspicion."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G6",
+      "title": "GRS and Mao–Rallis 2004/2010 comparison hypotheses",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/73",
+        "PAPER-MAO-WAN-ZHANG-26/75",
+        "PAPER-MAO-WAN-ZHANG-26/79",
+        "PAPER-MAO-WAN-ZHANG-26/98",
+        "PAPER-MAO-WAN-ZHANG-26/99",
+        "PAPER-MAO-WAN-ZHANG-26/100"
+      ],
+      "status": "open",
+      "required": "Read MR04 (2.31)/(2.34), MR2010 Theorem 2.1 and GRS1999 Theorem 2/root exchange. Fix the representation class, vanishing input, finite S, operator convergence and normalization. Only their use in the main paper was independently read."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G7",
+      "title": "Exact algebraic and integral model representations",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/29",
+        "PAPER-MAO-WAN-ZHANG-26/30",
+        "PAPER-MAO-WAN-ZHANG-26/32",
+        "PAPER-MAO-WAN-ZHANG-26/33",
+        "PAPER-MAO-WAN-ZHANG-26/48",
+        "PAPER-MAO-WAN-ZHANG-26/60",
+        "PAPER-MAO-WAN-ZHANG-26/85"
+      ],
+      "status": "open",
+      "required": "Reuse the pinned E₇ carrier/comodule and type-B/type-D lattice results (103–105), then verify the exact group identifications, central kernels, invariant alternating forms, half-spin/tensor adapters, root conventions and arithmetic lattice normalizations. Upstream ReductiveGroups Layer 9 owns the carrier-identification/root-group infrastructure; LieHighestWeight Layer 8 supplies exceptional form data. Do not rebuild these suppliers."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G8",
+      "title": "Full Table 3 repair",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/34",
+        "PAPER-MAO-WAN-ZHANG-26/37",
+        "PAPER-MAO-WAN-ZHANG-26/89"
+      ],
+      "status": "open",
+      "required": "The Model 1 two-variable character is corrected. Compute all remaining full characters before extracting Euler factors, and state any convention discarding invariant/trivial summands. Dimension checks alone do not supply the other five corrected rows."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G9",
+      "title": "Jordan and nilpotent-orbit ownership coordination",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/15",
+        "PAPER-MAO-WAN-ZHANG-26/16",
+        "PAPER-MAO-WAN-ZHANG-26/46",
+        "PAPER-MAO-WAN-ZHANG-26/90"
+      ],
+      "status": "open",
+      "required": "Coordinate the pending LieHighestWeightPartIINilpotentOrbits and ExceptionalThetaCorrespondencesForG2 candidates. The latter already proposes the 9/15-dimensional Jordan inputs; do not add a second copy. Decide the single generic cubic-norm owner and import its 7/27-dimensional extensions before accepting that design route."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G10",
+      "title": "Conjectural spectral normalization and analytic domains",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/10",
+        "PAPER-MAO-WAN-ZHANG-26/11",
+        "PAPER-MAO-WAN-ZHANG-26/12",
+        "PAPER-MAO-WAN-ZHANG-26/17",
+        "PAPER-MAO-WAN-ZHANG-26/18",
+        "PAPER-MAO-WAN-ZHANG-26/19",
+        "PAPER-MAO-WAN-ZHANG-26/21",
+        "PAPER-MAO-WAN-ZHANG-26/22",
+        "PAPER-MAO-WAN-ZHANG-26/25",
+        "PAPER-MAO-WAN-ZHANG-26/35",
+        "PAPER-MAO-WAN-ZHANG-26/37",
+        "PAPER-MAO-WAN-ZHANG-26/74",
+        "PAPER-MAO-WAN-ZHANG-26/76",
+        "PAPER-MAO-WAN-ZHANG-26/78",
+        "PAPER-MAO-WAN-ZHANG-26/95"
+      ],
+      "status": "open",
+      "required": "Extract precise local relative characters, Plancherel, period convergence/regularization, global constants and spectral isolation from BZSV/SV/Lapid–Mao/Wan–Zhang. Quoted equals signs are not complete identities. Global Langlands groups and general Arthur packets remain conjectural inputs."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G11",
+      "title": "Granularity of model generator calculations",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/32",
+        "PAPER-MAO-WAN-ZHANG-26/45",
+        "PAPER-MAO-WAN-ZHANG-26/61",
+        "PAPER-MAO-WAN-ZHANG-26/62",
+        "PAPER-MAO-WAN-ZHANG-26/65",
+        "PAPER-MAO-WAN-ZHANG-26/66"
+      ],
+      "status": "open",
+      "required": "Split each remaining multi-generator/multi-model proposition into individual declarations and prove root relations and word independence. The extracted coordinate tests detect mistakes but do not replace these proofs."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/G12",
+      "title": "Small-box and stationary-phase closure",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/42",
+        "PAPER-MAO-WAN-ZHANG-26/44",
+        "PAPER-MAO-WAN-ZHANG-26/55",
+        "PAPER-MAO-WAN-ZHANG-26/57",
+        "PAPER-MAO-WAN-ZHANG-26/69",
+        "PAPER-MAO-WAN-ZHANG-26/71"
+      ],
+      "status": "open",
+      "required": "Turn the repaired volume and phase bounds into complete local analytic proofs, including supports accumulating at zero, compactness/partition steps, self-dual measures and singular-germ uniqueness. Do not infer global/archimedean transfer from these p-adic calculations."
+    }
+  ]
+}

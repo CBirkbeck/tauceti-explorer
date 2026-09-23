@@ -1,4 +1,10 @@
-# Mao–Wan–Zhang: corrected extraction and independent review
+# Independent review: REV-PAPER-MAO-WAN-ZHANG-26
+
+Reviewer: **Codex**, session **codex-c83e7a**. Verdict: **revise**. Review status: **complete**.
+
+This review was claimed on [issue #1202](https://github.com/CBirkbeck/tauceti-explorer/issues/1202), after bot confirmation. Result-file history was checked before claiming: its author is the distinct worker session **cc-39fac3**, [PR #2054](https://github.com/CBirkbeck/tauceti-explorer/pull/2054). The reviewer did not author that extraction. All four named deliverables were reviewed/updated; no Lean or unrelated roadmap file is part of this submission.
+
+The original claimed complete with 79 items and one broad new-roadmap route. It copied an incorrect Table 3 row, a reversed tuple, a free integration variable and overly broad library/arithmetic hypotheses. It also lacked explicit dependency and definition-contract coverage and left cited proof inputs unread. The in-place correction records the narrower statements and the remaining gaps; it does not turn those gaps into accepted theorems. The review’s mathematical findings and route verdicts below are final for this review, not a checkpoint of an unfinished review.
 
 The extraction is **partial** and the finished independent review recommends **revise**. The paper gives conjectural global BZSV period/trace comparisons and proves p-adic local comparisons for six models. The basic-function fundamental lemma for Models 5–6 excludes residue characteristic 2. The local comparisons do not prove the global period conjectures.
 
@@ -50,6 +56,116 @@ Fresh candidate comparison covered Ciubotaru–Harris’s pending nilpotent-orbi
 
 10. **reject — RelativeLanglandsDuality** (new). The distinctive BZSV direction is not covered by the existing unitary/GGP relative-comparison candidates, but this extraction is not ready for its design job: the source, proof, Model 6, branching and supplier gates remain. The former all-in-one route is rejected and replaced by this narrower held application route.
 
+## Independent source-finding verdicts
+
+### E1 — misprint, confirmed
+
+§2, p. 12, Model 2 ('In the second case'). The Model 2 roots e_i−e_(i+1), e_(n−1)+e_n are D_n roots; B_n ends with e_n. Confirm the type label, not a change of model.
+
+Correction: … the simple roots of Type D_n
+
+### E2 — misprint, confirmed
+
+§3, (3.1), p. 15. An Euler product of local integrals is indexed by places v. A sum over a∈k× already occurs separately in (3.1).
+
+Correction: J(f′) = ∏_{v∈|k|} J^+_v(f′_v) + ∏_{v∈|k|} J^−_v(f′_v) + Σ_{a∈k^×} ∏_{v∈|k|} J_v(a, f′_v), a ∈ k^× ⊂ k_v^×
+
+### E3 — misprint, confirmed
+
+§4.1, Proposition 4.2, p. 17. The two singular Bruhat orbits require I+ and I−. The regular term is a sum over rational a of products of local I_v(a,…); the second printed plus and omitted local product cannot describe that decomposition.
+
+Correction: I(f, φ) = ∏_{v∈|k|} I^+_v(f_v ∗ φ_v) + ∏_{v∈|k|} I^−_v(f_v ∗ φ_v) + Σ_{a∈k^×} ∏_{v∈|k|} I_v(a, f_v ∗ φ_v)
+
+### E4 — misprint, confirmed
+
+§4.2, proof of Theorem 4.4(1), p. 18; §5.3, proof of Theorem 5.9(1), p. 26. If φ is fixed by K, then Ω(1_K)φ=vol(K)φ. Multiplying the characteristic function by vol(K) yields vol(K)²φ. The normalized operator uses 1_K/vol(K), independently on K′; a remains the free orbital parameter.
+
+Correction: φ = vol(𝒦)^{−1} · 1_{(a_0+ϖ^m𝒪_F)×𝒦} (and, in Theorem 5.9, φ′ = vol(𝒦′)^{−1} · 1_{𝒦′})
+
+### E5 — gap, confirmed
+
+§5.3, proof of Theorem 5.9(1), p. 26. Controlling only (tr(A)−N(A))/a leaves the terms ⟨Y,A⟩/a and ⟨A,A⟩/(2a²) uncontrolled. Choose the A,Y boxes sufficiently small that |⟨Y,A⟩|≤|a₀| and |⟨A,A⟩|≤|2||a₀|²; continuity and shrinking around zero provide the missing control.
+
+Correction: choose 𝒦 and 𝒦′ such that also |⟨Y, A⟩| ≤ |a_0| and |⟨A, A⟩| ≤ |2| · |a_0|² for all A ∈ 𝒦, Y ∈ 𝒦′ (small enough neighbourhoods of 0 do this), so that the whole phase of I(a, φ, φ′) is trivial for a ∈ a_0 + ϖ^m𝒪_F
+
+### E6 — misprint, confirmed
+
+§5.2, p. 20 (twice). The lowest weight of the 32-dimensional B₅ spin representation is (−e₁−e₂−e₃−e₄−e₅)/2. The missing sign before e₅ is typographical.
+
+Correction: (−e_1 − e_2 − e_3 − e_4 − e_5)/2
+
+### E7 — misprint, confirmed
+
+§5.2, before Proposition 5.3, p. 21. For v_i=X_i+((-1)^i/2)f_(7−i), the printed B(X_i,X_j)=0 gives B(v_i,v_(7−i))=−(-1)^i≠0. Thus the footnote’s claimed isotropic complement fails. Restoring B(X_i,X_j)=(-1)^iδ_(i+j,7) cancels it. Checked the rendered p. 21 and exact rational 8×8 form.
+
+Correction: ⟨X_{e_1−e_i}, X_{e_1−e_j}⟩ = 0, ⟨X_{e_i}, X_{e_1−e_j}⟩ = δ_ij and ⟨X_{e_i}, X_{e_j}⟩ = (−1)^i δ_{i+j,7} (2 ≤ i, j ≤ 5)
+
+### E8 — misprint, confirmed
+
+§5.2, (5.13), p. 21, and the unfolding of the main term, p. 22. The factorization is N=N₁N₀. After integrating N₁ the remaining factor is N₀, the Siegel radical; no N₂ was introduced.
+
+Correction: n ∈ N_0(𝔸) …; ∫_{Y′(𝔸)} ∫_{N_0(𝔸)} …
+
+### E9 — error, confirmed
+
+§5.2, (5.13) p. 21, the unfolding pp. 22–23, Proposition 5.7 p. 25 and footnote 11 p. 29. Take n=u_(e_i)(t), i=2,…,5, a≠0, A=atX_(e_i). Here tr(A)=N(A)=⟨A,A⟩=0. Formula (5.8) gives ψ(+tY_i); the printed negative mixed term gives ψ(−tY_i). The later p. 29 integral has the positive term. This establishes an internal sign inconsistency; it does not by itself certify every corrected model theorem.
+
+Correction: Use a positive mixed pairing +⟨Y,A⟩/a consistently with (5.8) and the p. 29 germ calculation. Recheck all generator relations and the omitted Model 6 normalization before claiming all later statements are proved.
+
+### E10 — misprint, confirmed
+
+§5.2, first display of p. 23. The preceding (5.13) and the definition of I_v immediately following the displayed sum both have the quadratic term ⟨A,A⟩/(2a²). The extra Y in the second pairing of the displayed global sum is inconsistent with both.
+
+Correction: ψ((tr(A) − N_𝒥(A) ± ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) (sign as in E9)
+
+### E11 — misprint, confirmed
+
+§5.3, proof of Theorem 5.9(2), p. 27. In the p. 27 linear phase the coefficient is ΣY_iA_i, not ΣAY_iA_i, and the integration domain must be 𝒥(𝒪_F), not the scalar ring. These are the coordinates already fixed in §5.2.
+
+Correction: ⟨Y, A⟩ = Σ_{2≤i≤5} Y_iA_i; 𝒥(𝒪_F)_a := {A ∈ 𝒥(𝒪_F) | A_i ∈ a𝒪_F, 2 ≤ i ≤ 5}
+
+### E12 — misprint, confirmed
+
+§6.2, p. 31. The ambient group is Sp₄ₙ, whose dual is SO₄ₙ₊₁; the principal orbit of the dual Levi lies in 𝔤̂. The nilpotent matrix is a Lie algebra element and must be mapped by dι, not by the group homomorphism ι.
+
+Correction: Use Sp₄ₙ for G, 𝔤̂ for the ambient dual Lie algebra, and Ξ=dι((0,0;1,0)).
+
+### E13 — misprint, confirmed
+
+§6.2, Conjecture 6.1 p. 32 and Proposition 6.4 p. 33. The periods in Conjecture 6.1 and Proposition 6.4 are defined on G=Sp₄ₙ. Replacing G by its orthogonal dual in the automorphic representation changes their domain.
+
+Correction: … of G(𝔸) = Sp_{4n}(𝔸) … ν : π → L²(G(k)\G(𝔸))_π
+
+### E14 — misprint, confirmed
+
+Index and notation slips: §4.1 Conjecture 4.3(1) p. 17; §5.1 p. 19; §5.2 p. 22; §6.1 p. 30; §6.2 Proposition 6.4 p. 33. Checked the individual locators against their surrounding definitions: local k_v replaces the undefined F; λ is the scalar character; group action arguments are (u,a); the commuting group in §6 is Ĥ×SL₂; and the proof refers to a finite-place product 𝔸_S. The last correction does not establish the unread GRS proof.
+
+Correction: Ĝ(𝒪_v)A_Ĝ(k_v); U″_n = ker λ; (u, a).0 throughout, matching the notation (n, a).A of Remark 5.2; the adjoint action of Ĥ × SL_2; ∫_{X_0(𝔸_S)}, 𝔸_S = ∏_{v∈S} k_v
+
+### E15 — error, confirmed
+
+Author April 2025 Table 3, p. 13; same first row in arXiv v3 p. 11. The specified nilpotent E₃₁+E₄₂+E₅₃+E₆₄ has two length-three Jordan blocks. Hence V₆=Std₂⊗Sym², and End(V₆)−1=Ad_H⊗Sym⁰ ⊕ (1⊕Ad_H)⊗(Sym²⊕Sym⁴). The full two-variable weight character has dimension 35; the printed row has dimension 27 if std₂ denotes the 3-dimensional PGL₂ representation. The extraction makes that dimension convention explicit. A two-dimensional PGL₂ standard representation would not repair it. This refutes the row as a full decomposition, not the evenness consequence.
+
+Correction: For Model 1, ρ₀=Ad_H and ρ₂=ρ₄=1⊕Ad_H; retain trivial multiplicities for the full Lie algebra. Other rows require their own reconstruction (G8).
+
+### E16 — misprint, confirmed
+
+Author April 2025 §1.3 p. 7, definition of Δ₁. The third slot throughout §1.1 is a symplectic representation, and the fourth is an SL₂ homomorphism. The printed order reverses their types; item 20 originally copied it.
+
+Correction: Write Δ₁=(H′,H₁,ρ_H₁,ι₁).
+
+### E17 — misprint, confirmed
+
+Author April 2025 (5.12), p. 21. The u on the left is bound by integration over N₁; the printed right side retains a free u. Equations (5.2) and (5.8) say N₁ fixes 0 in 𝒥 and acts on Y′ by translation, giving item 96.
+
+Correction: The right side is φ(a,0)∫_(Y′(𝔸))φ′(Y)dY.
+
+### E18 — gap, confirmed
+
+Author April 2025 §1.1 p. 3, citation to BZSV Proposition 5.1.1. BZSV arXiv 2409.04677v1 Proposition 5.1.1 assumes an algebraic F-subgroup, a square of a character Chern class in absolute H⁴_et(BH,ℤ/2), and nonarchimedean residue characteristic ≠2. Its footnote 36 changes to an S¹-pushout elsewhere, and Remark 5.1.3 explicitly distinguishes geometric from absolute anomaly. These conditions and gluing do not follow just from the geometric definition quoted by MWZ. No counterexample to the six particular splittings is asserted.
+
+Correction: Supply absolute arithmetic anomaly data, an actual splitting on the relevant image or pullback with its precise domain, and compatible local/adelic/rational choices. The cited proposition alone gives only the local statement in item 6.
+
 ## Remaining work and resumption
 
 - **G1 — Published-version collation**: Read the subscription main text and compare every numbered result, sign and local-character normalization. Published notes 4–6 and 8 contain additions absent from the author draft. All source-error confirmations are version bounded.
@@ -95,113 +211,3 @@ Resume by obtaining the journal main text and MR97/GRS supplier statements, reso
 The paper checker and four-file swarm intake check pass. Additional checks verify unique item IDs, acyclic dependencies, valid planned/source stages, exactly one route per missing item, conjecture kinds, definition APIs/tests/uses, source verdicts and pinned file hashes.
 
 Exact diagnostics reconstruct the Model 1 two-variable character (35 versus 27), the nilpotent ranks (4,2,0), and the corrected 8-dimensional symplectic polarization. They distinguish ψ(1/5) from ψ(−1/5), test reciprocal Haar normalization at five rational volumes, and check 72 finite-character cases of the two-variable integral by reduction modulo cyclotomic polynomials, including residue characteristic 2. These are focused algebraic checks, not proofs of the global conjectures, source trace identities or omitted Model 6 formulas. No Lean file was requested or compiled; nothing is claimed newly formalized.
-
-## Item coverage
-
-| Item | Status | Kind | Target |
-|---|---|---|---|
-| 1 | missing | definition | BZSV quadruple data |
-| 2 | missing | theorem | Structure theorem for hyperspherical Hamiltonian spaces (Ben-Zvi–Sakellaridis–Venkatesh, Theorem 3.6.1) |
-| 3 | library | theorem | Complete reducibility of finite-dimensional sl₂-modules |
-| 4 | missing | construction | The decomposition 𝔤 = ⊕ ρ_k ⊗ Sym^k and the symplectic representation ρ_{H,ι} |
-| 5 | missing | definition | Anomaly-free hyperspherical data |
-| 6 | missing | theorem | Absolute anomaly criterion for a local metaplectic splitting |
-| 7 | planned | construction | The global Weil representation and theta series of a symplectic space |
-| 8 | missing | definition | The period integral P_Δ of a BZSV quadruple |
-| 9 | missing | definition | Tempered Arthur parameters, factoring through ι̂′, and lifting |
-| 10 | missing | definition | Conjecture 1.1(1) (Ben-Zvi–Sakellaridis–Venkatesh, Conjecture 14.3.5 and (14.26)): the period P_Δ |
-| 11 | missing | definition | Conjecture 1.1(2): the dual period P_Δ̂ |
-| 12 | missing | definition | The meaning of “=” in the period conjectures |
-| 13 | planned | construction | The Weil representation of a Heisenberg group and its theta series |
-| 14 | missing | definition | The degenerate Whittaker coefficient P_ι; Bessel and Fourier–Jacobi periods |
-| 15 | missing | definition | Barbasch–Vogan duality and special nilpotent orbits |
-| 16 | missing | construction | The representation ρ̂_ι̂ of the centraliser Ĥ_ι̂ |
-| 17 | missing | definition | Conjecture 1.5: the degenerate Whittaker period |
-| 18 | missing | definition | The exact form of Conjecture 1.5 |
-| 19 | missing | definition | The Lapid–Mao conjecture for Whittaker–Fourier coefficients (Lapid–Mao, J. Number Theory 146 (2015), Conjecture 1.1) |
-| 20 | missing | construction | The auxiliary quadruples Δ̂_1 and Δ_1 |
-| 21 | missing | definition | Conjecture 1.7: the product P_Δ · P_ι′ |
-| 22 | missing | definition | The two relative trace formulas I(f) and J(f′) |
-| 23 | planned | construction | The automorphic kernel of a test function |
-| 24 | planned | definition | Discrete automorphic representations and their L²-embeddings |
-| 25 | missing | definition | Conjecture 1.8 and its local form (Remark 1.9) |
-| 26 | missing | construction | Special case 1 (Assumption 1.10): comparison with the Kuznetsov trace formula of H′ |
-| 27 | missing | construction | Special case 2 (Assumption 1.11): rank-one spherical varieties |
-| 28 | missing | theorem | Theorem 1.13: fundamental lemma and smooth transfer for the duals of the six models |
-| 29 | missing | definition | The six strongly tempered models of Table 1 |
-| 30 | planned | definition | Complex and Lie-level spin and exceptional representation prototypes |
-| 31 | library | definition | The Killing form |
-| 32 | missing | construction | The parabolic P = MU, generic characters of U and the element Ξ |
-| 33 | missing | construction | The SL_2-embedding ι and the dual quadruples Δ and Δ̂ |
-| 34 | missing | theorem | Corrected Model 1 adjoint branching and the Table 3 obstruction |
-| 35 | missing | definition | Conjecture 2.1: the (G, H)-side for the six models |
-| 36 | missing | construction | The theta series of ρ̂ on Ĝ |
-| 37 | missing | definition | Conjecture 2.3: the dual side for the six models |
-| 38 | missing | definition | The Kuznetsov relative trace formula of SL_2 |
-| 39 | missing | definition | Local Kloosterman orbital integrals J_v(a, f′_v) and the singular terms J^±_v |
-| 40 | missing | theorem | Unfolding of the Kuznetsov trace formula (3.1) |
-| 41 | missing | definition | The space C^∞_OI(F^×, c_+, c_−) of germs of orbital integrals |
-| 42 | missing | theorem | Proposition 3.3(1): Kloosterman integrals exhaust C^∞_c(F^×) |
-| 43 | missing | theorem | Proposition 3.3(2): the unit element |
-| 44 | missing | theorem | Proposition 3.3(3): germs of Kloosterman integrals |
-| 45 | missing | construction | The parabolic Q = LN of Ĝ and the dual orbit (Models 1–4) |
-| 46 | missing | definition | N as a degree-three Jordan algebra 𝒥 |
-| 47 | missing | definition | The distribution I(f, φ) for Models 1–4 |
-| 48 | missing | construction | The polarisation Y = Mat_{1×1} ⊕ 𝒥 |
-| 49 | missing | theorem | Proposition 4.2: unfolding of I(f, φ) |
-| 50 | missing | definition | Conjecture 4.3(1): the fundamental lemma for Models 1–4 |
-| 51 | missing | definition | Conjecture 4.3(2): smooth transfer for Models 1–4 |
-| 52 | missing | theorem | Mao–Rallis's orbital integral identity (Mao–Rallis, Duke 87 (1997), Theorems 1 and 2) |
-| 53 | missing | theorem | The linear dependence of tr − N_𝒥 on a coordinate |
-| 54 | missing | theorem | The elementary identity (4.2) |
-| 55 | missing | theorem | Theorem 4.4(1): the regular orbital integrals of Models 1–4 exhaust C^∞_c(F^×) |
-| 56 | missing | theorem | Theorem 4.4(2): the fundamental lemma for Models 1–4 |
-| 57 | missing | theorem | Theorem 4.4(3): germs of the orbital integrals of Models 1–4 |
-| 58 | missing | construction | The Fourier–Jacobi datum of Spin_{2n+1} |
-| 59 | missing | definition | The distribution I(f, φ, φ′) for Models 5–6 |
-| 60 | missing | construction | The polarisation Y = Mat_{1×1} ⊕ 𝒥 for Model 5 and the N-action on 𝒥 |
-| 61 | missing | theorem | Proposition 5.1: the Weil representation Ω_ψ on N (Model 5) |
-| 62 | missing | theorem | Proposition 5.3: the Weil representation Ω′_ψ (Model 5) |
-| 63 | missing | theorem | Rational-orbit unfolding identity (5.11) |
-| 64 | missing | definition | The singular sets 𝒥_1, 𝒥_11, 𝒥_2, 𝒥_12, 𝒥^± |
-| 65 | missing | theorem | Proposition 5.5: the singular terms |
-| 66 | missing | theorem | Proposition 5.7: unfolding of I(f, φ, φ′) (Models 5–6) |
-| 67 | missing | definition | Conjecture 5.8(1): the fundamental lemma for Models 5–6 |
-| 68 | missing | definition | Conjecture 5.8(2): smooth transfer for Models 5–6 |
-| 69 | missing | theorem | Theorem 5.9(1): the regular orbital integrals of Models 5–6 exhaust C^∞_c(F^×) |
-| 70 | missing | theorem | Theorem 5.9(2): the fundamental lemma for Models 5–6 |
-| 71 | missing | theorem | Theorem 5.9(3): germs of the orbital integrals of Models 5–6 |
-| 72 | missing | theorem | GL_n nilpotent and odd-multiplicity example |
-| 73 | missing | construction | The non-special example: Sp_{4n} and the principal orbit of (GL_2)^n in SO_{4n+1} (§6.2) |
-| 74 | missing | definition | Conjecture 6.1 |
-| 75 | missing | definition | The periods P_{U,ξ′} and P_{G′} on Sp_{4n} and their BZSV duals |
-| 76 | missing | definition | Conjecture 6.2: the Sp_{2n} × Sp_{2n}-period |
-| 77 | missing | definition | The relative trace formulas I(f′), J(f), J′(f) of §6.2 |
-| 78 | missing | definition | Conjecture 6.3 and the Mao–Rallis comparison |
-| 79 | missing | theorem | Proposition 6.4: P_ι and P_{U,ξ′} on representations with a nonzero Sp_{2n} × Sp_{2n}-period |
-| 80 | missing | definition | Hyperspherical Hamiltonian variety |
-| 81 | missing | definition | Neutral grading |
-| 82 | missing | construction | Whittaker Hamiltonian induction |
-| 83 | missing | definition | Conjectural BZSV duality datum |
-| 84 | missing | construction | Algebraic symmetric-power and Lie-module adapter |
-| 85 | missing | construction | Rational and integral six-model symplectic representations |
-| 86 | library | definition | Pinned split Albert carrier, trace and diagonal frame |
-| 87 | library | theorem | Pinned classification of irreducible sl₂ Lie modules |
-| 88 | library | theorem | Killing nondegeneracy in the semisimple characteristic-zero range |
-| 89 | missing | construction | Remaining adjoint branching certificates |
-| 90 | missing | construction | Cubic Jordan norms and coordinate conventions |
-| 91 | missing | construction | Compatible adelic splitting and unramified basic vectors |
-| 92 | planned | definition | Local and adelic Schwartz–Bruhat spaces |
-| 93 | planned | definition | Self-dual and quotient measure data |
-| 94 | missing | definition | Normalized local matching data |
-| 95 | missing | definition | Heuristic discrete spectral identities |
-| 96 | missing | theorem | Integration of the translation subgroup, corrected (5.12) |
-| 97 | missing | theorem | Corrected Model 5 phase identity (5.13) |
-| 98 | missing | definition | GL_n relative trace comparison prediction |
-| 99 | missing | theorem | Imported Mao–Rallis GL₂ₙ–Sp₄ₙ comparison |
-| 100 | missing | construction | GRS root-exchange operator with finite-place support |
-| 101 | planned | theorem | Schrödinger generator and polarization formulas |
-| 102 | missing | theorem | Anomaly criterion on the inducing representation |
-| 103 | library | construction | Pinned integral E₇ carrier and standard comodule |
-| 104 | library | theorem | Pinned type-B coordinate spinor lattice stability |
-| 105 | library | theorem | Pinned type-D coordinate spinor lattice stability |
