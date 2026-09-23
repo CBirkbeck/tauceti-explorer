@@ -1,0 +1,181 @@
+{
+  "paper": "PAPER-BHATT-ETAL-23",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-BHATT-ETAL-23/E1",
+      "kind": "error",
+      "locator": "Lemma 2.56, second assertion, p.101 of the published version; the same wording is arXiv v1 Lemma 2.37 (p.20), v2 Lemma 2.50 (p.26) and v3 Lemma 2.56 (p.29)",
+      "printed": "\"More generally, let D be a fixed divisor and let A be a semiample Q-Cartier Q-divisor such that A ∼_Q M + Λ, where M is an effective Cartier divisor with no exceptional curve of Y → X in its support, and −δD ≤ Λ ≤ δD for δ > 0. Take x ∈ F ∩ M of multiplicity k ∈ Z_{>0} in M. Then ε_sa(A; x) converges to k when δ → 0.\"",
+      "correction": "Only a lower bound holds. For every rational γ with 0 < γ < k there is δ₀ > 0, depending only on f, D and γ, such that ε_sa(A; x) = ε(A; x) ≥ k − γ for all δ < δ₀ and all such A, M, Λ and x. Equivalently, liminf_{δ→0} ε_sa(A; x) ≥ k, uniformly. This is exactly what the printed proof establishes; there is no upper bound.",
+      "reason": "Counterexample with Λ = 0. Let k be a field of characteristic p > 0, X = A²_k, and f: Y → X the blow-up of the origin with exceptional curve E = F. Let M be the sum of the strict transforms of the two axes. Then M ∼ −2E, so M is effective, Cartier, globally generated over X (O_Y(−E) = m·O_Y) and has no exceptional component. Let x = E ∩ (strict transform of the y-axis), so mult_x M = 1 = k. Blow up x, with exceptional curve G and strict transform E′. Then E′² = −2, G² = −1, E′·G = 1 and π*M − tG ∼ −2E′ − (2+t)G, which has degree 2 − t on E′ and t on G. Hence ε(M; x) = 2. At t = 2 the ideal (x, y²) pulls back to O(−E′ − 2G) (charts x = ab, y = b, then a = c, b = cd, giving c²d, and a = ef, b = f, giving f²). So π*M − 2G ∼ −2E′ − 4G is globally generated and ε_sa(M; x) = 2. Taking A = M and Λ = 0 (any D), ε_sa(A; x) = 2 for every δ, not converging to k = 1. The proof only shows that π*A − (k − γ)E is nef. The consumers need only the lower bound: Proposition 8.15 (p.173) uses the first assertion ε_sa(M; x) ≥ 1, which is correct, and Claim 8.21 (p.178) needs ε_sa > 2 for k = 3. So the paper's results are unaffected. Checked on the page image and by exact arithmetic. Noted by the extraction (diagnostic A, gap-seshadri-limit); verified and proved in the corrected form by this continuation.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E1"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E2",
+      "kind": "misprint",
+      "locator": "Proposition 6.28, p.154 of the published version (and arXiv v3 Proposition 6.28, p.71)",
+      "printed": "\"Let Δ ≥ 0 be a Q-divisor on X such that (X, Δ) is globally +-regular (completely purely globally +-regular over R, resp.). Suppose that Δ_Y ≥ 0, where K_Y + Δ_Y = f*(K_X + Δ). Then (Y, Δ_Y) is globally +-regular (globally +-regular, resp.).\"",
+      "correction": "The conclusion in the resp. case is \"completely purely globally +-regular over R\", with the pure boundary S_Y the strict transform of S and B_Y = Δ_Y − S_Y. This is what arXiv v2 (Proposition 6.28, p.64) prints, and arXiv v1 (Proposition 6.22, p.48) prints \"purely ... purely\".",
+      "reason": "The printed resp. conclusion is false. Take R = k[[t]] with k of characteristic p, X = Y = Spec R, f = id and Δ = S = V(t). Then (X, S) is purely globally +-regular. For a finite normal R′ ⊇ R with uniformizer s and ramification e, the map R → s^{1−e}R′ splits because R′ is R-free and 1 ∉ t·s^{1−e}R′ = sR′. But (X, S) is not globally +-regular: already for the identity cover, a splitting of O_X → O_X(S) = t^{−1}R would send 1 = t·t^{−1} into tR. The cited proof (Proposition 6.26, which applies because R is complete, together with Lemma 4.27 with B′ = B_Y) proves the pure conclusion. The consumer in Theorem 7.14 (p.165) uses the pure conclusion. In arXiv v3 the qualifier is visibly garbled as \"( ly globally +-regular, resp.)\", so the published wording is a typesetting slip. Checked on the page images of v3 p.71 and published p.154. Noted by the extraction (diagnostic B, gap-pure-birational); the version history was established by this continuation.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E2"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E3",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 4.28, p.128 of the published version (also arXiv v2 and v3)",
+      "printed": "\"Twisting by the pullback L⁺ to W⁺ of the line bundle O_Y(f*(M − (K_X + S + B))) (for some finite cover f: Y → W), and taking local cohomology, we obtain: ... The left zeros are due to Corollary 3.7 and the fact that L⁺ is the pullback of a big and semiample line bundle.\"",
+      "correction": "Twist by the pullback of O_Y(f*(K_X + S + B − M)), the inverse of the big and semiample bundle f*(M − (K_X + S + B)). Corollary 3.7 then applies with b = −1 and kills H^{d−1}_m of it.",
+      "reason": "Corollary 3.7 (p.107) gives H^i(RΓ_x RΓ(X⁺, L^b)) = 0 only for b < 0 and i < dim X, where L is big and semiample, so it gives nothing for the positive twist that is printed. With the inverse twist, H^d_m of O(−S_{W⁺}) twisted by f*(K_X + S + B − M) is dual to H⁰(O_Y(K_Y + S_Y + f*(M − K_X − S − B))), which is the expression in the statement of the lemma. The same line bundle L := O_{X⁺}(π*(K_X + S + B − M)) appears in the proof of Theorem 7.2 (p.156). The lemma is marked \"a fact we will not use\". Checked on the page image. Noted by the extraction (diagnostic C, gap-adjoint-sign).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E3"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E4",
+      "kind": "misprint",
+      "locator": "Theorem 9.28(c), p.206 of the published version (also arXiv v2 and v3)",
+      "printed": "\"(c) For each Γ_i, −4d_{Γ_i} < (K_X + Δ)·Γ_i < 0\"",
+      "correction": "−4d_{Γ_i} ≤ (K_X + Δ)·Γ_i < 0, as in the introduction's statement of the same theorem (Theorem I(c), p.74: 0 < −(K_X + Δ)·_k C_i ≤ 4d_{C_i}).",
+      "reason": "The proof of Theorem 9.28 (p.210) concludes −4d_C ≤ (K_X + Δ)·C < 0 from Lemma 9.29, whose bound is also non-strict (−4d ≤ (K_X + B)·Γ < 0). Every other statement of the length bound in the paper (pp.74, 96, 188, 194, 206–209) is non-strict, and no consumer uses strictness. Checked on the page image. Noted by the extraction (gap-cone-length).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E4"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E5",
+      "kind": "misprint",
+      "locator": "Theorem 10.6, definition of β(1), p.216 of the published version (also arXiv v3); compare Theorem K, p.76, and the proof, pp.218–219",
+      "printed": "\"β(v) = 393 if v = 1, 213v + 48 if v ≥ 2\"",
+      "correction": "β(1) = 373, as in Theorem K (\"f(v) = 373 if v = 1\"). The printed 393 gives a weaker statement, which the corrected one implies.",
+      "reason": "The proof uses β(v) only through conditions (b), p ≥ d + 4, and (c), p > deg D, for primes p > β(v). For v = 1 it computes the fibre canonical degree (K + 10K)·10K = 110 ≤ 373 − 4. It computes the discriminant degree 3L² + 2L·K + c₂ with L = 10K as 319K² + 12χ ≤ 325K² + 48 = 373, using c₂ = 12χ − K² and the Noether bound χ ≤ (K² + 6)/2 + 1. Both conditions hold for every prime p > 373. Checked on the page images. Noted by the extraction (gap-moduli-bound).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E5"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E6",
+      "kind": "error",
+      "locator": "Theorem 2.13 and Proposition 2.14, p.85 of the published version",
+      "printed": "\"... and let T be a subscheme of X. Then there exists a proper birational morphism g: Y → X from a regular scheme Y such that both g^{−1}(T) and Ex(g) are divisors and Supp(g^{−1}(T) ∪ Ex(g)) is simple normal crossing.\"",
+      "correction": "T must be a closed subscheme containing no irreducible component of X, that is, nowhere dense.",
+      "reason": "For T = X, or for T containing a component of X, g^{−1}(T) contains a component of Y and is not a divisor. Every application in the paper uses a nowhere-dense T: log resolutions of pairs (T the support of the boundary), and inside the proof of Proposition 2.14 the union of the nowhere-dense blow-up centre Z with g′^{−1}(T) ∪ Ex(g′). Noted by the extraction (gap-resolution-centres). (cc-442dc5) Reclassified to affect a stated result: as printed, Theorem 2.13 and Proposition 2.14 are false for T = X (then g^{−1}(T) = Y is not a divisor), so the stated results need the hypothesis; every application in the paper uses a nowhere-dense centre, so the main results are unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E6",
+      "previousAffects": "nothing"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E7",
+      "kind": "error",
+      "locator": "Definition 2.19, p.88 of the published version",
+      "printed": "\"coeff_E Fix(D) = min_{D′ ∈ |D|} coeff_E D′. Note that as D is Cartier the above coefficients are integers and hence the minimum exists.\"",
+      "correction": "The minimum exists only when |D| ≠ ∅, so the definition needs that hypothesis.",
+      "reason": "For D = O(−1) on P¹, |D| = ∅ and the minimum is over the empty set. Every use of Mob and Fix is in §8, on schemes Y and S′ that are projective and birational over the affine base Z = Spec R or over f(S). There H⁰(O(D)) = H⁰(g_*O(D)) ≠ 0 for every Cartier D, since g_*O(D) is a nonzero torsion-free coherent sheaf on an affine integral scheme. In addition, Setting 8.5 chooses K_X + S + B effective. Noted by the extraction (gap-empty-system).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E7"
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E8",
+      "kind": "error",
+      "locator": "Published version, proof of Lemma 4.20, p.122 (final step)",
+      "printed": "Hence the map κ is an isomorphism (Lemma 2.36)",
+      "correction": "Apply Lemma 2.36 in the form that needs only D_X Q-Cartier. D_Y = ⌈π*L + A_Y⌉ on the normal Y need not be Q-Cartier.",
+      "reason": "Lemma 2.36 assumes D_Y and D_X are Q-Cartier. Its proof uses only D_X: f_*O_Y(D_Y) ⊆ O_X(f_*D_Y) always holds on normal schemes, and for g ∈ O_X(D_X), div(g) + D_X ≥ 0 pulls back to div(g) + f*D_X ≥ 0, so div(g) + D_Y ≥ 0 because D_Y ≥ f*D_X. With that form the step is valid. (cc-442dc5) Reclassified to affect the proof: in Lemma 4.20, π: Y → X is only a proper birational morphism from a normal integral scheme (p.121), so D_Y = ⌈π*L + A_Y⌉ need not be Q-Cartier and Lemma 2.36 as stated does not apply; the step holds with the stronger form of Lemma 2.36, so the conclusion stands.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published Lemma 2.36 (p.94) and Lemma 4.20 (pp.121–122) read (cc-442dc5); the checkpoint's gap-weil-adapter flagged the step.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
+        "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+      ],
+      "extraction": "PAPER-BHATT-ETAL-23/E8",
+      "previousAffects": "nothing"
+    }
+  ]
+}
