@@ -21628,6 +21628,87 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CESNAVICIUS-19/E1",
+   "kind": "gap",
+   "locator": "Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated",
+   "printed": "\"Proposition 2.2. For a finite, flat map R → R′ of local rings, an open subscheme V ⊂ Spec R, and an affine, smooth R-group scheme G, if (1) Γ(Spec R, O) ≅ Γ(V, O) via pullback; and (2) every G-torsor is trivial over R; then the following pullback is injective: H¹_et(V, G) ↪ H¹_et(V_{R′}, G). (2.2.1)\" Proof: \"… every element of X(V) lifts to (Res_{R′/R}(G_{R′}))(V), so, by [Gir71, III.3.2.2], the map H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2) is injective.\"",
+   "correction": "State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.",
+   "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.5.5, Cor. 2). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0057, checked 22 September 2026: no erratum or other update is registered",
+    "arXiv 1711.06456: v1 (17 November 2017), v2 (24 November 2017), v3 (17 January 2018), v4 (1 December 2018, the latest)",
+    "the author's copy https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/brauer-purity.pdf (dated 27 November 2018, SHA-256 4187331e…97a1), checked 22 September 2026: Proposition 2.2 and its proof are unchanged, and no erratum is linked",
+    "web search for an erratum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-CESNAVICIUS-19",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
+   "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/E2",
+   "kind": "misprint",
+   "locator": "Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
+   "printed": "such that t^h ∈ H",
+   "correction": "Choose the finite subideal H with t^h∈H+p_a. This is precisely the condition used later for H_λ+p_(λ,a).",
+   "reason": "The hypothesis is evaluated smoothness, not global smoothness. For R=Q[[t]], I=R, a=1, J=(X²(X−1)), h=0 and n=1, the hypotheses hold: f(a)=0 and f′(a)=1. But S has a singular double-point component at X=0, so H_R is proper and cannot contain 1. A finite selection from a witness modulo p_a is sufficient.",
+   "affects": "the proof",
+   "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
+   "searched": [
+    "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
+    "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown."
+   ],
+   "owner": "PAPER-CESNAVICIUS-19",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
+   "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/E3",
+   "kind": "misprint",
+   "locator": "Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
+   "printed": "S̄_λ := R̄_λ ⊗_(R_λ) S",
+   "correction": "The completed finite-stage algebra is S̄_λ=R̄_λ⊗_(R_λ)S_λ, where S_λ=F_λ/J_λ. In the immediately preceding point-ideal list use X_N−c_N for its last generator.",
+   "reason": "The completed root c solves J_λ and gives a section of the base change of S_λ. Tensoring the full S over R_λ instead introduces coefficients from R with no chosen map to R̄_λ and does not supply that section. The final variable/subscript slip is merely typographical.",
+   "affects": "the proof",
+   "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
+   "searched": [
+    "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
+    "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown."
+   ],
+   "owner": "PAPER-CESNAVICIUS-19",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
+   "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/E4",
+   "kind": "misprint",
+   "locator": "Supporting source SGA2, Laszlo annotated edition, XI Lemma3.17(e); inherited finding from the 2026-09-22 continuation",
+   "printed": "pour tout y fermé de X, y ∈ Y",
+   "correction": "Replace y ∈ Y by y ∉ Y in this hypothesis.",
+   "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification.",
+   "affects": "a stated result",
+   "known": "Inherited reading correction to the annotated edition; 1968 North-Holland original and any published correction remain uncollated. Awaiting independent review.",
+   "searched": [
+    "Inherited 2026-09-22 check of https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf at XI3.17(e), XI3.12 and XI3.13(ii), SHA256 1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1; this continuation did not reread that PDF or consult the 1968 original."
+   ],
+   "owner": "PAPER-CESNAVICIUS-19",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
+   "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CESNAVICIUS-22/E1",
    "kind": "error",
    "locator": "Proof of Lemma 6.3, author PDF p. 20 (the published version p. 18, without the footnote)",
@@ -47711,7 +47792,8 @@
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47733,7 +47815,8 @@
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47755,7 +47838,8 @@
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47777,7 +47861,8 @@
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47799,7 +47884,8 @@
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47821,7 +47907,8 @@
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47836,14 +47923,15 @@
    "locator": "Lemma3.2, p.15, final specialization, arXiv v4",
    "printed": "C_X/S(L)=rankL·C_X/S(Λ)",
    "correction": "For the stated general base add Λ_X∈Dctf(X/S,Λ) to this specialization, or restrict to the field-base applications where it holds. For nonlocal coefficient rings specify trace-rank or constant finite-free rank.",
-   "reason": "The preceding formula quantifies F in the ULA subcategory; substituting Λ is not licensed without that hypothesis. Example X={0}→S=A1 with L=Λ: the constant sheaf on X is not ULA over S, so neither relative class in that specialization is defined by(3.1.14). The field-base uses are unaffected.",
-   "affects": "a stated result",
+   "reason": "The preceding formula quantifies F in the ULA subcategory; substituting Λ is not licensed without that hypothesis. Example X={0}→S=A1 with L=Λ: the constant sheaf on X is not ULA over S, so neither relative class in that specialization is defined by(3.1.14). The field-base uses are unaffected. (cc-442dc5) Reclassified to affect nothing: the specialization needs Λ_X ULA over S, which holds over a field base, and the one use of Lemma 3.2 in the paper (Lemma 3.15) is over a perfect field.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
-    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
+    "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47864,7 +47952,8 @@
    "searched": [
     "2026-09-23: arXiv2209.11086 history still lists v4 as latest; full v4 read, especially p.45 image.",
     "2026-09-23: Springer DOI10.1007/s00222-025-01319-y landing page; PDF endpoints returned HTML. No linked correction located, and no assertion about the inaccessible journal passage.",
-    "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated."
+    "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
@@ -47884,7 +47973,8 @@
    "known": "new",
    "searched": [
     "2026-09-23: Saito author bibliography https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html, entry for this paper has no linked correction. Its separately listed corrections concern other papers.",
-    "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared."
+    "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared.",
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
