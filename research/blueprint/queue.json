@@ -10078,8 +10078,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #90"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #90",
+   "finishedAt": "2026-09-23T15:20:34Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_HodgeStructures",
@@ -10512,7 +10513,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_Completed_EffectiveBounds",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #102"
   },
   {
    "id": "LINK-tauceti_Completed_IntegralLattices",
@@ -41385,9 +41387,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-33.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-33",
-   "note": "claimed on GitHub issue #868"
+   "note": "deliverables arrived from an external worker on issue #868",
+   "finishedAt": "2026-09-23T15:20:38Z"
   },
   {
    "id": "AUDIT-34",
@@ -41441,8 +41444,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-34.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-34"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-34",
+   "note": "claimed on GitHub issue #869"
   },
   {
    "id": "AUDIT-35",
@@ -41610,9 +41614,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-37.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-37",
-   "note": "claimed on GitHub issue #872"
+   "note": "deliverables arrived from an external worker on issue #872",
+   "finishedAt": "2026-09-23T15:20:43Z"
   },
   {
    "id": "AUDIT-38",
