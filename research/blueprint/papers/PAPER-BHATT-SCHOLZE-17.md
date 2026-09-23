@@ -10,6 +10,29 @@ Issue [#1300](https://github.com/CBirkbeck/tauceti-explorer/issues/1300). Status
 - **Items.** The result has **266 items: 23 library, 35 planned and 208 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** Twenty-six are recorded under `sourceIssues`.
 
+## Independent review (REV-PAPER-BHATT-SCHOLZE-17)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-17.md`; the counts in the sections below it are the earlier ones
+and are superseded by these.
+
+- **Items: 363** (17 library, 35 planned, 311 missing), each missing item routed once.
+  - 139 fields corrected: 73 statements, 63 locators, 2 kinds, 1 name.
+  - 104 items added for definitions, constructions and cited inputs the proofs use.
+  - Seven removed as not in the paper: L07–L10, L16, L17 (tori and cocharacters, never mentioned) and G816 (a Keel lemma the
+    paper does not cite).
+- **Routes.** All eighteen stand; route 18's brief and the items of the source routes carry the confirmed corrections.
+- **Prerequisites.** Rebuilt as 28 cited works with DOIs or stable links.
+- **Mistakes: 56** (40 misprints, 11 gaps, 5 errors); 5 reach a stated result and 10 a proof.
+  - **E1–E26** are confirmed; nine are revised (E2 was introduced in v3; E23's argument is also in v2, with a counterexample).
+  - **E27–E56** are new, each checked independently. The main ones:
+    - **E27:** Theorem 1.3 needs "of finite presentation".
+    - **E28:** Proposition 3.12 fails in the cardinality-truncated Perf.
+    - **E41:** Proposition 9.7 needs k algebraically closed.
+    - **E29, E31, E36, E37, E39, E42, E52:** gaps in Lemma 4.6, Corollary 5.6, Theorem 6.13, Lemma 7.7, Theorem 8.3,
+      Proposition 10.1 and Proposition 11.41, all fillable.
+  - Theorem 1.1 and the other main results stand.
+
 ## This continuation (cc-442dc5)
 
 **Items.**
