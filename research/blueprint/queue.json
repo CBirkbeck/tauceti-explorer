@@ -2344,8 +2344,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZHU-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1151"
+   "state": "external",
+   "note": "claimed on GitHub issue #1151"
   },
   {
    "id": "REV-PAPER-ZHU-17",
@@ -4844,8 +4844,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1296"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1296",
+   "finishedAt": "2026-09-23T07:24:20Z"
   },
   {
    "id": "REV-PAPER-BENOIST-WITTENBERG-20",
