@@ -12172,7 +12172,15 @@
       "locator": "LemmaA.1.1(1) PDF188; proof PDF200–201",
       "statement": "For p not dividing 2n, automorphic residual r in the standing definite-unitary setting with adequate restriction to G_{F(zeta_p)}, there exists a weak patching functor M_infty such that M_infty(sigma) is nonzero iff sigma belongs to W(r). The construction allows arbitrary away-from-p level after choosing one sufficiently small level realizing all weights.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Work in the standing definite-unitary setting of §9.1 with p not dividing 2n, and take r automorphic with r|_{G_{F(zeta_p)}} adequate.",
+        "Build the patched module M_infty by the Taylor-Wiles construction of A.4-A.5, then define the functor M_infty(-) = Hom^cont_{O[[G_0(Z_p)]]}(M_infty, (-)^dual)^dual from finite O[G_0(Z_p)]-modules to finitely generated R_infty-modules; it is exact and covariant (PDF 200).",
+        "Shrink U^{S_p} so that W = O and so that if r is modular of weight sigma then it is modular of weight sigma AT level G(O_p)U^{S_p}. This is a genuine normalisation, not cosmetic: it is what makes the nonvanishing computation below compute S(U,F)^dual_m.",
+        "Check the weak-patching axioms of Definition 6.2.1. Equidimensionality of R_infty comes from R_infty = R_{r_p} tensor-hat_O R^p with R^p = (tensor-hat_{v in S minus S_p} R_v^{xi_v})[[x_1,...,x_g]].",
+        "Nonvanishing: the chain of identifications on PDF 200 gives M_infty(Ind^{G_0(Z_p)}_{U^{S_p}} F)/a_infty = Hom^cont(lim_r S(K_pU^{S_p},O/pi^r)^dual, (Ind F)^dual)^dual = S(U,F)^dual_m, which is non-zero.",
+        "For the 'if and only if' read the support: M_infty(sigma) is non-zero exactly when sigma is in W(r-bar), which is the statement of part (1). Do not conflate this with detectability, which is part (2) and needs the extra genericity of A02."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A02",
@@ -12181,7 +12189,17 @@
       "locator": "LemmaA.1.1(2) PDF188; proof PDF201",
       "statement": "If additionally local inertia is tame with parameters generic for P_{6n-2}P_{2eta,e}, the functor in A01 can be taken detectable. This uses upper-alcove obvious-weight nonvanishing followed by the external weight-propagation theorem [56, Theorem4.3.8].",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Add the hypotheses of part (2): r_p|_{I_{Q_p}} tame with a lowest alcove presentation (s, mu - eta) in which mu is both P_{6n-2}-generic and P_{2eta,e}-generic.",
+        "Take the functor of A01 and strengthen it to a detectable one. The two inputs are the upper-alcove obvious-weight nonvanishing of A04 and the external weight-propagation theorem cited in the appendix.",
+        "Genericity is what licenses each: P_{2eta,e}-genericity is the hypothesis of A04, and the P_{6n-2} bound is what the propagation step consumes. Record both separately rather than as one 'generic enough' condition.",
+        "Keep the scope of the conclusion exact: detectability is a property of the constructed functor, so the statement is that M_infty CAN be taken detectable, not that every weak patching functor for r_p is."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A04"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A03",
@@ -12190,7 +12208,14 @@
       "locator": "LemmaA.2.1 PDF188",
       "statement": "For a weak patching functor, a (3n-1)-deep sigma0 whose annihilator lies in the component prime p_sigma must cover sigma in the finite-group sense. Type annihilators and the component upper bound establish the implication.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Assume sigma_0 is (3n-1)-deep and Ann_{R_rho} M_infty(sigma_0) is contained in p_sigma(rho).",
+        "Choose a 2n-generic tame inertial L-parameter tau with sigma_0 in JH(sigma-bar(tau)); the depth hypothesis on sigma_0 is what makes such a tau available.",
+        "Apply Definition 6.2.1 to get the chain p_sigma(rho) contains Ann M_infty(sigma_0) contains Ann M_infty(sigma^circ(tau)) contains p_tau(rho) + (pi). The middle containment is the patching axiom; the outer one is the hypothesis.",
+        "Feed that chain into Remark 7.4.3(2), which yields sigma in JH(sigma-bar(tau)).",
+        "Conclude that sigma_0 covers sigma in the finite-group sense. Note what is used and what is not: the argument needs the type annihilators and the component upper bound, and it does not need rho to be generic."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A04",
@@ -12199,7 +12224,19 @@
       "locator": "PropositionA.2.2 PDF188–189",
       "statement": "For P_{2eta,e}-generic tame rho and any weak patching functor for rho, every obvious weight in the highest p-restricted alcove has nonzero evaluation. Use a Hodge-2eta domain, maximal Cohen–Macaulay support and the covering criterion; this does not assert all obvious weights for an arbitrary weak functor without the propagation input.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Let rho be tame with a lowest alcove presentation (s, mu - eta) where mu is P_{2eta,e}-generic, and let M_infty be any weak patching functor for rho.",
+        "Choose tau tame with a lowest alcove presentation eta-compatible with that of rho and w-tilde(tau) = w-tilde(rho) t^{-eta - w_0 eta}.",
+        "Proposition 6.2.3 with Lemma 2.6.7 give M_infty(sigma^circ(eta,tau)) non-zero for any lattice sigma^circ(eta,tau) inside sigma-bar(eta,tau).",
+        "Compute the annihilator. tau has a lowest alcove presentation (s, mu - 2eta - w_0 eta) in which mu - eta - w_0 eta is P_{2eta,e}-generic up to X^0(T), so Ann_{R_rho} M_infty(sigma^circ(eta,tau)) = p_{eta,tau}(rho): here R_rho^{2eta,tau} is a domain by Theorem 7.3.2 and M_infty(sigma^circ(eta,tau)) is maximally Cohen-Macaulay over it by Definition 6.2.1(1).",
+        "Both M_infty(sigma^circ(eta,tau)) and R_rho^{2eta,tau} are O-flat, so the annihilator is p_{eta,tau}(rho) + (pi); by Theorem 7.4.2 it is contained in p_sigma(rho) for every sigma in JH(sigma-bar(eta,tau)), and hence for each such sigma some Serre weight sigma' has Ann M_infty(sigma') inside p_sigma(rho).",
+        "Now specialise to sigma in W_obv(rho) in the highest p-restricted alcove. Proposition 7.4.7(1) puts rho in C_sigma; A03 gives M_infty(sigma') non-zero for some sigma' covering sigma; Proposition 2.3.12(2) forces sigma' = sigma. That is the claim.",
+        "The alcove restriction is essential and should not be dropped: the last step uses that sigma sits in the highest p-restricted alcove."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A03"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A05",
@@ -12655,7 +12692,15 @@
       "locator": "PropositionA.3.2 PDF192",
       "statement": "The relative tangent space of R_S^{square T} over the tensor of local rings is naturally H^1 of the specified Selmer cone. Its displayed quotient includes the local base maximal ideal; keep this relative statement distinct from the incorrect preceding absolute-looking formula.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Fix the setup of A.3.1 and recall from A.3.3 that for (A, m_A) in C_O the reduced tangent space of A is Hom_O(m_A/m_A^2, F), identified with the morphisms A -> F[eps]/eps^2 in C_O.",
+        "For the framed local ring this gives the reduced tangent space of R_rho^square identified with BOTH D_rho^square(F[eps]/eps^2) and C^1(G_{F_v^+}, ad rho).",
+        "Globally, fix the G_n-deformation datum S = (F/F^+, S, O, r-bar, xi, {D_v}) and let L_v inside C^1(G_{F_v^+}, ad r-bar) be the subspace corresponding to D_v(F[eps]/eps^2).",
+        "For T a subset of S, define H^i_{S,T}(G_{F^+}, ad r-bar) as the cohomology of C^i_{S,T} = C^i(G_{F^+,S}, ad r-bar) + sum over v in S of C^{i-1}(G_{F_v^+}, ad r-bar)/M_v^{i-1}, with M_v^i = 0 unless v is in S minus T, and the stated exceptions at i = 0 and i = 1.",
+        "Identify the relative tangent space of R_S^{square T} over the tensor product of the local rings with H^1 of that Selmer complex.",
+        "Keep the statement RELATIVE. The displayed quotient includes the local base maximal ideal, so this is not the absolute tangent space of R_S^{square T}, and the two must not be substituted for one another downstream."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
@@ -12859,6 +12904,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
+      ],
+      "proofSteps": [
+        "Assume the full A.4 setting: p > 2, F/F^+ CM with F^+ not Q, every p-adic place split, a unitary group definite at infinity with the chosen integral model away from N, U sufficiently small, and S containing the p-adic places, the places dividing N and every place where U is not unramified.",
+        "Fix xi = epsilon^{1-n} delta_{F/F^+}^n and a dominant weight lambda, and for each v in S_p an n-dimensional Weil-Deligne inertial type tau_v; let W be the U-lattice in the tensor over v in S_p of sigma(lambda_v, tau_v)^* with sigma(tau_v) as in Theorem 2.5.4, and take D_v = D_{r-bar_v}^{lambda_v, tau_v}.",
+        "Produce the maximal ideal m_Q in T^{P_{S minus Q}} and the map alpha: T^{P_{S minus Q}} -> T^Q(U,W)_{m_Q}.",
+        "Construct r(U,W): G_{F^+,S} -> G_n(T^Q(U,W)_{m_Q}) and pin it down by the characteristic-polynomial identity det(1 - r(U,W)|_{G_F}(Frob_w) X) = sum_j (-1)^j N_{F/Q}(w)^{2j} alpha(T_w^{(j)}) X^j for all w in P_{S minus Q}. Uniqueness is part of the statement and comes from that identity holding for all such w.",
+        "Record the type: S = (F/F^+, S, O, r-bar, xi, {D_v}_{v in S_p} union {D_v^{xi_v}}_{v in S minus S_p}). This is the ORIGINAL level, so the type's place set is S and carries no local problem at Q.",
+        "Do not merge this with A28 and A29. The three conclusions differ precisely in level and in the type's place set, and the diamond case A29 enlarges S to S union Q."
       ]
     },
     {
@@ -13074,7 +13127,18 @@
       "locator": "§A.5 PDF199",
       "statement": "The diamond and frame variables form an M_infty-regular sequence. The augmentation quotient is projective over O[[G_0(Z_p)]], giving maximal Cohen–Macaulayness and, by [82, Theorem6.2], finite projectivity over S_infty[[G_0(Z_p)]]. No generic rank-one conclusion follows here.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Show first that (y_1,...,y_q, z_1,...,z_{n^2 #S}) is an M_infty-regular sequence, where (z_1,...,z_{n^2 #S}) is any O-regular sequence. These are the diamond and framing variables.",
+        "Use that G(O_S)U_S^p is sufficiently small to get that lim over K_p inside U_p and r of S(K_p U_S^p, W/pi^r)^dual is a FINITE FREE O[[G(Z_p)]]-module. Sufficient smallness is doing real work here and should be carried as a hypothesis.",
+        "By (A.4) the quotient M_infty/a_infty is then a finitely generated projective, hence finitely generated maximal Cohen-Macaulay, O[[G_0(Z_p)]]-module.",
+        "Lift that along the regular sequence: M_infty is a finitely generated maximal Cohen-Macaulay S_infty[[G_0(Z_p)]]-module, and by [82, Theorem 6.2] a finitely generated PROJECTIVE S_infty[[G_0(Z_p)]]-module.",
+        "For the framing, set R_infty = R_{S,S}^{loc}[[x_1,...,x_g]] with g = q - [F:Q]n(n-1)/2, choose for each m a surjection R_infty ->> R_{S_{Q_m}}^{square S} by Proposition A.3.3, and assemble the surjective map R_infty -> product_m R_{S_{Q_m}}^{square S} ->> O tensor-hat product_m R_{S_{Q_m}}^{square S}.",
+        "Record that the S_infty-action on M_infty factors through that quotient as in A.4, and that the lift of S_infty into the product exists by formal smoothness of S_infty. Both are used and neither is automatic."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A12"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
@@ -13212,7 +13276,18 @@
       "locator": "ProofLemmaA.1.1 PDF200–201",
       "statement": "Local-global compatibility forces type evaluations to factor through the appropriate ordered semistable quotient. Dimension equality gives maximal Cohen–Macaulayness there and, for weight constituents, on its special fiber. Nakayama identifies nonzero patched weight values with modular weights. The away-from-p tensor is equidimensional by [5]/[12], and is not asserted formally smooth for arbitrary level.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Start from local-global compatibility (A17, A28, A29) and conclude that type evaluations of M_infty factor through the appropriate ordered semistable quotient of the framed deformation ring.",
+        "Compare dimensions: equality of the dimension of that quotient with the dimension of the support gives maximal Cohen-Macaulayness of the evaluation over it.",
+        "Repeat the dimension comparison for the weight constituents on the special fibre, which is where the Serre-weight statements are read off.",
+        "Apply Nakayama to descend the conclusion from the special fibre to the module itself, using the finite generation supplied by A21.",
+        "Keep the two Cohen-Macaulay claims apart: one is over the semistable quotient in mixed characteristic, the other on its special fibre, and they are established by separate dimension counts."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A21"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q01",
@@ -16833,7 +16908,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Same A.4 setting and the same lambda, tau, W and D_v as A17.",
+        "Pass to the auxiliary parahoric level U_0(Q): for v in Q, U_0(Q)_v is iota_v^{-1}(p_v), the standard block upper triangular parahoric for the partition (n - d_v) + d_v of n, where d_v is the dimension of the generalized psi_v-eigenspace.",
+        "Construct r(U_0(Q),W): G_{F^+,S} -> G_n(T_emptyset(U_0(Q),W)_{m_Q}) and characterise it by the same determinant identity, with alpha_0 in place of alpha, for all w in P_{S minus Q}.",
+        "The type is again S = (F/F^+, S, O, r-bar, xi, {D_v}_{v in S_p} union {D_v^{xi_v}}_{v in S minus S_p}) — unchanged from A17 despite the level change. That invariance is the content worth recording here.",
+        "For the proof, use that S(U_0(Q),W) embeds in S(U_1(Q),W) with image the a_Q-torsion S(U_1(Q),W)[a_Q], which is the bridge to A29."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
@@ -16849,7 +16931,15 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Same A.4 setting; now take the diamond level U_1(Q), where U_1(Q)_v is iota_v^{-1}(p_v^1) and p_v^1 is the kernel of p_v -> GL_{d_v}(k_v) -> k_v^times -> Delta_{k_v}, the maximal p-quotient of the residue field's unit group.",
+        "Construct r(U_1(Q),W): G_{F^+,S} -> G_n(T_emptyset(U_1(Q),W)_{m_Q}) with the same determinant identity and alpha_1.",
+        "Record the type, which is the one that CHANGES: S_Q = (F/F^+, S union Q, O, r-bar, xi, {D_v}_{v in S_p} union {D_v}_{v in Q} union {D_v^{xi_v}}_{v in S minus S_p}). The place set is enlarged by Q and local deformation problems are imposed there.",
+        "Proof input: for U^p sufficiently small, S(U_1(Q),W) is a FREE O[Delta_Q]-module for the natural Delta_Q-action, where Delta_Q is the product over v in Q of Delta_v and U_0(Q)/U_1(Q) is identified with Delta_Q.",
+        "Check the compatibility that makes the freeness usable: the induced action on S(U_1(Q),W)_m agrees with the one from the composition O[Delta_Q] -> R_S^Q -> T_emptyset(U_1(Q),W)_m -> End_O(S(U_1(Q),W)_m).",
+        "For each v in Q choose phi_v in W_{F_v^+} lifting the geometric Frobenius and the uniformizer pi_v of O_{F_v^+} with Art_{F_v^+}(pi_v) the image of phi_v; via iota_v define the operators pr_{pi_v} and check they commute, which is what lets the Q-places be handled one at a time."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G38",
