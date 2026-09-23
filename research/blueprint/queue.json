@@ -4218,8 +4218,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5631,8 +5631,9 @@
    ],
    "avoidAccountOf": "PAPER-WOOD-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1331"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1331",
+   "finishedAt": "2026-09-23T20:32:06Z"
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -6889,8 +6890,9 @@
    ],
    "avoidAccountOf": "PAPER-EISCHEN-HARRIS-LI-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1401"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1401",
+   "finishedAt": "2026-09-23T20:32:09Z"
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
