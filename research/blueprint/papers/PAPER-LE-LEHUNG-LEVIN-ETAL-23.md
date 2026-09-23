@@ -1,3 +1,88 @@
+# LLHLM23 continuation: integral polarizations and trace descent
+
+Codex — codex-7e92bd, issue #1254, 23 September 2026. Claim5800991144 was confirmed by the bot. Input: merged main `f33e882562816872c8815d93b9e8fc3a6b499a83`.
+
+**Partial:565 items (81 library,21 planned,463 missing),21 routes,51 unreviewed source findings.** All163 definitions/constructions have uses, API outlines and at least three typed tests. This continuation adds A86–A97 and L77–L81 and refines A38–A44. It supplies proof plans and exact library imports; no new Lean implementation or independent review is claimed. The earlier report below is retained as history; its census and unresolved lattice/descent statements are superseded here.
+
+## A single explicit ramified self-dual lattice
+
+A86 imports the compact-image stable-lattice target already owned by ArithmeticGaloisRepresentations:R01.1. Compactness bounds all translates of a basis lattice; their span is finite over the DVR. The multiplier is a unit because its valuation has compact subgroup image in Z.
+
+A87 uses Mathlib's existing `LinearMap.BilinForm.dualSubmodule`, with no duplicate carrier. Write `P=L*`. The polarization identity and a unit multiplier make P stable. The asymmetry identity `B(x,T y)=c B(y,x)`, with `T L=L` and c a unit, identifies the two opposite-form duals. This is what gives `P*=L`; a general nonsymmetric bilinear form does not have same-form double duality on every lattice. L80 records the actual pinned opposite-form theorems.
+
+A88 replaces the compressed maximality step by an exponent argument. Choose a maximal stable integral lattice between an initial integral L₀ and L₀*. The interval has finite length. Let m be least with `π^m P⊂L`. If m≥2, then
+
+```
+N = L + π^(m−1) P
+```
+
+is a strictly larger stable integral lattice: the cross terms are integral, and `π^m B(P,P)⊂O` while `2m−2≥m`. Thus `πP⊂L`. No semisimplicity supplier or allegation of a source error is needed.
+
+A89 imports the existing LocalFieldsRamification Layer3 Eisenstein and power-basis valuation targets. For `Π²=π`, the coefficient extension has `O′=O⊕ΠO`. The two summands in `a+Πb` have different valuation parity, so integrality is equivalent to a,b∈O. This includes residue characteristic two.
+
+A90 constructs
+
+```
+M = L ⊕ ΠP = O′L + ΠO′P  ⊂  V⊗K K′.
+```
+
+It is an O′-module because `Π(a+Πb)=πb+Πa` and `πP⊂L⊂P`. For `x=a+Πb∈M*`, testing against L gives a,b∈P; testing against ΠP gives a∈L and πb∈L. The latter follows from b∈P. Hence `M*=M`. Its API records membership, the uniformizer action, stability, duality and transport by equivariant isometries. Tests include a nontrivial rank-one defect, the already-unimodular case, Q₂(√2), and failure without `πP⊂L`.
+
+A38 now applies this construction. If Δ has index two, a basis of M makes both action and pairing integral and unimodular. If Δ=Γ, there is no nonidentity-coset pairing; an ordinary stable lattice and unit multiplier suffice. The locator is corrected to author PDF11–12, including the actual lattice proof on PDF12.
+
+## Continuous trace descent with the prescribed congruence
+
+The pinned Tau Ceti Burnside theorem L78 applies to **arbitrary monoids**, not just finite groups. A91 descends its algebraically closed field statement to an absolutely irreducible representation over any field by matrix rank and minors. A92 lifts a residual family of n² group matrices to a basis over a local ring: its coordinate determinant is a unit. Commutation with this basis is commutation with every matrix unit, proving A39's scalar-centralizer claim without an inverse-limit argument.
+
+L79 is Mathlib's full-matrix trace separation theorem. It remains valid when the residue characteristic divides n; no assertion about the trace-zero subspace is made. A42's dual-number argument now explicitly imports A91 and L79 before applying the existing inner-derivation atom A41.
+
+For A43, A95 builds the finite free S-algebra spanned by the chosen group matrices inside M_n(R). The trace Gram matrix is invertible over S. Its inverse expresses every group matrix, and every product of basis matrices, with coefficients in S. If the representation is S-valued modulo I and `J=I∩S`, the same coordinates prove
+
+```
+A∩M_n(I) = JA,           A/JA ≃ M_n(S/J).
+```
+
+No flatness of S→R is assumed.
+
+A93 supplies a compatible idempotent lift in a finite free complete S-algebra. For a lift a of an idempotent, iterate `a↦3a²−2a³`. With `q=a²−a`, the change is `−(2a−1)q` and the new error is `q²(4a²−4a−3)`. These polynomial identities apply in a noncommutative algebra because the iterates are polynomials in one element. Existing adic completeness L27 gives a coordinatewise limit; Krull separation L03 on the appropriate quotient keeps the required congruence. There is no assumption that 2 is invertible.
+
+A94 lifts E₁₁ through A93 and uses the column module Ae. This is a finite projective direct summand, hence free by pinned L81. Lifting the prescribed column basis gives an algebra isomorphism `A≃M_n(S)` agreeing with the given one modulo J. A96 makes the resulting automorphism over R strictly inner. If `f_ij=φ(E_ij)`, take `v=f_11 e₁` and use `f_i1 v` as the columns of g. Then `g≡1 mod I` and `φ(X)=gXg⁻¹`. This constructs the required conjugator in `1+M_n(I)`. A40 uses the same local-matrix argument after lifting its residue conjugator.
+
+A97 separately proves the topology comparison used for continuity. For descending ideals J_a of a complete Noetherian local S with zero intersection, their images in each finite-length `S/m_S^b` stabilize. The stable images have surjective transition maps. A nonzero stable residue could therefore be lifted compatibly and, by completeness and closedness of each J_a, would give a nonzero element of their intersection. Thus the stable image is zero. Applying this to `J_a=S∩m_R^a` proves cofinality with powers of m_S. This works for infinite residue fields. The general coefficient-ring lemma belongs to DeformationAndDerivedPatchingAlgebra:R03.1, and A43 imports it.
+
+Finally A44's principal-unit square root imports L77, `IsAdicComplete.henselianRing` and `HenselianRing.is_henselian`, at `X²−α` and residue root1. The residue derivative2 is a unit. Uniqueness follows because the sum of two roots in `1+m` is a unit. No p=2 square-root claim is added.
+
+## Ownership and pinned evidence
+
+| Items | Classification and common owner |
+| --- | --- |
+| A86 | Planned invariant-lattice import, ArithmeticGaloisRepresentations:R01.1 |
+| A87,A88,A90 | Additional equivariant polarized-lattice suppliers, ArithmeticGaloisRepresentations:G7/R01.1 |
+| A89 | Planned Eisenstein and integral-basis import, existing LocalFieldsRamification Layer3 |
+| A91–A96 | Additional finite trace-algebra and matrix-coordinate suppliers, IntegralHeckeAndGaloisDeterminants:IHG.1 |
+| A97 | Additional cofinality supplier, DeformationAndDerivedPatchingAlgebra:R03.1 |
+| L77–L81 | Existing Hensel, Burnside, trace, bilinear-dual and local-free-module results |
+
+No roadmap or route is added. The completed IntegralLattices roadmap's symmetric Z-lattices do not supply the twisted DVR equivariance statement; its existing generic Mathlib dual carrier is nevertheless reused. IntegralIwasawaTheory and ArithmeticLocallySymmetricSpaces consume stable lattices. ALLEN23/128 and CG18's trace-uniqueness item already use IHG.1; CG20's symplectic refinement retains its AGR route. The local matrix-algebra proof does not use field-only Skolem–Noether over a nonfield coefficient ring.
+
+The fresh atlas snapshot is `b237fd029c342c29bfe3c114d47a7190d4762c87`,631 files, including58 packet/decomposition/reserved-ID inputs. Read reviewed AUDIT-31 rows R01.1/G7, AUDIT-04 LocalFieldsRamification Layer3 and AUDIT-17 R03.1; IHG.1/IHG.2 have no direct reviewed rows in the coverage map, so their actual descriptions and pinned sources were checked. Twelve declaration excerpts across seven files were byte-verified at full library pins. Exact URLs, hypotheses and hashes are in `libraryAudit.codex7e92bdSupplierContinuation`.
+
+Fresh source reading: [CHT author manuscript](https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf), PDF10–16, SHA256 `622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2`. Author pagination is kept distinct from journal pagination. The full212-page published LLHLM reading is inherited from this session's earlier extraction, not newly claimed here. All51 source findings and all sourceData remain unchanged and unreviewed.
+
+## Validation and remaining work
+
+The paper checker passes. There are565 unique IDs,387 acyclic item prerequisite edges, and every missing item is routed exactly once. All163 definition/construction interfaces retain typed tests. The542 prior items outside the six specified refinements are unchanged.
+
+Exact diagnostics passed: two symbolic idempotent identities;3,310 noncommutative finite-ring idempotent lifts;722 strict-inner examples;15 full trace-pairing checks, including p dividing n;1,681 valuation-parity cases; and nonsymmetric duality identities. These check formulas and boundaries, not the general infinite-ring/local-field theorems. No Lean file was required or compiled.
+
+This is a checkpoint on the integral-lattice/descent supplier chain. The remaining paper-wide obligations are still explicit gaps: residual characteristic-polynomial recognition and split-prime Chebotarev, finite-O module topology, A66–A73's global analytic suppliers, the analytic-regularity and approximation/tensor queues, proof-only leaves and external inputs, fine shared-owner reconciliation, and uniform Appendix B integral-parameter certificates. The generic rational Appendix B diagnostics are not uniform specialization proofs. The handoff identifies the next supplier; status remains partial.
+
+---
+
+## Historical report from the preceding continuation
+
+The following report retains its original attribution. Its census is historical, and the new lattice/descent supplier work above supersedes those open obligations.
+
 # LLHLM23 continuation: normalized Speh factors and inertia power ranks
 
 Codex — codex-c83e7a, issue #1254, 23 September 2026. Claim5800141924 was confirmed by5800144728. This continues the533-item packet at `4e834a2a07b662187378eaea20045dbcacaba0bf`.
