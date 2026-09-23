@@ -3848,7 +3848,8 @@
    ],
    "avoidAccountOf": "PAPER-BRESCIANI-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-BRESCIANI-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1234"
   },
   {
    "id": "PAPER-CARO-PASTEN-23",
@@ -4590,7 +4591,8 @@
    ],
    "avoidAccountOf": "PAPER-MAULIK-SHANKAR-TANG-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-MAULIK-SHANKAR-TANG-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1277"
   },
   {
    "id": "PAPER-LI-ZHANG-22",
@@ -4812,8 +4814,9 @@
    ],
    "avoidAccountOf": "PAPER-BRUINIER-EHLEN-YANG-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BRUINIER-EHLEN-YANG-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1289"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1289",
+   "finishedAt": "2026-09-23T18:24:10Z"
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-21",
@@ -5970,8 +5973,9 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-SHANKAR-WANG-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-SHANKAR-WANG-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1351"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1351",
+   "finishedAt": "2026-09-23T18:24:13Z"
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -6717,8 +6721,9 @@
    ],
    "avoidAccountOf": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1394"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1394",
+   "finishedAt": "2026-09-23T18:24:15Z"
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22",
@@ -7327,7 +7332,8 @@
    ],
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1427"
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
