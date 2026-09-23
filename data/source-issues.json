@@ -16253,6 +16253,138 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E1",
+   "kind": "misprint",
+   "locator": "proof of Proposition 4.8, p. 345",
+   "printed": "Démonstration. Le (ii) est une conséquence directe du (i) et de suite exacte ci-dessus. Pour montrer le (ii), on montre d'abord que l'action de G_j (resp., Ǧ_n) sur O(M^ϖ_n)^* (resp., O(LT^ϖ_j)^*) peut se dériver",
+   "correction": "‘Pour montrer le (i)’, and ‘et de la suite exacte ci-dessus’.",
+   "reason": "The first sentence deduces (ii) from (i); the rest of the proof then establishes (i) — that the invariants of the duals vanish — by deriving the action and showing that a functional killed by the Lie algebra is zero. As printed the proof announces twice that it proves (ii) and never that it proves (i).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E2",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.2, p. 349",
+   "printed": "l'isomorphisme D_pst(ρ_{Π̌,p}(−1)) = M (qui découle de l'hypothèse Π_p ≃ JL(M))",
+   "correction": "qui découle de l'hypothèse Π̌_p ≃ JL(M).",
+   "reason": "The choices fixed on p. 348 are Π̌ ∈ SD_{2,n} with Π̌_p = JL(M), and Π the automorphic representation of G(A) matching Π̌ under the global Jacquet–Langlands correspondence, so that Π_p = LL(M). The hypothesis invoked here concerns ρ_{Π̌,p}, so it is the one on Π̌_p; as printed it names the representation whose local component is LL(M), not JL(M).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E3",
+   "kind": "misprint",
+   "locator": "§5.4.2, p. 355",
+   "printed": "comme M est de pente 1/2, le noyau t(B^+_st ⊗ M)^{N=0,φ=1} de θ: (B^+_st ⊗ M)^{N=0,φ=1} → C ⊗ M_dR est réduit à 0",
+   "correction": "θ: (B^+_st ⊗ M)^{N=0,φ=p} → C ⊗ M_dR, i.e. θ defined on X^+_st(M).",
+   "reason": "θ is the map whose kernel is being computed, so its source cannot equal its kernel. Throughout the paper θ is defined on X^+_st(M) = (B^+_st ⊗_{Q_p^{nr}} M)^{N=0,φ=p} (§0.4, §2.1, §5.4), and the kernel of θ on that space is indeed t(B^+_st ⊗ M)^{N=0,φ=1}, which vanishes because M has slope 1/2 > 0. Only the superscript on the source is wrong.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E4",
+   "kind": "misprint",
+   "locator": "Proposition 5.16, p. 355",
+   "printed": "C(S_p(U), F) = H^0(G, Hom(π, LC(S(U)))⊗X",
+   "correction": "C(S_p(U), F) = H^0(G, Hom(π, LC(S(U)))) ⊗ X.",
+   "reason": "A closing parenthesis of H^0(G, −) is missing, so the displayed formula is unbalanced. That the tensor factor X is outside the invariants is exactly the content of the proof, which pulls X out of the Hom because G acts trivially on it; and it is how the proposition is applied three lines later, where Hom_G(π, LC(S(U))) ⊗_L Z appears.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E5",
+   "kind": "misprint",
+   "locator": "§5.4.2, p. 355, the display after ‘En combinant les prop. 5.16 et 5.12’",
+   "printed": "Hom_G(π, LC(U^p)) ⊗_L Z ≃ (B^+_st ⊗_{Q̆_p} H^1_HK(Sh_n(U)[M]))^{φ=p,N=0}",
+   "correction": "Hom_G(π, LC(S(U))) ⊗_L Z ≃ (B^+_st ⊗_{Q̆_p} H^1_HK(Sh_n(U))[M])^{φ=p,N=0}.",
+   "reason": "Two slips in one display. First, U^p is not defined in the paper: the compact open subgroup is U ⊂ G(A^p_f) and the space S(U) = Γ∖G(A_f)/U is the one whose locally constant functions appear in Proposition 5.16, which is being applied here. Second, the M-part is taken of the cohomology of the Shimura curve, as in Proposition 5.12 — H^1_HK(Sh_n(U))[M] — so the bracket closes after Sh_n(U).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E6",
+   "kind": "misprint",
+   "locator": "Lemma 4.4, p. 343",
+   "printed": "Si X est une courbe Stein, on suppose de plus que l'on peut écrire X comme une réunion croissante stricte d'affinoïdes X_n dont les images inverses dans X sont des affinoïdes perfectoïdes.",
+   "correction": "dont les images inverses dans X̂ sont des affinoïdes perfectoïdes.",
+   "reason": "X̂ is the perfectoid covering; the inverse image of X_n in X is X_n itself, which is an affinoid but never perfectoid, so the hypothesis as printed is either vacuous or absurd. The proof states the intended reading: ‘l'image inverse X̂_n de X_n dans X̂ est affinoïde perfectoïde’, and that is also how the lemma is applied in Proposition 4.5 through Remark 4.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1090/jams/935 on 2026-09-23: no correction, no erratum, no update-to/updated-by relation",
+    "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
+    "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
+    "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E1",
    "kind": "gap",
    "locator": "§3.5, after Theorem 3.8, p. 856 (also in arXiv v1, §3.5)",
