@@ -12,7 +12,8 @@
     "readSections": [
       "The entire published article (Forum Math. Pi 10 (2022), e21; 49 pages; §§1–9 and references), read 2026-09-22 from the Cambridge Core open-access PDF, SHA-256 11fbb97a4f7a9e651ea90e249974493aacabf6472daecc0737463c4f64e06d28. Locators are journal pages.",
       "Bruinier–Kühn, arXiv:math/0204100v2, Theorem 4.11 and its proof (pp.27–28), read to check Lemma 5.3."
-    ]
+    ],
+    "sha256Note": "Added by REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22: the SHA-256 recorded in readSections cannot be reproduced, because the Cambridge Core PDF is stamped per download. Two downloads seconds apart on 23 September 2026 gave c444920f80bec96861d7458cbbce05b96dcda84cd38abd1584e85fb2aad6833e and 2897a064acd0121fd05d054495e8ded0a09f4832adbfb3e3c5f89b11a8feda76, neither equal to the recorded 11fbb97a…6d28; the same behaviour was documented for a Cambridge PDF in REV-PAPER-HE-18, where the two downloads differed only in the /ModDate and the bytes downstream of it. The article is open access and the stable citation is the DOI 10.1017/fmp.2022.14; the content, 49 journal pages, is what the locators rest on, and it matched at every locator checked."
   },
   "summary": "Proves that a K3 surface over a number field with everywhere potentially good reduction has infinitely many reductions whose geometric Picard rank jumps (Theorem 1.1). Consequences:\n- such an X_K̄ has infinitely many rational curves, unless X has infinitely many supersingular reductions (Corollary 1.3);\n- abelian surfaces over O_K have infinitely many geometrically nonsimple reductions (Theorem 1.4);\n- the same holds for the Kuga–Satake factors of Assumption 1.5 (Theorem 1.6) and for unitary (r, 1) abelian varieties, which acquire CM elliptic isogeny factors (Corollary 1.7).\n\nAll of these follow from Theorem 1.8. For a GSpin Shimura variety of a maximal lattice of signature (b, 2), b ≥ 3, a Hodge-generic O_K-point meets special divisors Z(m) at infinitely many primes; Theorem 2.4 does this with m ∈ D·□.\n\nThe proof compares two sides of the arithmetic height h_Ẑ(m)(Y):\n- Howard–Madapusi Pera modularity gives h ≍ m^{b/2} (Proposition 3.2);\n- Bruinier's explicit Green function gives an archimedean term ≍ −m^{b/2} log m outside a sparse set of m (Theorems 5.7, 6.1), using local densities, Heath-Brown's and Niedermowwe's circle method, and the diophantine bound of Theorem 5.8;\n- the finite contribution at a fixed prime is o(X^{(b+1)/2} log X) on average over m ∈ D·□ (Theorem 7.1), from deformation-theoretic lattices of special endomorphisms and successive minima.\n\nThe libraries supply lattices, the discriminant form and the overlattice correspondence (Tau Ceti), and Clifford algebras, ₂F₁ and Gamma (Mathlib). The atlas plans the PEL moduli M(r, 1), Serre–Tate, Néron models and the Hodge index theorem.\n\nRoutes:\n- the GSpin integral-model material goes to the orthogonal Part II of ShimuraVarieties proposed by PAPER-CHARLES-16;\n- the heights, Green functions and counting argument go to a new Part II of GrossZagierAndArithmeticHeights;\n- the K3 applications go to the K3 roadmap proposed by PAPER-CHARLES-16;\n- general inputs go to GN.1/GN.3/GN.4, ES.3/ES.4, QM.3, R28.4 and AN.2 as sources.\n\nSix source issues are recorded:\n- for b odd, Lemma 5.3 and Proposition 5.2 are proved only for m ∈ D·□, while Theorems 5.7–5.8 are stated and used for all m (a repair is given);\n- the §7.3 example's approximation gaps are too short;\n- dim B = 2^n should be 2^{n−1};\n- three groups of misprints and slips.",
   "items": [
@@ -1245,7 +1246,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
         "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Proposition 5.2 on p.25 is printed as quoted, with the extra hypothesis for b odd that √(m/D) ∈ Z. The proof of Lemma 5.3 draws the local invariants from Bruinier–Kühn Theorem 4.11, whose odd case carries an m-dependence through d_0(m) that the hypothesis is there to suppress; without it the reduction to the recorded local computation is not available, which is what the correction records.",
+        "by": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
+      }
     },
     {
       "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E2",
@@ -1259,7 +1265,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
         "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 43 prints 'We define the a_i as follows: suppose that a_n ≠ 0; we define a_i = 0 for n + 1 ≤ i ≤ e^{e^{p^n}}, and we then define a_i = 1 for i = ⌈e^{e^{p^n}}⌉', and concludes 'there is an integer x_n of size O(p^n) that approximates μ mod p^N, with N double-exponential in the size of x_n'. The construction has to outrun the discriminant of the lattice rather than the size of x_n, which is what the correction's exp(exp(C·p^{2c(n+1)})) gaps do.",
+        "by": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
+      }
     },
     {
       "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E3",
@@ -1273,7 +1284,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
         "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper's own example decides it. Page 45 prints 'C^+(V) ≅ M_{2^n}(Q); then A^+ is isogenous to B^{2^n}, where B is an abelian variety with dim B = 2^n.' Two paragraphs earlier the same page takes the Kuga–Satake variety of dimension 2^{2+3−1} = 16, so A^+ has dimension 8, and with C^+(V) ≅ M_4(Q) it is isogenous to B^4: that forces dim B = 2 = 2^{n−1} for n = 2, not 2^n. The second slip in the same finding, about ker(s_B − [Dm]), is printed as recorded.",
+        "by": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
+      }
     },
     {
       "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E4",
@@ -1287,7 +1303,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
         "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The display ending the proof of Lemma 7.2 on p.37 reads '… = Σ_{n=1}^∞ Σ_{v ∈ L_n, v∘v=[m]} 1.here', with the stray '.here' inside the display; the other two slips in the finding are of the same typographical kind.",
+        "by": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
+      }
     },
     {
       "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E5",
@@ -1301,7 +1322,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
         "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The display on p.29 reads '≪ Σ_{N=1}^∞ N^{−(s+k)}·N^{b/2}m^{b/2}(log mN)^{−A} ≤ m^{b/2} Σ_{N=1}^∞ N^{−1}(log N)^{−A} ≪ m^{b/2}', where the N = 1 term of the middle sum has log 1 = 0 in a denominator. Keeping (log mN)^{−A} ≤ (log m)^{−A} for that term, as the correction says, repairs the estimate without changing its conclusion.",
+        "by": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
+      }
     },
     {
       "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E6",
@@ -1315,7 +1341,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
         "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the correction, with my verification level stated. Crossref gives the Maulik–Shankar–Tang paper as 'Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture', Inventiones mathematicae 228 (2022), no. 3, so the corrected title is right. The printed omission of 'over function fields' is as the extraction records; the reference pages of this PDF do not come through my own text extraction, so for the printed side I rely on the extraction's reading rather than my own.",
+        "by": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
+      }
     }
   ]
 }
