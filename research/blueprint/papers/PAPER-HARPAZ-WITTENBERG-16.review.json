@@ -1,0 +1,86 @@
+{
+  "paper": "PAPER-HARPAZ-WITTENBERG-16",
+  "verdict": "revise",
+  "status": "complete",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "issue": 1180,
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject until the three Harari inputs are separated with exact original good-model, torsion and intersection hypotheses. The RP.2 owner and corrected variety-level approximation carrier are appropriate, but the present bundle is not a sufficient build interface."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept the corrected source additions to SF.2: characteristic-zero Kummer, residues, henselian finite-residue-ring Brauer vanishing and the projective Faddeev sequence104. Import the existing algebraic Brauer carriers; original proof acquisition remains explicit. This accepts a source request, not proof completion."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the closed-point local Hilbert stability and product-Hilbert source request in IG.2. HW16 Lemmas6.1/8.12 were read, and the rational-point source Smeets Proposition6.1 was independently checked in the correctly identified original paper."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject the current broad contract: WC.5 states smooth-projective cohomological bounds, while24/88 need uniform quasi-projective/model estimates and a constant-field Frobenius-coset condition. The corrected item88 avoids a false unrestricted realization claim, but the source adapter is not yet decomposed."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "Reject until the original Bloch/Srinivas hypotheses and proof suppliers are acquired. E3 confirms missing properness in the printed statement;65 now retains the safe smooth-projective application range. MC.0 is the right correspondence owner but the unrestricted equivalence is not accepted."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject the bundled source after correcting ownership to AN.6. SV.4 plans Maynard bounded gaps, not the conjecture register. Exact H/HH1 predicates and the separate proved implication still need an original source contract."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Reject: the Irving row still contains unspecified suitable local data, and neither analytic supplier has a complete original statement-level extraction. SV.5 is the sieve direction; do not activate an executable theorem from the current paraphrases."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "Reject pending Matthiesen’s exact integral norm-form representation/admissibility, finite complexity and archimedean-region hypotheses. AC.5 owns linear patterns, but the theorem is not supplied by that ownership alone."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept reuse of the independently accepted Bresciani local-points candidate. Finite-K/Qp Mattuck implies finite Pic torsion through the injection Pic⁰(C)→Jac(C)(K); no degree-one point, equality of Picard rational points, or equivalence with finite exponent is assumed."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Accept coalescing these already accepted homogeneous-candidate inputs, preserving HW20 route13’s ownership of1,68,92 and its Borovoi input59. This contribution does not reassign accepted ownership or validate new unrestricted HW16 proof closure; the generic RC prefix and arithmetic consumer order stay explicit."
+    },
+    {
+      "route": 11,
+      "verdict": "reject",
+      "reason": "Reject the enlarged fibration design. Atomic inventory, every definition’s API/tests, original suppliers and exact DAG are still missing; the restricted weak9.2 real proof has E4. Preserve the accepted HW20 candidate and fixed ownership, but do not promise this larger package is ready to build."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Accept the general quasi-projective symmetric-power source in SF.1, importing curve Sym from JacobianChallenge. Smoothness requires f smooth at the support and reduced image; the local disjoint-support quotient argument gives the intended interface without a duplicate curve carrier."
+    },
+    {
+      "route": 13,
+      "verdict": "reject",
+      "reason": "Reject pending the original one-omitted-place additive approximation proof and its exact interfaces. The PartII boundary is justified: existing weak approximation is built, and upstream Layer6 only promises finite-adele density."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Accept the precise finite-étale norm-boundary source in RG2.0a. Splitting gives coordinate hyperplanes and codimension≥2 singular locus, including the empty rank-one case; integral claims are restricted to the unramified base."
+    },
+    {
+      "route": 15,
+      "verdict": "reject",
+      "reason": "Reject pending the original Gras statement/proof and the divisible-idele-class duality interface. The generic theorem is correctly separated from its fibration application as an upstream CFT continuation; the current citation is not proof closure."
+    }
+  ],
+  "notes": "Independent review complete; extraction partial. Routes2,3,9,10,12,14 accepted as bounded source/coalescing requests; other routes need the stated repairs or original source contracts. Four source findings confirmed; E4 is a proof-step counterexample, not a counterexample to a main theorem."
+}

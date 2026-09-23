@@ -1,164 +1,113 @@
-# PAPER-HARPAZ-WITTENBERG-16: On the fibration method for zero-cycles and rational points
+# Harpaz–Wittenberg (2016): extraction after independent review
 
-Yonatan Harpaz and Olivier Wittenberg, *On the fibration method for zero-cycles and rational points*, [Annals of Mathematics 183 (2016), 229–295](https://doi.org/10.4007/annals.2016.183.1.5); arXiv [1409.0993](https://arxiv.org/abs/1409.0993).
+**Extraction status: partial. Independent review: complete, revise.** Codex `codex-7e92bd`, review issue [#1180](https://github.com/CBirkbeck/tauceti-explorer/issues/1180), reviewed the input by Claude Code `cc-39fac3` from PR1953. The reviewer did not author the extraction. The companion JSON is the authoritative statement and change register.
 
-Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1179). Status: **complete**. The whole paper was read, and every missing item is routed once.
+The paper develops the fibration method for zero-cycles over curves and higher-dimensional bases, and conditional or special unconditional rational-point results. Its zero-cycle conclusion uses exactness of the completed modified adelic Chow complex, with closed-point fibre hypotheses. Its rational-point conclusions retain the polynomial conjectures and the precise real-place and bad-fibre restrictions. Conjectures are not proved merely by being registered in the extraction.
 
-The machine-readable extraction is [PAPER-HARPAZ-WITTENBERG-16.result.json](PAPER-HARPAZ-WITTENBERG-16.result.json). It has:
-- 99 items: 1 library, 15 planned, 83 missing;
-- 11 routes;
-- 12 prerequisite entries;
-- 2 recorded source issues.
+The reviewed inventory contains **106 items: 2 library, 15 planned and 89 missing**. Every missing item has exactly one route. Seven rows separate algebra-to-scheme Hensel lifting, general symmetric powers, one-omitted-place approximation, norm-boundary geometry, Faddeev residues and Lemmas9.19–9.20 from earlier bundles. The extraction still lacks atomic rows for several definitions and suppliers, their APIs/tests and a recursively closed dependency graph; G1–G8 enumerate that work.
 
-**Sources read.**
-- **arXiv v4** (22 June 2015, 54 pages), read in full from its TeX source.
-- **The authors' final version**, the PDF on [Wittenberg's page](https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf) that his publication list gives for the Annals paper. A word-level diff shows it is identical to v4 apart from the arXiv header, two punctuation marks, one reference's page range and a postcode.
-- **The Annals PDF** is paywalled. Only its two-page preview (pp. 229–230) was read, and it matches.
+## Sources actually read
 
-Locators are statement numbers, which are the same in every version, with page numbers of the 54-page final version.
+The [author PDF](https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf), all 54 pages including proofs and references, was read independently. The [public published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p05-p.pdf) contains all 67 pages, despite its preview filename. The earlier claim that only two published pages were accessible is superseded. Selected journal pages259–260,265,275,278,280–283,287 were collated, with images265,275,281,283 inspected. [arXivv4](https://arxiv.org/pdf/1409.0993v4) passages31,39,45,47 were checked separately. No full independent rereading of the arXiv TeX archive is claimed.
 
-## What the paper proves
+Original suppliers newly read: [Wittenberg12](https://www.math.univ-paris13.fr/~wittenberg/zerocycles.pdf), pp21–22 Lemma4.2 with proof and Lemma4.3 statement/setup; [Smeets15](https://arxiv.org/abs/1305.0756), pp14–15 Proposition6.1 with proof; [Harpaz–Wei–Wittenberg22](https://www.math.univ-paris13.fr/~wittenberg/hww.pdf), Remark3.2, Theorem4.1 and Remarks5.4 selectively. Other external suppliers are not represented as having been read merely because HW16 cites them. Exact download hashes and scope are in the JSON.
 
-**Zero-cycles (§§2–8).**
-- **Theorem 8.3.** Let f : X → C be a fibration over a curve C whose geometric generic fiber has H¹(−, Q/Z) = 0 and A₀ = 0 over an algebraically closed field; for example, it is rationally connected. Then:
-  - if C and the smooth fibers above the closed points of a Hilbert subset satisfy the Colliot-Thélène–Sansuc–Kato–Saito conjecture (E), so does X;
-  - there is a relative version of this exactness;
-  - Condition 8.1 on the fibers suffices when every fiber has a component of multiplicity 1;
-  - there is a version for (E₁).
-- **Corollary 8.4** extends this to bases birational to P^n × C.
-- **Corollary 8.5.** Any fibration into homogeneous spaces of connected linear groups with connected stabilisers satisfies (E). This covers toric varieties, Châtelet surfaces and p-folds, del Pezzo surfaces of degree 6, and norm hypersurfaces N_{K/k}(x) = P(t) for every K and P.
+## Existing work and corrections
 
-**Rational points (§9).**
-- **Conjecture 9.1** (locally split values of polynomials) is new.
-- **Theorem 9.17 and Corollaries 9.23–9.25.** Under Conjecture 9.1, the same fibration argument gives Brauer–Manin density on the total space of any rationally connected fibration over P^n whose fibers above a Hilbert set satisfy it.
-- **Known cases of Conjecture 9.1:**
-  - Schinzel's hypothesis, for almost abelian extensions (Theorem 9.6);
-  - small degree, by strong approximation on an auxiliary variety W (Theorem 9.11);
-  - linear polynomials over Q, by Matthiesen's additive combinatorics (Theorem 9.14);
-  - one cubic case, by Irving's sieve (Theorem 9.15).
-- **Unconditional results:**
-  - Theorem 9.28: over Q, when the non-split fibers lie over rational points;
-  - Corollary 9.29: pencils of homogeneous spaces;
-  - Theorem 9.31: rank at most 2.
+At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete` gives exactly algebra lifting to an adically complete ring. Item25 now has that precise scope; the scheme-smoothness and affine-chart adapter is planned separately in100. At TauCeti `f790474821cf4256814db967cb154e7af3d0c369`, `TauCeti.GlobalNumberFields.weakApproximation_denseRange` already proves density in finite products of genuine mixed completions; item99 is now library. Neither declaration supplies strong approximation with an arbitrary finite place omitted.
 
-**How the proofs work.**
-- **The key idea** is to replace Dirichlet's theorem on primes in progressions, and with it all the old abelianness hypotheses, by strong approximation on affine space minus a codimension-2 subset (Lemmas 1.8 and 5.2).
-- **The machinery:**
-  - Wittenberg's groups Pic₊(C) and Br₊(C), with their arithmetic duality (Theorem 2.5);
-  - a formal lemma for effective zero-cycles in a fixed divisor class (Proposition 3.1);
-  - Harari's specialisation of the Brauer group over a Hilbert set (Proposition 4.1);
-  - the core existence theorem (Theorem 5.1), with its Hilbert-set strengthening (Theorem 6.2);
-  - completion arguments that pass from ĈH_{0,A} to effective cycles (§7).
+The exact cited layer descriptions and corresponding reviewed coverage rows were read. GlobalNumberFields Layer6 names only finite-adele density. JacobianChallenge LayerC owns curve symmetric powers, not arbitrary quasi-projective quotients. RG2.0a owns affine Weil restriction; the normal-crossings boundary claim must be restricted to finite étale integral models and has empty singular locus in rank1. SF.2 owns cohomological Brauer/residue and Kummer interfaces; T.4 supplies Weil reciprocity. All these are planned interfaces, not implemented fibration theorems.
 
-## What the atlas already has
+The Faddeev sequence originally combined an affine-only residue index with the projective sum-of-corestrictions map. Corrected104 includes infinity; the affine alternative ends at its residue direct sum. The Smeets bibliography was a different paper by a misnamed author: the correct supplier is Arne Smeets, *Principes locaux-globaux pour certaines fibrations en torseurs sous un tore*, DOI10.1017/S0305004114000577, arXiv1305.0756.
 
-**Library.** Hensel lifting for formally smooth algebras over complete rings (Mathlib, `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete`).
+Other clear corrections include the good-place moving hypothesis, characteristic-zero Kummer coefficients, the actual model hypotheses in relative curve vanishing, finite Pic torsion as a consequence of Mattuck, the image of Br(k) rather than an asserted isomorphism, and constant-field compatibility in geometric Frobenius realization. The JSON records each changed field and its previous value.
 
-**Planned:**
-- adelic points and the Brauer–Manin set (RP.2);
-- Hilbert subsets and Hilbert irreducibility (IG.2);
-- torus Poitou–Tate (R02.4);
-- smooth and proper base change, and Hochschild–Serre (SF.2, R02.2);
-- Weil restriction (RG2.0a);
-- Weil reciprocity and the Bass–Tate analogue of Faddeev's sequence (K2SymbolsBrauer T.4);
-- the projection formula (SF.5);
-- resolution in characteristic 0 (SF.4);
-- in the Tau Ceti roadmaps:
-  - Riemann–Roch, Serre duality, cohomology and base change, and symmetric powers (Jacobian Challenge B–C);
-  - global reciprocity and the norm theorems (Class field theory Layers 10 and 13);
-  - Chebotarev (Layer 10);
-  - weak and additive strong approximation (Global number fields Layers 1 and 6).
+## Route decisions
 
-**Not in the atlas:**
-- the fibration method itself;
-- (E) and its adelic Chow groups;
-- Pic₊/Br₊;
-- the cycle formal lemma;
-- specialisation of Brauer groups;
-- Conjecture 9.1 and every result that depends on it;
-- the Lang–Weil estimate for arbitrary varieties, Ekedahl's Chebotarev, Bloch–Srinivas and Mattuck;
-- Schinzel's hypothesis, Heath-Brown–Moroz, Irving, Matthiesen and Borovoi.
+Acceptance below approves the bounded source request or coalescing contribution. It does not certify the whole paper or the unexpanded external proofs.
 
-## Routes
+### 1. HeightsRationalPointsAndObstructions — reject
 
-**Coalescing with HW20.** PAPER-HARPAZ-WITTENBERG-20 (a partial extraction, not yet reviewed) proposed the Part II HeightsRationalPointsPartIIZeroCycles, and its brief says to "decompose HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2". This extraction therefore routes HW16's whole fibration method to that same id rather than proposing a new roadmap. There is then one owner for Theorem 8.3.
+Reject until the three Harari inputs are separated with exact original good-model, torsion and intersection hypotheses. The RP.2 owner and corrected variety-level approximation carrier are appropriate, but the present bundle is not a sufficient build interface.
 
-1. **Source of RP.2** (3 items): Manin's cycle pairing; Harari's formal lemma, ramified-evaluation and fiber-evaluation theorems; Stoll's adelic points modulo connected components. HW20 already routes the cycle pairing and the formal lemma to RP.2.
-2. **Source of SF.2** (3 items): Grothendieck's sequence Pic⊗Q/Z → H² → Br with finiteness of geometric Br; residues of pulled-back classes along fiber components; Br of complete local rings with finite residue field.
-3. **Source of IG.2** (2 items): Lemma 6.1 (after Swinnerton-Dyer and Smeets, closed points in Hilbert sets under local approximation) and Lemma 8.12 (Hilbert subsets of products).
-4. **Source of WeilConjectures WC.5** (2 items): the Lang–Weil–Nisnevich estimate for arbitrary geometrically irreducible varieties, and Ekedahl's geometric Chebotarev.
-5. **Source of MotivesAndAlgebraicCycles MC.0** (1 item): the Bloch–Srinivas decomposition of the diagonal.
-6. **Source of SieveMethodsAndPrimePatterns SV.4** (1 item): Schinzel's hypothesis (H), (HH₁) and (H) ⇒ (HH₁). RS-07 made SV.4 the register of prime-tuple conjectures.
-7. **Source of SV.5** (2 items): Heath-Brown–Moroz, and Irving's sieve for binary cubic forms.
-8. **Source of AdditiveCombinatorics AC.5** (1 item): Matthiesen's theorem on norm-form values of linear forms.
-9. **Part II AbelianSchemesAndArithmeticModuliPartIILocalPoints** (1 item): Mattuck's theorem, the endpoint of the candidate proposed by BRESCIANI-24 (same id).
-10. **Part II HeightsRationalPointsPartIIHomogeneousMassey** (1 item): Borovoi's theorem (with Sansuc for tori). HW20 imports it from this accepted candidate (HW23's Part II, design job #1887).
-11. **Part II HeightsRationalPointsPartIIZeroCycles** (66 items): everything else, i.e. the fibration method for zero-cycles and for rational points. The brief:
-    - states the final theorems exactly and lists every lemma chain;
-    - suggests retitling the roadmap to "… Part II: zero-cycles and the fibration method";
-    - names every import;
-    - carries the corrected arguments of E1–E2.
+### 2. SchemeAndStackFoundations — accept
 
-**Ownership still to reconcile.** HW20's routes send Conjecture 1.1 (its item 133), HW16's Conjecture 9.1 (its item 76) and Corollary 9.25 (its item 77) to HomogeneousMassey. These are general fibration statements with no homogeneous-space content, so this extraction proposes ZeroCycles as their single owner, with HomogeneousMassey importing them. HW20's review, or the design jobs, should settle this, and the brief says so.
+Accept the corrected source additions to SF.2: characteristic-zero Kummer, residues, henselian finite-residue-ring Brauer vanishing and the projective Faddeev sequence104. Import the existing algebraic Brauer carriers; original proof acquisition remains explicit. This accepts a source request, not proof completion.
 
-## Source issues (`sourceIssues` E1–E2)
+### 3. InverseGaloisAndArithmeticFundamentalGroups — accept
 
-- **E1** (misprint, Lemma 9.13(4), p. 39; nothing affected). "Thus we may assume that w lies above a place of S′" should read "does not lie above".
-  - The case w above S is the first alternative of (4), and the case w above S′ ∖ S has just been excluded.
-  - The integrality properties that the next clause lists hold only for w outside S′.
-  - The identity b′_i(t′₀ − a′_i) = b_i(t₀ − a_i)(α − γt′₀) was checked.
-- **E2** (error in the proof of Theorem 9.22, p. 47; affects the proof). The step "we may assume … that any element of B₀ evaluates trivially on X(k_v) for any v ∈ Ω ∖ S", followed by arbitrary points x″_v ∈ X_h(k_v), fails for non-proper X, which Theorem 9.17, and hence Theorem 9.22, allow.
-  - **Counterexample.** X = 𝔾_m × P^1 → P^1 with β = (x, a). Then β lies in B₀ and is nonzero at points of odd valuation for the infinitely many v inert in k(√a).
-  - **Repair.** Take a model with B₀ defined on it, integral x_v outside S, and integral points x″_v ∈ 𝒳_h(𝒪_v).
-  - **Effect.** Every later application is to proper X, where the printed claim holds.
+Accept the closed-point local Hilbert stability and product-Hilbert source request in IG.2. HW16 Lemmas6.1/8.12 were read, and the rational-point source Smeets Proposition6.1 was independently checked in the correctly identified original paper.
 
-**Also checked and correct:**
-- Lemma 1.8 and Lemma 5.2. For the latter, the components of D ∖ F are permuted like the embeddings of L.
-- The formal-lemma arguments of §3.
-- The residue argument of Lemma 5.3, with gcd(e_{m,i}) = 1.
-- The real-place parity argument of Lemma 5.5.
-- The completion arguments of Propositions 7.4–7.5 and Lemma 7.6 (N even for the real places).
-- Assertions (2) and (4) of Theorem 8.3, including the degree bookkeeping in (4).
-- The purity/Leray argument of Lemma 8.9.
-- The Schinzel argument of Theorem 9.6, including the added inert places.
-- The structure of W in Theorem 9.11(i)–(ii) (dimension 5, a punctured cone over a 4-dimensional quadric).
-- The sign bookkeeping of Lemma 9.16.
-- The connected-component argument at real places in Theorem 9.17.
-- The Frobenius bookkeeping of Lemma 9.20.
+### 4. WeilConjectures — reject
 
-**Noted but not recorded as mistakes:**
-- Remark 9.3(ii), that Conjecture 9.1 over Q implies it over every number field, is only sketched ("compare [CTSD94, Proposition 4.1]"). It is not used in the paper. The brief asks the design to write out the reduction before anything relies on it.
-- Theorem 9.31 carries a footnote added in proof, saying one hypothesis is superfluous, with details to appear elsewhere. The atlas keeps the printed hypothesis.
+Reject the current broad contract: WC.5 states smooth-projective cohomological bounds, while24/88 need uniform quasi-projective/model estimates and a constant-field Frobenius-coset condition. The corrected item88 avoids a false unrestricted realization claim, but the source adapter is not yet decomposed.
 
-**Where corrections were looked for:**
-- arXiv v1–v4.
-- The authors' page.
-- The Annals article page; no erratum is listed there, but the full published text could not be checked.
-- Crossref, which records no update relation.
+### 5. MotivesAndAlgebraicCycles — reject
 
-## Prerequisites not yet covered
+Reject until the original Bloch/Srinivas hypotheses and proof suppliers are acquired. E3 confirms missing properness in the printed statement;65 now retains the safe smooth-projective application range. MC.0 is the right correspondence owner but the unrestricted equivalence is not accepted.
 
-- Wittenberg, Duke 2012.
-- Harari 1994 and 1997.
-- Matthiesen, JIMJ 2018.
-- Irving, Crelle 2017.
-- Borovoi, Crelle 1996.
-- Graber–Harris–Starr 2003.
-- Bloch–Srinivas 1983.
-- Colliot-Thélène–Skorobogatov–Swinnerton-Dyer 1998.
-- Heath-Brown–Moroz 2004.
-- Smeets 2015.
-- Ekedahl 1990.
-- Saito 1989.
+### 6. AnalyticNumberTheory — reject
 
-All DOIs were checked against Crossref. Ekedahl's article has no DOI.
+Reject the bundled source after correcting ownership to AN.6. SV.4 plans Maynard bounded gaps, not the conjecture register. Exact H/HH1 predicates and the separate proved implication still need an original source contract.
 
-## Checks
+### 7. SieveMethodsAndPrimePatterns — reject
 
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json`: ok.
-- Every missing item is in exactly one route, and no route takes a planned or library item.
-- Every cited layer was read in `data/atlas.json`, together with:
-  - the RS-07 and RS-29 restructurings, which keep IG.2, SV.4 and SV.5 as cited;
-  - the candidate briefs of HW20, HW23 and BRESCIANI-24, and the design job #1887.
-- The Mathlib citation was read at 082e2d3: `RingTheory/Smooth/AdicCompletion.lean:94`.
-- No Lean was written or compiled; none is a deliverable of this job.
+Reject: the Irving row still contains unspecified suitable local data, and neither analytic supplier has a complete original statement-level extraction. SV.5 is the sieve direction; do not activate an executable theorem from the current paraphrases.
+
+### 8. AdditiveCombinatorics — reject
+
+Reject pending Matthiesen’s exact integral norm-form representation/admissibility, finite complexity and archimedean-region hypotheses. AC.5 owns linear patterns, but the theorem is not supplied by that ownership alone.
+
+### 9. AbelianSchemesAndArithmeticModuliPartIILocalPoints — accept
+
+Accept reuse of the independently accepted Bresciani local-points candidate. Finite-K/Qp Mattuck implies finite Pic torsion through the injection Pic⁰(C)→Jac(C)(K); no degree-one point, equality of Picard rational points, or equivalence with finite exponent is assumed.
+
+### 10. HeightsRationalPointsPartIIHomogeneousMassey — accept
+
+Accept coalescing these already accepted homogeneous-candidate inputs, preserving HW20 route13’s ownership of1,68,92 and its Borovoi input59. This contribution does not reassign accepted ownership or validate new unrestricted HW16 proof closure; the generic RC prefix and arithmetic consumer order stay explicit.
+
+### 11. HeightsRationalPointsPartIIZeroCycles — reject
+
+Reject the enlarged fibration design. Atomic inventory, every definition’s API/tests, original suppliers and exact DAG are still missing; the restricted weak9.2 real proof has E4. Preserve the accepted HW20 candidate and fixed ownership, but do not promise this larger package is ready to build.
+
+### 12. SchemeAndStackFoundations — accept
+
+Accept the general quasi-projective symmetric-power source in SF.1, importing curve Sym from JacobianChallenge. Smoothness requires f smooth at the support and reduced image; the local disjoint-support quotient argument gives the intended interface without a duplicate curve carrier.
+
+### 13. GlobalNumberFieldsPartIIOmittedPlaceApproximation — reject
+
+Reject pending the original one-omitted-place additive approximation proof and its exact interfaces. The PartII boundary is justified: existing weak approximation is built, and upstream Layer6 only promises finite-adele density.
+
+### 14. ReductiveGroupsPartII — accept
+
+Accept the precise finite-étale norm-boundary source in RG2.0a. Splitting gives coordinate hyperplanes and codimension≥2 singular locus, including the empty rank-one case; integral claims are restricted to the unramified base.
+
+### 15. ClassFieldTheoryPartIICharacterCorestriction — reject
+
+Reject pending the original Gras statement/proof and the divisible-idele-class duality interface. The generic theorem is correctly separated from its fibration application as an upstream CFT continuation; the current citation is not proof closure.
+
+HW20 routes13/14 and HW23 route8 have now been accepted. Their shared homogeneous owner retains Conjecture1.1, Conjecture9.1 and Corollary9.25; the earlier proposal to move those items from an allegedly unreviewed candidate is removed. The generic rational-connectedness prefix of the zero-cycle continuation precedes the homogeneous layer, and final arithmetic consumers come later. Bresciani’s accepted local-points route remains the single Mattuck owner. No upstream TauCeti roadmap is rewritten.
+
+## Findings in the published source
+
+- **E1, confirmed misprint, published p275:** the remaining case in Lemma9.13(4) lies outside S-prime. The Möbius identity is correct; the complement is the slip.
+- **E2, confirmed proof error, p283:** a finite Brauer subgroup need not vanish on every local point outside a fixed finite set when X is nonproper. Integral outside-S choices on a common model repair this step; the separate E4 issue remains.
+- **E3, confirmed missing properness, p265:** Lemma8.11 uses the degree-zero Chow invariant outside its defined domain. On A1 the principal divisor of t has degree1. The extraction retains the smooth-projective application range; arbitrary singular/proper generality is not newly certified.
+- **E4, confirmed proof-step error, p281:** a flat proper map need not be open on real points. The explicit cubic family and component calculation are in the independent review. This is not a counterexample to the main theorem. The restricted weak-Conjecture9.2 real case needs a valid replacement; simply shrinking the base changes the assumed polynomial/sign data.
+
+A bounded correction search checked the publisher landing, author publication pages, arXiv version history, relevant later-paper passages and targeted erratum searches. No relevant separate correction was identified. That is not a discovery-priority assertion or a claim to have surveyed every later paper.
+
+## Remaining work and validation
+
+- **G1 — Atomic inventory:** Split16–18,21–23,26,35–38,46–48,51,60,64,67,72,76,79,83,95 into separate definitions/lemmas. Rational connectedness, condition8.1, property(*), relative Chow kernels, and the remaining named proof lemmas need standalone contracts.
+- **G2 — Definition APIs and tests:** None of the99 input rows supplied a planning API, tests or dependency array. Supply a consumer-derived API and at least three discriminating tests for every definition; the exact counterexamples below are review evidence, not a substitute for those per-definition obligations.
+- **G3 — Original source closure:** Acquire Wit12 duality/completion/local Chow statements, Har94/97, CT00/CTP00/CT11, Bloch80/BS83, GHS, Saito/Milne, Kollár–Szabó, Gras, and the uniform Lang–Weil/Ekedahl suppliers in their original versions. Only the specifically recorded Wit12/Smeets passages were newly read; quotations by HW16 are not original-source verification.
+- **G4 — Analytic source contracts:** Replace suitable local data in82 and the summary80 with exact Irving/Matthiesen/Heath-Brown–Moroz/Swinnerton-Dyer hypotheses and proof decompositions; separate conjecture predicates from proved reductions.
+- **G5 — Weak real fibration branch:** E4 refutes the printed real-openness/component step. Supply a valid replacement under the restricted9.2 hypothesis, or clearly advertise a strengthened hypothesis. E2 integral choices do not solve E4.
+- **G6 — Generic ownership and stage DAG:** Preserve accepted HW20 homogeneous/zero-cycle stage ownership, finish the exact generic owner of power-quotient completion47, and separate the new upstream continuations102/87. Source route4 still needs the uniform/nonproper and constant-field contracts beyond current WC.5.
+- **G7 — Source-level to library bridges:** Read the exact original finite-field/local-ring Brauer and cycle suppliers; close scheme-smoothness/algebra lifting100, Pic⁰ versus Jacobian points, site/Kummer/residue and quotient-Sym bridges. Built abstract carriers do not supply these geometric theorems.
+- **G8 — Plan completeness:** The new explicit dependency edges cover checked central arguments only. Build an acyclic statement-level DAG down to pinned declarations or already owned exact interfaces; do not use a missing theorem as its own supplier. Review complete does not mean extraction complete.
+
+The independent review report records the exact validation results. No Lean file is an issue deliverable, and no Lean compilation or formalization is claimed.
+
+Final validation: paper checker passed; exact five-file intake passed (0 problems); structural audit passed (106 unique items, 89 missing items each routed once and searched, 105 acyclic edges, 15 route verdicts and four finding verdicts). Seven symbolic calculations and three arithmetic sanity checks passed. No Lean compilation claimed. Atlas inputs refreshed at `56a4451639a928390a1d48b04dc8e5c2ceb51654` and guarded by exact blobs at publication. Fresh changed-result/review ownership screened. Benoist–Wittenberg20 route3 retains universal CH0 support and diagonal action at MC.0; its route6/component-separators concern equivariant real-locus cohomology, not openness of a flat proper map. The diagonal-vanishing row itself retains GAP-DIAGONAL. Gleason–Lim–Xu26 routes1/8 retain RG2.0a and Tannakian MC.6; no replacement fibration/approximation owner is introduced. The other refreshed candidates do not replace these exact interfaces. Existing accepted HW20/HW23 and Bresciani ownership was read in full at the relevant routes.
