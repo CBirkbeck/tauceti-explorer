@@ -5611,3 +5611,37 @@ A blueprint must open the file before relying on any of the three. The other 159
 4. **`A` (Appendix A, 58)** last: it is the largest, and Lemma A.1.1 is the one piece of it that §9 already
    depends on through V07, so its steps should be written with V07's obligations in hand.
 5. The **61 findings still carry no verdicts**; they are the review job's business, not this one's.
+
+## Continuation — Appendix A proof steps (cc-fb70e5, 23 September 2026)
+
+Second checkpoint from this session, closing the **Appendix A (patching functor) cluster**: `proofSteps` for
+A01, A02, A03, A04, A12, A17, A21, A24, A28 and A29, with prerequisite edges for six. The theorem-like proof
+backlog falls 222 → 212 and now contains no A items. Census unchanged at 709 items, 24 routes and 91
+unreviewed findings, all inherited ids, `sourceData` and findings preserved. PDF 188–189, 192, 196–197 and
+199–201 read fresh.
+
+**Appendix A differs from Appendix B in kind: its proofs are given in full**, so these steps track the
+paper's own arguments rather than recording machine computations. The value added is making explicit which
+hypotheses carry the weight, since several invite being dropped:
+
+- **A03** needs σ₀ **(3n−1)-deep** only to supply a 2n-generic tame τ with σ₀ ∈ JH(σ̄(τ)); after that the
+  proof is the containment chain p_σ(ρ) ⊇ Ann M_∞(σ₀) ⊇ Ann M_∞(σ°(τ)) ⊇ p_τ(ρ) + (π) from Definition
+  6.2.1, fed into Remark 7.4.3(2). ρ is not assumed generic.
+- **A04**'s annihilator computation `Ann M_∞(σ°(η,τ)) = p_{η,τ}(ρ)` rests on two separate inputs —
+  R_ρ^{2η,τ} being a domain (Theorem 7.3.2) and maximal Cohen–Macaulayness (Definition 6.2.1(1)) — with
+  O-flatness supplying the (π). The closing step needs σ in the **highest p-restricted alcove**, where
+  Proposition 2.3.12(2) forces σ′ = σ.
+- **A17, A28, A29** are Theorem A.4.1's three conclusions and differ *only* in level and in the type's place
+  set: A17 and A28 share the same type S, and **A29 alone** enlarges it to S_Q with place set S ∪ Q and local
+  deformation problems at the Taylor–Wiles places. Its proof turns on S(U_1(Q),W) being a free O[Δ_Q]-module
+  with S(U_0(Q),W) identified with the a_Q-torsion, plus the compatibility of that action with the one coming
+  from O[Δ_Q] → R_S^Q → T_∅(U_1(Q),W)_m.
+- **A21** depends on `G(O_S)U_S^p` being **sufficiently small**, which is what makes
+  lim S(K_pU_S^p, W/π^r)^∨ finite free over O[[G(Z_p)]], and on formal smoothness of S_∞ for the lift into
+  the product of framed rings; [82, Theorem 6.2] then upgrades maximal Cohen–Macaulay to projective.
+- **A12** is **relative**: its displayed quotient includes the local base maximal ideal, so it is not the
+  absolute tangent space of R_S^{□T} and must not be used as such.
+- **A01** records the normalisation that makes the nonvanishing computation work — shrinking U^{S_p} so that
+  W = O and modularity of weight σ holds at level G(O_p)U^{S_p} — after which the chain of Hom
+  identifications on PDF 200 computes S(U,F)^∨_m ≠ 0. **A02**'s detectability is a property of the
+  *constructed* functor, not of every weak patching functor for r_p.

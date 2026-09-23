@@ -1,5 +1,70 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-fb70e5, issue #1254, 23 September 2026. **Partial** checkpoint, the second from this
+session. Census on arrival: **709 items (120 library, 34 planned, 555 missing), 24 routes, 91 unreviewed
+findings** — grown from the 652/61 of the previous handoff by another worker's pass. Nothing was added,
+removed or renumbered here, and no finding or `sourceData` entry was touched.
+
+## Completed in this continuation
+
+Closed the **Appendix A (patching functor) cluster**, which the previous handoff's resume item 2 named as
+the natural next one. `proofSteps` written for all ten theorem-like A items — **A01, A02, A03, A04, A12,
+A17, A21, A24, A28, A29** — with prerequisite edges for six. The theorem-like backlog drops **222 → 212**
+and by prefix the remainder is {'N': 46, 'G': 43, 'M': 32, 'B': 32, 'K': 29, 'U': 26, 'V': 2, 'Z': 1,
+'P': 1}, with **no A items left**. PDF pages **188–189, 192, 196–197 and 199–201** were read fresh this pass.
+
+Unlike the Appendix B cluster, **Appendix A's proofs are given in full in the paper**, so these steps track
+real arguments rather than recording machine computations. What is worth carrying forward is which
+hypotheses are load-bearing, because several are easy to drop:
+
+- **A03 (Lemma A.2.1)** needs σ₀ to be **(3n−1)-deep** precisely to supply a 2n-generic tame τ with
+  σ₀ ∈ JH(σ̄(τ)); the rest is the containment chain p_σ(ρ) ⊇ Ann M_∞(σ₀) ⊇ Ann M_∞(σ°(τ)) ⊇ p_τ(ρ) + (π)
+  from Definition 6.2.1, fed into Remark 7.4.3(2). ρ need not be generic.
+- **A04 (Proposition A.2.2)** turns on the annihilator computation `Ann M_∞(σ°(η,τ)) = p_{η,τ}(ρ)`, which
+  uses **two** separate inputs — R_ρ^{2η,τ} a domain (Theorem 7.3.2) and maximal Cohen–Macaulayness
+  (Definition 6.2.1(1)) — and then O-flatness to add (π). The final step needs σ in the **highest
+  p-restricted alcove**: Proposition 2.3.12(2) is what forces σ′ = σ.
+- **A17/A28/A29** are the three conclusions of Theorem A.4.1 and differ *only* in level and in the type's
+  place set. A17 and A28 (original and parahoric level U₀(Q)) carry the **same** type S; **A29 alone**
+  enlarges it to S_Q with place set S ∪ Q and local problems at v ∈ Q. Do not merge them.
+- **A21 (§A.5)** depends on `G(O_S)U_S^p` being **sufficiently small** — that is what makes
+  lim S(K_pU_S^p, W/π^r)^∨ finite free over O[[G(Z_p)]] — and on formal smoothness of S_∞ for the lift into
+  the product of framed rings. Neither is automatic.
+- **A12 (Proposition A.3.2)** is a **relative** tangent-space statement: the displayed quotient includes the
+  local base maximal ideal, so it must not be substituted for the absolute tangent space of R_S^{□T}.
+
+## Resume in order
+
+1. The **`analytic-regularity-suppliers` frontier** is still first and still untouched by this session:
+   inner proofs at the existing owners for the Z100/Z101 depth and projective-dimension bounds,
+   finite-separable regularity base change behind Z99, characteristic-p formal fibres 07PR/07PU with their
+   p-basis and formal-smoothness suppliers, and Cohen structure 032D with its exact hypotheses.
+2. Continue the proof queue by prefix. The remaining clusters are large (N 46, G 43, M 32, B 32, K 29,
+   U 26); **V (2 items) and the singletons Z and P are the cheapest next closes**, and V07/V09/V11/V12/V13
+   depend on the A interfaces this pass just documented, so V is the natural follow-on.
+3. Continue item-by-item declaration matching and shared-owner reconciliation across the 709-item packet.
+   No library blob was re-audited this pass.
+4. **Appendix B's remaining work is three certificates**, established in the previous checkpoint (PR #2538)
+   and unchanged: a uniform integral Jacobian certificate for `t³ ∈ H` (Q06, currently a bare Macaulay 2
+   claim whose exponent r = 3 feeds Prop. 3.3.9 and Cor. B.0.5's depth bound), a parametric Gröbner system
+   over `Z[a,b][1/P]` with its exceptional denominator locus (Q08, currently proved with (a,b) specialized
+   into a field), and a re-derivation of Table 1's rows from that system (Q09).
+5. Keep full-paper completion and independent review separate. All **91** findings remain unreviewed, and
+   this session has authored part of this extraction, so it must not review it.
+
+## Verification this pass
+
+`check_paper.py` ok; three-file intake ok (0 problems). Structural audit: 709 unique ids, all inherited ids,
+`sourceData` and all 91 findings preserved; prerequisite graph **acyclic** at 617 edges (from 591 + 26 new,
+of which the six A prerequisite lists are this pass's contribution); every missing item still has exactly one
+route. No Lean file required or compiled. No route, roadmap or atlas change.
+
+---
+
+# Attributed history — previous handoffs
+
+# LLHLM23 — current handoff
+
 Claude Code — cc-2aeb03, issue #1254, 23 September 2026. **Partial** checkpoint. Census **709 items (120 library, 34
 planned, 555 missing), 24 routes, 91 unreviewed findings**; last ids **N82, U45, M50, K54, P17, G66, B55, V16, Q13, E91**
 (A107, Z105 and L119 unchanged). Every inherited id, finding and `sourceData` entry is preserved.
