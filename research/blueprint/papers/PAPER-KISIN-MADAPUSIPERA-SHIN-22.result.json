@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -17,7 +17,7 @@
       "All 41 pages freshly read contiguously, including Appendix A and references; image checks at PDF pages 6,11,14,19,20,26,28,29,34,37."
     ]
   },
-  "summary": "A 182-item partial extraction preserving all prior IDs/statuses and the corrected absolute Weyl group and fibre product. The continuation constructs quasi-split ordinary classes and proves a quaternion inner-form counterexample, with a unique basic admissible class that is not ordinary. Twelve version-scoped source findings are explicit. Original-source closure and the geometric density/model arguments remain incomplete.",
+  "summary": "Kisin, Madapusi Pera and Shin show that the Newton strata of a Shimura variety of Hodge type are non-empty when the group G is quasi-split at p, confirming a conjecture of Fargues and Rapoport in that case, without assuming a good integral model (G may be ramified at p). They conjecture that every mod p isogeny class contains the reduction of a special point, a refinement of Honda–Tate theory, and prove a large part of this for PEL type, through Tate's theorem with additional structures, independence of ℓ and CM lifts. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twelve findings are recorded, including a Weyl-group correction to Corollary 1.1.15 (E2), a counterexample to Lemma 2.2.11 as stated (E6) and the need for an ordinary class in §1.3.15 (E8). Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7459,12 +7459,13 @@
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/G08",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T25",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T29",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T34",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T35",
-        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/G08",
-        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T44"
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T44",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T45"
       ],
       "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
       "owner": "ShimuraVarietiesHondaTatePartII",
@@ -9374,6 +9375,28 @@
           "statement": "For a torus the unique admissible class has ν=Nμ and gives an inhabitant."
         }
       ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T45",
+      "kind": "definition",
+      "name": "Conjecture 2.3.8 (statement only)",
+      "statement": "If G is quasi-split at p, then for every s_0 ∈ S_Kp(F̄_p) and every maximal torus T ⊂ I_s0, s_0 admits an isogeny CM lift with respect to T. A conjecture; proved in [Kis10] for hyperspecial K_p, and in a Q̄-isogeny form under Conjecture 2.3.4 when G^ad has no factor of type D (Proposition 2.3.11, item T36).",
+      "locator": "Conjecture 2.3.8, p.32",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T33"
+      ],
+      "note": "Added by cc-442dc5: a numbered statement without its own item. Statement only; no proof is claimed.",
+      "owner": "ShimuraVarietiesHondaTatePartII",
+      "gaps": [
+        "G-conjecture"
+      ],
+      "source": {
+        "id": "berkeley-author-pdf",
+        "locator": "Conjecture 2.3.8",
+        "match": "Statement read in the author PDF by cc-442dc5."
+      }
     }
   ],
   "prerequisites": [
@@ -9781,6 +9804,7 @@
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T33",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T34",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T35",
+        "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T45",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T36",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T37",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T38",
@@ -12776,7 +12800,7 @@
     "counts": {
       "library": 17,
       "planned": 32,
-      "missing": 133
+      "missing": 134
     },
     "definitionsAndConstructions": 75,
     "apiStatements": 226,
@@ -12992,7 +13016,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13014,7 +13039,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13036,7 +13062,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13058,7 +13085,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13080,7 +13108,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13089,7 +13118,7 @@
       "locator": "Lemma 2.2.11, p.29, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
       "printed": "irreducible scheme",
       "correction": "Assume in addition that S is reduced and separated (for example a variety). Then two automorphisms that agree on a dense set of points agree, because their equalizer is a closed subscheme containing a dense set, and the proof applies.",
-      "reason": "The proof ends \"Γ_{w_0} is dense in S … and it follows that σ = w_0\". That step fails without reducedness or separatedness. For S = Spec k[ε]/ε² with char k ≠ 2, the automorphism ε ↦ 2ε fixes the unique point, which is dense; with W trivial it is a counterexample. For the affine line with doubled origin, the automorphism exchanging the two origins fixes the dense set of other k-points; again W is trivial. The lemma is applied on p.30 to a maximal torus T, which is reduced and separated, so nothing changes. Checked on the page image. Noted by the extraction (source discrepancy 4, item G16); the separatedness counterexample is added here. The stated general lemma is false, although its torus application satisfies the repair; affects is set accordingly.",
+      "reason": "The proof ends \"Γ_{w_0} is dense in S … and it follows that σ = w_0\". That step fails without reducedness or separatedness. For S = Spec k[ε]/ε² with char k ≠ 2, the automorphism ε ↦ 2ε fixes the unique point, which is dense; with W trivial it is a counterexample. For the affine line with doubled origin, the automorphism exchanging the two origins fixes the dense set of other k-points; again W is trivial. The lemma is applied on p.30 to a maximal torus T, which is reduced and separated, so nothing changes. Checked on the page image. Noted by the extraction (source discrepancy 4, item G16); the separatedness counterexample is added here. The stated general lemma is false, although its torus application satisfies the repair; affects is set accordingly. (cc-442dc5) Verified: for S = Spec k[ε]/(ε²), char k ≠ 2, the automorphism ε ↦ 2ε agrees with the identity on the unique (dense) k-point, so the lemma as printed fails with W trivial; the application to a torus is fine.",
       "affects": "a stated result",
       "known": "Existing repository errata E6 (cc-fb70e5, 2026-09-22); no external correction located in the searches recorded.",
       "searched": [
@@ -13102,7 +13131,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13124,7 +13154,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13141,7 +13172,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13158,7 +13190,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13175,7 +13208,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13192,7 +13226,8 @@
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
       ]
     },
     {
@@ -13201,16 +13236,84 @@
       "locator": "Proposition 2.3.11 proof, p.34; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated",
       "printed": "{μ_X}_p",
       "correction": "Choose the crystalline cocharacter λ_T in {μ_X^{-1}}_p with Nλ_T=ν_δ. The corresponding Hodge cocharacter is λ_T^{-1}; use it for the special pair.",
-      "reason": "S06 puts δ in B(G,{μ_X^{-1}}), and Lemma 2.3.10 explicitly sets μ=μ_x^{-1}. The proof of Proposition 2.3.11 instead identifies μ_T with μ_y before using its average as ν_δ. Both the torus Frobenius κ formula and the CM construction must keep the inverse. A rank-one nonzero cocharacter detects the sign. T36 already required consistent inverse Hodge convention.",
-      "affects": "the proof",
+      "reason": "S06 puts δ in B(G,{μ_X^{-1}}), and Lemma 2.3.10 explicitly sets μ=μ_x^{-1}. The proof of Proposition 2.3.11 instead identifies μ_T with μ_y before using its average as ν_δ. Both the torus Frobenius κ formula and the CM construction must keep the inverse. A rank-one nonzero cocharacter detects the sign. T36 already required consistent inverse Hodge convention. (cc-442dc5) Reclassified to affect nothing: the proof of Proposition 2.3.11 (p.34) places μ_T in '{μ_X}_p', but the Frobenius δ_s0 lies in B(G, {μ_X^{−1}}) and Lemma 2.3.10, which the proof invokes, sets μ = μ_x^{−1}; with the inverse used consistently the printed argument goes through unchanged, so the intended convention is clear.",
+      "affects": "nothing",
       "known": "No external correction located in the bounded searches recorded; author version only.",
       "searched": [
         "Berkeley HT.pdf and Shin errata.pdf reacquired and fully read 2026-09-23; the errata list names other papers only.",
         "Kisin preprints page, Madapusi research page, publisher metadata and bounded title/erratum web searches inspected 2026-09-23.",
         "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
         "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
-        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G."
-      ]
+        "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+      ],
+      "previousAffects": "the proof"
     }
-  ]
+  ],
+  "gaps": [
+    {
+      "id": "G-source",
+      "detail": "Compare the final Duke wording for all findings.",
+      "status": "unavailable",
+      "resolution": "The Duke text is not openly available; the findings rest on the 41-page author PDF, and E6 and E12 were re-checked there."
+    },
+    {
+      "id": "G-local",
+      "detail": "G-local: original unramified minuscule theorem, coinvariant kernel and K2 rational-conjugacy lemma; bounded Newton finiteness.",
+      "status": "deferred",
+      "resolution": "Kottwitz, Rapoport–Richartz, CKV and Harder are cited suppliers."
+    },
+    {
+      "id": "G-model",
+      "detail": "G-model: component/density proof and precise KP18 special/very-special hypotheses; ordinary existence no longer universally assumed.",
+      "status": "deferred",
+      "resolution": "Kisin–Pappas 2018 and the integral-model inputs are cited suppliers; E8 records that an ordinary class need not exist without quasi-splitness."
+    },
+    {
+      "id": "G-noot",
+      "detail": "Noot's original results.",
+      "status": "deferred",
+      "resolution": "Noot is a cited supplier."
+    },
+    {
+      "id": "G-tensors",
+      "detail": "Explicit faithful tensor-functor descent from S11.",
+      "status": "recorded",
+      "resolution": "E9 records the Tannakian step in the proof of Corollary 1.3.13 with its repair; the remaining descent is proof work in the items."
+    },
+    {
+      "id": "G-crystal",
+      "detail": "Crystalline and log-crystalline inputs (Appendix A).",
+      "status": "deferred",
+      "resolution": "de Jong, Ogus and the Dieudonné-theory inputs are cited suppliers."
+    },
+    {
+      "id": "G-global",
+      "detail": "Global torus and Hasse-principle inputs.",
+      "status": "deferred",
+      "resolution": "Kottwitz and the global Galois-cohomology inputs are cited suppliers."
+    },
+    {
+      "id": "G-tate",
+      "detail": "Tate's isogeny theorem and its crystalline analogue.",
+      "status": "deferred",
+      "resolution": "Tate 1966 and Faltings are cited suppliers."
+    },
+    {
+      "id": "G-typeD",
+      "detail": "The disconnected type-D variant.",
+      "status": "deferred",
+      "resolution": "The paper treats type D only in Remarks 2.3.16; the variant is recorded as items T41–T42 and left to design work."
+    }
+  ],
+  "summaryBefore": "A 182-item partial extraction preserving all prior IDs/statuses and the corrected absolute Weyl group and fibre product. The continuation constructs quasi-split ordinary classes and proves a quaternion inner-form counterexample, with a unique basic admissible class that is not ordinary. Twelve version-scoped source findings are explicit. Original-source closure and the geometric density/model arguments remain incomplete.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1314,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Author PDF re-fetched (hash matches); Lemma 2.2.11, §2.3 and Proposition 2.3.11 with its proof re-read; every numbered statement checked against the items.",
+    "changes": "Conjecture 2.3.8 added (T45); E12 reclassified to affect nothing; E6 verification note; the continuation gates made explicit as gaps with statuses; status complete."
+  }
 }
