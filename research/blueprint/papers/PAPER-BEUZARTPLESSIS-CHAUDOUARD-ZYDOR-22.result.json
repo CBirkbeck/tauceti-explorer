@@ -1502,7 +1502,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1 (this atlas's extraction of the cited paper), and the source of BPLZZ Proposition 4.13 and Theorem 4.14 in arXiv 1912.07169v3"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the citation chain was followed to its source. BPLZZ Theorem 4.14(4) (arXiv 1912.07169v3, the Annals text) reads 'If weak automorphic base change of pi exists and is hermitian, then the base change of chi_{pi_infty} is chi_{BC(pi)_infty}', exactly as the entry says; the proof of 4.14 ends 'For (4), pi is not (G,T_0)-CAP by (3). In particular, by the induction hypothesis, pi^V is not (G^V,T_0)-CAP. Then (4) follows from Proposition 4.13(1)'; and Proposition 4.13 both assumes a cuspidal automorphic form with non-vanishing period and argues 'Suppose that weak automorphic base change of pi^V does not exist. Then chi' is not (G',T)-CAP and L^2_cusp(...)[chi'] = {0}' - a contradiction from non-existence, which is the shortfall the entry identifies. BPLZZ's own Remark 4.15 ('Theorem 4.14 already follows from [Mok15, KMSW]') supports the entry's alternative repair and its 'affects: the proof' classification. I did not re-derive the claim that chi' is CAP when the base change is non-cuspidal; that step is stated, not verified here.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E2",
@@ -1510,7 +1515,7 @@
       "locator": "Remark 1.1.5.2, §1.1.5 and proof of Proposition 10.1.6.1, pp. 186, 321–322",
       "printed": "[BPLZZ21, Theorem 1.7] … [BPLZZ21, Theorem 1.8] … [BPLZZ21, Theorem 4.12 (4)] … Theorem 3.17 of [BPLZZ21] … Theorem 3.6 and Theorem 4.12 (3) of [BPLZZ21] … [BPLZZ21, Proposition 4.8, Lemma 4.10]",
       "correction": "With [BPLZZ21] the Annals paper, as the bibliography says: Theorem 1.8 (the Gan–Gross–Prasad theorem), Theorem 1.9 (non-vanishing), Theorem 4.14(4), Theorem 3.19, Theorems 3.6 and 4.14(3), and Proposition 4.8 with Lemma 4.12.",
-      "reason": "The numbers are those of the first arXiv version (December 2019) of Beuzart-Plessis–Liu–Zhang–Zhu. The reference list cites the Annals paper (Ann. of Math. 194 (2021), 519–584), whose numbering is that of arXiv v2/v3, the authors' final text. There 1.7 and 4.10 are remarks, 3.17 is a proposition (mixed multipliers), 4.12 is the multiplier lemma, and Theorem 1.8 is the Gan–Gross–Prasad theorem itself. Definition 3.5, Definition 4.4, Theorem 3.6 and Proposition 4.8 keep their numbers.",
+      "reason": "The §3 and §4 numbers are those of the first arXiv version (December 2019) of Beuzart-Plessis–Liu–Zhang–Zhu, verified at label level against both sources (th:isolation_tri 3.17→3.19, th:abc 4.12→4.14, le:modify 4.10→4.12); the two §1 numbers are off by one in every public version, since th:ggp is 1.8 and th:nonvanishing is 1.9 in v1 and in the Annals text alike (amended by REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22). The reference list cites the Annals paper (Ann. of Math. 194 (2021), 519–584), whose numbering is that of arXiv v2/v3, the authors' final text. There 1.7 and 4.10 are remarks, 3.17 is a proposition (mixed multipliers), 4.12 is the multiplier lemma, and Theorem 1.8 is the Gan–Gross–Prasad theorem itself. Definition 3.5, Definition 4.4, Theorem 3.6 and Proposition 4.8 keep their numbers.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -1518,7 +1523,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "arXiv 1912.07169 v1 (Dec. 2019), v2 and v3 PDFs compared: v1 numbers the Gan–Gross–Prasad theorem 1.7, the isolation theorem 3.17, the base-change theorem 4.12 and the multiplier lemma 4.10; v2/v3 (the Annals text) number them 1.8, 3.19, 4.14 and 4.12"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, with its explanation sharpened (see the review). I rebuilt the numbering of both arXiv versions of BPLZZ from their sources. In section 3 and section 4 the entry is exactly right, at label level: th:isolation_tri is 3.17 in v1 and 3.19 in the Annals text; th:abc is 4.12 in v1 and 4.14 in the Annals text; le:modify is 4.10 in v1 and 4.12 in the Annals text. So 'Theorem 3.17', 'Theorem 4.12 (4)', 'Theorem 4.12 (3)' and 'Lemma 4.10' are v1 numbers, and the corrections 3.19, 4.14(4), 4.14(3) and Lemma 4.12 are right. The two section 1 citations are different: th:ggp is 1.8 and th:nonvanishing is 1.9 in v1 and in the Annals text alike, so 'Theorem 1.7' for the Gan-Gross-Prasad theorem and 'Theorem 1.8' for the non-vanishing statement are off by one in every public version, not just relative to the Annals numbering. The corrections the entry gives are right either way; only the sentence 'The numbers are those of the first arXiv version' overstates the case, and I have amended the reason accordingly.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E3",
@@ -1534,7 +1544,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published text. Proposition 4.3.7.1 is printed with the limit over [G'], while the expansion its proof starts from, (4.3.6.2) in Proposition 4.3.6.1, is over [G']_0 - both visible on journal pages 275-276. With Proposition 4.3.4.1 (lim over [G']_0 equals 2 times the integral over [G']) the constant works out as the entry says, since dim a_P = dim a^G_P + 1.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E4",
@@ -1550,7 +1565,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published text, and settled by the neighbouring display: (8.2.3.4) is printed with eta_{G'}(g') and (8.2.3.5), in the same sentence, with eta_{[G']}(g'). Only eta_{G'} is defined (section 3.1.6), and section 8.1.4 defines K^2_{f,chi} with it.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E5",
@@ -1566,7 +1586,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the published text (journal p. 326): 'As L^{S_0}(s,Pi,As^-_G) = L^{S_0}(s,sigma,Ad) and |S_Pi| = 2^{-dim(a_P)}, this exactly gives (10.3.2.1)'. A cardinality cannot be 2^{-dim(a_P)}, and (10.3.2.1) itself carries |S_Pi|^{-1}, which I read on journal p. 325. The entry's count (|S_Pi| = 2^{r_n + r_{n+1}} = 2^{dim a_P}) is the right way round.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E6",
@@ -1582,7 +1607,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published text, and the preprint shows where the slip came from. The published proof of Proposition 10.1.6.1 reads 'there exists at least one h in H-circle such that the set X^h_pi is nonempty', while arXiv 2007.05601v1 has X^h_0 at the same place. So this is a revision artifact: the preprint is correct and the published text is not, which is worth knowing for anyone reading the two side by side.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E7",
@@ -1598,7 +1628,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published text, and settled by the paper against itself: section 10.2.1 says the cuspidal datum 'is regular and relevant in the sense of Section 4.3.2', while section 10.1.5, one page earlier, says 'chi is a regular relevant cuspidal datum in the sense of Section 5.1.3'. Section 4.3.2 is where *-regular data of G_n are defined, so the entry's correction (2.9.7 for regular, 5.1.3 for relevant) is right.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E8",
@@ -1614,7 +1649,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published text, and the preprint explains it. (6.3.0.4) and (6.3.0.5) are printed with A_0, which the published section 6.3 never defines: it sets up ia*_M = (iR)^k and defines ia*_{M,0} as the subspace with n_1x_1 + ... + n_kx_k = 0. In arXiv v1 the same passage sets A := (iR)^k and defines A_0 as the sum-zero subspace, so the revision renamed A and A_0 to ia*_M and ia*_{M,0} and left two occurrences of A_0 behind. The entry's identification of A_0 with ia*_{M,0} is exactly the right one.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E9",
@@ -1630,7 +1670,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the published text: Lemma 4.3.6.2 is printed 'We have for all lambda in ia^G_{P_1}', while Proposition 4.3.6.1 just above integrates over ia^{G,*}_{P_1} and the lemma's own display pairs lambda with T and feeds it to theta_Q, both of which live on the dual space.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E10",
@@ -1646,7 +1691,12 @@
         "arXiv 2007.05601: only v1 (10 July 2020); the published 2022 version, read here, is the latest text",
         "The article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-021-00129-1/ and the volume 135 contents page on Centre Mersenne (23 September 2026): no erratum, corrigendum or correction notice",
         "page image of the published PDF checked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the published text (section 2.3.4, journal p. 201): 'we will take omega_H = (det h)^{-1} wedge_{1<=i,j<=n} dh_{i,j}'. The correction is right and the reason is the decisive one: under h -> gh the form wedge dh_{i,j} scales by det(g)^n, so only (det h)^{-n} gives an invariant form; the paper's own local measure in section 9.1.2, dx = prod dx_{i,j}/|det x|^n, is that one.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
+      }
     }
   ]
 }
