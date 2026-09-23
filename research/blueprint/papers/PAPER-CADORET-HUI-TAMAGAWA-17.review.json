@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-CADORET-HUI-TAMAGAWA-17",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The geometric endpoint and its two proof branches are faithfully retained, but G1/G2/G3/G6/G7 still leave uniform source and application inputs unclosed. Restoring partial status is necessary."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The monodromy-specific direction is justified, but G1/G4/G5 and the generic Hilbert/dimension ownership boundary G8 remain. Existing hyperspecial and relative-group constructions are now imported; correcting E5 does not prove the remaining family/spreading claims."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Narrowed to integral Young projectors, the extension has a direct descent proof from the pinned rational identity, explicit normalization and action-convention API. The GL-equivariant image is assigned to its existing ClassicalGroups direction in route9."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "The CRT degree-projector proof is supplied, but Gabber/Suh and the affine-curve coefficient inputs, and the uniform dual/fibre-power assembly, remain G1–G3. The geometric quotient lemma48 now has this owner."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R02.1/R02.2 already own the compact-coefficient comparison and descent. The explicit scalar, section, cocycle, rationalization and finite-tower arguments are stated with their topological hypotheses. Lemma155 is conditional on explicit finite-level H² vanishing and H¹ finiteness; geometric lemma48 was removed."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Narrowed to the lisse-sheaf/stalk equivalence interface15 in SF.2. Import the scheme fundamental group from IG.0 and use the separate arithmetic sequence16; Künneth is removed to EDC.0."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "EDC.0 imports the derived finite/integral Künneth theorem; item33 is its torsion-free smooth-proper specialization with21/22 as explicit inputs. EDC.2 owns the compact-support trace with degree normalization. No new six-functor theory is proposed."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "The corrected RG2.3 owner is clear, but the exact matched-hyperspecial-point/isogeny extension of72 remains G4 pending the original Tits/Bruhat–Tits proof check. Keep the input routed here without certifying the source contract complete."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "ClassicalGroups Layer2 explicitly owns the Schur image. This coefficient extension imports the integral projector from route3 and the existing tensor/exterior carriers. The direct-factor and denominator-free determinant retractions now have proofs; geometric determinant triviality is a separate stated input."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "IG.1 explicitly owns the arithmetic fundamental-group sequence. CHT §2.2 supplies a precise Frobenius/global-section use, with rational-point sections imported from NC.0 and no additional left injectivity claimed."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "MC.7 explicitly owns coefficient-sensitive Tate statements. The source route contains only the assertions104 and their conditional use, not the still-unclosed saturation theorem107 or an unconditional Tate theorem."
+    }
+  ],
+  "notes": "Independent review complete; extraction partial. All156 input IDs checked and preserved. Five statuses retargeted to existing owners; eleven routes individually assessed. Five inherited source findings confirmed and three further Larsen misprints added. The main CHT theorems are not refuted; the missing-prime proof scope, recursive suppliers and proper/projective interface remain explicit. No Lean file required or compiled."
+}
