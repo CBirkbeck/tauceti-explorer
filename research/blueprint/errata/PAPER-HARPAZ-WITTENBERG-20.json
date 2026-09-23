@@ -1,0 +1,48 @@
+{
+  "paper": "PAPER-HARPAZ-WITTENBERG-20",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
+      "kind": "gap",
+      "locator": "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)",
+      "printed": "Si X est une variété propre et lisse sur k, si V ⊂ X est un ouvert dense tel que k̄[V]∗ = k̄∗ et si les groupes Pic(X_k̄) et Pic(V_k̄) sont sans torsion, le théorème 4.2 (i) et la proposition 3.3 (i) permettent de justifier l'implication suivante, énoncée dans [Wit18, Remark 3.9] : si tout torseur universel de V vérifie l'approximation faible, alors tout torseur universel de X vérifie l'approximation faible.",
+      "correction": "Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked).",
+      "reason": "Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
+        "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
+        "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author manuscript (math.univ-paris13.fr/~wittenberg/zceh.pdf, SHA-256 2e425ee6…) re-fetched and both quoted passages found (p. 4 and Remarque 4.5, p. 17)",
+        "Published version, J. Amer. Math. Soc. 33 (2020), 775–805: not openly available here (AMS), so the published wording was not compared",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/943",
+        "arXiv 1802.09605: versions up to v2 (15 October 2019); no later version",
+        "O. Wittenberg's homepage, 23 September 2026: no erratum for this paper (the only erratum listed there concerns a different paper, Ann. Sci. ÉNS 58 (2025))"
+      ],
+      "extraction": "PAPER-HARPAZ-WITTENBERG-20/E1"
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
+      "kind": "misprint",
+      "locator": "Introduction, author manuscript p. 4",
+      "printed": "si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1",
+      "correction": "m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined).",
+      "reason": "The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
+        "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
+        "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author manuscript (math.univ-paris13.fr/~wittenberg/zceh.pdf, SHA-256 2e425ee6…) re-fetched and both quoted passages found (p. 4 and Remarque 4.5, p. 17)",
+        "Published version, J. Amer. Math. Soc. 33 (2020), 775–805: not openly available here (AMS), so the published wording was not compared",
+        "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/943",
+        "arXiv 1802.09605: versions up to v2 (15 October 2019); no later version",
+        "O. Wittenberg's homepage, 23 September 2026: no erratum for this paper (the only erratum listed there concerns a different paper, Ann. Sci. ÉNS 58 (2025))"
+      ],
+      "extraction": "PAPER-HARPAZ-WITTENBERG-20/E2"
+    }
+  ]
+}
