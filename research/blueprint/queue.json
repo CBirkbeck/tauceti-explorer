@@ -5695,7 +5695,8 @@
    ],
    "avoidAccountOf": "PAPER-SHENDE-TSIMERMAN-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1335"
   },
   {
    "id": "PAPER-CLOZEL-THORNE-17",
@@ -6562,7 +6563,8 @@
    ],
    "avoidAccountOf": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1383"
   },
   {
    "id": "PAPER-LI-LIU-22",
