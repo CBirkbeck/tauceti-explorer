@@ -4218,8 +4218,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5708,8 +5708,9 @@
    ],
    "avoidAccountOf": "PAPER-SHENDE-TSIMERMAN-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1335"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1335",
+   "finishedAt": "2026-09-23T20:38:17Z"
   },
   {
    "id": "PAPER-CLOZEL-THORNE-17",
@@ -6313,7 +6314,8 @@
    ],
    "avoidAccountOf": "PAPER-ANSCHUTZ-LEBRAS-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANSCHUTZ-LEBRAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1368"
   },
   {
    "id": "PAPER-HACON-WITASZEK-23",
@@ -6350,7 +6352,8 @@
    ],
    "avoidAccountOf": "PAPER-HACON-WITASZEK-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1370"
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
