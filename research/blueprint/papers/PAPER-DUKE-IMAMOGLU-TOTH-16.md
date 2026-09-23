@@ -1,5 +1,8 @@
 # Geometric invariants for real quadratic fields — extraction checkpoint
 
+Current continuation: Codex — `codex-c83e7a`, 23 September 2026, issue #1170. **Partial:188 items,22 library imports,6 existing-plan imports,160 missing contracts;56 definitions/constructions with168 APIs and168 proposed tests.** The Biró continuation at the end supplies the current operator-order and source-gate status. The intervening sections preserve the earlier report and its explicitly historical counts/read scopes.
+
+
 Codex, continuation session `codex-a71f92` (building on `codex-c83e7a` and `cc-fb70e5`); issue #1170; 22 September 2026. **Partial.** The publisher’s entire 42-page paper was read. The inventory has 169 items: 19 pinned-library imports, four imports from existing plans and 146 missing contracts, each assigned once. The 52 definitions/constructions have 156 proposed API statements, recorded uses and 156 proposed tests. Recursive proof closure remains open at the eight source gates below. No Lean code is submitted or claimed to compile.
 
 The source is Duke–Imamoḡlu–Tóth, *Geometric invariants for real quadratic fields*, Annals of Mathematics 184 (2016), 949–990, [publisher page](https://annals.math.princeton.edu/2016/184-3/p08) and [final PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf). All of §§1–10, Appendix A and the references were read, rather than only theorem statements. The PDF SHA-256 is `a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61`. Source archives, actual read scopes, pinned declaration statements and inspected input hashes are in the JSON. Page numbers below are printed page numbers.
@@ -362,3 +365,125 @@ The scratch diagnostics and repository validation below distinguish exact assert
 Fresh scratch checks passed: 1466 exact rational assertions (632 nonzero denominators, 328 even and 320 odd Frobenius coefficients, 186 Satake recurrence identities); 31 numerical comparisons at 75-digit working precision (6 sine integrals, 16 Whittaker integrals and 9 conjugation checks), with maximum normalized discrepancy `5.1248381e-76` against a `1e-45` threshold. The integral cases include Re(s)=1/8, s=1/2, complex s and μ, both signs, terminating numerator parameters and zero reciprocal-gamma factors. These are diagnostics, not rigorous interval certificates.
 
 On publication base `153e5fbe48ffcf6c4f82ca14a6e2d291e9089e02`, `check_paper.py` passed and `research/blueprint/intake.py check-files` reported three files and zero problems. The 169-node graph is acyclic; every one of the 146 missing items has exactly one route. All 158 original IDs, kinds, statuses and statements are unchanged. The 52 definition/construction contracts have 156 API statements and 156 proposed tests. All 39 inherited inspected-input hashes and 23 pinned-module hashes matched; WORKERS/PROTOCOL/UPSTREAM/expansion rules were unchanged. No Lean compilation was run or claimed.
+
+
+## Biró continuation: operator order and automorphy (codex-c83e7a)
+
+This 23 September 2026 continuation preserves all 169 inherited item statements, kinds and statuses, including the norm comparison and Appendix integral proofs. Items170–188 add three library imports, two existing-plan imports and fourteen specific missing contracts. The current total is **188 items:22 library,6 planned,160 missing**, with every missing item assigned once to the same ten routes. All56 definitions/constructions have three proposed API statements, three tests and recorded consumers. The extraction remains partial.
+
+### The source obtained, and what remains unread
+
+Biró's *Cycle integrals of Maass forms of weight0 and Fourier coefficients of Maass forms of weight1/2*, Acta Arithmetica94(2000),103–152, is available from his [author copy](https://users.renyi.hu/~biroand/pdfs/Cycle.pdf). The50-page file has SHA256 `d1a49be2d88fb60164b11783d444256fdcb0e1e8678476a325c077322a4572a4`. This continuation read printed pp103–111,126–131,139–143,151–152, not the whole paper. Images of104,128,129,142 fix the multiplier conjugation, convergence statement, Fourier bars and cusp indices. DIT11 pp947–951 and959 were freshly read, supplementing the inherited selected-page scope. The main DIT16 full read and Duke88 full read remain attributed to earlier continuations.
+
+Baruch–Mao's2010 paper remains unread: the Wiley endpoint returned403, the Rutgers author URL timed out, and its alternate host returned403. Original Kohnen1982/1985 and Chiera proofs are also unclosed; EuDML returned403 for Kohnen1982. Biró's reference [Ko3] is the1982 Crelle paper, not the different1996 paper with the same title. No successful acquisition is claimed for these sources.
+
+### The four-coset formula fixes the order
+
+Biró uses
+
+\[
+(F|g)(z)=\operatorname{phase}(j_g(z))^{-1/2}F(gz),\qquad
+\nu(\gamma)=\overline{\varepsilon_d}\left(\frac cd\right),
+\]
+
+with principal arguments. The bar over ε is visible in the page104 image and is easily lost in extracted text. At level4 his operator is
+
+\[
+L F=\frac1{2(1+i)}\sum_{w=0}^3 F|M_w,
+\quad M_w=\begin{pmatrix}1+w&1/4\\4w&1\end{pmatrix}.
+\]
+
+Set ν=3−w and
+
+\[
+N_\nu=\begin{pmatrix}\nu&-1/4\\4&0\end{pmatrix},\qquad
+\gamma=\begin{pmatrix}-1&1\\-4&3\end{pmatrix}.
+\]
+
+Then M_w=γN_ν, γ∈Γ₀(4), and ν(γ)=i. For θ=arg z and h=4wz+1, one has0≤arg h<θ<π and arg(h/(4z))=arg h−θ. Automorphy therefore gives
+
+\[
+\operatorname{phase}(h)^{-1/2}F(M_wz)
+=i e^{-i\theta/2}F(N_\nu z).
+\]
+
+Since i/[2(1+i)]=(√2/4)e^(iπ/4), summing proves **L=W∘U** for the actual automorphic functions and the DIT16 operators. This uses no unproved global slash-action rule for arbitrary choices of square roots. It also leaves the inherited conjugation168 intact: C(U₄∘W₄)C⁻¹=U∘W. Conjugation cannot reverse composition.
+
+The two orders really differ on an automorphic domain. Take θ(z)=Σ_nq^(n²) and f(z)=θ(z)j(4z), weakly holomorphic of weight1/2 forΓ₀(4). For γ=[[a,b],[c,d]], the integer matrix[[a,4b],[c/4,d]] proves j(4γz)=j(4z), so f has precisely the theta multiplier. Its Fourier support is0,1 modulo4. Theta inversion and the finite Fourier sieve give
+
+\[
+U_4f=\theta j,\quad W_4f=\theta j,\quad W_4U_4f=f.
+\]
+
+But [q²]U₄W₄f=[q⁸](θj)=490845366512384. Consequently the opposite-order expression(2U₄W₄+I)/3 has forbidden q² coefficient981690733024768/3. Even the principal q^(−4) coefficient distinguishes the orders. This is an example inside the weakly holomorphic automorphic space; it is **not** an L² cusp eigenform with r>0. It disproves the unrestricted plus-support interpretation of the printed order, without claiming that this example alone refutes every restricted Poincaré or cusp-space assertion. E14 records the discrepancy with that scope; the separate3/2 correction remains E12.
+
+The generic j inputs are imported from upstream ModularForms Layer0, whose reviewed audit says j itself is not built at the pins. The theta seed and inversion are already in Mathlib. Neither supplier is re-planned here.
+
+### Fourier support is distinct from orthogonal projection
+
+Biró uses σ_q=[[1,1/2],[2,2]] at q=1/2 and σ_s=[[2,1/2],[6,2]] at s=1/3, equivalent to0. Their cusp parameters areχ_q=3/4 andχ_s=0. Thus rescaling by4 gives frequencies4n−3 and4n, respectively. Lemma A.3 gives, for n≠0,
+
+\[
+b_{LF}(n)=\begin{cases}
+\tfrac12b_\infty(n)+\dfrac{b_s(n/4)}{2(1+i)}&n\equiv0\pmod4,\\
+\tfrac12b_\infty(n)+\dfrac{b_q((n+3)/4)}{2(1+i)}&n\equiv1\pmod4,\\
+-\tfrac12b_\infty(n)&n\equiv2,3\pmod4.
+\end{cases}
+\]
+
+The shifted index at the nonsingular cusp is essential, including for negative n. For P=(2L+I)/3 the forbidden coefficients cancel and the good coefficients become2b∞/3+b_other/[3(1+i)]. This closes the explicit Fourier-support adapter178.
+
+If L is bounded self-adjoint and satisfies(L−I)(L+I/2)=0, then P²=P=P* and range P=ker(L−I). That elementary algebra is179. Biró A.2 cites the holomorphic Kohnen argument and asserts the Maass modifications; this selected read has not supplied the operator-domain and self-adjointness proofs. Those remain S5. The extension to non-L² Poincaré families and their principal terms is another obligation. In particular the2/3 main coefficient and the3/2 comparison cannot be inferred by discarding the other-cusp terms without justification.
+
+### Finite coefficient separation proves the automorphy step
+
+Biró takes a finite-dimensional fixed-eigenvalue space W and splits W=W₀⊕W₁, where W₀ is the common kernel of all positive admissible Fourier coefficients and W₁=W₀⊥. On W₁ these coefficient forms separate points. The exact pinned theorem `FiniteDimensional.mem_span_of_iInf_ker_le_ker` imports the linear-algebra principle; no general dual-separation theorem is proposed anew.
+
+For an orthonormal basis f₁,…,f_m of W₁, choose m positive admissible indices n_i so the coefficient matrix is invertible. The trace uses conjugated coefficients. Conjugating a putative relationΣ_jα_j conj(b_j(n))=0 gives the vectorΣ_jconj(α_j)f_j in W₀∩W₁, so all coefficients vanish. This makes the basis-phase convention explicit.
+
+At N=1, Biró equation(14) says that
+
+\[
+12\sqrt\pi(Dn)^{3/4}\sum_j\overline{b_j(n)}\operatorname{Sh}_D f_j
+\]
+
+is a finite linear combination of level-one cusp eigenforms. Here D is positive fundamental, n is positive admissible, and the half-weight parameter is r/2 when the weight-zero parameter is r. The scalar is8p_N with p_N=3/2. Divide by the nonzero scalar for the selected indices and invert the finite matrix. Each individual lift is a cusp form. On W₀ the lift is identically zero because it uses only the positive indices DQ².
+
+This argument **does not require W₀=0**, nor any fundamental-coefficient nonvanishing. It proves automorphy conditional on the analytic trace identity and convergent reconstruction. It supplies no injectivity, surjectivity or eigenline bijection. The full Lemma10 analytic input remains183/S6; negative-D and mixed-sign parts of DIT16 need their wider trace identity separately.
+
+### Normalization, prime2 and the supplier boundary
+
+Biró writes W_(1/2+ir)(nz)=2√(|n|y)K_ir(2π|n|y)e(nx), while DIT uses2√y a(n). Multiplying Biró's coefficient by√|n| therefore gives
+
+\[
+A_D(n)=n\sum_{P\mid n}\chi_D(P)P^{-3/2}
+b_f(Dn^2/P^2),\qquad n>0.
+\]
+
+This is even in n. Since A_D(1)=b_f(D), division by b_f(D) is allowed only when it is nonzero. In particular
+
+\[
+a_D(2)=\frac{2b_f(4D)}{b_f(D)}+\frac{\chi_D(2)}{\sqrt2}.
+\]
+
+At N=1 the definition includes the divisor2; Biró's intertwining statement on p130 is only for odd primes. For a nonzero automorphic lift, GL₂ global and strong multiplicity one, together with the classical/adelic and spherical/K-type comparisons, make the common odd-Hecke eigenspace a line. H₂ commutes with the odd operators and acts by the scalar read from the displayed coefficient. This provides a conditional route to the all-prime normalization. It does not prove existence of a positive fundamental D with b_f(D)≠0.
+
+The precise generic owner is **GL2AutomorphicRepresentationsAndTransfer:R16.4**. AF.2's finite multiplicity and the built holomorphic newform theorem do not suffice. Item174 imports R16.4, and186 records the remaining Maass comparison explicitly. There is no additional GL₂ roadmap or duplicate theorem planned in this extraction.
+
+### Repairing the convergence citation without losing the boundary gate
+
+On p128 Biró states a bounded-holomorphic convergence principle using convergence at one point. It is false: on the unit disk f_k(z)=(−1)^kz/2 converges at0 but oscillates at1/2. However, his preceding calculation proves convergence for every sufficiently large positive real A, and he states uniform bounds on compact subsets of Ω={Re A>−1/2} minus a finite pole set. This Ω is connected, and a large real interval supplies an accumulation set. Tau Ceti's existing `vitali`/`vitali_of_tendsto`, followed by the identity theorem, repairs the interior step. For the real parameter limit m, apply this to each approaching sequence. E13 records the source misstatement and the repair, without attributing it to the unread Pólya–Szegő source.
+
+This does not justify the next boundary limit. The functions
+
+\[
+g_k(A)=\frac{e^{-k(A+1/2)}}{A+1/2}
+\]
+
+converge locally uniformly to0 on Re A>−1/2, yet all have residue1 at the boundary point−1/2. Biró's independent boundary estimates, including the different r=0 behavior, must still be checked. Item188 makes that distinction testable.
+
+### Validation and remaining work
+
+The exact diagnostics passed **2842 rational/integer assertions**: four-coset matrices, shifted cusp indices, projection polynomial, j coefficients and order regression, invertible Fourier certificates with a nontrivial invisible kernel, normalization scalars and the one-point counterexample. Separately,140 floating-point principal-phase comparisons had maximum error1.088×10⁻¹³. The finite calculations are diagnostics; the all-parameter arguments and conditional boundaries are written above and in the JSON. Historical checks were not relabeled as newly rerun.
+
+S5 still needs the Maass Hilbert-domain proof and Poincaré extension; S6 needs full trace and boundary suppliers, nonvanishing, all sign cases, the Maass multiplicity comparison and Baruch–Mao. S1/S2/S3/S4/S7 and residual S8 remain as previously recorded. The norm and Appendix work must be preserved. No Lean file is authorized for this paper issue and no compilation or formalization is claimed.
