@@ -3662,7 +3662,7 @@
       "kind": "error",
       "locator": "Theorem 4.19, p. 101, read together with the definition of maximal variation in section 1.6, p. 16 (author manuscript dated 21 August 2024; identical in arXiv:2108.05625v4)",
       "printed": "Theorem 4.19. Let K be either a number field or a function field of one variable. Let S be a quasi-projective variety over K. Let pi : X -> S be a smooth relative curve over S of genus g > 1 with maximal variation. [...] Then the following morphisms satisfy the relative Bogomolov conjecture: (1) the S-morphism i^m_alpha : X^m_{/S} -> J^m_{/S} for any m >= dim S + 1. [...] -- where section 1.6 defines: \"Let S be a quasi-projective integral scheme over a noetherian base ring R [...] We say that pi : X -> S has maximal variation (or maximal variation of moduli) if the moduli morphism S -> M_{g,R} associated to pi is generically finite\"",
-      "correction": "In the function-field case the hypothesis must be maximal variation over the field of constants k, not over K: the moduli morphism must be generically finite on a projective model of S over k, equivalently the family must not become isotrivial over the constant field. The number-field case needs no change.",
+      "correction": "In the function-field case the hypothesis must be maximal variation over the field of constants k, not over K: the moduli morphism must be generically finite on a projective model of S over k. (Corrected by REV-PAPER-YUAN-26: the clause 'equivalently the family must not become isotrivial over the constant field' overstated this. Generic finiteness of the moduli morphism on a k-model implies non-isotriviality over k but is strictly stronger as soon as dim S > 0 - a family over a surface whose moduli image is a curve is non-isotrivial and not maximally varying - and the two agree only in the case dim S = 0 of the counterexample below. What the proof of Theorem 4.19 actually needs is the bigness input of Theorem 4.5 over k, for which maximal variation over k is a sufficient hypothesis; the paper does not prove it necessary.) The number-field case needs no change.",
       "reason": "As stated the theorem is false in the function-field case. Because S is a quasi-projective variety over K, the base ring in the section 1.6 definition is R = K, so 'maximal variation' means that S -> M_{g,K} is generically finite. Take k any field, K = k(t), and S = Spec K, so that dim S = 0. Let C be a smooth projective curve of genus g >= 2 over k and let X = C x_k K be the constant family, with alpha any line bundle of positive degree. The hypothesis is then satisfied vacuously: S = Spec K is its own dense open and Spec K -> M_{g,K} is quasi-finite, so the family has maximal variation over K. Part (1) with m = 1 >= dim S + 1 therefore asserts the relative Bogomolov conjecture for i_alpha : X -> J. But that fails: by the definition recalled on p. 100 the canonical height is the one attached to the adelic extension of L over k, and every point of C(kbar), viewed in X(Kbar), is a constant section of a constant family and so has canonical height 0; C(kbar) is infinite, hence Zariski dense in the curve X_{Kbar}. So for every epsilon > 0 the set of points of height at most epsilon is Zariski dense, contradicting the conclusion. The defect is only in the hypothesis, and the paper's own proof shows what the hypothesis should be: it states 'Similar to Proposition 4.18, we need the bigness of the adelic line bundles over k instead of over K, where k = Z if K is a number field and k is the field of constants if K is a function field of one variable', and the bigness input it invokes, Theorem 4.5, requires maximal variation over that same k. Proposition 4.18, on p. 100, is stated correctly and carries bigness on S/k as an explicit hypothesis; it is Theorem 4.19 that fails to upgrade 'maximal variation' to match. The number-field case is unaffected: there k = Z, and for S a variety over a number field K generic finiteness of S -> M_{g,K} is equivalent to that of the induced morphism on a Z-model, since passing to the model adds one to the dimension of the source and of the image alike. Consistently with this, the paper's main uniform theorem is stated with an explicit non-isotriviality condition of its own (section 4.3.2), so the isotrivial case is excluded there and that theorem is not affected.",
       "affects": "a stated result",
       "known": "new",
@@ -3671,7 +3671,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the counterexample is decisive. Every element of it is verbatim on the page. Theorem 4.19 (p. 101) reads ‘Let K be either a number field or a function field of one variable. Let S be a quasi-projective variety over K. Let π : X → S be a smooth relative curve over S of genus g > 1 with maximal variation … (1) the S-morphism i^m_α for any m ⩾ dim S + 1’, and §1.6 (p. 16) defines maximal variation as generic finiteness of the moduli morphism S → M_{g,R}, ‘i.e. there is an open and dense subscheme U of S such that the induced morphism U → M_{g,R} is quasi-finite’. With K = k(t) and S = Spec K the hypothesis holds vacuously, S being its own dense open and a morphism from a point being quasi-finite, and m = 1 ⩾ dim S + 1 is allowed; but for a constant family X = C ×_k K of genus g ⩾ 2 the points of C(k̄) are constant sections of canonical height 0 and are Zariski dense in X_{K̄}, so the relative Bogomolov conclusion fails. This is the familiar reason function-field Bogomolov statements exclude isotrivial families. The paper’s own proof shows what was meant, in the same paragraph: ‘Similar to Proposition 4.18, we need the bigness of the adelic line bundles over k instead of over K, where k = Z if K is a number field and k is the field of constants if K is a function field of one variable.’ One clause of the recorded correction overstated the repair and this review has corrected it in place: generic finiteness of the moduli morphism on a k-model implies non-isotriviality over k but is strictly stronger once dim S > 0, and the two coincide only in the dim S = 0 case of the counterexample. That distinction matters here, because the open handoff on the errata register for this paper (PR #2299) raises the same objection against the parallel clause in the register’s own E1, and the two should be reconciled together. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E2",
@@ -3687,7 +3692,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 50 reads ‘By the integration formula, the total Green’s function g̃_{Φ_S} on S^an at any discrete or archimedean valuation v ∈ S^an is given by’, followed by an integral over X^an_v of a form built from O(Δ)_a, which lives on X ×_S X; c₁(·)² is a top-degree measure only on a two-dimensional analytic space, so the integral is ill-typed over the analytic fibre of a curve. The parallel definition in §3.3.1 integrates over the product, and the same page concludes that the value ‘is exactly the ϕ-invariant of X_{H_v}’, so the domains have to agree. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E3",
@@ -3703,7 +3713,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the sentence refutes itself. Page 49 states both that δ(C) is the number of nodes of the minimal regular model when C has split semistable reduction over K, and that δ(C) = δ(C_{K′})/[K′ : K] for any K′ over which such reduction exists. Take K′/K unramified of degree f > 1: the reduction stays split semistable, the minimal regular model base-changes étale-locally so the node count is unchanged, and the second clause then forces δ(C) = δ(C)/f, i.e. δ(C) = 0 always. With the ramification index in place of the degree it is consistent, a node t₁t₂ = π^m becoming t₁t₂ = π′^{em}. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E4",
@@ -3719,7 +3734,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the page. The display on p. 48 reads ‘r(x, w) ⩽ r(x, z) + r(z, w),      x, y, z ∈ Γ_v’: the quantifier list names y, which does not occur in the inequality, and omits w, which does. The surrounding derivation uses x, z and w. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E5",
@@ -3735,7 +3755,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sentence on p. 57 carries three slips at once, all visible: ‘at any discrete or archimedean valuation v ∈ S^an_v’ is self-referential; S and X are not in scope in the proof of Theorem 3.10, which fixes M and a tautological curve C and writes Div^(M/Z) in the same sentence; and the construction cited, Theorem 3.6, is the triple Deligne-pairing identity, whereas what computes this total Green function is §3.3.2. The source sentence in §3.3.2 reads ‘v ∈ S^an’ correctly. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E6",
@@ -3751,7 +3776,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the exposition. The display on p. 57 is ‘π_*⟨ω_{X/S,a}, ω_{X/S,a}⟩ = (2/(3g−1))O(Φ_S) + nef = (2/(3g−1))O(c₀) + nef + eff’, and the second equality says that Φ_S − O(c₀) is effective, which needs g̃_{Φ_S} ⩾ 0 at every non-archimedean place as well as the archimedean bound. What is cited, Theorem 3.10, gives only the archimedean half. The non-archimedean half is true and the paper has it — Cinkir’s ϕ(Γ_v) ⩾ ℓ(Γ_v)/39 ⩾ 0, quoted as Theorem 3.7 — but that theorem is stated over a base field, §3.2 having excluded k = Z, so nothing at this point supplies it. The extraction is right to call this an exposition gap rather than a mathematical one. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E7",
@@ -3767,7 +3797,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the counterexample is correct. Page 16 reads ‘curve is called stable if it is semistable with arithmetic genus g > 1, and any rational irreducible component of C_k̄ intersects other irreducible components at three or more points’, with no smoothness qualifier. An irreducible rational curve with two self-nodes is reduced with ordinary double points, has arithmetic genus 0 + 2 = 2 > 1, is stable in the sense of Deligne–Mumford — its only component is singular, so DM’s condition on nonsingular rational components is vacuous — and is a boundary point of M̄₂; but its unique component meets other components in 0 < 3 points, so the printed condition excludes it. The recorded correction, ‘any SMOOTH (nonsingular) rational irreducible component, as in Deligne–Mumford Definition 1.1(iii)’, is exactly right, and for a connected curve of arithmetic genus ⩾ 2 it is equivalent to the branch count 2s + r ⩾ 3 on each rational component. It is worth recording that this is the correct form of the same point: the errata register’s E4 for this paper carries instead the clause ‘a rational component with a self-node meets them in at least one’, which the two-self-node curve refutes, and which the open handoff PR #2299 objects to on exactly that ground. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E8",
@@ -3783,7 +3818,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the author records the mismatch himself. Theorem 2.3 (p. 28) assumes ‘a smooth relative curve of genus g > 0’, while the normalization in §2.2.3 that pins down β̄₂ is the display ‘p_{1*}⟨O(Δ)⁰_a, p*₂ω⁰_{X/S,a}⟩ + (2g − 2)β₂ ⟶ ω⁰_{X/S,a}’ on p. 32, whose coefficient vanishes at g = 1, and the only proof of nefness, Theorem 2.10(1), carries 1/(4g(g−1)) and opens by assuming g > 1. Page 40 says in terms: ‘we require g > 1 in this section, while we only require g > 0 in the previous section.’ Appendix A flags the same degeneration, noting that the first two characterizing properties are equivalent to the ω-version only for g > 1. Every application in §§3–4 has g > 1, so the reach is the g = 1 case of Theorem 2.3 and of what rests on it. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E9",
@@ -3799,7 +3839,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 20 defines strongly nef as a limit ‘of nef hermitian line bundles (resp. adelic divisors)’, so the divisor half defines a strongly nef adelic divisor as a limit of nef adelic divisors, which is circular; two lines above, the same page uses the right word for the model-level objects, ‘a limit of effective arithmetic divisors’, and §1.2 states the intended notion with ‘hermitian (or usual) line bundles on projective models’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E10",
@@ -3815,7 +3860,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 29 says the constructions ‘will be used in the proof of Theorem A.1 and elsewhere of this paper’, but what §2.2.1 builds — the relative Jacobian, i_α, (i_α,i_α), the Poincaré bundle and Θ — is used in Proposition 2.6 and §2.2.3, i.e. in the proof of Theorem 2.3, whereas Appendix A works over a single complete valued field from Theorem A.3 and cites no part of §2. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E11",
@@ -3831,7 +3881,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The map displayed on p. 31 goes Pic⁰⁰(J ×_S J) → Pic⁰⁰(X ×_S X), which i_α : X → J cannot induce; the morphism named in the preceding sentence, (i_α, i_α) : X ×_S X → J ×_S J, is the one that does, and it was introduced on p. 29 for this purpose. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E12",
@@ -3847,7 +3902,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively by the parallel display. On p. 32 the β₂ display reads ‘p_{1*}⟨O(Δ)⁰_a, p*₂ω⁰_{X/S,a}⟩ + (2g − 2)β₂ ⟶ ω⁰_{X/S,a}’, with β₂ bare, while the β₁ display four lines above ends ‘⟶ π*β₁’. Every other term lives on X and β̄₂ lies in Pic(S), so the pullback is needed. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E13",
@@ -3863,7 +3923,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 29 introduces i_α : X → J for a line bundle of degree d on the fibres and calls it a finite S-morphism with no condition on d; at d = 0 it is the constant section determined by −α and is not finite once dim X > dim S. Every later use imposes what is needed: p. 31 says ‘degree d > 0’, and Theorems 4.5, 4.17 and 4.19 say ‘of positive degree on fibers’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E14",
@@ -3879,7 +3944,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively. The recall on p. 50 ends ‘in Pic(X)_Q’ for the identity j*Θ = 2O(Δ)_a + p*₁ω + p*₂ω, which is an identity on X ×_S X; Theorem 2.10(2) on p. 37 states that same identity ‘in Pic(X ×_S X)_Q’ and reserves ‘in Pic(X)_Q’ for its second identity, the one for p_{1*}⟨j*Θ, j*Θ⟩. The recall carried over the wrong one of the two. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E15",
@@ -3895,7 +3965,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Both sentences in §4.4.3 name Theorem 4.2, but what is being made uniform is the ‘depending only on g’ clause, which belongs to Theorem 4.7; Theorem 4.2(2) is over a base field with dim S > 0 and contains no field K, so ‘the constants in Theorem 4.2 are uniform for all K/k’ is not a statement about it, and the inequality displayed just before is the function-field form of Theorem 4.7, with h_Fal, which Theorem 4.2 does not mention. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E16",
@@ -3911,7 +3986,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 4.5(4) introduces T as the image of Y → S precisely so that T may be a proper subvariety, and then the proof closes ‘The proof is similar to (3), as Θ|_Y is ample on the generic fiber of Y → S’ — vacuous when dim T < dim S, since the fibre of Y → S over the generic point of S is then empty. The extraction’s diagnosis of the imported argument is right: the positive term of part (3) is pulled back from T on Y, so its (dim T + 1)-st power vanishes, and with dim T throughout the term is positive by Theorem 3.2 over T — which is what the hypothesis on T is for. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E17",
@@ -3927,7 +4007,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sentence on p. 72 defines deg_{B′/k} on Div(C′) while describing v as a closed point of B′ with residue field k(v) in B′, and applies the map to ω_{B′} and λ_{B′}, which live on B′; C′ = C_{K′} is a curve over K′. The number-field analogue a page later is written with the base. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E18",
@@ -3943,7 +4028,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 4.9 and its proof introduce only K, k, C and g, and the next sentence says ‘C has semistable reduction over K′’, so J is the Jacobian of C; X is the paper’s letter for a relative curve over a base. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E19",
@@ -3959,7 +4049,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Clause (3) of the definition of a triple over a field F hard-codes k in μ_N(k) and ‘N-th roots of unity of k̄’, while clauses (1) and (2) use F, the Weil pairing of Pic(C)[N] for C over F lands in μ_N(F), and the definition is applied immediately with F = k̄ and F = K̄ and on p. 75 ‘for any algebraically closed field F over k’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E20",
@@ -3975,7 +4070,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 66 prints ‘If x ∉ Z_y(K̄) or equivalently x̃ ∉ Z_y’ inside the proof of Theorem 4.2(2), the geometric case, whose data are S over a field k with no K anywhere; the claim being verified is displayed a page earlier with k̄(y), and the conclusion counts points of X_y(k̄(y)). Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E21",
@@ -3991,7 +4091,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The display on p. 65 reads ‘{x ∈ (X^m)_y(k̄(y)) : h_{L_m}(x) ⩽ ε d deg(M|y)} ⊆ Z_y(k̄(y))’ with a non-strict inequality, whereas a nonzero effective section yields only 0 ⩽ deg(π_x)(h_{L_m}(x) − ε d deg(M|y)) outside Z_y, which excludes nothing on the boundary. Since ε is an arbitrary positive rational the step is repaired by halving it, but it is a genuine off-by-boundary slip and it occurs in both parallel proofs. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E22",
@@ -4007,7 +4112,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the circularity is plain on the page. Lemma 4.3 (p. 66) begins ‘Let Σ be a finite subset of C(F) such that Σ^m ⊂ Z(F)’, and its proof sets n = #Σ and uses n as a multiplier of a line bundle; the proof of Theorem 4.2(1) on p. 65 invokes it to conclude ‘forces Σ(y) to be finite’, which the lemma presupposes. The repair is the one the extraction gives and costs one line, the bound being independent of Σ: apply the lemma to every finite subset of Σ(y). Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E23",
@@ -4023,7 +4133,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sketch in §4.5 fixes S = M_{g,N,Q} over Q and says ‘We only take the number field case for example’, and the preceding display quantifies over (S ∖ Z)(Q̄), while the line in question ends ‘∀s ∈ S(K̄)’ with no K introduced. Harmless, K̄ = Q̄ for a number field. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E24",
@@ -4039,7 +4154,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The identity on p. 102 is (i/π)∂∂̄g_D = dμ_Ar − δ_D; the left side is exact, so it integrates to 0 over the compact surface, while the right side integrates to 1 − deg(D), the paper’s μ_Ar being a probability measure. The factor deg(D) is also forced by the two neighbouring definitions, admissibility of a metric being c₁(L, ‖·‖) = deg(L)dμ_Ar three lines earlier and the non-archimedean twin, Proposition A.2, carrying deg(L). Every later use has deg(D) = 1. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E25",
@@ -4055,7 +4175,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 94 announces ‘The key is that D̃_S − Δ̃_S is effective on S/Q’, while the display that follows establishes only φ_v ⩾ c(g)δ_v and the sentence closing it, and the paragraph after it, both carry the factor c(g). Since c(g) ⩽ 1/14 and Δ̃_S is effective, the announced form is strictly stronger than what is proved. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E26",
@@ -4071,7 +4196,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Both propositions print ‘(π|_Y)_*⟨L̄|_Y, ⋯, L̄|_Y⟩ is big on S/k’, but π is introduced only in §4.6.2, after Proposition 4.16 and for a different object, a relative curve π : X → S; the sections in question set up ψ : A → S and ι : Y → A, and ι is not assumed a closed immersion, so a literal restriction of π to Y does not exist. The propositions are otherwise correct as printed. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E27",
@@ -4087,7 +4217,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Appendix A works throughout with the curve C, and X is never introduced there; p. 106 makes the slip self-evident, the preceding clause reading ‘we can assume C(K) is non-empty and take a point x₀ ∈ X(K)’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E28",
@@ -4103,7 +4238,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The step on p. 118 is c₁(ω_{C/K}, ‖·‖_a) = i_*((2g − 2)μ), which is compared with the defining equation of dμ_a for L = ω, namely c₁(ω, ‖·‖_a) = (2g − 2)dμ_a; at g = 1 this reads 0 = 0 and determines nothing, so the appendix’s standing hypothesis g > 0 does not carry the argument. The extraction is careful to call this a gap rather than a false statement and to note that the formula does appear to hold at g = 1, and its repair — run the argument with a degree-1 line bundle — is the natural one. The second step it identifies, the passage from the ω-version of property (2) to the stated one, is equivalent only under the paper’s own proviso ‘if g > 1’ on p. 105. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E29",
@@ -4119,7 +4259,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The plan on p. 111 distinguishes the two: ‘(2) holds … up to an additive constant … and (3) holds … up to a multiplicative constant’. Property (2) is an equation on a Green function and shifts additively, so the closing sentence on p. 114 contradicts the plan. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     },
     {
       "id": "PAPER-YUAN-26/E30",
@@ -4135,7 +4280,12 @@
         "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
         "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
         "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered page images, since the text layer does not resolve the subscript. Page 89 prints ‘12 deg^(λ̄_{O_K}) = ω̄²_{C/O_K,Ar} + δ(C) − 4g[K : Q]log(2π)’ and defines ‘the Hodge bundle λ_{O_K} = det π_*ω_{C/O_K}’, while p. 93 prints ‘ω̄²_{C/O_K,Ar} = 12 deg^(λ̄_K) − δ(C) + 4g[K : Q]log(2π)’. λ̄_K is nowhere defined and the Hodge bundle lives on the arithmetic base. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript.",
+        "by": "REV-PAPER-YUAN-26"
+      }
     }
   ],
   "gaps": [
@@ -4163,5 +4313,16 @@
       "id": "part-ii-briefs-provisional",
       "detail": "The four Part II routes were written by the first worker and remain provisional: they need reconciling against the full inventory of packets, accepted decompositions and links before their design jobs are activated. Specific questions left open: the generic intersection and grid bounds; relative Picard against NeronModelsAndSemistableAbelianVarieties R11.4 and the A0-extension; and which curve-moduli roadmap is the most natural parent. One ownership question was settled by the earlier continuation: ArithmeticDynamics DY.1 supplies the fibrewise scalar canonical-height limit over number fields, not the nef adelic bundle over a quasi-projective base that item /47 needs, so the family bundle stays in the adelic direction and only the fibrewise scalar uniqueness and comparison statement is imported - do not reroute the whole family bundle to DY.1. Separately, this session corrected the area of all four Part II routes from 'diophantine', which is not an id in data/galaxies.json, to 'arithmeticgeometry'; check_paper only tests that the field is non-empty, so the wrong value passed the check."
     }
-  ]
+  ],
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1051,
+    "job": "REV-PAPER-YUAN-26",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The author manuscript of 21 August 2024, re-downloaded from the author’s page and hashed to b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, matching the recorded hash byte for byte; 126 pages, printed page = PDF page. Every one of the thirty sourceIssues was checked at its locator, with the λ̄ subscripts of E30 read on rendered page images because the text layer does not resolve them. The five library declarations were opened at the pinned commits, every stage id of the twelve routes and of the seventeen planned targets was checked against the atlas index, and the four Part II titles were compared with their parents’.",
+    "changes": "All 30 sourceIssues carry a review verdict and all are confirmed. One clause of E1’s correction was corrected in place: it asserted that generic finiteness of the moduli morphism on a k-model is equivalent to non-isotriviality over k, which is strictly stronger once dim S > 0. Nothing else changed: no item, status, route, locator or quotation was altered. Referred upward rather than edited: the Part II title ‘The Jacobian challenge, Part II: …’ is not an exact prefix extension of its parent’s title, ‘The Jacobian challenge (Christian Merten’s AG version)’, but the same title is carried byte-identically by PAPER-DIMITROV-GAO-HABEGGER-21, whose review has already accepted it, so editing one copy would break the coalescence.",
+    "lean": "none"
+  }
 }

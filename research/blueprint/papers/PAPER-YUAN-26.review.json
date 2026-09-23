@@ -1,0 +1,67 @@
+{
+  "paper": "PAPER-YUAN-26",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source route into GrossZagierAndArithmeticHeights GZ.2, 9 items. Accepted. GZ.2 is 'Admissible pairings on arithmetic surfaces', which is precisely where Zhang's admissible pairing, the phi- and delta-invariants and the admissible Green functions of the paper's Appendix A belong. The route carries the appendix's findings with it (E24, E28, E29), so the design job inherits the corrected normalisation deg(D)dmu_Ar and the warning that two steps of Appendix A need g > 1."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source route into TropicalAndBerkovichArithmetic TB.2, TB.3, TB.6, 6 items. Accepted. The three stages are 'Semistable models and skeletons of curves', 'Divisors, slope formula and specialization' and 'Model metrics, measures and local heights' - exactly the non-archimedean apparatus behind the resistance function, the reduction graph and the local phi-invariants of section 3.3. E3's ramification-index correction and E4's quantifier slip live in this material and travel with the route."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source route into ArakelovGeometryAndAbelianHeights R35.2, R35.3, 2 items. Accepted. R35.2 is 'The Hodge bundle and Faltings metric' and R35.3 'Stable Faltings height', which own the Noether formula and h_Fal. E30's lambda_K/lambda_{O_K} slip is in exactly this material, and the corrected subscript is what a formalisation would need."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source route into AbelianSchemesAndArithmeticModuli A1, 1 item... 2 items. Accepted. A1 is 'Abelian schemes and rigidity', the right owner for the relative Jacobian's basic properties that the paper uses without proof."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source route into ShimuraCompactifications C5, 1 item. Accepted. C5 is 'Integral PEL compactifications'; the item is the toroidal/integral compactification input the paper cites for the moduli of curves and its boundary."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source route into HeightsRationalPointsAndObstructions RP.0, 1 item. Accepted. RP.0 is 'Height machine and canonical heights', which owns the height machine the paper's canonical heights specialise."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source route into NeronModelsAndSemistableAbelianVarieties R11.3, R11.4, 2 items. Accepted. R11.3 is 'Semistable reduction and uniformisation' and R11.4 'Picard schemes of semistable curves' - the semistable reduction theorem and the Picard scheme of a semistable curve, both used as black boxes in sections 3 and 4."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Part II of Arakelov geometry and heights of abelian varieties, 159 items - the largest route. Accepted. The title is an exact prefix extension of 'Arakelov geometry and heights of abelian varieties', the id is free, and the mathematics is genuinely new: adelic line bundles over a quasi-projective base in the sense of Yuan-Zhang, the admissible extension omega_{X/S,a}, the Deligne pairing of adelic bundles, and the bigness theorem for pi_*<omega_a,omega_a>. Two findings bear directly on what the design job must state: E8 shows that Theorem 2.3's normalisation and nefness are established only for g > 1 although it is stated for g > 0, so the blueprint must carry the corrected hypothesis; and E6 shows that the bigness display needs the non-archimedean non-negativity of phi, which the paper has (Cinkir) but does not cite at that point."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Part II of the Tau Ceti roadmap The Jacobian challenge, 23 items. Accepted as mathematics, with a naming question REFERRED UPWARD rather than edited. The parent is a Tau Ceti roadmap, so section 15 forbids re-planning it, and this route does not: it adds the relative Jacobian over a base, the Poincare bundle, the symmetric ample Theta of Definition 2.4 and the theta identities of Theorem 2.10, where the upstream roadmap treats Jacobians of curves over a field. The naming question: the parent's atlas title is 'The Jacobian challenge (Christian Merten's AG version)', so 'The Jacobian challenge, Part II: relative Jacobians and theta identities' is not an exact prefix extension as section 15 requires. I did not correct it, because PAPER-DIMITROV-GAO-HABEGGER-21 carries the same id, parent and title byte-identically and its review has already accepted that route - editing one copy would break the coalescence the queue depends on. The maintainer should normalise both together, or record that the parenthetical is a disambiguator of the upstream document rather than part of the roadmap title."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Part II of Stable reduction of curves and stable maps (Tau Ceti), 19 items. Accepted. The title is an exact prefix extension and the id is free. The content - Mbar_g and its boundary, the tautological curve, level structures and the moduli-theoretic input to sections 3 and 4 - extends rather than re-plans the upstream stable-reduction roadmap. E7's correction to the definition of a stable curve belongs to this route, and it is the correct Deligne-Mumford form."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Part II of Heights, rational points and obstructions, 43 items. Accepted. Exact prefix extension, id free. This is where the uniform Bogomolov statements live, and it is the route most affected by the findings: E1 (the function-field hypothesis of Theorem 4.19), E21 (the non-strict inequality), E22 (the circular use of Lemma 4.3) and E20 all sit here. The brief must state Theorem 4.19 with maximal variation over the field of constants, not over K."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Source route into ArakelovGeometryAndAbelianHeights R35.5, R35.6, 1 item. Accepted. R35.5 is 'Moduli and theta-height comparison' and R35.6 'Inputs to finiteness'; the item is the theta-height comparison the paper invokes. Splitting this from route 3, which targets R35.2/R35.3, is right rather than redundant: the two groups of stages own different material."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, for issue 1051, 23 September 2026. Verdict: accept.\n\nSOURCE. The author manuscript of 21 August 2024 was re-downloaded from the author's page and hashes to b36f4860...a813e, the hash the extraction records, so the text read is the same one; 126 pages, printed page = PDF page. The published Annals version (203 (2026), no. 1, 15-119) is subscription-only and this review did not obtain it either. The extraction is explicit about that limitation in its own `gaps` field and says a design job must check the printed wording of Theorem 4.19 before planning its function-field case, which is the right way to record it.\n\nMISTAKES. All 30 findings were checked at their locators and all 30 are confirmed. The quality of the record is high: every `printed` field is a real quotation, and most findings are settled by the paper contradicting itself - E3 (the two halves of one sentence force delta(C) = 0 for every curve with split semistable reduction), E5 (three slips in one transplanted sentence, including the self-referential 'v in S^an_v'), E8 (p. 40 says in terms 'we require g > 1 in this section, while we only require g > 0 in the previous section'), E12 (the parallel display four lines above carries the pi^*), E14 (Theorem 2.10(2) states the identity in Pic(X x_S X)_Q and the recall drops to Pic(X)_Q), E22 (Lemma 4.3 assumes the finiteness its application concludes), E25 (the announcement drops the factor c(g) that the proof and the next paragraph both carry), E29 (the closing sentence contradicts the plan three pages earlier) and E30 (p. 89 defines lambda_{O_K}, p. 93 writes lambda_K).\n\nE1 IS THE ONE THAT MATTERS, and it is decisive. Theorem 4.19 covers function fields, section 1.6 defines maximal variation relative to the base ring, which for a variety over K is K, and with K = k(t) and S = Spec K the hypothesis holds vacuously while m = 1 is allowed; a constant family C x_k K of genus at least 2 then has the points of C(kbar) as height-zero constant sections, Zariski dense in the fibre, so the relative Bogomolov conclusion fails. The paper's own proof says what was meant: 'we need the bigness of the adelic line bundles over k instead of over K'.\n\nCORRECTED IN PLACE. One clause of E1's correction asserted that generic finiteness of the moduli morphism on a k-model is EQUIVALENT to non-isotriviality over k. That overstates: it implies non-isotriviality but is strictly stronger as soon as dim S > 0 (a family over a surface whose moduli image is a curve is non-isotrivial and not maximally varying), and the two coincide only in the dim S = 0 case of the counterexample. What the proof needs is the bigness input of Theorem 4.5 over k, for which maximal variation over k is sufficient; the paper does not prove it necessary. This matters beyond the wording: the open handoff PR #2299 raises the same objection against the parallel clause in the errata register's own E1 for this paper, and the two should be reconciled together.\n\nA POINT FOR THE SAME RECONCILIATION. The extraction's E7 gives the correct form of the stable-curve correction - 'any SMOOTH (nonsingular) rational irreducible component, as in Deligne-Mumford Definition 1.1(iii)' - and its counterexample, an irreducible rational curve with two self-nodes, is right. The errata register's E4 for this paper instead adds the clause 'a rational component with a self-node meets them in at least one', which that very curve refutes, and which PR #2299 objects to on exactly that ground. For a connected curve of arithmetic genus at least 2 the Deligne-Mumford condition is equivalent to the branch count 2s + r >= 3 on each rational component, which is the handoff's formulation. I recommend the maintainer prefer the extraction's E7 wording.\n\nREFERRED UPWARD, NOT EDITED. Route 9's Part II title, 'The Jacobian challenge, Part II: relative Jacobians and theta identities', is not an exact prefix extension of its parent's atlas title, 'The Jacobian challenge (Christian Merten's AG version)'. I did not fix it: PAPER-DIMITROV-GAO-HABEGGER-21 carries the same id, parent and title byte-identically, and its review has already accepted the route, so editing one copy would break the coalescence. The other three Part II titles are exact prefix extensions and all four ids are free.\n\nITEMS AND ROUTES. 281 items: 5 library, 31 planned, 245 missing, every missing item routed exactly once, all dependencies resolving, no duplicate routing. The five library declarations were opened at the pinned commits and each says what its item claims. All thirteen cited stage ids and all seventeen planned targets exist in the atlas index. Twelve routes, all accepted.\n\nCHECKS. scripts/check_paper.py: ok. intake.py check-files: 4 files, 0 problems. No Lean was written or compiled."
+}
