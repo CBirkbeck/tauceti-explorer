@@ -10,6 +10,29 @@ Job: PAPER-SKOROBOGATOV-SOFOS-23. Issue: [#1256](https://github.com/CBirkbeck/ta
   - Every missing item is routed exactly once, across eight routes.
 - **Mistakes.** Twenty-two are recorded under `sourceIssues`. The one with consequences is E1: Lemma 3.14 is false for positive primes. The repair below shows that Theorem 1.9, and everything the paper deduces from it, still holds.
 
+## Independent review (REV-PAPER-SKOROBOGATOV-SOFOS-23)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-SKOROBOGATOV-SOFOS-23.md`; the counts in the sections below it are the earlier
+ones and are superseded by these.
+
+- **Items: 149** (7 library, 10 planned, 132 missing), each missing item routed once.
+  - 68 fields corrected: 36 statements, 31 locators, 1 name.
+  - 47 items added for definitions, constructions and cited inputs the proofs use; four are planned (Tau Ceti
+    ClassFieldTheory Layer 13, QuadraticFormInvariants §6C) and one is in Mathlib (quadratic reciprocity).
+  - Item 101, the extraction's repair lemma, removed as not in the paper; its bound is quoted where it is used.
+- **Routes.** All eight stand; the briefs of routes 1 and 2 name the confirmed corrections.
+- **Prerequisites.** Rebuilt as 12 cited works with DOIs or stable links.
+- **Mistakes: 42** (26 misprints, 11 gaps, 5 errors); 5 reach a stated result and 8 a proof.
+  - **E1–E22:** E2 and E15 rejected on review; the rest confirmed, E4, E10, E11, E17, E19 and E22 revised.
+  - **E23–E42** are new, each checked independently. The main ones:
+    - **E30:** Lemma 4.9 is false for θ_P, like Lemma 3.14 (E1): both count only positive prime values.
+    - **E24:** the proof of Corollary 1.7 fails when a is a square.
+    - **E32:** the proofs of Theorems 5.3 and 5.8 need ℤ_p-points on the fibres.
+    - **E37, E40, E41:** small gaps in §6.3 and the proof of Proposition 6.7.
+  - With Λ read evenly on ℤ, Theorems 1.1–1.5 and 1.9 stand; Corollary 1.10 and the square case of Corollary 1.7 are
+    unproved as printed.
+
 ## This continuation (cc-442dc5)
 
 **What was read.**
