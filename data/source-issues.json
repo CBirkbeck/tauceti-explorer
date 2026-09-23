@@ -10639,9 +10639,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. The sentence is about the t-structure on D(R), so its connective objects are D^{≤0}(R); DF^{≤0}(R) is defined four lines later as a subcategory of the filtered category DF(R)."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E2",
@@ -10660,9 +10660,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. The proof of Lemma 4.34 writes L_{S/A} ∈ D(C) with no C in scope, and the next clause of the same sentence writes L_{B/A} ⊗_B S ∈ D(S)."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E3",
@@ -10681,9 +10681,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. The exact sequence is about THH(S) throughout, and the divided power is of an S-module, so (Γ^i_R M)^∧_p should read (Γ^i_S M)^∧_p."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E4",
@@ -10702,9 +10702,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed on both counts: the clause reads « The (degenerate) homotopy fixed point spectral calculating TC^-(R; Z_p) », dropping « sequence », and Theorem 7.2 is a statement about S, as its other parts and the parallel Tate clause show."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E5",
@@ -10723,9 +10723,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. §7.4 defines Z_p(i)(A) := gr^n TC(A; Z_p)[−2i], mixing the two indices; the introduction's version of the same definition uses n throughout, so the body's index should be i."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E6",
@@ -10744,9 +10744,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed on both counts. The object is named Ŝ^q, so it is the p-adic completion of S^q rather than of S; and « quasisyntomic semiperfectoid » should be « quasiregular semiperfectoid », the class defined in §4 and the one the argument needs."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E7",
@@ -10765,9 +10765,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed, and the display decides it. The isomorphism in the diagram is p^{i−1−n}V, which degenerates exactly when i − 1 − n = 0, that is n = i − 1; the printed « boundary case i = n − 1 » inverts it."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E8",
@@ -10786,9 +10786,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. N is defined as ∏_{i∈I} O_C in the line before, so the sequences (a_i) run over ∏_{i∈I} O_C; the ♭ is a slip."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E9",
@@ -10807,9 +10807,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed by the next sentence: the map is displayed as d_R : Δ_S → AΩ_S and then referred to as « the comparison map d_S as above », and its source is Δ_S."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E10",
@@ -10828,9 +10828,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed, and I re-derived the identity. Writing f = μ^j g, we have ξ^i φ^{−1}(μ^j g) = ξ^i φ^{−1}(μ)^j φ^{−1}(g) = ξ^{i−j}(ξ φ^{−1}(μ))^j φ^{−1}(g) = ξ^{i−j} μ^j φ^{−1}(g), using μ = ξ φ^{−1}(μ); dividing by μ^j gives g − ξ^{i−j} φ^{−1}(g) ∈ Ô_X^{♭+}, so the printed coefficient μ^{i−j} is wrong and the integral-closedness argument then runs verbatim."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E11",
@@ -10849,9 +10849,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. The sentence's first clause names A_inf(O_{K_∞}), the ring Notation 11.1 embeds 𝔖 into, and its second clause writes A_inf(O_K); O_K is not perfectoid, so A_inf(O_K) is not a ring used in §11. Checked in the published text, where the two halves of the sentence differ as recorded."
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E12",
@@ -10870,9 +10870,9 @@
    "owner": "PAPER-BHATT-MORROW-SCHOLZE-19",
    "file": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
    "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
+   "reviewReason": "Confirmed. The definition is written gr^0(TC^-(A; Z_p)[1/u]) while Proposition 11.15, which it cites, and the displays in its proof all use the relative TC^- of A/𝕊[z]; the base is missing."
   },
   {
    "id": "PAPER-BHATT-SCHOLZE-17/E1",
@@ -36358,14 +36358,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed as a notation/type omission in the final author version, not failure of the intended Pfister construction. The preceding single-factor definition is quadratic; EKM 9.B, printed p.53, uses bilinear outer factors and a quadratic final factor in characteristic two."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E2",
@@ -36380,14 +36381,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed by expanding u_i^2*(1-1/u_i-epsilon_i/u_i^2)=u_i^2-u_i-epsilon_i. The printed plus sign disagrees in odd characteristic. The principal-unit valuation argument survives the correction."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E3",
@@ -36402,14 +36404,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed on PDF pp.16–17: W_T was defined using rank-one geometric divisors and is then used where the residue must be a number field. At relative transcendence degree e>1 its rank-one residue still has transcendence degree e-1. The intervening rank-e definition supplies the intended full flags."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E4",
@@ -36424,14 +36427,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed: a nonvanishing polynomial value need not have nonzero coordinates, so the claim that each coordinate is a root of unity requires the torus condition. Over the infinite algebraic closure of the finite residue field the complement of the coordinate hyperplanes and the zero set of the polynomial is nonempty."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E6",
@@ -36446,14 +36450,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed: E_prime=Q is already formally real and has infinite 2-cohomological dimension, contradicting the printed finite intermediate bound. Bound the nonreal local base change directly, using local cd_2 at most two and the transcendence-degree inequality. This repairs the use without bounding cd_2(E_prime)."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E7",
@@ -36468,14 +36473,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed as an omitted language bridge. AKNS section 2.9 explicitly assumes finite L and finite generation as an L-structure; Proposition 2.28 cannot be applied to Q as a finitely generated ring. Total inversion makes field generation into structure generation and has a unique ring-definable graph, so the final sentence translates back."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E8",
@@ -36487,17 +36493,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
-    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Independent review 2026-09-23: https://arxiv.org/abs/1311.6155 lists only v1 (24 November 2013).",
+    "https://www.fvkuhlmann.de/Henselt.pdf, currently served author copy, p.11, retains both identity-inclusive ranges.",
+    "https://www.sciencedirect.com/science/article/pii/S0021869314003883 identifies J. Algebra 418 (2014), 44–65, DOI 10.1016/j.jalgebra.2014.07.004; no linked correction found.",
+    "Title/author/erratum search found no separate correction. No typeset-publication collation claimed."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed in the separate Kuhlmann–Novacoski source: both arXiv v1 p.11 and the currently served author PDF p.11 include the identity embedding in the nonfixing range. Exclude the identity in both ranges. This is not a misprint in Dittmann–Pop itself; the typeset Journal of Algebra version was not collated."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E9",
@@ -36512,14 +36518,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed at Lemma 3.9(2): the neighborhood is a subset of the valuation space and its chosen point is w; the quadratic form is not a point of that space."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E10",
@@ -36534,14 +36541,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed on the rendered p.7: tensoring with <1,-pi> gives q(x_0)-pi*q(x_1), so the displayed expansion needs the parity sign. The same paragraph uses N coordinates despite setting N=2^(r+1)-1. Neither changes the distinct-value argument."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E11",
@@ -36556,14 +36564,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed as an omitted restriction in the literal membership assertion on p.12. The constructed valuation is on L(alpha), but V_(a,N) is a set of valuations on L. Restriction preserves the coefficient inequalities, and the compatible henselization embedding preserves the required anisotropy implication."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E12",
@@ -36578,14 +36587,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed against the final-author bibliography and the primary Crossref record for DOI 10.2307/2275432: the last page is 823."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E13",
@@ -36600,14 +36610,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed against the final-author bibliography and the Springer article metadata for DOI 10.1007/BF01389226: the pages are 493–510."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E14",
@@ -36622,14 +36633,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed against the final-author bibliography and the primary Crossref record for DOI 10.1007/s00222-002-0238-7: the pages are 385–408."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E15",
@@ -36644,14 +36656,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed: F is the relative algebraic closure of k_1(t) in L_(w_L); a_d is not generally in F. The real-place claim and following application concern the unit tail q_epsilon, exactly as the next sentence states."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E16",
@@ -36666,21 +36679,22 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed: k_a is not defined in Notations 4.1; the relative constant field and the displayed set of divisors use k_t. Both occurrences on p.14 need that subscript."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E17",
    "kind": "gap",
    "locator": "§4, opening paragraph, p. 13, and Recipe 4.3(1), p. 15 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "1) Consider the uniformly first-order definable k_1, u = (u_i)_{d>i>1}, k_1 ⊂ k_t ⊂ K, and further a := (a_d, …, a_1, a_0) and q_a as in Notations/Remarks 4.1.",
-   "correction": "Add that the conditions of Notations/Remarks 4.1(1)(c) are uniformly first-order: q_{a_1,a_0} is k_1-nice and every ε_i is a v-unit at the finite places v of k_1 with v(a_1) > 0. One way:\n- the finite places of k_1 are uniformly definable (Rumely);\n- isotropy of q_{a_1,a_0} over a henselization k_{1v} is a Hensel-type condition in O_v;\n- at real places, q_{a_1,a_0} = ⟨1, −a_1, −a_0, a_1a_0⟩ is anisotropic exactly where a_1 and a_0 are both negative, and 'no ordering of k_1 makes both negative' is −1 = σ₀ − σ₁a_1 − σ₂a_0 + σ₃a_1a_0 with each σ_i a sum of four squares.\nniceness-definability records this.",
+   "correction": "Make the local niceness and epsilon-unit predicates explicit. Use the uniform finite-place valuation family; mark dyadic only when char(k_1)=0 and 2 is a nonunit. For the nonsingular four-variable tail, scale coefficients integral and use a primitive vector x and derivative g_prime(0) nonzero with g(0)/(g_prime(0))^2 in the maximal ideal, where g(T)=lambda*q(x+T e_j). Handle real places only in characteristic zero by the stated preordering/four-square formula. See the corrected niceness-definability proofSteps.",
    "reason": "The opening of §4 lists the first-order inputs used: isotropy of Pfister forms over K and K(√−1), the Kronecker dimension, the global subfields and algebraic independence. Niceness quantifies over all places of k_1 and is not among them. Without it, the family of Recipe 4.3 is not shown to be definable, and Theorem 1.3 rests on that.",
    "affects": "the proof",
    "known": "new",
@@ -36688,14 +36702,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Confirmed only as an unexpanded definability step at Recipe 4.3, not a false definability theorem. The definition of a test form includes local niceness and epsilon-unit conditions that the listed first-order inputs do not explicitly translate. The extraction now gives an exact scaled derivative Hensel test valid also in characteristic two and a characteristic-zero guard for dyadic places; its previous 4a_1a_0 test was insufficient."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E18",
@@ -36710,14 +36725,15 @@
     "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
     "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
-    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)",
+    "Independent review 2026-09-23: arXiv latest v2, Annals article metadata, pdittmann.net, Pop publication list and title/erratum search checked; no later version or linked erratum found. Published pagination/text not collated."
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
    "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-DITTMANN-POP-23",
+   "reviewReason": "Rejected as a new mathematical error: Remark 4.4 explicitly supplies the low-dimensional valuation formulas, and the rank-flag argument on p.16 already invokes that remark. The same normalization proof works in dimensions one and two, with Rumely for a number field and no geometric flag in that zero-relative-dimension case. The compressed section-opening scope deserves an explicit planning adapter, retained here, but does not establish a missing mathematical input."
   },
   {
    "id": "PAPER-DOR-23/E1",
