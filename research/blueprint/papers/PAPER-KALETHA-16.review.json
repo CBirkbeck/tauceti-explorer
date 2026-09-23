@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-KALETHA-16",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source route into ReductiveGroupsPartII RG2.0a and RG2.5, 3 items. Accepted. RG2.0a is 'Weil restriction and the Deligne torus' and RG2.5 'Integral dual data', which own the Res_{E/F} Gm tori and the integral dual-group data that the u-cover construction of sections 3-4 rests on. Routing them to a general owner rather than into the Part II is what keeps the Part II about rigid inner forms."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source route into ArithmeticGaloisDuality R02.1, R02.2 and D7, 9 items. Accepted. The three stages are 'Topological coefficients and inverse limits', 'Hochschild-Serre and descent' and 'Continuous derived cohomology and dimension-general duality'. The paper's cohomological engine - the Galois cohomology of the pro-finite u, inverse limits over the tower E_k, the Hochschild-Serre spectral sequences of Proposition 3.6 and the Tate-Nakayama duality of section 5 - is exactly that material, and E01, E03 and E05 all live in it, so the design job inherits them with the author's own errata attached."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source route into EndoscopicTransferAndUnitaryTraceComparison ET.0, 6 items. Accepted. ET.0 is 'Stable conjugacy and endoscopic data', the right owner for stable conjugacy, endoscopic data and their equivalences, which the paper uses as given."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source route into EndoscopicTransferAndUnitaryTraceComparison ET.1, 7 items. Accepted. ET.1 is 'Transfer factors and orbital-integral analysis'; the items are the Langlands-Shelstad transfer factors and the relative transfer factor Delta[e,z], which section 5 refines rather than constructs. E11 lives here and is correctly classified as reaching nothing, since the paper normalizes the absolute factor in the next sentence."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source route into AutomorphicFormsOnReductiveGroups AF.1, 2 items. Accepted. AF.1 is 'Real reductive representation foundations', which owns the real-group representation theory that section 5.6-5.7 consumes for tempered packets."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source route into SmoothRepresentationsOfLocalGroups SR.0, SR.2 and SR.3, 1 item. Accepted. The three stages are the smooth category, induction and Jacquet functors, and admissible complex representations; a single item is the right size, the paper using smooth representation theory only as a black box."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Part II of Endoscopic transfer and unitary trace comparison, 97 items - the bulk of the paper. Accepted. The title is an exact prefix extension of the parent's atlas title and the id is free. The mathematics is new in the parent's direction rather than a restatement of it: the pro-finite group scheme u, the cohomology H^1(u -> W, Z -> G) with its Tate-Nakayama-style duality (Corollary 5.4), rigid inner twists and their categories RI_Z(G), and the refined local Langlands correspondence for real tempered packets. The parent supplies stable conjugacy, endoscopic data and transfer factors, which routes 3 and 4 import rather than replan. Two findings bear directly on what the brief must state: E07, which shows that the criterion for H^1 -> H^1_ab to be an isomorphism needs the vanishing for every inner twist and not merely for G_sc, and the author's own errata correction to Corollary 5.4, which replaces H^1 by H^1_ab there for exactly the same reason. A note on the id: this is one of five distinct Part IIs of this parent across the corpus (JacquetRallisRelativeTraceComparison, EndoscopicTransferAndUnitaryTraceComparisonPartII, UnitaryFriedbergJacquetRelativeEndoscopy and this one), each with a descriptive id and a title of the required form, so the naming follows the established pattern rather than departing from it."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, for issue 1191, 23 September 2026. Verdict: accept.\n\nSOURCE. This review fetched the published Annals PDF (annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf, SHA-256 55fc2ed2...7c2b, 74 pages, printed page = PDF page + 558) and the author's errata (SHA-256 31e5f2d4...c31b5, section 3 on PDF pp. 6-7), and read section 3 of the errata in full. The extraction had recorded the article page but no file hash for either; both hashes are now in the source block.\n\nMISTAKES. Fourteen of the fifteen findings are confirmed and one is rejected.\n\nTHE SIX THAT CITE THE AUTHOR'S ERRATA ARE ALL GENUINE, and the errata does cover each of them: it carries headings 'Proposition 3.6', 'Section 4.4', 'Formula (4.8)', 'Proof of Lemma 4.7', 'Corollary 5.4' and 'Section 5.6', matching E01-E06 one for one. Their `known` fields are therefore right, and the register will list them among mistakes already corrected in print rather than as new ones. Two are worth singling out because they interlock with a new finding: the errata's Corollary 5.4 entry replaces H^1 by H^1_ab 'in order for the claim to be true that the left kernel of the pairing is trivial', and remarks that this 'makes no difference in the p-adic case, but it does make a difference when F = R'.\n\nE07 IS THE ONE NEW FINDING THAT REACHES A STATED RESULT, and it is exactly the real-case gap the author's own errata gestures at. Section 3.4 defines the equivalence relation by dividing by the image of Z^1(Gamma, G_1,sc) - the simply connected cover of the TWIST - and then states that the resulting surjection H^1 -> H^1_ab 'is an isomorphism whenever H^1(Gamma, G_sc) = 1'. That criterion does not suffice: over R with G = SL_2 it holds, H^1(R, SL_2) = 1, while the relevant twist is the compact form, and by Serre (Galois Cohomology III.4.5) H^1(R, K) for compact connected K is the set of conjugacy classes of elements of order dividing 2, so |H^1(R, SU(2))| = 2. I checked that fact independently. The two cases the paper names are unaffected - Kneser gives the vanishing for every simply connected group over a p-adic field, and every twist of a torus has trivial G_sc - so nothing in section 4 or the applications moves, which is what the recorded correction says.\n\nE15 IS REJECTED. It asks for the printed Z(G-hat_sc) in section 5.7 to be replaced by the physical Z(G_sc), but the printed sentence is correct and the finding has read two carriers as one. The sentence says that a class in H^1(u_v -> W_v, Z(G_sc) -> G_sc) - whose coefficient group is the physical centre, exactly as the finding wants - corresponds VIA COROLLARY 5.4 to a character of Z(G-hat_sc). Corollary 5.4, on printed p. 598, pairs H^1(u -> W, Z -> G) with pi_0(Z(G-bar-hat)^+), and the remark immediately after it computes that group in this very case: 'if G is split, this implies pi_0(Z(G-bar-hat)^+) = Z([G-hat]_sc)'. A character of Z(G-hat_sc) is therefore precisely what the pairing produces, and it is the standard object indexing refined data. The proposed replacement would make the sentence false, so the finding should not enter the register.\n\nCORRECTED IN PLACE. Every `printed` field was replaced by a verbatim quotation of the published text. As recorded, all fifteen were bare symbols - 'a', 'p', 'zeta_k', 'sigma(g)', 'H^1_sc', 'unit circle' - and scripts/errata.py prints that field into the public register as 'The source says `...`', where a single letter identifies nothing. What the extraction had is preserved in `printedAsRecorded`. The source block also gained the published PDF's URL, hash and page map, and the errata's hash.\n\nITEMS AND ROUTES. 157 items: 21 library, 24 planned, 112 missing, each missing item routed exactly once, all dependencies resolving. All ten stage ids cited by the seven routes and all twenty planned targets exist in the atlas index. The Part II title is an exact prefix extension and its id is free; it is one of five distinct Part IIs of this parent across the corpus, each with a descriptive id, so the naming follows the established pattern.\n\nCHECKS. scripts/check_paper.py: ok. intake.py check-files: 4 files, 0 problems. No Lean was written or compiled."
+}
