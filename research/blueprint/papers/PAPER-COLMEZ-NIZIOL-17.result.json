@@ -18,7 +18,8 @@
    "§4 Syntomic cohomology and (ϕ,Γ)-modules (4.1 forms to Koszul complexes, 4.2 group cohomology and Koszul complexes, 4.3 (ϕ,∂) to (ϕ,Γ), 4.4 change of annulus, 4.5 change of disk, 4.6 passage to Galois cohomology, 4.7 comparison with the local Fontaine–Messing map)",
    "§5 Global applications (5.1 syntomic cohomology and p-adic nearby cycles, 5.2 semistable comparison theorems)",
    "References, pp. 66–68"
-  ]
+  ],
+  "arxiv": "1505.06471"
  },
  "summary": "The paper computes the syntomic cohomology of a semistable affinoid in terms of the cohomology of (ϕ,Γ)-modules, and deduces that the Fontaine–Messing period map from log-syntomic cohomology to p-adic nearby cycles is, after truncation in degree r, a quasi-isomorphism up to universal constants — for every Tate twist, where Kato, Kurihara and Tsuji had the statement without constants only for r ≤ p−1, and Tsuji had it over the algebraic closure. The route is new: instead of comparing the two sides directly, the authors construct a second local period map α^Laz_r, an integral Lazard isomorphism between Lie-algebra and continuous group cohomology, prove directly that it is a quasi-isomorphism, and then show it agrees with Fontaine–Messing's up to the same constants. The proof is a chain of comparisons, each controlled by an explicit power of p: the syntomic complex Syn(R,r) built from the PD envelope R^PD_ϖ is moved onto a disk and then an annulus of convergence (§3.2, §3.4, using the operator ψ left inverse to ϕ and the acyclicity of the ψ = 0 eigencomplex), the crystalline Frobenius ϕ_Kum is exchanged for the cyclotomic ϕ_cycl of (ϕ,Γ)-module theory through a fat log-PD envelope and a filtered Poincaré lemma (§3.5), the resulting complex of differential forms becomes a Koszul complex over the period ring A^{[u,v]}_R (§4.1), multiplication by t^r kills the filtration and turns the derivations into the action of Lie Γ_R (§4.4, the one place where truncation at degree r is unavoidable), analyticity of the action passes from Lie Γ_R to Γ_R (§4.3, the Lazard step), and (ϕ,Γ)-module technique changes the domain of convergence down to A_R, after which Koszul formalism, almost étale descent and decompletion, and the relative Artin–Schreier sequence land on RΓ_cont(G_R,Z_p(r)). Globally (§5.1) the local statement is glued by Abhyankar's lemma with Elkik approximation, a K(π,1)-lemma for the trivialised locus of an affinoid extending Scholze's, a rigid GAGA comparison, and a ramified descent that removes the hypothesis that K contains enough roots of unity. The second main result (§5.2) is the semistable conjecture for proper semistable formal schemes: combining the comparison with Colmez's theory of finite dimensional Banach Spaces, whose Dimension (a,b) ∈ N × Z is additive on short exact sequences, one shows that the syntomic cohomology sits in a short exact sequence between a Frobenius eigenspace of Hyodo–Kato cohomology and a quotient of de Rham cohomology, and that the associated filtered (ϕ,N)-module is weakly admissible with V_st equal to the étale cohomology — a proof that uses no Poincaré duality, which is exactly what allows the passage from schemes to formal schemes.",
  "conventions": "Locators are the statement numbers of the authors' version together with its page numbers (68 pages; the published pagination in Invent. math. 208 is 1–108 and was not accessible). The paper's basic currency is Definition 1.13: a map of Z_p-modules is p^N-injective (resp. p^N-surjective) if its kernel (resp. cokernel) is annihilated by p^N, and p^N-quasi-isomorphism, p^N-exact and p^N-acyclic are defined in the same way; every comparison below is of that kind and the exponent is recorded as printed, since the whole point of the paper is to control it. Brackets are homotopy limits: [C --f--> C′] := holim(C → C′ ← 0), and a bracketed commutative square means the homotopy limit of the two rows; the paper notes that these squares are strictly commutative, so that the total complex of the double complex may be used, everywhere except in §5. K is a finite totally ramified extension of F = W(k)[1/p] of degree e with uniformiser ϖ and Eisenstein minimal polynomial P = P_ϖ(X_0); i(K) is the largest n with ζ_{p^n} ∈ K, e_0 = [F_{i(K)}:F], f = e/e_0, δ_K = e·v_p(d_{K/F_{i(K)}}) and δ_R = ⌈δ_K/f⌉; 'K contains enough roots of unity' means δ_K + [K:F_{i(K)}] < e/(2p), equivalently δ_R + 1 < e_0/(2p). The radii are u = (p−1)/p and v = p−1 for p ≥ 3, u = 3/4 and v = 3/2 for p = 2. Two Frobenii are in play and differ only on the arithmetic variable: ϕ_Kum with ϕ_Kum(X_i) = X_i^p, which computes crystalline and syntomic cohomology, and ϕ_cycl, the Frobenius of (ϕ,Γ)-module theory, which is defined only after assuming enough roots of unity and only with values in R^{(0,v_R)}_ϖ. The Frobenius on differential forms is divided: it acts coefficientwise in the basis of the ω_j, so the natural Frobenius on Ω^i is p^i·ϕ, which is why the powers p^• appear in the complexes. Z_p(r)′ := (1/p^{a(r)})Z_p(r) for r = (p−1)a(r) + b(r) with 0 ≤ b(r) ≤ p−1 is the twist in which the Fontaine–Messing map is integrally defined. In §§2.4–2.6 the paper writes A_R, E_R, G_R = Gal(R̄/R) with R̄ the maximal extension of R unramified outside the divisor at infinity after inverting p, while in §2.5.3 it also writes A^deco_R for the image of R^deco_ϖ under ι_cycl: the items below distinguish the two by writing A^deco_R̄ for the period ring and A^deco_R for the image.",
@@ -2371,7 +2372,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2387,7 +2388,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2403,7 +2404,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2419,7 +2420,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2435,7 +2436,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2451,7 +2452,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2467,7 +2468,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2483,7 +2484,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2499,7 +2500,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2515,7 +2516,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2531,7 +2532,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2547,7 +2548,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2563,7 +2564,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2579,7 +2580,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2595,7 +2596,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2611,7 +2612,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2627,7 +2628,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2643,7 +2644,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2659,7 +2660,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2675,7 +2676,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2691,7 +2692,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2707,7 +2708,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   },
@@ -2723,7 +2724,7 @@
    "searched": [
     "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
     "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv: the paper is not there (a title query returns nothing and the authors' page links only this PDF), so there is no later version in which these could already be corrected",
+    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
     "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
    ]
   }
