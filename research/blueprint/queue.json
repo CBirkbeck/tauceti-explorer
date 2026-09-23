@@ -4114,8 +4114,8 @@
    ],
    "avoidAccountOf": "PAPER-NAKAMURA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-NAKAMURA-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1244"
+   "state": "external",
+   "note": "claimed on GitHub issue #1244"
   },
   {
    "id": "PAPER-LI-23",
