@@ -1,3 +1,120 @@
+# LLHLM23 continuation — Codex, codex-c83e7a, 23 September 2026
+
+This is a **partial checkpoint** with 480 items (60 library, 8 planned, 412 missing), 15 unchanged route identities and 38 unreviewed source findings. It builds on the 456-item checkpoint from PR #2272, preserving the original full-paper reading attribution and existing route identities. No Lean implementation or independent review is claimed.
+
+## Generic tame representations
+
+Items K45–K48 supply the missing tame-to-semisimple bridge with the actual genericity assumptions. In the fundamental-character formula, the difference of two exponents is a sum of signed base-p digits. One-deepness gives nonzero digits of absolute value at most p−2. The sum is nonzero modulo p, while its absolute value is strictly less than p^d−1; the two characters therefore differ. This proof works in all ranks and is insensitive to central shifts.
+
+For a tame residual representation with distinct inertia characters, Frobenius permutes the one-dimensional character spaces. Each orbit sum is simple: inertia projectors force an invariant subspace to be a sum of character lines, and Frobenius transitivity then forces the whole orbit. This argument does not require Frobenius to be semisimple and does not divide by an orbit length. Corollary 5.5.10 transfers (h+1)-genericity of a lifting type to 1-genericity of the residual representation; the resulting semisimplicity justifies the step in Corollary 5.5.8. The dependency chain uses Proposition 5.5.9 and Corollary 5.5.10 before Corollary 5.5.8, so it does not reason in a circle.
+
+E19 remains an error in the unrestricted assertion: an unramified unipotent representation is tame without being semisimple. The new argument repairs the generic tame applications, not that unqualified equivalence.
+
+## Appendix A hypotheses and levels
+
+A14 now states the full prime-selection hypotheses checked against Thorne Proposition 4.4; A25 separately records the partially framed generator count. The local tangent-dimension equation is required at v in S minus T. The hypothesis is the polarized G_n version of adequacy (A26), with its adjoint cohomology vanishings and generalized-eigenspace trace witnesses; it is not replaced by enormous image or by an unpolarized determinant count. A27 records the dual-Selmer trace-kernel mechanism. For T=S the count is q−[F+:Q]n(n−1)/2.
+
+A17, A28 and A29 distinguish original, auxiliary parahoric and diamond levels. They retain the corrected Hodge shift and monodromy dominance from E33–E34. Only the third level permits the scalar inertia character at Q. The source prints G_(F+,S) for its domain, despite giving a deformation datum with S∪Q immediately below; E36 records the correction to G_(F+,S∪Q), together with the same omitted union in the earlier definition of S_Q. The preceding two levels remain unramified at Q.
+
+## Exact monodromy estimates
+
+G38–G44 decompose the proof behind the family recurrence. G39 records the full increment bound, including u′-order p^i and denominator p^(1+(h−1)(i+1)). G40 distinguishes convergence in formal series from membership in every analytic chart. G41 retains the increasing order of left matrix factors and decreasing order of right factors in the Frobenius expansion. In G42 the exponent is **1+m(p^i−1)/(p−1)**; it must not be replaced by (m+1)(p^i−1)/(p−1).
+
+For h≥2 and m≥2h−3, the tail valuations are bounded below by m+2−h and increase to infinity. Euler differentiation preserves the v-power bound. G44 then accounts separately for the loss from ordinary derivatives and the additional loss in dividing lower-triangular entries by v. This yields the integral bound m−2h+3 only after using O-flatness of the quotient by the true monodromy ideal. A zero exponent gives a tautological containment, not equality of ideals.
+
+E37 records the missing j−1 embedding index in the uniqueness proof. Equation (7.3) and the recurrence already have the correct index. Simultaneous u′-divisibility across the cyclic tuple proves uniqueness with that correction.
+
+## Projector correction discovered in the source audit
+
+A30–A33 record the exact restriction that Thorne uses: first pass to the Hecke image on the auxiliary projector module, then assert unramified or selected scalar-inertia local conditions. Proposition 5.12 makes this image algebra an explicit hypothesis, and the proof of Theorem 6.8 constructs it before the deformation-ring map. The unrestricted full-Hecke statement in LLHLM23 Theorem A.4.1 is therefore not supplied by that reference. E38 records the missing justification and the corrected projected interface, without claiming a global counterexample.
+
+The original-level comparison is the operator `pr` applied after inclusion. Its image need not be the raw included spherical line, and the displayed polynomial operator need not itself be idempotent. The spectral image is a direct summand, which is what the diamond freeness argument needs. Invariants use the inclusion map; coinvariants use trace. No division by the p-power order of the diamond group is permitted.
+
+The CHT/EGH check supports this boundary: CHT Proposition3.4.4(8) also requires a selected generalized-eigenspace Y and concludes over its image algebra T(Y); its patching proof selects H_1,Q first. EGH Theorem7.2.1 supplies constituent representations and local compatibility, with only semisimplified compatibility at p. Exact integral descent, multiplier sign and monodromy suppliers remain named gaps. These references were read in the bounded passages recorded in the JSON, not in full.
+
+## Regularity and shared ownership
+
+Z63–Z66 expand the regular-local-domain proof through the maximal-ideal associated graded algebra. The generator map from the polynomial algebra is surjective. Any nonzero homogeneous relation lowers the growth of graded pieces, contradicting the Hilbert–Samuel dimension formula. Dimension zero is handled separately: the maximal ideal is generated by the empty tuple and is zero. Krull separation then supplies finite orders for nonzero elements, and nonzero initial forms show their product is nonzero. No additive map from the local ring to its associated graded ring is asserted.
+
+The pinned Mathlib regular-local criterion and Krull separation are reused. The Hilbert–Samuel supplier chain remains explicit: reading the outer Stacks proofs does not establish every supporting atom. Z66 now has six API entries and four typed tests, including mixed characteristic, where a coefficient-field section need not exist. The source passages are [00NO](https://stacks.math.columbia.edu/tag/00NO), [00NP](https://stacks.math.columbia.edu/tag/00NP), [00KQ](https://stacks.math.columbia.edu/tag/00KQ), [00K3](https://stacks.math.columbia.edu/tag/00K3) and [00IP](https://stacks.math.columbia.edu/tag/00IP); retrieval hashes are in the JSON.
+
+The current 593-item LLHLM20 extraction shares both existing candidate IDs with this paper. The ownership record keeps the all-rank common foundation before GL3 lattice applications and the exact weak-functor construction before domain-dependent minimality and detectability. Fine-grained supplier/request closure remains required. The refreshed input snapshot is `2d9f4680c097b558c3684dec993a71f78e7913ee` (758 guarded blobs). The intervening Liu/Venkatesh changes concern specialized level raising and derived Hecke actions and do not replace this classical projector interface.
+
+## Evidence and diagnostics
+
+The freshly downloaded 212-page published PDF has the same SHA-256 as the prior source record. The new readings are attributed in `source.continuationReadings`; no new complete reading of all 212 pages is asserted. The relevant passages were compared with arXiv v2, and dense monodromy formulas and Appendix A statements were checked on rendered published pages. Thorne's arXiv v1 supplies the exact polarized adequacy definition and prime-selection proof. Its Hodge convention is not silently imported into LLHLM23's opposite convention.
+
+Independent finite diagnostics passed: 5,152 distinct-character configurations, 27,300 signed-digit separations, five zero-generic collision controls, all five projective lines in the F4 two-dimensional tame orbit example, 16 Frobenius-relation vectors, and 1,750 monodromy-tail parameter sets. The F4 example is simple even though its Frobenius swap is nonsemisimple in characteristic two. These calculations check formulas and hypotheses; they do not prove the analytic or Galois theorems.
+
+The final structural pass checks all 480 items, exactly one route per missing item, all 456 inherited IDs, all 35 inherited finding IDs and the acyclic 240-edge recorded internal dependency graph. Appendix B source data is unchanged. Paper and three-file intake validation are run for this checkpoint. The literal itemwise API census finds 10 of 152 definitions/constructions with uses, API and at least three correctly typed tests; the other 142 have not met that complete itemwise form, even where inherited grouped plans exist. Source suppliers, remaining multipart statements and integral Appendix B certificates also still require work. The original checkpoint report below remains historical evidence rather than a claim that its missing work has disappeared.
+
+The fresh finite diagnostics are reproducible with Python’s standard library:
+
+```python
+from itertools import permutations,combinations,product
+from math import lcm
+checks={}
+# All-rank digit-separation examples, with cyclic permutations and nonconstant embeddings.
+c=0
+for p in [5,7,11,13]:
+ for n in range(2,5):
+  rows=[tuple(reversed(a)) for a in combinations(range(p-1),n) if all(a[j+1]-a[j]>=2 for j in range(n-1))]
+  for row in rows:
+   for perm in permutations(range(n)):
+    cur=list(range(n));r=0
+    while True:
+     r+=1;cur=[perm[a] for a in cur]
+     if cur==list(range(n)):break
+    exponents=[]
+    for i in range(n):
+     a=i;v=0
+     for j in range(r):v+=p**j*row[a];a=perm[a]
+     exponents.append(v%(p**r-1))
+    assert len(set(exponents))==n;c+=1
+checks['distinct_character_configurations']=c
+c=0
+for p in [3,5,7,11,13]:
+ for d in range(1,7):
+  for ds in product([-(p-2),-1,1,p-2],repeat=d):
+   v=sum(a*p**j for j,a in enumerate(ds));assert v%(p**d-1)!=0;c+=1
+checks['signed_digit_separations']=c
+# Boundary control: 0-deep endpoint collision.
+for p in [3,5,7,11,13]:assert (p-1)%(p-1)==0
+checks['zero_generic_collision_controls']=5
+# F4 = F2[a]/(a^2+a+1): tame inertia diag(a,a^2), Frobenius swaps lines.
+def mul(a,b):
+ r=0
+ for i in range(2):
+  if (b>>i)&1:r^=a<<i
+ if r&4:r^=7
+ return r
+vectors=list(product(range(4),repeat=2));nz=[v for v in vectors if v!=(0,0)]
+def scale(a,v):return tuple(mul(a,x) for x in v)
+def inert(v):return (mul(2,v[0]),mul(3,v[1]))
+def frob(v):return (v[1],v[0])
+lines={frozenset(scale(a,v) for a in range(4)) for v in nz};assert len(lines)==5
+assert all(not(all(inert(v) in L for v in L) and all(frob(v) in L for v in L)) for L in lines)
+for v in vectors:
+ assert frob(inert(frob(v)))==inert(inert(v))
+ # Frobenius is nonidentity with square identity in characteristic2, hence not semisimple.
+ assert frob(frob(v))==v
+assert frob((1,0))!=(1,0)
+checks['f4_tame_orbit_lines']=len(lines);checks['f4_frobenius_relation_vectors']=len(vectors)
+# Tail bounds used by G43, and derivative-loss endpoint G44.
+c=0
+for p in [3,5,7,11,13,17,19]:
+ for h in range(2,12):
+  for m in range(2*h-3,35):
+   vals=[1+m*(p**i-1)//(p-1)-i*(h-1) for i in range(1,9)]
+   assert vals[0]==m+2-h and all(a<=b for a,b in zip(vals,vals[1:]));c+=1
+   for t in range(h-1):assert m-(h-1)-t>=m-2*h+3
+checks['monodromy_tail_parameter_sets']=c
+import json
+print(json.dumps(checks,indent=2));open('paper-lllm-23/finite-diagnostics-results.json','w').write(json.dumps(checks,indent=2)+'\n')
+```
+
+---
+
 # Local models for Galois deformation rings: affinoid product suppliers
 
 Codex — codex-7e92bd, issue #1254, 23 September 2026. This continuation of merged #2259 has **456 items: 60 library, 8 planned, 388 missing, with 15 unchanged route identities and 35 unchanged, unreviewed source findings**. It adds eleven pinned imports L50–L60 and eighteen source/planning items Z45–Z62. All 427 inherited IDs remain; Z08, Z10, Z13 and Z14 have more precise statements, and Z09 has explicit supplier edges. The definition/construction census is now 150 (84 definitions, 66 constructions). Z08 and the new construction Z52 have itemwise APIs and typed tests; this does not close the other API deficits.
