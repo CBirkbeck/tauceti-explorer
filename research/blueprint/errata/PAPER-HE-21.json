@@ -14,8 +14,14 @@
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published pp.9–10,14 and H15 v3 Theorem 2.27, p.37. Independently generated the A2 Weyl group, reconstructed the parabolic factorization and Demazure product, and computed the three affine root ranges exactly. The input is shrunken and the constructed seed is not. This invalidates this application of the citation, not basic nonemptiness or the main theorem. The discarded claim about every singular coweight remains discarded.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E2",
@@ -29,8 +35,14 @@
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.13 against the definition and GHN Lemma 3.6.3. Direct multiplication gives the correct finite factor yσ(x)=σ(ησ(w)); the recorded A2 example puts the printed conjugate outside W_J. Both translation expressions have the same Levi Kottwitz image because W_J acts trivially modulo its coroot lattice. The reach remains the written proof, not its numerical obstruction.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E3",
@@ -44,8 +56,14 @@
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published p.8 page image and the v1 p.9 proof. Section 2.2 explicitly defines the order with coroots. The cone elements being compared are coweights; α must be α∨ in the indicated sums, while roots in pairings are unchanged.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E4",
@@ -59,23 +77,35 @@
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the same published and preprint proofs. The all-zero feasible case disproves strict positivity over the entire base. Nonnegative coefficients suffice for the componentwise-minimum proof; strict coefficients on the actual nonzero supports remain valid.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E5",
       "kind": "gap",
       "locator": "He21, published version, Proposition 5.1 proof, existence of the asserted unique minimal feasible coweight.",
       "printed": "a unique minimal element",
-      "correction": "Add nonemptiness and existence of a minimal element before using the proved common-lower-bound property. Use μ0=λ−λ′+N·2ρ∨, where 2ρ∨ is the sum of all positive coroots, for sufficiently large integral N.",
+      "correction": "No source correction required. For an expanded proof, choose μ0=λ−λ′+N·2ρ∨ for large integral N, use finite lower intervals of dominant integral-coroot order, and apply the proved lower-directedness.",
       "reason": "Each simple-root pairing with 2ρ∨ is 2, so μ0 is dominant for large N and μ0+λ′−λ is in the nonnegative integral coroot cone. If μ≤_Zμ0 is dominant and μ0−μ=Σ n_iα_i∨, then Σ n_i=〈ρ,μ0−μ〉≤〈ρ,μ0〉; hence there are finitely many such μ. A minimal feasible element below μ0 exists, and lower-directedness makes it globally least. This is a routine completion, not a false theorem. The inherited proposed direction Σ(simple coroots) is wrong: in D4 its simple-root pairings are (1,−1,1,1). Input item /53 already uses the valid 2ρ∨ direction.",
-      "affects": "the proof",
-      "known": "new",
+      "affects": "nothing",
+      "known": "Rejected by independent review: routine omitted order argument, not an established source error.",
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as a source-error allegation. The asserted nonempty feasible set has finite lower intervals: use μ0=λ−λ′+N·2ρ∨ and bound the coroot coefficients below it by pairing with ρ. The printed lower-directedness calculation then gives a global least element. This routine well-foundedness argument requires no missing hypothesis or additional theorem and does not make the proof inadequate. The report spells it out for formalization. The bad simple-coroot direction belongs to the earlier extraction, not this source.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E6",
@@ -83,14 +113,20 @@
       "locator": "He21, published version, §2.2 standing reduction and §§5.2–5.4 auxiliary coweights and translations.",
       "printed": "simple and quasi-split",
       "correction": "Specify the adjoint/full-coweight datum in which the auxiliary construction is performed, and justify transfer of the final geometric statement to the original group. Do not demand nonexistent lifts of intermediate translations.",
-      "reason": "For split SL3, ω1∨=(2α1∨+α2∨)/3 is not a cocharacter, so the factor t^{ρ_J∨} with J={s1} is not in its Iwahori–Weyl group. The obstruction can persist in γ: in unramified simply connected ²A2, let σ exchange the nodes, λ=(3,3), x=1,y=s1 in fundamental-coweight coordinates. Then x′=s2 and γ=λ−ω1∨+s2ω2∨=(3,2), with coroot coordinates (8/3,7/3), whereas λ has integral coroot coordinates (3,3). Equality of auxiliary Kottwitz coinvariants does not produce a lift. GHN’s adjoint comparison is componentwise after its erratum and carries an equal-characteristic coprimality restriction; ramified and mixed-characteristic applications need their actual comparison. No counterexample to He21 Theorem 6.1 is claimed.",
+      "reason": "For split SL3, ω1∨=(2α1∨+α2∨)/3 is not a cocharacter, so the factor t^{ρ_J∨} with J={s1} is not in its Iwahori–Weyl group. The obstruction can persist in γ: in unramified simply connected ²A2, let σ exchange the nodes, λ=(3,3), x=1,y=s1 in fundamental-coweight coordinates. Then x′=s2 and γ=λ−ω1∨+s2ω2∨=(3,2), with coroot coordinates (8/3,7/3), whereas λ has integral coroot coordinates (3,3). Equality of auxiliary Kottwitz coinvariants does not produce a lift. GHN’s adjoint comparison is componentwise after its erratum. Its equal-characteristic geometric comparison has a coprimality hypothesis; p.652 separately supplies a mixed-characteristic set bijection without that hypothesis. The final dimension transfer needs its appropriate geometric or combinatorial justification. H14 §1.4 explicitly assumes adjoint type, unlike H21’s standing reduction. No counterexample to He21 Theorem 6.1 is claimed.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing carrier/reduction in the written construction, published pp.5,9–10. Exact A2 calculations show both a nonintegral fundamental coweight for SL3 and nonintegral output γ for a shrunken simply connected twisted input. Narrowed the comparison warning: GHN p.652 already supplies a mixed-characteristic set bijection without the equal-characteristic coprimality assumption. The final geometric transfer still needs the correct scope; auxiliary Kottwitz equality does not supply lifts. H14 §1.4 explicitly imposes adjoint type, while H21 does not.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E9",
@@ -104,8 +140,14 @@
       "searched": [
         "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
         "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
-      ]
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly in the published H14 p.399 image. The statement introduces the Weyl factor x; v is the Hecke parameter. HZZ v1 Proposition 3.4.2 supplies positive evidence of the intended x-support condition. Already known as a later reformulation, not an official erratum.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E10",
@@ -119,8 +161,14 @@
       "searched": [
         "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
         "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
-      ]
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly in H14 p.399. Minimality as a left parabolic representative forbids a descent in δ⁻¹(J1); a nonidentity element of W_J has a descent in its complement. This is also exactly the condition needed in the next step. Checked the corresponding outside-parabolic choice in HZZ pp.22–23.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E11",
@@ -134,8 +182,14 @@
       "searched": [
         "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
         "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
-      ]
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly in H14 p.399. The preceding equations establish saturated support only; the node-interchange A2 example separates it from ordinary support. HZZ retains the saturated support required for induction.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E13",
@@ -143,14 +197,20 @@
       "locator": "GHN15, P-alcoves and nonemptiness of affine Deligne–Lusztig varieties, Ann. Sci. ÉNS 48 (2015), Proposition 2.2.1, p.651.",
       "printed": "the injective map π0(Flag)→π0(Flag_ad)",
       "correction": "Retain the componentwise flag isomorphisms. Assert a global immersion only with injectivity of the component-group map, and retain the characteristic hypothesis of the comparison.",
-      "reason": "The authors’ erratum, Proposition 0.0.1, removes automatic injectivity and gives the corrected componentwise statement. In equal characteristic the comparison assumes char(k) does not divide |π1(G_ad)|. Its subsequent description of the kernel by torsion in cocharacter coinvariants is stated for semisimple G, not arbitrary reductive G. The He21 adjoint reduction must import the corrected result, rather than the original global assertion.",
+      "reason": "The authors’ erratum, Proposition 0.0.1, removes automatic injectivity and gives the corrected componentwise statement. In equal characteristic the comparison assumes char(k) does not divide |π1(G_ad)|. Its subsequent description of the kernel by torsion in cocharacter coinvariants is stated for semisimple G, not arbitrary reductive G. The He21 adjoint reduction must import the corrected result, rather than the original global assertion. Independently, G=G_m has π0(Flag)=Z and trivial adjoint group, so its component map is not injective; the coprimality hypothesis holds because π1(G_ad)=0.",
       "affects": "a stated result",
       "known": "Authors’ erratum, Proposition 0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
       "searched": [
         "2026-09-23: original GHN15 published PDF, https://www.numdam.org/item/10.24033/asens.2254.pdf, at the specified proposition.",
         "2026-09-23: all three pages of https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.",
-        "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence."
-      ]
+        "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the original published p.651 and all three pages of the authors’ erratum. Independently, G=G_m has flag-component map Z→0 for the trivial adjoint group, so automatic injectivity is false even when the characteristic condition holds. The componentwise comparison survives. The semisimple restriction on the erratum’s kernel formula is retained.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E14",
@@ -164,23 +224,35 @@
       "searched": [
         "2026-09-23: original GHN15 published PDF, https://www.numdam.org/item/10.24033/asens.2254.pdf, at the specified proposition.",
         "2026-09-23: all three pages of https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.",
-        "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence."
-      ]
+        "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against original published p.657 and erratum Proposition 0.0.2. Independently checked the two diagonal GL2 representatives: permutation conjugation interchanges them, but torus σ-conjugation preserves each valuation. The basic restriction belongs to Levi-class uniqueness, not the one-way obstruction; He21 explicitly says so in its footnote.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E15",
       "kind": "misprint",
       "locator": "He21, published version, §6.1 heading; also visible in arXiv:2001.03325v1 p.12.",
       "printed": "(J,w,δ)",
-      "correction": "Use (J,x,σ) in the heading to match the definition immediately below it.",
-      "reason": "The body uses x for the conjugator, σ for the twist and w for the element being tested. This is only an editorial consistency correction, with no change of mathematical meaning or hypotheses.",
+      "correction": "No correction required: the heading uses generic argument names. Matching them to (J,x,σ) in the body is an optional editorial change.",
+      "reason": "The names of the three arguments in a heading are dummy variables. They do not identify the conjugator with the element being tested or alter the twist in the definition. No false or ill-defined expression results.",
       "affects": "nothing",
-      "known": "new",
+      "known": "Rejected by independent review: no source error established.",
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected. The published p.13 heading and v1 p.12 use generic argument names (J,w,δ), as in the cited literature. The definition below specializes the names to (J,x,σ). A heading with dummy variables does not assert that the conjugator equals the tested element or that a different automorphism is used. Harmonizing the names is optional editing, not a mathematical misprint. E2 is a different, actual substitution inside an assertion.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E16",
@@ -194,8 +266,14 @@
       "searched": [
         "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
         "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
-      ]
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published p.4 image and v1 p.4. The field and normalizer points are defined with F-breve; no local field L is introduced. The later L-action cannot provide that missing field definition. This is a harmless notation slip.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     },
     {
       "id": "PAPER-HE-21/E17",
@@ -209,8 +287,14 @@
       "searched": [
         "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
         "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
-      ]
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+        "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly in the published H14 p.400 image, not merely extracted text. The immediately preceding twisted step ends with y s_{δ(i)}; the induction display drops δ. HZZ’s corresponding branch ends with yσ(s). The correction is needed for nontrivial twists and does not contradict Proposition 11.6.",
+        "by": "REV-ERRATA-PAPER-HE-21"
+      }
     }
   ]
 }
