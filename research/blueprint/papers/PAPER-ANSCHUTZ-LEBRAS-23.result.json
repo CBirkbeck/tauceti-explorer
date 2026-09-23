@@ -2084,7 +2084,12 @@
     "the published version, doi:10.1017/fmp.2022.22 (Forum of Mathematics, Pi 11 (2023), e2, open access on Cambridge Core), read 22 September 2026, including its 'A correction has been issued for this article' notice",
     "the erratum itself, Prismatic Dieudonné Theory – ERRATUM, doi:10.1017/fmp.2024.30 (Forum of Mathematics, Pi 13 (2025), e3, published 7 February 2025), read 22 September 2026: it is the only correction listed for the article",
     "the numbering of the preprint against the numbering of the published version, statement by statement, in all six sections and the appendix; the two agree except that arXiv Remark 5.1.7, on Cartier duality for finite locally free group schemes, has no counterpart in the published version"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the source: Theorem 4.9.5 reads 'Let R be a quasi-regular semiperfectoid ring. Then the prismatic Dieudonne functor M_prism(-): BT(R) -> DM^adm(R) from the category of p-divisible groups over R to the category of admissible prismatic Dieudonne crystals over R is essentially surjective.' The functor displayed is the non-calligraphic one, whose target is the category of prismatic Dieudonne modules; the crystal-valued functor is the calligraphic one. The entry's diagnosis of the deliberate overloading of DM^adm is right.",
+    "by": "REV-PAPER-ANSCHUTZ-LEBRAS-23"
+   }
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E2",
@@ -2100,7 +2105,12 @@
     "the published version, doi:10.1017/fmp.2022.22 (Forum of Mathematics, Pi 11 (2023), e2, open access on Cambridge Core), read 22 September 2026, including its 'A correction has been issued for this article' notice",
     "the erratum itself, Prismatic Dieudonné Theory – ERRATUM, doi:10.1017/fmp.2024.30 (Forum of Mathematics, Pi 13 (2025), e3, published 7 February 2025), read 22 September 2026: it is the only correction listed for the article",
     "the numbering of the preprint against the numbering of the published version, statement by statement, in all six sections and the appendix; the two agree except that arXiv Remark 5.1.7, on Cartier duality for finite locally free group schemes, has no counterpart in the published version"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the source shows the mechanism. The sentence reads 'Recall the following definition, which already appeared in \\Cref{sec:abstr-divid-prism-remark-cais-lau-principal} before', and that label sits on the Cais-Lau proposition (4.1.26, published 4.26), while the definition being recalled is Definition 4.1.24 (published 4.24). So the defect is a wrong \\Cref target rather than a mistyped word: the paper uses cleveref, which generates 'Proposition' from the target's environment, which is why the printed text says Proposition. Worth knowing for anyone fixing it.",
+    "by": "REV-PAPER-ANSCHUTZ-LEBRAS-23"
+   }
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E3",
@@ -2116,7 +2126,12 @@
     "the published version, doi:10.1017/fmp.2022.22 (Forum of Mathematics, Pi 11 (2023), e2, open access on Cambridge Core), read 22 September 2026, including its 'A correction has been issued for this article' notice",
     "the erratum itself, Prismatic Dieudonné Theory – ERRATUM, doi:10.1017/fmp.2024.30 (Forum of Mathematics, Pi 13 (2025), e3, published 7 February 2025), read 22 September 2026: it is the only correction listed for the article",
     "the numbering of the preprint against the numbering of the published version, statement by statement, in all six sections and the appendix; the two agree except that arXiv Remark 5.1.7, on Cartier duality for finite locally free group schemes, has no counterpart in the published version"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: the example imposes the relations 'p x_{i,j} - f x_{i,j+1}' and then displays 'p^{i}x_{i,0}=p^{i}fx_{i,1}=\\ldots = f^{i}x_{i,i}\\neq 0'. Each substitution trades one p for one f, so the second term must be p^{i-1} f x_{i,1}; as printed the total degree jumps by one. The entry's correction and reason are right, and the conclusion (unbounded p^infty-torsion) is unaffected.",
+    "by": "REV-PAPER-ANSCHUTZ-LEBRAS-23"
+   }
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E4",
@@ -2132,7 +2147,12 @@
     "the published version, doi:10.1017/fmp.2022.22 (Forum of Mathematics, Pi 11 (2023), e2, open access on Cambridge Core), read 22 September 2026, including its 'A correction has been issued for this article' notice",
     "the erratum itself, Prismatic Dieudonné Theory – ERRATUM, doi:10.1017/fmp.2024.30 (Forum of Mathematics, Pi 13 (2025), e3, published 7 February 2025), read 22 September 2026: it is the only correction listed for the article",
     "the numbering of the preprint against the numbering of the published version, statement by statement, in all six sections and the appendix; the two agree except that arXiv Remark 5.1.7, on Cartier duality for finite locally free group schemes, has no counterpart in the published version"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, in both copies: the introduction's crystal definition reads 'whose linearization phi^* M -> M has its cokernel is killed by I^pris' and the module definition the same with I. The body definitions are correct - 'has its cokernel killed by I^pris' at label sec:abstr-divid-prism-definition-prismatic-dieudonne-crystals and 'has its cokernel killed by I' at the module definition - so the stray word is confined to the two introductory copies, exactly as the entry says.",
+    "by": "REV-PAPER-ANSCHUTZ-LEBRAS-23"
+   }
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E5",
@@ -2147,7 +2167,12 @@
     "the arXiv listing and submission history of arXiv:1907.10525, read 22 September 2026: v1 (24 July 2019), v2 (6 February 2020), v3 (14 May 2021) and v4 (11 October 2022), the version read, whose comment records that the notion of filtered prismatic Dieudonné crystal was replaced by the equivalent notion of admissible prismatic Dieudonné crystal and that the proof of full faithfulness was corrected and simplified following a suggestion of Akhil Mathew; there is no later preprint version and no version carrying the erratum",
     "the published version, doi:10.1017/fmp.2022.22 (Forum of Mathematics, Pi 11 (2023), e2, open access on Cambridge Core), read 22 September 2026, including its 'A correction has been issued for this article' notice",
     "the erratum itself, Prismatic Dieudonné Theory – ERRATUM, doi:10.1017/fmp.2024.30 (Forum of Mathematics, Pi 13 (2025), e3, published 7 February 2025), read 22 September 2026: it is the only correction listed for the article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the erratum was read rather than cited. Forum of Mathematics Pi 13 (2025) e3 (doi:10.1017/fmp.2024.30) says: 'There is a mistake in the proof of Proposition 5.23 of the published version. The content of this proposition was already known to be true by a different proof... Also, the arguments of this fallacious proof are not used anywhere else in the paper, so this mistake does not affect any of the results stated in the paper.' It identifies the same key step the entry quotes - topological nilpotence of the divided Frobenius on the kernel of A_crys(R) -> W(R) - calls it 'not true', and gives Senger's counterexample R = F_p[x^{1/p^infty}]/x with the element sum_k p[x]^{1/p^k}/p^k fixed by the divided Frobenius. The entry's classification (error, affects the proof) and its 'known' field naming the erratum are both right. Its added observation is also correct: the paper proves a genuine topological-nilpotence statement elsewhere, at the label sec:essent-surj-divided-varphi-topological-nilpotent-on-the-kernel (Lemma 4.9.3, published 4.88), so the reader has to keep the two apart.",
+    "by": "REV-PAPER-ANSCHUTZ-LEBRAS-23"
+   }
   }
  ]
 }
