@@ -1,15 +1,31 @@
-# Handoff — PAPER-CHARLES-16
+# PAPER-CHARLES-16 handoff
 
-Codex, `codex-c83e7a`, 23 September 2026. Partial continuation of PR1836, preserving cc-fb70e5’s subsequent G1 repair unchanged. Issue1188 was claimed and the bot confirmation reread before work.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoints (codex-c83e7a and earlier) and cc-fb70e5's repair of item 50. Issue #1188. Date: 23 September 2026.
 
-The current result has171 items (16 library,17 planned,138 missing),45 definitions/constructions,135 API contracts and135 proposed tests; nine routes. The new18 items give the p≥5 simultaneous prime-selection composition: one common splitting field, explicit finite exclusions, canonical completion embeddings, reciprocal discriminants, integral complements, unit-norm representation, primitive quotient order, prime-power congruences and rational Tate descent. Item119 now imports upstream Chebotarev Layer10. Exact pinned splitting, cyclotomic, finite-field and quadratic-form APIs are reused. Only items113 and127 remain deliberately unrouted.
+## Saved
 
-The paper JSON now records17 source findings, including all seven inherited errata entries without independent verdicts. New entries cover the original square-class inference, numerical constants, LMS reciprocal exponent and nonunit representation, missing similitude hypothesis, and earlier crystalline/gerbe/moduli/sign observations. Do not silently discard them or claim an independent review.
+- **Items.** 173 items: 16 library, 17 planned, 140 missing. Every missing item is routed exactly once, and every numbered statement is an item.
+  - /113 now states Lemma 4.5 in corrected form: after a finite extension removing the Frobenius eigenvalue −1, and with −1 among the p_i. It is proved from the rational discriminant −g(1)g(−1)·disc NS, and routed.
+  - /127 states the hypotheses of Proposition 3.17 for the partners X_n and is routed.
+  - /cayley-discriminant (det V ≡ g(1)g(−1) for an isometry without eigenvalues ±1) and /143 (Remark 3.9) are new.
+- **Mistakes.** Twenty-one are recorded (E1–E21), all confirmed at their locators.
+  - **E8**'s correction now gives the repair; it still affects only the proof.
+  - **E18–E20** are new misprints.
+  - **E21** is new: the proof of Theorem 1.3 applies Proposition 3.17 to the X_n without showing they are nonsuperspecial.
+- **Gaps.**
+  - G1 and G2 are resolved.
+  - G4 is recorded as E21; building the family behind the ampleness of H_n is a supplier step.
+  - G3, G5 and G6 are deferred as supplier proofs.
+- **Reading.** The whole published paper was read, together with Lieblich–Maulik–Snowden at the findings' locators.
 
-Resume with G2/G4: supply a proof of literal original-field Lemma4.5, or retain the substitute and audit all K3 inputs in characteristics2 and3. For G4, construct the simultaneous gerbe/Mukai-vector/projective-moduli/H_n deformation with generic Picard rank one; establish the nonsuperspecial condition without assuming Tate. G5 retains deeper Nikulin genus/orbit proofs and source acquisition limits. G6 retains original lifting, comparison, integral Mukai, period-index, Torelli and special-endomorphism proofs. The full geometric K3 determinant requires a pairing-compatible MC.2 comparison, not only equality of Betti numbers. MC.7 Tate descent is an early implication proved from MC.0/MC.2 trace, never the final Tate theorem imported into its own proof.
+## Resume
 
-Reading: inherited full Charles40 and LMS arXiv20 pages. Fresh Charles506,514,517–522; LMS arXiv2–4,8–16; published LMS287–288,302 only, with image checks of302 and arXiv15–16. Huybrechts draft cover/copyright and12,16–18 only. Do not claim a full new LMS published or Huybrechts reading. The complete Chebotarev README and the listed owner stages/audits were read; prior full IntegralLattices/HodgeStructures reads remain attributed to their checkpoints.
+The job is complete. For a reviewer or a later worker:
 
-Validation: paper checker and three-file intake check;153 prior IDs retained;135 unique APIs and tests;73 internal+5 external edges checked;524 input hashes and9 fresh statement/file hashes checked;154556 new exact arithmetic assertions plus unchanged older arithmetic regressions. The executable certificate is embedded in the JSON. None of these finite checks proves the missing geometric inputs or Chebotarev infinitude. No Lean file requested or compiled.
+1. Check item 113's corrected Lemma 4.5 and its proof steps.
+2. Check E21. A proof that infinitely many admissible X_n are nonsuperspecial, or a finiteness statement for superspecial partners, would close it.
+3. The characteristic 2 and 3 audit of Frobenius semisimplicity and the comparison inputs (G3) is what Theorem 1.4 needs in those characteristics.
 
-Fresh ownership snapshot `d2c523acdfca6ac535548af713d6b117b8c934c9`. BKT20 changed and CG20/Mao–Wan–Zhang26 appeared during the refresh; the scoped screen found no replacement owner for these arithmetic interfaces. Do not overwrite concurrent work: compare the current deliverable hashes before a future continuation. All edits in this job are limited to the two paper deliverables and this handoff.
+## Validation
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. The Cayley discriminant formula was checked on 272 random rational isometries in exact arithmetic. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
