@@ -344,6 +344,17 @@
       "file": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
       "lines": "89-99",
       "sha256": "7ec20c0557f9d00a651c84e8dc2f6ad8bbbc0f66231741a8cf49e71ffdc05ba2"
+    },
+    "independentReview": {
+      "job": "REV-PAPER-TSIMERMAN-18",
+      "agent": "Codex",
+      "session": "codex-hjdg0j",
+      "date": "2026-09-23",
+      "repositoryCommit": "85e12faced69f184b09205c0a5abed1cabdd7594",
+      "mainRead": "All twelve published pages as text; formula/defect pages 381-388 as images. arXiv v5 §§1-6, pp. 1-8, as text; relevant version differences compared.",
+      "additionalReads": "Pila-Tsimerman 2014 pp. 663, 670, 673-678 and references; Pila-Tsimerman 2013 arXiv §3 and Lemma 4.1 pp. 3-10; Tsimerman 2012 arXiv §§7.1-7.2 pp. 17-22; Gao arXiv v6 §13 pp. 46-50; Yuan-Zhang pp. 534-535; Thorner-Zaman pp. 1139-1142; Masser-Wustholz printed pp. 6-7, 23-24; Silverberg-Zarhin introduction; Pila 2011 pp. 1792-1793. These are selected primary-source reads, not full-proof certification.",
+      "pila2011Sha256": "cef3f37837e592309f4200b36a998ef2f1bb9c0d7c9267d5879b440effdc3bf4",
+      "sourceIssueStorage": "Existing E1-E5 remain in the errata deliverable; sourceIssues here contains only newly recorded E6-E8."
     }
   },
   "items": [
@@ -359,14 +370,36 @@
       ],
       "note": "Directly checked at the mathlib pin in CMField.lean, blob 6c7067617742aae433a648031822e84a41746b4f, lines 63-91. The class uses the maximal real subfield and assumes Field and CharZero. No Lean elaboration was run.",
       "api": [
-        "maximalRealSubfield and its degree",
-        "complex conjugation and fixed elements",
-        "totally complex infinite-place pairs"
+        {
+          "name": "CMField.finrank_maximalRealSubfield",
+          "role": "compatibility",
+          "statement": "For a number field E with IsCMField E, [E:Q]=2*[E+:Q]; reuse the pinned CM field carrier."
+        },
+        {
+          "name": "CMField.complexConj_fixed_iff",
+          "role": "characterisation",
+          "statement": "An element of E is fixed by complex conjugation exactly when it lies in the embedded maximal real subfield."
+        },
+        {
+          "name": "CMField.embedding_pair",
+          "role": "structure",
+          "statement": "Conjugation acts without fixed points on the complex embeddings and partitions them into pairs."
+        }
       ],
       "unitTests": [
         "Q(i) has maximal real field Q and degree two.",
         "A real quadratic field fails IsCMField.",
         "A non-Galois quartic CM field is allowed; no IsGalois assumption is introduced."
+      ],
+      "uses": [
+        {
+          "where": "2.2, p. 382",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/cm-quadratic-hecke-character",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -380,14 +413,36 @@
         "ComplexMultiplicationAndExplicitReciprocity:CM.0"
       ],
       "api": [
-        "finite embedding set with disjoint conjugate complement",
-        "tangent representation of the specified O_E-action",
-        "transport under CM field isomorphism and complex conjugation"
+        {
+          "name": "CMType.card",
+          "role": "relation",
+          "statement": "A CM type of a degree-2g CM field has cardinality g and disjoint union with its conjugate equals all embeddings."
+        },
+        {
+          "name": "CMType.tangentMultiplicity",
+          "role": "compatibility",
+          "statement": "An O_E-action has type Phi exactly when its complex tangent representation has multiplicity one at the embeddings in Phi and zero at their conjugates."
+        },
+        {
+          "name": "CMType.transport",
+          "role": "functoriality",
+          "statement": "A CM field isomorphism transports a type by composition of embeddings, compatibly with identity, composition and conjugation."
+        }
       ],
       "unitTests": [
         "An imaginary quadratic field has two singleton types.",
         "Selecting both members of one conjugate pair fails the type axiom.",
         "Different types on the same quartic field stay distinct before a proved equivalence."
+      ],
+      "uses": [
+        {
+          "where": "2.2, p. 382",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/primitive-type, PAPER-TSIMERMAN-18/reflex-type",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -404,14 +459,36 @@
         "PAPER-TSIMERMAN-18/cm-type"
       ],
       "api": [
-        "induced type by restriction from a CM subfield",
-        "primitive predicate with its explicit proper-subfield quantifier",
-        "simple maximal-CM endomorphism theorem as a consumer"
+        {
+          "name": "CMType.induce",
+          "role": "constructor",
+          "statement": "For a CM subfield F of E and a type Psi of F, all embeddings of E restricting to Psi form the induced type."
+        },
+        {
+          "name": "CMType.isPrimitive_iff",
+          "role": "characterisation",
+          "statement": "Phi is primitive iff it is unequal to every type induced from a proper CM subfield."
+        },
+        {
+          "name": "CMType.isPrimitive_transport",
+          "role": "functoriality",
+          "statement": "Transport through a CM field isomorphism preserves primitivity by transporting the quantified proper CM subfields."
+        }
       ],
       "unitTests": [
         "Every imaginary quadratic type is primitive.",
         "An induced type from an imaginary quadratic subfield of a biquadratic CM field fails primitivity.",
         "A non-Galois CM field with no proper CM subfield has primitive types; Galoisness is not required."
+      ],
+      "uses": [
+        {
+          "where": "2.2, p. 382",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/primitive-endomorphisms, PAPER-TSIMERMAN-18/reflex-type",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -422,14 +499,36 @@
       "locator": "1, p. 380; 2.2, p. 382",
       "status": "missing",
       "api": [
-        "objects with injective O_E-action and tangent type",
-        "equivariant isomorphism relation and quotient",
-        "ideal-class action and choice-independent class-number comparison"
+        {
+          "name": "CMClass.mk",
+          "role": "constructor",
+          "statement": "A dimension-g complex abelian variety with injective O_E-action of type Phi determines an equivariant isomorphism class."
+        },
+        {
+          "name": "CMClass.mk_eq_mk_iff",
+          "role": "characterisation",
+          "statement": "Two objects represent the same class iff an isomorphism intertwines their specified O_E-actions."
+        },
+        {
+          "name": "CMClass.idealClassAction",
+          "role": "structure",
+          "statement": "Invertible fractional ideals act on the class set through Cl(E), with principal ideals acting trivially; after choosing a base object the action identifies the set with Cl(E)."
+        }
       ],
       "unitTests": [
         "For an imaginary quadratic maximal order the unpolarized equivariant class set has h_E elements.",
         "Adding a chosen principal polarization changes the moduli problem and requires a separate comparison.",
         "Twisting the specified action can change tangent type even when the underlying abelian variety is unchanged."
+      ],
+      "uses": [
+        {
+          "where": "1, p. 380; 2.2, p. 382",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/cm-class-number, PAPER-TSIMERMAN-18/primitive-endomorphisms, PAPER-TSIMERMAN-18/ideal-isogeny, PAPER-TSIMERMAN-18/cm-height-invariance",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -444,14 +543,36 @@
       ],
       "note": "M6 explicitly separates rational coarse moduli points, objects over a field, and the descent obstruction. The numerical extension-degree estimate below is an additional theorem, not automatic from a coarse point.",
       "api": [
-        "Galois stabilizer of polarized isomorphism class",
-        "fixed field and coarse residue-field comparison",
-        "field-of-definition map and descent obstruction"
+        {
+          "name": "PolarizedModuli.stabilizer",
+          "role": "data",
+          "statement": "The automorphisms of Qbar preserving the polarized isomorphism class form a subgroup of Gal(Qbar/Q)."
+        },
+        {
+          "name": "PolarizedModuli.fieldOfModuli",
+          "role": "constructor",
+          "statement": "Take the fixed field of that stabilizer and compare it with the residue field of the coarse moduli point."
+        },
+        {
+          "name": "PolarizedModuli.fieldOfModuli_le",
+          "role": "compatibility",
+          "statement": "A polarized model over k gives an inclusion of its field of moduli into k; the converse requires effective descent."
+        }
       ],
       "unitTests": [
         "A model over k gives a stabilizer containing Gal(Qbar/k).",
         "The carrier does not return a k-model merely from a k-rational coarse point.",
         "For elliptic curves over Qbar the coarse field is Q(j), regardless of the field of one chosen equation."
+      ],
+      "uses": [
+        {
+          "where": "1, p. 379 and footnote p. 380; Lemma 4.1, p. 384",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/level-three-descent",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -459,20 +580,42 @@
       "kind": "construction",
       "name": "Hodge determinant with its metric",
       "statement": "For A/K with everywhere semistable reduction, construct the determinant of invariant differentials of its Neron model over O_K and its archimedean metric from integration of omega wedge conjugate(omega). Import the Neron model and determinant-line foundations.",
-      "locator": "2.1, pp. 381-382",
+      "locator": "Published §2.1, p. 381",
       "status": "planned",
       "planned": [
         "ArakelovGeometryAndAbelianHeights:R35.2"
       ],
       "api": [
-        "determinant of invariant differentials on semistable Neron model",
-        "finite lattice and archimedean norm",
-        "base change, tensor and section-scaling maps"
+        {
+          "name": "Faltings.hodgeLine",
+          "role": "constructor",
+          "statement": "For a semistable Neron model over O_K, take the determinant of the locally free module of invariant differentials and its integration metric."
+        },
+        {
+          "name": "Faltings.hodgeNorm_smul",
+          "role": "simp",
+          "statement": "For a scalar a and a section omega, the archimedean norm of a*omega is |sigma(a)| times the norm of omega."
+        },
+        {
+          "name": "Faltings.hodgeLine_baseChange",
+          "role": "compatibility",
+          "statement": "Under a further finite extension preserving semistable reduction, compare the determinant lattice and its pulled-back metrics with those for the base-changed abelian variety."
+        }
       ],
       "unitTests": [
         "Replacing a section by a nonzero scalar changes each norm by its absolute value.",
         "The zero section is excluded from the finite-index height formula.",
         "Scaling the squared metric by (2*pi)^(-g) leaves the finite lattice unchanged."
+      ],
+      "uses": [
+        {
+          "where": "Published §2.1, p. 381",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/stable-faltings-height, PAPER-TSIMERMAN-18/cm-height-metric-normalization",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -480,7 +623,7 @@
       "kind": "definition",
       "name": "Stable Faltings height",
       "statement": "For the Hodge line L and nonzero omega, set h_F(A)=(log #(H0(L)/O_K omega) -(1/2) sum_sigma log |integral sigma(omega wedge conjugate(omega))|)/[K:Q], after a field extension giving everywhere semistable reduction.",
-      "locator": "2.1, displayed formula, pp. 381-382",
+      "locator": "Published §2.1, p. 381",
       "status": "planned",
       "planned": [
         "ArakelovGeometryAndAbelianHeights:R35.3"
@@ -489,14 +632,36 @@
         "PAPER-TSIMERMAN-18/hodge-line"
       ],
       "api": [
-        "normalized arithmetic degree",
-        "semistable extension and extension-independent value",
-        "product and metric-scaling comparisons"
+        {
+          "name": "Faltings.stableHeight",
+          "role": "constructor",
+          "statement": "Compute the normalized arithmetic degree after a semistable extension, proving independence of the nonzero integral section and of the extension."
+        },
+        {
+          "name": "Faltings.stableHeight_prod",
+          "role": "compatibility",
+          "statement": "With the common determinant/volume normalization, h_F(A times B)=h_F(A)+h_F(B)."
+        },
+        {
+          "name": "Faltings.height_rescaleSquaredMetric",
+          "role": "relation",
+          "statement": "Multiplying every squared norm on the Hodge line by c>0 changes the normalized height by -(1/2)*log(c)."
+        }
       ],
       "unitTests": [
         "A further finite semistable base extension leaves the normalized height unchanged.",
         "Product-formula cancellation removes a scalar change of nonzero section.",
         "Negative height values are admitted; Bost is a real lower bound."
+      ],
+      "uses": [
+        {
+          "where": "Published §2.1, p. 381",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/height-section-independence, PAPER-TSIMERMAN-18/height-field-independence, PAPER-TSIMERMAN-18/bost-lower-bound, PAPER-TSIMERMAN-18/cm-height-invariance, PAPER-TSIMERMAN-18/cm-height-metric-normalization",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -504,7 +669,7 @@
       "kind": "theorem",
       "name": "Independence of the Hodge section",
       "statement": "Replacing the nonzero Hodge section leaves the height unchanged: the product formula cancels the finite-index and archimedean changes.",
-      "locator": "2.1, p. 382",
+      "locator": "Published §2.1, p. 381",
       "status": "planned",
       "planned": [
         "ArakelovGeometryAndAbelianHeights:R35.1",
@@ -519,7 +684,7 @@
       "kind": "theorem",
       "name": "Stable height under field extension",
       "statement": "The normalized height after semistable reduction is unchanged by further finite extension, so it is independent of the chosen semistable field. Existence of semistable reduction is an imported theorem, not automatic for the initial model.",
-      "locator": "2.1, pp. 381-382",
+      "locator": "Published §2.1, p. 381",
       "status": "planned",
       "planned": [
         "ArakelovGeometryAndAbelianHeights:R35.3"
@@ -621,14 +786,36 @@
         "PAPER-TSIMERMAN-18/cm-isomorphism-classes"
       ],
       "api": [
-        "finite subgroup annihilated by a nonzero ideal",
-        "quotient abelian variety with descended O_E-action",
-        "kernel, norm-degree, composition and base-field descent"
+        {
+          "name": "CMIdealIsogeny.quotient",
+          "role": "constructor",
+          "statement": "For nonzero integral I, form the finite common kernel of I in A and the equivariant quotient A/A[I]."
+        },
+        {
+          "name": "CMIdealIsogeny.degree",
+          "role": "compatibility",
+          "statement": "For maximal CM of type Phi, the degree of the ideal quotient is the absolute norm of I; the unit ideal gives the identity."
+        },
+        {
+          "name": "CMIdealIsogeny.descend",
+          "role": "functoriality",
+          "statement": "If A and all O_E-endomorphisms are defined over k, the ideal kernel, quotient and induced action descend to k."
+        }
       ],
       "unitTests": [
         "The unit ideal gives the trivial kernel and identity isogeny.",
         "For the principal integer ideal (m), the degree is m^(2g) when m is nonzero.",
         "The zero ideal is excluded: it would annihilate no endomorphism beyond zero and give the whole variety as kernel."
+      ],
+      "uses": [
+        {
+          "where": "2.2, p. 382; [17], 7.6, Proposition 22",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/ideal-isogeny-degree, PAPER-TSIMERMAN-18/cm-common-definition-field",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -661,7 +848,7 @@
       "kind": "theorem",
       "name": "Distant CM isogenies",
       "statement": "For primitive Phi, there are A,B in S(E,Phi) whose minimum complex isogeny degree is >=C_{g,epsilon}|Disc(E)|^(1/4-epsilon). The preceding proof fixes A arbitrarily and yields the stronger interface: for every A there is such a B.",
-      "locator": "Proposition 2.2 and preceding proof, pp. 382-383",
+      "locator": "Published §2.2 and Proposition 2.2, p. 382; used in Theorem 4.2, p. 385",
       "status": "missing",
       "note": "The strengthened starting-point quantifier is needed to prove the moduli bound for every A.",
       "dependsOn": [
@@ -676,9 +863,9 @@
       "kind": "theorem",
       "name": "Masser-Wustholz quantitative isogeny bound",
       "statement": "For each g there are positive C_g,kappa_g such that geometrically isogenous dimension-g A,B defined over a common number field k admit a complex isogeny of degree <=C_g max(1,h_F(A),[k:Q])^kappa_g. No polarization preservation is imposed.",
-      "locator": "Theorem 2.3, p. 383; [12], Theorem II and field-degree discussion",
+      "locator": "Published Theorem 2.3, pp. 382-383; Masser-Wustholz 1995 Theorem II, printed p. 6, and final paragraph of p. 23",
       "status": "missing",
-      "note": "[12] printed pp. 7 and 24 were inspected. Remove polarization-degree dependence using Zarhin's trick. R28.4's qualitative isogeny theorem is not this estimate."
+      "note": "The primary PDF was checked again in review: Theorem II is on printed p. 6, not p. 7; the field-degree replacement of 1 by d is on p. 23, not p. 24. The exponent and, after that replacement, the implicit constant depend only on dimension. The full factorization proof is a prerequisite; R28.4 is qualitative."
     },
     {
       "id": "PAPER-TSIMERMAN-18/cm-height-invariance",
@@ -701,14 +888,36 @@
       "status": "missing",
       "note": "The individual Colmez conjecture is not a proved input.",
       "api": [
-        "normal-closure group and conjugacy-averaged type function",
-        "irreducible-character coefficients and Artin conductor",
-        "finite combinatorial bounds and averaged expression"
+        {
+          "name": "Colmez.typeClassFunction",
+          "role": "constructor",
+          "statement": "Form the type function on a normal-closure Galois group, its convolution with the reflected function and its conjugacy average, fixing the convention used for the height expression."
+        },
+        {
+          "name": "Colmez.characterCoefficients",
+          "role": "data",
+          "statement": "Expand the normalized averaged type class function in irreducible characters to obtain the rational coefficients c_(rho,Phi)."
+        },
+        {
+          "name": "Colmez.averagedExpression",
+          "role": "compatibility",
+          "statement": "Summing the character expressions over all CM types gives the expression used in the averaged theorem; this API grants no individual Colmez theorem."
+        }
       ],
       "unitTests": [
         "The trivial factor is isolated before evaluating at s=1.",
         "Changing to the conjugate type preserves the applicable averaged identity.",
         "The individual conjectural formula is not a theorem constructor; only the imported averaged formula is proved input."
+      ],
+      "uses": [
+        {
+          "where": "Conjecture 3.1 and Theorem 3.2, p. 383",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/averaged-colmez, PAPER-TSIMERMAN-18/colmez-finite-uniformity",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -798,14 +1007,36 @@
         "PAPER-TSIMERMAN-18/field-of-moduli"
       ],
       "api": [
-        "full ordered 3-torsion data and rigidification",
-        "Galois stabilizer of level data and effective descent",
-        "roots of unity, dual torsion and field-degree bound"
+        {
+          "name": "LevelThree.rigid",
+          "role": "characterisation",
+          "statement": "An automorphism of a polarized abelian variety acting trivially on a full level-three structure is the identity in characteristic zero."
+        },
+        {
+          "name": "LevelThree.modelOverStabilizerField",
+          "role": "constructor",
+          "statement": "Rigid level data yield an effective descent datum and a model over their stabilizer field; adjoining mu_3 supplies dual torsion."
+        },
+        {
+          "name": "LevelThree.degree_bound",
+          "role": "relation",
+          "statement": "The field obtained from level-three data and mu_3 has degree at most 2*3^(4*g^2) over the polarized field of moduli."
+        }
       ],
       "unitTests": [
         "Retaining mu_3 makes the dual 3-torsion rational through the Weil pairing.",
         "A residual automorphism must act trivially on full level 3 before descent is invoked.",
         "Replacing 3 by 2 cannot reuse the rigidity theorem: the [-1] automorphism acts trivially on 2-torsion."
+      ],
+      "uses": [
+        {
+          "where": "Lemma 4.1, p. 384",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/endomorphism-definition, PAPER-TSIMERMAN-18/bounded-field-definition",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -838,10 +1069,10 @@
       "id": "PAPER-TSIMERMAN-18/cm-common-definition-field",
       "kind": "theorem",
       "name": "Common small field for the CM pair",
-      "statement": "Descend the ideal quotient B=A/T_I over F_A' using its defined endomorphisms. The published construction F_A'F_B' defines both A,B and has degree over F_A bounded by 4*3^(8g^2).",
+      "statement": "Fix the polarized A and its field of moduli F_A. Over the extension F_A' of Lemma 4.1, the O_E-endomorphisms and the ideal kernel T_I are defined, so B=A/T_I descends there. Choose on B a polarization descended along this quotient from a suitable multiple of the polarization on A, also over F_A'. Its polarized moduli field F_B is then contained in F_A'. Apply Lemma 4.1 to this polarized B and take F_A'F_B'; it defines A,B and their full 3-torsion, and has degree over F_A at most 4*3^(8g^2).",
       "locator": "Proof of Theorem 4.2, p. 385",
       "status": "missing",
-      "note": "Check polarization conventions on the quotient. Do not apply the isogeny estimate over an unrealized coarse field of moduli.",
+      "note": "This is an existence construction with a compatible chosen polarization on B, not a bound for an arbitrarily prescribed polarization on B. The isogeny estimate itself is geometric and does not require preserving polarizations.",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/ideal-isogeny",
         "PAPER-TSIMERMAN-18/bounded-field-definition",
@@ -871,14 +1102,36 @@
       "locator": "5, p. 385",
       "status": "missing",
       "api": [
-        "centre of the actual integral endomorphism ring",
-        "embedding as full order in a product of CM fields",
-        "trace pairing, discriminant and finite-index comparison"
+        {
+          "name": "CMCentreOrder.integralCentre",
+          "role": "constructor",
+          "statement": "Take the centre of End(A), not End^0(A), with its embedding in the rational centre."
+        },
+        {
+          "name": "CMCentreOrder.productEmbedding",
+          "role": "compatibility",
+          "statement": "An isotypic decomposition identifies the rational centre with the product of the simple CM fields and embeds the integral centre as a full order in their maximal-order product."
+        },
+        {
+          "name": "CMCentreOrder.discriminant_index",
+          "role": "relation",
+          "statement": "For R in O=product O_(K_i), abs(disc(R))=[O:R]^2*product abs(disc(K_i))."
+        }
       ],
       "unitTests": [
         "For a simple maximal-CM variety the centre order is O_E.",
         "For a product of distinct simple factors use a product order, not a NumberField instance.",
         "Replacing O by an index-f suborder multiplies the absolute discriminant by f^2."
+      ],
+      "uses": [
+        {
+          "where": "5, p. 385",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/general-cm-orbit-reduction, PAPER-TSIMERMAN-18/cm-lift-height",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -896,14 +1149,36 @@
         "PAPER-TSIMERMAN-18/primitive-type"
       ],
       "api": [
-        "normal closure and extended embedding set",
-        "stabilizer fixed field and induced reflex embeddings",
-        "change of normal closure and primitive double reflex comparison"
+        {
+          "name": "CMType.reflexField",
+          "role": "constructor",
+          "statement": "In a fixed normal closure take the fixed field of the stabilizer of the extended type with the specified left/right convention."
+        },
+        {
+          "name": "CMType.reflexType",
+          "role": "data",
+          "statement": "The appropriate inverse cosets define embeddings of the reflex field choosing one from each conjugate pair."
+        },
+        {
+          "name": "CMType.reflex_transport",
+          "role": "functoriality",
+          "statement": "Compatible changes of normal closure transport the reflex field and type by canonical isomorphisms."
+        }
       ],
       "unitTests": [
         "The imaginary quadratic reflex field is the original field.",
         "A non-Galois quartic type may have a different reflex field, so do not identify carriers.",
         "Changing the normal closure by a compatible embedding transports the reflex data rather than altering its isomorphism class."
+      ],
+      "uses": [
+        {
+          "where": "5, pp. 385-386",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/reflex-norm",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -921,14 +1196,36 @@
         "PAPER-TSIMERMAN-18/reflex-type"
       ],
       "api": [
-        "reflex norm on ideals with declared admissible domain",
-        "element norm and principal-ideal compatibility",
-        "idele/ideal and conjugation dictionaries"
+        {
+          "name": "ReflexNorm.idealMap",
+          "role": "constructor",
+          "statement": "Define the ideal norm t from K* to K by the product over the reflex embeddings after extension to the normal closure, and descend the product ideal."
+        },
+        {
+          "name": "ReflexNorm.map_principal",
+          "role": "compatibility",
+          "statement": "For a in (K*)^×, t((a))=(t_element(a)); both maps are multiplicative."
+        },
+        {
+          "name": "ReflexNorm.mul_conjugate",
+          "role": "relation",
+          "statement": "For a nonzero fractional ideal I of K*, t(I)*conjugate(t(I))=N_(K*/Q)(I)*O_K."
+        }
       ],
       "unitTests": [
         "A principal ideal maps to the ideal of its element reflex norm.",
         "The unit ideal maps to the unit ideal.",
         "The scalar norm of an ideal of K-star is N_(K-star/Q), never the ill-typed N_(K/Q)."
+      ],
+      "uses": [
+        {
+          "where": "5, p. 386",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/reflex-class-map, PAPER-TSIMERMAN-18/polarized-reciprocity-kernel",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -945,14 +1242,36 @@
         "PAPER-TSIMERMAN-18/reflex-norm"
       ],
       "api": [
-        "well-defined map Cl(K-star) to Cl(K)",
-        "composition with Cl(L) to Cl(K-star) norm",
-        "image/kernel and bounded-index transport"
+        {
+          "name": "ReflexClassMap.ofIdealMap",
+          "role": "constructor",
+          "statement": "Principal-ideal compatibility descends t to a homomorphism r:Cl(K*) to Cl(K)."
+        },
+        {
+          "name": "ReflexClassMap.normalClosure",
+          "role": "compatibility",
+          "statement": "The normal-closure map equals r composed with the class-group norm Cl(L) to Cl(K*)."
+        },
+        {
+          "name": "ReflexClassMap.image_norm_index",
+          "role": "relation",
+          "statement": "The index of the image of the composite inside im(r) is at most the index of the class norm image, hence at most [L:K*]."
+        }
       ],
       "unitTests": [
         "A principal ideal represents zero and maps to zero.",
         "The normal-closure composite has domain Cl(L), which cannot be silently identified with Cl(K-star).",
         "For the identity field extension the norm composite equals the original reflex class map."
+      ],
+      "uses": [
+        {
+          "where": "5, p. 386",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/norm-image-index, PAPER-TSIMERMAN-18/polarized-reciprocity-kernel, PAPER-TSIMERMAN-18/general-cm-orbit-reduction",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -970,22 +1289,45 @@
       "id": "PAPER-TSIMERMAN-18/polarized-reciprocity-kernel",
       "kind": "definition",
       "name": "Polarized reciprocity subgroup",
-      "statement": "H consists of classes [I] in Cl(K*) with r(I)=(a) and a*conjugate(a)=N_{K*/Q}(I), using fractional-ideal normalization. Prove independence of the representative and H<=ker(r).",
+      "statement": "H consists of classes [I] in Cl(K*) admitting a fractional-ideal representative I and a in K^× with t(I)=(a) and a*conjugate(a)=N_{K*/Q}(I). Here t is the IDEAL reflex norm and r its induced class-group map. Prove representative independence and H<=ker(r).",
       "locator": "5, p. 386",
       "status": "missing",
       "note": "The ideal norm must have the reflex-field domain; the printed subscript is incompatible with I.",
       "dependsOn": [
-        "PAPER-TSIMERMAN-18/reflex-class-map"
+        "PAPER-TSIMERMAN-18/reflex-class-map",
+        "PAPER-TSIMERMAN-18/reflex-norm"
       ],
       "api": [
-        "fractional-ideal/principal-generator condition",
-        "representative independence and subgroup proof",
-        "map to positive real units modulo CM norms"
+        {
+          "name": "PolarizedReciprocity.mem_iff",
+          "role": "characterisation",
+          "statement": "A class lies in H iff it has I and a with t(I)=(a) and a*bar(a)=N_(K*/Q)(I)."
+        },
+        {
+          "name": "PolarizedReciprocity.changeRepresentative",
+          "role": "compatibility",
+          "statement": "Replacing I by (b)I replaces a by t_element(b)*a and multiplies both sides of the norm equation by N_(K*/Q)(b)."
+        },
+        {
+          "name": "PolarizedReciprocity.obstruction",
+          "role": "structure",
+          "statement": "The ratio a*bar(a)/N(I) defines a homomorphism from ker(r) to totally positive real units modulo norms of CM units, independent of the principal generator, with kernel H."
+        }
       ],
       "unitTests": [
         "The identity ideal with a=1 lies in H.",
         "Changing a principal generator by a unit changes the obstruction by its CM norm.",
         "Being in ker(r) without a trivial positive-unit obstruction does not certify membership in H."
+      ],
+      "uses": [
+        {
+          "where": "5, p. 386",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/unit-quotient, PAPER-TSIMERMAN-18/cm-reciprocity-moduli-degree",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1047,17 +1389,45 @@
       "name": "Siegel uniformization and fundamental set",
       "statement": "Form H_g from symmetric complex matrices with positive definite imaginary part and pi:H_g->A_g(C) for Sp_(2g)(Z). Construct the fundamental-set setup and finite boundary multiplicities used in counting.",
       "locator": "6.1, p. 387",
-      "status": "missing",
-      "note": "Do not assert a globally free coarse covering or that an open fundamental domain includes its boundary.",
+      "status": "planned",
+      "note": "D5 supplies the Siegel domain; V0 supplies the Hermitian arithmetic reduction/fundamental-set specialization; V1 the analytic quotient and level maps; M3 the comparison with the abelian moduli space. Retain finite stabilizers and boundary multiplicities: no globally free coarse covering. The source-specific counting use imports these constructions into LD.6.",
       "api": [
-        "symmetric matrix carrier with positive definite imaginary part",
-        "symplectic action and coarse moduli uniformization",
-        "selected fundamental set, boundary multiplicities and height adapter"
+        {
+          "name": "SiegelDomain.mem_iff",
+          "role": "characterisation",
+          "statement": "A complex g-by-g matrix belongs to H_g iff it is symmetric and its imaginary part is positive definite; reuse D5."
+        },
+        {
+          "name": "SiegelModuli.uniformization",
+          "role": "compatibility",
+          "statement": "The symplectic arithmetic quotient of H_g identifies with the analytic coarse principally polarized moduli space; use V0/V1 and M3, retaining stabilizers."
+        },
+        {
+          "name": "SiegelFundamentalSet.representatives",
+          "role": "data",
+          "statement": "Choose the specified fundamental set, with every orbit represented and finite controlled boundary multiplicity; restrict pi to this set for counting."
+        }
       ],
       "unitTests": [
         "For g=1 the carrier reduces to the upper half-plane.",
         "A symmetric matrix with a zero imaginary eigenvalue is excluded.",
         "Points with nontrivial stabilizer retain orbifold isotropy; the coarse map is not assumed a free covering."
+      ],
+      "planned": [
+        "ShimuraData:D5",
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V1",
+        "PELModuli:M3"
+      ],
+      "uses": [
+        {
+          "where": "6.1, p. 387",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/cm-lift-degree, PAPER-TSIMERMAN-18/cm-lift-height, PAPER-TSIMERMAN-18/uniformization-definability, PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann, PAPER-TSIMERMAN-18/cm-siegel-reduction-height",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1065,21 +1435,43 @@
       "kind": "definition",
       "name": "Special and weakly special subvarieties",
       "statement": "Use Shimura data and the fixed-factor description to define special and weakly special subvarieties and their lifts. A weakly special fixed factor may be nonspecial; the notions are distinct.",
-      "locator": "6.4, p. 388; [16], 3 and Theorem 6.1",
+      "locator": "Published §6.4, p. 388; Pila-Tsimerman 2014 §2 definitions, p. 663, and Theorem 6.1, p. 670",
       "status": "planned",
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ],
       "note": "Import Shimura-data foundations from their owner; LD.6 owns the functional-transcendence interface.",
       "api": [
-        "Shimura-subdatum special locus",
-        "fixed-factor weakly special locus and lifts",
-        "CM-point promotion, dimension and Galois transport"
+        {
+          "name": "ShimuraSpecial.ofSubdatum",
+          "role": "constructor",
+          "statement": "The image of a connected Shimura subdatum is special."
+        },
+        {
+          "name": "ShimuraWeaklySpecial.fixedFactor",
+          "role": "constructor",
+          "statement": "After the adjoint product decomposition of a subdatum, the image of one factor times a fixed point in the other is weakly special."
+        },
+        {
+          "name": "ShimuraWeaklySpecial.isSpecial_iff",
+          "role": "characterisation",
+          "statement": "A weakly special subvariety is special iff it contains a special point."
+        }
       ],
       "unitTests": [
         "A positive-dimensional factor at a nonspecial fixed parameter is weakly special without being special.",
         "A weakly special subvariety containing a CM point is promoted by the separate theorem.",
         "A zero-dimensional special subvariety is a special point, not every complex point."
+      ],
+      "uses": [
+        {
+          "where": "Published §6.4, p. 388; Pila-Tsimerman 2014 §2 definitions, p. 663, and Theorem 6.1, p. 670",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann, PAPER-TSIMERMAN-18/cm-promotes-special",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1095,21 +1487,43 @@
       "kind": "definition",
       "name": "Height and degree for algebraic lifts",
       "statement": "Use absolute multiplicative Weil height on algebraic coordinates and maximum height on coordinate tuples. Fix the coordinatewise algebraic degree bound before counting; transport heights under finite field extension and between complex entries and real-imaginary coordinates by named comparisons.",
-      "locator": "6.2-6.3, p. 387",
+      "locator": "Published §6.2, p. 387; Pila 2011, p. 1793",
       "status": "planned",
       "note": "RP.0 supplies absolute heights and field-extension compatibility. The specific Siegel-coordinate comparison belongs to the CM lift theorem, not to a second height definition in LD.6.",
       "planned": [
         "HeightsRationalPointsAndObstructions:RP.0"
       ],
       "api": [
-        "absolute multiplicative coordinate height",
-        "coordinatewise degree and tuple maximum",
-        "extension invariance and complex-to-real coordinate bounds"
+        {
+          "name": "AlgebraicTuple.maxHeight",
+          "role": "data",
+          "statement": "For an algebraic coordinate tuple use the maximum of the absolute multiplicative Weil heights of its coordinates."
+        },
+        {
+          "name": "AlgebraicTuple.degreeBound",
+          "role": "characterisation",
+          "statement": "The coordinatewise bound d means [Q(x_i):Q]<=d for every coordinate; it does not impose joint degree <=d."
+        },
+        {
+          "name": "AlgebraicTuple.realImagHeight",
+          "role": "compatibility",
+          "statement": "Pass from complex algebraic entries to real and imaginary parts with explicitly bounded degrees and polynomial height comparison; absolute height is unchanged by enlarging the field of computation."
+        }
       ],
       "unitTests": [
         "Rational a/b in lowest terms has height max(abs(a),abs(b)).",
         "Field extension leaves the absolute height unchanged.",
         "Several individually quadratic coordinates can generate a field of degree greater than two; coordinatewise and joint degree are different APIs."
+      ],
+      "uses": [
+        {
+          "where": "Published §6.2, p. 387; Pila 2011, p. 1793",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/cm-lift-degree, PAPER-TSIMERMAN-18/cm-lift-height, PAPER-TSIMERMAN-18/pila-wilkie, PAPER-TSIMERMAN-18/cm-siegel-reduction-height",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1144,7 +1558,7 @@
       "kind": "theorem",
       "name": "O-minimality of R_an,exp",
       "statement": "The real field with restricted analytic functions and exponentiation is o-minimal, with definable-set closure and cell-decomposition APIs.",
-      "locator": "6.3, p. 387; [6]",
+      "locator": "Published §6.3, p. 388",
       "status": "planned",
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.6"
@@ -1155,7 +1569,7 @@
       "kind": "theorem",
       "name": "Definable restricted uniformization",
       "statement": "Restricted Siegel uniformization on the chosen fundamental set is definable in R_an,exp, so its inverse image of algebraic V intersected with that set is definable.",
-      "locator": "6.3, p. 387; [13]",
+      "locator": "Published §6.3, p. 388",
       "status": "planned",
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.6"
@@ -1170,20 +1584,42 @@
       "kind": "definition",
       "name": "Algebraic part of a definable set",
       "statement": "T_alg is the union of connected positive-dimensional semialgebraic subsets of T, in the Pila-Wilkie convention; it is not the Zariski closure of T.",
-      "locator": "6.3, p. 387",
+      "locator": "Published §6.3, p. 388",
       "status": "planned",
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ],
       "api": [
-        "union of connected positive-dimensional semialgebraic subsets",
-        "membership witness and containment in the original definable set",
-        "counting complement without assuming the algebraic part definable"
+        {
+          "name": "DefinableSet.mem_algebraicPart",
+          "role": "characterisation",
+          "statement": "A point lies in T_alg iff it lies in some connected positive-dimensional semialgebraic subset of T."
+        },
+        {
+          "name": "DefinableSet.algebraicPart_subset",
+          "role": "relation",
+          "statement": "Every point of T_alg lies in T; no definability of T_alg is assumed."
+        },
+        {
+          "name": "DefinableSet.finite_algebraicPart",
+          "role": "simp",
+          "statement": "A finite real set has empty algebraic part, whereas every real interval of positive length is in its own algebraic part."
+        }
       ],
       "unitTests": [
         "A finite definable set has empty algebraic part.",
         "A real interval is entirely in its algebraic part.",
         "The graph of restricted exponential on an interval has no semialgebraic arc despite its positive-dimensional Zariski closure."
+      ],
+      "uses": [
+        {
+          "where": "Published §6.3, p. 388",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/pila-wilkie",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1191,7 +1627,7 @@
       "kind": "theorem",
       "name": "Bounded-degree Pila-Wilkie",
       "statement": "For definable T, a fixed algebraic degree bound d and epsilon>0, the number of degree-<=d points of height <=X in T outside T_alg is O_{T,d,epsilon}(X^epsilon). Include the extension from rational points.",
-      "locator": "Theorem 6.1, p. 387; [14]; [16], Theorem 7.1 proof",
+      "locator": "Published Theorem 6.1, p. 388; Pila-Tsimerman 2014 proof of Theorem 7.1, p. 676; Pila 2011 Theorem 3.2, p. 1793",
       "status": "planned",
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.6"
@@ -1199,7 +1635,8 @@
       "dependsOn": [
         "PAPER-TSIMERMAN-18/algebraic-part",
         "PAPER-TSIMERMAN-18/algebraic-point-height"
-      ]
+      ],
+      "note": "Pila 2011 explicitly uses coordinatewise degree and maximum absolute multiplicative Weil height. Its cited proof source is Pila 2009 for degree greater than one; the original rational-point Pila-Wilkie paper alone does not supply that extension."
     },
     {
       "id": "PAPER-TSIMERMAN-18/orbit-to-many-lifts",
@@ -1231,10 +1668,10 @@
       "id": "PAPER-TSIMERMAN-18/semialgebraic-to-complex-algebraic",
       "kind": "theorem",
       "name": "From semialgebraic pieces to complex algebraic pieces",
-      "statement": "A maximal connected irreducible semialgebraic subset of a complex analytic set, in the sense of [16], is a complex algebraic subset to which Ax-Lindemann can apply.",
-      "locator": "6.4, p. 388; [16], Lemma 3.3, p. 663",
+      "statement": "For an algebraic V in A_g and a connected irreducible semialgebraic W in pi^{-1}(V), the maximal-piece reduction used in Pila-Tsimerman Theorem 6.1 passes to a maximal complex algebraic subset of H_g inside pi^{-1}(V) containing W (algebraic in H_g means intersection with an ambient complex algebraic set). It suffices to apply that theorem directly in its semialgebraic formulation. Do not assert that an arbitrary semialgebraic arc is itself complex algebraic.",
+      "locator": "Published §6.4, p. 388; Pila-Tsimerman 2014 Theorem 6.1 and first proof paragraph, p. 670; the cited reduction is Pila-Tsimerman 2013, arXiv:1106.4023, Lemma 4.1, PDF pp. 9-10.",
       "status": "missing",
-      "note": "An arbitrary real semialgebraic arc is not itself the needed complex algebraic variety."
+      "note": "The former locator “[16], Lemma 3.3, p. 663” is false: that page contains §2 definitions and Lemmas 2.1-2.3. Use the checked semialgebraic Theorem 6.1; the earlier complexification proof remains prerequisite work, with its version and algebraicity convention recorded."
     },
     {
       "id": "PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann",
@@ -1279,7 +1716,8 @@
         "PAPER-TSIMERMAN-18/pila-wilkie",
         "PAPER-TSIMERMAN-18/semialgebraic-to-complex-algebraic",
         "PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann",
-        "PAPER-TSIMERMAN-18/cm-promotes-special"
+        "PAPER-TSIMERMAN-18/cm-promotes-special",
+        "PAPER-TSIMERMAN-18/special-galois-transport"
       ]
     },
     {
@@ -1389,14 +1827,36 @@
       "status": "missing",
       "note": "Import Poincare complete reducibility and semisimple End from AbelianSchemesAndArithmeticModuli:A6 and the primitive CM classification from V5. Matrix sizes are multiplicities n_i, not dimensions g_i.",
       "api": [
-        "isogeny to pairwise nonisogenous simple factors with multiplicities",
-        "endomorphism-algebra block comparison",
-        "centre product and dimension identity"
+        {
+          "name": "CMAbelian.isotypicFactors",
+          "role": "constructor",
+          "statement": "Choose pairwise nonisogenous simple CM factors A_i with positive multiplicities n_i and an isogeny A to product A_i^(n_i)."
+        },
+        {
+          "name": "CMAbelian.endomorphismBlocks",
+          "role": "compatibility",
+          "statement": "Conjugating by the isogeny identifies End^0(A) with product M_(n_i)(End^0(A_i)); matrix sizes are multiplicities."
+        },
+        {
+          "name": "CMAbelian.centreAndDimension",
+          "role": "relation",
+          "statement": "The rational centre is product K_i and sum n_i*dim(A_i)=dim(A); isomorphic fields K_i alone do not identify simple factors."
+        }
       ],
       "unitTests": [
         "For A=B^n the block is M_n(End^0(B)), not M_dim(B).",
         "Different nonisogenous factors may have isomorphic CM fields without being merged into one isotypic block.",
         "The dimension check sums multiplicity times simple-factor dimension."
+      ],
+      "uses": [
+        {
+          "where": "Tsimerman 2012 section 7.1; Pila-Tsimerman 2013 section 3, general case",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/cm-centre-order-discriminant, PAPER-TSIMERMAN-18/cm-compact-index-comparison",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1514,14 +1974,36 @@
         "PAPER-TSIMERMAN-18/normalizer-special-envelopes"
       ],
       "api": [
-        "finite Shimura product cover in the normal-factor case",
-        "algebraic locus of parameters whose whole fibre lies in V",
-        "dimension bound and special parameter to larger special locus map"
+        {
+          "name": "SpecialFamily.productCover",
+          "role": "constructor",
+          "statement": "When F is normal in the generic Mumford-Tate group, its almost-direct product with its centralizer gives the finite Shimura product cover used in the proof."
+        },
+        {
+          "name": "SpecialFamily.wholeFibreLocus",
+          "role": "characterisation",
+          "statement": "A parameter lies in the closed algebraic locus iff its entire F-factor fibre lies in the inverse image of V."
+        },
+        {
+          "name": "SpecialFamily.parameterDimension_lt",
+          "role": "relation",
+          "statement": "For positive-dimensional F-fibres the parameter locus has dimension strictly less than V; a positive-dimensional special parameter family enlarges a special fibre."
+        }
       ],
       "unitTests": [
         "If V contains a whole positive-dimensional factor fibre, its parameter belongs to the locus.",
         "A parameter with only a single intersection point in its fibre does not qualify.",
         "A positive-dimensional special parameter family gives a special locus strictly larger than one maximal fibre."
+      ],
+      "uses": [
+        {
+          "where": "Pila-Tsimerman 2014, proof of Theorem 7.1, pp. 675-677",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/maximal-fibre-isolated-parameter",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1554,14 +2036,36 @@
       "status": "missing",
       "note": "It agrees with torsion order in a semiabelian fibre only up to the stated fixed constants. It is not a coordinate-free order on every mixed Shimura variety without those choices.",
       "api": [
-        "fixed Levi decomposition and integral coordinates",
-        "denominator of w in W(Q)",
-        "level-change comparison and pure projection compatibility"
+        {
+          "name": "MixedSpecialPoint.denominator",
+          "role": "data",
+          "statement": "Relative to the fixed Levi decomposition, lattice and representative w in W(Q), use the least positive integer clearing w in the source integral coordinates."
+        },
+        {
+          "name": "MixedSpecialPoint.denominator_one",
+          "role": "simp",
+          "statement": "For w equal to the identity, the denominator is one."
+        },
+        {
+          "name": "MixedSpecialPoint.torsionOrderComparison",
+          "role": "compatibility",
+          "statement": "In the semiabelian-fibre situation the denominator agrees with torsion order up to constants depending on the fixed datum and level; changing either requires a separate comparison."
+        }
       ],
       "unitTests": [
         "For w=identity the denominator is one.",
         "In the Kuga torsion-fibre case compare with torsion order only using the source constants.",
         "Changing lattice or level requires a comparison theorem; the numerical denominator is not declared invariant."
+      ],
+      "uses": [
+        {
+          "where": "Gao, arXiv:1310.1302, section 13.1, PDF pp. 46-47",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1600,17 +2104,41 @@
       ],
       "planned": [
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
       ],
       "api": [
-        "idele-class character and primitive finite conductor",
-        "sign component at every real place",
-        "Euler-factor values and completed-function comparison"
+        {
+          "name": "CMQuadraticCharacter.ofArtin",
+          "role": "constructor",
+          "statement": "Compose the global Artin quotient for E/F with the nontrivial character of its order-two Galois group, using the upstream map."
+        },
+        {
+          "name": "CMQuadraticCharacter.realComponent",
+          "role": "compatibility",
+          "statement": "At every real place of F the local character is sign, by compatibility with the real Artin map."
+        },
+        {
+          "name": "CMQuadraticCharacter.localFactor",
+          "role": "simp",
+          "statement": "At an unramified prime the character is 1 for split and -1 for inert; at ramified primes the primitive finite Euler factor is omitted, with primitive conductor retained."
+        }
       ],
       "unitTests": [
         "For E=Q(i), F=Q, recover the odd quadratic Dirichlet character of conductor 4.",
         "At a ramified prime omit the primitive local factor; at split and inert primes its values are 1 and -1.",
         "Enlarging a ray modulus must not enlarge the primitive conductor or silently delete additional Euler factors."
+      ],
+      "note": "GlobalNumberFields owns the character carrier and conductor/infinity-type dictionary; ClassFieldTheory Layer 11 supplies the actual quadratic character through global Artin reciprocity, including the sign at real places. These are upstream imports, never a source route that replans upstream.",
+      "uses": [
+        {
+          "where": "Yuan-Zhang, published p. 535, Theorem 1.1; Thorner-Zaman 2017, pp. 1140-1141",
+          "how": "Supplies the object and comparisons in the source argument; see the stated API."
+        },
+        {
+          "where": "PAPER-TSIMERMAN-18/cm-hecke-conductor, PAPER-TSIMERMAN-18/cm-hecke-zeta-factorization, PAPER-TSIMERMAN-18/cm-hecke-entire, PAPER-TSIMERMAN-18/cm-hecke-completed-functional-equation, PAPER-TSIMERMAN-18/quadratic-hecke-averaged-colmez",
+          "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
+        }
       ]
     },
     {
@@ -1619,12 +2147,15 @@
       "name": "Conductor of the quadratic CM character",
       "statement": "The finite conductor of eta_E/F is the relative discriminant ideal. Consequently the finite analytic conductor Q=D_F*N_(F/Q)(f_eta)=D_E/D_F lies in [1,D_E]. Do not identify Q with D_E unless F=Q.",
       "locator": "Yuan-Zhang Theorem 1.1; quadratic conductor-discriminant comparison needed by the application",
-      "status": "missing",
+      "status": "planned",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/cm-quadratic-hecke-character",
         "PAPER-TSIMERMAN-18/relative-discriminant"
       ],
-      "note": "Standard quadratic class-field-theoretic comparison is an explicit imported proof leaf; its original proof was not read in this continuation."
+      "note": "ClassFieldTheory Layer 13 explicitly plans the abelian conductor-discriminant formula from its local formula and character dictionary. For a quadratic extension the only nontrivial character has conductor equal to the relative discriminant. Combine this upstream import with the pinned discriminant tower identity; no new conductor theorem is assigned to AN.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
     },
     {
       "id": "PAPER-TSIMERMAN-18/cm-hecke-zeta-factorization",
@@ -1831,12 +2362,12 @@
     {
       "citation": "Masser-Wustholz, Factorization estimates for abelian varieties, Publ. Math. IHES 81 (1995), 5-24",
       "link": "https://www.numdam.org/item/PMIHES_1995__81__5_0.pdf",
-      "why": "Quantitative isogeny bound. Theorem II and field-degree discussion inspected at printed pp. 7 and 24."
+      "why": "Quantitative isogeny bound: Theorem II, printed p. 6, and the dimension-uniform field-degree discussion on p. 23, checked directly in review. Full proof decomposition remains prerequisite work."
     },
     {
       "citation": "Pila-Tsimerman, Ax-Lindemann for A_g, Annals 179 (2014), 659-681",
       "link": "https://doi.org/10.4007/annals.2014.179.2.5",
-      "why": "Lemma 3.3 and Theorem 6.1 inspected in the earlier checkpoint; complete published section 7 now read, including Lemmas 7.2-7.7 and both parameter-locus induction branches."
+      "why": "Published §2 definitions p. 663, semialgebraic Theorem 6.1 p. 670 and complete §7 pp. 673-678 checked. There is no Lemma 3.3 on p. 663; the maximal-piece proof cites Lemma 4.1 of the earlier Pila-Tsimerman paper."
     },
     {
       "citation": "Tsimerman, Brauer-Siegel for arithmetic tori and lower bounds for Galois orbits of special points, JAMS 25 (2012), 1091-1117",
@@ -1912,6 +2443,11 @@
       "citation": "Rademacher, On the Phragmen-Lindelof theorem and some applications, Math. Z. 72 (1959), 192-204",
       "link": "https://msp.org/ant/2017/11-5/ant-v11-n5-p04-p.pdf",
       "why": "Original proof of the uniform convexity input, quoted explicitly by Thorner-Zaman Lemma 2.3 and their bibliography p. 1197. Link is to that citing primary source, not to an acquired original. Original Rademacher paper not read."
+    },
+    {
+      "citation": "Pila, O-minimality and the Andre-Oort conjecture for C^n, Annals 173 (2011), 1779-1840",
+      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p11-p.pdf",
+      "why": "Definition 3.1 and Theorem 3.2, pp. 1792-1793, read directly: coordinatewise bounded algebraic degree and maximum absolute multiplicative Weil height. The proof of the algebraic-degree extension is credited there to Pila 2009; retain that recursive proof obligation."
     }
   ],
   "routes": [
@@ -1924,7 +2460,6 @@
       "items": [
         "PAPER-TSIMERMAN-18/special-weakly-special",
         "PAPER-TSIMERMAN-18/reduction-to-number-field",
-        "PAPER-TSIMERMAN-18/siegel-uniformization",
         "PAPER-TSIMERMAN-18/o-minimal-real-field",
         "PAPER-TSIMERMAN-18/uniformization-definability",
         "PAPER-TSIMERMAN-18/algebraic-part",
@@ -2020,7 +2555,6 @@
         "PAPER-TSIMERMAN-18/conductor-discriminant-control",
         "PAPER-TSIMERMAN-18/artin-values",
         "PAPER-TSIMERMAN-18/artin-derivatives",
-        "PAPER-TSIMERMAN-18/cm-hecke-conductor",
         "PAPER-TSIMERMAN-18/cm-hecke-zeta-factorization",
         "PAPER-TSIMERMAN-18/bounded-degree-residue-bounds",
         "PAPER-TSIMERMAN-18/cm-hecke-value-one",
@@ -2031,7 +2565,7 @@
         "PAPER-TSIMERMAN-18/ideal-coefficient-divisor-majorant",
         "PAPER-TSIMERMAN-18/fixed-divisor-subpolynomial"
       ],
-      "reason": "AN.4 owns number-field ideal counts and analytic class-number/Hecke/Artin interfaces; AN.0 supplies coefficient/Euler-product comparison and AN.5 fixed-order divisor estimates. Attach the uniform Brauer-Siegel, primitive finite-order Hecke convexity and derivative source obligations here. Import characters from GlobalNumberFields and functional equations from AL.1. The accepted AN.4 decomposition already contains the Tate/Hecke comparison and the Artin-holomorphy distinction; this route adds its uniform analytic estimates, without a second carrier or assumed Artin conjecture."
+      "reason": "AN.4 owns number-field ideal counts and analytic class-number/Hecke/Artin interfaces; AN.0 supplies coefficient/Euler-product comparison and AN.5 fixed-order divisor estimates. Attach the uniform Brauer-Siegel, primitive finite-order Hecke convexity and derivative source obligations here. Import characters from GlobalNumberFields and functional equations from AL.1. The accepted AN.4 decomposition already contains the Tate/Hecke comparison and the Artin-holomorphy distinction; this route adds its uniform analytic estimates, without a second carrier or assumed Artin conjecture. The quadratic character and conductor-discriminant theorem are imported from upstream ClassFieldTheory Layers 11/13 with the GlobalNumberFields dictionary; they are not new AN work."
     },
     {
       "route": "source",
@@ -2051,14 +2585,16 @@
       "route": "source",
       "roadmap": "PELModuli",
       "stages": [
+        "PELModuli:M3",
         "PELModuli:M6"
       ],
       "items": [
+        "PAPER-TSIMERMAN-18/siegel-uniformization",
         "PAPER-TSIMERMAN-18/field-of-moduli",
         "PAPER-TSIMERMAN-18/level-three-descent",
         "PAPER-TSIMERMAN-18/bounded-field-definition"
       ],
-      "reason": "M6 explicitly constructs the coarse/fine moduli and descent-obstruction comparison. A rational coarse point is not silently treated as a rational family; the quantitative level-three theorem remains separate."
+      "reason": "M3 owns the analytic-to-moduli uniformization comparison, importing D5 and V0/V1 for the domain, arithmetic reduction and analytic quotient; M6 owns coarse/fine moduli and the descent obstruction. Level-three descent and its quantitative field-degree bound refine M6. A rational coarse point is not silently treated as a rational family."
     },
     {
       "route": "source",
@@ -2101,8 +2637,8 @@
         "PAPER-TSIMERMAN-18/cm-height-average-to-individual",
         "PAPER-TSIMERMAN-18/primitive-orbit-exponent-budget"
       ],
-      "reason": "Existing CM.0-CM.6 covers types, reciprocity and explicit class fields. Its stages and the 211-roadmap portfolio do not target general quantitative CM heights, arbitrary-centre-order orbit bounds or all-dimensional lift heights. These additional quantitative layers extend that direction; general CM and geometric foundations stay with their existing suppliers.",
-      "brief": "Build on ComplexMultiplicationAndExplicitReciprocity CM.0/CM.2, importing the general CM theorem from ShimuraVarieties V5, the abelian varieties/Hom/complete reducibility API from AbelianSchemesAndArithmeticModuli A3/A6, and level/coarse descent from PELModuli M6. Import stable Faltings height, normalization, Bost and product identities from ArakelovGeometryAndAbelianHeights R35.1-R35.6; quantitative geometric isogenies from FaltingsFinitenessAndIsogenyTheoremsPartII; uniform analytic estimates from AnalyticNumberTheory AN.0/AN.4/AN.5 and Hecke continuation from AutomorphicLFunctionsAndLocalFactors AL.1. Reuse GlobalNumberFields orders/characters and pinned CM field, regulator, different/discriminant and real class-number-residue declarations. Import the averaged Colmez theorem through the dedicated #1143/#1145 paper routes, including the Yuan-Zhang erratum; construct the normalization/application adapter here rather than duplicate those deep proofs. Target exactly: for every g>=1, primitive maximal-CM polarized dimension-g A has [Q(A):Q]>=c_g*D_E^delta_g for dimension-dependent c_g,delta_g>0; every CM point x in A_g satisfies abs(disc Z(End(A_x)))<=C_g*|Gal(Qbar/Q).x|^b_g; and its chosen Siegel fundamental-set lift has coordinatewise degree bounded in g and height <=C_g*abs(disc Z(End(A_x)))^a_g. Include class-set/ideal-degree imports, distant-isogeny and exponent budgeting, common-field descent, both exact height normalizations, all 2^g types and a real Bost lower constant. Primitive-to-general reduction requires every simple dimension h<=g, product centres with repeated isomorphic fields, nonmaximal orders, the square of the order index, and a separate compact-index comparison including p=2. For lift height, retain lattice covolume/order index, Riemann forms, symplectic bases, quantitative Siegel reduction and complex-to-real coordinate height/degree adapters. Source edition and reciprocity-stabilizer gaps in this partial intake are mandatory acquisition/verification tasks before executable blueprints. Give every carrier an API with positive/negative examples; do not change conditional/unread proof leaves into assumptions presented as theorems. Suggested later file: TauCeti/NumberTheory/ComplexMultiplication/Quantitative.lean."
+      "reason": "Existing CM.0-CM.6 covers types, reciprocity and explicit class fields. Its stages and the current atlas and proposed-roadmap portfolio do not target general quantitative CM heights, arbitrary-centre-order orbit bounds or all-dimensional lift heights. These additional quantitative layers extend that direction; general CM and geometric foundations stay with their existing suppliers.",
+      "brief": "Build on ComplexMultiplicationAndExplicitReciprocity CM.0/CM.2, importing the general CM theorem from ShimuraVarieties V5, the abelian varieties/Hom/complete reducibility API from AbelianSchemesAndArithmeticModuli A3/A6, and level/coarse descent from PELModuli M6. Import stable Faltings height, normalization, Bost and product identities from ArakelovGeometryAndAbelianHeights R35.1-R35.6; quantitative geometric isogenies from FaltingsFinitenessAndIsogenyTheoremsPartII; uniform analytic estimates from AnalyticNumberTheory AN.0/AN.4/AN.5 and Hecke continuation from AutomorphicLFunctionsAndLocalFactors AL.1. Reuse GlobalNumberFields orders/characters and pinned CM field, regulator, different/discriminant and real class-number-residue declarations. Import the averaged Colmez theorem through the dedicated #1143/#1145 paper routes, including the Yuan-Zhang erratum; construct the normalization/application adapter here rather than duplicate those deep proofs. Target exactly: for every g>=1, primitive maximal-CM polarized dimension-g A has [Q(A):Q]>=c_g*D_E^delta_g for dimension-dependent c_g,delta_g>0; every CM point x in A_g satisfies abs(disc Z(End(A_x)))<=C_g*|Gal(Qbar/Q).x|^b_g; and its chosen Siegel fundamental-set lift has coordinatewise degree bounded in g and height <=C_g*abs(disc Z(End(A_x)))^a_g. Include class-set/ideal-degree imports, distant-isogeny and exponent budgeting, common-field descent, both exact height normalizations, all 2^g types and a real Bost lower constant. Primitive-to-general reduction requires every simple dimension h<=g, product centres with repeated isomorphic fields, nonmaximal orders, the square of the order index, and a separate compact-index comparison including p=2. For lift height, retain lattice covolume/order index, Riemann forms, symplectic bases, quantitative Siegel reduction and complex-to-real coordinate height/degree adapters. Source edition and reciprocity-stabilizer gaps listed in this intake are mandatory acquisition/verification tasks before executable blueprints. Give every carrier an API with positive/negative examples; do not change conditional/unread proof leaves into assumptions presented as theorems. Suggested later file: TauCeti/NumberTheory/ComplexMultiplication/Quantitative.lean. Import ClassFieldTheory Layers 11/13 for quadratic reciprocity characters and conductor-discriminant, and PELModuli M3 with ShimuraVarieties V0/V1 and ShimuraData D5 for the uniformization used by lift heights. The same Part II ID is also proposed by PAPER-YUAN-ZHANG-18 and PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18: merge those dedicated proof branches into one design; this route is their quantitative consumer, not a competing averaged-Colmez construction."
     },
     {
       "route": "part-ii",
@@ -2114,7 +2650,7 @@
         "PAPER-TSIMERMAN-18/quantitative-isogeny"
       ],
       "reason": "The accepted R28 source decomposition proves qualitative finiteness, height variation and the Tate isogeny criterion, not a dimension-uniform polynomial upper bound for the minimum geometric isogeny degree. Extend that direction without restating the qualitative theorem.",
-      "brief": "For every g>=1 prove constants C_g,kappa_g>0 such that geometrically isogenous dimension-g abelian varieties A,B defined over one number field k admit a geometric isogeny of degree <=C_g*max(1,h_F(A),[k:Q])^kappa_g. The isogeny need not be k-defined or polarization-preserving; all constants depend only on g. Decompose Masser-Wustholz Factorization estimates (1995), Theorem II and the final field-degree discussion, acquiring the full proof and prerequisites beyond the inspected statement pages. Import AbelianSchemesAndArithmeticModuli A3/A6 for actual duals, quotients, degrees, Hom and products; ArakelovGeometryAndAbelianHeights R35 for stable height/product comparison; FaltingsFinitenessAndIsogenyTheorems R28 for precisely used qualitative facts. Prove the needed Zarhin/polarization-removal and field-degree estimates, rather than inserting an auxiliary-polarization degree into the final constant. Test a CM pair, negative stable height, product varieties and geometric versus rational isogenies. Export to ComplexMultiplicationAndExplicitReciprocityPartII. Suggested later file: TauCeti/AlgebraicGeometry/AbelianVariety/QuantitativeIsogeny.lean."
+      "brief": "For every g>=1 prove constants C_g,kappa_g>0 such that geometrically isogenous dimension-g abelian varieties A,B defined over one number field k admit a geometric isogeny of degree <=C_g*max(1,h_F(A),[k:Q])^kappa_g. The isogeny need not be k-defined or polarization-preserving; all constants depend only on g. Decompose Masser-Wustholz Factorization estimates (1995), Theorem II and the final field-degree discussion, acquiring the full proof and prerequisites beyond the inspected statement pages. Import AbelianSchemesAndArithmeticModuli A3/A6 for actual duals, quotients, degrees, Hom and products; ArakelovGeometryAndAbelianHeights R35 for stable height/product comparison; FaltingsFinitenessAndIsogenyTheorems R28 for precisely used qualitative facts. Prove the needed Zarhin/polarization-removal and field-degree estimates, rather than inserting an auxiliary-polarization degree into the final constant. Test a CM pair, negative stable height, product varieties and geometric versus rational isogenies. Export to ComplexMultiplicationAndExplicitReciprocityPartII. Suggested later file: TauCeti/AlgebraicGeometry/AbelianVariety/QuantitativeIsogeny.lean. Exact checked statement locators are Theorem II on printed p. 6 and the field-degree paragraph on p. 23 of Masser-Wustholz 1995."
     },
     {
       "route": "source",
@@ -2134,9 +2670,9 @@
   "verificationGaps": [
     {
       "id": "G1",
-      "description": "Refresh remaining item-by-item foundation/library checks, especially LD whose AUDIT-34 remains pending. Directly verified library imports now include the discriminant tower identity. Full output remains partial.",
-      "status": "open",
-      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
+      "description": "Item-level library and owner refresh required by the earlier extraction.",
+      "status": "resolved",
+      "resolution": "REV-PAPER-TSIMERMAN-18 reread all cited pinned declarations, all supplier stages and relevant accepted audit records; independently screened every missing item by the groups and item ledger in its report. AUDIT-34 remains pending, so no absence claim depends on it."
     },
     {
       "id": "G2",
@@ -2164,9 +2700,9 @@
     },
     {
       "id": "G6",
-      "description": "CM and quantitative-isogeny Part II briefs are now active proposals in this partial intake, after stage/decomposition/reserved-ID screening, subject to independent review and the listed source gaps. Remaining broad foundations, exact definition APIs and proof leaves must be refined during source decomposition. No IDs are manually reserved or upstream files edited.",
-      "status": "open",
-      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
+      "description": "Independent ownership and API review of the two quantitative Part II proposals.",
+      "status": "resolved",
+      "resolution": "Reviewed CM.0-CM.6 and R28.1-R28.6, the accepted AN/R28 decompositions, all 218 roadmap documents and 2007-stage search index, proposed-roadmap IDs and reservations. Preserve the shared CM Part II ID used by the two averaged-Colmez papers. All 23 definition/construction APIs now have names, roles, statements and uses. Detailed primary-proof extraction remains in the named prerequisites, not certified closed by this intake."
     }
   ],
   "validation": {
@@ -2189,7 +2725,8 @@
       "proposedUnitTests": 69,
       "unroutedMissing": [],
       "mathematicalRegressionAssertions": 2412
-    }
+    },
+    "independentReview": "Paper validator, deliverable scope, all planned supplier IDs, item dependencies and acyclicity, one route per missing item, 11 route verdicts, 23 structured APIs and 69 retained test proposals checked. No Lean compilation; this is a paper intake."
   },
   "contributors": [
     {
@@ -2215,6 +2752,87 @@
       "session": "cc-fb70e5",
       "date": "2026-09-22",
       "contribution": "Owner screen for the four mixed items (only ShimuraCompactifications C1's boundary mixed data exists); routed them to LD.6 as a source-scoped André–Oort endpoint; checked them against Tsimerman p.380 and Gao §13 (Theorems 13.3, 13.6, (13.8)); status complete."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-hjdg0j",
+      "role": "Independent reviewer, REV-PAPER-TSIMERMAN-18",
+      "date": "2026-09-23"
+    }
+  ],
+  "sourceIssueReferences": [
+    {
+      "file": "research/blueprint/errata/PAPER-TSIMERMAN-18.json",
+      "ids": [
+        "PAPER-TSIMERMAN-18/E1",
+        "PAPER-TSIMERMAN-18/E2",
+        "PAPER-TSIMERMAN-18/E3",
+        "PAPER-TSIMERMAN-18/E4",
+        "PAPER-TSIMERMAN-18/E5"
+      ],
+      "note": "E1-E5 rechecked during this review; retained in their existing reviewed register location to avoid duplicate entries. Review report records the checks. New findings E6-E8 are below."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-TSIMERMAN-18/E6",
+      "kind": "misprint",
+      "locator": "Published §6.2, p. 387, definition of Y; this display is absent from arXiv v5 §6.2 p. 8.",
+      "printed": "pi(y)",
+      "correction": "Use pi(y′) in the membership condition.",
+      "reason": "The printed condition is independent of the bound variable y′ and is true for the chosen lift y of x, so it selects the entire fundamental-set closure. The next sentence bounds the height of every y′ in Y using its image in the finite Galois orbit; that assertion requires the corrected preimage set.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September 2026: checked https://annals.math.princeton.edu/2018/187-2/p02 and its published PDF; no linked erratum located.",
+        "23 September 2026: checked https://arxiv.org/abs/1506.01466 (latest v5, 1 December 2015) and read v5 §§1-6. The withdrawal notice concerns the distinct general-Shimura claim of v2.",
+        "23 September 2026: checked the publication listing https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches. No applicable separate correction located; this is a bounded search, not proof none exists."
+      ],
+      "review": {
+        "by": "REV-PAPER-TSIMERMAN-18",
+        "verdict": "confirmed",
+        "reason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
+      }
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/E7",
+      "kind": "error",
+      "locator": "Published §6.4, p. 388; same special/weakly-special slip in arXiv v5 §6.4 p. 8.",
+      "printed": "special subvariety S",
+      "correction": "The cited Ax-Lindemann theorem first gives a weakly special S. To conclude special, choose W containing a lift of a CM conjugate supplied by counting, and use the CM-point promotion criterion.",
+      "reason": "Pila-Tsimerman 2014 Theorem 6.1, p. 670 explicitly concludes weakly special. Its §2 definitions and criterion on p. 663 show the distinction. A fixed nonspecial elliptic parameter times a variable elliptic factor gives a positive-dimensional weakly special locus in A_2 that is not special; a semialgebraic lift alone is insufficient. The CM-point argument is supplied in the detailed 2014 proof, p. 676.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "23 September 2026: checked https://annals.math.princeton.edu/2018/187-2/p02 and its published PDF; no linked erratum located.",
+        "23 September 2026: checked https://arxiv.org/abs/1506.01466 (latest v5, 1 December 2015) and read v5 §§1-6. The withdrawal notice concerns the distinct general-Shimura claim of v2.",
+        "23 September 2026: checked the publication listing https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches. No applicable separate correction located; this is a bounded search, not proof none exists."
+      ],
+      "review": {
+        "by": "REV-PAPER-TSIMERMAN-18",
+        "verdict": "confirmed",
+        "reason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
+      }
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/E8",
+      "kind": "misprint",
+      "locator": "Published §6.5, p. 388, description of V0; this product-family description is absent from arXiv v5 §6.5.",
+      "printed": "no special subvarieties",
+      "correction": "The intended exclusion concerns positive-dimensional special parameter loci (or, in the detailed proof, restrict to isolated special parameters when selecting maximal fibres); special points must still be allowed.",
+      "reason": "The same sentence requires {x} to be a special point of V0. A special point is itself a zero-dimensional special subvariety, so the literal exclusion contradicts the proposed fibres. Pila-Tsimerman 2014 p. 677 instead uses induction and the finite set of isolated special parameters to describe maximal fibres. Preserve that argument, rather than promoting the sketch to a stronger product theorem.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "23 September 2026: checked https://annals.math.princeton.edu/2018/187-2/p02 and its published PDF; no linked erratum located.",
+        "23 September 2026: checked https://arxiv.org/abs/1506.01466 (latest v5, 1 December 2015) and read v5 §§1-6. The withdrawal notice concerns the distinct general-Shimura claim of v2.",
+        "23 September 2026: checked the publication listing https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches. No applicable separate correction located; this is a bounded search, not proof none exists."
+      ],
+      "review": {
+        "by": "REV-PAPER-TSIMERMAN-18",
+        "verdict": "confirmed",
+        "reason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
+      }
     }
   ]
 }
