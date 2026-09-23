@@ -3763,8 +3763,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1235"
+   "state": "external",
+   "note": "claimed on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -5005,8 +5005,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-NIZIOL-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1306"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1306",
+   "finishedAt": "2026-09-23T05:50:28Z"
   },
   {
    "id": "REV-PAPER-COLMEZ-NIZIOL-25",
