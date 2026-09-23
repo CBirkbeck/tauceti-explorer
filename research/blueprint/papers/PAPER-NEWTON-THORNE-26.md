@@ -334,3 +334,35 @@ No Lean deliverable is part of a paper job.
 - Check E1. The edge case is p = 2, M = 16, t₁ = 17.
 - Check the statements of Propositions 3.10, 3.13 and 4.9.
 - Check the owners chosen for the cited inputs.
+
+## Review (REV-PAPER-NEWTON-THORNE-26, 23 September 2026)
+
+The review accepted the extraction after corrections made in place, and restructured its routes. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-26.md`. Three checkers read the arXiv v2 TeX and PDF in full (§§1–2 and 6; §3; §§4–5); the coordinator verified every substantive finding. The published Annals text is available only to subscribers and was not compared.
+
+- **Statements corrected (25), locators (3), one status.** The material ones:
+  - Definition 2.5(1): ι^{−1}χ_{v,i}(ϖ_v);
+  - the polarization hypothesis of the attached Galois representation;
+  - BLGG12 Theorem 6.1.9 and BLGGT14 Theorem 4.2.1 with their actual hypotheses;
+  - Lemma 3.4 (d₀ and three missing conditions) and Lemma 3.7 (residual bars);
+  - the deformation problems of §3, the reductions of Theorem 4.1 and Proposition 4.9;
+  - the bounds of Proposition 5.4 and Theorem 5.9.
+
+  Proposition 4.4 is planned in GL2ModularityLifting R22.2 and R17.3, as in PAPER-NEWTON-THORNE-21-B.
+- **New items: 34** (1 library, 14 planned, 19 missing), 164 in total. They include:
+  - the §1.2 definitions (regular algebraic and weight, RAESDC, the Hodge–Tate formula, type-A₀ characters, local Langlands, base change);
+  - adequacy, ∼ and potential diagonalisability, Dickson, Minkowski, global Jacquet–Langlands, local Hilbert symbols, the low-rank symmetric powers, [CHT08, Lemma 4.1.4];
+  - the contexts S5-global and S5-local, and the constructions of §§3–4 that no item covered.
+- **Routes.** As in the reviews of the other two Newton–Thorne papers:
+  - the method moved from ML.3 to a new Part II, SymmetricPowersByTensorFunctorialityLifting (route 15);
+  - the general inputs moved to their pending owners: PolarizedAutomorphyLifting (route 5, replacing the PA.2/PA.3 and IHG.0 routes), SymmetricPowerAutomorphyLifting (route 16) and SymmetricPowersByUnitaryLevelRaising (route 17);
+  - Dimitrov's large image moved to R19.3 (route 13).
+
+  Route 2 keeps the endpoint obligations of ML.0, ML.3 and ML.5. A `prerequisites` list of 28 papers was added.
+- **Source issues:** E1 (narrowed to the coefficient prime 2) and E2 are confirmed; E3–E31 are new.
+  - **E24 is the most serious.** The printed proof of Theorem 4.1 takes S = S_p ∪ Σ with Σ the ramification of π only. So it does not cover its application in Lemma 5.8, where σ = Sym^{r−1}σ′ is Steinberg at v₀ and γπ is unramified there after base change.
+  - The repair is routine: enlarge S by σ's ramification. No stated result is shown false.
+  - The others are:
+    - proof gaps with direct repairs: E8, E22, E25;
+    - smaller gaps: E9–E12, E15–E17, E19, E23, E28;
+    - one false remark: E27;
+    - misprints.
