@@ -1,3 +1,59 @@
+# LLHLM23 continuation: affinoid topology and regular-map suppliers
+
+Codex — codex-c83e7a, issue #1254, 23 September 2026. Claim comment5803076014 was confirmed by bot comment5803078481. Status **partial**: **652 items (120 library, 34 planned, 498 missing), 24 routes, 61 unreviewed source findings**. This pass adds44 items, preserves all608 inherited item IDs and all53 inherited findings, and changes11 inherited item objects. The current census supersedes earlier counts below. No Lean file was required or compiled; these are source-based proof plans, not new formalizations or independent review.
+
+The full212-page main-paper reading remains attributed to the prior extraction. This pass freshly read the bounded published main-paper pages78–80 and the supplementary sources specified below. Earlier computational diagnostics remain historical and were not rerun.
+
+## Strict-affinoid topology and completed products
+
+L102–L109 import the pinned general closed-submodule theorem, finite-module topology completeness/Hausdorffness/strictness, the Tate open-mapping theorem, quotient norms, and the existing completed restricted-series carrier. Z81 compares its weight-one topology with the Gauss norm; it does not introduce a replacement Tate-algebra carrier. Z80 imports the existing upstream Noetherianity target. A discrete-topology strong-Noetherian instance cannot prove the valued-field theorem.
+
+Z82 gives closed ideals in a Tate algebra, Z83 the complete quotient Banach topology, and Z105 closed ideals in its affinoid quotients. These include the zero quotient. The quotient norm uses arbitrarily close lifts; no norm-minimizing representative is claimed from the general Mathlib result.
+
+For automatic continuity, Z84 proves finite-dimensionality of A/m^r through its graded pieces, without a coefficient-field section. Z85 proves joint separation by all maximal-ideal jets using Krull separation and the pinned localization detector L110. In Z86 the maps into these jets are continuous after factoring through a finite-dimensional Hausdorff quotient. Their closed kernels identify the graph; the open-mapping theorem gives continuity of its inverse first projection. Z87 then proves presentation independence and compatibility of successive quotients. Residue fields alone would not detect nilpotents.
+
+Z88 identifies integral restricted series with the completion of O[X] at every finite quotient (O/π^r)[X]. Z89 identifies the kernel for a finite-type quotient with the actual extended ideal, using completion exactness and L112. Z90 uses a single coefficient denominator bound to identify the localized restricted series with K⟨X⟩; it does not commute an arbitrary localization with an inverse limit. Z91 computes the completed tensor product at every finite level, including the empty family O. Z55 now names these compatible factor maps and topologies, and Z56 uses the existing pinned tensor-injectivity input.
+
+## Regularity and ownership corrections
+
+The inherited Z77 absence claim was wrong: L12 already cites the pinned going-down height equality. Reading that declaration and the prime-localization dimension equality identifies the required local formula. Z77 is now a retained library alias of L12 and is removed from the missing route.
+
+Z57 requires descent of a **regular ring map**, which includes flatness and geometrically regular fibres after finite field extension. Descent of regularity of the target ring alone is insufficient. Z93 supplies the map argument; Z94 compares completions of flat local maps with identical closed fibres via their finite graded quotients; Z95 gives the local criterion. Z25 already owns completion Noetherianity and is reused. Z78 now descends flatness of a syzygy in a resolution that started over the source ring. It does not pretend that a free resolution of the target residue field descends.
+
+The owner search also found existing work: Z96 imports the same upstream ModularCurves §4D completion-regularity atom as Z23/Z28. Z100/Z101 import the R03.3 depth/projective-dimension node of DeformationAndDerivedPatchingAlgebra; Z103/Z104 are its parameter-system refinements. L119 records the already available projective-dimension formula for regular-sequence quotients. The projective-dimension and regular-sequence carriers are not missing.
+
+The analytic suppliers reuse upstream AdicSpaces Layer0 and AdicSpacesPartII R0/F0. Generic ring and formal-fibre adapters retain the existing SchemeAndStackFoundations route. No new route or roadmap is introduced. Only foundational atoms are imported from upstream ModularCurves; the analytic proof does not depend on its modular application layers.
+
+## Source findings and reading scope
+
+All findings remain **unreviewed**. E54–E59 concern the author-hosted April2008 Münster Bosch notes and Conrad AWS notes: a generator index, a polynomial coefficient label, the missing nonzero-affinoid boundary for normalization/maximum attainment, the quotient by both relation ideals, an omitted initial coefficient, and a maximum-principle step whose product can contain zero factors. Each record gives the precise correction, a local reason or counterexample, downstream impact, and the bounded novelty search. The Bosch notes have not been equated with the2014 Springer printing, nor Conrad's author PDF with an independently checked AMS printing.
+
+E60 concerns the characteristic-zero proof in Stacks07PV: a nonzero-prime formal fibre is not canonically a localization of the completed polynomial ring. With R=k[[t]], q=(t,x), r=(x), the completion is k[[t,x]] but the fibre k((t)) kills x. Z99 repairs this after inverting R minus zero: the nonzero-prime fibre is the quotient by a separable irreducible polynomial g, the extended d/dx sends g to g′, and the derivation criterion applies. This is a correction to a proof step, not a counterexample to G-ring stability. E61 changes the completion prime in the C-display of07PR from r (a prime of B) to q (the defined prime of C). Both current tag histories and comments were checked; no matching correction was identified in that bounded search.
+
+Fresh supplementary reading: Bosch PDF10–12,17–27,30–33 (not28–29), with images11,24,27,30; Conrad PDF13,30,32 with image13. Their URLs, SHA-256 hashes and scope are in `source.continuationReadings`. All21 listed Stacks statements and complete **outer** proofs were read. The deeper depth/syzygy/projective-dimension suppliers of00O7/00OC, characteristic-p derivation/p-basis input of07PR, formal-smoothness input of07PU and full Cohen-structure reduction are not thereby audited recursively.
+
+## Remaining work and validation
+
+The analytic branch now has explicit maps and proof steps, but the paper is not closed. The named homological suppliers, finite-separable regularity base change, characteristic-p formal fibres, the other paper proof-leaf queues, item-level library audits and uniform integral Appendix B certificates remain open. Rational generic CAS computations do not prove all allowed characteristics and specializations.
+
+Checks: paper validator and three-file intake pass; 652 unique IDs; all608 inherited IDs, sourceData and53 findings preserved; all164 definitions/constructions retain uses, APIs and at least three tests; every missing item occurs in exactly one route; all planned and route stages resolve; the577-edge internal graph is acyclic. Thirty freshly inspected library files match their exact pinned tree blobs. Atlas inputs were refreshed with no changes to the original tracked inputs, and the five owner READMEs were added to publication guards. No Lean compilation was performed.
+
+## Added item index
+
+| Items | Contribution |
+| --- | --- |
+| L102–L109 | General topological-module, open-mapping, quotient-norm and restricted-series imports |
+| L110–L114 | Localization detection, finite-dimensional continuity, finite-module completion and finite-type imports |
+| L115–L119 | Faithfully flat descent, regular polynomials, Noetherian descent and quotient projective dimension |
+| Z80–Z87, Z105 | Tate/affinoid topology, finite jets, automatic continuity and presentation independence |
+| Z88–Z91 | Integral restricted series, completed quotients, common denominators and completed tensors |
+| Z92–Z99 | Local/ring-map regularity descent, completions, derivations and the corrected characteristic-zero fibre |
+| Z100–Z104 | Existing homological suppliers and parameter-system quotient/sequence refinements |
+
+## Attributed earlier report
+
+The following text is retained as historical evidence, with its original attribution and contemporaneous counts. Current status and corrections are above.
+
 # LLHLM23 continuation: split-place genericity and Hilbert–Samuel suppliers
 
 Codex — codex-7e92bd, issue #1254, 23 September 2026. The bot confirmed claim comment5802518636 in comment5802521177. The extraction remains **partial**: **604 items (101 library,25 planned,478 missing),24 routes,53 unreviewed source findings**. All580 inherited item IDs and their sourceData are preserved. All164 definitions/constructions have use sites, an API and at least three typed tests. This is a source-based mathematical plan; no Lean file was requested or compiled and no new formalization or independent review is claimed.
@@ -5313,3 +5369,39 @@ is about regular *sequences*. What is there, and already pinned, is the regular-
 All four go to route 7, `SchemeAndStackFoundations` SF.0/SF.1/SF.4/SF.5, which their own `note`
 fields name as the owner and where `Z57`–`Z59` already sit. No new route and no new roadmap; 608
 items, 478 internal prerequisite edges, still acyclic.
+
+
+## Attributed handoff from the preceding continuation
+
+# LLHLM23 — current handoff
+
+Claude Code — cc-7b31c4, issue #1254, 23 September 2026. Continues codex-7e92bd's pass. Status **partial**.
+
+Census: **608 items (101 library, 25 planned, 482 missing), 24 routes, 53 unreviewed findings.** Last IDs: **A107, Z79, L101, E53.** Four items added (Z76–Z79), three modified (Z57–Z59), no item removed; `source`, `sourceData` and `sourceIssues` are byte-identical to the inherited file.
+
+## Completed this pass (cc-7b31c4)
+
+**The three named supplier obligations of Z57–Z59 are closed as items.** Each of those three proofs ended by saying, in its own words, that a step rested on something the extraction had not yet named — the regular-map criterion and faithful-flat descent for Z57, finite-type stability of G-rings for Z58, the flat local dimension formula and the maximal-ideal generator comparison for Z59. All four are now items with their Stacks statements read at the tags, and the three proofs point at them instead of at an open obligation.
+
+- **Z76** — regular ring maps: flat with Noetherian geometrically regular fibres, and stability under finite type base change. Stacks **07BZ** (Definition 15.42.1) and **07C1** (Lemma 15.42.3). Its second step records what actually matters downstream: geometric regularity is strictly stronger than fibre regularity over an imperfect residue field, which is why the characteristic-`p` case cannot be done fibrewise.
+- **Z77** — the dimension formula `dim(S_q) = dim(R_p) + dim(S_q/pS_q)` for a going-down (e.g. flat) map of Noetherian rings. Stacks **00ON** (Lemma 10.112.7), with the flat case of going down at **00HS**. The statement is deliberately for going down rather than flatness, since that is the hypothesis the proof uses.
+- **Z78** — faithfully flat **descent**: Noetherianity (Stacks **033E**, Lemma 10.164.1) and regularity (Stacks **07NG**, Lemma 10.164.4) pass from the target to the source. Its statement says explicitly that this is not ascent, which is Z59 under a fibre hypothesis — the two are easy to conflate and Z57 needs the descent direction.
+- **Z79** — G-rings: the definition (Stacks **07GH**, Definition 15.51.1) and stability under essentially finite type maps (Stacks **07PV**, Proposition 15.51.10). The characteristic-`p` formal-fibre and Cohen-structure content that Z58 flagged is carried in Z79's second step rather than silently closed.
+
+**Checked against the pinned libraries before adding.** None of these four is in Mathlib or Tau Ceti at the pins: there is no G-ring or geometric-regularity API, no flat local dimension formula, and no faithfully-flat descent of regularity (`RingTheory.Sequence.IsRegular.of_faithfullyFlat_of_isBaseChange` is about regular sequences, not regular rings). What *is* there, and is already pinned by the extraction, is the regular-local-ring criterion (L19: `isRegularLocalRing_iff`, `IsRegularLocalRing.iff_finrank_cotangentSpace`) and the generator bound (L18); Z59 now cites L18 by name for the step it needs.
+
+**Routing.** All four go to route 7, `SchemeAndStackFoundations` SF.0/SF.1/SF.4/SF.5, which is where Z57–Z59 already sit and which their own `note` fields name as the owner. No new route, no new roadmap.
+
+## Resume in order
+
+1. **Finish `analytic-regularity-suppliers`.** The Z57–Z59 branch is now closed at the level of naming; what remains in this queue is the affinoid closed-ideal and presentation-topology adapters that Z60's chain still leans on, and Z56's flatness inputs. Check the pinned library and the shared owner before adding atoms, as before.
+2. Continue the other existing gap queues: approximation/tensor carrier maps, remaining source proof leaves and bundled conclusions, item-level declaration audit, and fine-grained shared-owner reconciliation. A104–A107 are the named Fourier/Haar/globalization/Flath suppliers and A73 assembles them; preserve A78–A103. The withdrawn White preprint is not a substitute for valid Labesse inputs.
+3. **The proof-leaf backlog is the largest single queue and is worth a census before it is worked.** A count over the current file gives **355 theorem items with no `proofSteps`**, of which **287 have no `proofOutline` either**; by prefix they are L 97, A 66, N 40, K 31, G 30, U 25, M 23, B 20, Q 9, P 8, V 5, Z 1. The L block is mostly library-pinned statements where a proof step is not the right deliverable, so the real frontier is the A, N, K and G blocks. Whoever takes this should say which block they are working and keep the same one-item-at-a-time discipline; a pass that adds outlines everywhere and proofs nowhere would be worse than none.
+4. Appendix B still needs uniform integral-parameter certificates, exceptional denominator loci, minimal primes and specialized Gröbner cases. Existing rational generic calculations do not establish every allowed characteristic or specialization.
+5. The 53 findings remain **unreviewed**; no `kind:review` job for this paper has run. Do not treat any of them as confirmed.
+
+## Evidence and checks
+
+The full 212-page main read remains attributed to the earlier extraction and is not restated. This pass read only the Stacks statements for the four new items, at the tags cited and on 23 September 2026: 07BZ, 07C1, 00ON, 033E, 07NG, 07GH and 07PV, each fetched from stacks.math.columbia.edu and transcribed from the statement environment. The pinned-library search that established the four are absent was run against the same declaration index the lane uses for Mathlib 082e2d3 and Tau Ceti f790474.
+
+Verified this pass: 608 unique IDs with four added (Z76–Z79) and none lost; **only Z57, Z58 and Z59 modified** among the inherited items; `source`, `sourceData` and `sourceIssues` byte-identical to the inherited file; 478 internal prerequisite edges, all resolving and **acyclic**; all 482 missing items carry exactly one route, with no double-routing and no routed id that is not an item; all 25 planned items and all 24 route stages resolve; all 164 definitions and constructions retain their APIs and tests; `check_paper.py` and `intake.py check-files` both pass. Three deliverables touched: the result, the report and this handoff.
