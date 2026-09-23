@@ -439,3 +439,36 @@ No Lean deliverable is part of a paper job.
   - Rosen's *Number theory in function fields*; Koukoulopoulos's *The distribution of prime numbers*;
   - Bary-Soroker–Kozma 2020; Łuczak–Pyber 1993; Granville 1990.
 - The published pagination was not seen; the locators follow arXiv v3.
+
+## Review (REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1249](https://github.com/CBirkbeck/tauceti-explorer/issues/1249). **Verdict: accept.** All seven
+routes accepted; no item, status, route or locator changed.
+
+- **The source is verified, reproducibly.** arXiv v3 re-fetched hashes to `adb1359d…d3e1`,
+  matching the record byte for byte — an arXiv PDF carries no per-download stamp, so this hash
+  could be confirmed rather than replaced. 65 pages, printed page = PDF page, checked against the
+  running heads.
+- **All 25 mistakes confirmed, and a 26th added.** Six are settled by the paper contradicting
+  itself: E1 (Theorem 7 bounds the probability of having **no** small divisor; its own proof bounds
+  the probability of **having** one), E3, E9, E14 (Lemma 9.2 requires `C₂ ⩾ 3`, its application
+  takes 2), E23 and E25. E2 is refuted outright — with `P = 1` its condition (b) is vacuous and
+  `Tⁿ − 1` is a counterexample to Theorem 8 as stated. **E26** is new: in Case 1 of the proof of
+  Lemma 12.9 (p. 63) the sum `Σ_{u∈U} = nr′/r` has lost its summand, one line after the parallel
+  display prints it correctly; read on a rendered page image, affects nothing.
+- **Three numerical claims were recomputed from scratch**, not taken on trust. The Table 1 audit
+  (E20) reproduces exactly: 15 of 33 rows have α between 1.0000030 and 1.0000276 with the printed
+  γ. For coefficients ±1 the printed γ **is** γ(735) = 0.5000197007327024714749… at 60 digits, the
+  exact boundary where α = 1; the stated δ = 0.00068053 survives, but by 4.2·10⁻¹⁰. And
+  max α(210) = 0.992105 at N = 35, as item /47 records.
+- **Statuses and routes.** All 22 cited declarations opened at the pins; the claimed absences (PNT,
+  large sieve, Mertens, Brun, Dobrowolski, Łuczak–Pyber) hold. Every missing item is routed exactly
+  once, the graph is acyclic, all 40 definitions carry their API and tests, all 17 stage ids exist,
+  both roadmap ids are free and both Part II titles are exact prefix extensions. Route 2 does not
+  re-plan the Tau Ceti roadmap: upstream layer 5 makes `p ∤ disc f` "the hypothesis of everything
+  below", and item /100 is exactly the ramified case it excludes.
+- **Corrected in place:** the review verdicts, E26, and the stale item count in
+  `verification.structural` (112 → 115, after items /131–/133 were added).
+
+Full report: `research/blueprint/reviews/REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md`.
