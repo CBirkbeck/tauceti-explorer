@@ -1,3 +1,145 @@
+# LLHLM23 continuation: integral deformation-quotient factorization
+
+Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2394
+at `58abf5c053e07211aeee4b30a4536518de24d187`; claim5798773987 confirmed by5798776543.
+
+**Partial: 519 items (67 library,18 planned,434 missing),19 routes,44 unchanged
+unreviewed source findings. All156 definitions/constructions retain individual
+uses/API/at least three typed tests.** This pass isolates a conditional algebraic
+step, not the remaining automorphic base-change or type-occurrence proofs.
+
+## What changed
+
+A63 proves joint faithfulness of the characteristic-zero field factors of a
+finite flat reduced O-Hecke algebra. A64 uses this to detect whether a
+coefficient map kills a quotient ideal, retaining continuity and locality.
+A65 applies the result to the corrected local Hodge/monodromy-bounded quotient
+in AppendixA.4, conditional on the actual classical constituents satisfying the
+required types. It uses the **projected** auxiliary Hecke image, not the full
+unprojected algebra, and retains the Hodge shift lambda+eta.
+
+The generic algebra was already in Mathlib: L62–L67 import finite-Artinian
+algebra, the reduced-Artinian product decomposition, localization reducedness
+and injectivity, ideal quotient maps and the open quotient-map topology.
+These are supplier atoms, not new Artinian-ring or quotient implementations.
+
+The existing P02 API contained an unsupported converse: it identified every
+point of the closure of an exact monodromy stratum with a point of that exact
+stratum. The published definition at PDF126 expressly takes the Zariski
+closure. Its corrected API only uses the forward implication; exact
+characterizations require their own theorem. The minimal/crystalline and
+full potentially semistable cases retain Remark6.1.1's specific Kisin input.
+This corrects the **extraction**, not the paper: no new source finding is added.
+
+For orientation, N_t=t E12 has rank one off t=0 and rank zero at t=0, so the
+closure of a rank stratum can include smaller rank. This is only a
+matrix-stratum test of the invalid general inference. It is **not** a constructed
+family of fixed-Hodge potentially semistable Galois representations or a proof
+that a particular Kisin component contains a particular crystalline point.
+
+## Proof and hypotheses
+
+Let T be nonzero, commutative, finite flat and reduced over O, the integers of a
+finite extension E/Qp. Flatness makes T→T[1/varpi] injective. The generic algebra
+is finite dimensional over E and reduced, hence Artinian and a finite product
+of finite extensions E_i/E. Its coordinate maps x_i jointly detect zero in T.
+T need not itself be the product of the corresponding integral rings.
+
+For f:R→T and I an ideal of R, if every x_i∘f kills I, then every f(a), a∈I,
+has all coordinates zero and is zero. The existing quotient universal property
+gives the unique map R/I→T. The converse is immediate. With quotient topology,
+continuity descends; locality descends from a local f and a proper local ideal.
+The quotient maximal-ideal topology agrees because powers map to powers.
+
+For A65, a constituent of exact type tau_i dominated by tau lies in its own
+closure, hence in the closed dominated union. Its map kills that union's ideal.
+Testing every field factor and applying A64 yields the integral factorization.
+An identity such as the fixed determinant or multiplier is inherited from f;
+the factorization does not construct a new polarization.
+
+Counterexamples explain the assumptions:
+
+- O[epsilon]/epsilon² is finite flat, but all field points miss epsilon.
+- O×k is finite reduced, but characteristic-zero points miss the vertical
+  element (0,1), which is killed by varpi.
+- The local reduced finite-free congruence order
+  T={(a,b) in O² : a=b mod varpi} embeds into E² but is not O².
+  Its first coordinate misses (0,varpi); both factors must be tested.
+
+Neither finite flatness nor reducedness supplies the automorphic types
+themselves. A55's normalized type/monodromy comparison and the still-open
+constituent and dual-coefficient dictionary remain separate obligations.
+
+## Sources, owners and pinned reuse
+
+Fresh reading: published LLHLM PDF124–128 and193–198; rendered PDF126 inspected.
+The existing author-hosted published PDF was rehashed:
+`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`,
+[Le–Le Hung–Levin–Morra, published PDF](https://math.rice.edu/~bl70/LocModels.pdf).
+Earlier complete-paper reading remains attributed to codex-7e92bd.
+
+The [Artinian decomposition](https://stacks.math.columbia.edu/tag/00JB),
+[nilpotent radical](https://stacks.math.columbia.edu/tag/00J8) and
+[reduced-ring field embedding](https://stacks.math.columbia.edu/tag/00EW)
+statements and proofs were read. The adapter applies these elementary facts to
+the existing integral-Hecke setup; no additional full trace-formula/Kisin-paper
+audit is claimed.
+
+At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, actual statements and
+variable contexts were read:
+
+| Item | Path and declaration |
+|---|---|
+| L62 | RingTheory/Artinian/Module.lean:403, IsArtinianRing.of_finite |
+| L63 | Same file:519,633,638; finite maximal spectrum, IsArtinianRing.equivPi and equivPi_apply |
+| L64 | RingTheory/LocalProperties/Reduced.lean:28, isReduced_localizationPreserves |
+| L65 | RingTheory/Localization/Defs.lean:941, IsLocalization.injective |
+| L66 | RingTheory/Ideal/Quotient/Operations.lean:471,491, Ideal.Quotient.liftₐ/liftₐ_comp; ring version in Quotient/Defs.lean:144 |
+| L67 | Topology/Algebra/Ring/Ideal.lean:80, QuotientRing.isOpenQuotientMap_mk |
+
+Paths in the table are under Mathlib/. Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369` was also searched for an already
+packaged finite-Hecke/type-factorization adapter. None was found in the scoped
+searches. The missing classifications apply to the consumer-specific assembly,
+not to its generic algebra ingredients.
+
+The current IHG0–6 and LocalGaloisDeformationRings L7/R08.1/R08.3 contracts were
+read. There is no direct reviewed IHG or local-deformation row in
+data/library-coverage.json; the reviewed R03.1 row was read and no claim of a
+nonexistent reviewed L7 audit is made. A63/A64 refine the existing IHG.1/IHG.2
+source route; A65 joins the existing all-rank patching Part II. No new route or
+duplicate roadmap is introduced.
+
+## Validation and remaining work
+
+All510 inherited item statements and statuses, all44 sourceIssues and AppendixB
+sourceData are unchanged. P02 changes its API/note and adds a typed cautionary
+test; A30 gains A65 and the associated proof qualification. The nineteen route
+identities remain unchanged. There are519 unique item IDs and exactly one route
+per missing item; the recorded300-edge prerequisite graph is acyclic.
+
+Checks: paper checker passes;41 tests pass (9 paper,3 queue,29 intake);
+the three-file intake check passes. Exact standard-library diagnostics give
+32836 congruence-order operation checks,122 unit checks,121 dual-number products,
+68 rank-drop matrix cases and1834 joint-coordinate checks. These finite tests
+are not formal proofs or characteristic-zero density certificates.
+No Lean deliverable is required or compiled.
+
+This closes the **conditional point-to-integral algebra step** at proof-plan
+level. It does not close the twelve inherited gap records: exact Speh/Galois
+twists and Frobenius comparisons, global genericity, dual coefficient/type
+occurrence, actual reducedness/flatness of the Hecke image in the consumer,
+supplier/proof closure, semantic API splitting, analytic regularity,
+cross-owner reconciliation and uniform AppendixB certificates remain.
+
+
+Publication refresh: fresh main `0d9a9e0fda317432de1abbc59db4fca0f3fffac7` preserves all three baseline deliverable blobs and all310 guarded content/roadmap/atlas/audit/protocol/checker inputs. The six cited Mathlib source files were byte-verified against the exact remote pin. The same three-file payload and checks were replayed on that fresh snapshot.
+
+The historical report follows. Its old P02 exact-point API interpretation and
+old numeric censuses are superseded by this header and the repaired JSON.
+
+---
+
 # LLHLM23 continuation: itemwise definition interfaces
 
 Codex — codex-7e92bd, issue #1254, 23 September 2026. Continues merged #2362.
