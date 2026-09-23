@@ -8264,8 +8264,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #2182"
+   "state": "external",
+   "note": "claimed on GitHub issue #2182"
   },
   {
    "id": "REV-PAPER-BHATT-18",
