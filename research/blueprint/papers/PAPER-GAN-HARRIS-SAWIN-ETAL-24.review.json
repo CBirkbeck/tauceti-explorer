@@ -1,0 +1,51 @@
+{
+  "paper": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject: the main Part II still lacks intrinsic purity, a valid matrix-bound proof, the nonsplit orthogonality argument and several essential source suppliers. Reusable globalization/close-fields pieces need shared ownership and full APIs before design. Corrected target statements and open questions are retained without claiming proof closure."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Reject: the current candidate is the appropriate coalescing lead, but the general all-prime application and automorphic comparison are not source-closed. HNY gives zero Ad invariants, not the false linear irreducibility demanded by the input."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "Reject this addition: the existing Fintzen candidate is already independently accepted; its reviewed work is not rejected here. The added Stevens/BK equal-characteristic contracts are unread, and mixed-characteristic GL_m must be imported from ET.6. Do not activate a second classification from this paper."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject: the cited weight input combines the local unitary-spherical and global propagation suppliers. Match the exact updated Ciubotaru–Harris theorem before adding this application to the global Part II."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "Reject: Feng’s mod-p coefficient base change does not supply the characteristic-zero tempered BFHKT/Henniart–Lemaire assertions. Split the latter and establish an exact common-owner contract."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject: LP0 currently plans continuous Weil cocycles, not an arbitrary nilpotent/SL₂ WD object or the central-weight purity comparison. Import the linear carrier from R01.2 and the filtration from LPV.1, and establish the group-valued extension boundary."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept the narrow source request: RG2.1–3 owns valued roots, buildings and parahorics. Coalesce the real-indexed filtration request with the already reviewed Fintzen request. This is no new supercuspidal classification and does not accept Lemma 5.1’s invalid lifting or nonreduced-root arguments."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "Reject pending source verification: AA.4 is the correct approximation owner, but generic weak approximation does not certify the stated open finite-index closure for all connected reductive function-field groups. The positive-characteristic source proof must be supplied."
+    }
+  ],
+  "notes": "Finished independent review of all 75 input items and all 14 input source findings; 90 corrected/split/support items, 26 checked findings. The extraction is partial, with 11 explicit open gaps. Only the narrow coalesced reductive-filtration source request is accepted. No Lean file was compiled.",
+  "by": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "status": "complete"
+}
