@@ -16971,7 +16971,7 @@
       ],
       "proofOutline": "Transport Lambda across the one-place factorization. If it vanished on every x tensor w, L68 would identify it with zero. Choose a detecting pure tensor and freeze its second factor; TensorProduct.mk/curry give linearity, and equivariance holds because the local unipotent acts only on x. Flath's factorization, including the passage from global smooth vectors to the algebraic tensor at one finite place, is imported from AF.2, not proved by L68. Only finite-place genericity is claimed, so no archimedean completed-tensor inference is hidden here. Neither local uniqueness nor an Euler-product factorization of Lambda is needed.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-d67081, 23 September 2026, against Cogdell Fields notes printed33 (Corollaries 4.1.1–4.1.3 and the suitable-family normalisation).",
       "tests": [
         {
           "name": "LocalGeneric.choose_good_frozen_vector",
@@ -16988,6 +16988,13 @@
           "kind": "compatibility",
           "statement": "Replacing the detecting w by c w for c≠0 multiplies lambda_v by c; the existence conclusion has no preferred normalization."
         }
+      ],
+      "proofSteps": [
+        "Pick the frozen vector from a point where Lambda is nonzero. Lambda is nonzero by hypothesis, so there is some v in V_Pi with Lambda(v) nonzero. Under the isomorphism of A107, V_Pi is isomorphic to V_(Pi_v) tensor_C V^v, and elementary tensors span that tensor product, so Lambda cannot vanish on all of them: there are x_0 in V_(Pi_v) and w in V^v with Lambda(x_0 tensor w) nonzero. Fix that w. This is the step the statement warns about — the choice must be made to detect Lambda, since for a general w the functional x -> Lambda(x tensor w) can be identically zero (take Lambda supported, in the dual pairing, on tensors involving a complementary vector).",
+        "Define lambda_v(x) = Lambda(x tensor w). It is linear because Lambda is and because x -> x tensor w is, and it is nonzero because lambda_v(x_0) = Lambda(x_0 tensor w) is nonzero by the choice of w.",
+        "Equivariance. Let u be in N_n(F_v). The hypothesis of the statement, which is what A107 supplies, is that N_n(F_v) acts only on the first factor, so the image of x tensor w under Pi(u) is (Pi_v(u)x) tensor w. Hence lambda_v(Pi_v(u)x) = Lambda(Pi(u)(x tensor w)) = psi_N(u) Lambda(x tensor w) = psi_v(u) lambda_v(x), using the psi_N-equivariance of Lambda and that psi_N restricted to N_n(F_v) is psi_v. No property of Lambda beyond that equivariance is used.",
+        "Genericity. A nonzero psi_v-equivariant linear functional on an irreducible admissible representation of GL_n(F_v) is by definition a Whittaker functional for psi_v, so Pi_v is generic. This is the one-place form of Cogdell's Corollary 4.1.2 — 'If (pi, V_pi) is cuspidal with pi isomorphic to a restricted tensor product of pi_v then pi and each of its local components pi_v are generic' — read at Fields notes printed 33.",
+        "What is NOT claimed, and why the item stops here. Cogdell's Corollary 4.1.1 gives global uniqueness (the space of Whittaker functionals is at most one-dimensional) and his Corollary 4.1.3 factorises W_phi as a product of local Whittaker functions for decomposable phi, but the latter needs the normalisation stated just above those corollaries: a family {Lambda_v} is suitable only when Lambda_v(xi_v^0) = 1 for the distinguished K_v-fixed vectors giving the restricted tensor product. This item asserts existence of a nonzero local functional at ONE place and neither the product formula nor that normalisation, so it does not need them. Cogdell's own caveat on the same page is the reason to keep the distinction: 'the cusp form phi(g) itself does not factor. The G(k)-invariance mixes the various places together. Only W_phi factors for decomposable phi.'"
       ]
     },
     {
