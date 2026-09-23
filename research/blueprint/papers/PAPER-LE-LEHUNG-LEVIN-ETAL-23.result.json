@@ -155,6 +155,13 @@
             "readSections": "Statement and complete outer proof; not the whole source chapter."
           }
         ]
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-442dc5",
+        "date": "2026-09-23",
+        "main": "Published PDF24–53 (§1.8 notation and all of §2) freshly read in the text layer of the same author-hosted PDF (SHA-256 e5647879…42dd, re-downloaded); PDF34 and PDF42 checked as page images. Later uses located by search of the full text layer (PDF54–212) and spot-read in context. The inherited full reading by codex-7e92bd is retained, not repeated.",
+        "sources": []
       }
     ],
     "smoothLocusContinuation": {
@@ -173,7 +180,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -182,7 +189,74 @@
       "locator": "§1.8.1–2, PDF24–28",
       "statement": "Fix p, sufficiently large E/Qp, its integers O, uniformizer varpi and residue F. For the applications G=GLn and Op finite etale over Zp; J=Hom(Op,O), Gbold=Res(Op/Zp)G base changed to O, pi(lambda)_sigma=lambda_(sigma Frobenius^-1). Use eta=(n-1,...,0) in each embedding, h_lambda=max over all roots of <lambda,alpha^vee>, X0 the characters pairing zero with every root. HT(cyclotomic)=+1 and covariant period functors; filtration jumps have opposite signs. General root statements retain the split connected reductive setup and existence of eta specified in §1.8.1.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N28",
+          "how": "η fixes lowest-alcove presentations F(π⁻¹(w̃₁)·(ω−η)) of Serre weights (PDF37)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N49",
+          "how": "π and F* = pπ⁻¹ define the tame parameters τ(w,μ) (PDF45)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N23",
+          "how": "Serre weights are parametrized by X₁(T)/(p−π)X⁰(T) (PDF35)."
+        },
+        {
+          "where": "Lemma 6.2.8 proof, published PDF130",
+          "how": "The convention HT(ε) = +1 fixes the order of the diagonal Hodge–Tate weights (see E20)."
+        }
+      ],
+      "api": [
+        {
+          "name": "LLHLM.eta_pairing_simple",
+          "role": "characterisation",
+          "statement": "⟨η, α^∨⟩ = 1 for every simple root α; for G = GL_n^J, η = (n−1, …, 0) in every embedding and η is π-invariant."
+        },
+        {
+          "name": "LLHLM.frobeniusTwist_apply",
+          "role": "simp",
+          "statement": "π(λ)_σ = λ_{σ∘φ⁻¹}; with σ_j = σ₀∘φ^{−j} this reads π(λ)_j = λ_{j+1}, so π⁻¹ shifts the embedding index by −1."
+        },
+        {
+          "name": "LLHLM.hBound_def",
+          "role": "other",
+          "statement": "h_λ = max_{α∈Φ} ⟨λ, α^∨⟩; for GL_n this is max_{i,j}(λ_i − λ_j) in each embedding, and h_λ = 0 iff λ ∈ X⁰(T) when Φ ≠ ∅."
+        },
+        {
+          "name": "LLHLM.X0_eq",
+          "role": "characterisation",
+          "statement": "X⁰(T) = {λ : ⟨λ, α^∨⟩ = 0 for all α ∈ Φ}; for GL_n^J it is (Z·(1,…,1))^J."
+        },
+        {
+          "name": "LLHLM.HT_cyclotomic",
+          "role": "compatibility",
+          "statement": "HT_κ(ε) = {1} for every κ, with covariant D_dR, D_pst, D_pcris; the Hodge filtration jumps sit at the negatives of the Hodge–Tate weights."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LLHLM.hBound_eta_GL3",
+          "kind": "computation",
+          "statement": "For GL₃ with η = (2,1,0), h_η = 2."
+        },
+        {
+          "name": "LLHLM.X0_torus",
+          "kind": "degenerate",
+          "statement": "If G = T is a torus (no roots), X⁰(T) = X*(T)."
+        },
+        {
+          "name": "LLHLM.frobeniusTwist_f1",
+          "kind": "compatibility",
+          "statement": "If f = 1 (J a singleton), π is the identity on X*(T)."
+        },
+        {
+          "name": "LLHLM.HT_sign",
+          "kind": "non-example",
+          "statement": "The cyclotomic character has Hodge–Tate weight +1 here; the opposite convention of [14, 22] (weight −1) must not be used."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N02",
@@ -191,7 +265,74 @@
       "locator": "§1.8.1, PDF25–26; §2.1.1",
       "statement": "Wa=root lattice semidirect W and Wtilde=X*(T) semidirect W act on V=X*(T) tensor R. A0 has 0<root-pairing<1 for every positive root. Omega=Stab(A0), Wtilde=Wa semidirect Omega. Wplus sends A0 into the dominant chamber, W1plus into a restricted alcove (simple-root pairings between0 and1); wh=w0 t_-eta. Retain the central directions of the apartment.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N11",
+          "how": "W̃₁⁺ and W̃⁺ are the factors of admissible pairs (2.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N08",
+          "how": "Regular elements factor as w̃₂⁻¹w₀t_νw̃₁ with w̃ᵢ ∈ W̃₁⁺ (Proposition 2.1.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
+          "how": "Presentations of a Serre weight form an Ω-orbit (Lemma 2.2.4 proof)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N62",
+          "how": "w̃_h = w₀t_{−η} defines Herzig's involution R."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.translation_mul",
+          "role": "structure",
+          "statement": "t_ν t_ν′ = t_{ν+ν′} and w t_ν w⁻¹ = t_{w(ν)}; W̃ = X*(T) ⋊ W and W_a = ZΦ ⋊ W."
+        },
+        {
+          "name": "ExtAffineWeyl.affine_omega_semidirect",
+          "role": "structure",
+          "statement": "W̃ = W_a ⋊ Ω with Ω = Stab_{W̃}(A₀); W_a acts simply transitively on alcoves."
+        },
+        {
+          "name": "ExtAffineWeyl.quotient_affine_equiv",
+          "role": "equivalence",
+          "statement": "W̃/W_a ≅ Ω ≅ X*(T)/ZΦ ≅ X*(Z), sending t_ν w to ν|_Z."
+        },
+        {
+          "name": "ExtAffineWeyl.mem_dominant_iff",
+          "role": "characterisation",
+          "statement": "w̃ ∈ W̃⁺ iff w̃(A₀) is dominant, and w̃ ∈ W̃₁⁺ iff moreover 0 < ⟨x, α^∨⟩ < 1 on w̃(A₀) for every simple α; W̃₁⁺ ⊂ W̃⁺ and both are stable under right multiplication by Ω."
+        },
+        {
+          "name": "ExtAffineWeyl.wh_mem",
+          "role": "example",
+          "statement": "w̃_h = w₀ t_{−η} lies in W̃₁⁺."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.GL2_noncommute",
+          "kind": "computation",
+          "statement": "For GL₂ with s the transposition, s t_{(1,0)} = t_{(0,1)} s ≠ t_{(1,0)} s."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_omega",
+          "kind": "characterisation",
+          "statement": "For GL₂, δ = t_{(1,0)}s maps A₀ = {0 < x₁−x₂ < 1} to itself, Ω = ⟨δ⟩ ≅ Z and δ² = t_{(1,1)}."
+        },
+        {
+          "name": "ExtAffineWeyl.torus",
+          "kind": "degenerate",
+          "statement": "If G = T is a torus, W_a = 1 and Ω = W̃ = X*(T)."
+        },
+        {
+          "name": "ExtAffineWeyl.w0_not_dominant",
+          "kind": "non-example",
+          "statement": "For GL₂, s ∉ W̃⁺ (it sends A₀ to the antidominant chamber), whereas w̃_h = s t_{(−1,0)} sends A₀ to A₀."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N03",
@@ -200,7 +341,74 @@
       "locator": "§2.1.1, PDF29–30",
       "statement": "Extend affine Coxeter length by l(w delta)=l(w), delta in Omega. Bruhat and Jantzen upper-arrow orders compare w1 delta and w2 delta exactly when their Wa parts compare; distinct right Wa cosets are incomparable. A relation X<=Y or X upward Y between sets means all pairs compare. Define W_le_z={x:x<=z}. Upper-arrow is not silently identified with Bruhat outside its comparison theorem's hypotheses.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+          "how": "Wang's theorem compares ↑ and ≤ on W̃⁺ (Proposition 2.1.6, PDF31–32)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N11",
+          "how": "The upper-arrow relation defines admissible pairs."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
+          "how": "Covering is tested by an upper-arrow inequality (Proposition 2.3.12(2))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M09",
+          "how": "Closure relations among affine Schubert cells use the Bruhat order (Theorem 4.2.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.length_mul_omega",
+          "role": "simp",
+          "statement": "ℓ(w δ) = ℓ(w) for w ∈ W_a and δ ∈ Ω; in particular ℓ(δ) = 0."
+        },
+        {
+          "name": "ExtAffineWeyl.le_iff_sameCoset",
+          "role": "characterisation",
+          "statement": "w₁δ ≤ w₂δ′ iff δ = δ′ and w₁ ≤ w₂ in W_a; elements of different right W_a-cosets are incomparable. The same holds for ↑."
+        },
+        {
+          "name": "ExtAffineWeyl.upArrow_X0",
+          "role": "compatibility",
+          "statement": "The relation ↑ is stable under simultaneous left translation by t_ν, ν ∈ X⁰(T) ([47, II.6.5(4)])."
+        },
+        {
+          "name": "ExtAffineWeyl.upArrow_iff_le_dominant",
+          "role": "relation",
+          "statement": "For w̃₁, w̃₂ ∈ W̃⁺, w̃₁ ↑ w̃₂ iff w̃₁ ≤ w̃₂ (Wang's theorem [83, Theorem 4.3]; [56, Theorem 4.1.1]), as used on PDF32."
+        },
+        {
+          "name": "ExtAffineWeyl.lowerSet_def",
+          "role": "constructor",
+          "statement": "W̃^{≤z} := {x : x ≤ z}, a lower set of the Bruhat order."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.GL2_central_incomparable",
+          "kind": "degenerate",
+          "statement": "For GL₂, ℓ(t_{(1,1)}) = 0 and t_{(1,1)} is incomparable with 1, because they lie in different W_a-cosets."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_length_translation",
+          "kind": "computation",
+          "statement": "For GL₂, ℓ(t_{(1,0)}) = 1 and ℓ(t_{(2,0)}) = 2."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_lowerSet",
+          "kind": "computation",
+          "statement": "For GL₂, W̃^{≤t_{(1,0)}} = {t_{(1,0)}, δ} with δ = t_{(1,0)}s of length 0."
+        },
+        {
+          "name": "ExtAffineWeyl.bruhat_not_length",
+          "kind": "non-example",
+          "statement": "For GL₂, t_{(1,0)} and t_{(0,1)} both have length 1 and lie in one W_a-coset, but neither is ≤ the other."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N04",
@@ -209,7 +417,70 @@
       "locator": "Definition2.1.1, PDF30",
       "statement": "For m>=1 and w1,...,wm in Wtilde, the displayed product is reduced when l(product wi)=sum l(wi); factors need not be simple reflections.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
+          "how": "w̃₂⁻¹w₀w̃₁ is a reduced product for w̃₁, w̃₂ ∈ W̃₁⁺ (Lemma 2.1.4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+          "how": "Reducedness transfers Bruhat inequalities in the proof of Proposition 2.1.6."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M22",
+          "how": "(−)* preserves reduced expressions in §4.3 (PDF89–90)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.IsReducedProd_iff",
+          "role": "characterisation",
+          "statement": "w̃₁⋯w̃ₘ is reduced iff ℓ(w̃₁⋯w̃ₘ) = Σᵢ ℓ(w̃ᵢ)."
+        },
+        {
+          "name": "ExtAffineWeyl.length_mul_le",
+          "role": "relation",
+          "statement": "ℓ(xy) ≤ ℓ(x) + ℓ(y), so a reduced product has maximal length."
+        },
+        {
+          "name": "ExtAffineWeyl.IsReducedProd.sub",
+          "role": "relation",
+          "statement": "Any consecutive sub-product of a reduced product is reduced, and a regrouping of a reduced product is reduced."
+        },
+        {
+          "name": "ExtAffineWeyl.IsReducedProd.omega",
+          "role": "compatibility",
+          "statement": "Replacing (w̃ᵢ, w̃ᵢ₊₁) by (w̃ᵢδ, δ⁻¹w̃ᵢ₊₁) with δ ∈ Ω preserves reducedness."
+        },
+        {
+          "name": "ExtAffineWeyl.IsReducedProd.star",
+          "role": "compatibility",
+          "statement": "If w̃₁⋯w̃ₘ is reduced, so is w̃ₘ*⋯w̃₁* in W̃^∨ ([56, Lemma 2.1.3])."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.reduced_single",
+          "kind": "degenerate",
+          "statement": "A product with one factor (m = 1) is reduced."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_ss_not_reduced",
+          "kind": "non-example",
+          "statement": "For GL₂, s·s = 1 is not reduced: 0 < 1 + 1."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_dominant_translations",
+          "kind": "computation",
+          "statement": "For GL₂, t_{(1,0)}·t_{(1,0)} = t_{(2,0)} is reduced: ℓ = 2 = 1 + 1."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_opposed_translations",
+          "kind": "non-example",
+          "statement": "For GL₂, t_{(1,0)}·t_{(0,1)} = t_{(1,1)} is not reduced: ℓ = 0 < 2."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N05",
@@ -218,7 +489,83 @@
       "locator": "Definition2.1.2, PDF30",
       "statement": "Adm(lambda)=union over finite Weyl w of {z:z<=t_(w lambda)} for lambda in X*(T).",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+          "how": "Membership in Adm(λ+η) is one side of Proposition 2.1.6."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N42",
+          "how": "Constituents of R̄⊗W(λ) are cut out by t_ω W̃_{≤w₀w̃₁} ⊂ t_μ s Adm(λ+η) (Proposition 2.3.8)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M11",
+          "how": "Adm^reg(λ) labels the top-dimensional components of the naive special fibre (Corollary 4.2.6, PDF84)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K42",
+          "how": "A nonzero tame deformation ring forces w̃(ρ̄,τ) ∈ Adm(λ+η) (Corollary 5.5.8)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N70",
+          "how": "Admissibility of w̃(ρ̄,τ) yields an obvious common weight (Proposition 2.6.6)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.mem_adm_iff",
+          "role": "characterisation",
+          "statement": "z ∈ Adm(λ) iff z ≤ t_{w(λ)} for some w ∈ W."
+        },
+        {
+          "name": "ExtAffineWeyl.translation_mem_adm",
+          "role": "constructor",
+          "statement": "t_{w(λ)} ∈ Adm(λ) for every w ∈ W."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_lowerSet",
+          "role": "structure",
+          "statement": "Adm(λ) is a lower set: z′ ≤ z ∈ Adm(λ) implies z′ ∈ Adm(λ)."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_weyl_invariant",
+          "role": "compatibility",
+          "statement": "Adm(w(λ)) = Adm(λ) for w ∈ W."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_coset",
+          "role": "relation",
+          "statement": "Every element of Adm(λ) lies in the W_a-coset of t_λ, whose class in W̃/W_a ≅ X*(Z) is λ|_Z."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_pi",
+          "role": "functoriality",
+          "statement": "For G = G^J with the componentwise order, Adm(λ) = ∏_j Adm(λ_j) (PDF94)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.GL2_adm_minuscule",
+          "kind": "computation",
+          "statement": "For GL₂, Adm((1,0)) = {t_{(1,0)}, t_{(0,1)}, t_{(1,0)}s}, of size 3."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_central",
+          "kind": "degenerate",
+          "statement": "If λ ∈ X⁰(T), then t_λ ∈ Ω and Adm(λ) = {t_λ}."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_not_single_interval",
+          "kind": "non-example",
+          "statement": "For GL₂, t_{(0,1)} ∈ Adm((1,0)) but t_{(0,1)} ≰ t_{(1,0)}; the union over W is necessary."
+        },
+        {
+          "name": "ExtAffineWeyl.adm_product",
+          "kind": "compatibility",
+          "statement": "For GL₂^J, Adm((1,0)^J) has 3^{|J|} elements."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N06",
@@ -227,7 +574,69 @@
       "locator": "Definition2.1.3, PDF30",
       "statement": "The alpha-strip of index m is m< <x,alpha^vee> <m+1. An alcove is regular if it is contained in no positive-root critical strip of index0. An affine element is regular when its image of A0 is regular; Admreg(lambda) is the regular part of Adm(lambda).",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N08",
+          "how": "Regular elements factor through W̃₁⁺ (Proposition 2.1.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N12",
+          "how": "Adm^reg(λ+η) is in bijection with AP(λ+η) (Corollary 2.1.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M26",
+          "how": "Regular admissible elements label translated top components (Theorem 4.3.10, PDF92)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B35",
+          "how": "Adm^reg(η) with its Remark 2.1.8 factorization enters §8.6 (PDF178)."
+        }
+      ],
+      "api": [
+        {
+          "name": "Alcove.IsRegular_iff",
+          "role": "characterisation",
+          "statement": "An alcove A is regular iff for every positive root α, A ⊄ H_α^{(0,1)} = {0 < ⟨x, α^∨⟩ < 1}."
+        },
+        {
+          "name": "ExtAffineWeyl.IsRegular_def",
+          "role": "other",
+          "statement": "w̃ is regular iff w̃(A₀) is regular; Adm^reg(λ) := {w̃ ∈ Adm(λ) : w̃ regular}."
+        },
+        {
+          "name": "ExtAffineWeyl.isRegular_mul_omega",
+          "role": "compatibility",
+          "statement": "w̃δ is regular iff w̃ is, for δ ∈ Ω, since δ(A₀) = A₀."
+        },
+        {
+          "name": "ExtAffineWeyl.isRegular_iff_factor",
+          "role": "characterisation",
+          "statement": "w̃ is regular iff w̃ = w̃₂⁻¹w₀t_νw̃₁ with w̃₁, w̃₂ ∈ W̃₁⁺ and ν dominant, unique up to X⁰(T) (Proposition 2.1.5)."
+        },
+        {
+          "name": "ExtAffineWeyl.admReg_equiv_AP",
+          "role": "equivalence",
+          "statement": "Adm^reg(λ+η) ≃ AP(λ+η) via (w̃₁, w̃₂) ↦ w̃₂⁻¹w₀w̃₁ (Corollary 2.1.7)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Alcove.base_not_regular",
+          "kind": "degenerate",
+          "statement": "A₀ lies in every critical strip, so 1 and every δ ∈ Ω are not regular."
+        },
+        {
+          "name": "ExtAffineWeyl.GL2_admReg_eta",
+          "kind": "computation",
+          "statement": "For GL₂ with η = (1,0), Adm^reg(η) = {t_{(1,0)}, t_{(0,1)}}: the length-zero element t_{(1,0)}s of Adm(η) is not regular."
+        },
+        {
+          "name": "Alcove.strip_not_wall",
+          "kind": "non-example",
+          "statement": "For GL₂, the alcove {−1 < x₁−x₂ < 0} is regular: it lies in the α-strip of index −1, not in the critical strip."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
@@ -272,7 +681,74 @@
       "locator": "Equation(2.2), PDF32",
       "statement": "AP(lambda+eta) consists of pairs (w1,w2) in W1plus times Wplus modulo the diagonal central X0 action, satisfying w1 upward t_lambda wh^-1 w2, for dominant lambda.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N12",
+          "how": "AP(λ+η) ≃ Adm^reg(λ+η) (Corollary 2.1.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+          "how": "AP(λ+η) parametrizes JH(R̄⊗W(λ)) via (2.8) (Proposition 2.3.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M26",
+          "how": "AP(λ) labels the d-dimensional components of M^nv(≤λ,∇_a)_F (Theorem 4.3.10, PDF92)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M29",
+          "how": "Unique admissible pairs attach Serre weights to components (PDF95–96)."
+        }
+      ],
+      "api": [
+        {
+          "name": "AdmissiblePair.mem_iff",
+          "role": "characterisation",
+          "statement": "(w̃₁, w̃₂) ∈ AP(λ+η) iff w̃₁ ∈ W̃₁⁺, w̃₂ ∈ W̃⁺ and w̃₁ ↑ t_λ w̃_h⁻¹ w̃₂, taken modulo the diagonal X⁰(T)-action."
+        },
+        {
+          "name": "AdmissiblePair.diag_X0",
+          "role": "compatibility",
+          "statement": "The defining relation is invariant under (w̃₁, w̃₂) ↦ (t_νw̃₁, t_νw̃₂), ν ∈ X⁰(T), so AP(λ+η) is well defined."
+        },
+        {
+          "name": "AdmissiblePair.iff_adm",
+          "role": "relation",
+          "statement": "w̃₁ ↑ t_λw̃_h⁻¹w̃₂ iff w̃₂⁻¹w₀w̃₁ ∈ Adm(λ+η) (Proposition 2.1.6)."
+        },
+        {
+          "name": "AdmissiblePair.equiv_admReg",
+          "role": "equivalence",
+          "statement": "(w̃₁, w̃₂) ↦ w̃₂⁻¹w₀w̃₁ is a bijection AP(λ+η) ≃ Adm^reg(λ+η)."
+        },
+        {
+          "name": "AdmissiblePair.equiv_JH",
+          "role": "equivalence",
+          "statement": "For R with an m-generic presentation, m ≥ max{2h_η, h_{λ+η}}, (w̃₁, w̃₂) ↦ F_{(w̃₁, w̃(R)w̃₂⁻¹(0))} is a bijection onto JH(R̄⊗W(λ)) (Proposition 2.3.7)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdmissiblePair.GL2_eta",
+          "kind": "computation",
+          "statement": "For GL₂ and λ = 0, AP(η) has 2 elements, matching |Adm^reg(η)| = 2 = |W|."
+        },
+        {
+          "name": "AdmissiblePair.GL2_std",
+          "kind": "computation",
+          "statement": "For GL₂ and λ = (1,0), AP(λ+η) has 4 elements, matching the four constituents of R̄⊗Std for generic principal-series R."
+        },
+        {
+          "name": "AdmissiblePair.not_single_translate",
+          "kind": "non-example",
+          "statement": "Translating only one coordinate by ν ∈ X⁰(T)∖{0} changes the W_a-coset of t_λw̃_h⁻¹w̃₂; the pair then fails the ↑ condition. Only the diagonal action is quotiented."
+        },
+        {
+          "name": "AdmissiblePair.outer_reflexive",
+          "kind": "degenerate",
+          "statement": "For every w̃₁, the pair (w̃₁, w̃_ht_{−λ}w̃₁) satisfies the ↑ condition with equality, since t_λw̃_h⁻¹w̃_ht_{−λ}w̃₁ = w̃₁."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N12",
@@ -299,7 +775,69 @@
       "locator": "Definition2.1.9 and following assertion, PDF33",
       "statement": "The target Wtilde-dual has the same group law but Bruhat order based at the antidominant alcove. Define (t_nu w)^*=w^-1 t_nu. It is an order equivalence and reverses products: (xy)^*=y^*x^*. The printed group-isomorphism assertion needs correction E1; use the opposite group for a multiplicative equivalence.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M09",
+          "how": "The cells S°_F(w̃*) ∩ Fl^{∇_a} are indexed through (−)* (Theorem 4.2.4, PDF83–84)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M26",
+          "how": "Top components are closures of S°_F(w̃₁*w₀w̃₂⁻¹*)-type cells (PDF89–92)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N20",
+          "how": "Smallness is preserved by (−)* (Proposition 2.1.12(3))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B18",
+          "how": "§8 uses the star to move between W̃ and W̃^∨ labels (PDF166, 170)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.star_apply",
+          "role": "simp",
+          "statement": "(t_ν w)* = w⁻¹ t_ν ∈ W̃^∨."
+        },
+        {
+          "name": "ExtAffineWeyl.star_mul",
+          "role": "relation",
+          "statement": "(xy)* = y*x*; (−)* is a group isomorphism W̃ ≅ (W̃^∨)^op, not W̃ ≅ W̃^∨ (E1)."
+        },
+        {
+          "name": "ExtAffineWeyl.star_star",
+          "role": "structure",
+          "statement": "Applying the same formula twice returns x: (x*)* = x."
+        },
+        {
+          "name": "ExtAffineWeyl.star_le_iff",
+          "role": "equivalence",
+          "statement": "x ≤ y in W̃ iff x* ≤ y* in W̃^∨ with the antidominant-alcove Bruhat order ([56, Lemma 2.1.3])."
+        },
+        {
+          "name": "ExtAffineWeyl.length_star",
+          "role": "compatibility",
+          "statement": "ℓ(x*) = ℓ(x), and (−)* reverses reduced expressions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.star_GL2_antimult",
+          "kind": "non-example",
+          "statement": "For GL₂, (t_{(1,0)}s)* = s t_{(1,0)} = s*·t_{(1,0)}*, whereas t_{(1,0)}*·s* = t_{(1,0)}s ≠ s t_{(1,0)}; so (−)* is not multiplicative."
+        },
+        {
+          "name": "ExtAffineWeyl.star_finite",
+          "kind": "degenerate",
+          "statement": "On W ⊂ W̃, (−)* is inversion w ↦ w⁻¹; on translations it is the identity t_ν ↦ t_ν."
+        },
+        {
+          "name": "ExtAffineWeyl.star_involutive",
+          "kind": "compatibility",
+          "statement": "For every x ∈ W̃, (x*)* = x."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
@@ -308,7 +846,74 @@
       "locator": "Definition2.1.10, PDF33",
       "statement": "A weight lambda is m-deep in an eta-shifted p-alcove with strip indices n_alpha if n_alpha p+m < <lambda+eta,alpha^vee> < (n_alpha+1)p-m. For m>=0, being m-deep in some alcove is equivalent to m<abs(<lambda+eta,alpha^vee>+pk) for all positive roots alpha and integers k.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
+          "how": "Constituent depth bounds are stated in m-depth (Lemma 2.2.1)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N41",
+          "how": "JH(R̄⊗W(λ)) consists of (m−h_{λ+η})-deep weights (Proposition 2.3.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52",
+          "how": "m-generic tame types require μ to be m-deep in C₀ (Definition 2.4.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+          "how": "Depth hypotheses such as 4n-deep weights enter §7.4 (PDF159)."
+        }
+      ],
+      "api": [
+        {
+          "name": "Weight.IsDeepIn_def",
+          "role": "characterisation",
+          "statement": "λ is m-deep in the η-shifted p-alcove with strip indices (n_α) iff n_αp + m < ⟨λ+η, α^∨⟩ < (n_α+1)p − m for all α ∈ Φ⁺."
+        },
+        {
+          "name": "Weight.isDeep_iff",
+          "role": "characterisation",
+          "statement": "For m ≥ 0, λ is m-deep in some alcove iff m < |⟨λ+η, α^∨⟩ + pk| for all α ∈ Φ⁺ and k ∈ Z."
+        },
+        {
+          "name": "Weight.IsDeep.mono",
+          "role": "compatibility",
+          "statement": "If m′ ≤ m, m-deep implies m′-deep."
+        },
+        {
+          "name": "Weight.IsDeep.dotAct",
+          "role": "compatibility",
+          "statement": "Depth is preserved by the p-dot action of W̃ (Remark 2.1.11(1))."
+        },
+        {
+          "name": "Weight.IsDeep.add",
+          "role": "relation",
+          "statement": "If λ is m-deep and |⟨ν, α^∨⟩| ≤ k for all α, then λ+ν is (m−k)-deep."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Weight.GL2_depth",
+          "kind": "computation",
+          "statement": "For GL₂, p = 7 and λ = (3,0), ⟨λ+η, α^∨⟩ = 4, so λ is 2-deep in C₀ but not 3-deep."
+        },
+        {
+          "name": "Weight.zero_deep_wall",
+          "kind": "degenerate",
+          "statement": "λ is 0-deep iff ⟨λ+η, α^∨⟩ ∉ pZ for all α; for GL₂ and p = 7, λ = (6,0) is not 0-deep."
+        },
+        {
+          "name": "Weight.eta_shift",
+          "kind": "non-example",
+          "statement": "For GL₂, λ = (−1,0) has ⟨λ, α^∨⟩ = −1 ∉ pZ but ⟨λ+η, α^∨⟩ = 0, so it is not 0-deep; depth is measured after the η-shift."
+        },
+        {
+          "name": "Weight.depth_central",
+          "kind": "compatibility",
+          "statement": "Depth is invariant under λ ↦ λ+ν for ν ∈ X⁰(T)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N16",
@@ -317,7 +922,83 @@
       "locator": "Definition2.1.10, PDF33",
       "statement": "For z=w t_nu in either affine group, m-generic means nu-eta is m-deep, and m-small means h_nu<=m. Keep this right-translation convention; converting t_nu w uses the finite Weyl action.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M09",
+          "how": "Theorem 4.2.4 assumes w̃ is h-small (Definition 2.1.10(3), PDF83)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18",
+          "how": "Genericity and smallness of translations are W-invariant (Proposition 2.1.12(1))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N21",
+          "how": "A small factor loses a bounded amount of genericity (Proposition 2.1.12(4))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M24",
+          "how": "t_ω is assumed (n−1)-generic (Definition 2.1.10(2), PDF91)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K39",
+          "how": "Generic presentations of τ make w̃(τ) generic (PDF105, 122)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.IsGeneric_def",
+          "role": "characterisation",
+          "statement": "w t_ν (in W̃ or W̃^∨) is m-generic iff ν − η is m-deep."
+        },
+        {
+          "name": "ExtAffineWeyl.IsSmall_def",
+          "role": "characterisation",
+          "statement": "w t_ν is m-small iff h_ν ≤ m, i.e. ⟨ν, α^∨⟩ ≤ m for all α ∈ Φ."
+        },
+        {
+          "name": "ExtAffineWeyl.isGeneric_translation_weyl",
+          "role": "compatibility",
+          "statement": "t_ν is m-generic (resp. m-small) iff t_{s(ν)} is, for all s ∈ W."
+        },
+        {
+          "name": "ExtAffineWeyl.IsSmall.mul",
+          "role": "relation",
+          "statement": "If w̃ is m-small and z̃ is m′-small, then w̃z̃ is (m+m′)-small."
+        },
+        {
+          "name": "ExtAffineWeyl.isSmall_inv_star",
+          "role": "compatibility",
+          "statement": "w̃ is m-small iff w̃⁻¹ is iff w̃* is."
+        },
+        {
+          "name": "ExtAffineWeyl.IsGeneric.mul_small",
+          "role": "relation",
+          "statement": "If z̃ is m′-generic, w̃ is m-small and m ≤ m′, then z̃w̃ is (m′−m)-generic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.GL2_generic",
+          "kind": "computation",
+          "statement": "For GL₂ and p = 7, t_{(3,0)} is 2-generic but not 3-generic, since ⟨(3,0), α^∨⟩ = 3."
+        },
+        {
+          "name": "ExtAffineWeyl.identity_small_not_generic",
+          "kind": "degenerate",
+          "statement": "The identity is 0-small but not 0-generic."
+        },
+        {
+          "name": "ExtAffineWeyl.small_not_generic",
+          "kind": "non-example",
+          "statement": "Smallness does not imply genericity: t_{(1,0)} is 1-small for GL₂, but it is not 1-generic for any p, since ⟨(1,0), α^∨⟩ = 1."
+        },
+        {
+          "name": "ExtAffineWeyl.GL_small",
+          "kind": "compatibility",
+          "statement": "For GL_n, t_ν is m-small iff max_i ν_i − min_i ν_i ≤ m in each embedding."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N17",
@@ -326,7 +1007,64 @@
       "locator": "Definition2.1.10(4), PDF34",
       "statement": "For P in Z[X1,...,Xn] and a in R^n, P-generic means P(a) modulo p is a unit in R/p. For a tuple indexed by finite J require this in every factor. This condition is generally not preserved by Weyl or dot actions.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
+          "how": "P-generic μ yields the local-model diagram of Theorem 7.3.2(2) (PDF151)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "The weight part of Serre's conjecture is proved for P-generic lowest-alcove presentations (Theorem 9.1.6, PDF184)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
+          "how": "The shifted polynomial genericity (8.1) is built from Definition 2.1.10(4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02",
+          "how": "Appendix B's explicit genericity polynomial (Corollary B.0.5; see E26)."
+        }
+      ],
+      "api": [
+        {
+          "name": "PolyGeneric_def",
+          "role": "characterisation",
+          "statement": "a ∈ Rⁿ is P-generic iff the image of P(a) in R/p is a unit; a ∈ (Rⁿ)^J is P-generic iff each a_j is."
+        },
+        {
+          "name": "PolyGeneric.mul_iff",
+          "role": "relation",
+          "statement": "a is PQ-generic iff it is P-generic and Q-generic."
+        },
+        {
+          "name": "PolyGeneric.map",
+          "role": "functoriality",
+          "statement": "If f : R → S is a ring map and a is P-generic, then f(a) is P-generic."
+        },
+        {
+          "name": "PolyGeneric.Pm_iff_deep",
+          "role": "compatibility",
+          "statement": "For G = GL_n^J and λ−η ∈ C₀, λ is P_m-generic iff λ−η is m-deep, with P_m = ∏_{i=1}^n ∏_{j=1}^m (X_i − X_{i+1} − j) and X_{n+1} = X₁ (Remark 2.1.11(2))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolyGeneric.one",
+          "kind": "degenerate",
+          "statement": "Every tuple is 1-generic; over R = Z_p no tuple is p-generic."
+        },
+        {
+          "name": "PolyGeneric.GL2_P1",
+          "kind": "computation",
+          "statement": "For p = 7 and λ = (3,0), P₁(λ) = (3−0−1)(0−3−1) = −8 ≡ 6 mod 7, a unit; consistently, λ−η = (2,0) is 1-deep in C₀."
+        },
+        {
+          "name": "PolyGeneric.not_weyl_invariant",
+          "kind": "non-example",
+          "statement": "For P = X₁ − X₂ − 1, (1,0) is not P-generic but (0,1) is, for p ≠ 2; P-genericity is not W-invariant (Remark 2.1.11(1))."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18",
@@ -374,7 +1112,79 @@
       "planned": [
         "PotentialAutomorphyInfrastructure:PA.1"
       ],
-      "note": "Route owner: PotentialAutomorphyInfrastructure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: PotentialAutomorphyInfrastructure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+          "how": "JH(R̄⊗W(λ)) is parametrized by admissible pairs (Proposition 2.3.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
+          "how": "Constituents of W(μ) have bounded depth (Lemma 2.2.1)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "σ(λ,τ) = W(λ)⊗σ(τ) enters Breuil–Mézard patching (PDF169, 176)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P08",
+          "how": "Patching functors are evaluated on lattices in V(λ)⊗σ(τ) (§6.2, PDF127)."
+        }
+      ],
+      "api": [
+        {
+          "name": "DualWeylModule.mk",
+          "role": "constructor",
+          "statement": "W(λ)_{/O} := Ind_B^G(w₀λ) for dominant λ, a finite free O-module with G-action."
+        },
+        {
+          "name": "DualWeylModule.generic_irreducible",
+          "role": "characterisation",
+          "statement": "W(λ)_{/E} is the irreducible G_{/E}-module of highest weight λ."
+        },
+        {
+          "name": "DualWeylModule.socle_special",
+          "role": "characterisation",
+          "statement": "soc W(λ)_{/F} = L(λ), the irreducible G_{/F}-module of highest weight λ."
+        },
+        {
+          "name": "DualWeylModule.virtual",
+          "role": "compatibility",
+          "statement": "For arbitrary λ, W(λ) := Σ_i (−1)^i R^iInd_B^G(w₀λ) in the Grothendieck group; for dominant λ it is the class of the genuine module."
+        },
+        {
+          "name": "DualWeylModule.dot_reflection",
+          "role": "relation",
+          "statement": "W(w·λ) = (−1)^{ℓ(w)} W(λ) for w ∈ W, and W(λ) = 0 if ⟨λ+η, α^∨⟩ = 0 for some α."
+        },
+        {
+          "name": "DualWeylModule.restrict",
+          "role": "projection",
+          "statement": "V(λ) = W(λ)_{/E}(E)|_{G₀(Z_p)} and W̄(λ) = W(λ)_{/F}(F)|_{G₀(F_p)}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DualWeylModule.GL2_sym",
+          "kind": "computation",
+          "statement": "For GL₂ and λ = (a,0) with a ≥ 0, W(λ)_{/E} ≅ Sym^a(E²) has dimension a+1."
+        },
+        {
+          "name": "DualWeylModule.trivial",
+          "kind": "degenerate",
+          "statement": "W(0) is the trivial module."
+        },
+        {
+          "name": "DualWeylModule.GL2_p_reducible",
+          "kind": "non-example",
+          "statement": "For GL₂ and λ = (p,0), W(λ)_{/F} = Sym^p(F²) has dimension p+1 but its socle L((p,0)) is the Frobenius twist of the standard module, of dimension 2; so W(λ)_{/F} is not irreducible."
+        },
+        {
+          "name": "DualWeylModule.GL2_singular",
+          "kind": "compatibility",
+          "statement": "For GL₂ and λ = (−1,0), ⟨λ+η, α^∨⟩ = 0, so the virtual class W(λ) vanishes."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N23",
@@ -383,7 +1193,79 @@
       "locator": "§2.2, PDF35",
       "statement": "A Serre weight is an irreducible F-representation of G0(Fp). In the paper's finite reductive-group setup, write F(lambda)=L(lambda) restricted to G0(Fp) for lambda in X1={0<=simple-root pairing<=p-1}. Classes are parametrized by X1/(p-pi)X0. Regular means all these pairings are strictly less than p-1; m-depth is that of lambda. Coefficient F is sufficiently large for absolute irreducibility and definition of every weight.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N39",
+          "how": "Jantzen's criterion describes Serre-weight constituents of R̄ (Proposition 2.3.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M29",
+          "how": "Components C_σ^ζ are labelled by Serre weights (Definition 4.6.1)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G32",
+          "how": "Emerton–Gee components are Serre-labelled (§7.4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V04",
+          "how": "Modular Serre weights (Definition 9.1.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "SerreWeight.mk",
+          "role": "constructor",
+          "statement": "F(λ) := L(λ)|_{G₀(F_p)} for λ ∈ X₁(T) = {λ : 0 ≤ ⟨λ, α^∨⟩ ≤ p−1 for all simple α}."
+        },
+        {
+          "name": "SerreWeight.exists",
+          "role": "characterisation",
+          "statement": "Every irreducible F-representation of G₀(F_p) is isomorphic to some F(λ), and is absolutely irreducible."
+        },
+        {
+          "name": "SerreWeight.eq_iff",
+          "role": "extensionality",
+          "statement": "F(λ) ≅ F(λ′) iff λ − λ′ ∈ (p−π)X⁰(T) ([33, Lemma 9.2.4])."
+        },
+        {
+          "name": "SerreWeight.IsRegular_def",
+          "role": "other",
+          "statement": "F(λ) is regular iff ⟨λ, α^∨⟩ < p−1 for every simple α; this is independent of the representative λ."
+        },
+        {
+          "name": "SerreWeight.IsDeep_def",
+          "role": "compatibility",
+          "statement": "F(λ) is m-deep iff λ is; shifts by (p−π)X⁰(T) preserve depth."
+        },
+        {
+          "name": "SerreWeight.le_dualWeyl",
+          "role": "relation",
+          "statement": "F(λ) ⊂ W̄(λ) for λ ∈ X₁(T)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SerreWeight.GL2_count",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p (f = 1) there are p(p−1) Serre weights Sym^r⊗det^a, with 0 ≤ r ≤ p−1 and a mod p−1."
+        },
+        {
+          "name": "SerreWeight.trivial",
+          "kind": "degenerate",
+          "statement": "F(0) is the trivial representation."
+        },
+        {
+          "name": "SerreWeight.GL2_non_injective",
+          "kind": "non-example",
+          "statement": "For GL₂ over F_p, F(λ) ≅ F(λ + (p−1)(1,1)); λ ↦ F(λ) is not injective on X₁(T)."
+        },
+        {
+          "name": "SerreWeight.GL2_dim",
+          "kind": "compatibility",
+          "statement": "For GL₂ over F_p and 0 ≤ r ≤ p−1, F((r,0)) = Sym^r(F²) has dimension r+1."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N24",
@@ -392,7 +1274,74 @@
       "locator": "§2.2, PDF35",
       "statement": "For z=w t_nu define z dot lambda=w(lambda+eta+p nu)-eta. The shifted p-alcoves are components of the complement of H_(alpha,pn)-eta. C0 has 0< <lambda+eta,alpha^vee> <p for all positive roots; Omega stabilizes C0 for the dot action. Wplus and W1plus are respectively dominant and restricted dot-alcove elements.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N28",
+          "how": "Serre weights are presented as F(π⁻¹(w̃₁)·(ω−η)) (2.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N39",
+          "how": "Jantzen's criterion is phrased with dot-translated p-alcoves (Proposition 2.3.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N55",
+          "how": "κ = π⁻¹(w̃)·(ω−η) gives a diagonal tame presentation (Proposition 2.4.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
+          "how": "The linkage principle and dot action bound constituent depth (Lemma 2.2.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ExtAffineWeyl.dotAct_apply",
+          "role": "simp",
+          "statement": "(w t_ν)·λ = w(λ + η + pν) − η."
+        },
+        {
+          "name": "ExtAffineWeyl.dotAct_mul",
+          "role": "structure",
+          "statement": "x·(y·λ) = (xy)·λ and 1·λ = λ; the dot action is the p-scaled affine action conjugated by translation by −η."
+        },
+        {
+          "name": "ExtAffineWeyl.dotAct_transitive",
+          "role": "structure",
+          "statement": "W̃ acts transitively on p-alcoves, W_a simply transitively, and Ω = Stab(C₀)."
+        },
+        {
+          "name": "ExtAffineWeyl.dominant_iff_dot",
+          "role": "compatibility",
+          "statement": "W̃⁺ = {w̃ : w̃·C₀ dominant} and W̃₁⁺ = {w̃ ∈ W̃⁺ : w̃·C₀ p-restricted}, the same sets as in N02."
+        },
+        {
+          "name": "Weight.IsDeep.dotAct'",
+          "role": "compatibility",
+          "statement": "λ and w̃·λ have the same depth."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ExtAffineWeyl.dotAct_GL2",
+          "kind": "computation",
+          "statement": "For GL₂, s·(1,0) = s((2,0)) − (1,0) = (−1,2)."
+        },
+        {
+          "name": "ExtAffineWeyl.dotAct_fixed",
+          "kind": "characterisation",
+          "statement": "For GL₂, the reflection s fixes −η under the dot action: s·(−η) = −η."
+        },
+        {
+          "name": "ExtAffineWeyl.dotAct_central",
+          "kind": "degenerate",
+          "statement": "For ν ∈ X⁰(T), t_ν·λ = λ + pν."
+        },
+        {
+          "name": "ExtAffineWeyl.dot_not_linear",
+          "kind": "non-example",
+          "statement": "For GL₂, s·0 = s(η) − η = (−1,1) ≠ 0 = s(0)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
@@ -419,7 +1368,69 @@
       "locator": "§2.2, PDF37",
       "statement": "Algebraic central characters are X*(Z), finite central characters X*(Z)/(p-pi)X*(Z), identified with Hom(Z0(Fp),F^times). F(lambda) has central character lambda restricted to Z modulo (p-pi). Identify X*(Z) with Wtilde/Wa where the source uses this identification.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N30",
+          "how": "The central lift of a presentation reduces to the central character (Lemma 2.2.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
+          "how": "0-deep presentations are classified by central lifts (Lemma 2.2.4, with E2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N36",
+          "how": "Deligne–Lusztig presentations are classified by central lifts (Lemma 2.3.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N54",
+          "how": "The E/F shift ζ ↦ ζ − η|_Z of Remark 2.4.2 (Lemma 2.4.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "CentralChar.reduce",
+          "role": "projection",
+          "statement": "X*(Z) → X*(Z)/(p−π)X*(Z), sending an algebraic central character to a central character."
+        },
+        {
+          "name": "CentralChar.equiv_hom",
+          "role": "equivalence",
+          "statement": "X*(Z)/(p−π)X*(Z) ≅ Hom(Z₀(F_p), F^×)."
+        },
+        {
+          "name": "CentralChar.ofSerreWeight",
+          "role": "characterisation",
+          "statement": "The central character of F(λ) is λ|_Z mod (p−π)X*(Z), independent of λ ∈ λ + (p−π)X⁰(T)."
+        },
+        {
+          "name": "CentralChar.equiv_quotient",
+          "role": "equivalence",
+          "statement": "X*(Z) ≅ W̃/W_a, sending the class of t_νw to ν|_Z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CentralChar.GL2_f1",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p, X*(Z) = Z via λ ↦ λ₁+λ₂; Sym^r⊗det^a has central character r+2a mod p−1."
+        },
+        {
+          "name": "CentralChar.torus",
+          "kind": "degenerate",
+          "statement": "If G = T, then Z = T and X*(Z) = X*(T)."
+        },
+        {
+          "name": "CentralChar.lift_not_unique",
+          "kind": "non-example",
+          "statement": "For GL₂ over F_p, λ and λ + (p−1)(1,1) give the same Serre weight but algebraic central characters differing by 2(p−1)."
+        },
+        {
+          "name": "CentralChar.f2_index",
+          "kind": "compatibility",
+          "statement": "For GL₁ with f = 2, p−π acts on X*(Z) = Z² by (a,b) ↦ (pa−b, pb−a), with index p²−1 = |F_{p²}^×|."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N28",
@@ -428,7 +1439,69 @@
       "locator": "Equation(2.5), PDF37",
       "statement": "For omega-eta in C0 and w1 in W1plus put F_(w1,omega)=F(pi^-1(w1) dot (omega-eta)). Quotient pairs by (w1,omega)~(t_nu w1,omega-nu) for nu in X0. A presentation is this equivalence class, not a unique unquotiented pair.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+          "how": "Constituents of R̄⊗W(λ) are the F_{(w̃₁, w̃(R)w̃₂⁻¹(0))} (2.8)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63",
+          "how": "Herzig weights are F_{(w̃, w̃(τ̄)w̃₂⁻¹(0))} (2.14)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
+          "how": "Covering is tested on compatible presentations (Proposition 2.3.12)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M29",
+          "how": "Definition 4.6.1 labels components by a presentation and a central lift."
+        }
+      ],
+      "api": [
+        {
+          "name": "SerreWeight.ofPresentation",
+          "role": "constructor",
+          "statement": "F_{(w̃₁,ω)} := F(π⁻¹(w̃₁)·(ω−η)) for w̃₁ ∈ W̃₁⁺ and ω−η ∈ C₀ ∩ X*(T)."
+        },
+        {
+          "name": "SerreWeight.ofPresentation_equiv",
+          "role": "compatibility",
+          "statement": "(w̃₁, ω) ~ (t_νw̃₁, ω−ν) for ν ∈ X⁰(T), and equivalent pairs give the same weight."
+        },
+        {
+          "name": "SerreWeight.presentations_orbit",
+          "role": "characterisation",
+          "statement": "If (w̃₁, ω) presents σ, its presentations are {(w̃₁π(δ⁻¹), δ·(ω−η)+η) : δ ∈ Ω} up to ~ (proof of Lemma 2.2.4)."
+        },
+        {
+          "name": "SerreWeight.ofPresentation_deep_iff",
+          "role": "relation",
+          "statement": "F_{(w̃₁,ω)} is m-deep iff m < ⟨ω, α^∨⟩ < p−m for all α ∈ Φ⁺."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SerreWeight.GL2_presentation",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p and 0 ≤ r ≤ p−2, (1, (r+1,0)) presents F((r,0)) = Sym^r."
+        },
+        {
+          "name": "SerreWeight.presentation_X0",
+          "kind": "degenerate",
+          "statement": "For ν ∈ X⁰(T), (w̃₁, ω) and (t_νw̃₁, ω−ν) present the same weight."
+        },
+        {
+          "name": "SerreWeight.presentation_frobenius",
+          "kind": "compatibility",
+          "statement": "For f = 2, the j-th component of π⁻¹(w̃₁)·(ω−η) uses the (j−1)-th component of w̃₁; in particular component 0 uses w̃_{1,1}."
+        },
+        {
+          "name": "SerreWeight.presentation_needs_C0",
+          "kind": "non-example",
+          "statement": "(w̃₁, ω) with ω−η ∉ C₀, for example ω−η on a p-wall, is not a lowest-alcove presentation."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N29",
@@ -437,7 +1510,69 @@
       "locator": "Equations(2.6)–(2.7), PDF38",
       "statement": "The algebraic central lift of (w1,omega) is the image of t_(omega-eta) w1 in Wtilde/Wa=X*(Z). Compatible presentations have the same such lift; this is independent of the chosen representative pair.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N30",
+          "how": "The central lift reduces to the central character (Lemma 2.2.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N41",
+          "how": "Constituents of R̄⊗W(λ) have λ-compatible presentations (Proposition 2.3.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N64",
+          "how": "Herzig weights have presentations compatible with that of τ̄ (Proposition 2.6.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M29",
+          "how": "C_σ^ζ depends on the central lift ζ (Definition 4.6.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "SerreWeight.centralLift",
+          "role": "constructor",
+          "statement": "ζ(w̃₁, ω) := the class of t_{ω−η}w̃₁ in W̃/W_a ≅ X*(Z) (2.6)–(2.7)."
+        },
+        {
+          "name": "SerreWeight.centralLift_equiv",
+          "role": "compatibility",
+          "statement": "ζ is constant on ~-classes: t_{ω−ν−η}t_νw̃₁ = t_{ω−η}w̃₁."
+        },
+        {
+          "name": "SerreWeight.centralLift_reduce",
+          "role": "characterisation",
+          "statement": "ζ(w̃₁, ω) mod (p−π)X*(Z) is the central character of F_{(w̃₁,ω)} (Lemma 2.2.3)."
+        },
+        {
+          "name": "SerreWeight.Compatible_def",
+          "role": "relation",
+          "statement": "Two presentations are compatible iff they have the same ζ."
+        },
+        {
+          "name": "SerreWeight.centralLift_bijective",
+          "role": "equivalence",
+          "statement": "For 0-deep σ, the presentations of σ correspond bijectively to the algebraic central characters lifting its central character; the E2 correction uses t_{ω−η}w̃₁."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SerreWeight.GL2_centralLift",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p, the presentation (1, (r+1,0)) has ζ = r ∈ Z = X*(Z), lifting the central character r mod p−1 of Sym^r."
+        },
+        {
+          "name": "SerreWeight.centralLift_eta_shift",
+          "kind": "non-example",
+          "statement": "The printed Lemma 2.2.4 formula w̃₁t_ω changes ζ by η|_Z (by 1 for GL₂) and no longer lifts the central character; see E2."
+        },
+        {
+          "name": "SerreWeight.centralLift_X0",
+          "kind": "degenerate",
+          "statement": "Equivalent pairs (w̃₁, ω) and (t_νw̃₁, ω−ν) have the same ζ."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N30",
@@ -464,7 +1599,79 @@
       "locator": "§2.3, PDF38–39",
       "statement": "For a good pair(s,mu) in W times X*(T), attach the E-representation R_s(mu) of G0(Fp), using the Deligne–Lusztig construction and the sign convention of the cited inputs. A lowest-alcove presentation is(s,mu-eta) with mu-eta in C0; good-pair construction is an external prerequisite, not a formal symbol.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N39",
+          "how": "Jantzen's criterion computes JH(R̄) (Proposition 2.3.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
+          "how": "σ(τ) for tame WD types are the constituents of R_s(μ) (Proposition 2.5.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N37",
+          "how": "Every R_s(μ) has a bounded presentation (Lemma 2.3.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B21",
+          "how": "Non-generic Deligne–Lusztig representations are excluded in §8.4 (PDF172)."
+        }
+      ],
+      "api": [
+        {
+          "name": "DLRep.mk",
+          "role": "constructor",
+          "statement": "For a good pair (s, μ) ∈ W × X*(T), R_s(μ) is the E-representation of G₀(F_p) attached by [33, Propositions 9.2.1–9.2.2]."
+        },
+        {
+          "name": "DLRep.shift",
+          "role": "relation",
+          "statement": "R_s(μ) ≅ R_s(μ + pν − sπ(ν)) for ν ∈ X*(T) (proof of Lemma 2.3.3)."
+        },
+        {
+          "name": "DLRep.conj",
+          "role": "relation",
+          "statement": "R_s(μ) ≅ R_{wsπ(w)⁻¹}(w(μ)) for w ∈ W."
+        },
+        {
+          "name": "DLRep.good_of_deep",
+          "role": "compatibility",
+          "statement": "(s, μ) is good if μ−η is 0-deep in C₀ ([56, Lemma 2.2.3])."
+        },
+        {
+          "name": "DLRep.irreducible_of_generic",
+          "role": "characterisation",
+          "statement": "A 1-generic Deligne–Lusztig representation is irreducible ([19, Theorem 6.8])."
+        },
+        {
+          "name": "DLRep.ofTameParam",
+          "role": "compatibility",
+          "statement": "V_φ(τ(w, μ)) = R_w(μ) ([33, Proposition 9.2.1], PDF48)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DLRep.GL2_principal",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p and s = 1, R_1(μ) has dimension p+1 (a principal series), irreducible when μ₁ ≢ μ₂ mod p−1."
+        },
+        {
+          "name": "DLRep.GL2_cuspidal",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p and s the transposition, R_s(μ) has virtual dimension p−1 and is an irreducible cuspidal representation (from the nonsplit torus) when (s, μ) is 1-generic."
+        },
+        {
+          "name": "DLRep.torus",
+          "kind": "degenerate",
+          "statement": "For G = T a torus, R_1(μ) is the Teichmüller lift of the character μ of T(F_p)."
+        },
+        {
+          "name": "DLRep.not_injective",
+          "kind": "non-example",
+          "statement": "(s, μ) ↦ R_s(μ) is not injective: μ and μ + pν − sπ(ν) give isomorphic representations."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N33",
@@ -473,7 +1680,60 @@
       "locator": "Definition2.3.1, PDF39",
       "statement": "R is m-generic if it has a lowest-alcove presentation(s,mu-eta) of depth m. After choosing it, wtilde(R)=t_mu s and w(R)=s; an unchosen representation has no distinguished such element.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+          "how": "Proposition 2.3.7 needs an m-generic presentation, m ≥ max{2h_η, h_{λ+η}}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N42",
+          "how": "The intervals criterion is stated for a max{2h_η, h_{λ+η}}-generic presentation (Proposition 2.3.8)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
+          "how": "The covering proof enumerates 2h_η-generic R (PDF44)."
+        }
+      ],
+      "api": [
+        {
+          "name": "DLRep.IsGeneric_def",
+          "role": "characterisation",
+          "statement": "R is m-generic iff it has a lowest-alcove presentation (s, μ−η) ∈ W × C₀ with μ−η m-deep."
+        },
+        {
+          "name": "DLRep.affineElt",
+          "role": "projection",
+          "statement": "For a chosen presentation, w̃(R) = t_μ s ∈ W̃ and w(R) = s ∈ W."
+        },
+        {
+          "name": "DLRep.isGeneric_iff_affine",
+          "role": "compatibility",
+          "statement": "A presentation is m-generic iff w̃(R) is m-generic (Definition 2.1.10(2))."
+        },
+        {
+          "name": "DLRep.IsGeneric.mono",
+          "role": "compatibility",
+          "statement": "If m′ ≤ m, m-generic implies m′-generic."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DLRep.GL2_generic",
+          "kind": "computation",
+          "statement": "For GL₂, p = 7, s = 1 and μ = (4,0), μ−η = (3,0) ∈ C₀ and R_1(μ) is 2-generic but this presentation is not 3-generic."
+        },
+        {
+          "name": "DLRep.zeroGeneric_iff",
+          "kind": "degenerate",
+          "statement": "R is 0-generic iff it has a lowest-alcove presentation."
+        },
+        {
+          "name": "DLRep.affineElt_depends",
+          "kind": "non-example",
+          "statement": "w̃(R) depends on the chosen presentation: another presentation (wsπ(w)⁻¹, w(μ+pν−sπ(ν))−η) gives a different element of W̃."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N34",
@@ -491,7 +1751,64 @@
       "locator": "§2.3, PDF39",
       "statement": "A presentation(s,mu-eta) is lambda-compatible with zeta if t_lambda t_mu s has class zeta in Wtilde/Wa. Compatibility with a Serre presentation uses its lift from(2.7). The finite central character of R tensor W(lambda) is zeta modulo(p-pi).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N41",
+          "how": "Constituents of R̄⊗W(λ) have λ-compatible presentations (Proposition 2.3.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N42",
+          "how": "Proposition 2.3.8 assumes λ-compatible presentations of σ and R."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+          "how": "Proposition 2.6.4 compares λ-compatible presentations of ρ̄ and τ."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B35",
+          "how": "§8.6 uses λ-compatible presentations (PDF174–178)."
+        }
+      ],
+      "api": [
+        {
+          "name": "DLPres.LambdaCompatible_def",
+          "role": "characterisation",
+          "statement": "(s, μ−η) is λ-compatible with ζ ∈ X*(Z) iff the class of t_λt_μs in W̃/W_a is ζ; 0-compatible is called compatible."
+        },
+        {
+          "name": "DLPres.compatible_centralChar",
+          "role": "characterisation",
+          "statement": "If (s, μ−η) is λ-compatible with ζ, then ζ mod (p−π)X*(Z) is the central character of R⊗W(λ); for λ = 0, of R."
+        },
+        {
+          "name": "DLPres.compatible_serre",
+          "role": "relation",
+          "statement": "(s, μ−η) and a Serre presentation (w̃₁, ω) are λ-compatible iff the first is λ-compatible, and the second compatible, with one ζ."
+        },
+        {
+          "name": "DLPres.lambdaCompatible_shift",
+          "role": "relation",
+          "statement": "(s, μ−η) is λ-compatible with ζ iff it is compatible with ζ − λ|_Z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DLPres.GL2",
+          "kind": "computation",
+          "statement": "For GL₂, s = 1 and μ = (a,b), the presentation (1, μ−η) is compatible with ζ = a+b."
+        },
+        {
+          "name": "DLPres.zero",
+          "kind": "degenerate",
+          "statement": "0-compatibility is compatibility."
+        },
+        {
+          "name": "DLPres.not_eta_shift",
+          "kind": "non-example",
+          "statement": "The class used is that of t_μs, not t_{μ−η}s: for GL₂ and s = 1 these differ by η|_Z = 1."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N36",
@@ -563,7 +1880,51 @@
       "locator": "§2.3.1, PDF42",
       "statement": "For R max(2h_eta,h_(lambda+eta))-generic, JHout(Rbar tensor W(lambda)) is the subset under N40 corresponding to pairs(w1,wh t_-lambda w1).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N44",
+          "how": "Outer constituents control upper-arrow inequalities (Lemma 2.3.9)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
+          "how": "The covering proof uses R with F_{(w̃,ω)} ∈ JH_out(R̄) (PDF44)."
+        }
+      ],
+      "api": [
+        {
+          "name": "JHout_def",
+          "role": "constructor",
+          "statement": "For R with a max{2h_η, h_{λ+η}}-generic presentation, JH_out(R̄⊗W(λ)) is the image under (2.8) of the pairs (w̃₁, w̃_ht_{−λ}w̃₁) in AP(λ+η)."
+        },
+        {
+          "name": "JHout_subset",
+          "role": "projection",
+          "statement": "JH_out(R̄⊗W(λ)) ⊆ JH(R̄⊗W(λ))."
+        },
+        {
+          "name": "JHout.upArrow",
+          "role": "relation",
+          "statement": "If F_{(w̃′,ω′)} ∈ JH_out(R̄) and a compatible (w̃,ω) presents a constituent of R̄, then w̃ ↑ t_{w(R)⁻¹(ω′−ω)}w̃′ (Lemma 2.3.9)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "JHout.GL2_all",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p and λ = 0, both constituents of a 2-generic R̄ are outer: JH_out(R̄) = JH(R̄), of size 2."
+        },
+        {
+          "name": "JHout.GL2_std_proper",
+          "kind": "non-example",
+          "statement": "For GL₂ and λ = (1,0), JH(R̄⊗Std) has 4 generic constituents but JH_out has 2."
+        },
+        {
+          "name": "JHout.pair_in_AP",
+          "kind": "degenerate",
+          "statement": "(w̃₁, w̃_ht_{−λ}w̃₁) satisfies the ↑ condition of AP(λ+η) with equality."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N44",
@@ -581,7 +1942,74 @@
       "locator": "Definition2.3.10, PDF43",
       "statement": "A3h_eta-deep weight sigma0 covers sigma if every2h_eta-generic Deligne–Lusztig representation whose reduction contains sigma0 also contains sigma. This is an intersection condition over all such R.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
+          "how": "Covering is characterized by upper-arrow inequalities (Proposition 2.3.12(2))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M29",
+          "how": "Remark 4.7.4(2) reads covering on torus-fixed points of C_σ (PDF98)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B35",
+          "how": "Proposition 2.3.12(3) is used in §8.6 (PDF179)."
+        },
+        {
+          "where": "Lemma A.2.1 and its use, published PDF189",
+          "how": "Some σ′ covering σ has M∞(σ′) ≠ 0, and Proposition 2.3.12(2) then forces σ′ = σ."
+        }
+      ],
+      "api": [
+        {
+          "name": "SerreWeight.Covers_def",
+          "role": "characterisation",
+          "statement": "For 3h_η-deep σ₀, σ₀ covers σ iff every 2h_η-generic Deligne–Lusztig R with σ₀ ∈ JH(R̄) also has σ ∈ JH(R̄)."
+        },
+        {
+          "name": "SerreWeight.Covers.partialOrder",
+          "role": "structure",
+          "statement": "Covering is a partial order on 3h_η-deep Serre weights (Remark 2.3.11)."
+        },
+        {
+          "name": "SerreWeight.covers_iff_upArrow",
+          "role": "characterisation",
+          "statement": "With compatible presentations and ω−η 3h_η-deep, F_{(w̃,ω)} covers F_{(w̃′,ω′)} iff w̃′ ↑ t_{W(ω−ω′)}w̃; then ℓ(w̃′) ≤ ℓ(w̃), with equality iff the presentations are equivalent."
+        },
+        {
+          "name": "SerreWeight.covers_iff_interval",
+          "role": "characterisation",
+          "statement": "⟺ t_{ω′}W̃_{≤w₀w̃′} ⊂ t_ωW̃_{≤w₀w̃} (Proposition 2.3.12(3))."
+        },
+        {
+          "name": "SerreWeight.covers_of_linkage",
+          "role": "relation",
+          "statement": "If σ ∈ JH(W̄(w̃·(ω−η))), then F_{(w̃,ω)} covers σ (Remark 2.3.13(2))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SerreWeight.covers_refl",
+          "kind": "degenerate",
+          "statement": "Every 3h_η-deep weight covers itself."
+        },
+        {
+          "name": "SerreWeight.GL2_covers_eq",
+          "kind": "computation",
+          "statement": "For GL₂, W̃₁⁺ modulo X⁰ is Ω, whose elements have length 0; by the length criterion, covering between 3-deep weights is equality."
+        },
+        {
+          "name": "SerreWeight.covers_of_upArrow",
+          "kind": "characterisation",
+          "statement": "If μ ↑ λ in the dot-linkage order and both weights are in range, F(λ) covers F(μ) (Remark 2.3.13(1))."
+        },
+        {
+          "name": "SerreWeight.covers_not_linkage",
+          "kind": "non-example",
+          "statement": "The converse fails for GL₄: covering does not imply μ ↑ λ (Remark 2.3.13(1))."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
@@ -617,7 +2045,74 @@
       "locator": "§2.4, PDF45–46",
       "statement": "For(w,mu), set Fstar=p pi^-1 on the dual cocharacter lattice and choose d with(Fstar w^-1)^d=p^d. Evaluate the cocharacter sum_(i=0)^(d-1)(Fstar w^-1)^i(mu) on the fundamental character omega_d. The conjugacy class tau(w,mu) is independent of d and every tame inertial L-parameter arises thus. Reduction and Teichmuller lift biject the O,E,F versions.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52",
+          "how": "Regularity and genericity of tame types are defined through τ(s, μ) (Definition 2.4.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N55",
+          "how": "Changing a diagonal presentation (Proposition 2.4.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
+          "how": "V_φ(τ(w, μ)) = R_w(μ) links tame types to Deligne–Lusztig representations (PDF48, Proposition 2.5.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K39",
+          "how": "Kisin-module shapes are defined relative to τ(s, μ+η) (§5, PDF99, 122)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TameParam.ofWeyl",
+          "role": "constructor",
+          "statement": "τ(w, μ) := (Σ_{i=0}^{d−1}(F*∘w⁻¹)^i(μ))(ω_d) : I_{Q_p} → T^∨(E), with F* = pπ⁻¹ and d ≥ 1 such that (F*∘w⁻¹)^d = p^d."
+        },
+        {
+          "name": "TameParam.ofWeyl_indep",
+          "role": "compatibility",
+          "statement": "The G^∨-conjugacy class of τ(w, μ) does not depend on the admissible d."
+        },
+        {
+          "name": "TameParam.surjective",
+          "role": "characterisation",
+          "statement": "Every tame inertial L-parameter over E (resp. F) is some τ(w, μ) (resp. τ̄(w, μ))."
+        },
+        {
+          "name": "TameParam.reduce_equiv",
+          "role": "equivalence",
+          "statement": "−⊗_O E and −⊗_O F give bijections between tame inertial L-parameters over O, E and F; the inverse of reduction is the Teichmüller lift."
+        },
+        {
+          "name": "TameParam.shift",
+          "role": "relation",
+          "statement": "τ(w, μ) ≅ τ(w, μ + pν − wπ(ν)) for ν ∈ X*(T), matching DLRep.shift under V_φ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TameParam.GL1",
+          "kind": "computation",
+          "statement": "For GL₁ and f = 1, τ(1, a) = ω₁^a."
+        },
+        {
+          "name": "TameParam.GL2_nonsplit",
+          "kind": "computation",
+          "statement": "For GL₂, f = 1 and s the transposition, d = 2 and τ(s, (a,b)) = ω₂^{a+pb} ⊕ ω₂^{b+pa}."
+        },
+        {
+          "name": "TameParam.zero",
+          "kind": "degenerate",
+          "statement": "τ(w, 0) is trivial."
+        },
+        {
+          "name": "TameParam.GL2_not_level1",
+          "kind": "non-example",
+          "statement": "τ(s, (1,0)) = ω₂ ⊕ ω₂^p for GL₂ does not factor through ω₁, since p+1 ∤ 1."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N50",
@@ -626,7 +2121,74 @@
       "locator": "Example2.4.1, equation(2.12), PDF45–46",
       "statement": "For unramified K/Qp of degree f and(s,mu+eta), s_tau=s0...s_(f-1), r=ord(s_tau), alpha_j=s_(f-1)^-1...s_(f-j)^-1(mu_(f-j)+eta_(f-j)), a0=sum_(j=0)^(f-1)p^j alpha_j. The type is the direct sum over i of omega_(fr) raised to sum_(k=0)^(r-1)p^(fk) a0_(s_tau^k(i)). It is independent of the algebraic-closure isomorphism used to derive the formula.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
+          "how": "1-generic GL_n tame inertia has distinct characters χ_i (Example 2.4.1)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K04",
+          "how": "The descent datum acts through the characters χ_i⁻¹ of (2.12) (§5.1, PDF102)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K06",
+          "how": "Orientations are built from α_j and a^{(0)} (PDF102–103; Remark 5.1.7)."
+        },
+        {
+          "where": "Lemma 6.2.8, published PDF131",
+          "how": "The explicit characters compare tame types with Hodge–Tate data."
+        }
+      ],
+      "api": [
+        {
+          "name": "TameType.alpha_def",
+          "role": "simp",
+          "statement": "α₀ = μ₀+η₀ and α_j = s_{f−1}⁻¹⋯s_{f−j}⁻¹(μ_{f−j}+η_{f−j}) for 1 ≤ j ≤ f−1; a^{(0)} = Σ_j p^jα_j."
+        },
+        {
+          "name": "TameType.chi_def",
+          "role": "constructor",
+          "statement": "With s_τ = s₀s₁⋯s_{f−1} of order r, χ_i := ω_{fr}^{Σ_{k=0}^{r−1} a^{(0)}_{s_τ^k(i)} p^{fk}}."
+        },
+        {
+          "name": "TameType.eq_sum_chi",
+          "role": "characterisation",
+          "statement": "τ(s, μ+η) ≅ ⊕_{i=1}^n χ_i (2.12)."
+        },
+        {
+          "name": "TameType.power_eq",
+          "role": "relation",
+          "statement": "(F*∘s⁻¹)^{fr} = p^{fr} on X*(T^∨), which justifies d = fr."
+        },
+        {
+          "name": "TameType.indep_iota",
+          "role": "compatibility",
+          "statement": "The characters χ_i depend only on τ(s, μ+η), not on the chosen isomorphism K̄ → Q̄_p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TameType.GL2_split",
+          "kind": "computation",
+          "statement": "For f = 1, n = 2, s = 1 and μ = (a,b), χ₁ = ω₁^{a+1} and χ₂ = ω₁^b."
+        },
+        {
+          "name": "TameType.GL2_nonsplit",
+          "kind": "computation",
+          "statement": "For f = 1, n = 2 and s the transposition, r = 2, χ₁ = ω₂^{(a+1)+pb} and χ₂ = ω₂^{b+p(a+1)}, agreeing with τ(s, μ+η) from N49."
+        },
+        {
+          "name": "TameType.GL1",
+          "kind": "degenerate",
+          "statement": "For n = 1 (η = 0), τ(1, μ) = ω_f^{μ₀ + Σ_{j=1}^{f−1} p^jμ_{f−j}}."
+        },
+        {
+          "name": "TameType.order_convention",
+          "kind": "compatibility",
+          "statement": "The convention differs from [56, 59] as explained in Remark 5.1.7; the s_τ of Example 2.4.1 coincides with that of [56, §3.2]."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N51",
@@ -635,7 +2197,78 @@
       "locator": "§2.4, PDF46–47",
       "statement": "A presentation(s,mu) has mu in C0 and tau=tau(s,mu+eta). For E-valued tau, lambda-compatibility uses t_lambda t_(mu+eta)s modulo Wa. For F-valued bartau, compatibility uses t_mu s modulo Wa. Reduction therefore changes the compatible central lift by -eta restricted to Z; do not identify the two conventions.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N53",
+          "how": "Lemma 2.4.4 classifies presentations over E by ζ with ζ∘ω₁ = det∘τ."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N54",
+          "how": "Over F, by ζ with (ζ−η|_Z)∘ω₁ = det∘τ̄ (with the E3 correction)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+          "how": "Proposition 2.6.4 fixes λ-compatible presentations of ρ̄ and τ."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K37",
+          "how": "Residual genericity is measured through lowest-alcove presentations (Definition 5.5.1, PDF122)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 assumes a P-generic lowest-alcove presentation (PDF184)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TamePres_def",
+          "role": "characterisation",
+          "statement": "(s, μ) with μ ∈ C₀ is a lowest-alcove presentation of τ (resp. τ̄) iff τ ≅ τ(s, μ+η) (resp. τ̄ ≅ τ̄(s, μ+η))."
+        },
+        {
+          "name": "TamePres.affineElt",
+          "role": "projection",
+          "statement": "For a fixed presentation, w̃(τ) = t_{μ+η}s (resp. w̃(τ̄) = t_{μ+η}s)."
+        },
+        {
+          "name": "TamePres.LambdaCompatibleE_def",
+          "role": "characterisation",
+          "statement": "Over E, (s, μ) is λ-compatible with ζ iff the class of t_λt_{μ+η}s in W̃/W_a is ζ."
+        },
+        {
+          "name": "TamePres.CompatibleF_def",
+          "role": "characterisation",
+          "statement": "Over F, (s, μ) is compatible with ζ iff the class of t_μs is ζ."
+        },
+        {
+          "name": "TamePres.reduce_shift",
+          "role": "relation",
+          "statement": "If (s, μ) is compatible with ζ for τ, it is compatible with ζ − η|_Z for τ̄ (Remark 2.4.2)."
+        },
+        {
+          "name": "TamePres.det",
+          "role": "characterisation",
+          "statement": "ζ∘ω₁ = det∘τ over E, and (ζ−η|_Z)∘ω₁ = det∘τ̄ over F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TamePres.GL2",
+          "kind": "computation",
+          "statement": "For GL₂, f = 1, s = 1 and μ = (a,b) ∈ C₀: τ = ω₁^{a+1} ⊕ ω₁^b, the E-compatible ζ is a+b+1 = the exponent of det τ, and the F-compatible class is a+b = ζ − η|_Z."
+        },
+        {
+          "name": "TamePres.GL1",
+          "kind": "degenerate",
+          "statement": "For GL₁ (η = 0), the E and F conventions agree."
+        },
+        {
+          "name": "TamePres.no_identify",
+          "kind": "non-example",
+          "statement": "Using the E convention for τ̄ gives ζ with ζ∘ω₁ ≠ det∘τ̄ whenever η|_Z ≢ 0 mod (p−π)X*(Z), for example for GL₂."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52",
@@ -743,7 +2376,74 @@
       "locator": "Definition2.5.1, PDF48–49",
       "statement": "A pair(rho_tau,N_tau) consists of an open-kernel inertia homomorphism and a nilpotent Lie element, admitting a Weil extension with Ad(rho(g))N_tau=norm(g)N_tau; take conjugacy classes, and for L-parameters require the prescribed projection to the Galois factor. For a local field K use its Weil group and its residue cardinality in the norm. Tameness concerns rho_tau, and an ordinary inertial type is the N_tau=0 subcase.",
       "status": "missing",
-      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
+          "how": "Theorem 2.5.4 attaches σ(τ) to WD inertial types."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P02",
+          "how": "Deformation rings R_ρ^{λ,τ} for WD inertial types (§6.1, PDF126)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B02",
+          "how": "Types (λ+η, τ) with τ a WD inertial type (§8.1, PDF163)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+          "how": "Theorem A.4.1 fixes WD inertial types τ_v (PDF196)."
+        }
+      ],
+      "api": [
+        {
+          "name": "WDInertialType.mk",
+          "role": "constructor",
+          "statement": "A WD inertial L-homomorphism is (ρ_τ, N_τ), with ρ_τ : I_{Q_p} → G^∨(E) of open kernel and N_τ ∈ Lie G^∨(E) nilpotent, admitting an L-homomorphism ρ extending ρ_τ with ρ(g)N_τρ(g)⁻¹ = ‖g‖N_τ; types are G^∨(E)-conjugacy classes."
+        },
+        {
+          "name": "WDInertialType.ofInertial",
+          "role": "coercion",
+          "statement": "An inertial type τ gives the WD inertial type (τ, 0); forgetting N is a left inverse."
+        },
+        {
+          "name": "WDInertialType.IsTame_def",
+          "role": "other",
+          "statement": "(ρ_τ, N_τ) is tame iff ρ_τ factors through tame inertia."
+        },
+        {
+          "name": "WDInertialType.restrict",
+          "role": "functoriality",
+          "statement": "A WD representation (ρ, N) of W_K restricts to the WD inertial type (ρ|_{I_K}, N)."
+        },
+        {
+          "name": "WDInertialType.equiv_collection",
+          "role": "equivalence",
+          "statement": "WD inertial L-parameters correspond to collections (τ_v)_{v∈S_p} of WD inertial types, preserving tameness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WDInertialType.zero_N",
+          "kind": "degenerate",
+          "statement": "N = 0 recovers ordinary inertial types, and forgetting N after the inclusion is the identity."
+        },
+        {
+          "name": "WDInertialType.steinberg",
+          "kind": "computation",
+          "statement": "For GL₂, (1, [[0,1],[0,0]]) is a WD inertial type: the restriction of the Steinberg WD representation."
+        },
+        {
+          "name": "WDInertialType.N_isotypic",
+          "kind": "characterisation",
+          "statement": "Since ‖g‖ = 1 on inertia, N_τ commutes with ρ_τ(I); if ρ_τ = χ₁ ⊕ χ₂ with χ₁ ≠ χ₂, then N_τ = 0."
+        },
+        {
+          "name": "WDInertialType.forget_not_injective",
+          "kind": "non-example",
+          "statement": "Forgetting N is not injective: (1, 0) and (1, [[0,1],[0,0]]) have the same image."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
@@ -752,7 +2452,78 @@
       "locator": "Definition2.5.3 and preceding paragraph, PDF49–50",
       "statement": "For GLn compare nilpotent conjugacy classes by dominance of their Jordan partitions. Put tau<=tau' when their inertia representations agree and the nilpotent restrictions to every irreducible inertia-isotypic summand compare in this order; for collections compare componentwise. Zero monodromy is minimal.",
       "status": "missing",
-      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
+          "how": "Theorem 2.5.4(1) bounds rec_K(π)|_{I_K} ⪯ τ."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60",
+          "how": "Theorem 2.5.4(3) uses maximality for ⪯."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P02",
+          "how": "R_ρ^{λ,⪯τ} is the union over τ′ ⪯ τ (Definition 2.5.3 used on PDF126)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B02",
+          "how": "Extremal types are maximal or minimal for ⪯ (PDF163)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+          "how": "The corrected Theorem A.4.1 uses the quotient with monodromy ⪯ τ (E34)."
+        }
+      ],
+      "api": [
+        {
+          "name": "Partition.DominanceLE_def",
+          "role": "characterisation",
+          "statement": "P₁ ⪯ P₂ iff Σ_{i≤k}P₁(i) ≤ Σ_{i≤k}P₂(i) for all k."
+        },
+        {
+          "name": "Nilpotent.DominanceLE_def",
+          "role": "characterisation",
+          "statement": "For nilpotent N₁, N₂ ∈ M_n(E), N₁ ⪯ N₂ iff their Jordan partitions satisfy P_{N₁} ⪯ P_{N₂}."
+        },
+        {
+          "name": "WDInertialType.LE_def",
+          "role": "characterisation",
+          "statement": "τ ⪯ τ′ iff ρ_τ ≅ ρ_τ′ and N_τ(τ₀) ⪯ N_τ′(τ₀) for every irreducible inertial type τ₀; for L-parameters, componentwise over v ∈ S_p."
+        },
+        {
+          "name": "WDInertialType.le_partialOrder",
+          "role": "structure",
+          "statement": "⪯ is a partial order on WD inertial types."
+        },
+        {
+          "name": "WDInertialType.zero_le",
+          "role": "example",
+          "statement": "(ρ_τ, 0) ⪯ (ρ_τ, N) for every N."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WDInertialType.GL3_chain",
+          "kind": "computation",
+          "statement": "For GL₃ with trivial ρ_τ, the Jordan types (1,1,1) ⪯ (2,1) ⪯ (3)."
+        },
+        {
+          "name": "WDInertialType.GL1",
+          "kind": "degenerate",
+          "statement": "For GL₁, N = 0 always and ⪯ is equality."
+        },
+        {
+          "name": "WDInertialType.different_rho",
+          "kind": "non-example",
+          "statement": "Types with non-isomorphic ρ_τ are incomparable, even when both have N = 0."
+        },
+        {
+          "name": "WDInertialType.orbit_closure",
+          "kind": "compatibility",
+          "statement": "For GL_n, N₁ ⪯ N₂ iff the orbit of N₁ lies in the closure of the orbit of N₂ (Gerstenhaber–Hesselink)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
@@ -797,7 +2568,74 @@
       "locator": "Definition2.6.1 and preceding paragraph, PDF52",
       "statement": "For regular sigma=F(lambda), define R(sigma)=F(wh dot lambda); this is well defined and bijective, with square a character twist. For tame bartau put W?(bartau)=R(JH(sigma([bartau]))), with the regular-weight domain understood as in Herzig's recipe and the generic range used subsequently; [bartau] denotes Teichmuller lift.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63",
+          "how": "W?(τ̄) is parametrized by pairs (w̃, w̃₂) with w̃₂ ↑ w̃ (Proposition 2.6.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+          "how": "Weights in W?(ρ̄) ∩ JH(σ(τ)) (Proposition 2.6.4, with E4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+          "how": "Component membership matches predicted weights (Proposition 7.4.7, PDF162)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 identifies modular weights with W?(r_p|_{I_{Q_p}}) (PDF183–185)."
+        }
+      ],
+      "api": [
+        {
+          "name": "SerreWeight.herzigR",
+          "role": "constructor",
+          "statement": "For regular σ = F(λ), R(σ) := F(w̃_h·λ), with w̃_h = w₀t_{−η}; this is independent of the representative λ."
+        },
+        {
+          "name": "SerreWeight.herzigR_bijective",
+          "role": "structure",
+          "statement": "R is a bijection of the set of regular Serre weights, and R² is a twist by a character."
+        },
+        {
+          "name": "HerzigSet_def",
+          "role": "constructor",
+          "statement": "For a tame inertial L-parameter τ̄ over F, W?(τ̄) := R(JH(σ̄([τ̄]))), where [τ̄] is the Teichmüller lift."
+        },
+        {
+          "name": "HerzigSet.param",
+          "role": "equivalence",
+          "statement": "For an m-generic presentation, m ≥ 2h_η, W?(τ̄) ≃ {(w̃, w̃₂) ∈ W̃₁⁺ × W̃⁺ : w̃₂ ↑ w̃}/X⁰(T) via (w̃, w̃₂) ↦ F_{(w̃, w̃(τ̄)w̃₂⁻¹(0))} (Proposition 2.6.2)."
+        },
+        {
+          "name": "HerzigSet.deep",
+          "role": "relation",
+          "statement": "Elements of W?(τ̄) are (m−h_η)-deep, and their presentations are compatible with that of τ̄."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SerreWeight.herzigR_GL2",
+          "kind": "computation",
+          "statement": "For GL₂ over F_p with η = (1,0): R(Sym^r⊗det^b) = Sym^{p−2−r}⊗det^{r+b+1−p} for 0 ≤ r ≤ p−2, and R² is the twist by det^{−p}."
+        },
+        {
+          "name": "HerzigSet.GL2_size",
+          "kind": "computation",
+          "statement": "For GL₂ and a 2-generic τ̄, W?(τ̄) has 2 elements."
+        },
+        {
+          "name": "HerzigSet.GL3_size",
+          "kind": "computation",
+          "statement": "For GL₃ and a 4-generic τ̄, W?(τ̄) has 9 elements: 3 pairs over the lower restricted alcove and 6 over the upper."
+        },
+        {
+          "name": "SerreWeight.herzigR_regular_only",
+          "kind": "non-example",
+          "statement": "R is defined only on regular weights: for GL₂, F((p−1,0)) is not regular, since ⟨λ, α^∨⟩ = p−1."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63",
@@ -824,7 +2662,69 @@
       "locator": "Definition2.6.3, PDF52",
       "statement": "Wobv(bartau) is the subset in N63 given by pairs(w,w). Such a weight is determined by the finite Weyl image of w, retaining the presentation convention.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N69",
+          "how": "The extremal intersection is a single obvious weight (Corollary 2.6.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N70",
+          "how": "Admissibility produces an obvious common weight (Proposition 2.6.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P07",
+          "how": "Detectable patching functors are nonzero on W_obv(ρ̄) (Definition 6.2.1(III))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
+          "how": "σ ∈ W_obv(ρ̄) implies ρ̄ ∈ C_σ (Proposition 7.4.7(1), PDF162)."
+        }
+      ],
+      "api": [
+        {
+          "name": "HerzigSet.Obv_def",
+          "role": "constructor",
+          "statement": "W_obv(τ̄) is the image under (2.14) of the pairs (w̃, w̃)."
+        },
+        {
+          "name": "HerzigSet.obv_subset",
+          "role": "projection",
+          "statement": "W_obv(τ̄) ⊆ W?(τ̄)."
+        },
+        {
+          "name": "HerzigSet.obv_equiv",
+          "role": "equivalence",
+          "statement": "For a fixed 2h_η-generic presentation, W_obv(τ̄) ≃ W via the image w ∈ W of w̃."
+        },
+        {
+          "name": "HerzigSet.obv_of_adm",
+          "role": "relation",
+          "statement": "If w̃(ρ̄,τ) ∈ Adm(λ+η), then W_obv(ρ̄) ∩ JH(σ̄(τ)⊗W̄(λ)) ≠ ∅ (Proposition 2.6.6)."
+        },
+        {
+          "name": "HerzigSet.obv_unique",
+          "role": "relation",
+          "statement": "If w̃(ρ̄,τ) = t_{s⁻¹(λ+η)}, then W?(ρ̄) ∩ JH(σ̄(τ)⊗W̄(λ)) is the obvious weight for s (Corollary 2.6.5)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HerzigSet.GL2_obv_all",
+          "kind": "computation",
+          "statement": "For GL₂ and 2-generic τ̄, W_obv(τ̄) = W?(τ̄), of size 2 = |W|."
+        },
+        {
+          "name": "HerzigSet.GL3_obv_proper",
+          "kind": "non-example",
+          "statement": "For GL₃ and generic τ̄, W_obv(τ̄) has 6 elements and W?(τ̄) has 9, so the inclusion is proper."
+        },
+        {
+          "name": "HerzigSet.obv_labels",
+          "kind": "degenerate",
+          "statement": "An obvious weight is determined by the image w ∈ W of w̃."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N66",
@@ -833,7 +2733,64 @@
       "locator": "§2.6.1, PDF52–53",
       "statement": "For lambda-compatible chosen presentations of rhobar over F and tau over E, define wtilde(rhobar,tau)=wtilde(tau)^-1 wtilde(rhobar). It is presentation-dependent data with the specified compatibility, not an invariant without choices.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+          "how": "Proposition 2.6.4 describes W?(ρ̄) ∩ JH(σ(τ)) through w̃(ρ̄,τ)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N69",
+          "how": "Corollary 2.6.5 assumes w̃(ρ̄,τ) = t_{s⁻¹(λ+η)}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N70",
+          "how": "Proposition 2.6.6 assumes w̃(ρ̄,τ) ∈ Adm(λ+η)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K42",
+          "how": "Corollary 5.5.8 proves w̃(ρ̄,τ) ∈ Adm(λ+η) when the deformation ring is nonzero (PDF123, 130)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TamePres.relPos_def",
+          "role": "constructor",
+          "statement": "For λ-compatible chosen presentations of ρ̄ over F and τ over E, w̃(ρ̄,τ) := w̃(τ)⁻¹w̃(ρ̄)."
+        },
+        {
+          "name": "TamePres.relPos_class",
+          "role": "relation",
+          "statement": "w̃(ρ̄,τ) lies in the W_a-coset with class (λ+η)|_Z in W̃/W_a ≅ X*(Z), the coset of t_{λ+η}; so membership in Adm(λ+η) is a condition within one coset."
+        },
+        {
+          "name": "TamePres.relPos_factor",
+          "role": "relation",
+          "statement": "A weight with presentation (w̃, ω) lies in W?(ρ̄) ∩ JH(σ(τ)) iff w̃(ρ̄,τ) = w̃₂⁻¹ww̃₁ with w̃₁ ↑ w̃ ↑ t_λw̃_h⁻¹w̃₂ (Proposition 2.6.4, E4)."
+        },
+        {
+          "name": "TamePres.relPos_presentation",
+          "role": "other",
+          "statement": "w̃(ρ̄,τ) depends on the chosen pair of compatible presentations; it is data, not an invariant of (ρ̄, τ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TamePres.relPos_GL2",
+          "kind": "computation",
+          "statement": "For GL₂, f = 1 and λ = 0, presentations (1, μ̄) of ρ̄ and (1, μ) of τ with μ̄ − μ = (1,0) are compatible, and w̃(ρ̄,τ) = t_{(1,0)} = t_η ∈ Adm(η)."
+        },
+        {
+          "name": "TamePres.relPos_never_one",
+          "kind": "non-example",
+          "statement": "For GL_n with n ≥ 2 and λ = 0, w̃(ρ̄,τ) ≠ 1, since its class η|_Z = n(n−1)/2 per embedding is nonzero."
+        },
+        {
+          "name": "TamePres.relPos_class_test",
+          "kind": "compatibility",
+          "statement": "The class of w̃(ρ̄,τ) in W̃/W_a equals (λ+η)|_Z."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
@@ -8152,33 +10109,7 @@
     {
       "id": "definition-api",
       "neededBy": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N02",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N03",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N04",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N05",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N06",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N11",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N14",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N16",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N17",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N23",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N24",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N27",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N28",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N29",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N33",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N35",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N43",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N51",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N56",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N62",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N65",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N66",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U02",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U04",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U08",
@@ -8234,7 +10165,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. Continuation cc-442dc5 supplied itemwise uses, API and at least three typed tests for all thirty §2 definition/construction entries (N01–N66) that lacked them, read from published PDF24–53; 40 of 152 entries now have literal itemwise uses/API/three typed tests and 112 remain."
     },
     {
       "id": "library-item-audit",
@@ -10050,6 +11981,24 @@
           "Z62"
         ]
       }
+    },
+    "claudeCc442dc5Continuation": {
+      "agent": "Claude Code — cc-442dc5",
+      "date": "2026-09-23",
+      "scope": "Itemwise uses/API/typed tests for the thirty §2 definition/construction entries N01, N02, N03, N04, N05, N06, N11, N14, N15, N16, N17, N22, N23, N24, N27, N28, N29, N32, N33, N35, N43, N45, N49, N50, N51, N56, N57, N62, N65 and N66. No statements, statuses, routes, findings or IDs changed.",
+      "structuralChecks": {
+        "items": 480,
+        "definitions": 85,
+        "constructions": 67,
+        "sourceIssues": 38,
+        "itemwiseApiUsesAndThreeTypedTests": 40,
+        "remainingDefinitionConstructionCensus": 112,
+        "newlyCompleted": 30,
+        "apiRolesAndTestKindsInVocabulary": true,
+        "useReferencesResolve": true
+      },
+      "handChecks": "Small cases behind the tests were checked by hand: GL2 Adm((1,0)) and Adm((2,0)) (3 and 5 elements, 2 and 4 regular), Ω for GL2, star anti-multiplicativity, depth and P1-genericity at p=7, the dot action, GL2 Herzig involution R(Sym^r⊗det^b)=Sym^{p−2−r}⊗det^{r+b+1−p} with R² a twist, W?/W_obv counts 2/2 for GL2 and 9/6 for GL3 via Proposition 2.6.2, tame characters τ(s,μ) for GL2 and the class (λ+η)|_Z of w̃(ρ̄,τ). These are hand computations, not machine certificates.",
+      "lean": "No Lean file required or compiled; the API and tests are planning contracts."
     }
   },
   "definitionApiGroups": [

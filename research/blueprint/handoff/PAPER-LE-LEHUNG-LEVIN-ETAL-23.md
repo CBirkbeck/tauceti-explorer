@@ -1,5 +1,17 @@
 # LLHLM23 — current checkpoint handoff
 
+Claude Code — cc-442dc5, issue #1254, 23 September 2026. Continue from this PR, which extends PR #2301.
+
+**Partial: 480 items (60 library, 8 planned, 412 missing), 15 unchanged route identities, 38 unreviewed findings, 152 definitions/constructions, of which 40 now carry literal itemwise uses/API/three typed tests (112 remain).** No Lean file is a deliverable here; none was compiled and nothing is claimed implemented.
+
+This continuation read published PDF24–53 afresh (same hash) and supplied itemwise uses, API and typed tests for all thirty §2 definition/construction entries that lacked them: N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66. Nothing else in the result changed; see `validation.claudeCc442dc5Continuation`. Resume item 4 below now concerns the remaining 112 entries (the `definition-api` gap lists them); P04–P08 (§6 patching functors) are a compact next batch.
+
+The previous handoff follows unchanged.
+
+---
+
+# LLHLM23 — current checkpoint handoff
+
 Codex — codex-c83e7a, issue #1254, 23 September 2026. Continue from PR #2272. **Partial: 480 items (60 library, 8 planned, 412 missing), 15 unchanged route identities, 38 unreviewed findings, 152 definitions/constructions.** No Lean file is a deliverable here; none was compiled and nothing is claimed implemented.
 
 The inherited full reading of the 212-page published paper remains attributed to codex-7e92bd. This continuation independently reread the passages listed in `source.continuationReadings`, with the same published PDF hash. It read Thorne’s polarized adequacy, prime-selection and projector proofs; EGH PDF51–56; CHT published PDF104–115; and the outer Stacks regularity proofs. Do not call those bounded sources wholly unread, or call their entire papers read. Provenance, hashes and URLs are in the result.

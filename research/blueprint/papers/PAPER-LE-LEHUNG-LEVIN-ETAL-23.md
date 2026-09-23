@@ -1,3 +1,62 @@
+# LLHLM23 continuation — Claude Code, cc-442dc5, 23 September 2026
+
+This is a **partial checkpoint**, continuing PR #2301. It keeps the 480 items (60 library, 8 planned, 412 missing), the 15 route identities and the 38 unreviewed source findings unchanged. No statement, status, route, finding or ID was altered, and no Lean file was written or compiled.
+
+## What this continuation does
+
+It closes the §2 part of the definition-API gap. The thirty §2 definitions and constructions that had no itemwise interface now each have:
+- recorded `uses`, pointing to the items and passages that consume them;
+- an `api` outline in the protocol's roles;
+- at least three typed unit tests.
+
+The thirty entries are N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66. The literal census now counts **40 of 152** definitions and constructions with itemwise uses, API and three typed tests; **112 remain**. The `definition-api` gap lists them.
+
+## How the interfaces were derived
+
+- **The source.** The same author-hosted published PDF was re-downloaded; its SHA-256 matches. PDF24–53 (§1.8 notation and all of §2) were read in the text layer, and PDF34 and PDF42 as page images.
+- **Where the uses came from.** Each use was found by searching the whole text layer (PDF54–212) for the notion and reading the passage that consumes it. Examples:
+  - AP(λ) labels the top components of the naive special fibre (PDF92).
+  - Adm(λ+η) is the condition of Corollary 5.5.8 (PDF123, 130).
+  - P-genericity is the hypothesis of Theorem 7.3.2(2) and Theorem 9.1.6 (PDF151, 184).
+  - Covering is used through Remark 4.7.4(2), §8.6 and Lemma A.2.1 (PDF98, 179, 189).
+- **API items.** They serve these uses or the standard needs of the object:
+  - the defining characterisation, with its convention made explicit (right translation for genericity, the η-shift for depth, t_{ω−η}w̃₁ for the central lift per E2, and the E/F shift of Remark 2.4.2);
+  - W-invariance, stability and mixing results such as Proposition 2.1.12;
+  - the bijections the paper proves (Corollary 2.1.7, Propositions 2.3.7 and 2.6.2, Lemmas 2.2.4, 2.3.2 and 2.4.4).
+- **Anti-multiplicativity of the star.** For (−)*, the API records that it is a group isomorphism onto the opposite group, as E1 requires.
+
+## Tests, and the small cases behind them
+
+The tests are chosen so that a plausible wrong definition fails one of them. The small cases were checked by hand:
+
+- **Admissible sets for GL₂.**
+  - Adm((1,0)) = {t_{(1,0)}, t_{(0,1)}, t_{(1,0)}s} has 3 elements, and its regular part has 2.
+  - Adm((2,0)) has 5 elements, 4 of them regular. This matches the four generic constituents of R̄⊗Std, which is how AP((1,0)+η) gets 4 elements.
+  - Ω = ⟨t_{(1,0)}s⟩, with (t_{(1,0)}s)² = t_{(1,1)}. W̃₁⁺ = Ω for GL₂, so covering between 3-deep GL₂ weights is equality.
+- **Star, depth and genericity.**
+  - (t_{(1,0)}s)* = s t_{(1,0)}, whereas t_{(1,0)}*·s* = t_{(1,0)}s; so the star is not multiplicative.
+  - At p = 7, λ = (3,0) is 2-deep but not 3-deep, and P₁(λ) = −8 is a unit mod 7.
+  - λ = (−1,0) shows that depth is measured after the η-shift.
+- **Dot action and Herzig's involution.**
+  - s·(1,0) = (−1,2), and s·0 = (−1,1) ≠ 0.
+  - For GL₂ with η = (1,0): R(Sym^r⊗det^b) = Sym^{p−2−r}⊗det^{r+b+1−p}, and R² is the twist by det^{−p}.
+- **Herzig sets.** By Proposition 2.6.2, |W?| = |W_obv| = 2 for GL₂. For GL₃, |W?| = 9 (3 lower-alcove pairs and 6 upper-alcove pairs) and |W_obv| = 6.
+- **Tame types.**
+  - τ(s,(a,b)) = ω₂^{a+pb} ⊕ ω₂^{b+pa} for the transposition, consistent with the explicit characters of (2.12).
+  - The E-compatible and F-compatible central classes of the same GL₂ presentation differ by η|_Z = 1.
+  - The class of w̃(ρ̄,τ) in W̃/W_a is always (λ+η)|_Z, so it is never 1 for GL_n with n ≥ 2 and λ = 0.
+
+These are hand computations recorded as planning contracts, not machine certificates.
+
+## Validation and resume point
+
+- **Checks.** `check_paper.py` and the three-file intake pass. A structural comparison with `origin/main` confirms that exactly the thirty items changed, and only in `uses`, `api` and `tests`. The top-level `source.continuationReadings`, `summary`, `gaps` (the `definition-api` entry) and `validation` (the new `claudeCc442dc5Continuation` entry) were extended. Findings, routes and Appendix B data are byte-for-byte unchanged.
+- **Vocabulary.** Every API role and test kind is in the protocol vocabulary, and every `uses` reference to an item resolves.
+
+Resume with the handoff's list, with item 4 narrowed to the 112 remaining entries. The largest families are §3 (U), §4 (M), §5 (K), §6 (P), §7 (G), §8 (B), §9 (V), Appendix A (A) and Appendix B (Q). The §6 patching-functor definitions P04–P08 are a natural next batch, because their consumers (Propositions 6.2.3–6.2.9 and §8.3) are compact.
+
+## Earlier checkpoint report (historical, preserved)
+
 # LLHLM23 continuation — Codex, codex-c83e7a, 23 September 2026
 
 This is a **partial checkpoint** with 480 items (60 library, 8 planned, 412 missing), 15 unchanged route identities and 38 unreviewed source findings. It builds on the 456-item checkpoint from PR #2272, preserving the original full-paper reading attribution and existing route identities. No Lean implementation or independent review is claimed.
