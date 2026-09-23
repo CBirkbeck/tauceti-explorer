@@ -5,7 +5,7 @@
   "source": {
     "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n3-p05-p.pdf",
     "sha256": "c93282637d325e422442e8c1a5721d0d13a742d392b8e78c77e2e6ddd2dc0c31",
-    "accessDate": "2026-09-22",
+    "accessDate": "2026-09-23",
     "pages": 37,
     "title": "Higher ramification and the local Langlands correspondence",
     "authors": "Colin J. Bushnell and Guy Henniart",
@@ -17,6 +17,18 @@
       "All 37 published PDF pages, printed pp.919–955: introduction §§1–9, notation, §§1.1–8.5, all proofs and bibliography.",
       "Targeted published-page image checks: pp.929,934,936,937,939,945,946,948,951,952,953.",
       "arXiv v2: targeted comparisons only; §8 differs materially and was not substituted for the published text."
+    ],
+    "readProvenance": [
+      {
+        "session": "codex-c83e7a",
+        "date": "2026-09-22",
+        "scope": "Original full primary reading and the targeted image/arXiv checks recorded in readSections; selective supporting-source readings remain this worker's work."
+      },
+      {
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "scope": "Independently read all 37 published pages via all 1789 extracted text lines, including proofs and bibliography. Re-read §4.1 closely for the independent lattice-volume expansion. No new arXiv/supporting-paper full reading or page-image inspection claimed."
+      }
     ]
   },
   "supportingSources": [
@@ -64,7 +76,7 @@
       "usableMathematicalSource": false
     }
   ],
-  "summary": "Extracts the published paper’s higher-ramification and interpolation theorems, their definitions and proof interfaces. Reuses the existing types Part II candidate, proposes a complex Weil ramification-profile extension, and imports classical LLC separately in the two characteristics. Every missing item is routed, but nine recursive proof frontiers and seventeen unreviewed source findings prevent a completion claim.",
+  "summary": "Extracts the published paper’s higher-ramification and interpolation theorems, their definitions and proof interfaces. Reuses the existing types Part II candidate, proposes a complex Weil ramification-profile extension, and imports classical LLC separately in the two characteristics. Every missing item is routed, but nine recursive proof frontiers and seventeen unreviewed source findings prevent a completion claim. This continuation adds two exact pinned algebraic imports and three local lattice-measure helpers, expands the fixed-map volume comparison and minimal-exponent calculation, and preserves all 140 earlier IDs. Tests now have the protocol’s named structured form. G4 is narrowed, not closed.",
   "conventions": {
     "field": "Any nonarchimedean local field with finite residue field, characteristic zero or p. Parameter fields on the GL side are not silently assumed separable.",
     "coefficients": "Smooth complex representations; no replacement by ℓ-adic continuity without a proved comparison.",
@@ -171,9 +183,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "F_q((t)) is allowed; no absolute ramification index of F is inserted.",
-        "An unramified quadratic extension has e=1, f=2.",
-        "A totally ramified degree-e extension multiplies valuations of base-field elements by e."
+        {
+          "name": "local_fields_test_1",
+          "kind": "compatibility",
+          "statement": "F_q((t)) is allowed; no absolute ramification index of F is inserted."
+        },
+        {
+          "name": "local_fields_test_2",
+          "kind": "computation",
+          "statement": "An unramified quadratic extension has e=1, f=2."
+        },
+        {
+          "name": "local_fields_test_3",
+          "kind": "compatibility",
+          "statement": "A totally ramified degree-e extension multiplies valuations of base-field elements by e."
+        }
       ],
       "gaps": [],
       "planned": [
@@ -223,9 +247,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "U_Q2^1/U_Q2^2 has two elements.",
-        "U_F^0/U_F^1 is multiplicative k_F×, not additive k_F.",
-        "For k=1, retain the strict linearization condition 2v_F(x)>sw(χ)."
+        {
+          "name": "unit_filtration_test_1",
+          "kind": "computation",
+          "statement": "U_Q2^1/U_Q2^2 has two elements."
+        },
+        {
+          "name": "unit_filtration_test_2",
+          "kind": "non-example",
+          "statement": "U_F^0/U_F^1 is multiplicative k_F×, not additive k_F."
+        },
+        {
+          "name": "unit_filtration_test_3",
+          "kind": "computation",
+          "statement": "For k=1, retain the strict linearization condition 2v_F(x)>sw(χ)."
+        }
       ],
       "gaps": [],
       "planned": [
@@ -275,9 +311,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Inertia is open in W_F but not in G_F.",
-        "An unramified degree-f extension multiplies the degree by f.",
-        "The inclusion is not asserted to be surjective."
+        {
+          "name": "weil_group_test_1",
+          "kind": "non-example",
+          "statement": "Inertia is open in W_F but not in G_F."
+        },
+        {
+          "name": "weil_group_test_2",
+          "kind": "compatibility",
+          "statement": "An unramified degree-f extension multiplies the degree by f."
+        },
+        {
+          "name": "weil_group_test_3",
+          "kind": "non-example",
+          "statement": "The inclusion is not asserted to be surjective."
+        }
       ],
       "gaps": [],
       "planned": [
@@ -329,9 +377,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "A representation with break a is trivial on R_F^+(a), but need not be trivial on R_F(a).",
-        "At x=0 do not identify I_F with P_F.",
-        "Taking an algebraic union without topological closure is not the definition."
+        {
+          "name": "upper_filtration_test_1",
+          "kind": "non-example",
+          "statement": "A representation with break a is trivial on R_F^+(a), but need not be trivial on R_F(a)."
+        },
+        {
+          "name": "upper_filtration_test_2",
+          "kind": "non-example",
+          "statement": "At x=0 do not identify I_F with P_F."
+        },
+        {
+          "name": "upper_filtration_test_3",
+          "kind": "non-example",
+          "statement": "Taking an algebraic union without topological closure is not the definition."
+        }
       ],
       "gaps": [],
       "planned": [
@@ -444,9 +504,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "An unramified complex character can have infinite image.",
-        "Its restriction to inertia is trivial.",
-        "No ℓ-adic continuity hypothesis is substituted for complex smoothness."
+        {
+          "name": "smooth_weil_test_1",
+          "kind": "compatibility",
+          "statement": "An unramified complex character can have infinite image."
+        },
+        {
+          "name": "smooth_weil_test_2",
+          "kind": "degenerate",
+          "statement": "Its restriction to inertia is trivial."
+        },
+        {
+          "name": "smooth_weil_test_3",
+          "kind": "compatibility",
+          "statement": "No ℓ-adic continuity hypothesis is substituted for complex smoothness."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -543,9 +615,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Repeated copies do not change the orbit.",
-        "A singleton orbit does not force multiplicity one.",
-        "The orbit maps at larger depth forget information."
+        {
+          "name": "ramification_orbit_test_1",
+          "kind": "non-example",
+          "statement": "Repeated copies do not change the orbit."
+        },
+        {
+          "name": "ramification_orbit_test_2",
+          "kind": "non-example",
+          "statement": "A singleton orbit does not force multiplicity one."
+        },
+        {
+          "name": "ramification_orbit_test_3",
+          "kind": "compatibility",
+          "statement": "The orbit maps at larger depth forget information."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -594,9 +678,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Tame irreducibles of dimension greater than one still have slope zero.",
-        "An upper break is killed only on the plus group at that index.",
-        "The final characters need not be W_F characters."
+        {
+          "name": "slope_test_1",
+          "kind": "degenerate",
+          "statement": "Tame irreducibles of dimension greater than one still have slope zero."
+        },
+        {
+          "name": "slope_test_2",
+          "kind": "compatibility",
+          "statement": "An upper break is killed only on the plus group at that index."
+        },
+        {
+          "name": "slope_test_3",
+          "kind": "non-example",
+          "statement": "The final characters need not be W_F characters."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -644,9 +740,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "sw(1)=0.",
-        "The normalized conductor can be rational although sw is integral.",
-        "Swan and Artin conductors differ by dim V−dim V^I."
+        {
+          "name": "swan_test_1",
+          "kind": "computation",
+          "statement": "sw(1)=0."
+        },
+        {
+          "name": "swan_test_2",
+          "kind": "compatibility",
+          "statement": "The normalized conductor can be rational although sw is integral."
+        },
+        {
+          "name": "swan_test_3",
+          "kind": "compatibility",
+          "statement": "Swan and Artin conductors differ by dim V−dim V^I."
+        }
       ],
       "gaps": [
         "G2"
@@ -717,9 +825,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "At an exact positive break a, Δ=a gives plus agreement and non-plus disagreement.",
-        "Distinct unramified twists have distance zero.",
-        "On wild orbits, zero distance implies equality."
+        {
+          "name": "delta_test_1",
+          "kind": "computation",
+          "statement": "At an exact positive break a, Δ=a gives plus agreement and non-plus disagreement."
+        },
+        {
+          "name": "delta_test_2",
+          "kind": "degenerate",
+          "statement": "Distinct unramified twists have distance zero."
+        },
+        {
+          "name": "delta_test_3",
+          "kind": "degenerate",
+          "statement": "On wild orbits, zero distance implies equality."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -786,7 +906,11 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Exact finite C2 filtration with break 1: trivial and sign characters have Δ=1, disagree on R(1), agree on R+(1)."
+        {
+          "name": "delta_endpoints_test_1",
+          "kind": "degenerate",
+          "statement": "Exact finite C2 filtration with break 1: trivial and sign characters have Δ=1, disagree on R(1), agree on R+(1)."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal."
@@ -845,9 +969,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "At a positive break use R^+, so the new invariants have already appeared.",
-        "For a character σ, X=1 and X′=0.",
-        "A noncanonical vector-space complement is insufficient."
+        {
+          "name": "end_invariants_test_1",
+          "kind": "compatibility",
+          "statement": "At a positive break use R^+, so the new invariants have already appeared."
+        },
+        {
+          "name": "end_invariants_test_2",
+          "kind": "computation",
+          "statement": "For a character σ, X=1 and X′=0."
+        },
+        {
+          "name": "end_invariants_test_3",
+          "kind": "non-example",
+          "statement": "A noncanonical vector-space complement is insufficient."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -914,9 +1050,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "For every one-dimensional σ, Σ_σ(x)=x.",
-        "Σ_σ(0) need not be zero for higher dimension.",
-        "The right-hand derivative uses plus invariants."
+        {
+          "name": "sigma_test_1",
+          "kind": "computation",
+          "statement": "For every one-dimensional σ, Σ_σ(x)=x."
+        },
+        {
+          "name": "sigma_test_2",
+          "kind": "non-example",
+          "statement": "Σ_σ(0) need not be zero for higher dimension."
+        },
+        {
+          "name": "sigma_test_3",
+          "kind": "compatibility",
+          "statement": "The right-hand derivative uses plus invariants."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -1110,9 +1258,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "For M_n(O_F), e_a=1, not n.",
-        "A complete lattice-chain order in M_n(F) has period n.",
-        "Changing the realization rescales levels by its period."
+        {
+          "name": "hereditary_order_test_1",
+          "kind": "non-example",
+          "statement": "For M_n(O_F), e_a=1, not n."
+        },
+        {
+          "name": "hereditary_order_test_2",
+          "kind": "compatibility",
+          "statement": "A complete lattice-chain order in M_n(F) has period n."
+        },
+        {
+          "name": "hereditary_order_test_3",
+          "kind": "compatibility",
+          "statement": "Changing the realization rescales levels by its period."
+        }
       ],
       "gaps": [
         "G3"
@@ -1161,9 +1321,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "A maximal order has n=−v_E β when E/F is unramified.",
-        "Central translation leaves a_β unchanged but can change n.",
-        "The bound on r is strict."
+        {
+          "name": "critical_exponent_test_1",
+          "kind": "computation",
+          "statement": "A maximal order has n=−v_E β when E/F is unramified."
+        },
+        {
+          "name": "critical_exponent_test_2",
+          "kind": "compatibility",
+          "statement": "Central translation leaves a_β unchanged but can change n."
+        },
+        {
+          "name": "critical_exponent_test_3",
+          "kind": "compatibility",
+          "statement": "The bound on r is strict."
+        }
       ],
       "gaps": [
         "G3"
@@ -1212,9 +1384,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "At r=0 the difference is integral in a.",
-        "A floor relation permits several consecutive r values.",
-        "No equivalence between orders of different periods is asserted without transfer."
+        {
+          "name": "stratum_equivalence_test_1",
+          "kind": "computation",
+          "statement": "At r=0 the difference is integral in a."
+        },
+        {
+          "name": "stratum_equivalence_test_2",
+          "kind": "compatibility",
+          "statement": "A floor relation permits several consecutive r values."
+        },
+        {
+          "name": "stratum_equivalence_test_3",
+          "kind": "non-example",
+          "statement": "No equivalence between orders of different periods is asserted without transfer."
+        }
       ],
       "gaps": [
         "G3"
@@ -1264,9 +1448,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "For GL_1(Q_2), n=1 gives the unique nontrivial character of U^1/U^2.",
-        "Keep the plus one in H^{r+1}.",
-        "A higher-depth restriction can forget the original endo-class."
+        {
+          "name": "simple_characters_test_1",
+          "kind": "degenerate",
+          "statement": "For GL_1(Q_2), n=1 gives the unique nontrivial character of U^1/U^2."
+        },
+        {
+          "name": "simple_characters_test_2",
+          "kind": "computation",
+          "statement": "Keep the plus one in H^{r+1}."
+        },
+        {
+          "name": "simple_characters_test_3",
+          "kind": "compatibility",
+          "statement": "A higher-depth restriction can forget the original endo-class."
+        }
       ],
       "gaps": [
         "G3"
@@ -1316,9 +1512,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Transfer around a three-order cycle is identity.",
-        "The same parameter with different periods uses the normalized simple-pair index.",
-        "An arbitrary family of characters is not a potential simple character."
+        {
+          "name": "character_transfer_test_1",
+          "kind": "compatibility",
+          "statement": "Transfer around a three-order cycle is identity."
+        },
+        {
+          "name": "character_transfer_test_2",
+          "kind": "non-example",
+          "statement": "The same parameter with different periods uses the normalized simple-pair index."
+        },
+        {
+          "name": "character_transfer_test_3",
+          "kind": "non-example",
+          "statement": "An arbitrary family of characters is not a potential simple character."
+        }
       ],
       "gaps": [
         "G3"
@@ -1367,9 +1575,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Transfer does not change the endo-class.",
-        "Conjugate realizations have the same class.",
-        "0 is present even though a positive-level simple stratum is used for nontrivial classes."
+        {
+          "name": "endo_class_test_1",
+          "kind": "non-example",
+          "statement": "Transfer does not change the endo-class."
+        },
+        {
+          "name": "endo_class_test_2",
+          "kind": "compatibility",
+          "statement": "Conjugate realizations have the same class."
+        },
+        {
+          "name": "endo_class_test_3",
+          "kind": "degenerate",
+          "statement": "0 is present even though a positive-level simple stratum is used for nontrivial classes."
+        }
       ],
       "gaps": [
         "G3"
@@ -1419,9 +1639,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "An unramified degree-n parameter has e_Θ=1 even if deg Θ=n.",
-        "Two periods 1 and 2 give levels n and 2n with the same m.",
-        "For degree>1, 0<−k_0(Θ)≤m_Θ."
+        {
+          "name": "endo_invariants_test_1",
+          "kind": "computation",
+          "statement": "An unramified degree-n parameter has e_Θ=1 even if deg Θ=n."
+        },
+        {
+          "name": "endo_invariants_test_2",
+          "kind": "computation",
+          "statement": "Two periods 1 and 2 give levels n and 2n with the same m."
+        },
+        {
+          "name": "endo_invariants_test_3",
+          "kind": "computation",
+          "statement": "For degree>1, 0<−k_0(Θ)≤m_Θ."
+        }
       ],
       "gaps": [
         "G3"
@@ -1470,9 +1702,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Scalar β with negative valuation is minimal since e=1 and the residue extension is trivial.",
-        "For totally ramified E/F the residue-generation condition is automatic.",
-        "A common divisor of m and e prevents minimality."
+        {
+          "name": "minimal_parameter_test_1",
+          "kind": "degenerate",
+          "statement": "Scalar β with negative valuation is minimal since e=1 and the residue extension is trivial."
+        },
+        {
+          "name": "minimal_parameter_test_2",
+          "kind": "compatibility",
+          "statement": "For totally ramified E/F the residue-generation condition is automatic."
+        },
+        {
+          "name": "minimal_parameter_test_3",
+          "kind": "compatibility",
+          "statement": "A common divisor of m and e prevents minimality."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -1519,9 +1763,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "For E=F, a_β=0 and the sequence reduces to the scalar case.",
-        "Arbitrary scaling of s is not silently allowed.",
-        "Purely inseparable parameters require the corestriction construction, not a nonzero trace assumption."
+        {
+          "name": "tame_corestriction_test_1",
+          "kind": "degenerate",
+          "statement": "For E=F, a_β=0 and the sequence reduces to the scalar case."
+        },
+        {
+          "name": "tame_corestriction_test_2",
+          "kind": "non-example",
+          "statement": "Arbitrary scaling of s is not silently allowed."
+        },
+        {
+          "name": "tame_corestriction_test_3",
+          "kind": "non-example",
+          "statement": "Purely inseparable parameters require the corestriction construction, not a nonzero trace assumption."
+        }
       ],
       "gaps": [
         "G3",
@@ -1564,16 +1820,30 @@
       "locator": "BH17 §4.1 (4.1.1) p.932",
       "status": "missing",
       "prerequisites": [
-        "PAPER-BUSHNELL-HENNIART-17/tame-corestriction"
+        "PAPER-BUSHNELL-HENNIART-17/tame-corestriction",
+        "PAPER-BUSHNELL-HENNIART-17/exact-lattice-comparison"
       ],
       "proofSteps": [
-        "Compare exact lattice sequences by finite indices and cancel Haar normalization factors. The lattice comparison proof is an explicit missing supplier, not inferred from existence of Haar measure."
+        "Apply exact-lattice-comparison to the fixed corestriction complex. Its explicit proof gives choice independence, positive Haar-rescaling invariance and a unique integral exponent without reading BHK98 as a black box.",
+        "The existence and normalization of the tame-corestriction map and existence of an exact full lattice subcomplex remain the BK93 supplier in G3/G4. Independence under changing admissible normalized corestrictions must still be checked in that source; arbitrary scalar rescaling is false."
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Scalar minimal parameters give c=0.",
-        "Rescaling μ_A by λ>0 leaves the ratio unchanged.",
-        "Interchanging M and M′ inverts a factor and is not the stated formula."
+        {
+          "name": "conductorVolume_scalar_normalized",
+          "kind": "degenerate",
+          "statement": "For E=F with corestriction the identity, the scalar complex gives c(β)=0."
+        },
+        {
+          "name": "conductorVolume_measure_rescale",
+          "kind": "compatibility",
+          "statement": "For λ_E,λ_A>0, replacing μ_E,μ_A by λ_Eμ_E,λ_Aμ_A leaves C(β) equal to its old value."
+        },
+        {
+          "name": "conductorVolume_nonunit_corestriction",
+          "kind": "non-example",
+          "statement": "For E=F, replacing the last identity map by multiplication by a uniformizer produces C=q; fixed-map lattice independence does not authorize this change of corestriction."
+        }
       ],
       "gaps": [
         "G4"
@@ -1616,13 +1886,33 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-BUSHNELL-HENNIART-17/minimal-parameter",
-        "PAPER-BUSHNELL-HENNIART-17/volume-exponent"
+        "PAPER-BUSHNELL-HENNIART-17/volume-exponent",
+        "PAPER-BUSHNELL-HENNIART-17/lattice-dilation"
       ],
       "proofSteps": [
-        "Use the exact integral sequence 0→O_E→a→βa→βO_E→0 and count the two dilation indices."
+        "The exact integral complex 0→O_E→a→βa→βO_E→0 is the BK93 (1.4.15) supplier quoted in BH17, not established here. Also require the E-pure order a to be a full left O_E-lattice in A; for the standard E-lattice-chain realization O_E multiplication preserves each chain member.",
+        "Put d=[E:F]=ef. Since A=End_F(E) has F-dimension d², its left E-dimension is d. Thus a has O_E-rank d, whereas O_E has rank one.",
+        "Apply lattice-dilation with ranks d and 1: μ_A(βa)/μ_A(a)=q_F^(mfd), and μ_E(βO_E)/μ_E(O_E)=q_F^(mf). Their quotient is C(β)=q_F^(mf(d−1)).",
+        "Uniqueness of the exponent yields c(β)=mf(ef−1). This supplies the full arithmetic of the printed short calculation, conditional on the exact normalized BK lattice complex; it does not close the approximation/gluing theorem."
       ],
       "implementationStatus": "unchecked",
-      "tests": [],
+      "tests": [
+        {
+          "name": "minimalVolume_scalar",
+          "kind": "degenerate",
+          "statement": "For e=f=1, c=0 for every positive m."
+        },
+        {
+          "name": "minimalVolume_totally_ramified_quadratic",
+          "kind": "computation",
+          "statement": "For e=2,f=1,m=1, the dilation ratio is q_F²/q_F=q_F and c=1."
+        },
+        {
+          "name": "minimalVolume_unramified_quadratic",
+          "kind": "computation",
+          "statement": "For e=1,f=2,m=1, the dilation ratio is q_F^4/q_F²=q_F² and c=2."
+        }
+      ],
       "gaps": [
         "G4"
       ],
@@ -1688,9 +1978,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Period 1→2 sends unnormalized jump 1→2.",
-        "The normalized set remains unchanged under transfer.",
-        "Do not attempt max S_0; Φ_0 is defined separately."
+        {
+          "name": "jumps_test_1",
+          "kind": "computation",
+          "statement": "Period 1→2 sends unnormalized jump 1→2."
+        },
+        {
+          "name": "jumps_test_2",
+          "kind": "compatibility",
+          "statement": "The normalized set remains unchanged under transfer."
+        },
+        {
+          "name": "jumps_test_3",
+          "kind": "non-example",
+          "statement": "Do not attempt max S_0; Φ_0 is defined separately."
+        }
       ],
       "gaps": [
         "G3"
@@ -1741,7 +2043,11 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "A scalar β=π_F^−1 has unnormalized level 1 at period 1 and 2 at period 2; normalized jumps are both {1}."
+        {
+          "name": "jumps_invariance_test_1",
+          "kind": "degenerate",
+          "statement": "A scalar β=π_F^−1 has unnormalized level 1 at period 1 and 2 at period 2; normalized jumps are both {1}."
+        }
       ],
       "gaps": [
         "G3"
@@ -1765,9 +2071,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Do not evaluate a chosen γ_x at an excluded jump.",
-        "Two choices of γ may give nonidentical embeddings but the same numerical invariants.",
-        "The last degree can already be one before m_Θ."
+        {
+          "name": "profile_fields_test_1",
+          "kind": "non-example",
+          "statement": "Do not evaluate a chosen γ_x at an excluded jump."
+        },
+        {
+          "name": "profile_fields_test_2",
+          "kind": "compatibility",
+          "statement": "Two choices of γ may give nonidentical embeddings but the same numerical invariants."
+        },
+        {
+          "name": "profile_fields_test_3",
+          "kind": "compatibility",
+          "statement": "The last degree can already be one before m_Θ."
+        }
       ],
       "gaps": [
         "G3",
@@ -1840,9 +2158,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "A minimal degree-p level m/p has Φ(0)=m(p−1)/p².",
-        "Φ_0 is identity.",
-        "Calling Φ onto [0,∞) would fail for a wild degree-p example."
+        {
+          "name": "phi_test_1",
+          "kind": "computation",
+          "statement": "A minimal degree-p level m/p has Φ(0)=m(p−1)/p²."
+        },
+        {
+          "name": "phi_test_2",
+          "kind": "computation",
+          "statement": "Φ_0 is identity."
+        },
+        {
+          "name": "phi_test_3",
+          "kind": "computation",
+          "statement": "Calling Φ onto [0,∞) would fail for a wild degree-p example."
+        }
       ],
       "gaps": [
         "G4"
@@ -1970,9 +2300,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "The trivial class is self-dual.",
-        "Duality does not change normalized level.",
-        "The pair conductor uses π_1∨×π_2, not π_1×π_2."
+        {
+          "name": "endo_dual_test_1",
+          "kind": "degenerate",
+          "statement": "The trivial class is self-dual."
+        },
+        {
+          "name": "endo_dual_test_2",
+          "kind": "non-example",
+          "statement": "Duality does not change normalized level."
+        },
+        {
+          "name": "endo_dual_test_3",
+          "kind": "non-example",
+          "statement": "The pair conductor uses π_1∨×π_2, not π_1×π_2."
+        }
       ],
       "gaps": [
         "G3"
@@ -2044,9 +2386,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "The trivial class lifts only to the trivial class.",
-        "A non-totally-wild class can have several lifts.",
-        "A fixed choice of lift is not declared canonical in the general case."
+        {
+          "name": "tame_endo_lift_test_1",
+          "kind": "degenerate",
+          "statement": "The trivial class lifts only to the trivial class."
+        },
+        {
+          "name": "tame_endo_lift_test_2",
+          "kind": "compatibility",
+          "statement": "A non-totally-wild class can have several lifts."
+        },
+        {
+          "name": "tame_endo_lift_test_3",
+          "kind": "non-example",
+          "statement": "A fixed choice of lift is not declared canonical in the general case."
+        }
       ],
       "gaps": [
         "G3"
@@ -2096,9 +2450,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Degree one is totally wild in this convention.",
-        "An unramified parameter of degree>1 is not totally wild.",
-        "Being of p-power degree alone is insufficient."
+        {
+          "name": "totally_wild_endo_test_1",
+          "kind": "degenerate",
+          "statement": "Degree one is totally wild in this convention."
+        },
+        {
+          "name": "totally_wild_endo_test_2",
+          "kind": "non-example",
+          "statement": "An unramified parameter of degree>1 is not totally wild."
+        },
+        {
+          "name": "totally_wild_endo_test_3",
+          "kind": "non-example",
+          "statement": "Being of p-power degree alone is insufficient."
+        }
       ],
       "gaps": [
         "G3"
@@ -2173,9 +2539,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Changing e_a by a factor c changes the first intertwining integer by c.",
-        "Equal classes have distance zero.",
-        "At l/e_a the restrictions on H^l can still differ."
+        {
+          "name": "endo_distance_test_1",
+          "kind": "compatibility",
+          "statement": "Changing e_a by a factor c changes the first intertwining integer by c."
+        },
+        {
+          "name": "endo_distance_test_2",
+          "kind": "degenerate",
+          "statement": "Equal classes have distance zero."
+        },
+        {
+          "name": "endo_distance_test_3",
+          "kind": "compatibility",
+          "statement": "At l/e_a the restrictions on H^l can still differ."
+        }
       ],
       "gaps": [
         "G3"
@@ -2307,9 +2685,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "If e_a ε=k is integral, t=k−1.",
-        "If k<e_a ε<k+1, t=k.",
-        "At ε=m_Θ the deepest nontrivial restriction is retained."
+        {
+          "name": "truncation_test_1",
+          "kind": "computation",
+          "statement": "If e_a ε=k is integral, t=k−1."
+        },
+        {
+          "name": "truncation_test_2",
+          "kind": "computation",
+          "statement": "If k<e_a ε<k+1, t=k."
+        },
+        {
+          "name": "truncation_test_3",
+          "kind": "degenerate",
+          "statement": "At ε=m_Θ the deepest nontrivial restriction is retained."
+        }
       ],
       "gaps": [
         "G3"
@@ -2381,7 +2771,11 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Over Q_2 in GL_1 at m=k=1, the unique nontrivial character of U^1/U^2 admits no distinct same-level character; the corrected strict range excludes this."
+        {
+          "name": "perturbation_test_1",
+          "kind": "degenerate",
+          "statement": "Over Q_2 in GL_1 at m=k=1, the unique nontrivial character of U^1/U^2 admits no distinct same-level character; the corrected strict range excludes this."
+        }
       ],
       "gaps": [
         "G5"
@@ -2427,9 +2821,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Depth-zero cuspidals have the trivial endo-class.",
-        "The GL_n rank can exceed deg Θ_π.",
-        "Residue characteristic dividing n is allowed."
+        {
+          "name": "cuspidal_endo_test_1",
+          "kind": "degenerate",
+          "statement": "Depth-zero cuspidals have the trivial endo-class."
+        },
+        {
+          "name": "cuspidal_endo_test_2",
+          "kind": "compatibility",
+          "statement": "The GL_n rank can exceed deg Θ_π."
+        },
+        {
+          "name": "cuspidal_endo_test_3",
+          "kind": "compatibility",
+          "statement": "Residue characteristic dividing n is allowed."
+        }
       ],
       "gaps": [
         "G3",
@@ -2480,9 +2886,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "The rank-one normalization agrees with Tate factors.",
-        "Do not confuse the exponent with the entire epsilon constant.",
-        "Switching π_1 to its dual changes the pair under consideration."
+        {
+          "name": "pair_epsilon_test_1",
+          "kind": "compatibility",
+          "statement": "The rank-one normalization agrees with Tate factors."
+        },
+        {
+          "name": "pair_epsilon_test_2",
+          "kind": "non-example",
+          "statement": "Do not confuse the exponent with the entire epsilon constant."
+        },
+        {
+          "name": "pair_epsilon_test_3",
+          "kind": "computation",
+          "statement": "Switching π_1 to its dual changes the pair under consideration."
+        }
       ],
       "gaps": [],
       "planned": [
@@ -2533,9 +2951,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "For the trivial rank-one pair, Ar=0 and d=1 give sw=0.",
-        "Dropping d would give a negative value in that test.",
-        "Unequal ranks remove only d, not the Artin exponent."
+        {
+          "name": "pair_swan_test_1",
+          "kind": "degenerate",
+          "statement": "For the trivial rank-one pair, Ar=0 and d=1 give sw=0."
+        },
+        {
+          "name": "pair_swan_test_2",
+          "kind": "compatibility",
+          "statement": "Dropping d would give a negative value in that test."
+        },
+        {
+          "name": "pair_swan_test_3",
+          "kind": "non-example",
+          "statement": "Unequal ranks remove only d, not the Artin exponent."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -2759,9 +3189,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Different unramified twists of π give the same wild orbit.",
-        "Surjectivity concerns all wild orbits, not just one-dimensional ones.",
-        "The canonical map is not an arbitrary bijection between sets."
+        {
+          "name": "first_ramification_test_1",
+          "kind": "compatibility",
+          "statement": "Different unramified twists of π give the same wild orbit."
+        },
+        {
+          "name": "first_ramification_test_2",
+          "kind": "non-example",
+          "statement": "Surjectivity concerns all wild orbits, not just one-dimensional ones."
+        },
+        {
+          "name": "first_ramification_test_3",
+          "kind": "non-example",
+          "statement": "The canonical map is not an arbitrary bijection between sets."
+        }
       ],
       "gaps": [
         "G6",
@@ -2835,9 +3277,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "The trivial class gives Ψ=id.",
-        "Φ and Σ can have positive initial values even though Ψ(0)=0.",
-        "The inverse composition order is reversed."
+        {
+          "name": "herbrand_endo_test_1",
+          "kind": "degenerate",
+          "statement": "The trivial class gives Ψ=id."
+        },
+        {
+          "name": "herbrand_endo_test_2",
+          "kind": "computation",
+          "statement": "Φ and Σ can have positive initial values even though Ψ(0)=0."
+        },
+        {
+          "name": "herbrand_endo_test_3",
+          "kind": "compatibility",
+          "statement": "The inverse composition order is reversed."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -3117,9 +3571,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Every character is totally wild, including tame characters.",
-        "The standard tame two-dimensional S_3 representation is not totally wild.",
-        "Its wild constituent orbit is nevertheless the singleton trivial orbit."
+        {
+          "name": "totally_wild_weil_test_1",
+          "kind": "compatibility",
+          "statement": "Every character is totally wild, including tame characters."
+        },
+        {
+          "name": "totally_wild_weil_test_2",
+          "kind": "non-example",
+          "statement": "The standard tame two-dimensional S_3 representation is not totally wild."
+        },
+        {
+          "name": "totally_wild_weil_test_3",
+          "kind": "non-example",
+          "statement": "Its wild constituent orbit is nevertheless the singleton trivial orbit."
+        }
       ],
       "gaps": [
         "G8"
@@ -3193,9 +3659,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "An unramified character has Swan zero.",
-        "A tame ramified character also has Swan zero.",
-        "In characteristic p use the full local reciprocity supplier, not only its prime-to-p quotient."
+        {
+          "name": "character_reciprocity_test_1",
+          "kind": "degenerate",
+          "statement": "An unramified character has Swan zero."
+        },
+        {
+          "name": "character_reciprocity_test_2",
+          "kind": "degenerate",
+          "statement": "A tame ramified character also has Swan zero."
+        },
+        {
+          "name": "character_reciprocity_test_3",
+          "kind": "non-example",
+          "statement": "In characteristic p use the full local reciprocity supplier, not only its prime-to-p quotient."
+        }
       ],
       "gaps": [],
       "planned": [
@@ -3270,9 +3748,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Degree-one inverse twisting can produce the trivial endo-class.",
-        "A tame χ acts trivially on the pro-p realization group.",
-        "Central cancellation can lower the stratum level."
+        {
+          "name": "endo_character_action_test_1",
+          "kind": "degenerate",
+          "statement": "Degree-one inverse twisting can produce the trivial endo-class."
+        },
+        {
+          "name": "endo_character_action_test_2",
+          "kind": "degenerate",
+          "statement": "A tame χ acts trivially on the pro-p realization group."
+        },
+        {
+          "name": "endo_character_action_test_3",
+          "kind": "compatibility",
+          "statement": "Central cancellation can lower the stratum level."
+        }
       ],
       "gaps": [
         "G5"
@@ -3323,7 +3813,11 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "For unramified quadratic E/Q_3, maximal a, β=3^−2+α3^−1 and c=−3^−2 with residue-generating α, the translated level is 1, below the printed maximum 2."
+        {
+          "name": "scalar_twist_level_test_1",
+          "kind": "computation",
+          "statement": "For unramified quadratic E/Q_3, maximal a, β=3^−2+α3^−1 and c=−3^−2 with residue-generating α, the translated level is 1, below the printed maximum 2."
+        }
       ],
       "gaps": [
         "G5"
@@ -3543,9 +4037,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Degree one is essentially tame.",
-        "An unramified parameter is essentially tame even if its degree is divisible by p.",
-        "A totally wild class of degree>1 is not essentially tame."
+        {
+          "name": "essential_tame_test_1",
+          "kind": "degenerate",
+          "statement": "Degree one is essentially tame."
+        },
+        {
+          "name": "essential_tame_test_2",
+          "kind": "compatibility",
+          "statement": "An unramified parameter is essentially tame even if its degree is divisible by p."
+        },
+        {
+          "name": "essential_tame_test_3",
+          "kind": "non-example",
+          "statement": "A totally wild class of degree>1 is not essentially tame."
+        }
       ],
       "gaps": [
         "G6"
@@ -3683,9 +4189,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "A scalar twist leaves projectivization unchanged.",
-        "E is finite even when σ itself has infinite unramified image.",
-        "T=F means E/F is totally wildly ramified."
+        {
+          "name": "centric_field_test_1",
+          "kind": "degenerate",
+          "statement": "A scalar twist leaves projectivization unchanged."
+        },
+        {
+          "name": "centric_field_test_2",
+          "kind": "compatibility",
+          "statement": "E is finite even when σ itself has infinite unramified image."
+        },
+        {
+          "name": "centric_field_test_3",
+          "kind": "computation",
+          "statement": "T=F means E/F is totally wildly ramified."
+        }
       ],
       "gaps": [
         "G1"
@@ -3735,9 +4253,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Degree one has only the trivial self-twist.",
-        "The groups depend on isomorphisms, not equality of matrix functions.",
-        "No extension of an arbitrary wild character to W_F is assumed."
+        {
+          "name": "self_twist_groups_test_1",
+          "kind": "degenerate",
+          "statement": "Degree one has only the trivial self-twist."
+        },
+        {
+          "name": "self_twist_groups_test_2",
+          "kind": "non-example",
+          "statement": "The groups depend on isomorphisms, not equality of matrix functions."
+        },
+        {
+          "name": "self_twist_groups_test_3",
+          "kind": "compatibility",
+          "statement": "No extension of an arbitrary wild character to W_F is assumed."
+        }
       ],
       "gaps": [],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal.",
@@ -3805,9 +4335,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Trivial D_0 would give T_I=F.",
-        "The kernel is an intersection of stabilizers, so it is normal.",
-        "T_I is defined from D_0, not from a chosen inducing character."
+        {
+          "name": "imprimitivity_field_test_1",
+          "kind": "degenerate",
+          "statement": "Trivial D_0 would give T_I=F."
+        },
+        {
+          "name": "imprimitivity_field_test_2",
+          "kind": "compatibility",
+          "statement": "The kernel is an intersection of stabilizers, so it is normal."
+        },
+        {
+          "name": "imprimitivity_field_test_3",
+          "kind": "non-example",
+          "statement": "T_I is defined from D_0, not from a chosen inducing character."
+        }
       ],
       "gaps": [
         "G1"
@@ -3938,9 +4480,21 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Absolute wildness is invariant under scalar character twists.",
-        "Total wildness alone does not force T=F.",
-        "The finite-image representative is chosen, not canonical."
+        {
+          "name": "absolutely_wild_test_1",
+          "kind": "degenerate",
+          "statement": "Absolute wildness is invariant under scalar character twists."
+        },
+        {
+          "name": "absolutely_wild_test_2",
+          "kind": "non-example",
+          "statement": "Total wildness alone does not force T=F."
+        },
+        {
+          "name": "absolutely_wild_test_3",
+          "kind": "non-example",
+          "statement": "The finite-image representative is chosen, not canonical."
+        }
       ],
       "gaps": [
         "G8"
@@ -4173,7 +4727,11 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Check continuity at 1/3,3/8,1/2 and the identity Φ(Ψ(x))=Σ(x) at rational sample points and all breakpoints."
+        {
+          "name": "four_dimensional_example_test_1",
+          "kind": "computation",
+          "statement": "Check continuity at 1/3,3/8,1/2 and the identity Φ(Ψ(x))=Σ(x) at rational sample points and all breakpoints."
+        }
       ],
       "gaps": [
         "G9"
@@ -4197,7 +4755,11 @@
       ],
       "implementationStatus": "unchecked",
       "tests": [
-        "Check Ψ(1/3)=1/24 and Ψ(3/8)=3/8; distinguish conditional arithmetic existence from numerical consistency."
+        {
+          "name": "eight_dimensional_example_test_1",
+          "kind": "computation",
+          "statement": "Check Ψ(1/3)=1/24 and Ψ(3/8)=3/8; distinguish conditional arithmetic existence from numerical consistency."
+        }
       ],
       "gaps": [
         "G9"
@@ -4355,6 +4917,162 @@
         "G1"
       ],
       "note": "No matching declaration or existing stage at the required scope was found in the bounded audit; route below is a proposal."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/length-additivity",
+      "kind": "theorem",
+      "name": "Existing additivity of module length",
+      "statement": "For a ring R and R-linear maps f:N→M, g:M→P, if f is injective, g is surjective and Function.Exact f g, then Module.length R M = Module.length R N + Module.length R P in ℕ∞.",
+      "locator": "Mathlib/RingTheory/Length.lean:170 at 082e2d3; helper for BH17 §4.1",
+      "status": "library",
+      "prerequisites": [],
+      "proofSteps": [
+        "Apply the pinned theorem; for the finite quotients used here first establish finite length, then take the corresponding natural-number equality."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "gaps": [],
+      "note": "Actual statement and surrounding ring/module hypotheses read. No finite-length hypothesis is required by the library theorem; finiteness is required for the later integer cancellation.",
+      "library": [
+        "mathlib:Module.length_eq_add_of_exact"
+      ]
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/relative-index-tower",
+      "kind": "theorem",
+      "name": "Existing relative additive index tower law",
+      "statement": "For additive subgroups H≤K≤L of an additive group, H.relIndex K * K.relIndex L = H.relIndex L. In a finite-index situation this is [K:H][L:K]=[L:H].",
+      "locator": "Mathlib/GroupTheory/Index.lean:127, to_additive of Subgroup.relIndex_mul_relIndex at 082e2d3",
+      "status": "library",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the additive theorem generated by the pinned to_additive declaration. Infinite index is represented by zero; prove finiteness before using positive real division."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "gaps": [],
+      "note": "Mathematical proof outline only; not a formalized declaration.",
+      "library": [
+        "mathlib:AddSubgroup.relIndex_mul_relIndex"
+      ]
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/lattice-volume-index",
+      "kind": "theorem",
+      "name": "Local additive lattice measure and finite index",
+      "statement": "Let F be a nonarchimedean local field with residue cardinal q, V a finite-dimensional F-vector space with its finite-dimensional topology, and μ a nonzero additive Haar measure. For full O_F-lattices N⊆L⊆V, the quotient L/N is finite of finite O_F-length ℓ and μ(L)/μ(N)=[L:N]=q^ℓ. For arbitrary full lattices L,L′ the ratio μ(L)/μ(L′) is an integral power of q.",
+      "locator": "BH17 §4.1 pp.932–933; independent expansion of the volume argument",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/local-fields",
+        "PAPER-BUSHNELL-HENNIART-17/length-additivity",
+        "PAPER-BUSHNELL-HENNIART-17/relative-index-tower",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "proofSteps": [
+        "A full lattice means a finitely generated O_F-submodule spanning V. As O_F is a DVR, it is free of rank dim_F V; a lattice basis identifies it with O_F^r, hence it is compact open. Thus 0<μ(L)<∞. Use the existing local-field topology and algebra, not a new local-field carrier.",
+        "Express a finite generating set of L in a lattice basis of N and bound the finitely many denominators: π^t L⊆N for some t≥0. The quotient is a quotient of (O_F/π^t)^r. Each successive π-adic quotient of O_F/π^t is k_F, so it is finite. This also proves finite length.",
+        "A finite module over the local ring O_F has a composition series. For a simple factor S, any nonzero element gives a surjection O_F→S; its kernel is the unique maximal ideal, so S≅k_F. In a finite short exact sequence every fiber of the surjection has cardinality the kernel. Induction gives |L/N|=q^length(L/N), using the imported length additivity and length of a composition series.",
+        "Choose the finitely many additive cosets of N in L. They are disjoint measurable translates of N, all of measure μ(N), so finite additivity gives μ(L)=[L:N]μ(N). This is volume of a compact open subset, not covolume of a discrete real lattice.",
+        "For arbitrary L,L′ take a full sublattice N contained in both (a sufficiently deep uniformizer multiple of L). Divide their two finite-index identities: μ(L)/μ(L′)=q^(length(L/N)−length(L′/N)). The index tower law proves invariance under further common refinement."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "latticeVolume_uniformizer_rank_two",
+          "kind": "computation",
+          "statement": "For V=F² and L=O_F², μ(πL)/μ(L)=q^−2."
+        },
+        {
+          "name": "latticeVolume_equal_lattices",
+          "kind": "degenerate",
+          "statement": "For N=L the quotient has one element, length zero and measure ratio one."
+        },
+        {
+          "name": "latticeVolume_not_discrete_covolume",
+          "kind": "non-example",
+          "statement": "For N=πO_F⊊L=O_F, μ(N)<μ(L), whereas the covolume ratio for discrete real lattices would have the reverse containment direction."
+        }
+      ],
+      "gaps": [],
+      "note": "Mathematical proof outline only; not a formalized declaration."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/exact-lattice-comparison",
+      "kind": "theorem",
+      "name": "Choice independence of an exact lattice volume ratio",
+      "statement": "Fix an exact F-linear complex 0→U→V→V→U→0 with finite-dimensional U,V, fixed maps, and fixed nonzero additive Haar measures μ_U,μ_V. For any full O_F-lattice subcomplex L=(L0,L1,L2,L3) exact at every position, C(L)=μ_U(L0)μ_V(L2)/(μ_V(L1)μ_U(L3)) is independent of L and of the two Haar normalizations, and is a unique integral power of the residue cardinal q.",
+      "locator": "BH17 §4.1 pp.932–933; independent expansion of the volume argument",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/lattice-volume-index",
+        "PAPER-BUSHNELL-HENNIART-17/length-additivity"
+      ],
+      "proofSteps": [
+        "For exact full lattice complexes L,L′, choose t≥0 so M_i=π^t L_i⊆L_i∩L′_i for all four i. F-linearity makes multiplication by π^t an isomorphism of L onto M, so M is exact. Termwise intersection itself need not be exact.",
+        "The quotient complex Q=L/M is exact: if dx∈M_{i+1}, exactness of M supplies m∈M_i with dm=dx; then x−m∈ker d in L, hence is an image in L. At the left endpoint the same argument and injectivity give zero kernel; surjectivity at the right endpoint descends. The same applies to L′/M. Every quotient is finite.",
+        "Let B=im(Q1→Q2). The short exact sequences 0→Q0→Q1→B→0 and 0→B→Q2→Q3→0 give ℓ(Q0)+ℓ(Q2)=ℓ(Q1)+ℓ(Q3) by the pinned length theorem. Consequently |Q0||Q2|=|Q1||Q3|.",
+        "Apply the four measure/index identities and cancel the alternating quotient cardinalities. This gives C(L)=C(M)=C(L′). Positivity and finiteness justify all divisions.",
+        "Each same-space ratio μ_U(L0)/μ_U(L3) and μ_V(L2)/μ_V(L1) is a power of q by lattice-volume-index, so their product is q^c for c∈Z. Since q>1 this integer is unique. Each measure appears once upstairs and downstairs, so independent positive rescalings cancel.",
+        "This compares lattice choices for fixed maps. It does not show that an arbitrary rescaling of the final map preserves C. In the scalar complex with first map identity, middle zero and last map λ·identity, C=|λ|_F^−1; nonunit λ changes it."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "exactLattice_intersection_failure",
+          "kind": "non-example",
+          "statement": "In 0→F→F²→F²→F→0 with i(x)=(x,0), d(x,y)=(y,0), s(x,y)=y, let L have standard lattices and let L′ differ only at position 1, where it is O_F(1,0)+O_F(π^−1,1). Both are exact, but d(L1∩L′1)=πO_F×{0} differs from ker(s|L2∩L′2)=O_F×{0}."
+        },
+        {
+          "name": "exactLattice_common_scaling",
+          "kind": "compatibility",
+          "statement": "For exact L, M=π^t L is exact and C(M)=C(L), since the alternating dimensions are zero."
+        },
+        {
+          "name": "exactLattice_last_map_scaling",
+          "kind": "non-example",
+          "statement": "For U=V=F and maps (identity,zero,λ·identity), take lattices (O_F,O_F,O_F,λO_F); C=|λ|_F^−1, so λ=π gives C=q, not 1."
+        }
+      ],
+      "gaps": [],
+      "note": "Mathematical proof outline only; not a formalized declaration."
+    },
+    {
+      "id": "PAPER-BUSHNELL-HENNIART-17/lattice-dilation",
+      "kind": "theorem",
+      "name": "Scalar dilation of a local-field lattice",
+      "statement": "Let E/F be a finite extension of nonarchimedean local fields with residue degree f and q_E=q_F^f. Let W be an r-dimensional E-vector space and Λ a full O_E-lattice. For β∈E× with v_E(β)=−m, m∈Z, and an additive Haar measure on W, μ(βΛ)/μ(Λ)=q_E^(mr)=q_F^(fmr).",
+      "locator": "BH17 §4.1 pp.932–933; independent expansion of the volume argument",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-BUSHNELL-HENNIART-17/lattice-volume-index",
+        "PAPER-BUSHNELL-HENNIART-17/local-fields"
+      ],
+      "proofSteps": [
+        "Choose an O_E-basis of Λ. Write β=π_E^−m u for u∈O_E×; multiplication by u preserves Λ.",
+        "For m≥0 the filtration from Λ to π_E^−mΛ has m successive quotients of cardinality q_E^r, one residue coordinate per basis vector. Apply the measure/index identity repeatedly.",
+        "For m<0 reverse the containment and take reciprocals; m=0 is the unit case. Convert q_E to q_F^f using the residue-field degree."
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "latticeDilation_unit",
+          "kind": "degenerate",
+          "statement": "A unit β preserves Λ and its Haar measure."
+        },
+        {
+          "name": "latticeDilation_unramified_quadratic",
+          "kind": "computation",
+          "statement": "For unramified quadratic E/F, r=2 and v_E(β)=−1, the volume ratio is q_F^4."
+        },
+        {
+          "name": "latticeDilation_sign",
+          "kind": "computation",
+          "statement": "For β=π_E and r=1, the ratio is q_E^−1, not q_E."
+        }
+      ],
+      "gaps": [],
+      "note": "Mathematical proof outline only; not a formalized declaration."
     }
   ],
   "routes": [
@@ -4420,7 +5138,7 @@
       "roadmap": "SmoothRepresentationsPartII",
       "title": "Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations",
       "area": "representations",
-      "brief": "Reuse the already proposed SmoothRepresentationsPartII candidate from PAPER-FINTZEN-21: Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations. Add a separately scoped Bushnell–Kutzko GL_n simple-character and endo-class branch valid in every residue characteristic and for local fields of either characteristic; do not silently apply Fintzen’s p not dividing the Weyl-group-order hypothesis to this branch, or remove it from her theorem. The final targets are BH17 §6.4: for Θ, ε>0 and δ=Ψ_Θ(ε), Δ(LΘ,LΥ)<ε iff A(Θ,Υ)<δ, and the corresponding equivalence with ≤; and §7.5: for totally wild Θ there is a finite exceptional set D such that A_K(Θ_K,χΘ_K)=e Ψ_Θ(sw(χ)/e) for every tame K/F of index e and χ outside D, and these values uniquely determine Ψ among continuous increasing finite piecewise-affine functions. Include the canonical truncated-class/ramification-pair classification, general tame law Ψ_{Θ_K}(x)=eΨ_Θ(x/e), and Ψ=id iff Θ is essentially tame. Build hereditary orders, exact simple strata and critical exponents, BK simple-character recursion, transfer, potential simple characters and endo-equivalence; descend the degree/level invariants and approximation jumps; construct the normalized corestriction-volume exponent, piecewise parameter fields and continuous structure function Φ; then A, real-index truncation, the corrected interior-depth perturbation and density. Prove the explicit GL pair-conductor formula and first ramification bijection from their actual suppliers, including the previously acknowledged gap repair. Import general categories, Hecke and induction from the parent SR.0–SR.3; import classical characteristic-zero LLC from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6), the equal-characteristic classical realization from Excursion operators and spectral action (ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic), complex Rankin–Selberg factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors:AL.1–AL.3), and local fields/reciprocity from their existing owners. Import Δ, Σ, Swan calculus and self-twist results from ArithmeticGaloisRepresentationsPartIIRamificationProfiles. Prove the initial-value equality before defining Φ inverse on its actual range, and place rational Weil realization and Δ-density after the comparison to avoid circularity. The final examples are conditional on the unverified epipelagic and conductor-divisibility inputs and on sufficient determinant cube classes; μ3 alone does not ensure those choices over residue F4. Separate the extra-special-image claim until its scalar normalization is checked. Suggested modules are TauCeti/RepresentationTheory/Local/GeneralLinear/{SimpleStrata,SimpleCharacters,EndoClass,StructureFunction,EndoDistance,HigherRamification,Interpolation}.lean. Acceptance tests include the period-1/period-2 scaling, the Q2 top-depth obstruction, scalar cancellation in an unramified quadratic parameter, the degree-one identity, and both exact piecewise-affine examples. No new generic types roadmap or duplicate general LLC construction is proposed.",
+      "brief": "Reuse the already proposed SmoothRepresentationsPartII candidate from PAPER-FINTZEN-21: Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations. Add a separately scoped Bushnell–Kutzko GL_n simple-character and endo-class branch valid in every residue characteristic and for local fields of either characteristic; do not silently apply Fintzen’s p not dividing the Weyl-group-order hypothesis to this branch, or remove it from her theorem. The final targets are BH17 §6.4: for Θ, ε>0 and δ=Ψ_Θ(ε), Δ(LΘ,LΥ)<ε iff A(Θ,Υ)<δ, and the corresponding equivalence with ≤; and §7.5: for totally wild Θ there is a finite exceptional set D such that A_K(Θ_K,χΘ_K)=e Ψ_Θ(sw(χ)/e) for every tame K/F of index e and χ outside D, and these values uniquely determine Ψ among continuous increasing finite piecewise-affine functions. Include the canonical truncated-class/ramification-pair classification, general tame law Ψ_{Θ_K}(x)=eΨ_Θ(x/e), and Ψ=id iff Θ is essentially tame. Build hereditary orders, exact simple strata and critical exponents, BK simple-character recursion, transfer, potential simple characters and endo-equivalence; descend the degree/level invariants and approximation jumps; construct the normalized corestriction-volume exponent, piecewise parameter fields and continuous structure function Φ; then A, real-index truncation, the corrected interior-depth perturbation and density. Prove the explicit GL pair-conductor formula and first ramification bijection from their actual suppliers, including the previously acknowledged gap repair. Import general categories, Hecke and induction from the parent SR.0–SR.3; import classical characteristic-zero LLC from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6), the equal-characteristic classical realization from Excursion operators and spectral action (ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic), complex Rankin–Selberg factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors:AL.1–AL.3), and local fields/reciprocity from their existing owners. Import Δ, Σ, Swan calculus and self-twist results from ArithmeticGaloisRepresentationsPartIIRamificationProfiles. Prove the initial-value equality before defining Φ inverse on its actual range, and place rational Weil realization and Δ-density after the comparison to avoid circularity. The final examples are conditional on the unverified epipelagic and conductor-divisibility inputs and on sufficient determinant cube classes; μ3 alone does not ensure those choices over residue F4. Separate the extra-special-image claim until its scalar normalization is checked. Suggested modules are TauCeti/RepresentationTheory/Local/GeneralLinear/{SimpleStrata,SimpleCharacters,EndoClass,StructureFunction,EndoDistance,HigherRamification,Interpolation}.lean. Acceptance tests include the period-1/period-2 scaling, the Q2 top-depth obstruction, scalar cancellation in an unramified quadratic parameter, the degree-one identity, and both exact piecewise-affine examples. No new generic types roadmap or duplicate general LLC construction is proposed. Import the AL.0 local lattice-volume and exact-complex comparison helpers, retaining fixed maps and finite positive measures. The minimal exponent arithmetic is expanded independently, but the BK93 integral exactness and adjacent-profile transition remain supplier gates; do not promote G4 to closed.",
       "reason": "Reuse the existing Fintzen candidate for explicit local representation constructions. The all-p GL_n endo-class branch is additional work beyond SR.0–SR.6; this is not a second generic types or Bernstein roadmap.",
       "items": [
         "PAPER-BUSHNELL-HENNIART-17/hereditary-order",
@@ -4518,14 +5236,18 @@
       "route": "source",
       "roadmap": "AutomorphicLFunctionsAndLocalFactors",
       "stages": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
       ],
-      "reason": "Character conductor realization, Rankin–Selberg exponent conventions and the pair Swan correction belong to the existing local-factor layers; they should be exported for the types application.",
+      "reason": "Character conductor realization, Rankin–Selberg exponent conventions and the pair Swan correction belong to the existing local-factor layers; they should be exported for the types application. AL.0 owns the local additive Haar-measure adapters: compact-open lattice index, exact-complex alternating volume, and scalar dilation. They consume the existing local-field/DVR carrier and generic length/index theorems. They are not adelic quotient volumes (AA.0) or discrete real covolumes (GN.0); the BK-normalized corestriction and its application remain in the types Part II.",
       "items": [
         "PAPER-BUSHNELL-HENNIART-17/pair-epsilon",
         "PAPER-BUSHNELL-HENNIART-17/pair-swan",
-        "PAPER-BUSHNELL-HENNIART-17/character-depth-exists"
+        "PAPER-BUSHNELL-HENNIART-17/character-depth-exists",
+        "PAPER-BUSHNELL-HENNIART-17/lattice-volume-index",
+        "PAPER-BUSHNELL-HENNIART-17/exact-lattice-comparison",
+        "PAPER-BUSHNELL-HENNIART-17/lattice-dilation"
       ]
     },
     {
@@ -5043,8 +5765,9 @@
     {
       "id": "G4",
       "name": "Volume transition and gluing Φ",
-      "statement": "Read BHK98 §6.4 and BH03 §3.1 for the exact lattice-volume normalization, minimal lattice exactness and adjacent-profile intercept transition. The BHK98 URL yielded a journal listing and is not a read source. Verify inseparable parameter fields and normalized corestriction.",
+      "statement": "The fixed-map lattice-choice independence and all minimal-parameter dilation arithmetic now have explicit independent proofs via common uniformizer refinement, finite quotient lengths and coset measure. Still acquire BK93 (1.4.15), BHK98 §6.4 and BH03 §3.1 to verify the normalized corestriction, its allowed choices, minimal integral exactness, and adjacent-profile intercept transition, including inseparable parameter fields. Publisher/public-copy attempts in this continuation did not yield the prerequisite texts. AL.0 proof-to-library adapters remain to be elaborated.",
       "supplierStages": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
       ],
       "neededBy": [
@@ -5298,6 +6021,15 @@
       ],
       "status": "open",
       "note": "A scoped planning import, not an available Lean declaration."
+    },
+    {
+      "supplierStage": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "statement": "Use existing nonzero additive Haar measures on finite-dimensional local-field vector spaces, with finite positive compact-open lattice volumes, finite translate additivity and explicit local/DVR carrier adapters. Export the lattice-volume-index, exact-lattice-comparison and lattice-dilation helpers proposed in this source route; no self-dual character normalization is needed for their ratios.",
+      "neededBy": [
+        "PAPER-BUSHNELL-HENNIART-17/lattice-volume-index"
+      ],
+      "status": "open",
+      "note": "Generic local-field normalization stays with LocalFieldsRamification Layer 0; no upstream roadmap is re-planned."
     }
   ],
   "libraryAudit": {
@@ -5312,7 +6044,7 @@
           "sha256": "70d27bd50a047120bf4eaf12ed5d3670d3560e7072bdce815b6159924b125fdd",
           "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Induction/Clifford/Basic.lean#L325",
           "provides": "For a field k, group G, normal subgroup N, and finite-dimensional irreducible k-representation V of G, Res_N V is semisimple. No finiteness of G and no Maschke characteristic condition is needed.",
-          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed."
+          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed. Re-read the actual statement in continuation codex-a71f92."
         },
         {
           "ref": "tauceti:TauCeti.Representation.exists_isAtom_forall_nonempty_linearEquiv_conjSubrep",
@@ -5321,7 +6053,7 @@
           "sha256": "f4a15b1065d0e12e03a619512a90714546c78c79b293a921aec7333c10daecd1",
           "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Induction/Clifford/Orbit/Basic.lean#L137",
           "provides": "Under the preceding hypotheses there is a minimal nonzero N-subrepresentation S, and every minimal N-subrepresentation is isomorphic to a G-conjugate of S.",
-          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed."
+          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed. Re-read the actual statement in continuation codex-a71f92."
         },
         {
           "ref": "tauceti:TauCeti.Representation.exists_forall_finrank_linearMap_eq",
@@ -5330,7 +6062,7 @@
           "sha256": "7238e43e945548402b33e20156d38dbfe566c1e9c7715514d7c5deb89cc89155",
           "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Induction/Clifford/Multiplicity.lean#L423",
           "provides": "Under the same hypotheses there is e>0 such that dim_k Hom_N(S,Res_N V)=e for every minimal constituent S. Over C, Schur identifies this with the ordinary multiplicity.",
-          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed."
+          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed. Re-read the actual statement in continuation codex-a71f92."
         },
         {
           "ref": "tauceti:FDRep.clifford_restrict_finrank",
@@ -5339,7 +6071,25 @@
           "sha256": "d4fe224f3ffcbd0ad9e6b608bd0af1c8e98fe11487646cab4a13bc13aa1bafeb",
           "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Induction/Clifford/Dimension.lean#L67",
           "provides": "For algebraically closed k, arbitrary G, normal N, and simple W in FDRep k G, there are a simple V in FDRep k N, finite G/inertia(V), and e≠0 with Res_N W ≅ V.cliffordSum e and dim W=e [G:inertia(V)] dim V.",
-          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed."
+          "checked": "Actual declaration statement and its namespace/hypotheses read at the pinned checkout; no compilation performed. Re-read the actual statement in continuation codex-a71f92."
+        },
+        {
+          "ref": "mathlib:Module.length_eq_add_of_exact",
+          "module": "Mathlib/RingTheory/Length.lean",
+          "line": 170,
+          "sha256": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Length.lean#L170",
+          "provides": "Additivity of ℕ∞-valued module length for injective/surjective exact R-linear maps over an arbitrary ring.",
+          "checked": "Actual statement and ring/module hypotheses read in codex-a71f92, including finite-length and composition-series APIs at lines 29–185. Not compiled."
+        },
+        {
+          "ref": "mathlib:AddSubgroup.relIndex_mul_relIndex",
+          "module": "Mathlib/GroupTheory/Index.lean",
+          "line": 127,
+          "sha256": "3253612cc4d6e63772f3502a3b0dc8e3720578ee50accaf3d60dfc039c318a3d",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Index.lean#L127",
+          "provides": "Relative additive index multiplicativity for H≤K≤L; generated by to_additive. Infinite indices are zero, not usable as positive measure denominators.",
+          "checked": "Read actual multiplicative theorem, explicit to_additive annotation, and index definitions in codex-a71f92. Not compiled."
         }
       ]
     },
@@ -5363,7 +6113,28 @@
       "Screened all downloaded peer extraction routes, all stage descriptions, proposed roadmaps, reviewed decompositions, available packets and reserved IDs for the relevant owners/objects. Peer proposals are leads, never marked planned merely because they are proposed.",
       "Final refresh screened seven changed/new peer extractions at the recorded input commit, including Klevdal–Patrikis’s superrigid-systems brief and Abe’s geometric-Artin brief; neither supplies this complex local profile branch."
     ],
-    "limits": "This is a bounded source and declaration audit, not a claim that every remotely related library theorem was read. Inputs in the hash manifest include screened files as well as closely read files; the read ledger distinguishes them."
+    "limits": "This is a bounded source and declaration audit, not a claim that every remotely related library theorem was read. Inputs in the hash manifest include screened files as well as closely read files; the read ledger distinguishes them.",
+    "previousCheckpoint": {
+      "session": "codex-c83e7a",
+      "pullRequest": 2001,
+      "note": "The original reviewedCoverage/searches/ownership entries and 476-input manifest below are retained as prior-worker provenance, not credited as fresh full readings."
+    },
+    "continuation": {
+      "session": "codex-a71f92",
+      "inputCommit": "0fb51acb7bff97a8770bb6031922ea0e6e0cb90f",
+      "read": [
+        "AL.0/AL.3 and AA.0 stage contracts and their reviewed audit entries; SR.0/SR.2 contracts (no reviewed entries under those current IDs).",
+        "LocalFieldsRamification Layer 0 complete contract and AUDIT-04 Layer 0 entry; its local-field/DVR/valuation carrier remains an import.",
+        "The four earlier Clifford declaration statements; Mathlib Length.lean lines 29–185 and Index.lean lines 40–140, including all new positive credits.",
+        "All 140 inherited item statements and proof outlines, full handoff, and report overview; inventory is preserved from the JSON."
+      ],
+      "screen": [
+        "Current paper item statements and route briefs, proposed roadmap/packet and campaign text screened for local lattice volume, finite index, exact lattices and commensurability. The Euclidean covolume matches are not compact-open additive volume.",
+        "Pinned RingTheory/NumberTheory trees searched for cardinality/length interfaces; Haar modules searched for index/measure formulas. No exact packaged local lattice-volume comparison was found; absence is bounded, not a proof of nonexistence."
+      ],
+      "decision": "Use AL.0 for the three reusable local measure adapters and keep the normalized corestriction application in the existing types Part II. No additional roadmap or renamed local-field carrier.",
+      "limits": "No fresh full reading of BK93, BHK98, BH03, BH96 or BH14; the unavailable suppliers stay open. The mathematical proofs of the new conditional helpers are independent derivations, not attributed to unread prerequisites."
+    }
   },
   "inputs": {
     "commit": "3176634e2f527dea26f25b0e8dd79b80bd506f3d",
@@ -7754,7 +8525,7 @@
     "acyclic": true,
     "complete": false,
     "note": "Explicit DAG checked; every external stage dependency has a scoped request. No profile-branch item imports a types-branch item. G1–G9 and open stage requests mean this is not proof-closed.",
-    "internalEdges": 341,
+    "internalEdges": 350,
     "topologicalOrder": [
       "PAPER-BUSHNELL-HENNIART-17/clifford-semisimple",
       "PAPER-BUSHNELL-HENNIART-17/clifford-orbit",
@@ -7800,7 +8571,12 @@
       "PAPER-BUSHNELL-HENNIART-17/endo-invariants",
       "PAPER-BUSHNELL-HENNIART-17/minimal-parameter",
       "PAPER-BUSHNELL-HENNIART-17/tame-corestriction",
+      "PAPER-BUSHNELL-HENNIART-17/length-additivity",
+      "PAPER-BUSHNELL-HENNIART-17/relative-index-tower",
+      "PAPER-BUSHNELL-HENNIART-17/lattice-volume-index",
+      "PAPER-BUSHNELL-HENNIART-17/exact-lattice-comparison",
       "PAPER-BUSHNELL-HENNIART-17/volume-exponent",
+      "PAPER-BUSHNELL-HENNIART-17/lattice-dilation",
       "PAPER-BUSHNELL-HENNIART-17/minimal-volume",
       "PAPER-BUSHNELL-HENNIART-17/rational-endo-level",
       "PAPER-BUSHNELL-HENNIART-17/approximation",
@@ -7901,80 +8677,247 @@
   "validation": {
     "diagnostics": [
       {
-        "name": "Realization-period scaling",
-        "cases": 448,
+        "name": "Finite exact quotient complexes",
+        "cases": 81,
         "result": "PASS",
-        "scope": "Integer order levels scale by new/old period; includes the reversed-ratio witness."
+        "scope": "Enumerated cyclic p-power exact sequences, including nonsplit cases; no local-field construction."
       },
       {
-        "name": "C2 endpoint and Q2 unit-quotient witnesses",
-        "cases": 2,
+        "name": "Signed lattice dilation",
+        "cases": 330,
         "result": "PASS",
-        "scope": "Models R(1)=C2,R+(1)=1 and the unique nontrivial character of U_Q2^1/U_Q2^2. Identification with local objects is a separate argument."
+        "scope": "Rational powers with ranks 0–4 and positive/zero/negative valuations."
       },
       {
-        "name": "Tame S3 irreducible versus wild singleton orbit",
-        "cases": 52,
+        "name": "Conditional minimal exponents",
+        "cases": 768,
         "result": "PASS",
-        "scope": "The standard complex representation has scalar commutant, hence is irreducible by Maschke; restriction to trivial P is two trivial copies. Local tame quotient realization is not implemented."
+        "scope": "Exponent arithmetic for coprime m,e; no assertion of minimal-parameter existence or BK exactness."
       },
       {
-        "name": "Scalar cancellation in an unramified quadratic parameter",
-        "cases": 3,
+        "name": "Intersection obstruction integer model",
+        "cases": 72,
         "result": "PASS",
-        "scope": "Exact matrix valuations over Q; irreducibility of X²+1 mod 3 identifies the unramified quadratic model. Character existence is a separate supplied proof."
+        "scope": "Divisibility condition for the sheared-lattice example; the DVR proof is in exact-lattice-comparison."
       },
       {
-        "name": "Residue F4 determinant-cube obstruction",
-        "cases": 3,
+        "name": "Last-map rescaling",
+        "cases": 66,
         "result": "PASS",
-        "scope": "All nonzero residues cube to 1; the valuations of the determinant parameters are established separately."
-      },
-      {
-        "name": "Conditional four- and eight-dimensional profiles",
-        "cases": 2522,
-        "result": "PASS",
-        "scope": "Exact rational composition identities, strict monotonicity and all endpoints; no representation existence inferred."
-      },
-      {
-        "name": "Tame scaling of the conditional profile",
-        "cases": 7566,
-        "result": "PASS",
-        "scope": "Checks e·f(x/e), not e·f(x); odd e models tame indices at p=2."
-      },
-      {
-        "name": "Degree-p one-break intercept equation",
-        "cases": 84,
-        "result": "PASS",
-        "scope": "Verifies a=m/(p+1) from the two slopes and initial value."
+        "scope": "Checks the effect of replacing the last map by λ·identity."
       }
     ],
     "lean": {
       "compiled": false,
       "reason": "This issue authorizes a paper extraction/report/handoff, not a Lean implementation. All proposed signatures and unit tests are planning outlines."
     },
-    "schema": "PASS: scripts/check_paper.py",
-    "intake": "PASS: intake.py check-files, three files and zero problems",
+    "schema": "PASS: python3 scripts/check_paper.py research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
+    "intake": "PASS: intake.py check-files on exactly the three authorized deliverables; 3 files, 0 problems.",
+    "previousCheckpoint": {
+      "worker": "codex-c83e7a",
+      "diagnostics": [
+        {
+          "name": "Realization-period scaling",
+          "cases": 448,
+          "result": "PASS",
+          "scope": "Integer order levels scale by new/old period; includes the reversed-ratio witness."
+        },
+        {
+          "name": "C2 endpoint and Q2 unit-quotient witnesses",
+          "cases": 2,
+          "result": "PASS",
+          "scope": "Models R(1)=C2,R+(1)=1 and the unique nontrivial character of U_Q2^1/U_Q2^2. Identification with local objects is a separate argument."
+        },
+        {
+          "name": "Tame S3 irreducible versus wild singleton orbit",
+          "cases": 52,
+          "result": "PASS",
+          "scope": "The standard complex representation has scalar commutant, hence is irreducible by Maschke; restriction to trivial P is two trivial copies. Local tame quotient realization is not implemented."
+        },
+        {
+          "name": "Scalar cancellation in an unramified quadratic parameter",
+          "cases": 3,
+          "result": "PASS",
+          "scope": "Exact matrix valuations over Q; irreducibility of X²+1 mod 3 identifies the unramified quadratic model. Character existence is a separate supplied proof."
+        },
+        {
+          "name": "Residue F4 determinant-cube obstruction",
+          "cases": 3,
+          "result": "PASS",
+          "scope": "All nonzero residues cube to 1; the valuations of the determinant parameters are established separately."
+        },
+        {
+          "name": "Conditional four- and eight-dimensional profiles",
+          "cases": 2522,
+          "result": "PASS",
+          "scope": "Exact rational composition identities, strict monotonicity and all endpoints; no representation existence inferred."
+        },
+        {
+          "name": "Tame scaling of the conditional profile",
+          "cases": 7566,
+          "result": "PASS",
+          "scope": "Checks e·f(x/e), not e·f(x); odd e models tame indices at p=2."
+        },
+        {
+          "name": "Degree-p one-break intercept equation",
+          "cases": 84,
+          "result": "PASS",
+          "scope": "Verifies a=m/(p+1) from the two slopes and initial value."
+        }
+      ],
+      "structural": {
+        "result": "PASS",
+        "items": 140,
+        "internalEdges": 341,
+        "inputHashes": 476,
+        "definitionAPIs": 126,
+        "checks": "Unique IDs, resolved acyclic dependencies, exactly one route per missing item, real planned stages, definition APIs/uses/tests, source-issue and gap references, no self-review verdicts, all external requests, declaration and input hashes, and branch construction order."
+      },
+      "schema": "PASS: scripts/check_paper.py",
+      "intake": "PASS: intake.py check-files, three files and zero problems",
+      "note": "Prior results retained as provenance, not rerun in this continuation."
+    },
     "structural": {
       "result": "PASS",
-      "items": 140,
-      "internalEdges": 341,
-      "inputHashes": 476,
+      "items": 145,
+      "internalEdges": 350,
+      "definitions": 42,
       "definitionAPIs": 126,
-      "checks": "Unique IDs, resolved acyclic dependencies, exactly one route per missing item, real planned stages, definition APIs/uses/tests, source-issue and gap references, no self-review verdicts, all external requests, declaration and input hashes, and branch construction order."
+      "tests": 144,
+      "currentInputHashesVerified": 13,
+      "declarationHashesVerified": 6,
+      "statuses": {
+        "library": 6,
+        "planned": 10,
+        "missing": 129
+      },
+      "checks": "Unique IDs/names, resolved acyclic dependency order, exactly one missing-item route, valid stages and scoped requests, structured tests/APIs/uses, gap/source references, no self-review, profile-before-types order, current and pinned hashes."
+    },
+    "regressions": {
+      "checkPaper": 9,
+      "papersQueue": 3,
+      "sourceIssues": 7,
+      "intake": 29,
+      "result": "PASS",
+      "total": 48
     }
   },
   "worker": {
     "agent": "Codex",
-    "session": "codex-c83e7a",
+    "session": "codex-a71f92",
     "issue": 1153,
-    "claimComment": 5783790282,
-    "claimConfirmation": 5783792147,
-    "date": "2026-09-22"
+    "claimComment": 5788201888,
+    "claimConfirmation": 5788203244,
+    "date": "2026-09-23",
+    "continues": {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "pullRequest": 2001
+    }
   },
   "coverage": {
-    "primary": "All 37 published pages read; repeated introductory statements map to the numbered section items.",
-    "recursive": "Partial: G1–G9 name exact supplier statements, read limits and consumers.",
+    "primary": "All 37 published pages read; repeated introductory statements map to the numbered section items. Independently re-read in continuation codex-a71f92; prior targeted visual checks are separately attributed.",
+    "recursive": "Partial: G1–G9 remain. G4's fixed-map lattice comparison and dilation arithmetic are now independently expanded; normalized corestriction, integral exactness, and adjacent-profile transition are not certified.",
     "sourceIssueReview": "No independent review is claimed; all E1–E17 await the assigned independent reviewer."
+  },
+  "acquisitionAttempts": [
+    {
+      "date": "2026-09-23",
+      "source": "BHK98",
+      "url": "https://www.ams.org/journals/jams/1998-11-03/S0894-0347-98-00270-7/S0894-0347-98-00270-7.pdf",
+      "outcome": "403 via curl and browser. The /jams/ spelling also returned 403. No article text read."
+    },
+    {
+      "date": "2026-09-23",
+      "source": "BHK98",
+      "url": "https://www.jstor.org/stable/pdf/2646168.pdf",
+      "outcome": "Article/download lead from the issue listing; no usable PDF acquired."
+    },
+    {
+      "date": "2026-09-23",
+      "source": "BHK98",
+      "url": "https://scispace.com/pdf/local-rankin-selberg-convolutions-for-explicit-conductor-1z2cqbhfr9.pdf",
+      "outcome": "Public PDF lead returned browser 429 and curl 403. No text read."
+    },
+    {
+      "date": "2026-09-23",
+      "source": "BH03",
+      "url": "https://doi.org/10.1112/S0024611503014114",
+      "outcome": "Publisher metadata only. Wiley PDF unavailable and Cambridge showed Get access; KCL metadata did not provide a public proof. No access controls bypassed."
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Rejected search lead",
+      "url": "https://cds.cern.ch/record/630839/files/sis-2003-271.pdf",
+      "outcome": "Title/initial-page check identifies Henniart's different paper on exterior/symmetric-square L-functions, not either requested prerequisite; not used."
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Correction search",
+      "url": "https://annals.math.princeton.edu/2017/185-3/p05",
+      "outcome": "Publisher metadata and a title+erratum search did not locate a linked correction. This is not an exhaustive errata search or independent review of E1–E17."
+    }
+  ],
+  "continuationInputs": {
+    "commit": "0fb51acb7bff97a8770bb6031922ea0e6e0cb90f",
+    "files": [
+      {
+        "path": "research/blueprint/WORKERS.md",
+        "sha256": "b6942270511fbb828d02924941e4da5117c969b76e0036c6ca498a4015033670"
+      },
+      {
+        "path": "research/blueprint/PROTOCOL.md",
+        "sha256": "29016b887374345a409f35a20a386bdb3de56f56739ca0095b204edb803f4caf"
+      },
+      {
+        "path": "research/blueprint/UPSTREAM_GUIDE.md",
+        "sha256": "008b34f2bdf6dbcdf3dad03691b8b4aa16f3e68b847dd01e48db9f7432d00e6c"
+      },
+      {
+        "path": "research/expansion/PROTOCOL.md",
+        "sha256": "64ed4f8e43f28d3a6e4aa6e55a0dca10ba1b204806d394661915d200bfe47413"
+      },
+      {
+        "path": "data/atlas.json",
+        "sha256": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56"
+      },
+      {
+        "path": "data/library-coverage.json",
+        "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
+      },
+      {
+        "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_LocalFieldsRamification.json",
+        "sha256": "25f4d8efe86a91324fabccf86d815ae5a19ff89969c8f3e92215340eda5fa25d"
+      },
+      {
+        "path": "content/campaign/AutomorphicLFunctionsAndLocalFactors/README.md",
+        "sha256": "3c20e458f4e9ee5e306d833503fedcd907b4d20c3a61dd1fc60438ec30708c21"
+      },
+      {
+        "path": "content/campaign/SmoothRepresentationsOfLocalGroups/README.md",
+        "sha256": "79f06511d746b4a72442522687ef2b9a5d412f84b27308898ff513c7ee77fe88"
+      },
+      {
+        "path": "content/campaign/AdelicAlgebraicGroups/README.md",
+        "sha256": "5876e9491ad7b2814752410ecc9c971fa20d28d80e90320856d37ae5ea897c4f"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+        "sha256": "fa59a5e9182d6b9c964f284edba7d4aebc87c6265fe6d72b7ccb91dddb9e9031"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
+        "sha256": "fc4e9631b8b063324f70325b3e5bfb131929471a98b06a8ceb09f60e2c6e9041"
+      },
+      {
+        "path": "scripts/check_paper.py",
+        "sha256": "8f80fe26f877c77cb7aee769684473dcb2a66e1059cf557d8932348cea9d0f3e"
+      },
+      {
+        "path": "research/blueprint/intake.py",
+        "sha256": "b7f659835168a45209f5a1695c1591fa47aa8d88d15edc97a9105cba2bc7964d"
+      }
+    ],
+    "note": "Targeted current files read/screened in codex-a71f92. The BH17 extraction hash is its inherited pre-edit blob; the earlier 476-input manifest remains historical under inputs."
   }
 }
