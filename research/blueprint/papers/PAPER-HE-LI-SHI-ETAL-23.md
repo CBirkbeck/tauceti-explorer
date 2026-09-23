@@ -2,7 +2,7 @@
 
 Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, *A proof of the Kudla–Rapoport conjecture for Krämer models*, [Invent. Math. 234 (2023), 721–817](https://doi.org/10.1007/s00222-023-01209-1); arXiv [2208.07988](https://arxiv.org/abs/2208.07988).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1237). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-HE-LI-SHI-ETAL-23.result.json](PAPER-HE-LI-SHI-ETAL-23.result.json): 46 items (3 planned, 43 missing), 3 routes, 13 prerequisite entries and 6 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1237). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-HE-LI-SHI-ETAL-23.result.json](PAPER-HE-LI-SHI-ETAL-23.result.json): 46 items (3 planned, 43 missing), 3 routes, 13 prerequisite entries and 6 recorded source issues (E1–E6; the independent review added E7–E30, see the last section).
 
 **Source.** The Springer PDF blocks scripted downloads, so two versions were read on 2026-09-22.
 - **The authors' final version**, [Kramer.pdf](https://www.math.columbia.edu/~chaoli/Kramer.pdf) on Chao Li's homepage: dated 21 July 2023 (the publication date), 82 pages, SHA-256 `a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623`. It was read in full, and locators are its pages.
@@ -108,3 +108,55 @@ Links and reasons are in the JSON; the DOIs were confirmed on Crossref.
 - The cited stages AL.0, GN.3, S.6, S.7 and QM.0 and the two parents were checked against `data/atlas.json`, all accepted restructures and `data/roadmap-retirements.json`: none is restructured or retired. Library verdicts come from `data/library-coverage.json`.
 - Both Part II ids and titles are those of the merged PAPER-LI-ZHANG-22-B routes.
 - The numerical checks used scripts in the worker's scratch directory; no Lean was written, as none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-HE-LI-SHI-ETAL-23, 23 September 2026)
+
+**Sources.** The review read the authors' final version and arXiv v2 in full. Both have the same SHA-256 as the extraction's copies.
+
+**Method.** Three read-only helper agents split the paper: §§1–4, §§5–7 and §§8–10.
+- **Checks by computer.**
+  - §§5–7 by exact computation: finite-field isometry counts, direct local densities over Q₃(√3), every §7 identity, and Theorem 7.1 for n ≤ 9.
+  - The μ-identities of §8 by brute force at q = 3 and 5.
+  - Deligne–Lusztig point counts.
+- **Reviewer's check.** Every finding was checked at the page image or in the text.
+
+**Routes and statuses.** All three routes are accepted, and both Part II briefs get review additions. Statuses are unchanged.
+
+**Recorded issues.** E1–E6 are confirmed.
+- **E2** now affects "a stated result". The second sentence of Proposition 3.20 is false as printed, though nothing downstream uses it.
+- **E1 and E3** have their quotations corrected.
+
+**New issues (E7–E30).** The substantive ones:
+- **E7 (error, a stated result).** Lemma 9.6 fails when the top fundamental invariant of L♭ + ⟨x⟩ is odd and a′₁ + ⋯ + a′ₙ₋₁ = val(L♭) − 1.
+  - The first n − 1 normal-basis vectors then span a degenerate lattice.
+  - Every non-degenerate rank-(n − 1) summand has even valuation at least val(L♭).
+  - Example (n = 2): L♭ = ⟨ℓ₁ + πℓ₂⟩ inside the hyperbolic plane H₁ = ⟨ℓ₁, ℓ₂⟩, with x = ℓ₂.
+- **E8 (gap in the proof of the main theorem).** The induction of Theorem 9.7 relies on Lemma 9.6 to confine the support of Φ_{L♭}. At the configurations of E7 that step is unjustified, so the proof of Theorem 1.3, and of Theorems 10.1–10.2 at ramified places, is incomplete there.
+  - Li–Liu's analogous unramified proof (Forum Math. Pi 2022, Lemmas 2.57–2.58) handles this "special case" with the uncertainty principle. This paper has no such step.
+  - No counterexample to Theorem 1.3 is known.
+- **E9 (error).** Theorem 8.2's clause "zero for x ∈ W^{<0}" is false (n = 3 counterexample). It is not used.
+- **E14 (error).** Theorem 3.19(2) needs Λ + Λ′ of type ≥ 2; the intersection is empty when Λ + Λ′ has type 0.
+- **E22–E24 (errors).** The first branch of (5.8), the side claim in Lemma 5.3, and the boundary case of Lemma 5.16 are false. None is used.
+- **Proof gaps, each with a short repair:**
+  - E13: the n = 2 base case of Theorem 9.7;
+  - E19: Proposition 3.17 over non-reduced bases;
+  - E20: the citation of Howard's Corollary C;
+  - E25: Proposition 7.5 at n₂ = 0;
+  - E26: Lemma 7.13 used at m = n.
+- **Other findings:**
+  - E15: the claim about the singularities of S_V fails for m = 1.
+  - E16: the polarization condition is missing from Definition 2.2.
+  - E30: the sign rule δ in (5.12) holds only for q ≡ 3 mod 4.
+  - The rest are misprints.
+
+**Items corrected in place:**
+- **Item 37.** Lemma 9.6 with its exception.
+- **Item 40.** The gap in the induction.
+- **Item 38.** Without the false clause.
+- **Item 16.** Theorem 3.19(2) with type ≥ 2.
+- **Item 12.** m = 1.
+- **Item 4.** The polarization condition and the rank of 𝓕.
+- **Items 31, 34.** Pden^{n−i}, and Lemma 7.13's range.
+- **Item 36.** Holds for either sign χ.
+- **Items 45, 46.** The standing hypotheses (G0)–(G5), and the definition of a nonsingular φ_v.
+- **Notes.** Items 1, 19, 21, 25, 27 and 32.
