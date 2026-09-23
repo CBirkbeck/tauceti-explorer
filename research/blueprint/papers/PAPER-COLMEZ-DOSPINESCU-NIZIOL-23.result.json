@@ -20,7 +20,9 @@
    "§4 Longueur finie (4.1–4.3)",
    "§5 Factorisation de H^1_ét(M_{n,Q̄_p},L(1)) (5.1–5.3)",
    "References"
-  ]
+  ],
+  "sha256Note": "The sha256 recorded for the published Cambridge PDF is NOT reproducible. The article carries a per-download stamp on all 62 pages and its ModDate is set at download. Review REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23 downloaded it three times on 23 September 2026: the first two fell within the same second and so agreed (89c9d43a…48a7), while the third gave 9d9a3ca1…b913, and none matched the recorded 1c6ee85b…7d49. Two downloads agreeing is therefore not evidence of reproducibility — take three. Use publishedTextSha256 below as the verifiable anchor.",
+  "publishedTextSha256": "08bae10932da0efb09817301c0d089ea34da05f59f444429e024f623bf4fa34a — SHA-256 of `pdftotext -layout` output with the per-download Cambridge stamp lines removed; obtained identically from separate downloads by review REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23. Printed page = PDF page, confirmed against the running heads."
  },
  "summary": "The sequel to Colmez–Dospinescu–Nizioł's computation of the multiplicity of one irreducible Galois representation in the p-adic étale cohomology of the Drinfeld tower. Here, for F = Q_p and p > 3, they determine the whole cohomology as a Gal_{Q_p} × GL_2(Q_p) × Ǧ-module: H^1_ét(M^p_{n,Q̄_p},L(1)) ≅ ⊕_M (⊕̂_B Π^*(ρ_{B,M}) ⊗ ρ_{B,M} ⊗ Ř_{B,M}) ⊗_L JL(M), an exact analogue of Emerton's description of the completed cohomology of the tower of modular curves with the Hecke algebras replaced by Kisin rings parametrising the potentially crystalline representations of weights 0 and 1 and fixed Weil–Deligne representation. The object described is the completed cohomology of the tower of coefficient fields, a strict subobject of the cohomology over C_p — the two differ because the levels are not quasi-compact, and the authors say they failed to find an arithmetic meaning for the quotient. The engine is a mod p finiteness theorem: for [K:Q_p] < ∞, H^1_ét(M^p_{n,K},μ_p) is dual to an admissible smooth representation of finite length. Its proof is geometric and independent of the first paper's methods: an equivariant semi-stable model, the Bloch–Kato–Hyodo filtration on mod p nearby cycles (extended here to formal schemes) reducing étale to coherent cohomology on the special fibre, and Shotton's theorem that finitely presented smooth representations form an abelian category — which gives finite presentation for every F and every degree — followed, for F = Q_p only, by a spectral sequence relating Scholze's functors S^i(π) to these multiplicity spaces, Ludwig's vanishing theorem, Fust's group cohomology computation, and a globalisation that brings in Paškūnas's and Paškūnas–Tung's work on the completed cohomology of definite quaternion algebras. For F ≠ Q_p the same geometry gives finite presentation but the cohomology is provably NOT admissible, because the supersingular representations of GL_2(F) are not finitely presented: the pathologies of the mod p classification for F ≠ Q_p are visible in the p-adic cohomology of the tower, and none of them appears ℓ-adically. What the atlas lacks: the mod p finiteness theory of smooth representations of GL_2(F) (O_L⟨H⟩, Shotton coherence, the category of admissible finitely presented representations, Emerton's ordinary part functor, Gabriel's block theory for locally finite categories); Scholze's mod p functor with its spectral sequence and Ludwig's vanishing; the Bloch–Kato–Hyodo filtration for formal schemes; and every cohomological statement about the tower. What it has: the blocks, projective envelopes and R = T theorem for GL_2(Q_p) (R30.5, R30.6), Colmez's functor (R30.3), Kisin's deformation rings with fixed type (R08.3), definite quaternionic forms (R18.3), local–global compatibility (R31.4, R31.5) and the two towers (ET.6a).",
  "conventions": "The paper is in French; locators are printed pages of Forum of Mathematics Pi 11 (2023), e16, pp. 1–62. Numbering is by section with a single counter and the introduction is §0. G = GL_2(F), G′ = G/diag(ϖ,ϖ)^Z, Ǧ = D^* for D the non-split quaternion algebra, G_n and Ǧ_n the standard congruence subgroups. M^ϖ_n is the quotient of the n-th level of the Drinfeld tower by diag(ϖ,ϖ) and is defined over F, so M^ϖ_{n,K} makes sense for K/F finite as well as for C_p; for F = Q_p one writes M^p_n. Two duals are used throughout and are not interchanged: W^* is the topological dual of a topological L-module and W^∨ the Pontryagin dual of an O_L-module; for a Banach space W^* carries the topology of uniform convergence on compacta, not the weak topology. H^1_ét(M^p_{n,Q̄_p},L(1)) always means the completed cohomology of the tower of coefficient fields, at fixed level n.",
@@ -1236,7 +1238,12 @@
     "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
     "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
     "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at published p. 55, where the definition is self-referential as printed: 'où les produits tensoriels non spécifiés sont au-dessus de R_{B,M} et Ř_{B,M} = Hom(Ř_{B,M}, L)'. A dual cannot be defined as the dual of itself; Hom(R_{B,M}, L) is meant, which is also the only reading under which the displayed tensor products over R_{B,M} and Ř_{B,M} make sense. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E2",
@@ -1252,7 +1259,12 @@
     "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
     "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
     "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at published p. 55: 'qui, pour pour tout k ⩾ 1, sont fixes modulo p^k par un sous-groupe ouvert de G_{Q_p}'. The doubled 'pour' occurs exactly once in the whole article, so it is plainly typographical. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E3",
@@ -1268,7 +1280,12 @@
     "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
     "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
     "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively, by comparing the introduction with the body. Théorème 0.18(ii), on published p. 9, reads 'Supposons que p > 3. On a un isomorphisme de E^{δ_M}_B[G_{Q_p}]-modules …' — it carries the hypothesis. Théorème 5.24(ii), on published p. 59, states the same isomorphism of E^{δ_M}_B[G_{Q_p}]-modules with NO hypothesis at all. So the body statement is strictly stronger than the one the introduction announces, and the missing condition is exactly the one the finding names; the article's own discussion of the Steinberg block ('pas à un twist {χ, St ⊗ χ, I(χ,χε)} du bloc de la Steinberg') is the p = 3 alternative. 'Affects a stated result' is the right classification. The companion remark, that Théorème 5.15's proof cites results carrying the same restriction, rests on the extraction's reading of that proof rather than on a check of mine. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E4",
@@ -1284,7 +1301,12 @@
     "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
     "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
     "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at published p. 62: '[52] V. Paškūnas, Extensions for supersingular representations of ), Astérisque 331 (2010), 317–353.' The group name has dropped out entirely, leaving a stray closing parenthesis. The paper's own reference [71] on the same page shows the intended form, 'supersingular representations of GL_2(F)'. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E5",
@@ -1300,7 +1322,12 @@
     "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
     "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
     "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at published p. 62: '[42] Y. Hu, H. Wang, On some mod p representations of quaternion algebra over 𝑔 𝑝, arXiv:2201.01464'. The field name is set as the letters g and p rather than Q_p — a font or encoding slip in the bibliography. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E6",
@@ -1316,7 +1343,12 @@
     "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
     "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
     "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at published p. 62: '[68] M. Strauch, Geometrically connected components of of Lubin-Tate deformation spaces with level structures'. The doubled 'of' is plainly typographical. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
+   }
   }
  ],
  "gaps": [
@@ -1344,5 +1376,16 @@
    "id": "no-p-adic-jacquet-langlands-functor",
    "detail": "The factorisation produces, for each type M, the G-representation Π^*(ρ_{B,M}) interpolating the duals Π(ρ_x)^* and the Ǧ-representation JL(M), but the paper constructs no functor realising a p-adic Jacquet–Langlands correspondence; that remains a programme (as in Remark 0.3 of the companion paper). A roadmap may plan the objects appearing in Theorem 5.15 but not a correspondence."
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1372,
+  "job": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "The published open-access text, Forum Math. Pi 11 (2023), e16, 62 pp., re-fetched on 23 September 2026; printed page = PDF page, confirmed against the running heads. All 6 recorded mistakes checked at their locators.",
+  "changes": "No change to any item, status, route or locator. All 6 recorded mistakes carry review verdicts and all are confirmed, every one of them decisively. Two records were added to the source block: the published PDF's sha256 is not reproducible, with the note that two agreeing downloads can be an artefact of the stamp's one-second granularity, and a reproducible stamp-stripped text hash.",
+  "lean": "none"
+ }
 }

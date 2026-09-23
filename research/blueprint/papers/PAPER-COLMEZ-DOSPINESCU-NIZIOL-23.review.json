@@ -1,0 +1,72 @@
+{
+  "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "New roadmap, 18 items. Accepted. The reason delimits rather than asserts: the atlas plans the mod p classification only for GL_2(Q_p), inside PadicLocalLanglandsForGL2Qp R30.2 and as an input to modularity lifting, and plans none of the finiteness theory this paper runs on for an arbitrary finite extension F. Name free; co-proposed by PAPER-BREUIL-ETAL-23, so it merges."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "New roadmap, 16 items, and the only one of the four unique to this paper. Accepted: Scholze's functor π ↦ S^i(π), the candidate mod p Jacquet–Langlands transfer built from the pro-étale GL_n(F)-torsor M_{LT,∞} → P^{n−1}, is planned nowhere, and the reason names the nearest candidate and says why it does not cover it — ET.6a plans the ℓ-adic two-tower realisation, not the mod p functor. Name free."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "New roadmap, 15 items, and a merge rather than a fresh claim: the reason states that this is the roadmap proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B and that the geometric half of this paper belongs to the same design job, being its mod p counterpart. I reviewed that 20-B extraction earlier in this same session (PR #2474) and confirmed there that nothing in the atlas computes the p-adic pro-étale cohomology of a non-proper rigid analytic curve, so I can report at first hand that the two proposals agree. PAPER-BOXER-CALEGARI-GEE-PILLONI-25 and PAPER-DOSPINESCU-LEBRAS-17 propose it identically as well — a four-way merge."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Part II of PadicLocalLanglandsForGL2Qp, 27 items, with a title that is an exact prefix extension of its parent's and a free name. Accepted, and again a merge I can check at first hand: the reason says this is the Part II proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B and that the present paper completes it, where the first computed the multiplicity of one irreducible representation. That is exactly what I found reviewing 20-B in this session — its Part II carries the geometric construction of Π(V) as the multiplicity space in the Drinfeld tower for supercuspidal V of weights 0 and 1 — so the two are complementary, not overlapping. PAPER-DOSPINESCU-LEBRAS-17 co-proposes it too."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source addition to PadicLocalLanglandsForGL2Qp at PadicLocalLanglandsForGL2Qp:R30.2, PadicLocalLanglandsForGL2Qp:R30.3, PadicLocalLanglandsForGL2Qp:R30.5, PadicLocalLanglandsForGL2Qp:R30.6 (5 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source addition to LocalGaloisDeformationRings at LocalGaloisDeformationRings:R08.3 (1 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source addition to CompletedCohomologyAndLocalGlobalCompatibility at CompletedCohomologyAndLocalGlobalCompatibility:R31.4, CompletedCohomologyAndLocalGlobalCompatibility:R31.5 (2 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Source addition to HilbertModularVarietiesAndShimuraCurves at HilbertModularVarietiesAndShimuraCurves:R18.3 (1 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Source addition to GL2AutomorphicRepresentationsAndTransfer at GL2AutomorphicRepresentationsAndTransfer:R16.3, GL2AutomorphicRepresentationsAndTransfer:R17.1, GL2AutomorphicRepresentationsAndTransfer:R17.3 (1 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Source addition to PadicHodgeTheory at PadicHodgeTheory:R06.3 (1 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Source addition to FiniteFlatGroupsAndIntegralPadicHodgeTheory at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5 (1 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Source addition to ClassicalAdicEtaleCohomology at ClassicalAdicEtaleCohomology:H1 (2 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Source addition to EndoscopicTransferAndUnitaryTraceComparison at EndoscopicTransferAndUnitaryTraceComparison:ET.6a (2 items). The stage already owns the material consumed here and the extraction imports rather than rebuilds it. Together the nine source routes carry the p-adic local Langlands, deformation, completed-cohomology, Shimura-curve, Hodge-theoretic and adic inputs, which is what leaves the three new roadmaps and the Part II carrying only what is genuinely unplanned."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status, route or locator changed. All 92 items, 13 routes and 6 recorded mistakes were checked against the published open-access text, Forum Math. Pi 11 (2023), e16, 62 pp., re-fetched for this review; printed page = PDF page, confirmed against the running heads. All 6 recorded mistakes are confirmed, and every one of them decisively. E1: p. 55 defines a dual as the dual of itself, 'Ř_{B,M} = Hom(Ř_{B,M}, L)'. E2: 'pour pour tout k ⩾ 1' on p. 55, the doubled word occurring exactly once in the article. E3 is the substantive one and is settled by comparing the introduction with the body: Théorème 0.18(ii) on p. 9 reads 'Supposons que p > 3. On a un isomorphisme de E^{δ_M}_B[G_{Q_p}]-modules …', while Théorème 5.24(ii) on p. 59 states the same isomorphism with NO hypothesis, so the body statement is strictly stronger than the one the introduction announces. E4, E5 and E6 are bibliography slips, each verifiable at a glance: '[52] … Extensions for supersingular representations of ),' with the group name dropped and a stray parenthesis left behind (the paper's own [71] shows the intended form); '[42] … quaternion algebra over 𝑔 𝑝' with the field set as two letters; and '[68] … Geometrically connected components of of Lubin-Tate deformation spaces'. A provenance note was added, with a detail worth recording for later workers: the recorded sha256 is not reproducible, and although two of this review's three downloads agreed, that was an artefact of the download stamp's one-second granularity — the third differed. Two agreeing downloads are not evidence of reproducibility; take three. A stamp-stripped text hash was recorded as the anchor. The extraction records no library items, which is right here; 16 planned items name atlas layers that exist; all 76 missing items are routed exactly once. All four proposed roadmap names are free, and the Part II title is an exact prefix extension of its parent's. Two of the four are merges with PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B, which this reviewer reviewed earlier in the same session (PR #2474), so the continuity can be reported at first hand rather than inferred: ProetaleCohomologyOfPAdicCurvesAndTowers is the roadmap 20-B proposed for the cohomology of a non-proper p-adic curve, and this paper's geometric half is its mod p counterpart; and the Part II is the one 20-B proposed for the geometric realisation, which this paper completes where 20-B computed the multiplicity of a single irreducible. The two extractions are complementary rather than overlapping. Every check is listed in research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md."
+}
