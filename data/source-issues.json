@@ -44336,11 +44336,13 @@
    "correction": "Use discrete valuation ring R, with fraction field K.",
    "reason": "The notation R/m and the later explicit valuation-ring convention require R to be a ring, not its fraction field.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44351,17 +44353,19 @@
   },
   {
    "id": "PAPER-TSUZUKI-23/E2",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "arXiv:1910.03871v3, §2.1 p.4; journal version not collated",
    "printed": "Gauss norm",
    "correction": "Restrict the finite coefficient supremum to the bounded rings; use radius-indexed norms on the full Robba ring.",
-   "reason": "Σ[n≥0]p^(−floor(sqrt(n)))t^n converges on every closed disc of radius<1, but its coefficient supremum is infinite.",
-   "affects": "a stated result",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "reason": "Σ[n≥0]p^(−floor(sqrt(n)))t^n converges on every closed disc of radius<1, but its coefficient supremum is infinite. (cc-442dc5) Reclassified: the Gauss norm is only used on the bounded rings E, E† and K[[t]]₀ (for instance 'E and E† are discrete valuation fields under the Gauss norm'); listing R among them is a slip.",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44378,11 +44382,13 @@
    "correction": "Use K[[t]]₀ in this local definition.",
    "reason": "The local section has only K,t and extends scalars over K[[t]]₀; α and xα have not been introduced.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44399,11 +44405,13 @@
    "correction": "Use ordered abelian group Q; require well ordering of the specified supports.",
    "reason": "Q with its usual order is not well-ordered: the negative integers have no least element.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44420,11 +44428,13 @@
    "correction": "The growth criterion is Lemma 2.6(4); remove or repair the undefined filtration-length symbol s in the following proposition.",
    "reason": "Lemma 2.5 has only three parts; the source defines only r for the filtration lengths in Proposition 2.11.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44441,11 +44451,13 @@
    "correction": "Prove closure of solvable and bounded categories separately by their respective trivializations; do not use solvable⇒bounded.",
    "reason": "The generic-disc unipotent logarithmic connection has analytic log(1+u) solutions with coefficients 1/n unbounded p-adically. It is solvable but not bounded. The stated category-closure theorem is not refuted.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44456,17 +44468,19 @@
   },
   {
    "id": "PAPER-TSUZUKI-23/E7",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "arXiv:1910.03871v3, Theorem 3.12 and Definition 3.13 p.15; journal version not collated",
    "printed": "nonzero and bounded",
    "correction": "Add M≠0 to the asserted nonzero quotient, and separately define the bounded quotient of zero to be zero.",
-   "reason": "The zero module satisfies solvability but has no nonzero quotient.",
-   "affects": "a stated result",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "reason": "The zero module satisfies solvability but has no nonzero quotient. (cc-442dc5) Reclassified: the statement fails only for M = 0, and Definition 3.13 speaks of the 'nontrivial' quotient; M ≠ 0 is intended.",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44477,17 +44491,19 @@
   },
   {
    "id": "PAPER-TSUZUKI-23/E8",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "arXiv:1910.03871v3, Proposition 3.18 p.16; journal version not collated",
    "printed": "M is PBQ if and only if M ⊗B N is PBQ",
    "correction": "Require N≠0 in the unit-root tensor detection assertion.",
-   "reason": "Tensoring with zero loses all information about M. With a nonzero-only pure-slope convention even a PBQ line tensored with zero violates the displayed iff; if zero is allowed as PBQ, take non-PBQ M instead.",
-   "affects": "a stated result",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "reason": "Tensoring with zero loses all information about M. With a nonzero-only pure-slope convention even a PBQ line tensored with zero violates the displayed iff; if zero is allowed as PBQ, take non-PBQ M instead. (cc-442dc5) Reclassified: the statement fails only when N = 0; N ≠ 0 is intended.",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44498,17 +44514,19 @@
   },
   {
    "id": "PAPER-TSUZUKI-23/E9",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "arXiv:1910.03871v3, Theorem 3.19(1–2) pp.16–17; propagated in 3.29, 4.11 and 6.4; journal version not collated",
    "printed": "maximal slope of Pi",
    "correction": "Use graded pieces G_i=P_i/P_(i−1): the decreasing slopes are λmax(G_i), the bounded quotient is ⊕Top(G_i), and the lifting theorems recover saturations of G_i.",
-   "reason": "For bounded split M=E(1)⊕E(0), P₁=E(1), P₂=M. Both nested steps have maximal slope 1, whereas the graded slopes are 1 and 0. The printed sum Top(P₁)⊕Top(P₂) is two slope-one lines and is not M. PDF p.16 visually checked; CT11 Corollary 5.5 and Ohkubo §12 use successive quotients.",
-   "affects": "a stated result",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "reason": "For bounded split M=E(1)⊕E(0), P₁=E(1), P₂=M. Both nested steps have maximal slope 1, whereas the graded slopes are 1 and 0. The printed sum Top(P₁)⊕Top(P₂) is two slope-one lines and is not M. PDF p.16 visually checked; CT11 Corollary 5.5 and Ohkubo §12 use successive quotients. (cc-442dc5) Reclassified: as printed, (ii) is impossible (P₁ ⊂ P₂ forces the maximal slope of P₂ to be at least that of P₁), so the graded pieces P_i/P_{i−1} are meant; the proofs of Theorem 3.19(2) and Proposition 3.29 use the graded form ((M/P₁)/(M/P₁)¹), as does the cited [10, Cor. 5.5].",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44525,11 +44543,13 @@
    "correction": "Put dim_K on the solution-space side; use d/dx, not d/dy, in the displayed definition of Sol_λ.",
    "reason": "Rank is a nonnegative integer, not a vector space; y is not the coordinate of the displayed K[[x]]₀ module.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44546,11 +44566,13 @@
    "correction": "Assign M† to C′ and N† to C so that f_*M† and f* N† are typed correctly.",
    "reason": "For f:C′→C, direct image starts on C′ and pullback starts on C.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44564,14 +44586,16 @@
    "kind": "gap",
    "locator": "arXiv:1910.03871v3, Lemma 3.31 proof p.19; journal version not collated",
    "printed": "N is PBQ by Lemma 3.30",
-   "correction": "Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion.",
+   "correction": "Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion. (cc-442dc5) A non-circular proof of (1): PBQ is a property of the generic ϕ-∇-module, and for the finite étale f the generic module of f*N† is E_{η′} ⊗_{E_η} N_η. The argument of Proposition 3.14 and Corollary 3.15, applied to the finite extension E_{η′}/E_η in place of E_α/E_η, gives (E_{η′} ⊗ N_η)^b = E_{η′} ⊗ N_η^b, so PBQ is preserved. Part (2) then follows as printed.",
    "reason": "Part (1) starts with N PBQ but concludes N PBQ again; part (2) invokes the lemma. The displayed argument does not prove its required pullback conclusion. The extraction retains the source-stated theorem with a proof gap.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44588,11 +44612,13 @@
    "correction": "The domain of the displayed support-forgetting map should be H¹_rig,c(C,L†(χ)), with compact support.",
    "reason": "As printed the source and target both say H¹_rig; the following sentence and standard support-forgetting map identify the missing c.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44609,11 +44635,13 @@
    "correction": "Use M/M^b as a convergent F-isocrystal, and say h is a convergent, not necessarily overconvergent, coefficient morphism.",
    "reason": "A generic-fiber symbol cannot be the global target in that diagram; Proposition 3.29 explicitly constructs a convergent bounded quotient. Graded-index corrections are separately E9.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44630,11 +44658,13 @@
    "correction": "The target of this intermediate isomorphism is the restriction of M†.",
    "reason": "The displayed factorization immediately below ends at the restriction of M†, as required by the stated fiber conclusion.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44651,11 +44681,13 @@
    "correction": "The left side must be θL₁,L₃, interpreted through the canonical associativity isomorphism.",
    "reason": "The right side lands in the L₃-coefficient category, whereas the printed left side lands in the L₂-category.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44672,11 +44704,13 @@
    "correction": "Explicitly identify the K-dual with the L-dual through the finite-field trace and apply the multiplication component of L⊗K L before the L-valued evaluation.",
    "reason": "The displayed extra scalar tensors obscure the coefficient projector and have excess ranks if interpreted as unprojected tensor products. The intended duality is correct; a fully typed pairing diagram remains G6.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44693,11 +44727,13 @@
    "correction": "Use L⊗K Qpbar≅∏_{τ:L→Qpbar}Qpbar, or the trace-of-restriction-of-scalars identity directly.",
    "reason": "Without a normality assumption, L⊗K L need not split as one copy of L for every embedding. For a non-Galois separable cubic p-adic extension it has a degree-two factor, not three L factors. The desired trace formula itself remains valid.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44714,11 +44750,13 @@
    "correction": "For the trace of the nth Frobenius iterate, replacing F by λF multiplies by λ^n, not λ. Finish using nondegeneracy of trace and the fact that nth powers span L over K in characteristic zero.",
    "reason": "(λF)^n=λ^nF^n here. Finite differences of (λ+j)^n show nth powers span, so the intended conclusion can be repaired. PDF p.34 visually checked.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44733,13 +44771,15 @@
    "locator": "arXiv:1910.03871v3, Definition 7.14 p.34 and Theorem 7.18 p.37; journal version not collated",
    "printed": "w ∈ Z",
    "correction": "Allow arbitrary real weights, or explicitly normalize by a rank-one twist and then restore its weight. The unrestricted mixedness/purity theorem cannot use integer-only weights.",
-   "reason": "On Spec F3 the rank-one coefficient with Frobenius 2 is irreducible but has w=2 log_3 2, not an integer (3^w=4). AE's public proof twists to finite determinant then untwists. PDF p.34 visually checked.",
-   "affects": "a stated result",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "reason": "On Spec F3 the rank-one coefficient with Frobenius 2 is irreducible but has w=2 log_3 2, not an integer (3^w=4). AE's public proof twists to finite determinant then untwists. PDF p.34 visually checked. (cc-442dc5) Reclassified: Definition 7.14 restricts weights to Z, which makes Theorem 7.18 false as printed. But the paper uses purity only through Abe–Esnault's theorem and Proposition 7.15, which hold with real weights, so the mathematics as intended is right.",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44756,11 +44796,13 @@
    "correction": "The lifted τ_m is an endomorphism of the pulled-back N† lifting (g′)^−1h on its top quotient; the resulting map N†→M† is g′∘τ_m, not (g′)^−1∘τ_m.",
    "reason": "Endomorphism-surjectivity supplies an endomorphism of N†. With g′:N†→M†, the inverse has the wrong source for the printed composite.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44777,11 +44819,13 @@
    "correction": "Derive the normalization after the K_m⊗L coefficient projector before using the displayed 1/m average.",
    "reason": "The raw Appendix B composite is m[K_m:K]=m², whereas the projected Qpbar pushforward has normalized rank multiplier m. A projector can remove the extra factor; this checkpoint does not claim that 1/m is wrong, but records the missing explicit comparison.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44798,11 +44842,13 @@
    "correction": "In the comparison with the completed algebraic residue extension use valuation group, not valuation ring; in the tube notation use sp^−1(Z), not sp(Z).",
    "reason": "The fixed field has finite residue field while the ambient completed unramified field has algebraically closed residue, so their valuation rings cannot coincide; the specialization direction also fixes the tube preimage.",
    "affects": "nothing",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -44819,11 +44865,13 @@
    "correction": "Supply a σ-compatible action on a sufficiently enlarged L, or a different descent construction. Identity on L does not in general glue to σ on K over K^(σ^n).",
    "reason": "σ may act nontrivially on K^(σ^n), so the two proposed maps disagree on the tensor base. The existence statement might be repaired by further enlargement; it is not declared false here.",
    "affects": "the proof",
-   "known": "uncertain: preprint observation; no novelty claim about the published article",
+   "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
-    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search."
+    "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
+    "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
@@ -47611,6 +47659,666 @@
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
    "citation": "Hongjie Yu, \"Comptage des systèmes locaux ℓ-adiques sur une courbe\", Annals of Mathematics 197 (2023), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E1",
+   "kind": "error",
+   "locator": "Theorem 4.19, p. 101, read together with the definition of maximal variation in section 1.6, p. 16 (author manuscript dated 21 August 2024; identical in arXiv:2108.05625v4)",
+   "printed": "Theorem 4.19. Let K be either a number field or a function field of one variable. Let S be a quasi-projective variety over K. Let pi : X -> S be a smooth relative curve over S of genus g > 1 with maximal variation. [...] Then the following morphisms satisfy the relative Bogomolov conjecture: (1) the S-morphism i^m_alpha : X^m_{/S} -> J^m_{/S} for any m >= dim S + 1. [...] -- where section 1.6 defines: \"Let S be a quasi-projective integral scheme over a noetherian base ring R [...] We say that pi : X -> S has maximal variation (or maximal variation of moduli) if the moduli morphism S -> M_{g,R} associated to pi is generically finite\"",
+   "correction": "In the function-field case the hypothesis must be maximal variation over the field of constants k, not over K: the moduli morphism must be generically finite on a projective model of S over k, equivalently the family must not become isotrivial over the constant field. The number-field case needs no change.",
+   "reason": "As stated the theorem is false in the function-field case. Because S is a quasi-projective variety over K, the base ring in the section 1.6 definition is R = K, so 'maximal variation' means that S -> M_{g,K} is generically finite. Take k any field, K = k(t), and S = Spec K, so that dim S = 0. Let C be a smooth projective curve of genus g >= 2 over k and let X = C x_k K be the constant family, with alpha any line bundle of positive degree. The hypothesis is then satisfied vacuously: S = Spec K is its own dense open and Spec K -> M_{g,K} is quasi-finite, so the family has maximal variation over K. Part (1) with m = 1 >= dim S + 1 therefore asserts the relative Bogomolov conjecture for i_alpha : X -> J. But that fails: by the definition recalled on p. 100 the canonical height is the one attached to the adelic extension of L over k, and every point of C(kbar), viewed in X(Kbar), is a constant section of a constant family and so has canonical height 0; C(kbar) is infinite, hence Zariski dense in the curve X_{Kbar}. So for every epsilon > 0 the set of points of height at most epsilon is Zariski dense, contradicting the conclusion. The defect is only in the hypothesis, and the paper's own proof shows what the hypothesis should be: it states 'Similar to Proposition 4.18, we need the bigness of the adelic line bundles over k instead of over K, where k = Z if K is a number field and k is the field of constants if K is a function field of one variable', and the bigness input it invokes, Theorem 4.5, requires maximal variation over that same k. Proposition 4.18, on p. 100, is stated correctly and carries bigness on S/k as an explicit hypothesis; it is Theorem 4.19 that fails to upgrade 'maximal variation' to match. The number-field case is unaffected: there k = Z, and for S a variety over a number field K generic finiteness of S -> M_{g,K} is equivalent to that of the induced morphism on a Z-model, since passing to the model adds one to the dimension of the source and of the image alike. Consistently with this, the paper's main uniform theorem is stated with an explicit non-isotriviality condition of its own (section 4.3.2), so the isotrivial case is excluded there and that theorem is not affected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E2",
+   "kind": "misprint",
+   "locator": "Section 3.3.2, p. 50 (the displayed integration formula for the total Green function of Phi_S)",
+   "printed": "the total Green's function g~_{Phi_S} on S^an at any discrete or archimedean valuation v in S^an is given by g~_{Phi_S}(v) = int_{X^an_v} log||1||_{Delta,a} c_1(O(Delta)_a)^2",
+   "correction": "the domain of integration is the analytic fibre of the fibre square, int_{(X x_S X)^an_v}",
+   "reason": "The integral is ill-typed as printed. The metrized line bundle O(Delta)_a is attached to the diagonal Delta in X x_S X and lives on that fibre square, and c_1(...)^2 is a top-degree Chambert-Loir measure only on a two-dimensional analytic space, whereas X^an_v is the analytification of a curve over H_v. The paper's own parallel formula fixes the intended domain: section 3.3.1, p. 48, defines the same invariant as phi(C) = - int_{(C x C)^an} g_{Delta,a} c_1(O(Delta-bar)_a)^2, over the product, and p. 50 asserts that its displayed value 'is exactly the phi-invariant of X_{H_v}', so the two domains have to agree. That the rest of the sentence is right is confirmed by the sign bookkeeping: log||1||_{Delta,a} = -g_{Delta,a}, so the corrected integral is -int g_{Delta,a} c_1^2 = phi, which is what Theorem 3.6(5) then uses. Two pages later, on p. 52, the paper integrates over X^an_{H_v} correctly, with a single c_1 in the integrand.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E3",
+   "kind": "misprint",
+   "locator": "Section 3.3.1, p. 49 (the base-change recipe for delta)",
+   "printed": "If C has split semistable reduction, delta(C) is also the total number of nodes on the minimal regular model of C over O_K; in general, if K' is a finite extension of K such that C has split semistable reduction over K', then delta(C) = delta(C_{K'})/[K' : K]",
+   "correction": "delta(C) = delta(C_{K'})/e(K'/K), with e the ramification index (equivalently, K'/K must be required totally ramified)",
+   "reason": "False as printed, and the two halves of the one sentence contradict each other. Let C already have split semistable reduction over K and let K'/K be unramified of degree f > 1. By the first half, delta(C) is the number of nodes of the minimal regular model over O_K. Over O_{K'} the reduction is still split semistable and the minimal regular model base-changes etale-locally, so it has the same nodes and delta(C_{K'}) = delta(C). The second half then gives delta(C) = delta(C)/f, forcing delta(C) = 0 for every such curve. The recipe is not even well defined as printed, since taking K' = K and K' unramified quadratic give answers differing by a factor 2. With the ramification index it is consistent: a node with local equation t_1 t_2 = pi^m becomes t_1 t_2 = pi'^{em} after a degree-e ramified extension, so delta scales by exactly e. That delta is the raw uniformizer-normalized length, with no residue-degree factor, is fixed by the paper's own conventions: p. 47 normalizes the local Green functions by log e_v, and section 4.5.1, p. 86, writes the global invariants as delta(C) = deg(Delta_S) and phi(C) = sum_v phi_v(C) deg(v), carrying the residue degree separately in deg(v). This is an internal inconsistency in one sentence and is independent of how the conventions of [Zha3] compare with this paper's.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.5, p. 48 (the triangle inequality for the resistance function)",
+   "printed": "r(x, w) <= r(x, z) + r(z, w),   x, y, z in Gamma_v",
+   "correction": "x, z, w in Gamma_v",
+   "reason": "The quantifier list names y, which does not occur in the inequality, and omits w, which does. The next sentence, 'set y = x in [BF, Sec. 6, Thm. 8]', shows that y is a bound variable of the cited identity that has just been specialised away, so it cannot be free in the conclusion; and the derivation that follows uses exactly x, z and w. The proof itself is correct.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E5",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3.10, p. 57 (the sentence introducing the adelic divisor Phi-bar)",
+   "printed": "By Theorem 3.6, there is an adelic divisor Phi-bar in Div^(M/Z) with underlying divisor 0 on M, such that the value g~_{Phi-bar}(v) of the total Green's function g~_{Phi-bar} at any discrete or archimedean valuation v in S^an_v is equal to phi(X_{H_v})",
+   "correction": "at any discrete or archimedean valuation v in M^an is equal to phi(C_{H_v}), and the citation is to section 3.3.2 rather than to Theorem 3.6",
+   "reason": "The sentence was transplanted from section 3.3.2 without renaming its objects, and picked up a stray subscript on the way. Three things are wrong and all three are visible on the page. First, 'v in S^an_v' is self-referential, v occurring as both the element and the subscript; the source sentence in section 3.3.2, p. 50, correctly reads 'at any discrete or archimedean valuation v in S^an'. Second, neither S nor X is in scope here: the proof of Theorem 3.10 opens by fixing M = M_{g,N,Q} and a tautological stable relative curve C -> M-bar, and the same sentence writes Div^(M/Z), 'underlying divisor 0 on M' and phi : M(C) -> R, while the S and X of the preceding proof belong to the arithmetic case of Theorem 3.2, which ends two sentences earlier at 'It remains to prove Theorem 3.10'. So the base is M and the curve is C. Third, Theorem 3.6 is the intersection identity for the triple Deligne pairing; it neither constructs Phi_S nor computes its total Green function. Both of those are section 3.3.2, which defines Phi_S = div^(s) and gives the integration formula that the sentence is asserting. The proof is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E6",
+   "kind": "gap",
+   "locator": "Proof of the arithmetic case of Theorem 3.2, p. 57, and the sketch at the end of section 1.4, p. 14",
+   "printed": "pi_*<omega_{X/S,a}, omega_{X/S,a}> = (2/(3g-1)) O(Phi_S) + nef = (2/(3g-1)) O(c_0) + nef + eff",
+   "correction": "the step needs, and does not cite, the non-negativity of the phi-invariant at the non-archimedean places",
+   "reason": "The second equality asserts that Phi_S - O(c_0) is an effective adelic divisor on S/Z. Since O(c_0) is pulled back from Spec Z, its total Green function is c_0 above the archimedean place and 0 above every finite place, so effectivity needs g~_{Phi_S}(v) >= c_0 archimedean and g~_{Phi_S}(v) >= 0 at every non-archimedean v in S^an. Theorem 3.10, which is what is cited, supplies only the archimedean half, for compact Riemann surfaces. The non-archimedean half is true - it is Cinkir's bound phi(Gamma_v) >= (1/39) l(Gamma_v) >= 0, which the paper quotes as Theorem 3.7 - but Theorem 3.7 is stated only over a base field k, section 3.2 having explicitly excluded k = Z, so the fact needed here is nowhere cited at this point. The gap is therefore in the exposition rather than in the mathematics: the missing input is a graph-theoretic bound the paper already has. The same elision occurs in the outline at the end of section 1.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E7",
+   "kind": "error",
+   "locator": "Section 1.6, p. 16 (definition of a stable curve)",
+   "printed": "The curve is called stable if it is semistable with arithmetic genus g > 1, and any rational irreducible component of C_kbar intersects other irreducible components at three or more points",
+   "correction": "any SMOOTH (nonsingular) rational irreducible component, as in Deligne-Mumford Definition 1.1(iii)",
+   "reason": "As printed the definition excludes genuine stable curves. Take C over kbar irreducible and rational with exactly two nodes, both self-intersections. It is reduced with only ordinary double points, so semistable by the paper's own definition, and its arithmetic genus is 0 + 2 = 2 > 1. It is a stable curve in the standard sense - its only component is singular, so the Deligne-Mumford condition on nonsingular rational components is vacuous, and omega_C is ample - and it is a point of the boundary of Mbar_2. But its unique component is rational and meets OTHER irreducible components in 0 < 3 points, so the printed condition fails. The paper treats its own section 1.6 and [DM, section 1] as interchangeable, saying on p. 41 'We refer to [DM, Sec. 1] (or our Sec. 1.6) for quick definitions of stable curves', and then defines Mbar_g as the moduli of stable curves, whose boundary contains exactly the curves the printed definition rules out. Section 3.3.4 confirms the intended notion by counting nodes 'of type 0', where the partial normalization is connected, i.e. self-nodes of a single component. Every later use is the Deligne-Mumford notion, so nothing downstream is affected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E8",
+   "kind": "gap",
+   "locator": "Theorem 2.3, p. 28, with its proof in section 2.2.3, p. 32",
+   "printed": "Let pi : X -> S be a smooth relative curve of genus g > 0. [...] (a) There is an adelic line bundle omega_{X/S,a} [...] Moreover, omega_{X/S,a} is nef and unique up to isomorphism",
+   "correction": "the proof establishes this only for g > 1; for g = 1 both the normalization and the nefness are unproved",
+   "reason": "The stated hypothesis is g > 0 but the proof supports only g > 1, in two independent ways. First, the normalization: section 2.2.3 pins down beta-bar_2, and hence O(Delta)_a, by an isomorphism whose coefficient is (2g-2), which vanishes at g = 1, so the condition it is meant to impose becomes vacuous and neither beta-bar_2 nor beta-bar_1 is determined. The appendix flags exactly this degeneration: Theorem A.1, p. 105, states the characterizing properties in terms of c_1(O(x)) and then says 'Note that if g > 1, the first two properties are equivalent to the following', the omega-version, which is what Theorem 2.3(2) encodes. Second, the nefness asserted in (a) is proved nowhere for g = 1: the only proof of nefness in the paper is Theorem 2.10(1), whose formula carries 1/(4g(g-1)) and is meaningless at g = 1, and Theorem 2.10 opens by assuming g > 1. The paper itself notices the mismatch without resolving it, remarking on p. 40 'Note that we require g > 1 in this section, while we only require g > 0 in the previous section.' A repair is available inside the paper's own toolkit, since the condition used in section 3.3.3 has coefficient 2 - 1 = 1 and so survives g = 1. The g = 1 case of Proposition 2.7 and Theorems 2.8 and 2.9, which rest on Theorem 2.3 under the same standing hypothesis, is affected in the same way; every application in sections 3 and 4 has g > 1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E9",
+   "kind": "misprint",
+   "locator": "Section 2.1, p. 20 (definition of strongly nef)",
+   "printed": "An adelic line bundle (resp. adelic divisor) is called strongly nef if it is isomorphic (resp. equal) to a limit of nef hermitian line bundles (resp. adelic divisors) under the boundary topology",
+   "correction": "a limit of nef ARITHMETIC divisors on projective models, not of nef adelic divisors",
+   "reason": "The parenthetical is meant to give the divisor counterpart of 'nef hermitian line bundles', that is objects on projective models; as printed it defines a strongly nef adelic divisor as a limit of nef adelic divisors, which is circular. Two lines earlier the same page uses the right word for those model-level objects - 'An adelic divisor is called effective if it is equal to a limit of effective arithmetic divisors' - and section 1.2, p. 6, states the intended notion in full: 'an adelic line bundle is strongly nef if it is the limit of nef hermitian (or usual) line bundles on projective models of J over k under the boundary topology.'",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E10",
+   "kind": "misprint",
+   "locator": "Section 2.2.1, p. 29",
+   "printed": "These constructions will be used in the proof of Theorem A.1 and elsewhere of this paper",
+   "correction": "in the proof of Theorem 2.3",
+   "reason": "Section 2.2.1 sets up the relative Jacobian J = Pic^0_{X/S} over a noetherian base, the morphisms i_alpha and (i_alpha,i_alpha), the Poincare bundle on J x_S J and Definition 2.4 of Theta. Those are used in Proposition 2.6 and in section 2.2.3, which is the proof of Theorem 2.3, and throughout section 2.3. They are not used in the proof of Theorem A.1, which runs over a single complete valuation field and proceeds from Theorem A.3, stated there self-containedly for the Jacobian variety of a curve over a field; the appendix never cites any item or subsection of section 2. The reference is a live hyperlink in the PDF, so it is a wrong label target rather than an extraction artifact.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E11",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.6, p. 31",
+   "printed": "it suffices to prove that the canonical map i^*_alpha : Pic^{00}(J x_S J) -> Pic^{00}(X x_S X) has a torsion cokernel",
+   "correction": "(i_alpha, i_alpha)^*",
+   "reason": "i_alpha : X -> J cannot pull a line bundle on J x_S J back to one on X x_S X. The morphism that induces the displayed map is the one named in the immediately preceding sentence of the same proof, (i_alpha,i_alpha) : X x_S X -> J x_S J, which was introduced on p. 29 for exactly this purpose.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E12",
+   "kind": "misprint",
+   "locator": "Section 2.2.3, p. 32 (the display defining beta-bar_2)",
+   "printed": "p_{1*}<O(Delta)'_a, p_2^* omega'_{X/S,a}> + (2g-2) beta_2 --> omega'_{X/S,a}",
+   "correction": "(2g-2) pi^* beta-bar_2",
+   "reason": "Every other term of the display lives on X, whereas beta-bar_2 lies in Pic^(S), as the next sentence says. The term arises as p_{1*}<(pi,pi)^* beta-bar_2, p_2^* omega-bar'_a> = deg(p_2^* omega_{X/S}) pi^* beta-bar_2 = (2g-2) pi^* beta-bar_2 by [YZ2, Lem. 4.6.1(2)]. The author writes the pi^* correctly in the analogous display four lines above, which gives '... --> pi^* beta-bar_1', so this is a slip rather than a convention.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E13",
+   "kind": "misprint",
+   "locator": "Section 2.2.1, p. 29",
+   "printed": "Let alpha be a line bundle on X of degree d on the fibers of X -> S. We have a finite S-morphism i_alpha : X -> J, x |-> dx - alpha",
+   "correction": "with d nonzero (the paper's own uses all take d > 0)",
+   "reason": "For d = 0 the map i_alpha is the constant section of J -> S determined by -alpha, hence not finite as soon as dim X > dim S. For d nonzero it is finite, being a translation composed with the isogeny [d] and a closed immersion. The hypothesis is correctly imposed wherever the morphism is actually used: the proof of Proposition 2.6 on p. 31 says 'let alpha be a line bundle on X of degree d > 0', and Theorems 4.5, 4.17 and 4.19 all say 'of positive degree on fibers'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E14",
+   "kind": "misprint",
+   "locator": "Section 3.3.3, p. 50 (the recall of Theorem 2.10(2))",
+   "printed": "j^* Theta = 2 O(Delta)_a + p_1^* omega_{X/S,a} + p_2^* omega_{X/S,a} in Pic^(X)_Q",
+   "correction": "in Pic^(X x_S X)_Q",
+   "reason": "The identity is between classes on X x_S X, not on X. Theorem 2.10(2) itself, on p. 37, states this identity correctly 'in Pic^(X x_S X)_Q' and only its second identity, the one for p_{1*}<j^*Theta, j^*Theta>, lives 'in Pic^(X)_Q'; the recall on p. 50 has carried over the wrong one of the two categories.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E15",
+   "kind": "misprint",
+   "locator": "Section 4.4.3, pp. 83 and 84 (two occurrences)",
+   "printed": "Now we prove that we can choose (c_1, c_2) uniformly for all K/k in Theorem 4.2 [...] we conclude that there is a positive integer N' such that the constants (c_1, c_2) in Theorem 4.2 are uniform for all K/k with char(k) not dividing N'",
+   "correction": "Theorem 4.7 in both places",
+   "reason": "Section 4.4.3 is the part of the proof that discharges the 'depending only on g' clause of the main theorem, and that clause belongs to Theorem 4.7, which reads 'there are constants c_1, c_2 > 0 depending only on g' and then quantifies over all number fields and function fields K. Theorem 4.2 is a different statement: its part (1) is over a number field with constants depending on the data, and its part (2) is over a base field k with dim S > 0 and contains no field K at all, so 'the constants in Theorem 4.2 are uniform for all K/k' is not a meaningful assertion about it. The inequality actually being made uniform, displayed immediately before the second occurrence, is verbatim the function-field form of Theorem 4.7 reached at the end of Part 2, involving h_Fal and the canonical height, whereas Theorem 4.2's conclusion involves h_L and deg(M|y) and no Faltings height. Both numbers are live hyperlinks in the PDF, so these are wrong label targets, not extraction artifacts. The slip is easy to explain: p. 70 legitimately says 'The normalization here is compatible with that in Theorem 4.2.'",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E16",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.5(4), p. 70 (last sentence of the proof)",
+   "printed": "The proof is similar to (3), as Theta|_Y is ample on the generic fiber of Y -> S",
+   "correction": "ample on the generic fibre of Y -> T, with dim T in place of dim S in the imported argument",
+   "reason": "Theorem 4.5(4) introduces T as the image of Y -> S and assumes that the composition T -> S -> M_{g,k} is generically finite; the whole purpose of that hypothesis, as against the ambient maximal-variation hypothesis on X -> S, is to allow T to be a proper subvariety of S. When T is strictly smaller than S the fibre of Y -> S over the generic point of S is empty, so the sentence as printed is vacuous. The argument imported from part (3) also fails literally: the positive term there is (pi_J^* pi_*<omega_a,omega_a>|_Y)^{dim S} times a power of Theta|_Y, and on Y that first class is pulled back from T, so its (dim T + 1)-st power vanishes and the term is identically zero whenever dim T < dim S. With dim T throughout, the term is the degree of Theta|_Y on the generic fibre of Y -> T times (pi_{T*}<omega_a,omega_a>)^{dim T}, which is positive by Theorem 3.2 applied over T - which is exactly what the hypothesis on T buys. The statement of Theorem 4.5(4) is correct and the corrected step is immediate.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E17",
+   "kind": "misprint",
+   "locator": "Section 4.3.1, p. 72",
+   "printed": "Here the degree deg_{B'/k}(omega_{B'}) comes from the map deg_{B'/k} : Div(C') -> Z given by deg_{B'/k}(v) = [k(v) : k], where v in B' is a closed point and k(v) is the residue field of v in B'",
+   "correction": "deg_{B'/k} : Div(B') -> Z",
+   "reason": "The same sentence says that v is a closed point of B' and that k(v) is its residue field in B', so the domain is generated by the closed points of B'; and the map is applied to omega_{B'} and lambda_{B'}, which are line bundles on B'. C' = C_{K'} is a curve over the field K', so Div(C') has nothing to do with deg_{B'/k}. The number-field analogue one page later is written correctly with the base, as the map on Div^(O_{K'}). The proof of Lemma 4.9 then argues that deg_{B'/k}(omega_{B'}) > 0 implies it is at least 1 because it is an integer, which only makes sense for divisors on B'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E18",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.9, p. 76",
+   "printed": "Here J is the Jacobian variety of X over K",
+   "correction": "the Jacobian variety of C over K",
+   "reason": "Lemma 4.9 introduces only K, k, C and g; no X occurs in the lemma or anywhere in its proof. The next sentence, 'By [DM, Thm. 2.4], C has semistable reduction over K'', confirms that the curve in play is C. X is the paper's letter for the relative curve over a base, a different object.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E19",
+   "kind": "misprint",
+   "locator": "Section 4.3.2, p. 74, clause (3) of the definition of a triple over a field F",
+   "printed": "Denote by mu_N(k) the group of N-th roots of unity in k. By the Weil pairing e_N : Pic(C)[N] x Pic(C)[N] -> mu_N(k), the existence of eta implies that mu_N(k) contains all N-th roots of unity of kbar. Fix an isomorphism i : Z/NZ -> mu_N(k)",
+   "correction": "mu_N(F) in all four places, and 'all N-th roots of unity of Fbar'",
+   "reason": "The definition is explicitly of 'a triple of degree d and level N over a field F', and its clauses (1) and (2) correctly use F. Pic(C)[N] is the N-torsion of a curve over F, so the Weil pairing lands in mu_N(F). With k hard-coded the clause is meaningful only for F = k, whereas the definition is applied immediately afterwards with F = kbar and F = Kbar, and on p. 75 'for any algebraically closed field F over k'. The inference that the existence of eta forces mu_N to contain all N-th roots of unity of the algebraic closure is also non-vacuous only in the F version.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E20",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.2(2), p. 66",
+   "printed": "If x not in Z_y(Kbar) or equivalently x-tilde not in Z_y, then the",
+   "correction": "x not in Z_y(overline{k(y)})",
+   "reason": "Theorem 4.2(2) is the geometric case: its hypotheses give S a quasi-projective variety over a field k, and no field K exists in that setting. The claim being verified is displayed one page earlier with k(y), as {x in (X^m)_y(overline{k(y)}) : h_{L_m}(x) <= epsilon deg(M|y)} contained in Z_y(overline{k(y)}), and the conclusion of Theorem 4.2(2) counts points of X_y(overline{k(y)}). The Kbar is carried over from part (1), whose proof on p. 65 legitimately writes Sigma(y)^m contained in Z_y(Kbar).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E21",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.2(2), pp. 65-66, and proof of Theorem 4.10, p. 83",
+   "printed": "{x in (X^m)_y(overline{k(y)}) : h_{L_m}(x) <= epsilon d deg(M|y)} contained in Z_y(overline{k(y)})",
+   "correction": "a strict inequality, h_{L_m}(x) < epsilon deg(M|y); equivalently halve epsilon in the claim",
+   "reason": "What the displayed derivation establishes is 0 <= deg(pi_x)(h_{L_m}(x) - epsilon d deg(M|y)) for x outside Z_y, because a nonzero effective section gives only the non-strict bound. So the complement of Z_y contains no point with h_{L_m} strictly less than the threshold, but the boundary case of equality is not excluded, and the set as written with <= is therefore not contained in Z_y. Since epsilon is an arbitrary positive rational, halving it repairs the step; but it is a genuine off-by-boundary slip and it occurs twice, in the two parallel proofs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E22",
+   "kind": "gap",
+   "locator": "Proof of Theorem 4.2(1), p. 65, against the statement of Lemma 4.3, p. 66",
+   "printed": "By Lemma 4.3 below, the inclusion Sigma(y)^m contained in Z_y(Kbar) forces Sigma(y) to be finite with #Sigma(y) <= deg_{m-box-N}(Z_eta), for all y in U(Kbar) -- where Lemma 4.3 reads: Let Sigma be a finite subset of C(F) such that Sigma^m contained in Z(F)",
+   "correction": "apply Lemma 4.3 to each finite subset of Sigma(y), whose uniform bound then forces Sigma(y) itself to be finite; or drop the finiteness hypothesis from Lemma 4.3",
+   "reason": "Lemma 4.3 assumes that Sigma is finite, and its proof sets n = #Sigma and uses n as a multiplier of a line bundle, so it is unavailable for infinite Sigma. The sentence 'forces Sigma(y) to be finite' therefore does not follow from the lemma as stated - the lemma presupposes what is being concluded. The fix is one line, since the bound the lemma provides is independent of Sigma: apply it to every finite subset.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E23",
+   "kind": "misprint",
+   "locator": "Section 4.5, p. 84",
+   "printed": "h_N(s) = [omega^2_{X_s,a}], h_M(s) = h_Fal(X_s) + c, for all s in S(Kbar)",
+   "correction": "for all s in S(Qbar)",
+   "reason": "The sketch fixes S = M_{g,N,Q} over Q and says 'We only take the number field case for example'; the immediately preceding display quantifies over (S minus Z)(Qbar). No field K is introduced anywhere in the sketch. Harmless in substance, since for a number field K one has Kbar = Qbar.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E24",
+   "kind": "misprint",
+   "locator": "Section A.1, p. 102 (the condition equivalent to admissibility of a Green function)",
+   "printed": "The condition is equivalent to (i/pi) ddbar g_D = dmu_Ar - delta_D as currents on C",
+   "correction": "(i/pi) ddbar g_D = deg(D) dmu_Ar - delta_D",
+   "reason": "The identity fails on total mass for every divisor of degree other than 1. The left side is exact, so it integrates to 0 over the compact surface C. The paper's own normalization makes mu_Ar a probability measure: dmu_Ar = (i/2g) sum_j alpha_j wedge alpha_j-bar for an orthonormal basis of the pairing <alpha,beta> = (i/2) integral alpha wedge beta-bar, so its total mass is (1/g) times g, namely 1; and delta_D has total mass deg(D). As printed the right side integrates to 1 - deg(D). The factor is also forced by the two neighbouring definitions: admissibility of a metric is defined three lines earlier as c_1(L,||.||) = deg(L) dmu_Ar, and Poincare-Lelong for ||1|| = exp(-g_D), the paper's own convention, gives c_1(O(D),||.||) = (i/pi) ddbar g_D + delta_D, so substituting admissibility produces the deg(D). The non-archimedean twin, Proposition A.2 on p. 108, correctly carries deg(L). Nothing downstream breaks, because every subsequent use is for a divisor D = x_0 of degree 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E25",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.14, p. 94 (the announcement of the key claim)",
+   "printed": "The key is that D-tilde_S - Delta-tilde_S is effective on S/Q",
+   "correction": "D-tilde_S - c(g) Delta-tilde_S is effective on S/Q",
+   "reason": "The factor c(g) is missing from the announcement only; both the proof of the claim and its use carry it. The display immediately following establishes g-tilde_{D-tilde_S}(v) = (3/(2c(g)) + 3) phi_v - delta_v - epsilon_v >= phi_v >= c(g) delta_v = c(g) g-tilde_{Delta-tilde_S}(v), and the sentence closing that display reads 'thus D-tilde_S - c(g) Delta-tilde_S is effective on S/Q', while the next paragraph opens 'Once D-tilde_S - c(g) Delta-tilde_S is effective on S/Q, the method of the proof of Theorem 3.10 works here.' The announced form is also strictly stronger and is not established: c(g) is at most 1/14 and Delta-tilde_S is effective, so D-tilde_S - Delta-tilde_S is the smaller of the two, and the chain of inequalities only ever gives phi_v >= c(g) delta_v, never phi_v >= delta_v.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E26",
+   "kind": "misprint",
+   "locator": "Proposition 4.16, p. 97, and Proposition 4.18, p. 100 (the same subformula in both)",
+   "printed": "(pi|_Y)_* <L-bar|_Y, ..., L-bar|_Y> is big on S/k",
+   "correction": "psi, or the composition of iota with psi, in place of pi: the structure morphism Y -> S",
+   "reason": "The letter pi is not introduced in either section 4.6.1 or section 4.6.3, where these propositions live. Both sections set up the abelian scheme as psi : A -> S with identity section e, and the map from Y as iota : Y -> A. pi is first defined in section 4.6.2, on p. 97, as a relative curve pi : X -> S - that is, after Proposition 4.16 and for a different object. The abuse is compounded by the paper's own remark that iota is not assumed to be a closed immersion, so Y is not a subscheme of A and a literal restriction pi|_Y does not exist. Both propositions are otherwise correct as printed, including their base fields and their bounds on m.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E27",
+   "kind": "misprint",
+   "locator": "Appendix A, pp. 104 and 106",
+   "printed": "Here we view x as a closed point of X_{K'}, O(x) is the line bundle on X_{K'} corresponding to x in X_{K'} [...] x_0 in X(K)",
+   "correction": "C_{K'} and C(K)",
+   "reason": "Throughout the appendix the curve is called C and X is never introduced; X is the main text's letter for a relative curve over a base. On p. 106 the slip is self-evident, the preceding clause on p. 105 reading 'we can assume C(K) is non-empty and take a point x_0 in X(K)'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E28",
+   "kind": "gap",
+   "locator": "Proof of Proposition A.5, p. 118, and one step of the existence proof of Theorem A.1, p. 113",
+   "printed": "Appendix A's standing hypothesis is genus g > 0, and Theorem A.1, Proposition A.2, Theorem A.3 and Proposition A.5 are all stated under it",
+   "correction": "two steps need g > 1 and are unproved at g = 1",
+   "reason": "Two steps silently require 2g - 2 to be nonzero. First, the proof of Proposition A.5 computes c_1(omega_{C/K}, ||.||_a) = i_*((2g-2) mu) and then appeals to the defining equation of dmu_a, which for L = omega reads c_1(omega, ||.||_a) = deg(omega) dmu_a = (2g-2) dmu_a; at g = 1 this is 0 = 0 and determines nothing. The asserted formula nevertheless appears to be true at g = 1 - good reduction gives the single vertex measure, and a Tate curve with an n-cycle graph gives uniform probability measure on the edges - so this is a gap rather than a false statement, and the fix is to run the argument with a degree-1 line bundle instead of omega. Second, the existence half of Theorem A.1 concludes on p. 113 that 'The constancy of this integral with L = omega_{C/K} is exactly what we need for (2) of Theorem A.1'; but property (2) as stated integrates against c_1(O(x), ||.||_x), and the omega-version is equivalent to it only under the paper's own proviso on p. 105, 'Note that if g > 1, the first two properties are equivalent to the following'. That the author was tracking the g-dependence is clear from the neighbouring uniqueness proof, which inserts '(for g > 0)' exactly where it is needed; these two steps do not survive g = 1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E29",
+   "kind": "misprint",
+   "locator": "Proof of Theorem A.1, p. 114",
+   "printed": "Therefore, part (2) of Theorem A.1 also holds up to multiplicative constants",
+   "correction": "up to additive constants",
+   "reason": "The plan of this proof, set out on p. 111, distinguishes the two: 'It suffices to prove that (2) holds for (||.||'_Delta, ||.||'_a) up to an additive constant independent of x, and that (3) holds ... up to a multiplicative constant independent of x.' Property (2) is an equation on the Green function g_{Delta,a}, which shifts additively, whereas property (3) is a metric identity, which shifts multiplicatively. So the closing sentence contradicts the plan three pages earlier.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-26/E30",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.14, pp. 93 and 95",
+   "printed": "12 deg^(lambda-bar_K)",
+   "correction": "lambda-bar_{O_K}",
+   "reason": "Section 4.5.2 introduces 'the Hodge bundle lambda_{O_K} = det pi_* omega_{C/O_K}' on p. 89 and writes the arithmetic Noether formula and deg^(lambda-bar_{O_K}) = [K:Q] h_Fal(C) with that subscript. The proof of Theorem 4.14 then writes lambda-bar_K for the same object, three times on p. 93 and once on p. 95; lambda-bar_K is nowhere defined, and the Hodge bundle is an object on the arithmetic base, not on the field.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 15-119, doi 10.4007/annals.2026.203.1.2: subscription-only, and the Project Euclid landing page gives only the abstract, so the final typeset wording of Theorem 4.19 was not obtained and it is possible that the hypothesis was strengthened in production",
+    "the author's own copy at faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf, downloaded 2026-09-23, 126 pages, sha256 b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e, dated 21 August 2024: this is the text read for this extraction, its hash is identical to the copy the earlier workers of this job read, and it contains the defect",
+    "arXiv:2108.05625, whose latest version is v4 of 30 April 2024 and carries no journal reference: Theorem 4.19 and the definition of maximal variation in section 1.6 are word for word the same there as in the August 2024 manuscript, so the defect is in both public versions and was neither introduced nor removed between them",
+    "the author's publication page and CV (updated March 2026) for an erratum, corrigendum or note on this paper: none listed"
+   ],
+   "owner": "PAPER-YUAN-26",
+   "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
+   "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
