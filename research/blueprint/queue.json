@@ -1155,7 +1155,8 @@
    ],
    "avoidAccountOf": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1086"
   },
   {
    "id": "PAPER-SCHROER-23",
@@ -4137,8 +4138,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -13052,8 +13053,9 @@
    ],
    "avoidAccountOf": "RS-20~2",
    "prompt": "research/blueprint/prompts/REV-RS-20~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1616"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1616",
+   "finishedAt": "2026-09-23T15:12:28Z"
   },
   {
    "id": "RS-21",
@@ -41322,9 +41324,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-32.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-32",
-   "note": "claimed on GitHub issue #867"
+   "note": "deliverables arrived from an external worker on issue #867",
+   "finishedAt": "2026-09-23T15:12:35Z"
   },
   {
    "id": "AUDIT-33",
@@ -41819,8 +41822,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-41.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-41"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-41",
+   "note": "claimed on GitHub issue #876"
   },
   {
    "id": "AUDIT-42",
