@@ -81,10 +81,16 @@
             "pages": "Statements and full proofs read at 0316,05GH,031C,0315,00MA,00MB,07NV,07NY,0C0S. Uses the direct power-series quotient proof of 0316 and the height-formula alternative for 07NV."
           }
         ]
+      },
+      {
+        "session": "codex-hjdg0j",
+        "date": "2026-09-23",
+        "scope": "Freshly reread LLHLM23 published PDF68–69 and Elkik §0.2/Lemma 1, printed555–558/PDF4–7; standing Noetherian convention on printed554 was read in the prior continuation. Same hashes as the recorded sources. The original full-paper read is inherited; this continuation makes no new full-212-page reading claim.",
+        "result": "Finite Newton correction and the non-Noetherian torsionfree I=A convergence proof decomposed into Z30–Z39, using L24–L33. No new source mistake claimed; E1–E35 unchanged and unreviewed."
       }
     ]
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -3161,20 +3167,48 @@
       "implementationStatus": "unchecked",
       "unitTests": [
         {
-          "name": "Z03.test_1",
-          "statement": "For J=(f), the nonempty one-row contribution is the gradient ideal; keep the empty-row annihilator contribution separate if that convention is used.",
-          "status": "mathematical acceptance test; no Lean compilation"
+          "name": "ElkikPresentation.zeroIdeal",
+          "kind": "degenerate",
+          "statement": "For the presentation A[X_1,…,X_N]/(0), the empty-row contribution is (1), so H=(1), including N=0."
         },
         {
-          "name": "Z03.test_2",
-          "statement": "For the duplicated presentation (f,f), selecting one copy recovers the same derivative witness; taking only the full 2-row Jacobian would lose it.",
-          "status": "mathematical acceptance test; no Lean compilation"
+          "name": "ElkikPresentation.hypersurface",
+          "kind": "computation",
+          "statement": "For J=(f), H=Ann(f)+(∂_1 f,…,∂_N f). Over a domain with nonzero f this is the gradient ideal; the annihilator contribution is retained over general rings."
+        },
+        {
+          "name": "ElkikPresentation.duplicateEquation",
+          "kind": "non-example",
+          "statement": "Over Z[X], the presentation (X,X) has H=(1): either singleton row has derivative 1 and conductor (1). The two-row minor ideal is zero, so using only the full-row Jacobian gives a wrong result."
+        },
+        {
+          "name": "ElkikPresentation.baseChangeStrict",
+          "kind": "non-example",
+          "statement": "For J=(2) in Z[X], H=(0); after base change to F_2, the new H=(1), while the image of the old H remains zero. Only base-change inclusion is asserted."
+        },
+        {
+          "name": "ElkikPresentation.productRule",
+          "kind": "compatibility",
+          "statement": "Jacobian entries are evaluations of Mathlib MvPolynomial.pderiv; the entry for f=X_1 X_2 is (X_2,X_1), and coefficient base change commutes with each entry."
+        },
+        {
+          "name": "ElkikPresentation.smallerWitness",
+          "kind": "non-example",
+          "statement": "In Z_p[X] with J=(X), the full H=(1) but the permitted H_B=(p) is not the full smooth-locus ideal. At a=0, p∈H_B(a) whereas 1∉H_B(a)."
         }
       ],
       "uses": [
         {
           "where": "U24 and G28",
           "how": "A power of the base parameter in H+J gives a uniform lifting precision independently of the test ring."
+        },
+        {
+          "where": "Z32 and Z33",
+          "how": "Select finite conductor identities and minors to produce a linear correction without assuming the full Jacobian is square."
+        },
+        {
+          "where": "Z35 and Z39, then Z07",
+          "how": "Transport the evaluated power witness through tuple changes and coefficient base changes; only the latter operation changes the coefficient ring."
         }
       ],
       "api": [
@@ -3186,7 +3220,7 @@
         {
           "name": "ElkikPresentation.baseChange_le",
           "role": "functoriality",
-          "statement": "The image of an admissible H_B under coefficient base change lies in the new conductor-weighted Jacobian ideal."
+          "statement": "The coefficient image of H_B is contained in the new Elkik ideal for the base-changed fixed equations; exported as Z39. No arbitrary base-change equality."
         },
         {
           "name": "ElkikPresentation.eval",
@@ -3202,6 +3236,54 @@
           "name": "ElkikPresentation.powerWitness",
           "role": "data",
           "statement": "Export a concrete finite identity v^r=h+j with h∈H and j∈J for use after all base changes."
+        },
+        {
+          "name": "ElkikPresentation.emptyMinor",
+          "role": "simp",
+          "statement": "The empty-row summand is Ann(J), so H=(1) when J=0."
+        },
+        {
+          "name": "ElkikPresentation.finiteWitness",
+          "role": "characterisation",
+          "statement": "Membership t^r∈H_B(a) with H_B⊂H gives a finite A-linear combination of evaluated conductor-weighted minors; no finite generation of the individual conductor ideals is required."
+        },
+        {
+          "name": "ElkikPresentation.witnessPerturbation",
+          "role": "compatibility",
+          "statement": "In a complete separated (t)-adic ring, a change modulo t^s with s>r preserves t^r∈H_B(a); exported as Z35."
+        }
+      ],
+      "conventions": "A is a commutative ring. The empty equation subset is included: Δ_empty=(1) and K_empty=Ann(J). For J=0 the full H is the unit ideal. p>N contributes zero. H_B is an arbitrary subideal of H; it is not required to be generated by a subset of the minor generators.",
+      "tests": [
+        {
+          "name": "ElkikPresentation.zeroIdeal",
+          "kind": "degenerate",
+          "statement": "For the presentation A[X_1,…,X_N]/(0), the empty-row contribution is (1), so H=(1), including N=0."
+        },
+        {
+          "name": "ElkikPresentation.hypersurface",
+          "kind": "computation",
+          "statement": "For J=(f), H=Ann(f)+(∂_1 f,…,∂_N f). Over a domain with nonzero f this is the gradient ideal; the annihilator contribution is retained over general rings."
+        },
+        {
+          "name": "ElkikPresentation.duplicateEquation",
+          "kind": "non-example",
+          "statement": "Over Z[X], the presentation (X,X) has H=(1): either singleton row has derivative 1 and conductor (1). The two-row minor ideal is zero, so using only the full-row Jacobian gives a wrong result."
+        },
+        {
+          "name": "ElkikPresentation.baseChangeStrict",
+          "kind": "non-example",
+          "statement": "For J=(2) in Z[X], H=(0); after base change to F_2, the new H=(1), while the image of the old H remains zero. Only base-change inclusion is asserted."
+        },
+        {
+          "name": "ElkikPresentation.productRule",
+          "kind": "compatibility",
+          "statement": "Jacobian entries are evaluations of Mathlib MvPolynomial.pderiv; the entry for f=X_1 X_2 is (X_2,X_1), and coefficient base change commutes with each entry."
+        },
+        {
+          "name": "ElkikPresentation.smallerWitness",
+          "kind": "non-example",
+          "statement": "In Z_p[X] with J=(X), the full H=(1) but the permitted H_B=(p) is not the full smooth-locus ideal. At a=0, p∈H_B(a) whereas 1∉H_B(a)."
         }
       ]
     },
@@ -3214,12 +3296,13 @@
       "status": "missing",
       "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z30"
       ],
       "proofSteps": [
-        "For a conductor-weighted minor k_αδ_α, the adjugate matrix and differentiated conductor relations give z_α∈(t^m A)^N with k_α(a)δ_α(a)f(a)=Jac(a)z_α modulo t^(2m).",
-        "Combine finitely many such identities expressing t^r in H_B(a), write the combined z as t^r y, and cancel t^r using torsionfreeness.",
-        "Taylor's formula has a quadratic remainder in t^(2m−2r); the linear residual lies in the stronger ideal t^(2m−r)."
+        "Use Z33 to obtain y∈t^(m−r) with f(a)−D(a)y∈t^(2m−r).",
+        "Apply Z30 with L=(t^(m−r)). Its remainder lies in t^(2m−2r). Since 2m−r≥2m−2r, the linear residual lies in the same ideal, so f(a−y)∈t^(2m−2r).",
+        "The step itself only needs m≥r for these bounds. The stated m>2r gives strict improvement and permits witness persistence in the iteration."
       ],
       "implementationStatus": "unchecked",
       "unitTests": [
@@ -3233,6 +3316,9 @@
           "statement": "The inequality m>2r gives 2m−2r>m; equality at m=2r does not provide strict improvement.",
           "status": "mathematical acceptance test; no Lean compilation"
         }
+      ],
+      "acceptance": [
+        "For Z_3 and f=X²−18 at a=3, r=1 and m=2=2r satisfy the residual and Jacobian conditions, but f has no root in Z_3: any root divided by 3 would square to 2 modulo 3. Thus the strict threshold in the exact-lifting theorem cannot in general be weakened to m≥2r."
       ]
     },
     {
@@ -3262,13 +3348,16 @@
       "status": "missing",
       "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z04"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L32"
       ],
       "proofSteps": [
-        "The finite adjugate/Taylor calculation of Z04 uses no Noetherian condition. Torsionfreeness permits cancellation directly, with k=0.",
-        "At each correction the tuple changes modulo t^(m−r), with m−r>r; the old identity expressing t^r in H_B(a) persists at the new tuple after multiplying by a unit 1+t^(m−2r)b.",
-        "Iterate m_(j+1)=2(m_j−r); its solution is m_j=2r+2^j(m_0−2r), so precision tends to infinity. Completeness gives a limit; continuity of finitely many polynomials gives J(a^0)=0.",
-        "Only I=A is asserted in this non-Noetherian variant; the correction remains in the closed principal-power neighborhood t^(m−r)A."
+        "Use L32 to express complete separated t-adic topology as IsAdicComplete (t) A. Z36 supplies a Newton sequence with e_j=m_j−r=r+2^j(m_0−2r).",
+        "Apply Z37 coordinatewise to obtain a^0 with a^0−a_j∈t^e_j for every j. At j=0 this is the promised agreement modulo t^(m_0−r).",
+        "Apply Z38 to the residual orders m_j≥e_j to conclude J(a^0)=0.",
+        "No Noetherian condition or arbitrary-ideal closure assertion is used. Z05 retains the separate original theorem for general I; this argument concerns only its torsionfree I=A specialization. Uniqueness of a^0 is not asserted."
       ],
       "implementationStatus": "unchecked",
       "unitTests": [
@@ -3294,11 +3383,14 @@
       "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L30"
       ],
       "proofSteps": [
         "V(H+J) is contained in V(v), hence v lies in the radical of H+J; choose one power and a finite polynomial identity before base change.",
-        "Evaluation gives t^r=h+t^m b. Since 1−t^(m−r)b is a unit by completeness, t^r belongs to H_B(a).",
+        "Evaluation gives t^r=h+t^m b. Since 1−t^(m−r)b differs from 1 by an element of (t), L29 and L30 make it a unit. Thus t^r belongs to H_B(a); no cancellation or Noetherian condition on A is used.",
         "Combining with Z06 permits N=2r+1. Both r and N are chosen from the universal presentation, not separately for each test ring."
       ],
       "implementationStatus": "unchecked"
@@ -4379,6 +4471,455 @@
         "Evaluation K[[X]]→K[ε]/ε² is surjective but has kernel (X²); regularity must not be smuggled into this step.",
         "With r=0, m=0 and the coefficient-field hypothesis identify B with K."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L24",
+      "kind": "theorem",
+      "name": "Leibniz rule for formal partial derivatives",
+      "statement": "Over a commutative semiring R, for multivariate polynomials f,g and a variable i, ∂_i(fg)=(∂_i f)g+f(∂_i g).",
+      "locator": "Mathlib/Algebra/MvPolynomial/PDeriv.lean:116 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.pderiv_mul"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The derivative is the bundled algebraic derivation MvPolynomial.pderiv. No analytic differentiability or characteristic-zero hypothesis."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L25",
+      "kind": "theorem",
+      "name": "Partial derivative of a multivariate monomial",
+      "statement": "Over a commutative semiring R, ∂_i(a X^s)=a s_i X^(s−e_i), with truncated subtraction and coefficient zero when s_i=0.",
+      "locator": "Mathlib/Algebra/MvPolynomial/PDeriv.lean:71 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.pderiv_monomial"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Supplies the formal coefficient in the first-order polynomial expansion over every characteristic."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L26",
+      "kind": "theorem",
+      "name": "Adjugate identity over a commutative ring",
+      "statement": "For a finite square matrix M over a commutative ring, M adj(M)=det(M)·1. No invertibility or non-zero-divisor assumption on det(M) is required.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean:264 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.mul_adjugate"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Use the existing Matrix.adjugate and finite selected submatrix. The determinant may vanish; no matrix inverse is taken."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L27",
+      "kind": "theorem",
+      "name": "Adic precompleteness gives a congruence limit",
+      "statement": "For a commutative ring R, ideal I and R-module M with IsPrecomplete I M, a sequence f satisfying f_m≡f_n modulo I^m M whenever m≤n has a limit L with f_n≡L modulo I^n M for every n.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Basic.lean:140 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsPrecomplete.prec"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Use M=R coordinatewise. The strengthened tail precision in Z37 is an adapter, not part of this exact declaration."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L28",
+      "kind": "theorem",
+      "name": "Adic separatedness detects zero",
+      "statement": "For an R-module M with IsHausdorff I M, an element whose image modulo I^n M is zero for every n is zero.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Basic.lean:60 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsHausdorff.haus"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "No Noetherian, finite-module or topological continuity assumption."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L29",
+      "kind": "theorem",
+      "name": "An adic ideal in a complete ring lies in the Jacobson radical",
+      "statement": "For a commutative ring R and ideal I, IsAdicComplete I R implies I⊂Jac(R).",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Basic.lean:880 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsAdicComplete.le_jacobson_bot"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "The declaration is in namespace IsAdicComplete; it proves the geometric-series argument without Noetherianity."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L30",
+      "kind": "theorem",
+      "name": "Elements congruent to one modulo the Jacobson radical are units",
+      "statement": "For a commutative ring R, if u−1∈Jac(R), then u is a unit.",
+      "locator": "Mathlib/RingTheory/Jacobson/Ideal.lean:282 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.isUnit_of_sub_one_mem_jacobson_bot"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Together with L29, makes 1+t^e b a unit when e≥1 in a (t)-adically complete ring."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L31",
+      "kind": "theorem",
+      "name": "Partial derivatives commute with coefficient base change",
+      "statement": "For a map φ:R→S of commutative semirings and a multivariate polynomial f, ∂_i(map φ f)=map φ (∂_i f).",
+      "locator": "Mathlib/Algebra/MvPolynomial/PDeriv.lean:146 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.pderiv_map"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Supplies the Jacobian-entry comparison in Z39; conductors require an inclusion argument of their own."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L32",
+      "kind": "theorem",
+      "name": "Algebraic and topological adic completeness agree",
+      "statement": "For a commutative ring R with a uniform structure making its additive group uniform, and a topology that is I-adic, IsAdicComplete I R is equivalent to CompleteSpace R and T2Space R.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Topology.lean:76 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsAdic.isAdicComplete_iff"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Use the adic uniform structure on the test ring. Completeness alone without separatedness is not the right-hand side."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L33",
+      "kind": "theorem",
+      "name": "Powers preserve injectivity of multiplication",
+      "statement": "In a monoid, if multiplication on the left by t is injective, then multiplication on the left by t^r is injective for every natural r.",
+      "locator": "Mathlib/Algebra/Regular/Basic.lean:197 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsLeftRegular.pow"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "In a commutative ring this discharges cancellation of t^r from an equality; it does not assert cancellation of ideals in a ring with t-torsion."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z30",
+      "kind": "theorem",
+      "name": "First-order polynomial expansion modulo the square of an ideal",
+      "statement": "Let A be a commutative ring, L an ideal, f∈A[X_1,…,X_N], a∈A^N and y∈L^N. Then f(a−y)−f(a)+Σ_i (∂_i f)(a)y_i belongs to L². In particular, y∈(t^s A)^N gives a remainder in t^(2s)A. There is no division by factorials.",
+      "locator": "Elkik Lemma 1, printed p. 556/PDF5, display (2)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L25"
+      ],
+      "proofSteps": [
+        "Prove the assertion by polynomial induction. Constants and variables have zero remainder; it is additive in f.",
+        "For a product fg, multiply the two first-order expansions. Every discarded product contains at least two coordinates of y or a previous L² remainder; all discarded terms lie in L². L24 identifies the linear coefficient. Alternatively expand each monomial using L25.",
+        "For L=(t^s), L²=(t^(2s)) by multiplying generators. This holds over rings with zero divisors and in characteristic two."
+      ],
+      "acceptance": [
+        "For f=X², the remainder is y² even in characteristic two, when the first derivative vanishes.",
+        "For f=XY and y=(u,v), the remainder is uv.",
+        "Linear polynomials have zero remainder."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 556/PDF5, display (2)",
+          "excerpt": "développement de Taylor",
+          "match": "Ideal-valued first-order identity extracted from the finite polynomial expansion; the proof here explains the arbitrary-ring scope."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z31",
+      "kind": "theorem",
+      "name": "Differentiated conductor relations",
+      "statement": "Let f=(f_1,…,f_q) over a commutative ring A, choose a subset α of p equations, and suppose k f_l=Σ_i c_li f_{α_i} as polynomial identities for all l. Put D_li=∂_i f_l and D_α for its selected rows. The entries of kD−C D_α belong to J=(f_1,…,f_q). Thus if all f_l(a)∈L, then k(a)D(a)−C(a)D_α(a) has entries in L.",
+      "locator": "Elkik Lemma 1, printed p. 557/PDF6, display (5)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L24"
+      ],
+      "proofSteps": [
+        "Differentiate each conductor identity: k∂_j f_l−Σ_i c_li∂_j f_{α_i}=Σ_i(∂_j c_li)f_{α_i}−(∂_j k)f_l.",
+        "Evaluate this exact polynomial identity at a. Each term on the right lies in L. For selected rows choose c_li=k times the corresponding Kronecker delta, so the same formula applies to every row."
+      ],
+      "acceptance": [
+        "The derivatives of k and C cannot be deleted as polynomial identities; they disappear only modulo the equation ideal.",
+        "For f=(X²,X³), α=(X³), k=X and C=(1,X), the first-row discrepancy is −X²."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 557/PDF6, display (5)",
+          "excerpt": "après dérivation",
+          "match": "Explicit discrepancy formula underlying the conductor congruence; no torsion or completeness is used."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z32",
+      "kind": "theorem",
+      "name": "Conductor-weighted minor gives a Jacobian image modulo squared error",
+      "statement": "In Z31, choose p distinct columns β and put M=D_{α,β}(a), δ=det M. Suppose f_l(a)∈L for every l. Define z supported on β by z_β=k(a) adj(M) f_α(a), with all other coordinates zero. Then z∈L^N and k(a)δ f(a)−D(a)z∈(L²)^q. For p=0 use det(0×0)=1, kJ=0 and z=0; the same conclusion holds.",
+      "locator": "Elkik Lemma 1, printed pp. 557–558/PDF6–7, displays (5)–(6) and adjugate calculation",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L26"
+      ],
+      "proofSteps": [
+        "All coordinates of z lie in L because f_α(a) does. Multiply the discrepancy in Z31 by the vector supported on β with entries adj(M)f_α(a); both factors lie entrywise in L, so the error lies in L².",
+        "Use M adj(M)=δ·1 to obtain D(a)z≡δ C(a)f_α(a) modulo L².",
+        "The undifferentiated conductor identities give C(a)f_α(a)=k(a)f(a) exactly. This proves the claimed congruence, including all unselected equation rows.",
+        "In the empty-row case the conductor annihilates every equation and no matrix calculation is needed."
+      ],
+      "acceptance": [
+        "No determinant is inverted. Singular matrices and p=0 are allowed.",
+        "With f=(X²,X³), α=(X³), k=X, β=(X), z=a^4 and k(a)δ f(a)−D(a)z=(a^5,0). This lies in (a²,a³)². Omitting the factor k from z fails this identity."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed pp. 557–558/PDF6–7, displays (5)–(6) and adjugate calculation",
+          "excerpt": "Il reste donc seulement",
+          "match": "Finite-matrix form of the weighted correction; the empty minor is handled explicitly rather than inferred from the nonempty calculation."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z33",
+      "kind": "theorem",
+      "name": "Jacobian power witness yields a linear correction with controlled precision",
+      "statement": "Let A be a commutative ring in which multiplication by t is injective. With J,H_B as in Z03, suppose J(a)⊂t^m A, t^r∈H_B(a) and m≥r. Then there exists y∈(t^(m−r)A)^N such that f(a)−D(a)y∈(t^(2m−r)A)^q.",
+      "locator": "Elkik Lemma 1, printed pp. 556–557/PDF5–6, passage from (4) to (3)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L33"
+      ],
+      "proofSteps": [
+        "Because H_B⊂H and membership in an ideal sum/product has finite witnesses, write t^r as a finite A-linear combination of evaluated conductor-weighted minors. Apply Z32 with L=(t^m) to each summand and add: t^r f(a)−D(a)z∈(t^(2m)A)^q with z∈(t^m A)^N.",
+        "Write z_i=t^m b_i and set y_i=t^(m−r)b_i. Then z=t^r y. For each equation write t^r(f_l(a)−(Dy)_l)=t^(2m)c_l.",
+        "Since 2m≥r, the right side equals t^r t^(2m−r)c_l. Cancel t^r using L33. No completion, Noetherianity, or invertibility of a minor enters this step."
+      ],
+      "acceptance": [
+        "For f=t^r X−t^m at a=0 the correction y=−t^(m−r) solves the equation exactly.",
+        "Cancellation is invalid with t-torsion: in Z/8Z, 2·4=0 although 4≠0."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed pp. 556–557/PDF5–6, passage from (4) to (3)",
+          "excerpt": "Il reste donc seulement",
+          "match": "Torsionfree I=A specialization of the finite combination and cancellation step, stated separately from the original Noetherian lemma."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z34",
+      "kind": "theorem",
+      "name": "Polynomial evaluation preserves congruences of tuples",
+      "statement": "For a commutative ring A, an ideal L and a,b∈A^N with b_i−a_i∈L for all i, every polynomial f satisfies f(b)−f(a)∈L. Hence for any polynomial ideal H, H(a)+L=H(b)+L, where H(a) is its image ideal under evaluation.",
+      "locator": "Elkik Lemma 1, printed p. 556/PDF5, iteration following display (1)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z30"
+      ],
+      "proofSteps": [
+        "Apply Z30 with y=a−b; each linear term lies in L and the remainder lies in L²⊂L.",
+        "Every element of H(a) is the evaluation of a single member of H, since evaluation A[X]→A is surjective on constants: lift coefficients in any finite ideal expression. The congruence gives both inclusions after adding L."
+      ],
+      "acceptance": [
+        "For f=X² and b=a+u with u∈L the difference 2au+u² lies in L, including characteristic two.",
+        "Congruence modulo L asserts equality after adding L, not equality of the evaluated ideals themselves."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 556/PDF5, iteration following display (1)",
+          "excerpt": "approximations successives",
+          "match": "Elementary evaluation adapter used both to propagate the witness and to pass equations to an adic congruence limit."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z35",
+      "kind": "theorem",
+      "name": "Persistence of an evaluated ideal power witness",
+      "statement": "Let A be a commutative (t)-adically complete and separated ring, H⊂A[X_1,…,X_N] any ideal, t^r∈H(a), and b−a∈(t^s A)^N with s>r. Then t^r∈H(b). No torsionfreeness or finite generation of H is needed.",
+      "locator": "Elkik Lemma 1, printed p. 556/PDF5, iteration following display (1); LLHLM23 Proposition 3.3.9, PDF69",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L30"
+      ],
+      "proofSteps": [
+        "Lift the evaluated-ideal membership to h∈H with h(a)=t^r. Z34 gives h(b)=t^r+t^s c=t^r(1+t^(s−r)c).",
+        "The factor u=1+t^(s−r)c has u−1∈(t), because s−r≥1. L29 and L30 show it is a unit. Multiplication by u inverse gives t^r∈H(b).",
+        "The strict inequality is essential; no cancellation of t^r is used in the argument."
+      ],
+      "acceptance": [
+        "Over Z_p, H=(X), a=p^r and b=0 satisfy b−a∈p^r Z_p but p^r∉H(b); equality s=r is insufficient.",
+        "For r=0 any change in tA preserves a unit ideal witness."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 556/PDF5, iteration following display (1); LLHLM23 Proposition 3.3.9, PDF69",
+          "excerpt": "approximations successives",
+          "match": "Details the unit adjustment implicit in repeating the correction. This is an extracted auxiliary argument, not a separately numbered assertion of Elkik."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z36",
+      "kind": "theorem",
+      "name": "A Newton sequence with a persistent witness and explicit error orders",
+      "statement": "Under the hypotheses of Z06 with initial tuple a_0 and m_0>2r, there exists a sequence a_j with m_j=2r+2^j(m_0−2r), f(a_j)∈(t^m_j A)^q, t^r∈H_B(a_j), and a_(j+1)−a_j∈(t^(m_j−r)A)^N for every j. No canonical choice or uniqueness of this sequence is asserted.",
+      "locator": "Elkik Lemma 1, printed p. 556/PDF5, display (1) and following convergence paragraph",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z35"
+      ],
+      "proofSteps": [
+        "Given a_j, use Z04 to choose y_j and put a_(j+1)=a_j−y_j. The next residual order is 2m_j−2r.",
+        "Since m_j−r>r, Z35 preserves the witness. Induction therefore applies at every stage.",
+        "Solve the recurrence by m_j−2r=2^j(m_0−2r). With c=m_0−2r≥1, the correction orders e_j=r+2^j c are strictly increasing and satisfy e_j≥j. These inequalities supply the input to Z37."
+      ],
+      "acceptance": [
+        "At the minimum threshold m_0=2r+1, the orders are m_j=2r+2^j and e_j=r+2^j.",
+        "The theorem gives existence, not a functorial Newton operator for a presentation with several possible witnesses."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 556/PDF5, display (1) and following convergence paragraph",
+          "excerpt": "approximations successives",
+          "match": "Repetition of the finite step with all inductive invariants and the exact precision recurrence exposed."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z37",
+      "kind": "theorem",
+      "name": "Adic limits retain the full tail precision",
+      "statement": "Let A be a commutative ring with IsAdicComplete I A. Let e_j be a strictly increasing sequence of natural numbers, and let a_j∈A^N satisfy a_(j+1)−a_j∈(I^e_j)^N. There is a unique a_∞ such that a_∞−a_j∈(I^e_j)^N for every j.",
+      "locator": "Elkik Lemma 1, printed p. 556/PDF5, convergence paragraph; Mathlib AdicCompletion/Basic.lean:60,140",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L28"
+      ],
+      "proofSteps": [
+        "For k≥j, telescoping the finite sum of increments gives a_k−a_j∈(I^e_j)^N. Strict increase implies e_j≥j, so this is a sequence to which L27 applies coordinatewise, giving a candidate limit modulo I^j.",
+        "Fix j and take k≥max(j,e_j). The candidate limit differs from a_k by an element of I^k⊂I^e_j; combine with the telescoping congruence to recover the stronger I^e_j precision.",
+        "Any two such limits differ by an element of every I^n: choose j≥n and use e_j≥j. L28 gives equality. This proves the congruences without requiring closure of arbitrary ideals."
+      ],
+      "acceptance": [
+        "For a_j=Σ_(i<j) t^(2^i) in A=k[[t]], e_j=2^j, the limit has exactly the claimed tail congruences.",
+        "Uniqueness here is for the limit of a chosen sequence; it is not uniqueness of the solution of f=0."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 556/PDF5, convergence paragraph; Mathlib AdicCompletion/Basic.lean:60,140",
+          "excerpt": "approximations successives",
+          "match": "Quantitative congruence adapter to the pinned algebraic completeness API. The proof also works for nonprincipal ideals I."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z38",
+      "kind": "theorem",
+      "name": "Polynomial equations vanish at a cofinal congruence limit",
+      "statement": "Let A be a commutative ring with IsHausdorff I A, e_j a strictly increasing sequence, and a_j,a_∞∈A^N with a_∞−a_j∈(I^e_j)^N. If f_l(a_j)∈I^m_j for all l,j and m_j≥e_j, then every f_l(a_∞)=0.",
+      "locator": "Elkik Lemma 1, printed p. 556/PDF5, exact limit in its statement and convergence paragraph",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L28"
+      ],
+      "proofSteps": [
+        "Z34 implies f_l(a_∞)−f_l(a_j)∈I^e_j. The residual hypothesis and m_j≥e_j put f_l(a_∞) itself in I^e_j.",
+        "Strict increase gives e_j≥j, hence membership in I^n for every n. Apply L28 to each polynomial value.",
+        "For Z36, I=(t), e_j=m_j−r, and m_j≥e_j. Z37 supplies exactly the required limit congruences."
+      ],
+      "acceptance": [
+        "When I=0, the congruence sequence is constant after the first positive order and the assertion reduces to f(a)=0.",
+        "Separatedness is essential: for I=A on a nonzero ring, every residual lies in every I^n but need not vanish."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik Lemma 1, printed p. 556/PDF5, exact limit in its statement and convergence paragraph",
+          "excerpt": "approximations successives",
+          "match": "Algebraic passage to an exact zero; no analytic continuity theorem or Noetherian closed-ideal theorem is invoked."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z39",
+      "kind": "theorem",
+      "name": "Admissible Elkik ideals survive coefficient base change",
+      "statement": "For a map A→A′ of commutative rings, fix f_1,…,f_q∈A[X_1,…,X_N] and their coefficient images f′. If H_B⊂Σ_α ((f_α):J)Δ_α, then the ideal generated by its image in A′[X] is contained in Σ_α ((f′_α):J′)Δ′_α. This is an inclusion, with no flatness assumption.",
+      "locator": "Elkik §0.2, printed p. 555/PDF4, paragraph defining H_B",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L31"
+      ],
+      "proofSteps": [
+        "Map each finite conductor identity k f_l=Σ c_li f_{α_i}; it proves that the image of k is in the new conductor. This does not give the reverse inclusion.",
+        "L31 identifies the images of Jacobian entries. The determinant is a finite signed sum of products, so each minor maps to the corresponding new minor.",
+        "Map the ideal sum/products and combine the inclusions. Empty minors map to 1 and annihilator conductors still map into annihilator conductors."
+      ],
+      "acceptance": [
+        "For A=Z, J=(2)⊂Z[X], H=Ann(2)+(∂2)=(0). After base change to F_2, J′=0 and H′=(1), whereas the image of H is zero. Equality fails even for this one-equation presentation."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Owner: SchemeAndStackFoundations:SF.4. Codex — codex-hjdg0j; mathematical proof adapter, no Lean implementation.",
+      "sources": [
+        {
+          "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+          "locator": "Elkik §0.2, printed p. 555/PDF4, paragraph defining H_B",
+          "excerpt": "changement de base",
+          "match": "Promotes the consumed Z03 base-change API to its own theorem item; the strict-inclusion example guards against an unjustified equality."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -4668,7 +5209,17 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z04",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z05",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z06",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z07"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z39"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs.",
       "stages": [
@@ -5657,7 +6208,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "The supplied definition API groups reference every currently inventoried definition, but grouped coverage is not complete itemwise closure. Refine itemwise APIs and unit tests from all uses, and split compound definitions. Do not replace the missing work by constructor/projection boilerplate. No new definition/construction is introduced in codex-a71f92's atom audit. Existing grouped or untyped tests and per-item two-test entries still require the protocol's itemwise API, consumers and at least three typed tests; passing the paper validator does not certify this. A fresh census finds 84 definitions plus 65 constructions, not 84 combined D/C items: the 26 inherited groups reference the 84 definitions only. This continuation supplies itemwise uses/API/six typed tests for the touched Z24 construction. The other 64 constructions lack such group coverage; audit them explicitly."
+      "detail": "The supplied definition API groups reference every currently inventoried definition, but grouped coverage is not complete itemwise closure. Refine itemwise APIs and unit tests from all uses, and split compound definitions. Do not replace the missing work by constructor/projection boilerplate. No new definition/construction is introduced in codex-a71f92's atom audit. Existing grouped or untyped tests and per-item two-test entries still require the protocol's itemwise API, consumers and at least three typed tests; passing the paper validator does not certify this. A fresh census finds 84 definitions plus 65 constructions, not 84 combined D/C items: the 26 inherited groups reference the 84 definitions only. This continuation supplies itemwise uses/API/six typed tests for the touched Z24 construction. The other 64 constructions lack such group coverage; audit them explicitly. Z03 is now repaired itemwise with six typed tests and eight API entries; this does not repair the remaining inherited API/test deficits."
     },
     {
       "id": "library-item-audit",
@@ -6067,7 +6618,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29"
       ],
-      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 Taylor/adjugate/convergence and Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation."
+      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. Its remaining local source obligation is the smooth-locus/radical power-witness interface consumed by Z07 (Z03 states that interface but does not decompose its Jacobian criterion proof); no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation."
     }
   ],
   "sourceData": {
@@ -6633,6 +7184,62 @@
       ],
       "boundaries": "No Lean deliverable or compilation. Source findings E1–E35 unchanged, unreviewed. Previous CAS/SymPy evidence preserved, not rerun. New computation uses only the Python standard library.",
       "submissionInputCommit": "aaad07d20878d1959d96e154df283a54b61eb6f5"
+    },
+    "newtonContinuation": {
+      "session": "codex-hjdg0j",
+      "date": "2026-09-23",
+      "files": [
+        {
+          "file": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
+          "sha256": "86fad42ffca71f9ffd94f59d1e6486977de3c79d14385e1c462afeaf59c09fc5",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/PDeriv.lean"
+        },
+        {
+          "file": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+          "sha256": "7e28f11ff275a95412e8e8849715da0c763ff96709005d75843b8e0c40c5fef3",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Adjugate.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+          "sha256": "ea71c61be774fd579bad7f9faa3477a8cbc637daa36832c0813d733fe02703ba",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Jacobson/Ideal.lean",
+          "sha256": "d7a9e97afb320332c618049a2d3863782a0b4900f50435c3c91d1ff15906ae38",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Jacobson/Ideal.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Topology.lean",
+          "sha256": "f86f197e6d27c95419a568d66860fe375a2a7aac684b7bc6f90c07c2cdbdb169",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Topology.lean"
+        },
+        {
+          "file": "Mathlib/Algebra/Regular/Basic.lean",
+          "sha256": "99bff449f1b05915759b07ae543200c6c13ed11946ea1d15956a828d7163b23c",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Regular/Basic.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Smooth/AdicCompletion.lean",
+          "sha256": "b6cc03238723d8bc15dff15f4e5f16b2063d8482f91edb9a32828711a8d9a9c4",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/AdicCompletion.lean"
+        }
+      ],
+      "reviewedRowsRead": [
+        "AUDIT-01: SchemeAndStackFoundations:SF.4; full roadmap content/campaign/SchemeAndStackFoundations/README.md"
+      ],
+      "scope": "Actual declarations and standing hypotheses read at the full Mathlib pin. Both pinned trees searched for Elkik/Taylor/adjugate/Henselian and adic-completeness support. No exact conductor-weighted Newton theorem located; no absence claim based solely on a name.",
+      "nearMisses": [
+        {
+          "declaration": "Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete",
+          "reason": "Requires FormallySmooth R A over the entire base and gives a compatible lift modulo I. Smoothness only after inverting t does not provide that hypothesis; it does not justify the quantitative r-loss assertion."
+        },
+        {
+          "declaration": "TauCeti.HenselianRing.exists_pow_eq_and_sub_one_mem_of_sub_one_mem",
+          "reason": "Requires invertible n and produces nth roots of principal units in a Henselian ring. It does not treat general systems with conductor-weighted Jacobian witnesses."
+        }
+      ],
+      "ownership": "Reuse SchemeAndStackFoundations:SF.4 for the general quantitative lifting adapters. Existing adic completeness, formal derivatives, adjugates, and Jacobson facts are imported rather than planned again; all 15 existing routes retained."
     }
   },
   "validation": {
@@ -6679,6 +7286,42 @@
         "internalDAG": true
       },
       "validators": "Paper validator and three-file intake pass; 48 repository tests pass. All 365 prior item statements and all 35 findings preserved; three item objects deliberately refined with recorded evidence. No new construction; Z24 now has the consumer-derived API and six typed tests."
+    },
+    "newtonContinuation": {
+      "session": "codex-hjdg0j",
+      "meaning": "Source-level proof decomposition plus finite diagnostic checks; no Lean file or compilation, no general theorem formally proved, and no independent source-issue review.",
+      "inherited": "Earlier appendix CAS and tensor/completion diagnostics are preserved historical evidence and are not rerun.",
+      "changedExistingItems": [
+        "Z03",
+        "Z04",
+        "Z06",
+        "Z07"
+      ],
+      "allExistingStatementsPreserved": true,
+      "sourceIssuesPreserved": 35,
+      "diagnostics": {
+        "taylorResidueRingChecks": 11200,
+        "weightedAdjugateSpecializations": 225,
+        "nonunitNewtonSteps": 48,
+        "precisionRecurrences": 672,
+        "principalUnitWitnesses": 1680,
+        "boundaryControls": 3
+      },
+      "structural": {
+        "items": 406,
+        "statuses": {
+          "missing": 367,
+          "planned": 6,
+          "library": 33
+        },
+        "sourceIssues": 35,
+        "routes": 15,
+        "internalDependencyEdges": 100,
+        "preservedStatements": 386,
+        "internalDAG": true,
+        "oneRoutePerMissing": true
+      },
+      "validators": "Paper checker, three-file intake checker and git diff --check pass. Assertions verify all 386 inherited statements, 35 findings and 15 route identities unchanged; all missing items routed once; 100-edge internal DAG. Fresh diagnostics use SymPy 1.14.0 plus the Python standard library. No repository code changed; earlier 48-test run is historical and was not repeated."
     }
   },
   "definitionApiGroups": [
@@ -7136,7 +7779,8 @@
         "For J=(f), the nonempty one-row contribution is the gradient ideal; keep the empty-row annihilator contribution separate if that convention is used.",
         "For the duplicated presentation (f,f), selecting one copy recovers the same derivative witness; taking only the full 2-row Jacobian would lose it."
       ],
-      "derivedFrom": "Elkik (1973), §0.2, printed p. 555/PDF4; LLHLM23 Proposition3.3.9 proof PDF69"
+      "derivedFrom": "Elkik (1973), §0.2, printed p. 555/PDF4; LLHLM23 Proposition3.3.9 proof PDF69",
+      "continuation": "Z03 now carries its own 3 consumer records, eight API entries and six typed tests; itemwise fields are the refined specification. Base-change and perturbation APIs are promoted to Z39 and Z35."
     },
     {
       "items": [

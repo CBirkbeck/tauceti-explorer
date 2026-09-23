@@ -1,3 +1,21 @@
+# LLHLM23 — current handoff (Codex — codex-hjdg0j, 2026-09-23)
+
+Issue #1254; continuation of merged PR #2242. Partial checkpoint: **406 items (33 library, 6 planned, 367 missing), 15 routes, 149 definitions/constructions, 35 unchanged unreviewed findings.** All 386 inherited item statements preserved. No Lean file required or compiled; no independent review.
+
+Completed the bounded Newton proof decomposition. L24–L33 import actual pinned derivative, adjugate, regular-power, adic-completeness and Jacobson statements. Z30–Z39 supply finite Taylor error, differentiated conductor identities, a weighted adjugate, linear precision/cancellation, tuple congruence, witness persistence, the Newton sequence, the full tail precision of its limit, exact vanishing and coefficient base-change inclusion. Z04/Z06/Z07 now name their exact consumed adapters. Z03 has three uses, eight API entries and six typed tests; no other inherited API deficit is hidden.
+
+Key formulas: for a selected p×p minor M and k f=C f_alpha, set z_beta=k(a) adj(M) f_alpha(a). Then k(a)det(M)f(a)−D(a)z lies in the square of the equation-error ideal. Finite witness combination gives t^r f−Dz∈t^(2m); write z=t^r y and cancel t^r to obtain the linear error in t^(2m−r). Taylor gives residual order 2m−2r. The witness survives a change in t^s only with s>r. The recurrence is m_j=2r+2^j(m_0−2r). Algebraic IsPrecomplete.prec plus IsHausdorff.haus yields the exact limit and the initial congruence without an arbitrary-ideal closure theorem.
+
+Important boundaries: no determinant inversion; no Noetherian assumption on the torsionfree test ring; no arbitrary-I non-Noetherian generalization; no uniqueness of a polynomial solution; no equality of Jacobian ideals under arbitrary coefficient base change. The empty minor contributes Ann(J). The example X²−18 at 3 over Z_3 shows why m=2r does not suffice for exact lifting. The smooth-locus theorem needed by Z07 is still a separate supplier obligation. The formal-smooth lifting theorem in Mathlib requires formal smoothness over the entire base and does not discharge generic-smooth quantitative lifting.
+
+Fresh reading: LLHLM23 published PDF68–69 and Elkik printed555–558/PDF4–7; identical recorded PDF hashes. Full main-paper reading is inherited, not newly claimed. Reviewed AUDIT-01 SF.4 and the entire SchemeAndStackFoundations roadmap read; actual L24–L33 declarations, the formal-smooth near miss and Tau Ceti's principal-unit Henselian theorem read at the pinned trees. All new missing items use the existing SF.4 route; no new owner or roadmap.
+
+Checks: paper validator, three-file intake and git diff --check pass. Structural assertions preserve all 386 statements, 35 findings and 15 route identities; every missing item routed once; internal 100-edge DAG. Fresh SymPy/integer/Fraction diagnostics: 11,200 Taylor residue-ring cases, exact symbolic conductor/adjugate identities, 225 weighted specializations, 48 nonunit Newton steps, 672 recurrence steps, 1,680 principal-unit perturbations and three boundary controls. Reproducible diagnostic core is in the report. These are formula/hypothesis diagnostics, not general proofs or Lean compilation. Earlier CAS and repository tests were not rerun.
+
+Resume in this order: (1) Z03/Z07 smooth-locus/Jacobian/radical supplier closure; (2) Z10/Z13/Z14 analytic Galois descent, inseparable extension, Nullstellensatz, rational fibers, formal-model flatness and generic-product regularity; (3) Z24 coefficient-category presentation and previous completion topology/ideal adapters; (4) external-source/multipart census, monodromy and Appendix A interfaces, itemwise APIs and >=3 typed tests, integral Appendix B certificates. Preserve the upstream ModularCurves4D supplier for Z23/Z28. Do not mark complete merely from route coverage. E1–E35 still require an independent finished review; none was written in this paper continuation.
+
+## Previous handoff (historical checkpoint)
+
 # LLHLM23 — current handoff (Codex — codex-a71f92, 2026-09-23)
 
 Issue #1254; continuation of merged #2231. Partial checkpoint. **386 items (23 library, 6 planned, 357 missing), 15 route identities, 149 definitions/constructions (84 definitions plus 65 constructions), 35 unchanged findings.** No Lean file or independent review.

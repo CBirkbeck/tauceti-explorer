@@ -1,3 +1,305 @@
+# Local models for Galois deformation rings: quantitative Newton lifting
+
+Codex — codex-hjdg0j, issue #1254, 23 September 2026. **Partial checkpoint:** 406 items, comprising 33 library imports, 6 planned items and 367 missing items; 15 routes; 149 definitions/constructions; 35 unchanged, unreviewed source findings. All 386 inherited item statements are retained. This continuation adds ten library atoms and ten proof adapters, and repairs the itemwise API/tests of Z03. No Lean file was required or compiled, and no formalization or independent review is claimed.
+
+The finite correction and its convergence are now decomposed at the level needed to support Z06. In a complete, separated, parameter-torsionfree ring, an error modulo t^m and a Jacobian-ideal witness t^r produce an exact solution agreeing modulo t^(m−r), provided m>2r. The proof uses a finite polynomial calculation followed by congruence limits. It does not require Noetherianity of the test ring. Z05 retains the original Noetherian statement with an arbitrary auxiliary ideal; this continuation does not extend that statement to arbitrary non-Noetherian ideals.
+
+## Source and ownership checks
+
+Freshly reread [LLHLM23, Proposition 3.3.9](https://math.rice.edu/~bl70/LocModels.pdf), published PDF68–69, and [Elkik, §0.2 and Lemma 1](https://numdam.org/item/10.24033/asens.1258.pdf), printed555–558/PDF4–7, including the whole finite adjugate calculation. Elkik's standing Noetherian convention on printed554 was read in the previous continuation. The downloaded PDF hashes are unchanged:
+
+- LLHLM23: `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`.
+- Elkik: `74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5`.
+
+The full 212-page LLHLM23 reading remains attributed to the inherited worker. This bounded continuation does not claim another full-paper read. The auxiliary statements below make explicit arguments in and around Elkik's proof; they are not falsely presented as separately numbered theorems of Elkik.
+
+The full SchemeAndStackFoundations roadmap and its reviewed AUDIT-01 SF.4 row were read. SF.4 remains the sole owner of the general quantitative lifting additions. The existing upstream AdicSpaces completeness conventions and ModularCurves §4D completion interface were checked; their contents are not replanned. All fifteen route identities are preserved.
+
+The exact pinned declaration statements and hypotheses for L24–L33 were read. In particular, the reviewed audit correctly points to `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete`. Its hypothesis is formal smoothness over the whole base; smoothness only after inverting t does not supply that hypothesis. The quantitative correction is therefore still needed. Tau Ceti's principal-unit root theorem was also read: it assumes an invertible root degree and does not solve these general polynomial systems. The JSON records the library file hashes and exact pinned public links.
+
+## Existing library atoms
+
+| Item | Pinned Mathlib declaration | Role in the proof |
+| --- | --- | --- |
+| L24 | `MvPolynomial.pderiv_mul` | Differentiate conductor relations. |
+| L25 | `MvPolynomial.pderiv_monomial` | Identify first-order monomial coefficients without factorial denominators. |
+| L26 | `Matrix.mul_adjugate` | Multiply a selected minor by its adjugate, without inverting its determinant. |
+| L27 | `IsPrecomplete.prec` | Produce coordinatewise limits with explicit congruences. |
+| L28 | `IsHausdorff.haus` | Turn vanishing modulo every ideal power into equality. |
+| L29 | `IsAdicComplete.le_jacobson_bot` | Put the adic ideal in the Jacobson radical. |
+| L30 | `Ideal.isUnit_of_sub_one_mem_jacobson_bot` | Invert the unit that corrects a perturbed witness. |
+| L31 | `MvPolynomial.pderiv_map` | Transport Jacobian entries under coefficient maps. |
+| L32 | `IsAdic.isAdicComplete_iff` | Translate complete separated adic topology to IsAdicComplete. |
+| L33 | `IsLeftRegular.pow` | Cancel the chosen power of a regular parameter. |
+
+## Declaration-sized proof adapters
+
+All rings in the following polynomial calculations are commutative. The tuples have finitely many coordinates. Matrix rows index equations and columns index variables. The selected minor uses equally many distinct rows and columns; its determinant need not be invertible.
+
+### Z30: First-order polynomial expansion modulo the square of an ideal
+
+Let A be a commutative ring, L an ideal, f∈A[X_1,…,X_N], a∈A^N and y∈L^N. Then f(a−y)−f(a)+Σ_i (∂_i f)(a)y_i belongs to L². In particular, y∈(t^s A)^N gives a remainder in t^(2s)A. There is no division by factorials.
+
+Prerequisites: L24, L25.
+
+1. Prove the assertion by polynomial induction. Constants and variables have zero remainder; it is additive in f.
+2. For a product fg, multiply the two first-order expansions. Every discarded product contains at least two coordinates of y or a previous L² remainder; all discarded terms lie in L². L24 identifies the linear coefficient. Alternatively expand each monomial using L25.
+3. For L=(t^s), L²=(t^(2s)) by multiplying generators. This holds over rings with zero divisors and in characteristic two.
+
+Acceptance checks: For f=X², the remainder is y² even in characteristic two, when the first derivative vanishes. For f=XY and y=(u,v), the remainder is uv. Linear polynomials have zero remainder.
+
+### Z31: Differentiated conductor relations
+
+Let f=(f_1,…,f_q) over a commutative ring A, choose a subset α of p equations, and suppose k f_l=Σ_i c_li f_{α_i} as polynomial identities for all l. Put D_li=∂_i f_l and D_α for its selected rows. The entries of kD−C D_α belong to J=(f_1,…,f_q). Thus if all f_l(a)∈L, then k(a)D(a)−C(a)D_α(a) has entries in L.
+
+Prerequisites: L24.
+
+1. Differentiate each conductor identity: k∂_j f_l−Σ_i c_li∂_j f_{α_i}=Σ_i(∂_j c_li)f_{α_i}−(∂_j k)f_l.
+2. Evaluate this exact polynomial identity at a. Each term on the right lies in L. For selected rows choose c_li=k times the corresponding Kronecker delta, so the same formula applies to every row.
+
+Acceptance checks: The derivatives of k and C cannot be deleted as polynomial identities; they disappear only modulo the equation ideal. For f=(X²,X³), α=(X³), k=X and C=(1,X), the first-row discrepancy is −X².
+
+### Z32: Conductor-weighted minor gives a Jacobian image modulo squared error
+
+In Z31, choose p distinct columns β and put M=D_{α,β}(a), δ=det M. Suppose f_l(a)∈L for every l. Define z supported on β by z_β=k(a) adj(M) f_α(a), with all other coordinates zero. Then z∈L^N and k(a)δ f(a)−D(a)z∈(L²)^q. For p=0 use det(0×0)=1, kJ=0 and z=0; the same conclusion holds.
+
+Prerequisites: Z31, L26.
+
+1. All coordinates of z lie in L because f_α(a) does. Multiply the discrepancy in Z31 by the vector supported on β with entries adj(M)f_α(a); both factors lie entrywise in L, so the error lies in L².
+2. Use M adj(M)=δ·1 to obtain D(a)z≡δ C(a)f_α(a) modulo L².
+3. The undifferentiated conductor identities give C(a)f_α(a)=k(a)f(a) exactly. This proves the claimed congruence, including all unselected equation rows.
+4. In the empty-row case the conductor annihilates every equation and no matrix calculation is needed.
+
+Acceptance checks: No determinant is inverted. Singular matrices and p=0 are allowed. With f=(X²,X³), α=(X³), k=X, β=(X), z=a^4 and k(a)δ f(a)−D(a)z=(a^5,0). This lies in (a²,a³)². Omitting the factor k from z fails this identity.
+
+### Z33: Jacobian power witness yields a linear correction with controlled precision
+
+Let A be a commutative ring in which multiplication by t is injective. With J,H_B as in Z03, suppose J(a)⊂t^m A, t^r∈H_B(a) and m≥r. Then there exists y∈(t^(m−r)A)^N such that f(a)−D(a)y∈(t^(2m−r)A)^q.
+
+Prerequisites: Z03, Z32, L33.
+
+1. Because H_B⊂H and membership in an ideal sum/product has finite witnesses, write t^r as a finite A-linear combination of evaluated conductor-weighted minors. Apply Z32 with L=(t^m) to each summand and add: t^r f(a)−D(a)z∈(t^(2m)A)^q with z∈(t^m A)^N.
+2. Write z_i=t^m b_i and set y_i=t^(m−r)b_i. Then z=t^r y. For each equation write t^r(f_l(a)−(Dy)_l)=t^(2m)c_l.
+3. Since 2m≥r, the right side equals t^r t^(2m−r)c_l. Cancel t^r using L33. No completion, Noetherianity, or invertibility of a minor enters this step.
+
+Acceptance checks: For f=t^r X−t^m at a=0 the correction y=−t^(m−r) solves the equation exactly. Cancellation is invalid with t-torsion: in Z/8Z, 2·4=0 although 4≠0.
+
+### Z34: Polynomial evaluation preserves congruences of tuples
+
+For a commutative ring A, an ideal L and a,b∈A^N with b_i−a_i∈L for all i, every polynomial f satisfies f(b)−f(a)∈L. Hence for any polynomial ideal H, H(a)+L=H(b)+L, where H(a) is its image ideal under evaluation.
+
+Prerequisites: Z30.
+
+1. Apply Z30 with y=a−b; each linear term lies in L and the remainder lies in L²⊂L.
+2. Every element of H(a) is the evaluation of a single member of H, since evaluation A[X]→A is surjective on constants: lift coefficients in any finite ideal expression. The congruence gives both inclusions after adding L.
+
+Acceptance checks: For f=X² and b=a+u with u∈L the difference 2au+u² lies in L, including characteristic two. Congruence modulo L asserts equality after adding L, not equality of the evaluated ideals themselves.
+
+### Z35: Persistence of an evaluated ideal power witness
+
+Let A be a commutative (t)-adically complete and separated ring, H⊂A[X_1,…,X_N] any ideal, t^r∈H(a), and b−a∈(t^s A)^N with s>r. Then t^r∈H(b). No torsionfreeness or finite generation of H is needed.
+
+Prerequisites: Z34, L29, L30.
+
+1. Lift the evaluated-ideal membership to h∈H with h(a)=t^r. Z34 gives h(b)=t^r+t^s c=t^r(1+t^(s−r)c).
+2. The factor u=1+t^(s−r)c has u−1∈(t), because s−r≥1. L29 and L30 show it is a unit. Multiplication by u inverse gives t^r∈H(b).
+3. The strict inequality is essential; no cancellation of t^r is used in the argument.
+
+Acceptance checks: Over Z_p, H=(X), a=p^r and b=0 satisfy b−a∈p^r Z_p but p^r∉H(b); equality s=r is insufficient. For r=0 any change in tA preserves a unit ideal witness.
+
+### Z36: A Newton sequence with a persistent witness and explicit error orders
+
+Under the hypotheses of Z06 with initial tuple a_0 and m_0>2r, there exists a sequence a_j with m_j=2r+2^j(m_0−2r), f(a_j)∈(t^m_j A)^q, t^r∈H_B(a_j), and a_(j+1)−a_j∈(t^(m_j−r)A)^N for every j. No canonical choice or uniqueness of this sequence is asserted.
+
+Prerequisites: Z04, Z35.
+
+1. Given a_j, use Z04 to choose y_j and put a_(j+1)=a_j−y_j. The next residual order is 2m_j−2r.
+2. Since m_j−r>r, Z35 preserves the witness. Induction therefore applies at every stage.
+3. Solve the recurrence by m_j−2r=2^j(m_0−2r). With c=m_0−2r≥1, the correction orders e_j=r+2^j c are strictly increasing and satisfy e_j≥j. These inequalities supply the input to Z37.
+
+Acceptance checks: At the minimum threshold m_0=2r+1, the orders are m_j=2r+2^j and e_j=r+2^j. The theorem gives existence, not a functorial Newton operator for a presentation with several possible witnesses.
+
+### Z37: Adic limits retain the full tail precision
+
+Let A be a commutative ring with IsAdicComplete I A. Let e_j be a strictly increasing sequence of natural numbers, and let a_j∈A^N satisfy a_(j+1)−a_j∈(I^e_j)^N. There is a unique a_∞ such that a_∞−a_j∈(I^e_j)^N for every j.
+
+Prerequisites: L27, L28.
+
+1. For k≥j, telescoping the finite sum of increments gives a_k−a_j∈(I^e_j)^N. Strict increase implies e_j≥j, so this is a sequence to which L27 applies coordinatewise, giving a candidate limit modulo I^j.
+2. Fix j and take k≥max(j,e_j). The candidate limit differs from a_k by an element of I^k⊂I^e_j; combine with the telescoping congruence to recover the stronger I^e_j precision.
+3. Any two such limits differ by an element of every I^n: choose j≥n and use e_j≥j. L28 gives equality. This proves the congruences without requiring closure of arbitrary ideals.
+
+Acceptance checks: For a_j=Σ_(i<j) t^(2^i) in A=k[[t]], e_j=2^j, the limit has exactly the claimed tail congruences. Uniqueness here is for the limit of a chosen sequence; it is not uniqueness of the solution of f=0.
+
+### Z38: Polynomial equations vanish at a cofinal congruence limit
+
+Let A be a commutative ring with IsHausdorff I A, e_j a strictly increasing sequence, and a_j,a_∞∈A^N with a_∞−a_j∈(I^e_j)^N. If f_l(a_j)∈I^m_j for all l,j and m_j≥e_j, then every f_l(a_∞)=0.
+
+Prerequisites: Z34, L28.
+
+1. Z34 implies f_l(a_∞)−f_l(a_j)∈I^e_j. The residual hypothesis and m_j≥e_j put f_l(a_∞) itself in I^e_j.
+2. Strict increase gives e_j≥j, hence membership in I^n for every n. Apply L28 to each polynomial value.
+3. For Z36, I=(t), e_j=m_j−r, and m_j≥e_j. Z37 supplies exactly the required limit congruences.
+
+Acceptance checks: When I=0, the congruence sequence is constant after the first positive order and the assertion reduces to f(a)=0. Separatedness is essential: for I=A on a nonzero ring, every residual lies in every I^n but need not vanish.
+
+### Z39: Admissible Elkik ideals survive coefficient base change
+
+For a map A→A′ of commutative rings, fix f_1,…,f_q∈A[X_1,…,X_N] and their coefficient images f′. If H_B⊂Σ_α ((f_α):J)Δ_α, then the ideal generated by its image in A′[X] is contained in Σ_α ((f′_α):J′)Δ′_α. This is an inclusion, with no flatness assumption.
+
+Prerequisites: Z03, L31.
+
+1. Map each finite conductor identity k f_l=Σ c_li f_{α_i}; it proves that the image of k is in the new conductor. This does not give the reverse inclusion.
+2. L31 identifies the images of Jacobian entries. The determinant is a finite signed sum of products, so each minor maps to the corresponding new minor.
+3. Map the ideal sum/products and combine the inclusions. Empty minors map to 1 and annihilator conductors still map into annihilator conductors.
+
+Acceptance checks: For A=Z, J=(2)⊂Z[X], H=Ann(2)+(∂2)=(0). After base change to F_2, J′=0 and H′=(1), whereas the image of H is zero. Equality fails even for this one-equation presentation.
+
+## Composition at the original consumers
+
+Z04 first uses Z33 to obtain the linear residual modulo t^(2m−r), then Z30 to control the quadratic error modulo t^(2m−2r). Z06 uses the sequence Z36, the full tail precision of Z37, and the exact vanishing criterion Z38. This gives the initial congruence modulo t^(m−r) directly. Uniqueness of a limit of a chosen sequence does not assert uniqueness of a solution of the original polynomial equations.
+
+Z07 applies Z39 before evaluating the universal Jacobian witness. After evaluation it has t^r=h+t^m b; L29–L30 show that 1−t^(m−r)b is a unit when m>r. The exponent r is chosen on the fixed universal presentation, before the test ring. Combining with Z06 gives the uniform N=2r+1 used by U24. The separate smooth-locus/Jacobian criterion needed to produce the original universal identity remains a source-decomposition obligation; the definition Z03 alone is not a proof of that criterion.
+
+The strict threshold is tested by A=Z_3, f=X²−18 and a=3. Here f(a)=−9 and f′(a)=6 supply m=2 and r=1, but there is no root: division of a hypothetical root by 3 would give a square equal to 2 modulo 3. This is a counterexample to weakening the lifting threshold, not a new error in the paper. The finite diagnostic additionally finds no root modulo 27.
+
+## Z03: presentation-dependent ideal API and tests
+
+The empty subset contributes Ann(J), because its determinant is 1 and its equation ideal is zero. This makes H the unit ideal for the zero presentation. An admissible H_B is any subideal of H; it need not itself have a selected minor generating set. Finite membership in H supplies the correction witnesses.
+
+The consumer record now includes U24/G28, Z32/Z33 and Z35/Z39/Z07. The eight API entries cover construction, coefficient base change, evaluation, the full smooth locus, the universal power witness, empty minors, finite witness expressions and perturbation of an evaluated witness. Consumed base-change and perturbation APIs are promoted to Z39 and Z35. Six typed tests are stored on Z03:
+
+- **degenerate — ElkikPresentation.zeroIdeal:** For the presentation A[X_1,…,X_N]/(0), the empty-row contribution is (1), so H=(1), including N=0.
+- **computation — ElkikPresentation.hypersurface:** For J=(f), H=Ann(f)+(∂_1 f,…,∂_N f). Over a domain with nonzero f this is the gradient ideal; the annihilator contribution is retained over general rings.
+- **non-example — ElkikPresentation.duplicateEquation:** Over Z[X], the presentation (X,X) has H=(1): either singleton row has derivative 1 and conductor (1). The two-row minor ideal is zero, so using only the full-row Jacobian gives a wrong result.
+- **non-example — ElkikPresentation.baseChangeStrict:** For J=(2) in Z[X], H=(0); after base change to F_2, the new H=(1), while the image of the old H remains zero. Only base-change inclusion is asserted.
+- **compatibility — ElkikPresentation.productRule:** Jacobian entries are evaluations of Mathlib MvPolynomial.pderiv; the entry for f=X_1 X_2 is (X_2,X_1), and coefficient base change commutes with each entry.
+- **non-example — ElkikPresentation.smallerWitness:** In Z_p[X] with J=(X), the full H=(1) but the permitted H_B=(p) is not the full smooth-locus ideal. At a=0, p∈H_B(a) whereas 1∉H_B(a).
+
+These itemwise repairs do not silently certify the other inherited definitions and constructions. In particular, the 26 grouped APIs still do not cover all 65 constructions; Z24 has its earlier itemwise API/tests, while the other construction deficits remain.
+
+## Validation and limits
+
+The paper checker, three-file intake checker and whitespace check pass. Structural assertions preserve all 386 previous item statements, all 35 findings, every old route membership and the fifteen route identities. Every missing item has exactly one route. The internal dependency graph has 100 edges and is acyclic. Z03 has three consumer records, eight API entries and six typed tests.
+
+Fresh checks with SymPy 1.14.0 and exact integer/Fraction arithmetic passed:
+
+- 11,200 Taylor remainder cases over residue rings, including characteristic two and zero divisors;
+- exact symbolic conductor/adjugate identities and 225 integral specializations of a four-equation system with a nonconstant conductor and a 2×2 minor;
+- 48 Newton steps with nonunit derivatives and their predicted correction/residual orders;
+- 672 precision-recurrence steps and 1,680 principal-unit witness perturbations;
+- three boundary controls for the strict threshold, nonsquares and forbidden cancellation with parameter torsion.
+
+These computations detect errors in formulas and hypotheses. They are not proofs of completeness of an infinite ring, the general Newton theorem, or implementation in Lean. Earlier appendix CAS, tensor and completion diagnostics remain attributed historical evidence and were not rerun. No repository code changed, so the prior worker's 48-test repository run was not repeated.
+
+The diagnostic core below is executable with Python and SymPy 1.14.0. It contains no source files or local filesystem paths.
+
+```python
+
+from fractions import Fraction
+from itertools import product
+from math import gcd
+import sympy as s
+# First-order remainder in general small commutative residue rings, including zero divisors.
+taylor=0
+for mod,gen in [(4,2),(6,2),(8,2),(8,4),(9,3),(12,2),(12,3)]:
+ sq=gcd(mod,gen*gen)
+ for i,j in product(range(5),repeat=2):
+  for a,b0 in product(range(4),repeat=2):
+   for u,v in [(0,gen),(gen,0),(gen,gen),(2*gen,gen)]:
+    value=lambda x,y:x**i*y**j
+    dx=(i*a**(i-1)*b0**j) if i else 0
+    dy=(j*a**i*b0**(j-1)) if j else 0
+    remainder=value(a-u,b0-v)-value(a,b0)+dx*u+dy*v
+    assert remainder%sq==0
+    taylor+=1
+# Nontrivial conductor and a 2x2 adjugate, computed over Z[X,Y].
+x,y=s.symbols('x y');h=1+x;g=s.Matrix([x+y*y,y+x*x]);f=s.Matrix([h*g[0],h*g[1],g[0],g[1]])
+D=f.jacobian([x,y]);M=D[:2,:];C=s.Matrix([[h,0],[0,h],[1,0],[0,1]])
+assert s.simplify(h*f-C*f[:2,:])==s.zeros(4,1)
+err=h*D-C*M
+for l in range(4):
+ for j,v in enumerate([x,y]):
+  expected=sum(s.diff(C[l,i],v)*f[i] for i in range(2))-s.diff(h,v)*f[l]
+  assert s.expand(err[l,j]-expected)==0
+zv=h*M.adjugate()*f[:2,:]
+assert s.simplify(M*M.adjugate()-M.det()*s.eye(2))==s.zeros(2)
+res=h*M.det()*f-D*zv
+# Explicit exact errors in the two unselected rows: derivative of the conductor matters.
+assert s.expand(res[2]-g[0]*(M.adjugate()*f[:2,:])[0])==0
+assert s.expand(res[3]-g[1]*(M.adjugate()*f[:2,:])[0])==0
+weighted=0
+for a,b0 in product(range(-7,8),repeat=2):
+ vals=[int(v.subs({x:a,y:b0})) for v in f];L=0
+ for v in vals:L=gcd(L,v)
+ zs=[int(v.subs({x:a,y:b0})) for v in zv]
+ rs=[int(v.subs({x:a,y:b0})) for v in res]
+ if L:
+  assert all(v%L==0 for v in zs)
+  assert all(v%(L*L)==0 for v in rs)
+ else:assert not any(zs+rs)
+ weighted+=1
+# One-step quantitative corrections with genuinely nonunit derivatives over Q, p-adic integral values.
+def valuation(v,p0):
+ if not v:return 10**9
+ v=Fraction(v);n=0
+ a,b0=abs(v.numerator),v.denominator
+ while a%p0==0:a//=p0;n+=1
+ while b0%p0==0:b0//=p0;n-=1
+ return n
+newton=0
+for p0 in [3,5,7]:
+ for r in range(1,5):
+  for c in range(1,5):
+   m=2*r+c
+   # a=p^r, f=X²−(a²+p^m), f'(a)=2a has valuation r.
+   a=Fraction(p0**r);constant=a*a+p0**m
+   correction=(a*a-constant)/(2*a)
+   b0=a-correction
+   assert valuation(correction,p0)==m-r
+   assert valuation(b0*b0-constant,p0)>=2*m-2*r
+   assert valuation(2*b0,p0)==r
+   newton+=1
+recurrence=0
+for r in range(8):
+ for c in range(1,8):
+  m=2*r+c
+  for j in range(12):
+   assert m==2*r+2**j*c
+   assert m-r>r and m-r>=j
+   nxt=2*m-2*r;assert nxt>m
+   m=nxt;recurrence+=1
+# Witness changes are a power times a principal unit at every strict depth.
+witness=0
+for p0 in [2,3,5,7]:
+ for r in range(5):
+  for depth in range(r+1,r+5):
+   for c in range(-10,11):
+    u=1+p0**(depth-r)*c
+    assert gcd(u,p0)==1
+    assert p0**r+p0**depth*c==p0**r*u
+    witness+=1
+assert (3*3-18)%9==0 and gcd(2*3,9)==3
+assert all((a*a-18)%27 for a in range(27)) # no Z_3 root
+assert 2*4%8==0 and 4%8!=0 # cancellation would fail
+assert all((a*a)%3!=2 for a in range(3))
+counts=dict(taylorResidueRingChecks=taylor,weightedAdjugateSpecializations=weighted,nonunitNewtonSteps=newton,precisionRecurrences=recurrence,principalUnitWitnesses=witness,boundaryControls=3)
+print(counts)
+```
+
+## Where to resume
+
+1. Complete the smooth-locus/radical power-witness interface at Z03/Z07, importing an exact pinned smooth/Jacobian criterion wherever available. The Newton correction and congruence-limit arguments are now explicit; do not reopen them as opaque "Taylor/convergence" gaps.
+2. Close the analytic inputs in Z10/Z13/Z14: finite Galois component descent, inseparable base change, the affinoid Nullstellensatz, rational fibers, flat formal models, and the smoothness hypotheses giving regularity of the generic product. Ordinary and completed tensor products remain distinct.
+3. Finish the coefficient-category presentation Z24 and the exact topology/ideal comparisons of the earlier completion work. Preserve the upstream ModularCurves §4D ownership of Z23/Z28.
+4. Continue the external-source and multipart census, itemwise definition/construction APIs and typed tests, the monodromy and Appendix A interfaces, and the integral Appendix B certificates. E1–E35 await a finished independent review job; no new review verdict is introduced here.
+
+The packet remains partial for these substantive gaps. The retained earlier reports below contain the rest of the extraction and its evidence; their numerical checkpoint counts describe their respective earlier states.
+
+---
+
+## Retained completion and source reports
+
 # LLHLM23 — completion and regular-coordinate supplier audit
 
 Codex — codex-a71f92 · 2026-09-23 · issue #1254 · continuation of merged PR #2231.
