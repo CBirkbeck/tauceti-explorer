@@ -35255,9 +35255,9 @@
    "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
    "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
    "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Confirmed on the page image of p.10: the displayed T_bif^{∧(r+1)} ∧ [Y] has no relation symbol, and '≠ 0' is what [GOV, Lemma 6.8] gives in the preceding line."
   },
   {
    "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E2",
@@ -35276,9 +35276,9 @@
    "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
    "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
    "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Confirmed on p.17. From M₂ = (ρ_ε/ρ)(M₁ + 1) and M_{i+1} = ρ_ε/ρ^i + (ρ_ε/ρ)M_i the reviewer gets M₃ = ρ_ε/ρ² + (ρ_ε/ρ)²(M₁ + 1) and M₄ = (ρ_ε + ρ_ε²)/ρ³ + (ρ_ε/ρ)³(M₁ + 1), matching the corrected closed form; the printed 1/ρ^i gives ρ_ε/ρ³ at i = 3. M_i → 0 holds either way."
   },
   {
    "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E3",
@@ -35297,9 +35297,9 @@
    "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
    "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
    "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Confirmed on p.19 (last display): the definition of Σ^r_{λ,ε} prints max{1, h_Ch(f)}, whereas h_Ch is a height on the Chow variety evaluated at λ, as in the curve case above it and in Theorem 1.8."
   },
   {
    "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E4",
@@ -35318,9 +35318,9 @@
    "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
    "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
    "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Confirmed. §5 bounds only the sets Σ_{λ,ε} ⊂ M_d(Q̄), while Theorem 1.1 concerns all of X ∩ PCF_d for complex X. By Thurston rigidity (§2.2) a PCF point outside M_d(Q̄) is flexible Lattès, and flexible Lattès maps with transcendental modulus are PCF and not algebraic points, so the missing points lie in X_λ ∩ L_d. The proposed Bézout repair is correct and applies equally in the step for r > 1, where the paper again concludes about X_λ ∩ PCF_d."
   },
   {
    "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E5",
@@ -35339,9 +35339,93 @@
    "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
    "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
    "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Confirmed on p.14. L̄ is the tensor product over all marked tuples, so its height is κ Σ_{i≤ℓ} ĥ_crit(f_i) with κ = (r+1)(2d−2)^{ℓ(r+1)−1} when repeated critical points are allowed in a tuple (a different positive constant otherwise); the display also drops the hat on h_crit. The same tensor-product structure is behind E8."
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E6",
+   "kind": "misprint",
+   "locator": "Example 1.4, p.2 (published version)",
+   "printed": "\"And although PCF_d is Zariski-dense in M₂, Theorem 1.1 combined with the main result of [DWY] implies: There is a uniform bound N so that # Per₁(λ) ∩ PCF_d ≤ N for all λ ≠ 0 in ℂ.\"",
+   "correction": "PCF₂ in both places.",
+   "reason": "The example lives in M₂ ≅ ℂ², so d = 2; PCF_d for another d is not a subset of M₂.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Found in this review; checked on the page image of p.2."
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E7",
+   "kind": "gap",
+   "locator": "Proof of Proposition 3.1, pp.10–11 (published version)",
+   "printed": "\"In this way, we inductively construct a parameter y = (y₀, …, y₀) ∈ Y_ℓ and an ℓ(r + 1)-tuple of marked critical points c … which is transversely prerepelling for the map Φ at y over Y_ℓ. … Finally, since the map from X^ℓ_V to Y_ℓ is generically finite by Proposition 2.1, our initial choice of y₀ guarantees that the marked critical points c are also transversely prerepelling at a preimage of y, over X^ℓ_V.\"",
+   "correction": "The witness must be found at a point of supp µ_ℓ where ρ_ℓ is a local isomorphism, which is off the diagonal whenever dim ρ₁(X) < r + ℓ. One route is a density theorem for transversely prerepelling parameters, in the style of [Du, Theorem 1.1], for the product family Φ over X^ℓ_V applied to the non-zero measure ρ_ℓ^*(⋀ T_{c_{i,j}}). The paper states Dujardin's theorem only for a single family (f, …, f). The conclusion µ_ℓ ≠ 0 is not affected: it uses (3.2) over Y_ℓ, where the intersection at y is isolated.",
+   "reason": "The construction uses the same point y₀ in every factor, so y lies on the diagonal. Let k = dim ρ₁(X). The preimage ρ_ℓ^{−1}(y) contains {(λ′, y₀, …, y₀) : y₀ ∈ X_{λ′}}, which has dimension r + ℓ − k, the fibre dimension of ρ₁ that the proof itself fixes over U. The paper allows k < r + ℓ, and in §5, where V is a whole component of Ch(M_d, r, D), that is the usual case. All ℓ(r + 1) landing conditions depend only on (f₁, …, f_ℓ), so they hold along this fibre. Hence c is not even properly prerepelling at any preimage of y, and generic finiteness of ρ_ℓ says nothing on the diagonal. Example: the lines in M₂ ≅ ℂ² (ℓ = 2, r = 1, k = 2). The preimage of (y₀, y₀) is the pencil of lines through y₀. The curve Γ of Proposition 3.2's proof is then {(λ, y₀) : y₀ ∈ X_λ}, along which the map is constant, so c_{ℓ,r+1} is not active along Γ as that proof requires.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Found in this review; checked on the page images of pp.10–12 (arXiv v3 has the same text), with the dimension count and the lines-in-M₂ example worked by the reviewer."
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E8",
+   "kind": "error",
+   "locator": "Proof of Theorem 1.8, (4.4)–(4.5), p.14 (published version)",
+   "printed": "\"Moreover, since dim X^ℓ_V = ℓ(r + 1) we also have that Π₁^*(c₁(L̄))^{∧ℓ(r+1)+1} = 0. Thus, using also [YZ, Theorem 4.2.3] as before, we have c₁(L̄)^{∧(r+1)ℓ} = α₁ µ_ℓ (4.4) on X^ℓ_V\"",
+   "correction": "Only c₁(L̄)^{∧(r+1)ℓ} =: ν ≥ α₁µ_ℓ holds. Run (4.5), the equidistribution identity and (4.7) with ν in place of µ_ℓ. Then (4.8) holds for λ ∈ supp π_*ν, which contains supp π_*µ_ℓ and hence λ₁, and the rest of the proof is unchanged.",
+   "reason": "c₁(L̄) = κ Σ_{i≤ℓ} π_i^*T_bif for some κ > 0. Hence c₁(L̄)^{∧(r+1)ℓ} = κ^{(r+1)ℓ} Σ_a (multinomial) ⋀_i π_i^*(T_bif^{∧a_i}), summed over all a₁ + ⋯ + a_ℓ = (r + 1)ℓ, and µ_ℓ is only the term a = (r+1, …, r+1). The two facts cited, T_c^{∧2} = 0 and the dimension of X^ℓ_V, do not remove the other terms. Take ℓ = 2 and dim ρ₁(X) = r + 2 ≤ 2d − 2. The term π₁^*(T_bif^{∧(r+2)}) ∧ π₂^*(T_bif^{∧r}) integrates T_bif^{∧r}|X_λ over the fibres of X²_V → X against the measure T_bif^{∧(r+2)} on X. Both are non-zero by [GOV, Lemma 6.8], so the term is non-zero.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Found in this review; checked on the page image of p.14. The expansion was done by the reviewer, using that T_bif = Σ_i T_i with T_i ∧ T_i = 0."
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E9",
+   "kind": "gap",
+   "locator": "§5, the induction step for r > 1, p.20 (published version)",
+   "printed": "\"Note that Σ^r_{λ,ε} is not necessarily Zariski dense in Z(λ), so we apply the induction hypotheses (specifically, the constants from each of the statements of Theorems 1.1, 1.2, 1.5, 1.6 for subvarieties of dimension < r) to each irreducible component Y(λ) of Z(λ), for all λ ∈ U(ℂ). Thus, by reducing ε if needed, we conclude that the Zariski-closure of Σ^r_{λ,ε} ∩ Y(λ) has uniformly bounded number of components, each with uniformly bounded degree for all λ ∈ U(ℂ).\"",
+   "correction": "For λ ∈ U(Q̄) the step needs a uniform bound for the Zariski closure of Y(λ) ∩ {ĥ_crit < (ε/(ℓ+1)) max{1, h_Ch(λ)}}, a threshold measured against the ambient X_λ. Either prove Theorem 1.5 in that relative form (for Y ⊂ X of bounded degrees, with threshold ε max{1, h_Ch(X)}), so that the induction closes, or show h_Ch(Y(λ)) ≥ c h_Ch(λ) − c′ for the components that occur. Theorems 1.1, 1.2 and 1.6, and the curve case of Theorem 1.5, do not use a height-scaled threshold on Y(λ) and are unaffected.",
+   "reason": "The induction hypothesis (Theorem 1.5 for Y(λ)) controls only Y(λ) ∩ {ĥ_crit ≤ ε′ max{1, h_Ch(Y(λ))}}, and nothing bounds h_Ch(λ) by a multiple of h_Ch(Y(λ)). Reducing ε by a constant therefore does not bring one set inside the other. For instance, if a fixed Y lies in X_λ for all λ in a positive-dimensional W ⊂ V, then h_Ch(λ) is unbounded on W(Q̄) while h_Ch(Y) is fixed. For suitable λ the threshold then falls between ε′ max{1, h_Ch(Y)} and the essential minimum of ĥ_crit on Y, where the small points of Y are not dense and neither Theorem 1.5 nor Theorem 1.6 for Y bounds how many there are.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
+   "reviewReason": "Found in this review; checked on the page images of pp.19–20 against the statements of Theorems 1.5 and 1.6 on pp.2–3."
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E1",
