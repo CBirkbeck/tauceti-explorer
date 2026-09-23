@@ -931,8 +931,9 @@
    ],
    "avoidAccountOf": "PAPER-CHEN-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHEN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1074"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1074",
+   "finishedAt": "2026-09-23T14:41:17Z"
   },
   {
    "id": "PAPER-CARAIANI-SCHOLZE-24",
@@ -1006,7 +1007,8 @@
    ],
    "avoidAccountOf": "PAPER-LANDESMAN-LITT-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-LANDESMAN-LITT-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1078"
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -12629,7 +12631,8 @@
    ],
    "avoidAccountOf": "RS-12~2",
    "prompt": "research/blueprint/prompts/REV-RS-12~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1614"
   },
   {
    "id": "RS-13",
@@ -31002,8 +31005,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1798"
+   "state": "pending",
+   "note": "released on GitHub issue #1798"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
