@@ -4874,7 +4874,7 @@
      "duplicates": []
     },
     "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "The Frobenius complement: a proper nontrivial trivial-intersection (malnormal) subgroup",
@@ -4976,7 +4976,7 @@
       },
       {
        "target": "Consequences: |H| ∣ |N| − 1",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.frobeniusKernelSubgroup_ne_top",
@@ -4993,7 +4993,7 @@
          "fit": "related"
         }
        ],
-       "note": "The divisibility |H| ∣ |N| − 1 follows from the complement structure, which is proved; the layer marks Thompson's nilpotence as a downstream target that it does not prove, and it is indeed absent."
+       "note": "No declaration states the divisibility. What is proved is the complement structure and the kernel count: `IsTISubgroup.ncard_frobeniusKernel` gives `(frobeniusKernel H).ncard = H.index`, i.e. |N| = |G:H|, with `isComplement'_of_coe_eq_frobeniusKernel` for G = N ⋊ H, and `ncard_compl_frobeniusKernel` counts the covered nonidentity elements as |G:H|·(|H| − 1). |H| ∣ |N| − 1 follows from these by the free action of H on N ∖ {1}, but that step is not taken anywhere in either library (no statement of the form `Nat.card H ∣ Nat.card N - 1` exists). The layer also marks Thompson's nilpotence as a downstream target it does not prove, and that is indeed absent."
       }
      ],
      "duplicates": [
