@@ -11,7 +11,7 @@
     "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p05-p.pdf",
     "version": "Official published 32-page PDF; all pages read. Author PDF used only for selected errata comparison.",
     "sha256": "3aa67f6881cd54cdb5384eada8dc3ec9eff051d6ccb43de76d28100297b298d5",
-    "accessed": "2026-09-22",
+    "accessed": "2026-09-23",
     "readSections": [
       "§1 pp.205–210",
       "§2 pp.210–212",
@@ -46,9 +46,9 @@
         "read": "Author version pp.10–12, especially §4.2.1 and Lemma4.2.1.1 on p.11. CHT cites the corresponding result as CT16 Lemma4.1; the numbering is version-specific. This is not a full read of CT16 or its published 2019 version."
       }
     ],
-    "continuation": "Codex codex-c83e7a reread all32 pages of the official CHT article and acquired the same bytes; inherited GSS.pdf selected-passage comparison is attributed to codex-a71f92, not repeated here."
+    "continuation": "Codex codex-c83e7a has freshly reread all32 pages205–236 of the official CHT article in this continuation. The source hash is unchanged. Full Larsen2010 and selected CT16 readings are inherited from the prior continuation; no new full read of their recursive references is claimed."
   },
-  "summary": "Full published-paper extraction checkpoint: geometric mod-ℓ semisimplicity, uniform bounded Schur-tensor invariant reduction (including arithmetic-stable free quotients and saturated submodules), its almost-hyperspecial equivalence, the Lie-defect and cohomological proofs, and conditional arithmetic Tate/semisimplicity transfer. Four proposed extensions import existing cohomology, weights, algebraic groups and rational Schur theory. Status remains partial: external-input closure, integral carrier comparisons and the small-prime scope of Theorem 9.1 require further verification; no formalization or theorem-proof closure is claimed. Continuation: all119 prior IDs retained;23 external-proof interfaces120–142 added; every definition/construction now has statement-level API, uses and mathematical test cases. Full Larsen2010 and CT16’s author-version tensor lemma were read. G1/G5 are narrowed, not declared closed; E5 records an unreviewed external-proof notation error.",
+  "summary": "Full published-paper extraction checkpoint: geometric mod-ℓ semisimplicity, uniform bounded Schur-tensor invariant reduction (including arithmetic-stable free quotients and saturated submodules), its almost-hyperspecial equivalence, the Lie-defect and cohomological proofs, and conditional arithmetic Tate/semisimplicity transfer. Four proposed extensions import existing cohomology, weights, algebraic groups and rational Schur theory. Status remains partial: external-input closure, integral carrier comparisons and the small-prime scope of Theorem 9.1 require further verification; no formalization or theorem-proof closure is claimed. Continuation: all119 prior IDs retained;23 external-proof interfaces120–142 added; every definition/construction now has statement-level API, uses and mathematical test cases. Full Larsen2010 and CT16’s author-version tensor lemma were read. G1/G5 are narrowed, not declared closed; E5 records an unreviewed external-proof notation error. Second continuation: fourteen degree-one coefficient interfaces143–156 credit five pinned inputs and refine the existing ArithmeticGaloisDuality owner. Direct proofs remove the compact-LES assumption from invariant lifting and the §10 splitting argument. Finite-tower and conditional quotient-lifting arguments narrow G3 to its geometric inputs; canonical comparison is stated only on underlying modules. Source closure remains partial.",
   "conventions": {
     "F": "All schemes finite type. X is connected smooth separated over algebraically closed k, char(k)=p≥0; f:Y→X smooth proper; x geometric. Choose a model f₀:Y₀→X₀ over finitely generated k₀⊂k, with X₀ smooth geometrically connected and separated, and x→X₀. Write π=π₁(X,x), π₀=π₁(X₀,x), Hℓ∞=H*(Yx,Zℓ), Hℓ=H*(Yx,Fℓ), Vℓ∞=Hℓ∞⊗Qℓ, ℓ prime ≠p. Large ℓ means a bound depending on the fixed family and, when specified, fixed tensor degrees, never a bound uniform over all families.",
     "C": "Convention F with k₀ finite and X₀ a smooth geometrically connected curve; F is geometric |k₀|-Frobenius at a chosen rational point after a finite constant-field extension. Cohomology of X,Y means geometric base change. H^w is a single cohomological degree; total H* is its finite direct sum.",
@@ -305,11 +305,21 @@
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/10",
       "kind": "theorem",
       "name": "Invariant reduction and H¹ torsion",
-      "statement": "For Π profinite and M finite free continuous over Zℓ, InvΠ(M) iff H¹_cont(Π,M)[ℓ]=0, equivalently H¹_cont(Π,M) is Zℓ-torsion-free. Use the compact-coefficient exact sequence for multiplication by ℓ, with its topological lifting hypotheses verified.",
+      "statement": "For a finite free continuous Zℓ-lattice M, surjectivity M^G/ℓ→(M/ℓ)^G is equivalent to H1_cont(G,M)[ℓ]=0 and to Zℓ-torsion-freeness of H1. Item150 supplies the exact sequence directly;151 supplies the DVR torsion argument. For profinite G,148 identifies this with canonical cohomology.",
       "locator": "§1.3 p.208, (Inv)",
-      "status": "missing",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/148"
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "proofSteps": [
+        "Apply exactness150; absence of ℓ-torsion excludes every ℓ-power torsion class inductively, and every nonzero element of Zℓ is a unit times a power of ℓ."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/11",
@@ -625,7 +635,10 @@
       "locator": "Lemma 4.2(1) p.213",
       "status": "missing",
       "dependencies": [],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "An invariant residual vector has an invariant lift under U by Inv_U. Average this lift over the finite quotient Π/U, dividing by its order, a unit in Zℓ. The average is Π-invariant and reduces to the original vector. This elementary proof needs no compact-coefficient long exact sequence."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/28",
@@ -924,8 +937,14 @@
       "statement": "For X a smooth affine geometric curve and finite-free continuous Zℓ representations H↠M with free kernel, the requisite cdℓ≤1 and compact-coefficient comparison give H¹(π,H)↠H¹(π,M). In the arithmetic-equivariant single-degree application H=H^w(Yx,Zℓ), this transports the same high-weight annihilator to every quotient M.",
       "locator": "§5.2 pp.218–219",
       "status": "missing",
-      "dependencies": [],
-      "implementationStatus": "unchecked"
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/155"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Import affine-curve cdℓ≤1 and finiteness for finite locally constant ℓ-primary coefficients, with ℓ different from the geometric characteristic; verify the group/sheaf comparison. These are the remaining G3 geometric inputs.",
+        "Apply155 to each arithmetic-stable free quotient of the original lattice. Every construction is natural for the arithmetic action, so surjectivity transports the original high-weight annihilator."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/49",
@@ -1959,37 +1978,59 @@
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/101",
       "kind": "construction",
       "name": "Continuous H¹ class of a representation extension",
-      "statement": "For finite-free continuous modules A∞,B∞ over Zℓ, an extension 0→A∞→H∞→B∞→0 with continuous Zℓ-linear splitting determines a class in H¹_cont(Π∞,A∞⊗B∞∨). It vanishes iff the extension splits equivariantly; construction commutes with mod-ℓ and Qℓ change of coefficients. Verify the topological splitting for finite-free lattices.",
+      "statement": "For an exact sequence0→A→H→B→0 of finite free continuous G-lattices over a complete DVR R, choose the continuous R-linear section149. The cocycle c_s(g)=g*s*g⁻¹−s, valued in Hom_R(B,A), defines an independent class in the existing explicit H1. It vanishes exactly when an equivariant continuous section exists, and its reduction and fraction-field images are the corresponding extension classes. For profinite G,148 transports it to canonical cohomology.",
       "locator": "§10.1–10.2 pp.231–232",
-      "status": "missing",
+      "status": "planned",
       "dependencies": [
-        "PAPER-CADORET-HUI-TAMAGAWA-17/20"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/149"
       ],
       "api": [
         {
           "name": "continuousExtensionClass.cocycle",
           "role": "constructor",
-          "statement": "A continuous module-linear section defines g↦gsg⁻¹−s in continuous Hom(B,A); changing section adds a coboundary."
+          "statement": "The section s defines c_s(g)=g*s*g⁻¹−s in Hom(B,A), a continuous cocycle."
+        },
+        {
+          "name": "continuousExtensionClass.change_section",
+          "role": "compatibility",
+          "statement": "Replacing s by s+i*a adds the boundary of a."
         },
         {
           "name": "continuousExtensionClass.zero_iff_split",
           "role": "characterisation",
-          "statement": "The resulting H¹ class vanishes exactly when an equivariant continuous section exists; reduction and rationalization transport its class."
+          "statement": "The class vanishes precisely when the extension has a continuous equivariant R-linear section."
+        },
+        {
+          "name": "continuousExtensionClass.baseChange",
+          "role": "functoriality",
+          "statement": "Reduction modulo π and extension to K carry the class to the class of the changed extension under the finite free Hom comparison."
         }
       ],
       "uses": [
         {
           "where": "CHT §10.2",
-          "how": "use torsion-free H¹ to descend a rational splitting"
+          "how": "Descend rational splitting through the injective H1 coefficient map151."
         }
       ],
       "tests": [
-        "A split extension has zero class",
-        "Changing section leaves its class unchanged",
-        "A nontrivial unipotent two-dimensional extension has nonzero class"
+        "An equivariantly split extension has zero class",
+        "All choices of section yield the same class",
+        "The C3 unipotent representation [[1,g],[0,1]] over F3 gives a nonsplit extension of trivial modules"
       ],
-      "testStatus": "Proposed mathematical acceptance cases; no Lean tests executed.",
-      "implementationStatus": "unchecked"
+      "testStatus": "Proposed mathematical acceptance cases. Finite analogues are checked by the embedded Python certificate; no Lean tests executed.",
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "proofSteps": [
+        "The difference g*s*g⁻¹−s lands in A because the induced endomorphism of B is id−id. Joint continuity follows from finite matrix coordinates.",
+        "With the conjugation action on Hom, c_s(gh)=c_s(g)+g*c_s(h). If s changes to s+i*a, the cocycle changes by δa.",
+        "If c_s=δa, then s−i*a is an equivariant continuous section. Conversely any equivariant section has zero cocycle.",
+        "Finite freeness identifies Hom_R(B,A) after reduction or localization with the corresponding Hom of the changed coefficients. The cocycle formula commutes with these coefficient maps."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/102",
@@ -2000,24 +2041,38 @@
       "status": "missing",
       "dependencies": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/13",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/100"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/100",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/153",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/10"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Item100 gives the invariant submodule A and free quotient B. Normality of the geometric subgroup makes A arithmetic-stable.",
+        "By153, Hom(B,A) embeds arithmetically and saturatedly in End(H). Apply Theorem1.3(2), item13, at the bounded tensor degree(1,1) to obtain Inv for this lattice.",
+        "Item10 converts Inv into absence of ℓ-torsion and full Zℓ-torsion-freeness of H1."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/103",
       "kind": "theorem",
       "name": "Cohomological proof of geometric semisimplicity",
-      "statement": "The extension class of Hℓ∞ in 101 becomes zero over Qℓ by connected semisimple generic monodromy. Compact-coefficient rationalization and 102 make H¹ of the Hom lattice inject into its rationalization, so the integral class is zero and its mod-ℓ class is zero. Together with 99 this proves Theorem 1.1 independently of the Lie-defect criterion.",
+      "statement": "The extension class101 becomes zero over Qℓ by connected semisimple generic monodromy. By102 its integral H1 group has no ℓ-torsion, and the direct kernel lemma151 makes H1(M)→H1(M⊗Qℓ) injective. Hence the integral extension splits, so does its reduction, and the exterior/determinant reduction99 gives Theorem1.1. Full compact localization152 is available but is not needed for this implication.",
       "locator": "§10.2 p.232",
       "status": "missing",
       "dependencies": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/24",
         "PAPER-CADORET-HUI-TAMAGAWA-17/100",
         "PAPER-CADORET-HUI-TAMAGAWA-17/101",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/102"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/102",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/99"
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Use rational complete reducibility to obtain a G-equivariant rational section; the extension class is therefore a rational boundary.",
+        "Clear the single denominator of its Hom-space primitive as in151. Torsion-freeness102 forces its integral class to vanish.",
+        "Use101 to obtain an integral equivariant section. Reduce it modulo ℓ, then apply99, which already records the finite collection of exterior/tensor tests and their uniform bound."
+      ]
     },
     {
       "id": "PAPER-CADORET-HUI-TAMAGAWA-17/104",
@@ -2945,6 +3000,432 @@
       "sourceKey": "CHT",
       "openGaps": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+      "kind": "construction",
+      "name": "Explicit continuous H¹ and coefficient maps already built",
+      "statement": "For a topological group G and a topological additive commutative G-module M with continuous action, TauCeti.ContCohomology.H1 is the additive quotient of continuous one-cocycles by g↦g·m−m. The carrier and explicitCoeff1 allow nondiscrete coefficients. No discrete topology is imposed on the group or coefficient module by these declarations. Its inherited pointwise topology is not identified with the canonical compact-open cohomology topology.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "dependencies": [],
+      "proofSteps": [
+        "Read the actual Z1/H1 and explicitCoeff1 declarations and binders at Tau Ceti f790474. The GroupCohomology comparison elsewhere requires a discrete group; the short-exact-sequence file requires discrete coefficients. Neither supplies the compact comparison."
+      ],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.ContCohomology.Z1",
+        "tauceti:TauCeti.ContCohomology.H1",
+        "tauceti:TauCeti.ContCohomology.H1pi_eq_zero_iff",
+        "tauceti:TauCeti.ContCohomology.explicitCoeff1"
+      ],
+      "api": [
+        {
+          "name": "H1pi_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "The class of a continuous one-cocycle is zero exactly when it lies in B1."
+        },
+        {
+          "name": "explicitCoeff1",
+          "role": "functoriality",
+          "statement": "A continuous equivariant additive coefficient map induces postcomposition on classes; identity and composition laws hold."
+        },
+        {
+          "name": "explicitCoeff1_mk",
+          "role": "simp",
+          "statement": "The image of the class of c is represented by the coefficient map composed with c."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CHT §10 and items150–155",
+          "how": "Use the built additive carrier for lattice cocycles and coefficient maps."
+        }
+      ],
+      "tests": [
+        "Trivial group has zero H1",
+        "A nonzero homomorphism C3→F3 gives a nonzero class for trivial action",
+        "Z3 coefficients are allowed without a discrete-topology instance"
+      ],
+      "testStatus": "Proposed mathematical acceptance cases. Finite analogues are checked by the embedded Python certificate; no Lean tests executed."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/144",
+      "kind": "theorem",
+      "name": "Topological module homology uses the ordinary image",
+      "statement": "At the pinned Mathlib, TopModuleCat.ker is the linear kernel with subspace topology and TopModuleCat.coker is the quotient by the linear range, not its closure. Its CategoryWithHomology construction therefore has the ordinary algebraic kernel/image subquotient as underlying module.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "dependencies": [],
+      "proofSteps": [
+        "Read the whole TopModuleCat homology construction, including isLimitKer, isColimitCoker and the comparison of left/right homology after forgetting to ModuleCat. This justifies the algebraic quotient used in148, without claiming a Hausdorff quotient."
+      ],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:TopModuleCat.ker",
+        "mathlib:TopModuleCat.coker",
+        "mathlib:TopModuleCat.isLimitKer",
+        "mathlib:TopModuleCat.isColimitCoker"
+      ]
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/145",
+      "kind": "construction",
+      "name": "Compact-open currying already built",
+      "statement": "For locally compact spaces X,Y and any topological Z, Homeomorph.curry identifies C(X×Y,Z) with C(X,C(Y,Z)), with compact-open topologies. Repeated currying flattens the canonical nested continuous coinduction when G is profinite.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "dependencies": [],
+      "proofSteps": [
+        "Read ContinuousMap.curry, uncurry and Homeomorph.curry with their locally compact hypotheses. Apply only to finite products of the profinite group."
+      ],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:ContinuousMap.curry",
+        "mathlib:ContinuousMap.uncurry",
+        "mathlib:Homeomorph.curry"
+      ],
+      "api": [
+        {
+          "name": "ContinuousMap.curry_apply",
+          "role": "simp",
+          "statement": "For f:C(X×Y,Z), f.curry x y=f(x,y)."
+        },
+        {
+          "name": "Homeomorph.curry",
+          "role": "equivalence",
+          "statement": "If X,Y are locally compact, currying and uncurrying are inverse continuous maps for the compact-open topology."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Item148",
+          "how": "Flatten the nested canonical cochains in degrees0,1,2 before comparing cocycles."
+        }
+      ],
+      "tests": [
+        "Currying followed by uncurrying fixes a function",
+        "Constant functions are preserved",
+        "The uncurrying continuity hypothesis is retained for a nondiscrete profinite group"
+      ],
+      "testStatus": "Proposed mathematical acceptance cases. Finite analogues are checked by the embedded Python certificate; no Lean tests executed."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/146",
+      "kind": "theorem",
+      "name": "Nonempty finite inverse systems have a section",
+      "statement": "For a directed preorder J and F:Jᵒᵖ→Type with every F(j) finite and nonempty, F.sections is nonempty. Transition maps need not be surjective.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "dependencies": [],
+      "proofSteps": [
+        "Read nonempty_sections_of_finite_inverse_system and its cofiltered-system generalization at the Mathlib pin. Apply to finite sets of primitives, cocycle representatives and lift classes, not to an unproved general derived inverse limit."
+      ],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:nonempty_sections_of_finite_inverse_system"
+      ]
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/147",
+      "kind": "construction",
+      "name": "Scalar structure on the existing explicit H¹ quotient",
+      "statement": "Let R be a commutative topological ring, M a topological R-module and G a topological group acting continuously by R-linear maps. The existing additive H1 carrier143 acquires an R-module structure by r[c]=[g↦r c(g)]. Every continuous R-linear equivariant coefficient map induces an R-linear map.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143"
+      ],
+      "proofSteps": [
+        "Pointwise multiplication by each fixed r preserves continuity and the cocycle equation because the G-action is R-linear.",
+        "It preserves boundaries since r(gm−m)=g(rm)−rm. Descend scalars through the existing additive quotient, prove module identities on representatives, and upgrade explicitCoeff1. Do not introduce a new underlying H1 type."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration.",
+      "api": [
+        {
+          "name": "explicitH1Module.smul_mk",
+          "role": "simp",
+          "statement": "r times the class of c is represented by g↦r*c(g)."
+        },
+        {
+          "name": "explicitCoeff1Linear",
+          "role": "functoriality",
+          "statement": "A continuous R-linear equivariant coefficient map induces an R-linear map on the existing H1 quotient, respecting identity and composition."
+        },
+        {
+          "name": "explicitH1Module.compat_add",
+          "role": "compatibility",
+          "statement": "The induced R-module addition and zero are the existing additive quotient operations."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Items150–152",
+          "how": "Define uniformizer torsion and localization on the shared cohomology carrier."
+        },
+        {
+          "where": "Item101",
+          "how": "Compare extension classes after scalar change."
+        }
+      ],
+      "tests": [
+        "Scalar multiplication sends a boundary to the boundary of the scaled primitive",
+        "For trivial action H1 agrees with continuous additive homomorphisms and their scalar action",
+        "Over F3 with trivial C3 action, the class of g↦g is nonzero and killed by3"
+      ],
+      "testStatus": "Proposed mathematical acceptance cases. Finite analogues are checked by the embedded Python certificate; no Lean tests executed."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+      "kind": "theorem",
+      "name": "Underlying linear comparison of canonical and explicit H¹",
+      "statement": "For profinite G, a commutative topological ring R and a topological R-module M with jointly continuous R-linear G-action, the underlying R-module of continuousCohomology 1 (TopRep of M) is naturally R-linearly equivalent to143 equipped with147. Naturality includes continuous equivariant coefficient maps and continuous group homomorphisms. No topological isomorphism with the inherited pointwise quotient topology, or with DiscreteH1, is asserted.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/20",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/144",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/145",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147"
+      ],
+      "proofSteps": [
+        "Use145 to flatten the nested continuous coinduced objects of the canonical resolution in degrees0,1,2. Their invariant elements are jointly continuous homogeneous equivariant functions on G,G²,G³. The coefficient action is jointly continuous by hypothesis.",
+        "A one-cocycle c corresponds to F(g0,g1)=g0·c(g0⁻¹g1); the inverse is c(g)=F(1,g). These are inverse R-linear maps on equivariant one-cochains.",
+        "The homogeneous differential F(g1,g2)−F(g0,g2)+F(g0,g1), evaluated at (1,g,gh), is g·c(h)−c(gh)+c(g), the inhomogeneous cocycle equation.",
+        "A degree-zero invariant homogeneous function is g↦g·m. Its differential evaluated at (1,g) is g·m−m. Thus cycles and boundaries match, including the sign convention.",
+        "Use144 to descend the equivalence to the ordinary algebraic quotient. Postcomposition and restriction commute with the formulas, giving naturality. This is a mathematical proof outline awaiting typed implementation."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/149",
+      "kind": "theorem",
+      "name": "Continuous linear sections of finite free lattice quotients",
+      "statement": "Let R be a complete discrete valuation ring with uniformizer π and fraction field K. For an exact sequence0→A→H→B→0 of finite free R-modules with their π-adic topologies, H→B has an R-linear continuous section. Its formation need not be natural or G-equivariant. Finite free Hom modules have their π-adic topology and the conjugation action of continuous lattice representations is jointly continuous.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [],
+      "proofSteps": [
+        "Choose an R-basis of B and lift its finitely many elements to H. Linear extension is a section.",
+        "In finite bases every R-linear map is a finite matrix, hence continuous for the π-adic topology. The resulting H≃A⊕B and its inverse are continuous.",
+        "The Hom action is matrix multiplication by the continuous representation matrices and their inverses, so is jointly continuous. This verifies the topological assumption needed to construct101."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+      "kind": "construction",
+      "name": "Invariant lifting obstruction in continuous H¹",
+      "statement": "For a complete DVR R, uniformizer π, finite free continuous G-lattice M with its π-adic topology, there is a natural exact sequence0→M^G/πM^G→(M/πM)^G→H1(G,M)[π]→0 of R-modules. On an invariant residue class m̄ choose a lift m and send it to [g↦(g·m−m)/π]. This does not require compactness of G.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147"
+      ],
+      "proofSteps": [
+        "Multiplication by π identifies M homeomorphically with πM in the subspace topology, by finite lattice coordinates. The numerator lies in πM and is continuous, so division defines a continuous cocycle.",
+        "Changing m by πa adds the boundary g↦g·a−a; multiplication of the class by π is the boundary of m. The construction is linear and natural.",
+        "If an invariant m is in πM, cancellation of π shows m/π is invariant, giving the injection at the left.",
+        "The connecting class is zero precisely when (gm−m)/π=ga−a for some a∈M. Then m−πa is an invariant lift; this identifies the kernel.",
+        "Conversely π[c]=0 gives πc(g)=gm−m for one m∈M. Its residue is invariant and the constructed class is [c]. This proves surjectivity onto π-torsion without invoking a compact-coefficient long exact sequence."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration.",
+      "api": [
+        {
+          "name": "invariantReductionDelta.apply_lift",
+          "role": "constructor",
+          "statement": "An invariant residue represented by m maps to the class of g↦(g*m−m)/π."
+        },
+        {
+          "name": "invariantReductionDelta.change_lift",
+          "role": "compatibility",
+          "statement": "Replacing m by m+π*a adds the boundary of a and preserves the class."
+        },
+        {
+          "name": "invariantReductionDelta.exact",
+          "role": "relation",
+          "statement": "The kernel consists exactly of reductions of integral invariants and the image is H1[π]."
+        },
+        {
+          "name": "invariantReductionDelta.natural",
+          "role": "functoriality",
+          "statement": "Continuous equivariant R-linear coefficient maps commute with this connecting map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CHT §1.3 and item10",
+          "how": "Equate invariant lifting with absence of π-torsion."
+        },
+        {
+          "where": "CHT §10 and item102",
+          "how": "Control the Hom-lattice extension obstruction."
+        }
+      ],
+      "tests": [
+        "A trivial action has surjective invariant reduction and zero connecting map",
+        "C3 acting on Z3² by [[0,−1],[1,−1]] has zero integral invariants and a one-dimensional residual invariant space mapping bijectively to H1≃F3",
+        "Changing a lift by3a changes the connecting cocycle by the boundary of a"
+      ],
+      "testStatus": "Proposed mathematical acceptance cases. Finite analogues are checked by the embedded Python certificate; no Lean tests executed."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+      "kind": "theorem",
+      "name": "Rationalization kernel is exactly lattice torsion",
+      "statement": "For a complete DVR R with fraction field K=R[1/π], a finite free continuous G-lattice M and V=M⊗R K with its usual finite-dimensional K-topology, ker(H1(G,M)→H1(G,V)) is exactly the π-primary torsion. Thus this coefficient map is injective whenever H1(G,M)[π]=0. Compactness of G is not needed.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147"
+      ],
+      "proofSteps": [
+        "If a lattice cocycle c becomes a rational boundary, write c(g)=g·v−v for one v∈V. Clear a common denominator π^n v=m∈M, giving π^n c(g)=g·m−m and hence π^n[c]=0.",
+        "Conversely, from π^n[c]=0 choose m with π^n c=δm. Then c=δ(m/π^n) in V, so its rational class vanishes.",
+        "If H1[π]=0, induction on n makes multiplication by π^n injective. Every nonzero scalar of the DVR is a unit times π^n; this also proves torsion-freeness from absence of π-torsion."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/152",
+      "kind": "theorem",
+      "name": "Compact-group H¹ commutes with lattice localization",
+      "statement": "Under151, if G is compact, the coefficient map induces an isomorphism H1(G,M)⊗R K≃H1(G,V) of underlying K-modules. Compactness is used for surjectivity; the kernel statement151 holds without it. The assertion makes no claim about tensor-product or quotient topologies.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147"
+      ],
+      "proofSteps": [
+        "The open increasing lattices π^−n M cover V. A continuous cocycle from compact G has compact image, so a finite subcover places its image in one π^−n M. Multiplying by π^n yields a continuous M-valued cocycle (use the subspace topology), proving surjectivity from localization.",
+        "Every localized class has one denominator. If its image is zero, its numerator class lies in the torsion kernel151 and vanishes after localization.",
+        "The compactness boundary is real: for the discrete group Z[1/ℓ] with trivial action, Hom(G,Zℓ)=0 because the image of1 would be divisible by every ℓ^n, but the inclusion G→Qℓ is a nonzero continuous homomorphism with unbounded denominators. The localization comparison is not surjective there."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/153",
+      "kind": "theorem",
+      "name": "The extension Hom lattice is a saturated equivariant block",
+      "statement": "For an exact sequence of finite free R-lattices0→A→H→B→0 with continuous action by an ambient group Γ, the canonical map Hom_R(B,A)→End_R(H), f↦i∘f∘p, is Γ-equivariant, injective and has finite free cokernel. In particular it is saturated. If A=H^Π for a normal subgroup Π⊲Γ, then A is Γ-stable; if B=H/A is free, this applies to the geometric invariant extension.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/149"
+      ],
+      "proofSteps": [
+        "Choose the R-linear section149 only to identify H=A⊕B. The displayed canonical map is the upper-right matrix block. The other three blocks form a finite free complement, establishing saturation independently of the section choice.",
+        "Equivariance follows directly from equivariance of i and p; no equivariant section is assumed.",
+        "For a∈H^Π, γ∈Γ and h∈Π, h(γa)=γ(γ⁻¹hγ)a=γa by normality. The quotient and Hom action are consequently ambient-group representations."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+      "kind": "theorem",
+      "name": "Continuous H¹ of a tower of finite coefficients",
+      "statement": "Let M_n be an inverse sequence of finite discrete abelian G-modules with continuous actions and equivariant transition maps, and let M=lim_n M_n with its inverse-limit topology and action. Then the coefficient maps give an additive isomorphism H1_cont(G,M)≃lim_n H1_cont(G,M_n). No surjectivity assumption on transitions or finiteness assumption on the whole groups H1(G,M_n) is required. This is a degree-one statement, not an all-degree derived-limit comparison.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/146"
+      ],
+      "proofSteps": [
+        "For injectivity, if every projection c_n of c is a boundary, the sets P_n={m_n:δm_n=c_n} are finite and nonempty. The module transitions map P_(n+1) to P_n. By146 choose compatible primitives; their inverse-limit element makes c a boundary.",
+        "For surjectivity, a compatible sequence of classes α_n has sets Z_n of continuous cocycle representatives. Each Z_n is nonempty and finite: after choosing one representative all others differ by a boundary, and B1 is the image of the finite group M_n. The entire H1 group need not be finite.",
+        "Transitions send Z_(n+1) to Z_n. Apply146 to choose compatible cocycles. Their pointwise inverse limit is a cocycle and is continuous because every finite coordinate is continuous. It represents the desired compatible sequence of classes.",
+        "The comparison is additive by construction; bijectivity gives the inverse additive map. Coefficient naturality follows from the projected formulas. Completeness gives M≃lim M/π^nM for a finite free lattice over a complete DVR with finite residue field."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration.",
+      "relatedImports": [
+        {
+          "item": "PAPER-KALETHA-16/P03",
+          "stage": "ArithmeticGaloisDuality:R02.1",
+          "relation": "Existing planned general coefficient-limit supplier. This finite-coefficient degree-one lemma is a direct specialization/refinement for the same owner, not a second derived-limit construction."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/155",
+      "kind": "theorem",
+      "name": "Conditional H¹ surjectivity for a lattice quotient",
+      "statement": "Let R be a complete DVR with finite residue field of characteristic ℓ, G profinite, and0→A→H→B→0 an exact sequence of finite free continuous R-lattices. If, for every n≥1, H2_cont(G,A/π^n A)=0 and H1_cont(G,A/π^n A) is finite, then H1_cont(G,H)→H1_cont(G,B) is surjective. Finite-level cohomology uses discrete coefficients; the conclusion uses lattice coefficients. The vanishing hypothesis is on Tau Ceti’s explicit discrete H2 carrier. A geometric cd assertion on another model must first be transported through the upstream discrete comparison; that interface is part of the remaining geometric application gap.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/149",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/146",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/156"
+      ],
+      "proofSteps": [
+        "The linear splitting149 makes reduction modulo π^n exact. For each n the discrete-coefficient long exact sequence gives surjectivity on H1 by the H2 vanishing hypothesis. This uses the existing ProfiniteCohomology Layer5 discrete interface.",
+        "Given a compatible system of classes in H1(G,B/π^n), let L_n be its nonempty fibre of lifts in H1(G,H/π^n). Exactness shows this fibre is a torsor for a quotient of H1(G,A/π^n), hence finite.",
+        "Transition maps preserve L_n, though they need not be surjective. Apply146 to choose compatible lift classes and154 to identify them with a lattice class.",
+        "For CHT §5.2 the remaining geometric inputs are affine-curve cdℓ≤1, finiteness of finite-coefficient H1 and the group/sheaf comparison. The present conditional lemma does not establish those inputs."
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "note": "Refines the existing R02.1 compact-coefficient/comparison scope. This is a requested interface of that owner, not a second cohomology theory or an implemented declaration."
+    },
+    {
+      "id": "PAPER-CADORET-HUI-TAMAGAWA-17/156",
+      "kind": "theorem",
+      "name": "Discrete coefficient H¹ exactness already built",
+      "statement": "For a discrete short exact sequence of continuous G-modules0→A→B→C→0, the range of H1(A)→H1(B) equals the kernel of H1(B)→H1(C), and the range of H1(B)→H1(C) equals the kernel of the explicit connecting map to H2(A). Here G is a topological group, all three coefficients are discrete, and H1/H2 are Tau Ceti explicit continuous carriers.",
+      "locator": "CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation",
+      "status": "library",
+      "dependencies": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/143"
+      ],
+      "proofSteps": [
+        "Read DiscreteShortExact.explicitLongExact_H1B and explicitLongExact_H1C with all section binders in LongExact.lean at f790474. The latter requires ContinuousMul G, which holds for our topological groups. Apply only to the finite reductions in155."
+      ],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H1B",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H1C"
+      ]
     }
   ],
   "routes": [
@@ -3123,9 +3604,18 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/28",
         "PAPER-CADORET-HUI-TAMAGAWA-17/48",
         "PAPER-CADORET-HUI-TAMAGAWA-17/100",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/101"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/101",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/149",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/152",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/153",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/155"
       ],
-      "reason": "These are compact-coefficient exactness, H¹ extension/rationalization and prime-to-index descent instances already in R02.1–2's direction. Extend the existing carrier comparisons and do not create a private continuous cohomology theory. The explicit low-degree corestriction theorem is a built input, not a new item."
+      "reason": "R02.1 already owns compact/topological coefficients and coefficient-tower comparisons; R02.2 owns descent. Items147–155 and the refinements10/101 make that existing scope precise using the built explicit and canonical carriers. Upstream ProfiniteCohomology owns the discrete finite-level long exact sequence; it is imported only at the finite levels. No new cohomology roadmap is proposed."
     },
     {
       "route": "source",
@@ -3362,15 +3852,11 @@
     },
     {
       "id": "G3",
-      "task": "Establish canonical versus explicit continuous H¹ comparison for compact coefficients, continuous splittings, the exact reduction/rationalization sequences and affine-curve cd≤1 on the correct coefficient carrier.",
-      "blocks": "Both weight and extension-class proof branches.",
+      "task": "The generic degree-one coefficient arguments are now supplied in147–155: canonical/explicit algebraic comparison, continuous sections, invariant reduction, rationalization kernel and compact localization, finite-tower H1 comparison, and conditional quotient surjectivity. Remaining source closure is the precise affine-curve cdℓ≤1, finite-coefficient H1 finiteness and group/étale-sheaf H1 comparison needed to discharge155 for item48. Typed implementations and the canonical naturality checks remain downstream R02.1 work, not asserted library theorems. In particular transport the geometric H2 vanishing to the explicit discrete H2 carrier of156 through the upstream discrete comparison before applying155.",
+      "blocks": "Geometric input for the weight branch; typed compact-coefficient interfaces for implementation. The §10 coefficient proof is mathematically supplied, conditional on the already recorded geometric monodromy inputs.",
       "neededBy": [
-        "PAPER-CADORET-HUI-TAMAGAWA-17/10",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/27",
         "PAPER-CADORET-HUI-TAMAGAWA-17/48",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/100",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/101",
-        "PAPER-CADORET-HUI-TAMAGAWA-17/102"
+        "PAPER-CADORET-HUI-TAMAGAWA-17/155"
       ]
     },
     {
@@ -3443,7 +3929,7 @@
   "libraryAudit": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-    "atlasCommit": "c3871b26d8be80b80f78073ab7e3c396d671a001",
+    "atlasCommit": "24e80b48176217a7a7418469811718eed1b66842",
     "read": [
       "data/library-coverage.json: ArithmeticGaloisRepresentations:R01.1–6 (AUDIT-31)",
       "ArithmeticGaloisDuality:R02.1–2 (AUDIT-02)",
@@ -3461,10 +3947,22 @@
       "Atlas roadmaps, new roadmaps, packets, decompositions and reserved ids screened for Nori, almost hyperspecial, geometric monodromy, integral Schur and uniform torsion. No matching full endpoint found. Topological monodromy and p-adic potential automorphy are not substitutes."
     ],
     "warning": "No dedicated ReductiveGroupsPartII or upstream SchurWeyl entry was present in reviewed coverage; pinned source files and full relevant layer descriptions were used. Generic library structures are credited only at the exact scope read.",
-    "continuation": "Reviewed R02.1–2, SF.2, DWP.0/5/7/8, EDC.2, WC.3 and R01.1–2 audit entries; inherited detailed credits retained. Fresh pinned searches found no complete uniform Chevalley family or Nori dimension theorem. Other paper tensor stabilizers concern Hodge/crystalline realization, not rank-uniform exponentially generated groups."
+    "continuation": "Reviewed R02.1–2, SF.2, DWP.0/5/7/8, EDC.2, WC.3 and R01.1–2 audit entries; inherited detailed credits retained. Fresh pinned searches found no complete uniform Chevalley family or Nori dimension theorem. Other paper tensor stabilizers concern Hodge/crystalline realization, not rank-uniform exponentially generated groups.",
+    "secondContinuation": {
+      "reviewed": "R02.1 and R02.2 reviewed coverage entries and owner scope; ProfiniteCohomology scope/export contract explicitly excludes nondiscrete coefficient theorems. Existing canonical and explicit carriers are reused. Cross-paper scan found no more precise owner for these generic coefficient refinements; Bresciani24/168 has a different Tate-module exact-sequence injection, not the denominator lemma151.",
+      "positiveReads": [
+        "TauCeti LowDegree.lean:Z1,H1,H1pi_eq_zero_iff; ExplicitFunctoriality.lean:explicitCoeff1 and evaluation/id/comp, with nondiscrete binders",
+        "Mathlib continuous Basic.lean:homogeneousCochains and continuousCohomology, nested coinduction; TopModuleCat/Topology/Homology.lean:ker/coker and CategoryWithHomology",
+        "Mathlib Topology/CompactOpen.lean:ContinuousMap.curry/uncurry, Homeomorph.curry with local compactness",
+        "Mathlib CategoryTheory/CofilteredSystem.lean:nonempty_sections_of_finite_inverse_system with no surjectivity assumption",
+        "TauCeti LongExact.lean:DiscreteShortExact.explicitLongExact_H1B/H1C, with discrete coefficient binders; used only at finite levels in155."
+      ],
+      "negativeScope": "The pinned GroupCohomologyIso H1 comparison assumes a discrete group; ShortExact assumes discrete coefficients. No compact H1 canonical comparison or scalar/localization theorem was found in the searched continuous-cohomology files. Absence claims are limited to those files and the reviewed audit.",
+      "relatedPlannedSupplier": "PAPER-KALETHA-16/P03 already routes the general compact coefficient inverse-limit comparison to ArithmeticGaloisDuality:R02.1. Item154 refines its finite-coefficient degree-one case at that same owner."
+    }
   },
   "verification": {
-    "paperChecker": "PASS: current142-item extraction.",
+    "paperChecker": "PASS: current156-item extraction.",
     "certificate": {
       "rootSystemProducts": 166,
       "equalRankDimensionWitnesses": 4714,
@@ -3477,22 +3975,23 @@
     "routing": "All missing items assigned exactly once; independently checked again before submission.",
     "tests": "All 9 tests in tests.test_check_paper passed.",
     "intake": "PASS:3 deliverable files,0 problems.",
-    "dependencies": "119-item dependency graph checked acyclic, with all referenced IDs present.",
-    "continuation": "Current structural and exact finite diagnostics pass. No Lean file produced or compilation claimed.",
+    "dependencies": "PASS:156 items and209 acyclic internal dependency edges.",
+    "continuation": "Structural check, new exact finite certificate and both unchanged inherited certificates passed. No Lean file produced or compilation claimed.",
     "structural": {
       "result": "PASS",
-      "items": 142,
+      "items": 156,
       "statuses": {
-        "missing": 127,
-        "library": 7,
-        "planned": 8
+        "missing": 125,
+        "library": 12,
+        "planned": 19
       },
-      "definitions": 41,
-      "apiEntries": 82,
-      "tests": 123,
-      "inputHashes": 484,
-      "internalEdges": 177,
-      "checks": "Preserved119 IDs and four prior source findings; all endpoints resolve and DAG is acyclic; every missing item routed exactly once; every definition/construction has named API statements, uses and tests; actual planned stages; valid gap consumers; snapshot hashes."
+      "definitions": 45,
+      "apiEntries": 96,
+      "tests": 135,
+      "inputHashes": 506,
+      "internalEdges": 209,
+      "proofOutlines": 44,
+      "checks": "Preserved142 IDs and all5 unreviewed source findings; all dependency endpoints resolve and DAG is acyclic; every missing item routed once; no library item routed; every definition/construction has structured API statements, uses and at least3 tests; all planned stages exist; gap consumers valid; every input hash verified."
     },
     "diagnostics": {
       "liftedExponentialCongruences": 18156,
@@ -3533,8 +4032,18 @@
       "PAPER-CADORET-HUI-TAMAGAWA-17/37",
       "PAPER-CADORET-HUI-TAMAGAWA-17/11",
       "PAPER-CADORET-HUI-TAMAGAWA-17/100",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/143",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/147",
       "PAPER-CADORET-HUI-TAMAGAWA-17/20",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/144",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/145",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/148",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/149",
       "PAPER-CADORET-HUI-TAMAGAWA-17/101",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/146",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/156",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/155",
       "PAPER-CADORET-HUI-TAMAGAWA-17/48",
       "PAPER-CADORET-HUI-TAMAGAWA-17/116",
       "PAPER-CADORET-HUI-TAMAGAWA-17/38",
@@ -3543,6 +4052,10 @@
       "PAPER-CADORET-HUI-TAMAGAWA-17/50",
       "PAPER-CADORET-HUI-TAMAGAWA-17/39",
       "PAPER-CADORET-HUI-TAMAGAWA-17/13",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/153",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/151",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/10",
       "PAPER-CADORET-HUI-TAMAGAWA-17/102",
       "PAPER-CADORET-HUI-TAMAGAWA-17/103",
       "PAPER-CADORET-HUI-TAMAGAWA-17/03",
@@ -3607,7 +4120,6 @@
       "PAPER-CADORET-HUI-TAMAGAWA-17/06",
       "PAPER-CADORET-HUI-TAMAGAWA-17/07",
       "PAPER-CADORET-HUI-TAMAGAWA-17/08",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/10",
       "PAPER-CADORET-HUI-TAMAGAWA-17/12",
       "PAPER-CADORET-HUI-TAMAGAWA-17/14",
       "PAPER-CADORET-HUI-TAMAGAWA-17/15",
@@ -3647,18 +4159,52 @@
       "PAPER-CADORET-HUI-TAMAGAWA-17/106",
       "PAPER-CADORET-HUI-TAMAGAWA-17/112",
       "PAPER-CADORET-HUI-TAMAGAWA-17/115",
-      "PAPER-CADORET-HUI-TAMAGAWA-17/119"
+      "PAPER-CADORET-HUI-TAMAGAWA-17/119",
+      "PAPER-CADORET-HUI-TAMAGAWA-17/152"
     ],
-    "publicationBase": "c3871b26d8be80b80f78073ab7e3c396d671a001"
+    "publicationBase": "c3871b26d8be80b80f78073ab7e3c396d671a001",
+    "newDiagnostics": {
+      "integralMatrixIdentities": 3,
+      "cyclicQuotientOrders": 12,
+      "boundaryMembership": 7380,
+      "torsionKilledByThree": 7380,
+      "rationalPrimitives": 7380,
+      "towerTransitions": 3,
+      "invariantConnectingMap": 7,
+      "changeOfLift": 27,
+      "cochainInverse": 2187,
+      "homogeneousEquivariance": 19683,
+      "differentialComparison": 19683,
+      "cocycleCoordinates": 9,
+      "boundaryComparison": 81,
+      "extensionSection": 81,
+      "extensionCocycle": 81,
+      "nonsplitExtension": 1,
+      "homBlockEquivariance": 2952,
+      "scope": "Finite cocycle, torsion, denominator, section and block regressions only; no infinite topological comparison or geometric theorem is established by enumeration."
+    },
+    "sourceIssues": "All five inherited sourceIssues are preserved byte-for-byte as JSON values and remain unreviewed; no additional source mistake claimed.",
+    "newDiagnosticTotal": 66950,
+    "inheritedDiagnosticReruns": [
+      {
+        "program": 1,
+        "sha256": "fbcc48a8afce44dac1f52cac5cf0ef42f1555c802b98a6901c5009dc39b8389d",
+        "status": "Extracted unchanged from PR2008 report and rerun successfully."
+      },
+      {
+        "program": 2,
+        "sha256": "c4ed2385e517b12ace3d9b31019b4480a195ad1df7494e9f75863ec879cd4b91",
+        "status": "Extracted unchanged from PR2008 report and rerun successfully."
+      }
+    ]
   },
   "continuation": {
     "agent": "Codex",
     "session": "codex-c83e7a",
     "issue": 1157,
-    "previousPR": 1937,
-    "previousCommit": "1b9d9bcc36f8ca4a3a557ab76c984bbfaea978a9",
+    "previousPR": 2008,
     "inputManifest": {
-      "commit": "c3871b26d8be80b80f78073ab7e3c396d671a001",
+      "commit": "24e80b48176217a7a7418469811718eed1b66842",
       "files": [
         {
           "path": "content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
@@ -5341,9 +5887,14 @@
           "sha256": "fb15852e46b3ba9b87bb73adbeb2939aaa714ccdc3ed4561f8ae30423647cafb"
         },
         {
+          "path": "research/blueprint/papers/PAPER-ABE-18.result.json",
+          "sha": "ad1d191298770448a8e29a0d15c247b07485af5d",
+          "sha256": "c30cfac075e5c5e565fa8d88e831468e8efebc4983a571791dd862dffb29f96c"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-ABE-25.result.json",
-          "sha": "e0c63ae35762bfa60b77ac936fcd56a2bcd549a2",
-          "sha256": "72cf7a69d31c3bfb8893ac382a99090ed8ff0bab32b5316870ca52c57f75b1bf"
+          "sha": "e1915e7fed0ced76504c206a1867eecd2ce82455",
+          "sha256": "2a3002527717d8fe2c4b6e33fa79ac0fa8c53a001e2f2b5868a47ab934c6817d"
         },
         {
           "path": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
@@ -5352,8 +5903,13 @@
         },
         {
           "path": "research/blueprint/papers/PAPER-ANDRE-18.result.json",
-          "sha": "0d414bf4580d0400f02c17fcbf7ec24eb69a16a1",
-          "sha256": "c815a5437484ed4c375f606313ff6bd88a516ef9859fb897a54fdd371dd48c85"
+          "sha": "dd06f43fb4c8bb613e8b600f0aafd65264af3bde",
+          "sha256": "4f8d4703b041045b0a6c1f236daf2f9f89081addacfea3b63eebc92ef430a4cc"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
+          "sha": "9242a3b358ac40c4b8c625a90972f4808a1153b5",
+          "sha256": "e25bc08eb8edd592d0dfed896dce6985b612f7d9594641a5cb55f2ed39a22d3c"
         },
         {
           "path": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
@@ -5397,13 +5953,18 @@
         },
         {
           "path": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
-          "sha": "87347c3f4f4ce11e9f92fc068238c69fdd3f9c96",
-          "sha256": "3dfaf230c41235c7ef3e240a6c0c61a78a8846bc794ca0f310f7c8b6ba5f5730"
+          "sha": "f7d77bf99fa1362ff82c450af76127f83fbb2b7e",
+          "sha256": "a9ac7b22589d0cf8f76f96ae32640f15d18fbcfc8fc08fd795d88f162bbd18e4"
         },
         {
           "path": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
-          "sha": "1fec5d9d954407a692fb500aa2026491b5c7cfcc",
-          "sha256": "cccc29bc23bca74ce0e004a278bc1783cabdb28318f0a433eef823ad26d24f0b"
+          "sha": "9264babdf5fcc90c61014452fd57fdc649e9faaf",
+          "sha256": "ebc4e4361776f541ee7781e6f4017c0922ca5b994a57872d4c4b5a974adea550"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+          "sha": "682e9d78d6da7d1f77cfbd916f423368791b5b9c",
+          "sha256": "e54728dad891cbcaecd921c721c881cc7bb1b94154cc87db650811460a8055d7"
         },
         {
           "path": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
@@ -5476,14 +6037,24 @@
           "sha256": "bd112528f3cb3553e363dbc15d35912c22558634003cc3fc3d421fa7047b804f"
         },
         {
+          "path": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json",
+          "sha": "ef684f3d9e80236dd954f0b4c0cb4ea3c1ed3ab8",
+          "sha256": "380159abf8c9224141b2fa613fa3078e3d9e22675dc49febf51b0df3a3b3fa45"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-25.result.json",
           "sha": "ef6c788d4aee9264631dd467fc7010f8397b058a",
           "sha256": "9e7f514f9b32e7714d18e0655c077139962909a860a505590a6b33355fb9caf7"
         },
         {
           "path": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
-          "sha": "4790a81124a8fd1040786dd119fc2d2d807addba",
-          "sha256": "a7ad1887f506163bf24b3082548faab46b37d047136fa5b5a9075a89836df06d"
+          "sha": "d7eec8768c5fea58ce2020d2a2cbb66f3df80ac3",
+          "sha256": "b7c3a0eca997697f775fe84343aafdae4c036c64a3bdae71a173a4621106a485"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BREUIL-HELLMANN-SCHRAEN-19.result.json",
+          "sha": "c2236e9ba9504f4ec1523917b35712a14e1a3ef3",
+          "sha256": "e4dca18de96a2563bf2ccfc8b7656e6673ddca11fb5e515d613e46d732e87267"
         },
         {
           "path": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
@@ -5541,6 +6112,11 @@
           "sha256": "1a9ecaefd1ac16bc9a8dcfa74efcbced2318bd91f43531b92201791e3383bea0"
         },
         {
+          "path": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+          "sha": "bbd4eeaa42e36a16802e4037a7f284e19feecc58",
+          "sha256": "f8e5b915c04ffe7fe2b27978ab6adbd4e5b2318df0090d8b90e06f6981525681"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
           "sha": "b455190b52313f5179365d51e4d35ff59a20395c",
           "sha256": "82eebffbb61df101602a89f328725af212a0328723e56b3ee1843e16069c0880"
@@ -5549,6 +6125,11 @@
           "path": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
           "sha": "0d1a4b3c0d17c906541faefc94b53cafef7c27f9",
           "sha256": "e90a32a7b93476d7abc77e9d3ae76a7ae0c634f238469f2f44960df3fab7e36b"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.result.json",
+          "sha": "f89ab02552a92282952aea51a05a71a05d467035",
+          "sha256": "36d4863f250fabcbd0ee78f2dc8171dc0c2c97263b65d410e223ff835953a37e"
         },
         {
           "path": "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.result.json",
@@ -5586,6 +6167,21 @@
           "sha256": "b3ef61aa4960115904dc9d49ca94a05ed1a2da85a5696568c16c749044a4e0ad"
         },
         {
+          "path": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+          "sha": "221c929b6eb3598724b289b82dd7dbbc9be06bd2",
+          "sha256": "9893a22979f2a5216a2bdd7d47e809df8371c0b9e295650f1f4292521d5fe735"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+          "sha": "b71ba48e5cb226009fe89015c89d34b05bb60cc9",
+          "sha256": "4c87709e52904f55baa4c02cd14f2dae8a41290ab4fe998f0d33072f93348b72"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+          "sha": "2c74a1d2ff72a0872025cbb12c28bcc4b48b67af",
+          "sha256": "9894f78865b652a669c6f8faa3a922c08ec0ebfb5f8f2acba5b8fb8b2bd7ff23"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-COUVEIGNES-20.result.json",
           "sha": "b3b73dfd2bed2c82703bee33b0b01d9782a0f097",
           "sha256": "11ef13cf509aa0411e75de0979db47a0f091b543a9f160f8f2c5a541902031c5"
@@ -5616,6 +6212,11 @@
           "sha256": "88084a19de29c215e171cfd5be6741a3c5043f33961ace5f94720a4809bdd7ce"
         },
         {
+          "path": "research/blueprint/papers/PAPER-DING-25.result.json",
+          "sha": "fe1a3f8d071512f2900f36e61470d4453d61d9c3",
+          "sha256": "d5e69c9e934d9c070aa6265b9671178dcff4d373708e4df7bc182e146017a63c"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
           "sha": "e370f61b42931a9e473662e0a8310272e2a0b060",
           "sha256": "2b59871593f99bb97ef3c855aa05b290bd2c7ed1e124aad5a6ef2e0fc22caaef"
@@ -5626,14 +6227,19 @@
           "sha256": "6c67a85c79dc9e4d3ee5ea96e022794b2142678ed9ee40c632d210eb28227794"
         },
         {
+          "path": "research/blueprint/papers/PAPER-DOR-23.result.json",
+          "sha": "ffc19dc0094f49074c3e528d32524a1c2068caa7",
+          "sha256": "d8280e2b56c84d8725cdd556c6db9ce4ab91b3c308cbe8b4777c3e50b536dbde"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
           "sha": "a3bd60369d0994a10140da4991ad9747f537b980",
           "sha256": "4b9e7b58b72207e839c5e659442b7a91fd07d5da9cd31df097230474fe92c236"
         },
         {
           "path": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
-          "sha": "f530b296572e3ea210a626cd1e1eb7eb79aeba3e",
-          "sha256": "11001b7e36525f51b3dbb1ce8a589d3a5150d60a61df2e83d2ff7d9e93a0141d"
+          "sha": "04c542bc091187355d992136add44fb9975d52c4",
+          "sha256": "028c73004824fedbe7e7d8e089c417d4802674a07c0f697a09204cce2a0d3c3a"
         },
         {
           "path": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
@@ -5667,8 +6273,8 @@
         },
         {
           "path": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
-          "sha": "9a0ef331134a64ad1e67f62fdc36b46923e2c79c",
-          "sha256": "489db39a901c1d54a706dc45fbaea5cb2dc087cfc3fd6d37c77334dc1e0bc611"
+          "sha": "85ce9420eefe80f3baed031ed025d1b46822d46b",
+          "sha256": "b6a80b3795d9404860f616f624eedf956eda154b45d6c035d7fce1780653b792"
         },
         {
           "path": "research/blueprint/papers/PAPER-FU-24.result.json",
@@ -5681,9 +6287,19 @@
           "sha256": "26cfe7aa4d8df70175fea9a88feda22103eb90c04d59b74c3904248ae3b44fef"
         },
         {
+          "path": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+          "sha": "fa86e71e8f96ea04377958be4573dc0e4fbdb2e6",
+          "sha256": "3383e33ea5fe57c3df8f2585f7e9eadd003888e3cffba193171582e4ab1cd26b"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
           "sha": "07fa24e505b6edc3715cbedc081166d8cc72e8f0",
           "sha256": "be9b6efac25757a0496039e5801d8b240a5fc45eb8fa9aa1083539233880fd36"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
+          "sha": "04bd1f532cc66f46f69fc4beb4e6e2522a149dda",
+          "sha256": "e73096eb7484430a813dfa9d9a43ac20fcc1b64a61f1f70b192b8454db114528"
         },
         {
           "path": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
@@ -5721,19 +6337,24 @@
           "sha256": "2f63acf925e7707281f7702d9f2e93db239f9d2289674c7cc879ff2779551656"
         },
         {
+          "path": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
+          "sha": "eec04e48d488665e89012f16780133317493d099",
+          "sha256": "736231e5b9ab318ff9f19af04f9d4ac053a73761b73ab74ef7fa675759081bd4"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
           "sha": "cedd4c917b774c0a9bb2ba88a05ecfe709bf93b2",
           "sha256": "84d5040999cb17c1520ffb3270ea473d111697bbe62542c1d3d0ffb16af0dbb6"
         },
         {
-          "path": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.md",
-          "sha": "60f244df903731e1fe5ec703790ecf13de57c919",
-          "sha256": "0d6c17b9d4c7fb4ae643b59c65a351014c8880e4797f405f923ab97a665fc907"
+          "path": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+          "sha": "bfbad023d59564e6bab32b48026fb4ec33538e52",
+          "sha256": "29534581699568999706db7ad8f242e147d8bc871cbbfe651ddd11ae8b77813c"
         },
         {
-          "path": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
-          "sha": "1f17756ae670824a09e2cec145d07f94d047c320",
-          "sha256": "bf9e33dd74340eea9dd60183f08216511b475b55b24e227b9a5f4ea2b5aaee1c"
+          "path": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
+          "sha": "b70c58ee1cd308d8048ead4d7fa3123715188890",
+          "sha256": "b1e35b85d9614cbc8f9794cf3086e57ed522e163b38d33862914015e1eb2571e"
         },
         {
           "path": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
@@ -5764,6 +6385,16 @@
           "path": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
           "sha": "2afc174126a149293a9cf874c066878d9c2971bb",
           "sha256": "1833dcd32dfea5f7c58301201c4f10b902228f1ca96f70718710ff7f80e0d86a"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+          "sha": "0d3495a69f50bf2f588c53fd349fcfcf3f8358aa",
+          "sha256": "db0f875fa2787f8a9c852b15fca4d5fa258e462cd0190be1e9503e2f86c5a88e"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+          "sha": "6079921af69d3404255e00591c8d144d3ef837ec",
+          "sha256": "634a63a82d0d7692ce99242552bfac9591e7d4e050c61c960d619ae1056bcc34"
         },
         {
           "path": "research/blueprint/papers/PAPER-IM-KIM-LE-ETAL-24.result.json",
@@ -5812,13 +6443,13 @@
         },
         {
           "path": "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.md",
-          "sha": "0897fe361c2d2d14e30e2f1064fcdf582e0149ae",
-          "sha256": "215d3f994a8bad2e747afa56b7f3242baa325219783a741cce86fa7a345ea9d9"
+          "sha": "02a45f1a9466fd8211a87f94cb74e288fa7f2326",
+          "sha256": "de3f4e64ac6c0033c012e67c2ba272e1ccadd1aa3ea582de2b3fed52ed45c4b2"
         },
         {
           "path": "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.result.json",
-          "sha": "3fdc1633bc000016be824cb28171eba1540a7f6b",
-          "sha256": "2f6c1edc9b9a4cdb20626c32480931ce7d2cecc4a0a4e85751dd18e34e356293"
+          "sha": "e375e840bc65cbf2fe9e9c6f7853833c1724f08d",
+          "sha256": "b7adb75693b5fde7e48effe442645165afb88d9d46d74eac43da7b5f38918da8"
         },
         {
           "path": "research/blueprint/papers/PAPER-KISIN-PAPPAS-ZHOU-26.md",
@@ -5946,6 +6577,11 @@
           "sha256": "af53ee05983327eb630c005f2c2dd9f0d4ef43ac8815e8ebf98d6171ef7adcbf"
         },
         {
+          "path": "research/blueprint/papers/PAPER-QIAN-23.result.json",
+          "sha": "dcc8308825b91c9b71ca0e5f054be30dfad8b49b",
+          "sha256": "afba5ee0e43bd302d2095b8d4a6eb07e7d3f494edaafde4cae63fed89ba85f95"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
           "sha": "387e75ded00f40f445f99b3ad0d4bc9ae02d8cf2",
           "sha256": "8a514da88020faa979fa31bd44d947f5927f641cf16fb92ae181f74018c1e11e"
@@ -6017,18 +6653,28 @@
         },
         {
           "path": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
-          "sha": "c3f8aa7046d3be6884608ac570db719e01f28345",
-          "sha256": "9462a699934685cd2c9df8eca60c28d5128f13717a6da4f8c33a335a6982005a"
+          "sha": "30627735ff986ed0d24653064bf166dbe0bf2737",
+          "sha256": "e339d46ddd854e199b03f553d18b25d292765779ab57e692bb18732778156a7f"
         },
         {
           "path": "research/blueprint/papers/PAPER-WOOD-19.result.json",
-          "sha": "8009e952deee4951f5e243ec283f9fd416ec9f51",
-          "sha256": "298858c3a65c4637d789343648ad794cf55d8d7b3e79e6d934373994c5a821a9"
+          "sha": "bda1866bac01cce9fc8e749c30e8dea6a8604fa2",
+          "sha256": "1c5a35708cad0c3132918037f8b35cdc3665e44335602f8c10f497edef48d255"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-XU-ZHU-22.result.json",
+          "sha": "63c918dee785472bada63dcfdd5acaf83231b25e",
+          "sha256": "b80a435faaa1b6ef9555d27ee2a7efdd0296d227c065a2af6fe7924c79590cdb"
         },
         {
           "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
-          "sha": "c42d6de0b3382d1f29473a0074e4f79ee70dee42",
-          "sha256": "8dcb71352a71baf8a9b9e7ab3c6bf28e044050c2136b9003166b60ac5b80b451"
+          "sha": "83758e777b0cbaeee03e5674b29cecd1a58ad222",
+          "sha256": "a402f63a1f3705d9207de7f62abb1105723af1f1ebe3fe15ecd79889e1201dc4"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-YU-23.result.json",
+          "sha": "a8281dc5adb6dd2d2f901b6bf2ec697812a8461e",
+          "sha256": "18a82f167a611db9f9bd1d172425b3adac043b488e1bf7b10b6e05a24b423942"
         },
         {
           "path": "research/blueprint/papers/PAPER-YUAN-26.result.json",
@@ -6036,9 +6682,19 @@
           "sha256": "910583aa64edb9274495d7cc5191811d11f255afecec56394a8b928910db2b0c"
         },
         {
+          "path": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
+          "sha": "f1ea9c86e56860fa050efffb82e19b1e9a3abd4e",
+          "sha256": "86e9473fab28539d8c0aa5183cbf5b2b0c18afb763efdde98de086a2621477e0"
+        },
+        {
           "path": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
           "sha": "98edfcbdd7a28e7bbbf8ed62a8aa0b796a2e8ed2",
           "sha256": "86e3b38b6f3bff0e91999c5c74652df96ef71133fa455bbac65052ae33d88713"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-ZHANG-21.result.json",
+          "sha": "38ed0869413b356446decce7c30b394e9fde89e2",
+          "sha256": "20e10f9f15a3f71f6d70a7a8609b3a1cdfc4544aed59231efa382ab13c69e77e"
         },
         {
           "path": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -6082,6 +6738,7 @@
         }
       ]
     },
-    "scope": "Three authorized paper/report/handoff files only; no self-review or Lean compilation."
+    "scope": "All142 prior IDs, all5 unreviewed source findings, and7 routes preserved;14 new coefficient interfaces added. Status remains partial. No Lean compilation claimed.",
+    "previousSnapshotCommit": "1a0040f450a9b8ee8f63b0dcfd8610dc3a4a6a63"
   }
 }
