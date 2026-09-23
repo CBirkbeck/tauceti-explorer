@@ -4421,7 +4421,8 @@
    ],
    "avoidAccountOf": "PAPER-DISEGNI-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-DISEGNI-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1261"
   },
   {
    "id": "PAPER-LIU-WANG-22",
@@ -5581,8 +5582,9 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1323"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1323",
+   "finishedAt": "2026-09-23T23:49:16Z"
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20",
@@ -8956,7 +8958,8 @@
    "avoidAccountOf": "DESIGN-LV",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LV.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #77"
   },
   {
    "id": "DESIGN-ZAGIER",
