@@ -1881,7 +1881,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by an independent enumeration. Definition 3.1 makes P(G) the degree-n_G products of cyclotomic polynomials in which X+1 has even multiplicity, and ∼ is P(X) ∼ (−1)^{n_G}P(−X), which on multisets swaps Φ_1 ↔ Φ_2 and Φ_n ↔ Φ_{2n} for odd n ≥ 3 and fixes Φ_n for 4 | n. Counting multisets of total degree 14 with even multiplicity of Φ_2 gives 2257, of which 59 are fixed by the involution, so there are (2257+59)/2 = 1158 classes. The same program reproduces every other entry of Table 2 on p.288 — 3, 12, 32, 92, 219, 530, …, 2521 for Sp_2 to Sp_16 — and differs only at Sp_14, where the table and both sentences on p.293 print 1157.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E2",
@@ -1897,7 +1902,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Footnote 13 on p.293 prints 'We actually have |S| = 26, explained by the equality dim S_23(SL_2(Z)) = 2'. The space S_23(SL_2(Z)) is zero, weight 23 being odd; the space with two eigenforms is S_24(SL_2(Z)), whose two forms give the two elements Δ¹_23, Δ²_23 of Π_alg sharing the archimedean parameter I_23. The authors' own table of known parameters, ex_poids_connus() in gp/testfin.gp, records this directly: it has 26 entries, of which [[0,0,23], 2] carries multiplicity 2, giving 27 known elements and 26 parameters.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E3",
@@ -1914,7 +1924,12 @@
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)",
     "the authors' source code (levelone_src_data/gp/testfin.gp, CFnorminit) for the normalisation used"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Page 280 prints the inclusion ρ(e_l) = (1/√m_l) Σ_{i∈P_l} e_i, calls it an isometry for the standard Euclidean structures — which it is — and then asserts β^F_Q(ρ(x), ρ(y)) = β^F_{Q′}(x, y). That last equality is what fails, and the authors' code shows why: CFnorminit in gp/qfminim_trie.gp computes the diagonal term as Σ_i v_i²/m_i, so for one block of size 2 with m_1 = m_2 = 1 the form is β_Q = ((1−K, −K), (−K, 1−K)) and β_{Q′}(x,x) = x²(1/2 − K), whence β_Q(ρ(e_1), ρ(e_1)) = 1 − 2K = 2·β_{Q′}(e_1, e_1). So ρ multiplies the form by m, i.e. β_Q(ρx, ρy) = β_{Q′}(Dx, Dy) with D = diag(√m_l), and the smallest eigenvalues satisfy μ_Q = 2μ_{Q′} in this case — same sign, so the conclusion drawn from Lemma 2.8 survives, as the correction records.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E4",
@@ -1930,7 +1945,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed against the authors' own files. log_w23_mult1 records '? #lw23' with answer '%13 = 12293' for lw23 = liste_qfminim(9.74, 23, 1), and contradict_vect/db_w23_mult1 has exactly 12293 lines, of which 12106 carry a negative value and 187 do not. So the printed 'an explicit set U_1 with 12230 elements' on p.296 is a transposition of 12293, and the later '12293 − 187 = 12106' is right.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E5",
@@ -1946,7 +1966,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The 187 unresolved elements are the non-negative entries of db_w23_mult1, which is the δ = m = 1 run (liste_qfminim(9.74, 23, 1)), that is the list the paper calls U_1; the U_2 run is db_w23_mult2, a different file. The follow-up sentence about six multiplicity-free elements also fits U_1 exactly: of those 187 entries, precisely six contain I_23 only once, namely [0,0,7,15,21,23], [0,0,5,13,19,23], [0,0,3,11,17,21,23], [0,0,3,9,15,21,23], [0,0,1,9,17,21,23] and [0,0,5,13,17,21,23], and the remaining 181 all have I_23 with multiplicity at least two.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E6",
@@ -1963,7 +1988,12 @@
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)",
     "the authors' data files db_w23_mult1, db_w23_mult2, list_of_resistant_w23_mult1 and the worksheets sheet_w23_mult2.gp and sheet_w23_grh.gp"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap, from the authors' data and from their own script. In db_w23_mult1 the entry for U_(1) = I_1+I_7+I_13+I_17+I_21+2I_23 is '[0, 0, 1, 7, 13, 17, 21, 23, 23]' with value +0.036042 at ℓ = 6.5: non-negative, so the δ = m = 1 computation does not exclude it, and it is one of the 187. The GRH worksheet gp/sheet_w23_grh.gp then opens with 'First eliminate the U of Prop. 4.1 (1) with multiplicity >1' on exactly that vector, which is what is needed. So the sentence 'the fact that I_1 + I_7 + I_13 + I_17 + I_21 + 2I_23 is not in V' does not hold as printed, and the proof of Proposition 4.1(1) needs the argument the worksheet supplies.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E7",
@@ -1979,7 +2009,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, with the exact range. Among the 187 non-negative entries of db_w23_mult1, the 181 that contain I_23 at least twice — which is the set V of Proposition 4.1(2) — have dimensions 2·(#entries − 2) ranging from 10 (for instance [0,0,5,11,19,23,23] = I_5+I_11+I_19+2I_23) to 38. The printed '14 ≤ dim U ≤ 42' on p.295 is therefore wrong at both ends; the six excluded elements are the ones with a single I_23, two of which have dimension 8.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E8",
@@ -1995,7 +2030,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the worksheet. gp/sheet_w23_grh.gp runs testfin_liste(li, 4.0+0.5*i, 2, pc[1..26], 1, 3) on the vector of Proposition 4.1(1), i.e. with multiplicity m = 2, and prints its certificate through testtovec(·, 0, 2); the definition CFnorm(test,l,m) = CFnorminit(testtovec(test, m==1, m), l) sets δ = 0 whenever m ≠ 1. So the printed 'δ = m = 2' should be δ = 0, m = 2, δ taking values in {0,1}.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E9",
@@ -2011,7 +2051,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof of Theorem 5 on p.298 counts, for every effective multiplicity-free U ∈ K^{≤24}_∞ containing I_24 with dim U ≤ 16, the self-dual π with L(π_∞) = U, and prints '(this uses SO_n for n ≤ 16 and Sp_2n for 2n ≤ 8)'. Self-dual π of even motivic weight are orthogonal, so those of odd dimension 2g+1 are counted through Sp_2g; dim U ≤ 16 allows odd dimensions up to 15, hence g up to 7, that is Sp_2n for 2n ≤ 14.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E10",
@@ -2027,7 +2072,12 @@
     "the article page and volume 131 on pmihes.centre-mersenne.org (no erratum linked)",
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed against the authors' table of known parameters. The entries of ex_poids_connus() with motivic weight ≤ 23 and dimension ≤ 4 (dimw(p) = p[1]+p[2]+2(#p−2)) are [1,0], [0,0,11], [0,0,15], [0,0,17], [0,0,19], [0,0,21], [0,1,22], [0,0,23], [0,0,7,19], [0,0,5,21], [0,0,9,21], [0,0,13,21], [0,0,7,23], [0,0,9,23] and [0,0,13,23]: fifteen parameters, but [0,0,23] carries multiplicity 2, so sixteen elements of Π_alg. The printed 'the set S of 15 elements of Π_alg' counts parameters, the same collapse as footnote 13's |S| = 26 for 27 elements.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20/E11",
@@ -2044,7 +2094,12 @@
     "the paper's companion pages https://otaibi.perso.math.cnrs.fr/levelone/ and http://gaetan.chenevier.perso.math.cnrs.fr/levelone/ with the readme of the data archive (no errata)",
     "O. Taïbi's publication list (no erratum)",
     "Crossref chapter records of the book [CL19] (the book itself was not read)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source. In the arXiv TeX (1907.08783, mot23.tex) line 1358 reads 'tail estimates \\cite[(3) p.127]{CheLan}', while line 2559, for the same tail estimates of the two series, reads '\\cite[(3) p. 277]{CheLan}'. The two cannot both be right and 277 is the one used where the estimates are applied.",
+    "by": "REV-PAPER-CHENEVIER-TAIBI-20"
+   }
   }
  ]
 }
