@@ -57729,6 +57729,48 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E39",
+   "kind": "misprint",
+   "locator": "Adjacent source CHT(2008), Lemma2.1.12 proof, printed/PDF16; both displayed conjugations. Published page checked visually.",
+   "printed": "α=β² followed by (β1_n,1) r(γ0) (β1_n,1)⁻¹ ∈ G_n(S).",
+   "correction": "Replace β1_n by β⁻¹1_n in both conjugations (or instead choose β²=α⁻¹).",
+   "reason": "Conjugation by(cI,1) sends the first coordinate A of(A,b)j to c²A. With A=αB and α=β², the printed conjugation gives α²B; the inverse conjugation gives B. Over S=F5⊂R=F5[ε]/(ε²), n=1, Γ=C2 and r(c)=(1+ε,1)j, choose B=1 and β=1+3ε. The printed first coordinate is1+2ε, which does not lie in S; inverse conjugation gives1. The theorem and subsequent application are repaired by this inverse.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: exact lemma-number and article-title correction/erratum searches found no correction for this scalar inverse.",
+    "https://www.numdam.org/item/PMIHES_2008__108__1_0/ and the published DOI PDF inspected.",
+    "https://virtualmath1.stanford.edu/~rltaylor/ lists the author version; no separate correction listed. The known Thorne2012 erratum in the later 2-adic paper concerns a different theorem."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E40",
+   "kind": "gap",
+   "locator": "Adjacent source Bellaïche–Chenevier(2011), Lemma3.5 proof, published PDF16/p1351; page checked visually.",
+   "printed": "If K′ is a finite extension of K which is linearly disjoint from M, so is its Galois closure.",
+   "correction": "Omit the reduction to Galois K′. Since M/K is Galois and K′ is linearly disjoint from M, restriction G_K′→Gal(M/K) is surjective directly; lift the chosen cosets using this map.",
+   "reason": "Disjointness does not generally pass to the Galois closure. For the CM base K=Q(i), take K′=K(cuberoot(2)) of degree3 and M=K(ζ3) of degree2. Coprime degrees give linear disjointness, but the Galois closure of K′ is K′M and contains M. The elementary S3 subgroup calculation gives the same counterexample. The corrected restriction-map argument proves the stated lemma without any Galois hypothesis on K′.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: exact article-title correction/erratum and Lemma3.5 searches found no dedicated correction for this step.",
+    "https://doi.org/10.1112/S0010437X11005264 and the Cambridge published PDF inspected; the cited sentence appears in the published proof.",
+    "The older arXiv0804.2860v1 introduction was compared for the theorem version; no complete preprint proof audit is claimed."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
