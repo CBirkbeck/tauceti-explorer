@@ -12822,7 +12822,8 @@
    ],
    "avoidAccountOf": "RS-17",
    "prompt": "research/blueprint/prompts/REV-RS-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #833"
   },
   {
    "id": "RS-18",
@@ -13223,8 +13224,9 @@
    ],
    "avoidAccountOf": "RS-25",
    "prompt": "research/blueprint/prompts/REV-RS-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #849"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #849",
+   "finishedAt": "2026-09-23T13:09:29Z"
   },
   {
    "id": "RS-26",
@@ -30252,7 +30254,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-DASGUPTA-KAKDE-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1704"
   },
   {
    "id": "ERRATA-PAPER-DITTMANN-POP-23",
