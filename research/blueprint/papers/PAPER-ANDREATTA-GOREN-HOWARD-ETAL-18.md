@@ -1,10 +1,116 @@
-# AGHMP18: whole-paper extraction and normalization checkpoint
+# Andreatta–Goren–Howard–Madapusi Pera (2018): Faltings heights of CM abelian varieties, extraction and routing
+
+Issue [#1143](https://github.com/CBirkbeck/tauceti-explorer/issues/1143). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint (codex-a71f92), whose report follows below as history.
+- **The paper.** F. Andreatta, E. Z. Goren, B. Howard and K. Madapusi Pera, *Faltings heights of abelian varieties with complex multiplication*, Ann. of Math. 187 (2018), 391–531.
+  - The published PDF was re-fetched; its SHA-256 (e1274468…) matches the checkpoint.
+  - Crossref registers no erratum.
+- **Items.** The result has **172 items: 6 library, 13 planned and 153 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Twenty-seven are recorded under `sourceIssues`.
+  - Four affect a stated result: Lemma 9.4.4 (E1), Proposition 9.4.5 (E2), Lemma 9.4.3 (E3), and the BKY12 formula that this paper corrects (E26).
+  - None affects Theorems A or B.
+
+## This continuation (cc-442dc5)
+
+**New items.** The checkpoint had grouped or left out a number of numbered statements; they now have their own items, 31 new in all.
+- §2: Proposition 2.3.1 and Lemma 2.5.4.
+- §3: Lemma 3.6.3.
+- §4: Definition 4.2.1, Lemmas 4.3.5, 4.3.6 and 4.5.2, and Propositions 4.5.3, 4.5.4 and 4.5.5.
+- §5: Propositions 5.4.2–5.4.5.
+- §7:
+  - Proposition 7.1.1, Lemmas 7.1.6 and 7.1.7, and Corollary 7.1.9;
+  - Propositions 7.4.1–7.4.3 and Lemma 7.5.3;
+  - Propositions 7.6.1 and 7.6.2, Lemma 7.6.3, Lemma 7.7.2 and Proposition 7.7.3.
+- §8–9: Lemma 8.3.2, Definition 9.1.3, Conjecture 9.1.6 and Lemma 9.5.3.
+
+Items that had merged several statements now carry just one, with its exact locator.
+
+**Findings rechecked.**
+- **E1 and E2.** Both hold.
+  - The correct length in Lemma 9.4.4 is the cross-pair sum X; the printed formula gives −X. On Q_3(√3), Proposition 9.4.5 prints −1 for a module of length 1.
+  - Proposition 9.4.1 is unaffected, because the final values in (9.4.12) and (9.4.13) are the positive ones.
+- **E6.** The lattice identity (9.5.3) is false.
+  - In the unramified case, the self-dual lattice is t·L0 with t t̄ = (ξ d_F)^(−1).
+  - With that lattice the degree difference is still log|D_F|, as (9.5.1) asserts.
+
+**Reclassified to affect nothing.** Each is a slip whose intended form is what the paper uses.
+- **E4.** The metric −[z, z̄]_0 has the wrong sign; §9.5 uses the positive one.
+- **E7.** Missing normalization by deg_C(Y).
+- **E8.** The Kuga–Satake dimension is 2^(n+1).
+- **E13.** Q(x) on disconnected bases.
+- **E18.** m(p), and a stray u in the proof of Lemma 7.5.3 (p. 494 image checked).
+- **E22.** A dropped negation. Theorem 8.3.4 is used only with c_f(0,0) ≠ 0.
+- **E23.** Continuous versus locally constant class functions.
+- **E24.** The proof uses only the ≈_L form.
+
+**Gaps.**
+- G7 is resolved.
+- G4 and G5 are recorded as findings.
+- The others are deferred as cited suppliers' proofs.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- The remaining gaps are cited suppliers' proofs.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Published Lemma9.4.4 pp.517–518; author version targeted collation; journal p.517 image checked. *Printed:* length C(Υ) = within(Υ)+within(Υc)−(1/2)length(C/D_B/A C) *Correction:* Reverse the sign: length equals the cross-pair valuation sum, hence half-discriminant minus the two within-subset sums. First split by embeddings of B0. In the proof n1(Υ)=cross+within(Υc), and C⊗_B A must read C⊗_A B.
+- **E2** (error; affects a stated result), Published Proposition9.4.5 p.519 and equation(9.4.13) p.522; author version same sign; p.519 image checked. *Printed:* length C(M,Υ) = −(e_P/2)(μ_p(a_Υ)+μ_p(a_Υc)) *Correction:* Use +(e_P/2) with the positively defined Artin-conductor functional; the corresponding minus in(9.4.13) also changes. Recheck the local total-reflex cancellation before accepting9.4.1.
+- **E3** (error; affects a stated result), Published Lemma9.4.3 p.516, journal image and author version checked. *Printed:* |∫η(e)|=(2π)^−dim(A) for an OE′-module generator e *Correction:* Specify a trace-normalized generator or retain |σ(Tr_dR(e))|. The proof's own Tr_dR=(2πi)^−g∫ implies ∫=(2πi)^gσ(Tr_dR(e)), not the displayed negative exponent. Read DMOS and resolve homological dual/metric conventions before using a repaired degree identity.
+- **E4** (error; affects nothing), Published §9.4 p.514 definition of the metric on ω0; journal image checked. *Printed:* ||z||²_0=−[z,bar z]_0 *Correction:* For the positive standard space V0=End_conj(E), use its positive Hermitian form (or explicitly change the form's sign before applying the orthogonal convention). Recompute the determinant and orthogonal metric adapters, rather than changing one sign without proof.
+- **E5** (misprint; affects the proof), Published Proposition7.1.10 p.484 and equation(7.3.3) p.488; both journal images checked; ratio also collated with author PDF. *Printed:* W′_α(0,Φ)/W_α(0,^pΦ)=+ell_p(α)log N(q)/2; (7.3.3) inserts −W′/W *Correction:* For raw Whittaker functions the ratio is negative when the opposite nearby Weil indices are retained; remove the extra minus introduced between the preceding derivative identity and(7.3.3). Keep the final negative Fourier/orbital formula7.3.2. Complete the W* normalization audit separately.
+- **E6** (error; affects the proof), Published equation(9.5.3), p.523. *Printed:* Λ_p=ξ d_Fp/Qp^−1 L0,p *Correction:* Do not use this equality of full lattices. Compute the actual maximal OE,p-stable lattice from ξ and its norm valuation, then prove the required filtered Hodge-line comparison directly; a complete replacement proof has not been established in this checkpoint.
+- **E7** (misprint; affects nothing), Published equation(9.5.1), p.523. *Printed:* [omegahat:Y]−deg_hat_Y(omegahat0)−log|D_F|≈_L0 *Correction:* Divide the difference of arithmetic degrees by deg_C(Y), or multiply log|D_F| by that degree. Keep the normalization compatible with9.4.2 and8.3.4.
+- **E8** (misprint; affects nothing), Published §4.2 p.435, Kuga–Satake dimension sentence. *Printed:* relative dimension 2^(n+2) *Correction:* For the full Clifford representation H=C(V), use relative dimension2^(n+1). Its degree-one homological realization has rank2^(n+2).
+- **E9** (misprint; affects the proof), Published §2.1/Theorem2.1.1 variance; author's explicit comment on Kis10 Theorem1.4.2. *Printed:* Kis10 Theorem1.4.2 is off by a Tate twist *Correction:* Use the paper's explicitly corrected integral classification only after checking its contravariant Tate convention and the identity Tp(H∨)=Tp(H)^∨(1). Do not reuse the cited Kisin statement without the twist.
+- **E10** (misprint; affects the proof), Published Proposition2.3.3 proof; §2.4 denominator valuation; §2.5 thickening setup. *Printed:* a0; r(μ)=−ord_p(μ̃); G_k=G_(OK/ϖ^(k+1)) *Correction:* Use the consistent generator f0; measure denominator depth by normalized ord_E so it is a positive integer; align G_k, its realization, and V_μ(G_k) over the same kth thickening before the obstruction map to k+1.
+- **E11** (misprint; affects nothing), Published Proposition3.5.2 and §3.6 standard crystalline realization. *Printed:* Λ_p,y; W⊗_Qp OE *Correction:* Use the lattice N_p,y in the representation under discussion; integral tensors use W⊗_Zp OE, and the isocrystal is obtained by inverting p.
+- **E12** (misprint; affects nothing), Published Proposition3.6.1 and Proposition5.4.3. *Printed:* p is not split in F *Correction:* Read 'p is not split in E' for the prime p of F under discussion.
+- **E13** (misprint; affects nothing), Published §4.3 opening and Propositions4.3.7/4.5.4 scalar-norm phrasing. *Printed:* L_(p)→H_(p); Q:V(A_S)→Z *Correction:* The special representation embeds into End_C(H), not H. State the scalar quadratic form over connected S or as a locally constant integer on components.
+- **E14** (gap; affects the proof), Published Theorem4.4.6(3) compared with Theorem4.4.5. *Printed:* p odd and p²∤D_L *Correction:* Retain n≥2 in this branch as in4.4.5, or supply a separate proof for the omitted low-dimensional case. This extraction uses only the weaker, explicitly proved branch.
+- **E15** (misprint; affects nothing), Published §4.6; §5.3; Proposition5.4.4 ramified case. *Printed:* Theorem4.4.6(3); Res_E/Q SO(V); π_q∈F_p; Proposition2.3.3 *Correction:* The Hodge-line reference is4.4.6(2); the binary F-space uses Res_F/Q SO(V); a ramified E-uniformizer lies in E_q, and its special-line calculation uses Proposition2.3.4.
+- **E16** (misprint; affects the proof), Published Proposition7.1.3 measure calculation; Lemma7.1.6 range. *Printed:* N(p)^−r Vol(OF,p)=N(p)^(r−m/2); k>1 *Correction:* Use N(p)^r times the volume when scaling the integration domain by π^−r; check the annular lemma for k≥1, including the k=1 case used by the sum.
+- **E17** (misprint; affects nothing), Published §7.2 off-prime lattice and coset indicator decompositions; proof of Proposition7.8.2. *Printed:* ^pΛ_p′=Λ_p; φ_μ=⊗_λ φ_λ *Correction:* For p′≠p use Λ_p′; a finite disjoint union of cosets gives a sum of indicator functions. Tensor products are reserved for independent local factors.
+- **E18** (misprint; affects nothing), Published §7.5 definition of m(p) (p.491); proof of Lemma 7.5.3, last sentence (p.494, image checked). *Printed:* m(p)=ord_q(d_F/Qp); x_cris≡u *Correction:* Use m(p)=ord_p(d_F/Qp) as in7.1 and the specified coset μ in the congruence.
+- **E19** (misprint; affects the proof), Published Proposition7.6.2 local comparison and target. *Printed:* β=π_p=Nm(π_q) in the unramified quadratic case *Correction:* Keep β=π_p as the nearby rescaling but do not identify it with the norm of an E-uniformizer at an inert unramified prime. Add the appropriate adelic scalar extension to the target lattice/realization identification.
+- **E20** (misprint; affects nothing), Published Lemma7.6.3; proof of Theorem7.7.4; final cancellation in§7.8. *Printed:* Proposition5.3.1; Proposition2.3.3 twice; c_f(m) for m>0 *Correction:* Use5.3.4 for good-prime étaleness,2.3.4 in the ramified branch, and c_f^+(−m,μ) in the positive-divisor coefficient sums.
+- **E21** (misprint; affects nothing), Published §8.2 definition ofρ_Λ(m,μ) and proof of Proposition8.2.1. *Printed:* #{x∈μ+Λ}; a negative sign before the coefficient convolution *Correction:* Restrict the set to Q(x)=m. In the Green-value convolution use the positive sign in the proposition statement and6.3.1.
+- **E22** (misprint; affects nothing), Published §8.3 vertical error support and Theorem8.3.4 denominator. *Printed:* p²∤D_L; division by c_f(0,0) *Correction:* The possible odd-prime error support is p²|D_L#, with sharp lattice/dimension indices throughout; require c_f(0,0)≠0 for the divided formula.
+- **E23** (error; affects nothing), Published §9.4 p.518 class-function space preceding Proposition9.4.5. *Printed:* Continuous class functions have a basis of irreducible finite-dimensional characters *Correction:* Restrict to locally constant class functions (finite-quotient functions) for the algebraic character expansion and Artin-conductor linear functional used here.
+- **E24** (misprint; affects nothing), Published equation(9.5.5), p.526. *Printed:* Σ_p b_E(p)log p=[Ehat#(f):Y]/(4c_f(0,0)deg_C(Y)) *Correction:* Retain ≈_L, or assert equality only of coefficients at primes not dividing D_bad,L. The proof needs only the chosen good prime's coefficient.
+- **E25** (misprint; affects nothing), Published proof of Theorem9.5.5, p.526. *Printed:* c_f(m)≠0 only if m is not represented by Λ_Q *Correction:* Restrict this support statement to the negative principal part: if m>0 is represented by Λ_Q then c_f(−m,μ)=0. Preserve c_f(0,0)≠0.
+- **E26** (error; affects a stated result), BKY12 Proposition4.6 as used in AGHMP18 Proposition6.2.3. *Printed:* The earlier constant-term formula omits the local correction contribution *Correction:* Use AGHMP18 Proposition6.2.3, including M(s,φ) and the derivative−M′(0,φ), with its Λ and Nv factors.
+- **E27** (misprint; affects nothing), Published bibliography [KR94] p.529 and [YZ18] p.530. *Printed:* doi.org/0.2307/2118540; 10.4007/annals.2018/187.2.4 *Correction:* Use DOI10.2307/2118540 for KR94 and10.4007/annals.2018.187.2.4 for YZ18.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1** (closure; deferred). The Breuil–Kisin classification (Kisin 2006/2010, Kim 2012) and its PD-thickening conventions are cited suppliers' proofs; E9 and E10 record the paper's own slips.
+- **G2** (closure; deferred). The integral orthogonal models and crystalline tensors (MP15, MP16, KMP16 with its appendix erratum) are cited suppliers' proofs.
+- **G3** (normalization; deferred). The local Whittaker values are taken from HY12, Yan05 and BKY12, which are cited suppliers; the sign question in the ratio is recorded as E5.
+- **G4** (normalization; recorded). The paper's own normalization mistakes are E1, E2, E3 and E4 (E4 now affects nothing); Col93 and DMOS are cited suppliers.
+- **G5** (proof; recorded). The wrong lattice identity (9.5.3) is E6, with a degree check in the unramified case, and the normalization of (9.5.1) is E7.
+- **G6** (closure; deferred). The Armitage and Bruinier inputs are cited suppliers' proofs.
+- **G7** (inventory; resolved). Every numbered statement is now its own item: the grouped statements are split and the omitted ones added, 31 new items in all, including Definitions 4.2.1 and 9.1.3 and Conjecture 9.1.6; Definitions 5.1.2 and 9.1.1 are the locators of existing items.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every `dependsOn` target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of E4, E7, E8, E13, E18, E22, E23 or E24, this continuation supersedes it.
+
+## AGHMP18: whole-paper extraction and normalization checkpoint
 
 Status: partial. Worker: Codex, session codex-a71f92. Issue #1143.
 The claim was confirmed against comment5786641367 by bot comment5786643142.
 The published paper has been read completely; this does not mean the extraction's proof closure is complete.
 
-## Result and scope
+### Result and scope
 
 For a CM field E/F, [F:Q]=d, with maximal order OE, the paper proves
 
@@ -30,7 +136,7 @@ the printed standard-line metric is negative on a positive space; and(9.5.3) fai
 maximal-lattice scaling test. These do not establish that the main theorem is false.
 The targets depending on their repair remain explicitly gated.
 
-## Versions and provenance
+### Versions and provenance
 
 - Full published PDF: [Annals187(2018),391–531](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf), SHA-256
   `e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb`,141pages; acquired/read2026-09-23.
@@ -49,7 +155,7 @@ The targets depending on their repair remain explicitly gated.
 The JSON includes the complete sequential reading ledger and bounded correction search.
 Original external papers are not counted as read merely because their bibliography entries were read.
 
-## Conventions that must survive implementation
+### Conventions that must survive implementation
 
 | Quantity | Convention and test |
 | --- | --- |
@@ -64,7 +170,7 @@ Original external papers are not counted as read merely because their bibliograp
 | Borcherds principal part | Z(f) uses c_f(-m,mu), m>0. The constant term may and must be nonzero when divided by. |
 | Standard versus orthogonal metric | V0 has a positive form; the orthogonal domain has a negative plane. One sign formula cannot be copied to both. |
 
-## Ownership and nonduplication
+### Ownership and nonduplication
 
 | Route | Owner | Item count |
 | --- | --- | ---: |
@@ -93,7 +199,7 @@ finite Weil/theta in MP, and the Maass xi sequence in QM.3.
 The generic integral Hodge-type model candidate is an import of the orthogonal owner,
 not replanned here. No pending paper route is mislabeled an accepted stage.
 
-### Route 1: FiniteFlatGroupsAndIntegralPadicHodgeTheory
+#### Route 1: FiniteFlatGroupsAndIntegralPadicHodgeTheory
 
 Height-one modules, all-prime classification, integral comparisons and generic crystalline obstruction theory are already within R07. Import them rather than expanding the pending tensor-specific Part II merely for ordinary BK theory.
 
@@ -101,7 +207,7 @@ Existing stages: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2, FiniteFlatGr
 
 Suggested eventual module: `TauCeti/PadicHodge/BreuilKisin/HeightOne.lean`.
 
-### Route 2: ComplexMultiplicationAndExplicitReciprocity
+#### Route 2: ComplexMultiplicationAndExplicitReciprocity
 
 The paper is a source for CM types/reflex norms; these definitions already have the generic CM owner. The total-reflex height construction is the separate CM Part II extension.
 
@@ -109,7 +215,7 @@ Existing stages: ComplexMultiplicationAndExplicitReciprocity:CM.0. The item stat
 
 Suggested eventual module: `TauCeti/NumberTheory/ComplexMultiplication/Types.lean`.
 
-### Route 3: ShimuraVarieties
+#### Route 3: ShimuraVarieties
 
 Generic finite étale torus canonical models and the reciprocity condition are V4; the integral maximal-level model and CM Hodge lattices are additional CM-specific work, not another generic Shimura canonical-model roadmap.
 
@@ -117,7 +223,7 @@ Existing stages: ShimuraVarieties:V4. The item statements and API/tests in the J
 
 Suggested eventual module: `TauCeti/Geometry/Shimura/TorusCanonicalModel.lean`.
 
-### Route 4: AutomorphicBundles
+#### Route 4: AutomorphicBundles
 
 The existing canonical principal bundle/representation-valued realization owner supplies Betti, étale and de Rham descent, including absolute Hodge tensors. Do not duplicate this in the CM or orthogonal applications.
 
@@ -125,7 +231,7 @@ Existing stages: AutomorphicBundles:B0, AutomorphicBundles:B1, AutomorphicBundle
 
 Suggested eventual module: `TauCeti/Geometry/Shimura/AutomorphicBundles/Realizations.lean`.
 
-### Route 5: ArakelovGeometryAndAbelianHeights
+#### Route 5: ArakelovGeometryAndAbelianHeights
 
 Generic hermitian line degree, Green-divisor formalism, stack projection/normalization interfaces and Faltings metric stay with Arakelov. The CM average and orthogonal Green evaluation are consumers, not private definitions of degree.
 
@@ -133,7 +239,7 @@ Existing stages: ArakelovGeometryAndAbelianHeights:R35.1, ArakelovGeometryAndAbe
 
 Suggested eventual module: `TauCeti/Arakelov/StackDegree.lean`.
 
-### Route 6: MetaplecticAutomorphicForms
+#### Route 6: MetaplecticAutomorphicForms
 
 Finite discriminant Weil modules, adelic measure/Weil conventions and generic theta/Siegel–Weil machinery stay with MetaplecticAutomorphicForms. The specific incoherent Hilbert coefficients are a GSpin big-CM application importing these APIs.
 
@@ -141,7 +247,7 @@ Existing stages: MetaplecticAutomorphicForms:MP.4, MetaplecticAutomorphicForms:M
 
 Suggested eventual module: `TauCeti/Automorphic/Weil/FiniteQuadraticModule.lean`.
 
-### Route 7: QSeriesPartitionsAndMockModularForms
+#### Route 7: QSeriesPartitionsAndMockModularForms
 
 Harmonic Maass forms, ξ, weakly holomorphic kernel and cusp-form surjectivity belong to QM.3. The paper adds a representation/conjugation normalization test for its GSpin lift.
 
@@ -149,7 +255,7 @@ Existing stages: QSeriesPartitionsAndMockModularForms:QM.3. The item statements 
 
 Suggested eventual module: `TauCeti/ModularForms/HarmonicMaass/Xi.lean`.
 
-### Route 8: LubinTateFormalModulesAndQuasiCanonicalLifts
+#### Route 8: LubinTateFormalModulesAndQuasiCanonicalLifts
 
 Reuse the reviewed candidate ID from PAPER-BURUNGALE-KOBAYASHI-OTA-21. Its general finite-Qp formal-module foundation is exactly the common supplier; AGHMP adds the conjugate-semilinear, denominator and wild lifting-depth branch, not a second LT theory.
 
@@ -157,7 +263,7 @@ Augment LubinTateFormalModulesAndQuasiCanonicalLifts, preserving the existing Lu
 
 Suggested eventual module: `TauCeti/NumberTheory/LubinTate/SpecialEndomorphismLifting.lean`.
 
-### Route 9: OrthogonalIntegralModelsAndKugaSatake
+#### Route 9: OrthogonalIntegralModelsAndKugaSatake
 
 Reuse OrthogonalIntegralModelsAndKugaSatake from PAPER-CHARLES-16 and its all-prime extension in PAPER-SHANKAR-SHANKAR-TANG-ETAL-22, also consumed by Li–Zhang and Maulik–Shankar–Tang. This paper supplies its foundational §4 source, not another orthogonal model owner.
 
@@ -165,7 +271,7 @@ Augment the existing OrthogonalIntegralModelsAndKugaSatake proposal with AGHMP18
 
 Suggested eventual module: `TauCeti/Geometry/Shimura/Orthogonal/IntegralSpecialDivisors.lean`.
 
-### Route 10: GSpinSpecialDivisorHeights
+#### Route 10: GSpinSpecialDivisorHeights
 
 Reuse GSpinSpecialDivisorHeights from the existing SST22/Li–Zhang22/Maulik–Shankar–Tang22 proposals. Ordinary Borcherds Green functions and big-CM arithmetic intersections belong here; do not duplicate the distinct HigherGreenFunctionCMValues proposal or curve-level GZ.6–7.
 
@@ -173,7 +279,7 @@ Add the AGHMP18 big-CM branch to GSpinSpecialDivisorHeights without replacing it
 
 Suggested eventual module: `TauCeti/Arakelov/GSpin/BigCMIntersection.lean`.
 
-### Route 11: ComplexMultiplicationAndExplicitReciprocityPartII
+#### Route 11: ComplexMultiplicationAndExplicitReciprocityPartII
 
 Reuse the same CM Part II ID requested by PAPER-TSIMERMAN-18 and already extended by PAPER-YUAN-ZHANG-18. Add the independent total-reflex/GSpin proof branch and an explicit Faltings-metric adapter; do not create a duplicate average-height target.
 
@@ -181,8 +287,7 @@ Augment ComplexMultiplicationAndExplicitReciprocityPartII with AGHMP18's indepen
 
 Suggested eventual module: `TauCeti/NumberTheory/ComplexMultiplication/TotalReflexAveragedColmez.lean`.
 
-
-## Pinned-library evidence
+### Pinned-library evidence
 
 Mathlib commit `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti commit `f790474821cf4256814db967cb154e7af3d0c369`.
 Owner/audit snapshot `e46225b7ff6538f1e39b3322e3981022a0241290`; publication checks use
@@ -201,7 +306,7 @@ Both complete pinned source trees were searched for the advanced names, with unr
 citation/analytic/vertex-algebra hits inspected rather than counted as implementations.
 The JSON records the actual declaration paths and the scoped negative-search conclusions.
 
-## Item index
+### Item index
 
 The JSON is the authoritative statement/API/proof-outline inventory.
 Grouped statement leaves remain subject to G7; a locator does not replace a theorem statement.
@@ -350,14 +455,14 @@ Grouped statement leaves remain subject to G7; a locator does not replace a theo
 | cm-torus-abelian | missing | Torus action on the CM abelian scheme — Proposition3.5.6(2) |
 | orth-complement-codim | missing | Codimension of the non-primitive complement locus — Lemma4.4.4 |
 
-## Source findings
+### Source findings
 
 No finding below has a self-assigned review verdict. 'New' means no correction was found
 in the documented bounded search, not a claim of publication priority.
 The two already printed corrections (Kisin's twist and BKY's constant term) remain recorded.
 Potential issues lacking a conclusive check are in the completion gates, not promoted to false statements.
 
-### E1: error; affects a stated result
+#### E1: error; affects a stated result
 
 Locator: Published Lemma9.4.4 pp.517–518; author version targeted collation; journal p.517 image checked.
 
@@ -369,7 +474,7 @@ Check: Take A=Z3, B=C=Z3[π], π²=3, Υ={π↦π}. K(Υ)=(t−π), K(Υc)=(t+π
 
 Known: new.
 
-### E2: error; affects a stated result
+#### E2: error; affects a stated result
 
 Locator: Published Proposition9.4.5 p.519 and equation(9.4.13) p.522; author version same sign; p.519 image checked.
 
@@ -381,7 +486,7 @@ Check: For K=Q3(√3), each singleton indicator is(1+χ)/2 on its quadratic Galo
 
 Known: new.
 
-### E3: error; affects a stated result
+#### E3: error; affects a stated result
 
 Locator: Published Lemma9.4.3 p.516, journal image and author version checked.
 
@@ -393,7 +498,7 @@ Check: Replacing an arbitrary integral generator by a unit u multiplies its peri
 
 Known: new.
 
-### E4: error; affects a stated result
+#### E4: error; affects a stated result
 
 Locator: Published §9.4 p.514 definition of the metric on ω0; journal image checked.
 
@@ -405,7 +510,7 @@ Check: Writing f_a(x)=a c(x), its square is a c(a), so Q0=Tr_F/Q(a c(a)) is posi
 
 Known: new.
 
-### E5: misprint; affects the proof
+#### E5: misprint; affects the proof
 
 Locator: Published Proposition7.1.10 p.484 and equation(7.3.3) p.488; both journal images checked; ratio also collated with author PDF.
 
@@ -417,7 +522,7 @@ Check: In the ramified zero-coset case normalized W=1−N^(−as), nearby W=1+N^
 
 Known: new.
 
-### E6: error; affects the proof
+#### E6: error; affects the proof
 
 Locator: Published equation(9.5.3), p.523.
 
@@ -429,7 +534,7 @@ Check: Take F_p=Q_p and unramified quadratic E_q/F_p with ξ=p². Then d_F=1 and
 
 Known: new.
 
-### E7: misprint; affects the proof
+#### E7: misprint; affects the proof
 
 Locator: Published equation(9.5.1), p.523.
 
@@ -441,7 +546,7 @@ Check: A finite étale level cover multiplies both degree terms but not log|D_F|
 
 Known: new.
 
-### E8: misprint; affects a stated result
+#### E8: misprint; affects a stated result
 
 Locator: Published §4.2 p.435, Kuga–Satake dimension sentence.
 
@@ -453,7 +558,7 @@ Check: dim_Q V=n+2, so dim_Q C(V)=2^(n+2), whereas H_1 of an abelian variety has
 
 Known: new.
 
-### E9: misprint; affects the proof
+#### E9: misprint; affects the proof
 
 Locator: Published §2.1/Theorem2.1.1 variance; author's explicit comment on Kis10 Theorem1.4.2.
 
@@ -465,7 +570,7 @@ Check: The paper itself flags the external error; Cartier duality supplies the c
 
 Known: AGHMP18 §2.1 explicitly records the Tate-twist correction to Kis10 Theorem1.4.2; exact input collation remains G1..
 
-### E10: misprint; affects the proof
+#### E10: misprint; affects the proof
 
 Locator: Published Proposition2.3.3 proof; §2.4 denominator valuation; §2.5 thickening setup.
 
@@ -477,7 +582,7 @@ Check: The generator a0 is not the defined special f0; in a ramified quadratic e
 
 Known: new.
 
-### E11: misprint; affects nothing
+#### E11: misprint; affects nothing
 
 Locator: Published Proposition3.5.2 and §3.6 standard crystalline realization.
 
@@ -489,7 +594,7 @@ Check: Λ is not the lattice named in3.5.2. OE is not a Qp-module, so the displa
 
 Known: new.
 
-### E12: misprint; affects nothing
+#### E12: misprint; affects nothing
 
 Locator: Published Proposition3.6.1 and Proposition5.4.3.
 
@@ -501,7 +606,7 @@ Check: Splitting is being tested in the quadratic extension E/F; the neighboring
 
 Known: new.
 
-### E13: misprint; affects a stated result
+#### E13: misprint; affects a stated result
 
 Locator: Published §4.3 opening and Propositions4.3.7/4.5.4 scalar-norm phrasing.
 
@@ -513,7 +618,7 @@ Check: Special tensors are endomorphisms of the Clifford representation. On a di
 
 Known: new.
 
-### E14: gap; affects the proof
+#### E14: gap; affects the proof
 
 Locator: Published Theorem4.4.6(3) compared with Theorem4.4.5.
 
@@ -525,7 +630,7 @@ Check: The claimed immediate consequence removes the dimension hypothesis of its
 
 Known: new.
 
-### E15: misprint; affects nothing
+#### E15: misprint; affects nothing
 
 Locator: Published §4.6; §5.3; Proposition5.4.4 ramified case.
 
@@ -537,7 +642,7 @@ Check: These are determined by the surrounding definitions: the relevant line is
 
 Known: new.
 
-### E16: misprint; affects the proof
+#### E16: misprint; affects the proof
 
 Locator: Published Proposition7.1.3 measure calculation; Lemma7.1.6 range.
 
@@ -549,7 +654,7 @@ Check: Haar scaling gives Vol(π^−r O)=N(p)^r Vol(O). A sum indexed k≥1 cann
 
 Known: new.
 
-### E17: misprint; affects nothing
+#### E17: misprint; affects nothing
 
 Locator: Published §7.2 off-prime lattice and coset indicator decompositions; proof of Proposition7.8.2.
 
@@ -561,7 +666,7 @@ Check: The first error changes the local coefficient field. Indicators of disjoi
 
 Known: new.
 
-### E18: misprint; affects the proof
+#### E18: misprint; affects the proof
 
 Locator: Published §7.5 definition of m(p); Lemma7.5.3 congruence.
 
@@ -573,7 +678,7 @@ Check: At a ramified quadratic prime ord_q restricted to F is2ord_p, so the chan
 
 Known: new.
 
-### E19: misprint; affects the proof
+#### E19: misprint; affects the proof
 
 Locator: Published Proposition7.6.2 local comparison and target.
 
@@ -585,7 +690,7 @@ Check: For unramified quadratic E/F, a uniformizer has norm valuation2; π_p has
 
 Known: new.
 
-### E20: misprint; affects nothing
+#### E20: misprint; affects nothing
 
 Locator: Published Lemma7.6.3; proof of Theorem7.7.4; final cancellation in§7.8.
 
@@ -597,7 +702,7 @@ Check: The numbered inputs have distinct contents. Z(f) is defined by negative F
 
 Known: new.
 
-### E21: misprint; affects nothing
+#### E21: misprint; affects nothing
 
 Locator: Published §8.2 definition ofρ_Λ(m,μ) and proof of Proposition8.2.1.
 
@@ -609,7 +714,7 @@ Check: The unrestricted coset is infinite for a positive-rank lattice. The tenso
 
 Known: new.
 
-### E22: misprint; affects a stated result
+#### E22: misprint; affects a stated result
 
 Locator: Published §8.3 vertical error support and Theorem8.3.4 denominator.
 
@@ -621,7 +726,7 @@ Check: Theorem4.8.1 makes the error vanish at odd primes with p²∤D_L#. The di
 
 Known: new.
 
-### E23: error; affects a stated result
+#### E23: error; affects a stated result
 
 Locator: Published §9.4 p.518 class-function space preceding Proposition9.4.5.
 
@@ -633,7 +738,7 @@ Check: A general continuous class function on a profinite group need not factor 
 
 Known: new.
 
-### E24: misprint; affects the proof
+#### E24: misprint; affects the proof
 
 Locator: Published equation(9.5.5), p.526.
 
@@ -645,7 +750,7 @@ Check: Proposition9.5.1 provides a congruence modulo bad-prime logarithms. Repla
 
 Known: new.
 
-### E25: misprint; affects nothing
+#### E25: misprint; affects nothing
 
 Locator: Published proof of Theorem9.5.5, p.526.
 
@@ -657,7 +762,7 @@ Check: As printed it conflicts with the necessary nonzero constant term because0
 
 Known: new.
 
-### E26: error; affects a stated result
+#### E26: error; affects a stated result
 
 Locator: BKY12 Proposition4.6 as used in AGHMP18 Proposition6.2.3.
 
@@ -669,7 +774,7 @@ Check: AGHMP explicitly supplies a correction and proves the rational local-fact
 
 Known: AGHMP18 Proposition6.2.3 explicitly corrects BKY12 Proposition4.6; the original BKY text has not been independently collated in this checkpoint..
 
-### E27: misprint; affects nothing
+#### E27: misprint; affects nothing
 
 Locator: Published bibliography [KR94] p.529 and [YZ18] p.530.
 
@@ -681,57 +786,55 @@ Check: The KR94 DOI omits the leading1; the YZ18 DOI has a slash where its verif
 
 Known: new.
 
-
-## External leaves and completion gates
+### External leaves and completion gates
 
 The JSON lists15 prerequisite sources and their exact uses/read status.
 These are source-leaf requests within the existing owners, not automatic duplicate paper/design jobs.
 Where an existing paper job covers the input, extend/cross-reference it rather than create another.
 
-### G1: closure
+#### G1: closure
 
 Collate Kisin06/10 and Kim12, fix the Tp(H∨) versus Tp(H)^∨(1) convention, write the exact Frobenius pullback formulas and align the kth/k+1 thickening definitions/PD maps. Expand all subparts of2.1.1/2.5.1 with their complete base hypotheses.
 
 Resume: Start with the explicit source correction to Kis10 Theorem1.4.2 and the §2.5 obstruction's actual base rings. Do not change the confirmed denominator and valuation conventions.
 
-### G2: closure
+#### G2: closure
 
 Read exact all-prime integral model and crystalline tensor inputs, the separate KMP16 appendix erratum, and MP15/MP16 special-endomorphism results. Resolve potential-good-reduction stack extension versus finite base extension and the connected-base nonzero/spanning hypothesis of5.4.6(3).
 
 Resume: Retain the existing orthogonal owner; check the erratum's affected theorem before importing any Tate application. Never infer that all of KMP16 is invalid.
 
-### G3: normalization
+#### G3: normalization
 
 Reconcile the printed W*=γ/N^(f/2)W with7.1.8 and the starred/unstarred inert nearby display. Check the r=n boundary of7.1.4 rather than extending the strict application range. Read HY12/Yan05/BKY12, coherent Siegel–Weil and Hör14/HM17/Bru16 inputs; prove all additive measures, Weil indices, factor2 and metric constants.
 
 Resume: Use E5's paired sign correction and the raw ratio tests as diagnostics, not as a substitute for the missing normalization proof. The final coefficient sign remains negative.
 
-### G4: normalization
+#### G4: normalization
 
 Read Col93 and DMOS. Repair positive ω0 metric and trace-normalized period statement; derive the determinant metric and the local total-reflex BK conductor values independently. Then prove9.4.1/9.4.2 with the correct2π factor. E1/E2 have concrete counterexamples; they do not by themselves establish every downstream corrected identity.
 
 Resume: Start with the rank-one ramified quadratic cokernel and positive conductor functional, then the determinant action on local Hodge eigenspaces. Do not silently switch between cohomological and homological determinant lines.
 
-### G5: proof
+#### G5: proof
 
 Replace the false full-lattice equality(9.5.3) with an actual maximal-lattice and filtered-line calculation. Establish the normalized degree comparison and archimedean |ι(ξ)| factor. A complete replacement proof has not been found here.
 
 Resume: Test arbitrary v_p(ξ), including ξ=p² at inert p, before proposing a general Fil1 formula. Use good-prime definitions and7.7.2, not the printed scalar multiple.
 
-### G6: closure
+#### G6: closure
 
 Read Armitage and Bruinier inputs, decompose auxiliary self-dual enlargement existence and infinite admissible squarefree support, and state the classical d=1 input. Prove rational-log coefficient elimination without the false globally exact(9.5.5).
 
 Resume: Prove each prime coefficient independently after choosing p-good L and p-self-dual L#. No need to kill every bad-prime ambiguity with one auxiliary choice.
 
-### G7: inventory
+#### G7: inventory
 
 Final statement-level atomization and locator pass: split remaining grouped4.3.4–6,5.4.3–5,7.1.5–7 and7.6 inputs; split the exact numbered parts of3.5.4, base hypotheses and explicit Frobenius matrices. Include remaining external definition leaves. Inspect journal images for grouped typographic findings not yet image-collated and verify each independently. Reading is complete, extraction closure is not.
 
 Resume: Use the complete sequential readingLedger to compare every displayed/named result against items. Candidate checks still open:7.1.4 boundary,4.4.1 extension descent,5.4.6 nonzero condition, exact finite-conductor norm in9.3.1. Do not promote these candidates to false-statement findings without proof.
 
-
-## Executed diagnostics and validation
+### Executed diagnostics and validation
 
 The standalone exact Python program below passed27970 cases:
 4788 Sylvester/cross-resultant identities;14364 valuation/length sign checks;

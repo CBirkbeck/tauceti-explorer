@@ -1,32 +1,28 @@
 # PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 handoff
 
-Status: partial. Issue #1143. Worker Codex, session codex-a71f92.
-Whole published paper pp.391–531 read, not merely sampled.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoint (codex-a71f92). Issue #1143. Date: 23 September 2026.
 
-## Saved work
+## Saved
 
-- 141 items: 6 library,13 planned,122 missing; every missing item routed once.
-- 46 carrier APIs/tests,95 proof outlines,11 routes coalescing four existing Part II proposals.
-- 27 source findings with evidence and correction searches; no independent-review verdict claimed.
-- Complete reading/provenance ledger;27970 passing exact finite checks, reproducible program in the report.
-- No Lean deliverable/compilation.
+- **Items.** 172 items. Every missing item is routed exactly once, and every numbered statement is an item.
+  - 31 are new. They were split from grouped items or added for statements the checkpoint left out.
+- **Mistakes.** Twenty-seven, against the published Annals PDF.
+  - **Affect a stated result.** E1 (Lemma 9.4.4) and E2 (Proposition 9.4.5), both rechecked; E3 (Lemma 9.4.3); and E26, a correction to BKY12 that this paper makes in print. None affects Theorems A or B.
+  - **Reclassified to affect nothing.** E4, E7, E8, E13, E18, E22, E23 and E24. Each is a slip whose intended form the paper uses.
+  - **E6.** Now carries a degree check of (9.5.1) in the unramified case.
+- **Gaps.**
+  - G7 is resolved.
+  - G4 and G5 are recorded as findings.
+  - The others are deferred as cited suppliers' proofs.
 
-## Resume in order
+## Resume
 
-1. G1: Kisin/Kim variance, Frobenius pullbacks and thickening indices.
-2. G2: all-prime integral model/tensor inputs; read KMP16 appendix erratum before deciding its scope; verify stack extension and connected-base hypotheses.
-3. G3: full raw/normalized Whittaker and Haar/Weil audit; compare HY12/Yan05/BKY12, then good-prime Borcherds and prescribed support.
-4. G4: Col93/DMOS; repair the positive metric, trace-normalized period and determinant conductor computation. E1/E2 have a length1 versus−1 counterexample, but downstream formulas still need proof.
-5. G5: replace false(9.5.3) with actual maximal-lattice and integral Hodge-line comparison. This is an unresolved replacement proof, not a one-character correction.
-6. G6: auxiliary lattices, Armitage/Bruinier, classical d=1 and coefficientwise bad-log elimination.
-7. G7: finish atomizing the remaining grouped theorem parts and all external definition leaves; journal-image/independent collation of typo groups.
+The job is complete. For a reviewer:
 
-Retain the finite-L height normalization and the explicit Yuan–Zhang metric adapter.
-Keep LubinTateFormalModulesAndQuasiCanonicalLifts, OrthogonalIntegralModelsAndKugaSatake,
-GSpinSpecialDivisorHeights and ComplexMultiplicationAndExplicitReciprocityPartII as the shared candidate IDs.
-Do not promote a candidate to planned until an actual stage exists.
-Do not use the individual Colmez conjecture or claim the averaged theorem disproved.
+1. Check E1 and E2 (pp. 517–519).
+2. Check the E4 reclassification against (9.5.2) on p. 523.
+3. Check the ramified case of E6, which was not rechecked.
 
-## Checks
+## Validation
 
-Passed check_paper; intake check-files (exactly3 files,0 problems);9 paper-checker and7 source-issue tests. Additional ID/dependency/API/route checks passed. No Lean compilation.
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
