@@ -24237,6 +24237,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CESNAVICIUS-21/E1",
+   "kind": "misprint",
+   "locator": "Corollary 1.11, last words of the statement (page 3 of the author's copy of the published version); the same sentence in arXiv:1810.04493v2",
+   "printed": "there is an open S-immersion X ↪ X̄ into a proper S-scheme X̄ that is Cohen–Macaulay such that X̄ \\ X is a (possibly nonreduced) divisor in X.",
+   "correction": "\"a divisor in X\" should read \"a divisor in X̄\"",
+   "reason": "X̄ \\ X is by construction disjoint from X, so it cannot be a divisor in X; the assertion being made is that the boundary of the compactification is a divisor in the compactification, which is what the proof produces by applying Corollary 1.10 to the Nagata compactification. The reading is not an artefact of the text layer: in the content stream of the published PDF each overlined X is typeset as a letter preceded by an explicitly drawn rule, and in this sentence the rule is present before the first X of \"X̄ \\ X\" and absent before the final X, which is therefore the plain X. The LaTeX source of the final arXiv version likewise has \\ov{X} in the two earlier places and a bare $X$ here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version, read in full, and its PDF content streams at this sentence",
+    "the arXiv abstract page for 1810.04493, whose v2 of 3 September 2020 is described as the final version and is the latest; no erratum is announced",
+    "the author's publications page, which lists the paper with its Duke reference and no corrigendum"
+   ],
+   "owner": "PAPER-CESNAVICIUS-21",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-21.result.json",
+   "citation": "Česnavičius, \"Macaulayfication of Noetherian schemes\", Duke Mathematical Journal (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E2",
+   "kind": "misprint",
+   "locator": "§1.13 (The inductive method), second sentence (page 4 of the author's copy of the published version); the same sentence in arXiv:1810.04493v2",
+   "printed": "After an initial reduction to locally equidimensional schemes based on an inductive construction of an \"(S₂)-ificaiton,\"",
+   "correction": "\"ificaiton\" should read \"ification\"",
+   "reason": "The object being constructed is the (S₂)-ification of §2, called that everywhere else in the paper, in Theorem 2.13 and Corollary 2.14 and in the sentence of §2's introduction that refers back to this one; the two transposed letters are a typing slip. It was read from the content stream of the published PDF, where it appears inside the quotation marks as printed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version, whose text at this point is identical to the preprint's",
+    "the arXiv abstract page for 1810.04493, which has no version after v2 and announces no erratum",
+    "the author's publications page, which lists no corrigendum"
+   ],
+   "owner": "PAPER-CESNAVICIUS-21",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-21.result.json",
+   "citation": "Česnavičius, \"Macaulayfication of Noetherian schemes\", Duke Mathematical Journal (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E3",
+   "kind": "gap",
+   "locator": "Lemma 2.11, its final clause, and the proof of Lemma 2.11 (pages 8–9 of the author's copy of the published version); the same in arXiv:1810.04493v2",
+   "printed": "Moreover, if 𝓜 is (S₂) and for each x ∈ closure(Supp(𝓜)) \\ Supp(𝓜) of height ≥ 2 in closure(Supp(𝓜)) the punctured spectrum of O_{closure(Supp(𝓜)),x} has no isolated points, then 𝓜' may be chosen to itself be (S₂).",
+   "correction": "the proof should return to this clause; as written its only trace is the parenthesis \"(in the (S₂) case, this step is the reason for a direct sum in the statement; in the (S₁) case, no direct sum issue arises …)\" in the middle of the dim X ≥ 2 case.",
+   "reason": "The body of the proof establishes the first two assertions of the lemma and never mentions the extra hypothesis again, so the final clause is stated without an argument. The argument is short and is clearly what the author has in mind, and the clause is true: after the reductions made at the start of the proof one may assume that X is local with closed point x, that U is the punctured spectrum and that closure(Supp(𝓜)) = X, and the direct sum in the (S₂) case arises only from the summand U₀ of isolated points of U. If dim X ≥ 2 then x has height ≥ 2 and the extra hypothesis says exactly that U₀ = ∅, so no splitting occurs; if dim X = 1 the extension produced in that case is (S₁) and, the support having dimension ≤ 1, therefore also (S₂). A formalisation has to supply these two lines.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the proof of Lemma 2.11 in the published version and in arXiv:1810.04493v2, read in full; the two texts agree",
+    "the arXiv abstract page for 1810.04493, which has no version after v2 and announces no erratum",
+    "the author's publications page, which lists no corrigendum"
+   ],
+   "owner": "PAPER-CESNAVICIUS-21",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-21.result.json",
+   "citation": "Česnavičius, \"Macaulayfication of Noetherian schemes\", Duke Mathematical Journal (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CESNAVICIUS-22/E1",
    "kind": "error",
    "locator": "Proof of Lemma 6.3, author PDF p. 20 (the published version p. 18, without the footnote)",
