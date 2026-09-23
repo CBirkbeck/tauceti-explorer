@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-GHOSH-SARNAK-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ClassicalArithmeticCompletion CA.4 owns classical Diophantine equations and elementary descent, and it already carries the coefficient-three Markoff equation through PAPER-MARTIN-25. The level-k theory belongs with it: descent, the Δ-function, the fundamental sets and finiteness of h(k), local solubility, the reciprocity obstructions and Theorem 1.2(i), and the §10 enumeration. CA.1 owns the Gauss-sum count of Lemma 6.4. The review took out the Fricke trace identity, which Tau Ceti BelyiMaps Layer 4 plans, and CA.4 imports it. That leaves 25 items."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Theorem 1.2(ii) is an almost-all representation theorem proved by a variance argument, with the δ-method for the quaternary equations f_{a₁}(x) = f_{a₂}(y), singular integrals and explicit local densities. ES.4 owns such forms-in-many-variables endpoints and ES.3 owns singular integrals and local densities; their audits record none of it. The general notions of affine forms, admissibility, perfect/full forms and the Appendix A invariants are the vocabulary of those endpoints."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "GN.4 owns lattice-point estimates with main term and error. Lemmas 7.1–7.3 (with the corrected constant 1/48 of E1, which the review re-derived and re-counted) and the Blomer–Granville bound are lattice-point counts in explicit quadratic and cubic regions."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AN.5 owns mean values of multiplicative functions (RS-07 keeps it). The Landau–Ramanujan-type counts and the Selberg–Delange/Wirsing count of integers with prime factors in a set of density 1/2 are exactly that; no other layer names them."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The Markoff Part II of ArithmeticDynamics was proposed by PAPER-MARTIN-25 and accepted, and its design job is pending. Zariski density of Γ-orbits (1.5), the perfect and universal forms U₁, U₂ and the character-variety interpretation are statements about the Vieta action, not classical Diophantine ones, so coalescing with that Part II is right. The brief states the final theorems with the corrections of E5 and E6 and names its imports by id; E20 does not change it."
+    }
+  ],
+  "notes": "Items, statuses, routes and all nineteen recorded mistakes were checked against arXiv v3 (the authors' final version; SHA-256 e4ddc7a1… as recorded) and the pinned libraries. Every finding was re-checked by computation or at its locator and confirmed. E15 was extended from p = 3 to every p ≡ 3 (mod 4). One new mistake, E20, was added. Corrections made in place: item 23 (Fricke identity) changed from missing to planned at Tau Ceti BelyiMaps Layer 4 and removed from route 1; items 62–63 changed from definition to theorem, marked as conjectures; item 20 statement corrected for |x̂₁| = 2; item 57 statement corrected for the χ(−1) sign; E15 correction, locator and reason extended; summary and report updated. check_paper.py passes. Details: research/blueprint/reviews/REV-PAPER-GHOSH-SARNAK-22.md."
+}
