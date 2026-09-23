@@ -1,0 +1,2580 @@
+{
+  "paper": "PAPER-NIKOLAUS-SCHOLZE-18",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "On topological cyclic homology",
+    "authors": "Thomas Nikolaus and Peter Scholze",
+    "venue": "Acta Mathematica 221 (2018), no. 2, 203–409; correction Acta Math. 222 (2019), 215–218",
+    "doi": "10.4310/ACTA.2018.v221.n2.a1",
+    "arxiv": "1707.01799",
+    "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf",
+    "sha256": "8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef",
+    "readDate": "2026-09-23",
+    "version": "The published Acta text in its corrected online form (open-access intlpress PDF, 207 pages, created 31 March 2019), read in full; locators and page numbers are the published ones. Also read: the Acta correction (https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0222/0001/ACTA-2019-0222-0001-a002.pdf, SHA-256 0b98fb63029a31324ad23504f584e3f414b03f4734ba63f49b943b0bd5f27944) and arXiv v2 (https://arxiv.org/pdf/1707.01799v2, 7 September 2018, SHA-256 12b6cdbd0d8ebb506284bd13f183affe80e41cc8890fef5fa21c922c2f80cec3), compared at every finding. Pages 332 and 400 were checked on page images.",
+    "readSections": [
+      "Introduction",
+      "Chapter I (§§I.1–I.4)",
+      "Chapter II (§§II.1–II.6)",
+      "Chapter III (§§III.1–III.6)",
+      "Chapter IV (§§IV.1–IV.4)",
+      "Appendices A, B, C",
+      "References",
+      "the Acta correction"
+    ]
+  },
+  "summary": "Nikolaus and Scholze define a cyclotomic spectrum as a spectrum with T-action and T-equivariant Frobenius maps X → X^{tC_p}, with no genuine equivariant homotopy theory, prove that on bounded below spectra this ∞-category is equivalent to the classical genuine one (Theorem II.6.9) and that TC(X) = fib(X^{hT} → ∏_p (X^{tC_p})^{hT}) (Theorems II.4.10–II.4.11), and construct the Frobenius of THH(A) from the Tate diagonal X → (X^{⊗p})^{tC_p}, which they show is a p-completion for bounded below X (Theorem III.1.7). The tools are the Tate orbit lemma, a unique multiplicative structure on Tate constructions via Verdier quotients, a coalgebra argument for endofunctors, and Appendices on symmetric monoidal Dwyer–Kan localisation and cyclic objects; Chapter IV treats the Tate-valued Frobenius (Steenrod and Adams operations), E_∞-rings, loop spaces and TC(F_p). The atlas plans the subject in RefinedTraceMethods RT.2, and neither library has spectra. Routes: RT.2 as the main source (107 items), RT.1 for the HKR filtration, EnhancedDerivedSheaves E5 for the ∞-categorical appendix and Verdier quotients, StableHomotopyKTheory H.1–H.2 for realisations of spaces, KTheoryFiniteLocalFields L.5 for THH and TC of F_p, and a Part II of StableHomotopyKTheory for the Segal conjecture and power operations. Complete (cc-442dc5). New findings: Proposition II.3.4's identification of Cyc Sp with a fibre product is false in general; the covering argument for Theorem B.3 has a gap (the statement holds); and a number of misprints, including the Steenrod degree shifts of Theorem IV.1.15 and the p-series of Example I.2.3. The Acta correction's entries are recorded as known. Not formalised.",
+  "items": [
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/1",
+      "kind": "theorem",
+      "name": "Goodwillie's rational comparison (cited)",
+      "statement": "There is a trace map tr: K(A) → HC⁻(A), functorial in A. If A → Ā is a surjection of associative unital algebras with nilpotent kernel, the square formed by K(A)_Q → HC⁻(A⊗Q) and K(Ā)_Q → HC⁻(Ā⊗Q) is homotopy cartesian; (−)_Q is rationalisation.",
+      "locator": "Introduction, Theorem 1.1, p. 204",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.3"
+      ],
+      "note": "Goodwillie [40]; RT.3 plans the rational relative K/cyclic-homology comparison with its nilpotence hypotheses."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/2",
+      "kind": "theorem",
+      "name": "Dundas–Goodwillie–McCarthy (cited)",
+      "statement": "There is a cyclotomic trace tr: K(A) → TC(A), functorial in A. If A → Ā is a map of connective associative unital algebras in Sp such that π_0A → π_0Ā is surjective with nilpotent kernel, then the square K(A) → TC(A) over K(Ā) → TC(Ā) is homotopy cartesian.",
+      "locator": "Introduction, Theorem 1.2, p. 208",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.3"
+      ],
+      "note": "As printed the surjectivity is omitted (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E3). RT.3 plans the relative nilpotent comparison."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/3",
+      "kind": "theorem",
+      "name": "TC of a connective ring spectrum (Corollary 1.5)",
+      "statement": "For every connective A ∈ Alg_E1(Sp) there is a natural fibre sequence TC(A) → THH(A)^{hT} → ∏_{p∈P} (THH(A)^{tC_p})^{hT}, the second map having p-th component φ_p^{hT} − can, where can: THH(A)^{hT} ≃ (THH(A)^{hC_p})^{h(T/C_p)} = (THH(A)^{hC_p})^{hT} → (THH(A)^{tC_p})^{hT} uses T/C_p ≅ T. Here TC(A) is the classical (genuine) TC of Bökstedt–Hsiang–Madsen and Goodwillie.",
+      "locator": "Introduction, Corollary 1.5, p. 209",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Consequence of Theorems II.4.11 and II.6.9; RT.2 plans the modern formula with its bounded-below hypothesis."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/4",
+      "kind": "definition",
+      "name": "Pointed, preadditive, additive and stable ∞-categories",
+      "statement": "An ∞-category C is pointed if it has a zero object; preadditive if pointed, with finite products and coproducts, and X ⊔ Y → X × Y (matrix (id, 0; 0, id)) an equivalence for all X, Y; additive if moreover every π_0Hom(X, Y) is a group; stable if additive with all finite limits and colimits and Ω: X ↦ 0 ×_X 0 an equivalence.",
+      "locator": "§I.1, Definition I.1.1, p. 214",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:abstract"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/5",
+      "kind": "definition",
+      "name": "G-equivariant objects",
+      "statement": "For a group G and an ∞-category C, a G-equivariant object is a functor BG → C; C^{BG} = Fun(BG, C). For C = Sp these are spectra with G-action (not genuine G-spectra).",
+      "locator": "§I.1, Definition I.1.2, p. 214",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:presentability",
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/6",
+      "kind": "definition",
+      "name": "Homotopy orbits and homotopy fixed points",
+      "statement": "If C has BG-indexed colimits (limits), −_{hG}: C^{BG} → C is colim_BG, and −^{hG}: C^{BG} → C is lim_BG.",
+      "locator": "§I.1, Definition I.1.5, p. 215",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:presentability",
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/7",
+      "kind": "theorem",
+      "name": "Norms for truncated maps (cited from Higher Algebra)",
+      "statement": "If C is pointed, f_! and f_* exist for every (−1)-truncated map of Kan complexes f: X → Y and Nm_f: f_! → f_* is an equivalence [HA 6.1.6.7]; if C is preadditive, the same holds for 0-truncated maps with finite fibres [HA 6.1.6.12].",
+      "locator": "§I.1, Lemma I.1.8, p. 216",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Lemmas I.1.8 and I.1.9 together; the input to the norm construction."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/8",
+      "kind": "construction",
+      "name": "The norm map of a relative finite groupoid",
+      "statement": "Let C be preadditive with limits and colimits indexed by classifying spaces of finite groups, and f: X → Y a map of Kan complexes whose fibres have finitely many components, each the classifying space of a finite group. Construction I.1.7 produces from the invertible norm Nm_δ of the diagonal δ: X → X ×_Y X a natural transformation Nm_f: f_! → f_* of functors C^X → C^Y (Definition I.1.10). For f: BG → * this is Nm_G: X_{hG} → X^{hG} (Example I.1.11).",
+      "locator": "§I.1, Definition I.1.10, p. 217",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Construction I.1.7, Definition I.1.10, Example I.1.11."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/9",
+      "kind": "theorem",
+      "name": "Equivariance of the norm for a normal subgroup",
+      "statement": "If G is a finite normal subgroup of a topological group H and f: BH → B(H/G), the functors f_!, f_*: C^{BH} → C^{B(H/G)} lift −_{hG} and −^{hG}, and Nm_G: −_{hG} → −^{hG} refines to a natural transformation f_! → f_* of functors C^{BH} → C^{B(H/G)}.",
+      "locator": "§I.1, Example I.1.12, p. 217",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/10",
+      "kind": "definition",
+      "name": "The Tate construction",
+      "statement": "For C stable with BG-indexed limits and colimits, −^{tG}: C^{BG} → C sends X to cofib(Nm_G: X_{hG} → X^{hG}); for G normal in H, −^{tG}: C^{BH} → C^{B(H/G)} is cofib(Nm_f: f_!X → f_*X). The Tate constructions in R-Mod and in Sp agree.",
+      "locator": "§I.1, Definition I.1.13, p. 218",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/11",
+      "kind": "theorem",
+      "name": "Tate spectra of Eilenberg–MacLane spectra",
+      "statement": "For a G-module M, π_i(HM^{tG}) ≅ Ĥ^{−i}(G, M), the Tate cohomology of G; for example Ĥ^*(C_p, Z) ≅ F_p[t^{±1}] with t of degree 2.",
+      "locator": "§I.1, Definition I.1.13 (the paragraph after), p. 218",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The algebraic side is in the libraries: Mathlib's tateCohomology and tateCohomologyFunctor (a Tate complex built from the norm, at 082e2d3), Tau Ceti's Rep.FiniteCyclicGroup.periodicIso and tateCohomologyIsoEven (two-periodicity for cyclic groups, at f790474). The spectrum HM^{tG} and the comparison are absent."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/12",
+      "kind": "theorem",
+      "name": "Tate orbit lemma",
+      "statement": "Let X be a spectrum with C_{p²}-action that is bounded below. Then (X_{hC_p})^{t(C_{p²}/C_p)} ≃ 0.",
+      "locator": "§I.2, Lemma I.2.1, p. 218",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/13",
+      "kind": "theorem",
+      "name": "Tate fixpoint lemma",
+      "statement": "Let X be a spectrum with C_{p²}-action that is bounded above. Then (X^{hC_p})^{t(C_{p²}/C_p)} ≃ 0.",
+      "locator": "§I.2, Lemma I.2.2, p. 219",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/14",
+      "kind": "theorem",
+      "name": "The sphere violates the Tate fixpoint lemma",
+      "statement": "For S with trivial C_{p²}-action, (S^{hC_p})^{t(C_{p²}/C_p)} ≃ S_p^∧, the p-completion of S; so S does not satisfy the conclusion of the Tate fixpoint lemma.",
+      "locator": "§I.2, Example I.2.3, p. 219",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Example I.2.3(i); it uses the Segal conjecture S^{tC_p} ≃ S_p^∧ (Remark III.1.6) and Lemma I.2.9."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/15",
+      "kind": "theorem",
+      "name": "KU violates the Tate orbit lemma",
+      "statement": "For KU with trivial C_{p²}-action, π_*(KU^{tC_p}) ≅ KU_*((x))/((1+x)^p − 1) ≅ KU_* ⊗ Q_p(ζ_p), rational; π_*((KU^{tC_p})^{h(C_{p²}/C_p)}) ≅ KU_* ⊗ Q_p(ζ_p) while π_*(KU^{tC_{p²}}) ≅ KU_*((x))/((1+x)^{p²} − 1) ≅ KU_* ⊗ (Q_p(ζ_p) ⊕ Q_p(ζ_{p²})). Hence (KU^{tC_p})^{h(C_{p²}/C_p)} ≄ KU^{tC_{p²}}, and KU does not satisfy the Tate orbit lemma.",
+      "locator": "§I.2, Example I.2.3, p. 219",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Example I.2.3(iii), with the p- and p²-series corrected (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E4); uses the Tate spectra of complex oriented theories [41, 5] and KU from RT.4:topological."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/16",
+      "kind": "theorem",
+      "name": "Postnikov pieces of HF_p",
+      "statement": "Let X = HF_p with trivial C_{p²}-action. For every i ≥ 0, (τ_{[2i,2i+1]}X_{hC_p})^{t(C_{p²}/C_p)} ≃ 0 and (τ_{[−2i−1,−2i]}X^{hC_p})^{t(C_{p²}/C_p)} ≃ 0; and X satisfies the conclusions of Lemmas I.2.1 and I.2.2.",
+      "locator": "§I.2, Lemma I.2.4, p. 221",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/17",
+      "kind": "theorem",
+      "name": "A non-split two-stage complex has vanishing Tate construction",
+      "statement": "Let A ∈ D(F_p)^{BC_p} have only H^0 = H^1 = F_p (with trivial action) and non-zero extension class in π_0Map_{D(F_p)^{BC_p}}(F_p[−1], F_p[1]) = H²(C_p, F_p) = F_p. Then A^{tC_p} ≃ 0.",
+      "locator": "§I.2, Lemma I.2.5, p. 221",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/18",
+      "kind": "theorem",
+      "name": "Postnikov convergence of orbits, fixed points and Tate",
+      "statement": "For Y a spectrum with action of a finite group G: (i) Y^{hG} → lim_n (τ_{≤n}Y)^{hG}, Y_{hG} → lim_n (τ_{≤n}Y)_{hG} and Y^{tG} → lim_n (τ_{≤n}Y)^{tG} are equivalences; (ii) colim_n (τ_{≥−n}Y)^{hG} → Y^{hG}, colim_n (τ_{≥−n}Y)_{hG} → Y_{hG} and colim_n (τ_{≥−n}Y)^{tG} → Y^{tG} are equivalences.",
+      "locator": "§I.2, Lemma I.2.6, p. 222",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/19",
+      "kind": "theorem",
+      "name": "Eilenberg–MacLane spectra satisfy both lemmas",
+      "statement": "For an abelian group M with C_{p²}-action, X = HM satisfies the conclusions of Lemmas I.2.1 and I.2.2.",
+      "locator": "§I.2, Lemma I.2.7, p. 223",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/20",
+      "kind": "theorem",
+      "name": "Tate vanishing when p is invertible",
+      "statement": "If Y is a spectrum with C_p-action on which multiplication by p is an isomorphism on every π_iY, then Y^{tC_p} ≃ 0.",
+      "locator": "§I.2, Lemma I.2.8, p. 223",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/21",
+      "kind": "theorem",
+      "name": "Tate spectra of bounded below spectra are p-complete",
+      "statement": "If X is a bounded below spectrum with C_p-action, X^{tC_p} is p-complete and X^{tC_p} ≃ (X_p^∧)^{tC_p}.",
+      "locator": "§I.2, Lemma I.2.9, p. 224",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/22",
+      "kind": "theorem",
+      "name": "Multiplicativity of the Tate construction, with uniqueness",
+      "statement": "For a finite group G, the space of pairs consisting of a lax symmetric monoidal structure on −^{tG}: Sp^{BG} → Sp and a lax symmetric monoidal refinement of the natural transformation −^{hG} → −^{tG} is contractible.",
+      "locator": "§I.3, Theorem I.3.1, p. 225",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "RT.2 plans 'multiplicative structure' for the Tate construction; the uniqueness, and the construction avoiding genuine equivariant homotopy theory, are new here."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/23",
+      "kind": "definition",
+      "name": "Stable subcategories and ⊗-ideals",
+      "statement": "A stable subcategory of a stable ∞-category C is a full stable D ⊆ C with exact inclusion; if C is stably symmetric monoidal (⊗ exact in each variable), D is a ⊗-ideal if X ⊗ Y ∈ D for all X ∈ C, Y ∈ D.",
+      "locator": "§I.3, Definition I.3.2, p. 225",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/24",
+      "kind": "theorem",
+      "name": "Verdier quotients of stable ∞-categories",
+      "statement": "Let C be small stable and D ⊆ C a stable subcategory, W the maps with cone in D. (i) The Dwyer–Kan localisation C/D = C[W⁻¹] is stable, C → C/D is exact, and for stable E it identifies Fun^Ex(C/D, E) with the exact functors C → E killing D. (ii) Map_{C/D}(X̄, Ȳ) ≃ colim_{Z∈D/Y} Map_C(X, cofib(Z → Y)), a filtered colimit, so the Yoneda functor factors as an exact C/D → Ind(C) sending Ȳ to colim_{Z∈D/Y} cofib(Z → Y). (iii) For presentable stable E, Fun^Ex(C/D, E) ⊆ Fun^Ex(C, E) is right adjoint to a localisation, sending F to C/D → Ind(C) → Ind(E) → E.",
+      "locator": "§I.3, Theorem I.3.3, p. 225",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Lemma I.3.4 (mapping spaces in C[W⁻¹] are L(Map_C(X, −))), proved inside."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/25",
+      "kind": "theorem",
+      "name": "Ind-categories of Verdier quotients",
+      "statement": "For C small stable and D ⊆ C stable, Ind(C) is presentable stable, Ind(D) ⊆ Ind(C) a presentable stable subcategory, and Ind(C) → Ind(C/D) has kernel Ind(D) and is a localisation whose fully faithful right adjoint is the colimit-preserving extension of C/D → Ind(C) of Theorem I.3.3(ii).",
+      "locator": "§I.3, Proposition I.3.5, p. 228",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/26",
+      "kind": "theorem",
+      "name": "Symmetric monoidal Verdier quotients",
+      "statement": "Let C be small, stably symmetric monoidal and stable and D ⊆ C a stable ⊗-ideal. (i) There is a unique way to make C/D and C → C/D symmetric monoidal, and for symmetric monoidal stable E, Fun^Ex_lax(C/D, E) is the full subcategory of Fun^Ex_lax(C, E) of functors killing D. (ii) If E is presentably symmetric monoidal stable, this inclusion is right adjoint to a localisation given by F ↦ (C/D → Ind(C) → Ind(E) → E), both functors canonically lax symmetric monoidal.",
+      "locator": "§I.3, Theorem I.3.6, p. 230",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/27",
+      "kind": "definition",
+      "name": "Induced spectra with G-action",
+      "statement": "Sp^{BG}_ind ⊆ Sp^{BG} is the stable subcategory generated by the spectra ⊕_{g∈G} X with permutation action, X ∈ Sp.",
+      "locator": "§I.3, Definition I.3.7, p. 231",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/28",
+      "kind": "theorem",
+      "name": "Properties of induced spectra",
+      "statement": "For X ∈ Sp^{BG}: (i) if X ∈ Sp^{BG}_ind then X^{tG} ≃ 0; (ii) Sp^{BG}_ind ⊆ Sp^{BG} is a ⊗-ideal; (iii) colim_{Y∈(Sp^{BG}_ind)/X} Y → X and colim_{Y∈(Sp^{BG}_ind)/X} cofib(Y → X)^{hG} → X^{tG} are equivalences.",
+      "locator": "§I.3, Lemma I.3.8, p. 231",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/29",
+      "kind": "theorem",
+      "name": "Residual Tate constructions are lax symmetric monoidal",
+      "statement": "If G is a finite normal subgroup of a topological group H, −^{tG}: Sp^{BH} → Sp^{B(H/G)} has a natural lax symmetric monoidal structure making −^{hG} → −^{tG} lax symmetric monoidal, compatibly with Theorem I.3.1; in particular −^{tC_p}: Sp^{BT} → Sp^{B(T/C_p)}.",
+      "locator": "§I.3, Corollary I.3.9, p. 233",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/30",
+      "kind": "theorem",
+      "name": "The Tate construction for a Kan complex (Farrell–Tate)",
+      "statement": "For a Kan complex S and p: S → *, with p_! (homology) and p_* (cohomology) adjoint to p*: Sp → Sp^S: (i) Sp^S is compactly generated presentable stable, generated by the compact s_!S (s ∈ S); (ii) there is an initial functor p^T_* with p_* → p^T_* vanishing on compact objects; (iii) it is the unique such functor for which fib(p_* → p^T_*) preserves colimits; (iv) fib(p_* → p^T_*) ≃ p_!(D_S ⊗ −) for a unique D_S ∈ Sp^S, the composite S → Fun(S, S) → Fun(S, Sp) → Sp of Map(−,−), Σ^∞_+ and p_*; (v) p_!(D_S ⊗ −) → p_* is final among colimit-preserving functors over p_* (an assembly map); (vi) if p^T_*(s_!X) ≃ 0 for all s ∈ S and X ∈ Sp, p^T_* has a unique lax symmetric monoidal structure making p_* → p^T_* lax symmetric monoidal.",
+      "locator": "§I.4, Theorem I.4.1, p. 235",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/31",
+      "kind": "definition",
+      "name": "The Spivak–Klein dualizing spectrum",
+      "statement": "D_S ∈ Sp^S of Theorem I.4.1(iv); its fibre at s is lim_{t∈S} Σ^∞_+Map(s, t), and for S = BG, D_{BG} = (Σ^∞_+G)^{hG} (Klein).",
+      "locator": "§I.4, Definition I.4.2, p. 235",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/32",
+      "kind": "theorem",
+      "name": "The circle norm and T-Tate construction",
+      "statement": "On Sp^{BT} there is a natural transformation Σ(−_{hT}) → −^{hT} exhibiting Σ(−_{hT}) as the universal colimit-preserving functor over −^{hT}; its cofibre −^{tT} has a unique lax symmetric monoidal structure making −^{hT} → −^{tT} lax symmetric monoidal. For n ≥ 1 there is a unique (lax symmetric monoidal) transformation −^{tT} → −^{tC_n} compatible with −^{hT} → −^{hC_n}.",
+      "locator": "§I.4, Corollary I.4.3, p. 238",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Uses Klein's computation of D_{BT} [59, Theorem 10.1, Corollary 10.2]. RT.2 plans TP = −^{tT}."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/33",
+      "kind": "theorem",
+      "name": "Integral T-Tate modulo n",
+      "statement": "For HZ with trivial T-action, (HZ)^{tT} → (HZ)^{tC_n} induces π_i(HZ)^{tT}/n ≅ π_i(HZ)^{tC_n} for all i.",
+      "locator": "§I.4, Lemma I.4.4, p. 239",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/34",
+      "kind": "definition",
+      "name": "Cyclotomic and p-cyclotomic spectra",
+      "statement": "(i) A cyclotomic spectrum is a spectrum X with T-action together with T ≅ T/C_p-equivariant maps φ_p: X → X^{tC_p} for every prime p (X^{tC_p} with its residual T/C_p-action, identified with T by the p-th power map). (ii) For a prime p, a p-cyclotomic spectrum is a spectrum with C_{p^∞}-action and a C_{p^∞}-equivariant φ_p: X → X^{tC_p}. No compatibility between different φ_p is asked.",
+      "locator": "§II.1, Definition II.1.1, p. 240",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Also Definition 1.3."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/35",
+      "kind": "theorem",
+      "name": "The cyclotomic sphere",
+      "statement": "S with trivial T-action and φ_p: S → S^{hC_p} → S^{tC_p}, made T-equivariant through S → S^{hT} ≃ (S^{hC_p})^{h(T/C_p)} → (S^{tC_p})^{h(T/C_p)}, is a cyclotomic spectrum, equivalent to THH(S); by the Segal conjecture each φ_p is a p-completion.",
+      "locator": "§II.1, Example II.1.2, p. 240",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Example II.1.2(ii); the p-completion claim is the Segal conjecture of Remark III.1.6 (Part II route)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/36",
+      "kind": "definition",
+      "name": "Lax equalizers",
+      "statement": "For functors F, G: C → D, LEq(F, G) is the pullback of (ev_0, ev_1): D^{Δ¹} → D × D along (F, G): C → D × D; its objects are pairs (c, f: F(c) → G(c)).",
+      "locator": "§II.1, Definition II.1.4, p. 241",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/37",
+      "kind": "theorem",
+      "name": "Properties of lax equalizers",
+      "statement": "(i) The defining pullback is homotopy cartesian. (ii) Map_{LEq}((c_X, f_X), (c_Y, f_Y)) ≃ Eq(Map_C(c_X, c_Y) ⇉ Map_D(F c_X, G c_Y)) via (f_Y)_*F and (f_X)^*G, and a map is an equivalence iff its image in C is. (iii) If C, D are stable and F, G exact, LEq(F, G) is stable and LEq(F, G) → C exact. (iv) If C is presentable, D accessible, F colimit-preserving and G accessible, LEq(F, G) is presentable and LEq(F, G) → C preserves colimits. (v) Limits in C preserved by G lift to LEq(F, G).",
+      "locator": "§II.1, Proposition II.1.5, p. 241",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/38",
+      "kind": "definition",
+      "name": "The ∞-categories of cyclotomic spectra",
+      "statement": "(i) Cyc Sp := LEq(Sp^{BT} ⇉ ∏_{p∈P} Sp^{BT}) for id and −^{tC_p}: Sp^{BT} → Sp^{B(T/C_p)} ≃ Sp^{BT}. (ii) Cyc Sp_p := LEq(Sp^{BC_{p^∞}} ⇉ Sp^{BC_{p^∞}}) for id and −^{tC_p}: Sp^{BC_{p^∞}} → Sp^{B(C_{p^∞}/C_p)} ≃ Sp^{BC_{p^∞}}.",
+      "locator": "§II.1, Definition II.1.6, p. 244",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/39",
+      "kind": "theorem",
+      "name": "Cyc Sp is presentable stable",
+      "statement": "Cyc Sp and Cyc Sp_p are presentable stable ∞-categories, and the forgetful functors to Sp reflect equivalences, are exact and preserve small colimits.",
+      "locator": "§II.1, Corollary II.1.7, p. 244",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/40",
+      "kind": "definition",
+      "name": "TC as a mapping spectrum",
+      "statement": "(i) For a cyclotomic spectrum X, TC(X) = map_{Cyc Sp}(S, X); (ii) for a p-cyclotomic X, TC(X, p) = map_{Cyc Sp_p}(S, X); (iii) for R ∈ Alg_E1(Sp), TC(R) = TC(THH(R)) and TC(R, p) = TC(THH(R), p).",
+      "locator": "§II.1, Definition II.1.8, p. 245",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/41",
+      "kind": "theorem",
+      "name": "The fibre sequence for TC",
+      "statement": "(i) For a cyclotomic spectrum X there is a functorial fibre sequence TC(X) → X^{hT} → ∏_p (X^{tC_p})^{hT} with components φ_p^{hT} − can, can: X^{hT} ≃ (X^{hC_p})^{h(T/C_p)} ≃ (X^{hC_p})^{hT} → (X^{tC_p})^{hT}. (ii) For a p-cyclotomic X, TC(X, p) → X^{hC_{p^∞}} → (X^{tC_p})^{hC_{p^∞}} with φ_p^{hC_{p^∞}} − can.",
+      "locator": "§II.1, Proposition II.1.9, p. 245",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/42",
+      "kind": "definition",
+      "name": "Orthogonal spectra",
+      "statement": "An orthogonal spectrum is a sequence of pointed spaces X_n with continuous based O(n)-actions and maps σ_n: X_n ∧ S¹ → X_{n+1} whose iterates X_n ∧ S^m → X_{n+m} are O(n) × O(m)-equivariant; π_iX = colim π_{i+n}X_n; a map is a stable equivalence if it induces isomorphisms on all π_i.",
+      "locator": "§II.2, Definition II.2.1, p. 246",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Schwede [85]; neither library has spectra in any model (audit of H.5:spectra)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/43",
+      "kind": "definition",
+      "name": "Orthogonal G-spectra and geometric fixed points",
+      "statement": "For a finite group G, GSp^O = Fun(BG, Sp^O) with smash product and diagonal action. X(V) = L(R^n, V)_+ ∧_{O(n)} X_n for an n-dimensional representation V; Φ^G X has n-th space X(R^n ⊗ ρ_G)^G (ρ_G the regular representation); f is an equivalence if Φ^H f is a stable equivalence for every H ⊆ G. Φ^G is lax symmetric monoidal and Φ^G X ∧ Φ^G Y → Φ^G(X ∧ Y) is a stable equivalence for cofibrant X, Y [85, Proposition 7.14].",
+      "locator": "§II.2, Definition II.2.3, p. 248",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definitions II.2.2–II.2.3 and Proposition II.2.4."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/44",
+      "kind": "definition",
+      "name": "Genuine G-spectra",
+      "statement": "GSp is N(GSp^O) with the equivalences inverted, symmetric monoidal via cofibrant smash; Φ^H: GSp → Sp is the induced symmetric monoidal functor; the genuine fixed points −^H: GSp → Sp come from set-theoretic fixed points of orthogonal G-Ω-spectra, with a lax symmetric monoidal transformation −^H → −^{hH} through GSp → Sp^{BG}.",
+      "locator": "§II.2, Definition II.2.5, p. 248",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/45",
+      "kind": "theorem",
+      "name": "Borel-complete genuine spectra",
+      "statement": "GSp → Sp^{BG} has a fully faithful right adjoint B_G whose essential image consists of the X with X^H → X^{hH} an equivalence for all H ⊆ G; B_G is lax symmetric monoidal and id → B_G is a lax symmetric monoidal transformation.",
+      "locator": "§II.2, Theorem II.2.7, p. 250",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Corollary II.2.8."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/46",
+      "kind": "definition",
+      "name": "Complete universes and the point-set geometric fixed points",
+      "statement": "A complete G-universe U is a countable sum of copies of every irreducible representation. For H ⊆ G normal, Φ^H_U: GSp^O → (G/H)Sp^O has n-th space hocolim_{V∈U, V^H=0} X(R^n ⊕ V)^H (Bousfield–Kan hocolim), and there is a natural zig-zag of stable equivalences Φ^G X → Φ̃^G_U X ← Φ^G_U X.",
+      "locator": "§II.2, Definition II.2.10, p. 252",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definitions II.2.9–II.2.10 and Lemma II.2.11 (whose proof should read V^G = 0; sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E6)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/47",
+      "kind": "theorem",
+      "name": "Geometric fixed points compose",
+      "statement": "For normal subgroups H ⊆ H′ ⊆ G there is a natural map Φ^{H′/H}_{U^H} Φ^H_U X → Φ^{H′}_U X, an equivalence of orthogonal G/H′-spectra.",
+      "locator": "§II.2, Proposition II.2.12, p. 253",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/48",
+      "kind": "theorem",
+      "name": "Isotropy separation for cyclic p-groups",
+      "statement": "For G cyclic of p-power order and X ∈ GSp there is a natural fibre sequence X_{hG} → X^G → (Φ^{C_p}X)^{G/C_p}; applied to X → B_G X it maps to X_{hG} → X^{hG} → X^{tG}, the right square lax symmetric monoidal, giving −^{tG} a lax symmetric monoidal structure with −^{hG} → −^{tG} lax symmetric monoidal.",
+      "locator": "§II.2, Proposition II.2.13, p. 254",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/49",
+      "kind": "theorem",
+      "name": "Geometric fixed points as a localisation",
+      "statement": "For H ⊆ G normal, Φ^H: GSp → (G/H)Sp has a fully faithful right adjoint R_H with essential image GSp_{≥H}, the X with X^N ≃ 0 (equivalently Φ^N X ≃ 0) for all N not containing H; on GSp_{≥H}, −^H → Φ^H is an equivalence.",
+      "locator": "§II.2, Proposition II.2.14, p. 255",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/50",
+      "kind": "definition",
+      "name": "Genuine C_{p^∞}- and F-genuine T-spectra",
+      "statement": "C_{p^∞}Sp = lim_n C_{p^n}Sp along the forgetful functors; TSp^O the orthogonal spectra with continuous T-action, F-equivalences those inducing equivalences of orthogonal C_n-spectra for every finite C_n ⊆ T, and TSp_F the localisation at them. −^H and Φ^H exist for finite H and satisfy Theorem II.2.7 and Proposition II.2.14.",
+      "locator": "§II.2, Definition II.2.15, p. 256",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/51",
+      "kind": "theorem",
+      "name": "Fixed points of R_{C_p}",
+      "statement": "For R_{C_p} on C_{p^∞}Sp or TSp_F, (R_{C_p}X)^H ≃ X^{H/C_p} if C_p ⊆ H and 0 otherwise.",
+      "locator": "§II.2, Corollary II.2.16, p. 256",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/52",
+      "kind": "definition",
+      "name": "Genuine p-cyclotomic spectra",
+      "statement": "A genuine p-cyclotomic spectrum is X ∈ C_{p^∞}Sp with an equivalence Φ_p: Φ^{C_p}X ≃ X (via C_{p^∞}/C_p ≅ C_{p^∞}); Cyc Sp_p^gen = Eq(C_{p^∞}Sp ⇉ C_{p^∞}Sp) of id and Φ^{C_p}. Composing Φ_p⁻¹ with Φ^{C_p}X → Φ^{C_p}B(X) gives a functor Cyc Sp_p^gen → Cyc Sp_p.",
+      "locator": "§II.3, Definition II.3.1, p. 257",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Proposition II.3.2."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/53",
+      "kind": "definition",
+      "name": "Genuine cyclotomic spectra",
+      "statement": "Cyc Sp^gen = (TSp_F)^{hN_{>0}}, N_{>0} acting by Φ^{C_n}: objects X ∈ TSp_F with coherently commuting equivalences Φ_n: X ≃ Φ^{C_n}X.",
+      "locator": "§II.3, Definition II.3.3, p. 259",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/54",
+      "kind": "construction",
+      "name": "The forgetful functor from genuine to cyclotomic spectra",
+      "statement": "There is a natural functor Cyc Sp^gen → Cyc Sp, sending (X, (Φ_n)) to its underlying spectrum with T-action and the T ≅ T/C_p-equivariant maps X ≃ Φ^{C_p}X → X^{tC_p}.",
+      "locator": "§II.3, Proposition II.3.4, p. 259",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "As printed the proposition also identifies Cyc Sp with Sp^{BT} ×_{∏Sp^{BC_{p^∞}}} ∏_p Cyc Sp_p, which is false in general (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E1); the functor itself is obtained in §II.6 as Cyc Sp^gen ⊆ CoAlg_{(Φ^{C_p})}(TSp_F) → CoAlg_{(−^{tC_p})}(Sp^{BT}) ≃ Cyc Sp (Lemma II.5.8)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/55",
+      "kind": "definition",
+      "name": "Orthogonal cyclotomic spectra",
+      "statement": "An orthogonal cyclotomic spectrum is X ∈ TSp^O with F-equivalences Φ_n: Φ^{C_n}_U X → X in TSp^O ≃ (T/C_n)Sp^O for all n ≥ 1 such that Φ_{mn} ∘ (Φ^{C_m}_U Φ^{C_n}_U X ≃ Φ^{C_{mn}}_U X) = Φ_n ∘ Φ^{C_n}_U(Φ_m); maps are equivalences when they are F-equivalences. Cyc Sp^O is their category.",
+      "locator": "§II.3, Definition II.3.6, p. 259",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/56",
+      "kind": "theorem",
+      "name": "Orthogonal cyclotomic spectra model genuine ones (cited)",
+      "statement": "N(Cyc Sp^O) → Cyc Sp^gen is the universal functor of ∞-categories inverting the equivalences of orthogonal cyclotomic spectra.",
+      "locator": "§II.3, Theorem II.3.7, p. 260",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Barwick–Glasman [11]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/57",
+      "kind": "theorem",
+      "name": "Genuine and naive TC agree; the main equivalence",
+      "statement": "(i) For X ∈ Cyc Sp^gen with bounded below underlying spectrum, TC^gen(X) ≃ TC(X). (ii) For X ∈ Cyc Sp_p^gen bounded below, TC^gen(X, p) ≃ TC(X, p). Moreover Cyc Sp^gen → Cyc Sp and Cyc Sp_p^gen → Cyc Sp_p are equivalences on the full subcategories of bounded below spectra.",
+      "locator": "§II.3, Theorem II.3.8, p. 260",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "(i)–(ii) are Theorems II.4.11 and II.4.10; the equivalences are Theorems II.6.9 and II.6.3 (also Theorem 1.4)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/58",
+      "kind": "theorem",
+      "name": "Tate construction of C_{p^n} via C_p",
+      "statement": "For bounded below X with C_{p^n}-action, X^{tC_{p^n}} → (X^{tC_p})^{hC_{p^{n−1}}} is an equivalence.",
+      "locator": "§II.4, Lemma II.4.1, p. 261",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/59",
+      "kind": "theorem",
+      "name": "T-Tate and C_p-Tate",
+      "statement": "For bounded below X with T-action, (X^{tC_p})^{hT} is p-complete and X^{tT} → (X^{tC_p})^{hT} is a p-completion; so ∏_p (X^{tC_p})^{hT} is the profinite completion of X^{tT}.",
+      "locator": "§II.4, Lemma II.4.2, p. 262",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Remark II.4.3."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/60",
+      "kind": "definition",
+      "name": "TR and genuine TC (Bökstedt–Hsiang–Madsen)",
+      "statement": "For a genuine p-cyclotomic X with restriction R: X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃ X^{C_{p^{n−1}}} and inclusion F: X^{C_{p^n}} → X^{C_{p^{n−1}}}, TR(X, p) = lim_R X^{C_{p^n}} and TC^gen(X, p) = Eq(TR(X, p) ⇉ TR(X, p)) (id, F) ≃ lim Eq(X^{C_{p^n}} ⇉ X^{C_{p^{n−1}}}) (R, F); TC^gen(X) for genuine cyclotomic X is defined by diagram (1) over all n.",
+      "locator": "§II.4, Definition II.4.4, p. 263",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/61",
+      "kind": "theorem",
+      "name": "The restriction pullback",
+      "statement": "For a genuine C_{p^n}-spectrum X and n ≥ 1 there is a natural pullback square with X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} over X^{hC_{p^n}} → X^{tC_{p^n}}.",
+      "locator": "§II.4, Lemma II.4.5, p. 263",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/62",
+      "kind": "theorem",
+      "name": "Fixed points of bounded below genuine C_{p^n}-spectra",
+      "statement": "If the underlying spectrum of a genuine C_{p^n}-spectrum X is bounded below, there is a canonical pullback square X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} over X^{hC_{p^n}} → (X^{tC_p})^{hC_{p^{n−1}}}.",
+      "locator": "§II.4, Proposition II.4.6, p. 263",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/63",
+      "kind": "theorem",
+      "name": "Iterated pullback for genuine fixed points",
+      "statement": "If X, Φ^{C_p}X, …, Φ^{C_{p^{n−1}}}X are bounded below, X^{C_{p^n}} is the iterated pullback of the diagram with (Φ^{C_{p^i}}X)^{hC_{p^{n−i}}} → ((Φ^{C_{p^{i−1}}}X)^{tC_p})^{hC_{p^{n−i}}} ← … ending in Φ^{C_{p^n}}X → (Φ^{C_{p^{n−1}}}X)^{tC_p}.",
+      "locator": "§II.4, Corollary II.4.7, p. 263",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/64",
+      "kind": "theorem",
+      "name": "Segal-conjecture reduction from C_{p^n} to C_p",
+      "statement": "Let X be a genuine C_{p^n}-spectrum such that each Y ∈ {X, Φ^{C_p}X, …, Φ^{C_{p^{n−1}}}X} is bounded below and (Y^{C_p})_p^∧ → (Y^{hC_p})_p^∧ is an isomorphism on π_i for i ≥ k. Then (X^{C_{p^n}})_p^∧ → (X^{hC_{p^n}})_p^∧ is an isomorphism on π_i for i ≥ k.",
+      "locator": "§II.4, Corollary II.4.9, p. 265",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Generalises Ravenel, Tsalidis and Bökstedt–Bruner–Lunøe-Nielsen–Rognes [21, Theorem 2.5] (no finite-type hypothesis). BMS19 routed Tsalidis's theorem to RT.2."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/65",
+      "kind": "theorem",
+      "name": "Genuine p-typical TC is the modern one",
+      "statement": "For a genuine p-cyclotomic X with bounded below underlying spectrum there is a canonical fibre sequence TC^gen(X, p) → X^{hC_{p^∞}} → (X^{tC_p})^{hC_{p^∞}} (φ_p^{hC_{p^∞}} − can); hence TC^gen(X, p) ≃ TC(X, p).",
+      "locator": "§II.4, Theorem II.4.10, p. 265",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/66",
+      "kind": "theorem",
+      "name": "Genuine integral TC is the modern one",
+      "statement": "For a genuine cyclotomic X with bounded below underlying spectrum there is a canonical fibre sequence TC^gen(X) → X^{hT} → ∏_p (X^{tC_p})^{hT} ((φ_p^{hT} − can)_p); hence TC^gen(X) ≃ TC(X).",
+      "locator": "§II.4, Theorem II.4.11, p. 267",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/67",
+      "kind": "definition",
+      "name": "Coalgebras and fixed points of endofunctors",
+      "statement": "For F: C → C, an F-coalgebra is X with X → FX, a fixpoint one with X ≃ FX; CoAlg_F(C) = LEq(C ⇉ C) of id and F, and Fix_F ⊆ CoAlg_F is the full subcategory of fixpoints. For commuting endofunctors (F_i)_{i∈N}, CoAlg_{(F_i)}(C) and Fix_{(F_i)}(C) are defined iteratively.",
+      "locator": "§II.5, Definition II.5.1, p. 267",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Remark II.5.7."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/68",
+      "kind": "construction",
+      "name": "The shifted coalgebra and its right adjoint",
+      "statement": "F̄: CoAlg_F → CoAlg_F sends (X → FX) to (FX → F²X), with µ: id → F̄. If C is presentable and F preserves colimits, Fix_F ⊆ CoAlg_F preserves colimits and has a right adjoint R_ι, and F̄ has a right adjoint R_F with ν: R_F → id.",
+      "locator": "§II.5, Construction II.5.2, p. 268",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/69",
+      "kind": "theorem",
+      "name": "The coreflection onto fixed points",
+      "statement": "ιR_ι: CoAlg_F → CoAlg_F is the limit of … → R_F³ → R_F² → R_F → id (maps R_F^kν).",
+      "locator": "§II.5, Proposition II.5.3, p. 269",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/70",
+      "kind": "theorem",
+      "name": "Formula for R_F",
+      "statement": "If F has a fully faithful right adjoint R_F (unit η), R_F sends a coalgebra φ: X → FX to Y = X ×_{R_F F X} R_F X (along η_X and R_Fφ) with structure Y → X ≃ F R_F X ≅ FY; the counit F R_F → id is an equivalence. The k-fold iterate has underlying object R_F^k X ×_{R_F^k F X} R_F^{k−1}X ×_{R_F^{k−1}FX} … ×_{R_F F X} X.",
+      "locator": "§II.5, Lemma II.5.4, p. 270",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Corollary II.5.5."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/71",
+      "kind": "theorem",
+      "name": "Genuine p-cyclotomic spectra coreflect",
+      "statement": "ι: Cyc Sp_p^gen ⊆ CoAlg_{Φ^{C_p}}(C_{p^∞}Sp) has a right adjoint R_ι whose counit ιR_ι → id is an equivalence on underlying non-equivariant spectra.",
+      "locator": "§II.5, Theorem II.5.6, p. 271",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/72",
+      "kind": "theorem",
+      "name": "Coalgebras for endofunctors with terminal composites",
+      "statement": "Let C be presentable with commuting accessible F_i preserving the terminal object. (i) If F_i F_j X is terminal for all i ≠ j, (F_i)-coalgebra structures on X correspond to families φ_i: X → F_iX. (ii) Then Map(Y, X) is Eq(Map_C(Y, X) ⇉ ∏_i Map_C(Y, F_iX)). (iii) If F_iF_j is always terminal, CoAlg_{(F_i)}(C) ≃ LEq(C ⇉ ∏_i C) of (id, id, …) and (F_1, F_2, …).",
+      "locator": "§II.5, Lemma II.5.8, p. 273",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/73",
+      "kind": "theorem",
+      "name": "Fixed points of commuting endofunctors",
+      "statement": "For commuting endofunctors (F_1, F_2, …) of C, Fix_{(F_i)}(C) ≃ C^{hN_{>0}}.",
+      "locator": "§II.5, Lemma II.5.9, p. 275",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/74",
+      "kind": "theorem",
+      "name": "Coreflection one prime at a time",
+      "statement": "ι_n: Fix_{F_1..F_n}(CoAlg_{F_{n+1},…}) ⊆ Fix_{F_1..F_{n−1}}(CoAlg_{F_n,…}) has ι_nR_{ι_n} = lim(… → R_{F_n}² → R_{F_n} → id); if each F_n has a fully faithful right adjoint with F_iR_{F_n} ≃ R_{F_n}F_i (i ≠ n) and all F_i preserve pullbacks, R_{F_n}^k X has the iterated-pullback formula of Lemma II.5.4.",
+      "locator": "§II.5, Lemma II.5.10, p. 276",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas II.5.10 and II.5.11."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/75",
+      "kind": "theorem",
+      "name": "Geometric fixed points commute with R_{C_q}",
+      "statement": "Φ^{C_p}R_{C_q} → R_{C_q}Φ^{C_p} is an equivalence of endofunctors of TSp_F for primes p ≠ q.",
+      "locator": "§II.5, Lemma II.5.12, p. 277",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/76",
+      "kind": "theorem",
+      "name": "Genuine cyclotomic spectra coreflect",
+      "statement": "ι: Cyc Sp^gen ≃ Fix_{(Φ^{C_p})_p}(TSp_F) ⊆ CoAlg_{(Φ^{C_p})_p}(TSp_F) has a right adjoint R_ι whose counit induces an equivalence on underlying spectra.",
+      "locator": "§II.5, Theorem II.5.13, p. 277",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/77",
+      "kind": "theorem",
+      "name": "Φ^{C_p} preserves Borel-completeness (bounded below)",
+      "statement": "If X ∈ C_{p^∞}Sp is Borel complete with bounded below underlying spectrum, Φ^{C_p}X is Borel complete; so Φ^{C_p}B_{C_{p^∞}}Y ≃ B_{C_{p^∞}}(Y^{tC_p}) for bounded below Y with C_{p^∞}-action.",
+      "locator": "§II.6, Lemma II.6.1, p. 279",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The non-formal input, from the Tate orbit lemma."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/78",
+      "kind": "theorem",
+      "name": "The right adjoint on bounded below p-cyclotomic spectra",
+      "statement": "For bounded below (X, φ_p) ∈ Cyc Sp_p, the right adjoint B: Cyc Sp_p → CoAlg_{Φ^{C_p}}(C_{p^∞}Sp) of the forgetful functor is B_{C_{p^∞}}X with B_{C_{p^∞}}φ_p: B X → B(X^{tC_p}) ≃ Φ^{C_p}(B X); the counit UB(X, φ) → (X, φ) is an equivalence.",
+      "locator": "§II.6, Lemma II.6.2, p. 279",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/79",
+      "kind": "theorem",
+      "name": "Genuine and naive p-cyclotomic spectra agree (bounded below)",
+      "statement": "Cyc Sp_p^gen → Cyc Sp_p is an equivalence between the full subcategories of objects with bounded below underlying spectra.",
+      "locator": "§II.6, Theorem II.6.3, p. 280",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/80",
+      "kind": "theorem",
+      "name": "Borel completeness for F-genuine T-spectra",
+      "statement": "If X ∈ TSp_F is Borel complete with bounded below underlying spectrum, Φ^{C_p}X is Borel complete for every p; and a Borel complete G-spectrum X for a finite group G that is not a p-group has Φ^G X ≃ 0.",
+      "locator": "§II.6, Lemma II.6.6, p. 281",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas II.6.6 and II.6.7."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/81",
+      "kind": "theorem",
+      "name": "The right adjoint on bounded below cyclotomic spectra",
+      "statement": "For bounded below X ∈ Cyc Sp, the right adjoint B: Cyc Sp → CoAlg_{(Φ^{C_p})}(TSp_F) has underlying object the Borel complete B_T X, and the counit UB(X, φ) → (X, φ) is an equivalence.",
+      "locator": "§II.6, Lemma II.6.8, p. 283",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/82",
+      "kind": "theorem",
+      "name": "Main theorem: genuine and naive cyclotomic spectra agree (bounded below)",
+      "statement": "The forgetful functor Cyc Sp^gen → Cyc Sp induces an equivalence between the full subcategories of objects whose underlying non-equivariant spectra are bounded below.",
+      "locator": "§II.6, Theorem II.6.9, p. 283",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 1.4 of the introduction. RT.2 plans agreement of TC with the classical formulation, not this equivalence of ∞-categories."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/83",
+      "kind": "theorem",
+      "name": "T_p is exact",
+      "statement": "For a prime p, T_p: Sp → Sp, X ↦ (X ⊗ … ⊗ X)^{tC_p} (p factors, C_p permuting cyclically) is exact.",
+      "locator": "§III.1, Proposition III.1.1, p. 285",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/84",
+      "kind": "theorem",
+      "name": "Transformations out of the identity of Sp",
+      "statement": "For exact F: Sp → Sp, evaluation at S gives Map_{Fun^Ex(Sp,Sp)}(id, F) ≃ Hom_Sp(S, F(S)) = Ω^∞F(S); in particular natural transformations id → T_p correspond to Ω^∞T_p(S).",
+      "locator": "§III.1, Proposition III.1.2, p. 286",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Corollary III.1.3."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/85",
+      "kind": "definition",
+      "name": "The Tate diagonal",
+      "statement": "Δ_p: id_Sp → T_p, X → (X ⊗ … ⊗ X)^{tC_p}, is the transformation corresponding under Proposition III.1.2 to S → S^{hC_p} → S^{tC_p} = T_p(S).",
+      "locator": "§III.1, Definition III.1.4, p. 286",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Equivalent to the construction of the Hill–Hopkins–Ravenel norm for C_p and to Lunøe-Nielsen–Rognes's topological Singer construction (Remark III.1.5)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/86",
+      "kind": "theorem",
+      "name": "The Segal conjecture for C_p (cited)",
+      "statement": "Δ_p(S): S → S^{tC_p} exhibits S^{tC_p} as the p-completion of S; in particular S^{tC_p} is connective.",
+      "locator": "§III.1, Remark III.1.6, p. 287",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lin (p = 2) [66], Gunawardena (p odd) [44]; the base case to which the general Segal conjecture reduces [25]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/87",
+      "kind": "theorem",
+      "name": "The base case HF_p (cited)",
+      "statement": "HF_p → T_p(HF_p) = (HF_p ⊗ … ⊗ HF_p)^{tC_p} is an equivalence.",
+      "locator": "§III.1, Theorem III.1.7 (proof), p. 289",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lunøe-Nielsen–Rognes [80], a calculation with an Adams-type spectral sequence; for p = 2 also Jones–Wegmann [56]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/88",
+      "kind": "theorem",
+      "name": "The generalised Segal conjecture for C_p",
+      "statement": "For every bounded below X ∈ Sp, Δ_p: X → (X ⊗ … ⊗ X)^{tC_p} exhibits the target as the p-completion of X. It fails without the bounded below hypothesis: (KU ⊗ KU)^{tC_2} is rational.",
+      "locator": "§III.1, Theorem III.1.7, p. 287",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 1.7 of the introduction (second half). Proved from the HF_p case by Postnikov truncation, Lemma I.2.6 and Lemma III.1.8."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/89",
+      "kind": "theorem",
+      "name": "Pro-isomorphism for finite towers",
+      "statement": "If (S_n)_{n≥0} is a tower of finite sets with S_∞ = lim_n S_n finite, then the constant tower (S_∞) → (S_n) is a pro-isomorphism.",
+      "locator": "§III.1, Lemma III.1.8, p. 289",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/90",
+      "kind": "theorem",
+      "name": "No Tate diagonal in D(Z)",
+      "statement": "Every natural transformation C → (C ⊗_Z … ⊗_Z C)^{tC_p} of functors D(Z) → D(Z) induces zero on homology H_*(C) → Ĥ^{−*}(C_p; C ⊗_Z … ⊗_Z C); in particular there is no lax symmetric monoidal such transformation.",
+      "locator": "§III.1, Theorem III.1.10, p. 290",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/91",
+      "kind": "definition",
+      "name": "E_1-algebras and the Segal description",
+      "statement": "Alg_E1(Sp) is the ∞-category of ∞-operad maps N(Ass^⊗) → Sp^⊗; restriction along Δ^op → Ass^⊗ identifies it with functors N(Δ^op) → Sp^⊗ over N(Fin_*) satisfying the Segal condition (each ρ_i: A^⊗([n]) → A^⊗([1]) = A an equivalence onto the i-th factor).",
+      "locator": "§III.2, Definition III.2.1, p. 292",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "note": "With Proposition III.2.2; E5:abstract plans operadic algebras and Segal conditions."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/92",
+      "kind": "definition",
+      "name": "THH of an E_1-ring",
+      "statement": "For A ∈ Alg_E1(Sp), THH(A) ∈ Sp^{BT} is the geometric realisation (Proposition B.5) of the cyclic spectrum N(Λ^op) → N(Ass^⊗_act) → Sp^⊗_act → Sp, the last functor the tensor product, the first V^op (Proposition B.1).",
+      "locator": "§III.2, Definition III.2.3, p. 293",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/93",
+      "kind": "construction",
+      "name": "The cyclotomic Frobenius of THH",
+      "statement": "The Tate diagonals A^{⊗n} → (A^{⊗pn})^{tC_p} assemble, via the subdivision sd_p: Λ_p → Λ and the functors on N(Free_{C_p}) ×_{N(Fin)} Sp^⊗_act, into a map of Λ_p^op-spectra whose realisation is a T ≅ T/C_p-equivariant φ_p: THH(A) → THH(A)^{tC_p} for every p, making THH: Alg_E1(Sp) → Cyc Sp a functor.",
+      "locator": "§III.2, §III.2 (construction of φ_p), p. 294",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Uses Proposition B.20 to compare the Tate construction with the realisation."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/94",
+      "kind": "theorem",
+      "name": "The Tate diagonal is uniquely lax symmetric monoidal",
+      "statement": "With T_p lax symmetric monoidal by Theorem I.3.1, there is a unique lax symmetric monoidal transformation Δ_p: id_Sp → T_p, with underlying transformation that of Definition III.1.4.",
+      "locator": "§III.3, Proposition III.3.1, p. 296",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 1.7 (first half); uses Nikolaus's uniqueness [81, Corollary 6.9]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/95",
+      "kind": "theorem",
+      "name": "Lax functors and the active part",
+      "statement": "For symmetric monoidal C, D, restriction along C ⊆ C^⊗_act is an equivalence Fun_⊗(C^⊗_act, D) ≃ Fun_lax(C, D); the inclusion Fun_⊗(C^⊗_act, D) ⊆ Fun_lax(C^⊗_act, D) has a right adjoint which, composed with this equivalence, is restriction along C → C^⊗_act; the same holds for any ∞-operad O^⊗ with envelope O^⊗_act.",
+      "locator": "§III.3, Proposition III.3.2, p. 297",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proposition III.3.2, Lemma III.3.3, Remarks III.3.4–III.3.5."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/96",
+      "kind": "construction",
+      "name": "The C_p-equivariant p-fold tensor functor",
+      "statement": "For symmetric monoidal C and p ≥ 1 there is a natural symmetric monoidal functor N(Free_{C_p}) ×_{N(Fin)} C^⊗_act → (C^⊗_act)^{BC_p}, (S, (X_s̄)_{s̄∈S̄}) ↦ (S, (X_s̄)_{s∈S}).",
+      "locator": "§III.3, Proposition III.3.6, p. 300",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The published proof as corrected uses the pointwise tensor product (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E24)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/97",
+      "kind": "theorem",
+      "name": "Initiality of the tensor functor",
+      "statement": "I: N(Free_{C_p}) ×_{N(Fin)} Sp^⊗_act → Sp, (S, (X_s̄)) ↦ ⊗_{s̄∈S̄} X_s̄, is initial among partially exact lax symmetric monoidal functors; hence T̃_p: (S, (X_s̄)) ↦ (⊗_{s∈S} X_s̄)^{tC_p} receives an essentially unique BC_p-equivariant lax symmetric monoidal transformation from I.",
+      "locator": "§III.3, Lemma III.3.7, p. 302",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Corollary III.3.8."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/98",
+      "kind": "definition",
+      "name": "Bökstedt's category I and the approximation lemma",
+      "statement": "I is the category of finite sets and injections (symmetric monoidal under ⊔). If F: I^n → S sends all maps of the full subcategory I^n_x of objects under x to k-connected maps, then F(x) → colim_{I^n} F is k-connected.",
+      "locator": "§III.4, Lemma III.4.2, p. 303",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definition III.4.1 and Lemma III.4.2 [32, Lemma 2.2.3]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/99",
+      "kind": "definition",
+      "name": "The Bökstedt construction",
+      "statement": "B: (Sp^O)^⊗_act → Sp^O, the lax symmetric monoidal functor sending (X_i)_{i∈I} to the orthogonal spectrum with n-th space hocolim_{(I_i)∈I^I} Map_*(∧_i S^{I_i}, S^n ∧ ∧_i (X_i)_{I_i}).",
+      "locator": "§III.4, Definition III.4.3, p. 304",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/100",
+      "kind": "theorem",
+      "name": "B preserves stable equivalences (Shipley)",
+      "statement": "B takes stable equivalences (maps over a bijection of index sets that are levelwise stable equivalences) to stable equivalences.",
+      "locator": "§III.4, Theorem III.4.4, p. 305",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/101",
+      "kind": "theorem",
+      "name": "The Bökstedt construction models the tensor product",
+      "statement": "There is a unique (up to contractible choice) transformation of lax symmetric monoidal functors ⊗ → B: Sp^⊗_act → Sp, and it is an equivalence.",
+      "locator": "§III.4, Theorem III.4.5, p. 306",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/102",
+      "kind": "theorem",
+      "name": "Geometric fixed points of the Bökstedt construction",
+      "statement": "For a finite free C_p-set S with S̄ = S/C_p and orthogonal spectra (X_s̄), the natural map (Construction III.4.6) Φ^{C_p}_U B((X_s̄)_{s∈S}) → B((X_s̄)_{s̄∈S̄}) is a stable equivalence.",
+      "locator": "§III.4, Theorem III.4.7, p. 308",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Essentially Hesselholt–Madsen [47, Proposition 2.5]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/103",
+      "kind": "definition",
+      "name": "Classical THH of an orthogonal ring spectrum",
+      "statement": "For an orthogonal ring spectrum R and a pointed space X, THH(R; X) is the realisation of the cyclic space [k]_Λ ↦ hocolim_{(I_1..I_k)∈I^k} Map_*(S^{I_1} ∧ … ∧ S^{I_k}, X ∧ R_{I_1} ∧ … ∧ R_{I_k}); THH(R) ∈ TSp^O has m-th space THH(R; S^m). If R is levelwise well pointed and S⁰ → R_0 is an h-cofibration, these cyclic spaces are proper.",
+      "locator": "§III.5, Definition III.5.1, p. 311",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Lemma III.5.2 [68, Lemma 6.17]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/104",
+      "kind": "theorem",
+      "name": "Classical THH is an orthogonal cyclotomic spectrum",
+      "statement": "Φ^{C_p}_U THH(R) is homeomorphic to the realisation of the Λ_p^op-spectrum built from B_p (Propositions III.5.4, III.5.5, T-equivariantly), THH(R) to that built from B (Proposition III.5.6), and Construction III.4.6 gives Φ_p: Φ^{C_p}_U THH(R) → THH(R), F-equivalences satisfying Definition II.3.6.",
+      "locator": "§III.5, Proposition III.5.4, p. 314",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/105",
+      "kind": "theorem",
+      "name": "Comparison of the two THH",
+      "statement": "For an orthogonal ring spectrum R, levelwise well pointed with S⁰ → R_0 an h-cofibration, the classical THH(R) is naturally T-equivariantly equivalent to THH(A) of the associated E_1-ring A: a commutative square of lax symmetric monoidal functors N Alg(Sp^O)_well → N TSp^O over Alg_E1(Sp) → Sp^{BT} whose vertical functors are Dwyer–Kan localisations.",
+      "locator": "§III.6, Theorem III.6.1, p. 316",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/106",
+      "kind": "construction",
+      "name": "Models of geometric fixed points",
+      "statement": "Φ^{C_p}_∞: C_pSp → Sp is the BC_p-equivariant symmetric monoidal composite of the smashing localisation C_pSp → C_pSp_{≥C_p} and −^{C_p}; Φ^{C_p}_{U,lax}: C_pSp^O → TSp^O (hocolim over I and (V_i) ∈ U^I with V_i^{C_p} = 0) is BC_p-equivariant and lax symmetric monoidal and receives stable equivalences from Φ^{C_p}_U and Φ^{C_p}; the square comparing Φ^{C_p}_{U,lax} with Φ^{C_p}_∞ commutes BC_p-equivariantly and lax symmetric monoidally.",
+      "locator": "§III.6, Proposition III.6.6, p. 320",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Constructions III.6.2–III.6.5 and Proposition III.6.6."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/107",
+      "kind": "theorem",
+      "name": "Uniqueness for the comparison of Frobenii",
+      "statement": "B^T_{p,lax}, B_{p,∞}, B, I and T̃_p composed with the forgetful functors to Sp^{BT} factor uniquely through BC_p-equivariant lax symmetric monoidal partially exact functors N(Free_{C_p}) ×_{N(Fin)} Sp^⊗_act → Sp^{BT}, among which I is initial.",
+      "locator": "§III.6, Theorem III.6.7, p. 322",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/108",
+      "kind": "theorem",
+      "name": "The two cyclotomic structures agree",
+      "statement": "For R as in Theorem III.6.1, under its equivalence the classical and the Tate-diagonal cyclotomic Frobenii THH(A) → THH(A)^{tC_p} are equivalent, functorially in R.",
+      "locator": "§III.6, Corollary III.6.8, p. 324",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/109",
+      "kind": "definition",
+      "name": "The Tate-valued Frobenius",
+      "statement": "For an E_∞-ring R and a prime p, φ_R: R → (R ⊗ … ⊗ R)^{tC_p} → R^{tC_p} is the composite of the Tate diagonal and m^{tC_p}, m: R^{⊗p} → R the C_p-equivariant multiplication; an E_∞-ring map.",
+      "locator": "§IV.1, Definition IV.1.1, p. 324",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/110",
+      "kind": "theorem",
+      "name": "The Tate-valued Frobenius on π_0 and for spherical Witt vectors",
+      "statement": "(i) For R = HA, A commutative, φ on π_0 is A → A/p = Ĥ⁰(C_p, A), a ↦ a^p. (ii) For p-complete R compact among p-complete spectra, R → R^{hC_p} → R^{tC_p} is an equivalence (Segal conjecture), so φ_R is an E_∞-endomorphism; for S_p^∧ it is the identity, and for the p-complete étale S_p^∧-algebra S_{W(F_{p^n})} it is the unique E_∞-map inducing the Witt-vector Frobenius on π_0.",
+      "locator": "§IV.1, Example IV.1.2, p. 324",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Mathlib has the ring-level Frobenius (frobenius) and the Witt-vector Frobenius (WittVector.frobenius) at 082e2d3; the spectra are absent."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/111",
+      "kind": "theorem",
+      "name": "Refinements of the Tate diagonal",
+      "statement": "Δ_p factors uniquely, lax symmetric monoidally, through ((X ⊗ … ⊗ X)^{tC_p})^{hF_p^×} (F_p^× = Aut(C_p), the Weyl group of C_p in Σ_p), and for X = Σ^∞_+Y through Σ^∞_+Δ: Σ^∞_+Y → (Σ^∞_+Y ⊗ … ⊗ Σ^∞_+Y)^{hΣ_p}. Hence φ_R factors as an E_∞-map through (R^{tC_p})^{hF_p^×}, and for R = S[M], M an E_∞-monoid, through (R^{hC_p})^{hF_p^×}.",
+      "locator": "§IV.1, Lemma IV.1.3, p. 325",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma IV.1.3, Corollaries IV.1.4–IV.1.5."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/112",
+      "kind": "theorem",
+      "name": "The space-level diagonal factors the Tate diagonal",
+      "statement": "Ω^∞(Δ_p): Ω^∞ → Ω^∞T_p^{hF_p^×} factors naturally as Ω^∞X → ((Ω^∞X)^{×p})^{hΣ_p} → Ω^∞(X^{⊗p})^{hΣ_p} → Ω^∞((X^{⊗p})^{hC_p})^{hF_p^×} → Ω^∞T_p(X)^{hF_p^×}.",
+      "locator": "§IV.1, Lemma IV.1.7, p. 327",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/113",
+      "kind": "theorem",
+      "name": "Homotopy fixed points of p-th tensor powers",
+      "statement": "For X bounded below and p-complete and i ≥ 1, π_i((X ⊗ … ⊗ X)^{hC_p}) ≅ π_i(X) ⊕ π_i((X ⊗ … ⊗ X)_{hC_p}) via the norm and the space-level diagonal, and 0 → π_0((X^{⊗p})_{hC_p}) → π_0((X^{⊗p})^{hC_p}) → π_0(X) → 0 is exact.",
+      "locator": "§IV.1, Corollary IV.1.8, p. 327",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/114",
+      "kind": "theorem",
+      "name": "The Tate-valued Frobenius is a power operation",
+      "statement": "For an E_∞-ring R, φ factors on multiplicative E_∞-monoids as Ω^∞R → (Ω^∞R)^{hΣ_p} → Ω^∞(R^{tC_p})^{hF_p^×} (P_p = multiplication ∘ diagonal); on a space X, postcomposition with φ is R⁰(X) → R⁰(X × BΣ_p) = [Σ^∞_+X, R^{hΣ_p}] → [Σ^∞_+X, (R^{tC_p})^{hF_p^×}] with P_p the power operation, so R⁰(X) → R⁰(X × BΣ_p)/I (I the transfer ideal) → [Σ^∞_+X, R^{tC_p}] commutes.",
+      "locator": "§IV.1, Corollary IV.1.10, p. 328",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corollaries IV.1.9–IV.1.10 and Remark IV.1.11 (whose R⁰(BΣ_p) should read R⁰(X × BΣ_p); sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E9)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/115",
+      "kind": "theorem",
+      "name": "The Tate-valued Frobenius of KU is the Adams operation",
+      "statement": "(KU^{tC_p})^{hF_p^×} ≃ KU_p^∧[1/p] (and ((KU^X)^{tC_p})^{hF_p^×} ≃ (KU^X)_p^∧[1/p]). (i) For compact X, φ on π_0 is KU⁰(X) → KU⁰(X) ⊗ Q_p, V ↦ ψ^p(V). (ii) φ_p: KU → KU_p^∧[1/p] is the stable Adams operation ψ^p: KU → KU[1/p] followed by completion; it sends β to pβ.",
+      "locator": "§IV.1, Proposition IV.1.12, p. 329",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Via Atiyah's cyclic power operation [7]; Remark IV.1.14 gives a splitting-principle proof. KU is planned in RT.4:topological."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/116",
+      "kind": "theorem",
+      "name": "The Tate-valued Frobenius of HF_p is the total Steenrod operation",
+      "statement": "φ: HF_p → (HF_p^{tC_p})^{hF_p^×} is, as a map of spectra, the product of the Sq^i: HF_2 → HF_2[i] (i ≥ 0) for p = 2, and of P^i: HF_p → HF_p[2i(p−1)] and βP^i: HF_p → HF_p[2i(p−1)+1] (i ≥ 0) for odd p; for HZ it is the product of the Sq^{2i}r (p = 2) or the P^i r (p odd), r: HZ → HF_p. On a space X: x ↦ Σ_i Sq^i(x)s^i in H^*(X; F_2)((s)), and x ↦ Σ_i P^i(x)t^{(p−1)i} + Σ_i βP^i(x)t^{(p−1)i}e in H^*(X; F_p)((t^{p−1})) ⊗ Λ(e), |t^{p−1}| = −2(p−1), |e| = −1.",
+      "locator": "§IV.1, Theorem IV.1.15, p. 332",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem IV.1.15 with Proposition IV.1.16; the printed shifts [i(p−1)], [n(p−1)] are corrected (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E5)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/117",
+      "kind": "theorem",
+      "name": "Suspensions of the Tate construction",
+      "statement": "For an E_∞-ring R and n ∈ Z, Σ^n(R^{tC_p})^{hF_p^×} ≃ ((Σ^{n·ρ}R)^{tC_p})^{hF_p^×}, ρ the permutation representation of Σ_p; and the square with Ω^∞Σ^nφ_R, P^n_p: Ω^∞Σ^nR → Ω^∞(Σ^{n·ρ}R)^{hΣ_p} and can commutes.",
+      "locator": "§IV.1, Lemma IV.1.17, p. 334",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas IV.1.17–IV.1.18."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/118",
+      "kind": "theorem",
+      "name": "Power operations in positive degree",
+      "statement": "R^{n·ρ}(X × BΣ_p) := [(X × BΣ_p)^{−n·ρ}, R] ≅ [Σ^∞_+X, (Σ^{n·ρ}R)^{hΣ_p}] (Thom spectra via parametrised spectra); Rezk's power operation P^n_p: R^n(X) → R^{n·ρ}(X × BΣ_p) is postcomposition with P^n_p; and postcomposition with Σ^nφ_R is R^n(X) → R^{n·ρ}(BΣ_p × X) ≅ [Σ^∞_+X, (Σ^{n·ρ}R)^{hΣ_p}] → [Σ^∞_+X, Σ^n(R^{tC_p})^{hF_p^×}].",
+      "locator": "§IV.1, Theorem IV.1.21, p. 339",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas IV.1.19–IV.1.20 and Theorem IV.1.21."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/119",
+      "kind": "construction",
+      "name": "Symmetric monoidal structure on cyclotomic spectra",
+      "statement": "Cyc Sp and Cyc Sp_p are symmetric monoidal: C^S = Fun(S, C) is symmetric monoidal for symmetric monoidal C, and LEq(F, G) is symmetric monoidal for F symmetric monoidal and G lax symmetric monoidal. THH: Alg_E1(Sp) → Cyc Sp is symmetric monoidal, so for an E_∞-ring A, THH(A) is an E_∞-algebra in Cyc Sp, and A → THH(A), Δ_p and φ_p form a commutative square of E_∞-rings.",
+      "locator": "§IV.2, Construction IV.2.1, p. 341",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/120",
+      "kind": "theorem",
+      "name": "THH of an E_∞-ring is the tensor with the circle (McClure–Schwänzl–Vogt)",
+      "statement": "For an E_∞-ring A, A → THH(A) is initial among E_∞-maps from A to E_∞-rings with T-action.",
+      "locator": "§IV.2, Proposition IV.2.2, p. 342",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/121",
+      "kind": "theorem",
+      "name": "The Frobenius of an E_∞-ring",
+      "statement": "For an E_∞-ring A, φ_p is the unique T-equivariant E_∞-map THH(A) → THH(A)^{tC_p} making the square with A → THH(A), Δ_p and (A ⊗ … ⊗ A)^{tC_p} → THH(A)^{tC_p} commute; and A → THH(A) → THH(A)^{tC_p} → A^{tC_p} (π^{tC_p}, π the retraction) is the Tate-valued Frobenius.",
+      "locator": "§IV.2, Corollary IV.2.3, p. 343",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corollaries IV.2.3–IV.2.4 and Lurie's equivariant description."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/122",
+      "kind": "theorem",
+      "name": "Cyclotomic structure on cyclic bar constructions",
+      "statement": "For an E_1-monoid M in spaces, B^cyc M has a T-action and T-equivariant ψ_p: B^cyc M → (B^cyc M)^{hC_p} compatible with the diagonal M → (M^{×p})^{hC_p}; Σ^∞_+ψ_p followed by can refines φ_p on THH(S[M]) = Σ^∞_+B^cyc M.",
+      "locator": "§IV.3, Lemma IV.3.1, p. 345",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/123",
+      "kind": "theorem",
+      "name": "Cyclic bar construction of a loop space",
+      "statement": "For connected based Y, B^cyc ΩY ≃ LY = Map(S¹, Y) T-equivariantly, and ψ_p becomes LY → LY^{hC_p} induced by the p-fold covering S¹ → S¹. Hence THH(S[ΩY]) ≃ Σ^∞_+LY with φ_p: Σ^∞_+LY → (Σ^∞_+LY)^{hC_p} → (Σ^∞_+LY)^{tC_p}.",
+      "locator": "§IV.3, Proposition IV.3.2, p. 347",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proposition IV.3.2 and Corollary IV.3.3."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/124",
+      "kind": "theorem",
+      "name": "TC with a Frobenius lift",
+      "statement": "For a bounded below p-complete p-cyclotomic X with a C_{p^∞}-equivariant Frobenius lift φ̃_p: X → X^{hC_p}, TC(X) is the pullback of ΣX_{hT} → X (tr) along id − φ̃_p: X → X; for p-complete X the square X^{hT} → X^{hT} (id − φ̃_p^{hT}) over X → X (id − φ̃_p) is a pullback.",
+      "locator": "§IV.3, Proposition IV.3.4, p. 352",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proposition IV.3.4 and Lemma IV.3.5."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/125",
+      "kind": "theorem",
+      "name": "TC of spherical group rings (Bökstedt–Hsiang–Madsen)",
+      "statement": "For a connected based space Y, after p-completion TC(S[ΩY]) is the pullback of Σ(Σ^∞_+LY)_{hT} → Σ^∞_+LY (tr) along 1 − φ̃_p: Σ^∞_+LY → Σ^∞_+LY.",
+      "locator": "§IV.3, Theorem IV.3.6, p. 354",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/126",
+      "kind": "theorem",
+      "name": "The Segal conjecture for free loop spaces",
+      "statement": "For simply connected Y, the Frobenius φ_p: Σ^∞_+LY → (Σ^∞_+LY)^{tC_p} of THH(S[ΩY]) is a p-completion, and (Σ^∞_+LY)^{C_{p^n}} → (Σ^∞_+LY)^{hC_{p^n}} is a p-adic equivalence for every n.",
+      "locator": "§IV.3, Theorem IV.3.7, p. 354",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Generalises Carlsson [26] (finite simply connected CW complexes); uses Kuhn's convergence [63] and Theorem III.1.7."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/127",
+      "kind": "theorem",
+      "name": "The HKR filtration",
+      "statement": "For a commutative ring A, HH(A) = HH(A/Z) has a descending separated filtration with graded pieces (∧^i L_{A/Z})[i], exterior powers derived.",
+      "locator": "§IV.4, Proposition IV.4.1, p. 356",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "RT.1 plans HKR for smooth algebras in characteristic 0; cotangent complexes and derived exterior powers are planned in DerivedDeRhamCohomology DD.0."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/128",
+      "kind": "theorem",
+      "name": "THH and HH agree in low degrees",
+      "statement": "For an associative unital ring A, π_i THH(HA) → H_i HH(A) is an isomorphism for i ≤ 2.",
+      "locator": "§IV.4, Proposition IV.4.2, p. 356",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/129",
+      "kind": "theorem",
+      "name": "Hochschild homology of F_p",
+      "statement": "H_i HH(F_p) is F_p for even i ≥ 0 and 0 otherwise; H_*HH(F_p) is the divided power algebra on u ∈ H_2HH(F_p) over F_p.",
+      "locator": "§IV.4, Proposition IV.4.3, p. 357",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/130",
+      "kind": "theorem",
+      "name": "Bökstedt periodicity (cited)",
+      "statement": "π_i THH(HF_p) is F_p for even i ≥ 0 and 0 otherwise, and π_*THH(HF_p) = F_p[u], |u| = 2.",
+      "locator": "§IV.4, Theorem IV.4.4, p. 357",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "KTheoryFiniteLocalFields:L.5",
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "Bökstedt; Remark IV.4.5 recalls the Mahowald–Hopkins proof via HF_p as a Thom spectrum over Ω²S³ [16, 17]. BMS19 marked Bökstedt periodicity planned in L.5 and RT.2."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/131",
+      "kind": "theorem",
+      "name": "Negative topological cyclic homology of F_p",
+      "statement": "π_*THH(HF_p)^{hT} = Z_p[ũ, v]/(ũv − p), |ũ| = 2, |v| = −2; in degree 2 the image of p in H²(BT, π_2THH(HF_p)) is uv.",
+      "locator": "§IV.4, Proposition IV.4.6, p. 358",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "note": "Proposition IV.4.6 and Lemma IV.4.7."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/132",
+      "kind": "theorem",
+      "name": "Periodic topological cyclic homology of F_p and its Frobenius",
+      "statement": "π_*THH(HF_p)^{tT} = Z_p[v^{±1}]; can: π_iTHH(HF_p)^{hT} → π_iTHH(HF_p)^{tT} is an isomorphism for i ≤ 0 and has image p^jZ_p for i = 2j ≥ 0; φ_p^{hT} is an isomorphism for i ≥ 0 and has image p^jZ_p for i = −2j ≤ 0.",
+      "locator": "§IV.4, Corollary IV.4.8, p. 360",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "note": "Corollary IV.4.8 and Proposition IV.4.9."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/133",
+      "kind": "theorem",
+      "name": "TC of F_p",
+      "statement": "π_iTC(HF_p) = Z_p for i = 0, −1 and 0 otherwise; THH(HF_p) is a T-equivariant τ_{≥0}TC(HF_p) = HZ_p-algebra and φ_p is a map of E_∞-HZ_p-algebras.",
+      "locator": "§IV.4, Corollary IV.4.10, p. 361",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "KTheoryFiniteLocalFields:L.5"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/134",
+      "kind": "theorem",
+      "name": "T-equivariant chain complexes and Tate constructions",
+      "statement": "For X ∈ D(Z)^{BT}: X^{hT} ⊗_{Z^{hT}} Z ≃ X, X^{hT} ⊗_{Z^{hT}} Z^{tT} ≃ X^{tT}, and X^{tT} ⊗_{Z^{tT}} Z^{tC_n} ≃ X^{tC_n} for n ≥ 1.",
+      "locator": "§IV.4, Lemma IV.4.12, p. 362",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/135",
+      "kind": "theorem",
+      "name": "THH(F_p) as a cyclotomic E_∞-ring",
+      "statement": "HZ_p → THH(HF_p) induces an equivalence of E_∞-algebras HZ_p^{tC_p} ≃ THH(HF_p)^{tC_p}, so π_*THH(HF_p)^{tC_p} ≅ F_p[v^{±1}], and φ_p identifies THH(HF_p) with τ_{≥0}THH(HF_p)^{tC_p} ≃ τ_{≥0}HZ_p^{tC_p}.",
+      "locator": "§IV.4, Corollary IV.4.13, p. 362",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/136",
+      "kind": "theorem",
+      "name": "Trivial cyclotomic structures are left adjoint to TC",
+      "statement": "X ↦ X^triv (trivial T-action, Frobenius X → X^{hC_p} → X^{tC_p}) is left adjoint to TC: Cyc Sp → Sp.",
+      "locator": "§IV.4, Proposition IV.4.14, p. 363",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/137",
+      "kind": "theorem",
+      "name": "THH(F_p) ≃ sh_p(HZ_p^triv)",
+      "statement": "For connective cyclotomic X, sh_pX is τ_{≥0}(X^{tC_p}) with residual action and Frobenius induced by φ_p (Construction IV.4.15), with a map X → sh_pX. In the square from HZ_p^triv → THH(F_p), the right and lower maps are equivalences of E_∞-cyclotomic spectra, so THH(F_p) ≃ sh_p(HZ_p^triv); ũ, v can be chosen with ũv = p and φ_p^{hT}(v) = pv, the constants λ_n of [47, Proposition 5.4] can be 1, and THH(HF_p)^{C_{p^n}} ≃ τ_{≥0}HZ_p^{tC_{p^{n+1}}}.",
+      "locator": "§IV.4, Corollary IV.4.16, p. 364",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Construction IV.4.15 and Corollary IV.4.16; Remark IV.4.17 notes three different E_∞-maps HZ_p → HZ_p^{tC_p}."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/138",
+      "kind": "theorem",
+      "name": "TC of rings of characteristic p",
+      "statement": "For an E_2-ring A with p = 0 in π_0A (hence an E_2-HF_p-algebra), THH(A) is a module over THH(HF_p) in cyclotomic spectra, TC(A) → THH(A)^{hT} → THH(A)^{tT} (can − φ_p^{hT}) is a fibre sequence even without bounded below, and THH(A)^{tT} ≃ THH(A)^{hT}[v⁻¹], THH(A)^{tT}[1/p] = THH(A)^{hT}[1/p].",
+      "locator": "§IV.4, §IV.4 (end), p. 364",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/139",
+      "kind": "definition",
+      "name": "Symmetric monoidal ∞-categories and (lax) symmetric monoidal functors",
+      "statement": "A symmetric monoidal ∞-category is a cocartesian fibration C^⊗ → N(Fin_*) with (ρ^i_!)_i: C^⊗_{⟨n⟩} ≃ C^n for all n; C^⊗_act = C^⊗ ×_{N(Fin_*)} N(Fin). A symmetric monoidal functor preserves all cocartesian lifts, a lax one those of inert maps; Fun_⊗(C, D) ⊆ Fun_lax(C, D) ⊆ Fun_{N(Fin_*)}(C^⊗, D^⊗).",
+      "locator": "Appendix A, Definition A.1, p. 365",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "note": "Definitions A.1–A.2 and Remark A.3."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/140",
+      "kind": "definition",
+      "name": "Symmetric monoidal Dwyer–Kan localisation",
+      "statement": "For symmetric monoidal C^⊗ and W ⊆ C_1, W^⊗ consists of the maps over id_{⟨n⟩} that are products of maps in W; C[W⁻¹]^⊗ → N(Fin_*) is a categorical fibration with C^⊗ → C[W⁻¹]^⊗ a Dwyer–Kan localisation at W^⊗.",
+      "locator": "Appendix A, Definition A.4, p. 367",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/141",
+      "kind": "theorem",
+      "name": "Hinich's theorem",
+      "statement": "If ⊗ preserves weak equivalences in each variable: (i) C[W⁻¹]^⊗ is symmetric monoidal; (ii) i: C^⊗ → C[W⁻¹]^⊗ is symmetric monoidal; (iii) i_{⟨1⟩} is the Dwyer–Kan localisation of C at W; (iv) for every K → N(Fin_*), C[W⁻¹]^⊗ ×_{N(Fin_*)} K is the Dwyer–Kan localisation of C^⊗ ×_{N(Fin_*)} K; (v) i induces Fun_lax(C[W⁻¹], D) ≃ Fun^W_lax(C, D) and Fun_⊗(C[W⁻¹], D) ≃ Fun^W_⊗(C, D).",
+      "locator": "Appendix A, Proposition A.5, p. 367",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Hinich [50, Propositions 2.1.4, 3.2.2]. Mathlib's CategoryTheory.Localization.Monoidal (LocalizedMonoidal, at 082e2d3) is the 1-categorical analogue only."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/142",
+      "kind": "theorem",
+      "name": "Symmetric monoidal model categories give symmetric monoidal ∞-categories",
+      "statement": "For a symmetric monoidal model category M: (1) N(M)[W⁻¹]^⊗ is symmetric monoidal; (2) N(M)^⊗ → N(M)[W⁻¹]^⊗ is lax symmetric monoidal; (3) its underlying functor is the Dwyer–Kan localisation of N(M); (4) the same after pullback along any K → N(Fin_*); (5) Fun_lax(N(M)[W⁻¹], D) ≃ Fun^W_lax(N(M), D); (6) N(M_c)[W⁻¹]^⊗ ≃ N(M)[W⁻¹]^⊗ symmetric monoidally.",
+      "locator": "Appendix A, Theorem A.7, p. 368",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Mathlib has model categories (HomotopicalAlgebra.ModelCategory) but no ∞-categorical localisation."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/143",
+      "kind": "definition",
+      "name": "Left derivable cocartesian fibrations",
+      "statement": "A cocartesian fibration p: X → S with marked edges W is left derivable if p(W) are identities, each s_!: X_a → X_b has an absolute right Kan extension Ls_!: X_a[W_a⁻¹] → X_b[W_b⁻¹] of X_a → X_b → X_b[W_b⁻¹], and Lt_! ∘ Ls_! → Lu_! is an equivalence for every 2-simplex. Examples: functors preserving W (A.9), left Quillen functors and bifunctors (A.10–A.12), and N(M^⊗) → N(Fin_*) for a symmetric monoidal model category (A.13).",
+      "locator": "Appendix A, Definition A.8, p. 369",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definition A.8 with Examples A.9–A.13."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/144",
+      "kind": "theorem",
+      "name": "Localising left derivable cocartesian fibrations",
+      "statement": "For a left derivable cocartesian fibration p: X → S: (1) X[W⁻¹] → S is a cocartesian fibration; (2) each X_a → X[W⁻¹]_a is a Dwyer–Kan localisation; (3) the induced s′_! is the absolute right Kan extension of X_a → X_b → X[W⁻¹]_b. Consequently localisation commutes with base change K → S, and X → X[W⁻¹] preserves s-cocartesian lifts when s_! preserves weak equivalences.",
+      "locator": "Appendix A, Proposition A.14, p. 372",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proposition A.14 with Corollary A.15."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/145",
+      "kind": "theorem",
+      "name": "Descent for cocartesian fibrations",
+      "statement": "(1) If X → S is cocartesian and S = colim S_i in Cat_∞, then X = colim X ×_S S_i. (2) Given cocartesian X_i → S_i forming pullback squares along the diagram, X = colim X_i → S = colim S_i is cocartesian with X_i ≃ X ×_S S_i.",
+      "locator": "Appendix A, Lemma A.16, p. 375",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/146",
+      "kind": "theorem",
+      "name": "Cat_∞ is generated by Δ⁰ and Δ¹",
+      "statement": "The smallest full subcategory of Cat_∞ containing Δ⁰ and Δ¹ and closed under small colimits is Cat_∞.",
+      "locator": "Appendix A, Lemma A.17, p. 376",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/147",
+      "kind": "definition",
+      "name": "Ass^⊗, cuts and Δ^op → Ass^⊗",
+      "statement": "Ass^⊗ has the pointed finite sets as objects and maps f: ⟨n⟩ → ⟨m⟩ with linear orders on each f⁻¹(i), i ≠ 0; the functor Δ^op → Fin_* sending S to its set of cuts (S_1 ⊔ S_2 with S_1 < S_2, S ⊔ ∅ ~ ∅ ⊔ S the base point) lifts to Δ^op → Ass^⊗.",
+      "locator": "Appendix B, Appendix B (Ass^⊗ and cuts), p. 379",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:abstract"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/148",
+      "kind": "definition",
+      "name": "The paracyclic and cyclic categories",
+      "statement": "Λ_∞ ⊆ ZPoSet is the full subcategory of objects isomorphic to (1/n)Z, n ≥ 1, with Z-equivariant non-decreasing maps; BZ acts by f ↦ f + 1, Λ_p = Λ_∞/B(pZ) for 1 ≤ p ≤ ∞, and Λ = Λ_1 is Connes's cyclic category; Λ_∞ is self-dual (f ↦ f^∨, f^∨(x) = min{y : f(y) ≥ x}), BZ-equivariantly.",
+      "locator": "Appendix B, Appendix B (Λ_∞, Λ_p, Λ), p. 380",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The libraries have no cyclic category (audit of RT.1)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/149",
+      "kind": "theorem",
+      "name": "The cyclic category over Ass^⊗_act, and Δ as a slice",
+      "statement": "V: Λ → Fin, T ↦ T/Z, refines to V: Λ → Ass^⊗_act (Proposition B.1); Λ_{/[1]_Λ} → Δ is an equivalence (Corollary B.2), giving j: Δ^op → Λ^op, [n] ↦ [n+1]_Λ, which factors through j_∞: Δ^op → Λ_∞^op.",
+      "locator": "Appendix B, Proposition B.1, p. 381",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proposition B.1 and Corollary B.2."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/150",
+      "kind": "theorem",
+      "name": "Δ^op → Λ_∞^op is cofinal",
+      "statement": "The functor j_∞: NΔ^op → NΛ_∞^op is cofinal; hence NΛ_∞^op is sifted, |NΛ_∞| is contractible and |NΛ| = |NΛ_∞|/BZ ≃ BBZ = K(Z, 2) = BT ≃ CP^∞.",
+      "locator": "Appendix B, Theorem B.3, p. 382",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem B.3 and Corollary B.4. The printed covering argument has a gap (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E2); the statement is true."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/151",
+      "kind": "theorem",
+      "name": "Realisation of cyclic objects carries a circle action",
+      "statement": "For C with geometric realisations there is a natural functor Fun(N(Λ^op), C) → C^{BT} whose underlying object is colim_{N(Δ^op)} j*F; likewise for Λ_p^op-objects (BC_p-equivariantly, Lemma B.18) and for BC_p-equivariant functors N(Λ_p^op) → C^{BT} (Proposition B.22).",
+      "locator": "Appendix B, Proposition B.5, p. 384",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "note": "RT.2 plans the S¹-action on THH as coherent data."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/152",
+      "kind": "construction",
+      "name": "Geometric realisation of simplicial and paracyclic spaces",
+      "statement": "|Δ^S| = Hom_Int(S^∨, [0, 1]) with S^∨ = Hom_Δ(S, [1]) (increasing coordinates) gives |−|: Fun(Δ^op, Top) → Top as a coend; |Λ_∞^T| = {Z-equivariant non-decreasing T^∨ → R} gives a BZ-equivariant |−|: Fun(Λ_∞^op, Top) → RTop, and for cyclic spaces a T = R/Z-action; |Δ^S| × R ≅ |Λ_∞^{j_∞(S)}|, and the underlying space of |X| is |j_∞^*X|.",
+      "locator": "Appendix B, Construction B.9, p. 387",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Construction B.6, Construction B.9, Example B.10, Remark B.11, Lemma B.12."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/153",
+      "kind": "theorem",
+      "name": "Proper simplicial spaces realise to colimits",
+      "statement": "On proper simplicial spaces (latching inclusions h-cofibrations), |−| agrees with the ∞-categorical colimit: N Fun(Δ^op, Top)_prop → N Top over Fun(N(Δ^op), S) → S commutes up to natural equivalence.",
+      "locator": "Appendix B, Lemma B.7, p. 386",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/154",
+      "kind": "theorem",
+      "name": "Realisation of proper paracyclic and cyclic spaces and spectra",
+      "statement": "For proper paracyclic spaces the square N Fun(Λ_∞^op, Top)_prop → N RTop over Fun(N(Λ_∞^op), S) → S commutes BZ-equivariantly (Proposition B.13); for cyclic spaces with values in TTop and S^{BT} (Corollary B.14); and the same for (para)cyclic orthogonal spectra (Proposition B.15, Corollary B.16), with BC_p-equivariant variants (Lemma B.18, Propositions B.21–B.22).",
+      "locator": "Appendix B, Proposition B.13, p. 390",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/155",
+      "kind": "theorem",
+      "name": "Edgewise subdivision",
+      "statement": "sd_p: Λ_p → Λ, [n]_{Λ_p} ↦ [pn]_Λ, induces |Λ_p| ≃ |Λ|; for C with geometric realisations, realisation of X and of sd_p^*X agree, and for proper paracyclic spaces or spectra |X| ≅ |sd_p^*X| T-equivariantly.",
+      "locator": "Appendix B, Proposition B.19, p. 394",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proposition B.17 (compatibility with self-duality) and Proposition B.19."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/156",
+      "kind": "theorem",
+      "name": "Tate construction and realisation",
+      "statement": "There is a natural transformation from Fun(Λ_p^op, Sp) → Fun(Λ^op, Sp) → Sp^{BT} (levelwise −^{tC_p}, then realisation) to Fun(Λ_p^op, Sp) → Sp^{BT} → Sp^{B(T/C_p)} ≃ Sp^{BT} (realisation, then −^{tC_p}).",
+      "locator": "Appendix B, Proposition B.20, p. 395",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/157",
+      "kind": "theorem",
+      "name": "Geometric realisation preserves finite limits",
+      "statement": "In compactly generated weak Hausdorff spaces, |−|: Fun(Δ^op, Top) → Top commutes with finite limits.",
+      "locator": "Appendix C, Proposition C.1, p. 398",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/158",
+      "kind": "theorem",
+      "name": "Gluing lemma for spaces",
+      "statement": "Given B ← A → C and B′ ← A′ → C′ with A → B and A′ → B′ h-cofibrations and levelwise weak homotopy equivalences between them, B ∪_A C → B′ ∪_{A′} C′ is a weak homotopy equivalence.",
+      "locator": "Appendix C, Lemma C.2, p. 399",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Boardman–Vogt [20, Proposition 4.8(b)]."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/159",
+      "kind": "theorem",
+      "name": "Realisation of proper simplicial spaces is homotopical",
+      "statement": "A levelwise weak homotopy equivalence of proper simplicial spaces realises to a weak homotopy equivalence.",
+      "locator": "Appendix C, Proposition C.3, p. 399",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "StableHomotopyKTheory:H.2"
+      ],
+      "note": "H.2 plans the levelwise-equivalence theorem under cofibrancy hypotheses."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/160",
+      "kind": "definition",
+      "name": "Bousfield–Kan homotopy colimits of spaces",
+      "statement": "hocolim_I X = |[n] ↦ ∐_{i_0→…→i_n} X(i_0)|; it is homotopical and models the ∞-categorical colimit. For pointed diagrams the reduced hocolim is hocolim_I X / hocolim_I pt, homotopical on well-pointed diagrams and modelling the colimit of pointed spaces.",
+      "locator": "Appendix C, Definition C.4, p. 400",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definitions C.4, C.6, Propositions C.5, C.7; printed with X(i_n) (sourceIssues PAPER-NIKOLAUS-SCHOLZE-18/E18)."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/161",
+      "kind": "theorem",
+      "name": "Homotopy colimits of orthogonal spectra",
+      "statement": "The gluing lemma holds for orthogonal spectra along h-cofibrations and stable equivalences (Lemma C.8, not for pointed spaces); the levelwise reduced hocolim of orthogonal spectra (Definition C.10) is homotopical for all diagrams, well-pointed or not, and models the ∞-categorical colimit (Proposition C.11).",
+      "locator": "Appendix C, Proposition C.11, p. 403",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma C.8 (Mandell–May), Remark C.9, Definition C.10, Proposition C.11."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/162",
+      "kind": "theorem",
+      "name": "Fixed points commute with realisations and hocolims",
+      "statement": "hocolim_I commutes with geometric realisation (Lemma C.12); for a finite group (or compact Lie group) G, −^G: GSp^O → Sp^O commutes with geometric realisations and homotopy colimits up to homeomorphism (Lemma C.13); and hocolim_I of orthogonal G-spectra is homotopical for equivariant equivalences and models the colimit in GSp (Proposition C.14).",
+      "locator": "Appendix C, Lemma C.13, p. 404",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma C.12, Lemma C.13, Proposition C.14."
+    }
+  ],
+  "coverage": {
+    "counts": {
+      "library": 0,
+      "planned": 32,
+      "missing": 130
+    },
+    "policy": "Every definition, construction, theorem, proposition, lemma and corollary is an item, with closely linked statements merged and named in the note (for example Definitions II.2.2–II.2.3 and Proposition II.2.4). Remarks and examples are items when they state mathematics used later (Examples I.1.12, I.2.3, II.1.2, IV.1.2; Remark III.1.6); purely expository remarks are not."
+  },
+  "prerequisites": [
+    {
+      "citation": "J. Lurie, Higher Topos Theory, Annals of Mathematics Studies 170, Princeton University Press, 2009",
+      "link": "arXiv:math/0608040",
+      "why": "[69]: presentable ∞-categories, Kan extensions, localisations, Quillen's Theorem A and siftedness, used throughout."
+    },
+    {
+      "citation": "J. Lurie, Higher Algebra (2017)",
+      "link": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "why": "[71]: stable and symmetric monoidal ∞-categories, ∞-operads, E_1- and E_∞-algebras, ambidexterity (6.1.6.7, 6.1.6.12), the Ass^⊗ and Fin_* formalism of Appendix A."
+    },
+    {
+      "citation": "T. Nikolaus, Stable ∞-operads and the multiplicative Yoneda lemma (2016)",
+      "link": "arXiv:1608.02901",
+      "why": "[81, Corollaries 6.8–6.9]: initiality of id_Sp, Ω^∞ and Σ^∞_+ among lax symmetric monoidal functors; the uniqueness behind Proposition III.3.1, Theorem III.4.5 and Lemmas III.3.7, IV.1.3, IV.1.7."
+    },
+    {
+      "citation": "S. Lunøe-Nielsen and J. Rognes, The topological Singer construction, Doc. Math. 17 (2012), 861–909",
+      "link": "https://doi.org/10.4171/dm/384",
+      "why": "[80]: HF_p → (HF_p^{⊗p})^{tC_p} is an equivalence, the base case of Theorem III.1.7."
+    },
+    {
+      "citation": "W. H. Lin, On conjectures of Mahowald, Segal and Sullivan, Math. Proc. Cambridge Philos. Soc. 87 (1980), 449–458",
+      "link": "https://doi.org/10.1017/s0305004100056887",
+      "why": "[66]: the Segal conjecture for C_2 (Remark III.1.6); J. H. C. Gunawardena's 1980 Knight prize essay [44] gives odd p and is not publicly available."
+    },
+    {
+      "citation": "G. Carlsson, Equivariant stable homotopy and Segal's Burnside ring conjecture, Ann. of Math. 120 (1984), 189–224",
+      "link": "https://doi.org/10.2307/2006940",
+      "why": "[25]: the reduction of the Segal conjecture to C_p, cited in Remark III.1.6."
+    },
+    {
+      "citation": "L. Hesselholt and I. Madsen, On the K-theory of finite algebras over Witt vectors of perfect fields, Topology 36 (1997), 29–101",
+      "link": "https://doi.org/10.1016/0040-9383(96)00003-1",
+      "why": "[47]: the classical orthogonal cyclotomic spectrum THH, Proposition 2.5 behind Theorem III.4.7, and the constants λ_n of Proposition 5.4 that Corollary IV.4.16 sets to 1."
+    },
+    {
+      "citation": "M. Bökstedt, W. C. Hsiang and I. Madsen, The cyclotomic trace and algebraic K-theory of spaces, Invent. Math. 111 (1993), 465–539",
+      "link": "https://doi.org/10.1007/bf01231296",
+      "why": "[23]: genuine TC, TR and the restriction and Frobenius maps (Definition II.4.4), and TC(S[ΩY]) (Theorem IV.3.6)."
+    },
+    {
+      "citation": "A. J. Blumberg and M. A. Mandell, The homotopy theory of cyclotomic spectra, Geom. Topol. 19 (2015), 3105–3147",
+      "link": "https://doi.org/10.2140/gt.2015.19.3105",
+      "why": "[19]: the model-∗-category of cyclotomic spectra compared in Remarks II.6.4 and II.6.10."
+    },
+    {
+      "citation": "C. Barwick and S. Glasman, Cyclonic spectra, cyclotomic spectra, and a conjecture of Kaledin (2016)",
+      "link": "arXiv:1602.02163",
+      "why": "[11]: Theorem II.3.7, orthogonal cyclotomic spectra present Cyc Sp^gen."
+    },
+    {
+      "citation": "V. Hinich, Dwyer–Kan localization revisited, Homology Homotopy Appl. 18 (2016), 27–48",
+      "link": "https://doi.org/10.4310/hha.2016.v18.n1.a3",
+      "why": "[50]: Proposition A.5."
+    },
+    {
+      "citation": "J. R. Klein, The dualizing spectrum of a topological group, Math. Ann. 319 (2001), 421–456",
+      "link": "https://doi.org/10.1007/pl00004441",
+      "why": "[59]: D_{BG} and the vanishing of the circle Tate construction on induced objects (Corollary I.4.3)."
+    },
+    {
+      "citation": "S. Schwede, Lectures on equivariant stable homotopy theory (2016)",
+      "link": "http://www.math.uni-bonn.de/people/schwede/equivariant.pdf",
+      "why": "[85]: orthogonal (G-)spectra, geometric fixed points and π_*-isomorphisms (Definitions II.2.1–II.2.3, Proposition II.2.4)."
+    },
+    {
+      "citation": "M. A. Mandell and J. P. May, Equivariant orthogonal spectra and S-modules, Mem. Amer. Math. Soc. 159 (2002)",
+      "link": "https://doi.org/10.1090/memo/0755",
+      "why": "[74]: the gluing lemma for orthogonal G-spectra (Lemma C.8, Proposition C.14)."
+    },
+    {
+      "citation": "B. Shipley, Symmetric spectra and topological Hochschild homology, K-Theory 19 (2000), 155–183",
+      "link": "https://doi.org/10.1023/a:1007892801533",
+      "why": "[87]: the Bökstedt construction preserves stable equivalences and models the smash product (Theorems III.4.4–III.4.5)."
+    },
+    {
+      "citation": "J. McClure, R. Schwänzl and R. Vogt, THH(R) ≅ R ⊗ S¹ for E_∞ ring spectra, J. Pure Appl. Algebra 121 (1997), 137–159",
+      "link": "https://doi.org/10.1016/s0022-4049(97)00118-7",
+      "why": "[79]: Proposition IV.2.2."
+    },
+    {
+      "citation": "M. F. Atiyah, Power operations in K-theory, Quart. J. Math. Oxford 17 (1966), 165–193",
+      "link": "https://doi.org/10.1093/qmath/17.1.165",
+      "why": "[7]: the cyclic power operation and θ^p with ψ^p = V^p − pθ^p (Proposition IV.1.12)."
+    },
+    {
+      "citation": "R. R. Bruner, J. P. May, J. E. McClure and M. Steinberger, H_∞ Ring Spectra and their Applications, Lecture Notes in Math. 1176, Springer, 1986",
+      "link": "https://doi.org/10.1007/bfb0075405",
+      "why": "[24, VIII.2]: Steenrod operations as power operations (proof of Proposition IV.1.16)."
+    },
+    {
+      "citation": "N. J. Kuhn, The McCord model for the tensor product of a space and a commutative ring spectrum, Progr. Math. 215 (2004), 213–236",
+      "link": "https://doi.org/10.1007/978-3-0348-7863-0_13",
+      "why": "[63]: convergence of Σ^∞_+LY ≃ lim_Δ (Σ^∞_+Y)^{⊗(n+1)} for simply connected Y (Theorem IV.3.7)."
+    },
+    {
+      "citation": "B. I. Dundas, T. G. Goodwillie and R. McCarthy, The Local Structure of Algebraic K-Theory, Springer, 2013",
+      "link": "https://doi.org/10.1007/978-1-4471-4393-2",
+      "why": "[32]: Theorem 1.2 and Bökstedt's approximation lemma (Lemma III.4.2)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "RefinedTraceMethods",
+      "stages": [
+        "RefinedTraceMethods:RT.2"
+      ],
+      "reason": "RT.2 plans exactly this paper's subject: THH of E_1-algebras by cyclic realisation with the circle action as coherent data, homotopy orbits, homotopy fixed points and Tate constructions with the norm sequence and multiplicative structure, cyclotomic spectra as Frobenius maps to Tate constructions, TC, TC⁻ and TP with the bounded-below fixed-point formula, and agreement with the classical genuine-equivariant TR/TC. The paper is the canonical source for all of it and more than RT.2 names: the Tate orbit and fixpoint lemmas, the uniqueness of the multiplicative structure, the Farrell–Tate construction for the circle, the lax equalizer, the Tate diagonal, the genuine-equivariant background needed for the classical comparison (orthogonal G-spectra, geometric fixed points, Borel completion, isotropy separation), the coalgebra argument behind Theorem II.6.9, the Bökstedt construction and the comparison of the two THH, the cyclic and paracyclic categories with their realisations, and the E_∞ and loop-space examples. The planned items included (Corollary 1.5, Definitions II.1.1, II.1.6, II.1.8, Theorems II.4.10–II.4.11 and others) are ones for which this paper is the source RT.2's design should follow.",
+      "items": [
+        "PAPER-NIKOLAUS-SCHOLZE-18/3",
+        "PAPER-NIKOLAUS-SCHOLZE-18/11",
+        "PAPER-NIKOLAUS-SCHOLZE-18/12",
+        "PAPER-NIKOLAUS-SCHOLZE-18/13",
+        "PAPER-NIKOLAUS-SCHOLZE-18/16",
+        "PAPER-NIKOLAUS-SCHOLZE-18/17",
+        "PAPER-NIKOLAUS-SCHOLZE-18/18",
+        "PAPER-NIKOLAUS-SCHOLZE-18/19",
+        "PAPER-NIKOLAUS-SCHOLZE-18/20",
+        "PAPER-NIKOLAUS-SCHOLZE-18/21",
+        "PAPER-NIKOLAUS-SCHOLZE-18/22",
+        "PAPER-NIKOLAUS-SCHOLZE-18/27",
+        "PAPER-NIKOLAUS-SCHOLZE-18/28",
+        "PAPER-NIKOLAUS-SCHOLZE-18/29",
+        "PAPER-NIKOLAUS-SCHOLZE-18/30",
+        "PAPER-NIKOLAUS-SCHOLZE-18/31",
+        "PAPER-NIKOLAUS-SCHOLZE-18/32",
+        "PAPER-NIKOLAUS-SCHOLZE-18/33",
+        "PAPER-NIKOLAUS-SCHOLZE-18/34",
+        "PAPER-NIKOLAUS-SCHOLZE-18/35",
+        "PAPER-NIKOLAUS-SCHOLZE-18/36",
+        "PAPER-NIKOLAUS-SCHOLZE-18/37",
+        "PAPER-NIKOLAUS-SCHOLZE-18/38",
+        "PAPER-NIKOLAUS-SCHOLZE-18/39",
+        "PAPER-NIKOLAUS-SCHOLZE-18/40",
+        "PAPER-NIKOLAUS-SCHOLZE-18/41",
+        "PAPER-NIKOLAUS-SCHOLZE-18/42",
+        "PAPER-NIKOLAUS-SCHOLZE-18/43",
+        "PAPER-NIKOLAUS-SCHOLZE-18/44",
+        "PAPER-NIKOLAUS-SCHOLZE-18/45",
+        "PAPER-NIKOLAUS-SCHOLZE-18/46",
+        "PAPER-NIKOLAUS-SCHOLZE-18/47",
+        "PAPER-NIKOLAUS-SCHOLZE-18/48",
+        "PAPER-NIKOLAUS-SCHOLZE-18/49",
+        "PAPER-NIKOLAUS-SCHOLZE-18/50",
+        "PAPER-NIKOLAUS-SCHOLZE-18/51",
+        "PAPER-NIKOLAUS-SCHOLZE-18/52",
+        "PAPER-NIKOLAUS-SCHOLZE-18/53",
+        "PAPER-NIKOLAUS-SCHOLZE-18/54",
+        "PAPER-NIKOLAUS-SCHOLZE-18/55",
+        "PAPER-NIKOLAUS-SCHOLZE-18/56",
+        "PAPER-NIKOLAUS-SCHOLZE-18/57",
+        "PAPER-NIKOLAUS-SCHOLZE-18/58",
+        "PAPER-NIKOLAUS-SCHOLZE-18/59",
+        "PAPER-NIKOLAUS-SCHOLZE-18/60",
+        "PAPER-NIKOLAUS-SCHOLZE-18/61",
+        "PAPER-NIKOLAUS-SCHOLZE-18/62",
+        "PAPER-NIKOLAUS-SCHOLZE-18/63",
+        "PAPER-NIKOLAUS-SCHOLZE-18/64",
+        "PAPER-NIKOLAUS-SCHOLZE-18/65",
+        "PAPER-NIKOLAUS-SCHOLZE-18/66",
+        "PAPER-NIKOLAUS-SCHOLZE-18/67",
+        "PAPER-NIKOLAUS-SCHOLZE-18/68",
+        "PAPER-NIKOLAUS-SCHOLZE-18/69",
+        "PAPER-NIKOLAUS-SCHOLZE-18/70",
+        "PAPER-NIKOLAUS-SCHOLZE-18/71",
+        "PAPER-NIKOLAUS-SCHOLZE-18/72",
+        "PAPER-NIKOLAUS-SCHOLZE-18/73",
+        "PAPER-NIKOLAUS-SCHOLZE-18/74",
+        "PAPER-NIKOLAUS-SCHOLZE-18/75",
+        "PAPER-NIKOLAUS-SCHOLZE-18/76",
+        "PAPER-NIKOLAUS-SCHOLZE-18/77",
+        "PAPER-NIKOLAUS-SCHOLZE-18/78",
+        "PAPER-NIKOLAUS-SCHOLZE-18/79",
+        "PAPER-NIKOLAUS-SCHOLZE-18/80",
+        "PAPER-NIKOLAUS-SCHOLZE-18/81",
+        "PAPER-NIKOLAUS-SCHOLZE-18/82",
+        "PAPER-NIKOLAUS-SCHOLZE-18/83",
+        "PAPER-NIKOLAUS-SCHOLZE-18/84",
+        "PAPER-NIKOLAUS-SCHOLZE-18/85",
+        "PAPER-NIKOLAUS-SCHOLZE-18/90",
+        "PAPER-NIKOLAUS-SCHOLZE-18/92",
+        "PAPER-NIKOLAUS-SCHOLZE-18/93",
+        "PAPER-NIKOLAUS-SCHOLZE-18/94",
+        "PAPER-NIKOLAUS-SCHOLZE-18/96",
+        "PAPER-NIKOLAUS-SCHOLZE-18/97",
+        "PAPER-NIKOLAUS-SCHOLZE-18/98",
+        "PAPER-NIKOLAUS-SCHOLZE-18/99",
+        "PAPER-NIKOLAUS-SCHOLZE-18/100",
+        "PAPER-NIKOLAUS-SCHOLZE-18/101",
+        "PAPER-NIKOLAUS-SCHOLZE-18/102",
+        "PAPER-NIKOLAUS-SCHOLZE-18/103",
+        "PAPER-NIKOLAUS-SCHOLZE-18/104",
+        "PAPER-NIKOLAUS-SCHOLZE-18/105",
+        "PAPER-NIKOLAUS-SCHOLZE-18/106",
+        "PAPER-NIKOLAUS-SCHOLZE-18/107",
+        "PAPER-NIKOLAUS-SCHOLZE-18/108",
+        "PAPER-NIKOLAUS-SCHOLZE-18/109",
+        "PAPER-NIKOLAUS-SCHOLZE-18/119",
+        "PAPER-NIKOLAUS-SCHOLZE-18/120",
+        "PAPER-NIKOLAUS-SCHOLZE-18/121",
+        "PAPER-NIKOLAUS-SCHOLZE-18/122",
+        "PAPER-NIKOLAUS-SCHOLZE-18/123",
+        "PAPER-NIKOLAUS-SCHOLZE-18/124",
+        "PAPER-NIKOLAUS-SCHOLZE-18/125",
+        "PAPER-NIKOLAUS-SCHOLZE-18/134",
+        "PAPER-NIKOLAUS-SCHOLZE-18/136",
+        "PAPER-NIKOLAUS-SCHOLZE-18/148",
+        "PAPER-NIKOLAUS-SCHOLZE-18/149",
+        "PAPER-NIKOLAUS-SCHOLZE-18/150",
+        "PAPER-NIKOLAUS-SCHOLZE-18/151",
+        "PAPER-NIKOLAUS-SCHOLZE-18/152",
+        "PAPER-NIKOLAUS-SCHOLZE-18/154",
+        "PAPER-NIKOLAUS-SCHOLZE-18/155",
+        "PAPER-NIKOLAUS-SCHOLZE-18/156",
+        "PAPER-NIKOLAUS-SCHOLZE-18/161",
+        "PAPER-NIKOLAUS-SCHOLZE-18/162"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "RefinedTraceMethods",
+      "stages": [
+        "RefinedTraceMethods:RT.1"
+      ],
+      "reason": "RT.1 owns algebraic Hochschild homology and plans HKR only for smooth algebras in characteristic 0. Proposition IV.4.1 is the derived HKR filtration for every commutative ring, built from the cotangent complex and derived exterior powers of DerivedDeRhamCohomology DD.0; Proposition IV.4.3, HH(F_p) as a divided power algebra, follows from it.",
+      "items": [
+        "PAPER-NIKOLAUS-SCHOLZE-18/127",
+        "PAPER-NIKOLAUS-SCHOLZE-18/129"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "EnhancedDerivedSheaves",
+      "stages": [
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability"
+      ],
+      "reason": "E5:abstract plans symmetric monoidal ∞-categories as cocartesian fibrations over Fin_*, operadic algebras, monoidal functors and stable categories, and E5:presentability Ind-completion; StableHomotopyKTheory, GeneralAlgebraicKTheory and RefinedTraceMethods all draw on this single supplier. The paper's Appendix A (Hinich's symmetric monoidal Dwyer–Kan localisation, symmetric monoidal model categories, left derivable cocartesian fibrations), the Verdier quotients of §I.3 with their symmetric monoidal version, and the envelope Fun_⊗(C^⊗_act, D) ≃ Fun_lax(C, D) of Proposition III.3.2 are general ∞-categorical statements that belong there, not in a trace roadmap.",
+      "items": [
+        "PAPER-NIKOLAUS-SCHOLZE-18/23",
+        "PAPER-NIKOLAUS-SCHOLZE-18/24",
+        "PAPER-NIKOLAUS-SCHOLZE-18/25",
+        "PAPER-NIKOLAUS-SCHOLZE-18/26",
+        "PAPER-NIKOLAUS-SCHOLZE-18/91",
+        "PAPER-NIKOLAUS-SCHOLZE-18/95",
+        "PAPER-NIKOLAUS-SCHOLZE-18/139",
+        "PAPER-NIKOLAUS-SCHOLZE-18/140",
+        "PAPER-NIKOLAUS-SCHOLZE-18/141",
+        "PAPER-NIKOLAUS-SCHOLZE-18/142",
+        "PAPER-NIKOLAUS-SCHOLZE-18/143",
+        "PAPER-NIKOLAUS-SCHOLZE-18/144",
+        "PAPER-NIKOLAUS-SCHOLZE-18/145",
+        "PAPER-NIKOLAUS-SCHOLZE-18/146",
+        "PAPER-NIKOLAUS-SCHOLZE-18/147"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "StableHomotopyKTheory",
+      "stages": [
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.2"
+      ],
+      "reason": "H.1 plans nerves and their geometric realisation, and H.2 the levelwise-equivalence theorem and bisimplicial realisation under cofibrancy hypotheses. The paper's facts about geometric realisation of proper simplicial spaces in compactly generated weak Hausdorff spaces (commuting with finite limits, the gluing lemma, homotopy invariance, agreement with the ∞-categorical colimit) and the Bousfield–Kan homotopy colimit of spaces are these layers' concerns; the spectrum-level and equivariant versions stay with RT.2, which alone needs them.",
+      "items": [
+        "PAPER-NIKOLAUS-SCHOLZE-18/153",
+        "PAPER-NIKOLAUS-SCHOLZE-18/157",
+        "PAPER-NIKOLAUS-SCHOLZE-18/158",
+        "PAPER-NIKOLAUS-SCHOLZE-18/159",
+        "PAPER-NIKOLAUS-SCHOLZE-18/160"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "KTheoryFiniteLocalFields",
+      "stages": [
+        "KTheoryFiniteLocalFields:L.5"
+      ],
+      "reason": "L.5 plans THH, TR and TC of perfect fields. §IV.4 computes THH(F_p)^{hT}, THH(F_p)^{tT}, the Frobenius and TC(F_p) from Bökstedt periodicity alone, identifies THH(F_p) as the E_∞-cyclotomic spectrum sh_p(HZ_p^triv), and gives the characteristic-p fibre sequence; these are sources for L.5's calculation, and Bökstedt periodicity and the TC(F_p) computation, already planned there, are included.",
+      "items": [
+        "PAPER-NIKOLAUS-SCHOLZE-18/128",
+        "PAPER-NIKOLAUS-SCHOLZE-18/130",
+        "PAPER-NIKOLAUS-SCHOLZE-18/131",
+        "PAPER-NIKOLAUS-SCHOLZE-18/132",
+        "PAPER-NIKOLAUS-SCHOLZE-18/133",
+        "PAPER-NIKOLAUS-SCHOLZE-18/135",
+        "PAPER-NIKOLAUS-SCHOLZE-18/137",
+        "PAPER-NIKOLAUS-SCHOLZE-18/138"
+      ]
+    },
+    {
+      "route": "part-ii",
+      "parent": "StableHomotopyKTheory",
+      "roadmap": "PowerOperationsAndSegalConjecture",
+      "title": "Homotopy foundations for algebraic K-theory, Part II: power operations and the Segal conjecture for C_p",
+      "area": "topology",
+      "brief": "Design PowerOperationsAndSegalConjecture, the Part II of Homotopy foundations for algebraic K-theory (StableHomotopyKTheory), following Nikolaus–Scholze, On topological cyclic homology (Acta Math. 221 (2018)), §§III.1 and IV.1, and the classical inputs they cite. Final theorems, as the paper states them (with its misprints corrected): Theorem III.1.7 — for every bounded below spectrum X, the Tate diagonal Δ_p: X → (X ⊗ … ⊗ X)^{tC_p} exhibits the target as the p-completion of X, which fails without the bounded below hypothesis ((KU ⊗ KU)^{tC_2} is rational); Theorem IV.1.15 with Proposition IV.1.16 — the Tate-valued Frobenius HF_p → (HF_p^{tC_p})^{hF_p^×} is the product of the Steenrod squares Sq^i: HF_2 → HF_2[i] for p = 2, and of P^i: HF_p → HF_p[2i(p−1)] and βP^i: HF_p → HF_p[2i(p−1)+1] for odd p (the printed shifts [i(p−1)] are misprints), with the HZ variant through reduction; Theorem IV.1.21 — postcomposition with Σ^nφ_R is Rezk's degree-n power operation R^n(X) → R^{n·ρ}(BΣ_p × X) followed by can; Proposition IV.1.12 — the Tate-valued Frobenius of KU is the Adams operation ψ^p on KU⁰(X) ⊗ Q_p and, as a map KU → KU_p^∧[1/p] ≃ (KU^{tC_p})^{hF_p^×}, the stable ψ^p followed by completion (β ↦ pβ); Theorem IV.3.7 — for simply connected Y the Frobenius of THH(S[ΩY]) = Σ^∞_+LY is a p-completion and (Σ^∞_+LY)^{C_{p^n}} → (Σ^∞_+LY)^{hC_{p^n}} is a p-adic equivalence. Cover: the Segal conjecture for C_p (S → S^{tC_p} is a p-completion; Lin for p = 2, Gunawardena for odd p), with what it needs — the mod p Steenrod algebra, the Adams spectral sequence for inverse limits of spectra, Lin's Ext computation or the Singer construction; the HF_p case HF_p ≃ (HF_p^{⊗p})^{tC_p} (Lunøe-Nielsen–Rognes, the topological Singer construction); the reduction from HF_p to all bounded below X (Postnikov truncation, Lemma I.2.6, the pro-isomorphism Lemma III.1.8); extended powers and twisted cohomology R^{n·ρ}(X × BΣ_p) through Thom spectra of parametrised spectra (Lemma IV.1.19), Rezk's power operations and Lemmas IV.1.3, IV.1.7, IV.1.17–IV.1.20 with Corollaries IV.1.8–IV.1.10; the Steenrod operations as the components of the power operation of HF_p ([BMMS, VIII.2]); Atiyah's cyclic power operation in K-theory; the examples S^{hC_p} and KU of Example I.2.3 and the spherical Witt vectors of Example IV.1.2; and Kuhn's convergence for Σ^∞_+ of the cosimplicial model of LY, Y simply connected. Import rather than re-plan: from Hochschild, cyclotomic and refined trace methods (RefinedTraceMethods) RT.2, the Tate construction and its multiplicativity, the Tate diagonal with its uniqueness and lax symmetric monoidal structure, the Tate-valued Frobenius, cyclotomic spectra and THH(S[ΩY]) ≃ Σ^∞_+LY, and from RT.4:topological the spectrum KU and Bott periodicity; from this roadmap's H.5 and H.6, spectra, p-completion, Postnikov towers and spectral sequences with their convergence; from Enhanced derived categories of sheaves (EnhancedDerivedSheaves) E5:abstract, symmetric monoidal ∞-categories and E_∞-rings; from the Tau Ceti roadmap Algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology, stage 6) singular cohomology with cup products. Keep the bounded below hypothesis of Theorem III.1.7 visible, and state the Segal conjecture only for C_p: the paper claims nothing for other finite groups.",
+      "reason": "The paper's generalised Segal conjecture (Theorem III.1.7) rests on the Segal conjecture for C_p and the Lunøe-Nielsen–Rognes computation for HF_p, both Adams-spectral-sequence calculations; §IV.1 identifies the Tate-valued Frobenius with Steenrod and Adams operations through power operations. Nothing in the atlas plans the Steenrod algebra, the Adams spectral sequence, extended powers or power operations, and RT.2 needs none of them to construct cyclotomic spectra or TC. StableHomotopyKTheory owns spectra, p-completion and spectral sequences (H.5, H.6), so these computations extend it in its own direction; its summary disclaims 'all of stable homotopy theory', hence a Part II rather than new layers in it.",
+      "items": [
+        "PAPER-NIKOLAUS-SCHOLZE-18/14",
+        "PAPER-NIKOLAUS-SCHOLZE-18/15",
+        "PAPER-NIKOLAUS-SCHOLZE-18/86",
+        "PAPER-NIKOLAUS-SCHOLZE-18/87",
+        "PAPER-NIKOLAUS-SCHOLZE-18/88",
+        "PAPER-NIKOLAUS-SCHOLZE-18/89",
+        "PAPER-NIKOLAUS-SCHOLZE-18/110",
+        "PAPER-NIKOLAUS-SCHOLZE-18/111",
+        "PAPER-NIKOLAUS-SCHOLZE-18/112",
+        "PAPER-NIKOLAUS-SCHOLZE-18/113",
+        "PAPER-NIKOLAUS-SCHOLZE-18/114",
+        "PAPER-NIKOLAUS-SCHOLZE-18/115",
+        "PAPER-NIKOLAUS-SCHOLZE-18/116",
+        "PAPER-NIKOLAUS-SCHOLZE-18/117",
+        "PAPER-NIKOLAUS-SCHOLZE-18/118",
+        "PAPER-NIKOLAUS-SCHOLZE-18/126"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E1",
+      "kind": "error",
+      "locator": "Proposition II.3.4 and its proof, p. 259 (also arXiv v2)",
+      "printed": "There is a natural functor Cyc Sp^gen → Cyc Sp = Sp^{BT} ×_{∏_{p∈P} Sp^{BC_{p^∞}}} ∏_{p∈P} Cyc Sp_p. … The induced functor Cyc Sp^gen → ∏_{p∈P} Sp^{BC_{p^∞}} lifts to a functor Cyc Sp^gen → Sp^{BT} by looking at the underlying spectrum with T-action",
+      "correction": "Drop the identification. Cyc Sp (Definition II.1.6(i)) asks each φ_p to be T ≅ T/C_p-equivariant, while the fibre product only records φ_p as a C_{p^∞}-equivariant map. The natural functor Cyc Sp^gen → Cyc Sp does exist: it is the one of §II.6, Cyc Sp^gen ⊆ CoAlg_{(Φ^{C_p})}(TSp_F) → CoAlg_{(−^{tC_p})}(Sp^{BT}) ≃ Cyc Sp (Lemma II.5.8), where the residual T/C_p-action on Φ^{C_p}X makes each Frobenius T-equivariant. On bounded below objects X^{tC_p} is p-complete (Lemma I.2.9) and C_{p^∞} → T is a p-adic equivalence, as the proof of Theorem II.4.11 uses, so there the two notions of Frobenius agree.",
+      "reason": "Both sides are categorical fibrations over Sp^{BT}, so an equivalence would give equivalences of fibres. Over X = KU with trivial T-action the fibres are ∏_p Ω^∞W_p^{hT} and ∏_p Ω^∞W_p^{hC_{p^∞}}, with W_p = map(KU, KU^{tC_p}). W_p is a rational KU-module, as KU^{tC_p} is rational (Example I.2.3(iii)), so W_p^{hC_{p^∞}} ≃ W_p, BC_{p^∞} being rationally a point. The fibre of W_p^{hT} → W_p is Σ^{−2}W_p^{hT} (Gysin sequence; W_p is complex oriented), and W_p^{hT} ≠ 0 because the non-zero map KU → KU^{hC_p} → KU^{tC_p} is T-equivariant (as in Example II.1.2(ii)). Being 2-periodic, Σ^{−2}W_p^{hT} has non-zero homotopy in non-negative degrees, so Ω^∞W_p^{hT} → Ω^∞W_p is not an equivalence. The authors' Remark II.1.3 notes the same difference between T- and C_{p^∞}-equivariant Frobenius maps outside the p-complete bounded below case.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E2",
+      "kind": "gap",
+      "locator": "Proof of Theorem B.3, p. 383 (also arXiv v2)",
+      "printed": "We now apply this criterion to the ∞-category C = Δ/T = Δ ×_{Λ∞} Λ∞/T with the 'covering' given by U_t := C[t, t+1), t ∈ T, where C[a, b) … consists of pairs (S, ϕ) … such that ϕ(S) ⊆ [a, b) ⊆ T. … Finite intersections of U_t's are always also of the form C[a, b), where b ⩽ a+1. … It follows that U1 ∪...∪Un is also weakly contractible",
+      "correction": "Use closed intervals U_t = C[t, t+1], which do cover C: a simplex (S_0, ϕ_0) → … → (S_k, ϕ_k) has all ϕ_i(S_i) inside ϕ_k(S_k) ⊆ [ϕ_k(min), ϕ_k(min) + 1]. For a ≤ b ≤ a + 1, C[a, b] ≅ Δ/[k] (k + 1 the number of points of T in [a, b]) has a terminal object. Add the U_t for consecutive t_0 < t_1 < … of T ∩ [−N, N] in increasing order: (U_{t_0} ∪ … ∪ U_{t_{n−1}}) ∩ U_{t_n} = C[t_n, t_{n−1} + 1] is contractible, so each window is weakly contractible by the pushout step, and C is the filtered union of the windows. The last line of the induction should read U_0 ∪ … ∪ U_n.",
+      "reason": "The half-open U_t do not cover C: for T = Z (n = 1) and S = [1], ϕ(k, 0) = k, ϕ(k, 1) = k + 1 is non-decreasing and Z-equivariant on Z × [1], but ϕ({0} × S) = {0, 1} lies in no [t, t + 1). And the criterion needs every finite intersection weakly contractible, while U_0 ∩ U_1 = C[1, 1) is empty (so is any C[a, b) with b ≤ a, which the reduction to Δ/[k−1] with k ≥ 1 silently excludes). The theorem is true, by the argument above.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E3",
+      "kind": "misprint",
+      "locator": "Theorem 1.2, p. 208 (also arXiv v2)",
+      "printed": "If A → Ā is a map of connective associative and unital algebras in Sp such that π0 A → π0 Ā has nilpotent kernel, then [the square K(A) → TC(A) over K(Ā) → TC(Ā)] is homotopy cartesian.",
+      "correction": "… such that π_0A → π_0Ā is surjective with nilpotent kernel …",
+      "reason": "The Dundas–Goodwillie–McCarthy theorem is for nilpotent extensions; the notation Ā and Theorem 1.1 ('a surjection … with nilpotent kernel') show the intent. Without surjectivity the statement fails for HZ → HQ (kernel zero): the fibre of K(Z) → K(Q) is ⊕_p K(F_p), which is connective, while TC(Z) is (−2)-connective and TC(Q) = HQ^{hT} (all Tate constructions vanish rationally) has π_{−2} = Q, so the fibre of TC(Z) → TC(Q) has π_{−3} ⊇ Q.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E4",
+      "kind": "misprint",
+      "locator": "Example I.2.3(iii), p. 220 (also arXiv v2)",
+      "printed": "π∗(KU^{tCp}) ≅ KU∗((x))/[p](x) ≅ KU∗((x))/((x−1)^p − 1) … The p²-series of the multiplicative group law is given by [p²](x) = (x−1)^{p²} − 1",
+      "correction": "[p](x) = (1 + x)^p − 1 and [p²](x) = (1 + x)^{p²} − 1, the series of the multiplicative formal group law x + y + xy (or ±((1 − x)^p − 1) for x + y − xy).",
+      "reason": "A p-series has zero constant term, but for odd p, (x − 1)^p − 1 has constant term −2, so it is no p-series (for p = 2 it is (1 − x)² − 1, a unit multiple of [2](x) for x + y − xy, so harmless). The paper itself writes π_*KU^{tC_p} ≅ π_*KU((t))/((t+1)^p − 1) on p. 329.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E5",
+      "kind": "misprint",
+      "locator": "Displays before Theorem IV.1.15 and Theorem IV.1.15, p. 332 (also arXiv v2)",
+      "printed": "(HF_p^{tC_p})^{hF_p^×} = ∏_{n∈Z} (HF_p[n(p−1)] ⊕ HF_p[n(p−1)+1]) … (HZ^{tC_p})^{F_p^×} = ∏_{n∈Z} HF_p[n(p−1)] … P^i: HF_p → HF_p[i(p−1)], i ⩾ 0 and βP^i: HF_p → HF_p[i(p−1)+1]",
+      "correction": "HF_p[2n(p−1)] ⊕ HF_p[2n(p−1)+1]; (HZ^{tC_p})^{hF_p^×} = ∏_n HF_p[2n(p−1)]; P^i: HF_p → HF_p[2i(p−1)] and βP^i: HF_p → HF_p[2i(p−1)+1].",
+      "reason": "P^i raises degree by 2i(p−1). The paper's own computation agrees: F_p^× acts on t by a character of order p − 1 and trivially on e, so the invariant classes t^{(p−1)n} and t^{(p−1)n}e sit in cohomological degrees −2(p−1)n and −2(p−1)n − 1, and Proposition IV.1.16 uses |t^{p−1}| = −2(p−1). Checked on the page image of p. 332.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E6",
+      "kind": "misprint",
+      "locator": "Proof of Lemma II.2.11, p. 252 (also arXiv v2)",
+      "printed": "Φ̃^G_U X := hocolim_{V∈U, V^H=0} X(R^n ⊗ ρ_G ⊕ V)^G, and the maps into hocolim_{V∈U, V^H=0}",
+      "correction": "V^G = 0 in all three homotopy colimits.",
+      "reason": "H does not occur in Lemma II.2.11; the comparison is with Φ^G_U of Definition II.2.10 for H = G, indexed by V with V^G = 0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E7",
+      "kind": "misprint",
+      "locator": "§II.5, before Lemma II.5.10, p. 275 (also arXiv v2)",
+      "printed": "since it is a limit of presentable ∞-categories along left adjoint funtors, by Proposition II.5.9",
+      "correction": "by Lemma II.5.9",
+      "reason": "There is no Proposition II.5.9; Lemma II.5.9 (Fix_{(F_i)}(C) ≃ C^{hN_{>0}}) is meant.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E8",
+      "kind": "misprint",
+      "locator": "Proof of Theorem II.5.13, p. 278 (also arXiv v2)",
+      "printed": "specializing the formula above to r=0 and m=0",
+      "correction": "r = 1 and m = 0",
+      "reason": "r runs over integers prime to p indexing C_{p^m} × C_r ⊆ T; the trivial subgroup is m = 0, r = 1 (C_0 is undefined).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E9",
+      "kind": "misprint",
+      "locator": "Remark IV.1.11, p. 328 (also arXiv v2)",
+      "printed": "taking the quotient of the ring R0 (BΣp ) by the transfer ideal I ⊆R0 (X ×BΣp )",
+      "correction": "the quotient of R⁰(X × BΣ_p) by the transfer ideal I",
+      "reason": "I is an ideal of R⁰(X × BΣ_p), and the diagram that follows uses R⁰(X × BΣ_p)/I.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E10",
+      "kind": "misprint",
+      "locator": "Proofs of Lemma IV.1.18, p. 335, and Lemma IV.1.20, p. 339 (also arXiv v2)",
+      "printed": "can ∘ P^n_k : Ω^∞Σ^nR → Ω^∞((Σ^{n·ρ}R)^{tC_p})^{hF_p^×} … is given by the power operation P^k_p",
+      "correction": "P^n_p in both places",
+      "reason": "The degree-n power operation is P^n_p throughout §IV.1 ((12) and Lemma IV.1.20); k is undefined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E11",
+      "kind": "misprint",
+      "locator": "Proposition IV.4.6, p. 358 (also arXiv v2)",
+      "printed": "one can choose ũ and V, so that ũv=p",
+      "correction": "ũ and v",
+      "reason": "V is not defined; v ∈ π_{−2}THH(HF_p)^{hT} is.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E12",
+      "kind": "misprint",
+      "locator": "Proof of Theorem A.7, p. 374 (also arXiv v2)",
+      "printed": "Assertions (3) and (4) of Theorem A.7 immediately follow from (2) of Proposition A.15 and (1) of Corollary A.14.",
+      "correction": "(2) of Proposition A.14 and (1) of Corollary A.15",
+      "reason": "Proposition A.14 and Corollary A.15 are the other way round.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E13",
+      "kind": "misprint",
+      "locator": "Proof of Lemma A.16(2), p. 375 (also arXiv v2)",
+      "printed": "such that the pullback of Fj along Si → Sj is given by Fj",
+      "correction": "… is given by F_i",
+      "reason": "The gluing condition compares F_j pulled back to S_i with F_i.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E14",
+      "kind": "misprint",
+      "locator": "Example A.10, p. 371 (also arXiv v2)",
+      "printed": "on the subcategory Fun′(N(M), D) the endofunctor G defines a colocalization",
+      "correction": "the endofunctor R defines a colocalization",
+      "reason": "G is an object of Fun′(N(M), D); the endofunctor is R, R(G)(X) = G(X_c).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E15",
+      "kind": "misprint",
+      "locator": "Proof of Proposition A.14, p. 379 (also arXiv v2)",
+      "printed": "by assumption (3) in Definition A.14 of a left derivable cocartesian fibration",
+      "correction": "Definition A.8",
+      "reason": "Left derivable cocartesian fibrations are defined in Definition A.8.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E16",
+      "kind": "gap",
+      "locator": "Proof of Proposition B.15, p. 392 (also arXiv v2)",
+      "printed": "we use the fact that filtered colimits of pointed spaces are computed as the colimit of the underlying diagram of spaces",
+      "correction": "The colimits in question are indexed by N(Λ_∞^op), which is sifted (Corollary B.4), not filtered; use that colimits over weakly contractible (in particular sifted) diagrams in S_* are computed in S.",
+      "reason": "The fact as stated covers only filtered colimits and does not apply to geometric realisations; the correct one is equally standard.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E17",
+      "kind": "misprint",
+      "locator": "Proof of Lemma B.12, display (20), p. 389 (also arXiv v2)",
+      "printed": "|Δ^n| × Hom^surj_{Λ∞}(j∞[n], T) → |j*Λ^T_∞| is surjective, where Hom^inj_{Λ∞}(j∞[n], T) denotes the set of those maps",
+      "correction": "Use one name, Hom^inj, in (20) and after.",
+      "reason": "The set defined, and used again in the next paragraph and in the essential-simplex argument, is Hom^inj.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E18",
+      "kind": "misprint",
+      "locator": "Definition C.4, p. 400 (also arXiv v2)",
+      "printed": "hocolim_I X := |∐_{i_0→...→i_n} X(i_n)|",
+      "correction": "∐_{i_0→…→i_n} X(i_0) (or strings i_0 ← … ← i_n with X(i_n), as in Bousfield–Kan)",
+      "reason": "With the standard face maps, deleting i_n needs a map X(i_n) → X(i_{n−1}), which a covariant X does not supply; the value at the source of the string is the one that is functorial. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E19",
+      "kind": "misprint",
+      "locator": "Proof of Proposition C.3, p. 400 (also arXiv v2)",
+      "printed": "the result follows by passing to the limit. This does not create problems, since all maps involved in this filtered limit are h-cofibrations",
+      "correction": "passing to the colimit … in this filtered colimit",
+      "reason": "|X_•| is the union (colimit) of its skeleta, as the next sentence says.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E20",
+      "kind": "misprint",
+      "locator": "pp. 204, 205 and 207 of the printed version (four displayed formulas of the introduction)",
+      "printed": "HC(A) (p. 204, twice) and TC(A) (pp. 205, 207)",
+      "correction": "HC⁻(A) and TC⁻(A)",
+      "reason": "Typesetting losses of the superscript minus, listed by the Acta correction.",
+      "affects": "nothing",
+      "known": "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E21",
+      "kind": "misprint",
+      "locator": "pp. 215–218 of the printed version (six displays of §I.1)",
+      "printed": "Nm",
+      "correction": "Nm_G, Nm_δ, Nm_f, Nm_f, Nm_G, Nm_f (in the order listed by the correction)",
+      "reason": "Lost subscripts, listed by the Acta correction.",
+      "affects": "nothing",
+      "known": "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E22",
+      "kind": "misprint",
+      "locator": "pp. 240, 260 (four times), 281, 284 and the bibliography of the printed version",
+      "printed": "[?]",
+      "correction": "[91] Blumberg–Mandell, The homotopy theory of cyclotomic spectra, Geom. Topol. 19 (2015), 3105–3147 (reference [19] in the renumbered online version)",
+      "reason": "A missing bibliography entry, listed by the Acta correction.",
+      "affects": "nothing",
+      "known": "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E23",
+      "kind": "misprint",
+      "locator": "Printed version: p. 270 (Lemma II.5.4 square), p. 290 (diagram (5)), p. 325 (second diagram of Lemma IV.1.3), p. 377 (diagram in the proof of Proposition A.14)",
+      "printed": "four commutative diagrams with misplaced arrows and labels",
+      "correction": "the diagrams as reprinted in the correction",
+      "reason": "Typesetting, listed by the Acta correction.",
+      "affects": "nothing",
+      "known": "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E24",
+      "kind": "error",
+      "locator": "Proof of Proposition III.3.6, p. 301, lines 7–8 of the printed version (and arXiv v2)",
+      "printed": "here, applied to E = Sp⊗act … Fun⊗(E, E) is itself symmetric monoidal (using the Day convolution)",
+      "correction": "E = C⊗act, and Fun_⊗(E, E) with the pointwise tensor product",
+      "reason": "The functor from the envelope N(Fin)^≃ must send a finite set I to the tensor power X ↦ X^{⊗I} of the identity, a pointwise tensor product of symmetric monoidal functors; and E is the envelope of the given C, not of Sp. Corrected by the Acta correction.",
+      "affects": "the proof",
+      "known": "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E25",
+      "kind": "misprint",
+      "locator": "Printed version: p. 291 line −9, p. 361 (last display), p. 364 line −9, p. 365 (fourth display), pp. 388 and 398",
+      "printed": "namley; F_p (three times); HẐ_p; Fin; mySet",
+      "correction": "namely; HF_p; HZ_p; Fin_*; Set",
+      "reason": "Symbol and spelling slips, listed by the Acta correction.",
+      "affects": "nothing",
+      "known": "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read in full on 23 September 2026)",
+        "the corrected online Acta version (intlpress PDF of 31 March 2019), which is the text read",
+        "arXiv 1707.01799: v1 (6 July 2017) and v2 (7 September 2018, the latest); v2 read and compared at every finding",
+        "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
+        "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
+        "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-inputs",
+      "detail": "Cited theorems — the Segal conjecture for C_p (Lin, Gunawardena), Lunøe-Nielsen–Rognes's HF_p computation, Bökstedt periodicity, Hinich's Proposition A.5, Barwick–Glasman's Theorem II.3.7, Shipley's Theorems III.4.4–III.4.5, Klein's dualizing spectrum — were read only as the paper states them.",
+      "status": "deferred",
+      "resolution": "Suppliers named in the routes; prerequisites list the sources."
+    }
+  ]
+}
