@@ -1,8 +1,8 @@
 # LLHLM23: local models, generic Breuil–Mézard and Serre weights
 
-**Partial extraction checkpoint, Codex — codex-7e92bd, issue #1254.** The published paper has been read completely. The result contains 336 inventory entries, 14 proposed routes, API/test outlines referencing all 81 inventoried definitions, and 34 source findings. Reading coverage and inventory routing are not proof-input closure: the explicit gaps below prevent a `complete` verdict. No Lean implementation or independent verification of the findings is claimed.
+**Partial extraction checkpoint, issue #1254.** Codex — codex-hjdg0j continues the full-paper extraction by Codex — codex-7e92bd. The result contains 350 inventory entries (2 library, 3 planned, 345 missing), 15 routes, 25 API/test groups referencing all 83 inventoried definitions, and 35 source findings. Reading coverage and inventory routing are not proof-input closure: the explicit gaps below prevent a `complete` verdict. No Lean implementation or independent verification of the findings is claimed.
 
-The machine-readable companion is [PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json](PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json). Its `items` contain the mathematical statements and locators; `sourceData.appendixB` preserves the computational equations and every normalization-table row. IDs N/U/M/K/P/G/B/V/A/Q follow the main-paper sections; Z denotes an explicitly extracted external input. E1–E34 are source findings, a separate namespace.
+The machine-readable companion is [PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json](PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json). Its `items` contain the mathematical statements and locators; `sourceData.appendixB` preserves the computational equations and every normalization-table row. IDs N/U/M/K/P/G/B/V/A/Q follow the main-paper sections; Z denotes an explicitly extracted external input. L denotes an exact pinned-library theorem. E1–E35 are source findings, a separate namespace.
 
 ## What the paper establishes
 
@@ -18,7 +18,7 @@ The global Serre theorem assumes the definite-unitary CM setting, `F+ != Q`, spl
 
 ## Sources and reading boundaries
 
-The primary source is the [author-hosted Springer PDF](https://math.rice.edu/~bl70/LocModels.pdf), *Inventiones mathematicae* 231 (2023), 1277–1488, DOI `10.1007/s00222-022-01163-4`. Downloaded 23 September 2026, it has 212 PDF pages and SHA-256 `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`. All pages, proofs and the bibliography were read; extracted-text trouble spots were inspected as images, including the rotated Table 1. Locators use PDF pages rather than an invented offset to journal pagination.
+The primary source is the [author-hosted Springer PDF](https://math.rice.edu/~bl70/LocModels.pdf), *Inventiones mathematicae* 231 (2023), 1277–1488, DOI `10.1007/s00222-022-01163-4`. Downloaded 23 September 2026, it has 212 PDF pages and SHA-256 `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`. The inherited codex-7e92bd checkpoint records reading all pages, proofs and the bibliography; extracted-text trouble spots were inspected as images, including the rotated Table 1. Locators use PDF pages rather than an invented offset to journal pagination.
 
 [arXiv v2](https://arxiv.org/abs/2007.05398v2), dated 15 June 2022, has SHA-256 `3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af`. Only selected PDF pages 24, 28, 35, 38 and 69, with incidental pages 96 and 115, were compared. The corresponding errors persist there; this is not a claim to have read the entire preprint twice. The author's paper listing showed no correction link for this article. The publisher page timed out twice, so its corrections listing was not inspected. `known: new` means no correction was located in the recorded searches, not a claim of priority.
 
@@ -29,13 +29,13 @@ External primary material actually inspected:
 - [Emerton–Gee v4](https://arxiv.org/abs/1908.07185v4), PDF pages 126–129, 163–164 and 181; all nine pages of the [authors' errata](https://www.ma.imperial.ac.uk/~tsg/Index_files/moduli-errata.pdf). The respective hashes are `4eba204b702b18f939d781fb118c06183badc51a216c94b0e607d98c58044005` and `fe9687ddfc4ddc11ee7436b6da1a80630dae8d59e4bb80e0a3cfbf27355bfe0c`. The corrected exhaustion argument, coefficient-field assumption and unramified-character conventions are part of the import contract.
 - [Boixeda Alvarez v3](https://arxiv.org/abs/1910.04780v3), all 17 pages as text and pages 8–9 as images, SHA-256 `170a547678f7676744bafc1f2cfddc8898bf05379b99ab0c28ba880c1cfcc7ad`. The Type A characteristic-zero fixed-point theorem is extracted as Z01. Dense matrix formulas and its auxiliary inputs still need a complete transcription/proof audit; three clear proof-display slips are recorded as E29–E31.
 
-The remaining prerequisite list is a reading queue, with candidate owners where known. It does not assert that those originals were read. Primary bibliographic pages were checked for Deligne–Lusztig, Khare–Wintenberger II, Elkik, Caraiani–Levin, Pyvovarov and CEGGPS.
+The prerequisite list distinguishes inspected inputs from the unread queue. Elkik, BLGGT and Khare–Wintenberger II now have the precise reading records and extracted adapters below. Primary bibliographic pages were also checked for Deligne–Lusztig, Caraiani–Levin, Pyvovarov and CEGGPS; that does not establish reading their proofs.
 
 ## Library and ownership audit
 
 The pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Broad searches of both pinned Lean trees are preserved in `libraryAudit.searches`. The advanced Deligne–Lusztig, Serre-weight, Kisin, Emerton–Gee, inertial-type, affine-flag and Elkik packages were not found by these searches. The positive Deligne–Lusztig text hit was a GL2 nonsplit-torus file, not the representation construction. Tau Ceti's Young-symmetrizer Weyl module assumes a Q-algebra; it does not supply the integral/mod-p module used here.
 
-Existing finite Coxeter, root-system, dimension and coefficient-ring atoms remain reusable. This checkpoint deliberately makes no whole-item `library` claim from a name match. The complete item-by-item declaration/adapter audit remains open. Broad negative searches alone do not show every constituent lemma is absent.
+Existing finite Coxeter, root-system, dimension and coefficient-ring atoms remain reusable. The two newly extracted atomic items L01/L02 are marked library only after reading their declarations; no advanced package is marked built from a name match. The complete item-by-item declaration/adapter audit remains open. Broad negative searches alone do not show every constituent lemma is absent.
 
 The relevant reviewed rows of AUDIT17 (deformation/patching algebra), AUDIT13 (classical algebraic modular forms) and AUDIT21 (Satake geometry) were inspected. The audit file had no rows for LocalGaloisDeformationRings, FiniteFlatGroupsAndIntegralPadicHodgeTheory or PotentialAutomorphyInfrastructure at the audited snapshot; no reviewed negative verdict is invented for them. The corresponding current roadmap descriptions were read directly.
 
@@ -52,6 +52,32 @@ The important boundaries are:
 - The final lifting theorem reuses `PolarizedAutomorphyLifting`.
 
 Whole-roadmap arrows would hide a cycle. The required **phase order** is finite-group/tame Kisin foundations; weak potentially diagonalizable patching and its local nonvanishing criterion; generic monodromy comparison and domains; minimal rank-one BM; arbitrary-level weak patching construction and its separate detectability proof; global Serre weights; change-of-weight modularity lifting. Appendix A's detectability uses the domain theorem, whereas the early weak patching existence used to prove that theorem does not. GL3 integral-lattice conclusions must not be used to construct their own initial patching functor.
+
+## Continuation: approximation and the two tensor products
+
+Codex — codex-hjdg0j freshly read the published LLHLM23 PDF pages 68–69 and 78–81, concentrating on Proposition 3.3.9, the end of Theorem 3.7.1 and Lemma 3.7.2. This is a bounded continuation of the earlier full-paper reading. The following original proofs were read, including their standing conventions:
+
+| Source | Actual reading | SHA-256 of downloaded PDF |
+| --- | --- | --- |
+| [Elkik (1973)](https://numdam.org/item/10.24033/asens.1258.pdf) | PDF3–7, printed554–558: §0.1–0.2, Lemma1 and its complete proof; printed556 also rendered | 74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5 |
+| [BLGGT](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf) | PDF95–98, printed595–598: affinoid conventions, LemmaA.1.1 and completion examples | c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b |
+| [Khare–Wintenberger II](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf) | PDF4–6 conventions and PDF8–10, including Proposition2.2 and its full proof | 53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4 |
+
+Elkik's original setting is Noetherian. Its presentation-dependent ideal is the sum of conductor-weighted Jacobian minors, not simply the full-row Jacobian of an arbitrary redundant presentation. Z03 gives this definition, base-change inclusion, evaluation, smooth-locus and uniform-witness APIs. Z04 isolates the finite adjugate/Taylor calculation. Z05 keeps the original arbitrary-ideal statement with bounded parameter torsion and n > max(2h,h+k).
+
+U24 needs complete parameter-torsionfree test rings that need not be Noetherian. Z06 therefore extracts only the I=A specialization: the algebraic correction uses cancellation instead of the Noetherian torsion cutoff. If the residual vanishes modulo t^m and the evaluated Jacobian ideal contains t^r, the correction lies in t^(m-r), and the new residual vanishes modulo t^(2m-2r). For m>2r, the witness persists by a unit adjustment and the recurrence has the exact solution m_j=2r+2^j(m_0-2r). Completeness and separatedness give the exact solution. No arbitrary-ideal non-Noetherian version is asserted.
+
+Z07 chooses the full universal Jacobian ideal as the base-change witness H_B and chooses r from the fixed Noetherian universal presentation: smoothness after inverting v gives v^r in the sum of the equation and Jacobian ideals. Evaluating at an approximate zero and absorbing the equation error into a unit gives the required t^r witness. Thus N=2r+1 works uniformly in the test ring. The linear equation t^r X=t^m shows why agreement modulo t^m would be an incorrect strengthening.
+
+Theorem 3.7.1 uses two different completions. Z11 records KWII in its original finite-p-adic-field scope. Z12 extracts its **domain conclusion** over a general complete DVR: at each rational generic point, the regular local completion is a power series ring over the fraction field. Saturated powers J_n=P^n R[1/π]∩R have zero intersection; Chevalley's theorem makes them cofinal toward the maximal-ideal topology. Their quotients are finite free over the DVR. The completed tensor embeds, through these quotients and their generic jets, into the joint power series ring. This requires retractions to the coefficient DVR. The ramified quadratic example in the tests shows failure without them. Generic regularity of an arbitrary tensor over an imperfect field is not included in this extracted conclusion.
+
+Z08–Z10 and Z14 instead treat the completed **affinoid** tensor product. BLGGT defines geometric connectedness by finite field extensions and assumes a finite extension of Q_l. Its product proof uses two rational fibers in allegedly disjoint open-and-closed pieces; their common product point contradicts disjointness. Z14 records the same proof over a complete nonarchimedean field, with the exact Nullstellensatz, finite scalar-extension and rational-fiber comparisons still requiring supplier closure. Z10 supplies the connected normal algebra with a rational point used by LLHLM23: finite Galois extension acts transitively on components, whereas the rational point fixes a component; inseparable extensions are handled by universal homeomorphisms. Z13 combines connectedness with the product's independently established regularity and the flat formal models' torsionfreeness. Smoothness of the original generic charts must be retained when checking that regularity.
+
+The existing AdicSpacesPartII:R0 and F0 own these analytic product/completion interfaces; DeformationAndDerivedPatchingAlgebra:R03.1 owns the complete local coefficient tensors. SchemeAndStackFoundations:SF.4 receives the approximation lemmas. The upstream AdicSpaces carrier is imported. No competing roadmap is added.
+
+At the pinned Tau Ceti commit, the actual declarations TauCeti.connectedSpace_primeSpectrum_iff_idempotent_eq_zero_or_one and TauCeti.geometricallyConnected_tensorProduct were read in full, alongside Mathlib's scheme-level definition. L01 supplies the idempotent criterion in U42. L02 concerns the ordinary algebraic tensor and does not discharge the completed affinoid theorem or the finite-extension convention comparison. Normality/completion, Chevalley, formal regular local structure and affinoid fiber supplier contracts remain explicit gaps.
+
+Exact Fraction/integer checks passed for 576 precision-recurrence steps, 210 scalar Newton corrections, 175 examples of precision loss, and five tensor zero-divisor identities. They check the stated bounds and counterexample; they do not prove the general approximation or tensor theorems. The reproducible code is included below.
 
 ## Computational checks and their limits
 
@@ -137,15 +163,15 @@ Reuse the general deformation/birational, descent and cycle owners for Artinian 
 
 Layers: `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.5`.
 
-Items: U08, U24, U26, U29, U32, U33, U34, U35, U36, U37, U38, G14, G19, G20, B07.
+Items: U08, U24, U26, U29, U32, U33, U34, U35, U36, U37, U38, G14, G19, G20, B07, Z03, Z04, Z05, Z06, Z07.
 
 ### 8. DeformationAndDerivedPatchingAlgebra
 
-Completed coefficient tensors, depth, support and patching algebra are shared infrastructure. The exact geometric connectedness hypotheses for U43 remain a primary-source gate; this route does not assert a false general tensor-product-of-domains theorem.
+Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the original KWII theorem and its domain-only complete-DVR adapter, Z11–Z12. The affinoid completed product has its own AdicSpacesPartII route. Exact supplier contracts remain open.
 
 Layers: `DeformationAndDerivedPatchingAlgebra:R03.1`, `DeformationAndDerivedPatchingAlgebra:R03.3`, `DeformationAndDerivedPatchingAlgebra:R03.5`, `DeformationAndDerivedPatchingAlgebra:R03.6`.
 
-Items: U42, U43, P03.
+Items: U42, U43, P03, Z11, Z12.
 
 ### 9. WeightZeroCrystallineLiftingRings
 
@@ -194,6 +220,14 @@ L7 supplies bounded-height lattices and fixed-type rings; the new theorem family
 Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization.
 
 Items: U15, U16, U18, U19, U20, U21, U22, U23, U25, U27, U28, U30, U31, U39, U40, U41, M02, M03, M04, M05, M06, M07, M08, M09, M11, M18, M19, M20, M21, M22, M23, M24, M25, M26, M27, M28, M29, M30, M31, M32, M33, M34, M35, M36, M37, G01, G02, G03, G04, G05, G06, G07, G08, G09, G10, G11, G17, G18, G21, G22, G23, G24, G25, G26, G27, G28, G29, G30, G31, G33, G34, G35, G36, G37, Q01, Q02, Q03, Q04, Q05, Q06, Q07, Q08, Q09, Q10, Q11, Q12, Z01, Z02.
+
+### 15. AdicSpacesPartII
+
+The affinoid completed-tensor, rational-fiber and regular-product interfaces belong to the existing analytic product owner. They differ from complete local coefficient tensors in R03.1. Import the upstream AdicSpaces carrier; add the precise missing product statements, preserving finite-extension geometric connectedness and the regularity supplied by smooth generic charts.
+
+Layers: AdicSpacesPartII:R0, AdicSpacesPartII:F0.
+
+Items: Z08, Z09, Z10, Z13, Z14.
 
 ## Recorded source findings
 
@@ -607,6 +641,10 @@ Theorem2.5.4(1) only gives rec(pi)|I<=tau. Its generic converse permits strict i
 
 Known correction: new
 
+### E35 — misprint (adjacent source; no mathematical change)
+
+[Elkik (1973)](https://numdam.org/item/10.24033/asens.1258.pdf), printed556/PDF5, last paragraph of the Lemma1 proof: “on peut déduire de (5)” should refer to identity **(4)**. The source has just announced the conductor-weighted Jacobian correction (4), and combines it over the expression for the power of the parameter. Display (5), on the following page, instead gives the conductor relations used to establish that correction. The original rendered page was checked. The Numdam record and an erratum/correction search found no correction of this reference. This is a proposed finding awaiting independent review, not a claim of priority.
+
 ## Reproducing the arithmetic regressions
 
 The following uses only Python's standard library.
@@ -931,7 +969,7 @@ Statements and hypotheses are in the JSON. This index is a navigation aid, not a
 | U40 | Uniform unibranchness for product specializations | Theorem3.7.1, PDF77–80 |
 | U41 | Integral adic chart domain for product models | Theorem3.7.1, last assertion, PDF77–80 |
 | U42 | Normalization connectivity controls adic completion | Lemma3.7.2, PDF80 |
-| U43 | Geometric connectedness input for products of charts | Theorem3.7.1 proof, PDF79–80; [10] LemmaA.1.1 and [54] Proposition2.2 |
+| U43 | Completed local product of chart rings is a domain | Theorem3.7.1 proof, PDF79–80; [10] LemmaA.1.1 and [54] Proposition2.2 |
 | M01 | Pappas–Zhu GLn Iwahori local model | §4.1, PDF80–81 |
 | M02 | Mixed-characteristic differential locus | Equation(4.1), PDF81 |
 | M03 | Generic differential stratum is a smooth flag variety | Proposition4.1.1, PDF81–82 |
@@ -1154,3 +1192,101 @@ Statements and hypotheses are in the JSON. This index is a navigation aid, not a
 | Q12 | Product extension of the numerical example | RemarkB.0.6 PDF209 |
 | Z01 | Type A equivalued affine Springer fixed points | Cited input [1], Boixeda Alvarez arXiv:1910.04780v3 Theorem3.1, PDF5; definitions PDF1–4; used in LLHLM23 Proposition4.7.3. |
 | Z02 | Explicit affine Springer component matrix and inverse | Cited input [1], Boixeda Alvarez arXiv:1910.04780v3 AppendixB.2–B.5, PDF8–17; corrected E29–E31. |
+
+## Continuation inventory and reproducible precision checks
+
+| ID | Item | Source |
+| --- | --- | --- |
+| Z03 | Elkik's presentation-dependent Jacobian ideal | Elkik (1973), §0.2, printed p. 555/PDF4; LLHLM23 Proposition3.3.9 proof PDF69 |
+| Z04 | Newton correction with an Elkik minor witness | Elkik Lemma1 proof, printed pp. 556–558/PDF5–7, specialized to I=A and no t-torsion |
+| Z05 | Elkik approximation with bounded torsion | Elkik Lemma1, printed pp. 555–558/PDF4–7 |
+| Z06 | Torsionfree complete approximation without a Noetherian test ring | Proof extracted from Elkik Lemma1 with I=A; used in LLHLM23 Proposition3.3.9 |
+| Z07 | A fixed smooth generic presentation gives a uniform exponent | LLHLM23 Proposition3.3.9 proof, PDF69; Elkik §0.2 |
+| Z08 | Geometric connectedness in the affinoid finite-extension sense | BLGGT AppendixA.1, printed pp. 595–596/PDF95–96 |
+| Z09 | BLGGT geometric connectedness of an affinoid product | BLGGT LemmaA.1.1, printed p. 596/PDF96; standing field convention p. 595 |
+| Z10 | A normal connected affinoid with a rational point is geometrically connected | Implicit input before BLGGT LemmaA.1.1 is applied in LLHLM23 Theorem3.7.1, PDF79–80 |
+| Z11 | Khare–Wintenberger completed tensor theorem in its original scope | Khare–Wintenberger II Proposition2.2(ii), author PDF9; conventions PDF4–6 |
+| Z12 | Domain part over an arbitrary complete DVR | LLHLM23 Theorem3.7.1, PDF79, general-DVR adaptation of KWII Proposition2.2 |
+| Z13 | The chart's completed affinoid product is a domain | LLHLM23 Theorem3.7.1 final paragraph, PDF79–80 |
+| Z14 | Affinoid product connectedness over complete nonarchimedean fields | General-field adaptation of BLGGT LemmaA.1.1 used in LLHLM23 Theorem3.7.1, PDF79–80 |
+| L01 | Connected prime spectra via idempotents | Pinned Tau Ceti TauCeti/RingTheory/Idempotents/Connected/Spectrum.lean |
+| L02 | Geometric connectedness of the ordinary algebraic tensor product | Pinned Tau Ceti TauCeti/AlgebraicGeometry/Geometrically/Connected.lean |
+
+~~~python
+from fractions import Fraction
+
+
+def vp(x, p):
+    x = Fraction(x)
+    if x == 0:
+        return float('inf')
+    def v(n):
+        n = abs(n)
+        k = 0
+        while n % p == 0:
+            n //= p
+            k += 1
+        return k
+    return v(x.numerator) - v(x.denominator)
+
+
+recurrences = 0
+for r in range(8):
+    for excess in range(1, 10):
+        m0 = 2*r + excess
+        m = m0
+        for j in range(8):
+            assert m == 2*r + 2**j * (m0 - 2*r)
+            assert 2*m - 2*r > m
+            m = 2*m - 2*r
+            recurrences += 1
+
+newton = 0
+for p in [3, 5, 7, 11, 13]:
+    for r in range(6):
+        for excess in range(1, 8):
+            m = 2*r + excess
+            root = Fraction(p**r)
+            a = root + p**(m-r)
+            residual = a*a - root*root
+            assert vp(residual, p) == m
+            assert vp(2*a, p) == r
+            y = residual / (2*a)
+            assert vp(y, p) == m-r
+            corrected = (a-y)**2 - root*root
+            assert vp(corrected, p) == 2*m-2*r
+            newton += 1
+
+linear = 0
+for p in [3, 5, 7, 11, 13]:
+    for r in range(1, 6):
+        for excess in range(1, 8):
+            m = 2*r + excess
+            x = p**(m-r)
+            assert p**r*x == p**m
+            assert vp(x, p) == m-r < m
+            linear += 1
+
+
+def mul(a, b, p):
+    # Free O-basis 1,s,y,sy of O[s,y]/(s^2-p,y^2-p).
+    out = [0]*4
+    for i, ai in enumerate(a):
+        for j, bj in enumerate(b):
+            si, yi = i % 2, i // 2
+            sj, yj = j % 2, j // 2
+            se, ye = si+sj, yi+yj
+            out[se % 2 + 2*(ye % 2)] += ai*bj*p**(se//2+ye//2)
+    return out
+
+
+tensor = 0
+for p in [3, 5, 7, 11, 13]:
+    minus, plus = [0,-1,1,0], [0,1,1,0]
+    assert any(minus) and any(plus)
+    assert mul(minus, plus, p) == [0,0,0,0]
+    tensor += 1
+
+print(f'{recurrences} precision steps; {newton} Newton corrections; '
+      f'{linear} precision-loss examples; {tensor} tensor zero-divisor checks')
+~~~
