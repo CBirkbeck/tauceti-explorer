@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-GILLE-PARIMALA-26",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "A local-global principle for twisted flag varieties",
     "authors": "Philippe Gille and Raman Parimala",
@@ -19,18 +19,21 @@
       "Gille–Stavrova arXiv manuscript, Proposition 7.7, pp. 40–41: henselian invariance, applied with the identity simply connected cover",
       "Publisher HTML, both publicly exposed Appendices A and B including Theorem B.1 and Remark B.2; final main body remains inaccessible",
       "Colliot-Thélène–Sansuc 1979 original GDZ scan: printed pp. 109–110 (Lemmas 2.1–2.2 and proofs), 127–130 (Proposition 6.11, Corollary 6.12, Theorem 6.13 and proofs, Remark 6.15); not the whole paper",
-      "Harbater–Hartmann–Karemaker–Pop, arXiv:1903.08007v3: entire ten-page paper, §§1–3 and references; concentrate on Lemma 1.1, Proposition 2.3(a), Lemma 2.4 and Theorem 2.5 for the actual GP26 dependency"
+      "Harbater–Hartmann–Karemaker–Pop, arXiv:1903.08007v3: entire ten-page paper, §§1–3 and references; concentrate on Lemma 1.1, Proposition 2.3(a), Lemma 2.4 and Theorem 2.5 for the actual GP26 dependency",
+      "cc-442dc5, 23 September 2026: HAL v5 reread in full against every finding; arXiv v3 TeX compared at each locator; Prasad, Bull. SMF 110 (1982), 197–202, read in full; HHKP20 Lemma 2.4 reread"
     ],
-    "versionNote": "Unprefixed locators use the 26-page HAL author manuscript. On 22 September 2026 the publisher HTML exposed final Appendices A and B, which were read; final Theorem B.1 has the same codimension-one-only wording as author Theorem 7.1. The final main body was not obtained. A prior PDF request returned a paywall-page rendering, not article text. Known numbering: author Example 4.1(b), Proposition 5.2 and Theorem 5.4 correspond to published Example 5.1(b), Proposition 6.2 and Theorem 6.4; do not automatically shift other locators. Existing targeted prerequisite reads from the codex-c83e7a checkpoint are retained with their exact scope; new CTS79/HHKP20 reads are codex-a71f92.",
+    "versionNote": "Unprefixed locators use the 26-page HAL author manuscript. On 22 September 2026 the publisher HTML exposed final Appendices A and B, which were read; final Theorem B.1 has the same codimension-one-only wording as author Theorem 7.1. The final main body was not obtained. A prior PDF request returned a paywall-page rendering, not article text. Known numbering: author Example 4.1(b), Proposition 5.2 and Theorem 5.4 correspond to published Example 5.1(b), Proposition 6.2 and Theorem 6.4; do not automatically shift other locators. Existing targeted prerequisite reads from the codex-c83e7a checkpoint are retained with their exact scope; new CTS79/HHKP20 reads are codex-a71f92. cc-442dc5 (23 September 2026): the published main body is still paywalled, so locators are to HAL v5 with published numbers where known; arXiv v3 carries the same text at E1–E4, E9, E10, E13 and E17.",
     "authorPdfSha256": "96c8678eacf39e87688b4a8f78bd27882781df367321b5887cb19fa947068303",
     "errataSha256": "6297d7a0dd6d2ea51c04c15f201b07efd2f25b56c8a5b19d17a7c966b79eba61",
     "accessed": "2026-09-22",
     "cts79ScanUrl": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0244/LOG_0024.pdf",
     "cts79Sha256": "5eb67a18278ce634385688693f7e8267b46e3965d5dbf9cb4bb8b418dc3576e3",
     "hhkp20PdfUrl": "https://arxiv.org/pdf/1903.08007",
-    "hhkp20Sha256": "5cc1325478af923b1a4774fa5a583da243cd33a01ec8318ba018f63794429fe8"
+    "hhkp20Sha256": "5cc1325478af923b1a4774fa5a583da243cd33a01ec8318ba018f63794429fe8",
+    "prasad82Url": "https://www.numdam.org/article/BSMF_1982__110__197_0.pdf",
+    "prasad82Sha256": "6f4474d48aaaaaf0ab753d7c4d0e4ea4f2a4bc68d335ad68d5f2a733b7cc4c6d"
   },
-  "summary": "Complete author-text extraction retained, with a new proof-level repair of surface torsor purity and the HHKP rank-one-to-model argument. Read CTS79 Lemmas 2.1–2.2 and Theorem 6.13; separate the represented fppf quotient from an arbitrary categorical quotient, and require the open to contain codimension-zero as well as codimension-one points. The missing codimension-zero hypothesis has an explicit reductive counterexample. Extract HHKP20's blow-up/valuation/henselization proof and its precise T-valuation family. Partial: G1 derivative wording, G2 optional closure prerequisites, G3 final Tits-index wording and remaining prerequisite interiors are not discharged.",
+  "summary": "Gille and Parimala prove a local-global principle for twisted flag varieties over a semiglobal field F = K(X), K the fraction field of a complete DVR with arbitrary residue field k: if the characteristic exponent p of k does not divide the order of the automorphism group of the absolute root system of G_ad, a twisted flag of G has an F-point if it has points over all completions at divisorial valuations of normal models, and only valuations nontrivial on K are needed (Theorem 5.4). Without the condition on p, the same holds with all points of the special fibre of one model, with all rank-one valuations, or when G extends to a reductive model (Theorem 4.5, Corollaries 4.6–4.8). The proof combines an analytic factorization of elementary and R-trivial subgroups over a patching diamond (§3), field patching (§4), and tame loop torsors after a prime-to-p finite structure reduction (§5), with a purity theorem for torsors on regular surfaces (§7). 152 items (7 library, 4 planned, 141 missing) are routed to SchemeAndStackFoundations (SF.0, SF.1, SF.2, SF.4), ReductiveGroupsPartII (RG2.0, RG2.0a), InverseGaloisAndArithmeticFundamentalGroups (IG.0, IG.1), DeformationAndDerivedPatchingAlgebra (R03.3) and the proposed ReductiveGroupsPartIISemiglobalFlags. Nineteen findings are recorded: the Tits-index formulas print the inclusion reversed, the purity theorem omits codimension-zero points, three proofs have gaps with repairs, two corrections are already in Gille's errata (whose witness series is itself wrong), and one finding concerns HHKP20.",
   "items": [
     {
       "id": "PAPER-GILLE-PARIMALA-26/1",
@@ -92,7 +95,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: Transport Delta_0 in a common absolute diagram; base-change inclusion; admissible-type criterion. Tests: (1) Split semisimple G has Delta_0 empty; (2) An anisotropic nontrivial semisimple G has Delta_0=Delta; (3) A torus has empty absolute diagram and its flag is a point."
+      "note": "API: Transport Delta_0 in a common absolute diagram; base-change inclusion; admissible-type criterion. Tests: (1) Split semisimple G has Delta_0 empty; (2) An anisotropic nontrivial semisimple G has Delta_0=Delta; (3) A torus has empty absolute diagram and its flag is a point. The index formulas of Theorem 4.5(2) and Corollaries 4.6(2)–4.8(2) reverse this inclusion (E13)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/6",
@@ -314,7 +317,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: Finite tower and Lie-valued congruence kernels of smooth groups. Tests: (1) A=k[epsilon]/epsilon³ has two nontrivial steps; (2) At j=2 the kernel is m²/m³, not mA_j; (3) The tower ends at A_n=A, not A_(n−1)."
+      "note": "API: Finite tower and Lie-valued congruence kernels of smooth groups. Tests: (1) A=k[epsilon]/epsilon³ has two nontrivial steps; (2) At j=2 the kernel is m²/m³, not mA_j; (3) The tower ends at A_n=A, not A_(n−1). The manuscript writes m_j = m^j/m^(j+1) = mA_j; the second equality is a slip (E1)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/26",
@@ -402,7 +405,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The author text prints |v|≥0, which is all of V[1/t]. The integral-ball inequality is ≤1."
+      "note": "The author text prints |v|≥0, which is all of V[1/t]. The integral-ball inequality is ≤1. (E2)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/34",
@@ -426,7 +429,7 @@
         "mathlib:AnalyticAt.hasStrictFDerivAt"
       ],
       "planned": [],
-      "note": "Read Analysis/Calculus/FDeriv/Analytic.lean:141–145 at 082e2d3; apply with the complete spaces here, and restrict scalars and precompose with closed-subspace inclusions."
+      "note": "Read Analysis/Calculus/FDeriv/Analytic.lean:141–145 at 082e2d3; apply with the complete spaces here, and restrict scalars and precompose with closed-subspace inclusions. The manuscript states strict differentiability with one fixed constant β (E4); the true notion, which this library result supplies, has the remainder o(|x2 − x1|)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/36",
@@ -443,17 +446,6 @@
       "note": "Read Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean:76–98. No complemented kernel or finite-dimensional K-space hypothesis is required."
     },
     {
-      "id": "PAPER-GILLE-PARIMALA-26/37",
-      "kind": "theorem",
-      "name": "Unresolved literal derivative hypothesis in Proposition 3.3",
-      "statement": "The printed hypothesis uses Df_v(V[1/t]^a)+Df_w(V[1/t]^b)=F0^c while the desired image restricts the second variable to W^b. Taken literally this implication is false.",
-      "locator": "Proposition 3.3, p. 9",
-      "status": "missing",
-      "library": [],
-      "planned": [],
-      "note": "G1. Counterexample: V=R0,W=0,a=b=c=1,f(v,w)=w. The printed derivative sum is F0 but f(V×W)={0}. Confirm the final published wording; keep this literal assertion out of routes. The corrected mathematical result is the next item."
-    },
-    {
       "id": "PAPER-GILLE-PARIMALA-26/38",
       "kind": "theorem",
       "name": "Corrected local analytic surjectivity",
@@ -462,7 +454,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Apply the library strict submersion theorem to the restricted K-Banach domain. The second module must be W; the manuscript also mis-types one derivative domain. This item is a proved correction proposed for review, not a silent quotation."
+      "note": "Apply the library strict submersion theorem to the restricted K-Banach domain. The second module must be W; the manuscript also mis-types one derivative domain. This item is a proved correction proposed for review, not a silent quotation. (E3; the literal printed statement was the checkpoint's item 37, now recorded only as E3.)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/39",
@@ -528,7 +520,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The printed phrase open subgroup of G(F0)^+ is tautological; the constructed chart proves openness in G(F0)."
+      "note": "The printed phrase open subgroup of G(F0)^+ is tautological; the constructed chart proves openness in G(F0). (E5)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/45",
@@ -605,7 +597,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Do not assume the product is a subgroup. For A=RG(F1), B=RG(F2), N⊂AB an identity neighbourhood and g∈RG(F0), choose a∈A∩gN^(-1); then g∈aN⊂AB."
+      "note": "Do not assume the product is a subgroup. For A=RG(F1), B=RG(F2), N⊂AB an identity neighbourhood and g∈RG(F0), choose a∈A∩gN^(-1); then g∈aN⊂AB. (E6)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/52",
@@ -649,7 +641,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G2. Statement read from page image. Before routing, verify the exact hypotheses of Kaletha–Prasad Proposition 2.14, Harder torus approximation and Tits normal-subgroup input for arbitrary residue fields. This optional result is not used in Theorem 3.13. The final density step should use Proposition 3.9(2); (3) demands an unproved F1-isotropy assumption."
+      "note": "Statement read from the page image; the closure bars are essential. Not used by Theorem 3.13 or later. The printed proof has misprints in Claim 3.12 (E7) and asserts normality without proof (E8); the repair uses items 57, 125, 149, 150 and 151. The final step should cite Proposition 3.9(2), not 3.9(3)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/56",
@@ -660,7 +652,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G2 dependency. The torus argument needs (Tsharp(F1))^n⊂RTsharp(F1), not all Tsharp(F1)⊂RTsharp(F1). Exact Harder/Prasad scope remains unverified."
+      "note": "The torus argument needs (T♯(F1))^n ⊂ RT♯(F1) (item 125) and the approximation of item 151; the printed proof has several misprints (E7)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/57",
@@ -671,7 +663,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Surjective projections alone do not make H normal: a diagonal subgroup of S3×S3 is a counterexample. Use the factor intersections, openness and the explicitly supplied normal-subgroup theorem. This abstract repair does not discharge G2."
+      "note": "Surjective projections alone do not make H normal: the diagonal of S3×S3 is a counterexample. H∩G_i is normalized by H, hence by p_i(H) = G_i, and it is open; an open subgroup of the nondiscrete group G_i(F0)^+ is not contained in its finite centre, so Tits' theorem (item 150) gives H∩G_i = G_i. This repairs E8."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/58",
@@ -726,7 +718,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "For x1=h x2 and h=h1h2, glue h1^(-1)x1=h2 x2. The manuscript prints an incorrect inverse on h2. No rationality of H and no separability of E/F are assumed."
+      "note": "For x1=h x2 and h=h1h2, glue h1^(-1)x1=h2 x2. The manuscript prints an incorrect inverse on h2. No rationality of H and no separability of E/F are assumed. (E9)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/63",
@@ -817,7 +809,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The polynomial approximation for W uses T[x], not T[x^(-1)]. Prove density of the integral part in R0 and then invert t; a bounded integral subset is not dense in all of F0."
+      "note": "The polynomial approximation for W uses T[x], not T[x^(-1)]. Prove density of the integral part in R0 and then invert t; a bounded integral subset is not dense in all of F0. The printed proof also writes T[x^(-1)] for T[x] and 'dense in F0' for 'dense in R0' (E11)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/71",
@@ -828,7 +820,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The printed assignment of f1,f2 to V,W is reversed. API: Additive decomposition with a chosen allocation of the constant term. Tests: (1) x belongs to W; (2) x^(-1) belongs to V; (3) The coefficient field assumption is needed for this explicit coefficientwise formula."
+      "note": "The printed assignment of f1,f2 to V,W is reversed. API: Additive decomposition with a chosen allocation of the constant term. Tests: (1) x belongs to W; (2) x^(-1) belongs to V; (3) The coefficient field assumption is needed for this explicit coefficientwise formula. (E12)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/72",
@@ -839,7 +831,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "For a quotient a/b with a,b∈k[x][[t]], divide out the common t-order so b0≠0. If m=ord_x(b0), the coefficient recurrence gives ord_x(c_n)≥−m(n+1). Factorial pole growth violates every such linear bound. The errata witness sum t^n/x^n equals t/(x−t), so it lies inside the fraction field."
+      "note": "For a quotient a/b with a,b∈k[x][[t]], divide out the common t-order so b0≠0. If m=ord_x(b0), the coefficient recurrence gives ord_x(c_n)≥−m(n+1). Factorial pole growth violates every such linear bound. The errata witness sum t^n/x^n equals t/(x−t), so it lies inside the fraction field. The errata's correction is E10; the defect in its witness is E18."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/73",
@@ -875,17 +867,6 @@
       "note": "No residue-characteristic restriction and no rationality assumption on G."
     },
     {
-      "id": "PAPER-GILLE-PARIMALA-26/76",
-      "kind": "theorem",
-      "name": "Unresolved literal Tits-index inclusion directions",
-      "statement": "With Delta_0 defined as the minimal-parabolic type, the printed smallest star-stable subset contained in all local Delta_0 and the displayed global-to-local inclusion in Theorem 4.5(2) have the wrong direction.",
-      "locator": "Theorem 4.5(2); Corollaries 4.6(2), 4.7(2), 4.8(2)",
-      "status": "missing",
-      "library": [],
-      "planned": [],
-      "note": "G3. The empty subset is always star-stable and contained in every local subset, so that literal smallest-subset characterization always returns empty, even for an anisotropic group. The corrected union formulation is extracted separately. Check the subscription final version before claiming the discrepancy remains in print."
-    },
-    {
       "id": "PAPER-GILLE-PARIMALA-26/77",
       "kind": "theorem",
       "name": "Correct finite-patch Tits-index formula",
@@ -894,7 +875,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Global minimal-parabolic type contains every local minimal type. Conversely any stable I containing them gives local Par_I points, then a global point by (1), hence Delta_0(G)⊂I. For circled vertices the equivalent formula uses the largest stable subset of the intersection of local circled sets."
+      "note": "Global minimal-parabolic type contains every local minimal type. Conversely any stable I containing them gives local Par_I points, then a global point by (1), hence Delta_0(G)⊂I. For circled vertices the equivalent formula uses the largest stable subset of the intersection of local circled sets. The printed statement and two steps of its proof reverse the inclusion (E13); the checkpoint's item 76, which quoted it, is now recorded only as E13."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/78",
@@ -927,7 +908,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Derive by admissible types from (1), with the same convention correction as Theorem 4.5(2)."
+      "note": "Derive by admissible types from (1), with the same convention correction as Theorem 4.5(2). Corrected statement (E13)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/81",
@@ -938,7 +919,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "For the proper-specialization argument, first pass to a regular model with strict-normal-crossing fibre using the surface resolution input, and pull back G and its smooth projective flag model. This avoids treating a singular special-fibre component as if it were a regular curve."
+      "note": "For the proper-specialization argument, first pass to a regular model with strict-normal-crossing fibre using the surface resolution input, and pull back G and its smooth projective flag model. This avoids treating a singular special-fibre component as if it were a regular curve. The printed proof applies the valuative criterion on a possibly singular component (E14)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/82",
@@ -949,7 +930,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": ""
+      "note": "Corrected statement (E13)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/83",
@@ -982,7 +963,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": ""
+      "note": "Corrected statement (E13)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/86",
@@ -1026,7 +1007,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Corrected scope, not a verbatim transcription: CTS assumes integral, whereas GP26 drops integral without explicitly adding codimension zero. Item 138 shows why that matters. Proof uses vector-bundle extension, a locally chosen affine linear quotient for an isotrivial reductive group (CTS Corollary 6.12), twisting, and unique gluing via affine Isom schemes. Main integral-model application is unchanged."
+      "note": "Corrected scope, not a verbatim transcription: CTS assumes integral, whereas GP26 drops integral without explicitly adding codimension zero. Item 138 shows why that matters. Proof uses vector-bundle extension, a locally chosen affine linear quotient for an isotrivial reductive group (CTS Corollary 6.12), twisting, and unique gluing via affine Isom schemes. Main integral-model application is unchanged. (E17)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/90",
@@ -1037,7 +1018,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G4 discharged with an explicit correction to GP26's stated open-subset scope, not by attributing that correction to the authors. Items 130–137 give the proof. Affine Hartogs extends a quotient section; the represented fppf sheaf quotient makes GL_n→GL_n/G an epimorphism with torsor identity. No independent flatness assumption on G is used in this sheaf-level argument, and no flatness of the quotient map is claimed. A merely affine categorical quotient is insufficient. The local constructions glue by unique extension of affine Isom torsors. Item 138 tests the missing codimension-zero condition."
+      "note": "G4 discharged with an explicit correction to GP26's stated open-subset scope, not by attributing that correction to the authors. Items 130–137 give the proof. Affine Hartogs extends a quotient section; the represented fppf sheaf quotient makes GL_n→GL_n/G an epimorphism with torsor identity. No independent flatness assumption on G is used in this sheaf-level argument, and no flatness of the quotient map is claimed. A merely affine categorical quotient is insufficient. The local constructions glue by unique extension of affine Isom torsors. Item 138 tests the missing codimension-zero condition. (E17)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/91",
@@ -1081,7 +1062,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "CGR author manuscript Theorem 1.2(b), §4 supplies the integral normalizer subgroup; its normalizer-to-group H1 comparison is toral reduction (§5). API: Finite-flat integral subgroup, prime-to-p etaleness over T and reduction of Q_I. Tests: (1) Use N_Aut_I(G0)(T0)/T0 for the finite Weyl/diagram quotient; (2) Aut_I(G0)/T0 itself is generally not finite; (3) When p is prime to the root-system automorphism order, S0,T is finite etale."
+      "note": "CGR author manuscript Theorem 1.2(b), §4 supplies the integral normalizer subgroup; its normalizer-to-group H1 comparison is toral reduction (§5). API: Finite-flat integral subgroup, prime-to-p etaleness over T and reduction of Q_I. Tests: (1) Use N_Aut_I(G0)(T0)/T0 for the finite Weyl/diagram quotient; (2) Aut_I(G0)/T0 itself is generally not finite; (3) When p is prime to the root-system automorphism order, S0,T is finite etale. The manuscript writes Aut_I(G0)/T0 (E15)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/95",
@@ -1103,7 +1084,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: Completed SNC chart, pullback torsor and fraction field F_P. Tests: (1) The original uncompleted local ring need not be henselian; (2) Completion is at the full maximal ideal; (3) If D has one component, enlarge the inverted divisor to two parameters when applying the full-parameter loop theorem."
+      "note": "API: Completed SNC chart, pullback torsor and fraction field F_P. Tests: (1) The original uncompleted local ring need not be henselian; (2) Completion is at the full maximal ideal; (3) If D has one component, enlarge the inverted divisor to two parameters when applying the full-parameter loop theorem. Gille's errata makes this correction (E16)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/97",
@@ -1169,7 +1150,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The equality is between complete valued fields. Merely sharing residue and uniformizer would not identify arbitrary noncomplete subfields."
+      "note": "The equality is between complete valued fields. Merely sharing residue and uniformizer would not identify arbitrary noncomplete subfields. This is the justification in Gille's errata (E16)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/103",
@@ -1424,7 +1405,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The exponent is essential. This does not assert T(L)=RT(L). The approximation application remains part of G2."
+      "note": "The exponent is essential. This does not assert T(L)=RT(L). The approximation application remains part of G2. Used in Claim 3.12 (E7)."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/126",
@@ -1576,7 +1557,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The Hamilton algebra is division since q conjugate(q)=a²+b²+c²+d²>0 for q≠0, while M_2(R) has zero divisors, so their corresponding PGL_2-torsors are distinct and become identical on U. Thus include codimension zero or retain CTS's integral hypothesis. This is an explicit mathematical correction, not an erratum attributed to the authors. It does not affect GP26's integral surface models."
+      "note": "The Hamilton algebra is division since q conjugate(q)=a²+b²+c²+d²>0 for q≠0, while M_2(R) has zero divisors, so their corresponding PGL_2-torsors are distinct and become identical on U. Thus include codimension zero or retain CTS's integral hypothesis. This is an explicit mathematical correction, not an erratum attributed to the authors. It does not affect GP26's integral surface models. (E17)"
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/139",
@@ -1653,7 +1634,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Filtered colimits of local henselian rings are henselian; the colimit is ind-étale over O and has the same residue field as O. The residue field is the colimit of the stage residue fields, not necessarily equal to every stage field (avoid that shortcut in the printed proof). Compatible embeddings of the henselizations into completed local rings give the last inclusion. Import the existing henselization/local-ring carrier owner rather than recreate it."
+      "note": "Filtered colimits of local henselian rings are henselian; the colimit is ind-étale over O and has the same residue field as O. The residue field is the colimit of the stage residue fields, not necessarily equal to every stage field (avoid that shortcut in the printed proof). Compatible embeddings of the henselizations into completed local rings give the last inclusion. Import the existing henselization/local-ring carrier owner rather than recreate it. The printed shortcut is recorded as E19, a finding in the cited source."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/146",
@@ -1687,6 +1668,72 @@
       "library": [],
       "planned": [],
       "note": "A smooth flag variety meets HHKP's hypothesis; obtain a model with points at every F_P and apply GP26's model-point local-global theorem. This uses a subset of all rank-one valuations, strengthens the wording of author Corollary 4.8(1), and is recorded as a deduction rather than a quotation. No prime-to-root-automorphism order condition enters this argument."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/149",
+      "kind": "theorem",
+      "name": "Prasad's form of Tits' theorem on open subgroups",
+      "statement": "Let k be a field henselian for a nontrivial non-archimedean valuation, and G a semisimple almost k-simple group. Then every proper open subgroup of G(k)^+ is bounded; equivalently, an unbounded open subgroup of G(k)^+ equals G(k)^+.",
+      "locator": "Proposition 3.11(2) proof, p. 14, citing [K-P, Proposition 2.14]; Prasad, Bull. SMF 110 (1982), Theorem (T)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by cc-442dc5. Read in Prasad 1982, pp. 198–201: the only field hypothesis is that k is henselian for a nontrivial non-archimedean valuation, so it applies to the complete discretely valued F0 with an arbitrary residue field. This settles the scope question of the checkpoint's gap G2. Kaletha–Prasad, the reference GP26 cites, was not read."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/150",
+      "kind": "theorem",
+      "name": "Tits' normal subgroup theorem",
+      "statement": "Let k be a field with at least four elements and G a simply connected, almost k-simple, k-isotropic semisimple group. Every subgroup of G(k) normalized by G(k)^+ is central or contains G(k)^+; in particular every normal subgroup of G(k)^+ is central or all of G(k)^+.",
+      "locator": "Proposition 3.11(2) proof, p. 15 ('Tits' theorem'); Tits, Annals of Math. 80 (1964), main theorem",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by cc-442dc5. GP26 names the theorem without a reference; the statement is the standard one and Tits 1964 was not reread here. The repair of E8 (item 57) uses it for each factor G_i."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/151",
+      "kind": "theorem",
+      "name": "Approximation of a maximal torus from a dense subfield",
+      "statement": "Let F1 ⊂ F0 be a dense subfield of a complete valued field, G a reductive F1-group and T a maximal F0-torus of G_F0. Then there is a maximal F1-torus T♯ of G such that T♯_F0 is G(F0)-conjugate to T (by an element close to 1).",
+      "locator": "Claim 3.12 proof, p. 14, citing [Hd, proof of Hauptlemma]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by cc-442dc5. Proof: the variety of maximal tori is rational, so its F1-points are dense in its F0-points, and the orbit map of G on it is smooth, so G(F0)-orbits are open. GP26 says T♯_F0 is 'isomorphic to T'; the argument needs conjugacy (E7). Harder 1968 was not read."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/152",
+      "kind": "theorem",
+      "name": "Gluing a torsor to its generic extension",
+      "statement": "Let X be an integral noetherian scheme with function field F and H an affine flat X-group scheme of finite presentation. Let V1, V2 ⊂ X be open and P_i an H-torsor on V_i, with P_1 and P_2 isomorphic over F. Then the isomorphism extends over a nonempty open W ⊂ V1 ∩ V2, and P_1 and P_2 glue to an H-torsor on V1′ ∪ V2, where V1′ = V1 minus the closure of (V1 ∩ V2) \\ W.",
+      "locator": "Lemma 5.1 proof, p. 20, citing [G-P1, Corollary 1.8]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by cc-442dc5. The isomorphism spreads out by finite presentation of the affine Isom scheme, and V1′ ∩ V2 ⊂ W. Gille–Pianzola 2008 was not read; this is the gluing the proof of Lemma 5.1 uses."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/153",
+      "kind": "theorem",
+      "name": "Finite flat group schemes are linear with affine quotient",
+      "statement": "A finite flat group scheme S over Z (more generally over a Dedekind ring) admits a closed embedding S ⊂ GL_N, and the fppf quotient GL_N/S is represented by an affine scheme.",
+      "locator": "Proposition 5.2 proof, p. 21, citing [Br-T, §1.4.5] and [D-G, §III.2.6]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by cc-442dc5. This puts S0 in the scope of Lemma 5.1 and of purity (item 90). Neither source was reread here."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/154",
+      "kind": "theorem",
+      "name": "Reductive groups on a regular surface are locally linear with affine quotient",
+      "statement": "Let X be a regular noetherian scheme of dimension at most two and G a reductive X-group scheme. Zariski-locally on X there is a closed embedding G ⊂ GL_n with GL_n/G represented by an affine scheme; hence case (i) of Theorem 7.1 is a special case of (ii).",
+      "locator": "Remark 7.2, p. 23; CTS79 Corollary 6.12, p. 128",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by cc-442dc5. The checkpoint read CTS79 Corollary 6.12, which supplies the local linear embedding with affine quotient used in the proof of item 89."
     }
   ],
   "prerequisites": [
@@ -1746,9 +1793,9 @@
       "why": "Excellent surface resolution and SNC divisor support. Needed also to make the special-fibre specialization argument use regular components. No all-dimensional resolution is assumed."
     },
     {
-      "citation": "Kaletha–Prasad, Bruhat–Tits theory: a new approach (2023), Proposition 2.14; with GP26 citations to Harder (1968) and Borel–Tits (1973)",
+      "citation": "Kaletha–Prasad, Bruhat–Tits theory: a new approach (2023), Proposition 2.14, cited by GP26 for Prasad's theorem",
       "link": "https://doi.org/10.1017/9781108933049",
-      "why": "G2: verify open unbounded subgroup and normal-subgroup inputs and Harder torus approximation over the exact possibly imperfect, infinite residue setting before admitting optional Proposition 3.11."
+      "why": "GP26's reference for the theorem stated as item 149. Its original, Prasad 1982, was read instead; the book was not."
     },
     {
       "citation": "GP26 bibliography [M-P-W1], [MP-W2], [C-G-P], [R], [G-P1], [Mg], [SGA3], [D-G]",
@@ -1757,13 +1804,38 @@
     },
     {
       "citation": "Lipman, Rational singularities, with applications to algebraic surfaces and unique factorization (1969), Theorem 26.2",
-      "link": "https://arxiv.org/abs/1903.08007",
-      "why": "Exact reference is HHKP20 [18], used in Lemma 2.4: for a fixed rational function, an infinite chain of point blow-ups cannot consist entirely of indeterminacy points. This is NOT Lipman's 1978 resolution theorem. HHKP's use and resulting lemma have been read; the original theorem's proof remains to be acquired. Link identifies the read bibliography, not a claim to have read Lipman."
+      "link": "https://doi.org/10.1007/BF02684604",
+      "why": "HHKP20 [18], used in Lemma 2.4: for a fixed rational function, an infinite chain of point blow-ups cannot consist entirely of indeterminacy points. Not Lipman's 1978 resolution theorem. Stated as used in item 144; Lipman was not read."
     },
     {
       "citation": "Gabber–Gille–Moret-Bailly, Fibrés principaux sur les corps valués henséliens (2014), Proposition 3.5.2",
-      "link": "https://arxiv.org/abs/1903.08007",
+      "link": "https://doi.org/10.14231/AG-2014-025",
       "why": "HHKP20 [11] supplies smooth completion-to-henselization point descent, Proposition 2.3(a). Étale charts and the generalized implicit function theorem give the stated alternate proof. Plan this once in RG2.0's valued-point interface with rank-one, possibly nondiscrete valuations; exact source proof beyond HHKP's explanation remains a prerequisite. Artin approximation in HHKP Proposition 2.3(b) is not required by the Theorem 2.5 proof extracted here."
+    },
+    {
+      "citation": "G. Prasad, Elementary proof of a theorem of Bruhat–Tits–Rousseau and of a theorem of Tits, Bull. SMF 110 (1982), 197–202, Theorem (T)",
+      "link": "https://www.numdam.org/item/BSMF_1982__110__197_0/",
+      "why": "Read in full (item 149). Its only field hypothesis is a henselian nontrivial non-archimedean valuation."
+    },
+    {
+      "citation": "J. Tits, Algebraic and abstract simple groups, Annals of Math. 80 (1964), 313–329",
+      "link": "https://doi.org/10.2307/1970394",
+      "why": "Normal subgroups of G(k)^+ (item 150), used in the repair of Proposition 3.11(2). Not reread."
+    },
+    {
+      "citation": "G. Harder, Eine Bemerkung zum schwachen Approximationssatz, Arch. Math. 19 (1968), 465–471, proof of the Hauptlemma",
+      "link": "https://doi.org/10.1007/BF01898766",
+      "why": "Approximation of a maximal torus from a dense subfield (item 151). Not read."
+    },
+    {
+      "citation": "P. Gille, A. Pianzola, Isotriviality and étale cohomology of Laurent polynomial rings, JPAA 212 (2008), 780–800, Corollary 1.8",
+      "link": "https://doi.org/10.1016/j.jpaa.2007.07.005",
+      "why": "Torsor gluing in the proof of Lemma 5.1 (item 152). Not read."
+    },
+    {
+      "citation": "F. Bruhat, J. Tits, Groupes réductifs sur un corps local II, Publ. Math. IHÉS 60 (1984), §1.4.5; Demazure–Gabriel, Groupes algébriques, §III.2.6",
+      "link": "https://www.numdam.org/item/PMIHES_1984__60__5_0/",
+      "why": "Faithful representation of a finite flat group scheme and affineness of GL_N/S (item 153). Not read."
     }
   ],
   "routes": [
@@ -1798,7 +1870,10 @@
         "PAPER-GILLE-PARIMALA-26/90",
         "PAPER-GILLE-PARIMALA-26/136",
         "PAPER-GILLE-PARIMALA-26/137",
-        "PAPER-GILLE-PARIMALA-26/138"
+        "PAPER-GILLE-PARIMALA-26/138",
+        "PAPER-GILLE-PARIMALA-26/152",
+        "PAPER-GILLE-PARIMALA-26/153",
+        "PAPER-GILLE-PARIMALA-26/154"
       ],
       "reason": "Own the source-scoped torsor descent, affine quotient reduction and corrected codimension-two purity proof. CTS79 proof inspection resolves G4; require U to contain codimension at most one and the quotient to represent the fppf sheaf quotient. Import vector-bundle/Hartogs machinery from SF.0; no flatness of an arbitrary quotient map is asserted."
     },
@@ -1997,10 +2072,347 @@
         "PAPER-GILLE-PARIMALA-26/142",
         "PAPER-GILLE-PARIMALA-26/146",
         "PAPER-GILLE-PARIMALA-26/147",
-        "PAPER-GILLE-PARIMALA-26/148"
+        "PAPER-GILLE-PARIMALA-26/148",
+        "PAPER-GILLE-PARIMALA-26/55",
+        "PAPER-GILLE-PARIMALA-26/56",
+        "PAPER-GILLE-PARIMALA-26/149",
+        "PAPER-GILLE-PARIMALA-26/150",
+        "PAPER-GILLE-PARIMALA-26/151"
       ],
-      "brief": "Build Reductive algebraic groups, Part II: semiglobal flags and R-equivalence. Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), especially Layers 2–9, instead of re-planning its group, root, parabolic, central-cover and Chevalley constructions. Import affine Weil restriction and generalized valued-point charts from Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.0a, RG2.0), geometry/descent/lifting from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.0–SF.4), and tame covers from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.1). Keep these producers independent of this consumer. Existing Mathlib strict submersion and analytic differentiation supply the Banach analysis; do not rebuild them or assume finite dimension over K.\n\nConstruct the type-preserving form torsors and smooth projective twisted flags; semilocal R-equivalence and elementary subgroups with nilpotent-Artin invariance; the product-compatible last unipotent subgroup and its Lie spanning chart; corrected analytic factorization on saturated complete T-modules V,W; restriction of projective flags along arbitrary finite, possibly inseparable, extensions. Prove Theorem 3.13 for the specified diamond with F1 dense in F0 and F1 intersect F2=F, using the supplied module hypotheses. Give separate elementary and R-factorization statements with each isotropy hypothesis retained. Optional Proposition 3.11 is quarantined by G2 and must not enter the main dependency chain.\n\nBuild the normal-model point/open/branch fields and finite patching system, including the finite P1-model map and tensor decompositions. Prove Z(F) nonempty iff all finite-patch points exist for every reductive G/F and twisted flag Z, and deduce the all-special-fibre-points and unconditional all-rank-one-valuations forms. Read HHKP20's precise family Omega_F of nontrivial valuations whose rings contain T; testing its rank-one subfamily already suffices. Prove the finite bad-point set, blow-up termination, rank-two coarsening and finite-stage point descent, importing SF.4's valuation-limit/henselization interface and RG2.0's smooth completion-to-henselization theorem. With a reductive model, prove the discrete-valuations form without a residue-characteristic restriction. State the Tits-index corollaries using Delta_0 equal to minimal-parabolic type: the global subset is the smallest Gamma_F-stable subset containing the transported local subsets. This is an explicitly justified correction, pending G3’s final-version comparison.\n\nFor the final theorem let T be any complete DVR, K its fraction field, k its arbitrary residue field, F=K(X) for a smooth projective geometrically integral curve, and p the characteristic exponent of k. If p does not divide the order of the automorphism group of the absolute root system of G_ad, prove Z(F) nonempty iff Z has points over all divisorial completions of F arising from normal projective T-models. It suffices to test those nontrivial on K. Import SF.0–SF.1's corrected affine-quotient surface purity, whose local freeness step imports DeformationAndDerivedPatchingAlgebra:R03.3; do not omit codimension-zero points or replace the represented fppf quotient by a categorical quotient. Prove the finite-subgroup reduction, SNC spreading, prime-to-p finite-etale loop reduction and loop-parabolic criterion; complete the local ring at P before applying henselian arguments and prove the Grothendieck-completion comparison. The G2 refinement requires residue characteristic different from 2 and its special finite-reduction proof. Do not replace the divisorial family by a fixed model or omit the order hypothesis.\n\nEvery definition/construction has an API and three tests in the items. Mandatory boundary tests include nonreduced E tensor F_i, a proper but not strictly proper parabolic in a product, a non-smooth projective quotient in characteristic p, the factorial-pole series outside Frac(k[x][[t]]), and the corrected V/W derivative condition. The tests of finite algebra and Tits-index conventions must import the existing carriers. Prove, rather than encode as structure fields, every external theorem contract. Before implementation, extract the exact prerequisite proof interiors listed in the ledger. Suggested future files may separate REquivalence, AnalyticFactorization, PatchFields and TwistedFlags; this paper job supplies no Lean file and asserts no formalization.",
+      "brief": "Build Reductive algebraic groups, Part II: semiglobal flags and R-equivalence. Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), especially Layers 2–9, instead of re-planning its group, root, parabolic, central-cover and Chevalley constructions. Import affine Weil restriction and generalized valued-point charts from Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.0a, RG2.0), geometry/descent/lifting from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.0–SF.4), and tame covers from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.1). Keep these producers independent of this consumer. Existing Mathlib strict submersion and analytic differentiation supply the Banach analysis; do not rebuild them or assume finite dimension over K.\n\nConstruct the type-preserving form torsors and smooth projective twisted flags; semilocal R-equivalence and elementary subgroups with nilpotent-Artin invariance; the product-compatible last unipotent subgroup and its Lie spanning chart; corrected analytic factorization on saturated complete T-modules V,W; restriction of projective flags along arbitrary finite, possibly inseparable, extensions. Prove Theorem 3.13 for the specified diamond with F1 dense in F0 and F1 intersect F2=F, using the supplied module hypotheses. Give separate elementary and R-factorization statements with each isotropy hypothesis retained. Optional Proposition 3.11 is not used by Theorem 3.13; build it with the repaired proof (Prasad's Theorem (T), Tits' normal subgroup theorem, torus approximation, and the open-factor argument of item 57), and keep it out of the main dependency chain.\n\nBuild the normal-model point/open/branch fields and finite patching system, including the finite P1-model map and tensor decompositions. Prove Z(F) nonempty iff all finite-patch points exist for every reductive G/F and twisted flag Z, and deduce the all-special-fibre-points and unconditional all-rank-one-valuations forms. Read HHKP20's precise family Omega_F of nontrivial valuations whose rings contain T; testing its rank-one subfamily already suffices. Prove the finite bad-point set, blow-up termination, rank-two coarsening and finite-stage point descent, importing SF.4's valuation-limit/henselization interface and RG2.0's smooth completion-to-henselization theorem. With a reductive model, prove the discrete-valuations form without a residue-characteristic restriction. State the Tits-index corollaries using Delta_0 equal to minimal-parabolic type: the global subset is the smallest Gamma_F-stable subset containing the transported local subsets. This is the correction recorded as E13; the manuscript prints the inclusions reversed.\n\nFor the final theorem let T be any complete DVR, K its fraction field, k its arbitrary residue field, F=K(X) for a smooth projective geometrically integral curve, and p the characteristic exponent of k. If p does not divide the order of the automorphism group of the absolute root system of G_ad, prove Z(F) nonempty iff Z has points over all divisorial completions of F arising from normal projective T-models. It suffices to test those nontrivial on K. Import SF.0–SF.1's corrected affine-quotient surface purity, whose local freeness step imports DeformationAndDerivedPatchingAlgebra:R03.3; do not omit codimension-zero points or replace the represented fppf quotient by a categorical quotient. Prove the finite-subgroup reduction, SNC spreading, prime-to-p finite-etale loop reduction and loop-parabolic criterion; complete the local ring at P before applying henselian arguments and prove the Grothendieck-completion comparison. The G2 refinement requires residue characteristic different from 2 and its special finite-reduction proof. Do not replace the divisorial family by a fixed model or omit the order hypothesis.\n\nEvery definition/construction has an API and three tests in the items. Mandatory boundary tests include nonreduced E tensor F_i, a proper but not strictly proper parabolic in a product, a non-smooth projective quotient in characteristic p, the factorial-pole series outside Frac(k[x][[t]]), and the corrected V/W derivative condition. The tests of finite algebra and Tits-index conventions must import the existing carriers. Prove, rather than encode as structure fields, every external theorem contract. Before implementation, extract the exact prerequisite proof interiors listed in the ledger. Suggested future files may separate REquivalence, AnalyticFactorization, PatchFields and TwistedFlags; this paper job supplies no Lean file and asserts no formalization.",
       "reason": "The parent owns algebraic groups and general relative structure, while the existing RG2 continuation concerns local fields with finite residue field, buildings and parahorics. Neither owns semilocal R-equivalence, semiglobal patching or tame-loop flag descent. FunctionFieldArithmetic concerns global finite-constant-field arithmetic and is not this owner. One additional continuation supplies these reusable interfaces without duplicating the existing finite-local-field or number-field Brauer–Manin projects."
     }
-  ]
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E1",
+      "kind": "misprint",
+      "locator": "Lemma 2.3 proof, printed p. 7, HAL v5 (26 December 2025); same in arXiv v3, written J_j = I^j/I^(j+1) = I A_j",
+      "printed": "it comes with the ideal m_j = m^j/m^(j+1) = m A_j which satisfies m_j^2 = 0. We have A_j/m_j = A_(j−1) for j = 1, . . . , n − 1",
+      "correction": "m_j = m^j/m^(j+1), the kernel of A_j → A_(j−1); delete '= m A_j'. The relation A_j/m_j = A_(j−1) holds for j = 1, …, n.",
+      "reason": "m A_j = m/m^(j+1), which is not square-zero once j ≥ 2: for A = k[ε]/ε³ and j = 2, m A_2 = (ε) and ε·ε ≠ 0. The dévissage uses the square-zero kernel m^j/m^(j+1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E2",
+      "kind": "misprint",
+      "locator": "Lemma 3.2(3), printed p. 8, HAL v5 (26 December 2025); arXiv v3 prints the same inequality",
+      "printed": "We have V = {v ∈ V[1/t] | |v| ≥ 0} and V is a clopen submodule of V[1/t].",
+      "correction": "V = {v ∈ V[1/t] | |v| ≤ 1}.",
+      "reason": "Every absolute value is ≥ 0, so the printed set is all of V[1/t]. By (2), v = u/t^n with u ∈ V \\ tV has |v| = α^n, and v ∈ V exactly when n ≤ 0: if n > 0 and v ∈ V then u = t^n v ∈ V ∩ t^n R0 = t^n V ⊂ tV by (3.3), contradicting u ∉ tV. The proof of Proposition 3.3 uses the ≤ 1 form to shrink Υ into V × W.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E3",
+      "kind": "misprint",
+      "locator": "Proposition 3.3(ii), printed p. 9, HAL v5 (26 December 2025); same in arXiv v3",
+      "printed": "the differentials Df^a_0 : (F0)^a → (F0)^c and Df^b_0 : (F0)^a → (F0)^c satisfy Df^a_0(V[1/t]^a) + Df^b_0(V[1/t]^b) = (F0)^c",
+      "correction": "Df^b_0 : (F0)^b → (F0)^c, and Df^a_0(V[1/t]^a) + Df^b_0(W[1/t]^b) = (F0)^c.",
+      "reason": "As printed the proposition is false: take V = R0, W = 0 (conditions (3.1)–(3.2) hold), a = b = c = 1 and f(v, w) = w. The printed sum is 0 + F0 = F0, but f(V × W) = {0}. The proof (Claim 3.4) uses W[1/t]^b, and Corollary 3.5 needs only the corrected form. Item 38 states it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E4",
+      "kind": "misprint",
+      "locator": "proof of Claim 3.4, printed p. 9, HAL v5 (26 December 2025); same in arXiv v3",
+      "printed": "it is strictly differentiable [Sc, I.5.6], that is, there exists an open neighborhood Θ of (0, 0) and a positive real number β such that |f(x2) − f(x1) − Df(0,0).(x2 − x1)| ≤ β|x2 − x1| ∀x1, x2 ∈ Θ.",
+      "correction": "Strict differentiability: for every β > 0 there is a neighbourhood Θ_β of (0, 0) on which the inequality holds.",
+      "reason": "With one fixed β the inequality is only a Lipschitz bound on the remainder, which does not give the implicit function theorem [Bo1, §1.5.2] used next. Analytic maps are strictly differentiable in the correct sense ([Sc, I.5.6]; Mathlib AnalyticAt.hasStrictFDerivAt), so the proof stands.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E5",
+      "kind": "misprint",
+      "locator": "Proposition 3.6, printed p. 10, and its proof, p. 12, HAL v5 (26 December 2025)",
+      "printed": "Then G(F0)^+ is an open subgroup of G(F0)^+ and we have the decomposition G(F0)^+ = G(F1)^+ G(F2)^+. … the Claim 3.7 yields that b′♯(v) ∈ G(F1)^+ (resp. b′♯(v) ∈ G(F2)^+)",
+      "correction": "G(F0)^+ is an open subgroup of G(F0); in the proof, b′♯(w) ∈ G(F2)^+. The same b′♯(v)/b′♯(w) slip recurs in the proof of Proposition 3.9(1), p. 13.",
+      "reason": "The printed openness is a tautology. The proof shows that G(F0)^+ contains the open set b′♯(Υ) of G(F0), and that openness in G(F0) is what Proposition 3.11 and the clopen arguments use.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E6",
+      "kind": "gap",
+      "locator": "proof of Proposition 3.9(1)–(2), printed p. 13, HAL v5 (26 December 2025)",
+      "printed": "We conclude that RG(F1) RG(F2) is an open subgroup of G(F0) and a fortiori an open subgroup of RG(F0). (2) If RG(F1) is furthermore dense in RG(F0), then (1) shows that RG(F1) RG(F2) is a dense open subset of RG(F0). Thus RG(F1) RG(F2) = RG(F0).",
+      "correction": "The proof of (1) shows only what (1) states: RG(F1) RG(F2) contains an open neighbourhood N of 1. For (2): given g ∈ RG(F0), the set gN^(-1) ∩ RG(F0) is a nonempty open subset of RG(F0), so by density it contains some a ∈ RG(F1); then g ∈ aN ⊂ RG(F1) RG(F2). Also, 'f(0, x) = f(x, 0)' in the proof should read f(0, x) = f(x, 0) = x, which Corollary 3.5 needs.",
+      "reason": "A product of two subgroups need not be a subgroup, and nothing in the proof shows that this one is. A dense open subset of a nondiscrete Hausdorff group need not be the whole group (remove one point), so step (2) as printed depends on the unproved subgroup claim. The repair is item 51.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E7",
+      "kind": "misprint",
+      "locator": "proof of Claim 3.12, printed p. 14, HAL v5 (26 December 2025)",
+      "printed": "Since the F-variety of maximal tori if G is rational, there exists a F1-subtorus T♯ of G_F1 such that T♯_F0 is isomorphic to T … In particular we have T♯(F1) ⊂ RT♯(F1) [T♯(F1) under a bar]. Since E♯(F1) is dense in E♯(F), it follows that (T♯(F0)^n) ⊂ T(F1) [under a bar] ⊂ T♯(F0) … each p_i((T♯(F1))^n) is unbounded in T♯(F0).",
+      "correction": "'of G is rational'; T♯_F0 is G(F0)-conjugate to T; (T♯(F1))^n ⊂ RT♯(F1); E♯(F1) is dense in E♯(F0); T♯(F0)^n ⊂ closure of RT♯(F1); and p_i(closure of RT♯(F1)) is unbounded in G_i(F0).",
+      "reason": "The lifting f : T♯ → E♯ of the n-power map gives x^n = π(f(x)) with f(x) in the R-trivial group E♯(F1), so only n-th powers are R-trivial; T♯(F1) itself need not be. Density of the quasi-trivial E♯(F1) in E♯(F0) then gives T♯(F0)^n ⊂ closure of RT♯(F1). The decomposition T♯(F0) = T1(F0) × … × Tc(F0) needs T♯_F0 conjugate to T, which is what Harder's approximation gives (item 151).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E8",
+      "kind": "gap",
+      "locator": "proof of Proposition 3.11(2), printed p. 15, HAL v5 (26 December 2025)",
+      "printed": "This implies that RG(F1) [under a bar] is a normal subgroup of G(F0)^+ = G1(F0)^+ × · · · × Gc(F0)^+ which maps onto each factor. … Finally Proposition 3.9.(3) enables us to conclude that RG(F1) RG(F2) = RG(F0) = G(F0)^+.",
+      "correction": "Let H be the closure of RG(F1), an open subgroup by (1) with p_i(H) = G_i(F0)^+. Then H ∩ G_i(F0)^+ is normalized by H, hence by p_i(H) = G_i(F0)^+, and is open, so it is not central; by Tits' theorem it is G_i(F0)^+. So H = G(F0)^+. The last step should cite Proposition 3.9(2): RG(F1) is dense in RG(F0) = G(F0)^+.",
+      "reason": "Surjective projections do not imply normality: the diagonal of S3 × S3 maps onto both factors and is not normal. Proposition 3.9(3) assumes H_(F1 ⊗ E) strictly isotropic, which Proposition 3.11(2) does not. The proposition is not used later in the paper. The repair is item 57.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E9",
+      "kind": "misprint",
+      "locator": "proof of Theorem 3.13, printed p. 15, HAL v5 (26 December 2025); same in arXiv v3",
+      "printed": "Since x1 = h.x2, we obtain h1^(-1).x1 = h2^(-1).x2. This defines a point of X(E) = Z(F).",
+      "correction": "h1^(-1).x1 = h2.x2.",
+      "reason": "From x1 = h1 h2 . x2 we get h1^(-1).x1 = h2.x2, a point over F1 ⊗ E on the left and over F2 ⊗ E on the right that agree over F0 ⊗ E. With h2^(-1) the two sides differ unless h2^2 fixes x2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E10",
+      "kind": "error",
+      "locator": "Example 4.1(b), printed p. 16, HAL v5 (26 December 2025) (published Example 5.1(b)); same in arXiv v3",
+      "printed": "Also the t-adic completion of R_U is R̂_U = k[x][[t]]; we have F_U = Frac(R̂_U) = k(x)((t)).",
+      "correction": "Frac(k[x][[t]]) is a proper subfield of k(x)((t)).",
+      "reason": "If c = a/b with a, b ∈ k[x][[t]] and b0 ≠ 0 after removing the common t-order, the coefficient recurrence gives ord_x(c_n) ≥ −m(n+1) with m = ord_x(b0); Σ t^n/x^(n!) violates every such linear bound. The equality is not used later in the paper.",
+      "affects": "nothing",
+      "known": "Gille, 'Errata et compléments', 26 May 2026, entry for this paper, Example 5.1(b) (whose witness is itself wrong; see E18)",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E11",
+      "kind": "misprint",
+      "locator": "proof of Lemma 4.3, printed p. 17, HAL v5 (26 December 2025)",
+      "printed": "we can assume that f = u/v ∈ R_U mapping to 0 in k((x^(-1))) with u, v ∈ T[x^(-1)] … Then u maps to zero in k[x^(-1)] ⊂ k((x^(-1))), so that u = t u♯ ∈ T[x^(-1)]. … (2) It is enough to show that F1 ∩ R̂0 is dense in F0.",
+      "correction": "u, v ∈ T[x], u maps to zero in k[x], u = t u♯ with u♯ ∈ T[x]; and in (2), F1 ∩ R̂0 is dense in R̂0.",
+      "reason": "R_U is the localization of T[x], not of T[x^(-1)] (Example 4.1(a)). A subset of R̂0 is bounded, so it cannot be dense in F0; density in R̂0 gives density of F1 in F0 after inverting t.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E12",
+      "kind": "misprint",
+      "locator": "Remark 4.4, printed p. 17, HAL v5 (26 December 2025)",
+      "printed": "We observe that f1 belongs to R̂_U and that f2 belongs to R̂_P.",
+      "correction": "f1 belongs to R̂_P = k[[x^(-1), t]] and f2 belongs to R̂_U = k[x][[t]].",
+      "reason": "f1 = Σ_i x^(m_i) (Σ_(j ≥ m_i) a_(i,j) x^(−j)) t^i has only powers x^(m_i − j) with j ≥ m_i, which are nonpositive; f2 has the finitely many positive powers x^(m_i − j), j < m_i, in each t-coefficient.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E13",
+      "kind": "error",
+      "locator": "Theorem 4.5(2) and its proof, printed p. 18; Corollaries 4.6(2), p. 18, 4.7(2) and 4.8(2), p. 19; HAL v5 (26 December 2025); the same wording is in arXiv v3",
+      "printed": "The Tits index ∆0(G) is the smallest subset of ∆(G_Fs) which is stable under the ⋆-action of Gal(Fs/F) and such that ∆0(G) ⊂ ∆0(G_FU) for each U ∈ U and ∆0(G) ⊂ ∆0(G_FP) for each P ∈ P. … For each U ∈ U, we have Θ ⊂ ∆0(G_FU) so that Z(F_U) ≠ ∅",
+      "correction": "∆0(G) is the smallest ⋆-stable subset of ∆(G_Fs) containing ∆0(G_FU) for each U ∈ U and ∆0(G_FP) for each P ∈ P (after the fixed identifications); likewise in Corollaries 4.6(2)–4.8(2). In the proof: Θ contains each local ∆0, so Par_Θ has local points; hence ∆0(G) ⊂ Θ; and ∆0(G) contains each local ∆0, so Θ ⊂ ∆0(G).",
+      "reason": "With §1.1(b)'s order-preserving convention, ∆0(G) is the type of a minimal parabolic, and Par_I(G)(F) ≠ ∅ exactly when ∆0(G) ⊂ I; over an extension the type can only shrink. The printed 'smallest ⋆-stable subset contained in every local ∆0' is always ∅, which is wrong for an anisotropic G (∆0(G) = ∆). The proof's step 'Θ ⊂ ∆0(G_FU) so that Z(F_U) ≠ ∅' has the criterion backwards. Items 77, 80, 82 and 85 state the corrected formulas.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E14",
+      "kind": "gap",
+      "locator": "proof of Corollary 4.7(1), printed p. 19, HAL v5 (26 December 2025)",
+      "printed": "Again Z_k is projective so that Z_k(D) = Z_k(k(D)) is not empty and in particular Z_k(k(P)) is not empty.",
+      "correction": "First replace the normal model by a regular model with strict-normal-crossing special fibre (Lipman's resolution; the reductive model and its flag scheme pull back). Its components are regular curves, and the valuative criterion then gives Z_k(D) = Z_k(k(D)). Corollary 4.6 is applied to the new model.",
+      "reason": "The valuative criterion extends a k(D)-point across P only when the local ring of D at P is a DVR. A component of the special fibre of a normal model may be singular at P; a k(D)-point then extends only to the normalization, whose points over P can have residue fields larger than k(P), so Z_k(k(P)) ≠ ∅ does not follow.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E15",
+      "kind": "misprint",
+      "locator": "proof of Proposition 5.2, printed p. 21, HAL v5 (26 December 2025) (published Proposition 6.2)",
+      "printed": "More precisely S0 is an extension of the finite constant group Aut_I(G0)/T0 by a finite Z-subgroup of T0 which is killed by the square of the order of Aut_I(G0)/T0.",
+      "correction": "N/T0, where N is the normalizer of T0 in Aut_I(G0), in both places.",
+      "reason": "T0 is not normal in Aut_I(G0), and Aut_I(G0)/T0 is not finite (it contains G0/T0). The finite group N/T0 ≅ W ⋊ Aut_I(∆0) is a subgroup of the automorphism group of the root system, whose order the hypothesis on p controls.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E16",
+      "kind": "gap",
+      "locator": "proof of Proposition 5.2, printed p. 21, HAL v5 (26 December 2025) (published Proposition 6.2)",
+      "printed": "We consider the local ring A = R_P of X at P and denote by A_D its localization at D.",
+      "correction": "Take A = R̂_P, the completion of R_P. The Grothendieck-valuation completion of Frac(R_P) equals that of Frac(A): the first embeds in the second, and they share a uniformizer and the residue field k(P)(u).",
+      "reason": "The introduction (p. 3) describes the input from [Gi3] as a local study over 'a two dimensional complete regular local ring R with parameters t, s'; R_P is not complete, nor henselian in general. Gille's errata makes exactly this replacement and gives this justification.",
+      "affects": "the proof",
+      "known": "Gille, 'Errata et compléments', 26 May 2026, entry for this paper, proof of Proposition 6.2",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E17",
+      "kind": "error",
+      "locator": "Theorem 7.1, printed p. 23, HAL v5 (26 December 2025); published Theorem B.1 has the same wording (read on the publisher's page by codex-a71f92, 22 September 2026)",
+      "printed": "Let X be a regular scheme of dimension 2. Let U be an open subcheme of X which contains the subset X^(1) ⊂ X of points x such that the local ring O_X,x is of dimension 1. … then we have the bijection H^1_fppf(X, G) ≅ H^1_fppf(U, G).",
+      "correction": "U must contain every point of codimension at most one (equivalently add 'X integral', as in CTS79 Theorem 6.13).",
+      "reason": "X = A²_R ⊔ Spec R is regular of dimension 2, and U = A²_R contains X^(1). For G = PGL_2, the torsors given by M_2(R) and by Hamilton's quaternions on the Spec R component are distinct but have the same restriction to U, so restriction is not injective. Lemma 5.1 applies the theorem to an integral model, so the paper's results are unaffected. Items 89, 90 and 138.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
+        "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
+        "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
+        "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E18",
+      "kind": "error",
+      "locator": "Gille, 'Errata et compléments', 26 May 2026, p. 1, entry for this paper, Example 5.1(b)",
+      "printed": "The fraction field of k[x][[t]] is not k(x)((t)); a typical element in the complement is Σ_(n≥1) t^n/x^n.",
+      "correction": "The witness lies in the fraction field; use Σ_(n≥1) t^n/x^(n!) instead.",
+      "reason": "Σ_(n≥1) (t/x)^n = t/(x − t), a quotient of two elements of k[x][[t]]. The statement it illustrates (E10) is correct; see E10 for a proof with the factorial witness.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
+        "Gille's web page (math.univ-lyon1.fr/~gille), errata file dated 26 May 2026, the newest found"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E19",
+      "kind": "error",
+      "locator": "Harbater–Hartmann–Karemaker–Pop, arXiv 1903.08007v3, proof of Lemma 2.4, p. 7 (cited by GP26 for Corollary 4.8)",
+      "printed": "Similarly, since O^h_(X_i,P_i)/m O^h_(X_i,P_i) = O/m for all i, it follows that R/mR = O/m.",
+      "correction": "The residue field of O^h_(X_i,P_i) is k(P_i), and O/m = colim_i k(P_i); so R/mR = colim_i k(P_i) = O/m.",
+      "reason": "The residue fields k(P_i) can grow along the chain: blow up a k-rational point and choose P_1 on the exceptional P^1_k with k(P_1) ⊋ k. Then O^h_(X_0,P_0) has residue field k ≠ O/m. The lemma survives with the colimit argument (item 145). This finding concerns a cited source, not GP26's text.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1903.08007 (v3 read; SHA-256 5cc13254…)",
+        "the Contemporary Mathematics 767 version was not available; no erratum found in a web search, 23 September 2026"
+      ]
+    }
+  ],
+  "continuations": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-442dc5",
+      "issue": 1197,
+      "date": "2026-09-23",
+      "inputCommit": "47e99dd (tauceti-explorer main, 23 September 2026)",
+      "readingBoundary": "The HAL v5 manuscript (the checkpoint's copy, SHA-256 96c8678e…, matched byte for byte; HAL returned a challenge page) was read in full, with page images for Lemma 3.2, Propositions 3.11 and Claim 3.12, Theorem 3.13, Lemma 4.3 and Remark 4.4. arXiv v3's TeX source was compared at each finding. Gille's errata (SHA-256 6297d7a0…) was read at this paper's entry. Prasad 1982 (Numdam, SHA-256 6f4474d4…) was read in full. HHKP20 v3 (SHA-256 5cc13254…) was reread at Lemma 2.4. The published main body is paywalled."
+    }
+  ],
+  "validation": {
+    "continuation-cc-442dc5": "scripts/check_paper.py and intake.py check-files pass; ids unique; every missing item routed exactly once; every sourceIssues locator checked against the HAL v5 text layer and page images, and against arXiv v3 TeX."
+  }
 }
