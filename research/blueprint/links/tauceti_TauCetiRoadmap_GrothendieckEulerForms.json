@@ -1,758 +1,1453 @@
 {
- "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
- "protocol": "links-v1",
- "status": "complete",
- "implementationStatus": "unchecked",
- "summary": "Completed bounded catalogue screen of 218 roadmaps and 2007 stages at a76bb6f57f2102b346433743606fac55869111eb. Fifteen new outgoing source-contract links, six overlaps and nine already-hosted/pending incident pairs. No incoming pair is duplicated from QuiverRepresentations. Numerical-radical functoriality, the general Cartan scope and unresolved numerical Koszul converse are explicit. Complete means catalogue screening, not mathematical approval or formalisation.",
- "links": [
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "target": "GeneralAlgebraicKTheory:K.1",
-   "confidence": "explicit",
-   "reason": "Use the chosen exact structure and admissible pullback calculus for Q(C). The consumer constructs span-isomorphism classes, composition and its laws, the nerve and homotopy groups. None of those higher homotopy constructions is supplied by an exact-category axiom.",
-   "evidence": [
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "protocol": "links-v1",
+  "status": "complete",
+  "implementationStatus": "unchecked",
+  "summary": "Independent review retains fifteen outgoing dependency links and five active overlaps, and verifies all nine incident pairs hosted in other packets. The retired FoundationsAndLibraryIntegration overlap is archived. Corrected baseline reuse for the general-ring Cartan map, relative projective/injective foundations and representation ring; the general resolving-subcategory theorem remains a planned extension of the existing projective case. Coverage is 217 active roadmaps and 2007 stage records. Acceptance is of these scoped source contracts, not all source assertions or implementation completion.",
+  "links": [
     {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-     "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op."
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "confidence": "inferred",
+      "reason": "Use the chosen exact structure and admissible pullback calculus for Q(C). The consumer constructs span-isomorphism classes, composition and its laws, the nerve and homotopy groups. None of those higher homotopy constructions is supplied by an exact-category axiom.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op."
+        },
+        {
+          "stageId": "GeneralAlgebraicKTheory:K.1",
+          "quote": "Use `TauCeti.ExactStructure C`. Construct `Q(C)` with the same objects and morphisms represented by admissible spans"
+        },
+        {
+          "stageId": "GeneralAlgebraicKTheory:K.1",
+          "quote": "The exact-category carrier and categorical K₀ are supplied by GrothendieckEulerForms; compare π₀ of the new spectrum to those carriers."
+        }
+      ]
     },
     {
-     "stageId": "GeneralAlgebraicKTheory:K.1",
-     "quote": "Use `TauCeti.ExactStructure C`. Construct `Q(C)` with the same objects and morphisms represented by admissible spans"
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "confidence": "inferred",
+      "reason": "Use exact K0 and its object-class universal property as the comparison target for degree zero of Q-theory. The consumer supplies the fundamental-group calculation, basepoint and natural inverse. No cardinality argument or replacement presentation is adequate.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "Supply the same API with\n  conflation-additive invariants and conflation-exact functors.  Exact equivalences induce additive\n  equivalences."
+        },
+        {
+          "stageId": "GeneralAlgebraicKTheory:K.1",
+          "quote": "Prove that `π₁ NQ(C)` is the existing `ExactK0`, preserving the class of each object and the relation from each conflation. The inverse map must use the universal property;"
+        },
+        {
+          "stageId": "GeneralAlgebraicKTheory:K.1",
+          "quote": "The exact-category carrier and categorical K₀ are supplied by GrothendieckEulerForms; compare π₀ of the new spectrum to those carriers."
+        }
+      ]
     },
     {
-     "stageId": "GeneralAlgebraicKTheory:K.1",
-     "quote": "The exact-category carrier and categorical K₀ are supplied by GrothendieckEulerForms; compare π₀ of the new spectrum to those carriers."
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "confidence": "inferred",
+      "reason": "Reuse the split exact structure on finitely generated projectives, already packaged at the pinned TauCeti baseline as finiteProjectiveModulesExactStructure, with its equality to the split structure. The consumer retains scalar-extension functoriality, essential-smallness/model compatibility and the higher homotopy group-completion/plus comparison. A split sequence stays split under arbitrary unital scalar extension, so no flatness assumption is inserted. Reuse available projective-complement results rather than re-proving them.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "Construct the split exact structure on every additive\n  category; the canonical exact structure of all short exact sequences on every abelian category;\n  and the induced structure on a replete full **additive** extension-closed subcategory."
+        },
+        {
+          "stageId": "GeneralAlgebraicKTheory:K.2:plus",
+          "quote": "Construct the essentially small exact category `Proj_fg(A)` from the existing module category and projectivity/finiteness predicates."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+      "target": "GeneralAlgebraicKTheory:K.3",
+      "confidence": "inferred",
+      "reason": "The supplier plans the general degree-zero resolution theorem with resolving-subcategory and finite-resolution hypotheses, exactly the comparison the consumer needs. At the pinned baseline, TauCeti.ExactStructure.resolutionEquiv requires P <= E.isProjective; it supplies only the projective case, not arbitrary resolving P. The common-refinement/general resolving extension remains supplier work. The consumer retains Quillen resolution, devissage, additivity and localization in higher degrees; no K0 isomorphism establishes those theorems.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+          "quote": "Under the resolving hypotheses, the inclusion induces an isomorphism on\n  exact K₀.  Its inverse sends `[X]` to the alternating sum of any finite `P`-resolution."
+        },
+        {
+          "stageId": "GeneralAlgebraicKTheory:K.3",
+          "quote": "Construct the alternating-resolution inverse in degree zero and compare it to the existing K₀ resolution theorem."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:Z.1",
+      "confidence": "inferred",
+      "reason": "Use the existing split/exact K0 universal properties on the finitely generated projective category. The pinned finiteProjectiveModulesExactStructure_eq_split and ExactK0.fromSplitEquiv already supply the split/exact identification; the consumer retains its stable-isomorphism/idempotent presentation and scalar-extension/Morita comparisons. No finite-dimensional-algebra restriction from Layer 4 is imported.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "Quotient by `[X ⊞ Y]-[X]-[Y]`.  Supply the class map, biproduct relation,\n  induction, universal property for additive invariants, functoriality for additive functors,\n  identity/composition/naturality, and equivalence invariance."
+        },
+        {
+          "stageId": "KTheoryLowDegrees:Z.1",
+          "quote": "Use the existing split/exact K₀ universal property to define ring K₀."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "KTheoryLowDegrees:Z.5",
+      "confidence": "inferred",
+      "reason": "Use exact K0 of the essentially small exact category of finite locally free sheaves, with its object classes and exact-functor laws. The consumer supplies the actual sheaves, their exact structure, rank/determinant and K/G comparisons under geometric hypotheses. Global bundle sequences need not split, so split K0 is not silently substituted.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "Supply the same API with\n  conflation-additive invariants and conflation-exact functors.  Exact equivalences induce additive\n  equivalences."
+        },
+        {
+          "stageId": "KTheoryLowDegrees:Z.5",
+          "quote": "Apply the categorical construction to finite locally free sheaves, consuming the vector-bundle interface specified in INTEGRATION."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+      "confidence": "explicit",
+      "reason": "Use triangulated K0, its triangle relations and universal property for the raw Verdier quotient. DG quotient construction, flat replacement, Verdier comparison and right exactness are consumer theorems; passage to Karoubi completion is not a K0 isomorphism without a separate theorem.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "For an essentially small pretriangulated category, quotient by\n  `[Y]-[X]-[Z]` for each `T : Triangle C` with `distTriang C T`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+          "quote": "Apply the triangulated `K₀` construction from the dependency roadmap."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+      "confidence": "explicit",
+      "reason": "Apply the same triangulated K0 construction to the actual essentially small perfect category and transport maps along the consumer-built equivalences. The perfect category and pretr/tria comparisons are DG outputs. Do not replace triangulated K0 by split K0 of finite cells or assume inclusion into its idempotent completion induces an isomorphism.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "For an essentially small pretriangulated category, quotient by\n  `[Y]-[X]-[Z]` for each `T : Triangle C` with `distTriang C T`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+          "quote": "Define `K₀(Perf C)` as triangulated `K₀` of the essentially small idempotent-complete perfect\n  category."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+      "confidence": "explicit",
+      "reason": "Use the finite-dimensional finite-global-dimension Cartan comparison in the stated ordinary-algebra specialization. DG-perfect and module categories must first be compared. Preserve the projective-column convention, division-endomorphism correction and actual support bounds; this does not apply to arbitrary proper DG categories or self-injective algebras.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "If all finite-dimensional modules have such resolutions--in particular, for a finite-dimensional\n  algebra of finite global dimension--this is the full `K₀(proj A) ≃ G₀(mod A)` comparison."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+          "quote": "For an ordinary\n  finite-dimensional algebra of finite global dimension, compare this pairing and `K₀(Perf A)`\n  with the Cartan/Ext-Euler constructions of the dependency roadmap;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+      "confidence": "explicit",
+      "reason": "Use finite-support Euler calculus and additive descent after the consumer proves RHom finiteness from properness and perfectness. Triangle-to-long-exact-cohomology compatibility is still proved there. Serre duality, the shift-symmetry theorem and HRR are not supplied by finite sums; divergent Ext families have no asserted Euler value.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For an additive invariant `a` from objects of an additive/exact\n  category to an abelian group, define the signed sum of a finitely supported `ℤ`-graded family."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+          "quote": "Prove termwise\n  finite-dimensionality and finite support before invoking finite Euler descent."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+      "confidence": "explicit",
+      "reason": "Use the two numerical quotients and their induced pairing. The consumer proves any Serre-based comparison and radical preservation for maps. R-RADICAL records why pairing preservation alone is insufficient: this edge imports only the valid quotient construction and the explicitly radical-preserving functoriality, not an unconditional converse. The pinned leftNumericalMap/rightNumericalMap and numericalPairing_map_map already require the two radical containments explicitly; align the prose with those APIs.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+          "quote": "Define the left numerical group as `L/rad_left(b)` and the right\n  numerical group as `R/rad_right(b)`.  Descend the pairing between these two quotients and prove\n  that it has zero left and right radicals."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
+          "quote": "Form the left and right numerical quotients by the radicals from the dependency roadmap."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+      "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+      "confidence": "explicit",
+      "reason": "Reuse one linear-resolution definition with its precisely stated diagonal-Ext comparison. The consumer handles the relative separable semisimple base, right/left duals, Yoneda order, exact Koszul complexes and Adams/completion hypotheses. No unverified numerical Cartan-Poincare converse is imported; see R-KOSZUL. Koszul linear resolutions can be infinite; the separate finite-resolution hypotheses elsewhere in Layer 3 must not be imported into this definition.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+          "quote": "define a **linear** graded projective resolution\n  of a graded module: the `i`th term is generated in internal degree `i`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+          "quote": "Take\n  \"linear graded projective resolution\" and the equivalence with diagonal `Ext` vanishing from the\n  Grothendieck/Euler roadmap's Layer 3 rather than redefining them,"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "confidence": "inferred",
+      "reason": "The additive carrier is split K0 of FDRep k G. At the pinned baseline it is already named TauCeti.repRing, with tensor-product ring structure and repRingCharacter; repRingCharacter_injective is proved for finite G in characteristic zero. Reuse these results rather than reconstructing the carrier, multiplication or character injectivity. Induction/restriction comparisons and Artin/Brauer statements retain their representation-theory owner; this is not an assertion that every such result is absent from the pin. Split/exact identification needs semisimplicity, not merely the group name.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "Quotient by `[X ⊞ Y]-[X]-[Y]`.  Supply the class map, biproduct relation,\n  induction, universal property for additive invariants, functoriality for additive functors,\n  identity/composition/naturality, and equivalence invariance."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+          "quote": "The primary object is the **Grothendieck ring**\n  `R(G)` of `FDRep k G` under direct sum and tensor product:"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+      "confidence": "inferred",
+      "reason": "Use exact/abelian K0 and its universal property to extend the short-exact-additive formal character to virtual classes. The consumer supplies Lie-module tensor products, weight multiplicities and the Weyl formulas. Its semiring-first alternative must group-complete before calling the map a ring homomorphism; no chosen equality of split and exact K0 is assumed without complete reducibility.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "Supply the same API with\n  conflation-additive invariants and conflation-exact functors.  Exact equivalences induce additive\n  equivalences."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+          "quote": "**additive\n  on short exact sequences** and **multiplicative on tensor products** (so it is a ring homomorphism from\n  the representation ring above to `ℤ[X]`)."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+      "confidence": "inferred",
+      "reason": "Use the intrinsic exact-category carrier as the base for an exact category with duality. The consumer must add a contravariant exact functor, double-dual coherence and all form-theoretic, hermitian-K and dyadic hypotheses. Ordinary K0 is not Grothendieck-Witt; neither localization nor periodicity is supplied by this carrier match.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op."
+        },
+        {
+          "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+          "quote": "Construct exact categories with duality, symmetric/alternating forms, Grothendieck-Witt and Witt groups, higher hermitian K spaces, localization and source-scoped periodicity."
+        }
+      ]
     }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "GeneralAlgebraicKTheory:K.1",
-   "confidence": "explicit",
-   "reason": "Use exact K0 and its object-class universal property as the comparison target for degree zero of Q-theory. The consumer supplies the fundamental-group calculation, basepoint and natural inverse. No cardinality argument or replacement presentation is adequate.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "Supply the same API with\n  conflation-additive invariants and conflation-exact functors.  Exact equivalences induce additive\n  equivalences."
-    },
-    {
-     "stageId": "GeneralAlgebraicKTheory:K.1",
-     "quote": "Prove that `π₁ NQ(C)` is the existing `ExactK0`, preserving the class of each object and the relation from each conflation. The inverse map must use the universal property;"
-    },
-    {
-     "stageId": "GeneralAlgebraicKTheory:K.1",
-     "quote": "The exact-category carrier and categorical K₀ are supplied by GrothendieckEulerForms; compare π₀ of the new spectrum to those carriers."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "target": "GeneralAlgebraicKTheory:K.2:plus",
-   "confidence": "inferred",
-   "reason": "Use the split exact structure on the additive category of finitely generated projectives. The consumer proves projective-complement and idempotent-matrix facts, essential smallness and preservation by scalar extension. A split sequence remains split under arbitrary unital base change, so flatness is not added. This exact-category construction precedes the homotopy group-completion/plus comparison.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-     "quote": "Construct the split exact structure on every additive\n  category; the canonical exact structure of all short exact sequences on every abelian category;\n  and the induced structure on a replete full **additive** extension-closed subcategory."
-    },
-    {
-     "stageId": "GeneralAlgebraicKTheory:K.2:plus",
-     "quote": "Construct the essentially small exact category `Proj_fg(A)` from the existing module category and projectivity/finiteness predicates."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
-   "target": "GeneralAlgebraicKTheory:K.3",
-   "confidence": "explicit",
-   "reason": "The existing finite-resolution theorem supplies exactly the degree-zero comparison, with the resolving and finite-resolution hypotheses matched. Quillen resolution, devissage, additivity and localization in higher degrees are separately proved by the consumer; a K0 isomorphism proves none of them.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
-     "quote": "Under the resolving hypotheses, the inclusion induces an isomorphism on\n  exact K₀.  Its inverse sends `[X]` to the alternating sum of any finite `P`-resolution."
-    },
-    {
-     "stageId": "GeneralAlgebraicKTheory:K.3",
-     "quote": "Construct the alternating-resolution inverse in degree zero and compare it to the existing K₀ resolution theorem."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "KTheoryLowDegrees:Z.1",
-   "confidence": "inferred",
-   "reason": "Instantiate split K0 on an essentially small model of finitely generated projectives and prove comparison with its exact K0 using splitting of short exact sequences with projective quotient. The consumer constructs complements, idempotent presentations and stable-isomorphism tests. No finite-dimensional-algebra restriction from Layer 4 is imported.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "Quotient by `[X ⊞ Y]-[X]-[Y]`.  Supply the class map, biproduct relation,\n  induction, universal property for additive invariants, functoriality for additive functors,\n  identity/composition/naturality, and equivalence invariance."
-    },
-    {
-     "stageId": "KTheoryLowDegrees:Z.1",
-     "quote": "Use the existing split/exact K₀ universal property to define ring K₀."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "KTheoryLowDegrees:Z.5",
-   "confidence": "inferred",
-   "reason": "Use exact K0 of the essentially small exact category of finite locally free sheaves, with its object classes and exact-functor laws. The consumer supplies the actual sheaves, their exact structure, rank/determinant and K/G comparisons under geometric hypotheses. Global bundle sequences need not split, so split K0 is not silently substituted.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "Supply the same API with\n  conflation-additive invariants and conflation-exact functors.  Exact equivalences induce additive\n  equivalences."
-    },
-    {
-     "stageId": "KTheoryLowDegrees:Z.5",
-     "quote": "Apply the categorical construction to finite locally free sheaves, consuming the vector-bundle interface specified in INTEGRATION."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
-   "confidence": "explicit",
-   "reason": "Use triangulated K0, its triangle relations and universal property for the raw Verdier quotient. DG quotient construction, flat replacement, Verdier comparison and right exactness are consumer theorems; passage to Karoubi completion is not a K0 isomorphism without a separate theorem.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "For an essentially small pretriangulated category, quotient by\n  `[Y]-[X]-[Z]` for each `T : Triangle C` with `distTriang C T`."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
-     "quote": "Apply the triangulated `K₀` construction from the dependency roadmap."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-   "confidence": "explicit",
-   "reason": "Apply the same triangulated K0 construction to the actual essentially small perfect category and transport maps along the consumer-built equivalences. The perfect category and pretr/tria comparisons are DG outputs. Do not replace triangulated K0 by split K0 of finite cells or assume inclusion into its idempotent completion induces an isomorphism.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "For an essentially small pretriangulated category, quotient by\n  `[Y]-[X]-[Z]` for each `T : Triangle C` with `distTriang C T`."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-     "quote": "Define `K₀(Perf C)` as triangulated `K₀` of the essentially small idempotent-complete perfect\n  category."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-   "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-   "confidence": "explicit",
-   "reason": "Use the finite-dimensional finite-global-dimension Cartan comparison in the stated ordinary-algebra specialization. DG-perfect and module categories must first be compared. Preserve the projective-column convention, division-endomorphism correction and actual support bounds; this does not apply to arbitrary proper DG categories or self-injective algebras.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-     "quote": "If all finite-dimensional modules have such resolutions--in particular, for a finite-dimensional\n  algebra of finite global dimension--this is the full `K₀(proj A) ≃ G₀(mod A)` comparison."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-     "quote": "For an ordinary\n  finite-dimensional algebra of finite global dimension, compare this pairing and `K₀(Perf A)`\n  with the Cartan/Ext-Euler constructions of the dependency roadmap;"
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-   "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-   "confidence": "explicit",
-   "reason": "Use finite-support Euler calculus and additive descent after the consumer proves RHom finiteness from properness and perfectness. Triangle-to-long-exact-cohomology compatibility is still proved there. Serre duality, the shift-symmetry theorem and HRR are not supplied by finite sums; divergent Ext families have no asserted Euler value.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-     "quote": "For an additive invariant `a` from objects of an additive/exact\n  category to an abelian group, define the signed sum of a finitely supported `ℤ`-graded family."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-     "quote": "Prove termwise\n  finite-dimensionality and finite support before invoking finite Euler descent."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
-   "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-   "confidence": "explicit",
-   "reason": "Use the two numerical quotients and their induced pairing. The consumer proves any Serre-based comparison and radical preservation for maps. R-RADICAL records why pairing preservation alone is insufficient: this edge imports only the valid quotient construction and the explicitly radical-preserving functoriality, not an unconditional converse.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
-     "quote": "Define the left numerical group as `L/rad_left(b)` and the right\n  numerical group as `R/rad_right(b)`.  Descend the pairing between these two quotients and prove\n  that it has zero left and right radicals."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-10-k₀perf-euler-and-numerical-forms",
-     "quote": "Form the left and right numerical quotients by the radicals from the dependency roadmap."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
-   "target": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
-   "confidence": "explicit",
-   "reason": "Reuse one linear-resolution definition with its precisely stated diagonal-Ext comparison. The consumer handles the relative separable semisimple base, right/left duals, Yoneda order, exact Koszul complexes and Adams/completion hypotheses. No unverified numerical Cartan-Poincare converse is imported; see R-KOSZUL.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
-     "quote": "define a **linear** graded projective resolution\n  of a graded module: the `i`th term is generated in internal degree `i`."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
-     "quote": "Take\n  \"linear graded projective resolution\" and the equivalence with diagonal `Ext` vanishing from the\n  Grothendieck/Euler roadmap's Layer 3 rather than redefining them,"
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
-   "confidence": "inferred",
-   "reason": "Use split K0 for the additive carrier of the finite-group representation ring, and its object-class functoriality for induction/restriction. The consumer builds tensor multiplication, character injectivity and Artin/Brauer theorems. Split-to-abelian comparison requires the stated characteristic-zero semisimplicity, not merely a group name. This is an inferred exact carrier match; it is not a second proof of the induction theorems.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "Quotient by `[X ⊞ Y]-[X]-[Y]`.  Supply the class map, biproduct relation,\n  induction, universal property for additive invariants, functoriality for additive functors,\n  identity/composition/naturality, and equivalence invariance."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
-     "quote": "The primary object is the **Grothendieck ring**\n  `R(G)` of `FDRep k G` under direct sum and tensor product:"
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-   "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
-   "confidence": "inferred",
-   "reason": "Use exact/abelian K0 and its universal property to extend the short-exact-additive formal character to virtual classes. The consumer supplies Lie-module tensor products, weight multiplicities and the Weyl formulas. Its semiring-first alternative must group-complete before calling the map a ring homomorphism; no chosen equality of split and exact K0 is assumed without complete reducibility.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "Supply the same API with\n  conflation-additive invariants and conflation-exact functors.  Exact equivalences induce additive\n  equivalences."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
-     "quote": "**additive\n  on short exact sequences** and **multiplicative on tensor products** (so it is a ring homomorphism from\n  the representation ring above to `ℤ[X]`)."
-    }
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "target": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
-   "confidence": "inferred",
-   "reason": "Use the intrinsic exact-category carrier as the base for an exact category with duality. The consumer must add a contravariant exact functor, double-dual coherence and all form-theoretic, hermitian-K and dyadic hypotheses. Ordinary K0 is not Grothendieck-Witt; neither localization nor periodicity is supplied by this carrier match.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-     "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op."
-    },
-    {
-     "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
-     "quote": "Construct exact categories with duality, symmetric/alternating forms, Grothendieck-Witt and Witt groups, higher hermitian K spaces, localization and source-scoped periodicity."
-    }
-   ]
-  }
- ],
- "overlaps": [
-  {
-   "stages": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-    "FoundationsAndLibraryIntegration:LI.3"
-   ],
-   "detail": "LI.3 lists unification of exact-category interfaces, while GEF Layer 0 owns the actual intrinsic exact-structure construction.",
-   "recommendation": "keep",
-   "proposal": "Keep GEF Layer 0 as the exact-structure and conflation-exact-functor owner. LI.3 coordinates shared category infrastructure and names this supplier rather than rebuilding an exact structure. Ordinary abelian/derived infrastructure remains with its existing owners.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-     "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op."
-    },
-    {
-     "stageId": "FoundationsAndLibraryIntegration:LI.3",
-     "quote": "Unify universes, limits, adjunctions, abelian and exact categories, resolutions, derived functors, spectral sequences, monoidal structures and sheafification."
-    }
-   ]
-  },
-  {
-   "stages": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-    "StableHomotopyKTheory:H.4"
-   ],
-   "detail": "Algebraic split K0 and the component group of homotopy group completion meet in additive examples. H.4, however, applies to symmetric monoidal groupoids that need not be additive.",
-   "recommendation": "keep",
-   "proposal": "Keep H.4 responsible for its homotopy group-completion theorem and coherence. Use ordinary monoid group completion at pi0; compare with GEF split K0 only for the maximal subgroupoid of an additive category with direct sum. Neither its full morphism category nor a general monoidal groupoid is silently an additive category.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
-     "quote": "Relate the result to Mathlib's\n  commutative-monoid group completion of the monoid of isomorphism classes."
-    },
-    {
-     "stageId": "StableHomotopyKTheory:H.4",
-     "quote": "Its π₀ is the ordinary Grothendieck group of the monoid of components."
-    }
-   ]
-  },
-  {
-   "stages": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-    "KTheoryLowDegrees:Z.6"
-   ],
-   "detail": "KTheoryLowDegrees Z.6 invokes an existing general Cartan map, but GEF Layer 4 is explicitly restricted to finite-dimensional algebras over a field. The general-ring/scheme input is not that theorem.",
-   "recommendation": "rescope",
-   "proposal": "Construct the general Cartan inclusion map through GEF Layer 2 exact-functoriality on explicitly chosen small exact categories, with the noetherian/coherence/finite-presentation hypotheses needed by the module categories. KTheoryLowDegrees owns its ring/scheme and perfect-complex comparisons. Retain GEF Layer 4 for finite-dimensional projective/simple bases and its matrix calculation; do not use finite-dimensional unimodularity for arbitrary rings.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-     "quote": "Let `k` be a field and `A` a finite-dimensional `k`-algebra.  Work with left modules."
-    },
-    {
-     "stageId": "KTheoryLowDegrees:Z.6",
-     "quote": "Compare the Cartan map to G₀ with the existing general Cartan map, rather than defining a second one."
-    }
-   ]
-  },
-  {
-   "stages": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations"
-   ],
-   "detail": "The finite-dimensional bounded-complex Euler-Poincare calculation appears in the generic algebraic layer and inside finite-CW cellular comparison. The CW construction is not duplicated.",
-   "recommendation": "keep",
-   "proposal": "Use a single finite-complex dimension identity with explicit boundedness and finite-dimensionality. AlgebraicTopology owns the cellular complex, its singular comparison and proof of those hypotheses. Compare coefficient-field and indexing conventions before identifying implementations; no new directed edge is forced by the shared theorem name.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-     "quote": "For vector spaces, record finite-dimensionality of\n  every term and boundedness explicitly."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
-     "quote": "Prove finite-CW Euler--Poincare and finite-generation consequences from the cellular complex."
-    }
-   ]
-  },
-  {
-   "stages": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-    "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-    "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation"
-   ],
-   "detail": "The algebraic finite-exact-sequence dimension identity is also the bookkeeping step in the pro-p two/three-term Euler formulas. The pro-p source already names its long exact sequence and finrank inputs.",
-   "recommendation": "keep",
-   "proposal": "Share or compare only the finite-exact-sequence alternating-dimension lemma. ProfiniteProPGroups retains Shapiro, trivial filtrations, topological finite generation, finite H2 assumptions and the group-index formula. Finite p-primary modules are not generally Fp-vector spaces; use composition length unless p kills the coefficient. No higher-K or general Ext-finite-category hypothesis is inserted.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-     "quote": "Prove reindexing, shift/sign, direct-sum, and finite-exact-sequence formulas."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-     "quote": "additivity of `finrank` along a finite exact sequence of finite-dimensional vector spaces."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-     "quote": "finiteness for `G` is a hypothesis, and not a consequence."
-    }
-   ]
-  },
-  {
-   "stages": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-    "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology"
-   ],
-   "detail": "The finite-exact-sequence alternating-dimension step is shared with the analytic Riemann-Roch induction. Analytic finiteness, acyclicity and degree calculations are distinct.",
-   "recommendation": "keep",
-   "proposal": "Reuse one finite-dimensional six-term Euler identity, after the analytic layer proves its H0/H1 finiteness and skyscraper acyclicity. ModularForms 10B owns the sheaves, Leray/local analytic input, induction, residue duality and genus comparison. The abstract finite-sum lemma is not a proof of Riemann-Roch.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-     "quote": "Prove reindexing, shift/sign, direct-sum, and finite-exact-sequence formulas."
-    },
-    {
-     "stageId": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
-     "quote": "`0 → 𝒪_D → 𝒪_{D+P} → ℂ_P → 0` and the six-term exact sequence"
-    }
-   ]
-  }
- ],
- "requests": [
-  {
-   "id": "R-RADICAL",
-   "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
-   "status": "clarify-hypotheses",
-   "need": "Make the preceding radical-preservation hypotheses explicit in the sentence about pairing-preserving pairs of maps. Pairing preservation alone does not suffice. Opposite-side surjectivity is one sufficient extra condition for one-sided radical preservation; otherwise assume and prove the two radical containments directly.",
-   "evidence": [
-    {
-     "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
-     "quote": "Pairing-preserving\n  pairs of maps yield a map of both numerical quotients."
-    }
-   ],
-   "counterexample": "Let L=R=Z with b=0. Let Lprime=Rprime=Z^2 with B((a,b),(c,d))=ad+bc, and f(n)=g(n)=(n,0). Then B(f(n),g(m))=0=b(n,m), but f(1) pairs to 1 with (0,1); neither map preserves its source radical Z into the target radical 0. The quotient-source is zero, so f cannot be induced by a map to the target numerical quotient Z^2.",
-   "interpretation": "The preceding sentence already requires radical preservation. This request prevents the following sentence from being read as an unjustified sufficient condition, rather than rejecting the valid quotient construction."
-  },
-  {
-   "id": "R-KOSZUL",
-   "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
-   "status": "unverified-stronger-converse",
-   "need": "Separate linear-resolution/diagonal-Ext criteria from any converse deduced only from a numerical Cartan-Poincare inverse identity. The current links use the shared definition and the appropriately stated Ext criterion, not an unproved numerical sufficiency claim.",
-   "origin": "Previously recorded in the ZigzagPreprojective handoff from PR #463; rechecked against the unchanged source, not represented as a new independent review."
-  },
-  {
-   "id": "R-RELATIVE",
-   "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "status": "existing-pending-rescope",
-   "need": "Resolve relative projective/injective and enough-relative foundations before GEF Layer 3 and SPC Layer 0 use them. Proposed ownership and tests are in PR #783; do not introduce a reverse dependence on SPC.",
-   "origin": "PR #783 by this same worker, pending independent review. Referenced for coordination, not self-approved."
-  }
- ],
- "existingLinks": [
-  {
-   "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
-   "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
-   "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
-   "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
-   "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
-   "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
-   "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
-   "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
-   "state": "present-at-input"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
-   "recordedIn": "PR #783",
-   "state": "pending-not-approved",
-   "head": "eadb5458572f4d5250888884976b146f7abb2ca0"
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
-   "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
-   "recordedIn": "PR #783",
-   "state": "pending-not-approved",
-   "head": "eadb5458572f4d5250888884976b146f7abb2ca0"
-  }
- ],
- "provenance": {
-  "worker": "ChatGPT Pro — cgp-0d58f52c658d",
-  "jobId": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
-  "claimComment": 5698561497,
-  "confirmationComment": 5698564336,
-  "inputRevision": "a76bb6f57f2102b346433743606fac55869111eb",
-  "latestMainRead": "3bbae93d74134ee48575d60d889fc8e57f3ac7e9",
-  "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
-  "targetBlob": "f508d231b5c9b0674a739b942906110e12d6b57e",
-  "artifactRun": 35102954341,
-  "artifactId": 10448519498,
-  "artifactSha256": "8080081042739e8cce047d270d726df2238f25ad40df1d2b53f22a02052378f8",
-  "baseline": {
-   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
-  },
-  "scope": "Roadmap contracts only; no declaration or external proof audit and no independent review of this worker's prior submissions."
- },
- "screen": {
-  "roadmaps": 218,
-  "atlasRoadmaps": 212,
-  "newDesigns": 6,
-  "stages": 2007,
-  "stageEdges": 3508,
-  "normalizedInitialStageHits": 139,
-  "additionalSynonymStageHits": 12,
-  "patterns": [
-   "Grothendieck(?:EulerForms|/Euler| group)",
-   "Cartan.(?:map|matri)",
-   "Euler.(?:characteristic|pairing|form|class|descent)",
-   "Ext.Euler",
-   "conflation",
-   "exact categor",
-   "exact.structure",
-   "split.exact",
-   "finite.{0,35}resolution",
-   "resolving subcategor",
-   "horseshoe",
-   "linear.{0,35}resolution",
-   "numerical.{0,25}(?:group|quotient)",
-   "sesquilinear",
-   "q.Euler",
-   "Jordan.H.der",
-   "Krull.Schmidt",
-   "projective cover",
-   "composition.factor",
-   "additive invariant",
-   "biadditive",
-   "radical preservation",
-   "preserv.{0,20}radical",
-   "group completion",
-   "Euler.Poincar",
-   "finite.support.{0,30}sum",
-   "linearit.{0,40}Koszul",
-   "Grothendieck.*?Laurent"
   ],
-  "notationPattern": "\\bK[ _]?0\\b|K₀|K_\\{0\\}|\\bG[ _]?0\\b|G₀",
-  "additionalSynonyms": "Grothendieck ring; representation ring; virtual character; additive object class; class map; graded K0",
-  "method": "All 218 overviews and full-text searches across stage descriptions and READMEs. Unchanged overviews from this run's preceding catalogue screen were reused; the updated LV design was refreshed. Lexical collisions were rejected in context before forming candidate pairs. Candidate stages supporting links and overlaps were read in full. readScope is explicit: not every unrelated README or lexical hit was read sequentially in full, and this is not a proof audit.",
-  "readScopeLocation": "Per-candidate stage locators and read-scope distinctions are recorded in the handoff; default is overview plus full-text screen, not a full proof read."
- },
- "reviewFollowUp": [
-  "Independent review of the fifteen links and six overlap proposals; this is not independent review of this worker's PRs #463 or #783.",
-  "Clarify R-RADICAL before implementing functorial numerical quotients. Decide general Cartan and relative-projective ownership; numerical Koszul sufficiency remains unverified.",
-  "Recheck current partner packets at integration. The recorded latest-main comparison adds EllipticCurves/ProfiniteProPGroups packets without changing the atlas, source READMEs or validator."
- ],
- "validation": {
-  "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json",
-  "state": "Canonical input-world and explicit pending-SPC-overlay checks each ran: 0 errors, 0 warnings.",
-  "world": "Actual full artifact repository at input; pending SPC #783 additionally checked in an explicit scratch overlay. PR CI is a separate submitted-commit check.",
-  "supplemental": "46 quotations checked including overlap/request evidence; 218 unique catalogue IDs, 2007 stage count and active-pair deduplication checked."
- },
- "examined": [
-  {"roadmapId":"AInfCohomology","result":"none"},
-  {"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none"},
-  {"roadmapId":"AdditiveCombinatorics","result":"none"},
-  {"roadmapId":"AdelicAlgebraicGroups","result":"none"},
-  {"roadmapId":"AdicCoefficientsAndComparisons","result":"none"},
-  {"roadmapId":"AdicEtaleGeometry","result":"none"},
-  {"roadmapId":"AdicSpacesPartII","result":"none"},
-  {"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none"},
-  {"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none"},
-  {"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none"},
-  {"roadmapId":"AnalyticHabiroStack","result":"none"},
-  {"roadmapId":"AnalyticNumberTheory","result":"none"},
-  {"roadmapId":"AnalyticStacks","result":"none"},
-  {"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none"},
-  {"roadmapId":"ArithmeticDynamics","result":"none"},
-  {"roadmapId":"ArithmeticGaloisDuality","result":"none"},
-  {"roadmapId":"ArithmeticGaloisRepresentations","result":"none"},
-  {"roadmapId":"ArithmeticKTheory","result":"none"},
-  {"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none"},
-  {"roadmapId":"ArithmeticQuantumTopology","result":"none"},
-  {"roadmapId":"ArithmeticStatistics","result":"none"},
-  {"roadmapId":"AutomorphicBundles","result":"none"},
-  {"roadmapId":"AutomorphicCongruences","result":"none"},
-  {"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none"},
-  {"roadmapId":"AutomorphicGaloisRepresentations","result":"none"},
-  {"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none"},
-  {"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none"},
-  {"roadmapId":"AutomorphicPadicLFunctions","result":"none"},
-  {"roadmapId":"AutomorphicSpectralTheory","result":"none"},
-  {"roadmapId":"BorelRegulators","result":"none"},
-  {"roadmapId":"BunGAndNewtonStrata","result":"none"},
-  {"roadmapId":"ClassicalAdicEtaleCohomology","result":"none"},
-  {"roadmapId":"ClassicalArithmeticCompletion","result":"none"},
-  {"roadmapId":"ClassicalSerreModularity","result":"none"},
-  {"roadmapId":"CohomologyComparisons","result":"none"},
-  {"roadmapId":"ColemanIntegration","result":"none"},
-  {"roadmapId":"ColemanPowerSeries","result":"none"},
-  {"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none"},
-  {"roadmapId":"CompletedCohomologyPartII","result":"none"},
-  {"roadmapId":"ComplexComparisonPartII","result":"none"},
-  {"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none"},
-  {"roadmapId":"ComputationalNumberTheory","result":"none"},
-  {"roadmapId":"CrystallineCohomology","result":"none"},
-  {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none"},
-  {"roadmapId":"DeligneWeightsAndPurity","result":"none"},
-  {"roadmapId":"DerivedDeRhamCohomology","result":"none"},
-  {"roadmapId":"DiamondEtaleCohomology","result":"none"},
-  {"roadmapId":"DiamondSixOperations","result":"none"},
-  {"roadmapId":"DiamondsAndVStacks","result":"none"},
-  {"roadmapId":"DiophantineApproximationAndTranscendence","result":"none"},
-  {"roadmapId":"DirichletPadicLFunctions","result":"none"},
-  {"roadmapId":"DrinfeldModulesAndTModules","result":"none"},
-  {"roadmapId":"EffectiveDiophantineMethods","result":"none"},
-  {"roadmapId":"EllipticCurveModularity","result":"none"},
-  {"roadmapId":"EllipticKTheory","result":"none"},
-  {"roadmapId":"EllipticRegulators","result":"none"},
-  {"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none"},
-  {"roadmapId":"EnhancedDerivedSheaves","result":"none"},
-  {"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none"},
-  {"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none"},
-  {"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none"},
-  {"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none"},
-  {"roadmapId":"ExponentialSumsAndCircleMethod","result":"none"},
-  {"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none"},
-  {"roadmapId":"FarguesFontaineDiamonds","result":"none"},
-  {"roadmapId":"FiniteFieldsAndCharacterSums","result":"none"},
-  {"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none"},
-  {"roadmapId":"FoundationsAndLibraryIntegration","result":"overlap"},
-  {"roadmapId":"FunctionFieldArithmetic","result":"none"},
-  {"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none"},
-  {"roadmapId":"GL2ModularityLifting","result":"none"},
-  {"roadmapId":"GeneralAlgebraicKTheory","result":"links"},
-  {"roadmapId":"GeneralizedHeegnerCycles","result":"none"},
-  {"roadmapId":"GeometricSatakeAndFusion","result":"none"},
-  {"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"links"},
-  {"roadmapId":"GlobalGaloisDeformations","result":"none"},
-  {"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none"},
-  {"roadmapId":"GrossZagierAndArithmeticHeights","result":"none"},
-  {"roadmapId":"HabiroCohomologyFoundations","result":"none"},
-  {"roadmapId":"HabiroCyclotomicCompletions","result":"none"},
-  {"roadmapId":"HabiroNahmSeries","result":"none"},
-  {"roadmapId":"HabiroNumberFields","result":"none"},
-  {"roadmapId":"HabiroRings","result":"none"},
-  {"roadmapId":"HeckeStacksAndLocalShtukas","result":"none"},
-  {"roadmapId":"HeegnerPointEulerSystems","result":"none"},
-  {"roadmapId":"HeightsRationalPointsAndObstructions","result":"none"},
-  {"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none"},
-  {"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none"},
-  {"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none"},
-  {"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none"},
-  {"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none"},
-  {"roadmapId":"IntegralIwasawaTheory","result":"none"},
-  {"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none"},
-  {"roadmapId":"K2SymbolsBrauer","result":"none"},
-  {"roadmapId":"K3BlochGroups","result":"none"},
-  {"roadmapId":"KTheoryFiniteLocalFields","result":"none"},
-  {"roadmapId":"KTheoryLowDegrees","result":"links"},
-  {"roadmapId":"KatoEulerSystems","result":"none"},
-  {"roadmapId":"LanglandsParameterStacks","result":"none"},
-  {"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none"},
-  {"roadmapId":"LocalGaloisDeformationRings","result":"none"},
-  {"roadmapId":"LocallyAnalyticDistributions","result":"none"},
-  {"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none"},
-  {"roadmapId":"MetaplecticAutomorphicForms","result":"none"},
-  {"roadmapId":"ModularCurvesPartII","result":"none"},
-  {"roadmapId":"ModularIwasawaMainConjectures","result":"none"},
-  {"roadmapId":"ModularSymbolsPadicLFunctions","result":"none"},
-  {"roadmapId":"ModularityAndLanglandsExtensions","result":"none"},
-  {"roadmapId":"MordellLawrenceVenkatesh","result":"none"},
-  {"roadmapId":"MotivesAndAlgebraicCycles","result":"none"},
-  {"roadmapId":"MotivicEtaleKTheory","result":"none"},
-  {"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none"},
-  {"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none"},
-  {"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none"},
-  {"roadmapId":"OverconvergentAutomorphicForms","result":"none"},
-  {"roadmapId":"PELModuli","result":"none"},
-  {"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none"},
-  {"roadmapId":"PadicFamilies","result":"none"},
-  {"roadmapId":"PadicHodgeRegulators","result":"none"},
-  {"roadmapId":"PadicHodgeTheory","result":"none"},
-  {"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none"},
-  {"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none"},
-  {"roadmapId":"PerfectoidQuotients","result":"none"},
-  {"roadmapId":"PerfectoidShimuraVarieties","result":"none"},
-  {"roadmapId":"PerfectoidSpaces","result":"none"},
-  {"roadmapId":"PeriodsAndSpecialValues","result":"none"},
-  {"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none"},
-  {"roadmapId":"Polylogarithms","result":"none"},
-  {"roadmapId":"PotentialAutomorphyInfrastructure","result":"none"},
-  {"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none"},
-  {"roadmapId":"PrismaticCohomology","result":"none"},
-  {"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none"},
-  {"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none"},
-  {"roadmapId":"QWittVectors","result":"none"},
-  {"roadmapId":"RankZeroOneBSD","result":"none"},
-  {"roadmapId":"ReductiveGroupsPartII","result":"none"},
-  {"roadmapId":"RefinedTraceMethods","result":"none"},
-  {"roadmapId":"RelativeFarguesFontaine","result":"none"},
-  {"roadmapId":"RingStacksAndTransmutation","result":"none"},
-  {"roadmapId":"SchemeAndStackFoundations","result":"none"},
-  {"roadmapId":"SchemeKTheoryOperations","result":"none"},
-  {"roadmapId":"SelmerIwasawaCohomology","result":"none"},
-  {"roadmapId":"SerreWeightAndLevelOptimisation","result":"none"},
-  {"roadmapId":"ShimuraCompactifications","result":"none"},
-  {"roadmapId":"ShimuraData","result":"none"},
-  {"roadmapId":"ShimuraVarieties","result":"none"},
-  {"roadmapId":"SieveMethodsAndPrimePatterns","result":"none"},
-  {"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none"},
-  {"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none"},
-  {"roadmapId":"SolidAnalyticRings","result":"none"},
-  {"roadmapId":"SpecialValuesBirchTate","result":"none"},
-  {"roadmapId":"StableHomotopyKTheory","result":"overlap"},
-  {"roadmapId":"TorsionCohomologyInfrastructure","result":"none"},
-  {"roadmapId":"TropicalAndBerkovichArithmetic","result":"none"},
-  {"roadmapId":"VStackSheavesAndLisseCategories","result":"none"},
-  {"roadmapId":"VectorBundlesAndIsocrystals","result":"none"},
-  {"roadmapId":"WeightsInEtaleCohomology","result":"none"},
-  {"roadmapId":"WeilConjectures","result":"none"},
-  {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none"},
-  {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none"},
-  {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none"},
-  {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"overlap"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"links"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"links"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"overlap"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"overlap"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"links"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"links"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"links"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"links"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none"},
-  {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"links"}
- ]
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+        "StableHomotopyKTheory:H.4"
+      ],
+      "detail": "Algebraic split K0 and the component group of homotopy group completion meet in additive examples. H.4, however, applies to symmetric monoidal groupoids that need not be additive.",
+      "recommendation": "keep",
+      "proposal": "Keep H.4 responsible for its homotopy group-completion theorem and coherence. Use ordinary monoid group completion at pi0; compare with GEF split K0 only for the maximal subgroupoid of an additive category with direct sum. Neither its full morphism category nor a general monoidal groupoid is silently an additive category. The algebraic comparison is already supplied by the pinned TauCeti.SplitK0.grothendieckAddGroupEquiv; it does not construct a homotopy group-completion space.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+          "quote": "Relate the result to Mathlib's\n  commutative-monoid group completion of the monoid of isomorphism classes."
+        },
+        {
+          "stageId": "StableHomotopyKTheory:H.4",
+          "quote": "Its π₀ is the ordinary Grothendieck group of the monoid of components."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "detail": "The GEF Layer 4 document is finite-dimensional, whereas KTheoryLowDegrees Z.6 consumes the general Cartan map. The mismatch is documentary: the pinned TauCeti.cartanMap already works for any ring on the exact categories of finitely generated projectives and finitely generated modules.",
+      "recommendation": "rescope",
+      "proposal": "Reuse TauCeti.cartanMap and the existing finiteModulesExactStructure/finiteProjectiveModulesExactStructure from Algebra/Category/ModuleCat/CartanMap.lean. The map needs no noetherian or coherence hypothesis: it uses inherited exact structures, not an assertion that finitely generated modules form an abelian category over every ring. TauCeti.cartanEquiv additionally assumes every finitely generated module has a finite resolution by finitely generated projectives. KTheoryLowDegrees retains ring/scheme, perfect-complex and higher-K comparisons; the documentary GEF Layer 4 retains finite-dimensional bases/matrices and must name this existing general baseline instead of scheduling its construction.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "Let `k` be a field and `A` a finite-dimensional `k`-algebra.  Work with left modules."
+        },
+        {
+          "stageId": "KTheoryLowDegrees:Z.6",
+          "quote": "Compare the Cartan map to G₀ with the existing general Cartan map, rather than defining a second one."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations"
+      ],
+      "detail": "The finite-dimensional bounded-complex Euler-Poincare calculation appears in the generic algebraic layer and inside finite-CW cellular comparison. The CW construction is not duplicated.",
+      "recommendation": "keep",
+      "proposal": "Use a single finite-complex dimension identity with explicit boundedness and finite-dimensionality. AlgebraicTopology owns the cellular complex, its singular comparison and proof of those hypotheses. Compare coefficient-field and indexing conventions before identifying implementations; no new directed edge is forced by the shared theorem name. For a bounded cochain complex of finite-dimensional vector spaces, the pinned HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar supplies the term/homology dimension identity. The relevant cochain encoding and application hypotheses still need their own comparison; no full application theorem is inferred from this baseline lemma.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For vector spaces, record finite-dimensionality of\n  every term and boundedness explicitly."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+          "quote": "Prove finite-CW Euler--Poincare and finite-generation consequences from the cellular complex."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation"
+      ],
+      "detail": "The algebraic finite-exact-sequence dimension identity is also the bookkeeping step in the pro-p two/three-term Euler formulas. The pro-p source already names its long exact sequence and finrank inputs.",
+      "recommendation": "keep",
+      "proposal": "Share or compare only the finite-exact-sequence alternating-dimension lemma. ProfiniteProPGroups retains Shapiro, trivial filtrations, topological finite generation, finite H2 assumptions and the group-index formula. Finite p-primary modules are not generally Fp-vector spaces; use composition length unless p kills the coefficient. No higher-K or general Ext-finite-category hypothesis is inserted. For a bounded cochain complex of finite-dimensional vector spaces, the pinned HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar supplies the term/homology dimension identity. The relevant cochain encoding and application hypotheses still need their own comparison; no full application theorem is inferred from this baseline lemma.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "Prove reindexing, shift/sign, direct-sum, and finite-exact-sequence formulas."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "additivity of `finrank` along a finite exact sequence of finite-dimensional vector spaces."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "finiteness for `G` is a hypothesis, and not a consequence."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+        "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology"
+      ],
+      "detail": "The finite-exact-sequence alternating-dimension step is shared with the analytic Riemann-Roch induction. Analytic finiteness, acyclicity and degree calculations are distinct.",
+      "recommendation": "keep",
+      "proposal": "Reuse one finite-dimensional six-term Euler identity, after the analytic layer proves its H0/H1 finiteness and skyscraper acyclicity. ModularForms 10B owns the sheaves, Leray/local analytic input, induction, residue duality and genus comparison. The abstract finite-sum lemma is not a proof of Riemann-Roch. For a bounded cochain complex of finite-dimensional vector spaces, the pinned HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar supplies the term/homology dimension identity. The relevant cochain encoding and application hypotheses still need their own comparison; no full application theorem is inferred from this baseline lemma.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "Prove reindexing, shift/sign, direct-sum, and finite-exact-sequence formulas."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+          "quote": "`0 → 𝒪_D → 𝒪_{D+P} → ℂ_P → 0` and the six-term exact sequence"
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "R-RADICAL",
+      "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+      "status": "clarify-hypotheses",
+      "need": "Make the preceding radical-preservation hypotheses explicit in the sentence about pairing-preserving pairs of maps. Pairing preservation alone does not suffice. Opposite-side surjectivity is one sufficient extra condition for one-sided radical preservation; otherwise assume and prove the two radical containments directly. The pinned numerical-quotient API already enforces this distinction; align the roadmap sentence with it instead of planning replacement quotient maps.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+          "quote": "Pairing-preserving\n  pairs of maps yield a map of both numerical quotients."
+        }
+      ],
+      "counterexample": "Let L=R=Z with b=0. Let Lprime=Rprime=Z^2 with B((a,b),(c,d))=ad+bc, and f(n)=g(n)=(n,0). Then B(f(n),g(m))=0=b(n,m), but f(1) pairs to 1 with (0,1); neither map preserves its source radical Z into the target radical 0. The quotient-source is zero, so f cannot be induced by a map to the target numerical quotient Z^2.",
+      "interpretation": "The preceding sentence already requires radical preservation. This request prevents the following sentence from being read as an unjustified sufficient condition, rather than rejecting the valid quotient construction."
+    },
+    {
+      "id": "R-KOSZUL",
+      "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+      "status": "unverified-stronger-converse",
+      "need": "Separate linear-resolution/diagonal-Ext criteria from any converse deduced only from a numerical Cartan-Poincare inverse identity. The current links use the shared definition and the appropriately stated Ext criterion, not an unproved numerical sufficiency claim. Keep potentially infinite Koszul linear resolutions distinct from the finite-resolution theorem elsewhere in this layer.",
+      "origin": "Previously recorded in the ZigzagPreprojective handoff from PR #463; rechecked against the unchanged source, not represented as a new independent review."
+    },
+    {
+      "id": "R-RELATIVE",
+      "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "status": "baseline-reuse-and-documentary-alignment",
+      "need": "Relative projective/injective predicates, presentation structures and EnoughProjectives/EnoughInjectives already exist in TauCeti/CategoryTheory/Exact/Projective.lean and Injective.lean at the pin. Reuse that foundation before GEF Layer 3 and SPC Layer 0. Align the ownership prose with those declarations; no reverse dependency on SPC and no new foundational carrier is needed.",
+      "origin": "The original worker recorded an ownership proposal in PR #783. Independent review checked the actual pinned relative-object declarations and the now-present partner links; the old pending status is historical."
+    }
+  ],
+  "existingLinks": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "state": "present-at-review"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json",
+      "state": "present-at-review",
+      "historicalPR": 783,
+      "historicalHead": "eadb5458572f4d5250888884976b146f7abb2ca0"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+      "target": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json",
+      "state": "present-at-review",
+      "historicalPR": 783,
+      "historicalHead": "eadb5458572f4d5250888884976b146f7abb2ca0"
+    }
+  ],
+  "provenance": {
+    "worker": "ChatGPT Pro — cgp-0d58f52c658d",
+    "jobId": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+    "claimComment": 5698561497,
+    "confirmationComment": 5698564336,
+    "inputRevision": "a76bb6f57f2102b346433743606fac55869111eb",
+    "latestMainRead": "3bbae93d74134ee48575d60d889fc8e57f3ac7e9",
+    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "targetBlob": "f508d231b5c9b0674a739b942906110e12d6b57e",
+    "artifactRun": 35102954341,
+    "artifactId": 10448519498,
+    "artifactSha256": "8080081042739e8cce047d270d726df2238f25ad40df1d2b53f22a02052378f8",
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "scope": "Roadmap contracts only; no declaration or external proof audit and no independent review of this worker's prior submissions."
+  },
+  "screen": {
+    "roadmaps": 218,
+    "atlasRoadmaps": 212,
+    "newDesigns": 6,
+    "stages": 2007,
+    "stageEdges": 3508,
+    "normalizedInitialStageHits": 139,
+    "additionalSynonymStageHits": 12,
+    "patterns": [
+      "Grothendieck(?:EulerForms|/Euler| group)",
+      "Cartan.(?:map|matri)",
+      "Euler.(?:characteristic|pairing|form|class|descent)",
+      "Ext.Euler",
+      "conflation",
+      "exact categor",
+      "exact.structure",
+      "split.exact",
+      "finite.{0,35}resolution",
+      "resolving subcategor",
+      "horseshoe",
+      "linear.{0,35}resolution",
+      "numerical.{0,25}(?:group|quotient)",
+      "sesquilinear",
+      "q.Euler",
+      "Jordan.H.der",
+      "Krull.Schmidt",
+      "projective cover",
+      "composition.factor",
+      "additive invariant",
+      "biadditive",
+      "radical preservation",
+      "preserv.{0,20}radical",
+      "group completion",
+      "Euler.Poincar",
+      "finite.support.{0,30}sum",
+      "linearit.{0,40}Koszul",
+      "Grothendieck.*?Laurent"
+    ],
+    "notationPattern": "\\bK[ _]?0\\b|K₀|K_\\{0\\}|\\bG[ _]?0\\b|G₀",
+    "additionalSynonyms": "Grothendieck ring; representation ring; virtual character; additive object class; class map; graded K0",
+    "method": "All 218 overviews and full-text searches across stage descriptions and READMEs. Unchanged overviews from this run's preceding catalogue screen were reused; the updated LV design was refreshed. Lexical collisions were rejected in context before forming candidate pairs. Candidate stages supporting links and overlaps were read in full. readScope is explicit: not every unrelated README or lexical hit was read sequentially in full, and this is not a proof audit.",
+    "readScopeLocation": "Per-candidate stage locators and read-scope distinctions are recorded in the handoff; default is overview plus full-text screen, not a full proof read."
+  },
+  "reviewFollowUp": [
+    "Align source prose with the pinned general Cartan and relative-object APIs. Retain the explicit radical-preservation hypotheses.",
+    "The general resolving-subcategory extension, graded resolutions, numerical Koszul converse and application-specific comparisons are not certified as implemented by this review.",
+    "All nine existingLinks pairs were checked in current partner packets. Other packets are not independently accepted wholesale by that presence check."
+  ],
+  "validation": {
+    "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json",
+    "state": "Canonical input-world and explicit pending-SPC-overlay checks each ran: 0 errors, 0 warnings.",
+    "world": "Actual full artifact repository at input; pending SPC #783 additionally checked in an explicit scratch overlay. PR CI is a separate submitted-commit check.",
+    "supplemental": "46 quotations checked including overlap/request evidence; 218 unique catalogue IDs, 2007 stage count and active-pair deduplication checked.",
+    "scope": "Historical original-worker input/overlay checks. Independent review validation is in reviewValidation and the report."
+  },
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none"
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none"
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none"
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none"
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none"
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none"
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none"
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none"
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none"
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "links"
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "links"
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none"
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none"
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none"
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none"
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none"
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none"
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "links"
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none"
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none"
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none"
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none"
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none"
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none"
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none"
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none"
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none"
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none"
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none"
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none"
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none"
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none"
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none"
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none"
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none"
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none"
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "overlap"
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none"
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none"
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none"
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none"
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "overlap"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "links"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "links"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "overlap"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "overlap"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "links"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "links"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "links"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "links"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none"
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "links"
+    }
+  ],
+  "retiredOverlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+        "FoundationsAndLibraryIntegration:LI.3"
+      ],
+      "detail": "LI.3 lists unification of exact-category interfaces, while GEF Layer 0 owns the actual intrinsic exact-structure construction.",
+      "recommendation": "keep",
+      "proposal": "Keep GEF Layer 0 as the exact-structure and conflation-exact-functor owner. LI.3 coordinates shared category infrastructure and names this supplier rather than rebuilding an exact structure. Ordinary abelian/derived infrastructure remains with its existing owners.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "quote": "An `ExactStructure C` is an isomorphism-closed class of these pairs with\n  the self-dual Bühler axioms E0/E0op, E1/E1op, and E2/E2op."
+        },
+        {
+          "stageId": "FoundationsAndLibraryIntegration:LI.3",
+          "quote": "Unify universes, limits, adjunctions, abelian and exact categories, resolutions, derived functors, spectral sequences, monoidal structures and sheafification."
+        }
+      ],
+      "reviewDisposition": "Removed from active overlaps because FoundationsAndLibraryIntegration was retired by the atlas owner. No replacement coordination roadmap is introduced; the actual exact-structure carrier is already in TauCeti."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+    "date": "2026-09-23",
+    "notes": "Reviewed every endpoint in full and all six original overlaps. Retain fifteen links, downgrade three unilateral documentary references to inferred, archive one overlap with a retired roadmap, and correct stale baseline construction/scope claims. Eight own stages considered in completeness; no additional unrepresented directed pair justified. Existing nine partner pairs are present. See the report for hypotheses, mathematical checks and limits.",
+    "removed": [
+      {
+        "stages": [
+          "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+          "FoundationsAndLibraryIntegration:LI.3"
+        ],
+        "kind": "overlap",
+        "reason": "FoundationsAndLibraryIntegration is retired; retain historical evidence only under retiredOverlaps."
+      }
+    ],
+    "added": []
+  },
+  "reviewBaseline": {
+    "worker": "Codex — codex-hjdg0j",
+    "inputRevision": "11da90fcd80f346a9f16d230bad4313451320a59",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "audit": "AUDIT-22 as corrected by REV-AUDIT-22; all eight GEF coverage entries read. Targeted declaration statements independently checked; no Lean compilation. Original screen/validation/provenance fields remain historical.",
+    "activeRoadmaps": 217,
+    "stageRecordsSearched": 2007,
+    "refreshRevision": "7ce45a850ba7cfa28e9ce1340b68bfb34a8ab369"
+  },
+  "reviewValidation": {
+    "links": 15,
+    "activeOverlaps": 5,
+    "activeExamined": 217,
+    "literalCurrentQuotes": 44,
+    "existingPairsVerified": 9,
+    "graphEdgesBefore": 4431,
+    "graphEdgesAfter": 4446,
+    "requiresEdges": 3746,
+    "acyclic": true,
+    "lean": "No file changed or compiled."
+  }
 }
