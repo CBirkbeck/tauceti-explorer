@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Local newforms for the general linear groups over a non-archimedean local field",
     "authors": "Hiraku Atobe, Satoshi Kondo and Seidai Yasuda",
@@ -92,7 +92,7 @@
       "lapidMaoSha256": "9ac53cab98805703dcecca24a4df24c62eed9df7779477ddf270bacf0cd89d89"
     }
   },
-  "summary": "Continuation of the full-paper extraction:161 items,42 definitions with126 named API contracts and126 tests, eight preserved ownership routes and18 provisional source findings. The new GL2 derivative eigenfunction directly refutes the printed all-parameter Lemma8.10; the Theorem9.1 common-kernel construction now has a verified compact-induction match and an infinite-dimensional strengthening. Newform conclusions themselves are not disproved. Five additional narrow pinned-library credits and explicit finite-DVR/free-cover proofs remove avoidable foundational gaps. The extraction remains partial because analytic repairs and recursive cited-source closure are unresolved.",
+  "summary": "Atobe–Kondo–Yasuda define compact open subgroups K_{n,λ} of GL_n(F) indexed by tuples λ. They state local newform theory for all irreducible representations: dim π^{K_{n,λ_π}} = 1 and vanishing below λ_π (Theorems 2.1, 2.2). The proof runs through a Mackey reduction, determinantal formulas for type-χ representations, and Rankin–Selberg integrals in Shalika models for Speh representations. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and nineteen findings are recorded. Theorem 9.1's uniqueness is false (E1), Lemma 8.10 fails at repeated parameters (E3), and hence the paper does not establish Theorem 2.1 for Speh representations with L(s, π) = 1 and n, m ≥ 2 (E19). Not formalised.",
   "conventions": [
     "Unless explicitly weakened, F is a nonarchimedean local field of characteristic zero, o its valuation ring, p its maximal ideal, varpi a uniformizer, q=|o/p|, and psi:C-valued additive character of conductor o. Representations are smooth complex; Irr means irreducible admissible. G_n=GL_n(F), G_0={1}.",
     "Lambda_n consists of ascending nonnegative n-tuples, ordered lexicographically, with componentwise addition and weight |lambda|=sum lambda_i. Embed by LEFT zero-padding. K_n,lambda consists of invertible integral matrices with row i congruent to row i of 1 modulo p^lambda_i.",
@@ -653,7 +653,7 @@
       "statement": "For every pi in Irr(G_n), dim_C pi^(K_n,lambda_pi)=1. This is the printed target; its proof closure is conditional on resolving the §9 separation defect.",
       "locator": "Theorem2.1, first assertion (also1.1(1))",
       "status": "missing",
-      "note": "OPEN proof obligation; do not mark formalized or use the false uniqueness theorem as an axiom.",
+      "note": "OPEN proof obligation; do not mark formalized or use the false uniqueness theorem as an axiom. (cc-442dc5, 23 September 2026) The paper's gap for this case is recorded as E19.",
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/lambda",
         "PAPER-ATOBE-KONDO-YASUDA-22/level",
@@ -674,7 +674,8 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/reduction",
         "PAPER-ATOBE-KONDO-YASUDA-22/unipotent-main",
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-lex"
-      ]
+      ],
+      "note": "(cc-442dc5, 23 September 2026) The paper's gap for this case is recorded as E19."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/main-weight",
@@ -3266,7 +3267,8 @@
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/essential-kernel",
         "PAPER-ATOBE-KONDO-YASUDA-22/model-levi"
-      ]
+      ],
+      "note": "(cc-442dc5, 23 September 2026) The paper's gap for this case is recorded as E19."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/speh-lex",
@@ -3454,7 +3456,8 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/slice-fe",
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-level",
         "PAPER-ATOBE-KONDO-YASUDA-22/levi-separation"
-      ]
+      ],
+      "note": "(cc-442dc5, 23 September 2026) The paper's gap for this case is recorded as E19."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/speh-main",
@@ -3468,7 +3471,8 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/segment-reduction",
         "PAPER-ATOBE-KONDO-YASUDA-22/unipotent-main",
         "PAPER-ATOBE-KONDO-YASUDA-22/reduction"
-      ]
+      ],
+      "note": "(cc-442dc5, 23 September 2026) The paper's gap for this case is recorded as E19."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/newform-restriction",
@@ -4242,15 +4246,17 @@
       "locator": "Published Theorem9.1/Definition9.2 pp48–50; arXiv v4 pp52–54",
       "printed": "There exists a unique function",
       "correction": "Replace the unique-choice definition by a solution-set/existence interface pending a repaired theorem with extra conditions. The two printed test conditions alone do not determine a vector for n=m=2. Also remove the assertion that all restricted Speh vectors lie in Pi.",
-      "reason": "For n=m=2, G'=GL2,V'=1,T'=id and all formal W^0 are left-N'-invariant. With u=[[1,varpi^-1],[0,1]], f=1_(uK')-1_K' is a nonzero right-K'-invariant compact function annihilated by every test integral by left translation (det u=1). Extend f to D=V iota(G') using Psi. Lapid–Mao20 Cor3.13/3.15 supplies a Shalika vector with this restriction; right averaging preserves f. Adding it to the L=1 essential vector gives a second solution. The proof's character claim fails explicitly: (I+tE13)(I+bE32)(I-tE13)=I+bE32+tbE12, so Psi changes by psi(tb). See report for full argument and limits. The continuation verifies the compact-induction hypothesis directly against Lapid–Mao Cor3.13/3.15 and obtains infinitely many independent perturbations using u_r=I+varpi^-r E12. These vectors satisfy precisely the printed right-iota(Kprime) condition; no K^(c_pi)-invariance is claimed.",
+      "reason": "For n=m=2, G'=GL2,V'=1,T'=id and all formal W^0 are left-N'-invariant. With u=[[1,varpi^-1],[0,1]], f=1_(uK')-1_K' is a nonzero right-K'-invariant compact function annihilated by every test integral by left translation (det u=1). Extend f to D=V iota(G') using Psi. Lapid–Mao20 Cor3.13/3.15 supplies a Shalika vector with this restriction; right averaging preserves f. Adding it to the L=1 essential vector gives a second solution. The proof's character claim fails explicitly: (I+tE13)(I+bE32)(I-tE13)=I+bE32+tbE12, so Psi changes by psi(tb). See report for full argument and limits. The continuation verifies the compact-induction hypothesis directly against Lapid–Mao Cor3.13/3.15 and obtains infinitely many independent perturbations using u_r=I+varpi^-r E12. These vectors satisfy precisely the printed right-iota(Kprime) condition; no K^(c_pi)-invariance is claimed. (cc-442dc5) Rechecked. For n = m = 2, V′ = 1, V″ = V and Ψ(g) = ψ(g_12 + g_34). Conjugating V by ι(u′) = 1 + zE_13 sends E_32 to E_32 − zE_12, so Ψ is not preserved, and the step 'φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′)' in the uniqueness proof fails. If it held, every W∘ι (W ∈ W_Sh(σ)) would be left N′-invariant and square-integrable on GL_2 (Theorem 8.2), hence zero. That contradicts Lapid–Mao's Corollary 3.15, which the paper uses in its own existence proof.",
       "affects": "a stated result",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/essential",
@@ -4268,13 +4274,15 @@
       "correction": "Require lambda≠0 for this escape argument. Handle lambda=0 separately in the ambient L(s,pi)=1 application via absence of spherical cuspidal vectors. Do not export the literal standalone lemma for all cuspidals and all lambda.",
       "reason": "At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(varpi o*) acts by pi(varpi)≠0 and is not nilpotent. For lambda=0 central scaling puts every g∈GL_n(F) in Z_n X_0^(>=m). The whole section concerns L=1, so the intended application may survive with the missing zero-level argument; this does not refute Theorem2.2.",
       "affects": "the proof",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/hecke-nilpotent",
@@ -4290,13 +4298,15 @@
       "correction": "The all-parameter spanning statement must be replaced: n=m=2, equal parameters(x,x) admit the additional eigenfunction H(g)=(a-b)q^(-(a-b)/2)x^(a+b) for g=n diag(varpi^a,varpi^b)k. Distinct-parameter spanning and a confluent family at collisions require separate valid statements and proofs.",
       "reason": "Differentiate W_Ze^0(x exp(t),x exp(-t)) at t=0. Every spherical Hecke eigenvalue is even in t, so the derivative has the same eigenvalue; Hecke convolution is a finite sum on right-K-fixed functions. H(1)=0 but H(diag(varpi,1))=q^-1/2 x, while W_Ze^0(x,x)(1)=1. This directly disproves the literal span, beyond the earlier geometric-lemma multiplicity defect.",
       "affects": "a stated result",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical-span",
@@ -4309,15 +4319,17 @@
       "locator": "Published pp52–53, proof and statement of Proposition9.8; same q^-m in v4 pp56–57",
       "printed": "q^(-m) X^(-d)",
       "correction": "Use q^(-m*d) X^(-d) in every transformed determinant-d summand.",
-      "reason": "X=q^-s and replacing s by m-s sends (q^-s)^d to (q^(-(m-s)))^d=q^(-md)X^-d. Already d=0 distinguishes1 fromq^-m. Nonzero coefficient scaling leaves the support bounds unchanged, but the printed finite functional equation needs correction.",
-      "affects": "a stated result",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "reason": "X=q^-s and replacing s by m-s sends (q^-s)^d to (q^(-(m-s)))^d=q^(-md)X^-d. Already d=0 distinguishes1 fromq^-m. Nonzero coefficient scaling leaves the support bounds unchanged, but the printed finite functional equation needs correction. (cc-442dc5) Checked on the page image of p. 52–53. Reclassified to affect nothing: the left side is by definition Z_m(m − s, …), so the misprinted factor does not enter the support bounds or Proposition 9.6's use.",
+      "affects": "nothing",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/det-slice",
@@ -4332,13 +4344,15 @@
       "correction": "Use the infinite sum in the denominator for equality in R[[t]], or declare congruence modulo t^(n+1).",
       "reason": "h contains all y_i t^i, so algebra gives denominator1+Σ_(i>=1)x_i t^i. Coefficient extraction at t^n is unaffected by truncating, but full-series equality is false.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/steinberg-polynomial"
@@ -4352,13 +4366,15 @@
       "correction": "The endpoint is (1,r), as in the path definition on p18.",
       "reason": "The allowed steps (-1,0),(0,1) and both figures force the top-right endpoint(1,r); the printed reversed endpoint is inconsistent.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/chain"
@@ -4372,13 +4388,15 @@
       "correction": "Retain indices2,3,4,5 from p10 after the singleton Delta'_1=[7,7] disappears; their truncations are[5,5],[4,4],[2,3],[0,2]. Alternatively rename them explicitly, but do not mix original and reset labels.",
       "reason": "The figure labels retained terms(Delta'_5)^-,...,(Delta'_2)^- correctly. The prose resets indices while also keeping the truncation superscript and changes the original Delta'_i values.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/truncate-vn"
@@ -4392,13 +4410,15 @@
       "correction": "Use [M'] vee [M''] in the final strict-inequality display.",
       "reason": "The entire proposition uses the padded-addition operation vee, not direct sum; the concluding equality follows from the hypothesis only for vee.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/submodule-deficit"
@@ -4412,13 +4432,15 @@
       "correction": "The second lattice is L_2.",
       "reason": "The previous paragraph fixes L_2⊆L_1 and the following identity uses K_(L1,L2). The standard quotient must be o^n/(⊕p^lambda_i).",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/lattice-level"
@@ -4432,13 +4454,15 @@
       "correction": "Use -N_(3,7,4,1)(M_pi).",
       "reason": "The ladder has x=(5,3,2,0),y=(7,6,5,3). The permutation w=(1,4,3,2) gives capacities(3,7,4,1) and negative sign. No permutation gives the printed(3,5,4,1). Capping all capacities at b=4 gives(3,4,4,1) in both cases, so the subsequent computation is unaffected.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/ladder-count"
@@ -4452,13 +4476,15 @@
       "correction": "Use the degree-one/type-chi specialization for the current proof. To export the full printed generality, replace c by degree-weighted derivative orders and justify constituent-wise equalities along each cuspidal line.",
       "reason": "For one degree-d cuspidal segment, highest derivative drops rank d, not1. The derivative identified with truncation in the displayed proof is not the Card(m)-th ordinary derivative when d>1. The actual §6.3 application has d=1 and is unaffected.",
       "affects": "the proof",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/derivative-constituent"
@@ -4472,13 +4498,15 @@
       "correction": "Use D=V iota(G').",
       "reason": "Lemma8.1(1) gives the latter identity. For n=m=2,V'=1 but D contains the four-dimensional V, so the displayed identity cannot hold. This typo is distinct from the substantive equivariance error E1.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/d-quotient",
@@ -4493,13 +4521,15 @@
       "correction": "Supply a disintegration with multiplicity fields and precisely defined evaluation/intertwining maps on an appropriate dense domain. Explain why the spherical test pairings determine the relevant spectral components, including singular Satake parameters.",
       "reason": "A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.",
       "affects": "the proof",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/spectral-separation"
@@ -4513,13 +4543,15 @@
       "correction": "The right side must use an essential solution for the CONTRAGREDIENT representation and inverse psi, with a distinct label. Specify its existence before the comparison. This notation correction alone does not justify the uniqueness argument.",
       "reason": "The left side is declared to lie in W_Sh^(psi^-1)(tilde sigma), while the existing W_Sh^ess belongs to W_Sh^psi(sigma). Right translation preserves its original representation/model and cannot change that type.",
       "affects": "the proof",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
         "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/speh-l1",
@@ -4534,9 +4566,11 @@
       "correction": "Use d>=1 for nonempty cuspidal segments; G_0 occurs only as the empty representation after derivatives.",
       "reason": "Section2.1 on p6 explicitly requires positive d; allowing degree0 nonempty segments breaks the total-rank classification.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/segment"
@@ -4550,9 +4584,11 @@
       "correction": "Use prefix b_i=n_1+...+n_i in both spans.",
       "reason": "Membership in the standard parabolic is preservation of cumulative block flags; for partition(1,2), the second required prefix is3, not2.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/double-cosets"
@@ -4566,9 +4602,11 @@
       "correction": "Replace pi_r by pi_s.",
       "reason": "Only pi_1,...,pi_s are defined in this reduction; each quotient indexed s must act on pi_s.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/unipotent-weight"
@@ -4582,12 +4620,27 @@
       "correction": "Read Corollary9.4.",
       "reason": "The numbered result9.4 is explicitly a corollary on p50; no Lemma9.4 exists. This repairs the locator only, not the faulty separation argument.",
       "affects": "nothing",
-      "known": "new (provisional worker finding; no correction located in the bounded search; independent review required)",
+      "known": "new",
       "searched": [
-        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence."
+        "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
+        "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/newform-restriction"
+      ]
+    },
+    {
+      "id": "PAPER-ATOBE-KONDO-YASUDA-22/E19",
+      "kind": "gap",
+      "locator": "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)",
+      "printed": "Since K_{nm,λ_σ} is conjugate to K(c_π), by Propositions 9.5 and 9.6, we complete the proof of Theorem 2.1 for σ = Sp(π, m) such that L(s, π) = 1.",
+      "correction": "For σ = Sp(π, m) with L(s, π) = 1 and n, m ≥ 2, the paper does not establish Theorem 2.1.\n- Proposition 9.5 rests on Corollary 9.4.\n- Proposition 9.6 rests on Lemma 9.3 and the uniqueness in Theorem 9.1.\nAll three proofs use the same step: W∘ι lies in Π because φ_Ze is (N′, Ψ)-equivariant. That step fails, and the uniqueness itself is false (E1).\nWhat is needed:\n- another proof of Corollary 9.4 (injectivity of W ↦ W|_L on right ι(K′)-invariant vectors);\n- another proof that σ^{K(c_π)} ≠ 0.\nNo counterexample to Theorem 2.1 is known.",
+      "reason": "Theorem 2.1 for π with L(s, π) = 1 reduces, by Lemma 7.2, to Z(Δ) = Sp(ρ, m), and for n, m ≥ 2 its only proof is §9. The case m = 1 is [14], and for n = 1 σ is a character of GL_m. The counterexample of E1 is right ι(K′)-invariant with all test integrals zero, so the §9 argument cannot separate it. Whether it is K(c_π)-invariant, which would contradict Theorem 2.1, is not known.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
       ]
     }
   ],
@@ -4604,37 +4657,51 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/main-one",
         "PAPER-ATOBE-KONDO-YASUDA-22/main-lex"
       ],
-      "remaining": "Independent verification of E1 and a replacement for the failed separation/uniqueness chain. Main newform targets are not disproved merely by this defect. Do not paper over it with a stronger unproved uniqueness axiom."
+      "remaining": "Independent verification of E1 and a replacement for the failed separation/uniqueness chain. Main newform targets are not disproved merely by this defect. Do not paper over it with a stronger unproved uniqueness axiom.",
+      "status": "recorded",
+      "resolution": "E1 (Theorem 9.1's uniqueness is false) and E19 (the main theorem's Speh case with L(s, π) = 1 is not established by the paper) record it; the items state the targets without the false uniqueness. No repair is known."
     },
     {
       "id": "G2",
       "priority": "high",
-      "remaining": "Finish exact cited-input readings: KZ/MW generic duality and path formula, Lapid–Mínguez determinant/constituents, and corrected JPSS/Matringe essential functions. This checkpoint is not a proof-closed extraction of those papers."
+      "remaining": "Finish exact cited-input readings: KZ/MW generic duality and path formula, Lapid–Mínguez determinant/constituents, and corrected JPSS/Matringe essential functions. This checkpoint is not a proof-closed extraction of those papers.",
+      "status": "deferred",
+      "resolution": "Knight–Zelevinsky/Mœglin–Waldspurger, Lapid–Mínguez and JPSS/Matringe are cited suppliers."
     },
     {
       "id": "G3",
       "priority": "high",
-      "remaining": "Finish Lapid–Mao root-exchange/support/convergence closure. The exact compact-induction hypotheses used by E1 have now been reread and matched; the full source and its own cited prerequisites remain unextracted."
+      "remaining": "Finish Lapid–Mao root-exchange/support/convergence closure. The exact compact-induction hypotheses used by E1 have now been reread and matched; the full source and its own cited prerequisites remain unextracted.",
+      "status": "deferred",
+      "resolution": "Lapid–Mao's support, root-exchange and convergence results are cited suppliers."
     },
     {
       "id": "G4",
       "priority": "high",
-      "remaining": "Replace the false all-parameter Lemma8.10, using a correctly proved generic statement and, if needed, confluent spherical functions at repeated parameters. The continuation gives an explicit counterexample. Lemma9.3 still needs a genuine direct-integral multiplicity/domain argument and cannot be applied to all Speh restrictions."
+      "remaining": "Replace the false all-parameter Lemma8.10, using a correctly proved generic statement and, if needed, confluent spherical functions at repeated parameters. The continuation gives an explicit counterexample. Lemma9.3 still needs a genuine direct-integral multiplicity/domain argument and cannot be applied to all Speh restrictions.",
+      "status": "recorded",
+      "resolution": "Lemma 8.10 is false at repeated parameters (E3); the direct-integral step of Lemma 9.3 is E13."
     },
     {
       "id": "G5",
       "priority": "medium",
-      "remaining": "Every one of the42 definition items now has three named role/statement API contracts, use records and three tests. Split remaining bundled notions and multi-part cited suppliers, promote every consumed nontrivial API lemma to a theorem node, and finish all theorem proof outlines before declaring recursive closure."
+      "remaining": "Every one of the42 definition items now has three named role/statement API contracts, use records and three tests. Split remaining bundled notions and multi-part cited suppliers, promote every consumed nontrivial API lemma to a theorem node, and finish all theorem proof outlines before declaring recursive closure.",
+      "status": "deferred",
+      "resolution": "Splitting bundled notions and theorem-level API promotion are design work."
     },
     {
       "id": "G6",
       "priority": "medium",
-      "remaining": "The weighted grading, Baer extension, Nakayama surjectivity, nilpotent inverse and noncommutative Jacobson criterion are now direct pinned-library credits. Explicit proofs supply DVR exponent uniqueness, exact F/o duality and equal-rank free-cover equivalence. Remaining work is the complete declaration-level audit and adapters for these assemblies, plus recursive closure of the rest of the paper."
+      "remaining": "The weighted grading, Baer extension, Nakayama surjectivity, nilpotent inverse and noncommutative Jacobson criterion are now direct pinned-library credits. Explicit proofs supply DVR exponent uniqueness, exact F/o duality and equal-rank free-cover equivalence. Remaining work is the complete declaration-level audit and adapters for these assemblies, plus recursive closure of the rest of the paper.",
+      "status": "deferred",
+      "resolution": "Declaration-level library audit and adapters are design work."
     },
     {
       "id": "G7",
       "priority": "medium",
-      "remaining": "The continuation refreshed464 input blobs and screened122 peer paper route inventories; existing candidate identities are retained. Before design activation refresh again and give shared ring/module and generic representation ingredients their finest existing supplier nodes."
+      "remaining": "The continuation refreshed464 input blobs and screened122 peer paper route inventories; existing candidate identities are retained. Before design activation refresh again and give shared ring/module and generic representation ingredients their finest existing supplier nodes.",
+      "status": "deferred",
+      "resolution": "Owner refresh before design activation is design work."
     }
   ],
   "api": [
@@ -10183,5 +10250,14 @@
     ],
     "structural": "PASS:161 unique item IDs,302 acyclic prerequisite-to-consumer edges, each nonlibrary item routed exactly once, all reference targets resolved;42 definitions each have3 named API contracts,3 tests and use records;464 pinned input contents match both recorded hashes."
   },
-  "dependencyConvention": "Each dependencyEdges entry points from a prerequisite to its consumer; item.prerequisites lists incoming sources."
+  "dependencyConvention": "Each dependencyEdges entry points from a prerequisite to its consumer; item.prerequisites lists incoming sources.",
+  "continuation": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1395,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published article (Cambridge Open Access, 56 pp.) read in §§7.2–9 in full and elsewhere at the findings; pp. 52–53 checked as images.",
+    "changes": "known set to 'new' on all findings; E1 rechecked with the explicit equivariance failure; E4 reclassified; E19 added (main-theorem gap); gap statuses recorded; status complete."
+  }
 }
