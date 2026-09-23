@@ -1,4 +1,132 @@
-# Shende–Tsimerman: finite Picard counting continuation
+# Shende–Tsimerman (2017): extraction and routing
+
+Issue [#1334](https://github.com/CBirkbeck/tauceti-explorer/issues/1334). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of codex-c83e7a and codex-a71f92 (#1657, #1852, #2080), whose reports follow below as history.
+- **The paper.** V. Shende and J. Tsimerman, *Equidistribution in Bun₂(P¹)*, Duke Math. J. 166 (2017), 3461–3504. The Duke text is closed access, so arXiv 1307.8237v1 (40 pages, SHA-256 542a52a2…) was read in full; it is the only arXiv version, and all locators refer to it.
+- **Items.** The result has **144 items: 13 library, 23 planned and 108 missing**. Every missing item is routed exactly once, and every numbered statement is an item in corrected form. Six held-back items were withdrawn (below).
+- **Mistakes.** Twenty-four are recorded under `sourceIssues`, all against arXiv v1.
+
+## This continuation (cc-442dc5)
+
+**What was read.** The whole of arXiv v1, with page 12 checked as an image (the text layer drops the bars on S̄ in Definition 2.17). Altuğ–Tsimerman §3 (Theorems 3.1 and 3.3) was read for the class-number step.
+
+**The sixteen held-back items.** The checkpoint left sixteen source claims as unrouted items. Items must carry corrected statements, so each was either corrected and routed or withdrawn.
+- **Restated and routed (ten).**
+  - Theorem 1.1, for every q (`main-single-source`).
+  - Theorem 4.4, Case 2, which is what the paper proves (`main-joint-source`).
+  - The extraction of a fixed Hecke divisor in the bounded-ratio case (`main-hecke-source`).
+  - The Riemann–Roch bounds ⌊(d − g)/2⌋ ≤ e(L) ≤ ⌊d/2⌋ (`effectivity-source`).
+  - Theorem 1.5 with a corrected constant (`complex-betti-source`).
+  - Lemma 3.22 and Proposition 3.23 with corrected factors (`polar-coefficient-source`, `polar-multiplicity-source`).
+  - Case 1 of Theorem 4.4, as the asserted but unproved statement a design must supply (`linnik-transfer-source`).
+  - Hecke equidistribution (`hecke-mixing-source`).
+  - The trace formula, which is now `planned` in WeilConjectures WC.1.
+- **Withdrawn (six)**, into `withdrawnItems`, with their full text kept.
+  - Five are false as printed and duplicate an already-routed corrected item:
+    - Proposition 2.3 (E1, `weighted-abel`);
+    - Proposition 2.15 (E4, `nash-theta`);
+    - Corollary 2.18 (E6, `sum-rank`);
+    - Theorem 3.12 (E13, `morse-correct`);
+    - Appendix A.2's maximal compact (E19, `integral-torus-model`).
+  - The sixth, Sawin's 2019 preprint, is later work that the paper does not use.
+
+**Theorem 1.1 holds for every q (E8 now affects nothing).**
+- **What was missing.** The first proof of Theorem 4.2 never uses q > 4. It needed only #J(F_q) = q^{g+o(g)}.
+- **Where that comes from.** For hyperelliptic curves over a fixed F_q the Weil angles equidistribute (Altuğ–Tsimerman, Theorems 3.1 and 3.3). Integrating log|1 − q^{−1/2}e^{iθ}|, whose Haar mean is 0, gives log P_C(q^{−1}) = o(g).
+- **The q > 4 hypothesis.** It comes from the geometric sketch, which in fact needs q > 16 (E11).
+
+**New findings.**
+- **E22 (Theorem 3.9).**
+  - The kernel of Q_ℓ[n] → IC has hypercohomology in degrees [−e, e]. So the comparison H^{n+k} ≅ IH^k holds only for k ∉ [−e−1, e].
+  - Duality then needs both k and −k outside that interval, which gives i > n + e(L) + 1, not i > n + e(L).
+  - Theorem 1.3 and the point count are unaffected. The printed step also has H^{i−(g−a−b)} for H^{i+(g−a−b)}.
+- **E23 (Proposition 3.23).** The preimage ½Θ_{k+1} has class 4^{g−k−1}[Θ_{k+1}], since [2]^* multiplies H^{2c}(J) by 4^c. The printed factor was 2^g.
+  - Together with E15 (the factor [2]_*[Θ_u] = 4^u[Θ_u]), the polar bound becomes (g+1)·384^g.
+  - Theorem 3.11 then gives (3840 + ε)^g, not (960 + ε)^g. Theorem 1.5 needs only some constant and is unaffected.
+- **E24 (Corollary 2.20).**
+  - The finiteness step applies Corollary 2.4 to R1 + R2 + 2R∩. These pieces may be non-reduced, so the total weights at support points can be any integers up to 2g − 2.
+  - In characteristic p ≤ 2g − 2 some weight may vanish in k. There Corollary 2.4 fails (E2), and the argument no longer proves the finiteness.
+  - **What is established.** Corollary 2.20, Lemma 3.7, Proposition 3.8 and Theorems 3.9 and 1.3 are established in characteristic 0 or p > 2g − 2, and the items now say so.
+  - **The consequence for Theorem 4.4.** Case 2 over a fixed F_q, where g → ∞, needs them in small characteristic. `main-joint-source` states that dependence as a hypothesis.
+
+**Reclassified findings.**
+- **E21 now affects a stated result.** Case 1 of Theorem 4.4, including the μ_D alternative, rests only on "the proof carries over".
+- **E15 now affects a stated result:** the constant of Theorem 3.11.
+- **E14 now affects nothing.** The identity (3) actually used is correct.
+- **E20 is now a misprint that affects nothing.** Appendix A.3 writes T for Res_{l/k} G_m.
+
+**Checks of the other findings.** E1–E7, E9–E13 and E16–E19 were confirmed at their locators.
+- **E2.** The norm identity G(b⁵y + H) = t⁵(b¹⁰ + b² − t) was rechecked by hand in characteristic 5.
+- **E6.** The counterexample D1 = p, D2 = 2p gives rank 1 by Proposition 2.16 and 2 by the printed formula.
+- **E19.** √π ↦ [[0, π], [1, 0]] has odd determinant valuation.
+
+**Why the status is now complete.**
+- Every numbered statement is an item in corrected form.
+- Every missing item is routed exactly once, and the mistakes are recorded, including the paper's gaps (E21, E22, E24).
+- What remains is suppliers' proofs and the design questions the briefs name.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), v1 p.7 Proposition 2.3; final journal text not obtained. *Printed:* arbitrary positive d_i *Correction:* Require the weights to be nonzero in k for differential injectivity; the exact rank is the number of nonzero total weights.
+- **E2** (error; affects a stated result), v1 p.7 Corollary 2.4, unrestricted characteristic reading; final journal text not obtained. *Printed:* only finitely many points of |L| of the form Σn_iD_i *Correction:* Restrict the characteristic/total weights as in W1. Unrestricted finiteness is false, not merely unproved by the printed tangent argument.
+- **E3** (misprint; affects the proof), v1 p.8 Corollary 2.9; final journal text not obtained. *Printed:* O_(P¹)(g) *Correction:* Use O_(P¹)(g−1) for the canonical rational-normal embedding.
+- **E4** (error; affects a stated result), v1 p.10 Proposition 2.15; final journal text not obtained. *Printed:* C^(d) is the Nash blowup of Θ_d *Correction:* Retain the restricted d<g branch used by the proof; do not assert this for all d.
+- **E5** (misprint; affects the proof), v1 p.11 proof of Proposition 2.16; final journal text not obtained. *Printed:* D₁∩D₂ is special *Correction:* At this point the divisor is D₁∪D₂.
+- **E6** (error; affects a stated result), v1 p.12 Corollary 2.18; final journal text not obtained. *Printed:* min(g,(deg H∩+deg H₁+deg H₂)/2+deg S+deg R∩+deg R₁+deg R₂) *Correction:* Use the union-divisor rank formula until cross-overlap terms are correctly included.
+- **E7** (error; affects a stated result), v1 p.12 after Definition 2.19; final journal text not obtained. *Printed:* e(L)≥(2g−a−b−1)/2 *Correction:* The safe Riemann–Roch bound is floor((deg L−g)/2)≤e(L)≤floor(deg L/2).
+- **E8** (gap; affects nothing), v1 pp.3 and 30, Theorems 1.1 and 4.2; final journal text not obtained. *Printed:* Theorem 1.1 without a q restriction *Correction:* Theorem 1.1 holds for every q. The first proof of Theorem 4.2 never uses q > 4: with the class-number normalization #J(F_q) = q^{g+o(g)} (item class-asymptotic) its error term is q^{−g/2+o(g)} relative to the main term for every fixed q. The hypothesis q > 4 comes from the geometric sketch, which in fact needs q > 16 (E11).
+- **E9** (error; affects the proof), v1 p.30 proof of Theorem 4.2; final journal text not obtained. *Printed:* C has a point over F_q *Correction:* Use a degree-one divisor class with its descent, not an assumed rational point.
+- **E10** (misprint; affects the proof), v1 p.31, contour estimate after (7); final journal text not obtained. *Printed:* O_ε(q^((n/2+ε)g)) *Correction:* Use O_ε(q^(n/2+εg)); after division by #J use its actual asymptotic normalization.
+- **E11** (gap; affects the proof), v1 p.4 geometric proof outline versus p.32; final journal text not obtained. *Printed:* q>N, with N=4 *Correction:* The stated O(4^g) cohomological argument yields q>16 unless a stronger estimate is supplied.
+- **E12** (error; affects the proof), v1 p.33, joint-tail count display; final journal text not obtained. *Printed:* μ_i((a+1+2N)×(b+1+2N))=#X(F_q) *Correction:* For the unconditional two-parity Picard quotient, divide by 2#J(F_q); on a fixed parity component use its conditional normalization.
+- **E13** (error; affects a stated result), v1 p.18 Theorem 3.12; final journal text not obtained. *Printed:* dim H^(−i)(K_p)≤Σ n_α γ^i_(V_α)(p), with χ(K_p)=Σn_α Eu_(V_α)(p) *Correction:* Use effective characteristic-cycle coefficients with the signed Euler-obstruction conversion and the correct shifts.
+- **E14** (misprint; affects nothing), v1 p.19 motivic Abel decomposition and inversion; final journal text not obtained. *Printed:* A_(a−2l,b−2r); −[A_(a,b+2)] *Correction:* With A_(a,b)=C^(g−a)×C^(g−b), lower theta degrees have indices a+2l,b+2r; inversion has both middle factors L: Σ_ab=A_ab−L A_(a+2,b)−L A_(a,b+2)+L² A_(a+2,b+2).
+- **E15** (error; affects a stated result), v1 p.27 proof of Lemma 3.22; final journal text not obtained. *Printed:* [2]_*[Θ_u]=2^u[Θ_u] *Correction:* [2]_*[Θ_u] = 4^u[Θ_u] in H_*(J), so c_{k,r,s} = Σ (k; a, b, g−1−r−s) 2^{a+b} 4^{s−b} binom(r+s−a−b, r−a) over a+b = k−(g−1−r−s), a ≤ r, b ≤ s, which is at most (g+1)·48^g rather than g²24^g.
+- **E16** (misprint; affects the proof), v1 p.26 Lemma 3.21 versus its proof; final journal text not obtained. *Printed:* L⊂B *Correction:* Use the proof's condition L^∨ not contained in B, with L and its annihilator correctly typed.
+- **E17** (gap; affects the proof), v1 p.28 proof of Proposition 3.23; final journal text not obtained. *Printed:* lift the normalization through a proper surjection *Correction:* Record a finite base change of the normalized curve and check the subsequent derivative argument after that change.
+- **E18** (gap; affects the proof), v1 pp.17 and 32, Theorem 3.11 and discussion after Conjecture 4.3; final journal text not obtained. *Printed:* N=960 *Correction:* Theorem 3.11 holds with some exponential base, not with 960: the paper's own accounting, with the factors of E15 and E23 corrected, gives ≪_ε (3840 + ε)^g (10^g from Proposition 3.20 times (g+1)·384^g from Proposition 3.23). The remark on p. 32 should say N = 3840 + ε for any ε > 0.
+- **E19** (error; affects the proof), v1 p.37 Appendix A.2; final journal text not obtained. *Printed:* Pic(D)/π*Pic(C)=X_T/T(O), with T(O) maximal compact *Correction:* Use integral unit-level subgroups. At a ramified quadratic place the unit quotient is index two in the compact anisotropic torus.
+- **E20** (misprint; affects nothing), v1 pp.37–38 Appendix A.3; final journal text not obtained. *Printed:* the pushforward map X_T→X_GL₂ *Correction:* Construct the framed GL₂ map from Res_(l/k)G_m before quotienting scalars; T=Res G_m/G_m has the canonical map to PGL₂, not that GL₂ lift.
+- **E21** (gap; affects a stated result), v1 pp.33–34 Theorem 4.4 Case 1; final journal text not obtained. *Printed:* the proof carries over *Correction:* Supply the positive-characteristic Linnik/dynamics proof with constants uniform in the chosen split place, or retain it as an explicit hypothesis.
+- **E22** (gap; affects a stated result), Proof of Theorem 3.9, pp. 16–17, arXiv v1 (final journal text not obtained). *Printed:* H^{i−(g−a−b)}(Θ_{g−a} ∩ L − Θ_{g−b}, Q_ℓ) ≅ IH^i(Θ_{g−a} ∩ L − Θ_{g−b}) for i ∉ [−e − 1, e] … Poincaré duality of the intersection cohomology gives the desired result [for i > g − a − b + e(L)]. *Correction:* Read H^{i+(g−a−b)}(X, Q_ℓ) ≅ IH^i for i ∉ [−e−1, e]. Poincaré duality then needs both i and −i outside [−e−1, e], so the argument proves Theorem 3.9 for i > g − a − b + e(L) + 1. Theorem 1.3 is unaffected, since L ∉ Θ_r gives e(L) ≤ (2g − a − b − r)/2 − 1.
+- **E23** (error; affects a stated result), Proof of Proposition 3.23, pp. 27–28, arXiv v1 (final journal text not obtained). *Printed:* mult_E(V_{r,s}) ≤ [E − L + ½Θ_{g−r−s}] ∩ [P′_L V_{r,s}] ≤ 2^g [Θ_{k+1}] ∩ c_{dim L,r,s}[Θ_{g−1−k}] ≤ g²96^g *Correction:* The cycle ½Θ_{k+1} = [2]^{−1}(Θ_{k+1}) has class [2]^*[Θ_{k+1}] = 4^{g−k−1}[Θ_{k+1}], not 2^g[Θ_{k+1}]. With [Θ_{k+1}]·[Θ_{g−1−k}] = binom(g, k+1) ≤ 2^g and c ≤ (g+1)·48^g (E15), the bound is (g+1)·384^g. The subscript g − r − s should read k + 1 (= g − t − u in the proof).
+- **E24** (gap; affects a stated result), Proof of Corollary 2.20, p. 12, arXiv v1 (final journal text not obtained). *Printed:* On the other hand we have O(R1 + R2 + 2R∩) = κ^{−m}L for some m ≤ e(L). By Corollary 2.4, only finitely many choices of the R· are possible. *Correction:* In characteristic 0, and in characteristic p > 2g − 2, the finiteness holds by the corrected weighted Abel argument (items weighted-abel, weighted-fibers). For p ≤ 2g − 2 it needs a separate proof. Until then, Corollary 2.20, Lemma 3.7, Proposition 3.8 and Theorems 3.9 and 1.3 are established only in characteristic 0 or p > 2g − 2, and Case 2 of Theorem 4.4 over a fixed F_q (where g → ∞) needs them for all g.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G0** (unavailable). The Duke text is closed access (Unpaywall, OpenAlex; Project Euclid returned a security page) and arXiv has only v1, so all locators and findings refer to arXiv v1.
+- **G1** (deferred). The finite Picard comparison is complete (N1–N4); the stack/adelic measure comparison is the Appendix's supplier input.
+- **G2** (recorded). The paper's gaps are E1, E2, E6 and E24; the items state what holds (characteristic 0 or p > 2g − 2 for Corollary 2.20 onward).
+- **G3** (resolved). class-asymptotic now has a proof from Altuğ–Tsimerman's equidistribution theorem, and the first proof of Theorem 4.2 then covers every q (E8, main-single-source).
+- **G4** (recorded). The signed Morse inequality is E13 and morse-correct states the effective-cycle form; the étale and IC comparisons are supplier inputs.
+- **G5** (recorded). The polar constants are E15 and E23 (with E17 for the lift); the corrected bounds are in polar-coefficient-source, polar-multiplicity-source and complex-betti-source.
+- **G6** (withdrawn). Sawin's later preprint is not used by this paper; the item was withdrawn.
+- **G7** (recorded). The small-ratio case is E21 and linnik-transfer-source; Hecke mixing (hecke-mixing-source) is a Ramanujan-conjecture supplier.
+- **G8** (resolved). integral-torus-model uses the unit-level subgroup at ramified places (E19).
+- **G9** (deferred). The remaining items are cited suppliers' proofs; the trace formula is planned in WC.1.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique. Every missing item is routed exactly once, every routed id is an item, and every in-paper prerequisite names an existing item.
+- **Withdrawn items.** No item refers to a withdrawn one.
+- **Briefs.** The Jacobian Part II brief now states Theorem 3.9's corrected range, the corrected constant and the characteristic restriction.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E22–E24, the reclassifications of E8, E15 and E21, and the six withdrawals.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial*, list withheld items or leave gaps open, this continuation supersedes them.
+
+## Shende–Tsimerman: finite Picard counting continuation
 
 Codex — `codex-c83e7a`; 23 September 2026; Refs #1334. **Partial checkpoint.**
 
@@ -10,7 +138,7 @@ previous weighted-Abel counterexample and all 16 withheld claims. It does
 not settle the analytic limit, characteristic-dependent theta geometry,
 microlocal constants, or small-ratio dynamics.
 
-## N1. Degree one from consecutive extensions
+### N1. Degree one from consecutive extensions
 
 Let C/F_q be smooth, projective and geometrically connected of genus g.
 Use the **existing** all-extension curve bound, owned by WeilConjectures
@@ -31,7 +159,7 @@ degree-one divisor producing a rational place cannot be applied to D₀.
 This is a direct deduction from WC.5, not a claim to have acquired an
 original Schmidt/Lang proof or to have implemented the curve bound.
 
-## N2. Rational Picard points and scalar descent
+### N2. Rational Picard points and scalar descent
 
 Write Pic(C) for actual F_q-line-bundle classes. Keep it distinct from the
 F_q-points of the Picard scheme until the following comparison is proved.
@@ -71,7 +199,7 @@ h⁰(C,L)>0 iff h⁰(C_bar,L_bar)>0. Hence the rational points of Θ_d are
 exactly the effective F_q-line-bundle classes of degree d. The geometric
 Abel-image definition alone must not be substituted for this comparison.
 
-## N3. The finite quotient and its group law
+### N3. The finite quotient and its group law
 
 Put h=#J(F_q), κ=π*O(1), and Q=Pic(C)/⟨κ⟩. Tensoring by O(dD₀)
 identifies each degree-d class set with Pic⁰(C), so each has h elements.
@@ -94,7 +222,7 @@ order-two groups. This is an abstract acceptance test, not an assertion
 that this particular J,c occurs on either example below. Changing D₀
 changes coordinates; it does not change Q, its parity map or its measure.
 
-## N4. Splitting, effectivity and exact tail events
+### N4. Splitting, effectivity and exact tail events
 
 For an F_q-line bundle L of degree d, write
 
@@ -149,7 +277,7 @@ coefficients as well. Since π∘τ=π, ν(τ*L)=ν(L), and the identity implies
 M′=κ^d₂⊗(R′)⁻¹, of degree d₁+d₂. Recording this inverse and twist avoids
 silently replacing a ratio by its inverse on p.33.
 
-## N5. Explicit curves without rational points
+### N5. Explicit curves without rational points
 
 For any odd q and nonsquare c∈F_q×, the smooth model of
 
@@ -188,7 +316,7 @@ inverse-automorphism law. In particular the event ν≥3 of odd parity has
 one class out of eight, not raw mass one. No claim that a rational point
 exists is needed anywhere.
 
-## Ownership, evidence and remaining work
+### Ownership, evidence and remaining work
 
 The current snapshot is recorded in JSON. Freshly read the relevant
 JC.A/C/D/F, AC7/10, GS.0, ST.0 and WC.5 stage descriptions and reviewed
@@ -235,7 +363,7 @@ Paper schema and three-file intake pass (0 problems). Preservation checks retain
 
 Publication snapshot: `8a9ee3ff20b80d2ba2772248cd5e98aab4092459`; 539 input hashes and the original three deliverable blobs are guarded. Concurrent HW20/FKP22 changes were checked and do not alter these owners.
 
-## Reproducible checks
+### Reproducible checks
 
 The following standard-library Python performs 141022 exact checks:
 F₃/F₅ absence-of-points examples, the F₉/F₂₇ counts, finite-field norm
@@ -391,12 +519,11 @@ print('PASS:',checks,'exact checks. Finite examples do not prove scheme descent 
 
 ---
 
-## Previous submissions (preserved with attribution)
+### Previous submissions (preserved with attribution)
 
-# Shende–Tsimerman: weighted-Abel characteristic continuation
+## Shende–Tsimerman: weighted-Abel characteristic continuation
 
-
-## Continuation — Codex, codex-a71f92, 22 September 2026
+### Continuation — Codex, codex-a71f92, 22 September 2026
 
 Refs #1334. This is a continuation of PR #1657, not an independent review.
 Current totals are **131 items: 9 library, 20 planned, 102 missing**.
@@ -412,7 +539,7 @@ printed differential proof. The corrected theorem requires nonzero
 One original statement, weighted-fibers, is refined accordingly; all other
 original item statements and statuses are retained.
 
-### Fresh evidence and boundaries
+#### Fresh evidence and boundaries
 
 Read all 40 pages of [arXiv v1](https://arxiv.org/pdf/1307.8237v1),
 including Appendix A and references, and visually checked page 7 containing
@@ -433,7 +560,7 @@ is preserved with attribution; none of those prerequisite papers was
 freshly read in this claim. In particular G6's later-Sawin observations
 remain historical leads, not a new verification of that complete proof.
 
-### W1. The exact characteristic-sensitive rank and finiteness contract
+#### W1. The exact characteristic-sensitive rank and finiteness contract
 
 Let p_1,...,p_r be distinct points of a smooth curve over an algebraically
 closed field, and assume h⁰(O(p_1+...+p_r))=1.
@@ -465,7 +592,7 @@ with their own collected multiplicities. It is valid in characteristic
 zero for positive weights. A zero differential by itself would not prove
 a positive-dimensional fiber; W2–W4 supplies an actual family.
 
-### W2. A smooth genus-two model and a polynomial certificate
+#### W2. A smooth genus-two model and a polynomial certificate
 
 Work over an algebraically closed field k of characteristic five.
 Let C be the smooth projective double cover with affine equation
@@ -505,7 +632,7 @@ These identities are exact. On C they say
 They avoid any appeal to an unverified identification of Frobenius on the
 Jacobian with multiplication by five.
 
-### W3. The principal divisor, including every local order
+#### W3. The principal divisor, including every local order
 
 Let Q=(a²⁵,−b²⁵), the image of P under the hyperelliptic involution
 composed with the coordinate 25-power Frobenius map of this F_5-model,
@@ -532,7 +659,7 @@ Consequently
 This conclusion uses a divisor witness with computed local orders,
 not merely a norm or a numerical point count.
 
-### W4. A genuine positive-dimensional fiber
+#### W4. A genuine positive-dimensional fiber
 
 The set U_C of P=(a,b) with b≠0 and a²⁵≠a is a nonempty open subset
 of C: only finitely many x-values are excluded. For such P, P and Q
@@ -561,7 +688,7 @@ counterexample alone does not refute that restricted application.
 Actual multiplicities and overlaps, characteristic two and the separate
 septuple-rank error still need to be checked.
 
-### Library matches and ownership
+#### Library matches and ownership
 
 At the repository pins, the following actual statements and their
 supporting proofs were read:
@@ -597,7 +724,7 @@ Its brief gains the characteristic-five regression and corrected
 total-weight requirement; general curve and divisor foundations remain
 with their existing upstream owners. No carrier or definition is added.
 
-### Checks and handoff
+#### Checks and handoff
 
 The embedded standard-library Python verifies both polynomial identities
 exactly over F_5[b,t], including the residual-point evaluation. Over
@@ -615,7 +742,7 @@ comparisons, numerical constants, later Sawin proof, Linnik transfer,
 ramified-level dictionary and original supplier readings still need work.
 No Lean file was requested, written or compiled.
 
-### Current delivery checks
+#### Current delivery checks
 
 The paper schema against the complete fresh catalogue and the three-file
 intake both pass (3 files, 0 problems). Preservation checks retain all
@@ -628,7 +755,7 @@ regression was also extracted from this report and executed successfully.
 Publication base: a4a17bf2ff12608cc0f7c13a5bd6c6af7eb7ca22. Protocol,
 catalogue, reviewed-coverage and checker hashes match the working snapshot.
 
-### Reproducible regression
+#### Reproducible regression
 
 ```python
 """Exact algebra checks for the weighted-Abel counterexample; not Lean proofs."""
@@ -716,9 +843,9 @@ print('PASS: separately invertible weights can have zero total weight on an over
 
 ---
 
-## Historical report from PR #1657 (unchanged)
+### Historical report from PR #1657 (unchanged)
 
-# PAPER-SHENDE-TSIMERMAN-17: source-qualified checkpoint
+## PAPER-SHENDE-TSIMERMAN-17: source-qualified checkpoint
 
 Codex — `codex-c83e7a`; Refs #1334. **Partial**, not a completed intake and not a formalization.
 
@@ -726,13 +853,13 @@ The complete available 40-page preprint has been read, including its appendix an
 
 The paper relates line bundles on a hyperelliptic curve to rank-two bundles on P¹ modulo tensoring by line bundles. Its one-bundle limit is an inverse-automorphism law. The joint limit depends on ratio parity and on a uniform Betti bound plus a separate small-ratio dynamics argument. The central geometric theorem compares high cohomology of intersections of translated theta loci with shifted, Tate-twisted Jacobian cohomology. None of those scheme/cohomological theorems is already supplied by the five library imports below.
 
-## Sources actually read
+### Sources actually read
 
 The main source is [arXiv:1307.8237v1](https://arxiv.org/pdf/1307.8237v1), dated 31 July 2013, all 40 pages. Its SHA-256 is `542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29`. Both author pages lead to this version. Crossref identifies [the 2017 Duke article](https://doi.org/10.1215/00127094-2017-0025), 166(18), 3461–3504, which has 44 pages. The canonical publisher download returned security HTML; the final paper has **not** been read or matched. Every main-paper error report below concerns v1 only.
 
 Selected original prerequisites were downloaded and read to the extents recorded in JSON `source.files`: Altuğ–Tsimerman §3 through Theorem 3.3 and its Lindelöf proof; Inoue–Yamazaki selected §2, including the homology-manifold proof; published Migliorini–Shende §2.5 and §3 through Theorem 3.4; and Sawin's introduction, the polar-coefficient discussion in Lemma 5.5, and Tsimerman's Appendix A. These are **selected readings**, not claims to have read all four papers. URLs, retrieval times, byte counts and hashes are in the JSON. The MS final numbering differs from the preprint cited by ST; AT's source citation “Lemma 3” also differs from the acquired version.
 
-## Ownership and pinned-library evidence
+### Ownership and pinned-library evidence
 
 The atlas snapshot is `06851ad5002dacc66c8cf335bd6e41e5690f4576`. All 211 atlas records, the current additional-roadmap proposals/reserved IDs, relevant full stage descriptions and their reviewed audits were checked for ownership. The prepublication check compares this snapshot and the earlier complete portfolio snapshot against current main. Relevant reviews are AUDIT-01 (SF.5), AUDIT-07 (ST), AUDIT-13 (AA), AUDIT-18 (EDC/DWP), AUDIT-19 (LPV/WC), and AUDIT-20 (GS).
 
@@ -748,7 +875,7 @@ The actual statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a6
 
 The audits distinguish these from unbuilt Bun_G stacks, Birkhoff–Grothendieck splitting, perverse categories, decomposition, Chow intersection products, curve zeta functions and higher-genus Weil bounds. JC's existing symmetric-power/Picard/coherent-RR plans and AC's hyperelliptic field-model plan are imported, never replanned. The Fargues–Fontaine Bun_G owner is not the global-curve owner GS.0.
 
-## Scope and gaps to close
+### Scope and gaps to close
 
 **G0 — final version.** Acquire and compare the 44-page Duke text first. The source's introduction omits the `q>4` condition printed in Theorem 4.2. The final-source comparison may resolve several other findings. Do not advertise an error in the published theorem based only on this preprint.
 
@@ -770,9 +897,9 @@ The audits distinguish these from unbuilt Bun_G stacks, Birkhoff–Grothendieck 
 
 **G9 — original suppliers and remaining granularity.** The prerequisites list names the unacquired BBD/SGA/Weil-II proofs, the exact Macdonald/ACGH ring and Chern formulas, Fulton positivity/multiplicity hypotheses, Massey's original normalization, the finite-field index-one proof and EMiV/Linnik transfer. Locate and read the exact upstream trace-formula stage before routing that item. Complete the all-characteristic theta argument, all intermediate source lemmas and finite-field descent comparisons before claiming §16 closure. Suggested design-file ownership and proof order are below; no Lean deliverable is part of this paper issue.
 
-## Routes and design contracts
+### Routes and design contracts
 
-### 1. source: `GlobalShtukasAndFunctionFieldLanglands`
+#### 1. source: `GlobalShtukasAndFunctionFieldLanglands`
 
 GS.0 already owns global G-bundles, central degree, automorphisms and the generic-torsor adelic dictionary. Add the P¹ splitting and explicit unit-level double-cover instance there; ramified maximal compact is not the integral unit model.
 
@@ -780,7 +907,7 @@ Stages: `GlobalShtukasAndFunctionFieldLanglands:GS.0`.
 
 Items: `bun-pgl`, `splitting`, `automorphism`, `pushforward-sections`, `adelic-bundle`, `weil-bundle`, `integral-torus-model`.
 
-### 2. source: `GlobalShtukasAndFunctionFieldLanglands`
+#### 2. source: `GlobalShtukasAndFunctionFieldLanglands`
 
 GS.1 owns global Hecke stacks and modifications. This elementary PGL₂ correspondence is an acceptance instance, not a second moduli owner.
 
@@ -788,7 +915,7 @@ Stages: `GlobalShtukasAndFunctionFieldLanglands:GS.1`.
 
 Items: `hecke`.
 
-### 3. source: `ArithmeticStatistics`
+#### 3. source: `ArithmeticStatistics`
 
 ST.0 owns weighted measures on arithmetic isomorphism classes. Record the exact inverse-automorphism mass, finite Picard normalization and parity support.
 
@@ -796,7 +923,7 @@ Stages: `ArithmeticStatistics:ST.0`.
 
 Items: `natural-measure`, `tail-mass`, `pic-quotient`, `joint-measure`, `joint-normalization`, `parity-limit`, `hecke-measure`.
 
-### 4. source: `ArithmeticStatistics`
+#### 4. source: `ArithmeticStatistics`
 
 ST.5 explicitly covers function-field statistics, convergence modes and error bounds. Add the gonality/Lindelöf suppliers and conditional mixing assembly; retain B(N) and the unclosed small-ratio theorem as hypotheses.
 
@@ -804,7 +931,7 @@ Stages: `ArithmeticStatistics:ST.5`.
 
 Items: `betti-conjecture`, `gonality-points`, `weil-measure`, `gonality-lindelof`, `class-asymptotic`, `reduced-coefficients`, `theta-density`, `single-limit`, `geometric-single-threshold`, `escape`, `large-ratio-error`, `joint-conditional`, `split-place`.
 
-### 5. source: `EtaleDualityAndPerverseSheaves`
+#### 5. source: `EtaleDualityAndPerverseSheaves`
 
 The middle perverse category and IC are existing EDC.5 targets, not new definitions in the hyperelliptic application.
 
@@ -812,7 +939,7 @@ Stages: `EtaleDualityAndPerverseSheaves:EDC.5`.
 
 Items: `perverse`.
 
-### 6. source: `EtaleDualityAndPerverseSheaves`
+#### 6. source: `EtaleDualityAndPerverseSheaves`
 
 EDC.7 owns pure rational decomposition and relative hard Lefschetz. Semismall geometry is the source-specific bridge; arithmetic Frobenius splitting is not automatic.
 
@@ -820,7 +947,7 @@ Stages: `EtaleDualityAndPerverseSheaves:EDC.7`.
 
 Items: `decomposition`, `relative-hl`, `semismall`.
 
-### 7. source: `LefschetzPencilsAndVanishingCycles`
+#### 7. source: `LefschetzPencilsAndVanishingCycles`
 
 LPV.2 owns ordinary quadratic singularities and their vanishing module. Hyperelliptic Hessian calculations consume it.
 
@@ -828,7 +955,7 @@ Stages: `LefschetzPencilsAndVanishingCycles:LPV.2`.
 
 Items: `ordinary-double`.
 
-### 8. source: `SchemeAndStackFoundations`
+#### 8. source: `SchemeAndStackFoundations`
 
 SF.5 owns Chow operations, refined intersection, Chern classes and positivity suppliers; the polar application must not rebuild them.
 
@@ -836,7 +963,7 @@ Stages: `SchemeAndStackFoundations:SF.5`.
 
 Items: `chow`, `positive-intersection`.
 
-### 9. source: `WeilConjectures`
+#### 9. source: `WeilConjectures`
 
 Reuse the zeta and functional-equation owner, with the curve class-number evaluation as an additional explicitly named comparison.
 
@@ -844,7 +971,7 @@ Stages: `WeilConjectures:WC.1`, `WeilConjectures:WC.2`.
 
 Items: `curve-zeta`, `curve-reciprocity`.
 
-### 10. source: `WeilConjectures`
+#### 10. source: `WeilConjectures`
 
 The all-extension curve bound is an existing target and feeds gonality and split-place estimates; elliptic special cases are insufficient.
 
@@ -852,7 +979,7 @@ Stages: `WeilConjectures:WC.5`.
 
 Items: `curve-rh`.
 
-### 11. source: `DeligneWeightsAndPurity`
+#### 11. source: `DeligneWeightsAndPurity`
 
 Keep compact-support upper weights with DWP.7. Singular proper theta loci use upper bounds, not an unsupported smooth-purity claim.
 
@@ -860,7 +987,7 @@ Stages: `DeligneWeightsAndPurity:DWP.7`.
 
 Items: `trace-weight`.
 
-### 12. source: `AdelicAlgebraicGroups`
+#### 12. source: `AdelicAlgebraicGroups`
 
 Shared adelic topology, measures and restriction of scalars remain with AA. The quadratic-torus model must export local unit subgroups explicitly.
 
@@ -868,7 +995,7 @@ Stages: `AdelicAlgebraicGroups:AA.0`, `AdelicAlgebraicGroups:AA.1`, `AdelicAlgeb
 
 Items: `adeles`, `quadratic-torus`.
 
-### 13. part-ii: `JacobianChallengePartIIHyperellipticTheta`
+#### 13. part-ii: `JacobianChallengePartIIHyperellipticTheta`
 
 Upstream JC.C/D construct symmetric powers, Abel maps and the Picard scheme, but do not plan the special-divisor stratification, Gauss/Nash models or intersection-cohomology comparison. Extend upstream rather than replanning it.
 
@@ -876,7 +1003,7 @@ Build on Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) A–F and
 
 Items: `degree-one`, `theta`, `abel-tangent`, `abel-sum-tangent`, `weighted-abel`, `weighted-fibers`, `hyperell-reduction`, `hyperell-sections`, `canonical-bundle`, `canonical-involution`, `canonical-map`, `gauss`, `gauss-embedding`, `canonical-span`, `special-divisor`, `linear-system`, `nash-theta`, `sum-map`, `sum-rank`, `canonical-septuple`, `effectivity-index`, `critical-locus`, `theta-ic`, `theta-ample`, `theta-low`, `theta-high`, `intersection-lci`, `intersection-low`, `relative-semismall`, `ic-kernel`, `intersection-high`, `jacobian-betti`, `perverse-middle`, `weak-high`, `symmetric-chern`, `poincare-cycle`, `general-euler`, `abel-motivic`, `transverse-dimension`, `discriminant-strata`, `discriminant-components`, `node-count`, `polar-incidence`, `polar-incidence-generic`, `reduced-divisors`, `class-zeta`, `reduced-zeta`, `theta-betti-bound`.
 
-### 14. part-ii: `EtaleDualityAndPerverseSheavesPartIIMicrolocal`
+#### 14. part-ii: `EtaleDualityAndPerverseSheavesPartIIMicrolocal`
 
 EDC.5/7 provide perverse sheaves and decomposition but have no characteristic-cycle, Euler-obstruction or higher-discriminant theory. Those are shared suppliers for theta geometry and later Sawin applications, not application-local placeholders.
 
@@ -886,7 +1013,7 @@ Items: `nash`, `euler-obstruction`, `polar`, `characteristic-cycle`, `morse-corr
 
 The Jacobian Part II should use a file such as `TauCeti/AlgebraicGeometry/Jacobian/HyperellipticTheta.lean`, after JC's actual scheme/Abel carriers. The microlocal Part II should use files such as `TauCeti/AlgebraicGeometry/Perverse/CharacteristicCycle.lean` and `HigherDiscriminant.lean`, after EDC and SF.5. These are **suggested design locations**, not files created or compiled here. Bundle splitting stays under GS.0; measures and limits stay under ST.0/ST.5. A design must split source acquisition, generic suppliers, geometric applications and the final statistical implication into dependent proof tasks.
 
-## Complete item ledger
+### Complete item ledger
 
 Every entry's exact statement, owner/library references, caveats and all definition APIs/tests are in the JSON. The following ledger supports coverage review.
 
@@ -1015,7 +1142,7 @@ Every entry's exact statement, owner/library references, caveats and all definit
 | `hecke-mixing-source` | theorem / missing | Appendix A.4 | Hecke equidistribution input |
 | `sawin-context` | theorem / missing | Later source: Sawin §§1,5, Appendix A | Later characteristic-p theorem to acquire fully |
 
-## Withheld items
+### Withheld items
 
 - `main-single-source`: G0/G3: retain the version discrepancy; the safe routed theorem below assumes q>4 and explicitly requires the analytic suppliers. This is not a claim for every q.
 - `main-joint-source`: G0/G7: record the source claim without accepting its undeveloped function-field Linnik transfer. The precise conditional assembly is routed separately.
@@ -1034,6 +1161,6 @@ Every entry's exact statement, owner/library references, caveats and all definit
 - `hecke-mixing-source`: G7: exact spectral normalization and function-field Ramanujan supplier not extracted. Do not assert convergence to μ⊗μ across both parity components. Unrouted until the theorem is read.
 - `sawin-context`: G6: selected introduction, polar coefficient discussion and Appendix A read, not the complete proof. The coefficient quoted from ST Lemma 3.22 repeats the 2-power requiring reconciliation. Its odd-parity display repeats even×odd twice; the correct mixture has both cross terms. Leave the numeric endpoint unrouted until original final versions and cycle conventions are checked.
 
-## Validation
+### Validation
 
 The custom audit checks unique IDs, exactly one route per routed item, existence of owners/stages, no library item being re-routed, every D/C having three tests, source hashes and the three allowed output paths. Numerical checks verify normalization and parity tails, both joint-mixture marginals, GL₂ counts, the canonical-divisor septuple including ramified multiplicities, the signed constant-sheaf counterexample, multiplication-by-two cycle scaling and the ramified determinant-parity obstruction. These are extraction checks, not Lean proofs. Run `scripts/check_paper.py` and `research/blueprint/intake.py check-files` on the deliverables. No Lean file was supplied or compiled.
