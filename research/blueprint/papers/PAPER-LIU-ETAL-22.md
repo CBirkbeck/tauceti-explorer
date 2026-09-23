@@ -1,3 +1,51 @@
+# PAPER-LIU-ETAL-22 — independent review of six source findings
+
+**Claude Code — `cc-fb70e5` · 2026-09-23 · continuation of merged PR #2236.** Refs #1280.
+
+This tick did one of the things the previous handoff said was outstanding — *"no source finding is independently reviewed here"* and *"independent review of the normal-closure formula and E2 replacement still required"* — and nothing else. **Six of the sixteen findings now carry `review.verdict: confirmed`**, each re-derived at its locator by a worker independent of the authoring sessions. **No item, route, API, test, dependency edge, baseline pin, obstruction result or threshold was touched.** The extraction stays **`partial`**: 214 items, 21 routes.
+
+**Provenance re-verified independently.** The NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded `dd821abd…ec89d97` (2,916,938 bytes, 269 pages). Printed page *p* is PDF page *p* − 106.
+
+## The six verdicts
+
+| finding | kind | verdict | what the check added |
+|---|---|---|---|
+| **E4** | error | `confirmed` | the defect is confined to Prop 2.7.2(3); Lemma 2.7.1's identical phrase is harmless; `P ≠ 0` does suffice |
+| **E6** | misprint | `confirmed` | 4 corrupted against ~25 correct occurrences; locator kinds corrected |
+| **E11** | misprint | `confirmed` | the paper's own tangent-rank formula *and* hypotheses transfer exactly under `h ↦ h−d` |
+| **E14** | misprint | `confirmed` | the display one paragraph above has coefficient degree `2n−1` |
+| **E15** | misprint | `confirmed` | footnote 4's convention forces symmetry about `−1/2`; and Lemma 2.2.7 needs `a < 0` |
+| **E16** | misprint | `confirmed` | a group-theoretic type mismatch, not just a symbol slip |
+
+**E4 — Proposition 2.7.2(3), p. 137.** The proposition takes "a polynomial `P(T) ∈ Z[T]`" with no non-vanishing hypothesis and asserts `(GI¹_{F′,P})` holds for large `ℓ`. Condition (a) of `(GI^m_{F′,P})` on p. 136 is that **`P(ξ)` be invertible** in `O_λ/λ^m`, which `P = 0` can never satisfy — so the statement is false for `P = 0`, and the proof breaks at the same place ("`P(a^{-1}) ≠ 0`… such pair always exists for sufficiently large `ℓ`"). Two refinements: Lemma 2.7.1's *identical* phrase is harmless, since that lemma only asserts `(GI¹) ⇒ (GI^m)`, vacuously true when the hypothesis is unsatisfiable — so the finding's locator is exactly right to name 2.7.2(3) alone. And `P ≠ 0` **suffices**: a non-zero `P` has finitely many roots, the other three conditions exclude finitely many pairs, `|F_ℓ^×| = ℓ−1` grows, and the finitely many `ℓ` dividing every coefficient of `P` — the only ones where `P` could reduce to zero — are excluded by "sufficiently large `ℓ`".
+
+**E6 — the `(p+3)`/`(q+3)` corruption.** Decided by counting. The intended product over **odd** exponents, `(q+1)(q³+1)⋯(q^{2k−1}+1)`, appears correctly typeset in about **twenty-five** places — Notation 1.3.1 (p. 119), pp. 223–224, 328, 330, 335, 338–341, the identity in the proof on p. 342 *immediately above* a corrupted instance, p. 344, and five times on p. 348, which even carries the identical indexed form `(−q)^{r−δ+1}(q+1)(q³+1)⋯(q^{2(r−δ)−1}+1)`. The corrupted `(x+1)(x+3)` occurs **exactly four** times: twice on p. 229 (Prop 5.8.8's statement and its proof) and once each on pp. 342, 343. An exponent `3` has been flattened into "`+ 3`"; the intended reading is certain and "affects nothing" is right. **One locator correction**: Appendix B.3 contains Lemmas B.3.1–B.3.4, **Proposition** B.3.5 and **Lemma** B.3.6 — there is no Lemma B.3.5 and no Proposition B.3.6. The two appendix instances are in **Proposition B.3.5(2)** (`R°_N`) and **Lemma B.3.6** (`R^•_N`); the finding has the kinds swapped.
+
+**E11 — Proposition A.1.3(3), p. 322.** The proof reduces to the non-degenerate case via `V′₀ = V₀/V₀^⊣` and prints the target `DL(V′₀,{,}′₀,h)`, while the map sends `H ↦ H/V₀^⊣`. Since `V₀^⊣` has dimension `d` and lies in `H^⊣ ⊆ H`, the image has rank `h − d`. Two checks from the paper's own formulas: part (2) computes the tangent rank as `(2h − N − d)(N − h)`, and substituting `N′ = N−d, d′ = 0, h′ = h−d` gives `(2h − d − N)(N − h)` — **identical** — whereas `h′ = h` gives `(2h − N + d)(N − d − h)`, which differs; and the hypothesis `N + d < 2h ≤ 2N` becomes exactly `N′ < 2h′ ≤ 2N′`, the `d′ = 0` case then quoted from `[8, Theorem 1]`, again only under `h ↦ h−d`.
+
+**E14 — Remark 7.3.5, p. 302.** The remark puts the class in `H¹_ur(F_p, H^{2n}_ét(…, O_λ(n))/(n₀,n₁))`. The display closing the proof of Theorem 7.3.4, one paragraph above on the same page, identifies `H^{2n}_T` of the product with `H¹(F_{p²}, H^{2r₀−1}_T ⊗ (H^{2r₁}_T)^{Gal})`, whose coefficient has total degree `(2r₀−1) + 2r₁ = 2n−1`. The geometry forces the same: the product has dimension `2n−1`, so its middle cohomology is `H^{2n−1}` and the Abel–Jacobi class of a homologically trivial codimension-`n` cycle lives in `H¹` of that module. The printed degree is one too high.
+
+**E15 — proof of Theorem 8.3.2, p. 319.** "`R_Q` is crystalline with Hodge–Tate weights in `[1−n, n]`" — while the **verbatim identical** sentence in the proof of Theorem 8.2.2 on p. 311 reads `[−n, n−1]`, for the same `R_Q`, the same `(L2)`, and the same next step citing Lemma 2.4.3(2). Footnote 4 (p. 124) fixes the convention that `Q_ℓ(1)` has weight `−1`; under it the 1-polarization `R^c ≅ R^∨(1)` of §2.7 sends `w ↦ −w−1`, so the weight multiset is symmetric about `−1/2` — and `[−n, n−1]` is that interval, while `[1−n, n]` is symmetric about `+1/2`, what the opposite convention would give. Secondary, concrete consequence: the next sentence invokes Lemma 2.2.7, whose hypothesis is `a < 0 ≤ b`. `[−n, n−1]` satisfies it for every `n ≥ 1`; `[1−n, n]` gives `a = 1−n`, not negative at `n = 1`, so if `n = 1` is in range the printed interval does not even satisfy the hypothesis of the lemma being applied.
+
+**E16 — proof of Lemma 2.6.4, p. 134.** "we can find a place `w̃` of `F̃_S` whose arithmetic Frobenius substitution coincides with `γ`" — but that Frobenius lies in `Gal(F̃_S/F⁺)` while `γ` was introduced two sentences earlier as an element of the **quotient** `Gal(F^{(m)}_+/F⁺)`. It must be the lift `γ̃` built in the preceding sentence, whose `[F:F⁺]`-th power restricts to `(g^{-1}Ψ)h_γ`; its restriction to `F^{(m)}_+` is then `γ`, which is what "γ-associated" needs. A type mismatch, unambiguous to repair.
+
+## What was *not* reviewed, and why
+
+**Ten findings remain unreviewed** and no verdict was invented for any of them.
+
+- **E7** (equation (5.20), p. 231) was examined and **deliberately left open**. The printed `c_{r−1}` carries no `j` while the right-hand side is `d^•_{r−j,p}`, which is suggestive — but `DL^•(V_{s^•})` itself depends on `j` through `s^• ∈ H^{k−1}_j`, so a fixed Chern index on a `j`-dependent space could produce the `j`-dependence honestly. Settling it needs Theorem 5.7.7 and Proposition A.2.4(2), which this tick did not read. A guess here would have been worth nothing.
+- **E1, E2, E3, E5, E8, E9, E10, E12, E13** were not attempted. These are the deep ones — the normal-closure formula for `G_{S,γ}`, the diagonal-basis step of Proposition 2.6.7, the pro-`ℓ` removal in Lemma 2.7.1, Construction 3.1.8, the residue-sequence vanishing in Lemma 5.9.3(6), the Galois action in Lemma A.1.4(4), the `N = 2` primitive-cohomology definition, the linear-cycle projection in Lemma C.2.1, and the `O_λ`-freeness in Proposition 8.1.7 — and several are entangled with the obstruction-group thread the previous workers are actively developing. They need their own reading, not a drive-by.
+
+The two `openInvestigations` (U1, U2) were also not touched.
+
+## Boundaries
+
+No new item, route, API, test or edge; no Lean file; the embedded diagnostic programs were **not** rerun; the atlas snapshot, Mathlib and Tau Ceti pins were **not** re-read. The JSON round-trips identically under `json.dumps(indent=2, ensure_ascii=False)`, which was verified before editing, so the diff is confined to the six `review` objects. **The next mathematical step named in the previous handoff — vanishing or a uniform-in-`m` bound for the two obstruction groups — is untouched and remains the top item.**
+
+---
+
+## Previous checkpoint report — retained in full
+
 # PAPER-LIU-ETAL-22 — odd-ell Frobenius obstruction checkpoint
 
 Codex — codex-a71f92 · 2026-09-23 · continuation of merged PR #2224 (codex-hjdg0j).

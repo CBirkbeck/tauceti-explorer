@@ -6713,7 +6713,12 @@
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
+        "reason": "Confirmed at the locator. Proposition 2.7.2 takes 'a polynomial P(T) in Z[T]' with no non-vanishing hypothesis, and asserts in (3) that (GI^1_{F',P}) of Lemma 2.7.1 holds for sufficiently large ell. Condition (a) of (GI^m_{F',P}), printed on p. 136, is that 'P(xi) is invertible in O_lambda/lambda^m'. For P = 0 that is unsatisfiable, since 0 is not invertible in a non-zero ring, so (GI^1_{F',0}) can never hold and the printed statement is false as stated; the proof breaks at exactly the same place, where it selects a, b with 'P(a^{-1}) != 0' and then claims 'such pair (a,b) always exists for sufficiently large ell'. Two refinements. First, the identical phrase 'a polynomial P(T) in Z[T]' in Lemma 2.7.1 itself is harmless: that lemma only asserts (GI^1) implies (GI^m), which is vacuously true when the hypothesis is unsatisfiable, so the defect is confined to Proposition 2.7.2(3) as the finding's locator says. Second, the proposed repair P != 0 does suffice: a non-zero P in Z[T] of degree e has at most e roots in any field, the three further conditions on (a,b) exclude only finitely many pairs, |F_ell^*| = ell - 1 grows, and the finitely many primes ell dividing every coefficient of P - the only ell for which P could reduce to zero - are excluded by 'for sufficiently large ell'."
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E5",
@@ -6747,7 +6752,12 @@
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
+        "reason": "Confirmed, and decisively, by counting occurrences of the same product across the paper. The intended factor is q^3 + 1: the product (q+1)(q^3+1)...(q^{2k-1}+1) over odd exponents appears correctly typeset in about twenty-five places, including Notation 1.3.1 on p. 119, pp. 223-224, p. 328, p. 330, p. 335, pp. 338-341, the displayed identity in the proof on p. 342 immediately above the corrupted instance, p. 344 and five times on p. 348 - where p. 348 even carries the identical indexed form (-q)^{r-delta+1}(q+1)(q^3+1)...(q^{2(r-delta)-1}+1). The corrupted form (x+1)(x+3) occurs exactly four times: twice on printed p. 229, in the statement of Proposition 5.8.8 and again in its proof, and once each on pp. 342 and 343. So an exponent 3 has been flattened into '+ 3' in four places, the intended reading is certain, and 'affects nothing' is the right reach. One correction to the finding's locator, which would otherwise send a reader to statements that do not exist: Appendix B.3 contains Lemmas B.3.1 to B.3.4, Proposition B.3.5 and Lemma B.3.6, with no Lemma B.3.5 and no Proposition B.3.6. The two appendix instances are in Proposition B.3.5(2), in the definition of R^circ_N, and in Lemma B.3.6, in the definition of R^bullet_N."
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E7",
@@ -6832,7 +6842,12 @@
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
+        "reason": "Confirmed at the locator, with two independent checks from the paper's own formulas. The proof of Proposition A.1.3(3) on p. 322 reduces the general case to the non-degenerate one by passing to V'_0 = V_0/V_0^perp, and prints the target as DL(V'_0,{,}'_0,h) while the map sends H to H/V_{0S}^perp. Since V_0^perp has dimension d and is contained in H^perp and hence in H, the quotient has rank h - d, so the target must be DL(V'_0,{,}'_0,h-d). First check: part (2) of the same proposition computes the tangent sheaf to be locally free of rank (2h - N - d)(N - h). Substituting N' = N - d, d' = 0 and h' = h - d gives (2h' - N' - d')(N' - h') = (2h - d - N)(N - h), identical to the original, whereas keeping h' = h gives (2h - N + d)(N - d - h), which differs. Second check: the hypothesis of part (3), N + d < 2h <= 2N, transforms under h -> h - d into N' < 2h' and 2h' <= 2N', which is exactly the d' = 0 case the argument then quotes from [8, Theorem 1]; with h' = h it would not. So both the dimension and the hypotheses transfer precisely under the finding's correction and not under the printed parameter."
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E12",
@@ -6883,7 +6898,12 @@
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
+        "reason": "Confirmed at the locator. Remark 7.3.5 on p. 302 places loc_p([Sh(V_n,K_sp)]) in H^1_ur(F_p, H^{2n}_et(( ... )_{F_p-bar}, O_lambda(n))/(n_0,n_1)), and the coefficient should be the geometric H^{2n-1}. The decisive evidence is on the same page, in the display that closes the proof of Theorem 7.3.4 immediately above: it identifies H^{2n}_T of the product with H^1(F_{p^2}, H^{2r_0-1}_T(M_{n_0}, O_lambda(r_0))_{m_0}) tensor (H^{2r_1}_T(M_{n_1}, O_lambda(r_1))_{m_1})^{Gal}, whose coefficient has total degree (2r_0 - 1) + 2r_1 = 2n - 1. The same bookkeeping is forced by the geometry: the product of the two Shimura varieties has dimension (n_0 - 1) + (n_1 - 1) = 2n - 1, so its middle cohomology is H^{2n-1} and the Abel-Jacobi class of a homologically trivial codimension-n cycle lies in H^1 of that module. As printed, the degree is one too high."
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E15",
@@ -6900,7 +6920,12 @@
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
+        "reason": "Confirmed, and the reason can be made sharper than the finding states. The sentence in the proof of Theorem 8.3.2 on p. 319 reads 'by (L2), R_Q is crystalline with Hodge-Tate weights in [1-n, n]', and the corresponding sentence in the proof of Theorem 8.2.2 on p. 311 is verbatim identical except that it reads [-n, n-1]: same object R_Q, same hypothesis (L2), same next step citing Lemma 2.4.3(2), so the two cannot both be the intended normalisation. Footnote 4 on p. 124 fixes the convention that Q_ell(1) has Hodge-Tate weight -1. Under that convention the 1-polarization R^c = R^dual(1) of section 2.7 sends a weight w to -w-1, so the weight multiset of R is stable under w -> -w-1 and is therefore symmetric about -1/2; the interval symmetric about -1/2 is [-n, n-1], while [1-n, n] is symmetric about 1/2 and is what the opposite sign convention would give. A second, concrete consequence supports the correction: the very next sentence invokes Lemma 2.2.7, whose hypothesis is a < 0 <= b. For [-n, n-1] that holds for every n >= 1, whereas [1-n, n] gives a = 1-n, which is not negative when n = 1, so if n = 1 lies in the permitted range the printed interval does not even satisfy the hypothesis of the lemma being applied. Reach is 'affects nothing' in the sense that the argument goes through with the corrected interval."
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E16",
@@ -6915,7 +6940,12 @@
         "Published p.134 rendered and arXiv v3 PDF19–20 freshly read on 2026-09-23; the same missing tilde persists in v3.",
         "https://arxiv.org/abs/1912.11942 lists v3, 17 August 2021, as the latest revision.",
         "https://math.mit.edu/~wz2113/math/pub.html links the preprint without a correction link; an exact-title/Lemma2.6.4 erratum search found no correction. This is bounded evidence, not priority or a complete publisher errata check."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
+        "reason": "Confirmed at the locator. In the proof of Lemma 2.6.4 on p. 134 the sentence reads 'By the Chebotarev density theorem, we can find a place w-tilde of F-tilde_S whose arithmetic Frobenius substitution coincides with gamma and whose underlying place w^{(m)}_+ of F^{(m)}_+ is gamma-associated'. The Frobenius substitution of a place of F-tilde_S is an element of Gal(F-tilde_S/F^+), whereas gamma was introduced two sentences earlier as an element of Gal(F^{(m)}_+/F^+) - 'We regard gamma as an element in Gal(F^{(m)}_+/F_+)' - so as printed the two sides live in different groups. What the argument needs, and what makes the concluding identification Psi = Psi_{w^{(m)}} work, is the specific lift gamma-tilde constructed in the preceding sentence, whose [F:F^+]-th power restricts to (g^{-1}Psi)h_gamma in Gal(F_S/F); the restriction of that Frobenius to F^{(m)}_+ is then gamma, which is what gamma-associated requires. The intended reading is unambiguous, so 'affects nothing' is right."
+      }
     }
   ],
   "sourceArchives": [
