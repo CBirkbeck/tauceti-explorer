@@ -4130,8 +4130,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -30723,7 +30723,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BRESCIANI-24",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BRESCIANI-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1792"
   },
   {
    "id": "ERRATA-PAPER-CARO-PASTEN-23",
@@ -30760,8 +30761,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CARO-PASTEN-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CARO-PASTEN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1794"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1794",
+   "finishedAt": "2026-09-23T12:22:12Z"
   },
   {
    "id": "ERRATA-PAPER-LIU-ETAL-22",
@@ -31314,8 +31316,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1869"
+   "state": "pending",
+   "note": "released on GitHub issue #1869"
   },
   {
    "id": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -31389,7 +31391,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1873"
   },
   {
    "id": "ERRATA-PAPER-BHATT-ETAL-23",
