@@ -902,8 +902,9 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-SCHOLZE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-SCHOLZE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1072"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1072",
+   "finishedAt": "2026-09-23T16:06:45Z"
   },
   {
    "id": "PAPER-CHEN-24",
@@ -979,8 +980,9 @@
    ],
    "avoidAccountOf": "PAPER-CARAIANI-SCHOLZE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CARAIANI-SCHOLZE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1076"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1076",
+   "finishedAt": "2026-09-23T16:06:49Z"
   },
   {
    "id": "PAPER-LANDESMAN-LITT-24",
@@ -1092,7 +1094,8 @@
    ],
    "avoidAccountOf": "PAPER-SMITH-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-SMITH-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1082"
   },
   {
    "id": "PAPER-FU-24",
@@ -1243,7 +1246,8 @@
    ],
    "avoidAccountOf": "PAPER-DASGUPTA-KAKDE-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1090"
   },
   {
    "id": "PAPER-YU-23",
@@ -5768,7 +5772,8 @@
    ],
    "avoidAccountOf": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1343"
   },
   {
    "id": "PAPER-PASKUNAS-QUAST-26",
@@ -5953,7 +5958,8 @@
    ],
    "avoidAccountOf": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1353"
   },
   {
    "id": "PAPER-FENG-24",
@@ -7660,7 +7666,8 @@
    ],
    "avoidAccountOf": "PAPER-NEWTON-THORNE-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1449"
   },
   {
    "id": "PAPER-NEWTON-THORNE-21-B",
@@ -7697,8 +7704,9 @@
    ],
    "avoidAccountOf": "PAPER-NEWTON-THORNE-21-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1451"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1451",
+   "finishedAt": "2026-09-23T16:06:52Z"
   },
   {
    "id": "PAPER-CHENEVIER-TAIBI-20",
@@ -7883,8 +7891,9 @@
    ],
    "avoidAccountOf": "PAPER-KISIN-PAPPAS-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1461"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1461",
+   "finishedAt": "2026-09-23T16:06:55Z"
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-18",
@@ -9833,7 +9842,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #83"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_GlobalNumberFields",
@@ -9952,7 +9962,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #86"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -11361,8 +11372,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #125"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #125",
+   "finishedAt": "2026-09-23T16:06:59Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups",
