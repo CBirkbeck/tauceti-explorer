@@ -1,31 +1,41 @@
-# PAPER-LE-LEHUNG-LEVIN-ETAL-20 handoff
+# Handoff: PAPER-LE-LEHUNG-LEVIN-ETAL-20
 
-Codex — codex-c83e7a. Refs #1402. Status: **partial**. Preserves checkpoint #2197 and its 84 item IDs/39 source-issue IDs. Current totals: 103 items (8 library, 5 planned, 90 missing), 43 source issues, seven routes and nine gap groups.
+Issue #1402. Claude Code, session `cc-2aeb03`, 23 September 2026. Status: **complete**. This continues the Codex checkpoints #2197 (session codex-hjdg0j) and #2212 (session codex-c83e7a).
 
-Read all 135 published pages and all six tables/seven figures; selected arXiv and Morra passages collated. The earlier complete arXiv reading is attributed to #2197. Read the original HK04 pp.242–243 and Stacks proofs recorded in the result. Reused pinned localCohomology, radical invariance and tildeEquiv after declaration reads; checked reviewed SF.0/SF.2 and R03.3 coverage and existing owners.
+## Done
 
-D23–D25,T54–T65 supply sections, embedded Hartogs closure, full-support depth, flat base change, ordinary-spectrum descent and torsion-free DVR specialization. E15 corrects the graph degree to 7|J|; E16 needs a semisimple filtration for the Hom-based degree; E17/E18 are typography. E115 has full negative-exponent parentheses restored. New findings require independent review. No author contact.
+- **`research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.result.json`** contains:
+  - 593 items: 6 library, 25 planned, 562 missing;
+  - the checkpoint's seven routes;
+  - 28 prerequisites;
+  - 132 `sourceIssues`.
+- **`research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md`**: the report.
 
-Start next with **G08 at published pp.125–126**: acquire CEG+16 Corollary2.11, Le18 and HLM17 Theorem5.2.1; trace the Schikhof/Pontryagin and automorphic specialization identifications and the quotient by O-torsion before (5.9). Reuse T58,T60,T62,T63 rather than redoing the absolute algebra. Do not assume every cosocle patching module is free or identify raw specialization with its torsion-free quotient.
+**What was read.** The whole published version (pp. 1–135) was read on rendered page images, statements and proofs. arXiv 1608.06570 v1–v4 were consulted at every recorded mistake.
 
-The Ext-colimit/derived-support comparison is not in the existing Lean localCohomology API. Its injective-torsion primitive, and the associated-prime/regular-element depth facts used by T65, remain shared implementation obligations. Full-support and ring normality still depend on the chart and patching gaps.
+**What was checked.**
 
-- **G01**: The whole main text was read, but the item inventory omits the full definitions of affine/extended Weyl operations, Lambda_W, Tr_mu, admissibility, the p-dot action, local and algebraic Frobenius twists, Deligne–Lusztig R_s(mu), tau(s,mu), R involution, W?, W?(rho,tau), shapes and all chart-overlap and weight-combinatorics lemmas. Add individually with hypotheses, APIs, ≥3 tests, usage-derived proof dependencies; acquire LLHL19 and Herzig originals. Resume: Definitions 2.1.1–2.1.9, Propositions 2.1.5/2.1.10, §§2.2–2.3, Table 2.
+- Tables 1–6 and the computations of §§2.3, 3.6, 4.2 and 5.1 were recomputed by script, using Singular for the ideals.
+- The 19 new errors, and new mistakes reaching a proof or a stated result, were checked a second time, independently: 13 confirmed, 6 rejected and dropped.
+- The checkpoints' E01–E18 were re-checked on the page image.
 
-- **G02**: EGS15 §4.1 original proofs have been read; itemise them separately. Still acquire and prove residual multiplicity-freeness and the field-of-definition/unramified descent used to replace varpi-powers by integral p-powers. Do not conflate LLHLM normalisation with the usual torsion-free-cokernel definition of saturated. Resume: EGS15 4.1.1–4.1.4; Herzig09 appendix Theorem 3.4; LLHLM20 Remark 4.3.5.
+## What changed from the checkpoints
 
-- **G03**: Expand every part of 4.2.4–4.2.16 separately: G1T, baby Verma modules and Q1, their socle series, rational/injective lifting, restriction to finite points, translation, U_nu, extension maps and vanishing. Read original Jantzen/Pillen/Andersen/Andersen–Kaneda/Bowman–Doty–Martin sources. Current T21 is an explicit unclosed supplier, not proof closure. Resume: Theorem 4.2.7 and its proof, then cited original inputs.
+- **Items.**
+  - Every checkpoint item id is kept, restated from the page and split where it bundled several results. Their `dependsOn`, `proofOutline`, `api` and `unitTests` fields are carried over unchanged.
+  - The checkpoint's gap list (G01–G09) is closed: every definition and result it named is now an item, from §2's combinatorics to §5.3's global setup and the cited inputs of §§4.2 and 6.0.2.
+- **Library claims.** Those for L01, L04 and L05 are withdrawn; the items state the paper's GL₃ root datum, affine Weyl groups and finite abelian category, which the libraries do not have. Mathlib's `minimalPrimes` is added.
+- **Routes.** The same seven. The two Part II briefs are rewritten around the exact final theorems, with the verified corrections (depth hypotheses, Proposition 4.2.9, the genericity of the auxiliary types in §5.1, the missing proof of Theorem 5.3.1).
+- **Other fields.** The `gaps` field is removed and the prerequisites are rebuilt, one per paper with its DOI.
 
-- **G04**: Add full Kisin module/descent datum/height/shape/semisimplicity definitions and 3.2–3.4 theorems; read LLHLM18 and LLHL19 proofs. Encode all corrected Tables 3–4, chart maps and minimal primes, including 3.6.12/14/15/16 intersections. Prove completed tensor compatibility, not just one-factor formulas. Expand 3.6.3 formal-monomorphism inference with representability/separatedness hypotheses. Typographical suspicion in Table 4 and the height convention need checking, not assertion as established errors. Resume: LLHLM18 with all §6 corrections applied; LLHLM20 §§3.1–3.4 and 3.6.
+## For the reviewer
 
-- **G05**: Split and prove 3.5.4–3.5.14, especially globalisation, nonzero minimal patching and defect descent. Read EG14 Appendix A, Enns, Kisin and the corrected LLHLM18 patching construction. The generic patching inverse limit belongs to R03.5; arithmetic functor and axioms belong to the proposed GL3 consumer. Resume: 3.5.13–14 and original globalisation first; then 3.5.4–12.
+- **The report's "Judgement calls" section** lists the routing choices and the six rejected gap claims.
+- **E101–E125** are the authors' corrections to LLHLM18 printed in §6. They are kept as the checkpoint recorded them, but concern LLHLM18, not this paper.
+- **The two Part II ids are shared** with PAPER-LE-LEHUNG-LEVIN-ETAL-23. The design jobs should read both extractions together.
 
-- **G06**: Expand all five cyclicity/gluing stages 5.1.3–7 and EGS15 Lemma 10.1.13 from its original proof. Fully prove the sketch in 5.1.8 with the required generator counts and ideal equalities. T40/T41 record the exact endpoint and missing subproofs. Resume: 5.1.3, then 5.1.4–7 with 3.6.12–16 and Figures 7–11.
+## Checks
 
-- **G07**: Define the definite unitary group model, automorphic spaces, reachable weights, local/global Langlands normalization, Hecke ideals and Schikhof duality individually. Acquire CHT08 Definition 2.4.14, the precise auxiliary-v1 hypotheses, CEG+16/Le18 specialization and all level-lowering/base-change inputs of Proposition 6.0.2. Global conventions below faithfully expose these references as unclosed, not substitute a vague adequacy/minimality predicate. Resume: §5.3 setup, original LLHLM18 §§7.2–7.3 with addendum (10)–(16), then §6.0.2 originals.
-
-- **G08**: The absolute Hartogs, ordinary-Spec flat ideal base change and torsion-free specialization algebra are now itemized with proofs (D23–D25,T54–T63). The remaining arithmetic comparison is the precise Schikhof/Pontryagin dual and completed-automorphic specialization identification in §5.3.5: acquire CEG+16 Corollary2.11, Le18 and HLM17 Theorem5.2.1, and track the torsion-free quotient before (5.9). Underlying deformation-ring normality/full support still depend on G04/G05. Generic depth/local-cohomology comparison primitives, including the associated-prime criterion and regular-element depth formula used in T65, must be implemented in the shared owners; none is claimed formalised. Resume: Start at published pp.125–126 and the three original global duality/specialization references. Reuse T58,T60,T62,T63; do not repeat the relative HK04 application or require every cosocle module to be free.
-
-- **G09**: Inventory is partial, not every source definition/key theorem. Split remaining grouped definitions and prerequisites. The continuation read the entire published version and all its tables/figures; full version collation and independent reconstruction remain.  independently verify E01–E14 and the corrections reported by §6 against LLHLM18, then rerun ownership/library searches against the current atlas. No Lean file or proof was compiled. E15–E18 are new proposed findings awaiting independent review; E115 extraction parentheses were corrected. The new general local-cohomology comparison T55 still imports injective torsion and Čech comparison from Stacks0955/0A6T; this is an explicit shared proof obligation, not existing Lean support. Resume: Use the section coverage table and per-item dependsOn; never upgrade status solely because validators pass.
-
-Checks: paper checker, intake path validation, ID/API/routing/DAG integrity and both embedded finite scripts pass. No Lean compilation. The next worker must refresh the atlas and repeat overlap screening. Preserve all source issue IDs and distinguish prior authors’ corrections from new findings; status must remain partial until the original-proof and census gaps are closed.
+- `python3 scripts/check_paper.py` reports ok.
+- `python3 research/blueprint/intake.py check-files` on the three files reports 0 problems.
+- Lean: none.
