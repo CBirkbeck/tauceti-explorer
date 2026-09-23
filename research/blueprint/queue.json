@@ -4227,8 +4227,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5569,8 +5569,8 @@
    ],
    "avoidAccountOf": "PAPER-PILLONI-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-PILLONI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1327"
+   "state": "pending",
+   "note": "released on GitHub issue #1327"
   },
   {
    "id": "PAPER-CESNAVICIUS-19",
