@@ -155,9 +155,23 @@
          "file": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
          "line": 218,
          "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Idempotents.functorExtension₁",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+         "line": 87,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Idempotents.karoubiUniversal₂",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+         "line": 205,
+         "fit": "more general"
         }
        ],
-       "note": "`karoubiUniversal : (Karoubi C ⥤ Karoubi D) ≅ (C ⥤ Karoubi D)` together with `functorExtension`, `functorExtension₁`, `karoubiUniversal₁` and `karoubiUniversal₂` are exactly the stated universal property, proved for arbitrary categories, so a fortiori for preadditive correspondence categories."
+       "note": "`karoubiUniversal₁ C D : (C ⥤ Karoubi D) ≌ (Karoubi C ⥤ Karoubi D)` is the universal property in the form that assumes nothing of `D`, and `functorExtension₁` is the extension functor underlying it. The form MC.1 will use — `karoubiUniversal C D : (C ⥤ D) ≌ (Karoubi C ⥤ D)` and `functorExtension : (C ⥤ D) ⥤ (Karoubi C ⥤ D)`, with the intermediate `karoubiUniversal₂ : (C ⥤ D) ≌ (Karoubi C ⥤ Karoubi D)` — carries `[IsIdempotentComplete D]`, which is exactly what makes functors out of the idempotent completion land in `D` itself. All are proved for arbitrary categories, so a fortiori for preadditive correspondence categories."
       },
       {
        "target": "Tensor product, dual, unit object on the motive category; Tate localization inverting the Lefschetz object",
