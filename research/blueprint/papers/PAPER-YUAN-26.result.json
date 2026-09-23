@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-YUAN-26",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Arithmetic bigness and a uniform Bogomolov-type result",
     "authors": "Xinyi Yuan",
@@ -1783,10 +1783,10 @@
     {
       "id": "PAPER-YUAN-26/158",
       "kind": "theorem",
-      "name": "Refined Cinkir constants",
-      "statement": "In phi(Gamma)≥c(g)delta(Gamma) for polarized stable genus-g reduction graphs one may use c(2)=1/27, c(3)=17/288, c(4)=3/88, and c(g)≥1/25 for g≥5. With A(g)=1+(3/(2c(g))+2)(2g+1)/(g-1), A(g)≤139<144 for g>2; genus2 uses the hyperelliptic improvement with coefficient107.25.",
+      "name": "Cinkir constants for the phi-delta inequality",
+      "statement": "In the inequality phi(Gamma) >= c(g) delta(Gamma) for polarized stable reduction graphs of genus g one may take c(2) = 1/27, c(3) = 17/288, c(4) = 3/88, and c(g) >= 1/25 for every g >= 5. Cinkir's constant satisfies c(g) -> 1/14 as g -> infinity.",
       "locator": "Author manuscript 21 August 2024, §4.5.1, pp.87–88; [Cin1] Theorem2.11 and [Cin2] p318(iv)",
-      "note": "Split graph bounds and rational-arithmetic estimates. Check c(g) asymptotic1/14 if including Remark4.12.",
+      "note": "Imported from Cinkir; the numerical consequence for the coefficient A(g), which this item previously carried as well, is now the separate item PAPER-YUAN-26/281.",
       "status": "missing",
       "library": [],
       "planned": []
@@ -3086,6 +3086,103 @@
       ],
       "planned": [],
       "note": "Actual declaration read at the pinned commit: Mathlib/NumberTheory/Height/Projectivization.lean:51."
+    },
+    {
+      "id": "PAPER-YUAN-26/272",
+      "kind": "theorem",
+      "name": "Bogomolov conjecture for curves",
+      "statement": "For C a smooth projective curve of genus g > 1 over Qbar and alpha a divisor on C of degree 1, there is a constant c > 0 such that the set of x in C(Qbar) with hhat(x - alpha) <= c is finite, where hhat is the Neron-Tate height on the Jacobian J of C. Proved by Ullmo.",
+      "locator": "Author manuscript 21 August 2024, section 1.1, p. 3; [Ull]",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "note": "The classical statement that this paper's Theorem 1.1 makes uniform in the curve. Planned by RP.5, which asks for 'a separate Bogomolov/small-points theorem for subvarieties of abelian varieties over number fields' and names Ullmo/Zhang as the primary source to pin."
+    },
+    {
+      "id": "PAPER-YUAN-26/273",
+      "kind": "theorem",
+      "name": "Equidistribution of small points",
+      "statement": "The equidistribution theorem of Szpiro-Ullmo-Zhang for sequences of small points, which is the basis of Ullmo's proof of the Bogomolov conjecture for curves.",
+      "locator": "Author manuscript 21 August 2024, section 1.1, p. 3; [SUZ]",
+      "status": "planned",
+      "planned": [
+        "ArithmeticDynamics:DY.4",
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "note": "Quoted as the input to [Ull]; this paper does not use it, its own route to uniform Bogomolov going through adelic bigness instead. DY.4 'Equidistribution and small points' plans the primary equidistribution theorem for semipositive adelic metrized line bundles, and RP.5 requires 'the selected primary equidistribution proof' to be supplied."
+    },
+    {
+      "id": "PAPER-YUAN-26/274",
+      "kind": "theorem",
+      "name": "The new gap principle",
+      "statement": "There are constants c_1, c_2 > 0 depending only on g > 1 such that for any smooth projective curve C over Qbar of genus g and any y in C(Qbar), the number of x in C(Qbar) with hhat(x - y) <= c_1 max{h_Fal(C), 1} is at most c_2, where h_Fal(C) = h_Fal(J) is the stable Faltings height of the Jacobian. This is [Gao3, Thm. 4.1], a combination of [DGH1, Prop. 7.1] and [Kuh, Thm. 3].",
+      "locator": "Author manuscript 21 August 2024, section 1.1, p. 4; [Gao3] Theorem 4.1, [DGH1] Proposition 7.1, [Kuh] Theorem 3",
+      "status": "missing",
+      "note": "The statement this paper's Theorem 1.1 strengthens and generalizes, in three respects that the paper lists: an extra non-negative term hhat((2g-2)alpha - omega) in the bound, alpha allowed in Pic^1(C_Kbar) rather than only in C(Kbar), and validity over global fields of every characteristic with constants uniform across them. The paper's proof is independent of it and does not use the non-degeneracy of the Faltings-Zhang map on which [DGH1, Kuh] crucially depend."
+    },
+    {
+      "id": "PAPER-YUAN-26/275",
+      "kind": "theorem",
+      "name": "Uniform Manin-Mumford for curves as the degenerate case",
+      "statement": "The case c_1 = 0 of the new gap principle is a uniform version of the Manin-Mumford conjecture for curves: the number of torsion points of the form x - y, for x in C(Qbar), is bounded by a constant depending only on the genus. DeMarco-Krieger-Ye had previously proved the new gap principle in the case g = 2 with y a Weierstrass point and C admitting a degree-two morphism to an elliptic curve.",
+      "locator": "Author manuscript 21 August 2024, section 1.1, p. 4; [DKY]",
+      "status": "missing",
+      "note": "Recorded because the paper states it as the content of the c_1 = 0 specialisation and because it fixes what is and is not new in [DGH1, Kuh]. RP.5 plans the non-uniform Manin-Mumford route; the uniform bound is a quantitative strengthening that it does not plan."
+    },
+    {
+      "id": "PAPER-YUAN-26/276",
+      "kind": "theorem",
+      "name": "Upper bound on the number of points of large height",
+      "statement": "The proofs of the Mordell conjecture by Vojta, its extension to the Mordell-Lang conjecture for subvarieties of abelian varieties by Faltings, and Bombieri's simplification in the case of curves, all give an upper bound on the number of points of large height on the curve; the bound was further refined by de Diego and by Remond.",
+      "locator": "Author manuscript 21 August 2024, section 1.1, p. 4; [Voj], [Fal3], [Bom], [dDi], [Rem]",
+      "status": "missing",
+      "note": "The complement of the gap principle: the gap principle bounds the small points and this bounds the large ones, and it is the combination of the two that yields the uniform Mordell-Lang bound. The paper uses it only to state that consequence, its own contribution being the small-point half."
+    },
+    {
+      "id": "PAPER-YUAN-26/277",
+      "kind": "theorem",
+      "name": "Uniform bound for Mordell-Lang on curves",
+      "statement": "There is a constant c > 0 depending only on g > 1 such that for any smooth projective curve C of genus g over an algebraically closed field F of characteristic 0, any y in C(F), and any subgroup Gamma of J(F) of finite rank, the number of x in C(F) with x - y in Gamma is at most c^{1 + rank Gamma}. This is [Kuh, Thm. 4], obtained by combining the large-height upper bound with the new gap principle; it answers the uniform Mordell-Lang problem proposed by Mazur.",
+      "locator": "Author manuscript 21 August 2024, section 1.1, pp. 4-5; [Kuh] Theorem 4, [Maz] p. 234",
+      "status": "missing",
+      "note": "The headline consequence of the uniform Bogomolov circle of ideas, and the reason the paper's Theorem 1.1 matters beyond its own statement: substituting Theorem 1.1 for the gap principle gives an alternative proof of this bound, one that avoids o-minimality and extends to function fields of arbitrary characteristic. RP.5 plans the qualitative Mordell-Lang route, not this uniform quantitative form."
+    },
+    {
+      "id": "PAPER-YUAN-26/278",
+      "kind": "theorem",
+      "name": "Boundary growth of the phi-invariant from graph data",
+      "statement": "A more detailed analysis of the proof of Theorem 3.10 describes the growth of the phi-invariant along the boundary of the moduli space of complex curves in terms of the graph-theoretic data encoded by the adelic divisor Phi-tilde. Song's recent work goes in this direction and confirms a variant of a conjecture of de Jong.",
+      "locator": "Author manuscript 21 August 2024, Remark 3.11, p. 59; [Son], [dJo2] Conjecture 1.2",
+      "status": "missing",
+      "note": "Asserted as a consequence of the paper's own method rather than proved. Recorded because it says what the proof of Theorem 3.10 yields beyond the positive lower bound the theorem states, and because it is the archimedean half of the pair completed by Remark 4.13(2)."
+    },
+    {
+      "id": "PAPER-YUAN-26/279",
+      "kind": "theorem",
+      "name": "The epsilon- and delta-invariants cannot be globalized",
+      "statement": "Since the epsilon-invariant has a non-trivial non-archimedean component but a trivial archimedean one, it cannot be globalized in the sense of the preceding construction; and therefore neither can the delta-invariant.",
+      "locator": "Author manuscript 21 August 2024, Remark 4.13(1), p. 91",
+      "status": "missing",
+      "note": "A negative result, and the reason the globalization used for Phi_S is not available for these two invariants: it delimits the method of section 4.5.2 and a design job must not assume an analogous adelic divisor exists for epsilon or delta."
+    },
+    {
+      "id": "PAPER-YUAN-26/280",
+      "kind": "theorem",
+      "name": "Boundary growth of the Faltings delta-invariant from graph data",
+      "statement": "Running the argument of Remark 3.11 with the adelic divisor Xi in place of Phi shows that the growth of Faltings' archimedean delta-invariant along the boundary of the moduli space of curves is controlled by the graph-theoretic data of the non-archimedean invariant delta + epsilon. This partially explains the results of de Jong and of Faltings on that growth.",
+      "locator": "Author manuscript 21 August 2024, Remark 4.13(2), p. 91; [dJo4] Theorem 1.1, [Fal4] Theorem 7",
+      "status": "missing",
+      "note": "The delta-analogue of item 278, and the payoff of the Xi-globalization of section 4.5.2. Asserted as a consequence of the method rather than proved."
+    },
+    {
+      "id": "PAPER-YUAN-26/281",
+      "kind": "theorem",
+      "name": "Numerical bound on the coefficient A(g)",
+      "statement": "With A(g) = 1 + (3/(2c(g)) + 2)(2g+1)/(g-1) built from Cinkir's constants, one has A(g) <= 139 < 144 for every g > 2; the genus-2 case instead uses the hyperelliptic improvement, with coefficient 107.25. Since Cinkir's c(g) tends to 1/14 as g grows, the coefficient 12/A(g) tends to 12/47.",
+      "locator": "Author manuscript 21 August 2024, section 4.5.1, pp. 87-88, with Remark 4.12(1), p. 88",
+      "status": "missing",
+      "note": "Split off from item 158, which bundled two distinct things: the constants c(2) = 1/27, c(3) = 17/288, c(4) = 3/88 and c(g) >= 1/25 for g >= 5 in Cinkir's inequality phi(Gamma) >= c(g) delta(Gamma), which are imported, and the numerical bound on A(g) derived from them here, which is this item. Item 158 now carries only the imported constants."
     }
   ],
   "prerequisites": [
@@ -3419,10 +3516,14 @@
         "PAPER-YUAN-26/256",
         "PAPER-YUAN-26/257",
         "PAPER-YUAN-26/260",
-        "PAPER-YUAN-26/261"
+        "PAPER-YUAN-26/261",
+        "PAPER-YUAN-26/278",
+        "PAPER-YUAN-26/279",
+        "PAPER-YUAN-26/280",
+        "PAPER-YUAN-26/281"
       ],
       "brief": "Extend the existing arithmetic line-bundle theory to Yuan–Zhang adelic divisors and isometry groupoids on flat quasi-projective integral schemes over Z or a field, using boundary completion, global analytification, integrability, nefness, volume, Siu–Yuan and relative Deligne pairing. Import Arakelov geometry and heights of abelian varieties (ArakelovGeometryAndAbelianHeights R35.1–3), classical admissible pairings from Gross–Zagier and arithmetic heights (GrossZagierAndArithmeticHeights GZ.2), and model metrics, skeletons and measures from Tropical and Berkovich arithmetic (TropicalAndBerkovichArithmetic TB.0–3, TB.6). Import relative Jacobians from the proposed JacobianChallengePartII and stable compactifications from StableReductionPartII, retaining the existing AbelianSchemesAndArithmeticModuli, NeronModelsAndSemistableAbelianVarieties and ShimuraCompactifications suppliers. Do not reconstruct their carriers. For a smooth genus-g>1 curve X→S with S normal, flat, integral and quasi-projective over Z or a field, and generically finite classifying map over that base, prove omega_a nef and big and <omega_a,omega_a> nef and big (Theorems 3.1–3.2). Develop the exact theta, epsilon, phi, Noether and potential-bigness identities in the routed items. For a nef L on a projective flat family with geometrically integral generic fiber and positive fiber top degree, prove its relative (e+1)-fold pairing big iff L is potentially big, with m-fold powers big for positive m≥dim S. Prove the global-field comparisons c3(g)max(h_Fal,1)≤[omega_a²]≤c4(g)max(h_Fal,1), excluding geometrically isotrivial function-field curves. Include the Gross–Schoen side construction as a consumer of MotivesAndAlgebraicCycles MC.0 and the specific unconditional Gross–Schoen height construction, without assuming general height positivity. Every normalization, genus-one case and imported proof gap in the report is a required source-reconciliation task. This checkpoint is not certified ready for design activation.",
-      "reason": "The read parent stages do not contain these scope extensions. Import all existing suppliers; this is a provisional checkpoint route, pending the handoff’s source checks and independent review."
+      "reason": "The read parent stages do not contain these scope extensions. Import all existing suppliers; this is a provisional checkpoint route, pending the handoff’s source checks and independent review. Remarks 3.11 and 4.13, and the numerical bound on A(g), join this route: the two remarks describe what the boundary analysis of Theorem 3.10 yields for the growth of the phi- and delta-invariants and record that epsilon and delta admit no globalization, which is a limit of this roadmap's own machinery, and A(g) is the numerical output of the admissible Noether formula it plans."
     },
     {
       "route": "part-ii",
@@ -3533,10 +3634,14 @@
         "PAPER-YUAN-26/263",
         "PAPER-YUAN-26/264",
         "PAPER-YUAN-26/265",
-        "PAPER-YUAN-26/266"
+        "PAPER-YUAN-26/266",
+        "PAPER-YUAN-26/274",
+        "PAPER-YUAN-26/275",
+        "PAPER-YUAN-26/276",
+        "PAPER-YUAN-26/277"
       ],
       "brief": "Import the height machine from Heights, rational points and obstructions (HeightsRationalPointsAndObstructions RP.0), canonical abelian heights from GrossZagierAndArithmeticHeights GZ.1, arithmetic bigness and relative pairings from ArakelovGeometryAndAbelianHeightsPartII, the relative Jacobian from JacobianChallengePartII, and fine moduli from StableReductionPartII. Construct the function-field extension with its fixed constant-field normalization, separating isotrivial pairs from isotrivial curves. For every g>1 prove existence of c1(g),c2(g)>0 valid simultaneously for all number fields and all one-variable function fields K/k in all characteristics: for a smooth projective geometrically integral genus-g curve C/K and alpha∈Pic¹(C_Kbar), excluding pairs descending to kbar in the function-field case, the number of x with hhat(x-alpha)≤c1(g)(max(h_Fal(C),1)+hhat((2g-2)alpha-omega)) is at most c2(g). Here hhat is half the canonical height for symmetric twice-theta; number-field degrees are normalized over Q and function-field degrees over K with fixed k. Prove the potentially-big-family small-point bounds, product-grid estimate, noetherian induction, isotriviality tests, and the finite-prime argument making constants depend only on g. Establish the five non-degeneracy results of Theorem 4.17 and the number-field branches of Theorem 4.19 with their separate power thresholds. Proposition 4.18 exports a function-field conclusion only with its explicit bigness-over-k hypothesis. The printed function-field branches of Theorem 4.19 are excluded from this route pending resolution of the constant-family counterexample in the report; do not infer them from K-relative variation. Use an ample positive-height margin when turning a non-strict height inequality into an exceptional set defined by ≤.",
-      "reason": "The read parent stages do not contain these scope extensions. Import all existing suppliers; this is a provisional checkpoint route, pending the handoff’s source checks and independent review. The five function-field branches of Theorem 4.19 join this route alongside their number-field counterparts, with the hypothesis corrected to maximal variation over the field of constants; the printed K-relative form is false and is recorded as a source issue, so what this Part II plans is the corrected statement."
+      "reason": "The read parent stages do not contain these scope extensions. Import all existing suppliers; this is a provisional checkpoint route, pending the handoff’s source checks and independent review. The five function-field branches of Theorem 4.19 join this route alongside their number-field counterparts, with the hypothesis corrected to maximal variation over the field of constants; the printed K-relative form is false and is recorded as a source issue, so what this Part II plans is the corrected statement. Section 1.1's statements of the new gap principle, its uniform Manin-Mumford specialisation, the large-height upper bound and the resulting uniform Mordell-Lang bound are taken here too: they are the statements this paper strengthens and the consequence it feeds, so the Part II that plans its uniform Bogomolov theorem is where the comparison belongs. The non-uniform Bogomolov, Manin-Mumford and equidistribution statements behind them stay with RP.5 and DY.4, which already plan them."
     },
     {
       "route": "source",
@@ -4047,8 +4152,8 @@
       "detail": "The local comparison between the unit-edge-length reduction graph and the fixed-absolute-value skeleton was settled for split reduction by the earlier continuation of this job: with lambda_K = log e_K the two differ by scaling all lengths by lambda_K, the Laplacian transforms as Delta_log F = s_* Delta_unit f, and the Chern-measure comparison carries no extra scalar on model-degree mass. What is still open is the general case: geometric residue-orbit weights for nonsplit reduction, compatibility with arbitrary models and with resolution, and the general descent comparison. Raw intersection lengths, residue-weighted degrees and geometric base change must be kept distinct - an unramified extension with residue degree f > 1 is the negative control against dividing a raw length by the full degree [L:K], and a ramified regular node gives e subedges of logarithmic length lambda_K/e. Controlled approximation is also still needed for arbitrary continuous metrics, since uniform convergence alone does not control Laplacians."
     },
     {
-      "id": "item-granularity-not-closed",
-      "detail": "The item list is not yet at the granularity PROTOCOL section 16 asks for. The first worker flagged further splitting at /7-/13, /23-/28, /44, /69, /74, /77, /79, /85, /106, /115-/117, /124-/127, /130, /139-/141, /143, /151-/154, /158, /162, /190-/195, /197, /200-/210, /217-/219, /222, /230, /233-/234: inherited settings need expanding, and flatness, genericity and base-change steps inside proofs need to be separated out. The introductory historical results and the uniform Mordell-Lang large-point input have not been audited. This is why the extraction is still partial: every missing item now has exactly one route, so the file is syntactically complete, but the coverage obligation of section 0 is not yet discharged."
+      "id": "coverage-audit-and-what-it-found",
+      "detail": "Closed in the third checkpoint, and worth recording because what the audit found was not what had been flagged. The first worker had listed some sixty items as possibly bundling several assertions each - /7-/13, /23-/28, /44, /69, /74, /77, /79, /85, /106, /115-/117, /124-/127, /130, /139-/141, /143, /151-/154, /158, /162, /190-/195, /197, /200-/210, /217-/219, /222, /230, /233-/234 - and the handoff carried that list forward as the outstanding coverage obligation. Inspecting all sixty, only ONE (/158) genuinely bundled distinct assertions: Cinkir's imported constants together with the numerical bound on A(g) derived from them, now split as /158 and /281. The rest are single assertions whose length comes from the first worker's practice of repeating the shared setup in every statement, which is a style choice and not a coverage defect; and /115 states Theorem 4.1's equivalence of three conditions, which is one assertion and would be artificial to split. What the audit did find, by checking the four readers' numbering inventories against the item locators mechanically, were two genuine holes that the flagged list did not mention: Remark 3.11 and Remark 4.13 had NO item at all, and the whole of section 1.1 - the Bogomolov conjecture of Ullmo, the Szpiro-Ullmo-Zhang equidistribution behind it, the new gap principle of Dimitrov-Gao-Habegger and Kuhne with its uniform Manin-Mumford specialisation, the large-height upper bound of Vojta, Faltings and Bombieri as refined by de Diego and Remond, and the uniform Mordell-Lang bound they combine to give - was uncovered, no item carrying a section 1.1 locator. Those are items /272-/280, and they are exactly the 'introductory historical results and the uniform Mordell-Lang large-point input' the first worker had separately flagged. All 50 numbered statements of the paper (1.1-1.4, 2.1-2.10, 3.1-3.11, 4.1-4.19, A.1-A.6) now have an item, verified mechanically, which is why the status is complete. The lesson for the next audit of this kind: check the inventory against the locators mechanically rather than trusting a hand-compiled list of suspects."
     },
     {
       "id": "imported-proof-inputs-not-audited",
