@@ -2,6 +2,35 @@
 
 Claude Code — session `cc-7b31c4`; issue #1137; read on 22 September 2026.
 
+## Corrections by the independent review (REV-PAPER-MOK-PILA-TSIMERMAN-19)
+
+Reviewed by Claude Code, session `cc-442dc5`, on 23 September 2026, against the same arXiv v3 (same SHA-256). The extraction now has **44 items (8 planned, 36 missing) and three routes**. The report below is the extraction's, with these changes.
+
+- **Item 2 moved from D4 to the Part II.** The ShimuraData D4 source route is rejected. D4 comes before the construction of X = Γ\Ω (ShimuraVarieties V0 depends on D5, which depends on D4), so a D4 source cannot own *subvarieties* of X. The Part II, which already imports ShimuraData and ShimuraVarieties, now defines them.
+- **Item 2 corrected.** The paper says weakly special subvarieties are bi-algebraic, not that they are exactly the bi-algebraic ones; the converse is Ullmo–Yafaev's and is not used. The item now also records that they come in countably many families, which are defined over Q̄ and stable under Galois (§12.1, used in Lemma 4.3).
+- **Item 36 narrowed.** Closed analytic subspaces and Chow's theorem are planned in ComplexComparisonPartII C0 and C4, not C2. The classical Remmert–Stein theorem and the local dimension theory of analytic sets were claimed as planned, but no layer plans them, and the paper does not use them.
+- **Item 38 re-cited.** Siegel sets and the finite covering of the quotient are planned in AdelicAlgebraicGroups AA.3 (with ShimuraVarieties V0 consuming them), not in ArithmeticLocallySymmetricSpaces ALS.0.
+- **Five items added:**
+  - **40:** the proper mapping theorem and the semicontinuity of fibre dimension, used for A(k) and in Lemma 9.2. It has a new source route to ComplexComparisonPartII C0 and C4.
+  - **41:** the weighted-projective compactification of jet spaces (§9.1).
+  - **42:** Theorem 12.5.
+  - **43:** the deduction of Theorem 9.1 from Theorem 12.3 (§12.4).
+  - **44:** the remark that second-order partial derivatives of q generate all of them.
+- **Part II brief amended.**
+  - It now covers weakly special subvarieties and the new items, and imports AA.3 and C0.
+  - It carries a design constraint: import only LD.6's o-minimality and counting content, since LD.6's applications consume this Part II and a whole-layer import would close a stage cycle.
+  - It records the overlap with PAPER-TSIMERMAN-18, which routes weakly special subvarieties to LD.6.
+- **Mistakes.**
+  - E1–E5 are confirmed. E1's reason was corrected: in Example 7.1.1, o = 0 is the centre of the disc model, not a point of the upper half-plane. E3 was extended to two further occurrences, in the VMRT sentence after Theorem B.
+  - Six further misprints are added, each checked on the page image:
+    - **E6:** the Schwarzian coordinate in Example 7.1.1 is off by the factor 6.
+    - **E7:** B = K_ℂN⁺ should be B = K_ℂN⁻.
+    - **E8:** G(ℂ) "acts on X" should read "acts on Ω̂".
+    - **E9:** Lemma 3.3 should be Lemma 9.4.
+    - **E10:** q(gv) should be q(gw).
+    - **E11:** the index of the rank matrix should run over the d derivations.
+  - The `known` field of every finding is now the canonical "new".
+
 The 29-page paper has been extracted into 39 items. None is in the pinned libraries, eight are planned by existing
 layers of the atlas, and the remaining 31 each have exactly one route: 28 go to a **Part II** of
 `LogicAndDefinabilityInNumberTheory`, 2 become sources for `LogicAndDefinabilityInNumberTheory:LD.6` itself, and 1 for

@@ -26,7 +26,7 @@
    "Acknowledgements and References, pp. 26–29, read in full to identify the inputs listed under prerequisites"
   ]
  },
- "summary": "Complete extraction of the 29-page paper proving the hyperbolic Ax–Schanuel conjecture. For a connected pure Shimura variety X = Γ\\Ω with uniformization q : Ω → X and graph D ⊂ Ω × X, every irreducible component of W ∩ D of larger than expected dimension, for W ⊂ Ω × X algebraic, projects into a proper weakly special subvariety of X: all atypical intersections are accounted for by the bi-algebraic subvarieties. The proof combines o-minimality — the definability of q on a Siegel fundamental set, the definable Chow and Remmert–Stein theorems of Peterzil and Starchenko, and the Pila–Wilkie counting theorem — with the exponential volume growth of Hwang and To, the Zariski density of monodromy after André and Deligne, and a triple induction. The paper then proves a version with derivatives, for which it develops the Schwarzian differential equation of a Hermitian symmetric domain in jet spaces, showing that the G(ℂ)-translates of q are exactly the solutions of an algebraic differential system; this gives that a basis of modular functions with its partial derivatives to order at least 2 has transcendence degree dim G, generalising Bertrand–Zudilin. Finally it gives a differential-field version and shows that it implies the jet version. Of the 39 items, none is in the pinned libraries, 8 are planned by existing layers, and 31 are missing. The routing follows the atlas's own commitment: LD.6 plans o-minimality and Pila–Wilkie and names Ax–Schanuel among the inputs whose full proofs it must acquire, so the paper becomes a Part II of that roadmap, since Schwarzians, jet spaces, Ochiai's theorem and differential fields are new layers rather than additions to an o-minimality layer; the two definable GAGA theorems go to LD.6 itself, and weakly special subvarieties, which occur nowhere in the atlas, to ShimuraData D4 alongside the other distinguished classes. Five misprints were found and are recorded under sourceIssues; none affects a proof. This is a paper inventory and routing, not a proof blueprint: the results quoted from Peterzil–Starchenko, Klingler–Ullmo–Yafaev, Hwang–To, André, Deligne, Ochiai, Mok, Pila–Wilkie, Seidenberg and Kazhdan are recorded as items with their own prerequisite entries and are not decomposed here.",
+ "summary": "Complete extraction of the 29-page paper proving the hyperbolic Ax–Schanuel conjecture. For a connected pure Shimura variety X = Γ\\Ω with uniformization q : Ω → X and graph D ⊂ Ω × X, every irreducible component of W ∩ D of larger than expected dimension, for W ⊂ Ω × X algebraic, projects into a proper weakly special subvariety of X: all atypical intersections are accounted for by the bi-algebraic subvarieties. The proof combines o-minimality — the definability of q on a Siegel fundamental set, the definable Chow and Remmert–Stein theorems of Peterzil and Starchenko, and the Pila–Wilkie counting theorem — with the exponential volume growth of Hwang and To, the Zariski density of monodromy after André and Deligne, and a triple induction. The paper then proves a version with derivatives, for which it develops the Schwarzian differential equation of a Hermitian symmetric domain in jet spaces, showing that the G(ℂ)-translates of q are exactly the solutions of an algebraic differential system; this gives that a basis of modular functions with its partial derivatives to order at least 2 has transcendence degree dim G, generalising Bertrand–Zudilin. Finally it gives a differential-field version and shows that it implies the jet version. Of the 39 items, none is in the pinned libraries, 8 are planned by existing layers, and 31 are missing. The routing follows the atlas's own commitment: LD.6 plans o-minimality and Pila–Wilkie and names Ax–Schanuel among the inputs whose full proofs it must acquire, so the paper becomes a Part II of that roadmap, since Schwarzians, jet spaces, Ochiai's theorem and differential fields are new layers rather than additions to an o-minimality layer; the two definable GAGA theorems go to LD.6 itself, and weakly special subvarieties, which occur nowhere in the atlas, to ShimuraData D4 alongside the other distinguished classes. Five misprints were found and are recorded under sourceIssues; none affects a proof. This is a paper inventory and routing, not a proof blueprint: the results quoted from Peterzil–Starchenko, Klingler–Ullmo–Yafaev, Hwang–To, André, Deligne, Ochiai, Mok, Pila–Wilkie, Seidenberg and Kazhdan are recorded as items with their own prerequisite entries and are not decomposed here. Independent review REV-PAPER-MOK-PILA-TSIMERMAN-19 (Claude Code, cc-442dc5): 44 items (8 planned, 36 missing) and three routes. The ShimuraData D4 source route was rejected and its item moved into the Part II. Five items were added (40–44), with a ComplexComparisonPartII source route for item 40. Items 2, 36 and 38 were corrected, and six further misprints were recorded (E6–E11).",
  "items": [
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/1",
@@ -50,12 +50,12 @@
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/2",
    "kind": "definition",
    "name": "Weakly special and special subvarieties",
-   "statement": "A Shimura variety X carries a collection of weakly special subvarieties; the special subvarieties are those weakly special subvarieties containing a special point. Weakly special subvarieties are exactly the bi-algebraic subvarieties of X: their preimages in Ω are algebraic, so they give rise to atypical intersections — in the extreme case W = Ω₁ × X₁ with X₁ weakly special and Ω₁ a connected component of its preimage, one has dim W = dim U + dim X₁.",
-   "locator": "arXiv:1711.02189v3 (20 September 2018), §1, p. 2, referring to Klingler–Ullmo–Yafaev for the description",
+   "statement": "The paper does not define weakly special subvarieties; it takes them from Klingler–Ullmo–Yafaev [18] (p. 1). What it uses is the following. A connected Shimura variety X carries a collection of weakly special subvarieties; the special subvarieties are the weakly special ones containing a special point, and play no role here. Weakly special subvarieties are bi-algebraic in the sense of [18], so they give rise to atypical intersections: for W = Ω₁ × X₁ with X₁ weakly special and Ω₁ a connected component of its preimage, dim W = dim U + dim X₁ (p. 2). They come in countably many families, which correspond to points of suitable (possibly constructible) subvarieties of countably many Hilbert schemes; these families are defined over Q̄, and the collection of families is stable under Galois automorphisms (§12.1, p. 24; the countability is also used in the proof of Lemma 4.3, p. 9).",
+   "locator": "arXiv:1711.02189v3 (20 September 2018), §1, pp. 1–2, and §12.1, p. 24; the notion is cited from Klingler–Ullmo–Yafaev [18]",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The objects the main theorem is about, and the only source of atypical intersections it allows. Neither 'weakly special' nor 'bi-algebraic' occurs anywhere in the atlas; ShimuraData D4 plans the distinguished classes — special pairs, special points, Hodge and abelian type — and is the natural owner of the weakly special classes as well. Special subvarieties play no role in this paper."
+   "note": "Corrected by the review REV-PAPER-MOK-PILA-TSIMERMAN-19. The earlier statement said weakly special subvarieties are exactly the bi-algebraic ones. The paper asserts only one direction; the converse is a theorem of Ullmo–Yafaev that it does not use. The countably-many-families property, used in Lemma 4.3 and §12.1, was added. The item is rerouted from ShimuraData D4 to the Part II. D4 comes before the construction of X = Γ\\Ω, since ShimuraVarieties V0 depends on D5, which depends on D4. So D4 cannot own subvarieties of X without a dependency cycle. PAPER-TSIMERMAN-18 routes the same notion to LD.6; one owner must be chosen when these are designed."
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/3",
@@ -113,7 +113,7 @@
     "LogicAndDefinabilityInNumberTheory:LD.6",
     "LogicAndDefinabilityInNumberTheory:LD.0"
    ],
-   "note": "LD.6 plans exactly this: 'Construct the selected o-minimal structures, definable sets and cell decomposition'. LD.0 plans the underlying first-order language and definability framework."
+   "note": "LD.6 plans exactly this: 'Construct the selected o-minimal structures, definable sets and cell decomposition'. LD.0 plans the underlying first-order language and definability framework. Review note: LD.6 plans only 'the selected o-minimal structures'. The o-minimality of R_an,exp (van den Dries–Miller, van den Dries–Macintyre–Marker, building on Wilkie) is covered by that phrase, not named. PAPER-BAKKER-KLINGLER-TSIMERMAN-20 routes the same o-minimality inputs to LD.6 as a source."
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/8",
@@ -431,16 +431,16 @@
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/36",
    "kind": "theorem",
-   "name": "Complex analytic sets, Chow's theorem and Remmert–Stein",
-   "statement": "Closed complex analytic subsets of a complex manifold, their local dimension theory and irreducible components, Chow's theorem that a closed analytic subset of projective space is algebraic, and the Remmert–Stein extension theorem across an analytic subset of smaller dimension.",
+   "name": "Complex analytic subspaces and Chow's theorem",
+   "statement": "Closed complex analytic subspaces of complex manifolds and of analytifications of algebraic varieties, and Chow's theorem that a closed analytic subset of projective space is algebraic (used in the proof of Theorem 2.2 and throughout §3).",
    "locator": "arXiv:1711.02189v3 (20 September 2018), §2 and §3, pp. 5–6",
    "status": "planned",
    "library": [],
    "planned": [
-    "ComplexComparisonPartII:C4",
-    "ComplexComparisonPartII:C2"
+    "ComplexComparisonPartII:C0",
+    "ComplexComparisonPartII:C4"
    ],
-   "note": "ComplexComparisonPartII C4 plans Chow algebraization and morphism comparison, and C0–C3 the analytic coherent theory it rests on. The definable versions used here are separate items."
+   "note": "ComplexComparisonPartII C0 treats closed analytic subspaces with their ideal sheaves, and C4 plans Chow algebraization. Corrected by the review. The earlier statement also claimed the classical Remmert–Stein theorem and the local dimension theory of analytic sets as planned. No layer plans them, and the paper uses only the definable Remmert–Stein theorem (item 9). The analytic inputs the paper does use are now item 40, routed as a source to ComplexComparisonPartII. C2, projective coherent GAGA, is not what this item needs."
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/37",
@@ -465,10 +465,10 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "ShimuraVarieties:V0",
-    "ArithmeticLocallySymmetricSpaces:ALS.0"
+    "AdelicAlgebraicGroups:AA.3",
+    "ShimuraVarieties:V0"
    ],
-   "note": "ShimuraVarieties V0 plans arithmeticity and commensurability, the reduction theory consumed from AutomorphicFormsOnReductiveGroups and ArithmeticLocallySymmetricSpaces including rational parabolics and Siegel sets, and the existence of neat congruence subgroups with properly discontinuous action."
+   "note": "AdelicAlgebraicGroups AA.3 (reduction theory) constructs Siegel sets and proves that finitely many of them cover the arithmetic quotient. ShimuraVarieties V0 consumes that reduction theory for Hermitian domains. Corrected by the review: the earlier citation of ArithmeticLocallySymmetricSpaces ALS.0 (symmetric spaces and components) does not plan Siegel sets."
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/39",
@@ -483,6 +483,61 @@
     "ShimuraVarieties:V3"
    ],
    "note": "ShimuraVarieties V2 plans Baily–Borel algebraicity and the minimal compactification and V3 Borel algebraicity and uniqueness; V1 plans the analytic tower."
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/40",
+   "kind": "theorem",
+   "name": "Proper mapping theorem and semicontinuity of fibre dimension",
+   "statement": "For a holomorphic map of complex analytic spaces, the locus where the local fibre dimension is at least k is a closed analytic subset (Cartan–Remmert semicontinuity), and the image of a closed analytic set under a proper holomorphic map is a closed analytic set (Remmert's proper mapping theorem). The paper uses the first to see that A(k) is closed and complex analytic (§3.1 and §9.2, citing the proof of Peterzil–Starchenko [28, Lemma 8.2]), and the second in the proof of Lemma 9.2 (p. 17).",
+   "locator": "arXiv:1711.02189v3 (20 September 2018), §3.1, p. 6; §9.2, p. 19; proof of Lemma 9.2, p. 17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by the review. No layer plans these classical theorems of complex analytic geometry. ComplexComparisonPartII C0 builds coherent analytic sheaves and closed analytic subspaces, and C4 uses a proper-projection argument in Chow algebraization, so that roadmap is their owner. PAPER-BAKKER-KLINGLER-TSIMERMAN-20 routes its proper holomorphic image theorem to the same layers."
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/41",
+   "kind": "construction",
+   "name": "Weighted projective compactification of jet spaces",
+   "statement": "BJ^r_kY := (Hom(D^r_k, Y) × A¹_ℂ)/G_{m,ℂ}, with r · (t ↦ f(t), s) := (t ↦ f(rt), rs). In Taylor-coefficient coordinates it is a bundle of weighted projective spaces over Y, hence projective when Y is projective, and it gives a functorial compactification of J^r_kY. It is used to take Hilbert schemes of subvarieties of BJ^r_kΩ̂ × BJ^r_kX̂ in §9.2.",
+   "locator": "arXiv:1711.02189v3 (20 September 2018), §9.1, p. 19 (announced in footnote 4, p. 17)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by the review. It is needed for the jet-space Hilbert-scheme construction behind Lemma 9.4 and the proof of Theorem 9.1."
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/42",
+   "kind": "theorem",
+   "name": "Differential Ax–Schanuel for products (Theorem 12.5)",
+   "statement": "Let z = (z^(1), …, z^(ℓ)) ∈ Ω̂^ℓ(K) with rank(z^(k)) = n for each k, and x = (x^(1), …, x^(ℓ)) ∈ X^ℓ(K), each of rank n, such that x^(i) is a function of z^(i) for each i. Let y^(i) be the partial derivatives of x^(i) with respect to z^(i) up to order r ≥ 2, and put y = (y^(1), …, y^(ℓ)). Suppose (z^(k), x^(k)) ∈ V^k_m for each k. Then tr.deg._C C(z, x, y) ≥ rank(z) + ℓ·dim G, unless x is contained in a proper weakly special subvariety of X^ℓ. Here the y^(i) are uniquely determined, by linear algebra in the derivatives of z and x.",
+   "locator": "arXiv:1711.02189v3 (20 September 2018), §12.5, Theorem 12.5, p. 27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by the review: a stated theorem, the analogue for q^ℓ : Ω^ℓ → X^ℓ of the exponential and modular cases. The paper gives no separate proof; it is presented as a special case of Theorem 12.3."
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/43",
+   "kind": "theorem",
+   "name": "Jet Ax–Schanuel from differential Ax–Schanuel",
+   "statement": "Theorem 12.3 implies Theorem 9.1. For a locus U ⊂ J^{nd,n}_ℓD of dimension k (ℓ ≥ 2), non-degeneracy lets the jet coordinates of x be replaced by the partial derivatives q_i^(ν)∘z with |ν| ≤ ℓ, without changing the generated field. Then (z, x, y) is a uniformized locus of rank k = dim U. Theorem 12.3, with dim Zcl(A, B) − dim Zcl(A) ≥ dim(A, B) − dim A, gives dim Zcl ≥ dim + dim G, unless the projection of U to X lies in a proper weakly special subvariety.",
+   "locator": "arXiv:1711.02189v3 (20 September 2018), §12.4, pp. 26–27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by the review: the paper's second proof of Theorem 9.1, following Pila–Tsimerman [32]."
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/44",
+   "kind": "theorem",
+   "name": "Second-order partial derivatives of q generate all of them",
+   "statement": "For k ≥ 2 the projection J_{k+1}q(G·J^{nd,n}_{k+1}(id_{k+1}(o))) → J_kq(G·J^{nd,n}_k(id_k(o))) is bijective. J_kq(G·J^{nd,n}_k(id_k(o))) is the Zariski closure of the graph of the partial derivatives of q of order |ν| ≤ k. Consequently, for k ≥ 2 the k-th partial derivatives of q are rational in those of order ≤ 2, so the field generated by all partial derivatives of q is generated by those of order ≤ 2.",
+   "locator": "arXiv:1711.02189v3 (20 September 2018), Remark after Corollary 9.3, p. 18",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by the review: a stated consequence of Lemma 9.2 and Proposition 7.2, proved by the argument of Corollary 9.3."
   }
  ],
  "prerequisites": [
@@ -560,6 +615,7 @@
    "title": "Logic, definability, valued fields and motivic integration, Part II: functional transcendence and Ax–Schanuel for Shimura varieties",
    "area": "modeltheory",
    "items": [
+    "PAPER-MOK-PILA-TSIMERMAN-19/2",
     "PAPER-MOK-PILA-TSIMERMAN-19/3",
     "PAPER-MOK-PILA-TSIMERMAN-19/4",
     "PAPER-MOK-PILA-TSIMERMAN-19/5",
@@ -587,10 +643,14 @@
     "PAPER-MOK-PILA-TSIMERMAN-19/32",
     "PAPER-MOK-PILA-TSIMERMAN-19/33",
     "PAPER-MOK-PILA-TSIMERMAN-19/34",
-    "PAPER-MOK-PILA-TSIMERMAN-19/35"
+    "PAPER-MOK-PILA-TSIMERMAN-19/35",
+    "PAPER-MOK-PILA-TSIMERMAN-19/41",
+    "PAPER-MOK-PILA-TSIMERMAN-19/42",
+    "PAPER-MOK-PILA-TSIMERMAN-19/43",
+    "PAPER-MOK-PILA-TSIMERMAN-19/44"
    ],
-   "brief": "Extend the roadmap Logic, definability, valued fields and motivic integration in the direction its o-minimality layer LD.6 already points: functional transcendence for the uniformization of a Shimura variety, following Mok, Pila and Tsimerman, Annals of Mathematics 189 (2019). LD.6 plans o-minimal structures, cell decomposition, the Pila–Wilkie counting theorem and Pila–Zannier applications, and names 'independent Galois-orbit and Ax-Lindemann/Ax-Schanuel inputs' among the primary proofs it must acquire; this Part II supplies those inputs, which need layers of their own because their proofs are not model theory but complex geometry, the group theory of Hermitian symmetric domains, and differential algebra. The final theorems are these. (1) Ax–Schanuel for Shimura varieties (Theorem 1.1): for X = Γ\\Ω a connected pure Shimura variety with uniformization q : Ω → X and graph D ⊂ Ω × X, if W ⊂ Ω × X is algebraic and U is an irreducible component of W ∩ D with dim W < dim U + dim X, then the projection of U to X lies in a proper weakly special subvariety. (2) Ax–Schanuel with derivatives (Theorem 9.1): the same statement in the jet spaces J^{nd,r}_kΩ × J^{nd,r}_kX with the expected-dimension condition governed by dim G, and its two corollaries — that a basis of modular functions together with its partial derivatives to order k ≥ 2 has transcendence degree dim G over ℂ and over ℂ(z), and that restricted to a variety V not inside a proper weakly special subvariety the transcendence degree is at least dim G + dim V. (3) Differential Ax–Schanuel (Theorem 12.3): for a differential field (K, D, C) and a uniformized locus (z, x, y) of rank k, tr.deg._C C(z, x, y) ≥ rank(z) + dim G unless x lies in a proper weakly special subvariety. Cover, in layers: weakly special subvarieties and their bi-algebraicity, imported from the source route proposed alongside this one; the definability of q on a Siegel fundamental set, after Klingler–Ullmo–Yafaev and Peterzil–Starchenko, and the algebraicity principle it yields — a Γ-invariant closed analytic set definable on a fundamental domain descends to an algebraic subset of X × X; the Hilbert-scheme family of atypical intersections and its descent; the stabilizer argument, with the Zariski density of monodromy after André and Deligne, the exponential volume growth of Hwang–To, the uniform volume bound coming from definability, and the Pila–Wilkie counting theorem, assembled into the triple induction on dim Ω, on dim W − dim U and on dim U; jet spaces of algebraic varieties with the maps π_{a,b}, and algebraic differential equations as jet subvarieties together with the geometric form of differentiating an equation; the Hodge decomposition 𝔤 = 𝔫⁻ ⊕ 𝔨_ℂ ⊕ 𝔫⁺, the N⁺-coordinates on the compact dual, and the Schwarzian differential equation W_m = G · id_m(o) with the nondegenerate jet loci; the rigidity results — B fixes id₁(o) exactly on N⁻, G acts freely on id₂(o), a map with J₃ in W₃ is a G(ℂ)-translate, and the lower-order versions in the ball via the Fundamental Theorem of Projective Geometry and in rank at least 2 via Ochiai's theorem; the Schwarzian variety, the map ψ_k, the connection formula, the algebraicity of the Schwarzian of an automorphic function, and the resulting characterisation of q up to G(ℂ); the jet-space forms of all of the above; and finally the differential-field package — rank and transcendence degree of a K-point, the foliation that keeps the group element constant, uniformized loci, and the Seidenberg embedding that turns a differential-algebraic hypothesis into holomorphic functions on a disc. Every definition gets its API and unit tests, and the two quoted external theorems that are not proved here, Hwang–To volume growth and Kazhdan's theorem that a conjugate of an arithmetic variety is arithmetic, are recorded with their hypotheses. Import, never re-plan: o-minimal structures, definable sets, cell decomposition and the Pila–Wilkie theorem from LD.6 and LD.0, together with the definable Remmert–Stein and definable Chow theorems that this extraction routes to LD.6; Hermitian symmetric domains, the compact dual, the Borel embedding and the Hodge decomposition of the adjoint representation from ShimuraData D2 and D3, and the weakly special classes from D4; arithmetic groups, Siegel sets and fundamental sets from ShimuraVarieties V0 and ArithmeticLocallySymmetricSpaces ALS.0; the analytic tower and Baily–Borel algebraicity from ShimuraVarieties V1, V2 and V3; Chow's theorem and the analytic comparison from ComplexComparisonPartII C2 and C4; and Hilbert schemes from AlgebraicModuliForArithmeticGeometry R09.1 and R09.2. Record as downstream, not as targets here, the applications to Zilber–Pink and André–Oort that LD.6 owns.",
-   "reason": "LD.6 is the layer this paper serves, and it says so itself: its construct-and-export text builds Pila–Zannier applications 'from separate Galois-orbit bounds, definability of uniformization and functional-transcendence theorems', and its source route lists 'independent Galois-orbit and Ax-Lindemann/Ax-Schanuel inputs. Record the exact full proof for each.' So the atlas already commits to acquiring this proof, and the question is only where it goes. It cannot go inside LD.6: that layer is about o-minimal structures, definable sets, cell decomposition and rational-point counting, whereas the bulk of this paper is complex geometry and group theory — the Schwarzian differential equation of a Hermitian symmetric domain, jet spaces, Ochiai's theorem, Hwang–To volume growth, the André–Deligne monodromy theorem — and differential algebra. Those are new layers in LD.6's direction, which is what PROTOCOL.md section 15 calls a Part II. A new roadmap was rejected because the whole point of the theorem is to feed the unlikely-intersection programme LD.6 owns, and because the o-minimal half of the proof is exactly LD.6's subject; a source route was rejected because none of the layers of the parent roadmap plans jets, Schwarzians or differential fields. The parent is a campaign roadmap, not a Tau Ceti one, so either route was formally available."
+   "brief": "Extend the roadmap Logic, definability, valued fields and motivic integration in the direction its o-minimality layer LD.6 already points: functional transcendence for the uniformization of a Shimura variety, following Mok, Pila and Tsimerman, Annals of Mathematics 189 (2019). LD.6 plans o-minimal structures, cell decomposition, the Pila–Wilkie counting theorem and Pila–Zannier applications, and names 'independent Galois-orbit and Ax-Lindemann/Ax-Schanuel inputs' among the primary proofs it must acquire; this Part II supplies those inputs, which need layers of their own because their proofs are not model theory but complex geometry, the group theory of Hermitian symmetric domains, and differential algebra. The final theorems are these. (1) Ax–Schanuel for Shimura varieties (Theorem 1.1): for X = Γ\\Ω a connected pure Shimura variety with uniformization q : Ω → X and graph D ⊂ Ω × X, if W ⊂ Ω × X is algebraic and U is an irreducible component of W ∩ D with dim W < dim U + dim X, then the projection of U to X lies in a proper weakly special subvariety. (2) Ax–Schanuel with derivatives (Theorem 9.1): the same statement in the jet spaces J^{nd,r}_kΩ × J^{nd,r}_kX with the expected-dimension condition governed by dim G, and its two corollaries — that a basis of modular functions together with its partial derivatives to order k ≥ 2 has transcendence degree dim G over ℂ and over ℂ(z), and that restricted to a variety V not inside a proper weakly special subvariety the transcendence degree is at least dim G + dim V. (3) Differential Ax–Schanuel (Theorem 12.3): for a differential field (K, D, C) and a uniformized locus (z, x, y) of rank k, tr.deg._C C(z, x, y) ≥ rank(z) + dim G unless x lies in a proper weakly special subvariety. Cover, in layers: weakly special subvarieties of a connected Shimura variety (after Klingler–Ullmo–Yafaev), their bi-algebraicity and their countably many families defined over Q̄ (built on the subdata and special points of ShimuraData D4 and the quotients of ShimuraVarieties V0–V3); the definability of q on a Siegel fundamental set, after Klingler–Ullmo–Yafaev and Peterzil–Starchenko, and the algebraicity principle it yields — a Γ-invariant closed analytic set definable on a fundamental domain descends to an algebraic subset of X × X; the Hilbert-scheme family of atypical intersections and its descent; the stabilizer argument, with the Zariski density of monodromy after André and Deligne, the exponential volume growth of Hwang–To, the uniform volume bound coming from definability, and the Pila–Wilkie counting theorem, assembled into the triple induction on dim Ω, on dim W − dim U and on dim U; jet spaces of algebraic varieties with the maps π_{a,b}, and algebraic differential equations as jet subvarieties together with the geometric form of differentiating an equation; the Hodge decomposition 𝔤 = 𝔫⁻ ⊕ 𝔨_ℂ ⊕ 𝔫⁺, the N⁺-coordinates on the compact dual, and the Schwarzian differential equation W_m = G · id_m(o) with the nondegenerate jet loci; the rigidity results — B fixes id₁(o) exactly on N⁻, G acts freely on id₂(o), a map with J₃ in W₃ is a G(ℂ)-translate, and the lower-order versions in the ball via the Fundamental Theorem of Projective Geometry and in rank at least 2 via Ochiai's theorem; the Schwarzian variety, the map ψ_k, the connection formula, the algebraicity of the Schwarzian of an automorphic function, and the resulting characterisation of q up to G(ℂ); the jet-space forms of all of the above; and finally the differential-field package — rank and transcendence degree of a K-point, the foliation that keeps the group element constant, uniformized loci, and the Seidenberg embedding that turns a differential-algebraic hypothesis into holomorphic functions on a disc. Every definition gets its API and unit tests, and the two quoted external theorems that are not proved here, Hwang–To volume growth and Kazhdan's theorem that a conjugate of an arithmetic variety is arithmetic, are recorded with their hypotheses. Import, never re-plan: o-minimal structures, definable sets, cell decomposition and the Pila–Wilkie theorem from LD.6 and LD.0, together with the definable Remmert–Stein and definable Chow theorems that this extraction routes to LD.6; Hermitian symmetric domains, the compact dual, the Borel embedding and the Hodge decomposition of the adjoint representation from ShimuraData D2 and D3, and the Shimura data, subdata and special points from D4; arithmetic groups from ShimuraVarieties V0, and Siegel sets and the finite covering of the quotient by them from AdelicAlgebraicGroups AA.3; the analytic tower and Baily–Borel algebraicity from ShimuraVarieties V1, V2 and V3; closed analytic subspaces, Chow's theorem, Remmert's proper mapping theorem and the semicontinuity of fibre dimension from ComplexComparisonPartII C0 and C4 (the last two through the source route proposed alongside); and Hilbert schemes from AlgebraicModuliForArithmeticGeometry R09.1 and R09.2. Record as downstream, not as targets here, the applications to Zilber–Pink and André–Oort that LD.6 owns. Also cover: the weighted-projective compactification of jet spaces (§9.1) used for jet-space Hilbert schemes; the product version Theorem 12.5; the deduction of Theorem 9.1 from Theorem 12.3 (§12.4); and the remark that the partial derivatives of q of order at most 2 generate all of them. Design constraint added by the review: import only LD.6's o-minimality, cell decomposition and Pila–Wilkie content. LD.6's unlikely-intersection applications consume this Part II, so importing LD.6 as a whole would close a stage cycle. If LD.6 cannot be imported in part, the design job should ask for LD.6 to be narrowed into its counting and application halves. Coordination: PAPER-TSIMERMAN-18 routes 'special and weakly special subvarieties' to LD.6. Weakly special subvarieties should have one owner, and this Part II, which already imports ShimuraData and ShimuraVarieties, is the natural one.",
+   "reason": "LD.6 is the layer this paper serves, and it says so itself: its construct-and-export text builds Pila–Zannier applications 'from separate Galois-orbit bounds, definability of uniformization and functional-transcendence theorems', and its source route lists 'independent Galois-orbit and Ax-Lindemann/Ax-Schanuel inputs. Record the exact full proof for each.' So the atlas already commits to acquiring this proof, and the question is only where it goes. It cannot go inside LD.6: that layer is about o-minimal structures, definable sets, cell decomposition and rational-point counting, whereas the bulk of this paper is complex geometry and group theory — the Schwarzian differential equation of a Hermitian symmetric domain, jet spaces, Ochiai's theorem, Hwang–To volume growth, the André–Deligne monodromy theorem — and differential algebra. Those are new layers in LD.6's direction, which is what PROTOCOL.md section 15 calls a Part II. A new roadmap was rejected because the whole point of the theorem is to feed the unlikely-intersection programme LD.6 owns, and because the o-minimal half of the proof is exactly LD.6's subject; a source route was rejected because none of the layers of the parent roadmap plans jets, Schwarzians or differential fields. The parent is a campaign roadmap, not a Tau Ceti one, so either route was formally available. Review: accepted, with item 2 (weakly special subvarieties) moved here from the rejected ShimuraData D4 source route and four items added (41–44)."
   },
   {
    "route": "source",
@@ -602,18 +662,19 @@
     "PAPER-MOK-PILA-TSIMERMAN-19/9",
     "PAPER-MOK-PILA-TSIMERMAN-19/10"
    ],
-   "reason": "Definable Remmert–Stein and definable Chow, in the form used here, are theorems of o-minimality with no Shimura content: a definable complex analytic subset of a quasiprojective variety, closed in it, is algebraic, and the constructible version follows by induction on dimension. LD.6 plans 'the selected o-minimal structures, definable sets and cell decomposition' and is the layer that should own them, but its text does not mention them and a search of every stage description in the atlas for 'Peterzil' and 'definable Chow' returns nothing. They are routed here rather than into the Part II proposed alongside because every consumer of o-minimality in the atlas will want them, not only the functional-transcendence layers: they are the definable form of GAGA. This is a source route on an existing layer of the same roadmap whose Part II takes the rest of the paper, and the two are complementary — the source adds to a layer that exists, the Part II adds layers that do not."
+   "reason": "Definable Remmert–Stein and definable Chow, in the form used here, are theorems of o-minimality with no Shimura content: a definable complex analytic subset of a quasiprojective variety, closed in it, is algebraic, and the constructible version follows by induction on dimension. LD.6 plans 'the selected o-minimal structures, definable sets and cell decomposition' and is the layer that should own them, but its text does not mention them and a search of every stage description in the atlas for 'Peterzil' and 'definable Chow' returns nothing. They are routed here rather than into the Part II proposed alongside because every consumer of o-minimality in the atlas will want them, not only the functional-transcendence layers: they are the definable form of GAGA. This is a source route on an existing layer of the same roadmap whose Part II takes the rest of the paper, and the two are complementary — the source adds to a layer that exists, the Part II adds layers that do not. Review: accepted. PAPER-BAKKER-KLINGLER-TSIMERMAN-20 routes overlapping o-minimal inputs to LD.0 and LD.6 as a source; the two source routes are compatible."
   },
   {
    "route": "source",
-   "roadmap": "ShimuraData",
+   "roadmap": "ComplexComparisonPartII",
    "stages": [
-    "ShimuraData:D4"
+    "ComplexComparisonPartII:C0",
+    "ComplexComparisonPartII:C4"
    ],
    "items": [
-    "PAPER-MOK-PILA-TSIMERMAN-19/2"
+    "PAPER-MOK-PILA-TSIMERMAN-19/40"
    ],
-   "reason": "D4 constructs the category of Shimura data with its products, adjoint passage and central isogenies, and defines the distinguished classes: special pairs, special points, Hodge type, abelian type and pre-abelian type. Weakly special subvarieties belong to exactly that list — they are the bi-algebraic subvarieties, the images of sub-data crossed with a point, and the special subvarieties are precisely the weakly special ones containing a special point, a definition that D4 already has half of. A search of every stage description in the atlas for 'weakly special' and 'bi-algebraic' returns nothing, so the notion is missing, and PROTOCOL.md section 15 asks that a general missing notion be planned once in the layer that owns its neighbours. The Part II proposed alongside then imports it rather than defining it, which matters because every statement in this paper has 'is contained in a proper weakly special subvariety' as its conclusion."
+   "reason": "Added by the review. The closedness of the fibre-dimension loci A(k) (Cartan–Remmert semicontinuity) and Remmert's proper mapping theorem are classical complex analytic geometry that no layer plans. C0 constructs coherent analytic sheaves and closed analytic subspaces, and C4's Chow algebraization already relies on a proper-projection argument, so the paper is a source for these two layers. PAPER-BAKKER-KLINGLER-TSIMERMAN-20 routes its proper holomorphic image theorem to the same layers."
   }
  ],
  "sourceIssues": [
@@ -623,14 +684,19 @@
    "locator": "§7.1 Setup, p. 11",
    "printed": "Picking a base-point o ∈ X, we may give coordinates on an open subset of Ω̂ by identifying it with N⁺ by ν ↦ ν · o.",
    "correction": "The base point should be o ∈ Ω, a point of the domain (equivalently of its compact dual Ω̂), not of the Shimura variety X.",
-   "reason": "N⁺ acts on the compact dual Ω̂ = G/B, not on X = Γ\\Ω, so ν ↦ ν·o makes sense only for o in the domain. Everywhere else in the section o is a point of the domain: the sections constructed in the next sentence are id_m : N⁺ → J_mN⁺, the Schwarzian equation is W_m = G·id_m(o) ⊂ J_mΩ̂, Lemma 7.1 concerns the subgroup of B fixing id₁(o), and Example 7.1.1 takes Ω = ℍ with o = 0 ∈ ℂ.",
+   "reason": "N⁺ acts on the compact dual Ω̂ = G/B, not on X = Γ\\Ω, so ν ↦ ν·o makes sense only for o in the domain. Everywhere else in the section o is a point of the domain: the sections constructed in the next sentence are id_m : N⁺ → J_mN⁺, the Schwarzian equation is W_m = G·id_m(o) ⊂ J_mΩ̂, Lemma 7.1 concerns the subgroup of B fixing id₁(o), and Example 7.1.1 takes o = 0, a point of Ω̂ = P¹ (in the disc model of the domain it is the centre; in the upper-half-plane model it lies in Ω̂ but not in ℍ). Any o ∈ Ω works, since the N⁺-orbit of such a point is open and dense in Ω̂.",
    "affects": "nothing",
-   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "known": "new",
    "searched": [
     "the arXiv abstract page and version history for 1711.02189",
     "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
     "the rest of §7 of the paper, where o is consistently a point of the domain"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on p. 11 of arXiv v3 (SHA-256 b3de4f10…0167, the version named): the base point is printed o ∈ X. N⁺ acts on Ω̂, not on X, and Lemma 7.1 takes B to be the stabilizer of o. Corrected in place: the entry cited Example 7.1.1 as having o = 0 ∈ ℍ, but 0 lies in ℍ only in the disc model. The correction o ∈ Ω stands.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/E2",
@@ -640,27 +706,37 @@
    "correction": "‘Ochai’s’ should be ‘Ochiai’s’.",
    "reason": "The name is spelled correctly three times in the surrounding text and in the bibliography, where reference [26] is T. Ochiai, Geometry associated with semisimple flat homogeneous spaces.",
    "affects": "nothing",
-   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "known": "new",
    "searched": [
     "the arXiv abstract page and version history for 1711.02189",
     "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
     "the other occurrences of the name on pp. 13–15 and in the bibliography"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on p. 13: 'Ochai's Theorem'; the bibliography entry [26] is T. Ochiai.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/E3",
    "kind": "misprint",
-   "locator": "§7.3, pp. 13–14, in the paragraph preparing Theorem B",
-   "printed": "As is well-known, for any υ ∈ U, dυ(x) = id_{T_x(X)}, hence the map Φ(γ) = dγ(x) defines a representation of L = B_x/U on T_x(X) … We denote by W_x ⊂ ℙT_x(X) the highest weight orbit …",
-   "correction": "All three occurrences of T_x(X) should be T_x(S).",
-   "reason": "The paragraph opens by writing the irreducible compact Hermitian symmetric space as S = G/B and taking x ∈ S; the letter X is reserved throughout the paper for the Shimura variety Γ\\Ω, which is not the space in question and has no point x here. Theorem B, stated two lines later, is correctly phrased in terms of S.",
+   "locator": "§7.3, p. 14: the paragraph preparing Theorem B and the VMRT sentence following it",
+   "printed": "As is well-known, for any υ ∈ U, dυ(x) = id_{T_x(X)}, hence the map Φ(γ) = dγ(x) defines a representation of L = B_x/U on T_x(X) … We denote by W_x ⊂ ℙT_x(X) the highest weight orbit … … Observing that W_x agrees with C_x(S), the variety of minimal rational tangents (VMRT) at x ∈ S consisting of [α] ∈ ℙT_x(X) tangent to minimal rational curves passing through x ∈ X, …",
+   "correction": "All three occurrences of T_x(X) in the paragraph before Theorem B, and ℙT_x(X) and 'x ∈ X' in the VMRT sentence after it, should refer to S: read T_x(S), ℙT_x(S) and x ∈ S.",
+   "reason": "The paragraph opens by writing the irreducible compact Hermitian symmetric space as S = G/B and taking x ∈ S; the letter X is reserved throughout the paper for the Shimura variety Γ\\Ω, which is not the space in question and has no point x here. Theorem B, stated two lines later, is correctly phrased in terms of S. The review found the same slip twice more, in the VMRT sentence after Theorem B on p. 14, and extended the entry in place.",
    "affects": "nothing",
-   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "known": "new",
    "searched": [
     "the arXiv abstract page and version history for 1711.02189",
     "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
     "the statement of Theorem B on p. 14 and the use of X elsewhere in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on p. 14. The three T_x(X) occurrences are as recorded. The VMRT sentence after Theorem B has two more (ℙT_x(X) and 'passing through x ∈ X'), which the review added. The space is S = G/B throughout.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/E4",
@@ -670,12 +746,17 @@
    "correction": "‘Theorem 7.3’ should be ‘Corollary 7.3’.",
    "reason": "The statement being applied — if F satisfies J₃F ∘ id₃ ⊂ W₃ then F is a G(ℂ)-translate — is labelled Corollary 7.3 on p. 13, and the paper has no Theorem 7.3; §7 contains Lemma 7.1, Proposition 7.2, Corollary 7.3, Theorem 7.4 and Theorem 7.5.",
    "affects": "nothing",
-   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "known": "new",
    "searched": [
     "the arXiv abstract page and version history for 1711.02189",
     "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
     "the numbering of §7 on pp. 12–15"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on p. 16: 'Theorem 7.3 shows'. §7 has Corollary 7.3 (p. 13) and no Theorem 7.3.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/E5",
@@ -685,12 +766,137 @@
    "correction": "‘rank(k)’ should be ‘rank(z)’, or simply k.",
    "reason": "Two lines earlier the same proof states dim U′ = k = rank(z), and k is defined in §12.3 as k = rank(x) = rank(z); rank is an operation on K-points of varieties, so rank(k) is not defined.",
    "affects": "nothing",
-   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "known": "new",
    "searched": [
     "the arXiv abstract page and version history for 1711.02189",
     "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
     "§12.2 and §12.3, where rank and k are defined"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on p. 25: 'dim U ≥ dim U′ = rank(k)'. The preceding lines set k = rank(z).",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E6",
+   "kind": "misprint",
+   "locator": "§7.1.1, Example, p. 12, in arXiv:1711.02189v3 (20 September 2018), the version read; the published Annals text was not collated",
+   "printed": "which transforms (0, 1, b/a, c/a) to (0, 1, 0, c/(6a) − b²/(4a²)). Thus we recover the classical Schwarzian in this setting.",
+   "correction": "The fourth coordinate of the transformed jet is c/a − 3b²/(2a²), which is exactly the classical Schwarzian S(f) = f‴/f′ − (3/2)(f″/f′)² at a = f′, b = f″, c = f‴.",
+   "reason": "The coordinates (z, a, b, c) stand for t ↦ z + at + bt²/2 + ct³/6. The display just before gives the transformed jet t + (c/(6a) − b²/(4a²))t³, whose c-coordinate is six times its t³ coefficient. The printed value is the t³ coefficient, one sixth of the Schwarzian.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189 (v3, 20 September 2018, is the latest; checked 23 September 2026)",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7 (no update or correction registered; checked 23 September 2026)",
+    "The review found it at the locator in the version named."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review, which checked it on the page image at the locator in the version named; not recorded by the extraction.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E7",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.1, p. 12, in arXiv:1711.02189v3 (20 September 2018), the version read; the published Annals text was not collated",
+   "printed": "Since B = K_ℂN⁺, to finish the proof it suffices to show that no element of K_ℂ acts trivially.",
+   "correction": "B = K_ℂN⁻.",
+   "reason": "§7.1 sets 𝔟 = 𝔫⁻ ⊕ 𝔨_ℂ, so B = K_ℂN⁻, and N⁺ is not contained in B. The argument needs B = K_ℂN⁻: N⁻ acts trivially on T_oΩ̂, so it remains to treat K_ℂ. In Example 7.1.1, B is the lower-triangular group.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189 (v3, 20 September 2018, is the latest; checked 23 September 2026)",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7 (no update or correction registered; checked 23 September 2026)",
+    "The review found it at the locator in the version named."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review, which checked it on the page image at the locator in the version named; not recorded by the extraction.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E8",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 9.2, p. 17, in arXiv:1711.02189v3 (20 September 2018), the version read; the published Annals text was not collated",
+   "printed": "Since G(ℂ) acts algebraically on X, there exist projective compactifications G(ℂ)′ of G(ℂ) and (J_k^{nd,r}Ω̂)′ of J_k^{nd,r}Ω̂ such that Ψ₀ extends to a rational map …",
+   "correction": "Read 'acts algebraically on Ω̂' (hence on J_k^{nd,r}Ω̂).",
+   "reason": "G(ℂ) acts on the compact dual Ω̂ and its jet spaces, not on the Shimura variety X = Γ\\Ω; the map Ψ₀ in the same sentence is the action on J_k^{nd,r}Ω̂.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189 (v3, 20 September 2018, is the latest; checked 23 September 2026)",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7 (no update or correction registered; checked 23 September 2026)",
+    "The review found it at the locator in the version named."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review, which checked it on the page image at the locator in the version named; not recorded by the extraction.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E9",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 9.1 in §10, p. 20, in arXiv:1711.02189v3 (20 September 2018), the version read; the published Annals text was not collated",
+   "printed": "V = (q × id)(Z′) the irreducible component of T, which is therefore algebraic by Lemma 3.3.",
+   "correction": "Cite Lemma 9.4, the jet-space analogue.",
+   "reason": "In §10, T is the jet-space locus of §9.2, whose algebraicity is Lemma 9.4 ('The same as Lemma 3.3'). Lemma 3.3 concerns the locus in X × X of §3.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189 (v3, 20 September 2018, is the latest; checked 23 September 2026)",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7 (no update or correction registered; checked 23 September 2026)",
+    "The review found it at the locator in the version named."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review, which checked it on the page image at the locator in the version named; not recorded by the extraction.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E10",
+   "kind": "misprint",
+   "locator": "§11, opening paragraph, p. 21, in arXiv:1711.02189v3 (20 September 2018), the version read; the published Annals text was not collated",
+   "printed": "… where ∆ is a disk of given dimension, satisfies u = q(gv) for some g ∈ G(ℂ).",
+   "correction": "u = q(gw).",
+   "reason": "The pair of maps is (w, u), and no v has been introduced; Theorem 11.2 concludes u(t) = q(gw(t)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189 (v3, 20 September 2018, is the latest; checked 23 September 2026)",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7 (no update or correction registered; checked 23 September 2026)",
+    "The review found it at the locator in the version named."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review, which checked it on the page image at the locator in the version named; not recorded by the extraction.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E11",
+   "kind": "misprint",
+   "locator": "§12.2, definition of rank, p. 24, in arXiv:1711.02189v3 (20 September 2018), the version read; the published Annals text was not collated",
+   "printed": "We define the rank of p to be the rank of the matrix rank(p) = (D_i s)_{1≤i≤n, s∈S}.",
+   "correction": "The row index should run over the derivations: (D_i s)_{1≤i≤d, s∈S}.",
+   "reason": "§12.1 sets n = dim X, while the differential field has the d derivations 𝒟 = {D₁, …, D_d}. The matrix of the rank has one row per derivation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189 (v3, 20 September 2018, is the latest; checked 23 September 2026)",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7 (no update or correction registered; checked 23 September 2026)",
+    "The review found it at the locator in the version named."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review, which checked it on the page image at the locator in the version named; not recorded by the extraction.",
+    "by": "REV-PAPER-MOK-PILA-TSIMERMAN-19"
+   }
   }
  ]
 }
