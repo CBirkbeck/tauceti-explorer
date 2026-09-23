@@ -1,4 +1,78 @@
-# PAPER-FU-24 — analytic quotient and coefficient interfaces
+# Fu (2024): extraction and routing
+
+Issue [#1083](https://github.com/CBirkbeck/tauceti-explorer/issues/1083). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of Codex (codex-c83e7a, #1659 and later), whose reports follow below as history.
+- **The paper.** W. Fu, *Sharp bounds for multiplicities of Bianchi modular forms*, Ann. of Math. 200 (2024), 123–152.
+  - The published text is now available from the NSF Public Access Repository (SHA-256 a6a15856…). It was read in full.
+  - It was collated with arXiv v2, which the earlier checkpoints read. The numbered statements agree, and all locators now refer to the published pages.
+- **Items.** The result has **137 items: 12 library, 11 planned and 114 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Seven are recorded under `sourceIssues`, now in the §18 form.
+
+## This continuation (cc-442dc5)
+
+**The published version.**
+- **Source.** The earlier NSF link now serves the version of record: 30 pages with the Annals header.
+- **Collation.**
+  - The numbered statements match arXiv v2. The published Corollary 1.3 adds "Suppose K_f is sufficiently small".
+  - Page 146 was checked as an image. The text layer drops the square root in "1/p < r′ < √(1/p)", and the printed bound is correct.
+
+**The findings, converted.** The checkpoint's findings S1–S7 were in the older form. They are now PAPER-FU-24/E1–E7, with a quotation, published locators, `known` set to "new" and a `searched` list. The old text is kept in `previousForm`, and each was checked on the published page.
+- **E1.** Equation (2) should use cuspidal cohomology, not compactly supported cohomology. The boundary terms are bounded by 3·(number of cusps), so nothing downstream changes.
+- **E2.** In (16), D_r needs |λ_α|r^{|α|} → 0. The printed "bounded" condition describes a larger space.
+- **E3.** Remark 5.8's "induced iff v(λ0) ≥ 2" is false.
+  - λ is induced exactly when 2λ(∆) + 1 is a square in Z_p. For p = 3, λ(∆) = 1 is not induced.
+  - So Section 5 proves Theorem 1.5 only for induced λ. The full theorem follows from Ardakov–Wadsley [AW14], which the paper cites.
+  - Theorem 1.4 needs genericity only at the induced parameters, since these are the closure of the λ_k.
+- **E4.** The Ore set in (17) contains 0 when R is ramified. Sections 5–7 work over Q_p, and a general K is reached by base change.
+- **E5 (gap).** Theorem 5.7's graded argument needs the r′-quotient filtration on D_r/D_r(p²∆ + λ0) to be separated.
+  - This is proved only for small radii. It is not proved at the radii p^{−1/p^n} that the proof of Theorem 5.1 uses.
+  - Theorems 1.2–1.5 do not depend on it.
+- **E6.** Theorem 1.2's minimum runs over r1 + r2 entries, and "∼" in Corollary 1.3 means bounded above and below.
+- **E7.** Theorem 5.7 as printed is false for λ(∆) = p^{−1} at r = p^{−2/3}, where the quotient is zero. It needs v(λ0) ≥ 2.
+
+**Checks made in the published text.** These steps were verified and found correct:
+- the proof of Proposition 5.3: ‖X_i‖_r = p^{n−1} at r = p^{−1/p^n}, and the exponential series converges;
+- Lemma 3.3's count of basis monomials, (d+1)²;
+- the density argument in Theorem 5.2;
+- the homological induction in the proof of Theorem 1.4;
+- the passage in §7 from the r p-adic weights to the r1 + r2 archimedean weights.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded, including the gap in Theorem 5.7 (E5).
+- What remains is the cited suppliers' proofs (AW13, AW14, Frommer, DDMS, Lazard, ST03).
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects nothing), §1, equation (2), p. 125, and Corollary 1.3, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* dim_C H_c^{r1+r2}(Y(K_f), W_k) = 2^{r1} dim_C S_k(K_f) … This space corresponds to the first compactly supported cohomology with coefficient local system W_k … by the Eichler–Shimura isomorphism (2). *Correction:* Read cuspidal (interior) cohomology, as in [Mar12, (4)]. Compactly supported cohomology differs from it by boundary terms, bounded here by 3·(number of cusps) in degrees 1 and 2, so Theorem 1.2 (an upper bound through ordinary cohomology) and Corollary 1.3 still hold.
+- **E2** (misprint; affects nothing), §4, equation (16), p. 138, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* D_r(G, K) = {Σ λ_α b^α | λ_α ∈ K, sup_α |λ_α| r^{|α|} < ∞} *Correction:* The completion of D(G, K) for ‖·‖_r consists of the series with |λ_α| r^{|α|} → 0; the bounded condition describes a larger space.
+- **E3** (error; affects the proof), Remark 5.8, second bullet, p. 147, with Theorems 1.5 and 5.1, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* The infinitesimal character λ is induced if and only if the valuation λ0 is at least 2 *Correction:* Only 'only if' holds. With λ_k(Δ) = ½((k+1)² − 1), λ is induced exactly when 2λ(Δ) + 1 is the square of an element of Z_p; for p = 3, λ(Δ) = 1 is integral but not induced. So Section 5 proves Theorem 1.5 only for induced λ. Theorem 1.5 for all λ ∈ Z_p^r follows from [AW14, Ths. 4.6 and 5.4], which the paper cites after Theorem 1.5, and Theorem 1.4 needs genericity only at induced parameters (the closure of the λ_k).
+- **E4** (error; affects the proof), §4, equation (17), p. 138, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* S0 := ∪_{a⩾0} (p^a + m^{a+1}) ⊆ R[[G]], where m is the maximal ideal of R[[G]] and R the integers of a finite extension K of Q_p *Correction:* Take R = Z_p (or R unramified), as in [AW13, §10], and obtain the microlocalization over a general K by base change K ⊗_{Q_p} (18). For ramified R, p ∈ m² and 0 ∈ p^a + m^{a+1} for a ≥ 1. Sections 5–7 work over Q_p, so the main results are unaffected.
+- **E5** (gap; affects a stated result), Proof of Theorem 5.7, pp. 145–146, as used in the proof of Theorem 5.1, p. 147, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* The associated graded ring for D_r^λ(G, Q_p) is gr_{r′} D_r^λ(G, Q_p) ≃ gr_{r′} D_r(G, Q_p)/gr_{r′}(p²∆ + λ0) by Lemma 2.2 … is an integral domain *Correction:* Passing from the graded ring to D_r^λ needs the filtration induced on D_r/D_r(p²∆ + λ0) by ‖·‖_{r′}, r′ < r, to be separated, i.e. D_r ∩ D_{r′}(p²∆ + λ0) = D_r(p²∆ + λ0). This is proved (checkpoint items) when p^{−1} < r < p^{−1/(p−1)}, where r′ = r works, but not for the radii r = p^{−1/p^n}, n ≥ 1, used in the proof of Theorem 5.1. Theorems 1.2–1.5 do not depend on it: Theorem 1.5 follows from [AW14].
+- **E6** (misprint; affects nothing), Theorem 1.2, (3), and Corollary 1.3, p. 125, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* dim_C S_k(K_f) ≤_{K_f} (min_{1≤i≤r} k_i)^{−1} O(∆(k)) … dim_C H_c^n(Y(K_f), W_k) ∼_{K_f} k *Correction:* The minimum runs over the r1 + r2 archimedean entries of k; ∼_{K_f} means bounded above and below by positive constant multiples.
+- **E7** (error; affects a stated result), Theorem 5.7, p. 145, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering. *Printed:* Let p be an odd prime. If 1/p < r < 1, then D_r^λ(G, Q_p) is an integral domain. *Correction:* Add the hypothesis v_p(λ0) ≥ 2 (for instance λ(∆) ∈ Z_p), the only case used. For λ(∆) = p^{−1} and r = p^{−2/3}, ‖∆‖_r ≤ p^{2/3} < |λ|, so ∆ − λ is a unit and D_r^λ = 0, which is not an integral domain; the proof's own first branch reaches this zero quotient.
+
+The reasons, the places searched and the checkpoint's original wording are in the JSON.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every missing item is routed exactly once.
+- **Findings.** Every finding now passes the §18 checks.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E3, E5 and E7 on pp. 145–147, and the reliance of Theorem 1.5 on AW14.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial*, refer to S1–S7 or say the published text was not obtained, this continuation supersedes them.
+
+## PAPER-FU-24 — analytic quotient and coefficient interfaces
 
 Refs #1083. Codex, session `codex-c83e7a`, 22 September 2026. Continues PR #1659.
 
@@ -6,7 +80,7 @@ Refs #1083. Codex, session `codex-c83e7a`, 22 September 2026. Continues PR #1659
 
 The main theorem remains the degree-one weight saving for fixed-level cohomological SL₂ forms over a number field with a complex place. The three existing Part II proposals retain their purposes. This continuation adds precise coefficient comparisons and a proved mathematical route for the central quotient at small real radii. The larger-radius separation step remains open.
 
-## What this continuation establishes
+### What this continuation establishes
 
 Let `B_ρ` be the weighted PBW completion over Q_p for `sl₂(Z_p)^m`, with odd p and real `ρ≥1`. Let `I_λ` be the actual ideal generated by `Δ_i−λ_i`, for integral `λ_i`.
 
@@ -34,7 +108,7 @@ The nonlinear terms are strictly smaller than the linear term: for n≥2, both `
 
 Transporting the central projection proves that **the actual central ideal in D_r is closed and its quotient is a nonzero domain throughout this interval, including irrational log_p radii**. This proof does not use Frommer's rational-radius theorem to infer an unrestricted real-radius result. At the excluded endpoint the p-th nonlinear term ties the linear term, so the strict-contraction argument cannot be extended by changing a strict inequality to a weak one.
 
-## The remaining larger-radius condition
+### The remaining larger-radius condition
 
 Fu's Theorem 5.7 weakens the norm from R to a smaller r before passing to the quotient. For integral parameters, the outstanding condition is the contraction identity
 
@@ -54,7 +128,7 @@ has norm `r(r/|a|)^(N+1)→0`. The quotient seminorm annihilates `[T]`; evaluati
 
 The earlier nonintegral-character zero-quotient example S7 is retained separately. Neither it nor the small-radius result discharges the full larger-radius assertion.
 
-## Microlocalization and finite coefficients
+### Microlocalization and finite coefficients
 
 This worker read the original [Ardakov–Wadsley published paper](https://annals.math.princeton.edu/wp-content/uploads/annals-v178-n2-p03-p.pdf), especially §§2.3–2.7, 10.1–10.11 and 11.1–11.3. Section 10.1 explicitly assumes that p is the uniformizer. Theorem 10.4 identifies microlocalization with the **rationalized** completed enveloping algebra. The earlier inventory statement omitted this final inversion of p and is corrected in place.
 
@@ -64,7 +138,7 @@ Ramified finite coefficients are handled by two finite-dimensional comparisons. 
 
 AW13 Proposition 11.1's recovery argument is now decomposed: denominator injectivity becomes bijectivity in finite dimension; the localized good filtration is separated; its lattice is finite by Proposition 2.7 and hence complete. The semisimplicity argument uses the completed Lie projection and finite-group averaging. The original Zariskian Ore/completion results cited by AW13, its Lie-theoretic suppliers and the DDMS/Lazard foundations remain identified source dependencies.
 
-## Library and route reconciliation
+### Library and route reconciliation
 
 All nine previous baseline facilities were reopened at Mathlib `082e2d3` and Tau Ceti `f790474`. Three additional facilities are imported: Mathlib's restricted-series subring, Tau Ceti's last maximal weighted coefficient, and Tau Ceti's multiplicative Gauss norm. The latter theorem holds at every positive real radius over an ultrametric coefficient ring with multiplicative norm; it requires no completeness assumption. None of these commutative facilities supplies the missing noncommutative analytic distribution algebra.
 
@@ -79,7 +153,7 @@ All nine previous baseline facilities were reopened at Mathlib `082e2d3` and Tau
 
 The added L1 route keeps a generic completed-group-ring operation with its existing owner. No new Part II or new roadmap is proposed by this continuation. Seven owner records/documents, the reviewed audit, reserved IDs, current packets/new roadmaps and decomposition inputs were refreshed. The complete relevant LA.0, NE.0 and L1 audit rows and the stated owner-layer descriptions were read. Earlier broader audit and auxiliary readings remain attributed to the previous worker in `inspectionHistory`.
 
-## Sources, validation and resume points
+### Sources, validation and resume points
 
 This worker independently read every page, proof and reference of [Fu arXiv v2](https://arxiv.org/pdf/2201.11190v2). Its SHA-256 remains `d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614`. The publisher and author pages match the article identity. The conventional Annals PDF path returned 404 and the NSF published-version URL timed out; full published-version collation is still open.
 
@@ -89,11 +163,11 @@ The inherited exact regression passes **41,069 assertions**. New diagnostics pas
 
 Resume with the larger-radius ideal-contraction problem, published-version collation, original Frommer/DDMS/Lazard and Zariskian source-proof decomposition, and independent review of the new analytic proofs. Preserve the old support convention, weighted-c0 correction, all-integral versus induced-character distinction, nonintegral zero-quotient example and lower-bound level restrictions. This remains a partial checkpoint.
 
-## Retained prior source audit and proofs
+### Retained prior source audit and proofs
 
 The following record is retained from Codex `codex-a71f92`, PR #1659. Its references to “this continuation”, its 33/44/25 route counts, nine baseline inputs, and 126 API/test contracts describe that earlier checkpoint. The current inventory and the new proof scope are stated above. These older auxiliary reads are not newly claimed by `codex-c83e7a`.
 
-## Source and conventions
+### Source and conventions
 
 The main source is [Fu, arXiv:2201.11190v2, 15 February 2024](https://arxiv.org/pdf/2201.11190v2).
 The [publisher record](https://annals.math.princeton.edu/2024/200-1/p03) identifies
@@ -134,7 +208,7 @@ and a complex entry gives two exponents `κ_v/2−1`. This is the dictionary nee
 to turn a local multiaffine bound into the global bound; it is not a relabeling
 of one weight vector. Modules, duals and Ore fractions retain their handedness.
 
-## What the proof adds
+### What the proof adds
 
 The local endpoint is Fu Theorem 1.4: for a finitely generated rational Iwasawa
 module `M` of rank `a`, both the error in
@@ -163,7 +237,7 @@ consequence of the upper estimate. Historical bounds, the totally-real asymptoti
 and conjectural stronger predictions are recorded as context, not silently added
 to the proof's dependency graph.
 
-## Existing owners and baseline checks
+### Existing owners and baseline checks
 
 The initial checkpoint used explorer `5b3798c`. This continuation checked live
 main `5de4697bb48359dc1143d6f87bf9fbf6a6a767e4` against the local atlas snapshot.
@@ -222,9 +296,9 @@ remove the former oversized-reader access gap. They are not an exhaustive proof
 that every broad mathematical phrase in the entire catalogue has no overlap:
 the independent review must still assess the route boundaries.
 
-## Five proposed routes
+### Five proposed routes
 
-### 1. `PadicEnvelopingAlgebras` — 33 missing items
+#### 1. `PadicEnvelopingAlgebras` — 33 missing items
 
 A Part II of **Representations of semisimple Lie algebras, highest weight theory,
 and the Weyl formulas**. It adds integral `sl₂` PBW lattices, saturated ideal
@@ -242,7 +316,7 @@ The explicit uniform majorant and bounded PBW-division argument appear below.
 The equal-Casimir nongeneric example is initially an algebraic module; a completed
 analogue would need its own quotient and domain argument.
 
-### 2. `NoncommutativeAnalyticDistributions` — 44 missing items
+#### 2. `NoncommutativeAnalyticDistributions` — 44 missing items
 
 A Part II of **locally analytic distributions, growth, and character spaces**.
 It imports the existing function/dual construction and the bounded completed
@@ -257,7 +331,7 @@ It does not include Colmez's correspondence or a geometric theorem about locally
 analytic vectors of completed cohomology. Its coefficient, radius, handedness,
 quotient and separatedness conditions must be present in the subsequent design.
 
-### 3. `WeightAspectAutomorphicMultiplicity` — 25 missing items
+#### 3. `WeightAspectAutomorphicMultiplicity` — 25 missing items
 
 A Part II of **Arithmetic locally symmetric spaces and their cohomology**.
 It imports the two local extensions and the existing completed-homology library,
@@ -267,7 +341,7 @@ The suitable-level lower bound and the support/boundary comparison are required
 mathematics, not notation. No totally-real degree saving or unrestricted
 arbitrary-level lower bound is proposed.
 
-### 4. Source addition to `CompletedCohomologyPartII`
+#### 4. Source addition to `CompletedCohomologyPartII`
 
 Attach Fu section 7 and its Calegari–Emerton/Marshall inputs to **CC.2–CC.6**.
 The four inventory items are already planned there. This gives an explicit
@@ -275,14 +349,14 @@ consumer and source trail rather than duplicating the tower or its spectral
 sequence. In particular it does not reinstate the overstrong Ext/base-change
 isomorphism criticized in the integrated CC review.
 
-### 5. Source addition to `NoncommutativeAndEquivariantIwasawa:NE.0`
+#### 5. Source addition to `NoncommutativeAndEquivariantIwasawa:NE.0`
 
 Make the exact Auslander-regular/finite-global-dimension input explicit inside
 NE.0's existing homological programme. The JSON marks the source-specific theorem
 missing rather than claiming that a broad direction already states every
 hypothesis. Groups with `p`-torsion are not granted finite global dimension.
 
-## Source issues requiring explicit resolution
+### Source issues requiring explicit resolution
 
 These are recorded as `S1`–`S7` in the JSON. They distinguish checked discrepancies
 from further proof obligations; they do not claim to invalidate the main theorem.
@@ -342,7 +416,7 @@ It does prevent an unqualified nonzero-domain import of the auxiliary statement.
 A zero associated graded alone would not prove a zero quotient without separation;
 the explicit Banach inverse avoids that inference.
 
-## Primary-source reconciliation
+### Primary-source reconciliation
 
 The continuation acquired and read the following exact inputs:
 
@@ -383,9 +457,9 @@ The continuation acquired and read the following exact inputs:
   the lower bound is for `SL2(O_K)`; finite-index sublevels use restriction
   and trace. The complete base-change/local-type proof was not read here.
 
-## Additional mathematical proof steps
+### Additional mathematical proof steps
 
-### A uniform polynomial with no exceptional-weight gap
+#### A uniform polynomial with no exceptional-weight gap
 
 Put `x_i=k_i+1`, and let `α` be the coordinatewise truncation degree obtained
 from the generic element. One can take
@@ -398,7 +472,7 @@ estimate. Each term is at most `2α_i x_i ∏_(j≠i)x_j²`; divide by
 This covers the infinite low-coordinate strips directly. The polynomial has
 nonnegative coefficients and total degree at most `m−1`.
 
-### Bounded central PBW division
+#### Bounded central PBW division
 
 For one factor, put `M_(a,b,c)=e^a f^b h^c`. For `c≥2`, the exact identity is
 
@@ -425,7 +499,7 @@ Frommer comparison. There is no reverse roadmap dependency.
 This is a proposed proof of the U_r normal-form/injection step. It does not
 prove Fu's weaker-quotient-filtration claim for D_r, nor erase S5.
 
-### Finite coefficient descent for the all-integral branch
+#### Finite coefficient descent for the all-integral branch
 
 Adjoin roots of the monic polynomials `a_i²+2a_i−2λ_i`. They are integral in a
 single finite extension K. A finite integral basis of O_K identifies the
@@ -441,7 +515,7 @@ faithful field extension reflects this over Q_p. These comparison declarations
 remain planned, but their mathematical route no longer depends on treating
 every integral parameter as a Q_p-induced character.
 
-### The fixed-cusp boundary calculation
+#### The fixed-cusp boundary calculation
 
 At a neat cusp let `z1,z2` generate its lattice in C. On
 `E_n=Sym^n⊗conjugate Sym^n`, the two monodromy logarithms are
@@ -458,8 +532,7 @@ injection and Poincare–Lefschetz comparison use ALS's existing geometric
 contracts. Non-neat finite stabilizers still require characteristic-zero
 invariants/transfer; they are not silently turned into torus components.
 
-
-## Reproducible exact regression
+### Reproducible exact regression
 
 The following Python3 program uses only the standard library. It creates no files.
 
@@ -472,24 +545,19 @@ from math import comb, factorial, prod
 
 checks = 0
 
-
 def check(condition):
     global checks
     assert condition
     checks += 1
 
-
 def mat(n, fn):
     return [[Q(fn(i, j)) for j in range(n)] for i in range(n)]
-
 
 def identity(n):
     return mat(n, lambda i, j: i == j)
 
-
 def multiply(a, b):
     return [[sum(x * y for x, y in zip(row, col)) for col in zip(*b)] for row in a]
-
 
 def power(a, n):
     result = identity(len(a))
@@ -497,18 +565,14 @@ def power(a, n):
         result = multiply(result, a)
     return result
 
-
 def combine(a, b, scalar=1):
     return [[x + scalar * y for x, y in zip(ar, br)] for ar, br in zip(a, b)]
-
 
 def scale(a, c):
     return [[c * x for x in row] for row in a]
 
-
 def flat(a):
     return tuple(x for row in a for x in row)
-
 
 def rank(rows, prime=None):
     pivots = {}
@@ -529,14 +593,12 @@ def rank(rows, prime=None):
                 break
     return len(pivots)
 
-
 def sl2(n):
     size = n + 1
     e = mat(size, lambda i, j: j if i + 1 == j else 0)
     f = mat(size, lambda i, j: n - j if i == j + 1 else 0)
     h = mat(size, lambda i, j: n - 2 * i if i == j else 0)
     return e, f, h
-
 
 def valuation(n, p):
     assert n > 0
@@ -546,10 +608,8 @@ def valuation(n, p):
         v += 1
     return v
 
-
 def choose_integer(n, k):
     return prod(n - j for j in range(k)) // factorial(k)
-
 
 # Explicit large-coordinate and infinite-strip majorants.
 for m in range(1, 4):
@@ -651,7 +711,6 @@ def poly_sum(*terms):
             out[key] = out.get(key, 0) + coefficient * value
     return {key: value for key, value in out.items() if value}
 
-
 for lam in (Q(0), Q(1), Q(3), Q(-1), Q(1, 2)):
     @lru_cache(None)
     def divide(a, b, c):
@@ -687,7 +746,7 @@ for lam in (Q(0), Q(1), Q(3), Q(-1), Q(1, 2)):
 print(f"PASS: {checks} exact finite assertions; no Lean or infinite-dimensional proof certified")
 ```
 
-## Additional exact analytic diagnostics
+### Additional exact analytic diagnostics
 
 These finite checks do not certify the completed-algebra arguments.
 
