@@ -161,7 +161,7 @@ The 314 missing items go to 27 routes: one new roadmap, six Part IIs and 20 sour
 
 ## Mistakes found in the paper
 
-`sourceIssues` records 156 mistakes: 99 misprints, 28 errors and 29 gaps. Of these, 11 affect a stated result, 25 affect a proof, and 120 affect nothing downstream. No erratum or correction to the paper or its appendix exists, and no later work reports any of these mistakes.
+`sourceIssues` records 155 mistakes: 98 misprints, 28 errors and 29 gaps. Of these, 11 affect a stated result, 25 affect a proof, and 119 affect nothing downstream. No erratum or correction to the paper or its appendix exists, and no later work reports any of these mistakes.
 
 **How they were checked.**
 - Eight section readers, eight independent statement checkers and three whole-paper hunts proposed 259 candidates. De-duplication reduced them to 179 distinct ones.
@@ -255,6 +255,7 @@ The 314 missing items go to 27 routes: one new roadmap, six Part IIs and 20 sour
 
   Their notes name these layers. A reviewer who prefers "planned" for these can change the status without touching the routes.
 - **Text-layer artefacts.** The extracted text drops decorations: the bar in Remark 4.12's "over K̄", the subscript in "the O-rank of M_Δ" on p. 853, and primes such as μ′. Every recorded mistake was settled on the rendered page. One brief re-checker proposed a "correction" of Remark 4.12 from the text layer; it was rejected against the page image.
+- **E124 withdrawn.** E124 recorded the first display of the proof of Proposition 8.25 (p. 876) as a misprint for omitting a factor det(Q), on the authority of Proposition 8.9(2). That factor is itself the error recorded in E95 (and relied on in E125), so the display is right as printed and E124 was removed in a correction after the merge. The other numbers are unchanged, so the list skips E124.
 - **E156** was found outside the mistake pipeline, while the prerequisites were being checked. It was verified on the rendered p. 860, and it is recorded last so that the other numbers, already cited in items and briefs, did not change.
 
 ## How this was done
