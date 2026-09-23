@@ -761,3 +761,37 @@ for a in S:
 print(json.dumps({"status":"PASS","counts":counts,"total":sum(counts.values()),
                   "sectionGenerators":[x,y],"sectionOrder":len(S),"ambientOrder":len(G)},sort_keys=True))
 ```
+
+## Review (REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1185](https://github.com/CBirkbeck/tauceti-explorer/issues/1185). **Verdict: accept.** All three
+routes accepted; no item, status, route or locator changed.
+
+- **The source is verified, reproducibly.** The published Annals PDF re-fetches to `6c10d770…a7f6`,
+  matching the record byte for byte (Annals PDFs carry no per-download stamp). 58 pages, printed
+  page = PDF page + 728. arXiv 0912.0325 ends at the December 2015 "final version", and Crossref
+  records no update relation, so no correction is in print.
+- **All 19 mistakes confirmed.** Eight are settled by the paper contradicting itself — E1 (the
+  densities "equal to 1" against Theorem 1.2's value < 1), E2, E3, E5 (the two definitions are
+  unnormalized sums, so the surviving operator is `U_Q` with coefficient 1), E9, E10 (Proposition
+  8.7 says `(L,α) ≅ (L,β)` iff `β = ±α`), E12 and E14. Three witnesses were rebuilt from scratch:
+  E6's enumeration gives **36 of 48 surjections with no lift at all**, matching the extraction's own
+  `liftHistogram`, while `108 ≥ 96` keeps (8.4.1) true; E15's subgroup of `SL₂(Z/9)` has order 24
+  and maps bijectively onto `SL₂(F₃)` inside a group of order 648; and E7's measure has total
+  variation `≤ 2ℓ⁻ⁿ` but `C_ℓ`-moment `→ 2`.
+- **E11 is the one that reaches a stated result**, and is correctly classified: Theorem 1.2 claims
+  its limit for all `q ≢ 1 (mod ℓ)`, while §8.6 assumes `ℓ ∤ q` and §8 needs `q` odd throughout, so
+  `q = ℓ^k` and `q` even are uncovered.
+- **Corrected in place:** every finding's `printed` field was replaced by a verbatim quotation of
+  the source. Ten were single words or bare phrases (*respectively*, *equivalent*, *ℓ-group*,
+  *i>g*, …), which `scripts/errata.py` prints into the public register as "The source says `…`" —
+  unusable to a reader without the paper. The originals are preserved in `printedAsRecorded`. Also:
+  E12's locator said Proposition 8.9 where the paper says Lemma 8.9, and a `verification` block was
+  added for the review.
+- **Items and routes:** 137 items (7 library, 8 planned, 122 missing), every missing item routed
+  exactly once, graph acyclic, all seven library declarations opened at the pins. The Part II is
+  justified as sharply as one could ask: **no roadmap extract in the atlas mentions homological
+  stability at all**, and the only two that mention Hurwitz spaces are the ones this route imports.
+
+Full report: `research/blueprint/reviews/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md`.

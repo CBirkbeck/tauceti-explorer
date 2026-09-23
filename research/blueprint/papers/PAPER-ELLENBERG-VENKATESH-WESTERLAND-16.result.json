@@ -3731,7 +3731,7 @@
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E1",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, after Conjecture 1.5, p.733",
-      "printed": "equal to 1",
+      "printed": "“This conjecture is motivated by — and implies a form of — Malle’s conjecture over function fields, which is to say that both the upper limit δ⁺ and the lower limit δ⁻ in Theorem 1.2 are equal to 1.”",
       "correction": "The reference to delta^± of Theorem 1.2 cannot be literal: these densities have CL masses. Identify the intended Malle/moment normalization before deriving any claim from this sentence.",
       "reason": "Distinct class-group isomorphism events are disjoint and their probabilities cannot each tend to one. Theorem1.2 itself gives c_ell/|Aut A|.",
       "affects": "nothing",
@@ -3742,13 +3742,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "equal to 1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper refutes it three pages earlier. Theorem 1.2 (p. 730) says δ⁺(q) and δ⁻(q) converge to ∏_{i⩾1}(1−ℓ^{−i})/|Aut(A)|, which is < 1; and the events “ℓ-part ≅ A” for distinct A are disjoint, so their densities cannot each be 1. The sentence is an aside about Conjecture 1.5, and the intended claim is plainly a ratio or a normalized density rather than δ± themselves, so the extraction is right both to record it and to decline to guess the normalization. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E2",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, Definition 2.2 final paragraph, p.739",
-      "printed": "respectively",
+      "printed": "“Similarly for the other space, the fibers above cₙ are identified with Homᶜ(π, G), Sur(π, G) and Surᶜ(π, G), respectively, which in turn are identified with the set of n-tuples of elements of c ⊆ G, the elements of cⁿ that generate G, and the elements of Gⁿ that generate G respectively.”",
       "correction": "The three fibres are c^n, generating tuples in G^n, and generating tuples in c^n, in that order.",
       "reason": "Sur(pi,G) is not restricted to c while Sur^c(pi,G) is; the last two verbal descriptions are swapped.",
       "affects": "nothing",
@@ -3759,13 +3765,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "respectively",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively. The three fibres are listed in the order Homᶜ(π, G), Sur(π, G), Surᶜ(π, G), and their descriptions in the order cⁿ, “the elements of cⁿ that generate G”, “the elements of Gⁿ that generate G”. The last two are interchanged: Sur(π, G) is defined ten lines above as “the similarly defined subset of Hom(π, G)”, i.e. surjections with no condition on c, while Surᶜ(π, G) is the one restricted to c. The extraction’s order — cⁿ, generating tuples in Gⁿ, generating tuples in cⁿ — is the right one. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E3",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, Lemma 4.6 proof, p.750",
-      "printed": "M⊗_R R[U]",
+      "printed": "“By tensoring the short exact sequences UR ↪ R ↠ R̄ and R[U] ↪ R ↠ UR with M, we obtain ker(β) ≃ Tor₁ᴿ(R̄, M) and ker(α) ↠ M ⊗_R R[U].” The next display, (4.6.3), writes the same object the other way round: “R[U] ⊗_R M → M[U] → Tor₁ᴿ(R̄, M)”.",
       "correction": "Use R[U] tensor_R M, with R[U] a right module and M a left module, as in the next displayed exact sequence 4.6.3.",
       "reason": "R is noncommutative in general, and a merely left R-module M cannot be the first tensor factor over R with the asserted action.",
       "affects": "nothing",
@@ -3776,13 +3788,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "M⊗_R R[U]",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively, by the next display. The sentence writes ker(α) ↠ M ⊗_R R[U]; (4.6.3), one line later, writes R[U] ⊗_R M for the same object, and that is the order the mathematics requires, since Lemma 4.6 takes M to be a graded left R-module and R is not commutative here. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E4",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, §5.2, p.756",
-      "printed": "A_q=B_n/L_q",
+      "printed": "“Fix n. Let L_q be the subgroup of Bₙ (presented as in (1.3.1)) generated by σ_{q+2}, …, σ_{n−1}; … Let A_q = Bₙ/L_q (as a Bₙ-set). Define the faces of the q-simplex bL_q by the formula ∂ᵢ(bL_q) = bs_{q,i}L_{q−1}, 0 ⩽ i ⩽ q, where s_{q,i} = σ_{i+1}σ_{i+2} ⋯ σ_q”, with no upper restriction on q.",
       "correction": "Restrict this formula to 0≤q<n and put A_q empty for q≥n; face maps in positive degree have the corresponding range.",
       "reason": "For q≥n the displayed faces require nonexistent generators of B_n, while q+1 disjoint arcs need distinct puncture endpoints and cannot exist.",
       "affects": "nothing",
@@ -3793,13 +3811,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "A_q=B_n/L_q",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. A_q = Bₙ/L_q is stated for every q ⩾ 0, but the face maps use s_{q,i} = σ_{i+1}⋯σ_q, and Bₙ has no generator σ_j with j ⩾ n, so for q ⩾ n the formula is not defined. The definition makes sense exactly in the range 0 ⩽ q < n the extraction gives, which is also the right range geometrically: a q-simplex of the arc complex is q+1 disjoint arcs ending at distinct punctures, and there are n of those. Nothing downstream moves, since Proposition 5.6 identifies |A| with the arc complex, of dimension n − 1. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E5",
       "kind": "error",
       "locator": "Published Annals 2016 version, equation 6.1.6 and its reuse, p.763",
-      "printed": "U=(|c|/|c∩Q|)U_Q",
+      "printed": "“(6.1.6)  U = (|c|/|c ∩ Q|) U_Q modulo ⊕_{Q′ ⊋ Q} H_p(Hur^{Q′,c}_{G,n+deg(U)}, k)”, the two operators having just been defined as U_D = Σ_{g∈c} r_g^{D|g|} (Lemma 3.5) and U_Q = Σ_{g∈c∩Q} r_g^{D|g|}.",
       "correction": "With the displayed unnormalized definition U_Q=sum_(g∈c∩Q) r_g^(D ord g), the diagonal exact-monodromy-Q action is U_Q itself. Remove the extra scalar in both displays; the subgroup induction still works.",
       "reason": "A term with g outside Q raises generated subgroup; each g inside Q contributes once. For G=S3, c the three transpositions and Q generated by one, the diagonal has coefficient1, not3. Checked finite witness; rendered formula inspected.",
       "affects": "the proof",
@@ -3810,13 +3834,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "U=(|c|/|c∩Q|)U_Q",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively, by the paper’s own two definitions. Lemma 3.5 defines U_D = Σ_{g∈c} r_g^{D|g|} and the line above (6.1.6) defines U_Q = Σ_{g∈c∩Q} r_g^{D|g|}; both are unnormalized sums. On a component with monodromy exactly Q, the terms with g ∉ Q enlarge the monodromy and so vanish modulo ⊕_{Q′⊋Q}, and each g ∈ c ∩ Q contributes once. The surviving operator is U_Q with coefficient 1, not |c|/|c ∩ Q|. In the example the extraction gives — G = S₃, c the three transpositions, Q generated by one of them — the printed scalar is 3 and the true one is 1. It does not break the induction: Theorem 6.1 assumes k is a field in which |G| is invertible, so |c|/|c ∩ Q| is invertible and “0 = (|c|/|c ∩ Q|) U_Q y_Q” still forces y_Q = 0. Had the scalar been genuine, the argument would have needed that hypothesis for a reason the paper never states. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E6",
       "kind": "error",
       "locator": "Published Annals 2016 version, Lemma 8.4 proof after equation 8.4.1, p.772",
-      "printed": "principal homogeneous space",
+      "printed": "“(i) If A′ is not isomorphic to A × Z/ℓZ, any such lift f̃ is surjective, and the set of lifts is a principal homogeneous space under Hom(X, Z/ℓZ).”",
       "correction": "The lift set may be empty. Prove the aggregate enlargement inequality by the conjugate-partition surjection formula and least-column enlargement, as detailed in the report, instead of asserting all individual surjections lift.",
       "reason": "Take X=A'=C9×C3, A=C3², pi(x,y)=(x mod3,y), f(x,y)=(y,x mod3). The order3 element (0,1) would need an order9 image to lift, impossible. Exact enumeration gives 36 unliftable surjections out of48. The aggregate inequality remains true.",
       "affects": "the proof",
@@ -3827,13 +3857,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "principal homogeneous space",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and I reproduced the enumeration. Case (i) asserts that the set of lifts is a principal homogeneous space under Hom(X, Z/ℓZ), which presupposes it is nonempty. Take ℓ = 3, A = C₃ × C₃, A′ = X = C₉ × C₃ and π(x, y) = (x mod 3, y), so that ker π has order 3 and A′ ≅ C₉ × C₃ is not A × Z/3Z: case (i) applies. For f(x, y) = (y, x mod 3), the element (0, 1) of order 3 would need an image of order 9, so f has no lift at all. Enumerating all 48 surjections X ↠ A, exactly 12 lift and 36 do not — the extraction’s figure. The aggregate inequality (8.4.1) survives in this example: |Sur(X, A′)| = |Aut(C₉ × C₃)| = 108 ⩾ 2 · 48 = (ℓ − 1)|Sur(X, A)|, which is why this is a gap in the proof rather than a counterexample to the lemma. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E7",
       "kind": "gap",
       "locator": "Published Annals 2016 version, §8.5 before equation 8.5.1, p.774",
-      "printed": "equivalent",
+      "printed": "“In view of what we have just proved, this is equivalent to the validity of the following assertion for all abelian ℓ-groups A: the average number of surjections from the class group of a varying quadratic field to A equals 1.”",
       "correction": "Proposition8.3 proves moment convergence implies convergence in distribution. The reverse needs uniform integrability or another family-specific tail estimate; do not infer it solely from distribution convergence.",
       "reason": "nu_n=(1−ell^-n)mu+ell^-n delta_((C_ell)^n) converges in total variation to mu but its C_ell moment tends to2, not1. This demonstrates the logical gap only, not failure of the number-field conjecture. The predecessor wrote a cyclic group here; this continuation corrects that witness to the elementary abelian group and separately records the checkpoint correction.",
       "affects": "the proof",
@@ -3844,13 +3880,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "equivalent",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a logical point, and I checked the witness. What §8 proves is Proposition 8.3, that convergence of all the moments ⟨Sur(−, A)⟩ forces convergence in distribution; the converse needs uniform integrability, and fails in general. With νₙ = (1 − ℓ^{−n})μ + ℓ^{−n}δ_{(C_ℓ)ⁿ} one has ‖νₙ − μ‖ ⩽ 2ℓ^{−n} → 0, while ⟨Sur(−, C_ℓ)⟩_{νₙ} = (1 − ℓ^{−n})·1 + ℓ^{−n}(ℓⁿ − 1) = 2 − 2ℓ^{−n} → 2, not 1. One qualification I would add to the record: the sentence is expository — it is about the Cohen-Lenstra conjecture over ℚ, not about the function-field theorem — and no proof in the paper uses the converse direction, so I read this as reaching no further than the sentence itself. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E8",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, equation 8.7.5, p.777",
-      "printed": "|S_n|=2(q^n−q^(n−1))",
+      "printed": "“The number of monic squarefree polynomials of degree n with coefficients in F_q is equal [10] to qⁿ − q^{n−1}, from where we deduce (8.7.5) |Sₙ| = 2(qⁿ − q^{n−1}).”",
       "correction": "Require odd n≥3 for this formula; n=1 gives |S_1|=2q.",
       "reason": "There are q monic linear squarefree polynomials, not q−1. The eventual large-n theorem is unaffected.",
       "affects": "nothing",
@@ -3861,13 +3903,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "|S_n|=2(q^n−q^(n−1))",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The count qⁿ − q^{n−1} of monic squarefree polynomials is valid for n ⩾ 2; at n = 1 all q monic linear polynomials are squarefree, so |S₁| = 2q, not 2(q − 1). Since the averages are taken over odd n → ∞ and Theorem 8.8 requires n > B(A), nothing is affected. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E9",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, Theorem 8.8, p.777",
-      "printed": "ℓ-group",
+      "printed": "“8.8. Theorem. Let ℓ be an odd prime not dividing q or q − 1, and A an ℓ-group.”",
       "correction": "Retain the standing hypothesis that A is abelian; A=1 is a separately trivial case.",
       "reason": "Every quotient of an abelian class group is abelian. For nonabelian A the mean surjection count is zero, so the written unrestricted inequality cannot tend to one. (cc-442dc5) Reclassified to affect nothing: §8.6 fixes 'A a nontrivial finite abelian ℓ-group' as a standing hypothesis, so Theorem 8.8's 'A an ℓ-group' is read under it.",
       "affects": "nothing",
@@ -3878,13 +3926,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "ℓ-group",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a slip of the statement, and the extraction’s own reclassification is right. Theorem 8.8 says “A an ℓ-group”, while §8.6, which sets up the whole section, fixes “A a nontrivial finite abelian ℓ-group”, and the theorem is read under that standing hypothesis; for nonabelian A the left-hand side of (8.8.1) would be −1, since a quotient of the abelian class group is abelian. So the omission of “abelian” reaches no further than the wording. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E10",
       "kind": "error",
       "locator": "Published Annals 2016 version, generic-fibre identification in Theorem 8.8 proof, p.779",
-      "printed": "Sur(V,A)",
+      "printed": "“The set Xₙ(K̄) of tame G-covers of A¹/K̄ branched at D (which is to say Σ) is naturally identified by the argument of Proposition 8.7 with Sur(V, A), equivariantly for the action of Gal(K̄/K) on both sides.”",
       "correction": "The unmarked cover's fibre is Sur(V,A)/{±1}, consistently with Proposition8.7. The marked set can be used for component orbits only after proving that −I∈Sp(V) makes their Sp-orbit sets identical.",
       "reason": "For V=F3²,A=F3 there are8 surjections but4 sign classes. Full-monodromy unmarked covers forget the hyperelliptic involution marking. The orbit-count conclusion survives the correction.",
       "affects": "the proof",
@@ -3895,13 +3949,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "Sur(V,A)",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively, by Proposition 8.7. That proposition states explicitly that “(L, α) and (L, β) are isomorphic if and only if α, β are interchanged by the automorphism of L/K, i.e. … if and only if β = ±α”, so the objects it counts are surjections up to sign; the proof of Theorem 8.8 uses that identification by name on the next page. The identification on p. 779 with Sur(V, A) therefore drops the ±1 quotient. The extraction’s witness is right — for V = F₃² and A = F₃ there are 8 surjections and 4 sign classes — and the orbit conclusion survives because −I lies in Sp(V). Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E11",
       "kind": "gap",
       "locator": "Published Annals 2016 version, Theorem 1.2, p.730; §§8.6–8.8",
-      "printed": "q≠1(modℓ)",
+      "printed": "“1.2. Theorem. Let ℓ > 2 be prime and A a finite abelian ℓ-group. Write δ⁺ (resp. δ⁻) for the upper density (resp. lower density) of imaginary quadratic extensions of F_q(t) for which the ℓ-part of the class group is isomorphic to A. Then δ⁺(q) and δ⁻(q) converge, as q → ∞ with q ≠ 1 (mod ℓ), to ∏_{i⩾1}(1−ℓ^{−i})/|Aut(A)|.”",
       "correction": "The proof supplied in this extraction supports odd q with ell∤q(q−1). Either state those restrictions or supply the missing characteristic2 and characteristicell arguments before claiming the broader written domain.",
       "reason": "The Kummer quadratic parametrization needs odd q; the Hurwitz/torsion comparison and Theorem8.8 exclude characteristicell. This is a supported-domain gap, not a proof that the broader assertion is false. (cc-442dc5) Reclassified to affect a stated result. Theorem 1.2 asserts convergence 'as q → ∞ with q ≢ 1 (mod ℓ)', which includes q = 2^k and q = ℓ^k. §8, however, works under the standing hypothesis 'ℓ an odd prime not dividing q' (§8.6), uses tame A ⋊ Z/2-covers and K(√f), and Theorem 8.8 assumes ℓ ∤ q(q − 1). So the stated limit is established only along odd q prime to ℓ (item 109).",
       "affects": "a stated result",
@@ -3912,13 +3972,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "q≠1(modℓ)",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and this is the one finding that reaches a stated result. Theorem 1.2 asserts the limit “as q → ∞ with q ≠ 1 (mod ℓ)”, and nothing before it restricts q: the footnote attached to “imaginary” defines only “ramified at ∞”, and the abstract likewise states the consequence with no condition on the characteristic. But §8.6 opens “Let ℓ be an odd prime not dividing q” and Theorem 8.8, which with Proposition 8.3 is what the paper says implies Theorem 1.2, assumes “ℓ an odd prime not dividing q or q − 1”. Two cases allowed by the printed hypothesis are therefore not covered: q ≡ 0 (mod ℓ), for instance q = ℓ^k, which §8.6 excludes outright and where the ℓ-part of a class group in characteristic ℓ is not expected to follow this law at all; and q even, where the whole §8 apparatus — quadratic extensions K(√f) with f squarefree of odd degree, tame G-covers with G = A ⋊ Z/2 whose class c consists of involutions, and the count |Sₙ| = 2(qⁿ − q^{n−1}) taken modulo squares — does not apply. The extraction’s domain, odd q with ℓ ∤ q(q − 1), is exactly what §8 supports, and it is careful to record this as a supported-domain gap rather than a disproof. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E12",
       "kind": "misprint",
-      "locator": "Published Annals 2016 version, end of Proposition 8.9 proof, p.782",
-      "printed": "i>g",
+      "locator": "Published Annals 2016 version, end of Lemma 8.9 proof, p.782",
+      "printed": "“… so we can extend y₁, …, y_k to a Z_ℓ-basis y₁, …, y_g for Z_ℓ^g where f(yᵢ) = 0 for i > k: simply extend arbitrarily to a basis, and then modify the yᵢ’s for i > g by linear combinations of y₁, …, y_k to ensure that f(yᵢ) = 0 for i > k.”",
       "correction": "The basis vectors modified are indexed by k<i≤g, not i>g.",
       "reason": "The basis y_1,...,y_g has no vectors with index greater than g; the intended kernel adjustment applies to the remaining g−k vectors.",
       "affects": "nothing",
@@ -3929,13 +3995,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "i>g",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively by the same sentence. The basis constructed is y₁, …, y_g, so there are no vectors of index greater than g to modify; the ones to adjust are those with k < i ⩽ g, which is exactly what the clause “to ensure that f(yᵢ) = 0 for i > k” asks for. (The locator recorded this as Proposition 8.9; the paper calls it Lemma 8.9, and this review has corrected that.) Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E13",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, §1.1 example, p.730",
-      "printed": "indivisible",
+      "printed": "“This leads, for instance, to the prediction that the probability that a quadratic imaginary field has class number indivisible by 3 is 1 − ∏(1 − 3^{−i}) ∼ 0.440 ⋯.”",
       "correction": "The displayed 1−product_(i≥1)(1−3^-i)≈0.440 is the probability of divisibility by3. Indivisibility has probability c_3≈0.560.",
       "reason": "The trivial3-primary group has CL mass c_3, so the complementary event is divisibility. The main theorem uses the correct normalization.",
       "affects": "nothing",
@@ -3946,13 +4018,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "indivisible",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. ∏_{i⩾1}(1 − 3^{−i}) = 0.5601… is the Cohen-Lenstra probability that the 3-part is trivial, i.e. that the class number is indivisible by 3; the displayed complementary quantity 1 − ∏(1 − 3^{−i}) = 0.4399… is the probability of divisibility. The printed sentence attaches the displayed 0.440 to indivisibility, so the two are interchanged. The numerical value confirms which reading was meant, and Theorem 1.2 uses the correct normalization. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E14",
       "kind": "misprint",
       "locator": "Published Annals 2016 version, deduction of Theorem 1.2 after Theorem 8.8, p.777",
-      "printed": "Cl(O_L)≃A",
+      "printed": "“For a given n, let νₙ be the probability measure on 𝓛 with νₙ(A) equal to the fraction of L ∈ Sₙ with Cl(O_L) ≃ A.” Here “𝓛” is, by §8.1, “the set of isomorphism classes of finite abelian ℓ-groups”.",
       "correction": "Define nu_n(A) using Cl(O_L)_ell≃A, the ell-primary part, rather than the entire class group.",
       "reason": "L is the set of finite abelian ell-group types. Whole class groups with another prime divisor otherwise contribute to no A, contradicting the asserted probability measure. Surjections to ell-groups factor through the ell-primary part, so the moment argument is unchanged.",
       "affects": "nothing",
@@ -3963,13 +4041,19 @@
         "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
         "Earlier note: No existing correction located in the sources searched; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "Cl(O_L)≃A",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively. §8.1 defines 𝓛 as “the set of isomorphism classes of finite abelian ℓ-groups”, so a measure on 𝓛 cannot be defined by the fraction of L with Cl(O_L) ≃ A: a class group with a prime factor other than ℓ is then counted for no A, and the total mass is not 1. The ℓ-primary part is meant, as Theorem 1.2 says in so many words, and surjections to an ℓ-group factor through it, so the moment computation is untouched. Checked in the published Annals text re-fetched by this review, SHA-256 6c10d770…a7f6, which reproduces the recorded hash byte for byte; printed page = PDF page + 728, confirmed against the running heads. arXiv 0912.0325 ends at the December 2015 version, whose comment reads “Final version; to appear in Annals of Mathematics”, and Crossref’s record of doi:10.4007/annals.2016.183.3.1 carries no update-to, updated-by or relation entry (checked 23 September 2026), so no correction is in print.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E15",
       "kind": "gap",
       "locator": "Achter–Pries author-hosted final PDF, Corollary3.5 proof, p.14; Vasiu v2 Theorem1.3(b), p.2",
-      "printed": "standard group theory argument",
+      "printed": "Achter–Pries, proof of Corollary 3.5: “Since the composition M_{Z_ℓ}(H̃_g ⊗ k) ↪ Sp_{2g}(Z_ℓ) → Sp_{2g}(Z/ℓ) is surjective, a standard group theory argument (e.g., [29, 1.3]) shows that M_{Z_ℓ}(H̃_g ⊗ k) ≅ Sp_{2g}(Z_ℓ).”",
       "correction": "For (g,ell)=(1,3), prove a nonzero first congruence kernel or use a separate geometric argument. Vasiu directly supplies all g≥2,ell odd and g=1,ell≥5, enough for eventual n in EVW.",
       "reason": "The order24 subgroup of SL2(Z/9) generated by [[0,1],[8,0]],[[1,7],[6,7]] maps bijectively onto SL2(F3). Its inverse image is a proper closed subgroup of SL2(Z3) with full mod3 image. This refutes the unqualified group-theoretic implication, not the hyperelliptic monodromy theorem.",
       "affects": "the proof",
@@ -3980,13 +4064,19 @@
         "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established.",
         "Earlier note: No existing correction located in the bounded search; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "standard group theory argument",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and I reproduced the counterexample. The implication “full image mod ℓ ⇒ full image over Z_ℓ” fails at (g, ℓ) = (1, 3): in SL₂(Z/9) the subgroup generated by [[0,1],[8,0]] and [[1,7],[6,7]] has order 24 and maps bijectively onto SL₂(F₃), while |SL₂(Z/9)| = 648, so its preimage in SL₂(Z₃) is a proper closed subgroup with full mod-3 image. The cited [29, 1.3] is not being quoted incorrectly so much as applied without its hypothesis; the extraction is right that Vasiu’s theorem covers g ⩾ 2 with ℓ odd and g = 1 with ℓ ⩾ 5 directly, which is all EVW needs. This is a finding about a cited source, not about EVW. Checked in the source the extraction names: the author-hosted Achter–Pries PDF (SHA-256 ef86bd41…b080) for E15–E17 and arXiv math/0209237v2 (SHA-256 b7389a31…252f2) for E18–E19, both re-fetched on 23 September 2026. As the extraction records, no correction to these particular statements was located.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E16",
       "kind": "error",
       "locator": "Achter–Pries author-hosted final PDF, Lemma2.3 proof, p.5, smooth labelled branch functor",
-      "printed": "is an isomorphism",
+      "printed": "Achter–Pries, proof of Lemma 2.3: “Consider the functor β_γ : M̃^γ_G → M̃_{0,r(γ)}. On S-points, this functor takes the isomorphism class of (C, ι₀, η) to the isomorphism class of (C/ι₀(G), B^{sm}, η₀) … By Riemann’s existence theorem [30, Section 2.2], β_γᵒ ⊗ C : M̃^{γ,ᵒ}_G ⊗ C → M̃ᵒ_{0,r} ⊗ C is an isomorphism.”",
       "correction": "In the stack interpretation retain the deck-group gerbe over the labelled branch space, or explicitly pass to coarse moduli. In the hyperelliptic case it is a mu2-gerbe; irreducibility still follows.",
       "reason": "A smooth double cover with at least4 labelled ramification points has the nontrivial deck automorphism fixing every label. The corresponding labelled P1 has no automorphisms fixing its at least3 distinct labels. The branch functor therefore cannot be fully faithful. Item131 keeps this stabilizer.",
       "affects": "the proof",
@@ -3997,13 +4087,19 @@
         "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established.",
         "Earlier note: No existing correction located in the bounded search; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "is an isomorphism",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, with a qualification. The objects of M̃^γ_G carry the G-action, so a labelled hyperelliptic object has the deck involution among its automorphisms, fixing every label; an object of M̃_{0,r} with r ⩾ 3 labelled points has no automorphisms at all. A functor between stacks that sends a groupoid with automorphism group μ₂ to one with trivial automorphism group is not an equivalence, so β_γᵒ ⊗ C is a gerbe over its image rather than an isomorphism. The qualification: it is an isomorphism of coarse spaces, which is all the irreducibility argument uses, so the lemma stands. A finding about a cited source, not about EVW. Checked in the source the extraction names: the author-hosted Achter–Pries PDF (SHA-256 ef86bd41…b080) for E15–E17 and arXiv math/0209237v2 (SHA-256 b7389a31…252f2) for E18–E19, both re-fetched on 23 September 2026. As the extraction records, no correction to these particular statements was located.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E17",
       "kind": "error",
       "locator": "Achter–Pries author-hosted final PDF, §3.1, p.10, arithmetic/geometric integral image quotient",
-      "printed": "Gal(F_ell∞/F)",
+      "printed": "Achter–Pries, §3.1: “If F is a field, let F_{ℓ^∞} = F(μ_{ℓ^∞}(F̄)). If S is an F-scheme, then M_{Z_ℓ}(X → S, s)/M_{Z_ℓ}(X ⊗ F̄ → S ⊗ F̄, s) ≅ Gal(F_{ℓ^∞}/F).”",
       "correction": "Use the exact sequence in item137. Equality with the cyclotomic image holds if the geometric image is full Sp, as in the later Corollary3.6 application.",
       "reason": "Take F=C(t), S=Spec F and E:y²=x³−t²x, the t-twist of E0:y²=x³−x. Over F(sqrt(t)), x=t u,y=t sqrt(t) v identifies E with E0. The quadratic automorphism acts by−1 on every odd-primary Tate module. Thus arithmetic image is{±I}, geometric image is1, while F already contains all roots of unity.",
       "affects": "a stated result",
@@ -4014,13 +4110,19 @@
         "2026-09-23: searched AP title with erratum, and Achter/Pries/Corollary3.5 with correction; no correction to these particular statements located. Vasiu title plus erratum search also made. Novelty not established.",
         "Earlier note: No existing correction located in the bounded search; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "Gal(F_ell∞/F)",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and I checked the counterexample independently. Over F = ℂ(t) take E : y² = x³ − t²x, the quadratic twist by t of E₀ : y² = x³ − x. All torsion of E₀ is defined over ℂ ⊆ F, so T_ℓ(E) ≅ T_ℓ(E₀) ⊗ χ with χ the quadratic character of F(√t)/F, and the arithmetic image is {±I}; with S = Spec F the geometric image is trivial; and ℂ(t) contains all roots of unity, so Gal(F_{ℓ^∞}/F) = 1. The printed isomorphism would read {±I} ≅ 1. What is true is that the quotient surjects onto Gal(F_{ℓ^∞}/F) through the similitude character, with equality when the geometric image is all of Sp — the case of the later Corollary 3.6, which is how Achter-Pries use it. A finding about a cited source, not about EVW. Checked in the source the extraction names: the author-hosted Achter–Pries PDF (SHA-256 ef86bd41…b080) for E15–E17 and arXiv math/0209237v2 (SHA-256 b7389a31…252f2) for E18–E19, both re-fetched on 23 September 2026. As the extraction records, no correction to these particular statements was located.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E18",
       "kind": "error",
       "locator": "Vasiu arXiv:math/0209237v2,§2.2,PDF p.4; preliminary Lie-algebra paragraph",
-      "printed": "the Lie bracket",
+      "printed": "Vasiu, §2.2: “As an R-module, we identify Lie(S) with the tangent space of S at the identity section, i.e. with Ker(S(R[x]/x²) → S(R)) … If y, z ∈ Lie(S), then the Lie bracket [y, z] is yzy⁻¹z⁻¹, the product being taken inside Ker(S(R[x]/x²) → S(R)).”",
       "correction": "Compute the Lie bracket using two independent first-order variables and the mixed coefficient, or the equivalent vector-field bracket. The kernel over a single dual-number variable has the additive Lie-algebra group law, so its group commutator is trivial.",
       "reason": "For S=GL2, take X=E12,Y=E21. In R[e]/(e²), (1+eX) and (1+eY) commute; nevertheless the Lie bracket XY−YX=diag(1,−1) is nonzero over Q. In R[e,d]/(e²,d²), their commutator is 1+ed[X,Y].",
       "affects": "a stated result",
@@ -4029,13 +4131,19 @@
         "2026-09-23: read Vasiu arXiv:math/0209237v2,PDF p.4,§2.2; checked its arXiv version history and title/erratum search. No correction to this preliminary paragraph located; publisher PDF not collated. These observations concern the general paragraph, not the odd-prime symplectic lifting theorem.",
         "Earlier note: No existing correction located in the bounded search; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "the Lie bracket",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Ker(S(R[x]/x²) → S(R)) is isomorphic to the additive group of Lie(S), so it is abelian and the group commutator yzy⁻¹z⁻¹ computed inside it is trivial for every y, z: as printed, the definition would make every Lie bracket zero. For S = GL₂, X = E₁₂ and Y = E₂₁, the elements 1 + εX and 1 + εY commute in R[ε]/(ε²), yet [X, Y] = diag(1, −1) ≠ 0; over R[ε, δ]/(ε², δ²) one computes (1+εX)(1+δY)(1−εX)(1−δY) = 1 + εδ[X, Y], which is the standard repair the extraction gives. A finding about a cited source, and about a preliminaries paragraph rather than the surjectivity criterion EVW cite. Checked in the source the extraction names: the author-hosted Achter–Pries PDF (SHA-256 ef86bd41…b080) for E15–E17 and arXiv math/0209237v2 (SHA-256 b7389a31…252f2) for E18–E19, both re-fetched on 23 September 2026. As the extraction records, no correction to these particular statements was located.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E19",
       "kind": "error",
       "locator": "Vasiu arXiv:math/0209237v2,§2.2,PDF p.4; preliminary Lie-algebra paragraph",
-      "printed": "a free R-module",
+      "printed": "Vasiu, §2.2: “We now assume that S is a smooth group scheme over R. So Lie(S) is a free R-module of rank equal to the relative dimension of S.”",
       "correction": "For a smooth group scheme the Lie module is finite locally free; freeness needs an additional base or triviality hypothesis. The Witt-ring case used later has this property.",
       "reason": "Over a connected affine base with a nontrivial line bundle L, take S to be its additive vector group inside the reductive group GL(O⊕L), as the off-diagonal unipotent subgroup Hom(O,L). Then Lie(S)=L is locally free of rank1 but not free. For a concrete affine base, a nonprincipal invertible ideal over Z[sqrt(−5)] supplies L.",
       "affects": "a stated result",
@@ -4044,7 +4152,13 @@
         "2026-09-23: read Vasiu arXiv:math/0209237v2,PDF p.4,§2.2; checked its arXiv version history and title/erratum search. No correction to this preliminary paragraph located; publisher PDF not collated. These observations concern the general paragraph, not the odd-prime symplectic lifting theorem.",
         "Earlier note: No existing correction located in the bounded search; novelty not established.",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn)."
-      ]
+      ],
+      "printedAsRecorded": "a free R-module",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. For a smooth group scheme Lie(S) is finite locally free, and freeness is a genuine extra hypothesis: over a base with nontrivial Picard group, the vector group attached to a non-free invertible module L — realised inside GL(O ⊕ L) as the unipotent subgroup Hom(O, L) — is smooth of relative dimension 1 with Lie(S) = L, locally free but not free, and a nonprincipal invertible ideal of Z[√−5] gives a concrete affine base. The paper’s own later use is over Witt rings, where every finite projective module is free, so nothing downstream is affected. A finding about a cited source, and about the same preliminaries paragraph as E18. Checked in the source the extraction names: the author-hosted Achter–Pries PDF (SHA-256 ef86bd41…b080) for E15–E17 and arXiv math/0209237v2 (SHA-256 b7389a31…252f2) for E18–E19, both re-fetched on 23 September 2026. As the extraction records, no correction to these particular statements was located.",
+        "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+      }
     }
   ],
   "audit": {
@@ -4182,5 +4296,16 @@
     "status": "complete",
     "reading": "Published PDF (SHA-256 6c10d770…, matching) read at §1 and §8 in full and at the findings.",
     "changes": "known set to 'new' on all findings; E9 and E11 reclassified; remaining-work statuses recorded; status complete."
+  },
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1185,
+    "job": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The published Annals PDF, re-fetched and hashed to 6c10d770348c625ad9fe80d2c47093cde2a2ba05f39a28d547743f0f4993a7f6, matching the recorded source hash byte for byte; 58 pages, printed page = PDF page + 728. Every sourceIssues entry was checked at its locator, (6.1.6) and the Lemma 4.6 display on rendered page images. E15–E17 were checked in the author-hosted Achter–Pries PDF and E18–E19 in arXiv math/0209237v2, both re-fetched. Recomputed independently: the lift enumeration of E6 (12 of 48 surjections lift), the SL₂(Z/9) subgroup of E15 (order 24, bijective onto SL₂(F₃), inside 648) and the moment witness of E7. All seven library declarations and the atlas stages of the three routes were opened at the pinned commits.",
+    "changes": "All 19 sourceIssues carry a review verdict and all are confirmed. The `printed` field of every finding was replaced by a verbatim quotation of the source, long enough to identify the statement without the paper in hand, as PROTOCOL section 18 asks and as the public register needs; what the extraction had recorded is preserved in `printedAsRecorded`. E12's locator said Proposition 8.9 where the paper says Lemma 8.9. The extraction records its own checks under `validation`, `audit` and `completion`, which are left untouched; this `verification` block, which the extraction did not write, records the review. No item, status, route or locator otherwise changed.",
+    "lean": "none"
   }
 }
