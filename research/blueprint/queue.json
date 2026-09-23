@@ -6300,7 +6300,8 @@
    ],
    "avoidAccountOf": "PAPER-DOR-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DOR-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1374"
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23",
@@ -6818,8 +6819,9 @@
    ],
    "avoidAccountOf": "PAPER-VENKATESH-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-VENKATESH-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1405"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1405",
+   "finishedAt": "2026-09-23T13:43:09Z"
   },
   {
    "id": "PAPER-HE-18",
@@ -30131,7 +30133,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-ZHOU-25",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-ZHOU-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1769"
   },
   {
    "id": "ERRATA-PAPER-SMITH-24",
@@ -30207,7 +30210,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-FU-24",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-FU-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1773"
   },
   {
    "id": "ERRATA-PAPER-SCHROER-23",
@@ -30244,8 +30248,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-SCHROER-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SCHROER-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1776"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1776",
+   "finishedAt": "2026-09-23T13:43:12Z"
   },
   {
    "id": "ERRATA-PAPER-DASGUPTA-KAKDE-23",
@@ -30321,8 +30326,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-DITTMANN-POP-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1778"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1778",
+   "finishedAt": "2026-09-23T13:43:16Z"
   },
   {
    "id": "ERRATA-PAPER-WITASZEK-22",
