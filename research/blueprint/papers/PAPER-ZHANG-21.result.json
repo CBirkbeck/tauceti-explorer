@@ -3392,9 +3392,9 @@
       "locator": "§5.2, Theorem 5.5 and its proof, p. 899",
       "printed": "Proof. We may assume that the invariants of (g, u) are all integers. … First, by the argument in the proof of part (i) of Proposition 4.12, there exists g′ = r̃^{−1}(g, u, e) ∈ U(V_{n+1})°(F0)_srs such that Int(g′) = Int(g, u).",
       "correction": "State Theorem 5.5 under q ≥ n, which covers its only use (§15: F0 = Q_p, p ≥ n). For general q, cite Mihatsch [32], published as 'Local constancy of intersection numbers', Algebra Number Theory 16 (2022), 505–519.",
-      "reason": "The argument invoked first multiplies g by ξ ∈ F^1 so that det(1−ξg) ∈ O_F^×. This needs a norm-one residue class ξ̄ with ξ̄^{−1} not a root of the reduced characteristic polynomial of g (degree n), guaranteed only when q + 1 > n. Example: q = 3, n = 4, g with eigenvalues ±1, ±i; then no ξ works. Without det(1−g) ∈ O_F^× the construction does not make 1 − d = 2(1+e+ũ*(1+x)^{−1}ũ)^{−1} a unit, and Proposition 4.6 cannot be applied. Theorem 5.5 carries no hypothesis on q, and §§3–5 assume only p odd. Mihatsch–Zhang (JEMS, §1) describe [32] as proving local constancy for all regular semisimple elements.",
+      "reason": "The argument invoked first multiplies g by ξ ∈ F^1 so that det(1−ξg) ∈ O_F^×. This needs a norm-one residue class ξ̄ with ξ̄^{−1} not a root of the reduced characteristic polynomial of g (degree n), guaranteed only when q + 1 > n. Example: q = 3, n = 4, g with eigenvalues ±1, ±i; then no ξ works. Without det(1−g) ∈ O_F^× the construction does not make 1 − d = 2(1+e+ũ*(1+x)^{−1}ũ)^{−1} a unit, and Proposition 4.6 cannot be applied. Theorem 5.5 carries no hypothesis on q, and §§3–5 assume only p odd. Mihatsch–Zhang (JEMS, §1) describe [32] as proving local constancy for all regular semisimple elements. The gap in this proof is new. The statement itself has an independent proof for all q: Mihatsch [32], 'Local constancy of intersection numbers', Algebra Number Theory 16 (2022), 505–519.",
       "affects": "the proof",
-      "known": "new (as a gap in this proof); independent proof of the statement: Mihatsch [32]",
+      "known": "new",
       "searched": [
         "Mihatsch–Zhang, JEMS DOI 10.4171/JEMS/1375 (full text grepped for its uses of [Zha21] Prop. 4.12 and Thm. 5.5)",
         "author preprint AFL2019.pdf (same passages compared)",
@@ -3402,7 +3402,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "found and checked on the page image by the review",
+        "reason": "found and checked on the page image by the review (Correction by the same review, cc-39fac3: 'known' normalised to 'new'. scripts/errata.py treats any other value as a correction already in print, and Mihatsch [32] proves the statement independently rather than correcting this proof.)",
         "by": "REV-PAPER-ZHANG-21"
       }
     },
