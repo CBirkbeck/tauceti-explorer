@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-ZAVYALOV-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The Part II ClassicalAdicEtaleCohomologyPartIIModPPoincareDuality, 96 items. I checked the extension frontier: the parent ClassicalAdicEtaleCohomology is an atlas roadmap, its H3 is 'Proper support, traces and Poincaré duality for curves' and its text stops at 'for smooth analytic curves over a complete algebraically closed nonarchimedean field, construct the trace and the duality pairing', so duality in every dimension with p-torsion coefficients genuinely starts where the base stops. The Part II id does not exist yet, the title begins with the parent's title, and the area padic is a galaxy id. The brief is the best I have reviewed: it states the final theorems exactly and by number (5.4.4 = 1.1.4, 5.4.2, 5.4.5, 5.5.2/5.5.4/5.5.6, 5.1.1 = 5.2.4, 5.2.5, 4.4.24 = 4.1.2, with Remark 1.1.5 recording that no duality holds for ℓ = char K), lays out seven layers that follow the paper's own §§2–5 and appendices, names what to import layer by layer rather than re-planning it, lists the prerequisite papers, and gives four concrete tests (the torus of Lemma 3.4.7, a curve with semistable reduction against the residue trace, the model O_C⟨t_0,t_1⟩/(t_0t_1 − ϖ) of Warning 4.2.22, and P^1). I would build it as it stands."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "AnalyticStacks:AS.1, 19 items — §§2.2–2.3, Grothendieck duality for universally coherent schemes. AnalyticStacks is a draft roadmap (research/blueprint/roadmaps/AnalyticStacks.json) whose AS.1 is 'Topological and coherent formalisms, D-modules and algebraic de Rham stacks', and I verified the route's own justification: PAPER-BHATT-ETAL-23 and PAPER-HACON-WITASZEK-23 do route their coherent-duality adapters to AnalyticStacks:AS.1, so this joins an existing owner rather than proposing a rival. Zavyalov's extension of the Stacks Project's f^! from noetherian to universally coherent bases is exactly the generality that duality over a rank-one valuation ring needs, and it belongs with the owner of the duality formalism, not in the Part II."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AdicCoefficientsAndComparisons:L2, 3 items (§2.1, finitely presented compactifications). L2 owns the comparison machinery these are stated for, and the items are general statements about compactifying a finitely presented morphism, not about rigid duality."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AdicSpacesPartII:R2 and F0, 7 items. R2 is 'Formal schemes, generic fibres, and Hasse domains' and F0 proves 'properness, separatedness and smoothness comparisons with formal models', which is where Lemma B.1 (Lütkebohmert–Temkin), the Reduced Fibre Theorem and Elkik's algebraization belong. None of them is about duality."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "ClassicalAdicEtaleCohomology:H3, 8 items. These are Berkovich's trace for smooth partially proper morphisms, the prime-to-p duality it generalises and the Huber–Berkovich comparison of Appendix A — the parent roadmap's own subject, so they go to the parent rather than the Part II. Sending them to H3 is what keeps the Part II starting where the base stops."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "TropicalAndBerkovichArithmetic:TB.0, 3 items. TB.0 owns classical Berkovich spaces, as the AnalyticStacks draft's own boundary section also records ('TropicalAndBerkovichArithmetic owns classical Berkovich spaces'), and these items are Berkovich-space statements."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "PadicHodgeTheory:P8, 3 items: Scholze's primitive comparison, the finiteness theorem and Ω^n(−n) ≅ R^nµ_∗Ô. P8 is the geometric-comparison layer that owns them; the paper uses them as inputs and does not reprove them."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "AInfCohomology:AI.0, 2 items (the Breuil–Kisin twist O_C{1} and Fontaine's theorem on dlog). AI.0 is the period-ring interface layer and already owns the Breuil–Kisin twists, so these are imports, not new mathematics."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by session cc-39fac3 (review job issue #1064). I fetched arXiv 2111.01830v3 myself; its SHA-256 is a984d973782649972a835b302e20ec91fc9c1abc5e5b43c7eccc5934b9c2c951, matching the hash the extraction records. Verdict: accept, with no change to any item, status, route or locator — the first extraction I have reviewed that needed no correction. All 12 sourceIssues are confirmed: I checked each at its locator and against the paper's own surrounding text, and I verified independently that no later version or erratum corrects them (arXiv has only v1–v3; the Crossref record of doi:10.4007/annals.2025.201.3.2 has no update-to, updated-by or relation entry). The published Annals text is behind the publisher's bot protection and I could not compare it either; the extraction discloses this and argues, correctly, that v3 (21 February 2024) postdates the journal's revision date of 31 January 2024. The finding that matters most is E10: Theorem 4.4.24 omits the reduced special fibre from its hypotheses, so as printed it asserts almost perfectness of a pairing that Definition 3.5.1 and Theorem 3.5.2 only define for nice models; §4's own opening states the intended hypothesis, so nothing downstream is affected. Checks beyond the findings: all 141 missing items are routed exactly once and no routed id is a non-item; all 14 planned items cite layers that do plan them (I read each layer's description — AI.1 for Lη, AI.3 for the toric perfectoid cover, AI.4 for BMS Theorem 8.3, Q0 for integral perfectoid rings, H0/H3 for the étale trace and partial properness, F0 for Lütkebohmert–Temkin); no missing item is in either library at the pinned commits (searches for dualizing complexes, f^!, Grothendieck duality, rigid-analytic spaces, almost mathematics, étale cohomology and trace maps return nothing, and the only adic material is Tau Ceti's Spa, which the planned items already point at); eight sampled items were checked verbatim against the paper; and a sweep of the paper's own numbering found no statement on the way to the main theorems without an item — of 303 paper-internal numbered statements, the twelve no item mentions are Theorem 1.1.1 (classical Poincaré duality for a compact complex manifold, the motivation), three [Hub96] citations my regex misread as internal, five Remarks, one phantom number, and Definition D.6, a rational pro-étale trace the paper never uses again. I did not read all 101 pages hunting for mistakes the extraction missed, and record none. python3 scripts/check_paper.py reports ok."
+}
