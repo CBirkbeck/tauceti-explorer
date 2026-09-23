@@ -11990,8 +11990,9 @@
    ],
    "avoidAccountOf": "RS-01",
    "prompt": "research/blueprint/prompts/REV-RS-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #801"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #801",
+   "finishedAt": "2026-09-23T13:34:51Z"
   },
   {
    "id": "RS-02",
@@ -30318,7 +30319,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-DITTMANN-POP-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DITTMANN-POP-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1778"
   },
   {
    "id": "ERRATA-PAPER-WITASZEK-22",
@@ -30355,8 +30357,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-WITASZEK-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-WITASZEK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1780"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1780",
+   "finishedAt": "2026-09-23T13:35:12Z"
   },
   {
    "id": "ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
