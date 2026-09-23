@@ -4133,8 +4133,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8528,7 +8528,8 @@
    ],
    "avoidAccountOf": "PAPER-KOYMANS-PAGANO",
    "prompt": "research/blueprint/prompts/REV-PAPER-KOYMANS-PAGANO.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2195"
   },
   {
    "id": "DESIGN-LV",
@@ -30609,7 +30610,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BAKKER-TSIMERMAN-16",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1712"
   },
   {
    "id": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -30954,7 +30956,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1716"
   },
   {
    "id": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -31107,8 +31110,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1854"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1854",
+   "finishedAt": "2026-09-23T14:15:08Z"
   },
   {
    "id": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
@@ -31297,8 +31301,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HE-21",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HE-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1865"
+   "state": "external",
+   "note": "claimed on GitHub issue #1865"
   },
   {
    "id": "ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -31527,8 +31531,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BHATT-ETAL-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BHATT-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1875"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1875",
+   "finishedAt": "2026-09-23T14:15:11Z"
   },
   {
    "id": "ERRATA-PAPER-BENOIST-19",
