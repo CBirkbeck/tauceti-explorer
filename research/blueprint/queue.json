@@ -4446,8 +4446,9 @@
    ],
    "avoidAccountOf": "PAPER-GHOSH-SARNAK-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-GHOSH-SARNAK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1273"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1273",
+   "finishedAt": "2026-09-23T12:11:38Z"
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-WANG-22",
@@ -30125,7 +30126,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-SMITH-24",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SMITH-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1771"
   },
   {
    "id": "ERRATA-PAPER-FU-24",
@@ -30643,8 +30645,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-GILLE-PARIMALA-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-GILLE-PARIMALA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1790"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1790",
+   "finishedAt": "2026-09-23T12:11:41Z"
   },
   {
    "id": "ERRATA-PAPER-MARTIN-25",
