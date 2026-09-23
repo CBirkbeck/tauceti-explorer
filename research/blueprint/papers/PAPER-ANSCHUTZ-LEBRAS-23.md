@@ -259,3 +259,32 @@ definition behind E2.
   of `M_Δ` with Cartier duality on finite locally free group schemes, the analogue of Berthelot–Breen–Messing
   5.2.7, and the design job should plan it; a reviewer who insists on the published text as the source of record
   may prefer to drop it, which would cost the roadmap a duality statement it plainly wants.
+
+## Independent review (`REV-PAPER-ANSCHUTZ-LEBRAS-23`, issue #1368)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all seven routes accepted, all
+five findings confirmed, nothing corrected in place. The full review is in
+[`reviews/REV-PAPER-ANSCHUTZ-LEBRAS-23.md`](../reviews/REV-PAPER-ANSCHUTZ-LEBRAS-23.md).
+
+The recorded e-print hash matches byte for byte (a single 6397-line `.tex`, exactly as recorded). **The
+erratum was fetched and read**: Pi 13 (2025) e3 identifies the same step E5 quotes — topological nilpotence
+of the divided Frobenius on `ker(A_crys(R) → W(R))` — calls it "not true", gives Senger's counterexample,
+and states that the fallacious arguments are used nowhere else, so no result is affected. E5 records it in
+its `known` field, which is what PROTOCOL §18 asks for.
+
+Simulating the preprint's shared `[subsection]` counter gives **190 numbered statements** and reproduces
+the number *and* the kind of every statement the findings cite. The 155 items cite 155 distinct statements;
+of the 35 not cited, **19 are introduction copies of body statements the extraction does cover** (including
+the two definitions E4 concerns), 14 are commentary remarks, one is a Question, and one is the verbatim
+repeat of Definition 4.1.24 that E2 is about. No substantive gap.
+
+A note on method: this paper uses **cleveref** for 290 of its 311 references, so the word is generated from
+the target and the "cited as Theorem, printed as Proposition" class cannot arise — which is why E2's defect
+is a wrong `\Cref` *target*, and why the fix is the label rather than the word. Two harmless blemishes are
+recorded in the review rather than filed: one label is defined twice (nothing references it), and two
+labels contain a space, which works but reads as an undefined reference to a naive scan.
+
+All five findings are confirmed verbatim: the target category named "crystals" for the module-valued
+functor (E1); the `\Cref` pointing at the Cais–Lau proposition instead of the definition recalled (E2); a
+chain of equalities that applies `p x = f x'` without decrementing the power of `p` (E3); a stray "is" in
+both introductory copies of the cokernel condition, correct in the body (E4); and the erratum's proof (E5).

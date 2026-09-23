@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-ANSCHUTZ-LEBRAS-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept, and it is a joined proposal rather than a rival: PrismaticCohomologyPartIIPrismaticDieudonneTheory is also proposed by PAPER-CESNAVICIUS-SCHOLZE-24 and PAPER-FARB-KISIN-WOLFSON-24, and the title reproduces the parent's exactly before the colon - the atlas record for PrismaticCohomology is titled 'Prismatic cohomology: relative, absolute, Nygaard and log variants', as PROTOCOL section 15 requires. The 99 items routed here are the paper's own subject: the prismatic Dieudonne functor, its full faithfulness and essential surjectivity, the admissible crystals and modules, and the comparisons with crystalline and Breuil-Kisin theory. The parent's PR.0-PR.3 build the prismatic site and cohomology, not this classification."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept. The source route to PrismaticCohomology cites PR.0-PR.3, all of which exist in data/atlas.json, and the 15 items routed there are the prismatic foundations the paper uses rather than proves - the site, the structure sheaf and its Frobenius, the quasi-syntomic descent apparatus. Keeping them in the parent rather than the Part II is the right division."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept. PerfectoidQuotients:Q0:integral-algebra exists (it is one of the three-component stage ids in data/atlas.json) and owns the integral algebra of perfectoid quotients that the single item routed here needs."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accept. PerfectoidSpaces:P7 exists and owns the perfectoid input the paper takes as given at that point."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept. FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 exists and owns finite flat group schemes and the classical integral p-adic Hodge theory that the four items routed here import - the right home, since the paper's own contribution is the prismatic classification, not these inputs."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept. AInfCohomology:AI.2 exists and owns the A_inf material the two items routed here use."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept. AbelianSchemesAndArithmeticModuli:A4 exists and owns abelian schemes and their p-divisible groups, which is what the single item routed there is."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-fb70e5, 23 September 2026, of the extraction by session cc-7b31c4 (issue #1367). cc-fb70e5 appears nowhere in its files.\n\nProvenance. The recorded e-print hash matches byte for byte: d1765c3c...843906 for arXiv 1907.10525v4, a single prismatic_dieudonne_111022.tex of 6397 lines, exactly as recorded. The extraction read the source rather than the PDF, which is why its locators are statement numbers and not pages; that is the right trade for a paper whose two versions number differently.\n\nThe erratum. I fetched and read it rather than taking the citation: Forum of Mathematics Pi 13 (2025) e3, doi:10.1017/fmp.2024.30, says 'There is a mistake in the proof of Proposition 5.23 of the published version... the arguments of this fallacious proof are not used anywhere else in the paper, so this mistake does not affect any of the results stated in the paper', identifies exactly the step E5 quotes, calls it 'not true', and gives Andrew Senger's counterexample. E5 records it with the erratum in its 'known' field, which is what PROTOCOL section 18 asks for.\n\nNumbering. The preprint has \\newtheorem{theorem}{Theorem}[subsection] with nine environments sharing the counter, so numbers are section.subsection.n; the published version uses one counter per section. Simulating the preprint numbering gives 190 numbered statements and reproduces the number and the kind of every statement the findings cite, and of every statement their reasons cite in passing: Theorem 4.9.5, Definition 5.2.4, Example 6.0.4, Definitions 1.3.1 and 1.3.5, Proposition 5.3.5, Definition 4.2.8, Definition 4.1.24, Proposition 4.1.26 and Lemma 4.9.3. Every one of the 155 items carries a preprint number and 150 also carry the published one.\n\nCoverage. The 155 items cite 155 distinct statements, so 35 of the 190 are not cited. Nineteen are in the introduction, where this paper states its definitions and main theorems before restating them in the body - and the body versions are covered, including the two definitions E4 is about (4.1.5 and 4.1.10, whose introductory copies are 1.3.1 and 1.3.5). Of the remaining sixteen, fourteen are commentary remarks ('remarks on the definition', 'simplifications', 'previous results on classification'), one is a Question, and one is Definition 5.2.4, the verbatim repeat of Definition 4.1.24 that E2 is about, whose content is therefore covered. No substantive gap.\n\nInternal references, and why one usual audit does not apply here. The paper uses cleveref: 290 of its 311 references are \\Cref, where the word is generated from the target's environment, so the 'cited as Theorem, printed as Proposition' class cannot arise - which is consistent with the extraction's finding list containing no such slip, and is the reason E2's defect is a wrong \\Cref target rather than a wrong word. I audited the 21 hand-written \\ref uses as well: each is preceded by a preposition or nothing, so there is no mismatch. Two source blemishes with no visible effect are worth recording rather than filing: the label sec:comp-case-mathc-definition-breuil-kisin-module is defined twice (on Definitions 4.1.24 and 5.2.4), which LaTeX warns about, though nothing references it; and two labels contain a space ('...quasi-regular semiperfectoid'), which works but is fragile - my first pass read one of them as an undefined reference before I checked.\n\nStatuses and routes. There are no library items, which is right for this subject. The 36 planned items and the routes cite 17 layers, all of which exist in data/atlas.json, including the three-component stage id PerfectoidQuotients:Q0:integral-algebra. One Part II and six source routes, all accepted; the Part II reproduces its parent's title verbatim and is a joined proposal with PAPER-CESNAVICIUS-SCHOLZE-24 and PAPER-FARB-KISIN-WOLFSON-24.\n\nMistakes in the paper. All five are confirmed, each verbatim in the source: the target category named 'crystals' for the module-valued functor (E1); a \\Cref pointing at the Cais-Lau proposition instead of the definition being recalled (E2); a chain of equalities where the substitution p x = f x' is applied without decrementing the power of p (E3); a stray 'is' in both introductory copies of the cokernel condition, correct in the body (E4); and the erratum's fallacious proof (E5).\n\nVerdict: accept."
+}
