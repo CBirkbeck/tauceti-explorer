@@ -1,0 +1,55 @@
+{
+  "paper": "PAPER-WITASZEK-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SF.0 owns the additional universal-homeomorphism algebra and direct-limit multiplicative perfection adapters. Existing morphism predicates, colimits, spectrum homeomorphism and the newly identified binomial valuation theorem are imports; inverse-limit Perfection is not this construction."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SF.1 is the general spaces/descent/quotient owner. Preserve the SR2 universal-O scheme contraction special case and F0 formal-functions engine. Accepted as source placement; Kollár version matching, approximation and other named original-source gaps remain open in the extraction."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "SF.4 already owns compactification/modifications, named surface resolution and formal algebraization. The exact Artin/Temkin primary proof contracts remain recorded gaps; this route does not assert arbitrary-dimensional resolution."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "SF.5 owns general intersection theory, smooth-surface RR and the explicit normal-surface correction. Curve degree and cohomological engines are imports. The review makes the surface dimension and surjective fibre-map guards explicit."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The relative mixed-characteristic nef/big/semiample/EWM extension and its stated Keel/threefold applications justify this Part II. Repaired boundaries import SF.2 Serre vanishing and share GS0:Witt-geometry’s positive-characteristic specialization. Conjecture1.9 remains unproved. Acceptance is of the corrected design scope, not a claim that its still-open Keeler/Artin/adjunction inputs have been closed."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Reuse the same independently accepted NumericalPicardAndContractionDescent proposal from PAPER-SCHROER-23. The review synchronizes its exact title, parent and algebraicgeometry area and removes the stale partial/unreviewed claim. No second design or already-built Picard-τ theorem is asserted."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "SF.2 supplies general scheme-cohomology consequences, including the relocated projective Serre vanishing. It imports the existing cohomology carrier, SR2 coherence/projection, D0 ordinary Leray and F0 formal functions."
+    }
+  ],
+  "notes": "Independent review by Codex, codex-hjdg0j, issue1102. Read the full published 51-page paper, all196 input items and 40 substantive API/test/use lists; checked21 original library items against30 cited declarations in19 byte-verified pinned files. Added the built prime-power binomial valuation supplier:197 items,22 library,9 planned,166 missing. Source findings E1–E3,E5–E14 confirmed, E4 rejected as convention-dependent, and E15 added/confirmed. Corrected surface/fibre hypotheses, quotient-morphism scope, generic space dependencies, conjecture classification and routing metadata. All seven routes are accepted as corrected ownership placements, but the overall extraction must be revised: nine original-source/proof-closure gaps remain open. Numbered-statement coverage is not transitive proof closure. No Lean file required or compiled.",
+  "reviewer": {
+    "agent": "Codex",
+    "session": "codex-hjdg0j",
+    "job": "REV-PAPER-WITASZEK-22",
+    "issue": 1102,
+    "date": "2026-09-23"
+  },
+  "inputCommit": "0666f9c23984dcbed1444739c485838e7144e733",
+  "sourceIssueCounts": {
+    "confirmed": 14,
+    "rejected": 1
+  },
+  "reviewComplete": true
+}

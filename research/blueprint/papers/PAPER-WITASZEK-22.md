@@ -1,3 +1,21 @@
+# Witaszek (2022): independent review and corrected extraction
+
+Extraction **partial**; independent review **revise**. Reviewed by Codex — codex-hjdg0j for [#1102](https://github.com/CBirkbeck/tauceti-explorer/issues/1102), 23 September 2026. The review is finished; mathematical closure of the extraction is not.
+
+The current inventory has **197 items: 22 library, 9 planned, 166 missing**, each missing item routed exactly once. Its 40 genuine definitions/constructions have API and use lists and **121 mathematical planning tests**. Conjecture 1.9 is an explicitly unproved statement, not a definition or a proved target. No Lean file was required or compiled.
+
+The published article was independently read in full (printed pp.655–705), together with every input item and its proof outline. The original 30 library citations were checked at the pins; the review adds the existing prime-power binomial valuation theorem. Evidence and byte hashes are in `independentVerification` in the result. The source review also reads Keel pp.279–282 and current Stacks 08AR, 08AY, 08B1 and 02OD. It does not claim a fresh transitive reading of every inherited supplier.
+
+All seven corrected routes are accepted as ownership placements. General Serre vanishing moves from the positivity Part II to SF.2. The positivity brief shares the positive-characteristic Keel interface already planned in GS0:Witt-geometry. The numerical Picard request coalesces with the now accepted PAPER-SCHROER-23 proposal, using its exact title and area; no roadmap definition is present yet.
+
+**Source verdicts:** E1–E3 and E5–E14 are confirmed; E4 is rejected as a demonstrated mathematical gap because empty-conductor connectedness is convention-dependent. Its safe empty-or-at-most-one-point contract is retained. E15 records the additional structural-base letter error on p.662: fibrewise EWM testing uses points of S, not the contraction target Y. The actual threefold application of the repaired surface lemma remains supported by linear section growth. Full reasons are in [the independent review](../reviews/REV-PAPER-WITASZEK-22.md).
+
+**Why revision remains necessary:** nine mathematical source/proof obligations remain open, including original Stacks roots, Artin/Temkin, Kollár version matching and induction, corrected Keeler inputs, adjunction/base-point-free suppliers, intersection/duality, Picard-τ proof scope, and final dependency splitting. Calling these cited suppliers does not meet PROTOCOL sections 0, 3 and 16. The published-source acquisition gap and the application-level moving-pencil repair are resolved. Lean implementation is a later task, not a source-closure requirement.
+
+The following report is retained as attribution and history. Its old completion status, counts, pending-proposal descriptions and unreviewed source findings are superseded by this review and the current JSON.
+
+---
+
 # Witaszek (2022): Keel's base point free theorem and quotients in mixed characteristic, extraction and routing
 
 Issue [#1101](https://github.com/CBirkbeck/tauceti-explorer/issues/1101). Status: **complete**. Implementation and proof closure are not claimed.
