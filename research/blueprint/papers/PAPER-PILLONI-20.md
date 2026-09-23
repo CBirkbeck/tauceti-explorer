@@ -257,3 +257,34 @@ Of the 56 proposed items, 11 duplicated items already extracted and 40 were proo
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-PILLONI-20.result.json` reports ok.
 - `python3 research/blueprint/intake.py check-files` passes on the two deliverables.
 - No Lean was written. A paper extraction has no Lean deliverable, and nothing is claimed to be formalised.
+
+## Review checkpoint (REV-PAPER-PILLONI-20, 23 September 2026)
+
+Claude Code, session `cc-7b31c4`, issue #1327, submitted a **partial** review: the structural work is
+complete and needs no correction, the source is verified, the mechanical audit of all 175 findings is
+done, and 13 of them carry verdicts. The record is
+[REV-PAPER-PILLONI-20.md](../reviews/REV-PAPER-PILLONI-20.md).
+
+Complete: the recorded hash of the author's version reproduces byte for byte and all 113 pages were
+re-extracted; 550 items with every missing one routed exactly once; all 19 source stage ids, all 59
+planned ids and all 19 library declarations check out; all five Part II titles reproduce their
+parents' atlas titles exactly, the new roadmap's id is free, and all six route areas are galaxy ids.
+For 169 of the 175 findings the quoted text is located automatically at its own locator page; the
+other six are diagram labels and symbol-heavy displays that this PDF's text layer does not carry.
+
+**Verdicts.** Thirteen findings are confirmed. Four are settled by the paper contradicting itself —
+`E1` (the introduction calls `T` the double-coset operator that §7 says cannot be defined
+integrally), `E2` ("an compact open subgroup" where §§5.2.1 and 6.1.1 require *neat*), `E3`
+(`⊗^L_{Λ,2}` for weight `(0,2)`, i.e. `k = 0`) and `E7` (a spectral sequence written for `M^•` in a
+conclusion about the cone). Three were checked by computation: `E20`'s declared positive system has
+two roots with negative `α₁`-coefficient in its own declared base; `E24`'s similitude relation must be
+`αδ = βγ` because the torus is `diag(st₁,st₂,st₂^{−1},st₁^{−1})`; and `E27`'s exponent is forced to be
+`+λ₁+λ₂` by the theorem's own Hodge–Tate weights. `E4`, `E6`, `E21`, `E23`, `E25` and `E28` are
+confirmed verbatim.
+
+The other 162 need verification in substance. The checkpoint sets the order — the 11 errors and 21
+gaps first (nine of them reach a stated result), then the misprints in page order, where they cluster
+on pp. 20–25, 56–62 and 86–93, and finally the six that need rendered pages. It also records two
+cautions: the text layer drops accents and some sub/superscript placement, so a quotation that looks
+wrong there is not evidence; and the extraction's scope — author version only, published Duke text
+uncompared — must be preserved in every verdict.
