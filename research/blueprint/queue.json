@@ -2956,7 +2956,8 @@
    ],
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1180"
   },
   {
    "id": "PAPER-SCHIFFMANN-16",
@@ -3221,8 +3222,9 @@
    ],
    "avoidAccountOf": "PAPER-HOWE-KLEVDAL-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-HOWE-KLEVDAL-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1196"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1196",
+   "finishedAt": "2026-09-23T23:05:32Z"
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26",
@@ -4218,7 +4220,8 @@
    ],
    "avoidAccountOf": "PAPER-GAN-SAVIN-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAN-SAVIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1251"
   },
   {
    "id": "PAPER-QIAN-23",
