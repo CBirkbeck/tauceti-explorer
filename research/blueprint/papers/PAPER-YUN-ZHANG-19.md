@@ -304,3 +304,18 @@ Split the bundled generic constructions: Proposition3.9 smooth/DM/separated conc
 Independently verify every source issue, including the full published/v2 collation beyond the selected checked passages. Reconcile the new root-CFT and ind-constructible extension briefs with the existing YZ17/FYZ24 cycle proposal and Bresciani24 SF.1 root-stack route. No self-review, accepted verdict or registry promotion is claimed.
 
 Resume with G1 and G2, not another complete reading of pp.393–526. Then close the named external geometric sources and root-stack coherence contracts, finish the specified atomization, and independently verify the findings. The gate list is why this submission remains a checkpoint.
+
+## Review (REV-PAPER-YUN-ZHANG-19, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its nine routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-YUN-ZHANG-19.md`.
+
+- **Statements and locators:** 69 statements and 58 locators corrected.
+- **Statuses:** items 116 and 120 changed from planned to missing; they are shared with YZ17/34 and /35.
+- **Repairs:** the extraction's repairs are sound, except item 70's gloss. Its Theorem 7.5 repair needs one further step.
+- **New items:** 50.
+- **Brief:** the shtuka Part II brief now lists the corrections its layers must respect.
+- **Source issues:** E1–E37 are confirmed, and three were reclassified. E38–E71 are new, including:
+  - Remark 4.5 fails when Σ∞ = ∅;
+  - a gap in applying Theorem 2.2 in (7.10);
+  - (5.5) is not an open embedding when R ≠ ∅;
+  - misprints.

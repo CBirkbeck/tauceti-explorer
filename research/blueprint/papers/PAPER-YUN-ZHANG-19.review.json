@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-YUN-ZHANG-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "GS.0–GS.3 own bundles, Iwahori flags, HN strata, Hecke geometry and shtuka cohomology; the review added seven missing items there (Iwahori PGL_n shtukas with fractional infinity twist, Atkin–Lehner automorphisms and their commutation with Hecke operators, Hecke symmetry of the base-changed stack, parabolic instability strata, push-out/pull-back along the destabilizing line, the Hecke action on ind-perverse cohomology)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The toric-period RTF side follows the YZ17 GZ.5 source route; the review added the level test functions J_x, the RTF equality of the h□ and f□ tests (a repair of the application of Theorem 2.2) and the functional equation and root number."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "SF.3 supplies the scheme, line-bundle and Picard contracts."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "EDC.5/EDC.7 supply the perverse and IC formalism; item 11's small-map half is not planned there and should be requested or kept missing."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "SF.1/SF.5 own root stacks and intersection theory; item 116 (Chow groups of DM stacks and the Octahedron Lemma) moved here as missing, with YZ17/34 as the shared owner."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "EDC.8 owns correspondences and trace classes; item 120 (Lefschetz for proper maps of DM stacks) moved here as missing, with YZ17/35 as the shared owner."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The same Part II id and title as PAPER-YUN-ZHANG-17 and PAPER-FENG-YUN-ZHANG-24. The review added 32 missing items (the section and incidence stacks, ζ, the Gysin description of the intersection number, groupoid integrals, the orbital fibres, strong multiplicity one, the root norm pushforward and others) and a corrections paragraph in the brief."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "FA.4 supplies arithmetic reciprocity, not the root-Picard character sheaves; the review added seven missing items (root Abel–Jacobi maps, rank-one local systems on the root curve, the root multiplicative sheaf, the quadratic local system of ν, coarse moduli of root symmetric powers and two smoothness/connectivity lemmas)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "EDC.5 stops at bounded constructible perverse sheaves; the ind-objects-modulo-constructibles extension is narrow and reusable."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-442dc5 and Codex session a71f92. The review read the published-layout PDF (Ann. of Math. 189 (2019), 393–526, the version the extraction read) in full again with four checkers. Statements: 69 corrected; locators: 58. Library citations all exist at the pinned commits. Statuses: items 116 and 120 planned → missing (the cited stages do not plan them; they coincide with PAPER-YUN-ZHANG-17/34 and /35). The extraction's repairs are sound except the gloss added to item 70, and its repair of Theorem 7.5 (E28) needs a further step. 50 new items (1 planned, 49 missing). All 37 existing source issues confirmed; E10 reclassified from gap to error ('Sht = ⋃ ≤κSht' is false when r < #Σ∞), E17 to a misprint, E25 to affect nothing; E6 depends on an unstated coweight convention; E20's extra bound is unnecessary; E22 fails only for empty N_d. 34 new source issues, among them Remark 4.5 false when Σ∞ = ∅, a gap in applying Theorem 2.2/Lemma 2.3 in (7.10) (h□ at R is not left Iwahori-invariant; repairable via Lemma 2.6), the twist in the proof of Lemma 3.6 with swapped indices, (3.17) canonical only for single preimages, (5.5) not an open embedding when R ≠ ∅, the smoothness claim in Proposition 7.1(2) needing d′ ≥ 2g′ − 1, and misprints."
+}
