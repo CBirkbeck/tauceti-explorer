@@ -1,16 +1,40 @@
 # PAPER-ANDRE-18-B — direct summands, the unramified reduction and complete-base duality
 
-Status: **partial**. Issue #2188. Agent: **Codex — codex-hjdg0j**, 23 September 2026. Continues #2210, #2222 and #2233. No Lean file was requested, created or compiled.
+Status: **partial**. Issue #2188. Agent: **Claude Code — cc-7b31c4**, 23 September 2026. Continues #2210, #2222, #2233 and #2243. No Lean file was requested, created or compiled.
 
-This checkpoint adds 25 items to the 83-item extraction: **108 items, 17 library, 7 planned, 84 missing**, five ownership routes, 22 definition/construction APIs, 66 typed planning tests and 106 selected dependency edges. All missing items have exactly one route. Reading the entire paper does not close its prerequisite extraction: G0–G7 remain explicit, with G3 and G6 substantially narrowed.
+This checkpoint adds 34 items to the 108-item extraction: **142 items, 17 library, 7 planned, 118 missing**, five ownership routes, 28 definition/construction APIs, 84 typed planning tests and 153 selected dependency edges. All missing items have exactly one route. The whole published paper has now been extracted at declaration size except for the pieces named at the end of G0; G1–G7 remain open at their stated boundaries, so the status stays partial.
 
-## 1. What changed and which sources were read
+## 0. This checkpoint: closing most of G0
 
-The complete published [André paper](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf), printed pp.71–93, was read in this continuation. Its SHA-256 was recalculated from this session’s earlier public download:
+G0 asked for the parts of André's own text that earlier checkpoints had read but not turned into items. Those are now extracted, from a fresh reading of the published version.
+
+**How the paper was read.** The version of record is open access on Centre Mersenne, [10.1007/s10240-017-0097-9](https://pmihes.centre-mersenne.org/item/10.1007/s10240-017-0097-9.pdf), 23 pages, and its SHA-256 recomputed from a fresh download agrees with the one already recorded, `34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053`. It was read with a font-aware extraction built from the PDF's own `/Differences` and `/ToUnicode` tables, so displayed formulas such as `ℬ{f/λ}_{≤1} = (ℬ_{≤1}⟨U⟩/(λU − f))^a_*` could be compared as printed rather than through a lossy text layer. The 2016 arXiv v1 (`1609.00345`, e-print SHA-256 `878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6`) was read at the matching passages; it is a strictly earlier text and cannot correct the published one, but it dates the §0.1 renumbering exactly.
+
+**What was added, and where it goes.**
+
+- *§0.1, the homological reformulations* (eight items). The maximal secant sequence and the alternating-sum rank of a module of finite projective dimension, which the footnote defines; then the five statements listed as equivalent to the conjecture — contraction of ideals from integral extensions, descent of flatness along integral extensions, the monomial conjecture, the dimension bound for a complex with finite-length higher homology — and the syzygy conjecture they imply, with the equivalence itself as a separate item. These are the same direct-summand direction as the conjecture, so they join **DirectSummandsAndBigCohenMacaulay**.
+- *§0.2, the easy cases* (six items). The divided trace in invertible degree, the splitting of a finite flat extension, dimension at most two, Heitmann in dimension three, the `K[x,y]/(xy)` counterexample showing regularity is necessary, and Hochster's characteristic-p theorem through the corrected contracting-endomorphism criterion of E4. Same route.
+- *§1.2, uniform Banach algebras and Weierstrass localisation* (seven items). The uniform-Banach predicate; the construction `ℬ{f/λ}` with formula (1); that `λU − f` is a non-zero-divisor; the π-adic topology of the unit ball; the unit-ball formula **with its two valuation cases kept apart** — formula (2) for a discrete valuation and formula (3), with the almost-`*` functor, otherwise; the identification of the unit ball with the π-adic completion of `ℬ_{≤1}[f/λ]`; and the approximation invariance of §1.2.3 that the proof of 2.5.2 uses twice. These are rational-localisation statements about uniform Tate rings, so they go to **PerfectoidSpaces P1–P2**, the route that already carries the perfectoid rational-localisation model.
+- *§2.3–2.4 and §2.6.1, the tower itself* (eleven items). Complete integral closedness as a predicate; the integral-closure properties of `A°_{jk}` including Noetherianness and p-adic completeness at finite stages and complete integral closedness at `j = ∞`; the unique spectral norm with `A°_{∞k}` as unit ball; isometric transitions and multiplicativity only for `k = 0`; the idempotent prime `A°°_{∞0} = K°°_∞ A°_{∞0}`; and the §2.6.1 variants — normality, the Capelli–Vahlen domain criterion, multiplicativity of the norm, ramifying several elements at once, a possibly ramified regular base, and the observation that only the statement modulo each power of p is ever used. These are ramification facts about this tower, so they join the **PerfectoidRamification Part II** already proposed by PAPER-ANDRE-18, with the same id and title.
+- *A.2.1 product stability* (two items). G0 asked for its exact indexing and base: the index set is arbitrary and the base ring is fixed, and the statement is that a product of pure submodules is pure, equivalently that `R → ∏_i S_i` is pure when each `R → S_i` is. It rests on a comparison that is **missing at the pin**, so that comparison is a separate item.
+
+**Three precise library absences.** Searching the pinned trees for the carriers these items need gave: no system-of-parameters predicate (`IsSystemOfParameters`, `systemOfParameters`, parameter ideals all absent); no `IsCompletelyIntegrallyClosed`, which is strictly stronger than the pinned `IsIntegrallyClosed` and is what §2.4 needs; and, for A.2.1, `TensorProduct.piRight` in `Mathlib/LinearAlgebra/TensorProduct/Pi.lean` is stated and proved **only for a finite index type** — its own docstring says "In general, this is not an isomorphism, but if `ι` is finite, then it is". The arbitrary-index comparison for a finitely presented left factor therefore has to be proved from a finite presentation. Mathlib's `spectralValue`, `spectralNorm` and `IsPowMul` and Tau Ceti's `Huber.IsTateRing` and `IsTopologicallyNilpotent` are the nearest existing carriers for §1.2 and §2.4, and `Submodule.IsPure` is still absent, consistent with the open upstream pull request already recorded.
+
+**Three new findings, E13–E15, none with a review verdict.**
+
+- **E13 (misprint, reaches nothing).** §0.1 asserts that statements (1)–(5) are equivalent, but footnote 1 supplies only `(1) ⇒ (3)` and only `(4) ⇒ (5)`. Both converses are in the works cited at those very places — the reference for (3) is Ohi's *Direct summand conjecture and descent for flatness*, whose title is the equivalence, and the second reference for (5) is Dutta's *On the canonical element conjecture*. The 2016 preprint, which has no flat-descent item and so numbers the statements (1)–(5), writes the same attributions two-sidedly: "Pour l'équivalence (1) ⇔ (3)…" and "Pour (3) ⇒ (4), voir [H2], et [Du] pour la réciproque". The one-sided arrows are an artefact of inserting the new statement (3) and shifting the numbering.
+- **E14 (gap, reaches nothing).** §1.2.1 announces that `ℬ_{≤1}⟨U⟩/(λU − f)` has no π-torsion and then says it is enough to treat λ. The reduction goes the wrong way when `|π| < |λ|`: there λ-torsion is contained in π-torsion, not conversely. Nothing is lost, because the displayed computation never uses a property of λ beyond injectivity of multiplication by f modulo it. Running it with an arbitrary nonzero `μ ∈ 𝒦°`: from `μ Σ b_m U^m = (λU − f) Σ a_m U^m` one gets `μ b₀ = −f a₀`, so `|a₀| = |f a₀| ≤ |μ|` and `a₀ ∈ μℬ_{≤1}` because multiplication by f is isometric; then `μ b_m = λ a_{m−1} − f a_m` gives `a_m ∈ μℬ_{≤1}` by induction, so the lifted element lies in `(λU − f)ℬ_{≤1}⟨U⟩` and is zero. That proves the stronger correct statement, torsion-freeness over `𝒦°`. In the only use, §2.5.2 with `λ = π^i` and `λ = π_{ik}`, one does have `|λ| ≤ |π|`, so the printed reduction is harmless there.
+- **E15 (misprint, reaches nothing).** "si la valuation de 𝒦 **et** discrète" in formula (2) should read "est discrète"; the same slip is in the 2016 source.
+
+**What G0 still holds.** Remark 2.6.1(3) is a pointer to Koh and Ranganathan rather than a statement, and is not extracted. The reduction of §3.1 to a reduced, p-torsion-free, even integral B and the choice of the discriminant g are recorded only inside the application items and want declarations of their own. §4.4's three obstacles to weak functoriality, including the `Z_p[[T]]` example that blocks a compatible unramified regular subring, are described in the report but not split into items.
+
+## 1. What changed in checkpoint #2243, and which sources were read
+
+The complete published [André paper](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf), printed pp.71–93, was read in checkpoint #2243. Its SHA-256 was recalculated from that session’s earlier public download:
 
 `34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053`.
 
-The [Hochster 1983 article](https://deepblue.lib.umich.edu/handle/2027.42/25107) was obtained through Michigan’s public repository API after the old PDF URLs returned HTML. The actual [bitstream](https://backend.production.deepblue-documents.lib.umich.edu/server/api/core/bitstreams/e8432785-2176-424e-a449-adb5930bb1db/content) has SHA-256:
+In that checkpoint the [Hochster 1983 article](https://deepblue.lib.umich.edu/handle/2027.42/25107) was obtained through Michigan’s public repository API after the old PDF URLs returned HTML. The actual [bitstream](https://backend.production.deepblue-documents.lib.umich.edu/server/api/core/bitstreams/e8432785-2176-424e-a449-adb5930bb1db/content) has SHA-256:
 
 `be549b099aa0057cf6e1ffbd0414ea23ce08ba69c1192a58a9f7a29f68d59642`.
 
@@ -252,15 +276,15 @@ The JSON now separates parameter cofinality, coset stabilization, countable comp
 
 ## 5. Ownership and unfinished work
 
-The five routes remain the existing proposed architecture. DirectSummandsAndBigCohenMacaulay now receives 63 missing items, including the CE/reduction and complete-pure-splitting adapters. PerfectoidSpaces P0 retains its generic almost foundations, while P1–P2 supply the cyclotomic example and rational-localization model. The nine ramification items retain the **same PerfectoidRamification Part II** id/title used by PAPER-ANDRE-18. R03.3 receives the finite CM predicate plus six new missing Matlis/local-cohomology interfaces; these refine its existing supplier proposals.
+The five routes remain the existing proposed architecture; this checkpoint added items to three of them and created none. DirectSummandsAndBigCohenMacaulay now receives 79 missing items, including the CE/reduction and complete-pure-splitting adapters. PerfectoidSpaces P0 retains its generic almost foundations, while P1–P2 supply the cyclotomic example and rational-localization model and now also the §1.2 uniform-Banach and Weierstrass facts. The twenty ramification items retain the **same PerfectoidRamification Part II** id/title used by PAPER-ANDRE-18. R03.3 receives the finite CM predicate plus six new missing Matlis/local-cohomology interfaces; these refine its existing supplier proposals.
 
 Keep the valuation and ramified almost ideals distinct, module `!` distinct from algebra `!!`, and product roots `(ϖg)^(1/p^h)` distinct from g-roots alone. Preserve m≥2 for the nonzero pg witness modulo p^m and p² in §4.2. PerfectoidQuotients Q3 does not identify its existential extension with André’s specified normalized one without a proof.
 
-G0 still contains introductory implications/easy cases and Banach/tower remarks; G1–G2 need the exact perfectoid/Abhyankar and finite-stage flatness suppliers; G4 needs Hochster 2002 partial modifications and Bartijn–Strooker balancing; G5 needs pure completion, compatible coefficient enlargement and the weakly functorial CM argument. G3 now has a source-read reduction but unfinished detailed adapters. G6 is restricted to the noncomplete-base branch. G7 retains the fine baseline and proof closure audit. Keep status partial until these are addressed.
+G0 is narrowed to the three pieces listed at the end of §0 above; G1–G2 need the exact perfectoid/Abhyankar and finite-stage flatness suppliers; G4 needs Hochster 2002 partial modifications and Bartijn–Strooker balancing; G5 needs pure completion, compatible coefficient enlargement and the weakly functorial CM argument. G3 now has a source-read reduction but unfinished detailed adapters. G6 is restricted to the noncomplete-base branch. G7 retains the fine baseline and proof closure audit. Keep status partial until these are addressed.
 
 ## 6. Validation
 
-The repository paper checker, intake file validation and whitespace check pass on this revision. The embedded diagnostics were run locally: **3,646 retained finite cases and 15,066 square-zero/Laurent-polynomial identities**. They support the earlier explicit algebra computations; they do not establish infinite intersections, cardinalities, Matlis duality or a formalization. Those arguments are supplied mathematically above. The structural check verifies all 108 identities, unique routing of 84 missing items, 22 APIs with 66 allowed-type tests, 106 acyclic dependencies, and absence of unauthorized review verdicts.
+The repository paper checker, intake file validation and whitespace check pass on this revision. The embedded diagnostics were run locally in this checkpoint too: **3,646 retained finite cases and 15,066 square-zero/Laurent-polynomial identities**. They support the earlier explicit algebra computations; they do not establish infinite intersections, cardinalities, Matlis duality or a formalization. Those arguments are supplied mathematically above. The structural check verifies all 142 identities, unique routing of 118 missing items, 28 APIs with 84 allowed-type tests, 153 acyclic dependencies, and absence of unauthorized review verdicts.
 
 No new executable finite test is offered as a proxy for the infinite-module counterexample. No Lean file was compiled. API and test signatures remain planning contracts.
 
@@ -274,17 +298,17 @@ from random import Random
 path = Path('research/blueprint/papers/PAPER-ANDRE-18-B.result.json')
 data = json.loads(path.read_text(encoding='utf-8'))
 items = {x['id']: x for x in data['items']}
-assert len(items) == len(data['items']) == 108
+assert len(items) == len(data['items']) == 142
 assert collections.Counter(x['status'] for x in items.values()) == {
-    'library': 17, 'planned': 7, 'missing': 84
+    'library': 17, 'planned': 7, 'missing': 118
 }
 taken = collections.Counter(i for r in data['routes'] for i in r['items'])
 assert all(taken[i] == 1 for i, x in items.items() if x['status'] == 'missing')
 definitions = [x for x in items.values() if x['kind'] in ('definition', 'construction')]
-assert len(definitions) == 22
+assert len(definitions) == 28
 assert all(x.get('api') and x.get('uses') and len(x.get('tests', [])) >= 3
            for x in definitions)
-assert sum(len(x['tests']) for x in definitions) == 66
+assert sum(len(x['tests']) for x in definitions) == 84
 active, done = set(), set()
 def visit(i):
     assert i in items
@@ -298,9 +322,9 @@ def visit(i):
     done.add(i)
 for i in items:
     visit(i)
-assert sum(len(x.get('dependencies', [])) for x in items.values()) == 106
+assert sum(len(x.get('dependencies', [])) for x in items.values()) == 153
 assert len(data['coverageGaps']) == 8
-assert len(data['sourceIssues']) == 12
+assert len(data['sourceIssues']) == 15
 assert data['status'] == 'partial'
 allowed = {'computation', 'degenerate', 'compatibility', 'characterisation', 'non-example'}
 assert all(t['kind'] in allowed for x in definitions for t in x['tests'])
@@ -379,7 +403,7 @@ for p in (2, 3, 5):
     for n in range(1, 21):
         check(smul(({n: 1}, {}), ({}, {-n: 1}), p), eps)
 assert checks == 15066
-print('structure: 108 items, 84 missing routed once, 22 APIs, 66 tests, 106 acyclic edges')
+print('structure: 142 items, 118 missing routed once, 28 APIs, 84 tests, 153 acyclic edges')
 print('finite diagnostics: 3646 retained cases and 15066 square-zero identity checks')
 print('These computations certify neither the general theorems nor Lean elaboration.')
 ```
