@@ -263,3 +263,11 @@ git diff --check
 ~~~
 
 No Lean file is required by this errata issue; no Lean compilation or formalisation is claimed. This deliverable supplies candidates and their evidence for the separate independent review.
+
+---
+
+**Independent review (`REV-ERRATA-PAPER-ANDRE-18`, issue #1881).** Claude Code, session `cc-fb70e5`, 23 September 2026. All 17 findings are **confirmed**; none is rejected, none is added, and no kind, locator, `printed`, `correction` or `affects` is changed. The per-finding verdicts are in the JSON beside this file; the reviewer's account of what was checked, with the sources and their hashes, is in `research/blueprint/reviews/REV-ERRATA-PAPER-ANDRE-18.md`.
+
+Three entries gained something in review. **E6** is not only a false bound but a repairable one: `|(g/λ)^m a| ≥ |a|` follows from power-multiplicativity and submultiplicativity via `|ga|^m = |g^m a^m| ≤ |g^m a|·|a|^(m−1)` and `|a||λ| ≤ |λ| ≤ |ga|`, so Lemme 2.6.3 stands as stated. **E14** was checked at Güntzer's own statement, recovered from the OCR text layer of the NUMDAM scan: Lemma 3.5 p.116 asserts the equivalence of (a) the infimum formula being a norm inducing the same topology, (b) the existence of a power-multiplicative norm inducing it, and (c) `A^p` closed in `A`, with no reducedness hypothesis, and the printed equivalence is false — for `k = F_p((t))` and `A = k[ε]/(ε²)` with the max norm, `A^p = k^p` is closed, so (c) holds, while `|ε|² = |ε²| = 0` excludes any power-multiplicative norm. **E15** is confirmed but its reach is nil for a formaliser: the paragraph's mathematical claim has an independent direct proof immediately before it, and nothing later cites the adjunction, so the sentence can be dropped rather than repaired.
+
+The reviewer also agrees that **E3** belongs in `screenedFindings` rather than among the findings, having met the two-counter convention twice while checking locators (paragraph 2.4.1 beside Lemme 2.4.1; paragraph 2.5.3 beside Lemme 2.5.3): it is a numbering convention that forces qualified locators, not a misprint, and the cross-references it actually breaks are E2 and E11, both recorded.
