@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-MAULIK-SHANKAR-TANG-22",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture",
     "authors": "Davesh Maulik, Ananth N. Shankar, Yunqing Tang",
@@ -10,14 +10,13 @@
     "arxiv": "2011.08887",
     "url": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
     "readSections": [
-      "Read in full in the authors' accepted manuscript, the PDF linked from Yunqing Tang's publication page at math.berkeley.edu/~ytang/GSpincharp.pdf (file created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494, 45 pages): §1 Introduction, §2 GSpin Shimura varieties and special divisors, §3 Lattice decay statements and heuristics, §4 The F-crystal 𝐋_cris on local deformation spaces of supersingular points, §5 Decay for non-superspecial supersingular points, §6 Decay for superspecial points, §7 Proof of Theorem 1.2, §8 Application to the Hecke orbit problem.",
-      "The published text, Inventiones mathematicae 228 (2022), no. 3, 1075–1143, is paywalled and was not read; the accepted manuscript predates it by a few weeks and is the version of record used here. No locator below is claimed for the typeset journal text.",
-      "The LaTeX source of arXiv:2011.08887v1 (17 November 2020; source archive sha256 d1aeacc7dbdab10a09d5e9a4fd2fb6d44fc759eabcbe4d1b9fdcaed40cabf3e8, file main.tex, 2178 lines) was read alongside it and used for the symbol-level accuracy of the statements. It is the submitted version, more than a year older, and the two differ: the accepted version is about a quarter longer, with substantially expanded proofs in §§3.5, 5, 6 and 7.16 and a rewritten §8.",
-      "On numbering. Every statement environment shares one counter per section (\\newtheorem{theorem}{Theorem} with \\numberwithin{theorem}{section}, all others declared [theorem]), so a number determines its statement uniquely. The numbering of §§1–7 is identical in the two versions and was checked statement by statement: 75 numbered items, 46 of them named (the rest are the unnamed numbered paragraphs of the \\newtheorem{para} environment), and every named number that the compiled PDF of either version prints was matched. In §8 the accepted version inserts two statements, Proposition 8.9 (existence of a proper curve) and Lemma 8.11 (that it may be chosen outside every special divisor), so that 8.1–8.8 agree while v1's Lemma 8.9 and Remark 8.10 become Lemma 8.10 and Remark 8.12. All locators below use the accepted version's numbering.",
-      "Two things that v1 gets wrong and the accepted version fixes were checked and are not recorded as source issues: v1's Definition 2.6 calls 𝒵(m) a Deligne–Mumford stack over 𝓜, a symbol it never defines, where the accepted version has 𝒮; and v1's proof of Proposition 7.17 divides by g_P(m) where the accepted version divides by |q_L(m)|, which is what the displayed computations actually bound."
+      "Independent reviewer Codex — codex-a71f92 read the complete 47-page author manuscript, §§1–8 and references, from https://math.berkeley.edu/~ytang/GSpincharp.pdf; creation 25 December 2021; SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494. The original 45-page count was wrong: references occupy pp.45–47.",
+      "Published article: Inventiones mathematicae 228 (2022), 1075–1143, DOI 10.1007/s00222-022-01097-x. Public landing page/footnotes checked, full typeset text unavailable. This author manuscript is the reviewed source, NOT the version of record; source findings are scoped to it.",
+      "The prior extractor reported an arXiv-v1 source comparison (17 November 2020, archive SHA256 d1aeacc7dbdab10a09d5e9a4fd2fb6d44fc759eabcbe4d1b9fdcaed40cabf3e8). That comparison was not repeated by the reviewer; only the public version history (v1 only) was independently checked. All locators use author-manuscript numbering.",
+      "Independent review checked all 96 inherited items, six inherited routes and six inherited source findings. Clear corrections were made; reviewGaps identifies the remaining proof and decomposition work. Completed negative review does not imply completed extraction."
     ]
   },
-  "summary": "Let 𝒮 be the canonical integral model over Z_(p) of the GSpin Shimura variety attached to a quadratic Z-lattice (L,Q) of signature (b,2) with b ≥ 3, self-dual at p ≥ 5, and let C be an irreducible smooth proper curve mapping finitely to 𝒮_{F_p-bar}, with ordinary generic point and lying in no special divisor. The paper proves that C meets ∪_{p ∤ m} Z(m) at infinitely many points, and deduces that a generically ordinary non-isotrivial family of K3 surfaces over a proper curve in characteristic p ≥ 5, whose generic Picard lattice has discriminant prime to p, has infinitely many fibres of larger Picard rank. It then deduces the Chai–Oort ordinary Hecke orbit conjecture for these orthogonal Shimura varieties and for the unitary Shimura varieties of signature (n,1) attached to an imaginary quadratic field split at p. The mechanism is a comparison of local and global intersection numbers. Globally, Borcherds's modularity theorem in the arithmetic form of Howard and Madapusi Pera makes Σ_m Z(m).C the 𝔢₀-component of a modular form of weight 1+b/2 for the Weil representation ρ_L, so Z(m).C = |q_L(m)|(ω.C) + O(m^{(b+2)/4}) with q_L(m) the Bruinier–Kuss coefficients. Locally, i_P(C.Z(m)) = Σ_n #{v ∈ L_n : Q(v) = m} for the nested lattices L_n of special endomorphisms of the Kuga–Satake abelian scheme modulo t^n. Away from the supersingular locus the local contribution is O(X^{b/2}log X) and so negligible; at a supersingular point it has the same order of magnitude as the global number, and the heart of the paper is to show it is only a fixed fraction α' < 1 of the expected share (h_P/(p-1))|q_L(m)|. That is done by proving decay lemmas for the lattices L_n, using Ogus's classification of supersingular K3 crystals and Kisin's description of the F-crystal 𝐋_cris on the formal neighbourhood of a supersingular point, with a strictly stronger statement at superspecial points, where the non-ordinary locus is a singular quadric. The Hecke orbit conjecture then follows by induction on b, using the boundary of Madapusi Pera's integral compactifications and Chai's cancellation argument at the cusps. What the atlas lacks: everything characteristic-p in the paper. No layer plans the Hecke orbit conjecture, Serre–Tate coordinates for Hecke orbits, Ogus's supersingular K3 crystals, the Artin invariant, Kisin's F-crystal on an orthogonal deformation space, the decay of lattices of special endomorphisms, or the comparison of local and global intersection numbers on 𝒮_{F_p}. What is pending elsewhere and is reused rather than rebuilt: the GSpin integral model with its Kuga–Satake abelian scheme and special divisors, and the automorphic generating series, both already proposed by the extraction of the number-field companion paper of Shankar, Shankar, Tang and Tayou, and the integral boundary charts of Hodge type, already proposed by the extraction of Farb, Kisin and Wolfson. What the atlas or the libraries already have: Shimura data and the analytic tower, Baily–Borel algebraicity in characteristic zero, Dieudonné theory, crystals and F-crystals, Serre–Tate and Grothendieck–Messing theory, the Weil representation, Dirichlet L-functions, modular curves, and, in Mathlib, quadratic forms with Clifford algebras and the spin group, Witt vectors, and lattices with their covolume.",
+  "summary": "Picard-rank jumping for generically ordinary non-isotrivial K3 families over proper curves in characteristic p≥5 with generic Picard discriminant prime to p follows via prime-to-p special-divisor intersections on hyperspecial GSpin models; the paper derives ordinary Hecke-orbit density in the stated orthogonal and split-unitary cases. This extraction is partial after independent review: upper-bound, filtration, library and normalization errors are corrected, but generalized decay, lifted valuations, compound-item decomposition and supplier comparisons remain gates. No formal proof or falsity of the main geometric theorems is claimed.",
   "items": [
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/1",
@@ -30,17 +29,20 @@
         "mathlib:QuadraticMap",
         "mathlib:QuadraticForm",
         "mathlib:CliffordAlgebra",
-        "mathlib:spinGroup"
+        "mathlib:spinGroup",
+        "mathlib:CliffordAlgebra.even",
+        "mathlib:CliffordAlgebra.evenOdd",
+        "mathlib:spinGroup.toUnits"
       ],
       "planned": [],
-      "note": "Mathlib has the quadratic form, the Clifford algebra with its grading and `spinGroup`; Tau Ceti adds a large Clifford-algebra API. What is not in the libraries is GSpin as a reductive group scheme over Z_(p) and the spinor similitude, which is the next item."
+      "note": "Pinned definitions read. This abstract spin group embeds into Clifford units; it is not the reductive group scheme GSpin in item17."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/2",
       "kind": "definition",
       "name": "Lattices in a real vector space and their covolume",
       "statement": "A full-rank Z-lattice in a finite-dimensional real vector space, a fundamental domain for it, and its covolume.",
-      "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Definition 7.8 and the geometry-of-numbers estimates of §7.2",
+      "locator": "Author manuscript, §3 covolumes and Definition7.8, p.31 (not a numbered lattice-estimate subsection §7.2).",
       "status": "library",
       "library": [
         "mathlib:ZLattice.covolume",
@@ -59,26 +61,30 @@
       "status": "library",
       "library": [
         "mathlib:WittVector",
-        "mathlib:WittVector.frobenius",
-        "mathlib:PerfectField"
+        "mathlib:WittVector.frobeniusEquiv",
+        "mathlib:WittVector.FractionRing.frobenius",
+        "mathlib:WittVector.isDiscreteValuationRing",
+        "mathlib:WittVector.exists_eq_pow_p_mul'"
       ],
       "planned": [],
-      "note": "Mathlib has WittVector with its Frobenius and the theory over a perfect field. Only the assembly, and the σ-semilinear algebra of F-crystals built on it, is specific to the paper."
+      "note": "Read Frobenius.lean:286, Isocrystal.lean:79 and DiscreteValuationRing.lean:143–149. FractionRing(WittVector p k) has the Frobenius automorphism; every nonzero Witt vector is a p-power times a unit, giving W[1/p]. The existing one-dimensional isocrystal classification is not general Dieudonné/Ogus theory."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/4",
       "kind": "definition",
       "name": "Shimura data and the analytic Shimura variety at a compact open level",
-      "statement": "A Shimura datum (G, X) with its reflex field, and, for a compact open K ⊂ G(A_f), the double-coset space Sh(G,X)_K(C) = G(Q)\\X × G(A_f)/K with its canonical model over the reflex field.",
+      "statement": "For a Hodge-type Shimura datum (G,X), construct its reflex field E, compact-open levels K⊂G(A_f), analytic quotient G(Q)\\(X×G(A_f))/K and canonical model over E. Level/Hecke maps have specified source and target levels; universal families require sufficiently small prime-to-p level.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §2.1, where (G_Q, D_L) is shown to be a Shimura datum with reflex field Q and Sh(G_Q,D_L)_𝕂 is formed",
       "status": "planned",
       "library": [],
       "planned": [
-        "ShimuraData:D2",
+        "ShimuraData:D3",
+        "ShimuraData:D4",
+        "ShimuraData:D5",
         "ShimuraVarieties:V1",
         "ShimuraVarieties:V6"
       ],
-      "note": "ShimuraData plans Shimura data, Hermitian domains and adelic level structures; ShimuraVarieties V0–V1 plan the analytic tower and V6 the Hodge type. The GSpin datum itself is not among ShimuraData's examples, so it is a separate missing item."
+      "note": "D3 supplies reflex fields, D4 data/Hodge type, D5 levels, V1 the tower and V6 Hodge-type canonical models; D2 alone is not the datum definition."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/5",
@@ -97,7 +103,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/6",
       "kind": "definition",
       "name": "Dieudonné theory for p-divisible groups over a perfect field",
-      "statement": "The contravariant Dieudonné module of a p-divisible group over a perfect field of characteristic p, with its Frobenius and Verschiebung, its slopes, and the equivalence between p-divisible groups and Dieudonné modules; in particular the identification of the endomorphisms of a p-divisible group with the Frobenius-invariants of its Dieudonné module.",
+      "statement": "For a perfect characteristic-p field, contravariant Dieudonné theory classifies p-divisible groups by finite-free W(k)-modules with F,V, FV=VF=p, with dimensions/heights/slopes. Endomorphisms correspond to W(k)-linear ENDOMORPHISMS of this module commuting with F,V, not its invariant vectors. Restriction to the special-endomorphism subcrystal yields 𝓛=𝕃^{φ=1}.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §4.1, where 𝓛 = 𝕃^{φ=1} is deduced from Dieudonné theory",
       "status": "planned",
       "library": [],
@@ -110,7 +116,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/7",
       "kind": "definition",
       "name": "Crystals and F-crystals on a crystalline site",
-      "statement": "The crystalline site of a scheme over a PD base, crystals of O-modules on it, the induced integrable connection on the value at a PD thickening, horizontal sections, and an F-crystal as a crystal with a σ-semilinear Frobenius.",
+      "statement": "On an eligible crystalline PD site, use finite locally free crystals with quasi-nilpotent integrable connections on suitable lifts, Frobenius linearizations/isogenies, isocrystals and Tate twists. The paper's weight-zero φ maps 𝕃 into p^{-1}𝕃 and need not be an integral endomorphism of 𝕃.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §2.2 and §4.8, where 𝐋_cris is an F-crystal and its horizontal sections are used",
       "status": "planned",
       "library": [],
@@ -118,7 +124,7 @@
         "CrystallineCohomology:CR.1",
         "CrystallineCohomology:CR.3"
       ],
-      "note": "CrystallineCohomology CR.1 plans crystalline sites, structure sheaves and crystals, and CR.3 Frobenius. The specific F-crystal 𝐋_cris inside End_{C(L)}(𝐇_cris) is a separate missing item."
+      "note": "CR.1/CR.3 supply the general objects; the special tensor subobject is item19. The aggregate audit has no CR/R07 row, but A4's reviewed audit explicitly records its missing supplier interfaces; their actual stage descriptions were read."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/8",
@@ -138,7 +144,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/9",
       "kind": "definition",
       "name": "The Weil representation of the metaplectic group",
-      "statement": "The metaplectic double cover Mp_2 of SL_2 and its Weil representation, in the form used for vector-valued modular forms.",
+      "statement": "The metaplectic double cover and local/global Weil representation with additive characters, splittings and Haar normalizations. Its finite discriminant-module representation ρ_L on C[L^∨/L] and the vector-valued modular comparison are additional construction/comparison tasks in item67.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §7.2, where ρ_L is the Weil representation of Mp_2(Z) on C[L^∨/L]",
       "status": "planned",
       "library": [],
@@ -146,26 +152,29 @@
         "MetaplecticAutomorphicForms:MP.1",
         "MetaplecticAutomorphicForms:MP.4"
       ],
-      "note": "MetaplecticAutomorphicForms MP.0–MP.4 plan the metaplectic cover, the Weil index and the global Weil representation. The discriminant-form representation ρ_L attached to a quadratic lattice, and vector-valued modular forms for it, are separate missing items."
+      "note": "MP.1/MP.4 supply the generic representation, not automatically the finite S,T matrices and normalization."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/10",
       "kind": "definition",
-      "name": "Dirichlet L-functions, the Riemann zeta function and divisor sums",
-      "statement": "Dirichlet characters and their L-functions L(s,χ), the Riemann zeta function, and the twisted divisor sums σ_s(m,χ) = Σ_{d|m} χ(d)d^s.",
+      "name": "Dirichlet characters, their complex L-functions and the Riemann zeta function",
+      "statement": "For N>0, DirichletCharacter ℂ N and its complex continuation L(χ,s), agreeing with the Dirichlet series for Re(s)>1, and riemannZeta. The discriminant character and negative/real-exponent divisor sums remain item69.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §7.3 and Theorem 7.4, where L(1+b/2, χ), ζ(b+1) and σ_{-b/2}(m,χ) appear in the Fourier coefficients",
-      "status": "planned",
-      "library": [],
-      "planned": [
-        "AnalyticNumberTheory:AN.1"
+      "status": "library",
+      "library": [
+        "mathlib:DirichletCharacter",
+        "mathlib:DirichletCharacter.LFunction",
+        "mathlib:DirichletCharacter.LFunction_eq_LSeries",
+        "mathlib:riemannZeta"
       ],
-      "note": "AnalyticNumberTheory AN.1 plans zeta and Dirichlet L-functions. The Kronecker-symbol character χ_D attached to a discriminant is a separate missing item."
+      "planned": [],
+      "note": "AUDIT-06 marks AN.1 built. The named pinned statements were read; no new L-function continuation is planned."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/11",
       "kind": "definition",
       "name": "The modular curve and its universal elliptic curve",
-      "statement": "The modular curve with a suitable level structure and the universal family ℰ of elliptic curves over it.",
+      "statement": "Use a sufficiently small prime-to-p fine modular level, for example full N≥3 with p∤N, and its universal elliptic curve, base change and level maps. For nonfine quotients keep the stack/finite quotient and descent; no universal elliptic scheme is asserted on arbitrary coarse modular curves.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §8.5, where π^{-1}(Υ) is a torsor under ℰ ⊗_Z Λ over a modular curve",
       "status": "planned",
       "library": [],
@@ -198,9 +207,9 @@
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/14",
-      "kind": "theorem",
-      "name": "The Chai–Oort ordinary Hecke orbit conjecture (Conjecture 1.3)",
-      "statement": "For the canonical integral model of a Shimura variety of Hodge type with hyperspecial level at p, the prime-to-p Hecke orbit of a μ-ordinary point of its special fibre is Zariski dense.",
+      "kind": "construction",
+      "name": "Statement of the general μ-ordinary Chai–Oort conjecture",
+      "statement": "Conjectural target, not a theorem proved here: every μ-ordinary point on the special fibre of a hyperspecial Hodge-type Shimura variety has Zariski-dense prime-to-p Hecke orbit. Form the proposition using the open Newton stratum; the proved cases are item15 only.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Conjecture 1.3, attributed to Chai and Oort",
       "status": "missing",
       "library": [],
@@ -227,7 +236,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Recalled as the statement Theorem 1.1 is the characteristic-p analogue of; it is not an input to any proof in the paper. A roadmap that plans Theorem 1.1 should carry it as the comparison statement and import variations of Hodge structure and Noether–Lefschetz loci rather than rebuild them."
+      "note": "Recalled as the statement Theorem 1.1 is the characteristic-p analogue of; it is not an input to any proof in the paper. A roadmap that plans Theorem 1.1 should carry it as the comparison statement and import variations of Hodge structure and Noether–Lefschetz loci rather than rebuild them. Historical comparison, not an input to the characteristic-p proof. Assignment to a common K3/Hodge-locus supplier remains a review gap."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/17",
@@ -304,7 +313,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Flatness over Z_(p) is what makes the special fibre a divisor and is used again in §8 to see that Z(m) is a union of special fibres of Shimura subvarieties."
+      "note": "Flatness over Z_(p) is what makes the special fibre a divisor and is used again in §8 to see that Z(m) is a union of special fibres of Shimura subvarieties. Preserve the divisor stack's cycle pushforward and multiplicities, not its reduced image. Prove compatibility with the count of v and −v before comparing modular coefficients."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/24",
@@ -398,7 +407,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/32",
       "kind": "construction",
       "name": "The heuristic count of branches and the balance with the global intersection",
-      "statement": "The number of branches of Z(m)-hat_P inside 𝒮-hat_{k,P} is b(m,P) = #{v ∈ L_1 : Q(v) = m}, which by the theta series of L_1 is about |q_L(m)|/p^{t_P/2}; since H is a section of ω^{p-1} one has Σ_{P superspecial} h_P = (p-1)(C.ω), so without the very rapid decay of Theorem 3.3 the supersingular contribution would already be about ((p-1)/p)|q_L(m)|(C.ω), the same size as the global intersection number.",
+      "statement": "Heuristic only: assuming EVERY nonordinary point of C is superspecial, Σ_{P superspecial}h_P=(p−1)(ω.C), and the approximate branch count |q_L(m)|/p^{t_P/2} motivates the stronger decay. Without that assumption the superspecial sum is only ≤ the Hasse degree. This is not an individual-m asymptotic theorem.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §3.4",
       "status": "missing",
       "library": [],
@@ -453,7 +462,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/37",
       "kind": "theorem",
       "name": "A normal form for 𝓛_0 (Lemma 4.3)",
-      "statement": "Set n = t_P/2 and pick λ ∈ Z_{p^2}^× with λ^2 mod p a quadratic non-residue in F_p. There is a Z_p-basis {e_1,…,e_n,f_1,…,f_n} of 𝓛_0 for which ⟨e_i,f_i⟩_0 = p for i > 1, ⟨e_1,e_1⟩_0 = 2p, ⟨f_1,f_1⟩_0 = -2λ^2 p, and all other pairings among the basis vectors vanish.",
+      "statement": "Let n=t_P/2. Choose u∈Z_p^× nonsquare mod p and λ∈Z_{p²}^× with λ²=u and σ(λ)=−λ (a suitable Teichmüller choice). There is a Z_p-basis e_i,f_i of 𝓛_0 with ⟨e_i,f_i⟩=p for i>1, ⟨e_1,e_1⟩=2p, ⟨f_1,f_1⟩=−2up, symmetric partners understood and all other entries zero. The mere condition on λ² mod p does not ensure a Z_p-valued matrix.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Lemma 4.3, attributed to Ogus",
       "status": "missing",
       "library": [],
@@ -475,7 +484,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/39",
       "kind": "theorem",
       "name": "A cyclic Frobenius normal form (Lemma 4.5)",
-      "statement": "With v_i = σ^{i-1}v there are w_1,…,w_n ∈ 𝕃_0 such that (1) v_1,…,v_n,w_1,…,w_n is a W-basis of 𝕃_0; (2) the Gram matrix of ⟨,⟩_0 in this basis is the standard hyperbolic one; (3) φ = B_0σ where B_0 is the explicit 2n × 2n matrix with a lower shift in the top-left block, p in the top-right corner, entries pb_i in the last top-right column, p^{-1} in position (n+1,n), entries -b_i in the bottom-left of the lower-right block and a shift below, for some b_i ∈ W.",
+      "statement": "In the W-basis v_1,…,v_n,w_1,…,w_n, the Gram matrix is [[0,I],[I,0]]. The σ-linear Frobenius satisfies φ(v_i)=v_{i+1} for i<n, φ(v_n)=p^{-1}w_1, φ(w_i)=w_{i+1}−b_iw_1 for i<n, φ(w_n)=pv_1+pΣ_{i=1}^{n−1}b_iv_{i+1}, with b_i∈W.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Lemma 4.5",
       "status": "missing",
       "library": [],
@@ -508,7 +517,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/42",
       "kind": "construction",
       "name": "Kisin's description of the deformation space and the F-crystal on it",
-      "statement": "Let μ: G_{m,W} → SO(𝕃,𝐐) be a Hodge cocharacter whose reduction induces the mod p Hodge filtration on 𝕃 ⊗ k, let U be the opposite unipotent and Spf R = U-hat. Then R ≅ O-hat_{𝒮,P}, and 𝐋_cris(R) = 𝕃 ⊗_W R with Frob = u ∘ (φ ⊗ σ) for the tautological point u of U. Explicitly, by Lemma 4.5 and Mazur's theorem, Fil^1(𝕃 ⊗ k) = Span_k{w-bar_n} and Fil^0 is spanned by the remaining basis vectors; R = W[[x_i,y_i,x'_j,y'_j]] with σ raising the coordinates to the p-th power, μ and u are the displayed matrices with Q = -Σ x_i y_i - Σ x'_j y'_j, and Frob = (uB)σ with B = diag(B_0, I).",
+      "statement": "In the split setup n=t_P/2, rank𝓛_1=2m, the completed local ring is R=W[[x_i,y_i,x'_j,y'_j]] (1≤i<n,1≤j≤m), with the opposite-unipotent tautological point u and Frob=u(φ⊗σ); σ raises formal coordinates to their pth powers. The filtration is Fil¹=k·w̄_n, Fil⁰=span{v̄_i:i<n;w̄_j:j≤n;ē'_l,f̄'_l:l≤m}, Fil⁻¹=𝕃⊗k. Fil⁰ includes w̄_n and excludes v̄_n. Transcribing every entry of u and its API remains a decomposition obligation.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §4.8, following Kisin §§1.4–1.5",
       "status": "missing",
       "library": [],
@@ -585,7 +594,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/49",
       "kind": "construction",
       "name": "Horizontal sections and the infinite Frobenius product",
-      "statement": "If w ∈ 𝓛 extends to an endomorphism of 𝒜[p^∞] mod t^r then the extension is the restriction of the horizontal section w-tilde of 𝐋_cris through w, and w-tilde = lim_n Frob^n(w). In coordinates, with F = S'(u'-I)(S')^{-1} evaluated at the Teichmüller lifts X_i(t), Y_i(t), X'_j(t), Y'_j(t) and F^{(i)} its i-th σ-twist, one sets F_∞ = ∏_{i≥0}(I + F^{(i)}) ∈ M_{2n+2m}(K[[t]]) and w-tilde = F_∞ w. The coefficients of w-tilde lie in 𝕃 ⊗ K and their p-adic valuations tend to infinity.",
+      "statement": "Over the universal ring R, form F'=S'(u'−I)(S')^{-1} and ∏_{a≥0}(I+σ^a(F')) in the formal-coordinate topology after inverting p. Applied to w∈𝓛 this is its horizontal Frobenius-stable continuation, equivalently lim Frob^a(w). FIRST twist in R, THEN substitute coefficientwise Teichmüller lifts of the curve coordinates. This need not equal twisting an arbitrary lift after substitution. The resulting F_∞ lies in M_{2n+2m}(K[[t]]) t-adically; p-adic denominators may be unbounded, not valuations tending to +∞. No universal −∞ assertion is made for zero or constant sections.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §§5.4 and 5.6, following Kisin §1.5.5",
       "status": "missing",
       "library": [],
@@ -607,7 +616,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/51",
       "kind": "construction",
       "name": "de Jong's criterion for lifting over a truncated base",
-      "statement": "For s ≥ 0 let D_s be the p-adic completion of the PD envelope of (t^s, p) in W[[t]]. By de Jong's theory, if w ∈ 𝓛 lifts to a special endomorphism of 𝒜 mod t^s then it gives a horizontal section in 𝐋_cris(D_s); so the largest s for which w lifts is governed by the p-adic integrality of w-tilde in 𝐋_cris(D_s).",
+      "statement": "For s≥1 use D_s of item97. If w lifts to a special endomorphism of the p-divisible group modulo t^s, its unique rational horizontal continuation lies in the integral special crystal evaluated on D_s. Thus failure of integrality obstructs lifting. Only this necessary condition is used; sufficiency or an exact maximum lift depth needs a separate theorem. Its consumer-specific calculation must prove t^N/p∉D_s for N<ps in the appropriate torsion-free presentation; the completion and coefficientwise integrality hypotheses must be stated.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §5.6",
       "status": "missing",
       "library": [],
@@ -618,7 +627,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/52",
       "kind": "construction",
       "name": "The matrices K_i and the decomposition of F_∞",
-      "statement": "Let A, C, D be the top-left 2n × 2n, top-right 2n × m and bottom-left m × 2n blocks of u'-I with the power series substituted. For i < n let A_i be the 2n × 2n matrix with (n, n+i) entry p^{-1}Y_i(t), (i, 2n) entry -p^{-1}Y_i(t) and all others zero; A_n has only the (n,2n) entry p^{-1}Y_n(t); A_{n+1} = C D^{(1)} has only the (n,2n) entry p^{-1}Y_{n+1}(t). Put K_i = S'_0 A_i (S'_0)^{-1} for i ≤ n and K_{n+1} = S'_0 A_{n+1}((S'_0)^{-1})^{(1)}.",
+      "statement": "In u'−I after substitution, take blocks A,C,D of dimensions 2n×2n, 2n×2m, 2m×2n. For i<n, A_i(n,n+i)=Y_i/p and A_i(i,2n)=−Y_i/p; A_n has only A_n(n,2n)=Y_n/p. Let K_i=S'_0A_i(S'_0)^{-1}; A_{n+1}=CD^{(1)}, K_{n+1}=S'_0A_{n+1}((S'_0)^{-1})^{(1)}. The integral remainder B=B_1+B_2 has conjugated entries B_1(n,j)=X_j and B_2(n+j,2n)=−X_j for 1≤j<n, all others zero.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §5.7",
       "status": "missing",
       "library": [],
@@ -640,7 +649,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/54",
       "kind": "theorem",
       "name": "Products of the K_i have rank one with an explicit row (Lemma 5.9)",
-      "statement": "(1) For i,j,l ≤ n+1 with l ≤ i, the matrix K_i K_j^{(l)} vanishes unless i = l, and K_i K_j^{(i)} has image Span_K{v_n} and equals S'_0 M with M having n-th row Y_i Y_j^{(i)} p^{-2} σ^{i+j-1}(R_{n+1}) and all other rows zero. (2) For i_1,…,i_l ≤ n+1, the product ∏_j K_{i_j}^{(i_1+···+i_{j-1})} has image Span_K{v_n} and equals S'_0 M with M having n-th row (∏_j Y_{i_1}^{(i_1+···+i_{j-1})}) p^{-l} σ^{i_1+···+i_l-1}(R_{n+1}) and all other rows zero.",
+      "statement": "For 1≤i,j,l≤n+1 with l<i, K_iK_j^{(l)}=0. For l=i it equals S'_0M, with only row n possibly nonzero, namely Y_iY_j^{(i)}p^{-2}σ^{i+j−1}(R_{n+1}). For a tuple of length d≥2, ∏_{j=1}^d K_{i_j}^{(i_1+…+i_{j−1})}=S'_0M, whose row n is p^{-d}(∏_{j=1}^dY_{i_j}^{(i_1+…+i_{j−1})})σ^{i_1+…+i_d−1}(R_{n+1}); other rows vanish. The image is contained in K[[t]]·v_n; after passing to K((t)), rank is one if the scalar is nonzero. A length-one K_i for i<n generally has rank two; zero factors give zero.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Lemma 5.9",
       "status": "missing",
       "library": [],
@@ -651,7 +660,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/55",
       "kind": "definition",
       "name": "Minimal index tuples and their weights",
-      "statement": "For r ≥ 1 let 𝑰^min_r be the set of tuples I = (i_1,…,i_r) ∈ {1,…,n+1}^r whose associated term in the expansion of F_∞(1) has p-adic valuation -r and minimal t-adic valuation ν_r among such terms, and let μ_I = i_1 + ··· + i_r be the weight of I.",
+      "statement": "For tuples I=(i_1,…,i_r)∈{1,…,n+1}^r define μ_I=Σi_j and ν_I=Σ_{j=1}^r p^{i_1+…+i_{j−1}}a_{i_j}, allowing ∞ for zero Y. Let ν_r=min_Iν_I and I_r^min={I:ν_I=ν_r}. Identifying these combinatorial minimizers with nonzero coefficient terms of exact p-adic valuation −r is a separate claim, subject to E14.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §5.10",
       "status": "missing",
       "library": [],
@@ -667,7 +676,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Clauses (4) and (5) are the ones used: they bound the number of σ-twists of R-bar_{n+1} that occur, and guarantee that the extreme coefficients are non-zero."
+      "note": "Clauses (4) and (5) are the ones used: they bound the number of σ-twists of R-bar_{n+1} that occur, and guarantee that the extreme coefficients are non-zero. The inherited extraction silently used the intended coordinatewise-closure formulation rather than the source's reversed clause(3); this correction is now registered. Identifying ν_I with actual leading p-adic orders remains subject to the lift-valuation gap."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/57",
@@ -695,23 +704,23 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/59",
       "kind": "construction",
       "name": "The reduction step and the Claim in the proof of Theorem 5.2",
-      "statement": "It suffices to work with the top-left block F_∞(1) and with a primitive w in Span_{Z_p}{e_i,f_i}; letting M_{r+1} be defined by Σ_{I ∈ 𝑰^min_{r+1}} P_I = t^{ν_{r+1}} M_{r+1} + O(t^{ν_{r+1}+1}), the theorem follows from: (1) there is a saturated Z_p-submodule Λ ⊂ 𝓛 of rank at least n such that every primitive v ∈ Λ has v mod p ∉ ker(p^{r+2}M_{r+2} mod p) for all r ≥ 0; (2) ν_{r+2}/p < h_r + 1 for all r ≥ 0.",
-      "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §5.14, inside the proof of Theorem 5.2",
+      "statement": "Define M_{r+1} by Σ_{I∈I^min_{r+1}}P_I=t^{ν_{r+1}}S'_0M_{r+1}+t^{ν_{r+1}+1}N_{r+1}. Because S'_0∈GL_{2n}(W), multiplication by it preserves the relevant mod-p kernels. The intended argument constructs increasing subspaces S_j=ker(p^jM_j mod p)∩F_p^{2n}, each of dimension≤n; their union is a subspace of dimension≤n. A complementary subspace lifts to a saturated rank≥n Z_p-module avoiding every kernel. For ordinary generic point ν_{r+2}≤hΣ_{j=0}^{r+1}p^j implies ν_{r+2}/p<h_r+1. Applying this to the actual coefficients requires the lift-valuation gate to be discharged.",
+      "locator": "Author manuscript, proof of Theorem5.2 pp.24–25, before numbered paragraph5.14",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Clause (2) is where generic ordinariness is used, through ν_{r+2} ≤ ν_{(1,…,1)} = h(1 + ··· + p^{r+1}) and h = a_1; replacing it by a_s gives Theorem 5.15."
+      "note": "The increasing-kernel argument, not arbitrary simultaneous avoidance, is required. The s>1 replacement in §5.14 is separately gated by E13."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/60",
       "kind": "theorem",
       "name": "The Decay Lemma in a general Newton stratum (Theorem 5.15)",
-      "statement": "Let C → 𝒮_k be a formal curve specialising to a non-superspecial supersingular point of type 2n, that is of Artin invariant n, and generically lying in an open Newton stratum of codimension at most n-1. Then there is a saturated rank-n submodule of special endomorphisms that decays rapidly, with h replaced by a_s = v_t(y_s(t)) for the relevant s.",
+      "statement": "For a formal curve with supersingular closed point of type2n and generic open Newton codimension s−1≤n−1, §5.14 proposes saturated rank-n rapid decay. But ν_(s,…,s)=a_sΣ_{j=0}^{r+1}p^{sj} for length r+2, not a_sΣp^j. The p-based Definition5.1 bound with h=a_s is therefore NOT established for s>1 by this proof. Retain the generalized-decay target as a source-proof gap: a p^s-spaced threshold with the PD cutoff checked, or another proof, is required. The exponent objection disappears for s=1.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Theorem 5.15",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Uses Ogus's description of the Newton strata in the formal neighbourhood of a supersingular point: the codimension-s stratum is cut out by y_s = 0 inside the codimension-(s-1) one, for s ≤ n. In the accepted version a footnote fixes the convention for the Newton stratum attached to an element of Kottwitz's set."
+      "note": "Not an unconditional supplier or an approved final theorem of the design. The ordinary main theorems do not use this generalization."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/61",
@@ -744,7 +753,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The singularity of the non-ordinary locus at a superspecial point, a quadric cone rather than a smooth divisor, is what produces the extra parameter a in Definition 6.1."
+      "note": "The singularity of the non-ordinary locus at a superspecial point, a quadric cone rather than a smooth divisor, is what produces the extra parameter a in Definition 6.1. Define h from Q mod p, not the t-valuation of the characteristic-zero lifted sum; see the Teichmüller-cancellation finding."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/64",
@@ -755,13 +764,13 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The superspecial analogue of Lemma 5.9: it identifies the finitely many products that can contribute at each p-adic level."
+      "note": "The superspecial analogue of Lemma 5.9: it identifies the finitely many products that can contribute at each p-adic level. The p-denominator count must be justified after cancellation/reduction; a sum of Teichmüller products can have nonunit leading coefficient."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/65",
       "kind": "theorem",
       "name": "Evaluation of the minimal products (Lemma 6.6)",
-      "statement": "For P_{α,β} = ∏_{i≤α}F_t^{(i)} · ∏_{j≤β}F_r^{(α+2j-1)}F_l^{(α+2j)}: if α is odd the product equals p^{-(α+β)}∏_i Q^{(i)}·∏_j R^{(α+2j-1)}M^{(1)}, and if α is even the same with N^{(1)} in place of M^{(1)}. In either case the kernel of F_{l,m+1}p^{α+β}P_{α+β} mod p contains no non-zero F_p-rational vector and no k^×-multiple of ([1,λ^{-1}]^{(α+1)})^T.",
+      "statement": "For α,β≥0 and α+β>0 let P_{α,β}=(∏_{i=1}^αF_t^{(i)})(∏_{j=1}^βF_r^{(α+2j−1)}F_l^{(α+2j)}), with σ(λ)=−λ. Put c=p^{−(α+β)}(∏_iQ^{(i)})(∏_jR^{(α+2j−1)}). Then P=cM^{(1)} for odd α and cN^{(1)} for even α. For α=β=0, P=I instead. The mod-p kernel exclusions require a nonzero reduced scalar after clearing p-denominators; zero reduced factors can give the full kernel. Use P_{α,β}, not P_{α+β}.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Lemma 6.6",
       "status": "missing",
       "library": [],
@@ -783,12 +792,12 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/67",
       "kind": "construction",
       "name": "The vector-valued Eisenstein series E_0 of weight 1+b/2",
-      "statement": "With L^∨ the dual lattice, {𝔢_μ}_{μ ∈ L^∨/L} the standard basis of C[L^∨/L] and ρ_L the Weil representation of Mp_2(Z) on it, set E_0(τ) = Σ_{(g,σ) ∈ Γ'_∞\\Mp_2(Z)} σ(τ)^{-(2+n)}ρ_L(g,σ)^{-1}𝔢_0. Its constant term is 𝔢_0 and it is a modular form of weight 1 + b/2 for ρ_L.",
+      "statement": "With L^∨ the dual lattice, {𝔢_μ}_{μ ∈ L^∨/L} the standard basis of C[L^∨/L] and ρ_L the Weil representation of Mp_2(Z) on it, set E_0(τ) = Σ_{(g,σ) ∈ Γ'_∞\\Mp_2(Z)} σ(τ)^{-(2+b)}ρ_L(g,σ)^{-1}𝔢_0. Its constant term is 𝔢_0 and it is a modular form of weight 1 + b/2 for ρ_L.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §7.2",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "E_0 is the Eisenstein part of the Borcherds generating series, and its Fourier coefficients q_L(m) are the main term of the global intersection numbers."
+      "note": "E_0 is the Eisenstein part of the Borcherds generating series, and its Fourier coefficients q_L(m) are the main term of the global intersection numbers. Constant term e_0 here, versus 2e_0 in the pending SSTT bridge. Require an explicit factor-two and divisor-multiplicity comparison before identifying coefficients."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/68",
@@ -796,10 +805,12 @@
       "name": "Local representation densities of a quadratic lattice",
       "statement": "For a quadratic Z-lattice (L,Q), det(L) is the determinant of its Gram matrix, and for a rational prime ℓ the local density is δ(ℓ,L,m) = lim_{a→∞} ℓ^{a(1-rk L)}#{v ∈ L/ℓ^a L : Q(v) ≡ m mod ℓ^a}. If m is represented by (L ⊗ Z_ℓ, Q) then δ(ℓ,L,m) > 0; moreover for rk L ≥ 5 and a fixed ℓ one has δ(ℓ,L,m) ≍ 1 for every m represented over Z_ℓ.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §7.3",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "The uniform bound δ(ℓ,L,m) ≍ 1 for rk L ≥ 5 is the reason the hypothesis b ≥ 3 appears in Theorem 1.2; it is quoted from Iwaniec. The bound δ(p,L'_n,m) ≤ 2, and ≤ 1+p^{-1} in the superspecial case, is proved in Lemma 7.16 and is separate."
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "note": "The uniform bound δ(ℓ,L,m) ≍ 1 for rk L ≥ 5 is the reason the hypothesis b ≥ 3 appears in Theorem 1.2; it is quoted from Iwaniec. The bound δ(p,L'_n,m) ≤ 2, and ≤ 1+p^{-1} in the superspecial case, is proved in Lemma 7.16 and is separate. GN.3 explicitly plans local densities; AUDIT-02 says absent from the libraries, not the atlas."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/69",
@@ -810,13 +821,13 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "These are the characters appearing in the Fourier coefficients of Theorems 7.4 and 7.15; the discriminants D are built from det L and, in the odd case, from the square-free part of m."
+      "note": "These are the characters appearing in the Fourier coefficients of Theorems 7.4 and 7.15; the discriminants D are built from det L and, in the odd case, from the square-free part of m. Reuse TauCeti.Multiquadratic.primeDiscriminantCharFun (including −4,±8) and DirichletCharacter.twistedDivisorSum for natural exponents, both read at the pin. Missing here are the arbitrary D≠0,D≡0,1 mod4 bundled comparison including imprimitive factors, and negative/real exponents such as −b/2."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/70",
       "kind": "theorem",
       "name": "The Bruinier–Kuss formula for the Fourier coefficients of E_0 (Theorem 7.4)",
-      "statement": "Let q_L(m) be the coefficient of q^m 𝔢_0 in E_0. For b even, q_L(m) is the displayed expression involving σ_{-b/2}(m,χ_{(-1)^{1+b/2}4det L}), √|L^∨/L|, Γ(1+b/2), L(1+b/2,χ) and ∏_{ℓ|2det L}δ(ℓ,L,m); for b odd, writing m = m_0 f^2 with gcd(f,2det L)=1 and v_ℓ(m_0) ∈ {0,1} for ℓ ∤ 2det L, it is the displayed expression involving L((b+1)/2,χ_{𝒟}), ζ(b+1), a divisor sum over d | f and ∏_{ℓ|2det L}(δ(ℓ,L,m)/(1-ℓ^{-1-b})), where 𝒟 = (-1)^{(b-1)/2}2m_0 det L. In particular |q_L(m)| ≍ m^{b/2} for all m represented by (L,Q).",
+      "statement": "For the fixed maximal integral lattice L of signature(b,2), b≥3, put Δ=det L, d=|L^∨/L| and C_b(m)=2^{1+b/2}π^{1+b/2}m^{b/2}/Γ(1+b/2), m>0. If b even, χ=χ_{(−1)^{1+b/2}4Δ} gives q_L(m)=−C_b(m)σ_{−b/2}(m,χ)/(√d L(1+b/2,χ))·∏_{ℓ|2Δ}δ(ℓ,L,m). If b odd, write m=m_0f², (f,2Δ)=1, v_ℓ(m_0)∈{0,1} for ℓ∤2Δ, D=(−1)^{(b−1)/2}2m_0Δ. Then q_L(m)=−C_b(m)L((b+1)/2,χ_D)/(√d ζ(b+1))·[Σ_{a|f}μ(a)χ_D(a)a^{−(b+1)/2}σ_{−b}(f/a)]·∏_{ℓ|2Δ}[δ(ℓ,L,m)/(1−ℓ^{−1−b})]. Here σ without a character is untwisted. For represented m>0, |q_L(m)|≍m^{b/2}, with fixed-L constants.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Theorem 7.4, quoted from Bruinier–Kuss Theorem 11 in the normalisation of Bruinier's Theorems 2.3 and 2.4",
       "status": "missing",
       "library": [],
@@ -827,7 +838,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/71",
       "kind": "theorem",
       "name": "Modularity of the generating series and the global intersection asymptotic (Lemma 7.5)",
-      "statement": "By Borcherds's modularity theorem, in its arithmetic form due to Howard and Madapusi Pera, -(ω.C) + Σ_{m≥1} Z(m).C is the 𝔢_0-component of a vector-valued modular form of weight 1+b/2 for ρ_L whose Eisenstein part is the 𝔢_0-component of -(ω.C)E_0. Hence Z(m).C = |q_L(m)|(ω.C) + O(m^{(b+2)/4}), and Σ_{m ∈ S_X} Z(m).C ≍ (ω.C)Σ_{m ∈ S_X}|q_L(m)| ≍ X^{1+b/2}.",
+      "statement": "By Borcherds's modularity theorem, in its arithmetic form due to Howard and Madapusi Pera, -(ω.C) + Σ_{m≥1}(Z(m).C)q^m is the 𝔢_0-component of a vector-valued modular form of weight 1+b/2 for ρ_L whose Eisenstein part is the 𝔢_0-component of -(ω.C)E_0. Hence Z(m).C = |q_L(m)|(ω.C) + O(m^{(b+2)/4}), and Σ_{m ∈ S_X} Z(m).C ≍ (ω.C)Σ_{m ∈ S_X}|q_L(m)| ≍ X^{1+b/2}.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Lemma 7.5",
       "status": "missing",
       "library": [],
@@ -838,7 +849,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/72",
       "kind": "definition",
       "name": "The expected local share g_P(m) of the global intersection number",
-      "statement": "For P ∈ C(k) with h_P = v_t(H) set g_P(m) = (h_P/(p-1))|q_L(m)|. Then g_P(m) = 0 for P ordinary and Σ_{P ∈ (C ∩ Z(m))(k)} g_P(m) = |q_L(m)|(ω.C), because H is a section of ω^{p-1}.",
+      "statement": "For every P∈C(k), set g_P(m)=h_P|q_L(m)|/(p−1), where h_P is the pulled-back Hasse vanishing order. Then g_P=0 at ordinary P and Σ_{P∈C(k)}g_P(m)=|q_L(m)|(ω.C), with finite support. A subset sum such as over C∩Z(m) is only ≤ the total, unless it contains all positive-Hasse-order points.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Definition 7.6, from Maulik–Shankar–Tang Definition 7.1.3",
       "status": "missing",
       "library": [],
@@ -862,10 +873,12 @@
       "name": "Successive minima of the lattices L_n",
       "statement": "For 1 ≤ i ≤ r = rk_Z L_n, the i-th successive minimum μ_i(n) of L_n is inf{y > 0 : there are linearly independent v_1,…,v_i ∈ L_n with Q(v_j) ≤ y^2}; set a_i(n) = ∏_{j≤i}μ_j(n) and a_0(n) = 1.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Definition 7.8, in the normalisation of Eskin",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "Keeping the individual successive minima, and not only the determinant, is what makes the lattice-point bounds uniform across the infinite family {L_n}."
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "note": "Keeping the individual successive minima, and not only the determinant, is what makes the lattice-point bounds uniform across the infinite family {L_n}. GN.1 plans successive minima; the reviewed audit finds them unbuilt, not unplanned."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/75",
@@ -948,12 +961,12 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/82",
       "kind": "theorem",
       "name": "The Siegel mass formula for the auxiliary lattices (Theorem 7.15)",
-      "statement": "For any sublattice L' ⊂ L'_1 with L' ⊗ Z_ℓ = L'_1 ⊗ Z_ℓ for all ℓ ≠ p, the m-th Fourier coefficient q_{L'}(m) of the Eisenstein part of the theta series of L' is given, for b even and for b odd, by the displayed formulae in terms of √|L'^∨/L'|, the Dirichlet L-values attached to det L'_1 and the local densities δ(ℓ,L',m).",
+      "statement": "Let L'_1 be the positive definite auxiliary rank b+2 lattice, maximal away from p, and L'⊂L'_1 with identical Z_ℓ-localizations for ℓ≠p. Put d'=|L'^∨/L'|, Δ_1=det L'_1, and C_b(m) as item70. For even b, χ'=χ_{(−1)^{1+b/2}4Δ_1} and q_{L'}(m)=C_b(m)σ_{−b/2}(m,χ')/[√d' L(1+b/2,χ')]·∏_{ℓ|2Δ_1}δ(ℓ,L',m). For odd b, m=m_0f² with (f,2Δ_1)=1 and v_ℓ(m_0)∈{0,1} outside 2Δ_1, D'=(−1)^{(b−1)/2}2m_0Δ_1, and q_{L'}(m)=C_b(m)L((b+1)/2,χ_{D'})/[√d' ζ(b+1)]·[Σ_{a|f}μ(a)χ_{D'}(a)a^{−(b+1)/2}σ_{−b}(f/a)]·∏_{ℓ|2Δ_1}[δ(ℓ,L',m)/(1−ℓ^{−1−b})]. Use D' in BOTH L-value and divisor sum. Match the positive sign, Gram determinants and primitive/imprimitive conventions.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Theorem 7.15, with the corrected character in the odd case (see sourceIssues)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The formulae are exactly parallel to Theorem 7.4 with L replaced by L'; comparing the two, term by term, is what gives Lemma 7.16."
+      "note": "The formulae are exactly parallel to Theorem 7.4 with L replaced by L'; comparing the two, term by term, is what gives Lemma 7.16. The review rejected inherited E4 as a demonstrated error: χ_D and χ_{D'} agree on the allowed divisors of f. The uniform D' presentation here makes that comparison explicit."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/83",
@@ -970,29 +983,29 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/84",
       "kind": "theorem",
       "name": "The supersingular main term is a fixed fraction of the expected share (Proposition 7.17)",
-      "statement": "There is an absolute constant 0 < α < 1 with i_P(X,T)_mt = αΣ_{m ∈ S_X}g_P(m) + O_T(X^{1+(b+2)/4}).",
+      "statement": "Under the standing proper generically ordinary curve hypotheses, for supersingular P there exists 0<α<1 independent of X,T with i_P(X,T)_mt ≤ αΣ_{m∈S_X}g_P(m)+O_T(X^{1+(b+2)/4}). This is an upper bound, not an asymptotic equality.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Proposition 7.17, whose proof contains an arithmetic misprint in the non-superspecial case (see sourceIssues)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The three cases give α ≤ 11/12 at a non-superspecial supersingular point, α ≤ 61/62 in case (1) at a superspecial point, and α ≤ 17/20 in case (2); the constants are attained at p = 3 and p = 5 respectively. That α is strictly less than one is the whole point."
+      "note": "Majorants are 11/12 (non-superspecial), 61/62 (b≥4 superspecial first alternative), 17/20 (second alternative). The b=3 first branch imports a rank-three theorem from earlier MST. The constants bound the series; no attained local ratio is claimed."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/85",
       "kind": "theorem",
       "name": "The total supersingular contribution (Theorem 7.18)",
-      "statement": "There is an absolute constant 0 < α' < 1 such that for every supersingular P ∈ C(k), Σ_{m ∈ S_X} i_P(C.Z(m)) = α'Σ_{m ∈ S_X}g_P(m) + O(X^{(b+1)/2}).",
+      "statement": "A fixed 0<α'<1 bounds Σ_{m∈S_X}i_P(C.Z(m)) ≤ α'Σ_{m∈S_X}g_P(m)+O(X^{(b+1)/2}) at supersingular P. Choose fixed T to absorb c_3T^{−2/b}X^{1+b/2} into (α'−α)Σg_P. Combine this upper bound, the nonsupersingular estimate and the all-point Hasse-degree inequality for the finite-support contradiction.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Theorem 7.18",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "T is chosen so that the error bound of Proposition 7.13 is absorbed into (α'-α)Σ g_P(m); the statement also holds at non-supersingular points, where it is weaker than Proposition 7.11. Summing over P and comparing with Lemma 7.5 proves Theorem 1.2."
+      "note": "Replace the printed equalities by ≤ also in the last step of the proof of Theorem1.2. This repair does not close the other local proof gates."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/86",
       "kind": "theorem",
       "name": "Integral models of the minimal and toroidal compactifications of a Hodge-type Shimura variety",
-      "statement": "For a canonical integral model 𝒮 of a Hodge-type Shimura variety with hyperspecial level at p, Madapusi Pera constructs a projective normal compactification 𝒮^BB over Z_(p) whose generic fibre is the Baily–Borel compactification, with a flat stratification by quotients of integral models of Shimura varieties of Hodge type, and, for an admissible complete smooth cone decomposition, a smooth toroidal compactification 𝒮^tor whose generic fibre is the toroidal compactification of Ash–Mumford–Rapoport–Tai and Pink, stratified by mixed Shimura varieties with flat boundary divisors, together with π: 𝒮^tor → 𝒮^BB extending the identity and compatible with the stratifications. The prime-to-p Hecke action extends to both.",
+      "statement": "For a canonical integral model 𝒮 of a Hodge-type Shimura variety with hyperspecial level at p, Madapusi Pera constructs a projective normal compactification 𝒮^BB over Z_(p) whose generic fibre is the Baily–Borel compactification, with a flat stratification by quotients of integral models of Shimura varieties of Hodge type, and, for an admissible complete smooth cone decomposition, a smooth toroidal compactification 𝒮^tor whose generic fibre is the toroidal compactification of Ash–Mumford–Rapoport–Tai and Pink, stratified by mixed Shimura varieties with flat boundary divisors, together with π: 𝒮^tor → 𝒮^BB extending the identity and compatible with the stratifications. Prime-to-p Hecke correspondences extend to the minimal compactification. Toroidal extensions require compatible source/target fans and common-refinement comparisons, not all correspondences on one arbitrary fan; the canonical one-dimensional cusp case is item89.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, §8.1, quoting Madapusi Pera, Theorems 1, 2, 3 and 4.1.5",
       "status": "missing",
       "library": [],
@@ -1047,7 +1060,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/91",
       "kind": "theorem",
       "name": "Density of Hecke translates in a fibre over a 1-dimensional cusp (Corollary 8.7)",
-      "statement": "For y ∈ Υ(k) with Υ a 1-dimensional cusp of 𝒮^BB, the set T_{y,ℓ} ∩ π^{-1}(π(y)) is Zariski dense in π^{-1}(π(y)).",
+      "statement": "For y ∈ π^{-1}(Υ(k)) with Υ a 1-dimensional cusp of 𝒮^BB, the set T_{y,ℓ} ∩ π^{-1}(π(y)) is Zariski dense in π^{-1}(π(y)).",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Corollary 8.7",
       "status": "missing",
       "library": [],
@@ -1080,7 +1093,7 @@
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/94",
       "kind": "theorem",
       "name": "Hecke stability and ℓ-adic monodromy (Lemma 8.10)",
-      "statement": "Let f: Sh_1 → Sh_2 be a morphism of Hodge-type Shimura varieties with hyperspecial level at p, extended to the canonical integral models, and let X ⊂ 𝒮_{2,k} meet the ordinary locus, with T_X its Hecke orbit under G_2(A^p_f). Then (1) for every Shimura subvariety Z ⊂ Sh_2 the closure of T_X is not contained in the special fibre of the closure of Z; and (2) f^{-1}(closure of T_X) ∩ 𝒮_{1,k} is stable under the Hecke action of G_1(A^p_f).",
+      "statement": "A morphism of Hodge-type data at compatible hyperspecial levels induces f:𝒮_1→𝒮_2. For nonempty X⊂𝒮_{2,k} meeting the ordinary locus, the prime-to-p orbit closure T̄_X pulls back to a Hecke-stable f^{-1}(T̄_X). For noncontainment use a PROPER Shimura subvariety Z whose group image in G_2^ad is proper: dense adjoint monodromy then precludes T̄_X⊂Z_k. The full arithmetic-monodromy proof is an obligation; the word subvariety cannot replace these hypotheses.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Lemma 8.10 of the accepted version, which is Lemma 8.9 of arXiv:2011.08887v1",
       "status": "missing",
       "library": [],
@@ -1096,18 +1109,31 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proved from Lemma 8.10 (1) by choosing a curve with the same ℓ-adic monodromy as an irreducible component of the closure whose monodromy is Zariski dense in G^ad."
+      "note": "Proved from Lemma 8.10 (1) by choosing a curve with the same ℓ-adic monodromy as an irreducible component of the closure whose monodromy is Zariski dense in G^ad. Descend the finite data to F_q and apply Hilbert irreducibility over the global field F_q(t), not F̄_p(t). Distinguish arithmetic and geometric monodromy and prove compatibility with a proper curve avoiding the finite boundary; these interfaces remain gates."
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/96",
       "kind": "theorem",
       "name": "The unitary case (Remark 8.12)",
-      "statement": "Theorem 1.2 holds for the mod 𝔭 fibre of the canonical integral model of the PEL unitary Shimura variety attached to an imaginary quadratic K split at p and an O_K-Hermitian lattice of signature (n,1) with discriminant prime to p, with the special divisors of Kudla–Rapoport and of Bruinier–Howard–Kudla–Rapoport–Yang. The boundary components of its Baily–Borel compactification are 0-dimensional, its toroidal compactification is canonical, and the fibres over the cusps are, up to a finite quotient, abelian schemes E ⊗_{O_K} Λ_0 with E a CM elliptic curve; the inductive argument of the orthogonal case then applies.",
+      "statement": "Let p≥5 split in the imaginary quadratic K, and let the signature(n,1) Hermitian lattice be self-dual at p. For a smooth irreducible proper generically ordinary curve mapping finitely to the hyperspecial PEL model and contained in no special divisor, the unitary analogue gives infinitely many points on special divisors of prime-to-p norm, via the orthogonal reduction and required low-dimensional base cases. Ordinary prime-to-p Hecke orbits are dense. The minimal boundary has dimension zero; the canonical toroidal fibres are the stated CM-elliptic torsors E⊗_{O_K}Λ_0 up to finite quotient, rank Λ_0=n−1. Retain the polarization, level and moduli hypotheses of Remark8.12.",
       "locator": "Maulik–Shankar–Tang, accepted version of 25 December 2021, Remark 8.12 of the accepted version, which is Remark 8.10 of arXiv:2011.08887v1",
       "status": "missing",
       "library": [],
       "planned": [],
       "note": "This is the second half of Theorem 1.4. Only the 0-dimensional cusp analysis is needed, because the unitary Baily–Borel boundary has no 1-dimensional components."
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/97",
+      "kind": "construction",
+      "name": "Completed PD envelope for the local lifting obstruction",
+      "statement": "For W=W(k),p≥5,s≥1, construct the p-completed PD envelope D_s of (t^s,p)⊂W[[t]], compatible with the canonical p-divided powers, with evaluation/pullback maps and the universal property. The consumer-specific coefficient obstruction is assigned to item51, not asserted to be supplied automatically by the generic envelope stage.",
+      "locator": "Author manuscript §5.6, pp.19–20",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "CrystallineCohomology:CR.0"
+      ],
+      "note": "CR.0 owns base-compatible completed PD envelopes, extending Mathlib's existing PD algebra; no private duplicate envelope carrier."
     }
   ],
   "prerequisites": [
@@ -1164,7 +1190,7 @@
     {
       "citation": "A. J. de Jong, \"Crystalline Dieudonné module theory via formal and rigid geometry\", Inst. Hautes Études Sci. Publ. Math. 82 (1995), 5–96",
       "link": "http://www.numdam.org/item/PMIHES_1995__82__5_0/",
-      "why": "The criterion (§2.3) that an endomorphism of the special fibre lifts over a truncation k[t]/t^s exactly when the corresponding horizontal section of the Dieudonné crystal is integral over the PD envelope D_s. This is the step that replaces Grothendieck–Messing theory in equicharacteristic p."
+      "why": "The necessary crystalline integrality condition used in §5.6 to obstruct lifting a special endomorphism over k[t]/t^s, via evaluation in D_s. The extraction does not claim a proved converse: the exact de Jong §2.3 statement and the special-tensor comparison remain a supplier-reading gate."
     },
     {
       "citation": "Alex Eskin and Yonatan R. Katznelson, \"Singular symmetric matrices\", Duke Math. J. 79 (1995), 515–547",
@@ -1200,6 +1226,41 @@
       "citation": "Keiji Oguiso, \"Local families of K3 surfaces and applications\", J. Algebraic Geom. 12 (2003), 405–433; and Claire Voisin, Théorie de Hodge et géométrie algébrique complexe, SMF (2002)",
       "link": "https://doi.org/10.1090/S1056-3911-03-00341-9",
       "why": "The characteristic-zero statement, due to Green, that the Noether–Lefschetz locus of a non-isotrivial family of K3 surfaces over a disc is countable and dense. Theorem 1.1 is its characteristic-p analogue, and a roadmap planning Theorem 1.1 should carry it as the comparison statement."
+    },
+    {
+      "citation": "Lior Bary-Soroker and Alexei Entin, Explicit Hilbert's irreducibility theorem in function fields, Contemporary Mathematics 767 (2021), 125–134",
+      "link": "arXiv:1912.05162",
+      "why": "The source quoted in Lemma8.11 to preserve a finite monodromy quotient under specialization. Its hypotheses must be checked over a finite constant field; F_p-bar(t) is not a global function field. The full supplier paper has not been read in this review."
+    },
+    {
+      "citation": "Arthur Ogus, Hodge cycles and crystalline cohomology, LNM 900 (1982), 357–414",
+      "link": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+      "why": "Weight-zero K3-crystal/Hodge-filtration and Newton-stratum inputs quoted in §2; not supplied by merely defining an F-crystal. Bibliography and use checked in the MST manuscript; this link identifies that citation, not a claim to have read the supplier's full text."
+    },
+    {
+      "citation": "Rutger Noot, Models of Shimura varieties in mixed characteristic, JAG 5 (1996), 187–207; Ben Moonen, Models of Shimura varieties in mixed characteristics, LMS Lecture Note Series 254 (1998), 267–350",
+      "link": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+      "why": "Ordinary formal-torus coordinates and filtration comparison in §§3.5 and 4.8; their full hypotheses are unextracted. Bibliography and use checked in the MST manuscript; this link identifies that citation, not a claim to have read the supplier's full text."
+    },
+    {
+      "citation": "Mark Kisin, mod p points on Shimura varieties of abelian type, JAMS 30 (2017), 819–914",
+      "link": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+      "why": "Corollary2.3.1 is used in Lemma8.10 to pass nontriviality of ordinary Frobenius from Q-simple to Q_l-simple adjoint factors. Bibliography and use checked in the MST manuscript; this link identifies that citation, not a claim to have read the supplier's full text."
+    },
+    {
+      "citation": "Jean-Pierre Serre, Lectures on the Mordell-Weil theorem (1989), §§9 and pp.148–149; Yves André, Pour une théorie inconditionnelle des motifs (1996), Theorem5.2(3)",
+      "link": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+      "why": "Finite monodromy specialization, open Frattini subgroup and the number-field comparison used in Lemma8.11; compact l-adic group hypotheses must be exposed. Bibliography and use checked in the MST manuscript; this link identifies that citation, not a claim to have read the supplier's full text."
+    },
+    {
+      "citation": "M. Rapoport, B. Smithling, W. Zhang, Arithmetic diagonal cycles on unitary Shimura varieties, Compos. Math.156 (2020), 1745–1824; On Shimura varieties for unitary groups, PAMQ17 (2021), 773–837",
+      "link": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+      "why": "Unitary integral models and comparison needed in Remark8.12, not covered by a citation to only the orthogonal construction. Bibliography and use checked in the MST manuscript; this link identifies that citation, not a claim to have read the supplier's full text."
+    },
+    {
+      "citation": "Henryk Iwaniec, Topics in classical automorphic forms, GSM17 (1997)",
+      "link": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+      "why": "Uniform local-density positivity used in §7.3 at fixed rank≥5; the theorem, bad-prime conventions and represented-m hypotheses must be independently extracted. Bibliography and use checked in the MST manuscript; this link identifies that citation, not a claim to have read the supplier's full text."
     }
   ],
   "routes": [
@@ -1219,12 +1280,10 @@
         "PAPER-MAULIK-SHANKAR-TANG-22/23",
         "PAPER-MAULIK-SHANKAR-TANG-22/24",
         "PAPER-MAULIK-SHANKAR-TANG-22/25",
-        "PAPER-MAULIK-SHANKAR-TANG-22/26",
-        "PAPER-MAULIK-SHANKAR-TANG-22/27",
-        "PAPER-MAULIK-SHANKAR-TANG-22/28"
+        "PAPER-MAULIK-SHANKAR-TANG-22/26"
       ],
-      "brief": "This reuses the candidate id already proposed by PAPER-CHARLES-16, PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 and PAPER-LI-ZHANG-22, and adds to it what this paper needs. Those briefs build the orthogonal integral model of a GSpin Shimura variety, the Kuga-Satake abelian scheme with its C(L)-action, the realisations of 𝐋 and the special divisors 𝒵(m); the items added here are the same objects in the case this paper works in, namely (L,Q) of signature (b,2) self-dual at p with hyperspecial level, together with what the special fibre needs. Construct: the datum (G_Q, D_L) with G = GSpin(L ⊗ Z_(p)) and reflex field Q, the level 𝕂 with 𝕂_p = G(Z_p), and Kisin's canonical smooth integral model 𝒮 over Z_(p); the Kuga-Satake abelian scheme 𝒜^univ → 𝒮 with its C(L)-action and the cohomologies 𝐇_B, 𝐇_dR, 𝐇_{ℓ,ét} and 𝐇_cris; the local systems 𝐋_B, 𝐋_dR, 𝐋_{ℓ,ét} and the F-crystal 𝐋_cris inside End_{C(L)}(𝐇_?), compatible under the comparison isomorphisms, with the quadratic form 𝐐 defined by f ∘ f = 𝐐(f)Id; special endomorphisms of 𝒜^univ_T and of 𝒜^univ_T[p^∞]; the special divisor 𝒵(m) as a Deligne-Mumford stack over 𝒮, an effective Cartier divisor flat over Z_(p), with Z(m) its special fibre; the tautological line bundle ω attached to Fil^1 V and the Hasse invariant as a section of ω^{p-1}; and, for the boundary, the fact that the cusps of 𝒮^BB are 0- or 1-dimensional, with a 1-dimensional cusp given by a saturated isotropic rank-2 sublattice I ⊂ L and Λ = I^⊥/I. The final statements are: Remark 2.4, that an endomorphism is special as soon as it is special at one geometric point, and that over an 𝒮_{F_p}-scheme only the crystalline realisation has to be checked; Remark 2.5, that v ∘ v = [Q(v)] with Q positive definite on the lattice of special endomorphisms; Definition 2.6 with the flatness and effective-Cartier property of 𝒵(m); the identity i_P(C.Z(m)) = Σ_{n≥1} #{v ∈ L_n : Q(v) = m} for a curve lying in no special divisor, where L_n is the lattice of special endomorphisms of the pullback of 𝒜^univ modulo t^n, together with ∩_n L_n = 0 and the constancy of the rank; the dichotomy rk_Z L_1 = b+2 if and only if P is supersingular, and rk_Z L_1 ≤ b otherwise; and the description, up to a finite quotient, of π^{-1}(Υ) over a 1-dimensional cusp Υ as a torsor under ℰ ⊗_Z Λ over a modular curve. Import Shimura data from ShimuraData D2, the analytic tower and the Hodge type from ShimuraVarieties V1 and V6, Baily-Borel algebraicity from V2, abelian schemes and their deformation theory from AbelianSchemesAndArithmeticModuli, Dieudonné theory from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2, crystals from CrystallineCohomology CR.1 and CR.3, the modular curve and its universal elliptic curve from the Tau Ceti modular-curves roadmap, and Clifford algebras with the spin group from Mathlib. Do not plan the characteristic-p decay theory or the Hecke orbit argument here: they are the separate new roadmap SupersingularCrystalsAndOrdinaryHeckeOrbits proposed by this extraction.",
-      "reason": "Every item on this route is part of the standing set-up that the number-field companion paper PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 already routed here, in the same words: the GSpin integral model, the Kuga-Satake scheme, the realisations of 𝐋, special endomorphisms, the special divisors, the identity of its Lemma 7.2 and the supersingular rank statement of its Proposition 7.3. Keeping them together in one Part II is what PROTOCOL section 15 asks for, and splitting them off from the characteristic-p engine is what keeps the new roadmap honest about what it adds. ShimuraVarieties itself stops at generic-fibre canonical models and ShimuraData's examples do not include the GSpin datum, so these are not planned anywhere in the atlas. The two items the earlier briefs do not mention, the Hasse invariant as a section of ω^{p-1} and the orthogonal cusp geometry, belong here rather than in the new roadmap because they are statements about the model and its compactification, not about supersingular crystals."
+      "brief": "Coalesce with the pending OrthogonalIntegralModelsAndKugaSatake proposals of PAPER-CHARLES-16, PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 and PAPER-LI-ZHANG-22; these are proposals, not existing suppliers. For p≥5 and L of signature (b,2) self-dual at p, build the GSpin datum, small prime-to-p level and smooth hyperspecial integral model. Construct the Kuga–Satake abelian scheme, Clifford action, compatible Betti/de Rham/étale/crystalline special subobjects, weight-zero Frobenius, positive quadratic special-endomorphism lattice, special-divisor stack, Hodge bundle and Hasse section. Final interfaces are speciality detected at a geometric point/crystalline realization, v²=[Q(v)], the effective-Cartier and flatness statements, the local-length identity Σ_n #{v∈L_n:Q(v)=m}, and the supersingular rank dichotomy. Specify whether cycles count both v and −v and how stack pushforward compares with reduced support; this is an open normalization gate. Import ShimuraData D3–D5, ShimuraVarieties V1/V6, AbelianSchemesAndArithmeticModuli, R07.2 and CR.1/CR.3; reuse pinned abstract Clifford/spin algebra, which is not GSpin as a group scheme. Integral boundary geometry belongs solely to route3, including items27–28. The crystalline decay and Hecke argument belong to the characteristic-p Part II in route4. Do not silently import the PEL compactification stage for this Hodge-type model.",
+      "reason": "The existing generic-fibre Shimura direction owns the parent; these integral orthogonal interfaces extend it. Reuse the common pending bridge identity and its shared carriers. Remove cusp geometry from this route to avoid duplicate ownership with the integral-boundary Part II. Kisin/Madapusi Pera and cycle multiplicities still require exact proof-leaf extraction before the brief is build-ready."
     },
     {
       "route": "part-ii",
@@ -1237,8 +1296,8 @@
         "PAPER-MAULIK-SHANKAR-TANG-22/70",
         "PAPER-MAULIK-SHANKAR-TANG-22/71"
       ],
-      "brief": "This reuses the candidate id proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 and PAPER-LI-ZHANG-22, whose briefs already construct ρ_L and M_{1+b/2}(ρ_L), the Eisenstein series E_0 with constant term 2𝔢_0, the Bruinier-Kuss coefficients c(β,m) with |c(m)| ≍ m^{b/2}, and the Howard-Madapusi Pera modularity theorem in its arithmetic form. The items added here are the three of those statements that this paper uses, in the geometric normalisation it uses them in, so that the same lane owns them once. Construct: the dual lattice L^∨, the basis {𝔢_μ} of C[L^∨/L], the Weil representation ρ_L of Mp_2(Z) on it, and the Eisenstein series E_0(τ) = Σ_{Γ'_∞\\Mp_2(Z)} σ(τ)^{-(2+n)}ρ_L(g,σ)^{-1}𝔢_0 of weight 1 + b/2, with constant term 𝔢_0 and Fourier coefficients q_L(m). The final statements are: the Bruinier-Kuss formulae for q_L(m) in the even and the odd case, in terms of σ_{-b/2}(m,χ), √|L^∨/L|, Γ(1+b/2), Dirichlet L-values, ζ(b+1) and the local densities δ(ℓ,L,m), together with the consequence |q_L(m)| ≍ m^{b/2} for every m represented by (L,Q); and the modularity statement that -(ω.C) + Σ_m Z(m).C is the 𝔢_0-component of a modular form of weight 1 + b/2 for ρ_L with Eisenstein part -(ω.C)E_0, whence Z(m).C = |q_L(m)|(ω.C) + O(m^{(b+2)/4}) and Σ_{m ∈ S_X} Z(m).C ≍ X^{1+b/2}. The error term is the trivial bound on the coefficients of a cusp form of weight 1 + b/2, so that bound is part of what this lane must supply. Import the metaplectic cover and the general Weil representation from MetaplecticAutomorphicForms MP.1 and MP.4, the special divisors and ω from OrthogonalIntegralModelsAndKugaSatake, local densities from GeometryOfNumbersAndQuadraticArithmetic GN.3, and Dirichlet L-functions from AnalyticNumberTheory AN.1.",
-      "reason": "The three items are the global input of this paper's argument, and they are the same three objects that the sibling extraction of Shankar-Shankar-Tang-Tayou already routed to this Part II: ρ_L with E_0, the Bruinier-Kuss coefficients, and the modularity of the generating series of special divisors. They do not belong in the new characteristic-p roadmap, which consumes them; nor in OrthogonalIntegralModelsAndKugaSatake, which owns the model and the divisors but not the automorphic generating series. GrossZagierAndArithmeticHeights GZ.6 plans modularity of Chow-valued generating series only on Shimura curves."
+      "brief": "Coalesce with the pending GSpinSpecialDivisorHeights bridge shared with PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 and PAPER-LI-ZHANG-22. For a fixed maximal quadratic lattice of signature (b,2), b≥3, construct its finite discriminant-module Weil representation, the weight 1+b/2 vector-valued modular space, and E_0 with automorphy exponent 2+b. In this manuscript E_0 has constant term e_0; the sibling brief uses 2e_0. A comparison lemma, with the stabilizer quotient and special-cycle pushforward conventions stated, must determine the coefficient factor before reuse. Item70 records the even/odd Bruinier–Kuss formulas and |q_L(m)| asymptotic bounds for represented m; item71 records the generating series −(ω.C)+Σ_{m>0}(Z(m).C)q^m, its Eisenstein component −(ω.C)E_0, and O(m^{(b+2)/4}) cuspidal error. Import special divisors/ω from route1, generic metaplectic representation from MP.1/MP.4, densities from GN.3 and pinned Dirichlet L-functions/zeta. The finite S,T action and comparison with the generic Weil representation are separate proof obligations. Do not replace E_0 by the sibling series without proving the factor, and do not count reduced special-divisor support when the modularity theorem concerns a cycle.",
+      "reason": "The shared special-divisor generating-series lane is the correct common owner, extending Gross–Zagier's Shimura-curve scope to GSpin. Route identity is retained, but the old brief conflated incompatible displayed normalizations and omitted q^m. This route remains rejected until normalization and prerequisite interfaces are proved."
     },
     {
       "route": "part-ii",
@@ -1247,17 +1306,19 @@
       "title": "Toroidal compactifications and boundary geometry, Part II: integral boundary charts of Hodge type",
       "area": "arithmeticgeometry",
       "items": [
+        "PAPER-MAULIK-SHANKAR-TANG-22/27",
+        "PAPER-MAULIK-SHANKAR-TANG-22/28",
         "PAPER-MAULIK-SHANKAR-TANG-22/86",
         "PAPER-MAULIK-SHANKAR-TANG-22/87",
         "PAPER-MAULIK-SHANKAR-TANG-22/89"
       ],
-      "brief": "This reuses the candidate id proposed by PAPER-FARB-KISIN-WOLFSON-24, whose brief constructs, for a Hodge-type datum with hyperspecial level at p and neat prime-to-p level, the integral mixed Shimura data at each cusp, the abelian scheme and torus torsor over it, the integral torus embeddings for smooth admissible fans, and the formal-completion comparison with the integral toroidal compactification, all following Madapusi Pera. The items added here are the three statements of that theory that the Hecke-orbit argument of this paper consumes. The final statements are: the existence of a projective normal 𝒮^BB over Z_(p) whose generic fibre is the Baily-Borel compactification, stratified flatly by quotients of integral models of Hodge-type Shimura varieties, and of a smooth toroidal 𝒮^tor for an admissible complete smooth cone decomposition, stratified by mixed Shimura varieties with flat boundary divisors, with π: 𝒮^tor → 𝒮^BB extending the identity and compatible with the stratifications, and with the prime-to-p Hecke action extending to both; the explicit complete local ring of 𝒮^BB at a 0-dimensional cusp as the ring of invariants k[[q^λ]]_{λ ≥ 0}^{Δ_K}, with the lattice 𝐁_K ⊂ W(Q), its dual 𝐒_K, the arithmetic group Δ_K and the self-adjoint cone 𝐇, and the action of 𝔹_ℓ = 𝐁_K ⊗ Z[1/ℓ] on it by Σ a_λ q^λ ↦ Σ 𝐞((T,λ))a_λ q^λ; and, over a 1-dimensional cusp, the uniqueness of the cone decomposition, the canonicity of the boundary strata, and the unique extension of the Hecke action to π^{-1} of the complement of the 0-dimensional cusps. Import fans, relative torus embeddings and the rational boundary from ShimuraCompactifications C0-C3, the integral models from the Hodge-type integral-model Part II, and Baily-Borel algebraicity in characteristic zero from ShimuraVarieties V2. This lane owns the boundary; the orthogonal cusp geometry specific to GSpin data, and Chai's cancellation argument on the invariant ideals, are owned elsewhere.",
-      "reason": "The paper uses Madapusi Pera's integral compactifications as a black box, in exactly the form that PAPER-FARB-KISIN-WOLFSON-24 already proposed this Part II for. ShimuraCompactifications C5 plans integral compactifications for PEL data only and explicitly disclaims Hodge and abelian type, so nothing in the atlas covers them. The 0-dimensional cusp coordinates go here rather than in the new roadmap because they are a statement about the integral boundary chart, not about Hecke orbits; the argument that uses them, Proposition 8.3, stays with the new roadmap."
+      "brief": "Coalesce the pending Hodge-type integral-boundary proposals of PAPER-FARB-KISIN-WOLFSON-24 and related Pilloni/Boxer–Pilloni work; a pending identity is not an implemented stage. For p≥5, a hyperspecial Hodge-type model and sufficiently small prime-to-p level, construct normal projective minimal and smooth toroidal integral compactifications with flat boundary strata and formal mixed-Shimura charts. In the GSpin case identify zero- and one-dimensional cusps; for an isotropic rank-two I, set Λ=I⊥/I and describe π^{-1}(Υ), up to its finite quotient, as the elliptic-scheme Λ-torsor. Supply the zero-cusp formal coordinate ring and Hecke action used in §8.3. Prime-to-p Hecke maps extend on the minimal compactification; toroidal maps require compatible fans or a common refinement, not an action on any fixed fan. Import generic compactifications from ShimuraCompactifications C0–C3, RS-32's common analytic/toric suppliers, semiabelian degenerations from the existing R11.3 owner, fine modular curves from Tau Ceti Layer5, and the Hodge-type integral model from route1 or the already shared integral-model candidate. C5 is PEL-specific and does not supply this general Hodge-type integral theorem. Keep the torsor/finite-quotient/Hecke descent maps explicit. Chai's ideal cancellation and density argument belong to route4.",
+      "reason": "Items27–28 are boundary geometry and are moved here from the Kuga–Satake route. This is an extension of the existing compactification direction and must coalesce with its pending integral Hodge-type bridge. Compatible fans, quotient descent and exact formal-boundary suppliers remain gates."
     },
     {
-      "route": "new",
+      "route": "part-ii",
       "roadmap": "SupersingularCrystalsAndOrdinaryHeckeOrbits",
-      "title": "Supersingular crystals, decay of special endomorphisms and the ordinary Hecke orbit conjecture",
+      "title": "Complex Shimura varieties and canonical models, Part II: crystalline decay and ordinary Hecke orbits",
       "area": "arithmeticgeometry",
       "items": [
         "PAPER-MAULIK-SHANKAR-TANG-22/12",
@@ -1287,7 +1348,6 @@
         "PAPER-MAULIK-SHANKAR-TANG-22/48",
         "PAPER-MAULIK-SHANKAR-TANG-22/49",
         "PAPER-MAULIK-SHANKAR-TANG-22/50",
-        "PAPER-MAULIK-SHANKAR-TANG-22/51",
         "PAPER-MAULIK-SHANKAR-TANG-22/52",
         "PAPER-MAULIK-SHANKAR-TANG-22/53",
         "PAPER-MAULIK-SHANKAR-TANG-22/54",
@@ -1323,8 +1383,9 @@
         "PAPER-MAULIK-SHANKAR-TANG-22/95",
         "PAPER-MAULIK-SHANKAR-TANG-22/96"
       ],
-      "brief": "Plan the characteristic-p theory that makes Picard ranks of K3 surfaces jump over function fields, and the ordinary Hecke orbit conjecture that follows from it. Work over k = F_p-bar with p ≥ 5, with 𝒮 the canonical integral model of the GSpin Shimura variety of a quadratic Z-lattice (L,Q) of signature (b,2), b ≥ 3, self-dual at p, and with C an irreducible smooth proper curve mapping finitely to 𝒮_k with ordinary generic point and lying in no special divisor. The final theorems are the four results of Maulik, Shankar and Tang. (1) Theorem 1.2: such a C meets ∪_{p ∤ m} Z(m) at infinitely many k-points. (2) Theorem 1.1, its consequence through the Kuga-Satake period map: a generically ordinary non-isotrivial family of K3 surfaces over a proper curve in characteristic p ≥ 5, whose generic Picard lattice has discriminant prime to p, has infinitely many fibres of larger Picard rank. (3) Theorem 1.4: the prime-to-p Hecke orbit of an ordinary point is dense in 𝒮_{F_p}, both in the orthogonal case and in the unitary case of an imaginary quadratic field split at p with an O_K-Hermitian lattice of signature (n,1) of discriminant prime to p; this is the Chai-Oort conjecture for these Shimura varieties. (4) Theorem 5.15, the decay lemma in a general Newton stratum, which is the natural generalisation of the local engine. Cover, in this order. First the local crystalline theory at a supersingular point P of 𝒮_k: the F-crystal 𝕃 = 𝐋_{cris,P}(W) with its σ-linear φ and 𝓛 = 𝕃^{φ=1}; Ogus's orthogonal decomposition of 𝓛, the type t_P and the Artin invariant t_P/2, with superspecial meaning t_P = 2; the induced decomposition of 𝕃; the normal form of 𝓛_0, the classification of the crystals 𝕃_0 by a cyclic vector v, and the resulting cyclic Frobenius matrix B_0; the three cases for 𝓛_1 and the reduction to the split case by embedding. Then Kisin's description of the formal neighbourhood of P together with the F-crystal on it, in coordinates: the Hodge cocharacter, the opposite unipotent, Spf R = O-hat_{𝒮,P} and Frob = u ∘ (φ ⊗ σ); and the equation of the non-ordinary locus, which is y_1 = 0 at a non-superspecial supersingular point and the quadric Q = 0 at a superspecial one. Then the decay lemmas: rapid and very rapid decay of a special endomorphism; the existence of a rapidly decaying saturated rank-2 submodule of 𝓛 at a non-superspecial supersingular point, and the sharper superspecial statement with its two alternatives; their translation into the index bounds |L_1/L_n| ≥ p^{2+2r} and their superspecial refinements; and the generalisation to Newton strata. The proofs need the horizontal section w-tilde = lim Frob^n(w), the infinite product F_∞ = ∏(I + F^{(i)}), de Jong's criterion for lifting over k[t]/t^s through the PD envelopes D_s, the combinatorics of minimal index tuples, and the F_p-linear algebra of the row R-bar_{n+1}. Record explicitly why Grothendieck-Messing theory is too weak in equicharacteristic p, and the formal curve whose local multiplicities grow exponentially, which shows the algebraicity of C cannot be dropped. Then the intersection-theoretic argument: the expected local share g_P(m) = (h_P/(p-1))|q_L(m)|; the successive minima of the L_n and the lower bound a_i(n) ≫ n^{i/b}; truncation; the negligible contribution of non-supersingular points; the splitting of the supersingular contribution into a main term and an error, the uniform error bound, the theta series of the auxiliary lattices L'_n and the comparison of their Eisenstein coefficients with q_L(m), and the conclusion that the supersingular contribution is a fixed fraction α' < 1 of the expected share. Finally the Hecke orbit argument: Chai's cancellation argument at a 0-dimensional cusp, transported to the integral minimal compactification; the analysis at a 1-dimensional cusp, where the fibres are abelian-scheme torsors over a modular curve and ℓ-power Hecke translates fill a fibre; the existence of a generically ordinary proper curve in the closure of a Hecke orbit and the fact that it may be chosen outside every special divisor; the ℓ-adic monodromy lemma; and the induction on b that deduces Theorem 1.4 from Theorem 1.2. Import, and do not rebuild: the GSpin Shimura variety, the Kuga-Satake abelian scheme, the realisations 𝐋_?, special endomorphisms, the special divisors 𝒵(m), the tautological bundle ω with the Hasse invariant, the identity i_P(C.Z(m)) = Σ_n #{v ∈ L_n : Q(v) = m} and the supersingular rank dichotomy from the orthogonal Part II of Complex Shimura varieties and canonical models (OrthogonalIntegralModelsAndKugaSatake); the Weil representation ρ_L, the Eisenstein series E_0 with the Bruinier-Kuss coefficients and the Borcherds, Howard-Madapusi Pera modularity of the generating series from the Part II of Gross-Zagier formulas and arithmetic heights (GSpinSpecialDivisorHeights); Madapusi Pera's integral minimal and toroidal compactifications of Hodge-type Shimura varieties and the 0-dimensional cusp coordinates from the Part II of Toroidal compactifications and boundary geometry (ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary); Dieudonné theory from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 and Grothendieck-Messing from R07.6; crystals and F-crystals from CrystallineCohomology CR.1 and CR.3; Serre-Tate theory from AbelianSchemesAndArithmeticModuli A4; successive minima, local densities, theta series and the Siegel mass formula from GeometryOfNumbersAndQuadraticArithmetic GN.1, GN.3 and GN.4; Dirichlet L-functions from AnalyticNumberTheory AN.1; the modular curve and its universal elliptic curve from the Tau Ceti roadmap on modular curves; and Witt vectors, Clifford algebras, the spin group and lattice covolumes from the pinned libraries.",
-      "reason": "Nothing in the atlas follows this proof. A search of data/atlas.json finds no layer mentioning the Hecke orbit conjecture, Chai-Oort, Serre-Tate coordinates for Hecke orbits, supersingular K3 crystals, the Artin invariant, or the decay of lattices of special endomorphisms; \"hecke orbit\", \"serre-tate\" and \"k3 surface\" return nothing at all, and the hits for \"supersingular\" are about elliptic curves, Dieudonné slopes and crystalline descent, not about Ogus's classification of supersingular K3 crystals. Among the pending proposals, OrthogonalIntegralModelsAndKugaSatake owns the integral model and the special divisors, GSpinSpecialDivisorHeights the Arakelov heights of those divisors over number fields, ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary the integral boundary charts, and HeckeOrbitsAndAndréPinkZannier a different subject: generalised Hecke orbits, Galois lower bounds and the André-Pink-Zannier conjecture in characteristic zero, not the Chai-Oort density conjecture in characteristic p. IgusaVarietiesAndTorsionConcentration IG.0 plans Newton strata and central leaves for unitary Shimura varieties in the Caraiani-Scholze programme, which is neither the orthogonal deformation theory nor the decay estimates. This is a new roadmap rather than a Part II because its two endpoints, Theorem 1.1 on Picard ranks of K3 surfaces over function fields and Theorem 1.4 on the ordinary Hecke orbit conjecture, belong to two different existing directions and are joined only by the local crystalline engine this roadmap builds. It is the characteristic-p companion of the lane that PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 opened over number fields: there the local input was Arakelov-theoretic and the global input a height computation, here the local input is Ogus's and Kisin's deformation theory of crystals and the global input is the same Borcherds generating series, so the two share their set-up but not their mathematics."
+      "brief": "Extend ShimuraVarieties in characteristic p; do not create an unrelated direction merely because a K3 application accompanies a Hecke-orbit theorem. For p≥5 and the self-dual orthogonal integral model of signature (b,2), the primary final target is Theorem1.2: every smooth proper irreducible generically ordinary curve mapping finitely to the model and contained in no Z(m) meets ∪_{p∤m}Z(m) in infinitely many geometric points. Theorem1.4 then asserts density of prime-to-p ordinary Hecke orbits, including the split-at-p unitary signature-(n,1) case with prime-to-p discriminant and its low-dimensional base cases. Theorem1.1 is the K3 application, for a non-isotrivial generically ordinary family over a proper curve whose generic Picard discriminant is prime to p; import the period-map/K3 comparison from a common K3 owner instead of building it twice. Conjecture1.3 is only a proposition to state. Cover the Ogus supersingular lattice/type/cyclic-vector classification, Kisin coordinate display and weight-zero Frobenius, t-adically convergent horizontal product, minimal-tuple combinatorics and the de Jong obstruction imported from route7. Separate Teichmüller lift valuations from mod-p valuations: source issues E14–E16 currently block the superspecial proof. The generalized Newton-stratum Theorem5.15 is an unproved extension target under E13, not a supplier. Build the index/minima bounds, positive-density represented set, uniform lattice counts and theta-series comparison using GN.1/GN.3/GN.4 and route2. Use upper bounds, not asymptotic equalities, in the supersingular main-term comparison; sum Hasse orders over all of C for the divisor-degree equality. Import route3's integral boundary charts, then prove Chai cancellation, one-cusp orbit propagation, proper-curve selection with finite-field Hilbert irreducibility/monodromy, and induction. Import R07.2/R07.6, CR.0/CR.1/CR.3, A4, pinned Witt/Clifford/covolume/L-functions and fine modular curves. Preserve all hypotheses and allocate generic finite-field Hilbert/monodromy and the historical Green–Oguiso comparison to their common owners before design. None of these proof gaps is filled by naming an import.",
+      "reason": "The ordinary Hecke-orbit endpoint is a Shimura-variety extension. The original two-endpoint argument for a new roadmap does not satisfy §15: K3 consequences should import their existing common direction. Keep this candidate id for coalescence, change its route to Part II, and reserve unresolved peripheral owners explicitly. The reviewed characteristic-zero HeckeOrbitsAndAndrePinkZannier proposal and Igusa Newton-stratum work do not prove this characteristic-p decay argument.",
+      "parent": "ShimuraVarieties"
     },
     {
       "route": "source",
@@ -1340,7 +1401,7 @@
         "PAPER-MAULIK-SHANKAR-TANG-22/68",
         "PAPER-MAULIK-SHANKAR-TANG-22/82"
       ],
-      "reason": "These four items are general facts about positive definite quadratic lattices that the existing roadmap plans and the paper is a good source for. GN.1 is titled convex-body and successive-minima theorems and is where the successive minima μ_i(n) of a positive definite lattice and the products a_i(n) belong. GN.4 plans lattice-point estimates, which is where Eskin's bound for the number of lattice points of bounded norm in terms of the successive minima belongs; the paper needs it in the form whose implied constant depends only on the rank, so that it applies uniformly to the whole nested family {L_n}, and §7.2 is a clean statement of that need. GN.3 plans reduction domains, local representation densities, mass formulas and theta-series interfaces: the local density δ(ℓ,L,m) with the uniform bound δ(ℓ,L,m) ≍ 1 for rk L ≥ 5, and the Siegel mass formula in the form that gives the Fourier coefficients of the Eisenstein part of the theta series of a lattice, are exactly that. The sibling extraction PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 routed the same material to the same three layers, so this coalesces with it."
+      "reason": "GN.1 already plans the minima of item74 and GN.3 the densities of item68, so both are corrected to planned. Retain them as source documentation, not new carriers. GN.4 owns the uniform rank-dependent count Σ_{j=0}^r B^j/a_j, including j=0; GN.3 owns the theta/Eisenstein mass formula of item82 with the local density and discriminant conventions written out. Their audits distinguish existing qualitative lattice tools from the missing quantitative theorem. The printed χ_D in the mass formula is not a confirmed mistake: χ_D and χ_D′ agree on its divisor support (rejected E4). This coalesces with the number-field companion's same source route."
     },
     {
       "route": "source",
@@ -1351,111 +1412,460 @@
       "items": [
         "PAPER-MAULIK-SHANKAR-TANG-22/69"
       ],
-      "reason": "AN.1 plans zeta and Dirichlet L-functions. The Kronecker-symbol character χ_D attached to a discriminant D ≡ 0,1 mod 4, and the twisted divisor sums σ_s(m,χ) = Σ_{d|m}χ(d)d^s, are the elementary companions of those L-functions and are used, in §7.3 and in the coefficient formulae of Theorems 7.4 and 7.15, exactly as such. The paper is a good source for them and nothing else in the atlas plans them."
+      "reason": "Import pinned DirichletCharacter.LFunction/riemannZeta rather than re-plan AN.1. Reuse TauCeti.Multiquadratic.primeDiscriminantCharFun and DirichletCharacter.twistedDivisorSum for their actual scopes. The residual source adapter constructs the full discriminant character including imprimitive moduli and proves the coefficient comparison for σ_s(m,χ) with negative/real s, which the existing natural-exponent two-character sum does not directly provide. This is an AN.1 coefficient/L-value interface; generic finite-sum algebra is not a new analytic-number-theory roadmap."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "stages": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+      ],
+      "items": [
+        "PAPER-MAULIK-SHANKAR-TANG-22/51"
+      ],
+      "reason": "The necessary lifting obstruction is a Dieudonné/deformation-theory supplier, not a private object of the Hecke-orbit Part II. Import the completed PD envelope from CR.0 (item97), prove the coefficientwise nonintegrality test used in §5.6, and identify the special-tensor horizontal continuation under crystalline realization. The de Jong §2.3 theorem and compatibility hypotheses have not been independently extracted here; this route is reserved but rejected pending that work. Do not assert an if-and-only-if lifting criterion from the necessary condition used in this paper."
     }
   ],
   "sourceIssues": [
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/E1",
       "kind": "misprint",
-      "locator": "§7, in the proof of Proposition 7.17, the non-superspecial supersingular case (accepted version of 25 December 2021; the same expression is in arXiv:2011.08887v1)",
+      "locator": "§7, in the proof of Proposition 7.17, the non-superspecial supersingular case; independently checked only in author manuscript (25 December 2021).",
       "printed": "≤ (h/(p-1)) · 2(p² − p + 1)/(p(p² − 1)) ≤ (11/12)(h/(p-1)) for all p ≥ 3",
       "correction": "the middle expression is 2(p² + p − 1)/(p(p² − 1)); the two summands of the numerator are transposed",
       "reason": "The displayed series is (2/(1-p^{-2}))(h(p^{-1}+1)/p² + hp/p⁴ + hp²/p⁶ + ···). Summing the geometric tail, the bracket is h((p+1)/p³ + 1/(p²(p-1))) = h(p²+p-1)/(p³(p-1)), and multiplying by 2p²/(p²-1) gives exactly (h/(p-1))·2(p²+p-1)/(p(p²-1)). At p = 3 this is 22/24 = 11/12, which is where the constant 11/12 comes from and shows the bound is sharp there; numerically, with h = 1 and p = 3 the series is (9/4)(4/27 + 1/18) = 0.4583… = (11/12)·(1/2), confirming it. The printed 2(p²-p+1)/(p(p²-1)) equals 7/12 at p = 3, so as printed the first inequality of the chain is false, although the final bound 11/12 that the proof uses is correct. The same computation carried out for the two superspecial cases of the same proof reproduces the printed constants exactly, 61/62 at p = 5 in case (1) and 17/20 at p = 5 in case (2), which confirms the method.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-        "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-        "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-        "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-        "a web search for a correction or erratum to this paper, which returned none"
-      ]
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Exact rational summation gives 2(p²+p−1)/(p(p²−1)); its difference from 11/12 factors as (p−3)(11p²+9p−8)/(12p(p²−1))≥0. Both superspecial constants were independently checked by exact identities. Only author-manuscript scope is confirmed.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/E2",
       "kind": "misprint",
-      "locator": "§7, in the proof of Proposition 7.13, the case i = b+2 (accepted version; also in arXiv:2011.08887v1)",
+      "locator": "§7, in the proof of Proposition 7.13, the case i = b+2; independently checked only in author manuscript (25 December 2021).",
       "printed": "Σ_{n≥T}(2X)^{(b+2)/2}/n^{(b+2)/b} ≤ (c₃/T^{2/(b+2)})X^{(b+2)/2}",
       "correction": "(c₃/T^{2/b})X^{(b+2)/2}, the exponent that Proposition 7.13 itself states",
-      "reason": "The exponent (b+2)/b exceeds 1 by 2/b, so the tail Σ_{n≥T} n^{-(b+2)/b} is (b/2)T^{-2/b}(1+o(1)); the exponent of T is 2/b, not 2/(b+2). The statement of Proposition 7.13 has T^{2/b}, and the proof of Theorem 7.18 uses it in that form when choosing T, so only the displayed step in the proof is wrong.",
+      "reason": "The printed inequality with T^{−2/(b+2)} is a TRUE but weaker bound for T≥1, so it is not a counterexample. The integral estimate Σ_{n≥T}n^{−1−2/b}≤(1+b/2)T^{−2/b} supplies the stronger exponent claimed in the proposition. The mismatch is an intended-exponent slip, not a false inequality.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-        "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-        "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-        "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-        "a web search for a correction or erratum to this paper, which returned none"
-      ]
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as an exponent mismatch with the intended proposition; expressly reject the interpretation that the displayed weaker inequality is false.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/E3",
       "kind": "misprint",
-      "locator": "§6, Definition 6.1 (3) and Theorem 6.2 (2) (accepted version; also in arXiv:2011.08887v1)",
-      "printed": "Given a submodule Λ ⊂ 𝓛 which decays rapidly and a vector w ∈ 𝓛 such that w ∉ Λ, we say that the pair (L,w) decays very rapidly to first order if w decays very rapidly to first order, and every primitive vector in Span_{Z_p}{L,w} decays rapidly to first order",
+      "locator": "§6, Definition 6.1 (3) and Theorem 6.2 (2); independently checked only in author manuscript (25 December 2021).",
+      "printed": "(L,w); Span_{Z_p}{L,w}",
       "correction": "the pair (Λ,w), and Span_{Z_p}{Λ,w}; the same substitution is needed in clause (2) of Theorem 6.2",
       "reason": "L is the ambient quadratic Z-lattice of signature (b,2) fixed in §2.1 and used with that meaning throughout the paper; the submodule just introduced is Λ ⊂ 𝓛 = 𝕃^{φ=1}, a Z_p-module of rank 2. Span_{Z_p}{L,w} does not parse, since L is not a submodule of 𝓛. The notation (Λ,w) is what the third occurrence of the phrase uses correctly, in the proof of Theorem 6.2, where the pair is written (Span_{Z_p}{e₁,f₁}, e'₁).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-        "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-        "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-        "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-        "a web search for a correction or erratum to this paper, which returned none"
-      ]
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked directly at the author-manuscript locator; the correction is justified by the named local formula.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/E4",
       "kind": "misprint",
-      "locator": "§7, Theorem 7.15 (2), the odd case of the Siegel mass formula (accepted version; also in arXiv:2011.08887v1)",
+      "locator": "§7, Theorem 7.15 (2), the odd case of the Siegel mass formula; independently checked only in author manuscript (25 December 2021).",
       "printed": "(Σ_{d|f} μ(d)χ_{𝒟}(d)d^{-(b+1)/2}σ_{-b}(f/d)), with the where-clause defining only 𝒟' = (-1)^{(b-1)/2}2m₀ det L'₁",
-      "correction": "χ_{𝒟'}(d), the character attached to the discriminant 𝒟' of the theorem",
-      "reason": "Theorem 7.15 defines 𝒟' and no 𝒟; the symbol 𝒟 is defined only in Theorem 7.4, for the ambient lattice L rather than for L'₁. The L-value in the same displayed formula is L((b+1)/2, χ_{𝒟'}), and in the parallel formula of Theorem 7.4 the divisor sum uses the same character as the L-value, so the sum here must use χ_{𝒟'} as well.",
+      "correction": "No mathematical correction established on the theorem's actual divisor range; χ_{D'} is an equivalent notational choice after proving the square-class/copimality comparison.",
+      "reason": "The original extractor inferred a misprint because Theorem7.15 defines D′ and uses χ_D in one divisor sum while its L-value uses χ_D′. That inference is rejected: D was defined for L in Theorem7.4, and the two characters agree on the allowed divisors here. See the independent review.reason for the square-class and coprimality argument.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-        "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-        "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-        "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-        "a web search for a correction or erratum to this paper, which returned none"
-      ]
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Not established as a source mistake. In this setup the positive determinants det L and det L'_1 have the same rational square class: local isometry away from p makes the valuation differences even there, and the p-discriminant exponent is the even type. Thus D'/D is a positive rational square; for a|f, with f coprime to 2det L'_1 (in particular p), χ_D(a)=χ_{D'}(a). The source's χ_D is defined earlier and gives the same divisor sum. Using χ_{D'} uniformly in item82 is a harmless clarification, not evidence of a false printed formula.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/E5",
       "kind": "misprint",
-      "locator": "§3.5, the construction of the formal curve, in the sentence beginning \"For any positive integer j₀\" (accepted version; also in arXiv:2011.08887v1)",
+      "locator": "§3.5, the construction of the formal curve, in the sentence beginning \"For any positive integer j₀\"; independently checked only in author manuscript (25 December 2021).",
       "printed": "v_{i,n_{j₀+1}-1} = e_i + (Σ_{j=0}^{j₀} p^{n_j})f_j ∈ L_{p^{n_{j+1}}}",
       "correction": "v_{i,n_{j₀+1}-1} = e_i + (Σ_{j=0}^{j₀} p^{n_j})f_i ∈ L_{p^{n_{j₀+1}}}",
       "reason": "Two slips in one display. First, the vectors were defined a few lines earlier by v_{i,n} = e_i + (a₀ + a₁p + ··· + a_n p^n)f_i, with the same index i on e and on f; the j in f_j is the bound index of the sum. Second, j is bound by the sum and has no meaning in the subscript of L on the right-hand side; the level at which the vector lies is p^{n_{j₀+1}}, which is also what the next sentence uses when it writes m_j := Q(v_{i,n_{j+1}-1}).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-        "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-        "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-        "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-        "a web search for a correction or erratum to this paper, which returned none"
-      ]
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked directly at the author-manuscript locator; the correction is justified by the named local formula.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
     },
     {
       "id": "PAPER-MAULIK-SHANKAR-TANG-22/E6",
       "kind": "misprint",
-      "locator": "§8.1, in the sentence introducing 𝒮^BB (accepted version; arXiv:2011.08887v1 has the same misspelling twice, at the start of §8 and in §8.1)",
+      "locator": "§8.1, in the sentence introducing 𝒮^BB; independently checked only in author manuscript (25 December 2021).",
       "printed": "𝒮^BB_Q is the Bailey–Borel/minimal compactification Sh^BB of Sh",
       "correction": "Baily–Borel, after Walter L. Baily, Jr.",
-      "reason": "The name is spelled Baily–Borel correctly in §1.5 of the same version, \"the boundary of the Baily–Borel compactification of 𝒮_{F_p}\", and that is the standard spelling. One of the two occurrences in arXiv:2011.08887v1 has already been corrected in the accepted version; this is the one that remains.",
+      "reason": "The author manuscript uses Baily–Borel correctly in §1.5 and misspells it in §8.1. Review confirmation is restricted to this version; the inherited claim about two v1 occurrences was not independently checked.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-        "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-        "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-        "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-        "a web search for a correction or erratum to this paper, which returned none"
-      ]
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked directly at the author-manuscript locator; the correction is justified by the named local formula.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E7",
+      "kind": "error",
+      "locator": "Author manuscript (25 December 2021), Proposition7.17 pp.35–36, Theorem7.18 and final proof of Theorem1.2 p.36",
+      "printed": "i_P(X,T)_mt = αΣg_P(m)+O_T(X^{1+(b+2)/4}); Σi_P = α'Σg_P+O(X^{(b+1)/2})",
+      "correction": "Use ≤ in these statements and the last step of the contradiction argument. Preserve 0<α<α'<1.",
+      "reason": "By §7.12, T=1 makes the main term the empty sum, zero. At supersingular P the proposed positive-α main term grows as X^{1+b/2}, strictly faster than X^{1+(b+2)/4} for b≥3. Hence that equality cannot hold. Both proofs establish only upper bounds; the final contradiction needs only the bounds.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E8",
+      "kind": "gap",
+      "locator": "Author manuscript (25 December 2021), Definition7.6 p.31",
+      "printed": "Σ_{P∈(C∩Z(m))(k)}g_P(m)=|q_L(m)|(ω.C)",
+      "correction": "Sum over all C(k) for equality; for the displayed subset retain ≤ unless all positive-Hasse-order points are shown to belong to it.",
+      "reason": "The degree of the pulled-back section of ω^{p−1} sums its orders at all points of C. The cited reason does not establish that its support is contained in a particular Z(m). Nonnegative subset sums give the sufficient upper bound used by the final contradiction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E9",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma4.3 p.12 and §6.4 p.26",
+      "printed": "λ∈Z_{p²}^×; λ² mod p∈F_p nonsquare; ⟨f_1,f_1⟩=−2λ²p",
+      "correction": "Choose λ²=u∈Z_p^× nonsquare modulo p and σ(λ)=−λ, for example a suitable Teichmüller square root.",
+      "reason": "If λ_0²=u∈Z_p is such a choice, λ=λ_0+p has the same residue condition but λ²=u+2pλ_0+p²∉Q_p. Then the asserted Z_p-valued Gram entry is not in Z_p. The stronger choice exists and is exactly the one used in the subsequent Frobenius calculation.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E10",
+      "kind": "error",
+      "locator": "Author manuscript (25 December 2021), Lemma5.9 pp.20–22",
+      "printed": "im(∏_{j=1}^lK_{i_j}^{(i_1+…+i_{j−1})})=Span_{K[[t]]}{v_n}; ∏_jY_{i_1}^{(i_1+…+i_{j−1})}",
+      "correction": "Require length l≥2 for the one-row product formula, use Y_{i_j} in each factor, and state image containment over K[[t]]; rank one over K((t)) additionally requires a nonzero scalar.",
+      "reason": "For l=1,i_1<n the two nonzero independent columns of A_i give rank2. For any positive-length product all entries vanish at t=0, so its K[[t]]-image cannot be the full constant line generated by v_n. Zero Y_i give zero products. The displayed induction and the l=2 case determine the corrected factor index.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E11",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma5.11(3) pp.22–23",
+      "printed": "all (l_1,…,l_r)∈I_r^min must have l_α∈{i_α,j_α}",
+      "correction": "Every coordinatewise recombination l_α∈{i_α,j_α} of two minimizing tuples is minimizing.",
+      "reason": "The printed direction fails already at r=1,n=4 with X_i=Y_i=t (i=1,2,3), no primed coordinates and p=5: a=(1,1,1,2,∞), so (1),(2),(3) all minimize. Taking I=(1),J=(2) excludes the third. The proof establishes the corrected closure direction, and that is what (4),(5) use.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E12",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma5.13 proof p.23",
+      "printed": "Moore determinant vanishes iff first-row entries are linearly independent",
+      "correction": "Replace independent by dependent.",
+      "reason": "In F_25=F_5[u]/(u²−2), 1,u are F_5-independent and the 2×2 Moore determinant is u^5−u=−2u≠0. The surrounding argument already uses independence to deduce invertibility.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E13",
+      "kind": "gap",
+      "locator": "Author manuscript (25 December 2021), §5.14 and Theorem5.15 p.25",
+      "printed": "ν_(s,…,s)=a_s(1+…+p^{r+1})",
+      "correction": "From §5.10 the value is a_sΣ_{j=0}^{r+1}p^{sj}. Reprove the generalized decay rate, or state a slower p^s-spaced rate with its actual PD cutoff; do not silently keep Definition5.1's p-spaced threshold.",
+      "reason": "For p=5,s=2,r=0,a_s=1 the two sums are 26 and 6. Replacing h by a_s does not justify ν_{r+2}/p<h_r+1 by this computation. This is a proof gap for the generalized rate, not a counterexample to the ordinary main theorems, which use s=1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E14",
+      "kind": "gap",
+      "locator": "Author manuscript (25 December 2021), §§5.5–5.6, §5.10 and proof of Theorem5.2 p.24; §6.3 p.26",
+      "printed": "h=v_t(Q(t)); c_I∈W^× from leading coefficients of Y_{i_j}",
+      "correction": "Distinguish v_t of the reduction from v_t of a characteristic-zero lifted sum, and recheck the p-denominator/minimal-term argument after cancellation. Coordinate Teichmüller lifts do not make arbitrary sums of products have Teichmüller-unit leading coefficient.",
+      "reason": "At p=5 in the superspecial split chart with m=3 set x_i=t, y_1=y_2=t, y_3=3t+t². The prescribed lifts give Q(t)=−(2+[3])t²−t³. The Teichmüller lift [3] is 18 mod25, so 2+[3]=20 mod25 is nonzero divisible by5. Thus v_t(Q)=2 while v_t(Q mod5)=3, the actual Hasse order. The same phenomenon affects Y_n,Y_{n+1}, which are sums rather than coordinatewise Teichmüller lifts. A valuation-aware repair remains to be supplied; the main theorem is not declared false.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E15",
+      "kind": "error",
+      "locator": "Author manuscript (25 December 2021), Lemma6.6 p.27",
+      "printed": "P_{α,β}=cN^{(1)} for even α; ker(F_{l,m+1}p^{α+β}P_{α+β} mod p)",
+      "correction": "For α=β=0 use P=I; for α+β>0 keep the two formulas, and require nonzero reduction of the scalar for the stated kernel exclusions. Replace P_{α+β} by P_{α,β}.",
+      "reason": "The empty product is I, not rank-one N^{(1)}. The zero-factor issue is independent: take x_1=t,y_1=u t in F_25 with u²=2 (other coordinates zero). Q mod5=−u t²≠0 but R mod5=−(u^5+u)t^6=0. For α=0,β=1 the cleared product reduces to zero, so its kernel is the entire two-dimensional space. These zero terms cannot be used for the claimed obstruction.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E16",
+      "kind": "gap",
+      "locator": "Author manuscript (25 December 2021), proof of Theorem6.2, Case2 and opening of Case3, p.28",
+      "printed": "P_{r−e+1,e}; P_{r−e+1,e−1}",
+      "correction": "Treat r<e−1 separately before using these products. For Case2 the candidate index must be truncated (β≤r+1, α=r+1−β); prove the corresponding minimum and obstruction.",
+      "reason": "When e≥2 and r=0, α=r−e+1 is negative although P was only defined for nonnegative indices. Case3 later treats the small-r branch for e_1,f_1, but its opening assertion about e'_1 and Case2 also need that branch. This is a missing finite-index case, not a disproof of decay.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E17",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma7.5 proof p.30",
+      "printed": "−(ω.C)+Σ_{m≥1}Z(m).C",
+      "correction": "Insert q^m in each positive-index term of the generating series.",
+      "reason": "The next sentences take Fourier coefficients and subtract the Eisenstein series; a sum of scalar intersection numbers without the formal/analytic powers cannot be that generating series. Item71 uses the corrected form.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E18",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma7.16 proof p.35",
+      "printed": "(1−p^{-1})+p^{−dim M'}(1+p^{-1})",
+      "correction": "The normalized recurrence gives ≤(1−p^{-1})+p^{-1}(1+p^{-1})=1+p^{-2}≤1+p^{-1}.",
+      "reason": "The induction bounds p^{1−dim M'} times the representation count, so substituting the count into p^{−dim M'} times it leaves p^{-1}, not p^{−dim M'}. The intended final upper bound is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E19",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma8.10(1) pp.41–42",
+      "printed": "Z⊂Sh_2; T̄_X is not contained in Z_k",
+      "correction": "State properness explicitly (and, for the adjoint-monodromy argument, the proper adjoint-group image used in the proof). If ⊂ is intended strictly, record that convention.",
+      "reason": "Under non-strict subset notation Z=Sh_2 contradicts the statement immediately. The proof itself invokes a proper adjoint subgroup. The special-divisor application has the intended positive-codimension scope; this finding clarifies scope and does not dispute that application.",
+      "affects": "nothing",
+      "known": "No source correction established; notation clarification only.",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Do not register a confirmed misprint on this evidence: the displayed ⊂ can mean strict inclusion, consistent with the proof's proper-subgroup argument. The extraction should state properness/proper adjoint image explicitly, but the equality counterexample under a different notation convention is not an independently established source error.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
+    },
+    {
+      "id": "PAPER-MAULIK-SHANKAR-TANG-22/E20",
+      "kind": "misprint",
+      "locator": "Author manuscript (25 December 2021), Lemma4.5 proof p.13, §5.7 p.20 and Lemma5.9 proof p.22",
+      "printed": "pv_{2n−1}=pφ^{n−2}(v); C:2n×m,D:m×2n; n<i<2n−1,−x_{n−i}; w_{n+i_1}",
+      "correction": "Use pφ^{2n−2}(v); block dimensions 2n×2m and 2m×2n; B_2(n+j,2n)=−X_j for 1≤j<n; and w_{i_1}.",
+      "reason": "These follow directly from v_i=φ^{i−1}(v), rank𝓛_1=2m, the displayed u' matrix in §4.11, and the subsequent evaluation R_{n+i_1}(w_{i_1})=1. The incorrectly excluded last row and negative coordinate index are repaired explicitly in item52.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+        "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+        "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+        "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version.",
+        "by": "REV-PAPER-MAULIK-SHANKAR-TANG-22"
+      }
     }
-  ]
+  ],
+  "reviewGaps": [
+    "Coverage is not closed at §0/§16 granularity: split compound items (notably 18–23, 38–44, 62, 67/70, 87, 94–96) into definition/theorem leaves with explicit prerequisite edges, API/use/test outlines. Write every entry and change-of-basis map for Kisin's coordinate u/F matrices; replacing a formula by 'the displayed matrix' does not close an interface.",
+    "Repair the characteristic-zero lift/reduction valuation comparison in E14, the nonzero-scalar/empty-product cases in E15 and the r<e−1 superspecial branches in E16. The exact counterexamples establish failures of the displayed auxiliary assertions, not falsity of the main theorems. No accepted decay supplier until a corrected proof is written.",
+    "Keep the general Newton-stratum target5.15 quarantined under E13. The ordinary s=1 case does not use that extension. A proposed p^s-spaced rate still needs the correct PD cutoff and rank argument; it is not an established replacement theorem.",
+    "Extract the exact statements and hypotheses of Ogus79/82/01, Kisin10/17, Madapusi Pera16/19, Howard–Pappas17 and de Jong95, including weight twists, integral comparison and the special-tensor lifting obstruction. These are named suppliers, not independently checked proof closures. Separate CR.0's generic completed envelope from item51's coefficient lemma.",
+    "Prove the finite discriminant-module Weil comparison and the E_0 constant-term/cycle-pushforward normalizations against the sibling SSTT route (e_0 versus 2e_0). Resolve ±v, stack automorphisms and reduced support before using the global/local equality; the q^m correction alone is insufficient.",
+    "Extract the earlier MST arXiv:1812.11679 inputs for b=2 and b=3, especially the rank-three decay estimate needed by the small-rank tail. Preserve dependence of uniform constants on the fixed lattice/rank and the all-C Hasse divisor inequality; never restore the false main-term equalities.",
+    "Close proper-curve selection, finite-field descent and Hilbert irreducibility/Frattini specialization in Lemma8.11. BSE21 is a finite-constant-field supplier, not a theorem directly over F_p-bar(t). Combine monodromy preservation with boundary avoidance and ordinarity rather than assert this combination. Extract Kisin17 and the unitary RSZ20/21 model input; retain low-dimensional induction cases.",
+    "Resolve the K3 period-map/characteristic-zero Green–Oguiso comparison and reusable Hilbert/monodromy owners within existing directions. The K3 application does not justify a second uncoordinated roadmap. Coalesce proposed integral-model, generating-series and boundary bridges before any design; pending proposals are not available atlas layers.",
+    "All source findings are version-qualified to the 47-page author PDF. Reconcile with an accessible version of record or a later corrected author version if available; no independent arXiv-v1 source comparison or full published-PDF reading is claimed. Bibliographic supplier links inherited from the extraction still need full validation when those papers are read."
+  ],
+  "review": {
+    "by": "independent-review-REV-PAPER-MAULIK-SHANKAR-TANG-22",
+    "verdict": "revise",
+    "agent": "Codex — codex-a71f92",
+    "notes": "Completed independent negative review of Claude Code — cc-7b31c4's PR #1992. Extraction corrected in place and partial: 97 items (4 library, 10 planned, 83 missing), seven routes; 18 manuscript source findings confirmed and E4/E19 rejected. Route5/6 accepted only as bounded source adapters; overall revise activates no routes. See the review report for scope, exact diagnostics and remaining closure obligations.",
+    "date": "2026-09-23",
+    "session": "codex-a71f92"
+  }
 }

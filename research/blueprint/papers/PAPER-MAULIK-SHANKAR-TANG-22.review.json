@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-MAULIK-SHANKAR-TANG-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Correct common orthogonal integral-model owner, but special-cycle stack/±v multiplicity, exact Kisin/Madapusi Pera interfaces and compound construction leaves are not closed. Boundary items have been moved to route3."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Shared GSpin generating-series owner retained. Resolve e_0 versus 2e_0, finite Weil comparison and special-cycle pushforward before reuse. Correcting exponent 2+b and q^m does not prove normalization compatibility."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "Correct shared integral Hodge-type boundary Part II, including moved items27–28 and compatible-fan restriction. Formal chart, torsor/finite quotient and supplier closure remain incomplete; PEL C5 is not a general Hodge-type supplier."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Converted from new to Part II of ShimuraVarieties. E13–E16, finite-field proper-curve/monodromy interfaces, small-rank earlier-MST input, K3 comparison ownership and compound-item granularity block design."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Bounded source additions to GN.1/GN.3/GN.4: minima/densities already planned, rank-uniform counts and the explicit mass formula imported once. No completed implementation or characteristic-p decay proof is inferred. E4's alleged character typo is rejected."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Narrow AN.1 source adapter for discriminant-character/negative-real-exponent coefficient formulas. Imports pinned L-functions, prime-discriminant characters and natural-exponent twisted sums; no duplicate analytic continuation."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Correct generic deformation-theory owner for the necessary de Jong lifting obstruction, importing CR.0 envelopes. Exact supplier hypotheses, special tensors and coefficient cutoff still need proof extraction; no converse claimed."
+    }
+  ],
+  "notes": "Completed independent review by Codex — codex-a71f92 of Claude Code — cc-7b31c4's PR #1992. All 96 inherited items, six routes and six source findings checked against the 47-page author manuscript; corrected extraction has 97 items, 4 library/10 planned/83 missing, seven routes and 20 findings (18 confirmed, E4/E19 rejected). Full published PDF and original arXiv source comparison were not read independently. Overall revise activates no routes, including the bounded route5/6 source acceptances. The extraction is partial; this completed negative review is not an unfinished review checkpoint. See the report for diagnostics and explicit closure gates."
+}
