@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source addition to DeformationAndDerivedPatchingAlgebra at DeformationAndDerivedPatchingAlgebra:R03.1, DeformationAndDerivedPatchingAlgebra:R03.3 (15 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it. Together the five source routes carry the GIT, deformation-algebra, determinant, duality and p-adic Hodge inputs, which is what leaves the two Part IIs carrying only the paper's own structural results."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source addition to LocalGaloisDeformationRings at LocalGaloisDeformationRings:R08.1 (10 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it. Together the five source routes carry the GIT, deformation-algebra, determinant, duality and p-adic Hodge inputs, which is what leaves the two Part IIs carrying only the paper's own structural results."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source addition to IntegralHeckeAndGaloisDeterminants at IntegralHeckeAndGaloisDeterminants:IHG.1 (3 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it. Together the five source routes carry the GIT, deformation-algebra, determinant, duality and p-adic Hodge inputs, which is what leaves the two Part IIs carrying only the paper's own structural results."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source addition to ArithmeticGaloisDuality at ArithmeticGaloisDuality:D7 (2 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it. Together the five source routes carry the GIT, deformation-algebra, determinant, duality and p-adic Hodge inputs, which is what leaves the two Part IIs carrying only the paper's own structural results."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source addition to PadicHodgeTheory at PadicHodgeTheory:R06.2 (1 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it. Together the five source routes carry the GIT, deformation-algebra, determinant, duality and p-adic Hodge inputs, which is what leaves the two Part IIs carrying only the paper's own structural results."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II of LocalGaloisDeformationRings, 96 items and the bulk of the extraction. Accepted. The title is an exact prefix extension of its parent's, the name is free, and PAPER-PASKUNAS-QUAST-26 proposes it with identical id, parent and title, so it is a merge. The parent owns framed local deformation rings and potentially semistable deformation spaces; what this paper adds — that R^□_ρ̄ is a complete intersection, the analysis of its irreducible components, normality, and the fixed-determinant variants — is exactly the structural theory the parent stops short of, and it is the paper's own contribution rather than imported machinery."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Part II of CompletedCohomologyAndLocalGlobalCompatibility, 14 items, for §6's density of points with prescribed p-adic Hodge-theoretic properties. Accepted; title an exact prefix extension, name free. Worth recording a cross-paper check this reviewer could make directly: PAPER-LE-LEHUNG-LEVIN-ETAL-23 proposes this same roadmap with identical id, parent and title, and I checkpointed that extraction earlier in this same session. The two proposals agree, so they merge rather than compete, and a maintainer reconciling them will find no divergence to resolve."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status, route or locator changed. All 147 items, 7 routes and 9 recorded mistakes were checked against the published open-access article, Forum Math. Pi 11 (2023), e30, 54 pp., re-fetched for this review; printed page = PDF page. TWO CLAIMS IN THE SOURCE BLOCK WERE TESTED RATHER THAN ACCEPTED. First, the extraction states that 'The Corrigendum corrects only an affiliation'. I fetched the Corrigendum (Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3) and read it in full: it says that on page 1 the affiliation 'Universität Duisberg Essen' was misspelled and should read 'Universität Duisburg-Essen', and registers nothing else. The claim is exactly right, and confirming it matters, because it is the basis on which all nine findings can say that no erratum corrects them. Second, the recorded sha256 of the published PDF is NOT reproducible: Cambridge stamps every page with the download time, and three downloads on 23 September 2026 gave three different hashes. A reproducible stamp-stripped text hash, 99bb7a1b…3de1, was recorded in its place, together with a note that the served PDF is the post-Corrigendum version. All 9 recorded mistakes are confirmed, and four decisively. E1 and E4 were settled on page images, because each turns on a glyph the text layer drops — a summation limit and a bar — and both are plainly there: p. 9 prints Σ_{i=0}^{n} in the very sentence that defines Λ_i for 0 ≤ i ≤ d with exponent t^{d−i}, and p. 28 prints U_max = X^ps ∖ {𝔪} ⊂ X̄^ps although U_max is an open subscheme of X^ps. E6 is self-referential as printed: 'Let R_{ρ_x} be the universal deformation ring of R_{ρ_x}'. E8 was checked against the paper's own environment headings: 3.23 and 3.37 are headed Lemma but cited as Corollary and Proposition, 4.29 is headed Corollary but cited as Lemma, and 3.24 appears internally under both Lemma and Proposition. E2, E3, E5, E7 and E9 were verified as printed; for E7, the only one classed as affecting a proof, the repair follows the extraction's analysis and the verdict says so. The extraction records no library items, which is right for this material; 11 planned items all name atlas layers that exist; all 136 missing items are routed exactly once; there is no run-together numbering. Both Part II titles are exact prefix extensions of their parents' and both names are free. Both are also co-proposed with identical id, parent and title — one by PAPER-PASKUNAS-QUAST-26 and one by PAPER-LE-LEHUNG-LEVIN-ETAL-23, whose extraction this reviewer checkpointed earlier in the same session, so I can report directly that the two agree and will merge without divergence. Every check is listed in research/blueprint/reviews/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md."
+}

@@ -277,3 +277,31 @@ These are listed in the result with links and reasons:
   - Conrad's lifting preprint (2011);
   - Call–Lyubeznik (1994);
   - Kisin (2003, Proposition 9.5).
+
+## Review (REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1383](https://github.com/CBirkbeck/tauceti-explorer/issues/1383). **Verdict: accept.**
+No item, status, route or locator changed.
+
+- **The Corrigendum claim was tested.** The extraction states it "corrects only an
+  affiliation"; the review fetched Forum Math. Pi 12 (2024), e5 and read it in full — it
+  corrects the spelling "Universität Duisberg Essen" → "Universität Duisburg-Essen" and
+  nothing else. That matters, since it is the basis on which all nine findings can say no
+  erratum corrects them.
+- **The recorded PDF hash is not reproducible.** Cambridge stamps each download; three
+  downloads gave three different hashes. A reproducible stamp-stripped text hash
+  (`99bb7a1b…3de1`) was recorded in its place, with a note that the served PDF is the
+  post-Corrigendum version.
+- **All 9 mistakes confirmed, four decisively.** E1 and E4 on page images, since each turns on
+  a dropped glyph: p. 9 prints `Σ_{i=0}^{n}` in the sentence defining `Λ_i` for `0 ≤ i ≤ d`
+  with exponent `t^{d−i}`; p. 28 prints `⊂ X̄^ps` where `U_max` is open in `X^ps`. E6 is
+  self-referential ("the universal deformation ring of `R_{ρ_x}`"). E8 was checked against the
+  paper's own headings — 3.23 and 3.37 are Lemmas cited as Corollary/Proposition, 4.29 a
+  Corollary cited as Lemma, and 3.24 appears internally as both.
+- **Items and routes:** no library items; 11 planned resolving; 136 missing routed exactly
+  once; both Part II titles exact prefix extensions with free names, and both co-proposed
+  identically — one of them by PAPER-LE-LEHUNG-LEVIN-ETAL-23, checkpointed by the same
+  reviewer in the same session, so the agreement is reported at first hand.
+
+Full report: `research/blueprint/reviews/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md`.

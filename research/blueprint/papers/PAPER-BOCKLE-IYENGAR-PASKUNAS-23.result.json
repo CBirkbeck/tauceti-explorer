@@ -42,7 +42,10 @@
     "sha256": "f31855e4a7dfa12e45f739daed18061f18b370ed1ecec312fd5116d0434c2b46",
     "read": "the Corrigendum (affiliation only)"
    }
-  ]
+  ],
+  "sha256Note": "The sha256 recorded for the published Cambridge PDF is NOT reproducible. Cambridge stamps each download: every page carries a 'Downloaded from https://www.cambridge.org/core … on <date> at <time>' line. Review REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23 downloaded the article three times on 23 September 2026 and obtained three different hashes (d51b0526…4898, fd2f9e08…7e42, and the recorded ef8dbe35…a9a69), differing only in that stamp. Use publishedTextSha256 below, which IS reproducible, or the arXiv copy, as the verifiable anchor.",
+  "publishedTextSha256": "99bb7a1b43652f946fc06dd31c905d2a502bf1c73504130bf8e1dbb3104b3de1 — SHA-256 of `pdftotext -layout` output with the per-download Cambridge stamp lines removed; obtained identically from two separate downloads by review REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23. The served PDF is the post-Corrigendum version: it reads 'Universität Duisburg-Essen'.",
+  "corrigendumCheck": "Review REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23 fetched the Corrigendum (Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3) and read it in full. It corrects only the spelling of an affiliation — 'Universität Duisberg Essen' to 'Universität Duisburg-Essen' — and registers no mathematical correction, confirming the extraction's statement. Crossref's record of the article lists this as its only update."
  },
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1664,7 +1667,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively, on a page image, because the crux is a summation limit that the text layer drops. Page 9 prints, in one sentence: 'Let Λ_i : E → R^ps, 0 ≤ i ≤ d be the coefficients of the characteristic polynomial of D^u; these are homogeneous polynomial laws satisfying D^u(t − a) = Σ_{i=0}^{n} (−1)^i Λ_i(a) t^{d−i}'. The coefficients are indexed 0 ≤ i ≤ d and the exponent is t^{d−i}, so the upper limit must be d; the printed n is not even a defined symbol there. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E2",
@@ -1680,7 +1688,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at p. 19: 'For each 1 ≤ j ≤ r, let R^ps_j be the universal deformation ring of D̄'_j and let X^ps_j := R^ps_j.' A scheme is set equal to a ring; X^ps_j := Spec R^ps_j is meant, as the surrounding use of X^ps_j as a scheme requires. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E3",
@@ -1696,7 +1709,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at p. 27: 'Note that if ρ̄_i : G_F → GL_d(k) is an (absolutely irreducible) representation with pseudo-character D̄_i'. The index i runs over a decomposition whose factors have their own dimensions d_i summing to d, so GL_{d_i}(k) is meant; with GL_d the statement would force every factor to have the full dimension. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E4",
@@ -1712,7 +1730,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively, on a page image, because the crux is a bar the text layer drops — and the bar is plainly there. Page 28 prints 'Proof. The open subscheme U_max = X^ps ∖ {𝔪_{R^ps}} ⊂ X̄^ps is Jacobson by Lemma 3.18'. U_max is X^ps with a point removed, so it is an open subscheme of X^ps, not of the compactification X̄^ps; the bar is the slip. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E5",
@@ -1728,7 +1751,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at p. 31: 'let X^ps_𝒫 be the scheme theoretic image of X^ps inside X^ps_Σ'. The two schemes are the wrong way round for the use that follows — the image is taken of X^ps_Σ inside X^ps — and 'scheme theoretic' is unhyphenated here while hyphenated elsewhere in the paper. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E6",
@@ -1744,7 +1772,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at p. 42, where the sentence is self-referential as printed: 'Let R_{ρ_x} be the universal deformation ring of R_{ρ_x}'. The object being deformed is the representation ρ_x, named two clauses earlier ('denote by ρ_x'). Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E7",
@@ -1760,7 +1793,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed at p. 48, in the proof of Lemma 6.5: 'Then ψκ^{−1}(ζ) = 1, and hence, ψκ^{−1} is trivial on the torsion subgroup of F^×. Moreover, ψ is crystalline by the above. Note that ψκ^{−1} ≡ 1 (mod ϖ).' I verified the passage word for word. The proposed repair — replacing ψ by ψμ for the unramified μ with μ(Art_F(ϖ_F)) = κ(Art_F(ϖ_F)), so that ψμ is still crystalline and ψμκ^{−1} still trivial on torsion — follows the extraction's analysis of what the argument needs; I did not re-derive it, so the repair rests on the extraction rather than on this review. This is the only one of the nine classed as affecting a proof, and that classification looks right. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E8",
@@ -1776,7 +1814,12 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively, and by the paper's own environment headings. I searched the published text for each cited result and compared its actual environment with the citation: 3.23 is headed 'Lemma 3.23.' but is cited on p. 25 as 'Corollary 3.23'; 3.37 is headed 'Lemma 3.37.' but is cited as 'Proposition 3.37'; 4.29 is headed 'Corollary 4.29.' but is cited as 'Lemma 4.29'; and 3.24 appears in the text under BOTH 'Lemma 3.24.' and 'Proposition 3.24.', so the paper is inconsistent about that one internally. Four cross-references carry the wrong environment kind; none of the numbers is wrong, so nothing downstream is misdirected. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E9",
@@ -1792,7 +1835,23 @@
     "the published article, Forum Math. Pi 11 (2023) e30, https://doi.org/10.1017/fmp.2023.25 (open access; full text read and compared)",
     "the Corrigendum, Forum Math. Pi 12 (2024) e5, https://doi.org/10.1017/fmp.2024.3, which corrects only an author affiliation ('Duisberg' to 'Duisburg-Essen')",
     "Crossref metadata for DOI 10.1017/fmp.2023.25 (its only update relation is that Corrigendum)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, at each of the locators I checked. Page 22 prints 'd² + d²[F:Q_p] − dim Y ≥ 1 + l_{𝒫_max}[F:Q_p] ≥ 1 + 2[F:Q_p]' and p. 51 prints 'dim U^irr − dim U^Cred ≥ d[F:Q_p] ≥ 2'. The final numerical step in each needs d ≥ 2: at d = 1 one has l_{𝒫_max} = 1, and d[F:Q_p] = [F:Q_p] can be 1 when F = Q_p, so the last inequality fails. Stating the hypothesis is the right repair, and 'affects nothing' is right because the paper's setting has d ≥ 2 throughout. Verified against the published open-access article, Forum of Mathematics Pi 11 (2023), e30, 54 pp., re-fetched by this review on 23 September 2026; printed page = PDF page. This review also fetched and read the Corrigendum, Forum Math. Pi 12 (2024), e5, doi:10.1017/fmp.2024.3, and confirms the extraction's statement that it corrects only an affiliation: it says in full that 'On page 1, the affiliation \"Universität Duisberg Essen\" was spelled incorrectly. The correct spelling should read: Universität Duisburg-Essen.' No mathematical correction is registered, and Crossref lists no other update.",
+    "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
+   }
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1383,
+  "job": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "The published open-access article, Forum Math. Pi 11 (2023), e30, 54 pp., re-fetched on 23 September 2026 (printed page = PDF page); and the Corrigendum, Forum Math. Pi 12 (2024), e5, read in full. Every one of the 9 recorded mistakes checked at its locator, with pp. 9 and 28 read on page images.",
+  "changes": "No change to any item, status, route or locator. All 9 recorded mistakes carry review verdicts and all are confirmed. Three source-block records were added: the published PDF's sha256 is not reproducible because Cambridge stamps each download, a reproducible stamp-stripped text hash was recorded in its place, and the Corrigendum was fetched and confirmed to correct only an affiliation.",
+  "lean": "none"
+ }
 }
