@@ -2,7 +2,7 @@
 
 Laura DeMarco, Holly Krieger and Hexi Ye, *Uniform Manin–Mumford for a family of genus 2 curves*, [Annals of Mathematics 191 (2020), 949–1001](https://doi.org/10.4007/annals.2020.191.3.5); arXiv [1901.09945](https://arxiv.org/abs/1901.09945).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1127). Status: **complete**. The whole of arXiv v2 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-KRIEGER-YE-20.result.json](PAPER-DEMARCO-KRIEGER-YE-20.result.json): 53 items (4 library, 9 planned, 40 missing), 3 routes, 12 prerequisite entries and 13 recorded source issues. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) corrected it in place; its changes are listed at the end.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1127). Status: **complete**. The whole of arXiv v2 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-KRIEGER-YE-20.result.json](PAPER-DEMARCO-KRIEGER-YE-20.result.json): 53 items (3 library, 10 planned, 40 missing), 3 routes, 12 prerequisite entries and 13 recorded source issues. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) corrected it in place; its changes are listed at the end.
 
 **Source.** arXiv v2 (3 December 2019, the latest and post-referee version; 49 pages), [PDF](https://arxiv.org/pdf/1901.09945v2), SHA-256 `8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8`, read in full on 2026-09-22. Locators refer to v2. The review later read the published Annals version, which is freely available from the journal site; its differences are listed at the end.
 
@@ -142,3 +142,5 @@ The locators of the main items now also give the published numbering and pages.
 - "Néron-Tate canonical height on ĥ_{E_t}" (p.47);
 - the missing weights r_v in "2h(x) = Σ_v |log|x|_v|" (p.41);
 - the bound 16|S| in §9.3, which is true but loose (the exact count is 4|S| − 2|S ∩ branch values|).
+
+**Post-review correction (cc-442dc5, 23 September 2026).** Item 10, the logarithmic Weil height on ℙ¹(Q̄) and 𝔸²(Q̄), moves from library to planned by HeightsRationalPointsAndObstructions RP.0. Mathlib's `Projectivization.logHeight` is the height relative to a field with admissible absolute values (for a number field, not normalized by the degree) and has no Q̄ version; RP.0 plans the normalized absolute height. The review had accepted the library status.
