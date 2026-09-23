@@ -1,0 +1,72 @@
+{
+  "paper": "PAPER-YU-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source of FunctionFieldArithmetic (FunctionFieldArithmetic:FA.0, FunctionFieldArithmetic:FA.1, FunctionFieldArithmetic:FA.2, FunctionFieldArithmetic:FA.4, FunctionFieldArithmetic:FA.6) for 6 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of GlobalShtukasAndFunctionFieldLanglands (GlobalShtukasAndFunctionFieldLanglands:GS.0, GlobalShtukasAndFunctionFieldLanglands:GS.6) for 4 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of AutomorphicSpectralTheory (AutomorphicSpectralTheory:AS.0, AutomorphicSpectralTheory:AS.1, AutomorphicSpectralTheory:AS.2, AutomorphicSpectralTheory:AS.3, AutomorphicSpectralTheory:AS.4, AutomorphicSpectralTheory:AS.6) for 42 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of AutomorphicLFunctionsAndLocalFactors (AutomorphicLFunctionsAndLocalFactors:AL.3) for 6 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of DeligneWeightsAndPurity (DeligneWeightsAndPurity:DWP.0, DeligneWeightsAndPurity:DWP.1, DeligneWeightsAndPurity:DWP.7) for 2 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of EndoscopicTransferAndUnitaryTraceComparison (EndoscopicTransferAndUnitaryTraceComparison:ET.2b) for 1 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source of QSeriesPartitionsAndMockModularForms (QSeriesPartitionsAndMockModularForms:QM.0) for 8 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Source of ClassicalArithmeticCompletion (ClassicalArithmeticCompletion:CA.2) for 3 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Source of SchemeAndStackFoundations (SchemeAndStackFoundations:SF.3) for 1 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Source of EtaleDualityAndPerverseSheaves (EtaleDualityAndPerverseSheaves:EDC.2:pairings) for 1 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Source of WeilConjectures (WeilConjectures:WC.5:power-sum-converse) for 1 items; the stages exist and own the material sent to them."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Part II of GlobalShtukasAndFunctionFieldLanglands for the counting machinery, taking 67 of the 120 missing items. The title reproduces the parent's atlas title ('Global shtukas and Langlands over function fields') exactly, the area functionfields is a galaxy id, and the 226-word brief states what the new layers must build. The direction is the parent's: it constructs shtukas and the Langlands correspondence over function fields, and this paper counts the ℓ-adic local systems that correspondence classifies, through a trace formula the parent does not carry."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Part II of the Tau Ceti roadmap 'Finite-dimensional representations of the classical groups' for the single item on rational symplectic-similitude characters. Extending a Tau Ceti roadmap by a Part II is exactly what section 15 prescribes, the title reproduces the parent's title exactly, and the brief is explicit that the upstream roadmap is imported rather than re-planned ('Do not apply the finite-group repRingCharacter_injective theorem to GSp(Q), or construct a second split Grothendieck ring'). One correction was made in place: the area was 'algebra', which is not a galaxy id; it is now 'representations', the galaxy the parent belongs to. This extraction is the only proposer of the roadmap, so the change desynchronises nothing."
+    }
+  ],
+  "notes": "Accept. 154 items, 11 library, 23 planned and 120 missing, every missing item routed exactly once across thirteen routes, with 27 sourceIssues. I reproduced the recorded hash of arXiv v5 (9383bcde…), the 85-page text the extraction read. Structure: every stage named by the eleven source routes exists, all 18 distinct planned layer ids exist, and all fifteen declarations behind the eleven library items exist at the pinned commits — including the Tau Ceti ones (Divisor.finite_ker_degreeClass, isRiemannRochDivisor_weilDifferentialDivisor, repRing and repRingCharacter) and the less obvious Mathlib ones (Matrix.det_one_sub_mul_comm, ArithmeticFunction.sum_eq_iff_sum_smul_moebius_eq, UnitAddTorus.hasSum_mFourier_series_apply_of_summable, AddChar.expect_eq_ite). Both Part II routes reproduce their parent's title exactly, and the second correctly uses the Part II mechanism to extend a Tau Ceti roadmap rather than re-planning it. Its area was 'algebra', which is not a galaxy id in data/galaxies.json; I corrected it to 'representations'. This is the same corpus-wide problem I recorded in REV-PAPER-LESLIE-25, where I did not correct it because five extractions shared the roadmap and the area with it; here this extraction is the only proposer, so the change is safe and desynchronises nothing. Locators: 86 of 99 checks land on exactly the page given, and the thirteen others are artefacts of a locator format that mixes this paper's sections with other works' numbering — 'Laf97 p227' is a page of Lafforgue, 'KS99 Theorems 10.6.10–10.6.11' are Kottwitz–Shelstad's, and several pages attach to a § rather than to a numbered statement. The one genuine boundary case is Corollaire 2.3.3, which begins at the foot of p. 10 and is cited at p. 11 by three items. The 27 findings are dense and technical, fifteen of them affecting a proof. I verified the one that is settled by a one-line computation and it holds: (6.1.1) on p. 42 prints H^0_c(X, F_1 ⊗ F_2^∨) ≅ Hom_X(F_1, F_2) and (6.1.2) prints H^2_c ≅ Hom_X(F_2, F_1)^∨(−1), whereas F_1 ⊗ F_2^∨ is Hom(F_2, F_1), so the two Hom arguments are indeed reversed, exactly as E14 says. The others I read are of the same character — a sign, an index range, an ambient ring, a multiplicity — each with a specific repair and an honest reach. Nothing was rejected and no item was deleted."
+}
