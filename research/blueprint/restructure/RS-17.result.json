@@ -27,7 +27,7 @@
     },
     "DeligneWeightsAndPurity:DWP.1": {
       "action": "narrow",
-      "keeps": "The independent curve/abelian Weil estimate: apply the imported polarization, Rosati positivity and Tate/H1 realization to Frobenius–Verschiebung, prove all-conjugates sqrt(q) bounds and all-power curve counts with component permutations. Prove compatibility with the genus-one Hasse theorem, not a second Hasse proof. Retain Tate-versus-dual conventions, no Tate-isogeny shortcut and no DWP.4 dependency.",
+      "keeps": "The independent curve/abelian Weil estimate: apply the imported polarization, Rosati positivity and Tate/H1 realization to Frobenius–Verschiebung, prove all-conjugates sqrt(q) bounds and all-power curve counts with component permutations. Prove compatibility with the genus-one Hasse theorem, not a second Hasse proof. Retain Tate-versus-dual conventions, no Tate-isogeny shortcut and no DWP.4 dependency. Retain the H0 and H2 weights of curves and the compatibility of all these statements under finite base extension (review correction).",
       "suppliedBy": [
         "AbelianSchemesAndArithmeticModuli:A2",
         "AbelianSchemesAndArithmeticModuli:A6",
@@ -1166,11 +1166,6 @@
     },
     {
       "source": "EtaleDualityAndPerverseSheaves:EDC.5",
-      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
-      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.6; LefschetzPencilsAndVanishingCycles:LPV.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
-    },
-    {
-      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
       "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
       "reason": "Compatible with the separately submitted RS-19 removal of ET.2a:duality-perversity: preserve its early scheme/perverse/cycle comparison import directly at the surviving ET.5 consumer. This is not an import of EDC.7, IG.4–7 or a proof of the stronger contracting-boundary Igusa theorem."
     },
@@ -1183,11 +1178,6 @@
       "source": "EtaleDualityAndPerverseSheaves:EDC.5",
       "target": "LefschetzPencilsAndVanishingCycles:LPV.6",
       "reason": "Canonical supplier for the narrowed LPV.6 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Early constructible middle perversity/recollement/intermediate extension, not the enlarged nonconstructible support criterion. Keep the recipient's application/comparison target and its exact hypotheses."
-    },
-    {
-      "source": "EtaleDualityAndPerverseSheaves:EDC.6",
-      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
-      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.6; LefschetzPencilsAndVanishingCycles:LPV.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
     },
     {
       "source": "EtaleDualityAndPerverseSheaves:EDC.6",
@@ -2196,5 +2186,15 @@
         "WeilConjectures:WC.7"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-17",
+    "date": "2026-09-23",
+    "notes": "Checked the four member documents, all 37 stage records and the family evidence (68 records, 34 unordered pairs); every pair shares an owner entry. The 28 narrowings keep or name a supplier for every original target sampled (DWP.1, DWP.9, DWP.10, WC.5, WC.7, LPV.6, LPV.7 in full), and every consumer of every narrowed layer receives a link from each of its suppliers. The extension of WeightsInEtaleCohomology is titled correctly and continues DeligneWeightsAndPurity in scope. With the twelve accepted restructurings applied, no link closes a cycle; the 25 links with UPSTREAM sources are recorded contracts that restructure.py does not draw. Two corrections: DWP.1's keeps now restores the H0/H2 weights and base-extension compatibility, and two forwarding links into ET.2a:duality-perversity, a stage the accepted RS-19 drops, were removed; RS-17 already carries the replacement links into ET.5. See REV-RS-17.md.",
+    "corrections": [
+      "links: removed EtaleDualityAndPerverseSheaves:EDC.5 -> EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity and EDC.6 -> ET.2a:duality-perversity. Accepted RS-19 drops that stage and splices its consumer ET.5, and RS-17 already links EDC.5, EDC.6 and LPV.6 to ET.5.",
+      "layers[DeligneWeightsAndPurity:DWP.1].keeps: restored two original DWP.1 targets the narrowed text omitted, the H0/H2 weights of curves and compatibility under finite base extension; neither has another owner."
+    ]
+  }
 }
