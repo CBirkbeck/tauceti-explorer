@@ -1,13 +1,26 @@
 # PAPER-BUSHNELL-HENNIART-17 handoff
 
-Codex, session codex-a71f92; issue #1153; continuation of codex-c83e7a / PR #2001. Status: partial.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoints (codex-c83e7a, codex-a71f92). Issue #1153. Date: 23 September 2026.
 
-All 37 published pages independently reread. All 140 inherited IDs and E1–E17 preserved. Current counts: 145 items, 6 library / 10 planned / 129 missing, 350 internal edges, 42 definitions/constructions, 126 APIs, 144 structured tests, six routes, nine open gaps. The two new exact imports are Module.length_eq_add_of_exact and AddSubgroup.relIndex_mul_relIndex.
+## Saved
 
-New substantive work: fixed-map lattice volume comparison using an exact common uniformizer multiple, finite quotient exactness and length/cardinality cancellation; compact-open lattice measure/index and signed dilation; full conditional arithmetic c(β)=mf(ef−1). A sheared-lattice example shows intersections need not remain exact. Nonunit scaling of the last map can change the invariant. The three generic helpers route to AL.0; corestriction and its application remain in the existing SmoothRepresentationsPartII. Fintzen's hypotheses are unchanged.
+- **Items.** 149 items. Every missing item is routed exactly once, and every labelled statement is an item.
+  - New: the §1.1 Lemma, the §2.3 Proposition and Corollary, and the §2.4 Basic connection.
+- **Mistakes.** Seventeen, against the published Annals PDF.
+  - **Affect a stated result.** E5, E7, E12 and E13, of which E5, E12 and E13 were rechecked. None affects the main theorems.
+  - **Reclassified to affect nothing.** E4, E6 and E9.
+  - **E14 and E15.** These keep `known` values: this paper acknowledges them as corrections to BH14 and BH03.
+- **Gaps.**
+  - G5 and G9 are recorded as findings.
+  - The others are deferred as supplier proofs or design work.
 
-Resume G4 with BK93 (1.4.15), BHK98 §6.4 and BH03 §3.1: normalized corestriction and its allowable choices, minimal integral exactness, and adjacent-profile intercept transition. The fixed-map comparison is no longer an unexplained mathematical step, but its local-field/topology/Haar adapters still need elaboration. Do not treat the independent calculation as a reading of BHK98/BH03. AMS/public PDF leads returned 403/429 or no PDF; Wiley/Cambridge yielded metadata/access pages only. The CERN lead was a different paper and was rejected. The original failed journal-listing download remains negative provenance.
+## Resume
 
-All G1–G9 still apply. G3/G5/G6 need the original simple-character recursion, perturbation/translated groups and conductor/first-ramification proofs. G7 preserves characteristic and coefficient distinctions; G8 the finite p-group/projective lifting interfaces; G9 epipelagic/tensor existence and scalar-image normalization. All E1–E17 await independent review; no new erratum is asserted for the intersection shortcut. Keep the source corrections and DAG order, especially the range of Φ inverse and the late LLC-dependent density argument.
+The job is complete. For a reviewer:
 
-Validation: five new finite/rational diagnostic groups passed 1,317 cases. Prior diagnostics are attributed, not rerun. Run scripts/check_paper.py, intake.py check-files on exactly the three authorized paths, and the structural/API/test/DAG checks. Final outcomes are in JSON validation. No Lean compilation or implementation claimed. The historical 476-input manifest is preserved separately from the fourteen current targeted hashes (base 0fb51acb7bff97a8770bb6031922ea0e6e0cb90f).
+1. Check E5 (p. 939).
+2. Check E12 and E13 (pp. 952–953).
+
+## Validation
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
