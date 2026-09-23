@@ -6444,7 +6444,8 @@
    ],
    "avoidAccountOf": "PAPER-ICHINO-PRASANNA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-ICHINO-PRASANNA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1376"
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B",
@@ -7481,7 +7482,8 @@
    ],
    "avoidAccountOf": "PAPER-LAFFORGUE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-LAFFORGUE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1433"
   },
   {
    "id": "PAPER-KISIN-17",
@@ -8181,8 +8183,9 @@
    ],
    "avoidAccountOf": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1469"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1469",
+   "finishedAt": "2026-09-23T19:43:01Z"
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20",
