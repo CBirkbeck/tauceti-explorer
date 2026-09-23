@@ -721,7 +721,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZAVYALOV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1063"
   },
   {
    "id": "REV-PAPER-ZAVYALOV-25",
@@ -2957,8 +2958,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHARLES-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1188"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1188",
+   "finishedAt": "2026-09-23T05:59:13Z"
   },
   {
    "id": "REV-PAPER-CHARLES-16",
