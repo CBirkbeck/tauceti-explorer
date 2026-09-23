@@ -53382,9 +53382,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "All seven slips are at their locators in v1. (b) 𝒟⁻(X) is defined on p. 2 as a set of integers and the bound is on its cardinality, as the ratios around it are. (e) the next sentence itself says equation (3.2) 'forces the co-restriction of χ to be in the set {χ′, χ′ + ǫ}'. (g) the two doubled closing parentheses are on p. 26. All harmless. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E2",
@@ -53403,9 +53403,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Equation (1.2) on p. 3 prints the ratio with no limit; p. 2's display of Stevenhagen's conjecture, which (1.2) is the analogue of, carries lim_{X→∞}, and the ratio itself does not converge to the right side for fixed X. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E3",
@@ -53424,9 +53424,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Γ_𝔽₂(ℚ) is defined on p. 9 as Hom_top.gr.(G_ℚ, 𝔽₂), which contains the trivial character. The proof (p. 11) needs σ ∈ 𝒢 with χ(σ) = 1 to split Gal(L/ℚ) ↠ Gal(ℚ(χ)/ℚ), and for χ = 0 there is no such σ, ℚ(χ) = ℚ and Cl(ℚ(χ))^∨[2^s] = 0. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E4",
@@ -53445,9 +53445,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The proof (p. 13) rewrites −(−1)^{χ_{xx₀}(σ)} + 1 as −(−1)^{|T_x ∩ T_σ|} + 1. Since xx₀ ≡ ∏_{i : π_i(x) ≠ π_i(x₀)} p_i(1)p_i(2) mod squares, the exponent is |T_σ ∩ (T_x Δ T_{x₀})|, which is |T_x ∩ T_σ| exactly when T_{x₀} = ∅, i.e. x₀ = d₀∏_{i∈[s]} p_i(1). C_T is defined on p. 12 independently of x₀, so the statement is stronger than the proof for every other vertex. Both uses of the proposition (§4 p. 27, §5.3 p. 45) take x₀ = d₀∏ p_i(1), so nothing downstream breaks. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E5",
@@ -53466,9 +53466,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The paragraph before the lemma (p. 15) defines φ_{S;a_{s+1}}(𝔊) only when S together with a_{s+1} spans an (s+1)-dimensional subspace of ℚ*/ℚ*². With S = {a}, x₁ = b and x₂ = ab the hypotheses hold and x₃ = a ∈ S, so 'φ_{S;x₃}(𝔊) exists' is not even defined. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E6",
@@ -53487,9 +53487,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Both slips are on p. 17: the stray ', .' after '∅ ⊂ T ⊆ [n]', and 'exactly one i₀ ∈ [n]' where the proposition's integers are a₁, …, a_{n+1} and the place v may divide a_{n+1} — the next sentences work in ℚ({√a_i : i ∈ [n+1]}). No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E7",
@@ -53508,9 +53508,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Lemma 2.18 is on p. 19 as printed. The paper counts ∞ among places throughout (Ω_ℚ, and R̃am(ℚ(χ)/ℚ) in §3 includes ∞). For a > 0 the place ∞ is unramified in ℚ(√a) but ramifies in L(φ_{a;a}(𝔊)): for a = 5 that field is the cyclic quartic field ramified only at 5, ℚ(ζ₅), which is totally imaginary. The second sentence fails there too, since the ramification index at ∞ is 2, not 4. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E8",
@@ -53529,9 +53529,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The identity being proved, (3.3) three lines above, is φ_{i,A}(στσ⁻¹) + φ_{i,A}(τ) = φ_{i,A−{a}}(τ), and expanding (1+σ)·(∑_T φ_{i,T}(τ)t_T) gives ∑_T (φ_{i,T}(στσ⁻¹) + φ_{i,T}(τ))t_T. The printed φ_{i,T}(σ) is a slip. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E9",
@@ -53550,9 +53550,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Proposition 3.6(c) (p. 25) is stated only for 'a rational place not equal to (2)', and the places above (2) are covered by part (b) alone, with the {i, j} of Definition 3.1's fourth condition — which is also the only reading under which the remarks of p. 21 define an Artin symbol at (2). The remark on p. 24 and the case split on p. 26 instead go by which of L(ψ₁), L(ψ₂) the place w ramifies in and produce w(α_{1,A})·Art(v, L(ψ₂)/ℚ) for every v, so at v = (2) they can name a symbol that is not defined and, when w ramifies in both, two different formulas. The extraction's repair gives the (2)-term of Theorem 3.2, so the theorem stands. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E10",
@@ -53571,9 +53571,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Remark 4.3 is on p. 29 as printed. The index i is the one bound by the second condition of Definition 4.2, so 'fix some j ∈ [s]' must exclude it, and applying Proposition 2.9 to (4.2), whose sum runs over C_{p_i(2)} = C_{{i}}, gives inner sums over C_{T∪{i}} of ψ_{s−1−|T|}. The remark's own conclusion, ∑_{x∈C_{{i,j}}} ψ_{s−2}(x) = 0, is the corrected display at T = {j}, not the printed one. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E11",
@@ -53592,16 +53592,16 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "All eight slips are at their locators: (a) p. 29, (b) pp. 31 and 46, (c) p. 35, (d)–(f) p. 47, (g) p. 56, (h) p. 58. On (a), Definition 4.2's third condition (p. 28) is what gives the map, and distinct i, j ∈ [s] exist only when s ≥ 2. On (b), ψ_s(x₀) and ψ_{s+1}(x₀) are defined as −∑_{x≠x₀}, and Corollary 2.11 carries (−1)^{|T|+1+χ_{x₀}(σ)}; both displays vanish term by term, so nothing changes. On (f), the sentence two lines later uses 𝔽₂ × p^{ℤ₂}, the quotient by 2·ℤ₂. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E12",
    "kind": "gap",
    "locator": "§4, the sentence before Lemma 4.5 (p. 29) and Lemma 4.5(ii) (p. 30) (arXiv v1)",
    "printed": "p. 29: 'When we apply Lemma 4.5 later, Proposition 4.4 will guarantee that the decomposition groups of the field ℚ({√x : x ∈ S}) are indeed cyclic.' p. 30, Lemma 4.5(ii): 'Then the ramification index of p in ∏_{x∈S} L(ψ_{k+1}(x)) equals 2. Now assume that all decomposition groups of K/ℚ are cyclic. Then, if p ramifies in ℚ(√x) for every x ∈ S, the residue field degree of p in ∏_{x∈S} L(ψ_k(x)) equals 1.'",
-   "correction": "'is at most 2'; 'Now assume that the decomposition group of p in K/ℚ is cyclic' (equivalently, ℚ_p(√x) is the same field for all x ∈ S). This local statement is what Proposition 4.4 provides.",
+   "correction": "'Now assume that the decomposition group of p in K/ℚ is cyclic' (equivalently, ℚ_p(√x) is the same field for all x ∈ S). This local statement is what Proposition 4.4 provides, and it is what the conclusion uses; the global claim on p. 29 is false at a prime p_i(h), where the decomposition group of the whole of K need not be cyclic. The ramification index in the first sentence does equal 2, so nothing is wrong there.",
    "reason": "The applications check cyclicity only at p, via Proposition 4.4: S = C − {x₀} with p | d₀, S = C_{p_i(2)} with p = p_i(2) and S = C_{(p_i(1),p_j(2))} with p = p_i(1) (pp. 32–33), and S = C with p | a (p. 37). For S = C − {x₀} and s ≥ 2, K contains √x₀ and √(p_i(1)p_i(2)), so its decomposition group at p_i(1) is cyclic only if d₀p_i(2)∏_{j≠i}p_j(1) is a square modulo p_i(1), which Definition 4.2 does not impose. The local hypothesis suffices: Up(p) is 2-torsion in the narrow class group, so ψ_k(x) = 2ψ_{k+1}(x) pairs trivially with it and i_p(L(ψ_k(x))) ⊆ ℚ_p(√x), one ramified quadratic field for all x. 'Equals 2' fails for trivial raw cocycles (L(0) = ℚ); only e ≤ 2 is ever used.",
    "affects": "nothing",
    "known": "new",
@@ -53613,16 +53613,16 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Confirmed on the second half, and the correction is amended. Lemma 4.5(ii)'s second sentence assumes all decomposition groups of K/ℚ are cyclic, and p. 29 says Proposition 4.4 guarantees this. Proposition 4.4 (p. 29) gives only ℚ_p(√x) = ℚ_p(√x₀) for p | d₀ and p = 2, and ℚ_{p_i(h)}(√x) = ℚ_{p_i(h)}(√x′) for x, x′ ∈ C_{p_i(h)}; at p = p_i(h) the decomposition group of the whole of K can be (ℤ/2)², generated by inertia from the x divisible by p_i(h) and Frobenius from the others. The hypothesis the conclusion needs is local at p, and that is what Proposition 4.4 supplies for the sets S the lemma is applied to. I struck the first half of the correction: 'equals 2' is right as printed, because K ⊆ ∏_x L(ψ_{k+1}(x)) forces e_p ≥ 2, while each L(ψ_{k+1}(x))/ℚ(√x) is unramified at the finite places and inertia is cyclic at odd p by tameness and of order ≤ 2 at (2) by the lemma's standing hypothesis. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E13",
    "kind": "gap",
    "locator": "§4, proof of Theorem 4.6 in the case s = 1, pp. 32–34 (arXiv v1); inherited by Theorems 5.2 and 5.3 for s = 1",
    "printed": "p. 27: 'Let s ∈ ℤ_{≥1} and let C := {p₁(1), p₁(2)} × ⋯ × {p_s(1), p_s(2)} × {d₀}'. pp. 32–33: 'Thanks to Proposition 2.9 the first condition is equivalent to p_i(1) splitting completely in L(∑_{x∈C_T} ψ_{s−1}(x)) for every T ⊆ [s] of size 2 containing i.' p. 20, the setting of Theorem 3.2: 'Let n ∈ ℤ_{≥1} and let A ⊆ Γ_{𝔽₂}(ℚ) with |A| = n.'",
-   "correction": "Treat s = 1 separately, or assume s ≥ 2 in §4. For s = 1 the needed fact is (a/p₁(1)) = 1. It follows from the product formula for the Hilbert symbol (a, p₁(1)p₁(2)): (a/p₁(2)) = 1 because ψ₂(d₀p₁(2)) lifts χ_a (Remark 4.1), (p₁(1)p₁(2)/l) = 1 for l | a by the fourth condition of Definition 4.2, and the symbols at 2 and ∞ are trivial because p₁(1)p₁(2) ≡ 1 mod 8 and a > 0.",
+   "correction": "Treat s = 1 separately, or assume s ≥ 2 in §4. Two steps fail at s = 1. (i) The 4-tuple of p. 33 has base set A = {χ_{p_j(1)p_j(2)} : j ∈ [s] − {i}}, which is empty, while §3.1 (p. 20) takes n = |A| ≥ 1 and the proof of Theorem 3.2 uses n ≥ 1 for the real places (p. 26), so Theorem 3.2 does not apply. (ii) There is no T ⊆ [s] of size 2, so the displayed reduction establishes nothing, and the fact needed for the first containment of (4.7) is (a/p₁(1)) = 1. Both are supplied by the product formula for the Hilbert symbol (a, p₁(1)p₁(2)), which for s = 1 is what Theorem 3.2 would have given: (a/p₁(2)) = 1 because ψ₂(d₀p₁(2)) lifts χ_a (Remark 4.1), (p₁(1)p₁(2)/l) = 1 for l | a by the fourth condition of Definition 4.2, the symbol at (2) vanishes because p₁(1)p₁(2) ≡ 1 mod 8 and the symbol at ∞ because a > 0; hence (a/p₁(1)) = (a/p₁(2)) = 1.",
    "reason": "For s = 1 the base set {χ_{p_j(1)p_j(2)} : j ∈ [s] − {i}} of the 4-tuple on p. 33 is empty, but Theorem 3.2 assumes |A| = n ≥ 1, its proof uses n ≥ 1 at ∞ (p. 26), and with A = ∅ one has L(ψ) = M(ψ), so its Artin symbols in Gal(L(ψ)/M(ψ)) ≅ 𝔽₂ make no sense. Moreover for s = 1, M(E) = ℚ(√a), so the first half of (4.7) is exactly the splitting of p₁(1) to be proved, while the 'equivalent' condition over sets T of size 2 is vacuous. Every later use has s ≥ 2 (Theorems 5.6 and 5.7, and m ≥ 3 in §8).",
    "affects": "the proof",
    "known": "new",
@@ -53634,9 +53634,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Both steps fail at s = 1 and the extraction recorded only the second, so the correction is amended to record both. The 4-tuple built on p. 33 has base set {χ_{p_j(1)p_j(2)} : j ∈ [s] − {i}}, empty when s = 1, while §3.1 (p. 20) opens 'Let n ∈ ℤ_{≥1} and let A ⊆ Γ_𝔽₂(ℚ) with |A| = n' and the proof of Theorem 3.2 uses n ≥ 1 to kill the real places (p. 26: 'which is 0 since n ≥ 1'). And there is no T ⊆ [s] of size 2, so the reduction on pp. 32–33 proves nothing while the first containment of (4.7) is the non-vacuous (a/p₁(1)) = 1. I checked the repair: in the product formula for (a, p₁(1)p₁(2)) the term at ∞ vanishes because a > 0 (Remark 4.1), at (2) because p₁(1)p₁(2) ≡ 1 mod 8, and at each l | a by Definition 4.2's fourth condition, so (a/p₁(1)) = (a/p₁(2)) = 1, the last because 2·ψ₂(d₀p₁(2)) = χ_a makes χ_a ∪ χ_{−x} vanish at p₁(2). Theorem 4.6 and its consequences hold for s = 1, but not by the printed argument. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E14",
@@ -53655,9 +53655,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Definition 4.2's fifth condition (p. 28) reads '(2) and ∞ split completely in M(φ_{{p_j(1)p_j(2):j∈[s]−{i}};p_i(1)p_i(2)}(𝔊))/ℚ' — M, not L. The correction's substitute, that (2) is unramified in L(ψ₂) by Proposition 2.15, is what Definition 3.1 needs at that point. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E15",
@@ -53676,9 +53676,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Confirmed. On p. 36 the proof reads the second condition with (i, j) = (2, 1), using '∞ ramifies in ℚ(i)' for '∞ ramifies in L(ψ₂)', and checks that M(ψ₁) is totally real. With the printed definition the case (i, j) = (1, 2) also applies, and ℚ(i) ⊆ ℚ(X) ⊆ M(ψ₂) means ∞ never splits completely in M(ψ₂); so the condition demands that L(ψ₁) be totally real, which is not checked and is not automatic — L(ψ₁)/M(ψ₁) is a central 𝔽₂-extension, and by (5.1) the action of complex conjugation on it is the very quantity Theorem 5.2 computes. Read with ℚ(χ_i), as the paragraph after Definition 3.1 (p. 21) already does, the check on p. 36 is complete. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E16",
@@ -53697,16 +53697,16 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Definition 5.4 (p. 38) has six conditions; the sixth is 'all prime divisors of a_i are unramified in L(φ_{{a_j:j∈[s]−{i}};a_{s+1}})/ℚ', which with i = 1 is exactly the fact used at the places above q | a₁. The fifth is the vanishing at σ₂(1). No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E17",
    "kind": "gap",
    "locator": "§5.2, end of the proof of Theorem 5.5, p. 44 (arXiv v1)",
    "printed": "What we have proven so far applies also to the Pellian expansion map φ_{a₁;a_{s+1}}, since we have not made use that s ≥ 2 yet. But now we have ∑_{p|a_{s+1}} φ_{{a_i:i∈[s]};a_{s+1}}(Frob(Up_{ℚ(√a_{s+1})/ℚ}(p))) = ∑_{q|a₁}(φ_{a_{s+1};a_{s+1}}(𝔊) + χ)(Frob(q)) = ∑_{p|a_{s+1}} φ_{a₁;a_{s+1}}(Frob(Up_{ℚ(√a_{s+1})/ℚ}(p))) = 0, where the first equality follows from the above analysis for φ_{{a_i:i∈[s]};a_{s+1}}, the second equality follows from the above analysis for φ_{a₁;a_{s+1}} (i.e. the case s = 1)",
-   "correction": "Add the step ∑_{q|a₁} χ(Frob(q)) = 0 for the character χ produced by each of the two analyses, and note that the local facts used for φ_{a₁;a_{s+1}} are inherited from conditions (1)–(2) for the full map, since φ_{a₁;a_{s+1}} need not be Pellian.",
+   "correction": "Say which map each application of the analysis is made to, and add the step that the two contributions ∑_{q|a₁} χ(Frob(q)) agree (for instance that each vanishes) for the characters χ produced by the analysis of φ_{{a_i:i∈[s]};a_{s+1}} and of φ_{a₁;a_{s+1}}; as printed one symbol χ stands for both. Do not call φ_{a₁;a_{s+1}} Pellian: Definition 5.4 is a condition on the top map of a family with support {a₁, …, a_{s+1}}, and for the two-element family it would constrain L(φ_{a₁;a_{s+1}}); say instead which of its conditions the analysis of φ_{a₁;a_{s+1}} inherits.",
    "reason": "The analysis of φ_{a₁;a_{s+1}} produces its own character χ′, in general different from the χ of φ_{{a_i:i∈[s]};a_{s+1}}, so the chain needs ∑_{q|a₁} χ(Frob(q)) = ∑_{q|a₁} χ′(Frob(q)). Both sums vanish by Hilbert reciprocity for (χ, a₁): by 'Study of the character χ' χ ramifies only at primes split in ℚ(√a₁), and a₁ ≡ 1 mod 8, a₁ > 0; this step is never stated. Also, a prime p ∤ a₁a_{s+1} may ramify in L(φ_{a₁;a_{s+1}}) ⊆ M(φ_{{a_i:i∈[s]};a_{s+1}}), which violates condition (1) for the sub-map; the facts used at such p (χ_{a₁} and χ_{a_{s+1}} locally trivial) follow from f_p(M) = 1 for the full map. The theorem stands.",
    "affects": "the proof",
    "known": "new",
@@ -53718,16 +53718,16 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Confirmed, and the correction is sharpened. 'Pellian' is defined (p. 38) for an expansion map with support {a₁, …, a_{s+1}} and pointer a_{s+1}, and its first two conditions are about the top map of that family; for the two-element family {a₁, a_{s+1}} they are conditions on L(φ_{a₁;a_{s+1}}), which the hypotheses do not give, so φ_{a₁;a_{s+1}} is not known to be Pellian and 'what we have proven so far applies' needs the inheritance spelled out. In the display, the middle expression is the output of the analysis for φ_{{a_i:i∈[s]};a_{s+1}} — the character χ is produced by that analysis, in 'Study of the character χ' on p. 43 — while the second equality re-runs the analysis for φ_{a₁;a_{s+1}}, which produces its own character; the identity therefore needs the two contributions ∑_{q|a₁} χ(Frob(q)) to agree or to vanish, which is not said. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E18",
    "kind": "gap",
    "locator": "§5.2, proof of Theorem 5.6, p. 44 (arXiv v1); Theorem 5.7 relies on it",
    "printed": "Proof. This is now a straightforward combination of Theorem 5.3 and Theorem 5.5.",
-   "correction": "Verify Definition 5.4 for the attached map ψ(C, χ_a, …) (support {p_i(1)p_i(2)} ∪ {a}, pointer a). Conditions (2)–(6) follow from Theorem 4.6, its proof and Proposition 4.4, but condition (1) holds only for a suitable choice of ψ_{s+1}(x₀); alternatively, note that at the primes where (1) can fail the proof of Theorem 5.5 needs only that φ_{{p_i(1)p_i(2):i∈[s]−{1}};a} is locally trivial, which Lemma 4.5 and Proposition 4.4 give.",
+   "correction": "Verify Definition 5.4 for the attached map ψ(C, χ_a, (ψ_{s+1}(x))_{x∈C−{x₀}}) (support {p_i(1)p_i(2) : i ∈ [s]} ∪ {a}, pointer a) before combining the two theorems: Theorem 5.5 applies only to a Pellian expansion map, and neither Theorem 5.3 nor Theorem 4.6 says that this one is. The reviewer did not settle which of the six conditions need work; the extraction's suggestion, that (2)–(6) follow from Theorem 4.6, its proof and Proposition 4.4 while (1) holds only for a suitable choice of ψ_{s+1}(x₀), is recorded as a suggestion. Its alternative is also kept: at the primes where (1) can fail, the proof of Theorem 5.5 needs only that φ_{{p_i(1)p_i(2):i∈[s]−{1}};a} is locally trivial, which Lemma 4.5 and Proposition 4.4 give.",
    "reason": "Theorem 5.5 is stated for Pellian maps, and the one-line proof checks none of the six conditions. Theorem 4.6 does not pin down ψ_{s+1}(x₀): replacing it by ψ_{s+1}(x₀) + χ_{x₀} keeps every property listed there and leaves M(ψ) unchanged, but adds χ_{x₀} to φ_{[s]} = ∑_{x∈C} ψ_{s+1}(x), flipping its value at σ_p for every p | x₀. If M(ψ) is unramified at some odd p | d₀ with p ∤ a (nothing in the hypotheses prevents this), then for one of the two choices L(ψ) is ramified at p, so e_p(L) = 2 ≠ 1 = e_p(M) and condition (1) fails. The conclusion of Theorem 5.6 still holds by either repair.",
    "affects": "the proof",
    "known": "new",
@@ -53739,9 +53739,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Confirmed on the omission, and the correction is restricted to it. Theorem 5.5 applies only to a Pellian expansion map (Definition 5.4), and neither Theorem 5.3 nor Theorem 4.6 states that the map ψ(C, χ_a, (ψ_{s+1}(x))) it produces is one; the one-line proof does not verify Definition 5.4's six conditions for it, and they are not formal consequences of the profitability conditions. Which of the six need work I did not settle, so the extraction's guess about condition (1) is recorded as a suggestion, not a claim. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E19",
@@ -53760,9 +53760,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The setup on p. 45 demands p_i(1)p_i(2) ≡ 1 mod 8 and squareness modulo the odd prime factors of d₀ only for i ∈ [s], while C is an (s+1)-cube and the proofs use both for i ∈ [s+1]: p. 48 says 'Recalling that p_i(1)p_i(2) ≡ 1 mod 8 for each i ∈ [s + 1]' and 'p_i(1)p_i(2) is a square modulo each odd prime divisor p of b for all i ∈ [s + 1]'. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E20",
@@ -53781,9 +53781,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "C is an (s+1)-cube (p. 45: s+1 binary factors and {d₀}), so |C − {x₀}| = 2^{s+1} − 1 and 2^s·ψ_{s+1}(x₀) = −∑_{x≠x₀} χ_a = −(2^{s+1} − 1)·χ_a. Both odd multiples give χ_a, so the conclusion is unaffected. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E21",
@@ -53802,9 +53802,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "L(ψ_{s+1}(x₀))/ℚ(√x₀) is unramified at all finite places, so its image under i₂ lies in ℚ₂(√x₀)^unr, which contains unramified extensions of every 2-power degree and is not contained in the degree-4 field ℚ₂(√5, √x₀); the same for ψ′_{s+1}(x₀). What the next sentence uses is only that the quadratic subextensions of ℚ₂(√x₀)^unr over ℚ₂ lie in ℚ₂(√5, √x₀), which is true and gives the conclusion. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E22",
@@ -53823,9 +53823,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Theorem 5.11 is about a governing triple, which by Definition 5.9 is of type 2, so 2^s·ψ_{s+1}(x) = χ_{π_{s+1}(x)·a} (p. 45) and the pairing Art_{s+1}(x) is the one attached to that character. The theorem's own first conclusion is about χ_{p_{s+1}(1)·a} = χ_{π_{s+1}(x₀)·a}. The type-1 statement, Theorem 5.10(i), is the one with χ_a. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E23",
@@ -53844,9 +53844,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The second condition of Definition 5.9 (p. 45) is ∑_{x∈C_T} ψ_{s−|T|+1}(x) = φ_{{p_i(1)p_i(2):i∈[s]−T};p_{s+1}(1)p_{s+1}(2)}(𝔊), with [s] − T. The text asserts the bracket vanishes by that condition, which it does only with the subscript corrected. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E24",
@@ -53865,9 +53865,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The next bullet of Definition 6.1 reads C_T^acc = {x̄ ∈ C_T : F_T(x̄) = 0}, so C_T^acc ⊆ C_T; and F_T : C_T → A_T in the same bullet needs C_T as its domain. The printed chain has the first inclusion backwards. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E25",
@@ -53886,9 +53886,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "As printed the second Σ has no value at a non-degenerate x̄ with x̄(∅) ⊄ Y, so it is not a map from Map(Y, 𝔽₂) to Map(Cube(X, S), 𝔽₂); '0 otherwise' is the only reading that matches the use of Σ on subsets in §§6.1 and 8.3. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E26",
@@ -53907,9 +53907,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Proposition 2.14 (p. 16) gives the field of definition, its multiquadratic structure over ℚ(X − {χ₀}) and the centrality of Gal(L/M); it says nothing about additivity in the support. Reducing an arbitrary x̄ ∈ Cube(X, S) to Basis(X, S), and the statement g_σ ∈ Add(X, [r]) on p. 57, are the additivity of Lemma 2.13. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E27",
@@ -53928,9 +53928,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Lemma 6.8 and Lemma 6.9 both write M_∘ := K(X)∏…, and [M_∘(X) : K(X)] in Lemma 6.10 presupposes K(X) ⊆ M_∘(X), which the printed product does not give: its T = ∅ factor is ℚ(√d) and its |T| = 1 factors contain only the ℚ(√(p_{j,1}p_{j,2})). The L(φ_{π_{[r]−{i}}(x̄);pr₁(π_i(x̄))pr₂(π_i(x̄))}) it uses are also not covered by the stated hypothesis, which is about φ_{x̄;d}; Lemmas 6.7–6.9 each assume their existence separately. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E28",
@@ -53949,9 +53949,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "With K(X) restored, the S = ∅ term of the first product is ℚ(√d): Cube(X, ∅) gives φ_{x̄;d} = χ_d, d is coprime to every prime of X so ℚ(√d) ⊄ K(X), and 2^{∏_{j∈∅}(|X_j|−1)} = 2 is exactly the missing factor. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E29",
@@ -53970,9 +53970,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "A union of the numbers |𝒟_r(N)|. Every later use is a sum over r — the deduction on p. 77 needs ∑_r |𝒟_r(N)|, since the excluded r are being discarded from a count. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E30",
@@ -53991,9 +53991,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Checked on the page image, with Definition 7.4 (p. 60), where the calligraphic ℳ_r ⊆ M_r and ℳ_{r,P} ⊆ M_{r,P} are the chosen subsets and a is defined on them. For r = 1 the proposition's hypothesis '(i, p) ∈ ℳ_{r,P} implies i > k' with k = 1 forces ℳ_{r,P} = ∅, and M_r = ∅ forces ℳ_r = ∅; but M_{r,P} = [1] × P = P is not empty when P ≠ ∅. The base case needs only the emptiness of ℳ_r and ℳ_{r,P}. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E31",
@@ -54012,9 +54012,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Equation (7.11), one line above, has t₁^{1/4−c₂c₄−ε} in the denominator, and the next display is (7.11) applied with ε/2; the printed exponent has the sign of the whole exponent flipped. The bound is used as (7.11), so only the display is wrong. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E32",
@@ -54033,9 +54033,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The number of ways σ₁ can send a set B of size I into [k₁] injectively is k₁(k₁−1)⋯(k₁−I+1) = k₁!/(k₁−I)!, which is precisely the quantity the display two lines below squares. The printed factors k₁! − 1, …, k₁! − I + 1 would give k₁!/(k₁!−I)!. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E33",
@@ -54054,9 +54054,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Proposition 7.6's conclusion normalizes both sides by the same power of 2, and for the prebox (X″, P″) of r − k₀ coordinates that power is the printed left-hand one, 2^{(r−k₀)(r−k₀−1)/2}. As printed the two sides carry different powers, so the step to (7.21) — which rescales both sides by the same factor using (7.20) — does not follow. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E34",
@@ -54075,9 +54075,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "In one equivalence class both ∑_a |X^trun_{k₀,k₁}(σ,a)|/2^{|ℳ_r⊔ℳ_{r,P}|−C(k₀,k₁)−k₁|P|} and ∑_a |X(σ(a))| are bounded by the printed quantity, and the triangle inequality on |A − B| gives their sum. The factor 2 is absorbed downstream: (7.22) then reads 2k₁·k₂!·|X|/k₂^{c₉}, still ≤ k₂!|X|/(2k₂^{c₁₂}) under c₁₁ + c₁₂ < c₉. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E35",
@@ -54096,9 +54096,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Definition 7.9 allows C_compr up to (log N)^{100} while s_{k+1} ≥ D₁ = e^{(log log N)^{1/10}}, so the interval (s_i, s_i(1 + 1/C_compr)] can have length less than 1 for N large and contain no prime at all; the sets X_i are then empty, not non-empty. For the value fixed on p. 73, C_compr = (log log N)^{50}, the interval is long enough, and that is the only value used. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E36",
@@ -54117,9 +54117,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "r is the summation index on the left and free on the right, so the right-hand side is not defined. The repair with r_max is what the proof of Theorem 7.10 uses: the sets 𝒟_r partition 𝒟 and N(1 + 1/C_compr)^{−r} decreases in r. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E37",
@@ -54138,9 +54138,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "f₁ > t and f_{i+1} > f_i² give f_i > t^{2^{i−1}} by induction; t^{2^i} is not implied. The conclusion ∑_i |𝒟_r(N)|/log f_i ≪ |𝒟_r(N)|/log t follows from the corrected bound. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E38",
@@ -54159,9 +54159,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "All five are at their locators (pp. 74, 75, 76, 84, 100) and are spelling or punctuation slips. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E39",
@@ -54180,9 +54180,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "(7.2) bounds by |𝒟(N)|/(log log N)^{1/100}, and |𝒟(N)| = CN/√(log N)·(1 + O(1/log N)) by the asymptotic quoted on p. 72, so the printed N/(log log N)^{1/100} is much larger than |𝒟(N)| itself and cannot support the reduction it is used for. The union/sum slip of E29 recurs. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E40",
@@ -54201,9 +54201,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Definition 7.5 (p. 61) enumerates 𝒮(c) as d₁, d₂, … with |d₁| ≤ |d₂| ≤ …, the d_i being squarefree integers of either sign, and 'Siegel-free above t' is stated with |d_i| > t. The paper's own p. 74 writes 'the W(d_i) with |d_i| > D_Siegel'. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E41",
@@ -54222,9 +54222,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Theorem 8.2 is stated on p. 77 'for all integers m ≥ 3', so the i = 2 factor of the product — the passage from X ∩ D_{2,n₂}(N) to X ∩ D_{2,n₂}(N) ∩ D_{3,n₃}(N) — is the case m = 2 and is not an instance of it. Something must be cited for that step; I did not check the extraction's suggestion that [8, Theorem 6.1] supplies it in box form. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E42",
@@ -54243,9 +54243,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Equation (8.5) on p. 79 reads |X_j(a, Q)| ≥ |X_j|/(log s_{k+1})^{100}. The union enumerates the a for which (8.5) fails, so its index condition is about |X_j|, not |X|, and the failure is strict. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E43",
@@ -54264,9 +54264,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "S = S′ ∪ {i_Cheb} with S′ = S ∩ [k_gap] and i_Cheb > k_gap (Definition 8.11, p. 87). The display's input, on the line above, bounds ∏_{i∈S∩[k_gap]} |X_i(a, Q)|, and the lines that follow treat the coordinates i > k_gap separately by Chebotarev — so i_Cheb must not be in the product or the maximum. The missing bars on |X(a, P × Q)| are a slip. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E44",
@@ -54285,9 +54285,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Proposition 7.6 normalizes by 2^{|ℳ_r|} with ℳ_r ⊆ {(i,j) : i < j}, of size at most (r−k)(r−k−1)/2 for a prebox with r − k coordinates; the printed exponent is twice that. (8.15) on the same page uses the correct (r−k_gap)(r−k_gap−1)/2. The sentence also says 'the proposition' inside the proof that Theorem 8.10 implies Theorem 8.8. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E45",
@@ -54306,9 +54306,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "c(x₀, x) is defined two lines above by pr₁(π_i(x̄)) = π_i(x₀) and pr₂(π_i(x̄)) = π_i(x), so the pair the injection produces must have π_i(x₀) = pr₁(π_i(x̄)); as printed the two are swapped, and x̄ would be c(w, x₀), landing in W(w) rather than in W(x₀). No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E46",
@@ -54327,9 +54327,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "The displayed inequality gives log δ′^{−1} > log min_i |X_i(a, Q)|/(5M_box^m) = e^{(3/10)k_gap}/(5M_box^m). With M_box = ⌊(log log log log N)^{1/(5(m+1))}⌋ (p. 87), R = e^{e^{k_gap/5}} and k_gap > r^{1/2}/2 − 1 with r ≍ ½ log log N (p. 78), the losses from δ′ to δ are o of that, so what follows is δ ≤ exp(−e^{k_gap/4}), not e^{−¼e^{k_gap}}: the printed bound would need log δ^{−1} ≳ e^{k_gap}, and only e^{(3/10)k_gap} is available. The weaker bound is still far below the error term it is used against in (8.18). No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E47",
@@ -54348,9 +54348,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Z̃ is defined on p. 88 as Q × Z × ∏_{i>k_gap} X_i(a, Q, M_∘(Z)), so M_∘(Z̃_i) is both outside the domain of M_∘ — Lemmas 6.8 and 6.10 take products of sets of odd primes — and circular, since Z̃ is defined through M_∘(Z). 'Siegel-less' occurs once in the paper and is never defined; the defined terms are 'Siegel-free above t' (p. 61) and 'excellent' (p. 71), and it is excellence of the box that the Chebotarev application needs. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E48",
@@ -54369,9 +54369,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "For the x failing (8.22) the trivial bound Λ(x) ≤ R gives |1 − d(M_box,m)^{r−k_gap}Λ(x)/R| ≤ 1 + d(M_box,m)^{r−k_gap}, and the density O(e^{−k_gap/2}) of that set does not absorb the degree factor, which is not bounded by any power of e^{k_gap}. I checked the extraction's repair: with μ = R/d^{r−k_gap}, (8.20) and (8.21) give ∑_x (1 − Λ(x)/μ)² = O(e^{−k_gap})·|X(a,Q)|, so by Cauchy–Schwarz ∑_x |1 − Λ(x)/μ| = O(e^{−k_gap/2})·|X(a,Q)|, which is the bound the proof needs and covers both parts of the split at once. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E49",
@@ -54390,9 +54390,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Proposition 6.6 (p. 54) gives |C_∅^acc|/2 − ε|X| ≤ |F^{−1}(0)| ≤ |C_∅^acc|/2 + ε|X|, and the sum of ι(F(·)) is |F^{−1}(0)| − |F^{−1}(1)| = 2|F^{−1}(0)| − |C_∅^acc|, so the bound is 2ε|Z × A_i|. Harmless, since ε is at the proof's disposal. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E50",
@@ -54411,9 +54411,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Printed as recorded in entry [10] on p. 108; the thesis is by J. Corsman. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E51",
@@ -54432,9 +54432,9 @@
    "owner": "PAPER-KOYMANS-PAGANO",
    "file": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
    "citation": "Koymans–Pagano, \"On Stevenhagen's conjecture\", Acta Mathematica",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-PAGANO",
+   "reviewReason": "Printed as recorded in entry [21] on p. 109. Crossref (10.1007/BF01388835, checked 23 September 2026) gives F. Gerth, 'The 4-class ranks of quadratic fields', Invent. Math. 77 (1984), no. 3, 489–515. No later version or erratum corrects it: arXiv 2201.13424 has only v1 (31 January 2022, no journal reference) and Crossref has no published version (both checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E1",
@@ -90402,8 +90402,8 @@
    "kind": "error",
    "locator": "Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6)",
    "printed": "index of K_X",
-   "correction": "m should be the Cartier index of K_X + S at P, the log index. For the plt surface germ obtained by localising at P, this equals the order of the local class group, and the conclusions then hold.",
-   "reason": "Counterexample. Take X = Spec k[x,y,z]/(xy − z²), the A1 surface singularity with char k > 5, S = V(x, z), Δ = S and P the vertex. Then X is Q-factorial, (X, S) is plt and hence dlt, and P is a codimension-one point of the curve S. The minimal resolution (charts (x,z,y) = (u,uv,uv²) and (st²,st,s)) is crepant, so K_X is Cartier and m = 1. But div(x) = 2S and the ideal (x, z) is not principal at P, so S is not Cartier. Since f*S = S′ + E/2, adjunction gives (K_X + S)|_S = K_S + ½P, not K_S. With m = index(K_X + S) = 2 every clause holds. For a threefold example, multiply by A¹. The only other use is Lemma 4.2 (p.16), which needs only that the different of a plt pair with standard coefficients has standard coefficients; that is unaffected. Checked on the page image. Noted by the extraction (gap-index, item adjunction-index-diagnostic).",
+   "correction": "Use the local Cartier index of K_X + S at P, rather than the index of K_X. This is the log index of the localized plt surface pair; it gives the denominator of the different and kills local Weil divisor classes.",
+   "reason": "Over k = F_7, take X = Spec k[x,y,z]/(xy-z²), S = V(x,z), and P the vertex. The two resolution charts (u,uv²,uv) and (st²,s,st), in coordinates (x,y,z), are crepant and have one exceptional (-2)-curve E. Thus K_X is Cartier. The strict transform S′ meets E once, and f*S=S′+E/2; the snc pullback S′+E/2 proves that (X,S) is plt. Since div(x)=2S and (x,z) needs two generators at P, S is not Cartier. Adjunction gives different P/2. Hence the printed m=1 fails, whereas index(K_X+S)=2 works. More generally, for the plt surface chain with determinant d, the different coefficient is 1-1/d and d annihilates local divisor classes, forcing the log index to equal d. This is the surface adjunction calculation, not a claim about the canonical index. Lemma 4.2 only needs the standard-coefficient different.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -90411,22 +90411,23 @@
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
     "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.2 there is the same statement, and its second paragraph reads \"Let P ∈ S be any codimension 1 point on S and m the Cartier index of K_X at P. Then on a neighbourhood of P ∈ X, mD is Cartier for any divisor D, and S is normal, and (K_X+S)|_S = K_S + (1 − 1/m)P.\""
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.2 there is the same statement, and its second paragraph reads \"Let P ∈ S be any codimension 1 point on S and m the Cartier index of K_X at P. Then on a neighbourhood of P ∈ X, mD is Cartier for any divisor D, and S is normal, and (K_X+S)|_S = K_S + (1 − 1/m)P.\"",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Lemma 2.2 p.6."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed from published p.5 and v2 p.6. Recomputed the crepant A1 charts, ruling pullback, non-principal ideal and different. The canonical index is 1 while the required log index is 2. Compared the general chain/different calculation in Kollár’s public surface notes, §§75–76 and 85–87. Rephrased the correction in terms of the log index and its actual roles, without needing a separate abstract class-group-order assertion."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E2",
    "kind": "error",
    "locator": "Lemma 2.16, p.13 of the published version (arXiv v2 Lemma 2.16, p.14)",
    "printed": "all these discrepancies",
-   "correction": "Also fix a finite set I ⊂ [0, 1) and require the coefficients of B to lie in I. Then, over the minimal resolution, the exceptional discrepancies take finitely many values. This is what the proof of Proposition 2.15 needs, since the boundaries B_n of a flip sequence all have the coefficients of B.",
-   "reason": "Counterexample. On the A1 surface S = {xy = z²} with C = V(x, z) and B = bC, 0 < b < 1/2, the minimal resolution is one (−2)-curve E, and K_{S′} + bC′ + (b/2)E = f*(K_S + bC). The pair is ½-lc for every such b (log discrepancies 1 − b/2 and 1 − b on an snc model with coefficients < 1/2), and there is one exceptional discrepancy, −b/2, so m = 1. That value varies infinitely. The proof fails because the right-hand sides B_{S′}·C_i of its linear system contain f^{-1}_*B·C_i, which varies with B. With coefficients in I the right-hand sides lie in a finite set, since f^{-1}_*B·C_i = 2r_i + a_iC_i² − Σ_{j≠i}(1 − a_j)C_j·C_i < 2r_i ≤ 8. Proposition 2.15 is unaffected. Noted by the extraction (gap-surface, item surface-finiteness-diagnostic); the corrected statement is proved in fixed-boundary-surface by this continuation.",
+   "correction": "For the version needed in Proposition 2.15, fix a finite set I ⊂ [0,1), require coeff(B) ⊂ I, and formulate both the bound of m distinct exceptional log discrepancies and the conclusion on the minimal resolution of the surface germ. The printed statement says minimal log resolution; the source proof and this repair concern the minimal resolution. No finiteness theorem for all discrepancies on all higher models is asserted.",
+   "reason": "On the A1 surface over F_7, put B=bC for the ruling C=V(x,z) and rational 0<b<1/2. Its one-curve minimal resolution is also a log resolution of this pair, and K_{S′}+bC′+(b/2)E=f*(K_S+bC). Thus the exceptional discrepancy is -b/2 (log discrepancy 1-b/2), varying infinitely even for b=1/n, n≥3. The snc model is 1/2-lc. There is one exceptional value, so m=1 under the exceptional convention; if strict boundary components are counted, the uniform bound m=2 still disproves the statement. For the repaired minimal-resolution version, write T=f^{-1}_*B and a_i for exceptional log discrepancies. Minimality and negativity give 0≤1-a_i. Adjunction gives T.C_i=2r_i+a_i C_i²-Σ_{j≠i}(1-a_j)C_j.C_i<2r_i≤8. With finite I these nonnegative sums of integer multiples of positive elements of I lie in a finite set. Together with the source’s bounded intersection coefficients, convexity and compression of constant runs on the at-most-three-legged graph, only finitely many bounded-size linear systems remain. Negative definiteness gives uniqueness. The fixed boundary of a flip sequence supplies I, so this repair addresses the cited use in Proposition 2.15. Merely bounding arbitrary real right-hand sides would not prove finiteness.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -90434,14 +90435,15 @@
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
     "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.16 there reads \"Fix m ∈ N and ε > 0. Consider all ε-lc excellent two-dimensional pairs (S,B) with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite.\", with no condition on the coefficients of B."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.16 there reads \"Fix m ∈ N and ε > 0. Consider all ε-lc excellent two-dimensional pairs (S,B) with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite.\", with no condition on the coefficients of B.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Lemma 2.16 pp.14–15."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed from published p.13 and v2 pp.14–15. Recomputed the A1 boundary family, including log versus ordinary discrepancy and the 1/2-lc bound. Made the correction’s scope explicit: minimal resolution and exceptional values, which is the version the proof treats and Proposition 2.15 uses. Checked the finite-coefficient right-hand-side argument and why bounded real values alone do not suffice. Added m=2 as a convention-independent counterexample bound when strict transforms are counted. The source’s surface classification is an input to the general repaired proof, not a computational result of this review."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E3",
@@ -90457,14 +90459,15 @@
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
     "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"and so −c_i ≤ 2/a_i is bounded\", two lines after C_i² = −r_ic_i and the displayed a_iC_i² ≥ −2r_i."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"and so −c_i ≤ 2/a_i is bounded\", two lines after C_i² = −r_ic_i and the displayed a_iC_i² ≥ −2r_i.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.15."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed in both PDF versions (published p.13, v2 p.15), including the published page image. Dividing -a_i r_i c_i≥-2r_i by the positive a_i r_i gives c_i≤2/a_i≤2/ε. The printed negative sign gives no bound."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E4",
@@ -90481,21 +90484,22 @@
     "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
     "AHK07 (arXiv math/0605137v2) Definition 2.3 compared",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there defines d^+_α(Y,B_Y) = Σ_{b_i ≤ 0} W^+_α(b_i)ρ(B̃_i) + Σ_v w^+_α(a_v) − Σ_{C̃_{i,j}} W^+_α(b_i), with the first sum indexed by b_i ≤ 0."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there defines d^+_α(Y,B_Y) = Σ_{b_i ≤ 0} W^+_α(b_i)ρ(B̃_i) + Σ_v w^+_α(a_v) − Σ_{C̃_{i,j}} W^+_α(b_i), with the first sum indexed by b_i ≤ 0.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.13."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed in the published p.12 image and v2 p.13. Read AHK07 v2 Definition 2.3, p.5, and its sign convention: a(B_i)=-b_i. Thus its nonpositive-discrepancy index becomes b_i≥0. Directly checked W(b)=0 for b≤0 and W^+_(3/4)(1/2)=1/2, so the wrong index deletes a nonzero intended term."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E5",
    "kind": "misprint",
    "locator": "Proof of Proposition 2.15, p.12 of the published version",
    "printed": "(−∞,1)",
-   "correction": "W^±_α is defined on (−∞, 1). The weights w^±_α must be defined on all of R, or at least on (−1, ∞), with value 0 at arguments above α, as in AHK07 Definition 2.2.",
+   "correction": "Keep W^±_α on (-∞,1), but extend w^±_α to all real arguments by the displayed piecewise formulas, in particular by zero above α (also at α for w^+). Defining w on (-1,∞) is sufficient for the discrepancies used here. AHK07 §2 distinguishes the domains of w and W; its Definition 2.2 supplies the same piecewise weights.",
    "reason": "w^±_α is evaluated at k(1 − b) ∈ (0, ∞) in W^±_α and at discrepancies a_v ∈ (−1, ∞), both of which can be ≥ 1. The printed domain excludes these, while the formula's 'otherwise' clause shows the intended value 0 there. Checked on the page image. Noted by the extraction (gap-difficulty).",
    "affects": "nothing",
    "known": "new",
@@ -90504,22 +90508,23 @@
     "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
     "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there reads \"Define the following functions w^-_α, w^+_α, W^-_α, W^+_α : (−∞, 1) → R_{≥0} for α ∈ (0,1)\"."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there reads \"Define the following functions w^-_α, w^+_α, W^-_α, W^+_α : (−∞, 1) → R_{≥0} for α ∈ (0,1)\".",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.13."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed in published p.12 and v2 p.13. Even b=0 asks for w(1), outside the printed domain. AHK07 v2 pp.4–5 separates w:(0,∞) from W:(-∞,1); extending the printed w formula to R accommodates this paper’s ordinary discrepancies as well. Refined the source attribution so it does not falsely attribute the larger domain (-1,∞) to AHK’s Definition 2.2."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E6",
    "kind": "error",
    "locator": "Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29",
    "printed": "also Q-Cartier",
-   "correction": "Retain a neighborhood of the special fibre in the local deformation lemma; add properness for its global application. The unrestricted global statements fail.",
-   "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem. (cc-442dc5) Rechecked in arXiv v2 (there Lemma 6.4): the proof is only a citation of [KM92, 12.1.8] and [dFH11, Proposition 3.1], which are local statements near the special fibre, so the unrestricted global formulation is not supported by its proof either.",
+   "correction": "Conclude that the divisor is Q-Cartier on a neighbourhood of the special fibre. For a global conclusion, add properness over the DVR; the same repair is needed for the unrestricted Q-factoriality assertion in Corollary 6.7(1). This globalization is conditional on the local deformation result, whose proof is a separate input.",
+   "reason": "Let R=Z_p, p>5, and let T be Spec R[x,y,z,w]/(xy-zw) with only its closed special vertex removed. It is integral, flat, normal and excellent. The special fibre is the punctured threefold node, hence smooth, S3, terminal and Q-factorial. The remaining generic vertex Z is closed in T and disjoint from that fibre, so codim(Z∩X,X)≥3. The ruling D=V(x,z) is Cartier on T\\Z, restricts to a Cartier divisor on X, and does not contain X. Over K=Frac(R), use the small resolution xt=zs, wt=ys in N×P¹. On its charts z=ux,y=uw and x=vz,w=vy, with v=1/u, the strict transform of D has equations x and z. Since z=ux, its divisor line bundle restricts to O_{P¹}(-1) on the exceptional fibre. There is no exceptional divisor, so any Cartier multiple mD would pull back to that strict-transform multiple and also restrict trivially to the fibre, contradicting degree -m. Thus both stated global conclusions fail. dFH11 Proposition 3.1 explicitly retains a neighbourhood of the Cartier fibre. Under properness the closed complement of the Q-Cartier locus of a fixed D has closed image in Spec R; if it misses the closed point, it must be empty. The projective lifts in Theorem 6.1 have this properness. This example does not refute its other conclusions.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -90527,22 +90532,23 @@
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
     "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding local lemma there ends \"Then 𝒟 is also Q-Cartier\", with the hypothesis that D|_{𝒳∖Z} is Q-Cartier for a closed Z with codim(Z ∩ X, X) ≥ 3 but no neighbourhood-of-the-special-fibre or properness hypothesis, and its global application in the following corollary reads \"pick a divisor 𝒟 whose support does not contain X and such that 𝒟|_X is Q-Cartier. We claim that then 𝒟 is also Q-Cartier.\""
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding local lemma there ends \"Then 𝒟 is also Q-Cartier\", with the hypothesis that D|_{𝒳∖Z} is Q-Cartier for a closed Z with codim(Z ∩ X, X) ≥ 3 but no neighbourhood-of-the-special-fibre or properness hypothesis, and its global application in the following corollary reads \"pick a divisor 𝒟 whose support does not contain X and such that 𝒟|_X is Q-Cartier. We claim that then 𝒟 is also Q-Cartier.\"",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Lemma 6.4 and Corollary 6.5 p.31."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed against published pp.28–29 and v2 p.31. Independently checked all hypotheses of the punctured-node family and both small-resolution charts, including the degree -1 obstruction. Read dFH11 v3 Proposition 3.1 and proof, p.5: its conclusion is explicitly near S. Added the closed-image globalization proof and retained the narrow refuted scope (the global divisor and Q-factorial clauses); the counterexample is not evidence against the projective lifting theorem."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E7",
    "kind": "gap",
-   "locator": "Published version, Theorem6.1(2b) proof p.33, choice of Acal,Hcal",
-   "printed": "A|_X=A",
-   "correction": "Use Q-Cartier numerical representatives, with restrictions numerically equivalent after rational scaling; construct the needed effective boundary separately.",
-   "reason": "The hypothesis is surjectivity of Pic⊗Q modulo numerical equivalence, which does not supply prescribed line bundles. The representative/nef-big/primitive-section argument in this checkpoint supplies the effective perturbation and its intersection signs without completeness or H² vanishing. The boundary version of special-step identification remains an explicit proof task.",
+   "locator": "Published Theorem 6.1(2b), proof p.33, choice of 𝒜 and ℋ; arXiv v2 proof of Theorem 1.3(2b), p.35",
+   "printed": "𝒜|_X = A",
+   "correction": "Choose Q-Cartier representatives with 𝒜|_X ≡ A and ℋ|_X ≡ H; clear denominators when constructing sections. For large m choose a primitive section of a divisible multiple of mℋ+𝒜, giving an effective 𝒟 that omits X and has 𝒟|_X ≡ mH+A. This repairs the claimed literal lifts and the effective perturbation construction. The subsequent application of the lifted-step argument to the perturbed boundary must still be justified; this correction does not claim to prove the whole of (2b).",
+   "reason": "Theorem 6.1 defines N¹ as Pic⊗Q modulo numerical equivalence. Its surjectivity supplies rational numerical classes, not specified line bundles or integral representatives of prescribed classes. The proof of (2a), p.31, correctly uses ≡; p.33 uses literal equality. The needed construction can be made numerically: H is nef and big on X, hence its lift is nef and big on the generic fibre; choose m so mℋ+𝒜 is generically big. For a sufficiently divisible multiple L, the nonzero finite torsion-free R-module H⁰(𝒳,L) has a primitive section. The kernel of restriction to X is πH⁰(𝒳,L), so the primitive section does not vanish identically on X. Its divisor restricts with the desired numerical class and is negative on the chosen ray because H.Σ=0 and A.Σ<0. The fixed-resolution hypothesis permits a sufficiently small boundary coefficient. These steps require neither completeness nor H²(X,O_X)=0. They do not by themselves identify the prescribed special flop or prove numerical descent after the perturbed step; those are separate proof obligations. The finding is retained as a local proof gap, not a counterexample to the theorem.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -90550,14 +90556,15 @@
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
     "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding passage there reads \"Since N^1(𝒳/S) → N^1(X) is surjective, there exist Cartier divisors 𝒜 and ℋ on 𝒳 such that 𝒜|_X = A and ℋ|_X = H.\" An earlier passage of the same section makes the weaker and correct numerical statement, \"there exists an ample Q-divisor 𝒜 on 𝒳 such that 𝒜|_X ≡ A\", so the two readings sit side by side in the preprint."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding passage there reads \"Since N^1(𝒳/S) → N^1(X) is surjective, there exist Cartier divisors 𝒜 and ℋ on 𝒳 such that 𝒜|_X = A and ℋ|_X = H.\" An earlier passage of the same section makes the weaker and correct numerical statement, \"there exists an ample Q-divisor 𝒜 on 𝒳 such that 𝒜|_X ≡ A\", so the two readings sit side by side in the preprint.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Theorem 1.3(2b) proof p.35."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed as a proof-level defect at published p.33 and v2 p.35, with the explicit N¹ definition on published p.26 and numerical use on p.31. Rechecked the rational-representative, nef/big and primitive-section construction. Expanded the correction to show exactly what is repaired and explicitly retained the separate obligation of adapting the lifted-step argument to the perturbed pair. No counterexample to Theorem 6.1(2b) is claimed."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E8",
@@ -90573,19 +90580,20 @@
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
     "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"if 2a_2 = a_1 + a_3, then c_2 = −2, f^{-1}_*B·C_2 = 0, and C_2·C_1 = C_2·C_3 = r_2\", and a commented-out paragraph of the same source repeats \"and thus c_2 = −2\"."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"if 2a_2 = a_1 + a_3, then c_2 = −2, f^{-1}_*B·C_2 = 0, and C_2·C_1 = C_2·C_3 = r_2\", and a commented-out paragraph of the same source repeats \"and thus c_2 = −2\".",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.15."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed in published p.13 image and v2 p.15. The defining C_i²=-r_i c_i and r_i>0 rule out c_2=-2. With zero boundary intersection and neighbour intersections r_2, adjunction gives c_2 a_2=a_1+a_3; equality in convexity and a_2>0 force c_2=2."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E9",
    "kind": "misprint",
-   "locator": "Published version, Theorem4.3 proof p.17, last paragraph",
+   "locator": "Published Theorem 4.3, proof p.17, last paragraph; arXiv v2 Theorem 4.2, proof p.19",
    "printed": "codimension two",
    "correction": "The flip is an isomorphism in codimension one, equivalently off subsets of codimension at least two.",
    "reason": "Lemma2.7 used at this step assumes equality on opens containing all codimension-one points. A small fourfold flip may change a codimension-two surface, so it need not be an isomorphism at codimension-two points. The weaker standard property suffices.",
@@ -90596,14 +90604,15 @@
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
     "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the last paragraph of the proof of the special flip theorem there reads \"since the flipping contraction f : X → Z is relatively F-regular (resp. completely relatively +-regular) over a neighbourhood of the image of the flipping locus and φ is an isomorphism in codimension two, the flipped contraction f⁺ : X⁺ → Z is also relatively F-regular\", citing the lemma whose hypothesis is that φ is an isomorphism at every codimension one point."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the last paragraph of the proof of the special flip theorem there reads \"since the flipping contraction f : X → Z is relatively F-regular (resp. completely relatively +-regular) over a neighbourhood of the image of the flipping locus and φ is an isomorphism in codimension two, the flipped contraction f⁺ : X⁺ → Z is also relatively F-regular\", citing the lemma whose hypothesis is that φ is an isomorphism at every codimension one point.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Theorem 4.2 proof p.19."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed in published p.17 image and v2 p.19. Read the actual hypothesis of Lemma 2.7 on published p.7: isomorphism at codimension-one points. Smallness gives precisely the corrected condition, not isomorphism at codimension-two points. Corrected the preprint theorem number to 4.2."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E10",
@@ -90619,14 +90628,15 @@
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
     "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The crystalline trace argument in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The crystalline trace argument in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: absent from v2."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed directly in the published p.20 image, with the resolution and point-count comparison on p.19. The left side counts Y but the right side labels crystalline cohomology by X. Y is the smooth proper scheme used by the argument. No crystalline trace argument occurs in v2, so the published verification is essential."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E11",
@@ -90642,14 +90652,15 @@
     "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
     "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
     "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The slope assertion in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it."
+    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The slope assertion in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it.",
+    "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: absent from v2."
    ],
    "owner": "PAPER-HACON-WITASZEK-23",
    "file": "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
    "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "reviewReason": "Confirmed directly in published p.20. H⁰ of a geometrically connected smooth proper Y contributes eigenvalue 1, of slope 0. Read Esnault’s published Theorem 1.1, p.188, which explicitly asserts the vanishing of slopes below 1 only for i>0; its surrounding trace argument uses the q-power Frobenius. The intended conclusion retains the degree-zero contribution 1. Absent from v2."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
