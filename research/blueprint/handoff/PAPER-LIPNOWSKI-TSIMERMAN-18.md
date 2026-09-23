@@ -1,3 +1,75 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — stabilizer continuation
+
+Codex — codex-a71f92; 23 September 2026; Refs #1332. **Partial.**
+This continues our PR #1848, not an independent review.
+
+Resume from the report's S1–S7 supplement. Current inventory: 136 items
+(16 library, 26 planned, 94 missing), ten existing routes containing
+75 missing and 25 planned items, 38 definition/construction API/test
+blocks, 42 selected acyclic known-ID edges, 17 unchanged proposed v1
+sourceIssues and the same 19 withheld claims. All 124 inherited item
+objects and the complete earlier report/handoff remain unchanged.
+
+What this claim adds:
+
+- Five actual pinned suppliers: PID Smith quotient and diagonal basis,
+  prime-power quotient cardinality (root cardQuot_pow_of_prime),
+  DVR unit-times-uniformizer-power, DoubleCoset.eq and
+  MulAction.index_stabilizer.
+- A finite-DVR determinant-index assembly proof.
+- A non-isotypic stabilizer bound using successive projected flag
+  quotients: exponent Σn_i²δ_i+Σ_{i<j}n_i n_jρ_ij≤Δ.
+  Normalize the graded saturations, not the entire lattice saturation.
+- Nested double-coset level maps with API/tests, a fiber upper bound
+  retaining the left stabilizer, right multiplication for conjugate
+  levels, and a finite-support product-index lemma.
+- Conditional rational-orbit count D_*³h. This is NOT an unconditional
+  abelian-variety count or a sharp asymptotic coefficient.
+
+Fresh read: all 38 pages of LT v1, SHA
+5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a;
+Yun v2 §4.8 and the complete Lemma 4.9 proof, SHA
+a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347.
+No fresh rendered-page reading. Conrad and other earlier source reading
+remain historical. Author/arXiv metadata still does not establish final
+2018 text agreement; no new publisher download is claimed.
+
+Resume in this order:
+
+1. Obtain and compare a legitimate final/accepted journal text. G0 remains.
+   Do not label inherited v1 findings as confirmed final-publication errors.
+2. Close the arithmetic inputs to S6: exact marked quasi-isogeny action,
+   every local centralizer including p, product stabilizers, restricted-
+   product conjugacy to one fixed compact level with finite exceptional
+   support, and the finite coarse class-set. S6 deliberately assumes these
+   outputs; it does not construct them.
+3. Match/implement the S1–S5 assembly on the pinned carriers, and close the
+   remaining coefficient-DVR, topological evaluation, trace-dual/class and
+   flag-carrier adapters of L1–L9. Mathematical proofs are not Lean code.
+4. Continue G3–G8: original classification suppliers, quaternionic
+   rank-one/narrow norm-image obstructions, Gan–Yu/Jacobowitz normalization,
+   mass coefficient and residue bounds, free/projective comparison,
+   original lower count and enhanced-limit existence/tightness.
+5. Keep the exact linear local source estimate and all 19 source claims
+   withheld until their own proof/version issues close. Preserve inherited
+   item objects; append a scoped proof or explicitly justify any correction.
+
+Only existing owners are used: GN.2 finite-DVR lattice adapter, GN.3
+stabilizer count, AA.4 level comparisons, and the existing finite-field
+Part II consumer. GN.2/GN.3/AA.4 reviewed audit rows, campaign descriptions,
+and upstream IntegralLattices/GlobalNumberFields were read. Open Mathlib
+Hecke double-coset PR descriptions were consulted for shape, not counted
+as baseline implementations.
+
+Fresh diagnostics: 47,689 exact standard-library Python cases, embedded in
+S7. All 48 checker/intake regression tests pass. No Lean file is authorized,
+written or compiled. The publication verification in the JSON records the
+final snapshot and checker results; this is a checkpoint, not completion.
+
+---
+
+## Historical handoff through PR #1848 (unchanged)
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — continuation
 
 Codex — codex-a71f92; 22 September 2026; Refs #1332. **Partial.**

@@ -1,3 +1,514 @@
+# Lipnowski–Tsimerman: stabilizer and level-map continuation
+
+## Continuation by codex-a71f92 — 23 September 2026
+
+Refs #1332. This is a continuation of PR #1848 (this session), itself
+continuing PR #1652 (codex-c83e7a), not an independent review. Status:
+**partial**. The 124 inherited item objects, 17 proposed v1 source issues,
+all 19 withheld claims and the full earlier report/handoff are preserved.
+The current JSON has **136 items: 16 library, 26 planned, 94 missing**.
+Ten existing routes contain 75 missing and 25 planned items; the other
+19 missing items remain explicitly withheld. There are 38
+definition/construction API/test blocks and 42 selected, acyclic,
+known-endpoint dependency edges. This selected graph is not full closure.
+
+The new contribution is a replacement proof of a coarse non-isotypic
+stabilizer bound, followed by an abstract rational-orbit counting argument
+with its arithmetic hypotheses exposed. It does not certify the printed
+proof, the sharp constant of Theorem 0.1, or the final journal version.
+
+### Read boundary and provenance
+
+At explorer snapshot
+`277594a65a53ae5f7530539524add19c453b4e19`, freshly read all 38 pages /
+1804 extracted lines of [LT arXiv v1](https://arxiv.org/pdf/1511.02212v1),
+including §§0–5.7.3 and the whole bibliography. SHA-256:
+`5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a`.
+Freshly fetched and read §4.8 and the complete Lemma 4.9 proof, printed
+pp.14–15, of [Yun v2](https://arxiv.org/pdf/1303.2420v2), SHA-256
+`a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347`.
+Retrieval/read date: 23 September 2026. This is not a whole-Yun reading.
+The earlier Conrad reading, other Yun sections, page-image inspections and
+first eleven library checks remain historical evidence attributed below;
+no fresh image inspection is claimed here.
+
+The author listings at [Tsimerman's homepage](https://www.math.toronto.edu/jacobt/)
+and [Lipnowski's homepage](https://sites.google.com/site/michaellipnowski/)
+and [arXiv metadata](https://arxiv.org/abs/1511.02212) were checked again.
+They do not establish agreement with the 51-page 2018 journal article.
+The earlier publisher-security-HTML failure is historical, not a fresh
+publisher retrieval in this claim. G0 remains open. No new sourceIssue or
+independent-review verdict is added. Every inherited proposed error remains
+scoped to the public v1, not asserted about the unavailable final text.
+
+### Ownership and pinned API boundary
+
+The reviewed GN.2, GN.3 and AA.4 rows were read along with the GN and AA
+campaign documents and relevant atlas descriptions. The full upstream
+Completed/IntegralLattices and GlobalNumberFields roadmaps were also read.
+IntegralLattices supplies algebraic lattice/quotient vocabulary; its
+implemented rational integral-form theory is not an implementation of the
+finite-residue DVR adapter below. GlobalNumberFields supplies arithmetic
+adele/idele carriers, not algebraic-group level quotients. GN.2 owns the
+local lattice adapter, GN.3 the arithmetic lattice-orbit count, and AA.4 the
+nested-level maps and stabilizer-sensitive bounds. The existing finite-field
+Part II consumes them. No roadmap or competing carrier is introduced.
+
+Five new library items are exact suppliers at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`:
+
+- `Submodule.quotientEquivPiSpan`, together with the Smith basis equation
+  and nonzero coefficients: FreeModule/Finite/Quotient.lean:37–77 and
+  FreeModule/PID.lean:576–641. These are PID-generic.
+- `cardQuot_pow_of_prime`, in the root namespace, and
+  `Submodule.cardQuot_apply): Ideal/Norm/AbsNorm.lean:52–85,112–180.
+  The prime ideal is nonzero; the consumer supplies a finite residue field.
+- `IsDiscreteValuationRing.eq_unit_mul_pow_irreducible):
+  DiscreteValuationRing/Basic.lean:320–344.
+- `DoubleCoset.eq): GroupTheory/DoubleCoset.lean:73–126. The whole file
+  was read; the carrier is `DoubleCoset.Quotient`, not a newly bundled
+  adelic quotient.
+- `MulAction.index_stabilizer): GroupTheory/Index.lean:891–900.
+  It works for infinite groups; finiteness of the orbit is proved first.
+
+The compared Tau Ceti statement
+`HeckeCoset.degree_eq_relIndex`, NumberTheory/HeckeRing/Basic.lean:530,
+was read at `f790474821cf4256814db967cb154e7af3d0c369`. It counts cosets
+inside one Hecke double coset, not the coarse fiber after changing the
+right level and retaining a left subgroup. It is not a substitute for S4.
+
+Scoped pinned-library and atlas/packet/decomposition searches found no
+exact implementation of the seven new assembly endpoints. A live read-only
+Mathlib PR search for “double coset” found, among others,
+[#43327](https://github.com/leanprover-community/mathlib4/pull/43327),
+[#43328](https://github.com/leanprover-community/mathlib4/pull/43328) and
+[#41253](https://github.com/leanprover-community/mathlib4/pull/41253);
+their descriptions were read. These develop Hecke left-decompositions and
+finiteness, reinforce using the existing quotient carrier, and are not
+pinned-baseline suppliers for this job. The open-PR DVR search and a public
+Zulip search did not identify the exact requested assembly; this is a
+limited search, not an absence proof. Build the specified Tau Ceti adapter
+on the existing API, not an upstream-PR prerequisite.
+
+## S1. Finite-DVR determinant index
+
+Let O be a DVR with fraction field K, uniformizer π, normalized valuation v
+and finite residue field k of size q. Let T span W over K and be finite free
+over O. If F is a K-linear automorphism with F(T)⊆T, then
+
+`F⁻¹T/T ≃ T/FT; [x]↦[Fx]; #T/FT=q^{v(det_K F)}.`
+
+The first equivalence is literal: changing x by T changes Fx by FT, and
+the inverse takes y to F⁻¹y. For the cardinality, apply the pinned Smith
+quotient equivalence to FT≤T. Its nonzero coefficients have form
+u_iπ^{a_i}, with a_i≥0. Their principal ideals are the a_i-th powers of
+the maximal ideal, whose quotient cardinalities are q^{a_i}. They are
+finite: the positive Nat.card formula excludes the infinite case.
+The product quotient has cardinality q^{Σa_i}.
+
+To identify the exponent, a basis of T carried by F is a basis of FT.
+The Smith basis of FT differs from it by an invertible O-matrix. The top
+Smith basis differs from the chosen basis of T by another invertible
+O-matrix. Their determinants are units, so v(det F)=Σa_i. The determinant
+may equally be computed after scalar extension to W; basis invariance and
+scalar extension are ordinary matrix determinant identities. Rank zero
+gives the empty product 1. An invertible map with unit determinant gives
+FT=T. The zero map on positive rank is excluded.
+
+This is a missing assembly lemma, not a claim that the Z-only determinant
+index theorem generalizes by changing its name. It supplies the exact
+finite index used in S2 and also the finite-DVR steps isolated in L1/L5.
+Suggested home: `TauCeti/LinearAlgebra/Lattice/DVRIndex.lean`, consuming
+the existing submodule/basis/quotient API. No Lean file is part of this job.
+
+## S2. Count a fixed successive profile, not intersections with summands
+
+Work over K=Q_ℓ and O=Z_ℓ. Let γ be semisimple with distinct irreducible
+monic integral factors f_i and multiplicities n_i. Write
+V=⊕V_i, V_i=F_i^{n_i}, F_i=K[X]/f_i; set
+
+`δ_i=v_ℓ disc(f_i); ρ_{ij}=v_ℓ Res(f_i,f_j).`
+
+Fix an order of the blocks and set V_{≤i}=⊕_{j≤i}V_j.
+For a full γ-stable lattice M, its successive profile is
+
+`U_i=pr_i(M∩V_{≤i})⊂V_i.`
+
+Each U_i is a full stable lattice. It is the image of the intersection with
+the prefix, not M∩V_i. This distinction is the existing `flag-fiber`
+definition's point; no second profile carrier is needed.
+
+For fixed prefix lattice L⊂V_{<i} and fixed U_i, all lattices extending them
+are graphs of O-linear maps U_i→V_{<i}/L. Because U_i is O-free, choose
+lifts of a basis and extend K-linearly. Thus this Hom group is
+
+`W/T; W=Hom_K(V_i,V_{<i}); T=Hom_O(U_i,L).`
+
+The split γ-action gives the Sylvester map
+F(t)=γ_{<i}t−tγ_i. It preserves T. Its K-kernel is zero because the two
+spectra are disjoint, hence it is invertible. A graph is γ-stable exactly
+when its class lies in ker(F:W/T→W/T)=F⁻¹T/T. There is no quotient by a
+nonzero rational commuting shear at this step. Such shears matter inside
+repeated blocks in L5, not between distinct irreducible factors here.
+
+S1 gives the cardinality ℓ^{v(det F)}. Over a splitting field, the
+eigenvalues of F are differences of eigenvalues in the prefix and the new
+block. Consequently
+
+`v(det F)=Σ_{j<i} n_j n_i ρ_{ji}.`
+
+The determinant is computed on the ambient K-space, so this exponent does
+not depend on the particular prefix lattice L or its basis. Induction on
+the number of blocks proves the exact raw profile count
+
+`#{M with successive profile (U_i)}=ℓ^{Σ_{i<j}n_i n_jρ_{ij}}.`
+
+This expands the already present `yun-resultant-fiber` item, rather than
+adding a duplicate theorem. Yun's global setup uses regular semisimple
+elements. The displayed proof separately checks that the invertible
+Sylvester calculation permits repeated multiplicities within each block;
+it does not apply a regular-semisimple theorem outside its hypotheses.
+The signs of resultants disappear under valuation, and each unordered
+pair occurs once. All factors and cross resultants are nonzero integral
+elements, so every displayed valuation is nonnegative.
+
+Acceptance: γ=diag(0,0,ℓ^t), with rank-two and rank-one standard graded
+lattices, gives ℓ^{2t} raw extensions. For three rank-one blocks 0,2,4
+over Q₂, the valuations are 1,2,1 and the total is 16; the prefix Sylvester
+matrix need not stay diagonal in a lattice basis. Replacing projected
+quotients with coordinate intersections fails to describe these graphs.
+
+## S3. Non-isotypic stabilizer bound
+
+Put R_i=O[θ_i] and S_i=O_{F_i}. Normalize each U_i separately by the
+inherited saturation-normalization theorem:
+
+`R_i^{n_i}⊆U_i⊆S_i^{n_i}; S_iU_i=S_i^{n_i}.`
+
+A block-diagonal centralizer element makes all these normalizations
+simultaneously. This does not say the whole M lies in the direct sum of
+these normalized graded lattices. Let H_i=GL_{n_i}(S_i) and H=∏H_i.
+
+First, any element stabilizing M preserves every prefix V_{≤i}, hence its
+intersection with M and the quotient U_i. It also preserves S_iU_i.
+Therefore Stab_{Z_γ(K)}(M)⊆H. The relevant compact level is the one from
+the **graded saturations**, not an unexplained normalization of SM.
+
+Second, there is an equivariant map
+
+`H·M → ∏_i H_i·U_i.`
+
+L9 bounds each factor by ℓ^{n_i²δ_i}. Its congruence kernel argument also
+handles δ_i=0. Thus the profile image has at most
+ℓ^{Σn_i²δ_i} elements. For each profile, S2 bounds the subset belonging to
+H·M by the number of all lattices with that profile. Multiplication gives
+
+`#(H·M) ≤ ℓ^E; E=Σ_i n_i²δ_i+Σ_{i<j}n_i n_jρ_{ij}.`
+
+This proves the orbit finite. Now apply the pinned `index_stabilizer`,
+not a finite-group formula: H itself is generally infinite. With
+Δ=Σn_i²δ_i+2Σ_{i<j}n_i n_jρ_{ij}, nonnegative valuations give E≤Δ.
+Conjugating back yields the new `nonisotypic-stabilizer-bound` item.
+
+This avoids the unnecessary extra multiplicity introduced by applying a
+single global conductor to all matrix entries. It proves a new coarse
+bound; it does not repair the printed p.12 map by pretending it is
+well-defined. The literal `stabilizer-depth-source` remains withheld.
+No sharp global asymptotic constant follows just from S3.
+
+## S4. Nested double-coset levels retain the left stabilizer
+
+For any group G, subgroups H,K and K'≤K, use Mathlib's double-coset carrier.
+The map π:H\G/K'→H\G/K sends [g] to [g]. The representative criterion
+`DoubleCoset.eq` proves it well-defined.
+
+For a fixed coarse class [g], map the left coset set K/K' to its fiber by
+kK'↦[gk]. If k₂=k₁s for s∈K', the two fine double cosets agree.
+For surjectivity, [x] lies over [g] exactly when x=h g k for some h∈H,k∈K;
+then [x]=[gk] at the fine level. K' need not be normal. The map is a map
+of sets, not a homomorphism of quotient groups.
+
+If N=[K:K'] is finite, each fiber has at most N elements. If H\G/K has
+h elements, the fine quotient is a finite dependent sum of fibers and has
+at most Nh elements. It is generally wrong to replace either bound by an
+equality. With H=G every fiber is a singleton for any N. With H=1 the
+fiber bound is attained. No neatness, freeness, discrete action, finite G,
+or Haar measure is assumed.
+
+The one new construction has an explicit API in JSON: representative
+formula, surjectivity, fiber surjection, identity/composition of level
+maps, and coset compatibility. Its four tests include a nonnormal
+transposition subgroup of S₃. Build in the existing AA.4 direction,
+suggested home
+`TauCeti/NumberTheory/AdelicAlgebraicGroups/LevelMaps/DoubleCoset.lean`.
+The theorem counting its fibers is a separate endpoint.
+
+## S5. Conjugate levels and finite-support products
+
+Two further group-theoretic adapters prevent silent global assumptions.
+
+If K_a=aKa⁻¹, the map H\G/K_a→H\G/K is [g]↦[ga], with inverse
+[x]↦[xa⁻¹]. Indeed g'=h g(a k a⁻¹) implies g'a=h(ga)k.
+No rationality or normalization of H is imposed on a. Conjugating g itself
+would change the left subgroup and would be a different statement.
+
+For S_v≤H_v with S_v=H_v outside a finite set B, the coset set
+(∏H_v)/(∏S_v) is equivalent to ∏_{v∈B}H_v/S_v. Equality on the right
+means coordinatewise subgroup membership, exactly equality on the left.
+Choose representatives at the finitely many exceptional places and fill
+all other coordinates with identity for the inverse. Consequently the
+index is the finite product of the local indices. No normality is used.
+In a restricted-product group, verify that these product subgroups really
+embed in the specified ambient group before using the statement.
+
+Both adapters belong to AA.4 for this consumer; neither constructs a new
+adele ring. Infinitely many proper local subgroups are excluded. A bare
+collection of locally conjugate compact levels does not yet produce an
+adelic conjugating element: the integrality/restricted-product condition
+must be checked.
+
+## S6. Conditional global counting, with arithmetic inputs still visible
+
+Let G_f act on X and let Γ≤G_f. Suppose there are at most D_*² G_f-orbits,
+as the local-orbit bound L8 would supply after the group identifications.
+For each representative M, suppose
+
+- Stab(M)=∏S_{M,ℓ} is contained in K_M=∏H_{M,ℓ};
+- S_{M,ℓ}=H_{M,ℓ} outside finitely many primes and the product of local
+  indices is at most D_*;
+- K_M=a_M K₀a_M⁻¹ for a_M∈G_f and a fixed K₀;
+- h=#(Γ\G_f/K₀) is finite.
+
+Within one transitive orbit the rational-orbit set is
+Γ\G_f/Stab(M): represent a point by gM, and equality modulo Γ is exactly
+the double-coset relation. S4 bounds its cardinality by D_* times the
+coarse class-set size at K_M. S5 identifies that coarse set with the one
+at K₀. Summing over the at most D_*² orbits gives
+
+`#(Γ\X)≤D_*³ h.`
+
+For the semisimple Weil polynomial data of L8, the product of ℓ^{Δ_ℓ}
+is the positive integer D_* formed from the ordered unequal root
+occurrences, with multiplicities. S3 gives each local index at most
+ℓ^{E_ℓ}≤ℓ^{Δ_ℓ}. When the finite-support and ambient-group assumptions
+above have been verified, the product bound follows, and
+
+`#(Γ\X)≤(2√p)^{3m(m−1)}h; m=2g.`
+
+This is a conditional mathematical endpoint, not a hypothesis field
+asserting the desired conclusion. The actual missing producer contracts
+remain `marked-quasi-isogeny`, `forget-marking`,
+`prime-p-centralizer`, `adelic-class-set` and
+`nonabelian-class-comparison`, with the original classification references
+listed in prerequisites. They must establish the action identification,
+semisimple local centralizers, product stabilizers, finite-support
+conjugacy and finite class-set comparison. At p the prime-field F,V
+adapter is required; this is not a statement for arbitrary F_{p^r}.
+
+No strong approximation or reduced-norm class-number identification was
+used in the abstract proof. In particular h is not silently replaced by a
+product of wide class numbers. The real-Weil/quaternionic rank-one
+exception and narrow-class issues in G5 remain. Even D_*=1 leaves h
+rational classes, not necessarily one. The Part II brief now names this
+conditional bound and its exact supplier obligations; it does not adopt
+the source's disputed numerical coefficient.
+
+## S7. Diagnostics and remaining work
+
+The standard-library Python below ran successfully with 47,689 exact
+cases: 384 DVR cokernels; 11 flag fibers; 48 stable graph lattices; four
+profile counts; nine unequal-block fibers; 135 unequal-block compact
+orbit models; 136 double-coset fibers; 90 total bounds; 216 conjugate-level
+comparisons; 46,656 exponent inequalities. These are diagnostics of the
+written formulas, not proofs or Lean tests. The S₃ test enumerates every
+subgroup triple K'≤K and retains H; the lattice test uses exact fractions.
+
+The determinant/index and general non-isotypic steps now have concrete
+mathematical proof plans. G2 is narrower, not closed: local type adapters
+and the arithmetic identification/finite-support suppliers remain.
+G0/G1 and G3–G8 remain unchanged. The report deliberately preserves the
+earlier statements of what was unresolved **at the earlier checkpoint**
+below; the current S1–S6 supplement and JSON verification describe what
+this claim adds.
+
+The source checker, intake checker (three files, zero problems),
+preservation/routing/API/DAG checks and all 48 checker/intake regression
+tests pass at publication snapshot
+`d546d126d455b9add0ac32d9cb30b5ff488dece7`. No Lean
+file was written or compiled. Independent review is still required.
+
+```python
+from fractions import Fraction as Q
+from itertools import product, permutations
+from math import gcd
+
+checks = {}
+
+def record(k):
+    checks[k] = checks.get(k, 0) + 1
+
+def vp(a, p):
+    assert a
+    n = 0
+    while a % p == 0:
+        a //= p
+        n += 1
+    return n
+
+def matmul(a, b):
+    return [[sum(x*y for x, y in zip(row, col)) for col in zip(*b)] for row in a]
+
+def inv(a):
+    n = len(a)
+    b = [[Q(x) for x in row] + [Q(i == j) for j in range(n)] for i, row in enumerate(a)]
+    for i in range(n):
+        r = next(r for r in range(i, n) if b[r][i])
+        b[i], b[r] = b[r], b[i]
+        d = b[i][i]
+        b[i] = [x/d for x in b[i]]
+        for r in range(n):
+            if r != i:
+                d = b[r][i]
+                b[r] = [x-d*y for x, y in zip(b[r], b[i])]
+    return [r[n:] for r in b]
+
+def integral(a):
+    return all(x.denominator == 1 for row in a for x in row)
+
+# Exhaustive nonsingular two-dimensional DVR cokernels modulo p^N.
+# N exceeds the determinant valuation, hence all Smith factors fit.
+for p in (2, 3):
+    for entries in product(range(4), repeat=4):
+        a, b, c, d = entries
+        det = a*d-b*c
+        if not det:
+            continue
+        v = vp(abs(det), p)
+        modulus = p**(v+1)
+        image = {( (a*x+b*y) % modulus, (c*x+d*y) % modulus)
+                 for x, y in product(range(modulus), repeat=2)}
+        assert modulus**2 // len(image) == p**v
+        record('dvr_cokernel')
+
+# Successive graded profiles are Z_p, not coordinate intersections.
+# In the prefix basis the Sylvester matrix need not be diagonal.
+for p, eigen in ((2, (0, 2, 4)), (3, (0, 3, 6)), (2, (0, 1, 2)), (3, (0, 1, 3))):
+    lattices = [[[Q(1)]]]
+    for i in range(1, len(eigen)):
+        v = sum(vp(abs(eigen[j]-eigen[i]), p) for j in range(i))
+        modulus = p**v
+        next_lattices = []
+        for basis in lattices:
+            f = [[Q((eigen[j]-eigen[i]) if j == k else 0) for k in range(i)] for j in range(i)]
+            sylvester = matmul(matmul(inv(basis), f), basis)
+            fibers = []
+            for numer in product(range(modulus), repeat=i):
+                w = [[Q(t, modulus)] for t in numer]
+                if integral(matmul(sylvester, w)):
+                    col = matmul(basis, w)
+                    extended = [row+[col[j][0]] for j, row in enumerate(basis)] + [[Q(0)]*i+[Q(1)]]
+                    fibers.append(extended)
+            assert len(fibers) == p**v
+            next_lattices.extend(fibers)
+            record('flag_fiber')
+        lattices = next_lattices
+    exponent = sum(vp(abs(a-b), p) for j, a in enumerate(eigen) for b in eigen[j+1:])
+    assert len(lattices) == p**exponent
+    gamma = [[Q(eigen[j] if j == k else 0) for k in range(3)] for j in range(3)]
+    for basis in lattices:
+        assert integral(matmul(matmul(inv(basis), gamma), basis))
+        record('flag_stability')
+    record('profile_count')
+
+# Unequal repeated multiplicities: rank-two scalar block against rank one.
+for p in (2, 3, 5):
+    for t in range(3):
+        modulus = p**t
+        fibers = list(product(range(modulus), repeat=2))
+        assert len(fibers) == p**(2*t)
+        # GL_2(Z/p^t) x GL_1 acts on these graph parameters. For t>0,
+        # count the orbit of (1,0) directly; its stabilizer is not discarded.
+        if t and modulus <= 9:
+            units = [u for u in range(modulus) if gcd(u, modulus) == 1]
+            matrices = [a for a in product(range(modulus), repeat=4)
+                        if gcd(a[0]*a[3]-a[1]*a[2], modulus) == 1]
+            for z in fibers:
+                orbit = {((a[0]*z[0]+a[1]*z[1])*pow(u, -1, modulus) % modulus,
+                          (a[2]*z[0]+a[3]*z[1])*pow(u, -1, modulus) % modulus)
+                         for a in matrices for u in units}
+                stab = sum(((a[0]*z[0]+a[1]*z[1]-u*z[0]) % modulus == 0 and
+                            (a[2]*z[0]+a[3]*z[1]-u*z[1]) % modulus == 0)
+                           for a in matrices for u in units)
+                assert len(matrices)*len(units) == len(orbit)*stab
+                assert len(orbit) <= p**(2*t)
+                record('unequal_block_orbit')
+        record('unequal_block_fiber')
+
+# Infinite compact groups are not enumerated here: these are finite models.
+def mul(a, b):
+    return tuple(a[i] for i in b)
+
+def inverse(a):
+    return tuple(a.index(i) for i in range(len(a)))
+
+g = set(permutations(range(3)))
+identity = tuple(range(3))
+subgroups = []
+gl = sorted(g)
+for mask in range(1 << len(gl)):
+    h = {x for i, x in enumerate(gl) if mask >> i & 1}
+    if identity in h and all(mul(x, y) in h for x in h for y in h):
+        subgroups.append(h)
+
+def dc(h, k, x):
+    return frozenset(mul(mul(a, x), b) for a in h for b in k)
+
+def classes(h, k):
+    return {dc(h, k, x) for x in g}
+
+strict = 0
+for h, k, small in product(subgroups, repeat=3):
+    if not small <= k:
+        continue
+    large_classes, small_classes = classes(h, k), classes(h, small)
+    index = len(k)//len(small)
+    for cls in large_classes:
+        fiber = {c for c in small_classes if c <= cls}
+        x = next(iter(cls))
+        image = {dc(h, small, mul(x, a)) for a in k}
+        assert fiber == image and 1 <= len(fiber) <= index
+        strict += len(fiber) < index
+        record('double_coset_fiber')
+    assert len(small_classes) <= index*len(large_classes)
+    record('double_coset_total')
+assert strict > 0
+assert len(classes(g, {identity})) == 1 < len(g)
+for h, k in product(subgroups, repeat=2):
+    for a in g:
+        ka = {mul(mul(a, x), inverse(a)) for x in k}
+        images = []
+        for cls in classes(h, ka):
+            image = {dc(h, k, mul(x, a)) for x in cls}
+            assert len(image) == 1
+            images.extend(image)
+        assert set(images) == classes(h, k) and len(images) == len(set(images))
+        record('conjugate_level')
+
+for n1, n2, n3 in product(range(1, 5), repeat=3):
+    for d1, d2, d3, r12, r13, r23 in product(range(3), repeat=6):
+        diagonal = n1*n1*d1+n2*n2*d2+n3*n3*d3
+        cross = n1*n2*r12+n1*n3*r13+n2*n3*r23
+        assert diagonal+cross <= diagonal+2*cross
+        record('stabilizer_exponent')
+
+print(checks)
+print('PASS', sum(checks.values()), 'exact diagnostic cases; not proofs or Lean tests')
+```
+
+---
+
+## Historical report through PR #1848 (unchanged)
+
 # Lipnowski–Tsimerman: local-counting continuation
 
 
