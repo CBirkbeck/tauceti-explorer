@@ -1,0 +1,30 @@
+{
+  "redteam": "RT-AREA-analysis",
+  "findings": [
+    {
+      "finding": "RT-AREA-analysis/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap's ContDiffOn predicate requires finite right derivatives of every order at zero; an arbitrary finite Laplace measure does not supply them. For the probability measure sum_{n>=1} 2^(-n) delta_(2^n), the nonnegative right difference quotient (1-f(t))/t dominates every finite partial sum, whose limit is N. Hence the right derivative is not finite. Also exp(-n t) tends on the closed half-line to the discontinuous indicator of zero. The pin's HausdorffBernsteinWidder.lean:70 proves the finite-measure iff for IsContinuousCompletelyMonotoneOnIoi, not the stronger IsCompletelyMonotone. Representation.lean:504 gives the all-moments strong converse. Use the weaker predicate for the iff and keep the strong within-derivative predicate separate. Limits.lean:68 and :96 already provide open-half-line pointwise-limit closure and the endpoint-continuous version. Endpoint continuity repairs closure of the weaker class only: partial sums of the first counterexample give a continuous limit that is still not endpoint-smooth. Correct the prose and displayed stub, import these existing theorems, and preserve the reviewed qualified library credit."
+    },
+    {
+      "finding": "RT-AREA-analysis/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. A=I on the real Banach space R has resolvent (lambda-1)^(-1) I and the advertised power bounds with M=1, omega=1, but its unshifted Yosida approximation is lambda/(lambda-1) I. Its positive-time exponential has norm greater than one. Thus the common contraction sentence is false in the general-growth regime. Engel–Nagel II.3.5 proves the contraction case; II.3.8 first shifts and uses an equivalent norm for general M. The pin instead supplies the direct exponent-zero M-bound at HilleYosida/Approximation.lean:105, the shift at Shift.lean:49, and the completed shifted-limit construction/generation theorem at Generation.lean:165–205. Import the existing real-Banach-space generation result, with its density, M>=1 and all-resolvent-powers hypotheses; its Lean HasGrowthBound argument order is omega M. Keep the contraction route under dissipativity/range hypotheses and do not assert that shifting alone makes the original-norm bound contractive when M>1. No new semigroup implementation or owner is needed."
+    },
+    {
+      "finding": "RT-AREA-analysis/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. On the additive monoid of nonnegative reals with identity involution, F(t)=exp(t) has quadratic form |sum_i c_i exp(t_i)|^2, so it satisfies exactly the generic PD definition. It is continuous at zero but exceeds F(0)=1 and is not uniformly continuous: at n and n+exp(-n) its values differ by a quantity tending to one. PositiveDefinite/Basic.lean:206 retains the general diagonal Cauchy-Schwarz bound; :213 requires a+star(a)=0 for the bound by F(0). Continuity.lean:250 assumes a seminormed additive group and globally negating involution. Apply those qualifications explicitly. Preserve the generic monoid definition and BCR's separately stated boundedness hypothesis; the BCR representation theorem is not refuted by this unbounded example. Keep the reviewed library credit, which already records the restrictions."
+    },
+    {
+      "finding": "RT-AREA-analysis/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The August 17, 2010 draft's Definition 3.2 uses dimension <d-1, whereas the December 10 revision uses <=d-1; Proposition 3.5 proves uniqueness under the revised predicate. The native roadmap still uses the old strict threshold. In R^2, uniform probability laws on perpendicular centered unit-half-length segments vanish on all Borel sets of dimension <1. Every coupling has squared cost 2/3, and equal/opposite parameter couplings give distinct diagonal midpoint laws. Both achieve 1/6 for the averaged squared-distance objective, its triangle-inequality lower bound, so uniqueness fails. Replace the threshold by <=n-1, cite the revised definition/proposition and retain probability, finite-second-moment and positive normalized weight hypotheses. One qualifying input suffices for uniqueness; the simultaneous Brenier-map characterization of Proposition 3.8 assumes the condition on every input. Keep absolute continuity and bounded-density estimates separate. This corrects an obsolete manuscript condition rather than reporting a new error in the revised source. The barycenter target remains unbuilt."
+    },
+    {
+      "finding": "RT-AREA-analysis/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. A Mobius preimage of the real axis is a generalized circle. The regular analytic parabola t+i t^2 lies on no line or circle on an interval: substitution in a generalized-circle equation forces its quadratic-in-modulus coefficient, both linear coefficients and constant to vanish. It cannot be straightened by a Mobius map. The local inverse of h(z)=z+i z^2, with h'(0)=1, does give a biholomorphic straightening chart. The pin's Reflection/Arc.lean:160 already proves charted reflection for holomorphic open partial homeomorphisms, conjugation-invariant coordinate domains, correct mapping conditions, continuity on the closed side, holomorphy on the open side and the real-boundary condition. Restrict Mobius reduction to lines/circles and import that chart theorem for regular analytic arcs. Preserve all source and target chart hypotheses and the existing built verdict; no new reflection theory is needed."
+    }
+  ]
+}
