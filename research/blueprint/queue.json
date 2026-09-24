@@ -17933,8 +17933,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralAlgebraicKTheory--K.1.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #737"
   },
   {
    "id": "REV-GeneralAlgebraicKTheory--K.1",
