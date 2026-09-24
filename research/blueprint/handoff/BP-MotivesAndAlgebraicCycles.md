@@ -2,6 +2,69 @@
 
 Job `BP-MotivesAndAlgebraicCycles`, issue #1014. Agent: Claude Code, session `cc-7b31c4`, 24 September 2026.
 
+**Continuation, same session.** The first pass left MC.4 and MC.7 `partial`. This continuation decomposes both,
+so **all eight layers in scope are now `source_decomposed`**. The packet has **96 nodes**, 206 API items, 132
+unit tests, 44 planets, 48 pinned baseline declarations, 8 gaps, 6 requests. `check_blueprint.py` still reports
+**0 errors, 0 warnings**; `python3 -m unittest discover -s tests` → 273 tests, OK; `intake.py check-files` → 0
+problems. The Lean file is now 825 lines with 178 `sorry`s and was **not compiled**.
+
+**MC.4**, five new nodes, from the same source read further (MVW lectures 14 and 16, and one new source):
+
+- `blow-up-triangle-and-formula` — (14.5.3) and (14.5.4): the blow-up triangle from cdh descent, and the
+  splitting of the motive of a blow-up along a smooth centre of codimension `c`. This is what makes the
+  geometric subcategory contain the motive of every finite type scheme.
+- `motives-with-compact-support` ★ — Definition 16.13 through Corollary 16.17: `Mᶜ(X) = z_equi(X,0)`, its
+  functoriality, `Mᶜ(𝔸ⁱ) ≅ ℤ(i)[2i]`, the localisation triangle, the Künneth isomorphism and geometricity.
+- `borel-moore-motivic-homology` — 16.20 to 16.24: the two groups with their long exact sequences, the
+  bivariant cycle cohomology, the shifting theorem, the flat pullback and Friedlander–Voevodsky duality.
+- `cancellation-over-a-perfect-field` ★ — **the item that needed a new source**. MVW prove cancellation from
+  duality and therefore assume resolution of singularities, and record the perfect-field version only as a
+  remark with a reference. That reference is Voevodsky's *Cancellation theorem*, arXiv:math/0202012v1, read
+  here from its e-print source: its main theorem and the final corollary give the statement over an arbitrary
+  **perfect** field with no resolution hypothesis. The node states both forms and records which statements of
+  the layer use which.
+- `nisnevich-versus-etale-and-rational-coefficients` — 14.21 to 14.30: rationally the two theories agree, and
+  over a perfect field Lichtenbaum motivic cohomology with rational coefficients is motivic cohomology with
+  rational coefficients. What fails integrally is recorded.
+
+**MC.7**, seven new nodes, from three newly obtained freely available sources:
+
+- `hodge-conjecture` ★ — Deligne's official Clay problem description: the definition of a Hodge class, the
+  conjecture, the Chern-class formulation, the proved degree-two case through the exponential sequence, and
+  the two failures — the integral form is false, and the hypothesis that `X` be algebraic cannot be weakened
+  to Kähler.
+- `tate-conjecture` ★ — Totaro's survey, Conjecture 1.1, with Tate classes, the necessity of the hypothesis
+  that the base field be finitely generated over the prime field, and the reduction along a finite extension.
+- `tate-conjecture-variants` — the strong, Borel–Moore, separable-closure, integral and Tate–Beilinson forms,
+  each with what is known; the integral form is recorded as mostly **false** and is never asserted.
+- `lefschetz-and-hodge-standard-conjectures` ★ — Milne's notes: the two conjectures, Conjecture C as a weak
+  form of the first, the positivity consequence of the second, and the exact status — a theorem in
+  characteristic zero, known for very few varieties otherwise, implied by Hodge and Tate.
+- `bloch-beilinson-filtration-and-murre` — the equivalence the source asserts, with an explicit record that
+  the conditions of Murre's conjecture and the axioms of the filtration are **in no source read here**; a new
+  gap gives the next source action.
+- `motivic-t-structure` — the negative statement the sources make, recorded so that no node installs a
+  conjectural t-structure as a theorem.
+- `tate-and-hodge-known-cases` — the register the layer's acceptance condition asks for: Tate for divisors on
+  abelian varieties over finite fields (Tate, through the Hom–Tate-module bijection and Zarhin's trick) and
+  over number fields (Faltings); Moonen's theorem for `h²·⁰ = 1` in characteristic zero and André's
+  hyperkähler case, both through Kuga–Satake; K3 surfaces over finite fields (Artin–Swinnerton-Dyer,
+  Nygaard–Ogus, and the supersingular case completed by Charles, Kim, Madapusi Pera and Maulik); and the
+  unconditional degree-two case of the Hodge conjecture. Every entry carries base field, characteristic,
+  codimension and coefficients.
+
+Two new gaps: the conditions in Murre's conjecture and the Bloch–Beilinson axioms, and the unread proofs
+behind the K3 entries. Both name the next source action.
+
+The three new sources, all free and hashed: Deligne, *The Hodge Conjecture* (Clay), SHA-256 `e308d945…f0c8`;
+Totaro, *Recent progress on the Tate conjecture* (Bull. AMS 54, author's copy), SHA-256 `53be841c…6ec5`;
+Voevodsky, *Cancellation theorem* (arXiv:math/0202012v1), PDF SHA-256 `834de6dc…0d6a`, e-print archive
+SHA-256 `0a8fe209…0a46e`.
+
+---
+
+The first pass's note follows, kept as written.
+
 Deliverables:
 
 - `research/blueprint/packets/MotivesAndAlgebraicCycles.json` — 84 nodes, 172 API items, 112 unit tests,

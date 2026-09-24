@@ -5,10 +5,11 @@ Packet: `research/blueprint/packets/MotivesAndAlgebraicCycles.json`. Suggested L
 `research/blueprint/suggested/MotivesAndAlgebraicCycles.lean`. Handoff:
 `research/blueprint/handoff/BP-MotivesAndAlgebraicCycles.md`.
 
-**Status: partial.** Six of the eight layers in scope are decomposed to declaration granularity; MC.4 and
-MC.7 are left partial, each with a precise `remaining` list in the packet's coverage record. The packet has
-84 nodes, 172 API items and 112 unit tests, cites 48 declarations of the pinned libraries, records 6 gaps and
-makes 6 requests to other roadmaps.
+**Status: partial; all eight layers in scope are now `source_decomposed`.** The first pass left MC.4 and MC.7
+partial with precise `remaining` lists; this continuation decomposes both, reading the same source further for
+MC.4 and obtaining three new freely available sources for MC.7. The packet now has 96 nodes, 206 API items and
+132 unit tests, cites 48 declarations of the pinned libraries, records 8 gaps and makes 6 requests to other
+roadmaps. No layer is `closed`: closure means Lean, and nothing here is formalised.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
@@ -34,6 +35,16 @@ Every source is freely available and was opened and read; the sections read are 
 - **`MILNE.MOT`** — James S. Milne, *Motives - Grothendieck's Dream*. Expository article on the author's page, jmilne.org/math/xnotes/MOT.pdf, ten pages
   <https://www.jmilne.org/math/xnotes/MOT.pdf>, read 2026-09-24.
   SHA-256 `a701ee93d7cefbcc9570afce76b0bd235b6a1bffbf1567a1d73c307d700cd768`.
+
+- **`DELIGNE.HODGE`** — Pierre Deligne, *The Hodge Conjecture*. The Clay Mathematics Institute's official problem description for the Millennium Prize Problem, 5 pages
+  <https://www.claymath.org/wp-content/uploads/2022/06/hodge.pdf>, read 2026-09-24.
+  SHA-256 `e308d945ea3cf5dad8b187a06509013712c467b589039eb41b365cc4c988f0c8`.
+- **`TOTARO.TATE`** — Burt Totaro, *Recent progress on the Tate conjecture*. Bulletin of the American Mathematical Society 54 (2017), 575-590; the author's copy, 17 pages
+  <https://www.math.ucla.edu/~totaro/papers/public_html/tate.pdf>, read 2026-09-24.
+  SHA-256 `53be841ceb366122bd98d07c95291e6b46f7ab47f24b9fc6fb40c9b4b8ec6ec5`.
+- **`VOEVODSKY.CANCEL`** — Vladimir Voevodsky, *Cancellation theorem*. arXiv:math/0202012v1, 1 February 2002; read from the arXiv e-print LaTeX source canarch.tex
+  <https://arxiv.org/abs/math/0202012v1>, read 2026-09-24.
+  SHA-256 `834de6dc40560395512507023eb6241e155673edf3c4f159836658dfee650d6a`.
 
 ## What this roadmap owns, and what it imports
 
@@ -2582,32 +2593,30 @@ nonnegative, and only then does the category become Tannakian.
 
 ## MC.4 Geometric mixed motives and motivic cohomology
 
-**Coverage: partial.** What the restructuring proposal RS-08 leaves this layer: the geometric subcategory, the Tate stabilisation resting on the imported cancellation theorem, homotopy invariance and Mayer-Vietoris in the geometric subcategory, the motives of the affine line, the multiplicative group and projective space with the projective bundle isomorphism, the Gysin triangle with the boundary map at a closed point of a smooth curve, rigidity of the geometric motives, the embedding of Chow motives and the comparison of motivic cohomology with higher Chow groups. Everything the proposal assigns to MotivicEtaleKTheory:M.4 and M.5a is imported through requests and none of it is planned here.
-
-**Remaining in this layer:**
-
-- The blow-up triangle and the formula for the motive of a blow-up along a smooth centre are stated in the source read as displays 14.5.3 and 14.5.4 but their proofs are in lectures not read here; they are needed for the statement that the geometric subcategory contains the motive of every finite type scheme.
-- Motives with compact support and Borel-Moore motivic homology, which the source constructs in Lecture 16, are used in the identification of the dual of the motive of a smooth scheme and are not decomposed here.
-- The version of the cancellation theorem for a perfect base field, which the source attributes to a later paper of Voevodsky, was not read; every node of this layer that uses cancellation carries the resolution of singularities hypothesis of the version that was read.
-- The comparison of the Nisnevich and etale constructions, and motives with rational coefficients, are in the source's Lecture 14 and are not decomposed here.
+**Coverage: source_decomposed.** The first pass left this layer `partial` with four named items; this
+continuation reads the same source further and decomposes all four. What the layer now carries: the
+geometric subcategory and the Tate stabilisation, homotopy invariance and Mayer–Vietoris, the motives of the
+affine line, the multiplicative group and projective space, the Gysin triangle with its boundary map at a
+closed point of a smooth curve, rigidity, the embedding of Chow motives, the comparison of motivic cohomology
+with higher Chow groups — and now the blow-up triangle with the formula for the motive of a blow-up along a
+smooth centre, motives with compact support, Borel–Moore motivic homology with Friedlander–Voevodsky duality,
+the cancellation theorem in both of its forms, and the Nisnevich against étale comparison with rational
+coefficients.
 
 The restructuring proposal RS-08, accepted before this job started, narrows this layer. Bloch's
 cycle complexes with moving and localisation belong to `MotivicEtaleKTheory:M.4`; finite correspondences,
 Nisnevich sheaves with transfers, `A¹`-localisation, the effective motivic category and Voevodsky's
-cancellation theorem belong to `MotivicEtaleKTheory:M.5a`. What is left to this layer is the geometric
-subcategory, the Tate stabilisation resting on the imported cancellation theorem, the computations of the
-motives of the affine line, the multiplicative group and projective space, the Gysin triangle with its
-boundary map at a closed point of a smooth curve, rigidity, and the two comparisons: with Chow motives, and
-with higher Chow groups.
+cancellation theorem belong to `MotivicEtaleKTheory:M.5a`. Everything the proposal assigns to those two is
+imported through requests and none of it is planned here.
 
-The layer is left `partial` on purpose. The blow-up triangle, motives with compact support, Borel–Moore
-motivic homology and the perfect-field form of cancellation are named in the coverage record's `remaining`
-list, with the precise reason in each case, so that a continuation job can resume exactly where this one
-stopped rather than re-reading the same lectures.
+**Which cancellation theorem.** The source of the first pass proves cancellation from Friedlander–Voevodsky
+duality and therefore assumes resolution of singularities. Voevodsky's own later paper, read here, proves the
+same statement over an arbitrary **perfect** field with no resolution hypothesis, and the node records both
+forms and which statements of this layer use which. That was the point of the third remaining item.
 
-**Planets of this layer** (4): *Effective geometric motives*, *Geometric motives*, *Motive of projective space*, *Gysin triangle*.
+**Planets of this layer** (6): *Effective geometric motives*, *Geometric motives*, *Motive of projective space*, *Gysin triangle*, *Motives with compact support*, *Cancellation*.
 
-### Nodes (8)
+### Nodes (13)
 
 #### `effective-geometric-motives` — The category of effective geometric motives
 
@@ -2967,6 +2976,316 @@ stopped rather than re-reading the same lectures.
 
   The node is that theorem with its two immediate consequences, which the source states in the same place; the two sides of the comparison are imported from the two layers that own them, as the restructuring proposal for this roadmap requires.
 
+#### `blow-up-triangle-and-formula` — The blow-up triangle and the motive of a blow-up along a smooth centre
+
+*theorem.*
+
+**Statement.** Assume resolution of singularities over k. For an abstract blow-up of X with centre Z, with the preimage of the centre written Z-prime and the blown-up scheme X-prime, there is a distinguished triangle M(Z-prime) -> M(X-prime) + M(Z) -> M(X) -> M(Z-prime)[1] in the triangulated category of motives. If moreover X and Z are smooth and Z has codimension c, then combining this triangle with the projective bundle decomposition gives an isomorphism M(X-prime) = M(X) + the sum over i from 1 to c-1 of M(Z)(i)[2i]. Together with the Gysin triangle, the blow-up triangle is what makes the category of effective geometric motives contain the motive of every scheme of finite type over k and be generated by the motives of smooth projective schemes.
+
+**Hypotheses.**
+
+- k admits resolution of singularities; this hypothesis is used in both statements and is not removable by the argument given here.
+- An abstract blow-up is a proper map that is an isomorphism outside the centre, in the sense the source fixes for the cdh topology.
+- The second statement adds that X and Z are smooth and that Z has pure codimension c.
+
+**Construction, or proof, in steps.**
+
+1. Import the cdh descent statement for an abstract blow-up, which is the source's 13.26, and read it in the triangulated category of motives as the displayed triangle.
+2. Import the projective bundle decomposition, the source's (14.5.2), for the exceptional divisor of the blow-up.
+3. Combine the two as the source does in 15.13: the exceptional divisor of the blow-up of a smooth centre of codimension c in a smooth scheme is a projective bundle of rank c-1 over Z, so its motive decomposes, and substituting that decomposition into the triangle splits it.
+4. Read off the resulting isomorphism for the motive of the blow-up.
+5. Record the two consequences the source draws: the category of effective geometric motives contains the motive of every scheme of finite type over k, and it is generated by the motives of smooth projective schemes.
+6. Record that the first consequence uses the Gysin triangle as well, which this layer already has.
+
+**Acceptance.**
+
+- For a blow-up of a smooth surface at a point, c = 2 and the formula gives the motive of the blow-up as the motive of the surface plus one Tate twist, matching the Chow-group computation.
+- For c = 1 the sum is empty and the blow-up is an isomorphism, so the formula is consistent.
+- Without resolution of singularities the triangle is not available by this argument; every node that uses it carries the hypothesis, and the packet says so.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives`
+- `MotivesAndAlgebraicCycles:MC.4/motive-of-projective-space`
+- `MotivesAndAlgebraicCycles:MC.4/gysin-triangle`
+- `MotivesAndAlgebraicCycles:MC.4/homotopy-invariance-and-mayer-vietoris`
+
+**Sources.**
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Properties 14.5, the blow-up item, displays (14.5.3) and (14.5.4).
+
+  > (Blow-up triangle) Assume that resolution of singularities holds over k. Let X-prime -> X be an abstract blow-up with center Z, and set Z-prime = Z times_X X-prime. By 13.26, there is a distinguished triangle: M(Z-prime) -> M(X-prime) + M(Z) -> M(X) -> M(Z-prime)[1]. If moreover X and Z are smooth, and Z has codimension c, we show in 15.13 that (14.5.2) and (14.5.3) easily yield an ...
+
+  Both statements, verbatim, with the two results they are deduced from.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, after Definition 14.1.
+
+  > If k admits resolution of singularities, it follows from (14.5.3) and (14.5.5) that DM^eff_gm contains M(Y) for every Y in Sch/k, and is generated by M(X), where X is smooth and projective.
+
+  The consequence for the geometric subcategory, verbatim; this is the statement the layer needed the blow-up triangle for.
+
+#### `motives-with-compact-support` — Motives with compact support
+
+*construction.* **Planet:** *Motives with compact support*.
+
+**Statement.** For a scheme X of finite type over k, the motive with compact support M^c(X) is the sheaf of equidimensional cycles of relative dimension zero, z_equi(X,0), regarded as an object of the triangulated category of motives; by the identification of a complex with its Suslin complex it is the Suslin complex of that sheaf. It is contravariant for etale maps and covariant for proper maps, there is a canonical map from the motive to the motive with compact support induced by the inclusion of finite correspondences into equidimensional cycles, and the two agree when X is proper. The motive with compact support of affine i-space is the Tate object Z(i)[2i]. Assuming resolution of singularities, a closed subscheme with open complement gives a distinguished localisation triangle, the construction is monoidal, and every motive with compact support is an effective geometric motive.
+
+**Hypotheses.**
+
+- X is a scheme of finite type over k; smoothness is NOT assumed, which is the point of the construction.
+- The localisation triangle, the monoidality and the geometricity all assume that k admits resolution of singularities; the definition and the elementary functoriality do not.
+- z_equi(X,0) is the Nisnevich sheaf with transfers of cycles on S times X that are dominant and quasi-finite over a component of S, for S smooth; it contains the sheaf of finite correspondences and equals it when X is proper.
+
+**Construction, or proof, in steps.**
+
+1. Define the presheaf of equidimensional cycles of relative dimension r on smooth schemes and record that it is a Nisnevich sheaf with transfers, contravariant for flat maps and covariant for proper maps in X.
+2. Define the motive with compact support as the case r = 0, regarded in the triangulated category of motives.
+3. Prove the elementary properties: the canonical map from the motive, the equality for proper X, and the computation for affine space through the Suslin-Friedlander complex.
+4. Prove the localisation triangle: the sequence of sheaves with transfers attached to a closed subscheme and its complement has cokernel with vanishing cdh sheafification, which is proved by a platification and resolution argument on a blow-up of the base.
+5. Deduce the Kuenneth isomorphism for a product, first for smooth proper factors, then for proper factors by the blow-up triangle, then in general by the localisation triangle.
+6. Deduce that every motive with compact support is an effective geometric motive, and record the Mayer-Vietoris triangle for an open cover as the source's exercise.
+
+**Acceptance.**
+
+- For X proper the motive with compact support is the motive, so the construction extends the motive of a smooth scheme in a way that is invisible on proper schemes.
+- For affine i-space the motive with compact support is Z(i)[2i], not the unit: the construction is genuinely different from the motive, which is the unit by homotopy invariance.
+- The localisation triangle fails to be available without resolution of singularities by this argument, and the packet records the hypothesis.
+
+**API.** What a user of this object needs in order to use it without unfolding the definition.
+
+| name | role | statement |
+| --- | --- | --- |
+| `motiveCompactSupport` | data | The motive with compact support of a scheme of finite type. |
+| `motiveCompactSupport_proper` | characterisation | For a proper scheme it agrees with the motive. |
+| `motiveCompactSupport_map` | constructor | The canonical map from the motive to the motive with compact support. |
+| `motiveCompactSupport_etale` | functoriality | Contravariance for etale maps. |
+| `motiveCompactSupport_proper_pushforward` | functoriality | Covariance for proper maps. |
+| `motiveCompactSupport_affine` | example | The motive with compact support of affine i-space is the Tate object Z(i)[2i]. |
+| `motiveCompactSupport_localisation` | characterisation | The localisation triangle of a closed subscheme and its complement. |
+| `motiveCompactSupport_tensor` | compatibility | The Kuenneth isomorphism for a product. |
+| `motiveCompactSupport_geometric` | characterisation | Every motive with compact support is an effective geometric motive. |
+
+**Uses.**
+
+- `MC.4, Borel-Moore motivic homology`: The homology with compact supports is defined as maps from a Tate object into this object, so the construction is its source.
+- `MC.4, the duality theorem`: Friedlander and Voevodsky's duality is stated between motives and motives with compact support, and the cancellation theorem is deduced from it.
+- `MC.7 and the cycle conjectures`: The Tate conjecture for singular or non-compact varieties is stated with Borel-Moore homology, which is built from this object.
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `proper_case`: For a proper scheme the canonical map from the motive is an isomorphism.
+- `affine_line`: The motive with compact support of the affine line is Z(1)[2], not the unit.
+- `localisation_point`: For a point in the affine line, the localisation triangle relates the Tate object, the motive with compact support of the line and that of the complement.
+- `not_homotopy_invariant`: The construction is not homotopy invariant: the motive with compact support of X times the affine line is that of X twisted, which distinguishes it from the motive.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives`
+- `MotivesAndAlgebraicCycles:MC.4/blow-up-triangle-and-formula`
+- `MotivesAndAlgebraicCycles:MC.4/homotopy-invariance-and-mayer-vietoris`
+- `MotivesAndAlgebraicCycles:MC.4/motive-of-projective-space`
+
+**Sources.**
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Definition 16.13 and the paragraph after it.
+
+  > For any scheme X of finite type over k, let M^c(X) denote z_equi(X,0), regarded as an object in DM^eff,-_Nis(k). By 14.4, M^c(X) is isomorphic to C_*z_equi(X,0). ... M^c(X) is contravariant in X for etale maps and covariant in X for proper maps. As observed in 16.2, there is a canonical map M(X) -> M^c(X), induced by Z_tr(X) contained in z_equi(X,0). Moreover, M(X) = M^c(X) if X is proper over k.
+
+  The definition and the elementary functoriality, verbatim.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Example 16.14 and Theorem 16.15.
+
+  > We have an isomorphism M^c(A^i) = Z(i)[2i] in DM^eff,-_Nis(k). ... Assume that k admits resolution of singularities. If Z -> X is a closed subscheme with complement U -> X, there is a distinguished triangle: M^c(Z) -> M^c(X) -> M^c(U) -> M^c(Z)[1].
+
+  The computation for affine space and the localisation triangle, verbatim.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Corollaries 16.16 and 16.17.
+
+  > For every X and Y, M^c(X times Y) = M^c(X) tensor M^c(Y). In particular, M^c(X times A^i) = M^c(X)(i)[2i]. ... For every scheme X in Sch/k, M^c(X) is in DM^eff_gm.
+
+  The monoidality and the geometricity, verbatim.
+
+#### `borel-moore-motivic-homology` — Motivic cohomology with compact supports, Borel-Moore motivic homology and duality
+
+*construction.*
+
+**Statement.** Motivic cohomology with compact supports of a scheme of finite type is defined as the maps from its motive with compact support into a Tate object, and Borel-Moore motivic homology as the maps from a Tate object into its motive with compact support. The localisation triangle gives both the expected long exact sequences. The bivariant cycle cohomology of Friedlander and Voevodsky is the group of maps from the motive of a smooth scheme into the Suslin complex of the sheaf of equidimensional cycles, and the shifting theorem identifies twisting by the Tate object with raising the relative dimension of the cycles. The duality theorem states that for a smooth scheme T of dimension d, the maps from the motive of a product into a motive with compact support are the maps from a twisted motive into the motive with compact support of the other product.
+
+**Hypotheses.**
+
+- k admits resolution of singularities for the shifting theorem and for duality; the definitions themselves do not need it.
+- X is of finite type over k; T is smooth of dimension d.
+- The Borel-Moore groups are indexed so that the localisation sequence runs in the direction opposite to that of the cohomology with compact supports, as the source displays.
+
+**Construction, or proof, in steps.**
+
+1. Define the two groups as the displayed Hom groups in the triangulated category of motives.
+2. Apply the localisation triangle of the previous node to obtain the two long exact sequences.
+3. Record the bivariant cycle cohomology of Friedlander and Voevodsky and its identification with a Hom group, which is the form the shifting theorem is proved in.
+4. State the shifting theorem: twisting the source by the Tate object and shifting by two is the same as raising the relative dimension of the cycles by one, and deduce the version with the motive with compact support by induction.
+5. State the duality theorem for a smooth scheme of dimension d and record that it is the input of the cancellation theorem.
+6. Record the flat pullback morphism the shifting theorem produces for a flat map of relative dimension r.
+
+**Acceptance.**
+
+- For a proper smooth scheme the two groups are motivic cohomology and motivic homology, so the construction extends both.
+- The identification of Borel-Moore motivic homology with higher Chow groups is the subject of the source's later lecture, which this layer imports rather than proves.
+- The duality theorem is the only place where the smooth scheme T enters; taking T to be the affine line is what gives the cancellation theorem.
+
+**API.** What a user of this object needs in order to use it without unfolding the definition.
+
+| name | role | statement |
+| --- | --- | --- |
+| `motivicCohomologyCompactSupport` | data | Motivic cohomology with compact supports. |
+| `borelMooreMotivicHomology` | data | Borel-Moore motivic homology. |
+| `borelMoore_localisation` | characterisation | The long exact localisation sequence. |
+| `bivariantCycleCohomology` | data | The bivariant cycle cohomology groups of Friedlander and Voevodsky. |
+| `bivariant_shift` | characterisation | The shifting theorem: a Tate twist raises the relative dimension by one. |
+| `borelMoore_flat_pullback` | functoriality | The morphism attached to a flat map of relative dimension r. |
+| `motives_duality` | characterisation | The duality theorem for a smooth scheme of dimension d. |
+
+**Uses.**
+
+- `MC.4, cancellation`: The cancellation theorem over a field admitting resolution of singularities is deduced from duality with T the affine line.
+- `MC.7`: The Tate conjecture for singular or non-compact varieties is stated in Borel-Moore homology, so the construction is what makes that variant expressible.
+- `MotivicEtaleKTheory`: The identification of these groups with higher Chow groups is the interface to the K-theory side, which this roadmap imports.
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `smooth_proper`: For a smooth proper scheme the two groups are motivic cohomology and motivic homology.
+- `localisation_exact`: The localisation sequence of a closed subscheme and its complement is exact.
+- `shift_by_tate`: Twisting the source by the Tate object and shifting by two raises the relative dimension by one.
+- `duality_affine_line`: Taking the smooth scheme to be the affine line in duality gives the isomorphism used for cancellation.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.4/motives-with-compact-support`
+- `MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow`
+- `MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives`
+
+**Sources.**
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Definition 16.20 and the sequences after it.
+
+  > We define the motivic cohomology with compact supports of X with coefficients in R to be H^{n,i}_c(X,R) = Hom(M^c(X), R(i)[n]). Dually, we define the (Borel-Moore) motivic homology with compact supports H^{BM}_{n,i}(X,R) to be Hom(R(i)[n], M^c(X)). Applying Hom to the triangle in 16.15 yields the expected long exact localization sequences for motivic cohomology and homology with compact supports.
+
+  The two definitions and their long exact sequences, verbatim.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Remark 16.21, Theorem 16.22 and Corollary 16.23.
+
+  > Friedlander and Voevodsky introduced a bivariant cycle cohomology group A_{r,i}(Y,X) ... Then for any r >= 0 and any M in DM^eff,-_Nis, there are natural isomorphisms Hom(M(1)[2], C_*z_equi(X,r)) = Hom(M, C_*z_equi(X,r+1)); Hom(M(r)[2r], M^c(X)) = Hom(M, C_*z_equi(X,r)). ... Let X -> Y be a flat map of relative dimension r. Then we have a morphism M^c(Y)(r)[2r] -> M^c(X).
+
+  The bivariant groups, the shifting theorem and the flat pullback, verbatim.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Theorem 16.24.
+
+  > (Duality) Assume that k admits resolution of singularities. If T is a smooth scheme of dimension d over k then there are canonical isomorphisms Hom(M(X times T)[n], M^c(Y)) = Hom(M(X)(d)[2d+n], M^c(T times Y)).
+
+  The duality theorem, verbatim.
+
+#### `cancellation-over-a-perfect-field` — The cancellation theorem, with and without resolution of singularities
+
+*theorem.* **Planet:** *Cancellation*.
+
+**Statement.** Tensoring with the Tate object is fully faithful: for M and N in the triangulated category of effective motives the map from Hom(M,N) to Hom(M(1),N(1)) is an isomorphism. Over a field admitting resolution of singularities this is deduced from duality by taking the smooth scheme to be the affine line, using that the motive with compact support of the affine line is the Tate object shifted. Voevodsky later proved the same statement for an arbitrary PERFECT field, with no resolution hypothesis, by a direct argument: for a presheaf with transfers admitting an epimorphism from a scheme, every morphism from the smash of the Tate circle with it into the smash of the Tate circle with a scheme is, uniquely up to homotopy, the smash of the identity with a morphism. Every statement of this layer that used cancellation may therefore drop the resolution hypothesis over a perfect field, and this packet records which version each statement uses.
+
+**Hypotheses.**
+
+- The first form assumes that k admits resolution of singularities; the second assumes only that k is perfect.
+- The Tate circle is the kernel of the map from the multiplicative group to the point, viewed as a direct summand of the multiplicative group through the idempotent attached to the unit section.
+- The second form is proved in a separate paper of Voevodsky, which this packet reads; the first is the source's Theorem 16.25.
+
+**Construction, or proof, in steps.**
+
+1. State the first form and its proof from duality: for smooth proper X and Y the successive isomorphisms of the source's proof identify the two Hom groups, then the statement is extended to the generators of the geometric subcategory and to direct sums.
+2. State the second form as the corollary of Voevodsky's paper, and record its proof structure: the main theorem produces, for a morphism out of the smash of the Tate circle with a presheaf with transfers admitting an epimorphism from a scheme, a morphism unique up to homotopy whose smash with the identity of the Tate circle is homotopic to it.
+3. Record the intermediate corollary that the canonical map from a smooth scheme to the internal Hom presheaf from the Tate circle to its smash with the Tate circle induces a quasi-isomorphism of Suslin complexes.
+4. Record that the source of this layer states the perfect-field version only as a remark, with a reference, which is why it is planned from the other paper.
+5. Record for each statement of this layer that used cancellation which hypothesis it now carries.
+
+**Acceptance.**
+
+- Over a perfect field the Tate-stabilised category is obtained from the effective one by a fully faithful construction, so no information is lost on stabilisation; this is the practical content.
+- Over a field of characteristic zero both versions apply, and the second is strictly weaker in hypotheses.
+- Over an imperfect field neither version is claimed here, and no node of this packet asserts cancellation there.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.4/borel-moore-motivic-homology`
+- `MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives`
+- `MotivesAndAlgebraicCycles:MC.4/motives-with-compact-support`
+
+**Sources.**
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Theorem 16.25 and Remark 16.26.
+
+  > (Cancellation) Assume that k admits resolution of singularities. Let M and N be in DM^eff,-_Nis. Then tensoring with Z(1) induces an isomorphism Hom(M,N) -> Hom(M(1),N(1)). ... The Cancellation Theorem 16.25 is also valid when k is perfect [Voe02].
+
+  The first form with its hypothesis, and the source’s own pointer to the perfect-field version, verbatim.
+
+- VOEVODSKY.CANCEL — Vladimir Voevodsky, *Cancellation theorem*, The main theorem.
+
+  > Let F be a presheaf with transfers such that there is an epimorphism X -> F for a scheme X. Let phi be a morphism from the smash of the Tate circle with F to the smash of the Tate circle with Y. Then there exists a unique up to an A^1-homotopy morphism rho(phi) from F to Y such that the smash of the identity of the Tate circle with rho(phi) is homotopic to phi.
+
+  The mechanism of the perfect-field proof, verbatim.
+
+- VOEVODSKY.CANCEL — Vladimir Voevodsky, *Cancellation theorem*, The final corollary.
+
+  > Let k be a perfect field. Then for any K, L in DM^eff_-(k) the map Hom(K,L) -> Hom(K(1),L(1)) is a bijection.
+
+  The perfect-field cancellation theorem, verbatim; this is the statement the layer was missing.
+
+#### `nisnevich-versus-etale-and-rational-coefficients` — The Nisnevich and etale constructions, and motives with rational coefficients
+
+*comparison.*
+
+**Statement.** With rational coefficients the Nisnevich and etale theories agree. A Zariski sheaf of rational vector spaces with transfers is an etale sheaf with transfers; hence for a presheaf of rational modules with transfers the Nisnevich and etale sheafifications coincide, and for an etale sheaf of rational vector spaces the etale and Nisnevich cohomologies agree. Over a perfect field, for a bounded above complex of presheaves of rational modules with transfers the two sheafifications and their hypercohomologies agree, so Lichtenbaum motivic cohomology with rational coefficients is motivic cohomology with rational coefficients. Consequently the etale local objects are the Nisnevich local ones, the etale motivic cohomology functors are representable, and the natural functor between the two triangulated categories of effective motives is an equivalence when the coefficients contain the rationals.
+
+**Hypotheses.**
+
+- The coefficient ring contains the rationals throughout; the statements are false integrally and the layer says so.
+- The base field is perfect for the statements about complexes and for the equivalence of the two categories.
+- The etale theory of motives is the one constructed earlier in the source, which this roadmap imports rather than rebuilds.
+
+**Construction, or proof, in steps.**
+
+1. Prove that a Zariski sheaf of rational modules with transfers is an etale sheaf with transfers, by showing that the presheaf kernel and cokernel of the comparison map vanish, which uses that they are presheaves with transfers.
+2. Deduce that for a presheaf of rational modules with transfers the Nisnevich and etale sheafifications coincide.
+3. Prove that for an etale sheaf of rational modules the etale and Nisnevich cohomologies agree.
+4. Deduce the statement for a bounded above complex over a perfect field, by a hypercohomology spectral-sequence comparison, and read off that Lichtenbaum motivic cohomology with rational coefficients is motivic cohomology with rational coefficients.
+5. Prove the equivalence of the local subcategories and deduce that the natural functor between the two triangulated categories of effective motives is an equivalence with rational coefficients.
+6. Record what fails integrally: the comparison is a rational statement, and the etale theory with finite coefficients is a genuinely different object, which the source develops separately.
+
+**Acceptance.**
+
+- With rational coefficients the two motivic cohomologies agree, which is the statement the layer's brief asks for.
+- With finite coefficients the etale theory is the Galois-module theory of the source's earlier lectures and is not the Nisnevich theory; the comparison is false there.
+- The equivalence of the two categories is an equivalence of tensor triangulated categories, not merely of triangulated categories.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives`
+- `MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow`
+
+**Sources.**
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Lemma 14.21 and Corollary 14.22.
+
+  > Let F be a Zariski sheaf of Q-modules with transfers. Then F is also an etale sheaf with transfers. ... If F is a presheaf of Q-modules with transfers, then F_Nis = F_et.
+
+  The two elementary statements the comparison rests on, verbatim.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Proposition 14.23 and Theorem 14.24.
+
+  > If F is an etale sheaf of Q-modules, then H^n_et(-,F) = H^n_Nis(-,F). ... Let k be a perfect field. If K is a bounded above complex of presheaves of Q-modules with transfers, then K_Nis = K_et and H^*_et(X, K_et) = H^*_Nis(X, K_Nis) for every X in Sm/k. In particular, H^{p,q}_L(X,Q) = H^{p,q}(X,Q).
+
+  The cohomological comparison and its consequence for Lichtenbaum motivic cohomology, verbatim.
+
+- MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Theorem 14.28 and the introduction to the section.
+
+  > The natural functor L_et -> DM^eff,-_et(k,R) is an equivalence of triangulated categories if Q is contained in R. ... We now consider the case when the coefficient ring R contains Q. Our first goal is to identify etale and Nisnevich motivic cohomology (14.24). We will then describe DM^eff,-_et(k,R) (in 14.28), and finally show that DM^eff,-_Nis(k,R) = DM^eff,-_et(k,R) (in 14.30).
+
+  The equivalence of the two categories with rational coefficients, verbatim, with the source’s own plan for the section.
 ---
 
 ## MC.5 Nori motives and diagram categories
@@ -4104,32 +4423,25 @@ evaluation map to `ℂ` — is not used anywhere and is not planned.
 
 ## MC.7 Cycle conjectures and proven special cases
 
-**Coverage: partial.** The two conjectures the sources read state precisely, Conjecture C and Conjecture D, each as a typed predicate relative to a chosen Weil cohomology theory, with the register of known cases of Conjecture C and the one unconditional nilpotence statement available in the sources read. Nothing in this packet assumes either conjecture without naming it in its hypotheses.
+**Coverage: source_decomposed.** A conjecture is a statement, and a statement needs a source. The first pass
+planned the two conjectures its sources stated precisely — Conjecture C and Conjecture D — and left the rest
+in the `remaining` list rather than writing it from memory. This continuation obtains three further sources,
+all freely available, and states the rest: the **Hodge conjecture** from Deligne's official problem
+description; the **Tate conjecture** and its five variants from Totaro's survey; the **Lefschetz and Hodge
+standard conjectures** from Milne's notes, with the exact status of each in the two characteristics;
+**Murre's conjecture and the Bloch–Beilinson filtration**, with the equivalence the source asserts and an
+explicit record that the precise conditions are in no source read here; the absence of a **motivic
+t-structure**, recorded as the negative statement the sources make; and a **register of known cases** of the
+Hodge and Tate conjectures in which every entry carries its base field, characteristic, codimension and
+coefficients, which is the layer's own acceptance condition.
 
-**Remaining in this layer:**
+Nothing is assumed. Every conjecture is a typed predicate relative to a chosen Weil cohomology theory where
+that is what the statement needs, every node that takes one as a hypothesis names it, and a conjectural
+target supplies no unconditional theorem anywhere in this packet.
 
-- The Hodge conjecture and the Tate conjecture are not stated: neither source read here gives a precise statement, and a source that does was not obtained. They are named in the layer's brief and must be added by a continuation job with its own source.
-- The Lefschetz standard conjecture in its strong form, and the Hodge standard conjecture, are named in the sources read only in passing and are not stated precisely here.
-- The Bloch-Beilinson filtration and Murre's conjectures are in the layer's brief and no source read here states them.
-- A motivic t-structure on the geometric motives is in the layer's brief; the source read for the geometric motives says only that a triangulated category is not an abelian category of mixed motives, and no statement is planned.
-- The register of proved special cases contains only what Jannsen's remarks report; the three primary sources behind those cases were not obtained, which is recorded as a gap, and a continuation job should obtain them and either confirm or restate each case.
+**Planets of this layer** (6): *Conjecture C: algebraic Kuenneth projectors*, *Conjecture D: numerical equals homological*, *Smash nilpotence*, *The Hodge conjecture*, *The Tate conjecture*, *The standard conjectures*.
 
-A conjecture is a statement, and a statement needs a source. This layer plans the two
-conjectures the sources read state precisely — the algebraicity of the Künneth projectors, and the assertion
-that numerical equivalence implies homological equivalence — as typed predicates, each relative to a chosen
-Weil cohomology theory, together with the register of known cases of the first and the one unconditional
-nilpotence statement the sources supply.
-
-It plans nothing else. The Hodge conjecture, the Tate conjecture, the Lefschetz and Hodge standard
-conjectures, the Bloch–Beilinson filtration and a motivic t-structure are all in the layer's brief, and no
-source read for this packet states any of them precisely. They are recorded in the coverage record's
-`remaining` list with the reason, and in the packet's `gaps`, rather than written from memory. The packet's
-`restructure` list proposes dividing this layer into a statements sub-layer and a proved-cases register, since
-the two halves have different acceptance tests and different source routes.
-
-**Planets of this layer** (3): *Conjecture C: algebraic Kuenneth projectors*, *Conjecture D: numerical equals homological*, *Smash nilpotence*.
-
-### Nodes (4)
+### Nodes (11)
 
 #### `kunneth-conjecture-C` — Conjecture C: algebraicity of the Kuenneth projectors
 
@@ -4335,6 +4647,429 @@ the two halves have different acceptance tests and different source routes.
 
   The node is that lemma with the two lemmas its proof uses, which the source proves in the same section; the source attributes the result to the literature on nilpotence.
 
+#### `hodge-conjecture` — The Hodge conjecture
+
+*definition.* **Planet:** *The Hodge conjecture*.
+
+**Statement.** Let X be a projective non-singular algebraic variety over the complex numbers. The Hodge decomposition writes the complex cohomology in degree n as the sum over p+q=n of the spaces of classes of type (p,q), and a HODGE CLASS of degree 2p is an element of the rational cohomology in degree 2p whose image in complex cohomology is of type (p,p); equivalently, an element of the intersection of the rational cohomology with the p-th step of the Hodge filtration. Every closed analytic subspace of complex codimension p defines an integral class in degree 2p which is a Hodge class, because the integration current on it is a closed (p,p) form with generalized function coefficients. The Hodge conjecture asserts the converse RATIONALLY: on a projective non-singular algebraic variety over the complex numbers, every Hodge class is a rational linear combination of classes of algebraic cycles.
+
+**Hypotheses.**
+
+- X is projective and non-singular over the complex numbers; the conjecture is false for a general compact Kaehler manifold, and the source records a complex torus as the counterexample.
+- The coefficients are rational: the integral form is false, as the source records, and the conjecture was formulated integrally by Hodge before that was realised.
+- Hodge classes form the group given by the intersection of the rational cohomology in degree 2p with the p-th step of the Hodge filtration; the statement depends on that filtration and on nothing else.
+
+**Construction, or proof, in steps.**
+
+1. Define the Hodge decomposition of the complex cohomology of a compact Kaehler manifold and the Hodge filtration, and record Griffiths transversality for a holomorphic family, since the conjecture is usually studied in families.
+2. Define a Hodge class as a rational class whose complexification is of type (p,p).
+3. Construct the cycle class of a closed analytic subspace by Poincare duality and prove that it is a Hodge class, using that the integration current on it is a closed (p,p) form with generalized function coefficients and that currents compute the same cohomology as smooth forms.
+4. State the conjecture as the surjectivity of the rational cycle class map onto the Hodge classes.
+5. Record the equivalent formulation through Chern classes of algebraic vector bundles, which the source gives, and the resolution of the structure sheaf that produces it.
+6. Record the one case that is a theorem, degree two: a class of type (1,1) has zero image in the quotient of the complex cohomology by the first step of the filtration, and the exponential sequence exhibits it as the first Chern class of a line bundle; this is the Lefschetz theorem on (1,1) classes.
+7. Record the two failures the source records: the integral statement is false, and the algebraicity hypothesis on X cannot be weakened to a general compact Kaehler manifold.
+
+**Acceptance.**
+
+- In degree two the conjecture is a theorem, and the proof is the exponential sequence; every other degree is open.
+- The conjecture is rational: no node may state an integral form as the Hodge conjecture.
+- The conjecture implies Conjecture D in characteristic zero, which is the connection to the rest of this layer.
+
+**API.** What a user of this object needs in order to use it without unfolding the definition.
+
+| name | role | statement |
+| --- | --- | --- |
+| `HodgeClass` | data | The group of Hodge classes of a given degree. |
+| `HodgeClass.mem_iff` | characterisation | A rational class is a Hodge class exactly when its complexification lies in the corresponding step of the Hodge filtration. |
+| `cycleClass_isHodge` | characterisation | The class of an algebraic cycle is a Hodge class. |
+| `HodgeConjecture` | data | The predicate on a variety: every Hodge class is a rational combination of cycle classes. |
+| `HodgeConjecture.degree_two` | example | The degree-two case is a theorem, by the exponential sequence. |
+| `HodgeConjecture.not_integral` | relation | The integral form is false and is not this predicate. |
+
+**Uses.**
+
+- `MC.7, Conjecture D`: In characteristic zero Conjecture D is implied by the Hodge conjecture, which is how the two statements of this layer are related.
+- `MC.7, the Tate conjecture`: The Tate conjecture is the arithmetic analogue, and the source of that node records the rough analogy and the cases where one implies the other.
+- `MC.7, the register of proved cases`: The degree-two case and the abelian-variety cases are entries of the register.
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `rational_not_integral`: The predicate is about rational classes; the integral statement is a different and false assertion.
+- `divisors`: In degree two the predicate holds for every projective non-singular variety over the complex numbers.
+- `not_kaehler`: The predicate is stated for projective varieties; a complex torus is the source’s counterexample to the Kaehler generalisation.
+- `cycle_classes_are_hodge`: Every class of an algebraic cycle satisfies the type condition, so the conjecture is a surjectivity statement and not a two-sided one.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.0/homological-equivalence`
+- `MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation`
+- `MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data`
+- `MotivesAndAlgebraicCycles:MC.7/conjecture-D`
+
+**Sources.**
+
+- DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 1, the statement, and the paragraph before it.
+
+  > The class cl(Z) in H^{2p}(X,Z) is hence of type (p,p), in the sense that its image in H^{2p}(X,C) is. Rational (p,p)-classes are called Hodge classes. They form the group H^{2p}(X,Q) intersected with H^{p,p}(X) = H^{2p}(X,Q) intersected with F^p H^{2p}(X,C). Hodge Conjecture. On a projective non-singular algebraic variety over C, any Hodge class is a rational linear combination of classes ...
+
+  The definition of a Hodge class and the conjecture, verbatim.
+
+- DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 2, remarks (ii), (iii), (v) and (vi).
+
+  > On a projective non-singular variety X over C, the group of integral linear combinations of classes cl(Z) of algebraic cycles coincides with the group of integral linear combinations of products of Chern classes of algebraic vector bundles. ... Hodge conjecture for H^2: a class c in H^2(X,Z) of type (1,1) has image 0 in the quotient H^{0,2} = H^2(X,O) of H^2(X,C), and the long exact ...
+
+  The Chern-class formulation, the proved degree-two case, and the two failures, verbatim.
+
+#### `tate-conjecture` — The Tate conjecture
+
+*definition.* **Planet:** *The Tate conjecture*.
+
+**Statement.** Let k be a field finitely generated over its prime field, X a smooth projective variety over k, and l a prime invertible in k. A closed subvariety of codimension a determines a class in the l-adic cohomology in degree 2a with a-fold Tate twist, and that class is fixed by the Galois group of k because the subvariety is defined over k. A TATE CLASS is an element of that cohomology fixed by the Galois group. The Tate conjecture asserts the converse: the subspace of the degree 2a cohomology with a-fold twist fixed by the Galois group is spanned, over the l-adic numbers, by the classes of codimension a subvarieties of X. The hypothesis that k be finitely generated over the prime field is essential: the statement fails over an algebraically closed field, where the Galois action is trivial, and over some other fields such as the p-adic fields.
+
+**Hypotheses.**
+
+- k is finitely generated over the prime field, that is over the rationals or over a finite field; X is smooth and projective over k; l is invertible in k.
+- The coefficients are the l-adic numbers; the integral form is a separate and mostly false statement, recorded in the variants node.
+- The cohomology used is geometric etale cohomology, that is the cohomology of the base change to a separable closure, with its Galois action.
+
+**Construction, or proof, in steps.**
+
+1. Define the Tate twist as the inverse limit of the l-power roots of unity with its Galois action, and its integral powers.
+2. Define the cycle class of a codimension a subvariety in the degree 2a cohomology with a-fold twist, and prove that it is fixed by the Galois group when the subvariety is defined over k.
+3. Define a Tate class as a Galois-fixed element of that group.
+4. State the conjecture as the assertion that the Tate classes are spanned by cycle classes with l-adic coefficients.
+5. Record the three fields for which the statement is false or unavailable: an algebraically closed field, where every class is a Tate class; a p-adic field, where the source records a failure with an exception for totally degenerate reduction; and any field not finitely generated over the prime field.
+6. Record the reduction the source gives: the conjecture for X over k follows from the conjecture for the base change to a finite Galois extension, by pushing forward and using that the class is fixed by the whole group; hence one may always make a finite extension of the base field.
+
+**Acceptance.**
+
+- Over a finite field the Galois group is topologically generated by the Frobenius, so a Tate class is an eigenvector of the Frobenius with eigenvalue one after the twist; this is the computable shape of the conjecture.
+- Over an algebraically closed field the statement is false as stated, since every class is fixed.
+- The conjecture for divisors, that is codimension one, is the case Tate originally stated and is the case in which almost all known results lie.
+
+**API.** What a user of this object needs in order to use it without unfolding the definition.
+
+| name | role | statement |
+| --- | --- | --- |
+| `TateClass` | data | The space of Galois-fixed classes in the twisted cohomology. |
+| `cycleClass_isTate` | characterisation | The class of a subvariety defined over the base field is a Tate class. |
+| `TateConjecture` | data | The predicate on a variety and a codimension. |
+| `TateConjecture.divisors` | relation | The special case of divisors, which is the one with the most known cases. |
+| `TateConjecture.of_finite_extension` | characterisation | The conjecture over a finite Galois extension implies it over the base field. |
+| `TateConjecture.needs_finitely_generated` | relation | The hypothesis on the base field, recorded as part of the predicate. |
+
+**Uses.**
+
+- `MC.7, the variants`: The strong Tate conjecture, the Borel-Moore version, the integral version and the Tate-Beilinson conjecture are all stated relative to this one.
+- `MC.7, Conjecture D`: The strong Tate conjecture implies that numerical and homological equivalence agree, which is Conjecture D.
+- `MC.7, the register`: Every entry of the register of proved cases is an instance of this predicate with its field, characteristic and codimension named.
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `finitely_generated_required`: The predicate carries the hypothesis on the base field; a version over an algebraically closed field is a different and false statement.
+- `divisors_on_abelian_varieties`: For divisors on an abelian variety over a finite field the predicate holds; this is Tate’s theorem.
+- `twist_matters`: The predicate is about the cohomology with the a-fold Tate twist; dropping the twist changes the Galois action and the statement.
+- `l_invertible`: The prime l is invertible in k; the statement says nothing about p-adic cohomology in characteristic p.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.0/homological-equivalence`
+- `MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data`
+- `MotivesAndAlgebraicCycles:MC.2/chow-groups-under-field-extension`
+- `MotivesAndAlgebraicCycles:MC.7/conjecture-D`
+
+**Sources.**
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, Conjecture 1.1 and the paragraph after it.
+
+  > Let k be a finitely generated field over the prime field (that is, over Q or a finite field). Let X be a smooth projective variety over k. Then the Q_l-linear subspace of H^{2a}(X; Q_l(a)) fixed by the Galois group of k is spanned by the classes of codimension-a subvarieties of X. ... A cohomology class fixed by the Galois group is sometimes called a Tate class. Thus the conjecture says ...
+
+  The conjecture and the name of its objects, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, the paragraph on the base field.
+
+  > The Tate conjecture depends on the fact that the base field k, a finitely generated field over the prime field, is small in some sense. The analogous statement fails when k is algebraically closed (in which case the Galois representation is trivial), and also for some other fields such as p-adic fields.
+
+  Why the hypothesis on the base field cannot be dropped, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the base-change reduction.
+
+  > In another direction, the Tate conjecture for a smooth projective variety X over a finitely generated field k follows easily from the conjecture for the base change X_E, for any finite Galois extension field E. ... As a result, one can always make finite extensions of the base field in trying to prove the Tate conjecture.
+
+  The reduction along a finite extension, verbatim.
+
+#### `tate-conjecture-variants` — The variants of the Tate conjecture, and what each implies
+
+*comparison.*
+
+**Statement.** Five variants are recorded, each with what is known about it. The STRONG Tate conjecture adds that the Galois-fixed subspace is a direct summand as a Galois representation; several proved cases, including divisors on abelian varieties, actually give it, and it implies most of the standard conjectures, in particular that numerical and homological equivalence of algebraic cycles coincide. Jannsen's variant extends the conjecture to an arbitrary variety, not necessarily smooth or compact, using l-adic Borel-Moore homology in place of cohomology, and essentially follows from the smooth projective case. The variant over the separable closure asks that a class fixed by some open subgroup be algebraic over some finite extension, which is the conjecture over every finite extension of the base. The INTEGRAL Tate conjecture, with l-adic integral coefficients, is mostly FALSE, although over an algebraically closed field the conjecture for divisors on surfaces would imply it for one-cycles on varieties of any dimension. The TATE-BEILINSON conjecture, for a smooth projective variety over a finite field, adds that the cycle map from the rational Chow groups to l-adic cohomology is injective; it is much stronger, and beyond codimension one the evidence for it is limited.
+
+**Hypotheses.**
+
+- All variants are for a smooth projective variety over a finitely generated field unless the statement says otherwise; the Borel-Moore variant drops smoothness and properness.
+- The Tate-Beilinson conjecture is stated only for varieties over finite fields, where the group of points of an abelian variety is finite, which is what makes the codimension-one case true.
+- The integral variant is recorded as mostly false; no node of this packet asserts it.
+
+**Construction, or proof, in steps.**
+
+1. State each variant as a separate predicate, with the field and the coefficients named in the statement.
+2. Record the implications the source gives: the strong variant implies most of the standard conjectures and in particular Conjecture D; the Borel-Moore variant follows from the usual conjecture; the separable-closure variant is the usual conjecture over every finite extension.
+3. Record the implication diagram of the source in words: the Tate-Beilinson conjecture implies the Tate conjecture; the Tate conjecture implies the Hodge conjecture in no direction, but the two are analogous, and the Tate conjecture for divisors is equivalent to the finiteness of the Brauer group over finite fields, to the finiteness of the Tate-Shafarevich group over function fields, and to the Birch and Swinnerton-Dyer conjecture over function fields.
+4. Record that the integral variant is mostly false, with the one implication over an algebraically closed field the source states.
+5. Record the consequence over a finite field: the strong Tate conjecture would give a complete description of the category of Grothendieck motives over a finite field, every motive being a Tate twist of a summand of the motive of an abelian variety.
+
+**Acceptance.**
+
+- The equivalence of the Tate conjecture for divisors with the finiteness of the Brauer group and of the Tate-Shafarevich group is the source's central example of how the conjecture connects to arithmetic finiteness.
+- The integral variant is false in general; recording it as a variant and not as a conjecture is the point of the node.
+- The Tate-Beilinson conjecture fails to make sense over the complex numbers, where Chow groups are enormous: the Chow group of degree-zero divisors on an elliptic curve over the complex numbers is uncountable and maps to zero in cohomology.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.7/tate-conjecture`
+- `MotivesAndAlgebraicCycles:MC.7/conjecture-D`
+- `MotivesAndAlgebraicCycles:MC.4/borel-moore-motivic-homology`
+
+**Sources.**
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the strong Tate conjecture and the standard conjectures.
+
+  > The strong Tate conjecture is the combination of the Tate conjecture with the conjecture that, for a smooth projective variety over a finitely generated field k, the Galois-invariant subspace of H^{2a}(X; Q_l(a)) is a summand, as a Galois representation. In several cases where the Tate conjecture has been proved (such as for divisors on abelian varieties), the arguments actually imply the ...
+
+  The strong variant and its consequence, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, Jannsen's variant and the integral variant.
+
+  > Jannsen observed that the Tate conjecture can be generalized to any algebraic variety X (not necessarily smooth or compact) over a finitely generated field, using l-adic Borel-Moore homology in place of l-adic cohomology. ... The integral Tate conjecture is the analogous statement about algebraic cycles with Z_l rather than Q_l coefficients. Most versions of the integral Tate conjecture ...
+
+  The Borel-Moore and integral variants, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the Tate-Beilinson conjecture.
+
+  > Finally, for varieties over finite fields, there is an important strengthening of the Tate conjecture, the Tate-Beilinson conjecture. Namely, let X be a smooth projective variety over a finite field k. Write CH^a(X) for the Chow group of codimension-a algebraic cycles modulo rational equivalence. Then Beilinson conjectured in the mid-1980s that the cycle map to l-adic cohomology, CH^a(X) ...
+
+  The Tate-Beilinson conjecture, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, the summary of implications.
+
+  > A rough summary of the relations among these conjectures is as follows. Tate-Beilinson conjecture; Tate conjecture; Hodge conjecture; Tate conjecture for divisors; Grothendieck's standard conjectures; Finiteness of Brauer group over finite fields; Finiteness of Tate-Shafarevich group over function fields; Birch-Swinnerton-Dyer conjecture over function fields.
+
+  The source's implication diagram, whose content this node records in words.
+
+#### `lefschetz-and-hodge-standard-conjectures` — Grothendieck's standard conjectures: the Lefschetz and the Hodge standard conjecture
+
+*definition.* **Planet:** *The standard conjectures*.
+
+**Statement.** Grothendieck announced two conjectures in 1968. The LEFSCHETZ standard conjecture asserts that the inverse of the hard Lefschetz isomorphism is induced by an algebraic correspondence; Conjecture C of this layer, the algebraicity of the Kuenneth projectors, is a weak form of it. The HODGE standard conjecture is a positivity statement: the pairing given by the hard Lefschetz operator on primitive cohomology is positive definite on the algebraic classes, which implies that the endomorphism algebra of every motive admits a positive definite involution. Together with Conjecture D they would give the Weil conjectures for varieties of arbitrary dimension by Weil's argument, replacing the Jacobian of a curve by the motive of the variety. In characteristic zero the Hodge standard conjecture is a theorem, proved by analytic methods; in nonzero characteristic it is known for very few varieties, although it is implied by the Hodge and Tate conjectures.
+
+**Hypotheses.**
+
+- A Weil cohomology theory over k is fixed, as for Conjectures C and D; the two conjectures are statements relative to it.
+- X is smooth and projective over k, with a chosen ample class for the hard Lefschetz operator.
+- In characteristic zero the Hodge standard conjecture is a theorem, by Hodge theory; the statement is recorded with that case marked.
+
+**Construction, or proof, in steps.**
+
+1. State the hard Lefschetz isomorphism for the chosen ample class, as part of the data of the Weil cohomology theory.
+2. State the Lefschetz standard conjecture as the algebraicity of the inverse of that isomorphism, and record the source's assertion that Conjecture C is a weak form of it.
+3. State the Hodge standard conjecture as the positive definiteness of the Hodge-Riemann pairing on the algebraic primitive classes, and record its consequence that every motive has an endomorphism algebra with a positive definite involution.
+4. Record what the two would give: together with Conjecture D, the Weil conjectures in arbitrary dimension by Weil's argument, with the polynomials having integer coefficients independent of the auxiliary prime.
+5. Record the status: the Hodge standard conjecture is a theorem in characteristic zero by analytic methods, is known for very few varieties in nonzero characteristic, and is implied by the Hodge and Tate conjectures; the Lefschetz standard conjecture is open in general.
+6. Record that Deligne proved the Weil conjectures without the standard conjectures, and that Grothendieck nevertheless called their proof the most urgent task in algebraic geometry; both are statements the source makes and neither changes the status of the conjectures.
+
+**Acceptance.**
+
+- Conjecture C is implied by the Lefschetz standard conjecture, so the register of known cases of Conjecture C is a lower bound for what is known here.
+- In characteristic zero the Hodge standard conjecture is a theorem and must be recorded as such: a formalisation that treated it as open in characteristic zero would be wrong.
+- Neither conjecture is used as a hypothesis anywhere in this packet without being named.
+
+**API.** What a user of this object needs in order to use it without unfolding the definition.
+
+| name | role | statement |
+| --- | --- | --- |
+| `LefschetzStandardConjecture` | data | The predicate: the inverse of the hard Lefschetz isomorphism is algebraic. |
+| `HodgeStandardConjecture` | data | The predicate: the Hodge-Riemann pairing is positive definite on algebraic primitive classes. |
+| `LefschetzStandard.implies_C` | relation | The Lefschetz standard conjecture implies Conjecture C. |
+| `HodgeStandard.positive_involution` | characterisation | The consequence for endomorphism algebras of motives. |
+| `HodgeStandard.char_zero` | example | In characteristic zero the Hodge standard conjecture is a theorem. |
+| `standardConjectures.imply_weil` | relation | With Conjecture D they give the Weil conjectures in arbitrary dimension by Weil’s argument. |
+
+**Uses.**
+
+- `MC.3, semisimplicity`: The positive definite involution is what Jannsen’s theorem provides unconditionally for numerical equivalence; the Hodge standard conjecture is the corresponding statement for homological equivalence.
+- `MC.7, Conjecture C`: Conjecture C is a weak form of the Lefschetz standard conjecture, so this node bounds it from above.
+- `MC.7, the register`: The characteristic-zero case of the Hodge standard conjecture is an entry of the register of proved cases.
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `char_zero_theorem`: In characteristic zero the Hodge standard conjecture is not open; a formalisation that leaves it open there is wrong.
+- `weak_form`: Conjecture C is implied by the Lefschetz standard conjecture and is strictly weaker as a statement.
+- `relative_to_a_theory`: Both predicates take the Weil cohomology theory as an argument.
+- `not_needed_for_weil`: Deligne’s proof of the Weil conjectures does not use either conjecture, so neither may be cited as a step of that proof.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.7/kunneth-conjecture-C`
+- `MotivesAndAlgebraicCycles:MC.7/conjecture-D`
+- `MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology`
+- `MotivesAndAlgebraicCycles:MC.2/class-of-the-diagonal`
+
+**Sources.**
+
+- MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 7, The standard conjectures and the Weil conjectures.
+
+  > In 1968 Grothendieck announced two conjectures, known respectively as the Lefschetz standard conjecture and the Hodge standard conjecture, whose proof would allow one to extend Weil's proof of the Weil conjectures from curves to varieties of arbitrary dimension by replacing the Jacobian of the curve with the motive of the variety. Our Conjecture C is a weak form of the Lefschetz standard ...
+
+  The two conjectures and the relation to Conjecture C, verbatim.
+
+- MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 7, the Hodge standard conjecture and its status.
+
+  > The Hodge standard conjecture is a positivity statement which implies that the endomorphism algebra of every motive admits a positive definite involution. Assuming this, Weil's argument then proves (7b). In characteristic zero, the Hodge standard conjecture can be proved by analytic methods, but in nonzero characteristic it is known for very few varieties. However, it is implied by the ...
+
+  The content of the Hodge standard conjecture and its exact status, verbatim.
+
+- MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 7, after the status paragraph.
+
+  > In 1973, Deligne succeeded in completing the proof of the Weil conjectures by means of a very clever argument not involving the standard conjectures. However, Grothendieck's statement the proof of the standard conjectures seems to me to be the most urgent task in algebraic geometry remains valid.
+
+  The status of the Weil conjectures relative to these two, verbatim.
+
+#### `bloch-beilinson-filtration-and-murre` — Murre's conjecture and the Bloch-Beilinson filtration
+
+*comparison.*
+
+**Statement.** Murre conjectured that the decomposition of the diagonal into orthogonal idempotents that Conjecture C provides modulo numerical equivalence exists already modulo RATIONAL equivalence, with additional properties relating the components to the Chow groups. It has been shown that his conjecture is equivalent to the existence of a filtration on the Chow groups with prescribed properties, conjectured by Bloch and Beilinson. This node records both as conjectures, with the equivalence, and records that the source read here states neither in full: it gives the existence of the Chow-level decomposition and the equivalence in one sentence, and the precise list of Murre's conditions and of the properties of the filtration is not in any source read for this packet. A continuation job with a source that states them must add the conditions before anything is built on them.
+
+**Hypotheses.**
+
+- X is smooth and projective over a field; the decomposition is in the ring of correspondences modulo rational equivalence.
+- The equivalence recorded is the one the source asserts, between Murre's conjecture and the existence of the Bloch-Beilinson filtration; the precise form of both is not available here.
+- Nothing in this packet assumes either statement.
+
+**Construction, or proof, in steps.**
+
+1. Record the statement of the source: a decomposition of the diagonal into orthogonal idempotents exists modulo rational equivalence, with certain properties, and this is equivalent to the existence of the conjectured filtration on the Chow groups.
+2. State the part that is precise: the existence of a Chow-level orthogonal idempotent decomposition lifting the numerical one, which is a well-formed predicate with the tools this packet already has.
+3. Record that the additional properties of Murre's conjecture, and the properties required of the filtration, are not stated by any source read here, and that they are what gives the equivalence its content.
+4. Record the gap and the next source action, so that a continuation adds the conditions rather than inventing them.
+
+**Acceptance.**
+
+- The Chow-level decomposition is strictly stronger than Conjecture C, which is its image modulo numerical equivalence.
+- The filtration is conjectured to be finite, functorial and to have graded pieces controlled by the numerical motive; none of these properties is stated here, and the node says so.
+- No node of this packet takes either statement as a hypothesis.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.7/kunneth-conjecture-C`
+- `MotivesAndAlgebraicCycles:MC.1/chow-group-of-motive`
+- `MotivesAndAlgebraicCycles:MC.0/numerical-equivalence`
+
+**Sources.**
+
+- MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, Aside 6.1.
+
+  > Murre conjectured that a decomposition (4) exists with certain properties even in C^{dim X}_rat(X times X). It has been shown that his conjecture is equivalent to the existence of an interesting filtration on the Chow groups, which had been conjectured by Beilinson and Bloch.
+
+  The whole of what the source says about both conjectures; the phrase with certain properties is exactly what this packet cannot fill in from the sources read.
+
+#### `motivic-t-structure` — A motivic t-structure, and why no statement is planned
+
+*comparison.*
+
+**Statement.** The category of mixed motives over a field is expected to be an abelian category whose derived category is one of the triangulated categories of motives, and the way to produce it would be a t-structure on such a triangulated category whose heart is that abelian category. No source read for this packet defines one, and the sources say why: there is at present no definition of a category of mixed motives, several triangulated candidates for its derived category have been constructed, and it remains to define a t-structure on one of them whose heart is the category of mixed motives itself. This node records the situation, the two boundaries that follow from it, and what the layer may and may not state.
+
+**Hypotheses.**
+
+- The triangulated categories in question are those of MC.4, over a field.
+- The statement recorded is negative: what is missing, not what holds.
+- A conjectural t-structure may not be installed as a theorem, which is what the layer's stage text also demands.
+
+**Construction, or proof, in steps.**
+
+1. Record the source's statement: there is at present no definition of a category of mixed motives; several triangulated categories have been constructed as candidates for its derived category; and it remains to define a t-structure whose heart is the category of mixed motives.
+2. Record the boundary the roadmap draws: a triangulated category is not an abelian category of mixed motives, and no node may treat one as the other.
+3. Record what a future statement would need: a t-structure on the triangulated category of geometric motives, a proof that its heart is abelian with the expected weight filtration, and a comparison of the realisations; none of it is available.
+4. Record that the conjectural t-structure cannot be installed as a hypothesis-free theorem anywhere in this roadmap.
+
+**Acceptance.**
+
+- The layer states no motivic t-structure, and this node is the record of why.
+- The triangulated category of geometric motives exists unconditionally, and its existence is not evidence for the t-structure.
+- A continuation that wants the statement must obtain a source that formulates it.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives`
+- `MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives`
+
+**Sources.**
+
+- MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 10, Final note.
+
+  > Grothendieck also envisaged a category of mixed motives attached to the category of all varieties over k. It should no longer be semisimple, but each mixed motive should have a filtration whose quotients are pure motives. There is at present no definition of a category of mixed motives, but several mathematicians have constructed triangulated categories that are candidates to be its ...
+
+  The whole of what the sources read say about the motivic t-structure, verbatim.
+
+#### `tate-and-hodge-known-cases` — The register of known cases of the Hodge and Tate conjectures
+
+*application.*
+
+**Statement.** A register of what is proved, with the base field, the characteristic, the codimension and the coefficients named for each entry. For the Hodge conjecture: degree two over the complex numbers, by the exponential sequence, unconditionally. For the Tate conjecture: divisors on an abelian variety over a finite field, by Tate, whose equivalent form is that the natural map from the homomorphisms of two abelian varieties tensored with the l-adic integers to the Galois-equivariant maps of their Tate modules is bijective, proved by Zarhin's trick and the finiteness of the moduli of principally polarised abelian varieties of bounded dimension; divisors on abelian varieties over a number field, by Faltings; divisors on a smooth proper variety with a one-dimensional space of holomorphic two-forms over a finitely generated field of characteristic zero admitting a deformation with nonconstant Hodge structure, by Moonen, building on the Kuga-Satake correspondence and on Andre's earlier hyperkaehler case; and K3 surfaces over a finite field, completed by Charles, Kim, Madapusi Pera and Maulik, with the elliptic case due to Artin and Swinnerton-Dyer and the non-supersingular case to Nygaard and Ogus. Each entry is a statement of this packet's Tate or Hodge predicate with its arguments fixed, never a general claim.
+
+**Hypotheses.**
+
+- Every entry names its base field, its characteristic, its codimension and its coefficients; an entry without them is not admissible.
+- The K3 results are for K3 surfaces over finite fields, with the characteristic restrictions the source records for the individual steps; the supersingular case is the hard one and is where the recent work lies.
+- A conjectural target never supplies an unconditional downstream theorem, which is the layer's own acceptance condition.
+
+**Construction, or proof, in steps.**
+
+1. Record the Hodge entry: degree two, over the complex numbers, unconditional, by the exponential sequence.
+2. Record Tate's theorem for divisors on abelian varieties over finite fields together with its equivalent formulation in terms of homomorphisms and Tate modules, and the structure of the proof: Zarhin's trick embeds an abelian variety of dimension g into a principally polarised one of dimension 8g, and the finiteness of the moduli of principally polarised abelian varieties of bounded dimension over a finite field bounds the possibilities.
+3. Record Faltings's theorem as the number-field counterpart.
+4. Record Moonen's theorem with its full hypotheses, and Andre's earlier result for hyperkaehler varieties over number fields, both through the Kuga-Satake correspondence, noting that the correspondence is not known to be algebraic and that the arguments use it only through its effect on Hodge and Tate classes.
+5. Record the K3 case over finite fields: the equivalence with the finiteness of the Tate-Shafarevich group of the Jacobian fibration for an elliptic K3 surface, which is Artin and Swinnerton-Dyer's route; the non-supersingular case of Nygaard and Ogus; and the completion of the supersingular case.
+6. Record for each entry whether the argument gives the strong Tate conjecture, as it does for divisors on abelian varieties.
+
+**Acceptance.**
+
+- Every entry is an instance of a predicate of this layer with its arguments fixed; nothing in the register is a general theorem.
+- The register's entries for K3 surfaces are for finite fields; the number-field case is a separate entry with a different proof.
+- An entry whose hypotheses are not fully recorded is not admissible; the layer's acceptance condition says so.
+
+**Prerequisites.**
+
+- `MotivesAndAlgebraicCycles:MC.7/tate-conjecture`
+- `MotivesAndAlgebraicCycles:MC.7/hodge-conjecture`
+- `MotivesAndAlgebraicCycles:MC.7/tate-conjecture-variants`
+- `MotivesAndAlgebraicCycles:MC.7/known-cases-of-conjecture-C`
+
+**Sources.**
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 3, the abelian variety case.
+
+  > Probably the most important known case of the Tate conjecture is for divisors (codimension-1 cycles) on abelian varieties. ... let A and B be abelian varieties over a finite field k. Let l be a prime number invertible in k. For abelian varieties over any field, there is a natural homomorphism Hom_k(A,B) tensor Z_l -> Hom_{Gal}(H_1(A,Z_l), H_1(B,Z_l)), which is injective. Tate's theorem is ...
+
+  Tate's theorem with its equivalent formulation, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 4, Theorem 4.1 and Andre's result.
+
+  > Let X be a smooth proper variety with h^{2,0}(X) = 1 over a finitely generated field k of characteristic zero. Assume that there is an embedding of k into C such that X_C has a deformation (over some smooth base variety) in which the Hodge structure on H^2(X_C,Q) varies nontrivially. Then the Tate conjecture for divisors holds for X.
+
+  Moonen's theorem with its exact hypotheses, verbatim.
+
+- TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 5 and 5.2, the K3 case.
+
+  > The Tate conjecture was proved by Artin and Swinnerton-Dyer for K3 surfaces [with an elliptic fibration] ... the supersingular case was proved in a series of papers starting in 2012 by Charles, [Maulik, Madapusi Pera and Kim] ... Artin and Swinnerton-Dyer's proof for an elliptic K3 surface uses the equivalence between the Tate conjecture for X and the finiteness of the Tate-Shafarevich ...
+
+  The K3 entries with their attributions and the mechanism of the elliptic case, verbatim.
+
+- DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 2, remark (iii).
+
+  > Hodge conjecture for H^2: a class c in H^2(X,Z) of type (1,1) has image 0 in the quotient H^{0,2} = H^2(X,O) of H^2(X,C), and the long exact sequence of cohomology defined by the exponential exact sequence shows that c is the first Chern class of a line bundle.
+
+  The one unconditional entry for the Hodge conjecture, verbatim.
 ---
 
 ## Gaps
@@ -4365,6 +5100,10 @@ Jannsen states the trace formula for correspondences as well known and refers to
 ### No source read here states the Hodge or Tate conjectures precisely
 
 MC.7's brief asks for typed statements of the Hodge conjecture, the Tate conjecture, the standard conjectures and the Bloch-Beilinson filtration. The expository article read for this packet states Conjecture C and Conjecture D precisely and mentions the Hodge conjecture, the Tate conjecture and the two standard conjectures only in passing, without statements. This packet therefore plans only the two conjectures it can state from a source, and records the rest in the remaining list of MC.7's coverage. A continuation job should obtain a source that states the others and add them; the layer is deliberately left partial rather than filled with statements written from memory.
+
+**The conditions in Murre's conjecture and in the Bloch-Beilinson filtration are in no source read here.** Milne's notes say that Murre conjectured a decomposition of the diagonal modulo rational equivalence with certain properties, and that his conjecture is equivalent to the existence of a filtration on the Chow groups conjectured by Beilinson and Bloch. The properties and the filtration axioms are what give both statements their content, and neither is stated in any source read for this packet. The node states the part that is precise, the existence of a Chow-level orthogonal idempotent decomposition, and records the rest as missing. NEXT SOURCE ACTION: obtain Murre's two 1993 papers in Indagationes Mathematicae, or Jannsen's article on motivic sheaves and filtrations on Chow groups in the 1991 motives proceedings, and add the conditions verbatim before anything is built on them.
+
+**The proofs behind the K3 entries of the register were not read.** Totaro's survey attributes the Tate conjecture for K3 surfaces over finite fields to a series of papers by Charles, Kim, Madapusi Pera and Maulik, with the elliptic case due to Artin and Swinnerton-Dyer and the non-supersingular case to Nygaard and Ogus. The survey's sketch of the elliptic case was read; the technical sections on the other two were not, and the original papers were not obtained. The register records each entry with its attribution and its hypotheses as the survey states them, and claims nothing beyond that. NEXT SOURCE ACTION: obtain Madapusi Pera's and Kim-Madapusi Pera's papers for the supersingular case, and Nygaard-Ogus for the non-supersingular case, before any of these entries is used as an input to another statement.
 
 ## Mistakes found in the sources
 
