@@ -111,9 +111,11 @@
         "read": "PDF21–22: Theorem3.7, Corollary3.8 and Remark3.9"
       },
       {
-        "url": "https://dokumen.pub/seminaire-de-theorie-des-nombres-paris-1988-89-3764334932-9783764334932.html",
         "sha256": "f4d20f4c717e3821c9c0d1d77d1e58c88f8498e3dab6e78a49ea47643519dfbb",
-        "read": "Transcription of Skorobogatov1990 pp205–209: Theorem1 and proof. No scan-image comparison; no claim to have read Sko96."
+        "read": "Transcription of Skorobogatov1990 pp205–209: Theorem1 and proof. No scan-image comparison; no claim to have read Sko96.",
+        "access": "restricted",
+        "citation": "Skorobogatov, On the fibration method for proving the Hasse principle and weak approximation, Séminaire de théorie des nombres, Paris 1988-89, Progress in Mathematics 91, Birkhäuser, pp. 205-219",
+        "note": "Read as an unauthorised transcription, which this project does not cite. The passage needs re-reading in a legitimate copy before the finding is relied on."
       }
     ],
     "limits": "Both recorded findings reviewed and corrected. No fresh full-paper census; no additional source finding established. Published-version comparison remains unavailable and is not treated as agreement. The broader section-based repair of E1 was not certified in this errata review."

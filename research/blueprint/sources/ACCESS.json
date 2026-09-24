@@ -20,16 +20,718 @@
   ],
   "works": [
     {
-      "id": "STACKS",
-      "title": "The Stacks Project",
-      "access": "free",
-      "match": [
-        "Stacks [Pp]roject",
-        "\\bStacks \\d{4}\\b",
-        "stacks\\.math\\.columbia\\.edu"
+      "id": "ACTA-ARITH-EC",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Acta Arithmetica 54 (1990) 75-80, cited by EllipticCurves",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.4064/aa-54-1-75-80"
       ],
-      "note": "Open, versioned, tag-addressable.",
-      "kind": "notes"
+      "substitute": null
+    },
+    {
+      "id": "ADO-ADDITION",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Neretin?/Harish — An Addition to Ado's Theorem (Proc. AMS 1966)",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.1090/S0002-9939-1966-0194482-0"
+      ],
+      "substitute": null,
+      "note": "Title as cited; the AMS page is the only pinned copy."
+    },
+    {
+      "id": "AGS-GRADIENT",
+      "title": "Ambrosio–Gigli–Savaré, Gradient Flows (Birkhäuser)",
+      "access": "restricted",
+      "match": [
+        "Ambrosio[-–—]{1,2}Gigli",
+        "Gradient Flows in Metric Spaces"
+      ],
+      "substitute": "SANTAMBROGIO-GRADIENT",
+      "kind": "book",
+      "urls": [
+        "https://link.springer.com/book/10.1007/978-3-7643-8722-8"
+      ],
+      "note": "The survey covers the cited gradient-flow theory."
+    },
+    {
+      "id": "AGUEH-CARLIER",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Agueh–Carlier, Barycenters in the Wasserstein space (SIAM J. Math. Anal. 2011)",
+      "match": [
+        "Agueh--Carlier",
+        "Agueh[-–—]Carlier"
+      ],
+      "urls": [
+        "https://doi.org/10.1137/100805741"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "AHLFORS-COMPLEX-ANALYSIS",
+      "kind": "book",
+      "title": "Ahlfors, Complex Analysis",
+      "match": [
+        "\\*Complex\\ Analysis\\*"
+      ],
+      "access": "restricted",
+      "substitute": "BECK-COMPLEX",
+      "note": "Standard contour integration."
+    },
+    {
+      "id": "AKHIEZER-CLASSICAL-MOMENT-PROBLEM",
+      "kind": "book",
+      "title": "N. I. Akhiezer, The Classical Moment Problem",
+      "match": [
+        "\\*The\\ Classical\\ Moment\\ Problem\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "ALDOUS-EXCHANGEABILITY-RELATED-TOPICS",
+      "kind": "book",
+      "title": "David Aldous, Exchangeability and related topics",
+      "match": [
+        "\\*Exchangeability\\ and\\ related\\ topics\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "ALPERIN-GROUPS-REPRESENTATIONS",
+      "kind": "book",
+      "title": "Alperin, R. B. Bell, Groups and Representations",
+      "match": [
+        "\\*Groups\\ and\\ Representations\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "ANDERSON-TMOTIVES",
+      "title": "Anderson, t-Motives (Duke 1986)",
+      "access": "restricted",
+      "match": [
+        "Anderson, t-Motives"
+      ],
+      "urls": [
+        "https://doi.org/10.1215/S0012-7094-86-05328-7"
+      ],
+      "substitute": null,
+      "kind": "article"
+    },
+    {
+      "id": "ANDREWS-PARTITIONS",
+      "title": "Andrews, The Theory of Partitions (CUP)",
+      "access": "restricted",
+      "match": [
+        "Andrews, The Theory of Partitions",
+        "Theory of Partitions"
+      ],
+      "substitute": "WILF-PARTITIONS",
+      "kind": "book"
+    },
+    {
+      "id": "ARTIN-CLASS-FIELD-THEORY",
+      "kind": "book",
+      "title": "E. Artin and J. Tate, Class Field Theory",
+      "match": [
+        "\\*Class\\ Field\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "AUDIN-MORSE-THEORY-FLOER-HOMOLOGY",
+      "kind": "book",
+      "title": "M. Audin, M. Damian, Morse Theory and Floer Homology",
+      "match": [
+        "\\*Morse\\ Theory\\ and\\ Floer\\ Homology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BAEZ-OCTONIONS",
+      "kind": "book",
+      "title": "J. C. Baez, The Octonions",
+      "match": [
+        "\\*The\\ Octonions\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BEARDON-GEOMETRY-DISCRETE-GROUPS",
+      "kind": "book",
+      "title": "Alan Beardon, The Geometry of Discrete Groups",
+      "match": [
+        "\\*The\\ Geometry\\ of\\ Discrete\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BECK-COMPLEX",
+      "kind": "notes",
+      "access": "free",
+      "title": "Beck–Marchesi–Pixton–Sabalka, A First Course in Complex Analysis",
+      "match": [],
+      "urls": [
+        "https://matthbeck.github.io/complex.html"
+      ],
+      "note": "Authors' page, freely licensed."
+    },
+    {
+      "id": "BENAMOU-BRENIER",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Benamou–Brenier, A computational fluid mechanics solution to the Monge–Kantorovich problem (Numer. Math. 2000)",
+      "match": [
+        "Benamou--Brenier",
+        "Benamou[-–—]Brenier"
+      ],
+      "urls": [
+        "https://doi.org/10.1007/s002110050002"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "BIRMAN-BRAIDS-LINKS-MAPPING-CLASS",
+      "kind": "book",
+      "title": "J. Birman, Braids, Links, and Mapping Class Groups",
+      "match": [
+        "\\*Braids,\\ Links,\\ and\\ Mapping\\ Class\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BJRNER-COMBINATORICS-COXETER-GROUPS",
+      "kind": "book",
+      "title": "A. Björner, F. Brenti, Combinatorics of Coxeter Groups",
+      "match": [
+        "\\*Combinatorics\\ of\\ Coxeter\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BLR-NERON",
+      "title": "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)",
+      "access": "restricted",
+      "match": [
+        "Bosch[-–—]L[üu]tkebohmert[-–—]Raynaud",
+        "\\bBLR\\b"
+      ],
+      "substitute": null,
+      "note": "Cited for the Picard functor and semistable reduction (Ch. 8-9).",
+      "kind": "book"
+    },
+    {
+      "id": "BONNAF-REPRESENTATIONS-SL-Q-",
+      "kind": "book",
+      "title": "C. Bonnafé, Representations of `SL₂(𝔽_q)`",
+      "match": [
+        "\\*Representations\\ of\\ `SL₂\\(𝔽_q\\)`\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BOREL-LINEAR-ALGEBRAIC-GROUPS",
+      "kind": "book",
+      "title": "A. Borel, Linear Algebraic Groups",
+      "match": [
+        "\\*Linear\\ Algebraic\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BORELJACQUET-AUTOMORPHIC-FORMS-AUTOMORPHIC-REPRESENTATIONS",
+      "kind": "book",
+      "title": "Borel–Jacquet, Automorphic forms and automorphic representations",
+      "match": [
+        "\\*Automorphic\\ forms\\ and\\ automorphic\\ representations\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BOURBAKI-LIE-GROUPS-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "N. Bourbaki, Lie Groups and Lie Algebras, Chapters 4--6",
+      "match": [
+        "\\*Lie\\ Groups\\ and\\ Lie\\ Algebras,\\ Chapters\\ 4\\-\\-6\\*",
+        "\\*Lie\\ Groups\\ and\\ Lie\\ Algebras,\\ Chapters\\ 7\\-8\\*",
+        "\\*Lie\\ Groups\\ and\\ Lie\\ Algebras,\\ Chapter\\ 8\\*",
+        "\\*Lie\\ Groups\\ and\\ Lie\\ Algebras,\\ Chapters\\ 4\\-6\\*"
+      ],
+      "access": "restricted",
+      "substitute": "KIRILLOV-LIE",
+      "note": "Root systems, Coxeter groups and the classification; the plate numbering itself is a convention, not a proof."
+    },
+    {
+      "id": "BRAUER-ALGEBRAS-WHICH-ARE-CONNECTED",
+      "kind": "book",
+      "title": "R. Brauer, On algebras which are connected with the semisimple continuous groups",
+      "match": [
+        "\\*On\\ algebras\\ which\\ are\\ connected\\ with\\ the\\ semisimple\\ continuous\\ groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BRENIER91",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Brenier, Polar factorization and monotone rearrangement of vector-valued functions (CPAM 1991)",
+      "match": [
+        "Brenier's \\[polar factorization"
+      ],
+      "urls": [
+        "https://doi.org/10.1002/cpa.3160440402"
+      ],
+      "substitute": null,
+      "note": "The main primary source for the optimal-transport roadmap's polar factorization."
+    },
+    {
+      "id": "BROWN-COHOMOLOGY-GROUPS",
+      "kind": "book",
+      "title": "Kenneth Brown, Cohomology of Groups",
+      "match": [
+        "\\*Cohomology\\ of\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BROWN-TOPOLOGY-GROUPOIDS",
+      "kind": "book",
+      "title": "Brown, Topology and Groupoids",
+      "match": [
+        "\\*Topology\\ and\\ Groupoids\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BUMP-LIE-GROUPS",
+      "kind": "book",
+      "title": "D. Bump, Lie Groups",
+      "match": [
+        "\\*Lie\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": "KNAPP-FREE",
+      "note": "Knapp's own Lie Groups Beyond an Introduction is free and covers the same ground."
+    },
+    {
+      "id": "BURNSIDE-THEORY-GROUPS-FINITE-ORDER",
+      "kind": "book",
+      "title": "W. Burnside, Theory of Groups of Finite Order",
+      "match": [
+        "\\*Theory\\ of\\ Groups\\ of\\ Finite\\ Order\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BUZZARD-EIGENVALUES-HECKE-OPERATOR-T",
+      "kind": "book",
+      "title": "K. Buzzard, On the eigenvalues of the Hecke operator T₂",
+      "match": [
+        "\\*On\\ the\\ eigenvalues\\ of\\ the\\ Hecke\\ operator\\ T₂\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BUZZARD-EIGENVARIETIES",
+      "kind": "book",
+      "title": "Buzzard, Eigenvarieties",
+      "match": [
+        "\\*Eigenvarieties\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "BUZZARD-FORMALIZING-FERMAT",
+      "kind": "book",
+      "title": "K. Buzzard, Formalizing Fermat",
+      "match": [
+        "\\*Formalizing\\ Fermat\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CANDEL-FOLIATIONS-I-II",
+      "kind": "book",
+      "title": "A. Candel, L. Conlon, Foliations I–II",
+      "match": [
+        "\\*Foliations\\ I–II\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CARMO-RIEMANNIAN-GEOMETRY",
+      "kind": "book",
+      "title": "Carmo, Riemannian Geometry",
+      "match": [
+        "\\*Riemannian\\ Geometry\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CASSELS-FROHLICH",
+      "title": "Cassels–Fröhlich, Algebraic Number Theory",
+      "access": "restricted",
+      "match": [
+        "Cassels[-–—]Fr[öo]hlich"
+      ],
+      "substitute": "MILNE-NOTES",
+      "note": "Tate's article is covered by Milne's CFT notes.",
+      "kind": "book"
+    },
+    {
+      "id": "CASSELS-RATIONAL-QUADRATIC-FORMS",
+      "kind": "book",
+      "title": "J. W. S. Cassels, Rational Quadratic Forms",
+      "match": [
+        "\\*Rational\\ Quadratic\\ Forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CERF-SUR-LES-DIFF-OMORPHISMES",
+      "kind": "book",
+      "title": "J. Cerf, Sur les difféomorphismes de la sphère de dimension trois (Γ₄ = 0)",
+      "match": [
+        "\\*Sur\\ les\\ difféomorphismes\\ de\\ la\\ sphère\\ de\\ dimension\\ trois\\ \\(Γ₄\\ =\\ 0\\)\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CHRISTENSEN-HARMONIC-ANALYSIS-SEMIGROUPS",
+      "kind": "book",
+      "title": "R. Christensen, P. Ressel, Harmonic Analysis on Semigroups",
+      "match": [
+        "\\*Harmonic\\ Analysis\\ on\\ Semigroups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CODING-ARTICLES",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Coding-theory articles cited by AlgebraicCodingTheory (Math. Comp., EJC, Des. Codes Cryptogr.)",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.1090/S0025-5718-08-02194-7",
+        "https://doi.org/10.1016/j.ejc.2011.11.007",
+        "https://doi.org/10.1023/A:1018696102510"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "COHEN-COURSE-COMPUTATIONAL-ALGEBRAIC-NUMBER",
+      "kind": "book",
+      "title": "H. Cohen, A Course in Computational Algebraic Number Theory",
+      "match": [
+        "\\*A\\ Course\\ in\\ Computational\\ Algebraic\\ Number\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "COLEMANMAZUR-EIGENCURVE",
+      "kind": "book",
+      "title": "Coleman–Mazur, The eigencurve",
+      "match": [
+        "\\*The\\ eigencurve\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
+      "kind": "book",
+      "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
+      "match": [
+        "\\*Formalising\\ perfectoid\\ spaces\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CONRAD-AWS",
+      "kind": "notes",
+      "access": "free",
+      "title": "Conrad, Several approaches to non-archimedean geometry",
+      "match": [
+        "Conrad.{0,40}non-archimedean"
+      ],
+      "urls": [
+        "https://math.stanford.edu/~conrad/papers/aws.pdf"
+      ],
+      "note": "Author's page."
+    },
+    {
+      "id": "CONRAD-REDUCTIVE-GROUP-SCHEMES",
+      "kind": "book",
+      "title": "B. Conrad, Reductive Group Schemes",
+      "match": [
+        "\\*Reductive\\ Group\\ Schemes\\*"
+      ],
+      "access": "free",
+      "note": "Author's page.",
+      "urls": [
+        "https://math.stanford.edu/~conrad/papers/luminysga3.pdf"
+      ]
+    },
+    {
+      "id": "CREMONA-ALGORITHMS-MODULAR-ELLIPTIC-CURVES",
+      "kind": "book",
+      "title": "J. E. Cremona, Algorithms for Modular Elliptic Curves",
+      "match": [
+        "\\*Algorithms\\ for\\ Modular\\ Elliptic\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CURTIS-METHODS-REPRESENTATION-THEORY-VOL",
+      "kind": "book",
+      "title": "W. Curtis, I. Reiner, Methods of Representation Theory, Vol. I",
+      "match": [
+        "\\*Methods\\ of\\ Representation\\ Theory,\\ Vol\\.\\ I\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "CURTIS-REPRESENTATION-THEORY-FINITE-GROUPS",
+      "kind": "book",
+      "title": "W. Curtis, I. Reiner, Representation Theory of Finite Groups and Associative Algebras",
+      "match": [
+        "\\*Representation\\ Theory\\ of\\ Finite\\ Groups\\ and\\ Associative\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DAVERMAN-EMBEDDINGS-MANIFOLDS",
+      "kind": "book",
+      "title": "R. Daverman, G. Venema, Embeddings in Manifolds",
+      "match": [
+        "\\*Embeddings\\ in\\ Manifolds\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DAVERMANVENEMA-EMBEDDINGS-MANIFOLDS",
+      "kind": "book",
+      "title": "Daverman–Venema, Embeddings in Manifolds",
+      "match": [
+        "\\*Embeddings\\ in\\ Manifolds\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DELIGNE-LES-SCH-MAS-DE",
+      "kind": "book",
+      "title": "P. Deligne and M. Rapoport, Les schémas de modules de courbes elliptiques",
+      "match": [
+        "\\*Les\\ schémas\\ de\\ modules\\ de\\ courbes\\ elliptiques\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DERKSEN-INTRODUCTION-QUIVER-REPRESENTATIONS",
+      "kind": "book",
+      "title": "H. Derksen, J. Weyman, An Introduction to Quiver Representations",
+      "match": [
+        "\\*An\\ Introduction\\ to\\ Quiver\\ Representations\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DEURING-LECTURES-THEORY-ALGEBRAIC-FUNCTIONS",
+      "kind": "book",
+      "title": "M. Deuring, Lectures on the Theory of Algebraic Functions of One Variable",
+      "match": [
+        "\\*Lectures\\ on\\ the\\ Theory\\ of\\ Algebraic\\ Functions\\ of\\ One\\ Variable\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DGA-ARTICLES",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Merkulov, Strongly homotopy algebras of a Kähler manifold (IMRN) and Bondal–Kapranov, Representable functors, Serre functors, and mutations (Izv.)",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.1155/S1073792899000070",
+        "https://doi.org/10.1070/IM1990v035n03ABEH000716"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "DIAMOND-FIRST-COURSE-MODULAR-FORMS",
+      "kind": "book",
+      "title": "Fred Diamond and Jerry Shurman, A First Course in Modular Forms",
+      "match": [
+        "\\*A\\ First\\ Course\\ in\\ Modular\\ Forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": "MILNE-NOTES",
+      "note": "Milne's Modular Functions and Modular Forms covers the valence formula and Hecke theory."
+    },
+    {
+      "id": "DIECK-REPRESENTATIONS-COMPACT-LIE-GROUPS",
+      "kind": "book",
+      "title": "Dieck, Representations of Compact Lie Groups",
+      "match": [
+        "\\*Representations\\ of\\ Compact\\ Lie\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": "KNAPP-FREE",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DIXMIER-ENVELOPING-ALGEBRAS",
+      "kind": "book",
+      "title": "J. Dixmier, Enveloping Algebras",
+      "match": [
+        "\\*Enveloping\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DIXON-BRIEF-PROOF-CAUCHY-S",
+      "kind": "book",
+      "title": "J. D. Dixon, A brief proof of Cauchy's integral theorem",
+      "match": [
+        "\\*A\\ brief\\ proof\\ of\\ Cauchy's\\ integral\\ theorem\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DIXON-HIGH-SPEED-COMPUTATION-GROUP",
+      "kind": "book",
+      "title": "J. D. Dixon, High speed computation of group characters",
+      "match": [
+        "\\*High\\ speed\\ computation\\ of\\ group\\ characters\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DIXON-PERMUTATION-GROUPS",
+      "kind": "book",
+      "title": "D. Dixon, B. Mortimer, Permutation Groups",
+      "match": [
+        "\\*Permutation\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DOLD-LECTURES-ALGEBRAIC-TOPOLOGY",
+      "kind": "book",
+      "title": "Albrecht Dold, Lectures on Algebraic Topology",
+      "match": [
+        "\\*Lectures\\ on\\ Algebraic\\ Topology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "DRINFELD-ELLIPTIC",
+      "title": "Drinfeld, Elliptic modules (Mat. Sb. 1974)",
+      "access": "restricted",
+      "match": [
+        "Drinfeld, Elliptic modules"
+      ],
+      "urls": [
+        "https://doi.org/10.1070/SM1974v023n04ABEH001731"
+      ],
+      "substitute": null,
+      "kind": "article"
+    },
+    {
+      "id": "EBELING-LATTICES-CODES",
+      "kind": "book",
+      "title": "W. Ebeling, Lattices and Codes",
+      "match": [
+        "\\*Lattices\\ and\\ Codes\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+      "urls": [
+        "https://doi.org/10.1007/978-3-658-00360-9"
+      ]
     },
     {
       "id": "EGA-SGA",
@@ -43,27 +745,695 @@
       "kind": "notes"
     },
     {
-      "id": "MILNE-NOTES",
-      "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
-      "access": "free",
+      "id": "EILENBERG-FOUNDATIONS-ALGEBRAIC-TOPOLOGY",
+      "kind": "book",
+      "title": "Samuel Eilenberg and Norman Steenrod, Foundations of Algebraic Topology",
       "match": [
-        "Milne, \\*?(Algebraic Number Theory|Class Field Theory|Complex Multiplication|Arithmetic Duality|Abelian Varieties|Jacobian Varieties|[EÉ]tale Cohomology|Modular Functions)",
-        "jmilne\\.org",
-        "Milne's \\*"
+        "\\*Foundations\\ of\\ Algebraic\\ Topology\\*"
       ],
-      "note": "All on jmilne.org.",
-      "kind": "notes"
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "NSW",
-      "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
-      "access": "free",
+      "id": "ENGEL-ONE-PARAMETER-SEMIGROUPS-LINEAR",
+      "kind": "book",
+      "title": "K.-J. Engel, R. Nagel, One-Parameter Semigroups for Linear Evolution Equations",
       "match": [
-        "Cohomology of Number Fields",
-        "\\bNSW\\b"
+        "\\*One\\-Parameter\\ Semigroups\\ for\\ Linear\\ Evolution\\ Equations\\*"
       ],
-      "note": "The second edition is posted by the authors at mathi.uni-heidelberg.de/~schmidt/NSW2e/ (checked 2026-09-24).",
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "EQUIV-MAIN-CONJ-2025",
+      "kind": "article",
+      "access": "restricted",
+      "title": "An unconditional equivariant main conjecture in Iwasawa theory and applications (2025)",
+      "match": [
+        "AE-ABELIAN2025"
+      ],
+      "urls": [
+        "https://link.springer.com/article/10.1007/s40687-025-00578-8"
+      ],
+      "substitute": null,
+      "note": "Res. Math. Sci.; look for the authors' arXiv version."
+    },
+    {
+      "id": "ETINGOF-REP",
+      "kind": "notes",
+      "access": "free",
+      "title": "Etingof et al., Introduction to Representation Theory",
+      "match": [
+        "Etingof"
+      ],
+      "urls": [
+        "https://arxiv.org/abs/0901.0827"
+      ],
+      "note": "arXiv."
+    },
+    {
+      "id": "EVENS-GENERALIZATION-TRANSFER-MAP-COHOMOLOGY",
+      "kind": "book",
+      "title": "L. Evens, A generalization of the transfer map in the cohomology of groups",
+      "match": [
+        "\\*A\\ generalization\\ of\\ the\\ transfer\\ map\\ in\\ the\\ cohomology\\ of\\ groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "FALTINGS-CHAI",
+      "title": "Faltings–Chai, Degeneration of Abelian Varieties (Ergebnisse 22)",
+      "access": "restricted",
+      "match": [
+        "Faltings[-–—]Chai"
+      ],
+      "substitute": null,
       "kind": "book"
+    },
+    {
+      "id": "FARB-NONCOMMUTATIVE-ALGEBRA",
+      "kind": "book",
+      "title": "Farb, R. K. Dennis, Noncommutative Algebra",
+      "match": [
+        "\\*Noncommutative\\ Algebra\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "FARKAS-RIEMANN-SURFACES",
+      "kind": "book",
+      "title": "Hershel Farkas and Irwin Kra, Riemann Surfaces",
+      "match": [
+        "\\*Riemann\\ Surfaces\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "FOLLAND-COURSE-ABSTRACT-HARMONIC-ANALYSIS",
+      "kind": "book",
+      "title": "G. B. Folland, A Course in Abstract Harmonic Analysis",
+      "match": [
+        "\\*A\\ Course\\ in\\ Abstract\\ Harmonic\\ Analysis\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "FORSTER-LECTURES-RIEMANN-SURFACES",
+      "kind": "book",
+      "title": "Forster, Lectures on Riemann Surfaces",
+      "match": [
+        "Forster, \\*",
+        "\\*Lectures\\ on\\ Riemann\\ Surfaces\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "FULTON-CURVES",
+      "kind": "notes",
+      "access": "free",
+      "title": "Fulton, Algebraic Curves",
+      "match": [
+        "Fulton, \\*Algebraic Curves"
+      ],
+      "urls": [
+        "https://users.math.msu.edu/users/magyarp/Math419H/Fulton-Alg-Curves.pdf"
+      ],
+      "note": "The author released the 2008 edition without charge; the url here is a mirror, since his own page has moved."
+    },
+    {
+      "id": "FULTON-INTRODUCTION-TORIC-VARIETIES",
+      "kind": "book",
+      "title": "William Fulton, Introduction to Toric Varieties",
+      "match": [
+        "\\*Introduction\\ to\\ Toric\\ Varieties\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "FULTON-IT",
+      "title": "Fulton, Intersection Theory (Ergebnisse 2)",
+      "access": "restricted",
+      "match": [
+        "Fulton [Ii]ntersection [Tt]heory",
+        "Fulton, \\*Intersection Theory"
+      ],
+      "substitute": "STACKS",
+      "note": "Chow homology and Chern classes in the Stacks Project.",
+      "kind": "book"
+    },
+    {
+      "id": "FULTON-REPRESENTATION-THEORY-FIRST-COURSE",
+      "kind": "book",
+      "title": "W. Fulton and J. Harris, Representation Theory: A First Course",
+      "match": [
+        "\\*Representation\\ Theory:\\ A\\ First\\ Course\\*"
+      ],
+      "access": "restricted",
+      "substitute": "ETINGOF-REP",
+      "note": "Etingof et al. covers the cited representation theory."
+    },
+    {
+      "id": "GABAI-THURSTON-S-EULER-CLASS",
+      "kind": "book",
+      "title": "D. Gabai, M. Yazdi, On Thurston's Euler class-one conjecture",
+      "match": [
+        "\\*On\\ Thurston's\\ Euler\\ class\\-one\\ conjecture\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GABRIEL-UNZERLEGBARE-DARSTELLUNGEN-I",
+      "kind": "book",
+      "title": "P. Gabriel, Unzerlegbare Darstellungen I",
+      "match": [
+        "\\*Unzerlegbare\\ Darstellungen\\ I\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GELFAND-COXETER-FUNCTORS-GABRIEL-S",
+      "kind": "book",
+      "title": "Gelfand, V. A. Ponomarev, Coxeter functors and Gabriel's theorem",
+      "match": [
+        "\\*Coxeter\\ functors\\ and\\ Gabriel's\\ theorem\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GILLE-CENTRAL-SIMPLE-ALGEBRAS-GALOIS",
+      "kind": "book",
+      "title": "P. Gille, T. Szamuely, Central Simple Algebras and Galois Cohomology",
+      "match": [
+        "Gille[-–—]Szamuely",
+        "\\*Central\\ Simple\\ Algebras\\ and\\ Galois\\ Cohomology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GIVENS-SHORTT",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Givens–Shortt, A class of Wasserstein metrics for probability distributions (Michigan Math. J. 1984)",
+      "match": [
+        "Givens--Shortt",
+        "Givens[-–—]Shortt"
+      ],
+      "urls": [
+        "https://doi.org/10.1307/mmj/1029003026"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "GNTZER-NON-ARCHIMEDEAN-ANALYSIS",
+      "kind": "book",
+      "title": "U. Güntzer, and R. Remmert, Non-Archimedean Analysis",
+      "match": [
+        "\\*Non\\-Archimedean\\ Analysis\\*"
+      ],
+      "access": "restricted",
+      "substitute": "CONRAD-AWS",
+      "note": "Conrad's notes cover the cited rigid-geometry foundations."
+    },
+    {
+      "id": "GOLDSCHMIDT-ALGEBRAIC-FUNCTIONS-PROJECTIVE-CURVES",
+      "kind": "book",
+      "title": "D. M. Goldschmidt, Algebraic Functions and Projective Curves",
+      "match": [
+        "\\*Algebraic\\ Functions\\ and\\ Projective\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GOODMAN-SYMMETRY-REPRESENTATIONS-INVARIANTS",
+      "kind": "book",
+      "title": "Goodman, N. R. Wallach, Symmetry, Representations, and Invariants",
+      "match": [
+        "\\*Symmetry,\\ Representations,\\ and\\ Invariants\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GOSS-FF",
+      "title": "Goss, Basic Structures of Function Field Arithmetic (Ergebnisse 35)",
+      "access": "restricted",
+      "match": [
+        "Goss"
+      ],
+      "substitute": null,
+      "kind": "book"
+    },
+    {
+      "id": "GROVE-CLASSICAL-GROUPS-GEOMETRIC-ALGEBRA",
+      "kind": "book",
+      "title": "L. C. Grove, Classical Groups and Geometric Algebra",
+      "match": [
+        "\\*Classical\\ Groups\\ and\\ Geometric\\ Algebra\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GUILLOT-COMPUTATION-STIEFEL-WHITNEY-CLASSES",
+      "kind": "book",
+      "title": "P. Guillot, The computation of Stiefel-Whitney classes",
+      "match": [
+        "\\*The\\ computation\\ of\\ Stiefel\\-Whitney\\ classes\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GUNNING-ANALYTIC-FUNCTIONS-SEVERAL-COMPLEX",
+      "kind": "book",
+      "title": "Robert Gunning and Hugo Rossi, Analytic Functions of Several Complex Variables",
+      "match": [
+        "\\*Analytic\\ Functions\\ of\\ Several\\ Complex\\ Variables\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "GURUSWAMI-CODING",
+      "kind": "notes",
+      "access": "free",
+      "title": "Guruswami–Rudra–Sudan, Essential Coding Theory",
+      "match": [],
+      "urls": [
+        "https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/web-coding-book.pdf"
+      ],
+      "note": "Authors' page."
+    },
+    {
+      "id": "HALL-LIE-GROUPS-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "B. C. Hall, Lie Groups, Lie Algebras, and Representations",
+      "match": [
+        "\\*Lie\\ Groups,\\ Lie\\ Algebras,\\ and\\ Representations\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HAPPEL",
+      "kind": "book",
+      "access": "restricted",
+      "title": "Happel, Triangulated Categories in the Representation Theory of Finite Dimensional Algebras (CUP)",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.1017/CBO9780511629228"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "HARTSHORNE-ALGEBRAIC-GEOMETRY",
+      "kind": "book",
+      "title": "R. Hartshorne, Algebraic Geometry",
+      "match": [
+        "\\*Algebraic\\ Geometry\\*"
+      ],
+      "access": "restricted",
+      "substitute": "STACKS",
+      "note": "The cited chapters are covered by the Stacks Project and Vakil."
+    },
+    {
+      "id": "HASSE-ZUR-THEORIE-DER-ABSTRAKTEN",
+      "kind": "book",
+      "title": "H. Hasse, Zur Theorie der abstrakten elliptischen Funktionenkörper",
+      "match": [
+        "\\*Zur\\ Theorie\\ der\\ abstrakten\\ elliptischen\\ Funktionenkörper\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HATCHER-PROOF-SMALE-CONJECTURE-DIFF",
+      "kind": "book",
+      "title": "A. Hatcher, A proof of the Smale conjecture, `Diff(S³) ≃ O(4)`",
+      "match": [
+        "\\*A\\ proof\\ of\\ the\\ Smale\\ conjecture,\\ `Diff\\(S³\\)\\ ≃\\ O\\(4\\)`\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HENKEL-OPEN-MAPPING-THEOREM-RINGS",
+      "kind": "book",
+      "title": "L. Henkel, An Open Mapping Theorem for rings which have a zero sequence of units",
+      "match": [
+        "\\*An\\ Open\\ Mapping\\ Theorem\\ for\\ rings\\ which\\ have\\ a\\ zero\\ sequence\\ of\\ units\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HENRICI-APPLIED-COMPUTATIONAL-COMPLEX-ANALYSIS",
+      "kind": "book",
+      "title": "P. Henrici, Applied and Computational Complex Analysis",
+      "match": [
+        "\\*Applied\\ and\\ Computational\\ Complex\\ Analysis\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HERSTEIN-NONCOMMUTATIVE-RINGS",
+      "kind": "book",
+      "title": "I. N. Herstein, Noncommutative Rings",
+      "match": [
+        "\\*Noncommutative\\ Rings\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HIRSCH-DIFFERENTIAL-TOPOLOGY",
+      "kind": "book",
+      "title": "Hirsch, Differential Topology",
+      "match": [
+        "\\*Differential\\ Topology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HUBER96",
+      "title": "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)",
+      "access": "restricted",
+      "match": [
+        "\\bHub96\\b",
+        "Huber.{0,60}[EÉ]tale Cohomology of Rigid"
+      ],
+      "substitute": "WEDHORN-ADIC",
+      "note": "Wedhorn's Adic Spaces covers the foundations; the etale cohomology results of Hub96 are NOT covered, so this only reduces the dependency.",
+      "kind": "book"
+    },
+    {
+      "id": "HUFFMAN-FUNDAMENTALS-ERROR-CORRECTING-CODES",
+      "kind": "book",
+      "title": "C. Huffman and V. Pless, Fundamentals of Error-Correcting Codes",
+      "match": [
+        "\\*Fundamentals\\ of\\ Error\\-Correcting\\ Codes\\*"
+      ],
+      "access": "restricted",
+      "substitute": "GURUSWAMI-CODING",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+      "urls": [
+        "https://doi.org/10.1017/CBO9780511807077"
+      ]
+    },
+    {
+      "id": "HULPKE-COMPUTATIONAL-REPRESENTATION-THEORY",
+      "kind": "book",
+      "title": "A. Hulpke, Computational representation theory",
+      "match": [
+        "\\*Computational\\ representation\\ theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HUMPHREYS-INTRODUCTION-LIE-ALGEBRAS-REPRESENTATION",
+      "kind": "book",
+      "title": "J. E. Humphreys, Introduction to Lie Algebras and Representation Theory",
+      "match": [
+        "\\*Introduction\\ to\\ Lie\\ Algebras\\ and\\ Representation\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": "KIRILLOV-LIE",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "HUMPHREYS-REPRESENTATIONS-SEMISIMPLE-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "J. E. Humphreys, Representations of Semisimple Lie Algebras in the BGG Category O",
+      "match": [
+        "\\*Representations\\ of\\ Semisimple\\ Lie\\ Algebras\\ in\\ the\\ BGG\\ Category\\ O\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "ISAACS-CHARACTER-THEORY-FINITE-GROUPS",
+      "kind": "book",
+      "title": "I. M. Isaacs, Character Theory of Finite Groups",
+      "match": [
+        "\\*Character\\ Theory\\ of\\ Finite\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "ITP2022-GRAPHLIMITS",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Dense graph limits formalisation (ITP 2022, LIPIcs)",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.4230/LIPIcs.ITP.2022.9"
+      ],
+      "substitute": null,
+      "note": "LIPIcs is open access; the doi.org host is checked, so it is registered here."
+    },
+    {
+      "id": "IWANIEC-KOWALSKI",
+      "title": "Iwaniec–Kowalski, Analytic Number Theory (AMS Colloquium 53)",
+      "access": "restricted",
+      "match": [
+        "Iwaniec[-–—]Kowalski"
+      ],
+      "substitute": null,
+      "note": "Cited for the analytic conductor normalisation.",
+      "kind": "book"
+    },
+    {
+      "id": "JACOBSON-BASIC-ALGEBRA-II",
+      "kind": "book",
+      "title": "N. Jacobson, Basic Algebra II",
+      "match": [
+        "\\*Basic\\ Algebra\\ II\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JACOBSON-EXCEPTIONAL-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "N. Jacobson, Exceptional Lie Algebras",
+      "match": [
+        "\\*Exceptional\\ Lie\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JACOBSON-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "N. Jacobson, Lie Algebras",
+      "match": [
+        "\\*Lie\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JAMES-REPRESENTATION-THEORY-SYMMETRIC-GROUPS",
+      "kind": "book",
+      "title": "G. D. James, The Representation Theory of the Symmetric Groups",
+      "match": [
+        "\\*The\\ Representation\\ Theory\\ of\\ the\\ Symmetric\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JAMES-REPRESENTATIONS-CHARACTERS-GROUPS",
+      "kind": "book",
+      "title": "G. James, M. Liebeck, Representations and Characters of Groups",
+      "match": [
+        "\\*Representations\\ and\\ Characters\\ of\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": "ETINGOF-REP",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JANSON-GRAPHONS-CUT-NORM-DISTANCE",
+      "kind": "book",
+      "title": "S. Janson, Graphons, cut norm and distance, couplings and rearrangements",
+      "match": [
+        "\\*Graphons,\\ cut\\ norm\\ and\\ distance,\\ couplings\\ and\\ rearrangements\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JANTZEN-REPRESENTATIONS-ALGEBRAIC-GROUPS",
+      "kind": "book",
+      "title": "J. C. Jantzen, Representations of Algebraic Groups",
+      "match": [
+        "\\*Representations\\ of\\ Algebraic\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JANUSZ-ALGEBRAIC-NUMBER-FIELDS",
+      "kind": "book",
+      "title": "G. J. Janusz, Algebraic Number Fields",
+      "match": [
+        "\\*Algebraic\\ Number\\ Fields\\*"
+      ],
+      "access": "restricted",
+      "substitute": "MILNE-NOTES",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "JKO98",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Jordan–Kinderlehrer–Otto, The variational formulation of the Fokker–Planck equation (SIAM J. Math. Anal. 1998)",
+      "match": [
+        "Jordan--Kinderlehrer--Otto",
+        "Jordan[-–—]Kinderlehrer[-–—]Otto"
+      ],
+      "urls": [
+        "https://doi.org/10.1137/S0036141096303359"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "JOHNSON-KOTZ-KEMP",
+      "kind": "book",
+      "access": "restricted",
+      "title": "Johnson–Kotz–Kemp, Univariate Discrete Distributions (Wiley)",
+      "match": [],
+      "urls": [
+        "https://onlinelibrary.wiley.com/doi/book/10.1002/0471715816"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "KAC-INFINITE-DIMENSIONAL-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "V. G. Kac, Infinite Dimensional Lie Algebras",
+      "match": [
+        "\\*Infinite\\ Dimensional\\ Lie\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KALLENBERG-PROBABILISTIC-SYMMETRIES-INVARIANCE-PRINCIPLES",
+      "kind": "book",
+      "title": "Olav Kallenberg, Probabilistic Symmetries and Invariance Principles",
+      "match": [
+        "\\*Probabilistic\\ Symmetries\\ and\\ Invariance\\ Principles\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KARPILOVSKY-PROJECTIVE-REPRESENTATIONS-FINITE-GROUPS",
+      "kind": "book",
+      "title": "G. Karpilovsky, Projective Representations of Finite Groups",
+      "match": [
+        "\\*Projective\\ Representations\\ of\\ Finite\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KATOK-FUCHSIAN-GROUPS",
+      "kind": "book",
+      "title": "Svetlana Katok, Fuchsian Groups",
+      "match": [
+        "\\*Fuchsian\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KATZ-ARITHMETIC-MODULI-ELLIPTIC-CURVES",
+      "kind": "book",
+      "title": "M. Katz and B. Mazur, Arithmetic Moduli of Elliptic Curves",
+      "match": [
+        "Katz[-–—]Mazur",
+        "\\*Arithmetic\\ Moduli\\ of\\ Elliptic\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KATZ-SERRE-TATE-LOCAL-MODULI",
+      "kind": "book",
+      "title": "Katz, Serre–Tate local moduli",
+      "match": [
+        "\\*Serre–Tate\\ local\\ moduli\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KAUFFMAN-STATE-MODELS-JONES-POLYNOMIAL",
+      "kind": "book",
+      "title": "L. Kauffman, State models and the Jones polynomial",
+      "match": [
+        "\\*State\\ models\\ and\\ the\\ Jones\\ polynomial\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
       "id": "KEDLAYA-NOTES",
@@ -78,6 +1448,768 @@
       "kind": "notes"
     },
     {
+      "id": "KIRILLOV-LIE",
+      "kind": "notes",
+      "access": "free",
+      "title": "Kirillov, Introduction to Lie Groups and Lie Algebras",
+      "match": [
+        "Kirillov, \\*Introduction to Lie"
+      ],
+      "urls": [
+        "https://www.math.stonybrook.edu/~kirillov/liegroups/liegroups.pdf"
+      ],
+      "note": "Author's page."
+    },
+    {
+      "id": "KNAPP-FREE",
+      "kind": "notes",
+      "access": "free",
+      "title": "Knapp, Lie Groups Beyond an Introduction, Basic Algebra, Advanced Algebra",
+      "match": [],
+      "urls": [
+        "https://www.math.stonybrook.edu/~aknapp/download.html"
+      ],
+      "note": "The author posts these as a gift to the community, for noncommercial use."
+    },
+    {
+      "id": "KNAPP-LIE-GROUPS-BEYOND-INTRODUCTION",
+      "kind": "book",
+      "title": "A. W. Knapp, Lie Groups Beyond an Introduction",
+      "match": [
+        "\\*Lie\\ Groups\\ Beyond\\ an\\ Introduction\\*"
+      ],
+      "access": "free",
+      "note": "The author posts the digital second edition.",
+      "urls": [
+        "https://www.math.stonybrook.edu/~aknapp/download.html"
+      ]
+    },
+    {
+      "id": "KOCH-GALOIS-THEORY-P-EXTENSIONS",
+      "kind": "book",
+      "title": "H. Koch, Galois Theory of p-Extensions",
+      "match": [
+        "\\*Galois\\ Theory\\ of\\ p\\-Extensions\\*"
+      ],
+      "access": "restricted",
+      "substitute": "NSW",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KOSZUL-FLOW-LATTICES",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Koszul algebras and flow lattices (JCTA 2021)",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.1016/j.jcta.2021.105534"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "KOTZ-CONTINUOUS-UNIVARIATE-DISTRIBUTIONS",
+      "kind": "book",
+      "title": "S. Kotz, N. Balakrishnan, Continuous Univariate Distributions",
+      "match": [
+        "\\*Continuous\\ Univariate\\ Distributions\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KOZLOWSKI-EVENS-KAHN-FORMULA-TOTAL",
+      "kind": "book",
+      "title": "A. Kozlowski, The Evens-Kahn formula for the total Stiefel-Whitney class",
+      "match": [
+        "\\*The\\ Evens\\-Kahn\\ formula\\ for\\ the\\ total\\ Stiefel\\-Whitney\\ class\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KRONHEIMER-WITTEN-S-CONJECTURE-PROPERTY",
+      "kind": "book",
+      "title": "P. Kronheimer, T. Mrowka, Witten's conjecture and Property P",
+      "match": [
+        "\\*Witten's\\ conjecture\\ and\\ Property\\ P\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "KUBILIUS",
+      "title": "Kubilius, Probabilistic Methods in the Theory of Numbers (AMS)",
+      "access": "restricted",
+      "match": [
+        "Kubilius"
+      ],
+      "substitute": null,
+      "kind": "book"
+    },
+    {
+      "id": "KUIPERS-NIEDERREITER",
+      "title": "Kuipers–Niederreiter, Uniform Distribution of Sequences (Wiley)",
+      "access": "restricted",
+      "match": [
+        "Kuipers"
+      ],
+      "substitute": null,
+      "kind": "book"
+    },
+    {
+      "id": "LAM-FIRST-COURSE-NONCOMMUTATIVE-RINGS",
+      "kind": "book",
+      "title": "T. Y. Lam, A First Course in Noncommutative Rings",
+      "match": [
+        "\\*A\\ First\\ Course\\ in\\ Noncommutative\\ Rings\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LAM-INTRODUCTION-QUADRATIC-FORMS-OVER",
+      "kind": "book",
+      "title": "T. Y. Lam, Introduction to Quadratic Forms over Fields",
+      "match": [
+        "\\*Introduction\\ to\\ Quadratic\\ Forms\\ over\\ Fields\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LAN-PEL",
+      "title": "Lan, Arithmetic Compactifications of PEL-Type Shimura Varieties",
+      "access": "restricted",
+      "match": [
+        "Lan, \\*Arithmetic Compactifications",
+        "Lan's \\*Arithmetic Compactifications"
+      ],
+      "substitute": null,
+      "note": "The author's thesis version is on his page and covers the cited chapters; pin it and this becomes free.",
+      "kind": "book"
+    },
+    {
+      "id": "LANDO-GRAPHS-SURFACES-THEIR-APPLICATIONS",
+      "kind": "book",
+      "title": "Lando, A. K. Zvonkin, Graphs on Surfaces and Their Applications",
+      "match": [
+        "\\*Graphs\\ on\\ Surfaces\\ and\\ Their\\ Applications\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LANG-ALGEBRAIC-NUMBER-THEORY",
+      "kind": "book",
+      "title": "S. Lang, Algebraic Number Theory",
+      "match": [
+        "\\*Algebraic\\ Number\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": "MILNE-NOTES",
+      "note": "Milne's ANT and CFT notes cover the cited chapters."
+    },
+    {
+      "id": "LANG-COMPLEX-ANALYSIS",
+      "kind": "book",
+      "title": "S. Lang, Complex Analysis",
+      "match": [
+        "\\*Complex\\ Analysis\\*"
+      ],
+      "access": "restricted",
+      "substitute": "BECK-COMPLEX",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LANGLANDS-NOTION-AUTOMORPHIC-REPRESENTATION",
+      "kind": "book",
+      "title": "Langlands, On the notion of an automorphic representation",
+      "match": [
+        "\\*On\\ the\\ notion\\ of\\ an\\ automorphic\\ representation\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LAZARD-SUR-LES-GROUPES-DE",
+      "kind": "book",
+      "title": "M. Lazard, Sur les groupes de Lie formels à un paramètre",
+      "match": [
+        "\\*Sur\\ les\\ groupes\\ de\\ Lie\\ formels\\ à\\ un\\ paramètre\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LEE-INTRODUCTION-RIEMANNIAN-MANIFOLDS",
+      "kind": "book",
+      "title": "J. Lee, Introduction to Riemannian Manifolds",
+      "match": [
+        "\\*Introduction\\ to\\ Riemannian\\ Manifolds\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LEE-INTRODUCTION-SMOOTH-MANIFOLDS",
+      "kind": "book",
+      "title": "Lee, Introduction to Smooth Manifolds",
+      "match": [
+        "\\*Introduction\\ to\\ Smooth\\ Manifolds\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LICKORISH-INTRODUCTION-KNOT-THEORY",
+      "kind": "book",
+      "title": "W. B. R. Lickorish, An Introduction to Knot Theory",
+      "match": [
+        "\\*An\\ Introduction\\ to\\ Knot\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LITTLE-TORIC-VARIETIES",
+      "kind": "book",
+      "title": "John Little, and Henry Schenck, Toric Varieties",
+      "match": [
+        "\\*Toric\\ Varieties\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LIU-ALGEBRAIC-GEOMETRY-ARITHMETIC-CURVES",
+      "kind": "book",
+      "title": "Q. Liu, Algebraic Geometry and Arithmetic Curves",
+      "match": [
+        "\\*Algebraic\\ Geometry\\ and\\ Arithmetic\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": "STACKS",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LODAY-ALGEBRAIC-OPERADS",
+      "kind": "book",
+      "title": "Jean-Louis Loday and Bruno Vallette, Algebraic Operads",
+      "match": [
+        "\\*Algebraic\\ Operads\\*"
+      ],
+      "access": "free",
+      "note": "Author's page.",
+      "urls": [
+        "https://www.math.univ-paris13.fr/~vallette/Operads.pdf"
+      ]
+    },
+    {
+      "id": "LOEFFLER-MODULAR-CURVES",
+      "kind": "book",
+      "title": "D. Loeffler, Modular Curves",
+      "match": [
+        "\\*Modular\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "LOEPER09",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Loeper, On the regularity of solutions of optimal transportation problems (Acta Math. 2009)",
+      "match": [
+        "Loeper's necessity theorem"
+      ],
+      "urls": [
+        "https://doi.org/10.1007/s11511-009-0037-8"
+      ],
+      "substitute": null,
+      "note": "Acta Mathematica's back content is posted by the Institut Mittag-Leffler; if that covers this volume it should be reclassified as free."
+    },
+    {
+      "id": "MA-TRUDINGER-WANG",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Ma–Trudinger–Wang, Regularity of potential functions of the optimal transportation problem (ARMA 2005)",
+      "match": [
+        "Ma--Trudinger--Wang",
+        "Ma[-–—]Trudinger[-–—]Wang"
+      ],
+      "urls": [
+        "https://doi.org/10.1007/s00205-005-0362-9"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "MACDONALD-SYMMETRIC-FUNCTIONS-HALL-POLYNOMIALS",
+      "kind": "book",
+      "title": "I. G. Macdonald, Symmetric Functions and Hall Polynomials",
+      "match": [
+        "\\*Symmetric\\ Functions\\ and\\ Hall\\ Polynomials\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MACKEY-INDUCED-REPRESENTATIONS-GROUPS",
+      "kind": "book",
+      "title": "G. W. Mackey, On induced representations of groups",
+      "match": [
+        "\\*On\\ induced\\ representations\\ of\\ groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MALLE-MATZAT",
+      "title": "Malle–Matzat, Inverse Galois Theory (Springer Monographs)",
+      "access": "restricted",
+      "match": [
+        "Malle[-–—]Matzat"
+      ],
+      "urls": [
+        "https://link.springer.com/book/10.1007/978-3-662-55420-3"
+      ],
+      "substitute": null,
+      "kind": "book"
+    },
+    {
+      "id": "MARCUS-NUMBER-FIELDS",
+      "kind": "book",
+      "title": "D. A. Marcus, Number Fields",
+      "match": [
+        "\\*Number\\ Fields\\*"
+      ],
+      "access": "restricted",
+      "substitute": "MILNE-NOTES",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MATIYASEVICH",
+      "title": "Matiyasevich, Hilbert's Tenth Problem (MIT Press)",
+      "access": "restricted",
+      "match": [
+        "Matiyasevich, Hilbert's Tenth Problem"
+      ],
+      "substitute": "POONEN-H10",
+      "kind": "book",
+      "note": "Poonen's survey carries the proof chain cited."
+    },
+    {
+      "id": "MAY-SIMPLICIAL-OBJECTS-ALGEBRAIC-TOPOLOGY",
+      "kind": "book",
+      "title": "May, Simplicial Objects in Algebraic Topology",
+      "match": [
+        "\\*Simplicial\\ Objects\\ in\\ Algebraic\\ Topology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MAZUR-ARITHMETIC-MODULI-ELLIPTIC-CURVES",
+      "kind": "book",
+      "title": "B. Mazur, Arithmetic Moduli of Elliptic Curves",
+      "match": [
+        "\\*Arithmetic\\ Moduli\\ of\\ Elliptic\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MCCANN01",
+      "kind": "article",
+      "access": "restricted",
+      "title": "McCann, Polar factorization on Riemannian manifolds (GAFA 2001)",
+      "match": [
+        "polar factorization on Riemannian"
+      ],
+      "urls": [
+        "https://doi.org/10.1007/PL00001679"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "MCCLEARY-USER-S-GUIDE-SPECTRAL",
+      "kind": "book",
+      "title": "McCleary, A User's Guide to Spectral Sequences",
+      "match": [
+        "\\*A\\ User's\\ Guide\\ to\\ Spectral\\ Sequences\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MCDUFF-J-HOLOMORPHIC-CURVES-SYMPLECTIC",
+      "kind": "book",
+      "title": "D. McDuff, D. Salamon, J-holomorphic Curves and Symplectic Topology",
+      "match": [
+        "\\*J\\-holomorphic\\ Curves\\ and\\ Symplectic\\ Topology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MEINRENKEN-CLIFFORD-ALGEBRAS-LIE-THEORY",
+      "kind": "book",
+      "title": "E. Meinrenken, Clifford Algebras and Lie Theory",
+      "match": [
+        "\\*Clifford\\ Algebras\\ and\\ Lie\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MEMOLI11",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Mémoli, Gromov–Wasserstein distances and the metric approach to object matching (FoCM 2011)",
+      "match": [
+        "M[ée]moli's \\[foundational"
+      ],
+      "urls": [
+        "https://doi.org/10.1007/s10208-011-9093-5"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "MILNE-ARITHMETIC-DUALITY-THEOREMS",
+      "kind": "book",
+      "title": "Milne, Arithmetic Duality Theorems",
+      "match": [
+        "\\*Arithmetic\\ Duality\\ Theorems\\*"
+      ],
+      "access": "free",
+      "note": "The author posts it.",
+      "urls": [
+        "https://www.jmilne.org/math/Books/adt.html"
+      ]
+    },
+    {
+      "id": "MILNE-NOTES",
+      "title": "Milne, course notes and articles (ANT, CFT, CM, ADT, AV, JV, LEC, MF)",
+      "access": "free",
+      "match": [
+        "Milne, \\*?(Algebraic Number Theory|Class Field Theory|Complex Multiplication|Arithmetic Duality|Abelian Varieties|Jacobian Varieties|[EÉ]tale Cohomology|Modular Functions)",
+        "jmilne\\.org",
+        "Milne's \\*"
+      ],
+      "note": "All on jmilne.org.",
+      "kind": "notes"
+    },
+    {
+      "id": "MILNOR-ALGEBRAIC-K-THEORY-QUADRATIC",
+      "kind": "book",
+      "title": "J. Milnor, Algebraic K-theory and quadratic forms",
+      "match": [
+        "\\*Algebraic\\ K\\-theory\\ and\\ quadratic\\ forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MILNOR-SYMMETRIC-BILINEAR-FORMS",
+      "kind": "book",
+      "title": "J. Milnor and D. Husemoller, Symmetric Bilinear Forms",
+      "match": [
+        "\\*Symmetric\\ Bilinear\\ Forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MIRANDA-ALGEBRAIC-CURVES-RIEMANN-SURFACES",
+      "kind": "book",
+      "title": "Rick Miranda, Algebraic Curves and Riemann Surfaces",
+      "match": [
+        "\\*Algebraic\\ Curves\\ and\\ Riemann\\ Surfaces\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MIYAKE-MF",
+      "title": "Miyake, Modular Forms (Springer)",
+      "access": "restricted",
+      "match": [
+        "Miyake"
+      ],
+      "substitute": "MILNE-NOTES",
+      "kind": "book"
+    },
+    {
+      "id": "MODFORMS-ARTICLES",
+      "kind": "article",
+      "access": "restricted",
+      "title": "J. Number Theory 57 (1996) and the Springer LNM chapter cited by ModularForms",
+      "match": [],
+      "urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0022314X96900396",
+        "https://doi.org/10.1007/BFb0065300"
+      ],
+      "substitute": null,
+      "note": "The LNM chapter is identified in the register only by its doi."
+    },
+    {
+      "id": "MOISE-GEOMETRIC-TOPOLOGY-DIMENSIONS-2",
+      "kind": "book",
+      "title": "Moise, Geometric Topology in Dimensions 2 and 3",
+      "match": [
+        "\\*Geometric\\ Topology\\ in\\ Dimensions\\ 2\\ and\\ 3\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MOLEV-YANGIANS-CLASSICAL-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "A. Molev, Yangians and Classical Lie Algebras",
+      "match": [
+        "\\*Yangians\\ and\\ Classical\\ Lie\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "MONSTER-PRESENTATION",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Farooq–Norton–Wilson, A presentation of the Monster and a set of matrices which satisfy it",
+      "match": [
+        "A presentation of the Monster"
+      ],
+      "urls": [
+        "https://doi.org/10.1016/j.jalgebra.2013.01.015"
+      ],
+      "substitute": null,
+      "note": "J. Algebra. The roadmap also cites Bray's free page at QMUL, which displays the presentation."
+    },
+    {
+      "id": "MUIRHEAD",
+      "kind": "book",
+      "access": "restricted",
+      "title": "Muirhead, Aspects of Multivariate Statistical Theory (Wiley)",
+      "match": [],
+      "urls": [
+        "https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316559",
+        "https://onlinelibrary.wiley.com/doi/10.1002/9780470316559.ch2",
+        "https://onlinelibrary.wiley.com/doi/10.1002/9780470316559.ch3"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "MUMFORD-AV",
+      "title": "Mumford, Abelian Varieties (TIFR Studies 5)",
+      "access": "restricted",
+      "match": [
+        "Mumford's \\*Abelian Varieties",
+        "Mumford, \\*Abelian Varieties"
+      ],
+      "substitute": "MILNE-NOTES",
+      "note": "Milne's Abelian Varieties article is free and covers the cited theory.",
+      "kind": "book"
+    },
+    {
+      "id": "NARKIEWICZ-ELEMENTARY-ANALYTIC-THEORY-ALGEBRAIC",
+      "kind": "book",
+      "title": "W. Narkiewicz, Elementary and Analytic Theory of Algebraic Numbers",
+      "match": [
+        "\\*Elementary\\ and\\ Analytic\\ Theory\\ of\\ Algebraic\\ Numbers\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "NEUKIRCH-ALGEBRAIC-NUMBER-THEORY",
+      "kind": "book",
+      "title": "J. Neukirch, Algebraic Number Theory",
+      "match": [
+        "Neukirch ANT",
+        "Neukirch, \\*Algebraic Number Theory",
+        "\\*Algebraic\\ Number\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": "MILNE-NOTES",
+      "note": "Milne's ANT notes cover the cited Minkowski theory, ramification and Euler products."
+    },
+    {
+      "id": "NIKULIN",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Nikulin, Integral symmetric bilinear forms and some of their applications (Izv. 1980)",
+      "match": [
+        "Nikulin"
+      ],
+      "urls": [
+        "https://doi.org/10.1070/IM1980v014n01ABEH001060"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "NSW",
+      "title": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields",
+      "access": "free",
+      "match": [
+        "Cohomology of Number Fields",
+        "\\bNSW\\b"
+      ],
+      "note": "The second edition is posted by the authors at mathi.uni-heidelberg.de/~schmidt/NSW2e/ (checked 2026-09-24).",
+      "kind": "book"
+    },
+    {
+      "id": "ODA-CONVEX-BODIES-ALGEBRAIC-GEOMETRY",
+      "kind": "book",
+      "title": "Tadao Oda, Convex Bodies and Algebraic Geometry",
+      "match": [
+        "\\*Convex\\ Bodies\\ and\\ Algebraic\\ Geometry\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "OH-SYMPLECTIC-TOPOLOGY-FLOER-HOMOLOGY",
+      "kind": "book",
+      "title": "Y.-G. Oh, Symplectic Topology and Floer Homology",
+      "match": [
+        "\\*Symplectic\\ Topology\\ and\\ Floer\\ Homology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "OMEARA-INTRODUCTION-QUADRATIC-FORMS",
+      "kind": "book",
+      "title": "O. T. O'Meara, Introduction to Quadratic Forms",
+      "match": [
+        "\\*Introduction\\ to\\ Quadratic\\ Forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "OT-REGULARITY",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Caffarelli's regularity papers and the further optimal-transport articles cited by OptimalTransport",
+      "match": [],
+      "urls": [
+        "https://doi.org/10.1090/S0894-0347-1992-1124980-8",
+        "https://doi.org/10.1002/cpa.3160450905",
+        "https://doi.org/10.1002/cpa.20046",
+        "https://doi.org/10.3934/dcds.2011.31.1427",
+        "https://doi.org/10.1007/s00526-023-02616-1",
+        "https://doi.org/10.1006/aima.1997.1634"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "OZSVTHSTIPSICZ-GRID-HOMOLOGY-KNOTS-LINKS",
+      "kind": "book",
+      "title": "Ozsváth–Stipsicz–Szabó, Grid Homology for Knots and Links",
+      "match": [
+        "\\*Grid\\ Homology\\ for\\ Knots\\ and\\ Links\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "PALAIS-EXTENDING-DIFFEOMORPHISMS",
+      "kind": "book",
+      "title": "Palais, Extending diffeomorphisms",
+      "match": [
+        "\\*Extending\\ diffeomorphisms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "PANYUSHEV-EXTERIOR-ALGEBRA-SPIN-ORTHOGONAL",
+      "kind": "book",
+      "title": "D. Panyushev, The exterior algebra and \"spin\" of an orthogonal 𝔤-module",
+      "match": [
+        "\\*The\\ exterior\\ algebra\\ and\\ \"spin\"\\ of\\ an\\ orthogonal\\ 𝔤\\-module\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "PAZY-SEMIGROUPS-LINEAR-OPERATORS-APPLICATIONS",
+      "kind": "book",
+      "title": "A. Pazy, Semigroups of Linear Operators and Applications to PDE",
+      "match": [
+        "\\*Semigroups\\ of\\ Linear\\ Operators\\ and\\ Applications\\ to\\ PDE\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "PETERSEN-RIEMANNIAN-GEOMETRY",
+      "kind": "book",
+      "title": "P. Petersen, Riemannian Geometry",
+      "match": [
+        "\\*Riemannian\\ Geometry\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "PIERCE-ASSOCIATIVE-ALGEBRAS",
+      "kind": "book",
+      "title": "R. S. Pierce, Associative Algebras",
+      "match": [
+        "\\*Associative\\ Algebras\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "POONEN-H10",
+      "kind": "notes",
+      "access": "free",
+      "title": "Poonen, Undecidability in number theory",
+      "match": [],
+      "urls": [
+        "https://math.mit.edu/~poonen/papers/h10_notices.pdf"
+      ],
+      "note": "Author's page."
+    },
+    {
       "id": "POONEN-QPOINTS",
       "title": "Poonen, Rational Points on Varieties",
       "access": "free",
@@ -89,35 +2221,206 @@
       "kind": "notes"
     },
     {
-      "id": "VOIGHT-QUAT",
-      "title": "Voight, Quaternion Algebras",
-      "access": "free",
+      "id": "PROCESI-LIE-GROUPS-APPROACH-THROUGH",
+      "kind": "book",
+      "title": "C. Procesi, Lie Groups: An Approach through Invariants and Representations",
       "match": [
-        "Voight, \\*?Quaternion",
-        "jvoight\\.github\\.io"
+        "\\*Lie\\ Groups:\\ An\\ Approach\\ through\\ Invariants\\ and\\ Representations\\*"
       ],
-      "note": "Author's version is free; the Springer edition is not.",
-      "kind": "book"
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "SHOUP-NTB",
-      "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
-      "access": "free",
+      "id": "RATCLIFFE-FOUNDATIONS-HYPERBOLIC-MANIFOLDS",
+      "kind": "book",
+      "title": "Ratcliffe, Foundations of Hyperbolic Manifolds",
       "match": [
-        "Shoup"
+        "\\*Foundations\\ of\\ Hyperbolic\\ Manifolds\\*"
       ],
-      "note": "Author posts the full text at shoup.net/ntb/.",
-      "kind": "book"
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "WEIBEL-KBOOK",
-      "title": "Weibel, The K-book",
-      "access": "free",
+      "id": "REITEN-REPRESENTATION-THEORY-ARTIN-ALGEBRAS",
+      "kind": "book",
+      "title": "I. Reiten, S. Smalø, Representation Theory of Artin Algebras",
       "match": [
-        "K-book",
-        "Kbook"
+        "\\*Representation\\ Theory\\ of\\ Artin\\ Algebras\\*"
       ],
-      "note": "Author's page at Rutgers.",
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "RIBES-PROFINITE-GROUPS",
+      "kind": "book",
+      "title": "L. Ribes, P. Zalesskii, Profinite Groups",
+      "match": [
+        "\\*Profinite\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": "NSW",
+      "note": "NSW's profinite chapters cover the cited results."
+    },
+    {
+      "id": "ROLFSEN-KNOTS-LINKS",
+      "kind": "book",
+      "title": "Rolfsen, Knots and Links",
+      "match": [
+        "\\*Knots\\ and\\ Links\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "ROSEN-NUMBER-THEORY-FUNCTION-FIELDS",
+      "kind": "book",
+      "title": "M. Rosen, Number Theory in Function Fields",
+      "match": [
+        "Rosen, \\*?Number Theory in Function Fields",
+        "\\*Number\\ Theory\\ in\\ Function\\ Fields\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+      "urls": [
+        "https://link.springer.com/book/10.1007/978-1-4757-6046-0"
+      ]
+    },
+    {
+      "id": "ROURKE-INTRODUCTION-PIECEWISE-LINEAR-TOPOLOGY",
+      "kind": "book",
+      "title": "C. Rourke, B. Sanderson, Introduction to Piecewise-Linear Topology",
+      "match": [
+        "\\*Introduction\\ to\\ Piecewise\\-Linear\\ Topology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "RUBIN-EULER-SYSTEMS",
+      "kind": "book",
+      "title": "K. Rubin, Euler Systems",
+      "match": [
+        "\\*Euler\\ Systems\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "RUDIN-FOURIER-ANALYSIS-GROUPS",
+      "kind": "book",
+      "title": "W. Rudin, Fourier Analysis on Groups",
+      "match": [
+        "\\*Fourier\\ Analysis\\ on\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SAGAN-SYMMETRIC-GROUP-REPRESENTATIONS-COMBINATORIAL",
+      "kind": "book",
+      "title": "B. E. Sagan, The Symmetric Group: Representations, Combinatorial Algorithms, and Symmetric Functions",
+      "match": [
+        "\\*The\\ Symmetric\\ Group:\\ Representations,\\ Combinatorial\\ Algorithms,\\ and\\ Symmetric\\ Functions\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SALVADOR-TOPICS-THEORY-ALGEBRAIC-FUNCTION",
+      "kind": "book",
+      "title": "G. D. Villa Salvador, Topics in the Theory of Algebraic Function Fields",
+      "match": [
+        "\\*Topics\\ in\\ the\\ Theory\\ of\\ Algebraic\\ Function\\ Fields\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SANTAMBROGIO",
+      "kind": "book",
+      "access": "restricted",
+      "title": "Santambrogio, Optimal Transport for Applied Mathematicians (Birkhäuser)",
+      "match": [],
+      "urls": [
+        "https://link.springer.com/book/10.1007/978-3-319-20828-2"
+      ],
+      "substitute": null
+    },
+    {
+      "id": "SANTAMBROGIO-GRADIENT",
+      "kind": "notes",
+      "access": "free",
+      "title": "Santambrogio, Euclidean, metric and Wasserstein gradient flows: an overview",
+      "match": [],
+      "urls": [
+        "https://arxiv.org/abs/1609.03890"
+      ],
+      "note": "arXiv."
+    },
+    {
+      "id": "SCHARLAU-QUADRATIC-HERMITIAN-FORMS",
+      "kind": "book",
+      "title": "W. Scharlau, Quadratic and Hermitian Forms",
+      "match": [
+        "\\*Quadratic\\ and\\ Hermitian\\ Forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SCHARLEMANN-HEEGAARD-SPLITTINGS-COMPACT-3",
+      "kind": "book",
+      "title": "M. Scharlemann, Heegaard splittings of compact 3-manifolds",
+      "match": [
+        "\\*Heegaard\\ splittings\\ of\\ compact\\ 3\\-manifolds\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SCHIFFLER-QUIVER-REPRESENTATIONS",
+      "kind": "book",
+      "title": "R. Schiffler, Quiver Representations",
+      "match": [
+        "\\*Quiver\\ Representations\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SCHMIDT-COHOMOLOGY-NUMBER-FIELDS",
+      "kind": "book",
+      "title": "A. Schmidt, K. Wingberg, Cohomology of Number Fields",
+      "match": [
+        "\\*Cohomology\\ of\\ Number\\ Fields\\*"
+      ],
+      "access": "free",
+      "note": "This is NSW; the authors post the second edition.",
+      "urls": [
+        "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/"
+      ]
+    },
+    {
+      "id": "SCHMIDT-DIOPH",
+      "title": "Schmidt, Diophantine Approximation (Springer LNM 785)",
+      "access": "restricted",
+      "match": [
+        "Schmidt, Diophantine Approximation"
+      ],
+      "substitute": null,
       "kind": "book"
     },
     {
@@ -143,113 +2446,118 @@
       "kind": "notes"
     },
     {
-      "id": "VAKIL-FOAG",
-      "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+      "id": "SCHWARZ-MORSE-HOMOLOGY",
+      "kind": "book",
+      "title": "Schwarz, Morse Homology",
+      "match": [
+        "\\*Morse\\ Homology\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SEMINAIRE-BOURBAKI",
+      "kind": "notes",
       "access": "free",
+      "title": "Séminaire Bourbaki exposés",
       "match": [
-        "Rising Sea",
-        "Vakil"
+        "Bourbaki \\d{3}",
+        "Bourbaki account",
+        "S[ée]minaire Bourbaki"
       ],
-      "note": "Author posts the full text (checked 2026-09-24).",
-      "kind": "notes"
+      "urls": [
+        "https://www.numdam.org/volume/SB_1968-1969__11_/"
+      ],
+      "note": "Free on NUMDAM. Distinct from the Bourbaki treatise: most 'Bourbaki' citations here are exposés."
     },
     {
-      "id": "NEUKIRCH-ANT",
-      "title": "Neukirch, Algebraic Number Theory (Grundlehren 322)",
-      "access": "restricted",
+      "id": "SERRE-COMPLEX-SEMISIMPLE-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "J.-P. Serre, Complex Semisimple Lie Algebras",
       "match": [
-        "Neukirch, \\*Algebraic Number Theory",
-        "Neukirch, *\\*?Algebraic Number Theory"
+        "\\*Complex\\ Semisimple\\ Lie\\ Algebras\\*"
       ],
+      "access": "restricted",
+      "substitute": "KIRILLOV-LIE",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SERRE-COURSE-ARITHMETIC",
+      "kind": "book",
+      "title": "Jean-Pierre Serre, A Course in Arithmetic",
+      "match": [
+        "\\*A\\ Course\\ in\\ Arithmetic\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SERRE-GALOIS-COHOMOLOGY",
+      "kind": "book",
+      "title": "J-P. Serre, Galois Cohomology",
+      "match": [
+        "\\*Galois\\ Cohomology\\*"
+      ],
+      "access": "restricted",
+      "substitute": "NSW",
+      "note": "NSW is free and covers profinite and Galois cohomology."
+    },
+    {
+      "id": "SERRE-HOMOLOGIE-SINGULI-RE-DES",
+      "kind": "book",
+      "title": "Jean-Pierre Serre, Homologie singulière des espaces fibrés. Applications",
+      "match": [
+        "\\*Homologie\\ singulière\\ des\\ espaces\\ fibrés\\.\\ Applications\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SERRE-LIE-ALGEBRAS-LIE-GROUPS",
+      "kind": "book",
+      "title": "J.-P. Serre, Lie Algebras and Lie Groups",
+      "match": [
+        "\\*Lie\\ Algebras\\ and\\ Lie\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SERRE-LINEAR-REPRESENTATIONS-FINITE-GROUPS",
+      "kind": "book",
+      "title": "J.-P. Serre, Linear Representations of Finite Groups",
+      "match": [
+        "\\*Linear\\ Representations\\ of\\ Finite\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": "ETINGOF-REP",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SERRE-LOCAL-FIELDS",
+      "kind": "book",
+      "title": "J.-P. Serre, Local Fields",
+      "match": [
+        "\\*Local\\ Fields\\*"
+      ],
+      "access": "restricted",
       "substitute": "MILNE-NOTES",
-      "note": "Milne's ANT notes cover the cited Minkowski theory, ramification and Euler-product material; Kedlaya's notes cover the analytic chapters.",
-      "kind": "book"
+      "note": "Ramification groups and local class field theory are in Milne's ANT and CFT notes; NSW covers the cohomological side."
     },
     {
-      "id": "SERRE-BOOKS",
-      "title": "Serre, Local Fields / Galois Cohomology / A Course in Arithmetic / Trees",
-      "access": "restricted",
+      "id": "SERRE-TOPICS-GALOIS-THEORY",
+      "kind": "book",
+      "title": "J.-P. Serre, Topics in Galois Theory",
       "match": [
-        "Serre, \\*(Local Fields|Galois Cohomology|A Course in Arithmetic|Trees)",
-        "\\*Local Fields\\*",
-        "\\*Galois Cohomology\\*"
+        "\\*Topics\\ in\\ Galois\\ Theory\\*"
       ],
+      "access": "restricted",
       "substitute": null,
-      "note": "Ramification theory is largely in Milne's ANT notes and in NSW, but no free work covers all four.",
-      "kind": "book"
-    },
-    {
-      "id": "WASHINGTON-CYCLO",
-      "title": "Washington, Introduction to Cyclotomic Fields (GTM 83)",
-      "access": "restricted",
-      "match": [
-        "Washington, \\*Introduction to Cyclotomic Fields",
-        "\\*Introduction to Cyclotomic Fields\\*"
-      ],
-      "substitute": null,
-      "note": "Cited for ramification in Q(zeta_q), Iwasawa's theorem and the main-conjecture setup.",
-      "kind": "book"
-    },
-    {
-      "id": "SILVERMAN-AEC",
-      "title": "Silverman, The Arithmetic of Elliptic Curves / Advanced Topics (GTM 106, 151)",
-      "access": "restricted",
-      "match": [
-        "Silverman, \\*?(The )?(Arithmetic of Elliptic Curves|Advanced Topics)",
-        "J\\. H\\. Silverman"
-      ],
-      "substitute": null,
-      "note": "The author's page carries errata and contents only.",
-      "kind": "book"
-    },
-    {
-      "id": "KATZ-MAZUR",
-      "title": "Katz–Mazur, Arithmetic Moduli of Elliptic Curves (Annals Studies 108)",
-      "access": "restricted",
-      "match": [
-        "Katz[-–—]Mazur",
-        "Arithmetic Moduli of Elliptic Curves"
-      ],
-      "substitute": null,
-      "note": "Level structures and regular models; no free edition.",
-      "kind": "book"
-    },
-    {
-      "id": "HARTSHORNE-AG",
-      "title": "Hartshorne, Algebraic Geometry (GTM 52)",
-      "access": "restricted",
-      "match": [
-        "Hartshorne"
-      ],
-      "substitute": "STACKS",
-      "note": "The cited Chapters II-IV are covered by the Stacks Project and by Vakil's Rising Sea, both free.",
-      "kind": "book"
-    },
-    {
-      "id": "WEIBEL-HA",
-      "title": "Weibel, An Introduction to Homological Algebra (CUP 1994)",
-      "access": "restricted",
-      "match": [
-        "Weibel, \\*An Introduction to Homological Algebra",
-        "An Introduction to Homological Algebra"
-      ],
-      "substitute": "STACKS",
-      "note": "Cited for the long exact homology sequence and derived functors (§§1.3, 1.6), which the Stacks Project's homological algebra chapter covers.",
-      "kind": "book"
-    },
-    {
-      "id": "DIAMOND-SHURMAN",
-      "title": "Diamond–Shurman, A First Course in Modular Forms (GTM 228)",
-      "access": "restricted",
-      "match": [
-        "Diamond[-–—]Shurman",
-        "Diamond and Jerry Shurman",
-        "First Course in Modular Forms",
-        "\\bD[-–—]S\\b"
-      ],
-      "substitute": "MILNE-NOTES",
-      "note": "Milne's Modular Functions and Modular Forms covers the cited valence formula and Hecke material.",
-      "kind": "book"
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
       "id": "SHIMURA-IAT",
@@ -263,744 +2571,99 @@
       "kind": "book"
     },
     {
-      "id": "MIYAKE-MF",
-      "title": "Miyake, Modular Forms (Springer)",
-      "access": "restricted",
+      "id": "SHOUP-NTB",
+      "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+      "access": "free",
       "match": [
-        "Miyake"
+        "Shoup"
       ],
-      "substitute": null,
+      "note": "Author posts the full text at shoup.net/ntb/.",
       "kind": "book"
     },
     {
-      "id": "IWANIEC-KOWALSKI",
-      "title": "Iwaniec–Kowalski, Analytic Number Theory (AMS Colloquium 53)",
-      "access": "restricted",
-      "match": [
-        "Iwaniec[-–—]Kowalski"
-      ],
-      "substitute": null,
-      "note": "Cited for the analytic conductor normalisation.",
-      "kind": "book"
-    },
-    {
-      "id": "BUMP-LIE",
-      "title": "Bump, Lie Groups (GTM 225)",
-      "access": "restricted",
-      "match": [
-        "D\\. Bump, \\*Lie Groups",
-        "Bump, \\*Lie Groups"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "HUBER96",
-      "title": "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)",
-      "access": "restricted",
-      "match": [
-        "\\bHub96\\b",
-        "Huber.{0,60}[EÉ]tale Cohomology of Rigid"
-      ],
-      "substitute": null,
-      "note": "Out of print and not online. The main written source for the adic etale cohomology roadmaps, so this is the one that blocks most work.",
-      "kind": "book"
-    },
-    {
-      "id": "BGR",
-      "title": "Bosch–Güntzer–Remmert, Non-Archimedean Analysis (Grundlehren 261)",
-      "access": "restricted",
-      "match": [
-        "Bosch[-–—,] U\\. G[üu]ntzer",
-        "Non[- ]Archimedean Analysis"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "BLR-NERON",
-      "title": "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)",
-      "access": "restricted",
-      "match": [
-        "Bosch[-–—]L[üu]tkebohmert[-–—]Raynaud",
-        "\\bBLR\\b"
-      ],
-      "substitute": null,
-      "note": "Cited for the Picard functor and semistable reduction (Ch. 8-9).",
-      "kind": "book"
-    },
-    {
-      "id": "MUMFORD-AV",
-      "title": "Mumford, Abelian Varieties (TIFR Studies 5)",
-      "access": "restricted",
-      "match": [
-        "Mumford's \\*Abelian Varieties",
-        "Mumford, \\*Abelian Varieties"
-      ],
-      "substitute": null,
-      "note": "A TIFR scan may be free; not verified, so treat as one to provide.",
-      "kind": "book"
-    },
-    {
-      "id": "FALTINGS-CHAI",
-      "title": "Faltings–Chai, Degeneration of Abelian Varieties (Ergebnisse 22)",
-      "access": "restricted",
-      "match": [
-        "Faltings[-–—]Chai"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "LAN-PEL",
-      "title": "Lan, Arithmetic Compactifications of PEL-Type Shimura Varieties",
-      "access": "restricted",
-      "match": [
-        "Lan, \\*Arithmetic Compactifications",
-        "Lan's \\*Arithmetic Compactifications"
-      ],
-      "substitute": null,
-      "note": "The author's thesis version is on his page and covers the cited chapters; pin it and this becomes free.",
-      "kind": "book"
-    },
-    {
-      "id": "LANG-BOOKS",
-      "title": "Lang, Algebraic Number Theory (GTM 110) and Complex Analysis (GTM 103)",
-      "access": "restricted",
-      "match": [
-        "S\\. Lang, \\*",
-        "Lang, \\*(Algebraic Number Theory|Complex Analysis)"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "AHLFORS",
-      "title": "Ahlfors, Complex Analysis",
-      "access": "restricted",
-      "match": [
-        "Ahlfors"
-      ],
-      "substitute": null,
-      "note": "Cited for standard contour integration; any free text would do, but none has been chosen.",
-      "kind": "book"
-    },
-    {
-      "id": "CASSELS-FROHLICH",
-      "title": "Cassels–Fröhlich, Algebraic Number Theory",
-      "access": "restricted",
-      "match": [
-        "Cassels[-–—]Fr[öo]hlich"
-      ],
-      "substitute": "MILNE-NOTES",
-      "note": "Tate's global class field theory article is covered by Milne's CFT notes.",
-      "kind": "book"
-    },
-    {
-      "id": "FULTON-IT",
-      "title": "Fulton, Intersection Theory (Ergebnisse 2)",
-      "access": "restricted",
-      "match": [
-        "Fulton [Ii]ntersection [Tt]heory",
-        "Fulton, \\*Intersection Theory"
-      ],
-      "substitute": "STACKS",
-      "note": "The Stacks Project's Chow homology and Chern classes chapter covers the cited foundations; the Hodge index sources are separate papers.",
-      "kind": "book"
-    },
-    {
-      "id": "FULTON-HARRIS",
-      "title": "Fulton–Harris, Representation Theory (GTM 129)",
-      "access": "restricted",
-      "match": [
-        "Fulton[-–—]Harris"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "FULTON-TORIC",
-      "title": "Fulton, Introduction to Toric Varieties / Cox–Little–Schenck, Toric Varieties",
-      "access": "restricted",
-      "match": [
-        "Cox--Little--Schenck",
-        "Cox[-–—]Little[-–—]Schenck"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "STICHTENOTH",
-      "title": "Stichtenoth, Algebraic Function Fields and Codes (GTM 254)",
-      "access": "restricted",
-      "match": [
-        "Stichtenoth"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "ROSEN-FF",
-      "title": "Rosen, Number Theory in Function Fields (GTM 210)",
-      "access": "restricted",
-      "match": [
-        "Rosen, Number Theory in Function Fields",
-        "Number Theory in Function Fields"
-      ],
-      "urls": [
-        "https://link.springer.com/book/10.1007/978-1-4757-6046-0"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "GOSS-FF",
-      "title": "Goss, Basic Structures of Function Field Arithmetic (Ergebnisse 35)",
-      "access": "restricted",
-      "match": [
-        "Goss"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "MALLE-MATZAT",
-      "title": "Malle–Matzat, Inverse Galois Theory (Springer Monographs)",
-      "access": "restricted",
-      "match": [
-        "Malle[-–—]Matzat"
-      ],
-      "urls": [
-        "https://link.springer.com/book/10.1007/978-3-662-55420-3"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "BOURBAKI",
-      "title": "Bourbaki, Lie Groups and Lie Algebras (and Algebra)",
-      "access": "restricted",
-      "match": [
-        "Bourbaki"
-      ],
-      "substitute": null,
-      "note": "Mostly cited for the plate numbering of root systems; a free source that reproduces the plates would settle it.",
-      "kind": "book"
-    },
-    {
-      "id": "VILLANI-OT",
-      "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
-      "access": "restricted",
-      "match": [
-        "Villani"
-      ],
-      "substitute": null,
-      "note": "The author has posted a preprint of the full text; pin that and this becomes free.",
+      "id": "SILVERMAN-ADVANCED-TOPICS-ARITHMETIC-ELLIPTIC",
       "kind": "book",
-      "urls": [
-        "https://link.springer.com/book/10.1007/978-3-540-71050-9"
-      ]
+      "title": "J. H. Silverman, Advanced Topics in the Arithmetic of Elliptic Curves",
+      "match": [
+        "\\*Advanced\\ Topics\\ in\\ the\\ Arithmetic\\ of\\ Elliptic\\ Curves\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "AGS-GRADIENT",
-      "title": "Ambrosio–Gigli–Savaré, Gradient Flows (Birkhäuser)",
-      "access": "restricted",
-      "match": [
-        "Ambrosio[-–—]{1,2}Gigli",
-        "Gradient Flows in Metric Spaces"
-      ],
-      "substitute": null,
+      "id": "SILVERMAN-ARITHMETIC-ELLIPTIC-CURVES",
       "kind": "book",
-      "urls": [
-        "https://link.springer.com/book/10.1007/978-3-7643-8722-8"
-      ]
-    },
-    {
-      "id": "TAO-VU",
-      "title": "Tao–Vu, Additive Combinatorics (CUP)",
-      "access": "restricted",
+      "title": "J. H. Silverman, The Arithmetic of Elliptic Curves",
       "match": [
-        "Tao[-–—]Vu"
+        "J\\. H\\. Silverman",
+        "\\*The\\ Arithmetic\\ of\\ Elliptic\\ Curves\\*"
       ],
-      "urls": [
-        "https://doi.org/10.1017/CBO9780511755149"
-      ],
+      "access": "restricted",
       "substitute": null,
-      "kind": "book"
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "VAUGHAN-HL",
-      "title": "Vaughan, The Hardy–Littlewood Method (CUP)",
-      "access": "restricted",
-      "match": [
-        "Vaughan, The Hardy[-–—]Littlewood"
-      ],
-      "urls": [
-        "https://doi.org/10.1017/CBO9780511470929"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "ANDREWS-PARTITIONS",
-      "title": "Andrews, The Theory of Partitions (CUP)",
-      "access": "restricted",
-      "match": [
-        "Andrews, The Theory of Partitions",
-        "Theory of Partitions"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "KUIPERS-NIEDERREITER",
-      "title": "Kuipers–Niederreiter, Uniform Distribution of Sequences (Wiley)",
-      "access": "restricted",
-      "match": [
-        "Kuipers"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "KUBILIUS",
-      "title": "Kubilius, Probabilistic Methods in the Theory of Numbers (AMS)",
-      "access": "restricted",
-      "match": [
-        "Kubilius"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "SCHMIDT-DIOPH",
-      "title": "Schmidt, Diophantine Approximation (Springer LNM 785)",
-      "access": "restricted",
-      "match": [
-        "Schmidt, Diophantine Approximation"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "MATIYASEVICH",
-      "title": "Matiyasevich, Hilbert's Tenth Problem (MIT Press)",
-      "access": "restricted",
-      "match": [
-        "Matiyasevich, Hilbert's Tenth Problem"
-      ],
-      "substitute": null,
-      "kind": "book"
-    },
-    {
-      "id": "DRINFELD-ELLIPTIC",
-      "title": "Drinfeld, Elliptic modules (Mat. Sb. 1974)",
-      "access": "restricted",
-      "match": [
-        "Drinfeld, Elliptic modules"
-      ],
-      "urls": [
-        "https://doi.org/10.1070/SM1974v023n04ABEH001731"
-      ],
-      "substitute": null,
-      "kind": "article"
-    },
-    {
-      "id": "ANDERSON-TMOTIVES",
-      "title": "Anderson, t-Motives (Duke 1986)",
-      "access": "restricted",
-      "match": [
-        "Anderson, t-Motives"
-      ],
-      "urls": [
-        "https://doi.org/10.1215/S0012-7094-86-05328-7"
-      ],
-      "substitute": null,
-      "kind": "article"
-    },
-    {
-      "id": "TAGUCHI-TATE",
-      "title": "Taguchi, The Tate conjecture for t-motives",
-      "access": "restricted",
-      "match": [
-        "Taguchi, The Tate conjecture"
-      ],
-      "urls": [
-        "https://www.jstor.org/stable/2161067"
-      ],
-      "substitute": null,
-      "kind": "article"
-    },
-    {
-      "id": "EQUIV-MAIN-CONJ-2025",
-      "kind": "article",
-      "access": "restricted",
-      "title": "An unconditional equivariant main conjecture in Iwasawa theory and applications (2025)",
-      "match": [
-        "AE-ABELIAN2025"
-      ],
-      "urls": [
-        "https://link.springer.com/article/10.1007/s40687-025-00578-8"
-      ],
-      "substitute": null,
-      "note": "Res. Math. Sci.; look for the authors' arXiv version."
-    },
-    {
-      "id": "MONSTER-PRESENTATION",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Farooq–Norton–Wilson, A presentation of the Monster and a set of matrices which satisfy it",
-      "match": [
-        "A presentation of the Monster"
-      ],
-      "urls": [
-        "https://doi.org/10.1016/j.jalgebra.2013.01.015"
-      ],
-      "substitute": null,
-      "note": "J. Algebra. The roadmap also cites Bray's free page at QMUL, which displays the presentation."
-    },
-    {
-      "id": "GIVENS-SHORTT",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Givens–Shortt, A class of Wasserstein metrics for probability distributions (Michigan Math. J. 1984)",
-      "match": [
-        "Givens--Shortt",
-        "Givens[-–—]Shortt"
-      ],
-      "urls": [
-        "https://doi.org/10.1307/mmj/1029003026"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "BRENIER91",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Brenier, Polar factorization and monotone rearrangement of vector-valued functions (CPAM 1991)",
-      "match": [
-        "Brenier's \\[polar factorization"
-      ],
-      "urls": [
-        "https://doi.org/10.1002/cpa.3160440402"
-      ],
-      "substitute": null,
-      "note": "The main primary source for the optimal-transport roadmap's polar factorization."
-    },
-    {
-      "id": "MA-TRUDINGER-WANG",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Ma–Trudinger–Wang, Regularity of potential functions of the optimal transportation problem (ARMA 2005)",
-      "match": [
-        "Ma--Trudinger--Wang",
-        "Ma[-–—]Trudinger[-–—]Wang"
-      ],
-      "urls": [
-        "https://doi.org/10.1007/s00205-005-0362-9"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "LOEPER09",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Loeper, On the regularity of solutions of optimal transportation problems (Acta Math. 2009)",
-      "match": [
-        "Loeper's necessity theorem"
-      ],
-      "urls": [
-        "https://doi.org/10.1007/s11511-009-0037-8"
-      ],
-      "substitute": null,
-      "note": "Acta Mathematica's back content is posted by the Institut Mittag-Leffler; if that covers this volume it should be reclassified as free."
-    },
-    {
-      "id": "MCCANN01",
-      "kind": "article",
-      "access": "restricted",
-      "title": "McCann, Polar factorization on Riemannian manifolds (GAFA 2001)",
-      "match": [
-        "polar factorization on Riemannian"
-      ],
-      "urls": [
-        "https://doi.org/10.1007/PL00001679"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "BENAMOU-BRENIER",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Benamou–Brenier, A computational fluid mechanics solution to the Monge–Kantorovich problem (Numer. Math. 2000)",
-      "match": [
-        "Benamou--Brenier",
-        "Benamou[-–—]Brenier"
-      ],
-      "urls": [
-        "https://doi.org/10.1007/s002110050002"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "JKO98",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Jordan–Kinderlehrer–Otto, The variational formulation of the Fokker–Planck equation (SIAM J. Math. Anal. 1998)",
-      "match": [
-        "Jordan--Kinderlehrer--Otto",
-        "Jordan[-–—]Kinderlehrer[-–—]Otto"
-      ],
-      "urls": [
-        "https://doi.org/10.1137/S0036141096303359"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "AGUEH-CARLIER",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Agueh–Carlier, Barycenters in the Wasserstein space (SIAM J. Math. Anal. 2011)",
-      "match": [
-        "Agueh--Carlier",
-        "Agueh[-–—]Carlier"
-      ],
-      "urls": [
-        "https://doi.org/10.1137/100805741"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "STURM06",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Sturm, On the geometry of metric measure spaces (Acta Math. 2006)",
-      "match": [
-        "On the geometry of metric measure"
-      ],
-      "urls": [
-        "https://doi.org/10.1007/s11511-006-0002-8"
-      ],
-      "substitute": null,
-      "note": "Same Acta Mathematica question as Loeper."
-    },
-    {
-      "id": "MEMOLI11",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Mémoli, Gromov–Wasserstein distances and the metric approach to object matching (FoCM 2011)",
-      "match": [
-        "M[ée]moli's \\[foundational"
-      ],
-      "urls": [
-        "https://doi.org/10.1007/s10208-011-9093-5"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "HUFFMAN-PLESS",
+      "id": "SIMON-SZEG-S-THEOREM-DESCENDANTS",
       "kind": "book",
-      "access": "restricted",
-      "title": "Huffman–Pless, Fundamentals of Error-Correcting Codes (CUP)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1017/CBO9780511807077"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "MACWILLIAMS-SLOANE",
-      "kind": "book",
-      "access": "restricted",
-      "title": "MacWilliams–Sloane, The Theory of Error-Correcting Codes (North-Holland)",
-      "match": [],
-      "urls": [
-        "https://www.sciencedirect.com/bookseries/north-holland-mathematical-library/vol/16"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "CONWAY-SLOANE",
-      "kind": "book",
-      "access": "restricted",
-      "title": "Conway–Sloane, Sphere Packings, Lattices and Groups (Grundlehren 290)",
+      "title": "B. Simon, Szegő's Theorem and Its Descendants",
       "match": [
-        "Conway[-–—]Sloane"
+        "\\*Szegő's\\ Theorem\\ and\\ Its\\ Descendants\\*"
       ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "SLOANE-SPHERE-PACKINGS-LATTICES-GROUPS",
+      "kind": "book",
+      "title": "N. J. A. Sloane, Sphere Packings, Lattices and Groups",
+      "match": [
+        "Conway[-–—]Sloane",
+        "\\*Sphere\\ Packings,\\ Lattices\\ and\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
       "urls": [
         "https://doi.org/10.1007/978-1-4757-6568-7"
-      ],
-      "substitute": null
+      ]
     },
     {
-      "id": "EBELING-LATTICES",
+      "id": "SLOANE-THEORY-ERROR-CORRECTING-CODES",
       "kind": "book",
-      "access": "restricted",
-      "title": "Ebeling, Lattices and Codes (Springer Spektrum)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1007/978-3-658-00360-9"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "SANTAMBROGIO",
-      "kind": "book",
-      "access": "restricted",
-      "title": "Santambrogio, Optimal Transport for Applied Mathematicians (Birkhäuser)",
-      "match": [],
-      "urls": [
-        "https://link.springer.com/book/10.1007/978-3-319-20828-2"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "HAPPEL",
-      "kind": "book",
-      "access": "restricted",
-      "title": "Happel, Triangulated Categories in the Representation Theory of Finite Dimensional Algebras (CUP)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1017/CBO9780511629228"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "JOHNSON-KOTZ-KEMP",
-      "kind": "book",
-      "access": "restricted",
-      "title": "Johnson–Kotz–Kemp, Univariate Discrete Distributions (Wiley)",
-      "match": [],
-      "urls": [
-        "https://onlinelibrary.wiley.com/doi/book/10.1002/0471715816"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "MUIRHEAD",
-      "kind": "book",
-      "access": "restricted",
-      "title": "Muirhead, Aspects of Multivariate Statistical Theory (Wiley)",
-      "match": [],
-      "urls": [
-        "https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316559",
-        "https://onlinelibrary.wiley.com/doi/10.1002/9780470316559.ch2",
-        "https://onlinelibrary.wiley.com/doi/10.1002/9780470316559.ch3"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "ADO-ADDITION",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Neretin?/Harish — An Addition to Ado's Theorem (Proc. AMS 1966)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1090/S0002-9939-1966-0194482-0"
-      ],
-      "substitute": null,
-      "note": "Title as cited; the AMS page is the only pinned copy."
-    },
-    {
-      "id": "CODING-ARTICLES",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Coding-theory articles cited by AlgebraicCodingTheory (Math. Comp., EJC, Des. Codes Cryptogr.)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1090/S0025-5718-08-02194-7",
-        "https://doi.org/10.1016/j.ejc.2011.11.007",
-        "https://doi.org/10.1023/A:1018696102510"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "DGA-ARTICLES",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Merkulov, Strongly homotopy algebras of a Kähler manifold (IMRN) and Bondal–Kapranov, Representable functors, Serre functors, and mutations (Izv.)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1155/S1073792899000070",
-        "https://doi.org/10.1070/IM1990v035n03ABEH000716"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "ITP2022-GRAPHLIMITS",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Dense graph limits formalisation (ITP 2022, LIPIcs)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.4230/LIPIcs.ITP.2022.9"
-      ],
-      "substitute": null,
-      "note": "LIPIcs is open access; the doi.org host is checked, so it is registered here."
-    },
-    {
-      "id": "ACTA-ARITH-EC",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Acta Arithmetica 54 (1990) 75-80, cited by EllipticCurves",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.4064/aa-54-1-75-80"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "KOSZUL-FLOW-LATTICES",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Koszul algebras and flow lattices (JCTA 2021)",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1016/j.jcta.2021.105534"
-      ],
-      "substitute": null
-    },
-    {
-      "id": "NIKULIN",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Nikulin, Integral symmetric bilinear forms and some of their applications (Izv. 1980)",
+      "title": "N. J. A. Sloane, The Theory of Error-Correcting Codes",
       "match": [
-        "Nikulin"
+        "\\*The\\ Theory\\ of\\ Error\\-Correcting\\ Codes\\*"
       ],
+      "access": "restricted",
+      "substitute": "GURUSWAMI-CODING",
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
       "urls": [
-        "https://doi.org/10.1070/IM1980v014n01ABEH001060"
-      ],
-      "substitute": null
+        "https://www.sciencedirect.com/bookseries/north-holland-mathematical-library/vol/16"
+      ]
     },
     {
-      "id": "MODFORMS-ARTICLES",
-      "kind": "article",
-      "access": "restricted",
-      "title": "J. Number Theory 57 (1996) and the Springer LNM chapter cited by ModularForms",
-      "match": [],
-      "urls": [
-        "https://www.sciencedirect.com/science/article/pii/S0022314X96900396",
-        "https://doi.org/10.1007/BFb0065300"
+      "id": "SONG-BERNSTEIN-FUNCTIONS-THEORY-APPLICATIONS",
+      "kind": "book",
+      "title": "R. Song, Z. Vondraček, Bernstein Functions: Theory and Applications",
+      "match": [
+        "\\*Bernstein\\ Functions:\\ Theory\\ and\\ Applications\\*"
       ],
+      "access": "restricted",
       "substitute": null,
-      "note": "The LNM chapter is identified in the register only by its doi."
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "OT-REGULARITY",
-      "kind": "article",
-      "access": "restricted",
-      "title": "Caffarelli's regularity papers and the further optimal-transport articles cited by OptimalTransport",
-      "match": [],
-      "urls": [
-        "https://doi.org/10.1090/S0894-0347-1992-1124980-8",
-        "https://doi.org/10.1002/cpa.3160450905",
-        "https://doi.org/10.1002/cpa.20046",
-        "https://doi.org/10.3934/dcds.2011.31.1427",
-        "https://doi.org/10.1007/s00526-023-02616-1",
-        "https://doi.org/10.1006/aima.1997.1634"
+      "id": "SPRINGER-LINEAR-ALGEBRAIC-GROUPS",
+      "kind": "book",
+      "title": "T. A. Springer, Linear Algebraic Groups",
+      "match": [
+        "\\*Linear\\ Algebraic\\ Groups\\*"
       ],
-      "substitute": null
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
       "id": "STABLE-PERIODIC-ARTICLES",
@@ -1027,7 +2690,342 @@
         "https://doi.org/10.1016/0040-9383"
       ],
       "substitute": null
+    },
+    {
+      "id": "STACKS",
+      "title": "The Stacks Project",
+      "access": "free",
+      "match": [
+        "Stacks [Pp]roject",
+        "\\bStacks \\d{4}\\b",
+        "stacks\\.math\\.columbia\\.edu"
+      ],
+      "note": "Open, versioned, tag-addressable.",
+      "kind": "notes"
+    },
+    {
+      "id": "STICHTENOTH-ALGEBRAIC-FUNCTION-FIELDS-CODES",
+      "kind": "book",
+      "title": "H. Stichtenoth, Algebraic Function Fields and Codes",
+      "match": [
+        "Stichtenoth",
+        "\\*Algebraic\\ Function\\ Fields\\ and\\ Codes\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "STILLWELL-GEOMETRY-SURFACES",
+      "kind": "book",
+      "title": "John Stillwell, Geometry of Surfaces",
+      "match": [
+        "\\*Geometry\\ of\\ Surfaces\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "STIPSICZ-GRID-HOMOLOGY-KNOTS-LINKS",
+      "kind": "book",
+      "title": "A. Stipsicz, Z. Szabó, Grid Homology for Knots and Links",
+      "match": [
+        "\\*Grid\\ Homology\\ for\\ Knots\\ and\\ Links\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "STURM-CONGRUENCE-MODULAR-FORMS",
+      "kind": "book",
+      "title": "J. Sturm, On the congruence of modular forms",
+      "match": [
+        "\\*On\\ the\\ congruence\\ of\\ modular\\ forms\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "STURM06",
+      "kind": "article",
+      "access": "restricted",
+      "title": "Sturm, On the geometry of metric measure spaces (Acta Math. 2006)",
+      "match": [
+        "On the geometry of metric measure"
+      ],
+      "urls": [
+        "https://doi.org/10.1007/s11511-006-0002-8"
+      ],
+      "substitute": null,
+      "note": "Same Acta Mathematica question as Loeper."
+    },
+    {
+      "id": "SZEG-ORTHOGONAL-POLYNOMIALS",
+      "kind": "book",
+      "title": "G. Szegő, Orthogonal Polynomials",
+      "match": [
+        "\\*Orthogonal\\ Polynomials\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "TAGUCHI-TATE",
+      "title": "Taguchi, The Tate conjecture for t-motives",
+      "access": "restricted",
+      "match": [
+        "Taguchi, The Tate conjecture"
+      ],
+      "urls": [
+        "https://www.jstor.org/stable/2161067"
+      ],
+      "substitute": null,
+      "kind": "article"
+    },
+    {
+      "id": "TAO-VU",
+      "title": "Tao–Vu, Additive Combinatorics (CUP)",
+      "access": "restricted",
+      "match": [
+        "Tao[-–—]Vu"
+      ],
+      "urls": [
+        "https://doi.org/10.1017/CBO9780511755149"
+      ],
+      "substitute": null,
+      "kind": "book"
+    },
+    {
+      "id": "TATE-ALGORITHM-DETERMINING-TYPE-SINGULAR",
+      "kind": "book",
+      "title": "J. Tate, Algorithm for determining the type of a singular fibre in an elliptic pencil",
+      "match": [
+        "\\*Algorithm\\ for\\ determining\\ the\\ type\\ of\\ a\\ singular\\ fibre\\ in\\ an\\ elliptic\\ pencil\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "VAKIL-FOAG",
+      "title": "Vakil, The Rising Sea: Foundations of Algebraic Geometry",
+      "access": "free",
+      "match": [
+        "Rising Sea",
+        "Vakil"
+      ],
+      "note": "Author posts the full text (checked 2026-09-24).",
+      "kind": "notes"
+    },
+    {
+      "id": "VARADARAJAN-LIE-GROUPS-LIE-ALGEBRAS",
+      "kind": "book",
+      "title": "V. S. Varadarajan, Lie Groups, Lie Algebras, and Their Representations",
+      "match": [
+        "\\*Lie\\ Groups,\\ Lie\\ Algebras,\\ and\\ Their\\ Representations\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "VAUGHAN-HL",
+      "title": "Vaughan, The Hardy–Littlewood Method (CUP)",
+      "access": "restricted",
+      "match": [
+        "Vaughan, The Hardy[-–—]Littlewood"
+      ],
+      "urls": [
+        "https://doi.org/10.1017/CBO9780511470929"
+      ],
+      "substitute": null,
+      "kind": "book"
+    },
+    {
+      "id": "VILLANI-OT",
+      "title": "Villani, Optimal Transport: Old and New (Grundlehren 338)",
+      "access": "free",
+      "match": [
+        "Villani"
+      ],
+      "note": "The author deposited the full text on cvgmt, the SNS preprint server.",
+      "kind": "book",
+      "urls": [
+        "https://cvgmt.sns.it/media/doc/paper/1395/OLDandNEW.pdf",
+        "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+      ]
+    },
+    {
+      "id": "VLU-ISOG-NIES-ENTRE-COURBES",
+      "kind": "book",
+      "title": "J. Vélu, Isogénies entre courbes elliptiques",
+      "match": [
+        "\\*Isogénies\\ entre\\ courbes\\ elliptiques\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "VOIGHT-QUAT",
+      "title": "Voight, Quaternion Algebras",
+      "access": "free",
+      "match": [
+        "Voight, \\*?Quaternion",
+        "jvoight\\.github\\.io"
+      ],
+      "note": "Author's version is free; the Springer edition is not.",
+      "kind": "book"
+    },
+    {
+      "id": "WAERDEN-ALGEBRA",
+      "kind": "book",
+      "title": "Waerden, Algebra",
+      "match": [
+        "\\*Algebra\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "WASHINGTON-INTRODUCTION-CYCLOTOMIC-FIELDS",
+      "kind": "book",
+      "title": "L. Washington, Introduction to Cyclotomic Fields",
+      "match": [
+        "L\\. Washington",
+        "Washington, \\*",
+        "\\*Introduction\\ to\\ Cyclotomic\\ Fields\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "WATERHOUSE-INTRODUCTION-AFFINE-GROUP-SCHEMES",
+      "kind": "book",
+      "title": "W. C. Waterhouse, Introduction to Affine Group Schemes",
+      "match": [
+        "\\*Introduction\\ to\\ Affine\\ Group\\ Schemes\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "WEBB-COURSE-FINITE-GROUP-REPRESENTATION",
+      "kind": "book",
+      "title": "Peter Webb, A Course in Finite Group Representation Theory",
+      "match": [
+        "\\*A\\ Course\\ in\\ Finite\\ Group\\ Representation\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "WEDHORN-ADIC",
+      "kind": "notes",
+      "access": "free",
+      "title": "Wedhorn, Adic Spaces",
+      "match": [
+        "Wedhorn"
+      ],
+      "urls": [
+        "https://arxiv.org/abs/1910.05934"
+      ],
+      "note": "arXiv."
+    },
+    {
+      "id": "WEIBEL-INTRODUCTION-HOMOLOGICAL-ALGEBRA",
+      "kind": "book",
+      "title": "Charles Weibel, An Introduction to Homological Algebra",
+      "match": [
+        "\\*An\\ Introduction\\ to\\ Homological\\ Algebra\\*"
+      ],
+      "access": "restricted",
+      "substitute": "STACKS",
+      "note": "The Stacks Project's homological algebra chapter covers the cited sections."
+    },
+    {
+      "id": "WEIBEL-KBOOK",
+      "title": "Weibel, The K-book",
+      "access": "free",
+      "match": [
+        "K-book",
+        "Kbook"
+      ],
+      "note": "Author's page at Rutgers.",
+      "kind": "book"
+    },
+    {
+      "id": "WHITEHEAD-ELEMENTS-HOMOTOPY-THEORY",
+      "kind": "book",
+      "title": "Whitehead, Elements of Homotopy Theory",
+      "match": [
+        "\\*Elements\\ of\\ Homotopy\\ Theory\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "WIELANDT-FINITE-PERMUTATION-GROUPS",
+      "kind": "book",
+      "title": "Wielandt, Finite Permutation Groups",
+      "match": [
+        "\\*Finite\\ Permutation\\ Groups\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+    },
+    {
+      "id": "WILF-PARTITIONS",
+      "kind": "notes",
+      "access": "free",
+      "title": "Wilf, Lectures on Integer Partitions",
+      "match": [],
+      "urls": [
+        "https://www2.math.upenn.edu/~wilf/PIMS/PIMSLectures.pdf"
+      ],
+      "note": "Author's page."
+    },
+    {
+      "id": "ZHANG-SELMER-GROUPS-INDIVISIBILITY-HEEGNER",
+      "kind": "book",
+      "title": "Zhang, Selmer groups and the indivisibility of Heegner points",
+      "match": [
+        "\\*Selmer\\ groups\\ and\\ the\\ indivisibility\\ of\\ Heegner\\ points\\*"
+      ],
+      "access": "restricted",
+      "substitute": null,
+      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     }
   ],
-  "hostsNote": "ams.org, msp.org, numdam.org, annals.math.princeton.edu and e-periodica are not checked: their cited pages are open. Add a host here the moment a link to it needs a subscription."
+  "hostsNote": "ams.org, msp.org, numdam.org, annals.math.princeton.edu and e-periodica are not checked: their cited pages are open. Add a host here the moment a link to it needs a subscription.",
+  "pirateHosts": [
+    "dokumen.pub",
+    "vdoc.pub",
+    "epdf.pub",
+    "ebin.pub",
+    "libgen.is",
+    "libgen.rs",
+    "libgen.li",
+    "sci-hub.se",
+    "sci-hub.st",
+    "sci-hub.ru",
+    "annas-archive.org",
+    "b-ok.cc",
+    "z-lib.org",
+    "1lib.sk",
+    "pdfdrive.com",
+    "bookfi.net",
+    "scribd.com"
+  ],
+  "pirateNote": "Sites that post copies without permission. A citation to one fails the check: it is not a free source, and the claim it supports has to be re-read in a copy that may legally be read. A copy on an author's page, a publisher's open-access page or an institutional repository is fine; a copy of a copyrighted book on an unrelated course page is not."
 }
