@@ -128817,6 +128817,1195 @@
    "reviewReason": null
   },
   {
+   "id": "QSeriesPartitionsAndMockModularForms/E101",
+   "kind": "misprint",
+   "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
+   "printed": "Rewrite the left-hand side as 1 + ∑_{n≥1}(−1)ⁿ(x^{−n} + xⁿ)q^{(n 2)}.",
+   "correction": "∑_{n∈ℤ}(−1)ⁿxⁿq^{(n 2)} = ∑_{n≥1}(−1)ⁿ(xⁿ − x^{1−n})q^{(n 2)} (pair n with 1 − n, which has the same exponent (n 2)); equivalently 1 + ∑_{n≥1}(−1)ⁿ(xⁿq^{(n 2)} + x^{−n}q^{(n+1 2)}).",
+   "reason": "The coefficient of q⁰ of the product side ∏(1 − q^k)(1 − xq^{k−1})(1 − x^{−1}q^k) is 1 − x (only the factor k = 1 of the middle product contributes), and so is that of ∑(−1)ⁿxⁿq^{(n 2)} (n = 0, 1); the printed line gives 1 − x − x^{−1}. With the correction, dividing by 1 − x gives ∑_{n≥1}(−1)ⁿ⁺¹(1 + x + ⋯ + x^{2n−2})x^{1−n}q^{(n 2)}, whose value at x = 1 is the claimed series ∑_{m≥0}(−1)^m(2m + 1)q^{(m+1 2)}.",
+   "affects": "the proof",
+   "known": "The author's errata (version of 17 August 2025, entry 'page 166, Exercise 91(d), line 4') replace the line by 1 + ∑_{n≥1}(−1)ⁿ(xⁿ − x^{−n−1})q^{(n 2)}, which is still wrong: its coefficient of q⁰ is 1 − x + x^{−2}. No correct published version found.",
+   "searched": [
+    "Stanley's errata list for the second edition, version of 17 August 2025 (errata_2ed.pdf on the author's EC1 page)",
+    "the author's posted PDF of the second edition (the printed line is present)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, second edition, The author's freely posted PDF of the second edition (725 pages; its page numbers, which are cited here, differ from the Cambridge printing by about 22 pages in Chapter 1), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E102",
+   "kind": "misprint",
+   "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF (printed Cambridge edition p. 166), the sentence after the rewritten sum",
+   "printed": "Now divide both sides by 1 − x and let x → 1. The left-hand side becomes ∑_{n≥0}(−1)ⁿ(2n + 1)q^{(n 2)}.",
+   "correction": "The left-hand side becomes ∑_{n≥0}(−1)ⁿ(2n + 1)q^{(n+1 2)}, the series q^{n(n+1)/2} of the exercise's statement.",
+   "reason": "With exponent (n 2) the constant term would be (n = 0, 1) 1 − 3 = −2, but the right-hand side ∏(1 − q^k)³ has constant term 1; the statement of Exercise 1.91(d) (p. 133) correctly has q^{n(n+1)/2}.",
+   "affects": "the proof",
+   "known": "none found (the errata list has no entry for this line)",
+   "searched": [
+    "Stanley's errata list for the second edition, version of 17 August 2025",
+    "the statement of Exercise 1.91(d) on p. 133 of the posted PDF"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, second edition, The author's freely posted PDF of the second edition (725 pages; its page numbers, which are cited here, differ from the Cambridge printing by about 22 pages in Chapter 1), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E103",
+   "kind": "misprint",
+   "locator": "§1, equation (1.8), p. 2 (arXiv:math/0203094v1)",
+   "printed": "∑_{j=−∞}^{∞} z^j q^{j²} [2L L + j]_{q²} = (−qz, qz^{−1}; q²)_L,",
+   "correction": "(−qz, −qz^{−1}; q²)_L, that is ∏_{i=1}^{L}(1 + zq^{2i−1})(1 + z^{−1}q^{2i−1}).",
+   "reason": "For L = 1 the left side is z^{−1}q + (1 + q²) + zq, which is (1 + qz)(1 + qz^{−1}); the printed (−qz, qz^{−1}; q²)_1 = (1 + qz)(1 − qz^{−1}) has −qz^{−1} − q². The limit L → ∞, which the paper says reduces (1.8) to (1.7), also requires −qz^{−1}, as in (1.7).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the arXiv listing of math/0203094 (only v1 exists)",
+    "S. O. Warnaar, arXiv:math/0203229, which quotes the paper's (1.12) and (1.15) but not (1.8)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Krishnaswami Alladi and Alexander Berkovich, New polynomial analogues of Jacobi's triple product and Lebesgue's identities, arXiv:math/0203094v1 (11 March 2002), 19 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E104",
+   "kind": "misprint",
+   "locator": "§3, p. 267 of the re-typeset online edition of the Collected Papers (Paper 25); the 1919 printing was not consulted",
+   "printed": "16 + 4µ(µ + 1) + 4ν(ν + 1) ≡ (mod 7),",
+   "correction": "16 + 4µ(µ + 1) + 4ν(ν + 1) ≡ 0 (mod 7).",
+   "reason": "The line is 8 times the preceding congruence 2 + ½µ(µ + 1) + ½ν(ν + 1) ≡ 0 (mod 7), and the next line, (2µ + 1)² + (2ν + 1)² ≡ 0, follows from it by subtracting 14; the right-hand side 0 has been dropped.",
+   "affects": "nothing",
+   "known": "none found; the slip is in both the PDF and the HTML version of the online edition, and whether the 1919 printing has it was not checked",
+   "searched": [
+    "the HTML version of the same paper in the online edition (ram25.html), which has the same line",
+    "the parallel line of §2 ('8 + 4µ(µ + 1) + 4ν(3ν + 1) ≡ 0 (mod 5)'), which is correct"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Ramanujan, Some properties of p(n), the number of partitions of n, Proceedings of the Cambridge Philosophical Society 19 (1919), 207-210, read in the re-typeset online edition of Ramanujan's Collected Papers (Paper 25, printed pp. 265-268): the PDF of Paper 25 (file ram25.pdf, whose SHA-256 is given) and its HTML version, both linked from the index of published papers at the URL given, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E201",
+   "kind": "misprint",
+   "locator": "§1, equation (1.3), printed p. 2, arXiv v1",
+   "printed": "η(−1/τ) = (−iτ)^{−1/2}η(τ). (1.3)",
+   "correction": "η(−1/τ) = (−iτ)^{1/2}η(τ), as (1.2) gives for a = d = 0, c = 1 and as Theorem 5.2 states.",
+   "reason": "At τ = i both sides of the printed formula differ: η(i) = (1)^{−1/2}η(i) forces nothing, but at τ = 2i the printed version gives η(i/2) = 2^{−1/2}η(2i) whereas the correct law gives η(i/2) = 2^{1/2}η(2i); Theorem 5.2 of the same paper has exponent +1/2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 2302.03280 (only v1, 7 February 2023)",
+    "the authors' subsequent arXiv listings (no replacement or erratum)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E202",
+   "kind": "misprint",
+   "locator": "§7, remark after Theorem 7.1 and the case c = 1 of its proof, printed p. 17",
+   "printed": "Notice that Theorem 5.3 is a special case of Theorem 7.1. … It follows from Proposition 5.1 and Theorem 5.3 that",
+   "correction": "Theorem 5.2 (the S-transformation η(−1/τ) = (−iτ)^{1/2}η(τ)) in both places.",
+   "reason": "Theorem 5.3 is Euler's pentagonal number theorem, which is not a case of Theorem 7.1; the proof of the case c = 1 uses η(−1/(τ + d)) = {−i(τ + d)}^{1/2}η(τ + d), which is Theorem 5.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 2302.03280 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E203",
+   "kind": "misprint",
+   "locator": "§7, proof of Theorem 7.1, printed p. 17",
+   "printed": "there is a unique positive integer r less than c such that −d ≡ r mod k.",
+   "correction": "−d ≡ r (mod c).",
+   "reason": "k does not occur in the proof; the next line defines q by d = cq − r, i.e. the congruence is modulo c.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 2302.03280 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E204",
+   "kind": "misprint",
+   "locator": "§5, end of the proof of Theorem 5.2, printed p. 11",
+   "printed": "η(1/τ) = (−iτ)^{1/2}η(τ).",
+   "correction": "η(−1/τ) = (−iτ)^{1/2}η(τ).",
+   "reason": "The left side of (5.4) was identified with η(−1/τ) earlier on the same page; η(1/τ) is not even defined for τ ∈ ℍ (1/τ lies in the lower half-plane).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 2302.03280 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E205",
+   "kind": "gap",
+   "locator": "§7, proof of Theorem 7.1, printed p. 18",
+   "printed": "Since (rτ′ + c)(τ + q) = c(τ + q) − r = cτ + d, and (−i)^{1/2} = exp(−πi/4), we find that",
+   "correction": "The step needs {−i(rτ′ + c)}^{1/2}{−i(τ + q)}^{1/2} = e^{−πi/4}{−i(cτ + d)}^{1/2} for the principal branch, which holds because rτ′ + c, τ + q and their product cτ + d all lie in the upper half-plane (node QM.1/cpow-neg-I-mul-half-mul): the arguments of −ix and −iy lie in (−π/2, π/2) and add without wrapping, and arg(−i) + arg(−i(cτ + d)) ∈ (−π, 0).",
+   "reason": "Products of principal square roots need not be the principal square root of the product; the identity (−1)^{1/2}(−1)^{1/2} = −1 ≠ 1 = 1^{1/2} shows that an argument is required. Here it is true (checked also numerically for γ = (2 1; 5 3)).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 2302.03280 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E206",
+   "kind": "misprint",
+   "locator": "§6, proof of Lemma 6.2, printed p. 14",
+   "printed": "−hr/k − ⌊−hr/r⌋ = (k − r′)/k = 1 − r′/k.",
+   "correction": "−hr/k − ⌊−hr/k⌋ = 1 − r′/k.",
+   "reason": "The floor must be of the same number −hr/k (the next display writes ⌊−hr/k⌋).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 2302.03280 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E207",
+   "kind": "misprint",
+   "locator": "§4.2, characterisation of weak Jacobi forms, printed p. 26, arXiv v2",
+   "printed": "Weak Jacobi ⇐⇒ c(n, r) = 0 for n < 0 ⇐⇒ ϕ(τ, ατ + β) is bounded as τ2 → ∞ for any fixed z ∈ C",
+   "correction": "⇐⇒ ϕ(τ, z) is bounded as τ₂ → ∞ for any fixed z ∈ ℂ.",
+   "reason": "The printed condition mixes the torsion-point variable ατ + β of the preceding line with 'fixed z'. Read literally for rational α ≠ 0 it fails for the weak form φ_{−2,1}: at z = τ/2 the term ζ^{−1} = e^{−πiτ} of its leading coefficient ζ − 2 + ζ^{−1} makes φ_{−2,1}(τ, τ/2) grow like e^{π Im τ}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page and version history of 1208.4074 (v1, v2; v2 read)",
+    "no erratum or newer version listed on the arXiv page"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "A. Dabholkar, S. Murthy, D. Zagier, Quantum Black Holes, Wall Crossing, and Mock Modular Forms, arXiv:1208.4074v2, read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E301",
+   "kind": "misprint",
+   "locator": "§2.1, display (2.2), printed p. 3 (arXiv v1)",
+   "printed": "η(τ) = e^{πiτ/12}F(e^{2πiτ}).",
+   "correction": "η(τ) = e^{πiτ/12} F(e^{2πiτ})⁻¹, i.e. F(e^{2πiτ}) = e^{πiτ/12}/η(τ).",
+   "reason": "By (2.1) and (1.1), η(τ) = e^{πiτ/12}∏(1 − qⁿ) = e^{πiτ/12}/F(q); the proof of Theorem 3.3 on p. 21 uses the corrected form.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 2302.03835 (only v1)",
+    "the companion preprint arXiv:2302.03280"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E302",
+   "kind": "error",
+   "locator": "Proposition 2.4 and its proof, printed p. 5 (arXiv v1)",
+   "printed": "Let ν be a complex number and let c be a positive number. If x is real, then Iν(x) = (x/2)^ν (1/2πi)∫_{c−i∞}^{c+i∞} t^{−ν−1} exp(t + x²/4t) dt.",
+   "correction": "Assume Re ν > 0 (absolute convergence; the formula also holds for Re ν > −1 as an improper integral) and x > 0.",
+   "reason": "On Re t = c one has |e^t| = e^c, so the integrand has modulus of order |t|^{−Re ν − 1}; for ν = −2 it grows like |t| and the integral diverges. The proof's claim that the integrand 'decays exponentially fast in the region Re t ≤ c' fails on the line itself.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 2302.03835 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E303",
+   "kind": "error",
+   "locator": "proof of Theorem 3.1, printed p. 24 (arXiv v1)",
+   "printed": "Using the fact that 0 < p(m1) < p(m2) when m1 < m2",
+   "correction": "p(m₁) ≤ p(m₂) for m₁ ≤ m₂ (strict for 1 ≤ m₁ < m₂).",
+   "reason": "p(0) = p(1) = 1. The argument only needs p(m) ≤ p(24m − 1) for m ≥ 1.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 2302.03835 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E304",
+   "kind": "misprint",
+   "locator": "proof of Theorem 3.1, printed p. 24 (arXiv v1)",
+   "printed": "Σ_{m≥1} p(m) exp(−2π[m − 1/24] Re{1/z}) = Σ_{m≥1} p(24m − 1) exp(−(πx/12)(24m − 1))",
+   "correction": "≤ in place of =, using p(m) ≤ p(24m − 1).",
+   "reason": "The exponentials agree term by term (2π(m − 1/24)x = πx(24m − 1)/12) but p(m) ≠ p(24m − 1) in general (m = 1: 1 ≠ 1255).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 2302.03835 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E305",
+   "kind": "misprint",
+   "locator": "proof of Theorem 3.1, printed p. 24 (arXiv v1)",
+   "printed": "|exp(π/(12z) + 2πnz/k − πz/(12k²))|",
+   "correction": "The middle term of the exponent is 2πnz/k², as in (3.10).",
+   "reason": "The integrand (3.10) has exp(π/(12z) + 2πnz/k² − πz/(12k²)); the subsequent bound Re(2πnz/k²) ≤ 2πn still holds.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 2302.03835 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E306",
+   "kind": "gap",
+   "locator": "Remark 3.4, printed p. 28 (arXiv v1)",
+   "printed": "Since QN(n) → 0 as N → ∞, the series (3.1) converges absolutely.",
+   "correction": "Absolute convergence follows from the termwise bound |R_k(n)| ≤ (π²/(6√3))k^{−3/2}e^{α(n)/k} proved on p. 31 (|A_k(n)| ≤ k and Lemma 4.3).",
+   "reason": "Q_N(n) → 0 gives convergence of the series, not absolute convergence.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 2302.03835 (only v1)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E307",
+   "kind": "error",
+   "locator": "§1.7, table of the terms for n = 200, Collected Papers p. 350 (retypeset edition)",
+   "printed": "3,972,998,993,185.896 +36,282.978 −87.555 +5.147 +1.424 +0.071 +0.000 +0.043 3,972,999,029,388.004",
+   "correction": "The third term is A_3(200)φ_3(200) = −87.584 and the sum is 3,972,999,029,387.976.",
+   "reason": "A_3(200) = 2cos(2399π/18) = −1.28558 and φ_3(200) = 68.128 (computed to 30 digits; the other seven printed terms agree with the computation to the printed accuracy, and so do all six printed terms for n = 100). The printed total is consistent with the printed −87.555, so the slip is in that term. Both totals round to p(200).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the retypeset Collected Papers text (the only version read; the Proceedings original was not available)",
+    "Rademacher 1940 and Lehmer 1938, 1939, which quote p(200) but not the terms",
+    "Kong–Teo, Table 1"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "G. H. Hardy, S. Ramanujan, Asymptotic formulæ in combinatory analysis, Proc. London Math. Soc. (2) 17 (1918) 75–115; read in the retypeset Collected Papers of Srinivasa Ramanujan, Paper 36 (pp. 341–378), the PDF linked as paper 36 from the listing at the url; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E308",
+   "kind": "misprint",
+   "locator": "§1, inequality (9), printed p. 363",
+   "printed": "instead of the trivial (9) |Ak(n)| < k",
+   "correction": "|A_k(n)| ≤ k (indeed ≤ φ(k)).",
+   "reason": "A_1(n) = 1 = k, so the strict inequality fails at k = 1; for k ≥ 2 it holds since φ(k) < k.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the AMS journal page of the article (no erratum listed)",
+    "Lehmer 1938, which states the bound as O(k)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. H. Lehmer, On the remainders and convergence of the series for the partition function, Trans. Amer. Math. Soc. 46 (1939) 362–373, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E401",
+   "kind": "misprint",
+   "locator": "Lemma 3.1, p. 10 (arXiv v4)",
+   "printed": "L_kf = L_kf^− = −2v^{2−k}Σ_h((k − 1)a^−(h, 0) + Σ_{n≠0}a^−(h, n)(−4πn)^{1−k}e(nτ̄))e_h",
+   "correction": "The factor is −v^{2−k}, not −2v^{2−k}: L_kf = −v^{2−k}Σ_h((k − 1)a^−(h, 0) + Σ_{n≠0}a^−(h, n)(−4πn)^{1−k}e(nτ̄))e_h; the same factor 2 appears in (3.7).",
+   "reason": "Direct computation with L_k = −2iv²∂/∂τ̄: L_k(v^{1−k}) = −(k − 1)v^{2−k}, and for w = 2πnv < 0, L_k(H(w)e(nu)) = −v^{2−k}(−4πn)^{1−k}e(nτ̄) (H′(w) = −H(w) + 2e^{w}(−2w)^{−k}). BOR (1.3) has the corrected constant.",
+   "affects": "a stated result",
+   "known": "Bruinier–Ono–Rhoades, arXiv:0802.0963 (Math. Ann. 342 (2008)), proof of Theorem 1.3: 'By (1.3) (correcting a typographical error in Lemma 3.1 of [7])'",
+   "searched": [
+    "arXiv math/0212286 versions v1–v4 (abstract page and v4 PDF)",
+    "Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)",
+    "the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E402",
+   "kind": "misprint",
+   "locator": "proof of Theorem 3.7, pp. 14–15 (arXiv v4)",
+   "printed": "we ﬁnd that there is a function f ∈ E^{0,0}(X, L_{k,L} ⊗ O_{nD}) satisfying ∂̄f = iv^{−k}ḡ dτ̄. But this is equivalent to saying −v^{k−2}L_kf dτ̄ = ḡ dτ̄.",
+   "correction": "∂̄f = iv^{−k}ḡ dτ̄ is equivalent to −v^{k−2}L_kf = −2ḡ, i.e. ξ_k(f) = 2g (so f/2 is the required preimage).",
+   "reason": "With ∂̄f = (∂f/∂τ̄)dτ̄ and L_k = −2iv²∂/∂τ̄: −v^{k−2}L_kf = 2iv^k∂f/∂τ̄ = 2i·i·ḡ = −2ḡ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0212286 versions v1–v4 (abstract page and v4 PDF)",
+    "Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)",
+    "the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E403",
+   "kind": "gap",
+   "locator": "§3, p. 9 (arXiv v4), definition of H(w)",
+   "printed": "H(w) = e^{−w}∫_{−2w}^∞ e^{−t}t^{−k}dt. The integral converges for k < 1 and can be holomorphically continued in k (for w ̸= 0) in the same way as the Gamma function.",
+   "correction": "For w > 0 the path passes through t < 0, where t^{−k} needs a branch unless k ∈ ℤ; for integral k ≥ 2 the continuation in k is regular but its value depends on the branch by an additive multiple iπ·e^{−w}, i.e. by a multiple of the holomorphic basis function. So the splitting a^+(n)/a^−(n) is canonical only for n < 0, for k ≤ 0 integral, or on H^+ (where the n > 0 non-holomorphic terms vanish). The blueprint fixes an explicit second solution for n > 0 (QM.3/nonholomorphic-fourier-basis-growing) and defines f^± only on H^+.",
+   "reason": "Near k = j + 1: Γ(1 − k) and (−1)^{−k}∫_0^{2w}e^{s}s^{−k}ds have opposite simple poles, but the finite parts differ by ±iπ according to the branch of (−1)^{−k} = e^{∓iπk}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0212286 versions v1–v4 (abstract page and v4 PDF)",
+    "Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)",
+    "the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E404",
+   "kind": "misprint",
+   "locator": "(6.7), p. 15 (arXiv v3)",
+   "printed": "M_s(y) := |y|^{−k/2}M_{(k/2)sgn(y), s−1/2}(|y|), and for m ≥ 1 let ϕ_{−m}(z) := M_{1−k/2}(−4πmy). ... Q(−m, k, N; z) := 1/(k − 1)! · P(−m, 2 − k, ϕ_{−m}, N; z).",
+   "correction": "The seed must be normalised for the weight 2 − k of Q: M_s(y) := |y|^{(k−2)/2}M_{(1−k/2)sgn(y), s−1/2}(|y|) and ϕ_{−m} := M_{k/2}(−4πmy); then ϕ_{−m}(z)/(k − 1)! = γ(k − 1, 4πmy)q^{−m}/(k − 2)! (DLMF 8.5.4), matching the leading terms of Prop. 6.2.",
+   "reason": "As printed, ϕ_{−m} involves M_{−k/2,(1−k)/2}, i.e. Kummer's M(1, 2 − k, ·) with 2 − k ∈ {0, −2, −4, …}, which is undefined; the weight-(2 − k) normalisation reproduces Q^+ = q^{−m} + … and Q^− = −Γ(k − 1, 4πmy)q^{−m}/(k − 2)! + … of Prop. 6.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0802.0963 v1, v2, v3 (all three versions read for the introduction)",
+    "arXiv comments ('Theorem 1.4 corrected')",
+    "the Math. Ann. version was not accessible as text"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan H. Bruinier, Ken Ono, Robert C. Rhoades, Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues, arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E405",
+   "kind": "misprint",
+   "locator": "§1, p. 3 (arXiv v1–v3), the example Q(−1, 12, 1)",
+   "printed": "Q^+(−1, 12, 1; z) ∼ q^{−1} − 0.04629 − 1842.89472q − 23274.07545q² − 225028.75877q³ − · · ·",
+   "correction": "The constant term is −65520/691 = −94.81910…, not −0.04629 (which is −94.8191/2^{11}); the other listed coefficients are correct.",
+   "reason": "BOR's own Prop. 6.2 gives b(−1, 12, 1; 0) = −(2π)^{12}/(11!·ζ(12)) = −65520/691 (Σ_c μ(c)c^{−12} = 1/ζ(12)); evaluated numerically together with b(1), b(2), b(3), which reproduce −1842.89472, −23274.07545, −225028.75877. Independently, {E₁₂, Q(−1, 12, 1)} = 0 (Bruinier–Funke Prop. 3.5 and E₁₂ ⊥ S₁₂) forces a^+(0) + 65520/691 = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0802.0963 v1, v2, v3 (all three versions read for the introduction)",
+    "arXiv comments ('Theorem 1.4 corrected')",
+    "the Math. Ann. version was not accessible as text"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan H. Bruinier, Ken Ono, Robert C. Rhoades, Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues, arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E406",
+   "kind": "gap",
+   "locator": "proof of Theorem 3.7, p. 14 (arXiv v4)",
+   "printed": "Applying the Hodge star operator, we get the 1-form iv^{−k}ḡ dτ̄ ∈ E^{0,1}(X, L_{k,L} ⊗ O_{nD}).",
+   "correction": "The form iv^{−k}ḡ dτ̄ is not a C^∞ section at the cusps when k ≠ 0: in the local parameter q, v = −(h/2π)log|q| and the coefficient contains (log|q|)^{−k}, which is continuous (after the twist by O_{nD}) but not smooth at q = 0. Repair: near each cusp write down an explicit ξ_k-preimage F_c of g (QM.3/local-xi-preimage-at-cusps, via the non-holomorphic Fourier basis), glue with cut-offs, and apply the Dolbeault/Serre-duality argument only to the smooth compactly supported remainder (QM.3/xi-surjective-free-normal).",
+   "reason": "The Hodge star uses the Petersson metric v^k, which has logarithmic singularities at the cusps (as BF note); the sheaf E^{p,q} was defined as C^∞ forms.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv math/0212286 versions v1–v4 (abstract page and v4 PDF)",
+    "Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)",
+    "the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E407",
+   "kind": "gap",
+   "locator": "Corollary 3.9, p. 15 (arXiv v4)",
+   "printed": "This can be proved using Theorem 3.6 and Eisenstein series in M_{κ,L^−}. The details are left to the reader.",
+   "correction": "A proof of the non-degeneracy on the M_κ side: for g ∈ M_κ \\ S_κ one needs f ∈ M^!_k with Σ_c h_c a_c(0)b_c(0) ≠ 0; this follows from Borcherds' obstruction theorem (the realisable principal parts are λ(M_κ)^⊥, and a functional supported on constant terms vanishing on λ(M_κ)^⊥ would come from a constant form of weight κ ≠ 0). Supplied in QM.3/bruinier-funke-duality-negative.",
+   "reason": "Existence of Eisenstein series alone does not produce f; the argument needs the existence of weakly holomorphic forms with prescribed constant terms, i.e. the duality of Borcherds' Theorem 3.1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv math/0212286 versions v1–v4 (abstract page and v4 PDF)",
+    "Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)",
+    "the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E408",
+   "kind": "error",
+   "locator": "Theorem 4.1, p. 9, and its proof, p. 10 (arXiv v3)",
+   "printed": "(g, R^{k−1}_{2−k}f)^{reg} = (−1)^k/[Γ(1) : Γ] Σ_{κ∈Γ\\P¹(Q)} w_κ · c_g(0, κ)\\overline{c^+_f(0, κ)}",
+   "correction": "The right-hand side needs the factor (k − 2)!: (g, R^{k−1}_{2−k}f)^{reg} = ((−1)^k(k − 2)!/[Γ(1) : Γ])Σ_κ w_κc_g(0, κ)\\overline{c^+_f(0, κ)}. Corollaries 4.2 and 4.3 (vanishing statements) are unaffected.",
+   "reason": "The constant term of H = y^{k−2}\\overline{R^{k−2}_{2−k}f} is, by BOR's own expansion of H, (−1)^k\\overline{c^+_f(0)}Γ(k − 1, 0) = (−1)^k(k − 2)!\\overline{c^+_f(0)}; directly, R^j_{2−k}(1) = (2−k)(3−k)⋯(1−k+j)y^{−j}, so R^{k−2}_{2−k}(1) = (−1)^k(k − 2)!y^{2−k}. The printed statement is right only for k = 2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 0802.0963 v1, v2, v3 (all three versions read for the introduction)",
+    "arXiv comments ('Theorem 1.4 corrected')",
+    "the Math. Ann. version was not accessible as text"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Jan H. Bruinier, Ken Ono, Robert C. Rhoades, Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues, arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E501",
+   "kind": "misprint",
+   "locator": "proof of Theorem 3.9, p. 58 (arXiv v1)",
+   "printed": "Using (5) of Proposition 3.5 we ﬁnd",
+   "correction": "Read 'Using (1c) of Proposition 3.5' (Prop. 3.5 has parts (1)–(3); the modular transformation of f̃ is (1c)).",
+   "reason": "Prop. 3.5 has no part (5); the cited identity is exactly (1c).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0807.4834 (single version v1)",
+    "Sander Zwegers' Cologne home page (no errata listed)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E502",
+   "kind": "misprint",
+   "locator": "proof of Theorem 3.9, pp. 58–59 (arXiv v1)",
+   "printed": "ϕ(v/(cτ + d); (aτ + d)/(cτ + d))",
+   "correction": "(aτ + b)/(cτ + d) in place of (aτ + d)/(cτ + d) throughout this display and the next.",
+   "reason": "γτ = (aτ + b)/(cτ + d); the first line of the same computation has aτ + b.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0807.4834 (single version v1)",
+    "Sander Zwegers' Cologne home page (no errata listed)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E503",
+   "kind": "misprint",
+   "locator": "after Definition 3.2, p. 51 (arXiv v1)",
+   "printed": "The function f^{(1/2)} is the sum studied in Section 1.2.",
+   "correction": "The Lerch sums are studied in Section 1.3 (Section 1.2 is the Mordell integral); moreover Def. 3.2 requires m ∈ ℤ_{>0}, so f^{(1/2)} is outside its range and matches the Lerch sum of §1.3 only up to the sign (−1)^n and the change of variables.",
+   "reason": "Section 1.2 is titled 'The Mordell integral'; the Lerch sum Σ(−1)^n e^{πi(n²+n)τ+2πinv}/(1 − e^{2πinτ+2πiu}) is in §1.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0807.4834 (single version v1)",
+    "Sander Zwegers' Cologne home page (no errata listed)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E504",
+   "kind": "misprint",
+   "locator": "Proposition 2.7(7), p. 32 (arXiv v1)",
+   "printed": "D′(c) := {(z, τ) ∈ D(c) | (z/τ, −1/τ) ∈ D(c)} = {(aτ + b, τ) | τ ∈ H, a, b ∈ R^r, B(c, a) ̸∈ Z, B(c, b) ̸∈ Z}.",
+   "correction": "The displayed equality holds for c ∈ S_Q; for c ∈ C_Q, D′(c) = ℂ^r × ℍ (R(c) = ℝ^r).",
+   "reason": "For c ∈ C_Q there is no condition on a (Def. of R(c)), so the right-hand set is strictly smaller than D′(c).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0807.4834 (single version v1)",
+    "Sander Zwegers' Cologne home page (no errata listed)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E505",
+   "kind": "gap",
+   "locator": "§4.3, p. 71 (arXiv v1)",
+   "printed": "This function has the following modular transformation property, which can be veriﬁed using standard methods: g7(−1/τ) = −M7(−iτ)^{3/2}g7(τ),",
+   "correction": "A proof: apply ξ_{1/2} to H₇(−1/τ) = √(−iτ)M₇H₇(τ) (Prop. 4.5(1)); the chain rule gives (ξH₇)(−1/τ) = −(−iτ)^{3/2}M₇(ξH₇)(τ), and ξ_{1/2}H₇ = −√42·g₇ (from Prop. 4.2(4)). Supplied in QM.4/seventh-order-shadow-theta.",
+   "reason": "The statement is used in the proof of Cor. 4.6 but no proof is given.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 0807.4834 (single version v1)",
+    "Sander Zwegers' Cologne home page (no errata listed)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E506",
+   "kind": "gap",
+   "locator": "after Definition 3.4, p. 53 (arXiv v1)",
+   "printed": "We will not show that the series deﬁning R_{m,l} converges, since this is similar to the convergence of R, proven in Lemma 1.8.",
+   "correction": "Convergence of R_{m,l}: split {sgn(λ + ½) − E((λ + 2m Im u/y)√(y/m))} into a finitely supported sign difference and sgn(·)β((λ + 2m Im u/y)²y/m) ≤ e^{−π(λ+2m Im u/y)²y/m}; supplied in QM.4/level-m-r-function.",
+   "reason": "The convergence is asserted without proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0807.4834 (single version v1)",
+    "Sander Zwegers' Cologne home page (no errata listed)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E601",
+   "kind": "misprint",
+   "locator": "§5, Theorem 6, eq. (32), printed p. 956",
+   "printed": "1/(1 − e^{−Nt}) Σ_{m=1}^{N} χ(m)ξ^{(m²−1)/24}e^{−mt} ∼ 2 Σ_{n≥0} ((−1)ⁿ/n!) c_n(ξ) t^{2n+1}",
+   "correction": "The factorial is (2n + 1)!: the right side is 2Σ_{n≥0}(−1)ⁿc_n(ξ)t^{2n+1}/(2n + 1)!.",
+   "reason": "At ξ = 1, N = 12 the left side is sinh 2t/cosh 3t = 2t − (23/3)t³ + ⋯; with n! the t³ coefficient would be −2c₁ = −46, with (2n+1)! it is −23/3 = −2·23/6, matching c₁ = T₁ = 23 of Theorem 3 and the generating function (5) sin 2x/(2 cos 3x) = Σ T_n x^{2n+1}/(2n+1)!. The Bernoulli formula printed after the proof is consistent only with (2n + 1)!.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the author's publication list on his MPIM page (no erratum listed)",
+    "the publisher-typeset copy read (no correction note)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E602",
+   "kind": "misprint",
+   "locator": "§2, proof of Theorem 3, printed p. 953",
+   "printed": "and comparing the residues at s = −n gives Eq. (24).",
+   "correction": "The comparison of residues gives Eq. (25) (the formula for γ_n); (24) is the definition of a_n, b_n, c_n.",
+   "reason": "The residue of 24^sΓ(s)L(2s − 1, χ) at s = −n is (−1)ⁿL(−2n − 1, χ)/(24ⁿn!), which is the right side of (25).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E603",
+   "kind": "misprint",
+   "locator": "§6, discussion after the Theorem, printed p. 959",
+   "printed": "for a certain polynomial g of degree ≥ k − 2, the period polynomial of f",
+   "correction": "degree ≤ k − 2.",
+   "reason": "The period polynomial is c_k∫_0^∞ f(z)(z − x)^{k−2}dz, a polynomial in x of degree at most k − 2.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E604",
+   "kind": "gap",
+   "locator": "§6, Theorem and the paragraph after it, printed pp. 958–959",
+   "printed": "We do not give the complete proof, since this theorem is a special case of results to be proved in more detail in [7]",
+   "correction": "A complete proof along the lines of Bringmann–Rolen (non-holomorphic Eichler integral of η on the lower half-plane, its transformation law with the η multiplier, agreement of expansions at rationals, non-tangential boundary values), as in the node kontsevich-quantum-modular.",
+   "reason": "The promised paper [7] ('Period functions for modular forms of half-integral weight, in preparation') does not appear in the author's publication list; the indication given does not prove the real-analyticity of g or the transformation at rationals.",
+   "affects": "the proof",
+   "known": "Bringmann–Rolen, Half-integral weight Eichler integrals and quantum modular forms (arXiv:1409.3781) prove the analogous theorem for cusp forms on Γ₀(N) with trivial character; the η (SL₂(ℤ), multiplier) case is not covered there",
+   "searched": [
+    "the author's MPIM publication list (no paper on period functions of half-integral weight)",
+    "arXiv listings of Bringmann–Rolen"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E605",
+   "kind": "error",
+   "locator": "Example 3, eq. (26), printed p. 10",
+   "printed": "φ(x+1) = e^{2πi/24}φ(x), φ(x) ∓ i^{1/2}|x|^{3/2}φ(−1/x) = g(x) (x ∈ Q, ±x > 0)",
+   "correction": "φ(x) + (ix)^{−3/2}φ(−1/x) = g(x) with the principal branch, i.e. φ(x) − e^{πi/4}x^{−3/2}φ(−1/x) = g(x) for x > 0 and φ(x) + e^{3πi/4}|x|^{−3/2}φ(−1/x) = g(x) for x < 0 (Zagier, Topology 40, eq. (39)).",
+   "reason": "At x = 1/n, (25) gives φ(1/n) ∼ n^{3/2}e^{2πi(3−n)/24}, which requires the exponent −3/2 on |x|; and φ(−x) is the complex conjugate of φ(x) (F has integer coefficients), which forces the factor e^{3πi/4}, not i^{1/2}, for x < 0.",
+   "affects": "a stated result",
+   "known": "none found (the earlier paper Topology 40 (2001), eq. (39), states the law correctly)",
+   "searched": [
+    "the author's MPIM publication list",
+    "the Clay Mathematics Proceedings volume page (no errata)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E606",
+   "kind": "misprint",
+   "locator": "Example 3, printed p. 10",
+   "printed": "since η(z) = Σ_{n=0}^∞ n (12/n) q^{n²/24} (Euler)",
+   "correction": "η(z) = Σ_{n≥1}(12/n)q^{n²/24}; the factor n belongs to η̃ in (27).",
+   "reason": "Euler's pentagonal number theorem: q^{1/24}∏(1 − qⁿ) = Σ χ₁₂(n)q^{n²/24} (Topology 40, eq. (19)).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E607",
+   "kind": "misprint",
+   "locator": "Example 1, after the Lemma, printed p. 5",
+   "printed": "σ(1) = −σ(1) = 2",
+   "correction": "σ(1) = −σ*(1) = 2.",
+   "reason": "σ*(1) = −2 from (8) (only the n = 0 term survives), and the Lemma at q = 1 reads σ(1) = −σ*(1).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E608",
+   "kind": "misprint",
+   "locator": "§4, extension 1, eq. (44), printed p. 13",
+   "printed": "Σ_{m≥0} f((m + a)t) ∼ I_f/t + Σ_{n≥0} b_n (B_{n+1}(a)/(n + 1)) tⁿ",
+   "correction": "Σ_{m≥0} f((m + a)t) ∼ I_f/t − Σ_{n≥0} b_n (B_{n+1}(a)/(n + 1)) tⁿ, i.e. I_f/t + Σ b_nζ(−n, a)tⁿ with ζ(−n, a) = −B_{n+1}(a)/(n + 1).",
+   "reason": "For f(x) = e^{−x}: Σ_{m≥0}e^{−(m+a)t} = e^{−at}/(1 − e^{−t}) = 1/t + Σ_n (−1)^{n+1}B_{n+1}(a)tⁿ/(n + 1)!, while the printed formula gives (−1)ⁿ; the corrected formula also reduces to Proposition 3 at a = 1.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list",
+    "the PDF read (no correction note)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, The Mellin transform and other useful analytic techniques, Appendix to E. Zeidler, Quantum Field Theory I: Basics in Mathematics and Physics, Springer 2006, 305–323; author's PDF (paginated 1–16), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E609",
+   "kind": "misprint",
+   "locator": "§4, transformation formula for (Θ_χ, Θ_χ̄) under z ↦ z + 1, printed p. 102",
+   "printed": "(Θχ(z + 1), Θχ̄(z + 1)) = ζ^{25}(cos 2π/5, −i sin 2π/5; −i sin 2π/5, cos 2π/5)(Θχ(z), Θχ(z))",
+   "correction": "The column vector on the right is (Θχ(z), Θχ̄(z)).",
+   "reason": "The formula is the change of basis of Θ±(z + 1) = diag(ζ, ζ^{49})Θ±(z), which involves both Θχ and Θχ̄.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the MPIM copy of the published paper"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. Lawrence, D. Zagier, Modular forms and quantum invariants of 3-manifolds, Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E610",
+   "kind": "gap",
+   "locator": "§4, properties (i) and (ii) and their proof sketch, printed pp. 103–104",
+   "printed": "We explain this only brieﬂy, leaving a more detailed exposition to the later paper [18].",
+   "correction": "Complete proofs as in the nodes eichler-asymptotic-agreement, nonholomorphic-eichler-transformation and nonholomorphic-eichler-nontangential-limit, applied to Θ± with the transformation matrices of (15).",
+   "reason": "The existence of the asymptotic expansion of Θ*± and the passage from the transformation law on H⁻ to rational points are only indicated.",
+   "affects": "the proof",
+   "known": "Bringmann–Rolen (arXiv:1409.3781) prove the Γ₀(N), trivial-character case in general; the Θ± case needs the multiplier version",
+   "searched": [
+    "the author's MPIM publication list (no later paper [18] found)",
+    "arXiv"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. Lawrence, D. Zagier, Modular forms and quantum invariants of 3-manifolds, Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E611",
+   "kind": "gap",
+   "locator": "§4, discussion after Corollary 1.2, printed p. 11",
+   "printed": "this family includes many examples in the literature, such as Kontsevich’s strange function (2.2) [21]",
+   "correction": "Theorem 1.1 is stated and proved for f ∈ S_k(N) with trivial character; η(24τ) has character χ₁₂. The statement with nebentypus ψ holds with the cocycle relation f* − ψ̄(d)χ₋₄(d)f*|_{2−k}γ = r_{f,−d/c}, since the substitution in (2.4) picks up ψ(d) from f(γu) = ψ(d)ε_d^{−2k}(c/d)(cu + d)^kf(u), and Lemma 2.2 already allows characters.",
+   "reason": "The claimed inclusion of Kontsevich's function requires the character case, which the paper does not state.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "arXiv versions v1–v4 abstracts",
+    "the paper's own references"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E612",
+   "kind": "gap",
+   "locator": "§3, proof of Theorem 1.1, printed pp. 10–11",
+   "printed": "By (2.4), we see that f ∗is a quantum modular form, as for x ∈R, the cocycle is real-analytic on R\\{−d/c}.",
+   "correction": "Show that f* has non-tangential boundary values at rational points (node nonholomorphic-eichler-nontangential-limit) before letting τ → x in (2.4): the term f*(γτ) approaches γx along the image of the vertical ray, which is not vertical.",
+   "reason": "Proposition 2.1 and (3.19) give only the vertical limits of f*.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "arXiv versions of the paper"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E613",
+   "kind": "gap",
+   "locator": "§2.4, Lemma 2.3, printed p. 7",
+   "printed": "Since the proof is a standard application of the functional equation and the Phragm´en-Lindel¨of principle, we omit the proof.",
+   "correction": "The proof of the node twisted-l-function-vertical-growth, with uniformity in the real part (needed to apply Lemma 3.1).",
+   "reason": "The lemma is stated for fixed x, but the application of Lemma 3.1 needs bounds uniform on vertical strips.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "arXiv versions of the paper"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E614",
+   "kind": "gap",
+   "locator": "§2, proof of Theorem 3, printed p. 952",
+   "printed": "We have already seen that F(q) and F1(q) agree to all orders as q approaches 1 (or any other root of unity) radially from within the unit disk.",
+   "correction": "Only the formal statement F = F₁ in ℤ[[1 − q]] (from (16)) was shown; the analytic statement needs a uniform bound on the tail Σ_{n>N} n(q;q)_{n−1}qⁿ near roots of unity, supplied by the node pochhammer-root-of-unity-bound.",
+   "reason": "Termwise bounds ∏(1 + |q|^j) grow like e^{c/t} and do not control the tail; the block cancellation is needed.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E615",
+   "kind": "gap",
+   "locator": "§3.2, printed p. 19",
+   "printed": "noting that the function U(ζ a b ; ζ h k ) is a ﬁnite convergent sum when b|k, by the argument above",
+   "correction": "The proof also needs lim_{q→ζ_k^h} U(ζ_b^a; q) = U(ζ_b^a; ζ_k^h) for the radial approach; this follows from the uniform bound of pochhammer-root-of-unity-bound.",
+   "reason": "The finiteness of the formal value at the root of unity does not by itself give the radial limit of the convergent series U(ζ_b^a; q).",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the published article page (no erratum)",
+    "Bringmann–Rolen, Radial limits of mock theta functions, §1 (quotes the result)"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "A. Folsom, K. Ono, R. C. Rhoades, Mock theta functions and quantum modular forms, Forum of Mathematics, Pi 1 (2013), e2, 27 pp.; published open-access PDF (CC BY 3.0), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E616",
+   "kind": "gap",
+   "locator": "§4, proof of the Proposition, printed p. 5",
+   "printed": "(We leave to the reader the modiﬁcations necessary if α is a root of E4 or E6, i.e. a point with a non-trivial stabilizer in Γ.)",
+   "correction": "At the elliptic points i and ρ the residue comparison must account for the stabiliser weights 1/2 and 1/3 and for the zeros of E₄, E₆; the node weight-two-trace-proposition records this step.",
+   "reason": "The residue computation divides by E₄(α)E₆(α)j′(α), which vanishes at the elliptic points.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E617",
+   "kind": "gap",
+   "locator": "§4, end, printed p. 6",
+   "printed": "The proof when n is a square is similar, except that we must also compute the Fourier expansion of Sa,d(τ) in the case when a = d; we leave this calculation to the reader.",
+   "correction": "Compute S_{m,m} for n = m² (the node trace-second-recursion lists the step); it produces the term −8n in (6).",
+   "reason": "The square case of (6) is not derived.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E618",
+   "kind": "gap",
+   "locator": "§3, end, printed p. 4",
+   "printed": "Hence P |r|<2√n t(4n −r2) = P |r|<2 t(4 −r2) = −4.",
+   "correction": "For square n the same comparison also gives the class number relation (7), with the extra 1/6 = H(4) + 2H(3) − 1 coming from the omitted factor; the source states (7) for all n but derives it only for non-square n.",
+   "reason": "Only (5) is derived in the square case.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E619",
+   "kind": "misprint",
+   "locator": "title page header, printed p. 1",
+   "printed": "Clay Mathematics Proceedings Volume 12, 2010",
+   "correction": "Clay Mathematics Proceedings, Volume 11 (Quanta of Maths), as in the author's own publication list and in citing papers.",
+   "reason": "The proceedings in honour of Alain Connes are volume 11 of the series; the author's list and Bringmann–Rolen cite volume 11.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's MPIM publication list"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E701",
+   "kind": "misprint",
+   "locator": "§2, equation (2.7), p. 4 of arXiv:math/0402345v2 (identical in v1)",
+   "printed": "JSL2(Z)(τ) = J(τ) = q−1 + 196884 q + 214 93760 q2 + 8642 909970 q3 + · · · .",
+   "correction": "The coefficient of q³ is 864299970 (8642 99970 in the paper's digit grouping), as printed correctly in (3.1b) of the same paper.",
+   "reason": "Direct computation of E₄³/Δ − 744 gives c(3) = 864299970; Gannon's own (3.1b) reads 8642 99970 = 8426 09326 + 212 96876 + 2·196883 + 2; the printed 8642909970 has an extra digit.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0402345 v1 and v2 (both print the same)",
+    "the published version (Bull. London Math. Soc. 38 (2006)) could not be accessed"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "T. Gannon, Monstrous moonshine: the first twenty-five years, arXiv:math/0402345v2 (Bull. London Math. Soc. 38 (2006) 1–33)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E702",
+   "kind": "misprint",
+   "locator": "§3.3, text between (3.7a) and (3.7b), p. 8 of arXiv:math/0402345v2 (identical in v1)",
+   "printed": "Again, these yield recursions like a4(g) = a2(g) + (a1(g)2 −a1(g2))/2",
+   "correction": "a4(g) = a3(g) + (a1(g)² − a1(g²))/2.",
+   "reason": "For g = 1 the printed formula gives a4 = a2 + (a1² − a1)/2 = 19403050046, contradicting the recursion a4 = a3 + (a1² − a1)/2 printed a few lines earlier and the value 20245856256; Borcherds (9.1) with k = 1 gives a3; checked for the 2B series (−49152 = 11202 + (276² − 196884)/2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0402345 v1 and v2",
+    "Borcherds 1992 (9.1) for comparison"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "T. Gannon, Monstrous moonshine: the first twenty-five years, arXiv:math/0402345v2 (Bull. London Math. Soc. 38 (2006) 1–33)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E703",
+   "kind": "misprint",
+   "locator": "§1, p. 3 of the author's copy (Invent. Math. 109, p. 407)",
+   "printed": "Its normalized Hauptmodul is T2−(q) = 24+q−1 Πn>0(1−q2n+1)24 = q−1+276q−2048q2+. . .",
+   "correction": "T_{2−}(q) = 24 + q^{−1}Π_{n≥0}(1 − q^{2n+1})^{24} = 24 + q^{−1}Π_{n>0}(1 − q^{2n−1})^{24}.",
+   "reason": "With n > 0 the factor (1 − q)^{24} is missing and the product would give q^{−1} + 24 − 24q² + ⋯ instead of q^{−1} + 276q − 2048q² + ⋯; with n ≥ 0 the displayed expansion is obtained (computed to order q^{40}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's online copy at math.berkeley.edu",
+    "Gannon 2004 (2.8a) gives the expansion only"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E704",
+   "kind": "misprint",
+   "locator": "§5, Lemma 5.4 and its proof, p. 21 of the author's copy",
+   "printed": "Lemma 5.4. The associative algebra generated by the elements Li for i < 0 is generated by elements mapping S1 into S. Proof. Calculation shows that the operators L−1 and L−2+3L2−1/2 have this property",
+   "correction": "The lemma concerns the L_i with i > 0: the associative algebra they generate is generated by L_1 and L_2 + (3/2)L_1², which map S¹ into S when the central charge is 26.",
+   "reason": "L_{−1} and L_{−2} map every vector into the spurious space S, so the printed statement is empty; the proof of Lemma 5.5 applies 'some set of generators of the algebra generated by the Li’s, i > 0'; the Goddard–Thorn computation (Jurisich 1998 Lemma A.6) is for L_1 and L_2 + (3/2)L_1², where c = 26 is used.",
+   "affects": "nothing",
+   "known": "Jurisich 1998 (arXiv:1311.3258), Appendix A, Lemma A.6 states the corrected form (without remarking on the misprint)",
+   "searched": [
+    "the author's online copy",
+    "Jurisich 1998 Appendix A",
+    "Jurisich 2009"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E705",
+   "kind": "error",
+   "locator": "§5, Theorem 5.1, p. 19 of the author's copy",
+   "printed": "Then the quotient of P 1r by the nullspace of its bilinear form is naturally isomorphic, as a G module with an invariant bilinear form, to V 1−(r,r)/2 if r ≠ 0 and to V 1 ⊕ R2 if r = 0.",
+   "correction": "The case r = 0 needs the extra hypothesis V⁰ = ℝ·1 (dim V⁰ = 1), as in Jurisich 1998 Theorem 6.2 (iii); in general, when L_1V¹ = 0, the quotient is V¹ ⊕ (V⁰ ⊗ ℝ²).",
+   "reason": "For V = V♮ × V♮ (direct product vertex algebra, vacuum (1,1), conformal vector (ω,ω) of central charge 24, orthogonal sum of forms) all stated hypotheses hold, V⁰ is two-dimensional and V¹ = 0, while P¹_0/null ≅ V⁰ ⊗ ℝ² is four-dimensional, not V¹ ⊕ ℝ² = ℝ². The case r ≠ 0 and the application to V♮ (V⁰ = ℝ1) are unaffected.",
+   "affects": "a stated result",
+   "known": "Jurisich 1998 (arXiv:1311.3258), Theorem 6.2, adds hypothesis (iii) dim V(0) = 1 (without remarking on the omission)",
+   "searched": [
+    "the author's online copy",
+    "Jurisich 1998 Theorem 6.2 and Appendix A"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E706",
+   "kind": "gap",
+   "locator": "§2, proof of Corollary 2.5, p. 3 of the author's copy",
+   "printed": "Proof.∗ The proof in Kac [3, 11.7] carries over to G because 2(ρ, r) > (r, r) if r is a positive root that is not simple.",
+   "correction": "A complete proof that the contravariant form is positive definite on the root spaces of a generalized Kac–Moody algebra is in Kac, Infinite dimensional Lie algebras, 3rd ed. (1990), §11; for the matrices used in this stage it also follows from Jurisich 1998 Theorem 5.1 and Corollary 5.3.",
+   "reason": "The author's footnote states 'This proof is not complete; see the third edition of Kac [3] for a complete proof'; Borcherds 1992 §4 records that the proof of the converse in [4] 'contains a gap which was pointed out and corrected by Kac'.",
+   "affects": "the proof",
+   "known": "author's footnote in the online copy; Kac, Infinite dimensional Lie algebras, 3rd ed. (1990); Borcherds 1992 §4",
+   "searched": [
+    "the author's online copy",
+    "Borcherds 1992 §4",
+    "Jurisich 1998 §§1–2"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Generalized Kac–Moody algebras, J. Algebra 115 (1988) 501–512; author's copy (10 pp.)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E707",
+   "kind": "misprint",
+   "locator": "§5, p. 5 of the author's copy",
+   "printed": "More generally if u is in P 1 then [Lj, uk] = ((j + 1)(i − 1) − k)uj+k.",
+   "correction": "More generally if u is in P^i then [L_j, u_k] = ((j + 1)(i − 1) − k)u_{j+k}.",
+   "reason": "The formula contains i, which is unbound if u ∈ P¹; the commutator formula for a primary vector of weight i gives exactly ((j+1)(i−1) − k)u_{j+k}, which for i = 1 reduces to the preceding sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's online copy at math.berkeley.edu",
+    "the PNAS version was not accessed"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Vertex algebras, Kac–Moody algebras, and the Monster, Proc. Natl. Acad. Sci. USA 83 (1986) 3068–3071; author's copy (9 pp.)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E708",
+   "kind": "error",
+   "locator": "§4, remark after Theorem 4.1, p. 15 of the author's copy",
+   "printed": "Remark. The converse of this theorem is also true (but not needed here): any universal generalized Kac-Moody algebra with a countable number of simple roots is a generalized Kac-Moody algebra.",
+   "correction": "The converse needs a finiteness hypothesis allowing a grading with finite-dimensional pieces (for example finitely many simple roots with each column of the matrix); it fails in general.",
+   "reason": "For the countably infinite matrix with all entries −2, all columns are equal, so h_ij = [e_i, f_j] ≠ 0 for i ≠ j lies in the degree-0 Cartan subalgebra; any grading deg e_i = n_i must therefore have all n_i equal, and the piece containing all e_i is infinite-dimensional, violating condition 1 (Jurisich 1998 §4, remark).",
+   "affects": "a stated result",
+   "known": "Jurisich 1998 (arXiv:1311.3258), §4, remark before Theorem 4.1",
+   "searched": [
+    "the author's online copy",
+    "Jurisich 1998 §4"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E1",
    "kind": "misprint",
    "locator": "§1.6, arXiv v3 p. 7; published p. 902; compare Theorem 10.1 on published p. 969.",
