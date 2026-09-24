@@ -25962,7 +25962,8 @@
     "REV-PAPER-BAKKER-TSIMERMAN-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1736"
   },
   {
    "id": "RT-PAPER-MARTIN-25",
@@ -26007,8 +26008,9 @@
     "REV-PAPER-MARTIN-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-MARTIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1738"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1738",
+   "finishedAt": "2026-09-24T02:02:46Z"
   },
   {
    "id": "RT-PAPER-HARPAZ-WITTENBERG-23",
@@ -26951,7 +26953,8 @@
     "REV-AUDIT-04"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-04.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1557"
   },
   {
    "id": "RT-AUDIT-05",
