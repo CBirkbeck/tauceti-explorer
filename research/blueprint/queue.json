@@ -23291,10 +23291,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
@@ -29308,8 +29309,9 @@
     "RT-AREA-iwasawa-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-iwasawa-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1496"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1496",
+   "finishedAt": "2026-09-24T10:15:53Z"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -29532,7 +29534,8 @@
     "RT-AREA-langlands-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-langlands-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1504"
   },
   {
    "id": "RT-AREA-modeltheory",
