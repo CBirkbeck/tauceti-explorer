@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-AUDIT-28",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-28/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. E.2 asks for line-bundle classes on the projective elliptic scheme over the base field. classGroupAddEquivPicZeroProdInt splits an abstract OrderSystem class group, while pointEquivDegreeZeroDivisorClass identifies W.Point with the kernel of the function-field divisor degree map, under a Dedekind coordinate-ring hypothesis. Neither supplies the scheme/line-bundle comparison. The existing scheme comparison is injective and tensor-compatible under integral Noetherian curve and codimension-one DVR hypotheses; its implementation explicitly leaves surjectivity outstanding. Change the two tauceti targets to partial, keep those useful declarations as related evidence, and record the projective-scheme/function-field/divisor dictionary, surjectivity, degree compatibility and elliptic specialization as gaps. E.2 then has no fully present target and its verdict becomes not built under the audit convention. Qualify its summary and upstream EllipticCurves Layer 0 overlap note, while retaining the absent K0 targets. Refine the proposed ownership fix: E.1 already assigns the general curve/function-field dictionary to AlgebraicCurves; preserve that supplier and the existing Picard directions instead of moving all bridges wholesale to ModularCurves/JacobianChallenge."
+    },
+    {
+      "finding": "RT-AUDIT-28/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The HB.1 note conflates canonical continuous cohomology with TauCeti.ContCohomology's explicit discrete-coefficient model. kummerShortExact returns DiscreteShortExact; LongExact.lean proves exactness at eight nodes through H2(B), with the outgoing coefficient map to H2(C), not an all-degree canonical sequence. explicitH0IsoContinuousCohomology is the degree-zero canonical comparison. The positive-degree equivalences in GroupCohomologyIso.lean instead target abstract groupCohomology and require DiscreteTopology G. Canonical res exists for every degree but supplies neither a comparison nor exactness. Keep the HB.1 target partial, distinguish these existing components, and assign missing positive-degree canonical comparison/transport and any required higher-degree exactness to ProfiniteCohomology Layers 3/5/10. Preserve the explicit Kummer results already credited in HB.2."
+    },
+    {
+      "finding": "RT-AUDIT-28/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Both K.2 duplicate lists send the generic-ring explicit K3 comparison to V.4, which instead treats K3^ind of infinite fields and the Suslin exact sequence. V.1 explicitly owns K3(A) ≅ H3(St(A), Z), its bar-cycle description and ring-map naturality. Replace the generic-comparison supplier with V.1 in both audit entries; retain V.4 only as a qualified infinite-field indecomposable-quotient reference where needed. Correct the inherited V.4 prerequisite for K.2:low-degree-comparisons through the maintained integration route. This is a supplier/scope correction: V.1 already reaches the consumer transitively through V.2–V.4, so it is not a previously unreachable prerequisite. The native graph has no reverse path from that consumer to V.1. Keep absent library classifications and the K1/K2 suppliers unchanged; no new K3 construction or roadmap is needed."
+    }
+  ]
+}
