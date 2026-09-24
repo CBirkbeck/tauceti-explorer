@@ -29500,8 +29500,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-langlands-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1505"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1505",
+   "finishedAt": "2026-09-24T09:55:24Z"
   },
   {
    "id": "REV-RT-AREA-langlands-3",
