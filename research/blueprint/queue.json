@@ -3847,8 +3847,9 @@
    ],
    "avoidAccountOf": "PAPER-DISEGNI-LIU-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-DISEGNI-LIU-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1229"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1229",
+   "finishedAt": "2026-09-24T00:01:33Z"
   },
   {
    "id": "PAPER-FENG-YUN-ZHANG-24",
@@ -4288,8 +4289,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4771,7 +4772,8 @@
    ],
    "avoidAccountOf": "PAPER-LIU-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1281"
   },
   {
    "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
@@ -6087,7 +6089,8 @@
    ],
    "avoidAccountOf": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1349"
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-WANG-25",
