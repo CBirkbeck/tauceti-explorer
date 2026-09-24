@@ -1077,6 +1077,74 @@
           }
         ],
         "scope": "Fresh bounded inner-supplier audit for Z100/Z101. No new reading of the remaining characteristic-p, Cohen-structure, standard-smooth or finite-separable suppliers is claimed."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-hjdg0j",
+        "date": "2026-09-24",
+        "main": "Freshly reread published PDF78–80 and, on reconciling concurrent PR2578, PDF33,52,172,184 using the cached author-hosted published PDF, whose SHA-256 matches the retained source. Earlier full212-page reading stays attributed to its original worker.",
+        "sources": [
+          {
+            "title": "Stacks Project finite Koszul and determinantal regularity suppliers",
+            "readScope": "0621 definitions and complete printed text of Lemmas15.29.3–12, including the stated omitted-proof boundaries;00MV;00MW;00N1 both directions and discussion;0B52;00OA and00LS complete proofs and corrected-citation discussion;07PF;0381 complete outer proof. No claim that all recursively cited proofs in0381 were read.",
+            "pages": [
+              {
+                "tag": "0621",
+                "url": "https://stacks.math.columbia.edu/tag/0621",
+                "sha256": "8d5bac16de4f927f6314d9b137f91555cc4e7e5b2bcd23eb794fedf98326eda4",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "00MV",
+                "url": "https://stacks.math.columbia.edu/tag/00MV",
+                "sha256": "a4b6cad3f5dee6f9edc75b56038dcbc7d2b1bc6659e0a0fa0111f2a1cb76dd7e",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "00N1",
+                "url": "https://stacks.math.columbia.edu/tag/00N1",
+                "sha256": "614b252204d1b7ff6167a4e92416c34079b204d35de5950025b61764fec40966",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "0B52",
+                "url": "https://stacks.math.columbia.edu/tag/0B52",
+                "sha256": "858ef1814c572644a1bd4605e01a785364c85de1798f70521c3ebbd1bae9a7d0",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "0381",
+                "url": "https://stacks.math.columbia.edu/tag/0381",
+                "sha256": "4fcb03789c00757960df8c798a204b6b6587c323d3e433a242ba02eba46f77fe",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "07PF",
+                "url": "https://stacks.math.columbia.edu/tag/07PF",
+                "sha256": "0651722d80eeb7c9dd2c7e7bba6af39903fc0e01518940083af4db62cd1b94f3",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "00OA",
+                "url": "https://stacks.math.columbia.edu/tag/00OA",
+                "sha256": "e737163327130f7503b46c36ad34d131b1fd945cf31420240425d9ddd9b74ce3",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "00LS",
+                "url": "https://stacks.math.columbia.edu/tag/00LS",
+                "sha256": "50a73d256efa6f8196acc997e873dd085c297916067f4402b545501975f526fc",
+                "date": "2026-09-24"
+              },
+              {
+                "tag": "00MW",
+                "url": "https://stacks.math.columbia.edu/tag/00MW",
+                "sha256": "7f5f122a42aa7f1fbd22bc39e1c9ba9d7e5d8ec4d50053a2e408a2f855c4e6f1",
+                "date": "2026-09-24"
+              }
+            ]
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -1099,7 +1167,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 745 items (132 library, 45 planned, 568 missing), 24 routes and 91 unreviewed source findings. This continuation decomposes the Z100/Z101 homological regularity suppliers into depth, maximal Cohen–Macaulay freeness, syzygies, well-ordered extensions, minimal resolutions, Koszul comparison and determinantal depth bounds. It adds 36 items, including 12 library imports, and preserves all inherited statements and findings. Recursive source/declaration closure, the rest of the regularity frontier and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
+  "summary": "Partial extraction: 745 items (132 library, 45 planned, 568 missing), 24 routes and 91 unreviewed source findings. This continuation decomposes the Z100/Z101 homological regularity suppliers into depth, maximal Cohen–Macaulay freeness, syzygies, well-ordered extensions, minimal resolutions, Koszul comparison and determinantal depth bounds. It adds 36 items, including 12 library imports, and preserves all inherited statements and findings. Recursive source/declaration closure, the rest of the regularity frontier and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted. The 24 September homological assembly continuation imports the principal-cut and scalar-length facts already in Mathlib, gives the shared finite Koszul and fixed-size determinantal contracts, and supplies the finite-separable regularity step; the extraction remains partial.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -12275,12 +12343,10 @@
         }
       ],
       "proofSteps": [
-        "The remark is one sentence and asserts existence of P; the blueprint must carry the construction of that P, because the whole point is to replace W_gen(r-bar) by W(r-bar) in the conclusion of Theorem 9.1.6 (V07). Work throughout with the tame inertial L-parameter tau = r-bar_p|_{I_{Q_p}} and its lowest alcove presentation (s, mu - eta).",
-        "Genericity of a Serre weight is a condition on its lowest alcove presentation: by the conventions of 2.1 (p. 33), a weight with lowest alcove presentation (w-tilde, omega) is m-generic exactly when omega is m-deep. So it suffices to control the omega attached to each predicted weight.",
-        "Proposition 2.6.2 (p. 52) supplies exactly that control, for m >= 2h_eta: for a tame inertial L-parameter with an m-generic lowest alcove presentation, (w-tilde, w-tilde_2) |-> F(w-tilde, w-tilde(tau) w-tilde_2^{-1}(0)) is a bijection onto W?(tau). Hence every sigma in W?(tau) has a lowest alcove presentation whose omega is mu translated by one of the finitely many elements w-tilde(tau) w-tilde_2^{-1}(0) of X^*(T) = Z^n, the pairs ranging over a finite set determined by n alone (the same set R and w-tilde_2 that index the product Q in the proof of Lemma 9.1.9).",
-        "Therefore, for any target depth m, if mu is (m + c(n))-deep with c(n) := max over that finite set of the sup-norm of w-tilde(tau) w-tilde_2^{-1}(0), then every omega above is m-deep, i.e. every element of W?(tau) is m-generic. The bound c(n) depends only on n, not on p or on mu, which is what makes a single polynomial work for all p.",
-        "Take P to be the product of the polynomial of Theorem 9.1.6 with the finitely many linear factors (X + w-tilde w-tilde_2^{-1}(0)) over the same index set - the construction the proof of Lemma 9.1.9 already performs for Q - shifted so that non-vanishing mod p forces the depth (m + c(n)) required above. P-genericity of mu then makes every predicted weight generic.",
-        "Consequence for V07: W?(r-bar_p|_{I_{Q_p}}) consists of generic Serre weights only, so W_gen(r-bar) = W(r-bar) and the conclusion of Theorem 9.1.6 may be stated as W(r-bar) = W^BM_gen(r-bar_p). A blueprint must prove the depth bound c(n) explicitly rather than quoting 'there exists P'; nothing else in 9.1.6 changes."
+        "Remark9.1.7(2), PDF184, asserts that an enlarged polynomial makes all predicted weights generic. The remark does not print the construction; the following separates the available depth estimate from the remaining genericity argument.",
+        "Proposition2.6.2, PDF52, already supplies the precise uniform depth bound: if the lowest alcove presentation of τ is m-generic with m≥2h_η, its predicted Jordan–Hölder weights are (m−h_η)-deep. Its proof bounds the root pairings of the fixed offsets w̃_2^−1(0) by h_η. Do not define a constant depending only on n as the norm of w̃(τ)w̃_2^−1(0): that expression includes the varying translation of τ.",
+        "The unqualified genericity needed here is Definition8.4.6, PDF172: occurrence in a type belonging to S_{0,t}, and no covered weight occurring in any type from its complement in Ŝ_{0,t}. Depth alone does not establish this definition. The inherited note proposes a finite shifted-polynomial argument through Lemma8.4.11 and Remark8.4.13. Its exact index set, polynomial and exclusion proof remain the named gap V15-genericity-polynomial; no completed proof is asserted by replacing them with a depth condition.",
+        "Once that polynomial construction is supplied, V07 gives W(r̄)=W?(r̄_p|I); every such weight is then generic in Definition8.4.6, so W_gen(r̄)=W(r̄). Substitute this in the second equality of Theorem9.1.6. This last implication is conditional on the still-open polynomial construction."
       ]
     },
     {
@@ -21592,14 +21658,15 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z96",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z97",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z98",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z100"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z100",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z141"
       ],
       "implementationStatus": "unchecked",
       "note": "This is a source-level correction proof. No claim that the entire G-ring stability proof, especially its characteristic-p branch, is closed or implemented. Passing from a regular local ring to regularity of all its localizations uses the existing R03.3 regular-local/global-dimension package (Z100), rather than an unprovided instance at the pin.",
       "proofSteps": [
         "Polynomial regularity is L116. Localize at q, complete using Z96, then invert R minus zero. The resulting Noetherian ring C=R[x]_q̂⊗_R K is regular. Localizations of regular rings are regular by the prime-local definition.",
         "If r=0, the fibre further localizes C by the nonzero elements of K[x]. If r≠0, rK[x]=(g) for a nonconstant irreducible g∈K[x], and the fibre is C/(g), not a localization of the completion. In characteristic zero g is separable, so Bezout for g,g′ makes g′ a unit modulo g.",
-        "The R-derivation d/dx extends to R[x]_q and its completion using the quotient rule and Z97, and then to C. It sends g to g′. Apply Z98 to obtain regularity of C/(g). Finally a Noetherian algebra over a characteristic-zero field is geometrically regular when it is regular, since finite field extensions are separable. The finite-separable base-change supplier remains recorded in the regularity gap, rather than replaced by an assertion for imperfect fields."
+        "The R-derivation d/dx extends to R[x]_q and its completion using the quotient rule and Z97, and then to C. It sends g to g′. Apply Z98 to obtain regularity of C/(g). Apply Z140/Z141 to this regular Noetherian algebra over κ(r), which has characteristic zero. This supplies the finite-separable scalar-extension step explicitly; it makes no regular-implies-geometrically-regular assertion over imperfect fields."
       ]
     },
     {
@@ -22507,11 +22574,14 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
       "kind": "construction",
       "name": "Finite Koszul complex used by the residue-field comparison",
-      "statement": "For a finite list x1,…,xn in a commutative R, use the shared finite Koszul precursor to DD.1: K_i=exterior^i R^n, with differential deleting the ath basis vector with coefficient (−1)^(a+1)x_ja in one-based indexing. H0=R/(x1,…,xn). No regular-sequence hypothesis is required to construct K or identify H0.",
-      "locator": "Stacks00OA displayed complex; shared Koszul model of DerivedDeRhamCohomology:DD.1",
+      "statement": "For a finite list x1,…,xn in a commutative R, construct the shared finite Koszul precursor to DD.1: K_i=exterior^i R^n, with differential deleting the ath basis vector with coefficient (−1)^(a+1)x_ja in one-based indexing, augmented to R/(x1,…,xn). No regular-sequence hypothesis is required. Its zeroth-homology identification is the separate item Z131.",
+      "locator": "Stacks0621 Definitions15.29.1–2 and00OA; existing finite Koszul precursor of DerivedDeRhamCohomology:DD.1",
       "status": "planned",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L131",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L142",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L133"
       ],
       "implementationStatus": "unchecked",
       "planned": [
@@ -22519,22 +22589,89 @@
       ],
       "note": "Import the finite algebraic precursor only. Do not put derived completion, animation or the whole DD.1 layer ahead of R03.3. Prismatic, A_inf, derived-de Rham and local-cohomology uses must share this complex; quadratic-algebra Koszul duality is a different notion.",
       "uses": [
-        "Z123 needs a projective source complex, not an exact one",
-        "Z125 identifies degree1 modulo m²"
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z123",
+          "how": "Supply a projective source complex without requiring source exactness."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z125",
+          "how": "Compute the differential modulo m² and base change to the residue field."
+        },
+        {
+          "where": "DerivedDeRhamCohomology:DD.1",
+          "how": "Supply the finite algebraic precursor to derived Koszul quotients."
+        }
       ],
       "api": [
-        "koszul_d_basis: alternating deletion formula",
-        "koszul_d_squared: pairwise cancellation gives zero over every commutative ring",
-        "koszul_H0: cokernel of d1 is the quotient by the list ideal",
-        "koszul_baseChange: termwise tensor transport with list images",
-        "koszul_nil: empty list gives R in degree0",
-        "koszul_regular_resolution: acyclicity is a separate theorem requiring regularity"
+        {
+          "name": "FiniteKoszul.d_basis",
+          "role": "simp",
+          "statement": "The differential on an ordered wedge is the signed deletion sum."
+        },
+        {
+          "name": "FiniteKoszul.d_squared",
+          "role": "relation",
+          "statement": "The consecutive differentials compose to zero over any commutative ring."
+        },
+        {
+          "name": "FiniteKoszul.homology_zero",
+          "role": "equivalence",
+          "statement": "H0 is canonically R/(x), supplied by Z131."
+        },
+        {
+          "name": "FiniteKoszul.baseChange",
+          "role": "functoriality",
+          "statement": "Termwise tensoring gives the chain isomorphism of Z132."
+        },
+        {
+          "name": "FiniteKoszul.mul_nullHomotopic",
+          "role": "compatibility",
+          "statement": "Multiplication by any listed generator is null-homotopic, supplied by Z133."
+        },
+        {
+          "name": "FiniteKoszul.nil",
+          "role": "example",
+          "statement": "The empty list gives R in degree0 and zero elsewhere."
+        }
       ],
       "unitTests": [
         "For the empty list, H0=R and positive terms vanish",
         "For list[0] over nonzero R, d1=0 and H1=R, so K is not a resolution of H0",
         "For list[a,b], d2(e1∧e2)=a e2−b e1 and d1d2=0",
         "The same two-element identity holds in characteristic2 with the signs interpreted in R"
+      ],
+      "proofSteps": [
+        "Use L124 to identify K_i with the free module on the ordered i-element subsets of {1,…,n}. Define d_i by the signed deletion formula and extend R-linearly. For i>n the indexing set is empty, so the term is zero.",
+        "For a basis wedge and two deleted positions a<b, the two orders of deletion give the same remaining wedge with coefficients (−1)^(a+b+1)x_a x_b and (−1)^(a+b+2)x_b x_a. They cancel over every commutative ring, including characteristic2. This proves d²=0 on the basis.",
+        "L142 bundles these modules and maps as a natural-number-indexed chain complex in ModuleCat. The augmentation to R/(x) kills d1. L133 makes every finite free term projective. No exactness is assumed; Z131 identifies H0 and Z132 supplies scalar change.",
+        "The construction is the finite free specialization of contraction by a linear form E→R on exterior powers. The invariant signed contraction formula is alternating in the inputs, hence descends by the existing exterior universal property. Its agreement with the basis formula proves independence of the chosen basis. Cochain consumers reindex K_i to K^(−i), without changing the differential."
+      ],
+      "tests": [
+        {
+          "name": "koszul_empty",
+          "kind": "example",
+          "statement": "The empty list has H0=R and zero higher terms."
+        },
+        {
+          "name": "koszul_zero",
+          "kind": "counterexample",
+          "statement": "For [0] over nonzero R, H1=R; this complex is not a resolution of H0."
+        },
+        {
+          "name": "koszul_pair",
+          "kind": "example",
+          "statement": "For [a,b], d2(e1∧e2)=a e2−b e1 and d1d2=0."
+        },
+        {
+          "name": "koszul_char_two",
+          "kind": "example",
+          "statement": "The pair cancellation remains valid in characteristic2."
+        },
+        {
+          "name": "koszul_nonflat",
+          "kind": "counterexample",
+          "statement": "For [2] over Z, H1=0; after tensoring with F2 its H1 is F2. Termwise base change does not commute with homology."
+        }
       ]
     },
     {
@@ -22545,7 +22682,9 @@
       "locator": "Stacks00LS, Lemma10.71.4, free-module version; projective extension uses pinned L125",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L125"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L125",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L133",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L134"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
@@ -22585,7 +22724,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z121",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z123",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z124"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z124",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L133",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L135",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z131",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z132"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
@@ -22602,25 +22746,71 @@
       "locator": "Stacks00MV, Definition10.102.5",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z135",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136"
       ],
       "implementationStatus": "unchecked",
       "uses": [
-        "Z127 needs rank preservation before localizing I(φ)",
-        "Z128 needs I(φ_n) proper for a nonzero top term"
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z127",
+          "how": "Preserve ranks before selecting maximal minor ideals in the necessary depth criterion."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z128",
+          "how": "Read off a proper maximal-minor ideal for a nonzero top term."
+        }
       ],
       "api": [
-        "minorIdeal_basisChange: invertible changes of bases preserve the ideal of each fixed-size minor",
-        "rank_baseChange_le: rank can drop after a ring map",
-        "fixedMinorIdeal_baseChange: fixed-size minor ideals commute with base change",
-        "maximalMinor_baseChange: require the same rank before identifying I(φ) after base change",
-        "splitExact_rank: ranks are alternating sums of term ranks and I(φ)=R"
+        {
+          "name": "DeterminantalRank.iff_exterior",
+          "role": "characterisation",
+          "statement": "Rank is the maximum nonzero exterior degree, equivalently the maximum r with Jr≠0."
+        },
+        {
+          "name": "DeterminantalRank.basisChange",
+          "role": "compatibility",
+          "statement": "Invertible changes of source and target preserve rank and I."
+        },
+        {
+          "name": "DeterminantalRank.baseChange_le",
+          "role": "functoriality",
+          "statement": "Rank can only drop under a map to a nonzero ring; Z137."
+        },
+        {
+          "name": "MaximalMinorIdeal.baseChange",
+          "role": "compatibility",
+          "statement": "If rank stays r, I after scalar change is the extension of I before scalar change; Z137."
+        }
       ],
       "unitTests": [
         "For φ=[t] over k[t], rank1 and I=(t), but after t↦0 rank0 and I=R",
         "For an identity block of size r, the r-minor ideal is R",
         "For the zero matrix, rank0 and the empty-minor ideal is R",
         "A unit row or column operation changes individual minors but preserves their generated ideal"
+      ],
+      "tests": [
+        {
+          "name": "rank_zero",
+          "kind": "example",
+          "statement": "A zero map over nonzero R has rank0 and I=R."
+        },
+        {
+          "name": "rank_identity",
+          "kind": "example",
+          "statement": "An identity block of size r has rank r and I=R."
+        },
+        {
+          "name": "rank_specialization",
+          "kind": "counterexample",
+          "statement": "[t] over k[t] has rank1, but at t=0 its rank is0 and its rank-selected ideal is the whole field."
+        },
+        {
+          "name": "rank_unit_operations",
+          "kind": "characterisation",
+          "statement": "Elementary invertible row and column operations preserve the rank and ideal."
+        }
       ]
     },
     {
@@ -22634,13 +22824,18 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z126",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z121",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L126",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L94"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L94",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z135",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z137",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z138",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z139"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "Remove unit summands. Localize at associated primes: there the maximal ideal kills a nonzero element. Exactness of the highest nonzero differential forces a unit coefficient; repeatedly split. The resulting split complex has the alternating-sum ranks and unit maximal-minor ideals.",
-        "The map R→product_(q in Ass R) R_q is injective (0311), so these prescribed ranks hold over R too. Only then identify the localizations of I(φ_i). Prime avoidance provides a nonzerodivisor x in the product of these ideals.",
-        "Reduce modulo x. The homology sequence leaves exactness in degrees≥2; remove degree0 and induct on the length. For i≥2 the inductive rank formula on the shortened complex is still r_i, so its maximal-minor ideal equals the image of the fixed r_i-minor ideal. Lift the regular list of length i−1 and prepend x. For i=1, x alone suffices. If the original positive-degree complex is zero the assertion is vacuous; otherwise minimality makes the product ideal proper, so x lies in m.",
+        "Remove unit summands. Localize at associated primes: there the maximal ideal kills a nonzero element. Exactness of the highest nonzero differential forces a unit coefficient; repeatedly split. The resulting split complex has the alternating-sum ranks and unit maximal-minor ideals. Z138 justifies both invariance under removed identity summands and the split rank calculation.",
+        "The map R→product_(q in Ass R) R_q is injective (0311), so these prescribed ranks hold over R too. Only then identify the localizations of I(φ_i). Prime avoidance provides a nonzerodivisor x in the product of these ideals. Z139 makes the faithful-family rank inference explicit, and Z136 handles the fixed-size ideal after localization.",
+        "Reduce modulo x. The homology sequence leaves exactness in degrees≥2; remove degree0 and induct on the length. For i≥2 the inductive rank formula on the shortened complex is still r_i, so its maximal-minor ideal equals the image of the fixed r_i-minor ideal. Lift the regular list of length i−1 and prepend x. For i=1, x alone suffices. If the original positive-degree complex is zero the assertion is vacuous; otherwise minimality makes the product ideal proper, so x lies in m. Specifically, applying induction to the shortened exact complex proves its rank is r_i; only then use Z136 to identify its maximal minors with J_(r_i)(φ_i) modulo x. This avoids a circular assumption of rank preservation.",
         "Only this necessary direction is used for Z128. The converse Buchsbaum–Eisenbud criterion was read but is not asserted as a closed supplier here."
       ]
     },
@@ -22716,18 +22911,20 @@
       "kind": "theorem",
       "name": "Support dimension under a principal cut",
       "statement": "For nonzero finite M over Noetherian local R and x∈m, dim Supp(M/xM)≤dim Supp M≤dim Supp(M/xM)+1. If x avoids every minimal prime of Supp M, in particular if x is M-regular, the second inequality is an equality.",
-      "locator": "Stacks0B52 with00L3 and00KW, full statements and proofs read",
-      "status": "missing",
-      "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L130",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L126",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64"
-      ],
+      "locator": "Stacks0B52; Mathlib/RingTheory/KrullDimension/Regular.lean:141–159 and Module.lean:75–79 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "prerequisites": [],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "L130 identifies the quotient support with the principal cut. For each irreducible component V(p), lift a system of parameters from (R/p)/(x); adding x gives an ideal of definition in R/p, so the parameter-number bound gives the inequality. Take the maximum over the finitely many components.",
-        "If x avoids the minimal primes, each prime chain in the cut can be extended strictly downward by a minimal prime of Supp M. Combine the inequalities. The ideal-of-definition characterization of dimension is the parameter-chain argument already recorded in Z64; this does not use Z107."
-      ]
+        "All three assertions are direct pinned imports: use supportDim_le_of_surjective on M→M/xM, the principal-cut bound, and the minimal-prime or regular-element equality. Ambient hypotheses are Noetherian R, finite M and local R; the source statement has no stronger generality. No new parameter-chain proof is needed."
+      ],
+      "library": [
+        "mathlib:Module.supportDim_le_of_surjective",
+        "mathlib:Module.supportDim_le_supportDim_quotSMulTop_succ",
+        "mathlib:Module.supportDim_quotSMulTop_succ_eq_of_notMem_minimalPrimes_of_mem_maximalIdeal",
+        "mathlib:Module.supportDim_quotSMulTop_succ_eq_supportDim"
+      ],
+      "note": "Fresh exact match on 24 September 2026. Retain this stable ID, remove it from the missing route, and import it in the Cohen–Macaulay argument."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z130",
@@ -22739,12 +22936,493 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L130",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L92",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L99"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L99",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L137"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
         "For M≠0, L130 identifies Spec(R/Ann M) with the nonempty support {m}; hence R/Ann M is Noetherian and zero-dimensional.",
-        "L92 makes this quotient Artinian. M is finite over it, so L99 gives finite length. Submodules and composition factors are the same whether scalars are R or its annihilator quotient. The zero module has length zero."
+        "L92 makes R/Ann(M) Artinian. The finite module has finite length over that quotient by L99. The scalar action factors through R/Ann(M), and the quotient map is surjective, so L89 identifies its extended-natural lengths over R and R/Ann(M). L137 turns that equality into finite length over R. For M=0 use length zero directly."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L131",
+      "kind": "theorem",
+      "name": "Functoriality and generators of exterior powers",
+      "statement": "For commutative R and R-linear f:M→N, exteriorPower.map r f sends an r-fold wedge to the wedge of its images; these maps preserve identity and composition. Linear maps from an exterior power are determined by their values on pure wedges.",
+      "locator": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean:206–298, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:exteriorPower.linearMap_ext",
+        "mathlib:exteriorPower.alternatingMapLinearEquiv",
+        "mathlib:exteriorPower.map_apply_ιMulti",
+        "mathlib:exteriorPower.map_id",
+        "mathlib:exteriorPower.map_comp"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L132",
+      "kind": "theorem",
+      "name": "Exterior-power coordinates are determinants",
+      "statement": "For an ordered basis b of M, a size-r subset I and vectors v1,…,vr, the I-coordinate of v1∧…∧vr is det(b_i(v_j)) with rows i∈I and columns j. The pinned formula uses its transpose, whose determinant is equal. Consequently the matrix of exteriorPower.map r φ in exterior bases consists of the r-minors of the matrix of φ.",
+      "locator": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean:49–52,114–127, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L131",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124"
+      ],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:exteriorPower.ιMultiDual_apply_ιMulti",
+        "mathlib:exteriorPower.basis_coord",
+        "mathlib:exteriorPower.basis_repr_apply"
+      ],
+      "prerequisiteNote": "The final coordinate specialization uses L131 and the already imported exterior basis L124."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L133",
+      "kind": "theorem",
+      "name": "Projective modules and projective objects agree",
+      "statement": "For a ring R and an R-module P in universe v, with R small in v, Module.Projective R P is equivalent to categorical projectivity of ModuleCat.of R P. Free modules give projective objects using their bases.",
+      "locator": "Mathlib/Algebra/Category/ModuleCat/Projective.lean:25–57, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:IsProjective.iff_projective",
+        "mathlib:ModuleCat.projective_of_free"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L134",
+      "kind": "theorem",
+      "name": "Module-category exactness is image equals kernel",
+      "statement": "For a short complex S of R-modules, categorical exactness is equivalent to range(S.f)=ker(S.g), and equivalently every vector killed by S.g has a preimage under S.f. The underlying ring need not be commutative.",
+      "locator": "Mathlib/Algebra/Homology/ShortComplex/ModuleCat.lean:46–57, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:ShortComplex.moduleCat_exact_iff",
+        "mathlib:ShortComplex.moduleCat_exact_iff_range_eq_ker"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L135",
+      "kind": "theorem",
+      "name": "Module-category homology is the cycles quotient",
+      "statement": "For a short complex S of R-modules, its categorical homology is canonically isomorphic to ker(S.g) modulo the range of the map S.f into that kernel. The isomorphism carries the canonical cycle projection to the quotient map.",
+      "locator": "Mathlib/Algebra/Homology/ShortComplex/ModuleCat.lean:169–188, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:ShortComplex.moduleCatHomologyIso",
+        "mathlib:ShortComplex.π_moduleCatCyclesIso_hom"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L136",
+      "kind": "theorem",
+      "name": "Determinants commute with ring homomorphisms",
+      "statement": "For a homomorphism f:R→S of commutative rings and a square matrix A on any finite index type, f(det A)=det(f(A)), with f applied entrywise.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:318–320, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:RingHom.map_det"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L137",
+      "kind": "theorem",
+      "name": "Finite length is finite extended-natural length",
+      "statement": "For any module M over a ring R, Module.length R M differs from infinity if and only if IsFiniteLength R M. Combining this with L89 transports finite length along a surjective compatible scalar map.",
+      "locator": "Mathlib/RingTheory/Length.lean:94–105, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Module.length_ne_top_iff"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L138",
+      "kind": "theorem",
+      "name": "A finite separable field extension has a power basis",
+      "statement": "For fields k⊂L with L finite-dimensional and separable over k, there is a primitive element α with k(α)=L and a power basis generated by such an α.",
+      "locator": "Mathlib/FieldTheory/PrimitiveElement.lean:198–231, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Field.exists_primitive_element",
+        "mathlib:Field.powerBasisOfFiniteOfSeparable"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L139",
+      "kind": "theorem",
+      "name": "Polynomial quotient presentation from a power basis",
+      "statement": "For commutative R, an R-algebra S with power basis pb, and g∈R[T], suppose minpoly_R(pb.gen) vanishes at the universal root of g and g vanishes at pb.gen. Then AdjoinRoot g≃_R S, carrying the universal root to pb.gen. In particular take g=minpoly_R(pb.gen).",
+      "locator": "Mathlib/RingTheory/AdjoinRoot.lean:805–828, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:AdjoinRoot.equiv'"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L140",
+      "kind": "theorem",
+      "name": "Separable polynomials have a derivative Bezout identity",
+      "statement": "For a separable polynomial f over a commutative ring there are polynomials a,b with af+bf′=1. Separability is preserved by coefficient homomorphisms. For a separable field extension, each element has separable minimal polynomial.",
+      "locator": "Mathlib/FieldTheory/Separable.lean:42–55,117–121,536–555, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Polynomial.separable_def'",
+        "mathlib:Polynomial.Separable.map",
+        "mathlib:Algebra.IsSeparable.isSeparable"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L141",
+      "kind": "theorem",
+      "name": "Algebraic extensions in characteristic zero are separable",
+      "statement": "If F is a characteristic-zero field and K is a domain integral over F, then K/F is separable in Mathlib’s algebraic sense. In particular every finite field extension of F is separable.",
+      "locator": "Mathlib/FieldTheory/Separable.lean:656–666, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Algebra.IsSeparable.of_integral"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L142",
+      "kind": "construction",
+      "name": "Bundling successor differential data as a chain complex",
+      "statement": "In a category with zero morphisms, objects X_n indexed by natural numbers and maps d_n:X_(n+1)→X_n satisfying d_n∘d_(n+1)=0 determine ChainComplex.of X d. Its consecutive differentials are d_n and its other differentials are zero. ChainComplex.ofHom bundles degreewise maps commuting with consecutive differentials.",
+      "locator": "Mathlib/Algebra/Homology/HomologicalComplex.lean:632–681, statements and ambient binders read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 24 September 2026",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:ChainComplex.of",
+        "mathlib:ChainComplex.of_d",
+        "mathlib:ChainComplex.of_d_ne",
+        "mathlib:ChainComplex.ofHom"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
+          "how": "Bundle the finite exterior-power complex using existing chain-complex data."
+        }
+      ],
+      "api": [
+        {
+          "name": "ChainComplex.of",
+          "role": "constructor",
+          "statement": "Supply objects, successor maps and their zero composites."
+        },
+        {
+          "name": "ChainComplex.of_d",
+          "role": "simp",
+          "statement": "The map from n+1 to n is the supplied differential."
+        },
+        {
+          "name": "ChainComplex.ofHom",
+          "role": "functoriality",
+          "statement": "Bundle a degreewise commuting family."
+        }
+      ],
+      "tests": [
+        {
+          "name": "chain_zero",
+          "kind": "example",
+          "statement": "All zero objects and maps give the zero complex."
+        },
+        {
+          "name": "chain_two_term",
+          "kind": "example",
+          "statement": "A map X1→X0 with zero higher objects gives a two-term complex."
+        },
+        {
+          "name": "chain_shape",
+          "kind": "characterisation",
+          "statement": "Every differential outside consecutive degrees is zero."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z131",
+      "kind": "theorem",
+      "name": "Zeroth homology of the finite Koszul complex",
+      "statement": "For any finite list x in a commutative ring R, H0(K_R(x)) is canonically R/(x); the identification is induced by the quotient map in degree0. Higher homology is not asserted to vanish.",
+      "locator": "Stacks00OA cokernel calculation and0621 Definitions15.29.1–2; explicit assembly",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L135"
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "proofSteps": [
+        "The map d1:R^n→R has image precisely the ideal generated by the entries x_j: one inclusion follows from its finite linear-combination formula and the other from its values on the standard basis.",
+        "The outgoing differential of degree0 is zero. L135 identifies its homology with the cokernel of d1, which is R/(x). The empty list gives R, including the zero-ring case."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z132",
+      "kind": "theorem",
+      "name": "Base change of the finite Koszul complex",
+      "statement": "For any homomorphism R→S of commutative rings and finite list x in R, termwise tensor product gives a chain isomorphism S⊗_R K_R(x)≅K_S(image(x)). Flatness is unnecessary. This does not assert H_i(K_R(x))⊗S≅H_i(K_S(image(x))).",
+      "locator": "Finite free specialization of Stacks0621 signed exterior construction; basis calculation",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L142"
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "proofSteps": [
+        "Both degree-i modules are free on the same i-element subsets. Send s⊗e_J to s e_J; its inverse sends the target basis vector to 1⊗e_J. The balanced relation and basis expansions prove that these maps are inverse.",
+        "The consecutive differential matrices have signed entries x_j. Applying R→S gives precisely the target matrices, so the degreewise maps commute with d. Bundle the map and its inverse with L142. This argument does not commute homology with a nonflat tensor product."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z133",
+      "kind": "theorem",
+      "name": "Koszul multiplication is null-homotopic",
+      "statement": "For x_j in a finite list x, exterior multiplication h_j(w)=e_j∧w on K_R(x) satisfies d h_j+h_j d=x_j id. Thus each x_j, and hence the ideal (x), annihilates all Koszul homology.",
+      "locator": "Stacks0621 Lemmas15.29.5–6, with their proofs",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L135"
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "proofSteps": [
+        "Expand signed contraction on e_j∧w: the deleted e_j contributes x_j w, and every other deletion is −e_j∧d(w). This includes repeated e_j by alternation.",
+        "If w is a cycle then x_j w=d(h_j w) is a boundary. Linearity gives the ideal-annihilation assertion. The formula also contracts the complex when one x_j is a unit."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+      "kind": "definition",
+      "name": "Fixed-size determinantal ideals",
+      "statement": "For a map φ:P→Q between finite free modules over a commutative ring R and integer r≥0, define J_r(φ) as the ideal generated by all ℓ((exterior^r φ)(u)), with u∈exterior^r P and ℓ∈Hom_R(exterior^r Q,R). Equivalently it is generated by the r-minors in any bases. Set J0=R and J_r=0 when r exceeds either rank. The definition also applies to the zero ring; the maximum nonzero rank of Z126 is restricted to nonzero R.",
+      "locator": "Stacks00MV fixed-size precursor; coefficient description from pinned L132",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L124",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L131",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L132"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Expand u in an exterior basis and ℓ in its coordinate dual. The defining values are linear combinations of the matrix coefficients of exterior^r φ, and each coefficient occurs by choosing a basis vector and a coordinate form.",
+        "L132 identifies those coefficients with r-minors. In degree0 the map is the identity of R; beyond either rank one exterior power is zero. These arguments include empty index sets."
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z127",
+          "how": "Reduce and localize fixed-size minor ideals before using the separately proved rank equality."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z126",
+          "how": "Recover the rank-selected ideal from the family J_r."
+        }
+      ],
+      "api": [
+        {
+          "name": "minorIdeal.mem_span",
+          "role": "characterisation",
+          "statement": "J_r is generated by the r-minors in any bases."
+        },
+        {
+          "name": "minorIdeal.basisChange",
+          "role": "compatibility",
+          "statement": "Changing source and target bases preserves J_r; Z135."
+        },
+        {
+          "name": "minorIdeal.baseChange",
+          "role": "functoriality",
+          "statement": "J_r commutes with any scalar homomorphism; Z136."
+        },
+        {
+          "name": "minorIdeal.zero",
+          "role": "simp",
+          "statement": "J_0=R; above either rank J_r=0."
+        },
+        {
+          "name": "minorIdeal.rank",
+          "role": "characterisation",
+          "statement": "Over nonzero R the determinantal rank is max{r:J_r≠0}; Z137."
+        }
+      ],
+      "tests": [
+        {
+          "name": "minor_zero_matrix",
+          "kind": "example",
+          "statement": "For a nonzero ring and the zero matrix, J0=R and Jr=0 for r>0."
+        },
+        {
+          "name": "minor_rank_drop",
+          "kind": "example",
+          "statement": "For [t] over k[t], J1=(t); at t=0 its image is zero, although the rank-selected ideal of the new zero matrix is J0=k."
+        },
+        {
+          "name": "minor_identity",
+          "kind": "example",
+          "statement": "For diag(1,…,1,0,…,0) with s ones, Jr=R for r≤s and Jr=0 for r>s."
+        },
+        {
+          "name": "minor_empty",
+          "kind": "example",
+          "statement": "For a map with zero source or zero target, all positive-size ideals vanish."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z135",
+      "kind": "theorem",
+      "name": "Determinantal ideals are invariant under basis change",
+      "statement": "For isomorphisms u:P′→P and v:Q→Q′ between finite free R-modules, J_r(vφu)=J_r(φ) for all r. In particular the determinantal ideal does not depend on bases.",
+      "locator": "Intrinsic fixed-size refinement of Stacks00MV, using exterior-power functoriality",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L131"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "By L131, exterior^r(vφu) is exterior^r v composed with exterior^r φ and exterior^r u. Both outside maps are invertible.",
+        "As the source vector and target linear functional vary, composing with these two isomorphisms permutes exactly the generating values in Z134. Thus both ideals have the same generators; no division by a determinant is used."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
+      "kind": "theorem",
+      "name": "Fixed-size minor ideals commute with arbitrary base change",
+      "statement": "For any homomorphism f:R→S of commutative rings and finite free φ, J_r(S⊗φ)=J_r(φ)S for each fixed r. In particular this holds for localization and quotient maps, including nonflat maps.",
+      "locator": "Coefficient refinement of Stacks00N1 rank-preserving localization step",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L136"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Choose finite bases and use their tensor images as bases after scalar change. Every target r-minor is the image of the corresponding source r-minor by L136.",
+        "An ideal generated by a set extends to the ideal generated by its images. The descriptions in Z134 therefore give equality. This fixes r throughout and does not infer preservation of maximal nonzero rank."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z137",
+      "kind": "theorem",
+      "name": "Rank and maximal-minor ideals under scalar change",
+      "statement": "Over nonzero commutative R, the rank of a finite free φ equals max{r:J_r(φ)≠0}. Under R→S with S nonzero it cannot increase. If it remains r, I(S⊗φ)=I(φ)S; without rank preservation only the fixed-size equality of Z136 holds.",
+      "locator": "Stacks00MV and00N1; exact separation of fixed size from rank selection",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z126",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L132"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "L132 and the exterior bases show exterior^r φ=0 precisely when every r-minor is zero, equivalently J_r=0. Degree0 is nonzero over a nonzero ring and the higher degrees eventually vanish, so the maximum exists.",
+        "Z136 implies that an ideal zero before base change remains zero afterwards. This gives the rank inequality. If the ranks agree at r, apply Z136 at that r and unfold I. The example [t] specialized at t=0 shows why the hypothesis cannot be dropped."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z138",
+      "kind": "theorem",
+      "name": "Ranks and minors of a split finite free resolution",
+      "statement": "For a finite free complex exact in positive degrees over a nonzero local ring, if all short exact pieces split and the image modules are finite free, then rank φ_i=Σ_(j=i)^e(−1)^(j−i)n_j and its maximal-minor ideal is the unit ideal. Adding or removing an identity two-term summand preserves the necessary determinantal criterion of Z127.",
+      "locator": "Stacks00MW and00N1 split-complex step; direct block-matrix proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z135"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Choose bases respecting each splitting. Each differential becomes a block identity on its image and zero on the other summands. Counting source rank gives n_i=rank φ_i+rank φ_(i+1), with rank φ_(e+1)=0. Descending substitution gives the alternating sum.",
+        "The maximal nonzero minor of the identity block is 1. Basis invariance Z135 transports this to the original bases.",
+        "For an arbitrary matrix A, Laplace expansion gives J_r(diag(1,A))=J_(r−1)(A)+J_r(A)=J_(r−1)(A) for r≥1; the last inclusion follows by expanding each r-minor into entries times (r−1)-minors. Adding zero rows or columns leaves each fixed-size ideal unchanged. Thus the changed ranks shift by one exactly for the identity differential, and the rank-selected ideals at every differential agree before and after splitting."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z139",
+      "kind": "theorem",
+      "name": "A faithful family detects a common determinantal rank",
+      "statement": "Let R be nonzero and R→∏_a S_a injective, with a nonempty family of nonzero commutative rings. If each scalar extension of a finite free φ has the same determinantal rank r, then φ has rank r. Consequently its rank-selected ideal localizes or base changes to each rank-selected ideal in that family.",
+      "locator": "Stacks00N1 associated-prime proof, expanded at the coefficient level",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z137"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Every minor of size>r maps to zero in every S_a, so injectivity makes it zero in R. Choose one index; a nonzero r-minor there is the image of a source minor and forces that source minor to be nonzero. This also covers r=0 with the empty minor.",
+        "The ranks therefore agree. Apply the fixed-size base-change equality at r. In Z127 the family is localization at associated primes and the already cited Stacks0311 supplies its injectivity; no claim is made that arbitrary localizations preserve rank."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140",
+      "kind": "theorem",
+      "name": "Finite separable scalar extension preserves regularity",
+      "statement": "If k is a field, A is a regular Noetherian k-algebra and L/k is finite separable, then A⊗_k L is regular Noetherian. A need not be finite type over k.",
+      "locator": "Source-level assembly from Stacks07PF and the finite-extension test in0381, using pinned primitive-element and polynomial regularity inputs",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L116",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L138",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L139",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L140",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z98"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "L138 gives a power-basis generator α of L; write f=minpoly_k(α). L139 identifies L with k[T]/(f). The coefficient change map induces A⊗_k L≃A[T]/(f): send a⊗g(α) to a g(T) modulo f, and send T back to 1⊗α. The quotient and tensor universal properties show that these maps are inverse on a⊗1 and 1⊗α.",
+        "The polynomial ring A[T] is regular Noetherian by L116. L140 gives af+bf′=1 over k[T]; map this identity to A[T]. Hence f′ is invertible modulo f even if f factors over A.",
+        "The A-derivation d/dT sends f to f′. Apply Z98 to A[T] and f. Regularity transports through the displayed isomorphism. The zero algebra is covered by the empty-prime convention. No separability of residue fields of A is required."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z141",
+      "kind": "theorem",
+      "name": "Regular algebras in characteristic zero pass every finite field test",
+      "statement": "For a characteristic-zero field k and a regular Noetherian k-algebra A, A⊗_k L is regular for every finite field extension L/k. Thus A is geometrically regular in the finite-extension criterion used in Z76 and Z99.",
+      "locator": "Stacks0381 finite purely inseparable criterion and direct finite-extension proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L141"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "A finite extension of k is integral and hence separable by L141. Apply Z140 for each L.",
+        "In particular the finite purely inseparable tests in Stacks0381 hold (in characteristic zero these extensions are trivial). This establishes geometric regularity in that criterion. The general proof that this is equivalent to all finitely generated field extensions is the source theorem0381; its positive-characteristic supplier chain is not claimed closed here."
       ]
     }
   ],
@@ -23133,7 +23811,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z102",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G47",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G48",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U45"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z141"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results.",
       "stages": [
@@ -23180,8 +23860,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z125",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z126",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z127",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z129",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z130"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z130",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z135",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z137",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z138",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z139"
       ],
       "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced. Homological continuation: Z112–Z118,Z123–Z127 supply source refinements for R03.3, importing L120–L127, its existing depth/CM/regular-local plan and the P7 minimal-complex plan. Z122 imports only the finite Koszul precursor of DD.1, not its derived-completion output. No new roadmap is proposed.",
       "stages": [
@@ -23687,6 +24372,20 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z75"
       ],
       "reason": "The existing R09.1 description includes Hilbert polynomials in the Noetherian setting, and its reviewed AUDIT-01 row explicitly assigns the missing graded-module Hilbert–Serre theorem here. These items give the finite-length coefficient specialization and monomial-rank bridge needed by SF.4’s local Hilbert–Samuel proof. Plan once here and import into SF.4; retain the full Noetherian/coherent-sheaf scope for R09.1’s other consumers. This source addition neither duplicates the library rational-series formula nor creates a private local Hilbert-polynomial owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "DerivedDeRhamCohomology",
+      "stages": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z122",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z131",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z132",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z133"
+      ],
+      "reason": "Provide the finite algebraic Koszul precursor used by the residue-field comparison, shared with derived-completion, prismatic, A_inf and local-cohomology consumers. These are planned imports from DD.1, not a new completion theory. Schedule this precursor before the homological regularity results; no dependency on the whole completion or animation stage is introduced."
     }
   ],
   "sourceIssues": [
@@ -25550,9 +26249,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z101",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z112",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z117",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z127"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z127",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z134",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z136",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z140"
       ],
-      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers. Homological continuation codex-c83e7a: Z106–Z128 and L120–L127 now split the Z100/Z101 depth, syzygy, transfinite and residue-field bounds. Source statements and full cited proofs were read at 38 individual Stacks tags, plus the CM section. Pinned Rees and SES projective-dimension results are imported, not replanned. Further refinement: L128 imports regular-list permutation, L129 arbitrary direct-sum projectivity, and L130 quotient support. Z113 is already library via free_quotSMulTop_iff_free. Z129/Z130 supply the support cut and finite-length kernel. Z117 now records the elementwise exact-union argument, and Z127 gives the rank-preserving shifted induction rather than an unproved arbitrary base-change identity. Remaining homological declaration/assembly leaves: identify the generic finite Koszul construction and its module/category comparison at the shared owner; map the principal-cut parameter-chain argument and finite-length scalar restriction to exact declarations; assemble the necessary determinantal criterion with basis-independent fixed-size minor ideals. The source-level arguments are written out, but these Lean-facing assembly obligations are not silently classed as library results. These are precise obligations, not a claim of recursive homological closure. After them, continue finite-separable base change in Z99, standard-smooth/cotangent dimension in Z102, characteristic-p07PR/07PU and Cohen structure032D in Z79."
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers. Homological continuation codex-c83e7a: Z106–Z128 and L120–L127 now split the Z100/Z101 depth, syzygy, transfinite and residue-field bounds. Source statements and full cited proofs were read at 38 individual Stacks tags, plus the CM section. Pinned Rees and SES projective-dimension results are imported, not replanned. Further refinement: L128 imports regular-list permutation, L129 arbitrary direct-sum projectivity, and L130 quotient support. Z113 is already library via free_quotSMulTop_iff_free. Z129/Z130 supply the support cut and finite-length kernel. Z117 now records the elementwise exact-union argument, and Z127 gives the rank-preserving shifted induction rather than an unproved arbitrary base-change identity. Remaining homological declaration/assembly leaves: identify the generic finite Koszul construction and its module/category comparison at the shared owner; map the principal-cut parameter-chain argument and finite-length scalar restriction to exact declarations; assemble the necessary determinantal criterion with basis-independent fixed-size minor ideals. The source-level arguments are written out, but these Lean-facing assembly obligations are not silently classed as library results. These are precise obligations, not a claim of recursive homological closure. After them, continue finite-separable base change in Z99, standard-smooth/cotangent dimension in Z102, characteristic-p07PR/07PU and Cohen structure032D in Z79. Continuation codex-hjdg0j (24 September2026): the immediate homological assembly frontier is refined. Z129 is an exact pinned library match; Z130 now uses the already imported surjective-scalar length equality L89 and finite-length criterion L137. L133–L135 identify the module/category projectivity, exactness and homology interfaces. Z122/Z131–Z133 give the shared finite Koszul construction and its proof/transport contracts, owned by the finite precursor of DD.1. Z134–Z139 supply basis-independent fixed-size minor ideals, arbitrary base change, rank control and the split/faithful-family steps used in Z127. Z140–Z141 supply the finite-separable and characteristic-zero regularity step of Z99. These are explicit source-level plans and library imports, not Lean elaboration. Resume with Z102 standard-smooth/cotangent dimensions, then the characteristic-p07PR/07PU and Cohen-structure032D branches of Z79; the general0381 criterion still imports its cited field/smoothness suppliers."
     },
     {
       "id": "auxiliary-projector-global-input",
@@ -25596,6 +26298,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
       ],
       "detail": "EGH7.2.1 cites White6.1/6.3; arXiv v8 withdraws White due to an error in the main proof, and the earlier IHES copy differs in numbering. For the LLHLM branch, the read Labesse5.3 applies: LLHLM9.1 (published PDF180–181) assumes [F+:Q]>1 and compactness at infinity. A59–A62 and A77–A81 now give the needed transfer, normalized Speh realization and residual-irreducibility argument; A66–A76 separately expose genericity and the coefficient/Hecke dictionary. Thus exact constituent twists are no longer an open interface. Remaining analytic and Galois suppliers are named in global-descent-supplier-atoms. The specific faulty step in White and the full EGH generality outside LLHLM’s setting have not been audited. This is a bounded source-reliability record, not a confirmed error in EGH/LLHLM and not a requirement to prove the stronger external setting before using the valid LLHLM branch. Continuation codex-7e92bd now supplies A73’s explicit F-split model, realized semisimplification, A50 bridge and full local-genericity assembly. A104–A107 name the Fourier/Haar/globalization/Flath imports; the previously missing assembly is no longer an unexplained premise. This does not claim all original generic supplier proofs are closed. No unchecked White transfer is used."
+    },
+    {
+      "id": "V15-genericity-polynomial",
+      "neededBy": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V15"
+      ],
+      "detail": "Concurrent PR2578 added a proposed V15 proof. Fresh reading of published PDF33,52,172,184 shows two extraction-level problems: its asserted n-only constant includes the varying translation w̃(τ), and m-depth is substituted for unqualified genericity of Definition8.4.6. Use the exact (m−h_η) bound of Proposition2.6.2 for depth, then separately supply the finite shifted-polynomial construction placing relevant types in S_{0,t} and excluding covered weights from the complementary types. Lemma8.4.11/Remark8.4.13 are the inherited leads. The source statement is retained; this is not a claimed LLHLM erratum. V16’s concurrent proof is preserved unchanged and its external CorollaryA.7 remains an import boundary."
     }
   ],
   "sourceData": {
@@ -28300,6 +29009,102 @@
         "data/decompositions/DeformationAndDerivedPatchingAlgebra.json": "6195d61b49ea42fa96b7c34a9b8b16e1bc87911f",
         "data/library-coverage.json": "5e708cfc74a51b10e62149113872fe4e00eb5846"
       }
+    },
+    "codexHjdg0jHomologicalAssembly": {
+      "agent": "Codex",
+      "session": "codex-hjdg0j",
+      "date": "2026-09-24",
+      "atlasCommit": "3a1532cc7d0921583ade73244bfa5a1735cb3d20",
+      "files": [
+        {
+          "path": "Mathlib/Algebra/Category/ModuleCat/Projective.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Projective.lean",
+          "sha256": "7f6555e360106839ee41cc1201308c5dfc7c3411b4f1a115c8c75e4aa765de4b"
+        },
+        {
+          "path": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean",
+          "sha256": "a4857ea05154321bfeb2fa8e906ad87e24977a49cd03cb8785f3f9b19ffa42df"
+        },
+        {
+          "path": "Mathlib/Algebra/Homology/ShortComplex/ModuleCat.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/ShortComplex/ModuleCat.lean",
+          "sha256": "f26bba42b3be9acb93f67638a72c775f9fe93dea7633370c2b5912fae90e07c7"
+        },
+        {
+          "path": "Mathlib/FieldTheory/PrimitiveElement.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/PrimitiveElement.lean",
+          "sha256": "ae93272abab413b8236452f96507a2dcc6f576d16bc34ca0f4ed02c723950b05"
+        },
+        {
+          "path": "Mathlib/FieldTheory/Separable.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Separable.lean",
+          "sha256": "e2dcc1b5d2115b14a25404cb188bd0e5cadb96d30e57b4dcba2abad77398fce1"
+        },
+        {
+          "path": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+          "sha256": "dca54210bf084ae3934b0d71e68bda5b981eb7e3010f4570e0f22191ff04738b"
+        },
+        {
+          "path": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
+          "sha256": "0f4126e8eef8d55f0d11a4d0cb0a6fda09f4f901a04984ad10bf00a0a73c3d01"
+        },
+        {
+          "path": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+          "sha256": "870291a8544ad9297e0c17f3531bea11607a1f0d83b775b13a31981777c30f2e"
+        },
+        {
+          "path": "Mathlib/RingTheory/AdjoinRoot.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdjoinRoot.lean",
+          "sha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+        },
+        {
+          "path": "Mathlib/RingTheory/KrullDimension/Module.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Module.lean",
+          "sha256": "c3981253356b7afc328e1095904e6a5b84d7b6867b9673136639d9cfe765100e"
+        },
+        {
+          "path": "Mathlib/RingTheory/KrullDimension/Regular.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Regular.lean",
+          "sha256": "05d2bd02f6eaee829d748fb45f2a319be54f8d33b8de7fbe3abc02b274acde34"
+        },
+        {
+          "path": "Mathlib/RingTheory/Length.lean",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Length.lean",
+          "sha256": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466"
+        }
+      ],
+      "inputHashes": {
+        "research/blueprint/WORKERS.md": "b6942270511fbb828d02924941e4da5117c969b76e0036c6ca498a4015033670",
+        "research/blueprint/PROTOCOL.md": "29016b887374345a409f35a20a386bdb3de56f56739ca0095b204edb803f4caf",
+        "research/expansion/PROTOCOL.md": "64ed4f8e43f28d3a6e4aa6e55a0dca10ba1b204806d394661915d200bfe47413",
+        "research/blueprint/UPSTREAM_GUIDE.md": "008b34f2bdf6dbcdf3dad03691b8b4aa16f3e68b847dd01e48db9f7432d00e6c",
+        "content/campaign/DerivedDeRhamCohomology/README.md": "a64bbeb7b07118c170625b892460d18947d4d4450891608887ce40962e0ad5ae",
+        "content/campaign/DeformationAndDerivedPatchingAlgebra/README.md": "fcf66a36a2007a3156f741881360b63ce698eef9f55d1eb668b177fb5aa01feb",
+        "content/campaign/SchemeAndStackFoundations/README.md": "0f4e5ebf672d01737bd2c89fba5b510f202f42ba22bbdd68a6542e8173da1de0",
+        "data/decompositions/DeformationAndDerivedPatchingAlgebra.json": "321c5e0b0f72aaadbba1c1180cfe7d41fb32bdef7093c3252e16c886ceb01628",
+        "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
+        "research/blueprint/reserved-ids.json": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8",
+        "research/blueprint/atlas/roadmaps/DerivedDeRhamCohomology.json": "4965b914288633df9a571198cd22aa721df4c4f1c8017a1fa6d5de07bbb23bcb",
+        "research/blueprint/atlas/roadmaps/DeformationAndDerivedPatchingAlgebra.json": "3ec7b757a16851555a043d2dc5937953143eff9f05ce06d7ec4b29d3d6a7cf40",
+        "content/tau-ceti/GrothendieckEulerForms/README.md": "165e126ebef2cfdc228310b7fc427f9945367168329637d60b57413a99adebef",
+        "content/tau-ceti/RepresentationTheory/CharacterTheory/README.md": "fdb23d48590418c109b204f3060cd67e2581a61f7f5eef91788fd0d5a2438111",
+        "scripts/check_paper.py": "8f80fe26f877c77cb7aee769684473dcb2a66e1059cf557d8932348cea9d0f3e"
+      },
+      "reviewedRowsRead": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3 (AUDIT-17)",
+        "DeformationAndDerivedPatchingAlgebra:P7 (AUDIT-17)",
+        "SchemeAndStackFoundations:SF.4 (AUDIT-01)"
+      ],
+      "absentReviewedRows": [
+        "DerivedDeRhamCohomology:DD.1"
+      ],
+      "ownership": "Read the R03.3 and P7 accepted nodes, owner descriptions and DD.1 finite Koszul/completion contract. The finite precursor is a shared supplier, not a whole-stage prerequisite from regularity to derived completion. Fixed-size determinantal interfaces refine the existing R03.3 criterion, not a second rank or Fitting-ideal theory.",
+      "scope": "Exact pinned matches for the newly imported declarations and the reclassified Z129. Reused L89’s existing length scalar change. Searches in both full pinned trees for KoszulComplex, Koszul complex, determinantal, FittingIdeal/fittingIdeal and minor-ideal phrases found no matching general construction. Tau Ceti’s only regular-ring identifier hit is its tangent-space file, not these ascent/finite-separable results. The search is not a fresh audit of all inherited library items.",
+      "upstreamModels": "The two previously read upstream examples GrothendieckEulerForms and RepresentationTheory/CharacterTheory were byte-confirmed unchanged; no new full reading is claimed."
     }
   },
   "validation": {
@@ -29495,6 +30300,72 @@
       "checks": "Paper checker and three-file intake; all709 inherited statements and objects except the two explicitly refined Z100/Z101 proof/dependency records preserved; all91 sourceIssues and sourceData unchanged; exactly one route per missing item; planned stages resolve; all five new definitions/constructions have uses, APIs and at least three tests;716-edge DAG;17 pinned file hashes.",
       "lean": "No Lean deliverable required or compiled. No new formalization claim.",
       "inherited": "Earlier source corrections and CAS diagnostics remain attributed historical evidence and were not independently reviewed or rerun."
+    },
+    "codexHjdg0jHomologicalAssembly": {
+      "date": "2026-09-24",
+      "status": "partial",
+      "newItems": 23,
+      "inheritedIdsPreserved": 745,
+      "items": 768,
+      "statuses": {
+        "missing": 575,
+        "planned": 48,
+        "library": 145
+      },
+      "routes": 25,
+      "sourceFindingsUnchanged": 91,
+      "sourceDataUnchanged": true,
+      "pinFilesVerified": 12,
+      "diagnostics": {
+        "koszul_symbolic_homotopy_basis_columns": 258,
+        "koszul_symbolic_square_zero": "PASS for lengths0–5; exact polynomial identities over Z",
+        "nonflat_homology_boundary": "[2] over Z has H1=0; its F2 scalar change has zero differential and H1=F2",
+        "integer_minor_ideal_cases": 496,
+        "fixed_size_minor_scalar_checks": 9680,
+        "rank_selected_ideal_boundary": "[t] has I=(t); at t=0 the fixed J1 vanishes but the rank-selected ideal is J0=k",
+        "separability_boundaries": "Q[T]/(T²−2): derivative inverse T/4; F2[T]/(T²+1): nonzero nilpotent T+1 and zero derivative"
+      },
+      "lean": "No Lean file requested, produced or compiled; proof plans and exact finite diagnostics do not certify formalization.",
+      "scope": "Only V15,Z99,Z122,Z123,Z125,Z126,Z127,Z129,Z130 are changed among inherited items. Z122 splits its former H0 assertion into Z131; the other inherited statements are unchanged. Z129 changes from missing to library. No independent review is performed.",
+      "structuralChecks": {
+        "items": 768,
+        "statuses": {
+          "missing": 575,
+          "planned": 48,
+          "library": 145
+        },
+        "routes": 25,
+        "dagEdges": 744,
+        "inheritedIdsPreserved": 745,
+        "changedInheritedItems": [
+          "V15",
+          "Z99",
+          "Z122",
+          "Z123",
+          "Z125",
+          "Z126",
+          "Z127",
+          "Z129",
+          "Z130"
+        ],
+        "unchangedSourceIssues": 91,
+        "sourceDataUnchanged": true,
+        "changedFiles": [
+          "research/blueprint/handoff/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
+          "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
+          "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json"
+        ],
+        "extraFiles": [],
+        "definitionContractsChecked": [
+          "Z122",
+          "Z126",
+          "Z134",
+          "L142"
+        ]
+      },
+      "publicationBase": "aa8623ba4aadb4ae82e1f429386a30d48eca6fa6",
+      "checks": "PASS: check_paper.py; intake check-files (3 files,0 problems); exact three-file archive scope; no extra files;745 inherited IDs and91 source issues preserved; sourceData unchanged;744-edge internal DAG;575 missing items each routed once; external stage prerequisites resolve. Twelve pinned files byte-verified;18 input/deliverable blobs unchanged at publication base.",
+      "concurrency": "Claim5805031698 confirmed by5805033265. PR2578 merged while that claim was active, releasing the issue; refresh preserves its V16 proof. V15 is corrected after source rereading and carries an explicit remaining gap. No independent review is claimed."
     }
   },
   "definitionApiGroups": [
