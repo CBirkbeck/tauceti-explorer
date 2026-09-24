@@ -1,0 +1,39 @@
+{
+  "redteam": "RT-AUDIT-24",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "AUDIT-24",
+  "summary": "Rechecked all 142 targets across 33 layers, all 125 citations (111 distinct declarations), and all 43 overlap references. The seven built targets and the overall library classifications stand. Two findings: the relative cyclotomic norm target drops the source's odd-prime hypothesis, and one overlap note misidentifies an importing Selmer stage as the construction owner.",
+  "checked": [
+    "Independence: AUDIT-24 and REV-AUDIT-24 were performed by other workers. Read the accepted result, complete review, five roadmap documents, and the cited overlap-stage descriptions at explorer commit 44103549a6b1eda59ddfc50b25bb9ae449d371c3.",
+    "Read all 111 distinct cited Lean declarations at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; reconciled their 125 uses with the target and fit fields. Checked ambient hypotheses where needed, including norm transitivity, finite-field Gauss sums, finite-free exterior pairing, open finite-index corestriction and continuous inflation-restriction.",
+    "Reconciled every target/status/note and duplicate list against data/library-coverage.json: 142 targets, seven mathlib, 40 partial and 95 absent; four partly-built and 29 not-built layers. All 43 duplicate references resolve to 38 distinct atlas stages.",
+    "Searched declarations.tsv and both pinned Lean trees, with ignored files included, using alternate vocabulary for all absent/partial target families: cyclotomic and circular units, compatible roots, Tate modules, completed group rings, norm/trace operators, Mahler-Amice measures, pseudo-measures, p-adic logarithms/L-functions, Bernoulli and Gauss sums, Eisenstein series, Selmer/local conditions, Euler/Kolyvagin/Stark systems, Chebotarev/ray class fields, exterior biduals, Gorenstein orders, Fitting/characteristic ideals, Kummer limits, Heegner/Kuga-Sato/Hida and cycle-class/Abel-Jacobi realizations.",
+    "Read additional candidate APIs, including all of AbstractMeasure Basic, generic LogOneAdd and its real-algebra inverse results, local-field/Padic interfaces, abstract class-field formations, and ordinary exterior-algebra contractions. These do not supply the missing specialized objects or theorems.",
+    "Checked the seven fully present targets: field-norm transitivity, the integral Amice equivalence, zeta values including zero, primitive Gauss-sum inversion, conductor/change-of-level theory, imprimitive Euler-factor deletion and level-one Eisenstein q-expansions. No target-level status upgrade/downgrade is proposed.",
+    "Checked the 43 overlap descriptions for carrier, coefficient, weight and theorem scope. Distinguished imports/specialization comparisons from independent proof ownership; finding 2 concerns one specific incorrect owner claim, not deletion of all overlaps.",
+    "Inspected the two integrated decomposition inventories and partial status (16 and six nodes respectively). They are planning artifacts, not additions to the pinned Lean libraries; this is not a new source-by-source review of those packets.",
+    "Read the public Rodrigues Jacinto-Williams arXiv:2309.15692v2 Section 9 and Lemma 10.3 on 2026-09-24. Checked the norm identity against its standing odd-prime assumption and the exact determinant counterexample at p=2, n=1. No error in the published source is alleged.",
+    "Ran the red-team schema checker, intake check-files, full declaration-locator assertions, atlas/coverage reconciliation, and exact rational/integer boundary checks. No Lean file was changed or compiled; these checks are not a formalization claim."
+  ],
+  "findings": [
+    {
+      "id": "RT-AUDIT-24/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-24.result.json, roadmaps.ColemanPowerSeries.layers['ColemanPowerSeries:L0'].targets[4] (fifth target); mirrored in data/library-coverage.json",
+      "claim": "The target N_{K_{n+1}/K_n}(zeta_{p^{n+1}}-1)=zeta_{p^n}-1 omits p odd and is false at p=2. The audit's other odd-prime qualifications are attached to separate targets, not to this one. RJW's standing hypothesis must be carried into this standalone target.",
+      "evidence": "Rodrigues Jacinto-Williams, arXiv:2309.15692v2, Section 9 starts 'Let p be an odd prime'; Lemma 10.3 uses that hypothesis in its product identity. Public source: https://arxiv.org/html/2309.15692v2#S9 and #S10.SS2 (read 2026-09-24). For p=2,n=1, K_1=Q_2 and K_2=Q_2(i), with i^2=-1 and zeta_2=-1. Multiplication by i-1 on (1,i) has matrix [[-1,-1],[1,-1]], determinant 2, whereas zeta_2-1=-2. This agrees with the pinned definition Algebra.norm_apply and Algebra.norm_eq_matrix_det, Mathlib/RingTheory/Norm/Defs.lean:64,82. The general constant-term formula for X^p-zeta_{p^n} gives (-1)^(p+1)(zeta_{p^n}-1), not an unconditional plus sign.",
+      "fix": "Add the explicit hypothesis p odd (and retain n>=1) to this norm target and its explanatory note, identifying it as the RJW branch. If the target is intentionally prime-uniform, state N(zeta_{p^{n+1}}-1)=(-1)^(p+1)(zeta_{p^n}-1), or use N(1-zeta_{p^{n+1}})=1-zeta_{p^n}. Do not narrow unrelated p=2 branches. Keep the partial classification; this correction does not assert the local theorem is already in Lean. Update the accepted audit through its fix job and regenerate the coverage mirror."
+    },
+    {
+      "id": "RT-AUDIT-24/2",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-24.result.json, EulerSystemsAndKolyvaginSystems:ES.0 duplicates entry for ArithmeticGaloisDuality:R02.5",
+      "claim": "The note says R02.5 owns Selmer groups with local conditions, but that stage explicitly imports the local-condition/mapping-fibre construction from SelmerIwasawaCohomology:L2. Its ownership is the deformation-facing H1/kernel comparison and dimension formula, not a second generic Selmer constructor. The note confuses an importer with the owner.",
+      "evidence": "At explorer commit 44103549a6b1eda59ddfc50b25bb9ae449d371c3, content/campaign/ArithmeticGaloisDuality/README.md:68 says 'Import the Selmer local-condition/mapping-fibre construction from SelmerIwasawaCohomology L2', then asks for the H1 comparison and dimension formula. The same text is in research/blueprint/atlas/roadmaps/ArithmeticGaloisDuality.json, stage ArithmeticGaloisDuality:R02.5. SelmerIwasawaCohomology:L2 constructs the actual local-condition, kernel and mapping-fibre objects. The audit already has a separate ES.0 overlap entry for that correct supplier.",
+      "fix": "Rewrite only this overlap note to say that R02.5 imports the Selmer carrier from SelmerIwasawaCohomology:L2 and supplies the deformation/auxiliary-prime dimension comparison. Retain the genuine dimension-formula overlap if desired; do not assign generic Selmer construction to R02.5, add a second owner, or delete legitimate comparison work. Preserve the existing L2 supplier entry and all library classifications; regenerate coverage from the corrected audit."
+    }
+  ]
+}
