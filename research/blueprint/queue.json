@@ -1761,8 +1761,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-LIU-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1116"
+   "state": "pending",
+   "note": "released on GitHub issue #1116"
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -17517,8 +17517,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #729"
   },
   {
    "id": "REV-FaltingsFinitenessAndIsogenyTheorems",
@@ -23196,13 +23197,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-KTheoryLowDegrees--U.1",
     "BP-KTheoryLowDegrees--Z.3"
    ],
-   "note": "claimed on GitHub issue #1025"
+   "note": "released on GitHub issue #1025"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion",
