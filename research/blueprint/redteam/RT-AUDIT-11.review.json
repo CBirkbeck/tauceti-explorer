@@ -1,0 +1,793 @@
+{
+  "redteam": "RT-AUDIT-11",
+  "reviewer": "independent-review-REV-RT-AUDIT-11",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-24",
+  "status": "complete",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "atlasSnapshot": "5d8da3f0e9861a98f62af2dc08cb2fd90d00425e",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-11/1",
+      "verdict": "confirmed",
+      "reason": "The roadmap’s multiplication-map bullet explicitly requires base-change compatibility, but the audited target omits it while its own note says it is missing. At the pin, Isogeny.map has identity, composition and function-field commuting-square theorems, but no comparison with mulByIntIsogeny or the division-polynomial pullback; the MulByInt API does not supply that square. Restore this clause and grade the composite target partial. Keep the existing citations and distinguish the zero morphism in Isogeny.Hom from the nonzero finite-isogeny carrier; no claim that the general base-change construction itself is missing is needed.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/MapsInfinity.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/2",
+      "verdict": "confirmed",
+      "reason": "Read the complete Layer 7 description and all eight current targets: continuous inflation-restriction is explicitly required but omitted from the targets. Inflation.lean:237,336 proves injectivity and exactness for the displayed topological-group/module hypotheses; Invariants.lean:205 supplies quotient-action continuity for discrete coefficients and arbitrary normal N. AUDIT-23 records the same theorem, and the audit grading rule makes the corrected layer partly built. Add this general target with more general fits and ProfiniteCohomology Layer 5 as supplier. This does not supply the forced-discrete wrapper, elliptic Galois module, Kummer maps or Selmer groups. Omit the proposed target-level duplicates:null field; supplier provenance belongs in its note and any actual overlap in the layer’s duplicates list.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Invariants.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ProfiniteCohomology/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-23.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/3",
+      "verdict": "confirmed",
+      "reason": "Read the pinned naiveHeight, canonicalHeight limit and convergence theorem, halved polarization with pairing_self, Gram matrix, regulator and its rank-zero theorem. The roadmap fixes twice Tau Ceti’s height, and RS-30 BSD.5 explicitly preserves the halved-polar convention comparison. Thus a regulator built from that same polarization scales by 2^r and its height-specific coverage must be partial until the normalization adapter is provided. Qualify the proposed fits: neronTateGramMatrix is also tied to the existing pairing, so do not label that specific matrix exact for the doubled convention without its comparison. Basis-independence transports under rescaling and the rank-zero convention stays one, but these are not an already-compiled normalization adapter. Preserve the displayed AdmissibleAbsValues, ellipticity and finite-free-quotient hypotheses.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/restructure/RS-30.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/4",
+      "verdict": "confirmed",
+      "reason": "The rational positive-determinant map to PSL2(R), its central-kernel containment and the faithful real projective action are present, as are properness of the PSL2 orbit map and proper discontinuity for discrete subgroups. This is substantive GL2 coverage, so partial and special case are appropriate for the effective-action target. Retain the general Shimura-domain gap. Correct the proposed additions: the proper-discontinuity target already has four citations, so replace/select rather than append three past the five-entry limit. The determinant-one kernel theorem gives a containment in ±1, not a stated iff. The generic properness route also needs continuity, transitivity, a Hausdorff space and compact generation of its square (satisfied in the intended manifold setting), not just the two hypotheses listed in the proposed note.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/UpperHalfPlane/FixedPoints.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ProperAction/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ProperAction/CompactlyGenerated.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Fuchsian/ProperAction.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/UpperHalfPlane/PSLAction.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/UpperHalfPlane/ProperAction.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/UpperHalfPlane/RatPSLAction.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/FuchsianOrbifolds/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/5",
+      "verdict": "confirmed",
+      "reason": "Normalizer.lean:264,315 and ActingGroup.lean:121 prove exactly the generic intermediate-deck/acting-group identifications under their quotient-covering, factorization, preconnectedness and nonemptiness hypotheses. The normal-subgroup case supplies the topological component calculation V1 needs, with the covering hypothesis obtained from isCoveringMap_of_comp. Grade the composite target partial and record more general fits for that component only. Preserve nonemptiness in the note, and do not equate the global Shimura deck group or a connected-component group with K/Kprime without the missing arithmetic, component and central-stabilizer comparisons.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Quotient.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Deck/Quotient/ActingGroup.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Deck/Quotient/Normalizer.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Covering/Quotient.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/6",
+      "verdict": "confirmed",
+      "reason": "Read the nested quotient-covering theorem and free-locus theorem with their topological hypotheses, and HeckeCoset.degree_eq_relIndex with its definition. AUDIT-13 and its prior review correctly identify these as reusable inputs. Keep both V1 targets partial and add the missing evidence; the literal absence of a constructed Shimura level map remains true. The double-coset degree is a Nat.card relative index and can be zero at infinite index without commensurability. For compact-open levels, prove the finite-index and effective-action/component comparisons before identifying this raw count with a geometric covering degree; central stabilizers are not erased by the abstract index formula.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/HeckeRing/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/GroupAction/FreeLocus.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Covering/Quotient.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-13.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/7",
+      "verdict": "confirmed",
+      "reason": "The frozen V1/V2 duplicates omit these rank-one suppliers, while AUDIT-06 only records the reverse V0 overlap. Read FuchsianOrbifolds 1/3/4, ModularForms 10A, R12.3 and accepted RS-06: the geometric construction belongs to FuchsianOrbifolds, the congruence specialization to ModularForms 10A, and R12.3 imports it for analytic/algebraic comparison. Add these scoped overlaps and correct the R12.3 note. Use data/restructure/RS-06.result.json for the applied proposal. This does not make the general higher-rank Shimura construction redundant.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ModularCurvesPartII/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/FuchsianOrbifolds/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularForms/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/restructure/RS-06.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-06.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/8",
+      "verdict": "confirmed",
+      "reason": "The cited four declarations and both roadmap clauses check at the pins. For g : Y ≃ₜ X, take h = g.symm in the postcomposition theorem; the inverse in its formula then gives path transport by g. This supplies exactly the homeomorphism case needed for the anharmonic action, so partial with special case fits is justified. The subset restriction result gives only the covering property. Keep arbitrary continuous pullback and its monodromy naturality as missing; a generic pullback object is not constructed by these results.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Homotopy/Monodromy/Functoriality.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/9",
+      "verdict": "confirmed",
+      "reason": "The classification theorem at Connected.lean:72 proves the stated equivalence under path-connectedness and local path-connectedness of the base, with nonemptiness included in isTransitiveAction. Its proof also builds path-connectedness of the total space. The fiber-action value lemma identifies the action with monodromy, and coveringFiberEquiv gives fiber bijections along paths. Add these generic inputs and grade partial; pretransitivity alone does not assert a nonempty fiber. Retain the three Belyi carriers, relabeling interfaces and the use of 5.6 to replace the whole fundamental group by the peripheral generators as missing.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/Connected.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/FundamentalGroupAction.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Homotopy/Monodromy/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/10",
+      "verdict": "confirmed",
+      "reason": "The cited covering, quotient-covering, analytic-order, disc-quotient and unpointed-classification statements exist at the pins and supply substantive parts of the local-model API; partial is warranted. Keep e nonzero (positive for this local model), r ≥ 0 for the disc homeomorphism, and the path/local-path connectedness hypotheses in the classification. Qualify “the local model is built”: the sources give the power map and rotation quotient, but the punctured-disc restriction, its full deck-group identification with Z/e, chosen primitive generator, degree and e-cycle monodromy are not all packaged by those declarations. Add the indicated evidence without claiming those adapters are already formalized.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Analytic/Order.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/CoveringMap.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Quotient.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/Unpointed.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/RootsOfUnityQuotient.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/FuchsianOrbifolds/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/11",
+      "verdict": "confirmed",
+      "reason": "The cited open-subset chart and IsManifold instances exist, with arbitrary differentiability order including ω, and the self-model instances apply to C. Thus the open-submanifold part has a general supplier and the composite target should be partial. The cited OnePoint.equivProjectivization is explicitly a plain Equiv, not a homeomorphism; the sphere comparison is a genuine Homeomorph with the stated finite-dimensional real hypotheses. Correct the note while retaining the complex sphere atlas and the concrete U/disc wrappers as missing. Cite the anonymous manifold instance by file/line in the note rather than inventing its elaborated name.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/ChartedSpace.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/HasGroupoid.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactification/OnePoint/Sphere.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/12",
+      "verdict": "confirmed",
+      "reason": "The actual Belyi 12.9 and AlgebraicCurves 8 texts plan the same finite-level inertia-order and tame-cyclicity input. AUDIT-01 does not record this overlap, while accepted RS-29 explicitly assigns finite function-field ramification to AlgebraicCurves 8 and peripheral arithmetic fundamental-group inertia to Belyi 12. Add the scoped overlap and consume the former for the finite-level theorem; the inverse-limit tame character, orientation and three-point comparison remain Belyi targets. Keep the separable-residue hypothesis for |I|=e and use the explicit characteristic-zero vanishing statement, not the phrase “a 0-group”.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/AlgebraicCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/LocalFieldsRamification/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/restructure/RS-29.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-01.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/13",
+      "verdict": "confirmed",
+      "reason": "Both stage descriptions contain this common powering operation, and AUDIT-22 Layer 4 has no corresponding overlap entry. Belyi already names ProfiniteProPGroups 3/4 as prerequisites, but does not distinguish the shared exponentiation from its comparison with the chosen Z-hat component map. Record the overlap and preserve the latter comparison as Belyi-specific. Qualify the supplier: its module construction is for abelian pro-p groups; for a general pro-p group, apply it in the closed procyclic subgroup generated by the element, or use the rank-one universal property, and prove compatibility/naturality (including the ambient continuity interface). This is not a Z_p-module structure on a nonabelian group.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ProfiniteProPGroups/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-22.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/14",
+      "verdict": "confirmed",
+      "reason": "RelativeFrobenius.lean supplies the twist map, its pure inseparability, degree p and the stated containment of p-th powers, with ExpChar F p. This is a real component of the composite quotient target, so partial and the proposed scoped citations are warranted. Keep positive characteristic for the inseparable quotient interpretation, and do not infer a finite group-scheme quotient universal property from an Isogeny construction alone. The equality with all p-th powers requires an appropriate perfect-base hypothesis; the source deliberately avoids it over imperfect bases. Velu and the general Frobenius/separable factorization remain missing.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/15",
+      "verdict": "confirmed",
+      "reason": "The derivation identity and its use in Hom/Differential.lean are present, as are the translation AlgEquiv and its action on the generic point. They provide a substantive proof component, so partial with a related fit is appropriate. The proposed specialization still needs the Kahler-differential naturality wrapper and nonvanishing checks for the generic point and its translate. Retain the affine nonzero-Q and W_Y(Q)≠0 restriction on that route; Q=O is the separate identity translation, and nontrivial 2-torsion is not handled by the displayed addition lemma. Do not advertise a completed translation-invariance theorem.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Derivation.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Differential.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/16",
+      "verdict": "confirmed",
+      "reason": "The affine-model sum theorem at line 293 has no separability assumption, and the cited Dedekind, module-finiteness and fraction-ring results supply the elliptic affine models, with compatible pullback-induced algebra structures. The note is therefore too strong and must distinguish the arbitrary-place separable theorem from this nonseparable finite-chart theorem. Preserve ellipticity/normality and module-finiteness hypotheses; “every isogeny” here is in the elliptic setting, not a claim for arbitrary singular Weierstrass curves. Keep the unassembled infinity/general-map interface missing. The target already has five citations, so replace one or explain the extra evidence in the note rather than appending a sixth.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRing.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Dedekind.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Finite.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/AffineModel/Extension.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/AlgebraicCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/17",
+      "verdict": "confirmed",
+      "reason": "The place MulAction, restriction/e/f invariance and finite-Galois transitivity are present at the cited lines. FunctionField.map and Isogeny.map also exist but transport to a conjugate curve. Correct the negative note and keep partial. The generic place action must still be specialized to constant-field extension, with the homomorphism from the constant Galois group and the preservation of the desired constant-trivial places proved; it is not that specialization by definition. No packaged divisor action was found in the indicated directories. The current target has three citations, so select/replace to stay within five, recording the remaining transport evidence in the note.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Map.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/Extension/Galois.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/18",
+      "verdict": "confirmed",
+      "reason": "Read the complete ramification-locus file: line 73 proves finiteness for a module-finite torsion-free extension of Dedekind domains with separable fraction-field extension and explicitly identifies this elliptic application. It is missing from the target’s four citations, so adding it as related is justified. Apply it using the elliptic Dedekind/intermediate-ring inputs and the fraction-field comparison. It supplies affine finiteness, not the translation-invariance argument or the conclusion that all places are unramified. The status remains partial.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/RamificationLocus.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/19",
+      "verdict": "confirmed",
+      "reason": "The original Layer 0.5 duplicates list is empty. Read its target list and the AlgebraicCurves 6/11 stage text plus AUDIT-01: the finite-automorphism fixed-field theorem, elliptic translation subgroup and Galois action on places are indeed shared. The actual translationHom and finrank_translationFixedField statements also exist. Add the two scoped overlaps. Keep the model/Cl0 identification and the constant-field specialization distinct from the generic action; neither overlap supplies coefficient descent or the whole isogeny Galois-action package.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/FixedField.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/AlgebraicCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-01.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/20",
+      "verdict": "confirmed",
+      "reason": "ModularCurves 1C explicitly plans unique variable-change presentation for pointed isomorphisms, while the elliptic target asks to identify pointed automorphisms with the variable-change stabilizer. AUDIT-12 marks the comparison missing and does not record this overlap. Add the field/automorphism specialization as proposed, retaining the bridge between projective pointed isomorphisms and units of the function-field-based End carrier. The arbitrary-base gluing theorem and the field-specific endomorphism construction are not interchangeable in full.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/AlgebraicCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-12.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/21",
+      "verdict": "confirmed",
+      "reason": "Read the finite-prime carrier and adic completion, the infinite-place carrier and completion, continuous restriction with its composition law, and the 2-Selmer local-condition definition. These supply real subtargets of the currently absent local-global target, so partial is warranted. For number fields, use height-one primes of the ring of integers. Restriction to a subgroup only becomes the arithmetic local map after the decomposition-group/embedding comparison is built; the concrete completions do not provide it. Retain local Kummer, unramified conditions and finiteness as gaps, and keep the specialized 2-descent separate.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Completion/InfinitePlace.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/22",
+      "verdict": "confirmed",
+      "reason": "The actual EC and ProfiniteCohomology 5 descriptions overlap, and neither audit lists that pair. explicitDelta0 and explicitLongExact_H1A give the generic connecting map and exactness; the inflation-restriction inputs were checked in finding 2. Add the owner entry and the missing related citation in the m-descent target. Preserve discrete coefficient modules and continuous actions, the explicit short-exact-sequence data, and the missing elliptic Kummer/Selmer instantiation. The generic boundary map does not establish Selmer finiteness or the displayed Selmer–Sha sequence by itself.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LongExact.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/ShortExact.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ProfiniteCohomology/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-23.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/23",
+      "verdict": "confirmed",
+      "reason": "canonicalHeight_zsmul and degree_mulByIntIsogeny are present and support the multiplication special case, so change absent to partial. Keep the admissible absolute values, ellipticity and nonzero division-polynomial (or n≠0) hypotheses; the height formula also covers n=0, but the finite-isogeny carrier does not represent that zero map. Rescaling both source and target heights by two preserves this identity. The general point-map/comparison interface is still missing: describe that as absent packaging, rather than claiming no mathematical statement could be formulated by extending the API.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/24",
+      "verdict": "confirmed",
+      "reason": "Both generic localization constructions and the fraction-ring transport theorem are present, and FiniteDVRExtension.of explicitly installs the displayed pair. Correct the note to distinguish available constructions from absent automatic registration for an arbitrary fraction-field carrier; keep partial. The implementation must use mutually compatible algebra/tower structures, installed explicitly or locally as appropriate, rather than introducing conflicting global instances. The two new citations fit the current target’s limit.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Localization/LocalizationLocalization.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/25",
+      "verdict": "confirmed",
+      "reason": "The three stage texts share a continuous nonabelian cocycle/twisted-conjugacy foundation, and the current elliptic duplicates list is empty while AUDIT-21 records the other pair. Add scoped overlap/coordination entries. Qualify the proposed notes: discrete coefficients over profinite groups, p-adic unipotent torsors, and condensed L-group parameters require different topologies and comparison results. Only a suitably general common cocycle and pointed-cohomology core can be shared; the elliptic finite-quotient API cannot be substituted for condensed extension or representability of Selmer varieties. This audit fix records the overlap, not a unilateral transfer of upstream ownership.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/AnabelianGeometryAndNonabelianChabauty/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/LanglandsParameterStacks/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-21.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/26",
+      "verdict": "confirmed",
+      "reason": "The three proposed declarations exist. They add genuine topological substrate beyond the rotation-disc model, while the quotient-manifold file explicitly leaves smooth compatibility as a TODO. Keep absent for the Shimura complex double quotient and add related evidence. The replacement note must retain Hausdorffness, local compactness, continuity of each group action and proper discontinuity; the quotient atlas additionally requires the free/cancel action. An arbitrary properly discontinuous quotient without these hypotheses is not what the source proves.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/Instances/Quotient.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ConstMulAction.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/GroupAction/FreeLocus.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/FuchsianOrbifolds/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/27",
+      "verdict": "confirmed",
+      "reason": "The finite overlap list for the standard domain, arithmetic cusp-orbit finiteness, subgroup coset tiling, and narrow-class-group finiteness are all present. Correct the overly restrictive inventory and retain partial. The tiling is allowed to be infinite for an arbitrary subgroup; it is a finite covering only at finite index. These declarations do not by themselves construct Siegel sets at every level or identify an adelic Hilbert component with a narrow class group. The existing target has four citations: select at most five and put the other locators in the note instead of appending all four.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Modular.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/Cusps.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Modular.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularForms/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/28",
+      "verdict": "confirmed",
+      "reason": "Read the general Sturm theorem, finite-dimensionality instance, both level-one results, and cusp-orbit finiteness. The proposed additions correctly expose the finite-level inputs while keeping partial. State the precise finite-relative-index and discrete-period assumptions, plus HasDetOne for the finite-dimensionality instance. Finiteness of each graded piece does not imply finite generation of the graded ring. The anonymous cusp-finiteness instance should be recorded by file/line or a verified declaration name, not a guessed elaborated name.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/Cusps.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/SturmBound.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularForms/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/29",
+      "verdict": "confirmed",
+      "reason": "Both analytic declarations and both invariant-ring declarations check with their hypotheses and provide related starting points omitted from the notes. Keep both targets absent. Schwarz–Pick here is for holomorphic self-maps of the disc, and removability requires boundedness near the puncture; neither is Borel extension into an arithmetic quotient. IsInvariant supplies integrality and orbit descriptions for primes, with the action commuting with the base where required; it does not itself build the quotient scheme or its gluing/normalization. Phrase these as components rather than a completed affine scheme quotient theorem.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/RemovableSingularity.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Invariant/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Invariant/Defs.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Hyperbolic/Distance.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/30",
+      "verdict": "confirmed",
+      "reason": "The cyclotomic arithmetic-Frobenius formula and the explicit genus-field kernel/surjectivity theorems are present with the stated prime-to-m and squarefree/nonsquare/excluded-prime hypotheses. Replace the blanket absence of reciprocity by absence of general reciprocity and of the named Milne conversion. For this target the genus-field theorems are related evidence, not themselves a special case of a proved Milne-normalization comparison; the cyclotomic formula pins the arithmetic side. Four current citations plus three additions would exceed the cap, so select/replace and keep the rest in the note.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/31",
+      "verdict": "confirmed",
+      "reason": "The pinned End.Basic file defines a Ring instance (including additive inverses), and mulBy and IsIsogeny are present. Correct monoids to rings and cite End.instRing as related. Retain absent for CM structures and their Tate-module action; a ring instance alone does not provide End⊗Q or a CM-field embedding.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/32",
+      "verdict": "confirmed",
+      "reason": "The two displayed different-ideal statements exist in the integral-closure/separable fraction-field setting and give a genuine upper-bound tool through ideal divisibility. Correct the inventory, while keeping the explicit Eisenstein valuation estimate and Fontaine torsion bound missing. Do not confuse membership of fprime(x) in the different with a numerical torsion-field bound already proved. Four current citations plus two additions exceed five, so select one for the declarations list and record the other in the note, or replace a less direct citation.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/Different.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/SmallRamificationAndAbelianVarietyBaseCases/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/33",
+      "verdict": "confirmed",
+      "reason": "Read all four current declarations and the omitted totally-complex root bound. abs_discr_geprime is the degree/signature inequality; the others are weaker corollaries or a definition and do not individually prove that inequality. Refine their fits and add the totally-complex theorem with its hypothesis. Related is the clearest fit for the two weaker corollaries (they are not literal substitutions into the full inequality); rootDiscr is exact only for the definition subcomponent and related to the inequality. Keep mathlib coverage because the general root version follows by monotonicity using positive degree, but do not claim the explicit general root-bound wrapper was read.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/SmallRamificationAndAbelianVarietyBaseCases/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/34",
+      "verdict": "confirmed",
+      "reason": "Both reverse audit entries exist and the actual V0/AA.5/Fuchsian 0 texts support the rank-one effective-action and component-comparison overlap. V0 omits them; RS-04 at this snapshot has no accepted review. Add the two scoped entries, keeping the GL2/Q qualifier and the distinction between available effective-action results and the missing adelic/classical analytic comparison.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ModularCurvesPartII/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/FuchsianOrbifolds/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-04.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-06.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/restructure/RS-04.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/35",
+      "verdict": "confirmed",
+      "reason": "Read V8, R12.3, its reverse entry in AUDIT-10, and accepted RS-06. V8 already says it consumes the R12 comparisons, but its duplicates list omits R12.3. Add the scoped entry for compactification/q-parameter/cusp-locus comparison; V8 still owns compatibility with the canonical-model condition. Preserve the actual prime-level PR81 scope versus the general R13.4a construction, and do not introduce the R12.3–R12.6–R13.4b dependency cycle excluded by RS-06.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ModularCurvesPartII/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/ShimuraVarieties/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/restructure/RS-06.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-10.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/36",
+      "verdict": "confirmed",
+      "reason": "All six cited statements check. The current note overlooks the contour winding-number API and the circle/homotopy-equivalence inputs. Keep the specified partial/absent statuses and add related evidence, selecting at most five citations for 5.4 (three existing plus three proposed would be six). Preserve piecewise-C1 endpoints and avoidance for homotopy invariance, nonzero radius for arc values, and principal-value existence for concatenation. The argument identity is in Real.Angle, so by itself determines winding only modulo an integer; actual integer winding computations and peripheral-loop identifications remain to prove.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/FundamentalGroup/HomotopyEquiv.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Circle/FundamentalGroup.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/EndpointRatio.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/Number/Circle.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/Number/Concat.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/Number/Homotopy.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/37",
+      "verdict": "confirmed",
+      "reason": "The actual corollary uses the missing numbered-cover carrier and peripheral triple, while the generic connectedness theorem and equivariant fiber identification are present. Correct the incomplete dependency note and add the connectedness input. Correct the proposed replacement too: retain 5.6, needed to associate the fundamental-group action to a triple and identify it via the generators. Keep nonemptiness in transitivity and the universal-cover base hypotheses; the generic theorem does not remove the need to establish U’s instances.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/Connected.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/38",
+      "verdict": "confirmed",
+      "reason": "Deck.monodromy_smul gives the centralizing inclusion, and fiberActionFunctor_isEquivalence supplies a full and faithful classification under path/local-path connectedness and semilocal simple connectedness. Add these related inputs and keep partial. Lifting an equivariant permutation uses fullness and faithfulness (or reflection of isomorphisms), not fullness of self-maps alone; the deck/homeomorphism and numbered-fiber identifications remain unassembled. Do not omit the classification hypotheses from the route.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Classification/FundamentalGroupAction.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicTopology/UniversalCover/Deck/Fiber/Monodromy.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/39",
+      "verdict": "confirmed",
+      "reason": "Read the literal DihedralGroup 3 table, class-size theorem, table indexing and bridge to structureConstant. The reflection/rotation/reflection entry is 2 and the all-reflection entry 0, yielding the proposed arithmetic once the count conversion is proved. Add related evidence and keep partial; transport along an explicit D3–S3 isomorphism and match the named classes before treating this as the roadmap’s S3 theorem. The source proof uses decide; this review did not rerun Lean or claim a new kernel check. The character-side identity remains missing.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/Dihedral.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/40",
+      "verdict": "confirmed",
+      "reason": "The compact Hausdorff covering theorem at line 589 proves exactly the displayed topological input, without assuming compactness of the punctured source. The closed-map/finite-fiber version and compact local-homeomorphism equivalence also check. Add the related citation and note, keeping absent for the composite degree theorem. Local biholomorphy over regular values, branch-locus finiteness, surjectivity and the ramification-weighted degree are separate missing analytic inputs.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Covering/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/41",
+      "verdict": "confirmed",
+      "reason": "The germ-root criterion is present and is the missing related input the stage explicitly names. Keep partial. Qualify the suggested explanatory sentence: finite positive order e of f−f(z0), its analyticity, the order-of-a-power computation and the inverse function theorem are needed to deduce that the extracted root is a local coordinate. The source also allows the identically-zero germ, which gives no coordinate. The Riemann-surface chart-independence and ramification API remain missing.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/BranchLogRoot.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/42",
+      "verdict": "confirmed",
+      "reason": "Read the Kummer factor equivalence and both e/f formulas with the prime-to-conductor and module-finite Dedekind-model hypotheses. They supply the intended finite-place calculation once the k[t]→k[u] model, monogenicity and minimal polynomial are established. Add related evidence and keep partial. Say it is a route to the example, rather than a direct already-checked instantiation; e=1 at t=1 also uses n>0 and separability of X^n−1 (the roadmap explicitly uses characteristic zero). This does not compute the place at infinity or construct the Belyi certificate.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/AffineModel/Kummer.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/43",
+      "verdict": "confirmed",
+      "reason": "card_inertiaSubgroup at line 410 proves the missing |I|=e component under finite-dimensional Galois extension and separable residue extension. The characteristic-zero ramification theorem explicitly requires finite G1, and the header leaves tame cyclicity open. Add the citation and clarify these hypotheses exactly as in the replacement note. Finite-level order and vanishing do not supply the tame-character map or inverse-limit orientation.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/AlgebraicCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/44",
+      "verdict": "confirmed",
+      "reason": "The cyclotomic-field restriction square and its link to modularCyclotomicCharacter exist with nonzero levels, divisibility and the stated cyclotomic field-extension assumptions. Add them as related evidence and retain partial. They are a finite-level input to, not an already-assembled theorem about, the absolute Galois group of Qbar. The compatibility TODO remains in CyclotomicCharacter.lean; neither it nor the displayed square proves continuity and assembly into Z-hat units.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/45",
+      "verdict": "confirmed",
+      "reason": "inverseConjugationHom, its value, identity and reversed-composition laws are present and contradict the “only characteristicity” inventory. Add it as related and keep absent. Correct the action convention explicitly: g↦(n↦g⁻¹ng) composes in reverse order, so use g inverse or the opposite group when forming the ordinary conjugation homomorphism before quotienting by inner automorphisms. The continuous-automorphism group packaging, outer quotient, descent through E/N and class actions are not provided by this map alone.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/ContinuousMonoidHom.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/46",
+      "verdict": "confirmed",
+      "reason": "The exact order/lcm identity, geometry type, genus and automorphism-group definitions are present. The record stage explicitly consumes those invariants, and its sibling 14.2 counts comparable inputs as partial. Grade 14.1 partial with related citations while retaining process for the layer. The genus has geometric meaning only for connected triples; these inputs do not supply passport cardinalities, database-field validation or record certificates.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Combinatorics/PermutationTriple/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Combinatorics/PermutationTriple/GeometryType.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/47",
+      "verdict": "confirmed",
+      "reason": "The literal duplicate note conflates different residue-field settings. Read LocalFieldsRamification 4, Belyi 12.9, both distinct owners in accepted RS-29, its IG.1 scope wall and AUDIT-04. Remove this entry from duplicates; if retained as a cross-reference, explicitly label it an analogy that supplies no theorem at the geometric characteristic-zero puncture. Do not route Belyi’s arbitrary-residue-field inertia through the finite-residue-field local theorem.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/LocalFieldsRamification/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/restructure/RS-29.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-04.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/48",
+      "verdict": "confirmed",
+      "reason": "The actual descriptions and AUDIT-06 record the common power-map/rotation-disc local model, while Belyi 7’s duplicates list is empty. Add the overlap as proposed, scoped to this shared local model. As checked in finding 10, the classification of all connected punctured-disc covers, monodromy and full deck-group packaging are further Belyi work; the already-built quotient/covering inputs do not establish those extras.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/FuchsianOrbifolds/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularForms/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-06.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/49",
+      "verdict": "confirmed",
+      "reason": "The summary’s “all of Layers 7–14” contradicts its own 12.6 acknowledgement and per-target partial entries, as well as the fully present maximum-principle input read at the pin. Rewrite the summary around the remaining composite constructions and explicitly acknowledge the existing components, including the corrected local-model and open-manifold coverage. Prefer a precise list to the unmeasured “almost all”; do not describe any whole later layer as formalized.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Geometry/Manifold/Complex.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/BelyiMaps/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/50",
+      "verdict": "confirmed",
+      "reason": "AlgebraicCurves 9 explicitly owns the separating-element basis theorem and an elliptic differential comparison; AUDIT-01 lists only FA.1/FA.2. The invariantDifferentialBasis definition literally uses kaehlerBasisOfSeparating and rescales by the nonzero invariant-differential denominator. Add the scoped overlap, preserving separability/separating-element and ellipticity hypotheses. The later Kahler-to-Weil divisor comparison is a separate compatibility target, not established by the basis construction.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Differential/Kaehler.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/AlgebraicCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-01.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/51",
+      "verdict": "confirmed",
+      "reason": "The residue-field definition explicitly identifies evaluation with the local residue map, and residueFieldEquivOfDegreeEqOne identifies the constants with that field. evalAlgHom evaluates regular coordinate-ring functions. Correct the “only Divisor.eval” note, making clear that evaluation at P has domain P.integers (functions regular there), and use the inverse of k≃ResidueField to return a value in k at degree one. The existing target has five citations: replace/select or cite the extra declaration in the note instead of appending a sixth.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Eval.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/52",
+      "verdict": "confirmed",
+      "reason": "map_bijective only transports bijectivity of the coefficient map. The induced coordinate-ring map and its identity/composition laws are present and directly cover the functoriality component, so replace that citation or downgrade its fit. The target already has five entries; replace with map_comp_map and put map_id in the note unless another slot is freed. These declarations establish coefficient-induced transport, not a tensor-product base-change isomorphism or the whole multi-carrier target individually.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRingMap.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/53",
+      "verdict": "confirmed",
+      "reason": "The Mathlib point AddMonoid explicitly uses substitution and nsmulRec, so the variable with zero constant term can be iterated to construct the natural-multiple series. The elliptic formal inverse, inverse law, and additive group of evaluated adic points are present. Correct the blanket absence note while keeping partial. Distinguish the constructed natural-multiple expression from a named formal endomorphism with linear-term/composition/base-change API, and distinguish series-level operations from integer multiplication on evaluated points under the completeness/adic hypotheses. No new Lean instantiation was compiled.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/FormalGroup/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Inverse.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/AdicPoint.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Inverse.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/54",
+      "verdict": "confirmed",
+      "reason": "The algebraically closed prime-to-characteristic multiplication kernel count and degree theorem both give n.natAbs squared, and the separability iff confirms their scope. Add the special-case citation and correct “only 1−Frobenius”. Keep partial. Do not extend the algebraically closed result to F-rational kernels over arbitrary finite fields: equality there additionally needs the geometric kernel to be rational. Retain ellipticity, the defined nonzero isogeny and the characteristic restriction.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Separability.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/55",
+      "verdict": "confirmed",
+      "reason": "Read the additive formal-point map, its injectivity, its range theorem and the standing Dedekind fraction-field/completion setup. These provide an additive equivalence with the pole-defined subgroup in that setting, so record this substantive special case and cite injectivity. Qualify the proposed “E1 is present”: there is still no reduction-defined E1 carrier or checked equality of that kernel with the pole subgroup. The classical identification explains the route; it must not be reported as a formalized reduction-map theorem. Keep the reduction exact sequence and general local-field comparison missing.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/56",
+      "verdict": "confirmed",
+      "reason": "exists_variableChange_of_j_eq holds over a separably closed field with both curves elliptic, including the characteristic-two and characteristic-three branches. It is a genuine related input to choosing a twist trivialization. Add it while retaining partial. To apply it over Ksep, transport the curves and their j equality and turn the variable change into the chosen pointed-isomorphism carrier. It is an existence theorem, not a canonical trivialization, a cocycle construction, effective descent, or the H1 classification.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/57",
+      "verdict": "confirmed",
+      "reason": "fg_point includes the normal-form and per-factor class-group/unit hypotheses quoted in the finding; fg_point_of_variableChange transfers it only given an admissible change and those hypotheses for the changed model. Correct the more-general fit and expand the note, adding the transfer theorem as related. Keep the existing exact fg_point_of_numberField citation and tauceti coverage: that theorem does discharge these requirements for all elliptic number-field models. The phrase “transfers it to any model” must retain the supplied normal-form change and hypotheses, not imply an unrestricted characteristic-two theorem.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-11/58",
+      "verdict": "confirmed",
+      "reason": "A4 explicitly constructs the invertible-prime étale Tate module, and LocalFieldsRamification 4 defines the prime-to-residue-characteristic root-of-unity inverse limit. Both corresponding audit lists and the EC list omit these scoped overlaps. Add them, with A4 restricted to the elliptic field instance and the local-field comparison restricted to an ell-component with ell≠p. The latter is shared Tate-twist construction, not a transfer of finite-residue-field tame-inertia theorems to arbitrary elliptic base fields; this preserves the distinction in finding 47.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/EllipticCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/LocalFieldsRamification/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/content/tau-ceti/ModularCurves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-04.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-08.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/5d8da3f0e9861a98f62af2dc08cb2fd90d00425e/research/blueprint/audit/AUDIT-11.result.json"
+      ]
+    }
+  ],
+  "summary": "All 58 findings independently checked and confirmed: 3 high, 22 medium, 33 low. Apply the qualified fixes in the reasons, especially the missing comparisons and hypotheses. No underlying audit or roadmap was edited.",
+  "validation": {
+    "status": "pass",
+    "leanCompiled": false,
+    "redteamChecker": "pass",
+    "findingCoverage": "58 of 58, exactly one verdict each",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "6af6b7c02f12d86eb8b32d304d650890cfd9d5fc",
+    "unchangedInputBlobs": 49,
+    "claimComment": 5808392925,
+    "claimConfirmation": 5808394473,
+    "sourceIntegrity": "9055 tracked Mathlib and 5489 tracked Tau Ceti Lean files match pinned Git blobs; 117 cited source file SHA-256 hashes recorded; no sorry or axiom token hits in those files"
+  }
+}
