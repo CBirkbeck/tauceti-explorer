@@ -22443,12 +22443,13 @@
     "REV-PLAN-HABIRO"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-HabiroNumberFields",
     "BP-Polylogarithms",
     "BP-StableHomotopyKTheory"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1011"
   },
   {
    "id": "REV-HabiroNahmSeries",
@@ -22497,7 +22498,7 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/BP-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-K2SymbolsBrauer--T.1",
@@ -22506,7 +22507,7 @@
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1012"
+   "note": "released on GitHub issue #1012"
   },
   {
    "id": "REV-HigherLocalFieldsAndHigherClassFieldTheory",
