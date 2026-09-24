@@ -1,0 +1,35 @@
+{
+ "id": "SRC-OrthogonalL2Bases",
+ "roadmap": "OrthogonalL2Bases",
+ "roadmapIds": [
+  "tauceti:Completed/OrthogonalL2Bases"
+ ],
+ "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+ "books": [
+  {
+   "id": "AKHIEZER-CLASSICAL-MOMENT-PROBLEM",
+   "title": "N. I. Akhiezer, The Classical Moment Problem",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Completed/OrthogonalL2Bases/README.md",
+     "line": 401,
+     "text": "- N. I. Akhiezer, *The Classical Moment Problem* (determinacy)."
+    }
+   ]
+  },
+  {
+   "id": "SZEG-ORTHOGONAL-POLYNOMIALS",
+   "title": "G. Szegő, Orthogonal Polynomials",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Completed/OrthogonalL2Bases/README.md",
+     "line": 400,
+     "text": "- G. Szegő, *Orthogonal Polynomials*, AMS Colloq. 23 (Chs. II–V)."
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

@@ -1,0 +1,137 @@
+{
+ "id": "SRC-QuadraticFormInvariants",
+ "roadmap": "QuadraticFormInvariants",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+ ],
+ "title": "Quadratic forms and cohomological invariants",
+ "books": [
+  {
+   "id": "GILLE-CENTRAL-SIMPLE-ALGEBRAS-GALOIS",
+   "title": "P. Gille, T. Szamuely, Central Simple Algebras and Galois Cohomology",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 802,
+     "text": "III.4.2, Serre III.1.1-1.2, Gille-Szamuely 1.1.9). For `a, b ∈ Kˣ` the following are"
+    },
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 1015,
+     "text": "from the algebra relation `(a,b) ⊗ (a,c) ∼ (a,bc)` (Gille-Szamuely 1.5.2 for the"
+    },
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 1900,
+     "text": "cocycles have the same class\" cites that one statement. (Gille-Szamuely 4.4, Serre"
+    },
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2112,
+     "text": "Gille-Szamuely 4.7)."
+    },
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2512,
+     "text": "- P. Gille, T. Szamuely, *Central Simple Algebras and Galois Cohomology*, CUP (2nd ed."
+    }
+   ]
+  },
+  {
+   "id": "GROVE-CLASSICAL-GROUPS-GEOMETRIC-ALGEBRA",
+   "title": "L. C. Grove, Classical Groups and Geometric Algebra",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2523,
+     "text": "- L. C. Grove, *Classical Groups and Geometric Algebra*, GSM 39, AMS (2002), cited only"
+    }
+   ]
+  },
+  {
+   "id": "KOZLOWSKI-EVENS-KAHN-FORMULA-TOTAL",
+   "title": "A. Kozlowski, The Evens-Kahn formula for the total Stiefel-Whitney class",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2504,
+     "text": "- A. Kozlowski, *The Evens-Kahn formula for the total Stiefel-Whitney class*, Proc. AMS"
+    }
+   ]
+  },
+  {
+   "id": "LAM-INTRODUCTION-QUADRATIC-FORMS-OVER",
+   "title": "T. Y. Lam, Introduction to Quadratic Forms over Fields",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2482,
+     "text": "- T. Y. Lam, *Introduction to Quadratic Forms over Fields*, GSM 67, AMS (2005),"
+    }
+   ]
+  },
+  {
+   "id": "MILNOR-ALGEBRAIC-K-THEORY-QUADRATIC",
+   "title": "J. Milnor, Algebraic K-theory and quadratic forms",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2510,
+     "text": "- J. Milnor, *Algebraic K-theory and quadratic forms*, Invent. Math. 9 (1970) 318-344,"
+    }
+   ]
+  },
+  {
+   "id": "OMEARA-INTRODUCTION-QUADRATIC-FORMS",
+   "title": "O. T. O'Meara, Introduction to Quadratic Forms",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2493,
+     "text": "- O. T. O'Meara, *Introduction to Quadratic Forms*, Springer (1963; Classics reprint"
+    }
+   ]
+  },
+  {
+   "id": "SCHARLAU-QUADRATIC-HERMITIAN-FORMS",
+   "title": "W. Scharlau, Quadratic and Hermitian Forms",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2516,
+     "text": "- W. Scharlau, *Quadratic and Hermitian Forms*, Springer (1985), Ch. 2 §5 (transfer),"
+    }
+   ]
+  },
+  {
+   "id": "SERRE-COURSE-ARITHMETIC",
+   "title": "Jean-Pierre Serre, A Course in Arithmetic",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 142,
+     "text": "Serre convention, that is Lam V.3.17 and Serre's `ε` in *A Course in Arithmetic*"
+    },
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 165,
+     "text": "that `z² − ax² − by² = 0` has a nontrivial zero (*A Course in Arithmetic* III.1.1). It"
+    },
+    {
+     "file": "content/tau-ceti/QuadraticFormInvariants/README.md",
+     "line": 2488,
+     "text": "- J.-P. Serre, *A Course in Arithmetic*, GTM 7, Springer (1973), PRIMARY for the local"
+    }
+   ]
+  }
+ ],
+ "citationCount": 14
+}

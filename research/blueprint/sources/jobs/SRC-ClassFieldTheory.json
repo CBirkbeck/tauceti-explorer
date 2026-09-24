@@ -1,0 +1,28 @@
+{
+ "id": "SRC-ClassFieldTheory",
+ "roadmap": "ClassFieldTheory",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/ClassFieldTheory"
+ ],
+ "title": "Class field theory",
+ "books": [
+  {
+   "id": "ARTIN-CLASS-FIELD-THEORY",
+   "title": "E. Artin and J. Tate, Class Field Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ClassFieldTheory/README.md",
+     "line": 1651,
+     "text": "- E. Artin and J. Tate, *Class Field Theory*, AMS Chelsea, 2009: Chapter XIV"
+    },
+    {
+     "file": "content/tau-ceti/ClassFieldTheory/README.md",
+     "line": 1666,
+     "text": "- J. S. Milne, *Class Field Theory* (course notes, v4.03): II 3.11 (Tate's theorem); VII §§4–5"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

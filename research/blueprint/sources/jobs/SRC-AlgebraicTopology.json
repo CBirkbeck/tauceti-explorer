@@ -1,0 +1,125 @@
+{
+ "id": "SRC-AlgebraicTopology",
+ "roadmap": "AlgebraicTopology",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/AlgebraicTopology"
+ ],
+ "title": "Algebraic topology of spaces and manifolds",
+ "books": [
+  {
+   "id": "BROWN-COHOMOLOGY-GROUPS",
+   "title": "Kenneth Brown, Cohomology of Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 482,
+     "text": "- Kenneth Brown, *Cohomology of Groups*, Springer GTM 87, 1982, Chapter VII, for the"
+    }
+   ]
+  },
+  {
+   "id": "BROWN-TOPOLOGY-GROUPOIDS",
+   "title": "Brown, Topology and Groupoids",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 163,
+     "text": "The proof spine is Brown, *Topology and Groupoids*, Chapters 6--7: subdivision gives generation,"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 466,
+     "text": "- Ronald Brown, *Topology and Groupoids*, 3rd ed., Booksurge, 2006, Chapters 6--7."
+    }
+   ]
+  },
+  {
+   "id": "DOLD-LECTURES-ALGEBRAIC-TOPOLOGY",
+   "title": "Albrecht Dold, Lectures on Algebraic Topology",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 346,
+     "text": "*Lectures on Algebraic Topology*, Chapters VII--VIII for natural products and local coefficients."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 473,
+     "text": "- Albrecht Dold, *Lectures on Algebraic Topology*, Springer, 1972, Chapters VII--VIII."
+    }
+   ]
+  },
+  {
+   "id": "EILENBERG-FOUNDATIONS-ALGEBRAIC-TOPOLOGY",
+   "title": "Samuel Eilenberg and Norman Steenrod, Foundations of Algebraic Topology",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 189,
+     "text": "The source spine is Eilenberg--Steenrod, *Foundations of Algebraic Topology*, Chapters I--III,"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 467,
+     "text": "- Samuel Eilenberg and Norman Steenrod, *Foundations of Algebraic Topology*, Princeton"
+    }
+   ]
+  },
+  {
+   "id": "MAY-SIMPLICIAL-OBJECTS-ALGEBRAIC-TOPOLOGY",
+   "title": "May, Simplicial Objects in Algebraic Topology",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 402,
+     "text": "IV--VII, gives the relative and cellular forms. May, *Simplicial Objects in Algebraic Topology*,"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 474,
+     "text": "- J. Peter May, *Simplicial Objects in Algebraic Topology*, University of Chicago Press, 1967,"
+    }
+   ]
+  },
+  {
+   "id": "MCCLEARY-USER-S-GUIDE-SPECTRAL",
+   "title": "McCleary, A User's Guide to Spectral Sequences",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 300,
+     "text": "and McCleary, *A User's Guide to Spectral Sequences*, Chapters 1--2, form the source spine. The"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 478,
+     "text": "- John McCleary, *A User's Guide to Spectral Sequences*, 2nd ed., Cambridge University Press,"
+    }
+   ]
+  },
+  {
+   "id": "WHITEHEAD-ELEMENTS-HOMOTOPY-THEORY",
+   "title": "Whitehead, Elements of Homotopy Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 241,
+     "text": "Whitehead, *Elements of Homotopy Theory*, Chapters II--IV, supplies cofibrations, mapping"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicTopology/README.md",
+     "line": 471,
+     "text": "- George W. Whitehead, *Elements of Homotopy Theory*, Springer GTM 61, 1978,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 13
+}

@@ -1,0 +1,166 @@
+{
+ "id": "SRC-GeometricTopology",
+ "roadmap": "GeometricTopology",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/GeometricTopology"
+ ],
+ "title": "Geometric topology and the solved Kirby-list problems",
+ "books": [
+  {
+   "id": "CANDEL-FOLIATIONS-I-II",
+   "title": "A. Candel, L. Conlon, Foliations I–II",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 1094,
+     "text": "A. Candel, L. Conlon, *Foliations I–II*, AMS GSM 23 and 60, for foliations, leaves, and"
+    }
+   ]
+  },
+  {
+   "id": "DAVERMANVENEMA-EMBEDDINGS-MANIFOLDS",
+   "title": "Daverman–Venema, Embeddings in Manifolds",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 304,
+     "text": "The general theory is Daverman–Venema, *Embeddings in Manifolds* (GSM 106)."
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 992,
+     "text": "- R. Daverman, G. Venema, *Embeddings in Manifolds*, AMS GSM 106 (2009): the general theory"
+    }
+   ]
+  },
+  {
+   "id": "HIRSCH-DIFFERENTIAL-TOPOLOGY",
+   "title": "Hirsch, Differential Topology",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 205,
+     "text": "`∂M × [0, 1)` (the collar theorem; Hirsch, *Differential Topology*, GTM 33, Theorem 6.1,"
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 376,
+     "text": "Whitney agree; Hirsch, *Differential Topology* GTM 33, Chapter 2,"
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 964,
+     "text": "- M. Hirsch, *Differential Topology*, Springer GTM 33 (1976): the smooth-gluing toolkit,"
+    }
+   ]
+  },
+  {
+   "id": "KRONHEIMER-WITTEN-S-CONJECTURE-PROPERTY",
+   "title": "P. Kronheimer, T. Mrowka, Witten's conjecture and Property P",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 1041,
+     "text": "- P. Kronheimer, T. Mrowka, *Witten's conjecture and Property P*, Geom. Topol. 8 (2004)"
+    }
+   ]
+  },
+  {
+   "id": "LEE-INTRODUCTION-RIEMANNIAN-MANIFOLDS",
+   "title": "J. Lee, Introduction to Riemannian Manifolds",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 650,
+     "text": "*Introduction to Riemannian Manifolds*, GTM 176, for the volume form and curvature,"
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 1056,
+     "text": "- J. Lee, *Introduction to Riemannian Manifolds*, Springer GTM 176, 2nd ed. (2018):"
+    }
+   ]
+  },
+  {
+   "id": "LEE-INTRODUCTION-SMOOTH-MANIFOLDS",
+   "title": "Lee, Introduction to Smooth Manifolds",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 206,
+     "text": "extract; Lee, *Introduction to Smooth Manifolds*, GTM 218,"
+    }
+   ]
+  },
+  {
+   "id": "LICKORISH-INTRODUCTION-KNOT-THEORY",
+   "title": "W. B. R. Lickorish, An Introduction to Knot Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 426,
+     "text": "*An Introduction to Knot Theory*, GTM 175, is the spine throughout this layer; per-topic"
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 1012,
+     "text": "- W. B. R. Lickorish, *An Introduction to Knot Theory*, Springer GTM 175 (1997): the spine."
+    }
+   ]
+  },
+  {
+   "id": "MOISE-GEOMETRIC-TOPOLOGY-DIMENSIONS-2",
+   "title": "Moise, Geometric Topology in Dimensions 2 and 3",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 847,
+     "text": "combinatorial or PL structure. (Moise, *Geometric Topology in Dimensions 2 and 3*, treats"
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 1101,
+     "text": "- E. Moise, *Geometric Topology in Dimensions 2 and 3*, Springer GTM 47 (1977): triangulation"
+    }
+   ]
+  },
+  {
+   "id": "RATCLIFFE-FOUNDATIONS-HYPERBOLIC-MANIFOLDS",
+   "title": "Ratcliffe, Foundations of Hyperbolic Manifolds",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 653,
+     "text": "Ratcliffe, *Foundations of Hyperbolic Manifolds*, GTM 149, for the hyperbolic side and"
+    }
+   ]
+  },
+  {
+   "id": "ROLFSEN-KNOTS-LINKS",
+   "title": "Rolfsen, Knots and Links",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 533,
+     "text": "layer-4-to-layer-5 handoff that lean-eval lacks. (Rolfsen, *Knots and Links*, Chapter 9,"
+    },
+    {
+     "file": "content/tau-ceti/GeometricTopology/README.md",
+     "line": 1036,
+     "text": "- D. Rolfsen, *Knots and Links*, Publish or Perish (1976), Chapter 9 (Dehn surgery, slopes,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 17
+}

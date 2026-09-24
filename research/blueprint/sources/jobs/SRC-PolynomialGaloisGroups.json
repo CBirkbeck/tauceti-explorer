@@ -1,0 +1,101 @@
+{
+ "id": "SRC-PolynomialGaloisGroups",
+ "roadmap": "PolynomialGaloisGroups",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+ ],
+ "title": "Galois groups of polynomials",
+ "books": [
+  {
+   "id": "COHEN-COURSE-COMPUTATIONAL-ALGEBRAIC-NUMBER",
+   "title": "H. Cohen, A Course in Computational Algebraic Number Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 744,
+     "text": "- *Source:* standard; see Cohen, *A Course in Computational Algebraic Number Theory*, §6.3."
+    },
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1638,
+     "text": "- H. Cohen, *A Course in Computational Algebraic Number Theory*, GTM 138, Springer, 1993, §6.3."
+    }
+   ]
+  },
+  {
+   "id": "DIXON-PERMUTATION-GROUPS",
+   "title": "D. Dixon, B. Mortimer, Permutation Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 543,
+     "text": "*Permutation Groups*, Theorem 1.5A."
+    },
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1602,
+     "text": "- J. D. Dixon and B. Mortimer, *Permutation Groups*, GTM 163, Springer, 1996. The traditional"
+    }
+   ]
+  },
+  {
+   "id": "SERRE-TOPICS-GALOIS-THEORY",
+   "title": "J.-P. Serre, Topics in Galois Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1401,
+     "text": "- *Source:* van der Waerden, *Algebra* I, §61; Serre, *Topics in Galois Theory*, 2nd edition,"
+    },
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1627,
+     "text": "- B. L. van der Waerden, *Algebra* I, §61, and J.-P. Serre, *Topics in Galois Theory*, 2nd"
+    }
+   ]
+  },
+  {
+   "id": "WAERDEN-ALGEBRA",
+   "title": "Waerden, Algebra",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1128,
+     "text": "- *Source:* Dedekind; see Cohen, §6.3.2, and van der Waerden, *Algebra* I, §61. The proof is"
+    },
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1401,
+     "text": "- *Source:* van der Waerden, *Algebra* I, §61; Serre, *Topics in Galois Theory*, 2nd edition,"
+    },
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1627,
+     "text": "- B. L. van der Waerden, *Algebra* I, §61, and J.-P. Serre, *Topics in Galois Theory*, 2nd"
+    }
+   ]
+  },
+  {
+   "id": "WIELANDT-FINITE-PERMUTATION-GROUPS",
+   "title": "Wielandt, Finite Permutation Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 542,
+     "text": "- *Source:* Wielandt, *Finite Permutation Groups*, Theorem 7.5; Dixon and Mortimer,"
+    },
+    {
+     "file": "content/tau-ceti/PolynomialGaloisGroups/README.md",
+     "line": 1608,
+     "text": "- H. Wielandt, *Finite Permutation Groups*, Academic Press, 1964. The original source for the"
+    }
+   ]
+  }
+ ],
+ "citationCount": 11
+}

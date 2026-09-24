@@ -1,0 +1,23 @@
+{
+ "id": "SRC-CharacterTheory",
+ "roadmap": "CharacterTheory",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+ ],
+ "title": "Character theory of finite groups, and computing character tables",
+ "books": [
+  {
+   "id": "ISAACS-CHARACTER-THEORY-FINITE-GROUPS",
+   "title": "I. M. Isaacs, Character Theory of Finite Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/CharacterTheory/README.md",
+     "line": 576,
+     "text": "- I. M. Isaacs, *Character Theory of Finite Groups*, AMS Chelsea (1976) - Layers 0-4: class functions and"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

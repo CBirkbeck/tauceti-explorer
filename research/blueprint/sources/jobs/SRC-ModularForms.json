@@ -1,0 +1,47 @@
+{
+ "id": "SRC-ModularForms",
+ "roadmap": "ModularForms",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/ModularForms"
+ ],
+ "title": "Modular forms — Hecke theory, newforms, and L-functions",
+ "books": [
+  {
+   "id": "FORSTER-LECTURES-RIEMANN-SURFACES",
+   "title": "Forster, Lectures on Riemann Surfaces",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ModularForms/README.md",
+     "line": 1073,
+     "text": "(analytic curve, no GAGA; Forster, *Lectures on Riemann Surfaces*, GTM 81, §§14–17). In order:"
+    }
+   ]
+  },
+  {
+   "id": "IWANIEC-KOWALSKI",
+   "title": "Iwaniec–Kowalski, Analytic Number Theory (AMS Colloquium 53)",
+   "note": "Cited for the analytic conductor normalisation.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ModularForms/README.md",
+     "line": 755,
+     "text": "definition must never touch it. The conductor: and the **analytic conductor pinned** as Iwaniec–Kowalski (5.7) for"
+    }
+   ]
+  },
+  {
+   "id": "SHIMURA-IAT",
+   "title": "Shimura, Introduction to the Arithmetic Theory of Automorphic Functions",
+   "note": "",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ModularForms/README.md",
+     "line": 1577,
+     "text": "- G. Shimura, *Introduction to the Arithmetic Theory of Automorphic Functions*: Ch. 3 (the Hecke"
+    }
+   ]
+  }
+ ],
+ "citationCount": 3
+}

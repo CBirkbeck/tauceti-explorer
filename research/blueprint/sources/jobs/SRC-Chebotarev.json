@@ -1,0 +1,35 @@
+{
+ "id": "SRC-Chebotarev",
+ "roadmap": "Chebotarev",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/Chebotarev"
+ ],
+ "title": "The Chebotarev density theorem",
+ "books": [
+  {
+   "id": "ARTIN-CLASS-FIELD-THEORY",
+   "title": "E. Artin and J. Tate, Class Field Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Chebotarev/README.md",
+     "line": 735,
+     "text": "- J. S. Milne, *Class Field Theory*, version 4.03, Chapter VI §§3--4 and Chapter VIII §7."
+    }
+   ]
+  },
+  {
+   "id": "WASHINGTON-INTRODUCTION-CYCLOTOMIC-FIELDS",
+   "title": "L. Washington, Introduction to Cyclotomic Fields",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Chebotarev/README.md",
+     "line": 742,
+     "text": "- L. Washington, *Introduction to Cyclotomic Fields*, Chapter 2, for total ramification of `ℚ(ζ_q)`"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

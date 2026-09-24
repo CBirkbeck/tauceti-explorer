@@ -1,0 +1,28 @@
+{
+ "id": "SRC-CombinatorialHeegaardFloer",
+ "roadmap": "CombinatorialHeegaardFloer",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+ ],
+ "title": "Combinatorial Heegaard Floer and grid homology",
+ "books": [
+  {
+   "id": "STIPSICZ-GRID-HOMOLOGY-KNOTS-LINKS",
+   "title": "A. Stipsicz, Z. Szabó, Grid Homology for Knots and Links",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/CombinatorialHeegaardFloer/README.md",
+     "line": 41,
+     "text": "Ozsváth–Stipsicz–Szabó, *Grid Homology for Knots and Links*, AMS 2015). The"
+    },
+    {
+     "file": "content/tau-ceti/CombinatorialHeegaardFloer/README.md",
+     "line": 304,
+     "text": "- P. Ozsváth, A. Stipsicz, Z. Szabó, *Grid Homology for Knots and Links*, AMS"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

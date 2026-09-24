@@ -1,0 +1,50 @@
+{
+ "id": "SRC-IntegralLattices",
+ "roadmap": "IntegralLattices",
+ "roadmapIds": [
+  "tauceti:Completed/IntegralLattices"
+ ],
+ "title": "Integral lattices, discriminant forms, and overlattices",
+ "books": [
+  {
+   "id": "EBELING-LATTICES-CODES",
+   "title": "W. Ebeling, Lattices and Codes",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Completed/IntegralLattices/README.md",
+     "line": 423,
+     "text": "- W. Ebeling, *Lattices and Codes*, 3rd ed., Springer (2013),"
+    },
+    {
+     "file": "content/tau-ceti/Completed/IntegralLattices/README.md",
+     "line": 424,
+     "text": "[DOI](https://doi.org/10.1007/978-3-658-00360-9). Chapter 1 supplies the lattice, Gram matrix,"
+    }
+   ]
+  },
+  {
+   "id": "SLOANE-SPHERE-PACKINGS-LATTICES-GROUPS",
+   "title": "N. J. A. Sloane, Sphere Packings, Lattices and Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Completed/IntegralLattices/PROGRESS.md",
+     "line": 12,
+     "text": "Every row of the Layer 5 table is verified as a finite quadratic module, not a group order: `⟨2m⟩` for all nonzero `m` ([`TauCeti.IntegralLattice.rankOneDiscriminantEquiv`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/LinearAlgebra/IntegralLattice/RankOne.html#TauCeti.IntegralLattice.rankOneDiscriminantEquiv)), `Aₙ` ([`TauCeti.IntegralLattice.typeADiscriminantQuadraticIsometry`](https://t"
+    },
+    {
+     "file": "content/tau-ceti/Completed/IntegralLattices/README.md",
+     "line": 418,
+     "text": "- J. H. Conway and N. J. A. Sloane, *Sphere Packings, Lattices and Groups*, 3rd ed., Springer"
+    },
+    {
+     "file": "content/tau-ceti/Completed/IntegralLattices/README.md",
+     "line": 419,
+     "text": "(1999), [DOI](https://doi.org/10.1007/978-1-4757-6568-7). Chapter 4, especially the sections on"
+    }
+   ]
+  }
+ ],
+ "citationCount": 5
+}

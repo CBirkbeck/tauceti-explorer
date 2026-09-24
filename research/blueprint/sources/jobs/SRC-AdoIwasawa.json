@@ -1,0 +1,23 @@
+{
+ "id": "SRC-AdoIwasawa",
+ "roadmap": "AdoIwasawa",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+ ],
+ "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
+ "books": [
+  {
+   "id": "JACOBSON-LIE-ALGEBRAS",
+   "title": "N. Jacobson, Lie Algebras",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/AdoIwasawa/README.md",
+     "line": 610,
+     "text": "- N. Jacobson, *Lie Algebras*, Interscience (1962), Chapters V–VI and pp. 202–203 — PBW,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

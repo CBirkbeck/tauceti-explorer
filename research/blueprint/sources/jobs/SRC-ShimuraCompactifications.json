@@ -1,0 +1,23 @@
+{
+ "id": "SRC-ShimuraCompactifications",
+ "roadmap": "ShimuraCompactifications",
+ "roadmapIds": [
+  "ShimuraCompactifications"
+ ],
+ "title": "Toroidal compactifications and boundary geometry",
+ "books": [
+  {
+   "id": "FALTINGS-CHAI",
+   "title": "Faltings–Chai, Degeneration of Abelian Varieties (Ergebnisse 22)",
+   "note": "",
+   "citations": [
+    {
+     "file": "content/campaign/ShimuraCompactifications/README.md",
+     "line": 15,
+     "text": "Minimal characteristic-zero compactifications are already owned by V2 and V8. This roadmap does not reconstruct them. It constructs the finer toroidal geometry and the comparison maps. The principal references are Ash–Mumford–Rapoport–Tai, Pink, Faltings–Chai, and Lan's *Arithmetic Compactifications*. Lan's example-based introduction §4 is the scope guide, not a substitute for the proofs in those "
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

@@ -1,0 +1,23 @@
+{
+ "id": "SRC-RootSystems",
+ "roadmap": "RootSystems",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+ ],
+ "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+ "books": [
+  {
+   "id": "KAC-INFINITE-DIMENSIONAL-LIE-ALGEBRAS",
+   "title": "V. G. Kac, Infinite Dimensional Lie Algebras",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+     "line": 447,
+     "text": "- V. G. Kac, *Infinite Dimensional Lie Algebras*, 3rd ed., CUP (1990), Ch. 4 - generalized Cartan"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

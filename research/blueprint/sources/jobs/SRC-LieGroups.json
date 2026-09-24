@@ -1,0 +1,35 @@
+{
+ "id": "SRC-LieGroups",
+ "roadmap": "LieGroups",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+ ],
+ "title": "Lie groups and the Lie algebra correspondence",
+ "books": [
+  {
+   "id": "HALL-LIE-GROUPS-LIE-ALGEBRAS",
+   "title": "B. C. Hall, Lie Groups, Lie Algebras, and Representations",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+     "line": 532,
+     "text": "- B. C. Hall, *Lie Groups, Lie Algebras, and Representations*, 2nd ed., Springer GTM 222 (2015) - the"
+    }
+   ]
+  },
+  {
+   "id": "SERRE-LIE-ALGEBRAS-LIE-GROUPS",
+   "title": "J.-P. Serre, Lie Algebras and Lie Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+     "line": 535,
+     "text": "- J.-P. Serre, *Lie Algebras and Lie Groups*, Springer LNM 1500 (1992) - the formal-group and BCH"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

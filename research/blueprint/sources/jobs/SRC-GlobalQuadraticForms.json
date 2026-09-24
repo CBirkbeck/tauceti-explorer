@@ -1,0 +1,35 @@
+{
+ "id": "SRC-GlobalQuadraticForms",
+ "roadmap": "GlobalQuadraticForms",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+ ],
+ "title": "Global quadratic forms over number fields",
+ "books": [
+  {
+   "id": "CASSELS-RATIONAL-QUADRATIC-FORMS",
+   "title": "J. W. S. Cassels, Rational Quadratic Forms",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GlobalQuadraticForms/README.md",
+     "line": 1023,
+     "text": "- J. W. S. Cassels, *Rational Quadratic Forms*, Academic Press (1978), for rational examples and"
+    }
+   ]
+  },
+  {
+   "id": "SERRE-COURSE-ARITHMETIC",
+   "title": "Jean-Pierre Serre, A Course in Arithmetic",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/GlobalQuadraticForms/README.md",
+     "line": 1020,
+     "text": "- J.-P. Serre, *A Course in Arithmetic*, GTM 7, Springer (1973), Chapters III–IV. It is a"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

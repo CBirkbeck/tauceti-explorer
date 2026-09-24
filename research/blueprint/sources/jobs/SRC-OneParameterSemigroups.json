@@ -1,0 +1,35 @@
+{
+ "id": "SRC-OneParameterSemigroups",
+ "roadmap": "OneParameterSemigroups",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+ ],
+ "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+ "books": [
+  {
+   "id": "CHRISTENSEN-HARMONIC-ANALYSIS-SEMIGROUPS",
+   "title": "R. Christensen, P. Ressel, Harmonic Analysis on Semigroups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/OneParameterSemigroups/README.md",
+     "line": 280,
+     "text": "- C. Berg, J. P. R. Christensen, P. Ressel, *Harmonic Analysis on Semigroups* (GTM 100, 1984)"
+    }
+   ]
+  },
+  {
+   "id": "SONG-BERNSTEIN-FUNCTIONS-THEORY-APPLICATIONS",
+   "title": "R. Song, Z. Vondraček, Bernstein Functions: Theory and Applications",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/OneParameterSemigroups/README.md",
+     "line": 275,
+     "text": "- R. Schilling, R. Song, Z. Vondraček, *Bernstein Functions: Theory and Applications* (de"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

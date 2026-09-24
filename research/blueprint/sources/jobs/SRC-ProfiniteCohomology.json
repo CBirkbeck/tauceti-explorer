@@ -1,0 +1,38 @@
+{
+ "id": "SRC-ProfiniteCohomology",
+ "roadmap": "ProfiniteCohomology",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+ ],
+ "title": "Continuous cohomology of profinite groups",
+ "books": [
+  {
+   "id": "BROWN-COHOMOLOGY-GROUPS",
+   "title": "Kenneth Brown, Cohomology of Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ProfiniteCohomology/README.md",
+     "line": 1166,
+     "text": "**Source** for graded commutativity. NSW (1.4.4); Brown, *Cohomology of Groups*, V (3.6). The"
+    },
+    {
+     "file": "content/tau-ceti/ProfiniteCohomology/README.md",
+     "line": 1396,
+     "text": "**Source** for the all-degree corestriction. Brown, *Cohomology of Groups*, III §9 gives five"
+    },
+    {
+     "file": "content/tau-ceti/ProfiniteCohomology/README.md",
+     "line": 1569,
+     "text": "Brown, *Cohomology of Groups*, V §3 supplies the model identities: (3.5) is cochain-level"
+    },
+    {
+     "file": "content/tau-ceti/ProfiniteCohomology/README.md",
+     "line": 1870,
+     "text": "- K. S. Brown, *Cohomology of Groups*, Springer GTM 87 (1982), discrete background: Ch. III §9"
+    }
+   ]
+  }
+ ],
+ "citationCount": 4
+}

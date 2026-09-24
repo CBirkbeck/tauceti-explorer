@@ -1,0 +1,137 @@
+{
+ "id": "SRC-ModularCurves",
+ "roadmap": "ModularCurves",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/ModularCurves"
+ ],
+ "title": "Modular curves, following Katz–Mazur",
+ "books": [
+  {
+   "id": "KATZ-ARITHMETIC-MODULI-ELLIPTIC-CURVES",
+   "title": "M. Katz and B. Mazur, Arithmetic Moduli of Elliptic Curves",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1,
+     "text": "# Roadmap: modular curves, following Katz–Mazur"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 4,
+     "text": "B. Mazur, *Arithmetic Moduli of Elliptic Curves* (Annals of Mathematics Studies 108, 1985)."
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 11,
+     "text": "Katz–Mazur moduli formalism. The proof of the First Main Theorem follows the order of KM: Chapter 5"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 185,
+     "text": "8. **Quotients of moduli problems.** The integral Katz–Mazur quotient `P/H`, the objectwise"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 297,
+     "text": "lemma), registered as an instance. For the finite-type affine problems used here, the Katz–Mazur quotient projection"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1001,
+     "text": "property, but must prove its equivalence with the Katz–Mazur definition. Include the characteristic"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1057,
+     "text": "## Layer 4: the Katz–Mazur moduli formalism"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1101,
+     "text": "Carry out Katz–Mazur's rigidifier construction in the following definite form."
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1166,
+     "text": "Define regularity in Katz–Mazur's sense (KM 4.12). If `𝒫` is relatively representable and `δ` is a"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1319,
+     "text": "through Katz–Mazur 10.9.2 uses the geometric generic fibre and the complex uniformisation by a"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1730,
+     "text": "### 9A. Katz–Mazur quotient problems"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1846,
+     "text": "Prove the invariant regular-local-ring lemma used by Katz–Mazur and deduce:"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2104,
+     "text": "étale statement is about the **reduced** cusp locus — Katz–Mazur's *scheme of cusps*, whose"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2379,
+     "text": "- Layer 9 consumes the completed integral theory and distinguishes Katz–Mazur quotient problems,"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2411,
+     "text": "- N. M. Katz and B. Mazur, *Arithmetic Moduli of Elliptic Curves*, Annals of Mathematics Studies"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2449,
+     "text": "Katz–Mazur scan used for the audit has 526 PDF pages and includes Chapters 6–14, the references,"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2504,
+     "text": "Katz–Mazur quotients, and the beginning of Chapter 5;"
+    }
+   ]
+  },
+  {
+   "id": "KATZ-SERRE-TATE-LOCAL-MODULI",
+   "title": "Katz, Serre–Tate local moduli",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1484,
+     "text": "proof source is Katz, *Serre–Tate local moduli*, Theorem 1.2.1, added to §References."
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2433,
+     "text": "- N. M. Katz, *Serre–Tate local moduli*, in *Surfaces Algébriques* (Séminaire de Géométrie"
+    }
+   ]
+  },
+  {
+   "id": "SILVERMAN-ARITHMETIC-ELLIPTIC-CURVES",
+   "title": "J. H. Silverman, The Arithmetic of Elliptic Curves",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 1980,
+     "text": "and its order is `24`. Use Silverman, *The Arithmetic of Elliptic Curves*, III.10.1 and Appendix A"
+    },
+    {
+     "file": "content/tau-ceti/ModularCurves/README.md",
+     "line": 2430,
+     "text": "- J. H. Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., GTM 106, Springer, 2009,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 21
+}

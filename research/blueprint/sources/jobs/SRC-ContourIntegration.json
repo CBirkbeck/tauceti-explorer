@@ -1,0 +1,23 @@
+{
+ "id": "SRC-ContourIntegration",
+ "roadmap": "ContourIntegration",
+ "roadmapIds": [
+  "tauceti:Completed/ContourIntegration"
+ ],
+ "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+ "books": [
+  {
+   "id": "HENRICI-APPLIED-COMPUTATIONAL-COMPLEX-ANALYSIS",
+   "title": "P. Henrici, Applied and Computational Complex Analysis",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Completed/ContourIntegration/README.md",
+     "line": 246,
+     "text": "- P. Henrici, *Applied and Computational Complex Analysis*, Thm 4.8f (the semicircle /"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

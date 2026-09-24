@@ -1,0 +1,45 @@
+{
+ "id": "SRC-AlgebraicCodingTheory",
+ "roadmap": "AlgebraicCodingTheory",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+ ],
+ "title": "Algebraic codes and code-lattice constructions",
+ "books": [
+  {
+   "id": "EBELING-LATTICES-CODES",
+   "title": "W. Ebeling, Lattices and Codes",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+     "line": 441,
+     "text": "- W. Ebeling, *Lattices and Codes*, 3rd ed., Springer (2013),"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+     "line": 442,
+     "text": "[DOI](https://doi.org/10.1007/978-3-658-00360-9). §§1.2--1.3 give binary codes and the exact"
+    }
+   ]
+  },
+  {
+   "id": "SLOANE-SPHERE-PACKINGS-LATTICES-GROUPS",
+   "title": "N. J. A. Sloane, Sphere Packings, Lattices and Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+     "line": 436,
+     "text": "- J. H. Conway and N. J. A. Sloane, *Sphere Packings, Lattices and Groups*, 3rd ed., Springer"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+     "line": 437,
+     "text": "(1999), [DOI](https://doi.org/10.1007/978-1-4757-6568-7). Chapter 4 §3 supplies discriminant"
+    }
+   ]
+  }
+ ],
+ "citationCount": 4
+}

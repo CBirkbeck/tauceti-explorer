@@ -1,0 +1,23 @@
+{
+ "id": "SRC-HeegnerPointEulerSystems",
+ "roadmap": "HeegnerPointEulerSystems",
+ "roadmapIds": [
+  "HeegnerPointEulerSystems"
+ ],
+ "title": "Heegner-point Euler systems and arithmetic descent",
+ "books": [
+  {
+   "id": "ZHANG-SELMER-GROUPS-INDIVISIBILITY-HEEGNER",
+   "title": "Zhang, Selmer groups and the indivisibility of Heegner points",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/campaign/HeegnerPointEulerSystems/README.md",
+     "line": 132,
+     "text": "Sources: Kolyvagin's classical papers and Kolyvagin–Logachev; Howard, §§1.1–1.7 and 2.1–2.3; Zhang, *Selmer groups and the indivisibility of Heegner points*, §§3–11; BCGS, §§1–2; Castella–Sano, §3; the Cornut–Vatsal nonvanishing papers. Primary PDFs, edition-specific theorem checks and access gaps are in the register. Suggested.lean provides the finite-sum and torsion algebra on existing types plu"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

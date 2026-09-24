@@ -1,0 +1,23 @@
+{
+ "id": "SRC-SemisimpleAlgebras",
+ "roadmap": "SemisimpleAlgebras",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+ ],
+ "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+ "books": [
+  {
+   "id": "LAM-FIRST-COURSE-NONCOMMUTATIVE-RINGS",
+   "title": "T. Y. Lam, A First Course in Noncommutative Rings",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md",
+     "line": 375,
+     "text": "- T. Y. Lam, *A First Course in Noncommutative Rings*, 2nd ed., Springer GTM 131 (2001) - semisimple rings,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

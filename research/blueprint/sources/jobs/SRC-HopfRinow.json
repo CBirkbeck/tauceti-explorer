@@ -1,0 +1,45 @@
+{
+ "id": "SRC-HopfRinow",
+ "roadmap": "HopfRinow",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/HopfRinow"
+ ],
+ "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+ "books": [
+  {
+   "id": "CARMO-RIEMANNIAN-GEOMETRY",
+   "title": "Carmo, Riemannian Geometry",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/HopfRinow/README.md",
+     "line": 25,
+     "text": "The target is do Carmo, *Riemannian Geometry*, Chapter 7 §2, Theorem 2.8 with Corollary 2.9,"
+    },
+    {
+     "file": "content/tau-ceti/HopfRinow/README.md",
+     "line": 451,
+     "text": "- M. P. do Carmo, *Riemannian Geometry*, Birkhäuser, 1992: **Ch. 1, Def. 2.9** (arc length),"
+    },
+    {
+     "file": "content/tau-ceti/HopfRinow/README.md",
+     "line": 462,
+     "text": "- P. Petersen, *Riemannian Geometry*, GTM 171: an alternative account of completeness, minimizing"
+    }
+   ]
+  },
+  {
+   "id": "LEE-INTRODUCTION-RIEMANNIAN-MANIFOLDS",
+   "title": "J. Lee, Introduction to Riemannian Manifolds",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/HopfRinow/README.md",
+     "line": 458,
+     "text": "- J. Lee, *Introduction to Riemannian Manifolds*, GTM 176, 2018: the Levi-Civita connection"
+    }
+   ]
+  }
+ ],
+ "citationCount": 4
+}

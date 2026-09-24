@@ -1,0 +1,28 @@
+{
+ "id": "SRC-EllipticCurves",
+ "roadmap": "EllipticCurves",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/EllipticCurves"
+ ],
+ "title": "Elliptic curves",
+ "books": [
+  {
+   "id": "RUBIN-EULER-SYSTEMS",
+   "title": "K. Rubin, Euler Systems",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/EllipticCurves/README.md",
+     "line": 1219,
+     "text": "Rubin's *Euler Systems* I.§1–2, so the same API later serves abelian varieties and other"
+    },
+    {
+     "file": "content/tau-ceti/EllipticCurves/README.md",
+     "line": 1652,
+     "text": "- K. Rubin, *Euler Systems*, Annals of Mathematics Studies 147 (Princeton, 2000) — Selmer"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}
