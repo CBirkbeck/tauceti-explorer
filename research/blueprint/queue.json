@@ -27316,8 +27316,9 @@
     "REV-AUDIT-10"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-10.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1569"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1569",
+   "finishedAt": "2026-09-24T06:04:12Z"
   },
   {
    "id": "RT-AUDIT-11",
@@ -29016,8 +29017,9 @@
     "RT-AREA-arithmeticgeometry-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-arithmeticgeometry-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1486"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1486",
+   "finishedAt": "2026-09-24T06:04:16Z"
   },
   {
    "id": "RT-AREA-functionfields",
@@ -29065,7 +29067,8 @@
     "RT-AREA-functionfields"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-functionfields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1488"
   },
   {
    "id": "RT-AREA-automorphic-1",
@@ -30394,7 +30397,8 @@
     "RT-AREA-analysis"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-analysis.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1538"
   },
   {
    "id": "RT-AREA-pde",
