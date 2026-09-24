@@ -29308,7 +29308,8 @@
     "RT-AREA-iwasawa-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-iwasawa-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1496"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -29420,8 +29421,9 @@
     "RT-AREA-langlands-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-langlands-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1500"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1500",
+   "finishedAt": "2026-09-24T10:02:43Z"
   },
   {
    "id": "RT-AREA-langlands-2",
@@ -29477,7 +29479,8 @@
     "RT-AREA-langlands-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-langlands-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1502"
   },
   {
    "id": "RT-AREA-langlands-3",
