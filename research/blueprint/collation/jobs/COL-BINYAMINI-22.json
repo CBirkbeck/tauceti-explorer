@@ -1,0 +1,96 @@
+{
+ "id": "COL-BINYAMINI-22",
+ "paper": "PAPER-BINYAMINI-22",
+ "citation": "Binyamini, \"Point counting for foliations over number fields\", Forum of Mathematics, Pi (2022)",
+ "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/div-class-title-point-counting-for-foliations-over-number-fields-div.pdf",
+ "readFrom": "preprint",
+ "files": [
+  "research/blueprint/papers/PAPER-BINYAMINI-22.result.json"
+ ],
+ "findings": [
+  {
+   "id": "PAPER-BINYAMINI-22/E8",
+   "locator": "Proposition 51 and Theorem 9, Appendix A, pp.36–37 (published version)",
+   "printed": "\"Proposition 51. Suppose L is defined over a number field. Then inf_{φ ∈ Aut(ℙ¹)} ‖a₀(φ*L)‖ = e^{−poly_n(δ_L)}. Proof. … Now the operator L′ := L + 1 is also Fuchsian …\"",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E9",
+   "locator": "§2 before Proposition 7, p.9 (published version)",
+   "printed": "“mult_p F = 0 if p is a nonisolated zero”",
+   "kind": "misprint",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E10",
+   "locator": "Lemma 11 and proof, p.10 (published version)",
+   "printed": "“In particular, this is true for the μ points (z1,w) where F1,…,F(n−1) vanish.”",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E11",
+   "locator": "Proposition 22, (50), p.15; uses in §§5.2 and 6.2 (published version)",
+   "printed": "“Let 0 ≤ m ≤ dim M … W of pure codimension m that contains V”",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E13",
+   "locator": "Lemma 48, (147)–(150), p.35 (published version)",
+   "printed": "“j_t^n f := (f,∂t f,…,∂t^n f)^T” with the displayed n×n companion matrix and radius-free (149)",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E14",
+   "locator": "§9.3 after (125), p.30 (published version)",
+   "printed": "“Let K⊂Ω^n … vol(K)≥(2/3)vol(Ω^n). According to Duke … at least two-thirds … in K.”",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E15",
+   "locator": "(127), p.30, and the choice of g on p.31 (published version)",
+   "printed": "“[Q(τ^σ):Q] ≤ 2n” and “Counting with g=2n”",
+   "kind": "misprint",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E16",
+   "locator": "Appendix A after Theorem 9, (163), p.37 (published version)",
+   "printed": "“f(t1)=poly_L(1/δ)||j_t^n f(t0)||” for Lf=b",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E20",
+   "locator": "Proposition 17, p.12, under the §3 setup of a pure m-dimensional analytic set (published version)",
+   "printed": "“There exists a ball B′⊂B … disjoint from S¹·X” with α:=2n−2m−1.",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E21",
+   "locator": "Lemma 27, (69), p.19 (published version)",
+   "printed": "“|P(y)| ≥ (d^(m+1) N H(y)^(d(m+1)))^(−[Q(y):Q])”",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E22",
+   "locator": "Lemma 26, (62), p.18 (published version)",
+   "printed": "“Set d,N∈N” with the factor “N log N” in the upper bound",
+   "kind": "misprint",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BINYAMINI-22/E23",
+   "locator": "Corollary 14, (32), p.11, with the height convention of §1.1.4 (published version)",
+   "printed": "“log |M_p^(k)(P)| ≥ poly(δξ,δV) · log dist(p,ΣV)” for V=V(P1,…,Pn)",
+   "kind": "error",
+   "known": "new"
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "id": "COL-LEMKEOLIVER-WANG-WOOD-25",
+ "paper": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+ "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+ "copy": "https://doi.org/10.1017/s2050508625000009",
+ "readFrom": "preprint",
+ "files": [
+  "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json"
+ ],
+ "findings": [
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E9",
+   "locator": "Lemma 3.11, p.14 (published version)",
+   "printed": "\"For any −1/2 ≤ σ ≤ 3/2 and any t ∈ ℝ, the Shintani zeta function satisfies ξ_{F,α}(σ + it) = O_{[F:ℚ],ε}(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}).\"",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E10",
+   "locator": "Lemma 3.13, p.16, and its use on p.18 (published version)",
+   "printed": "\"Σ_{R∈ℛ(K)} |Aut_F(A)|^{−1}/Disc(R/O_F)^s = h₃(K/F)/(2Disc(K/F)^s) ζ_F(2s)ζ_F(6s − 1) Σ … \" with \"A := R ⊗_ℚ F\"",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E15",
+   "locator": "§7.2, the general prediction for h₃(K/k), p.39 (published version)",
+   "printed": "\"… the predicted average of h₃(K/k) is (1 + ∏_v|V^{σ_v}|^{−1}) ∏_i (1 + ∏_v|V_i^{σ_v}|^{−1} + ⋯ + ∏_v|V_i^{σ_v}|^{−a_i})\"",
+   "kind": "error",
+   "known": "new"
+  }
+ ]
+}

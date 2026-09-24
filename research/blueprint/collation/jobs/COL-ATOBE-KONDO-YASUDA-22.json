@@ -1,0 +1,33 @@
+{
+ "id": "COL-ATOBE-KONDO-YASUDA-22",
+ "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
+ "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
+ "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
+ "readFrom": "preprint",
+ "files": [
+  "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json"
+ ],
+ "findings": [
+  {
+   "id": "PAPER-ATOBE-KONDO-YASUDA-22/E1",
+   "locator": "Published Theorem 9.1/Definition 9.2 pp48–50; arXiv v4 pp52–54",
+   "printed": "There exists a unique function",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-ATOBE-KONDO-YASUDA-22/E3",
+   "locator": "Published proof of Lemma 8.10 p47; v4 corresponding proof",
+   "printed": "Lemma 8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-ATOBE-KONDO-YASUDA-22/E19",
+   "locator": "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)",
+   "printed": "Since K_{nm,λ_σ} is conjugate to K(c_π), by Propositions 9.5 and 9.6, we complete the proof of Theorem 2.1 for σ = Sp(π, m) such that L(s, π) = 1.",
+   "kind": "gap",
+   "known": "new"
+  }
+ ]
+}
