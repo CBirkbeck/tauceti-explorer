@@ -12205,9 +12205,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #72"
+   "note": "deliverables arrived from an external worker on issue #72",
+   "finishedAt": "2026-09-24T12:44:10Z"
   },
   {
    "id": "REV-K3BlochGroups",
@@ -12252,9 +12253,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-Polylogarithms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "stale claim released"
+   "note": "claimed on GitHub issue #73"
   },
   {
    "id": "REV-Polylogarithms",
