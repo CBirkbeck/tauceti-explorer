@@ -25780,7 +25780,8 @@
     "REV-PAPER-BURUNGALE-TIAN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1892"
   },
   {
    "id": "RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -25825,7 +25826,8 @@
     "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1730"
   },
   {
    "id": "RT-PAPER-BENNETT-SIKSEK-20",
@@ -27210,7 +27212,8 @@
     "REV-AUDIT-09"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-09.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1568"
   },
   {
    "id": "REV-RT-AUDIT-09",
@@ -27812,8 +27815,9 @@
     "REV-AUDIT-20"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1590"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1590",
+   "finishedAt": "2026-09-24T02:44:55Z"
   },
   {
    "id": "REV-RT-AUDIT-20",
@@ -28347,8 +28351,9 @@
     "REV-AUDIT-29"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-29.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1607"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1607",
+   "finishedAt": "2026-09-24T02:44:57Z"
   },
   {
    "id": "RT-AUDIT-30",
@@ -30147,7 +30152,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-representations-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1535"
   },
   {
    "id": "REV-RT-AREA-representations-3",
