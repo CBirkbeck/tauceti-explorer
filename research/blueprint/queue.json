@@ -26136,8 +26136,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1742"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1742",
+   "finishedAt": "2026-09-24T01:08:45Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -26389,7 +26390,8 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1620"
   },
   {
    "id": "RT-RS-26",
