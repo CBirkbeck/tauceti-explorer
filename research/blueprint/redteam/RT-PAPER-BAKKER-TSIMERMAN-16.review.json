@@ -1,0 +1,54 @@
+{
+  "redteam": "RT-PAPER-BAKKER-TSIMERMAN-16",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "status": "complete",
+  "summary": "All four findings confirmed, with limits stated: /3 corrects the standalone cusp parameter range despite an intended-positive convention elsewhere; /4 is an unimplemented construction-order cycle, not an already inserted reverse edge. The existing errata and unresolved source-proof gaps remain separate.",
+  "findings": [
+    {
+      "finding": "RT-PAPER-BAKKER-TSIMERMAN-16/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Independently read the published pp.717–718 as text and page images and compared accepted items /29 and /118. The source map gamma_p has domain PSL_2(Z) and codomain Gamma(2,3,p); the quotient by Xi(p) is a second map to PSL_2(F_p). Item /118 gives gamma_p the second domain/codomain while retaining the first kernel, so the kernel-containment assertion is ill-typed. The triangle-group presentation already imposes T^p=1: its normal closure inside that triangle group is trivial, whereas the kernel Xi(p) of the finite quotient uniformizes a positive-genus compact surface for p>5 and is nontrivial. Use two named maps gamma_p and q_p, reduction=q_p composed with gamma_p, K_p=ker gamma_p contained in the projective principal congruence subgroup, and Xi(p)=gamma_p(Gamma(p))=ker q_p. Pass integral matrices through their projective classes before gamma_p. Align /118 with /29 and consumers /38–40. This does not resolve the separately recorded geometric proof gaps E12/E13."
+    },
+    {
+      "finding": "RT-PAPER-BAKKER-TSIMERMAN-16/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read the pair-level CM definition at published p.716, the normalizer inference at p.726 (also as an image), and author-erratum section 2. A shared elliptic j-value does not force a common nonidentity deck stabilizer. For an order-two point x with stabilizer generated projectively by s=[[0,1],[-1,0]], take g=[[1,1],[0,1]] and y=g^{-1}x. Then x=gy and the j-values agree, but gsg^{-1}=[[-1,2],[-1,1]] cannot be a scalar multiple of s modulo any prime p>3 because its diagonal entries are nonzero. Thus g does not normalize Stab(x). Exact arithmetic checks at p=7,11,13,17,19,23,101 agree with this general argument. Require (x,y) in CM, or its explicit common-nonidentity-stabilizer condition, before applying the normalizer/centralizer coset criterion. Order-two/order-three stabilizers with a common nonidentity element coincide. Retain the distinction between a projective normalizer and commuting with a chosen GL_2 lift; do not reinstate the erratum-invalid h_0 lifting assertion."
+    },
+    {
+      "finding": "RT-PAPER-BAKKER-TSIMERMAN-16/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the standalone cusp interfaces /39 and /40, with a scope qualification. Their statements and review notes explicitly retain only delta<1/2, while item /13 describes the intended sufficiently-small positive-parameter convention elsewhere. At fixed delta=-1/4, choose c=c_0 and its distinguished lift in /39, or gamma=1 in /40. The displacement is zero and the right-hand distance bound is (3/4)rho_X(p)>0 for p>5, so the hypotheses hold through unbounded primes. Every determinant-one integral matrix has maximum entry absolute value at least 1, whereas O(p^(4 delta)) here is O(p^(-1)); the ratio is at least p and cannot be uniformly bounded. Explicitly require 0<delta<1/2 locally, with constants allowed to depend on that fixed delta and thresholds stated consistently. Item /13 already supplies the intended positive regime, so this finding does not disprove the estimates in their intended use; it repairs an inconsistent/unsafe standalone quantifier. The same identity test does not refute /38, whose strict inequality is impossible for delta<0; synchronizing its parameter convention is an API consistency choice, not an additional counterexample. No claim is made that adding positivity closes every source-proof gap."
+    },
+    {
+      "finding": "RT-PAPER-BAKKER-TSIMERMAN-16/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a latent construction-order defect. Read route 4, items /101 and /108, the SF.4/SF.5 README and stage descriptions, the explicit stage-edges file and accepted RS-25. SF.5 requires SF.4, and the current edge is SF.4 -> SF.5. Route 4 assigns both constructions to SF.4 but directs them to import SF.5 intersections, asking for the reverse dependency. RS-25 retains source-scoped resolution in SF.4 and general intersections in SF.5; it neither removes the forward edge nor supplies the missing acyclic split. No reverse edge has yet been inserted, so the current graph is not claimed to contain this two-edge cycle. Repair the instructions before inserting dependencies: place SF.5-dependent surface refinements after SF.5 in an appropriate Part II while importing the existing SF.4 and SF.5 carriers, or provide an accepted explicit split that makes the necessary intersection interface available before the SF.4 consumers. Preserve unique routing of /101 and /108 and update GeometricFreyMazur imports. Do not delete the existing edge or duplicate generic resolution/intersection theory to evade the dependency."
+    }
+  ],
+  "sourceSnapshot": "e056b0d0a8966511f4da3b48457296585777758a",
+  "sources": [
+    {
+      "name": "paper",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "readDate": "2026-09-24"
+    },
+    {
+      "name": "erratum",
+      "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1",
+      "readDate": "2026-09-24"
+    }
+  ],
+  "validation": {
+    "redteamChecker": "pass",
+    "exactFindingCoverage": "4 unique supplied IDs, each once, no extras",
+    "intake": "2 files, 0 problems",
+    "leanCompiled": false,
+    "publicationBase": "faa489c8d8d99d7e0b01b9670d60cd2f4685bb93",
+    "unchangedInputBlobs": 16,
+    "claimComment": 5806129532,
+    "claimConfirmation": 5806131198
+  }
+}
