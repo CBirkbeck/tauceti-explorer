@@ -1,0 +1,55 @@
+{
+  "redteam": "RT-AUDIT-14",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "AUDIT-14",
+  "summary": "Rechecked all 169 targets, 411 citation occurrences and 119 ownership overlaps. Found two false mathematical statements (Tate convergence and the Habiro product basis), one omitted existing matrix formula, and one minor continuity-description error. The broad partial/absent classifications remain appropriate; no additional owner conflict was established.",
+  "checked": [
+    "Independence: the accepted AUDIT-14 and REV-AUDIT-14 history was checked; neither was authored or reviewed by this session. Read the entire issue #1578 and the confirmed claim for Codex — codex-c83e7a.",
+    "Read all five roadmap documents, the accepted AUDIT-14 result and REV-AUDIT-14, integrated library coverage and the matching atlas stage descriptions. The actual census is 41 layers and 169 targets: 108 absent, 54 partial, five mathlib and two both. The review's older 142-target wording was not used as the scope.",
+    "Opened every one of the 411 citation occurrences (374 distinct declarations, 309 distinct source files) at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; compared actual statements, surrounding variables, structure fields and hypotheses with the claimed fit. Verified the cited file bytes against pinned GitHub tree blobs. Supplemented statements containing internal let-bindings and structure fields, rather than treating truncated declaration headers as statements.",
+    "For absent targets and the missing parts of partial targets, ran 41 stage-specific alternate-name query groups against declarations.tsv first and then the complete pinned Lean source trees. Triaged substantive hits: finite-group induction versus local smooth induction, low-degree corestriction versus all degrees, ordinary versus q-Pochhammer, continuous duals over fields versus integral topological duality, classical modular forms versus adelic representations. The report records the queries and conclusions.",
+    "Resolved and compared all 119 overlap records against the current descriptions of all 92 distinct cited owners, including the reviewed additions for Habiro, quadratic-form invariants, induction/restriction and modular forms. Checked current packets/decompositions, links and reserved IDs for conflicting scope. Planned owners were not treated as pinned library results.",
+    "Read the public Tate thesis convergence statement and its exponent convention; checked the nonarchimedean annulus counterexample and the unitary-character control. Read both missing characteristic-polynomial theorems in their ambient sections.",
+    "Read CGZ §7 (especially Theorems 7.1 and 7.5, the nonvanishing caveat, positive-definite rational A and distinguished solution) and GSWZ Definition 1.7, equations (28)–(31), Theorems 3–6, Lemma 2.6 and the finite-support proof. Checked the rank-one coefficient obstruction to the audit's product and the separation of analytic asymptotics, formal admissibility and integral Habiro membership.",
+    "Refreshed all 634 repository inputs from the initial d44d12968fa9ee224afb96c3b48e93c6019a986b snapshot to f74afabf1583b51e9cf5e3240c91fe9e864b3ecb; no input changed. The two deliverables were absent when claimed. Only those two deliverables are submitted. This is a research audit; no Lean implementation or compilation is claimed."
+  ],
+  "findings": [
+    {
+      "id": "RT-AUDIT-14/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-14.result.json — AutomorphicLFunctionsAndLocalFactors:AL.1, targets[0].target (zero-based)",
+      "claim": "The local Tate integral is asserted to converge for Re(s)>0 for an arbitrary quasi-character χ. Its convergence half-plane depends on the real exponent of χ; the assertion is false without a unitary hypothesis or a shift.",
+      "evidence": "Tate, Fourier Analysis in Number Fields and Hecke's Zeta-Functions (1950), §2.3 and Definition 2.4.1/Lemma 2.4.1, printed pp. 2.07, 2.09–2.10 (PDF pp. 14, 16–17), https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf, read 2026-09-24: the integral is “defined for all quasi-characters of exponent greater than 0”. If |χ(x)|=|x|^a, χ(x)|x|^s has exponent a+Re(s). Counterexample: F_v=Q_p, f=1_{Z_p}, χ(x)=|x|_p^(-1), s=1, and vol(Z_p^×)=1. Each annulus p^m Z_p^×, m≥0, contributes 1, so the integral diverges although Re(s)>0.",
+      "fix": "Replace the convergence clause by Re(s)+a(χ)>0, explicitly defining |χ(x)|=|x|^a(χ), or restrict this particular assertion to unitary χ and treat norm twists separately. Retain the partial verdict and the existing archimedean ingredients. Propagate the corrected target into integrated coverage through the audit-fix intake."
+    },
+    {
+      "id": "RT-AUDIT-14/2",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-14.result.json — AutomorphicLFunctionsAndLocalFactors:AL.4, targets[1].note and declarations",
+      "claim": "The assertion that no characteristic-polynomial formula for the contragredient exists misses two pinned Mathlib theorems. They already give the formula for the inverse transpose of an invertible matrix. This does not supply the still-missing Satake comparison or tensor-product formula.",
+      "evidence": "Mathlib at 082e2d37e8b0463410cdb532e111cd43d5a66174: Matrix.charpoly_inv, Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean:314, states A⁻¹.charpoly = (-1)^Fintype.card n * C A.det⁻¹ʳ * A.charpolyRev under h : IsUnit A. Matrix.charpoly_transpose, Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean:167, states (Mᵀ).charpoly = M.charpoly. Statements, ambient CommRing/Fintype/DecidableEq hypotheses and proofs were read. Applying the second theorem to A⁻¹ gives the contragredient matrix formula immediately. Pinned links: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean#L314 and https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean#L167 .",
+      "fix": "Add both declarations as existing linear-algebra ingredients, with IsUnit A explicit, and replace the claimed absence of the contragredient formula by its inverse-transpose construction. Keep the compound target partial; separately retain the unbuilt tensor-product formula and the identification with actual Satake parameters."
+    },
+    {
+      "id": "RT-AUDIT-14/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-14.result.json — HabiroNahmSeries:HB.8, targets[0].target together with targets[2].target",
+      "claim": "The audit defines c_{n,i} using individual factors (1-q^{i/2}x^n), then attributes finite i-support for those exponents to GSWZ Theorem 6. GSWZ uses infinite q-Pochhammer factors (q^i t^n;q)_∞. Removing the Pochhammer changes the exponents and makes the attributed finite-support conclusion false, already in rank one.",
+      "evidence": "Garoufalidis–Scholze–Wheeler–Zagier, The Habiro Ring of a Number Field, Definition 1.7 and equations (28)–(29), p. 12, and Theorem 6/equation (81), p. 24, https://guests.mpim-bonn.mpg.de/stavros/publications/habiro-ring-number-field.pdf, read 2026-09-24. Theorem 6 says “for fixed n all but finitely many i satisfy c_{n,i}=0” for the product of (q^i t^n;q)_∞. Set A=(1) in its displayed sum: [t]F_A=-q/(1-q). The audit's individual-factor product with finite i-support would instead give [t]F_A=-Σ_i c_{1,i}q^{i/2}, a finite Laurent polynomial in q^(1/2), which cannot equal -q/(1-q). Equation (29) has L_n(q)=Σ_i c_{n,i}q^i; the denominator 1-q comes from the Pochhammer itself.",
+      "fix": "Replace targets[0]'s product by ∏_{0≠n∈N^N}∏_{i∈Z}(q^i t^n;q)_∞^{c_{n,i}}, and specify the ambient formal series interpretation and lower-bounded i-support before admissibility. Identify these same c_{n,i} in targets[2], where Theorem 6 upgrades lower-bounded to finite support for F_A. If half-powers are deliberately retained, provide a change-of-variable convention without dropping the Pochhammer factors. Keep the current partial/absent library verdicts; this is a source-faithfulness correction."
+    },
+    {
+      "id": "RT-AUDIT-14/4",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-14.result.json — CompletedCohomologyPartII:CC.2, targets[4].note",
+      "claim": "Calling ContRepresentation “separately continuous” overstates its group-variable requirement. The structure only requires each group element to act by a continuous linear operator; it does not require continuity in the group variable at all. The audit correctly rejects it as a proof of joint continuity, so this is a wording correction without a verdict change.",
+      "evidence": "Mathlib at 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RepresentationTheory/Continuous/Basic.lean:46–57: the ambient variables assume [Monoid G] but no TopologicalSpace G, and ContRepresentation has the single field toMonoidHom : G →* V →L[R] V. Pinned declaration: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Continuous/Basic.lean#L54 .",
+      "fix": "Replace both occurrences of “separately continuous” in this note by “a representation by continuous linear operators”, and say explicitly that group-variable continuity and joint continuity are additional requirements. Retain the absent verdict for the p-adic Banach representation construction."
+    }
+  ]
+}
