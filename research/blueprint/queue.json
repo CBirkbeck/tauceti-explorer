@@ -26108,7 +26108,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1743"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -26182,7 +26183,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1744"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
@@ -27861,8 +27863,9 @@
     "REV-AUDIT-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1593"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1593",
+   "finishedAt": "2026-09-24T00:43:05Z"
   },
   {
    "id": "RT-AUDIT-23",
