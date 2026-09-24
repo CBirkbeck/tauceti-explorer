@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AUDIT-25",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-25/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. At the pinned Mathlib commit, IsCyclotomicExtension.Rat.Three.Units.mem classifies every u : (𝓞 K)ˣ as one of 1, -1, η, -η, η², -η², under Field/NumberField K, IsCyclotomicExtension {3} ℚ K and a primitive third root ζ, with η the corresponding integral unit. This is an actual ring-of-integers unit computation, not merely the torsion subgroup already cited. The field discriminant formula IsCyclotomicExtension.Rat.discr_prime specializes at p=3 to -3; the general discr formula cited elsewhere in the audit agrees. The same Three.lean file proves the stated congruence refinement. Replace the blanket absence note and add Units.mem at line 51 with fit special case. Retain the full exceptional-discriminant/no-division Heegner target as absent, HE.0 as partly built and NumberField.Units.torsion as related evidence: the classification supplies neither arbitrary-conductor quadratic orders nor their indices and CM/Heegner formulas. Say that the other exceptional case is not established by this citation, rather than asserting a new whole-library absence claim about it."
+    }
+  ]
+}
