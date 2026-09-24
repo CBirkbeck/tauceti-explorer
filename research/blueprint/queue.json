@@ -23222,13 +23222,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-KTheoryLowDegrees--U.1",
     "BP-KTheoryLowDegrees--Z.3"
    ],
-   "note": "released on GitHub issue #1025"
+   "note": "claimed on GitHub issue #1025"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion",
@@ -23935,7 +23935,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
@@ -23944,7 +23944,7 @@
     "BP-SchemeAndStackFoundations",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1038"
+   "note": "released on GitHub issue #1038"
   },
   {
    "id": "REV-ArithmeticStatistics",
