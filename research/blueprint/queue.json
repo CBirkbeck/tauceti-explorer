@@ -17479,9 +17479,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES7.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #728"
+   "note": "released on GitHub issue #728"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES7",
@@ -19367,8 +19367,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-LanglandsParameterStacks.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #767"
   },
   {
    "id": "REV-LanglandsParameterStacks",
