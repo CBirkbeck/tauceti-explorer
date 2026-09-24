@@ -128288,9 +128288,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "Independently multiplied r interval lengths 2R_v and s planar areas pi*R_v^2. Since n=r+2s and |Norm(alpha)|=N(I)^m, the volume is 2^r*pi^s*sqrt(|D_K|)/N(I), whose ratio to the Minkowski threshold is (pi/2)^s >= 1. For Q(i), I=O_K, alpha=1, the incorrect expression gives sqrt(2*pi)<4 whereas the area is 2*pi>4. The intended proof survives. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E2",
@@ -128317,9 +128317,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "Both preprints omit the absolute values. Recomputed the coefficient and discriminant estimates directly, replacing the inherited sharp-constant assertion with the proved fixed-degree bounds. This is a presentation slip, not a change to the asymptotic argument. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E3",
@@ -128346,9 +128346,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "For Z(T)=P(T)/((1-T)(1-qT)), the ordinary s-residue of Z(q^(-s)) at 1 is P(1/q)/((1-1/q)*log(q)). The functional equation gives P(1/q)=q^(-g)P(1), proving the correction. Already C=P^1 over F_q contradicts the printed identity: Pic^0 has size 1 but its right side is q/(q-1). The omitted factor lies between 1/2 and 1, so it does not alter the growth comparison. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4",
@@ -128375,9 +128375,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "The smooth projective cubic y^2+y=x^3 in characteristic 2 has inverse (x,y+1); no affine geometric point equals its inverse, so its geometric 2-torsion consists only of the identity, not 2 points. In general [2]=V∘F on a g-dimensional abelian variety, deg(F)=2^g and deg([2])=2^(2g), so there are at most 2^g geometric kernel points. The group-scheme length is not the number of geometric points. Only the upper bound is needed here. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E5",
@@ -128402,9 +128402,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "Confirmed as a gap reaching the proof, resolving the deferral left by the previous checkpoint of this job, which asked that the failing step be identified before a verdict was given. It is this. Genus theory for a quadratic extension is the ambiguous class number formula, and it bounds |Cl(K)^{Gal(K/F)}| by h_F·2^{t-1} — by the full class number of F, not by h_2(F). The passage from ambiguous classes to 2-torsion is where the printed sentence jumps: the natural map Cl(K)[2] → Cl(K)^G, c ↦ c·σ(c), has kernel Cl(K)[2]^G, which genus theory does not bound by O(2^t), so the standard argument yields a square and not the printed single factor. That is also why the gap matters rather than being cosmetic: the printed one-factor form is precisely what makes Brauer–Siegel on F enough to finish, and the squared form gives back only the trivial exponent. I checked the printed passage again in the 18 February 2017 author copy (§4, p. 6, sha256 bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec) and in arXiv v1 (sha256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871); it reads the same in both, and neither gives a citation for it. No claim is made that the printed bound is false — only that it is asserted without proof and does not follow from what genus theory provides. The replacement recovers the theorem: taking Klüners–Wang in a strong induction on the degree, with D_F² ≤ D_K, gives exponent 1/2 - 1/n + O(η) for n = 2m ≥ 6 and D_K^ε for n = 4, both stronger than the 1/2 - 1/(2n) + ε that Theorem 1.1 asserts, so the theorem stands and 'the proof' is the right reach."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E6",
@@ -128429,9 +128429,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "Confirmed the split-etale-algebra counterexample using Kane's published positive-density theorem, with its no-rational-cyclic-4-subgroup hypothesis checked explicitly. Restricted the verified correction to the elliptic descent inequality and the general need for bad-prime dependence; the all-degree proposed repair still needs its own proof. Distinguished a false Selmer bound from an unsupported rank deduction. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete. Closing the second item the previous checkpoint left open: the correction is now explicitly limited rather than left as a candidate. What is certified is the elliptic case through the paper's own Theorem 5.2 and the failure of the field-only bound; the general hyperelliptic replacement is stated as an open repair with the two inputs it needs named. This reviewer did not attempt to prove it in that generality."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E7",
@@ -128456,9 +128456,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "confirmed",
-   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "Checked the reduction in both preprints, Sedunova's v1 statement and proof section, and the published Sedunova statement on p.321. Replaced the inaccurate suggestion that Sedunova explicitly states q-dependence with the exact printed statement and a direct counterexample to uniformity in its full range. Kept the verdict at 'gap': an epsilon-lossy input cannot be promoted to its endpoint without further control, and no complete substitute function-field proof is supplied here. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PAPER-BHATT-ETAL-23/E1",
