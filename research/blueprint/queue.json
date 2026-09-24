@@ -27433,7 +27433,8 @@
     "REV-AUDIT-13"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1576"
   },
   {
    "id": "REV-RT-AUDIT-13",
@@ -30432,8 +30433,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-combinatorics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1545"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1545",
+   "finishedAt": "2026-09-24T03:53:16Z"
   },
   {
    "id": "REV-RT-AREA-combinatorics",
