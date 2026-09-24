@@ -18148,9 +18148,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #742"
+   "note": "released on GitHub issue #742"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS3",
@@ -21971,8 +21971,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #1002"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB0",
