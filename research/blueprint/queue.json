@@ -4291,8 +4291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8969,8 +8969,9 @@
    "avoidAccountOf": "DESIGN-LV",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LV.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #77"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #77",
+   "finishedAt": "2026-09-24T00:28:26Z"
   },
   {
    "id": "DESIGN-ZAGIER",
@@ -26007,8 +26008,9 @@
     "REV-PAPER-HARPAZ-WITTENBERG-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1895"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1895",
+   "finishedAt": "2026-09-24T00:28:29Z"
   },
   {
    "id": "REV-RT-PAPER-HARPAZ-WITTENBERG-23",
@@ -27874,7 +27876,8 @@
     "REV-AUDIT-23"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1596"
   },
   {
    "id": "REV-RT-AUDIT-23",
