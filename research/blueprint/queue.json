@@ -12205,9 +12205,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "stale claim released"
+   "note": "claimed on GitHub issue #72"
   },
   {
    "id": "REV-K3BlochGroups",
