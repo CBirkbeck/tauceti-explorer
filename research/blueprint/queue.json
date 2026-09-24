@@ -5789,8 +5789,8 @@
    ],
    "avoidAccountOf": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1333"
+   "state": "external",
+   "note": "claimed on GitHub issue #1333"
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17",
@@ -29257,8 +29257,9 @@
     "RT-AREA-iwasawa-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-iwasawa-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1494"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1494",
+   "finishedAt": "2026-09-24T11:22:58Z"
   },
   {
    "id": "RT-AREA-iwasawa-2",
