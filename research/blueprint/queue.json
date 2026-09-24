@@ -22578,12 +22578,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivesAndAlgebraicCycles.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-MotivicEtaleKTheory--M.1",
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1014"
   },
   {
    "id": "REV-MotivesAndAlgebraicCycles",
