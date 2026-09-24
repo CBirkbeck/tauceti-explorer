@@ -119118,6 +119118,324 @@
    "reviewReason": "The page image (p. 491) reads 'Inst. Hautes Études Sci. Publ. Math. 7 (1960), 567.' Serre's 'Groupes proalgébriques' occupies pp. 5–67. arXiv v2 and v3 both print 'p. 5-67', and the Numdam id printed in the same entry (PMIHES_1960__7__5_0) gives start page 5. The dash was lost in production. The [Gro66] '255' and [Gro67] '361' entries follow the MR total-pages style and are harmless."
   },
   {
+   "id": "MordellLawrenceVenkatesh/E2",
+   "kind": "misprint",
+   "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
+   "printed": "ρ is unramified outside S",
+   "correction": "Use a finite set T = S ∪ {w : w divides p} in the finiteness lemma and its applications; impose its Frobenius weight and integrality conditions away from T.",
+   "reason": "The standing S excludes every place above p. Good reduction makes p-adic cohomology crystalline there, but does not make it unramified. For example H²_et(P¹,Q_p)=Q_p(−1) is ramified at p although P¹ has good reduction. The finiteness argument allows any fixed finite ramification set: enlargement to T is harmless.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The excluded finite set must include places over the coefficient prime; the packet already states this."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E3",
+   "kind": "error",
+   "locator": "§2.4, Lemma 2.8: arXiv v3 p. 12; published p. 908.",
+   "printed": "η²|_{K_v^*} = χ · Norm_{K_v/Q_p}^w",
+   "correction": "The identity holds on the local units: η²|_{O_{K_v}^*} = χ · Norm_{K_v/Q_p}^w with χ of finite order. It does not hold on all of K_v^*. The final sentence — w even, Hodge–Tate weight w/2 at v — is correct, and is what Lemmas 2.9 and 2.10 use.",
+   "reason": "Counterexample: K = Q (which has no CM subfield, so every finite place is friendly), v = p, η = χ_cyc^{-1}. Then η is ramified only at p, locally algebraic there, and pure of weight w = 2, since geometric Frobenius at ℓ acts by ℓ. As an idele class character η(p) = 1, because the local Artin image of a uniformizer acts trivially on μ_{p^∞} in either normalisation; so η²(p) = 1 while Norm_{Q_p/Q_p}(p)^w = p², and χ(p) = p^{-2} has infinite order. On units η(u) = u and η² = Norm², so the identity does hold there. The proof cannot give more: local algebraicity is the hypothesis that η_p 'agrees, in a neighbourhood of the identity, with the Q_p-points of an algebraic homomorphism' (p. 12), and the closing step — 'any Q_p-rational character of (Res_{E/Q} G_m)^1 is trivial upon pullback to E_v^*' — is a statement about that algebraic character, hence controls η only on an open subgroup of E_v^*, not on a uniformizer.",
+   "affects": "a stated result",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "Prescribed valuations cut out an infinite-index subgroup of K×; finite index is required only among units. The proof has been corrected accordingly."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E7",
+   "kind": "gap",
+   "locator": "Proposition 5.3 and §6: arXiv v3 pp. 26, 29, compared with §§3.1, 3.3, pp. 15–17; published pp. 927, 931–932.",
+   "printed": "v ∉ S",
+   "correction": "To apply §3 literally, explicitly restrict to odd residue characteristic and to the §3 good-reduction setup. For the proposition as stated at p=2, replace the whole residue disk by finitely many smaller congruence disks and carry out the argument on each. No counterexample to Proposition 5.3 is asserted.",
+   "reason": "Friendliness ensures K_v/Q_p is unramified, but does not imply p>2. The quoted estimate for flat sections is |z|<p^(−1/(p−1)). At p=2, points with |z|=1/2 in a residue disk are on its boundary, so that estimate does not justify §6’s assertion that the analytic domain contains the entire residue disk. Subdivision into disks modulo 4 avoids this issue. The original claim that other primes above p must be good for crystallinity at v was incorrect: v∉S already supplies good reduction at v.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "For p=2 the factorial estimate does not give decay on the full radius-1/2 disk. The packet restricts these integral transport statements to odd p."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E8",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.4: arXiv v3 pp. 27–28; published pp. 929–930.",
+   "printed": "1 ⩽ i ⩽ 8",
+   "correction": "1 ⩽ i ⩽ 7 in both unions, and 'orbits of size less than 8' in the last clause. The displayed bound 8 · 2^g (q − 1)^g is unchanged (it is then a bound for seven submodules, so a fortiori valid), and so is the rest of the proof.",
+   "reason": "size_v counts the elements lying in Frobenius orbits of size < 8 (Definition 5.2), that is, the elements killed by T^i − 1 for some i ⩽ 7; i = 8 is not needed. It is also not available: the next step reads 'For every odd prime factor r of q − 1 we know that q_v^i is not congruent to 1 modulo r', and that is precisely condition (iii) imposed on v two pages earlier, that the class of q_v in (Z/r)^* has order at least 8. An order exactly 8 is allowed, and then q_v^8 ≡ 1 mod r, so (q_v^8 − 1) need not be prime to r and the conclusion 2⟨m_1, m_2⟩ = 0 fails for i = 8. With i ⩽ 7 every step is correct.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "An orbit of length 8 contributes zero by the definition of size; the packet and new tests use lengths 1–7."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E10",
+   "kind": "misprint",
+   "locator": "Definition of H^bad and Lemma 6.3: arXiv v3 pp. 32–33; published pp. 937–938.",
+   "printed": "dim(F ∩ W) ⩾ ½ dim(W)",
+   "correction": "Require 0≠W≠V in the bad-locus definition and in Lemma 6.3, and specify that its open subset A is nonempty. Compatibility of φ with the form in the proof is a separate issue, E25.",
+   "reason": "Both W=0 and W=V are φ-stable and satisfy the printed inequality for every Lagrangian F. Consequently the literal bad locus is the entire parameter space. The printed lemma also allows A=∅, so read literally it is vacuous rather than false. Lemma 6.4 and the preceding sublemma use nonzero proper W.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The dimension comparison divides by dim W and uses properness. The packet retains nonzero proper subspaces."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E11",
+   "kind": "misprint",
+   "locator": "§7.1, Proposition 7.1(ii): arXiv v3 p. 35; published p. 940.",
+   "printed": "π_1^geom(Y − y′,y_0)",
+   "correction": "π_1^geom(Y − π(y'), y_0).",
+   "reason": "y' is a point of Y', not of Y, so 'Y − y'' is not defined. The preceding sentence says the cover Z_{y'} → Y is ramified exactly at π(y'), and part (i) attaches to y' a conjugacy class of surjections π_1^geom(Y − y, *) ↠ G with y = π(y'); so the group meant is the one of the punctured curve Y − π(y').",
+   "affects": "nothing",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The puncture in a fibre is the image of its parameter under the map to Y; the packet uses that puncture."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E12",
+   "kind": "misprint",
+   "locator": "§7.3, proof of Lemma 7.4: arXiv v3 p. 38; published p. 945.",
+   "printed": "π_2 of Y − {y_0}",
+   "correction": "'… because the π_2 of Y vanishes': the relevant group is π_2 of the base of the fibration, not of its fibre.",
+   "reason": "The fibration is the second map of (7.5), (Y² − Δ, y) → (Y, y_0), (y, y') ↦ y', whose fibre over y_0 is Y − {y_0}. Its long exact sequence reads π_2(Y) → π_1(Y − {y_0}) → π_1(Y² − Δ) → π_1(Y) → π_0, so injectivity on the left is governed by π_2 of the base Y; π_2 of the fibre enters the sequence one step earlier and is irrelevant to it. The conclusion is correct because Y is a closed surface of genus ⩾ 2, hence aspherical, so π_2(Y) = 0 — and in any case only the middle exactness, which gives the normality of Γ in Γ̃^geom that the argument goes on to use, is needed.",
+   "affects": "nothing",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The long exact homotopy sequence uses π₂ of the base; the packet states the corrected base and records the missing asphericity proof."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E13",
+   "kind": "error",
+   "locator": "§8.3, Lemma 8.2: arXiv v3 p. 42; published p. 951.",
+   "printed": "[e_1], …, [e_k]",
+   "correction": "Require e to be nonseparating in Y, equivalently [e] ≠ 0 in H_1(Y; Q).",
+   "reason": "A simple curve bounding a disk away from the branch point is permitted by the paper’s definition. Its q inverse images bound disks, so all q homology classes are zero, contradicting the claimed independence and primitive rank q−1. For a nonseparating curve one can choose the one-face CW decomposition used in the proof; the lifted edge classes are independent and transfer supplies the single relation after primitive projection. The required distinguishing curves can be chosen nonseparating, including curves with q-cycle monodromy; they are not all liftable curves in the paper’s special sense.",
+   "affects": "a stated result",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The fixed primitive lift requires a nonseparating base curve; the packet includes this."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E14",
+   "kind": "error",
+   "locator": "§8.3, Lemma 8.3: arXiv v3 p. 42; published p. 951.",
+   "printed": "rank(Mon(D_e^M) − Id)",
+   "correction": "Take a nonseparating simple closed curve e in Y−{y} and a positive sufficiently divisible M (for example a positive multiple of the order of Cov(e), and of the relevant stabilizer indices). Then the rank is k−1, where k is the number of cycles of Cov(e).",
+   "reason": "The lemma is deduced from Lemma 8.2, which needs e nonseparating (finding E13), and it fails without that hypothesis. If e bounds a disk in Y − {y} then Mon(D_e^M) = Id and the rank is 0, while Cov(e) = 1; if e is nonseparating with Cov(e) a q-cycle then k = 1 and the rank is again 0. Two different conjugacy classes give the same rank, so the rank does not determine the class. With e nonseparating the three possible cycle types in Aff(q) — (1^q), (q) and (1, r, …, r) — have k = q, 1 and 1 + (q − 1)/r cycles respectively, all distinct, and the lemma holds. The applications, in the proof of Lemma 8.9, are to nonseparating curves.",
+   "affects": "a stated result",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The liftable-power argument needs positive M; the packet uses a positive multiple of q−1."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E22",
+   "kind": "misprint",
+   "locator": "§2.7, second hypothesis of Lemma 2.12: arXiv v3 p. 14; published p. 911.",
+   "printed": "1 ⩽ i,j ⩽ N",
+   "correction": "Add i≠j to the second hypothesis.",
+   "reason": "For i=j, the two projected operators are identical and cannot have fixed spaces of different dimensions. The printed hypothesis is therefore impossible when N≥1, making the implication vacuous and unusable in Lemma 8.7. Pairwise distinct factors are intended.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "A separating element is needed only for distinct factors; the packet quantifies i≠j."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E23",
+   "kind": "misprint",
+   "locator": "§3.4, conclusion of Lemma 3.2: arXiv v3 p. 18; published p. 917.",
+   "printed": "K_v (respectively C); B_C(U_C) (respectively B_v(U_v))",
+   "correction": "The base extension to K_v is the closure of B_v(U_v), and the base extension to C is the closure of B_C(U_C).",
+   "reason": "The respective closures are subschemes of projective spaces over the opposite fields from those paired with them in the sentence. The proof constructs the common ideal over K and gives the correctly matched base changes.",
+   "affects": "nothing",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The closures must be formed over their respective coefficient fields; the packet uses those fields."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E24",
+   "kind": "error",
+   "locator": "End of §8.3: arXiv v3 p. 43; published p. 951.",
+   "printed": "D_e",
+   "correction": "Use D_e^{q−1}, or a suitable further positive multiple in the common cover stabilizer. Its lift is D_{e+}^{q−1}D_{e−}; it induces a nontrivial transvection on primitive homology.",
+   "reason": "For a liftable e the multiplier of Cov(e) generates F_q^×. A dual curve meeting e once has its abelian multiplier changed by this generator under D_e. Conjugation in Aff(q) preserves multipliers, so D_e does not stabilize the cover. The preceding lifting formula instead applies to the (q−1)-st power. If u is the primitive projection of [e+], then the projection of [e−] is −u and the lift acts by x↦x+q⟨u,x⟩u, up to the intersection-sign convention.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The cycle has length q−1, so the positive liftable twist exponent is q−1, as already used in packet node 114."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E25",
+   "kind": "gap",
+   "locator": "Lemma 6.3 and its reduction to Lemma 6.4: arXiv v3 p. 33; published pp. 937–938.",
+   "printed": "φ : V → V",
+   "correction": "For the printed proof, require φ to be a semilinear similitude: ω(φx,φy)=c·σ(ω(x,y)) for some c≠0. Alternatively prove a general-position result for the different transported symplectic forms, rather than invoking Lemma 6.4 for one form.",
+   "reason": "The printed assumptions make φ bijective and Frobenius-semilinear only. Identifying the embedding components V_i via φ need not make their Lagrangians Lagrangian for one common form. Over an unramified extension of degree 8, take φ=Aσ with A=diag(2,1,1,1) and the standard symplectic form pairing e_1,e_3 and e_2,e_4. F=span(e_1+e_2,e_3−e_4) is Lagrangian, but the pairing on A^{-1}F is −1/2. Thus the common-form hypothesis needed for the displayed invocation of Lemma 6.4 is not justified.",
+   "affects": "the proof",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The determinant/slope identity requires the semilinear similitude factor; packet node 93 explicitly retains it."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E26",
+   "kind": "misprint",
+   "locator": "§6, definition of G_v and H_v: arXiv v3 p. 29; published p. 932.",
+   "printed": "Gr(V_v,g); rank g",
+   "correction": "Use Gr(V_v,d) and rank d, where d is the relative abelian dimension in Proposition 5.3. The coefficient algebra in that sentence is E_{0,v}.",
+   "reason": "V_v has rank 2d over E_{0,v}; its first Hodge step and its Lagrangians have rank d. The letter g denotes the genus of the base curve and need not equal d: the Kodaira–Parshin formula gives d=(q−1)(g−1/2), for example d=3 when g=2,q=3.",
+   "affects": "nothing",
+   "known": "Recorded in the repository errata register under the same ID; independently checked here in arXiv v3. Published-version checks belong to REV-ERRATA-DESIGN-LV.",
+   "searched": [
+    "https://arxiv.org/abs/1807.02721 (version record and linked journal DOI), https://doi.org/10.1007/s00222-020-00966-7, and https://people.math.wisc.edu/lawrence/ checked during this review.",
+    "Existing research/blueprint/errata/MordellLawrenceVenkatesh.json and its reviewed correction-search record. This review did not independently reopen the journal PDF."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "The Hodge subspace has dimension d, half the 2d-dimensional fibre; packet notation uses d."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E29",
+   "kind": "misprint",
+   "locator": "Theorem 4.1 proof, PDF p. 7, final display (public PDF matching the packet hash)",
+   "printed": "b_{n+m} α^{m−1}",
+   "correction": "The remainder is b_{n+m} α^m.",
+   "reason": "Iterating b_n=a_{n+1}+αb_{n+1} m times gives α^m. For m=1, g=x and f=x(x−α), the printed formula gives b₀=1−α instead of 0. The corrected remainder still tends to zero, so the theorem and limiting proof survive.",
+   "affects": "the proof",
+   "known": "new; no published correction located in the searches listed",
+   "searched": [
+    "https://kconrad.math.uconn.edu/blurbs/ and its current Strassmann PDF; author/title correction searches found no separate correction."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "Iterating b_n=a_{n+1}+αb_{n+1} m times gives α^m. For m=1, g=x and f=x(x−α), the printed formula gives b₀=1−α instead of 0. The corrected remainder still tends to zero, so the theorem and limiting proof survive. The displayed passage was checked visually in the PDF."
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E30",
+   "kind": "error",
+   "locator": "Version 5.0, printed p. 177 (PDF p. 187), sentence after Proposition 6.3",
+   "printed": "Ψ(T_a)=Ψ(T_a′) ⇔ [a]=[a′]",
+   "correction": "Allow [a]=±[a′] for oriented curves on the closed surface.",
+   "reason": "Reverse the orientation of a nonseparating curve: the twist is unchanged and its nonzero primitive homology class is negated. Equality of the rank-one symplectic operators conversely identifies the primitive line up to sign. This sentence is not needed for the surjectivity theorem.",
+   "affects": "a stated result",
+   "known": "new; no published correction located in the searches listed",
+   "searched": [
+    "https://margalit.droppages.net/books.html and the linked Primer record; author/title erratum searches found no Primer correction. The errata link for Office Hours is a different book."
+   ],
+   "owner": "MordellLawrenceVenkatesh",
+   "file": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+   "citation": "Sources of the blueprint of MordellLawrenceVenkatesh",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LV",
+   "reviewReason": "Reverse the orientation of a nonseparating curve: the twist is unchanged and its nonzero primitive homology class is negated. Equality of the rank-one symplectic operators conversely identifies the primitive line up to sign. This sentence is not needed for the surjectivity theorem. The displayed passage was checked visually in the PDF."
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E1",
    "kind": "misprint",
    "locator": "§1.6, arXiv v3 p. 7; published p. 902; compare Theorem 10.1 on published p. 969.",
