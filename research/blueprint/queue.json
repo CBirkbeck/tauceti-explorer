@@ -29907,8 +29907,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-ktheory-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1521"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1521",
+   "finishedAt": "2026-09-24T06:51:55Z"
   },
   {
    "id": "REV-RT-AREA-ktheory-1",
@@ -30019,7 +30020,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-geomlanglands.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1525"
   },
   {
    "id": "REV-RT-AREA-geomlanglands",
