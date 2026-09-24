@@ -10,7 +10,7 @@ The extraction was by `codex-c83e7a`, its review by `cc-fb70e5`, and this red te
 
 I read the finding and report, all four accepted routes and their review verdicts, their registry order, and the actual queue-generation code. Initial public input snapshot: `c32d613232d8ba5593d05ad592a45ce769f844fe`. I executed the unchanged generator in a disposable archive of that snapshot, observing its return locals without replacing route-selection or job-generation logic. All 577 tracked files opened during that execution matched their Git blob hashes. This is input-integrity verification, not a claim to have manually audited all 577 files.
 
-A later check found only `queue.json` changed among the previously opened input files, plus newly merged result/review files. I refreshed the full disposable snapshot and repeated the complete dry run with inputs matching `e056b0d0a8966511f4da3b48457296585777758a`; the same defect remained, with all 585 tracked execution inputs byte-verified. Production files and live issues were not modified by either run. The dry run creates its ordinary lock only in the disposable directory.
+Publication checks detected concurrent queue, result/review and unrelated Calegari–Geraghty input updates. I refreshed the full disposable snapshot and repeated the complete dry run, finally with inputs matching `e056b0d0a8966511f4da3b48457296585777758a`; the same defect remained, with all 585 tracked execution inputs byte-verified. Production files and live issues were not modified by either run. The dry run creates its ordinary lock only in the disposable directory.
 
 Primary code evidence, read on 24 September 2026:
 
@@ -93,4 +93,4 @@ This sole finding is about repository code and accepted design inputs. No publis
 
 ## Validation
 
-**PASS:** red-team checker; exact coverage of the single supplied finding ID; two-file intake with zero problems. All 414 control blobs (including every paper-result/review input), the paper input path set and both output guards matched fresh main `e056b0d0a8966511f4da3b48457296585777758a`. The bot-confirmed claim and issue instructions were unchanged. The full dry-run reproducer passed on both input snapshots; 579 tracked execution input files were byte-verified on the refreshed run.
+**PASS:** red-team checker; exact coverage of the single supplied finding ID; two-file intake with zero problems. All 414 control blobs (including every paper-result/review input), the paper input path set and both output guards matched fresh main `e056b0d0a8966511f4da3b48457296585777758a`. The bot-confirmed claim and issue instructions were unchanged. The full dry-run reproducer passed on all three input snapshots; 585 tracked execution input files were byte-verified on the final refreshed run.
