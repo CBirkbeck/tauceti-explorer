@@ -18101,9 +18101,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #741"
+   "note": "released on GitHub issue #741"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS0",
@@ -18148,8 +18148,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #742"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS3",
