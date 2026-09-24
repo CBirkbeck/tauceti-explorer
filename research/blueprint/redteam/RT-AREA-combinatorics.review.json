@@ -1,0 +1,225 @@
+{
+  "redteam": "RT-AREA-combinatorics",
+  "findings": [
+    {
+      "finding": "RT-AREA-combinatorics/1",
+      "verdict": "rejected",
+      "reason": "The unclosed Szemeredi input is real and already explicitly recorded in the decomposition, but the claimed unavoidable cycle is not. AC.2 explicitly owns the ergodic/combinatorial prerequisites of a route still to be selected; it is not committed to using AC.3. LSS 2402.17995v2 Theorem 1.1 consumes a quantitative inverse theorem, but that establishes a dependency for that route, not for every route permitted by AC.2. Gowers' local inverse theorem is also not the full GTZ nilsequence theorem (LSS 2402.17994v3 p.2). Keep the existing source-acquisition gap; choose/decompose a route before changing edges. A Fourier route may require a split, but the proposed AC.3b and its blanket prerequisites are not forced by the present specification."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/2",
+      "verdict": "confirmed",
+      "reason": "AC.2 does not identify the arithmetic-removal statement or its closure. Kral–Serra–Vena 0804.4847v1 §2, pp.5–6, explicitly applies directed fixed-H removal (Lemma 6) to a directed cycle; §3 uses a colored variant for graph-representable systems. Mathlib's triangle_removal at Removal.lean:161 is only undirected triangle removal, agreeing with AUDIT-16. Name the equation/system, exact hypotheses and selected proof, then assign its counting/removal input once. Correct the breadth: not every system needs hypergraph removal (the paper's graph-representable systems do not), and the undirected Mathlib regularity theorem alone is not a directed/colored removal theorem without adapters."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/3",
+      "verdict": "confirmed",
+      "reason": "The stage's instruction to formalize Roth is not narrowed to consume the existing theorem. At Mathlib 082e2d3, Corner/Roth.lean:137,163,196 supplies finite-group Roth, the natural-number version and the density limit; Behrend.lean:481 and HalesJewett.lean:459 supply the other cited results. Import these, retaining genuinely stronger quantitative/correspondence and k>=4 work. The ThreeAPFree convention must remain explicit: in characteristic two a repeated endpoint can witness failure. Correct the proposed audit fix: its Roth evidence is already present and its partly-built verdict is right; add only missing useful citations, never present this as an erroneous absence verdict."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/4",
+      "verdict": "confirmed",
+      "reason": "GTZ 1009.3998v5 p.72 footnote 7 corrects the filtration in Lemma 13.2; the separate April 2024 erratum pp.1–2 addresses other filtration/Proposition 8.3 issues. The polynomial-orbits erratum 1311.6170v2 also corrects the multiparameter input. GTZ Appendix A p.77 uses limit objects, while LSS 2402.17994v3 Theorem 1.2 exports quasipolynomial bounds. Kai 2306.16983v5 §2.3 explicitly consumes LSS with Leng, so a qualitative-only AC.3 does not close that accepted consumer. Pin corrected versions and add the quantitative/box interfaces actually needed. LSS may be the primary route; retaining corrected GTZ is permissible if its additional prerequisites and the separate quantitative obligation are fully planned."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/5",
+      "verdict": "confirmed",
+      "reason": "The accepted Alpoge–Bhargava–Shnidman route 3 sends item /35 to AC.5, whose text and sole AC.4 input omit the number-field branch. Kai v5 §§2.1–2.6, Proposition 6.4, Lemma 7.1 and Theorems 12.1/13.1 verify the box norms, quantitative inverse/equidistribution, Siegel/Mitsui, character-sum and ideal-Vaughan inputs. §2.3 explicitly dispenses with the pseudorandom majorant. Add a named Kai branch with exact torsion-cokernel, local-factor and region hypotheses and supplier requests to AC.3, AN.4, FF.2 and the appropriate Type I/II owner. Retain AC.4 for other AC.5 branches; do not delete its relevance to the entire layer."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/6",
+      "verdict": "confirmed",
+      "reason": "The extraction's item /33 note and Part II brief obscure a necessary transitive input. Kai v5 §2.4 and Proposition 6.4, pp.23–24, explicitly use Mitsui with a possible Siegel zero, citing Kai 2209.11816 Theorem 5.1. Correct the note to distinguish the application-level replacement by Kai from Kai's own analytic closure. The supplier request must state Kai's precise Siegel-corrected theorem and modulus range; item /33's schematic logarithmic-modulus description is not itself that exact theorem. Keep the two application proof routes separate and do not claim the old unresolved G1 statement automatically supplies the stronger internal input."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/7",
+      "verdict": "confirmed",
+      "reason": "Green–Tao 0807.1736v4 §3 p.6 names the Type I/II method in Vaughan's form; the reduction also uses its progression estimate (Proposition A.2), and §7 p.19 explicitly uses Siegel–Walfisz for Lambda. Theorem 1.1 p.2 records ineffectivity from Siegel zeros. RS-07 allocates source-scoped bilinear decompositions to SV.2 and uniform progression applications to AN.3, but AC.5 has no corresponding supplier links. Add precise requests and edges for the forms actually consumed, including the Mobius progression estimate and its constants. Do not mistake the p.19 Lambda application alone for the proof of the Mobius theorem."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/8",
+      "verdict": "confirmed",
+      "reason": "AC.4 requests dense-model and relative-counting theorems, whereas its decomposition gives the GT2008 dual-function/Koopman–von Neumann route and correlation-condition obligations. The additional requested theorems are not decomposed there. CFZ 1305.5440v2 p.2 removes the correlation condition; CFZ 1403.2957v4 §8 and footnote 9 and GT Linear equations Appendix D p.67 justify a lighter optional route. Mathlib has the cited zeta-pole asymptotic and Chebyshev bounds. Correct fix: explicitly choose a route or separate the two branches and close every promised target. Dense-model language does not uniquely force CFZ, and the existing heavier GT route is not false. Remove analytic dependencies only from a branch whose complete replacement proof no longer uses them."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/9",
+      "verdict": "confirmed",
+      "reason": "The selected GT majorant/transference route does not consume Bombieri–Vinogradov. The decomposition already flags the mismatch; RS-07 nevertheless retains SV.3 -> AC.4 without a consuming theorem. Its source-scoped analytic obligations concern the majorant and prime counts, not the SV.3 average-distribution theorem. Remove that unsupported edge and align the README and imported restructuring with the actual route, retaining justified SV.1/AN inputs. The finding's universal claim about every possible proof and its literal zero-hit claim are unnecessary: GT2008 mentions Bombieri in acknowledgements. Neither occurrence would be a theorem dependency."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/10",
+      "verdict": "rejected",
+      "reason": "The newer GGMT theorems and external PFR project are real, but their existence does not make a source-scoped Freiman target from Tao–Vu mathematically obsolete or require expansion to every later bound. AC.1 neither calls Marton's conjecture open nor claims the entropy proof is already supplied. The pin lacks the requisite random-variable Shannon/Ruzsa API, which is a reason to scope a new entropic branch explicitly if selected, not evidence of an error in the current target. Treat these papers and teorth/pfr as useful optional prior art; do not force their full theorem/entropy development into a correction job merely because they are newer."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/11",
+      "verdict": "rejected",
+      "reason": "AC.2's acceptance quantifies progression length and density; it does not promise the best known bound. The decomposition explicitly records the older quantitative bound, its missing proof and that the GT application needs no effective bound. Thus the claim that no bound is named is not true of the accepted work as a whole. Kelley–Meka, Bloom–Sisask, Green–Tao 1705.01703v3 and LSS 2402.17995v2 give valid optional stronger targets, but their omission is not a demonstrated closure failure. Preserve the independently routed explicit-constant Bennett–Siksek target. A bounds register may improve planning, but a mandatory new proof programme is not justified by this finding."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/12",
+      "verdict": "confirmed",
+      "reason": "For the named Tao–Vu route, Proposition 4.23 (printed pp.168–169) explicitly uses Minkowski's second theorem to put a large proper progression in a cyclic Bohr set. GN.1 owns that theorem, the pin has no successive-minima/Minkowski-II result, and no GN.1 -> AC.1 edge is recorded. Add that route-specific supplier and an exact Bohr/progression contract. Correct the proposed bound: with Tao–Vu's phase-distance convention and 0<rho<1/2, the cyclic bound is (rho/d)^d N, not the suggested rank-free (rho/2pi)^d |G| formula. For a general finite abelian group use the coset-progression statement (Lemma 4.22), with its subgroup and different bound."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/13",
+      "verdict": "confirmed",
+      "reason": "AC.3 and ALS.2 both need nilmanifold carriers, and their missing shared interface must be resolved. However the accepted LieGroups link map already assigns global nilpotent exponential/BCH and smooth homogeneous-quotient work to a LieGroups Part II; it leaves rational Malcev data, filtrations and quantitative complexity with AC.3. Preserve that allocation. Specify the common unfiltered quotient/lattice carrier once and have the Borel–Serre and filtered-nilsequence developments consume it. Do not force ALS.2 to wait for the entire AC.3 inverse theorem or declare local BCH sufficient. Add only supplier edges justified by exact imported constructions, rather than mechanically adding all four listed LieGroups layers."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/14",
+      "verdict": "confirmed",
+      "reason": "RS-03 assigns the missing general finite-abelian Fourier comparison interface to AC.0, while ER.4 separately requests a finite transform on C-torsion without that reuse contract. Reconcile the specialization and normalization. At the pins, AddChar's basis/orthogonality and ZMod.dft already exist; Tau Ceti's CharacterOrthogonality.lean:104 supplies the cited dual-character sum, and PeterWeyl.lean:599 with Compact/Finite.lean:212 supplies a Haar-normalized Parseval ingredient. Add the missing audit citation and comparison obligations, consuming upstream coding/modular-form specializations. The owner is the missing interface, not permission to rebuild the existing generic character theory or to impose a whole-stage coding prerequisite."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/15",
+      "verdict": "confirmed",
+      "reason": "CA.2's recurrence/generating-function targets provide no identified theorem used by AC.0's stated work. LI.2 is also still in the README and raw atlas despite the explicit retirement register. The summary stops at AC.3. Remove the unsupported and retired input references and update the summary through AC.5. Record the actual pinned character/energy imports and precise missing comparison suppliers. Do not replace these spurious edges with a blanket CompactGroups prerequisite unless a particular comparison, such as the Haar/Peter–Weyl normalization, is actually selected."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/16",
+      "verdict": "confirmed",
+      "reason": "The two RS-03 supplier strings say AUDIT-06, whose job file lists FuchsianOrbifolds, OneParameterSemigroups, OptimalTransport and AnalyticNumberTheory. AUDIT-16 lists AdditiveCombinatorics and is the job recorded on AC.0 in library-coverage. Replace the erroneous audit identifier in the canonical restructuring and its generated mirror, preserving the audited declaration-level imports and current pin. This is a provenance correction, not a change in the partial Fourier verdict."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/17",
+      "verdict": "confirmed",
+      "reason": "The decomposition's set-form statement does not require a nonzero difference or distinct terms. Its hypothesis list does already mention the source's prime convention, so that convention is not wholly absent; nevertheless the exported statement must bind it and nontriviality explicitly. Require prime N sufficiently large, in particular N>=k, and r!=0 (hence k distinct terms), or state the integer interval version with distinct terms. Its existing acceptance test correctly removes the r=0 slice when deriving the set conclusion from the functional count; that does not repair the separate underspecified set statement."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/18",
+      "verdict": "confirmed",
+      "reason": "The only decomposed Gowers definition is the real prime-cyclic specialization. GTZ v5 (1.1), p.2, defines complex-valued norms on finite abelian groups and the normalized interval version; Kai v5 Definition 2.1 and §2 use complex box norms. These are actual named consumers, so the common definition and comparison nodes are needed. Use the conjugated cube product in sufficient generality, retain U^1 as a seminorm, and prove the interval/box extension-normalization comparisons. The GT2008 real formula remains a specialization rather than a competing definition."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/19",
+      "verdict": "rejected",
+      "reason": "PM.5's actual text organizes source-scoped short-interval/correlation results and explicitly leaves general Chowla/Sarnak statements in a conjecture register. It does not name or promise a second proof of Mobius–nilsequence orthogonality. The audit's thematic-overlap note does not establish a duplicate owner or a necessary consumer edge. AC.5 should remain the owner of its named Green–Tao theorem; add a PM.5 reuse edge if a concrete PM.5 result or worked nilsystem case consumes it, not merely because this theorem is a special case of a conjecture PM.5 mentions."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/20",
+      "verdict": "rejected",
+      "reason": "Matthiesen 1409.5028v2 Theorems 1.1/1.3 and pp.1–3 do concern square-free norm-form representation functions and require their own majorant/non-correlation inputs. But the cited paper review already rejects route 8, explicitly saying AC.5 ownership does not supply that theorem. No accepted route currently asserts the missing supply. Retain that rejection and the required exact hypotheses; on resubmission a widened or Part II route must close these inputs. This is useful guidance for that future submission, not a new error requiring the current prime-pattern stage to widen now."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/21",
+      "verdict": "confirmed",
+      "reason": "Harada–Miezaki 1205.6947v2 §§2.1 and 2.4, pp.4,6–7, explicitly define Type II over Z/(2k) for every positive k and state the equivalence with even unimodular Construction A, citing Bannai–Dougherty–Harada–Oura. The roadmap and Suggested.lean overstate the restriction to powers of two; the cited post-pin docstring repeats it. Correct the literature/scope statement and generalize the named even-modulus predicate and iff through the existing residue criteria, keeping the two-power result as a specialization. Correct the last proposed sentence: odd m rules out an even Construction A lattice only for nonempty coordinates; the empty-coordinate lattice is even."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/22",
+      "verdict": "confirmed",
+      "reason": "At f790474, OrthogonalSum.lean and Discriminant/Operations.lean:139,162,228 provide binary lattice sums and their discriminant isometries. CoordinatePower.lean provides alphabet powers, not the missing lattice-side finite-family comparison. ACT-L10 explicitly leaves that iteration to coding; Layer 7 only names the resulting interface. Expand that obligation into finite-family carrier/form, dual, discriminant and coordinate-power compatibility targets, reusing the binary APIs and finite-form products. State nondegeneracy/evenness where the bundled discriminant isometries require them. Generic extensions in an upstream direction need the appropriate maintainer/Part II treatment; do not duplicate IntegralLattices or claim the iteration already built."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/23",
+      "verdict": "rejected",
+      "reason": "The finding expressly agrees that the audit is correct at the binding f790474 baseline and asks the orchestrator to change the baseline. Post-pin coding progress, illustrated by the retrieved b3decc7 MacWilliams and character-sum files, is prior art to track, not an error in a pinned absence verdict. WORKERS requires the specified commits. Keep the audit and any subsequent fix work at those pins unless the maintainer changes them and commissions a new audit. The broad post-pin PR inventory is not independently certified here as a replacement audit, and this review does not authorize a pin change or infer compiled completeness from the absence of textual sorry."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/24",
+      "verdict": "confirmed",
+      "reason": "The frozen atlas has seven coding stages, empty requires/consumers and no incident stage edges, while the accepted link packet contains ACT-L01–L10 and the README's ordering explicitly consumes earlier code APIs. Import those accepted cross-roadmap links and record the justified internal dependencies after moving the forward-reference clauses described in /25. Regenerate the extract and roadmap-level relations from the resulting graph, rather than treating the seven layers as independent. These are planning dependencies; built declarations should remain imports and no new proof of upstream lattice gluing is implied."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/25",
+      "verdict": "confirmed",
+      "reason": "Layer 1 asks for generator/check statements involving C-perp and invariance of distance/weight enumerators before Layer 2 defines the dual/distance and Layer 3 the enumerator. The stated layer order therefore needs a finer placement of these theorems. Keep the raw carrier/matrix/equivalence constructions in Layer 1 and move the dual/distance consequences to Layer 2 and enumerator consequences to Layer 3, sharing rather than duplicating their invariance proofs. Already available Mathlib Hamming primitives may be used early; do not create reverse layer edges merely to support these later consequences."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/26",
+      "verdict": "confirmed",
+      "reason": "No ofIsotropicSubgroup declaration occurs at f790474. The actual construction is intermediateCarrierOfDiscriminantSubgroup followed by IntermediateCarrier.IsIntegral.toIntegralLattice (with its lattice/integrality hypotheses); the even order isomorphism is another valid interface. Bilinear/Quadratic OrthogonalQuotient files provide the named subgroup isometries at lines 267/305. Correct the README and completion criterion to these APIs as the Suggested file already does. Preserve nondegeneracy and distinguish bilinear isotropy from quadratic isotropy/evenness; do not introduce a second gluing constructor."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/27",
+      "verdict": "confirmed",
+      "reason": "The pin already contains Coding/Basic.lean's aliases and Coding/Matrix.lean's generated/checked codes, matrix predicates, rank and row-count results. Thus the README's absolute absence sentence is stale. The coverage note recognizes this partial implementation but its evidence array only lists the aliases/cardinality formula. Add representative matrix declaration citations to the canonical audit and regenerate coverage, preserving the partly-built verdict and the remaining operations/dual gaps. An individual matrix lemma is exact for its own stated subtarget, not for every clause of the large composite Layer-1 target."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/28",
+      "verdict": "rejected",
+      "reason": "The alleged lack of awareness is contradicted by accepted ACT-O02: it names coding Layer 3, AC.0 and FF.1 together, fixes their respective roles, requires a common normalization and declaration-level helper reuse, and explicitly rejects inventing a dependency from shared characters alone. RS-03's general interface and coding's subspace/dot-product specialization are not demonstrably two independently planned copies of the same full theorem. The b3decc7 character-sum/Poisson lemmas are post-pin prior art, not an available baseline supplier. Follow ACT-O02 and add a concrete compatibility lemma when its signatures are fixed; the proposed unconditional coding-L3 -> AC.0 edge is not established."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/29",
+      "verdict": "confirmed",
+      "reason": "GN.4's reference to lattice codes through FF.4 lacks an actual code-to-lattice supplier; FF.4 lists finite evaluation/residue/BCH/Reed–Solomon families. Accepted ACT-O03/ACT-R02 already records the unresolved consumer contract. Resolve that contract: if Construction A is intended, import coding Layer 6 and plan the real scalar-extension, norm and covolume interface at GN.4; otherwise specify the intended lattice-code meaning. Keep the edge conditional on that decision. The minimum-norm formula from Harada–Miezaki §2.4 needs positive dimension and a nonzero-code/minimum convention; do not apply it blindly to the zero code or empty coordinates."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/30",
+      "verdict": "confirmed",
+      "reason": "Layer 3 leaves the coefficient ring of the self-dual normalized-variable transform implicit, although its preceding integral and rational forms do not contain sqrt(q) in general. For a finite-field linear Euclidean self-dual code first prove 2*dim(C)=n, hence even n and #C=q^(n/2). State the division-free self-dual identity over Z and the variable substitution divided by the positive real sqrt(q) after base change to R (or a specified extension). The rational normalization by #C and normalization of the variables by sqrt(q) should be distinguished. No square root need be added to the integral MacWilliams theorem itself."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/31",
+      "verdict": "rejected",
+      "reason": "The claimed necessity for every cited route is false. LNGL Lemmas 10.31–10.32 do use the Second Sampling Lemma, and the pinned migration InverseCounting file uses that route. But Layer 6a explicitly also cites Janson 8.10 after Borgs–Chayes–Lovasz uniqueness. Janson 8.10(iv)->(ii) points to BCL 0803.1244v2 as a different proof; BCL §5.3 couples anchor sequences and §5.4 proves Theorem 2.1 through their moments/weak isomorphisms, without Layer 9c's cut-distance sampling lemma. Consequently no unavoidable 9c->6a edge or cycle is established. If migration's sampling proof is selected, split sampling and record the dependencies as suggested; a fully decomposed BCL route can retain the advertised separation-first order. Correct the locator separately under /42."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/32",
+      "verdict": "confirmed",
+      "reason": "The in-probability branch itself cites LNGL 10.16, whose proof uses both the kernel sampling estimate 10.6 and an equipartition approximation from 9.15. Lemmas 10.7–10.9 bound a supremum over sampled cuts; vertex Azuma plus a naive union bound does not supply them. The pinned migration SamplingPointwise header explicitly diagnoses that failure. Add named sampled-cut expectation/high-probability and equipartition/rounding inputs, with their hypotheses and estimates, then apply the existing bounded-differences engine. This is a real closure gap in 9c regardless of the rejected claim that every separation route consumes it."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/33",
+      "verdict": "confirmed",
+      "reason": "Layer 5's text houses the atomless mod-null equivalence for Layer 4 but calls the layer nonblocking and incorrectly gates the coupling/map identity on it. At f790474, cutDist_eq_cutDistPullback is proved for standard Borel carriers with atoms allowed, via the A.9 map. The standard-Borel unitIntervalModel uses the same map. Separate the general atomless isomorphism prerequisite and record its compactness consumer; correct the ordering. For arbitrary-carrier representation, keep Janson 7.3's two-coordinate factorization before applying A.9: the existing standard-Borel theorem alone is not the full carrier-free result. Do not label all Layer-5 obligations complete merely by moving one target."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/34",
+      "verdict": "confirmed",
+      "reason": "Layer 4 does not state its realignment or conditional-expectation/martingale construction contracts. LNGL 9.23, printed pp.149–150, uses compatible nested step approximants, subsequential limiting block data and a bounded martingale. The migration CutDistance file documents why unrestricted bijective map alignment and unequal-mass partition alignment are false. State a complete chosen route, including compatible finite partition data, null cells, limiting refinement/tower identities, strict graphon representative and L1/cut convergence. Replacing each finite partition by interval blocks is a useful route but not by itself the full compactness proof; the limit compatibility must also be proved. Mathlib Submartingale.ae_tendsto_limitProcess is an input, not the missing graphon assembly."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/35",
+      "verdict": "confirmed",
+      "reason": "Layer 2 explicitly defers identification of stepGraphonAvg with conditional expectation to Layer 3, but Layer 3 lists only the AEEqFun and observable-invariance targets. The pin's Energy.lean:41 still defers the condExp comparison; the source search finds no such theorem. Add the a.e. equality with conditional expectation onto the sigma-algebra of partition rectangles and its refinement/tower corollary, with sub-sigma-algebra, measurability and integrability hypotheses. Assign it before the Layer-4 martingale route. Preserve the old built verdict for Layer 3's existing enumerated targets; record the added target as missing rather than retroactively declaring those proofs absent."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/36",
+      "verdict": "confirmed",
+      "reason": "LS06 math/0408173v2 §5.5, p.21, proves reflection positivity using the nonnegative supergraph weights with factors W and 1-W; simple-graph gluing merges shared labeled edges. This is a missing named part of the iff's easy direction, not merely multiplicativity. For the proposed counterexample, the two fully labeled graphs give [[1,2],[2,2]], with quadratic form -2 at (-2,1), so the [0,1] restriction matters. Add isReflectionPositive_homDensity and combine it with the already built isomorphism, disjoint-union and normalization lemmas. The regression parameter should count each unordered edge once."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/37",
+      "verdict": "confirmed",
+      "reason": "The pin contains the same marginal condition twice: TauCeti.MeasureTheory.IsCoupling mu1 mu2 pi is a conjunction, whereas TauCeti.IsCoupling pi mu nu is a Prop-valued structure with fst_eq/snd_eq. The cut-metric triangle implementation imports OptimalTransport gluing and converts the same marginal data. No recorded roadmap edge reconciles ownership. Add the coupling/gluing supply and a canonical bridge/reuse contract, with a maintainer note for any library consolidation. Both existing predicates are Props and neither is a typeclass; a Prop-valued structure is not a mathematical obstruction. Deprecation or renaming is a maintainer implementation choice, not required atlas work."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/38",
+      "verdict": "confirmed",
+      "reason": "The DenseGraphLimits README delegates finite regularity and comparison adapters to a companion that is absent from the frozen atlas. The retrieved Regularity README at PR66 head 7ffda51 explicitly owns those adapters and the strong graph/arity-3 complex programme. Track the open upstream proposal with its actual scope and provenance, and attach consumer links only to the interfaces that use DenseGraphLimits. Important correction: an arity-3 endpoint is not an all-arities hypergraph-removal supplier for arbitrary-length Szemeredi. A future AC.2 removal route must request the arities and counting/removal statements it actually needs, rather than treating this companion as sufficient by title."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/39",
+      "verdict": "confirmed",
+      "reason": "The overlap is real: PR66 Layer 0 restates the finite hom/injective densities already defined at f790474 in graphon-free HomDensity/Finite.lean, and its weighted energy/finite weak regularity match specializations of the carrier-generic graphon APIs. Record a single owner and explicit finite normalization/comparison contracts. Correct the proposed implementation: the companion deliberately requires an independent finite proof with no analytic imports, so an atlas fix must not silently remove that upstream design constraint or move library modules. Raise a maintainer reconciliation/Part II note; reuse the already graphon-free density declarations directly and settle the finite/analytic theorem ownership with the maintainer. Handle the empty host separately when using uniform probability measure."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/40",
+      "verdict": "confirmed",
+      "reason": "The frozen atlas has 13 graph-limit stages, all unknown with empty requires and no incident edges, despite the README's explicit ordering and AUDIT-16's detailed pinned coverage. The embedded old status is also stale. Import the justified dependency graph and refresh the status provenance/coverage presentation. Correct the proposed graph: /31 is rejected, so do not automatically force sampling before separation; first select its proof route. Split stages where needed for /44 and the distinct 6a/6b obligations. Audit verdicts are coverage classifications, not automatically valid implementation-status values: use the atlas's schema and do not mark partly-built stages complete or claim Lean compilation."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/41",
+      "verdict": "confirmed",
+      "reason": "The finite-to-infinite graph-law target needs a projective-family extension plus a coordinate/window comparison. Tau Ceti Measure/ProjectiveLimit/Countable.lean:167 supplies existence for countable standard-Borel coordinates and explicitly belongs to OptimalTransport Layer 0; Mathlib's general projective interface at the pin does not supply this same existence theorem. Consume it, identify SimpleGraph N with the countable unordered-edge Bool product, and prove that window marginals give the required family over arbitrary finite coordinate sets. Record the OT0 -> graph-laws dependency. The existing joint graphon sampler alone does not extend an arbitrary exchangeable law."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/42",
+      "verdict": "confirmed",
+      "reason": "LNGL Theorem 11.3 concerns convergence of finite graph sequences; Lemma 10.32/Corollary 10.34 give inverse counting/separation, and Theorem 11.5 is the graphon convergence equivalence. These were read in the author's draft, printed pp.169–170,174. Correct the README and Suggested locator, include the omitted compactness/counting/sampling/reflection-positivity sections, and list the BCL uniqueness source already invoked by the text. LS06 Theorem 2.7 (p.10) supplies the local/consistent random graph model characterization. This attribution repair does not commit separation to the sampling proof over the alternative BCL proof."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/43",
+      "verdict": "confirmed",
+      "reason": "Mathlib Probability/Kernel/Representation.lean:126 already proves exists_measurable_map_eq for a nonempty standard Borel probability carrier. Tau Ceti UnitIntervalMap.lean:64 derives nonemptiness from probability and packages the map as MeasurePreserving in three lines. The README's blanket claim that the measure-preserving refinements are unavailable is therefore too broad. Cite the existing theorem and wrapper; retain the separate missing atomless mod-null equivalence. NoAtoms.lean is explicitly deprecated since 2026-06-19 and redirects to NullSingletonClass, so update that source path as well."
+    },
+    {
+      "finding": "RT-AREA-combinatorics/44",
+      "verdict": "confirmed",
+      "reason": "At f790474, cutDist_triangle (Triangle.lean:189) directly invokes weak_regularity_frieze_kannan to replace the middle graphon by a finite step graphon, and GraphonSpace/Basic imports Triangle. The roadmap puts those outputs in Layer 1 and weak regularity in Layer 2. Correct the fix: adding a bare Layer2->Layer1 edge would create a cycle because Layer 2 needs Layer-1 kernels, graphons and cut norms. Split the core from the triangle/quotient endpoint, and split Layer-2 weak regularity from its quotient-level counting/total-boundedness outputs, or relocate the step-approximation input before triangle. Record the actual acyclic declaration order; all these cited baseline theorems remain built."
+    }
+  ]
+}
