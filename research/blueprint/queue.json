@@ -28923,8 +28923,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-arithmeticgeometry-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1485"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1485",
+   "finishedAt": "2026-09-24T05:29:00Z"
   },
   {
    "id": "REV-RT-AREA-arithmeticgeometry-2",
