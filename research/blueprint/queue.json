@@ -25883,7 +25883,8 @@
     "REV-PAPER-COUVEIGNES-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-COUVEIGNES-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1735"
   },
   {
    "id": "REV-RT-PAPER-COUVEIGNES-20",
@@ -25926,7 +25927,8 @@
     "REV-PAPER-BAKKER-TSIMERMAN-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1737"
   },
   {
    "id": "REV-RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -26820,8 +26822,9 @@
     "REV-AUDIT-02"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-02.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1553"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1553",
+   "finishedAt": "2026-09-24T01:34:47Z"
   },
   {
    "id": "RT-AUDIT-03",
@@ -26902,7 +26905,8 @@
     "REV-AUDIT-04"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-04.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1558"
   },
   {
    "id": "REV-RT-AUDIT-04",
@@ -27120,8 +27124,9 @@
     "REV-AUDIT-08"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1566"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1566",
+   "finishedAt": "2026-09-24T01:34:50Z"
   },
   {
    "id": "REV-RT-AUDIT-08",
@@ -27694,8 +27699,9 @@
     "REV-AUDIT-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1585"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1585",
+   "finishedAt": "2026-09-24T01:34:51Z"
   },
   {
    "id": "RT-AUDIT-19",
@@ -29359,8 +29365,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-modeltheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1507"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1507",
+   "finishedAt": "2026-09-24T01:34:54Z"
   },
   {
    "id": "REV-RT-AREA-modeltheory",
