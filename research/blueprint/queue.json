@@ -4292,8 +4292,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -27810,7 +27810,8 @@
     "REV-AUDIT-20"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1590"
   },
   {
    "id": "REV-RT-AUDIT-20",
@@ -28067,8 +28068,9 @@
     "REV-AUDIT-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1597"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1597",
+   "finishedAt": "2026-09-24T02:19:41Z"
   },
   {
    "id": "RT-AUDIT-25",
@@ -28423,8 +28425,9 @@
     "REV-AUDIT-31"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-31.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1613"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1613",
+   "finishedAt": "2026-09-24T02:19:44Z"
   },
   {
    "id": "REV-RT-AUDIT-31",
@@ -28514,7 +28517,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-computational.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1473"
   },
   {
    "id": "REV-RT-AREA-computational",
@@ -30112,7 +30116,8 @@
     "RT-AREA-representations-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1532"
   },
   {
    "id": "RT-AREA-representations-3",
@@ -30476,8 +30481,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-diffgeom.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1549"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1549",
+   "finishedAt": "2026-09-24T02:19:46Z"
   },
   {
    "id": "REV-RT-AREA-diffgeom",
