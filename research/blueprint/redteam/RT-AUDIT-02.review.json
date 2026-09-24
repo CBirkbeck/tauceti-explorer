@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AUDIT-02",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-02/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a low-severity citation-name error. At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, DirichletTheorem.lean opens NumberField.Units.dirichletUnitTheorem at line 50, closes only the innermost namespace at line 350, and closes NumberField.Units at line 535. Thus the public theorems at lines 457 and 506 are NumberField.Units.finrank_modTorsion and NumberField.Units.exist_unique_eq_mul_prod. Read both complete statements and proofs with Field K and NumberField K assumptions; they retain the claimed rank and unique unit-decomposition content. The audit's own note already mentions the correct namespace, but both declaration name fields and both exported GN.1 evidence names are bare. Correct only the two audit name fields; preserve file, line, fit, target library, note and layer verdict. Let normal audit integration regenerate data/library-coverage.json: its exporter copies names verbatim and both entries survive the evidence cap. No generated-data hand edit or mathematical target change is needed. This verdict does not endorse the red team's broader 519-citation, absence or duplication assertions."
+    }
+  ]
+}
