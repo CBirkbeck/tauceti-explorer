@@ -1,0 +1,85 @@
+{
+  "redteam": "RT-AREA-diffgeom",
+  "findings": [
+    {
+      "finding": "RT-AREA-diffgeom/1",
+      "verdict": "confirmed",
+      "reason": "The omitted proof leaf is real, not a counterexample to Hopf–Rinow. Layer 3's normal-sphere continuation produces a minimizing broken curve and needs a no-corner conclusion; Layer 2 only supplies radial minimization about a fixed centre. I independently read Lee, Introduction to Riemannian Manifolds, Lemma 6.18 (pp. 167–169), where this precise step occurs, and Lemma 6.14 / Theorem 6.15 (pp. 163–166). Correct fix: record a named uniform-normal-neighbourhood and minimizing-piecewise-curve lemma, with the joint exponential/IFT prerequisites; alternatively give the proper piecewise-variation proof and make it an input. This is a closure omission, not an impossibility of deriving the result from the surrounding ingredients. Use the author's corrections to pp. 164–165. I did not authenticate the nonpublic do Carmo locators."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/2",
+      "verdict": "confirmed",
+      "reason": "Layer 1 explicitly asks for openness and smoothness of expDomain, so it does not simply assume those conclusions. Nevertheless the bridge from a near-zero local flow to the open maximal joint domain is not separately planned. At f790474, ODE.exists_contDiffAt_localFlow (InitialCondition.lean:164) proves model-space regularity at (a,0); maximalIntegralCurve (IntegralCurve/Maximal.lean:194) fixes one initial point. Neither is the full manifold theorem. Lee, Introduction to Smooth Manifolds, Theorem 9.12, pp. 212–215, supplies the missing maximal-flow statement. Add an explicit open-domain/joint-regularity/flow-law proof and specialize to the spray and time-one evaluation. Preserve the already-planned fibrewise conclusions. Coordinate any general-vector-field extension with the accepted LieGroups overlap note as an upstream request or HopfRinow Part II; do not re-plan the existing upstream roadmap or treat the proposed Part II as already present."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/3",
+      "verdict": "confirmed",
+      "reason": "Lee IRM Lemma 6.2, pp. 153–154, and the proof of Theorem 6.9, pp. 159–160, verify the torsion-free two-parameter symmetry input to Gauss's lemma. Tau Ceti's AlongCurve/Basic.lean:127, Pullback.lean:283 and Metric.lean:349 provide the one-parameter ingredients, not that identity. The similarly named two-parameter infrastructure in ContMDiff/Prod.lean:45 only changes product model presentations. Correct fix: name the C2 two-parameter covariant derivative and symmetry lemma before Gauss, reusing the existing along-curve API. The first-variation theorem as a whole need not become a Hopf–Rinow input; only its shared preliminary calculus must be exposed independently."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/4",
+      "verdict": "confirmed",
+      "reason": "The pinned Mathlib manifold uniqueness theorem (IntegralCurve/ExistUnique.lean:189,227) needs T2Space of its carrier. For the spray this is TM, and Tau Ceti Geodesic/Maximal.lean:149 explicitly requests T2Space (TangentBundle I M). Mathlib FiberBundle/Basic.lean:288 only proves T2Space (E b), not separation of the total space. Independent whole-tree multiline T2Space/TotalSpace/TangentBundle searches and the declaration index found no total-space instance. Lee ISM Proposition 3.18, pp. 66–67, checks exactly the same-fibre/different-fibre separation argument. Add the generic Hausdorff-total-space lemma for a fibre bundle with Hausdorff base and model fibre, then specialize to TM. This is an absent Lean interface, not a missing mathematical assumption on the base manifold."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/5",
+      "verdict": "confirmed",
+      "reason": "The closed-interval witness in (f_p) must be compared with the chosen maximal geodesic before its endpoint can be identified with exp_p of its initial velocity. Mathlib's manifold uniqueness is on open intervals or global curves; Tau Ceti Geodesic/Maximal.lean:149 compares Ioo witnesses. Mathlib ODE_solution_unique_of_mem_Icc_right (Analysis/ODE/ExistUnique.lean:193) is a model-space theorem with explicit continuity, one-sided derivative and Lipschitz hypotheses, not a drop-in manifold result. Add the chartwise endpoint uniqueness/extension bridge, including b>0 and within-velocity conventions, and then the maximal-curve comparison. For Ico 0 b only that half-open interval is asserted to lie in J; do not infer existence at b. Alternatively retain the stronger exp_p v=q, norm-v=distance witness produced by the construction and derive the closed-interval statement from it."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/6",
+      "verdict": "confirmed",
+      "reason": "The README's missing-Metric.lean and local-shim claims contradict the pinned files. Mathlib CovariantDerivative/Metric.lean:155 defines IsMetricCompatible; LeviCivita.lean:201,255,359,408 defines the Levi-Civita predicate, proves uniqueness on differentiable vector fields, constructs the connection and proves its properties. Tau Ceti LeviCivita/Regularity.lean:256,273,292 supplies Christoffel regularity and the smooth-connection instance; Basic.lean:391 also proves vanishing of the difference tensor. Remove the shim instructions and stale absence claims in an upstream maintainer note. Preserve the differentiability qualification on uniqueness. The accepted coverage overlay already records the relevant built targets, so do not blindly rewrite raw atlas statuses or mark all of Layer 1 complete."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/7",
+      "verdict": "confirmed",
+      "reason": "The extension and inverse-function absence claims are stale: the cited AlongCurve, Geodesic/{Basic,Spray,Smoothness,Maximal,ConstantSpeed}, IntegralCurve/{Extension,Maximal} and LocalDiffeomorph declarations were read at f790474. They supply the stated ingredients with their actual interval, regularity and separation hypotheses. Correct the proposed deletion of all three absence sentences: model-space ODE.exists_contDiffAt_localFlow is only partial evidence for manifold/geodesic smooth dependence, which remains a target. Keep the chosen maximal-geodesic comparison and homogeneity identity, the open joint flow domain, expDomain/exp_p and derivative at zero, and the completeness equivalence open. Update stale upstream prose and cite existing coverage, without calling the entire geodesic-flow milestone built or duplicating the coverage overlay."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/8",
+      "verdict": "rejected",
+      "reason": "The proposed atlas-status fix is already implemented by the accepted coverage overlay. Reading scripts/library_coverage.py, scripts/theory_graph.py and scripts/build.py and executing stage_statuses against this snapshot gives HopfRinow L0=complete, L1=in_progress, L2=planned, L3=in_progress, L4=in_progress. data/library-coverage.json records Layer 0 built and Layer 4's generic metric-length/geodesic API targets built. The raw roadmap extract's unknown is not the rendered status and must not be changed to a fabricated built stage status. The cited library statements do exist, but they do not establish the claimed missing atlas update. Historical upstream target prose is distinct from effective implementation status; specific stale absence claims are addressed by /6 and /7."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/9",
+      "verdict": "confirmed",
+      "reason": "The lower-level reuse correction is valid: Mathlib Topology/VectorBundle/Riemannian.lean:223,328 gives both local trivialization norm bounds; Geometry/Manifold/Riemannian/Basic.lean:242 supplies the chart derivative bound. ProperSpace.of_seq_closedBall (Topology/MetricSpace/ProperSpace.lean:84) turns compact balls about one centre with radii tending to infinity into properness. Tau Ceti IntegralCurve/Maximal.lean:264,296 supplies the maximal-curve cluster-point contradiction. Replace requests to rebuild these ingredients with imports/citations, preserving the remaining work of controlling the lifted geodesic and proving compactness of exponential images. These declarations do not by themselves formalize either complete Hopf–Rinow implication."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/10",
+      "verdict": "confirmed",
+      "reason": "The length-space conclusion does not need completeness or connectedness. Read Tau Ceti Length.lean:172, EVariationComparison.lean:302 and Mathlib PathELength.lean:250: a C1 curve shorter than any bound above riemannianEDist has eVariationOn equal to its pathELength, and IsRiemannianManifold identifies this infimum with edist. Correct the abbreviated proposed signature: retain the charted C1 manifold, RiemannianBundle and IsContinuousRiemannianBundle hypotheses used by the length/variation comparison, in addition to PseudoEMetricSpace and IsRiemannianManifold. They hold under the roadmap's stronger standing assumptions but must not disappear in a standalone declaration. Separate this general assembly from the minimizing-geodesic/IsGeodesicSpace consequence."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/11",
+      "verdict": "confirmed",
+      "reason": "The disconnected compact-manifold corollary is a useful omitted target, not a false connected theorem. Tau Ceti Geodesic/ConstantSpeed.lean:97 and IntegralCurve/Maximal.lean:328 give the speed and compact-containment inputs. Correct the proof outline: keep finite dimension, continuous fibre norm, base compactness and Hausdorff total space; use a finite cover by compact sets inside bundle trivializations and local norm bounds to prove compactness of the closed disk bundle (hence a fixed-speed level set). TM itself is not compact. Also supply the /7 identification of the maximal spray curve with the velocity lift and its time-zero membership before applying the escape theorem. No connectedness is needed in this proof; preserve the existing connected-metric route as an alternative."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/12",
+      "verdict": "confirmed",
+      "reason": "With an existing compatible PseudoMetricSpace, riemannianEDist is finite for every pair by IsRiemannianManifold.out (Mathlib Riemannian/Basic.lean:81). Tau Ceti Riemannian/Distance.lean:77 turns this into Joined x y. Thus Nonempty M, or the chosen basepoint, yields PathConnectedSpace M and then ConnectedSpace M. Add this bridge rather than assuming a pre-existing typeclass instance. Connectedness remains needed to construct an ordinary Riemannian metric from an extended distance, and nonemptiness cannot silently be dropped. Separately, exhaustion by closed balls of integer radius uses only a metric and the chosen centre; remove the claimed use of connectedness in (b)=>(e_p)."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/13",
+      "verdict": "confirmed",
+      "reason": "Mathlib Geometry/Manifold/IntegralCurve/Basic.lean:66,72,77 defines IsMIntegralCurveOn, IsMIntegralCurveAt and IsMIntegralCurve for autonomous manifold vector fields. Analysis/ODE/Basic.lean:54 defines IsIntegralCurve for a time-dependent normed-space vector field. The README explicitly points to the manifold files while using the latter name. Correct the two manifold-API references to IsMIntegralCurve/IsMIntegralCurveOn in an upstream maintainer note; do not rename the genuinely different normed-space predicate."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/14",
+      "verdict": "confirmed",
+      "reason": "The GeometricTopology and OptimalTransport consumer declarations really lack their corresponding reviewed stage links, but the report's universal no-edge premise is false. Reproducing decompositions.merge_links with data/links already yields HopfRinow L1 -> LieGroups L0 as a reviewed_link, with the independent review attached; inferred describes its confidence, not failure to integrate. Preserve that edge. Add only the missing edges supported by the quoted consumers: H1 -> GeometricTopology L7; H1,H2,H3 -> OptimalTransport L7; H4 -> OptimalTransport L8. Use existing stage IDs and consumer quotes through the link workflow, not direct raw-atlas editing. These are three consumer layers in two roadmaps, not three distinct roadmaps."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/15",
+      "verdict": "confirmed",
+      "reason": "Confirm the missing shared-isometry interface/ownership link, but narrow the Myers–Steenrod prescription. HopfRinow L4 owns smooth Riemannian isometries; GeometricTopology L7 uses volume invariance and L8 uses maximal model isometry groups without explicitly importing that interface. Add H4 -> GeometricTopology L7/L8 and require the model-group definitions to identify with the shared notion. A LieGroup import alone does not construct those groups. However the eight explicit models can obtain their Lie-group structures and maximality through direct classifications; the general Myers–Steenrod theorem is not logically mandatory. Request a named proof route: model-specific identifications, or a separately owned Myers–Steenrod theorem with its hypotheses and the metric-isometry/smooth-isometry bridge. Do not add an unconditional general theorem to upstream HopfRinow or silently make metric preservation imply smoothness."
+    },
+    {
+      "finding": "RT-AREA-diffgeom/16",
+      "verdict": "rejected",
+      "reason": "The evidence establishes a possible reuse link, not duplication. FuchsianOrbifolds L2 asks for hyperbolic geodesics, half-planes, polygon sides and angles; it does not introduce a competing generic metric geodesic-space predicate. Tau Ceti Length.lean:223 packages a parametrized segment on [0,1] with fixed endpoints, while the geometric locus of a full vertical ray or orthogonal semicircle is not such a finite segment. The proposed fix incorrectly identifies these objects without selecting endpoints and a constant-speed parametrization. Mathlib UpperHalfPlane/Metric.lean:252 confirms the ambient metric, not the claimed duplicate. A future link job may expose finite subarcs through IsGeodesicSegment while retaining the hyperbolic line/half-plane geometry; absence of that optional citation alone does not substantiate this duplicate finding."
+    }
+  ]
+}
