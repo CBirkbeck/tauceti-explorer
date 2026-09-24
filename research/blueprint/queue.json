@@ -28237,8 +28237,9 @@
     "REV-AUDIT-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1601"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1601",
+   "finishedAt": "2026-09-24T05:32:16Z"
   },
   {
    "id": "RT-AUDIT-27",
@@ -28954,7 +28955,8 @@
     "RT-AREA-arithmeticgeometry-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-arithmeticgeometry-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1484"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-3",
