@@ -206,7 +206,10 @@ theorem MilnorK.symbol_alternating {n : ℕ} (x : Fin n → Fˣ) (sigma : Equiv.
 /-- T.2/milnor-examples: a finite field has no higher Milnor K-theory. -/
 theorem MilnorK.finiteField [Fintype F] (n : ℕ) (hn : 2 ≤ n) : True := by sorry
 
-/- The higher tame symbols and the specialisation maps are **not** in this part:
+/- The Dennis-Stein symbols are not in this part either: the roadmap assigns them
+to `T.6`, whose packet owns them.
+
+The higher tame symbols and the specialisation maps are **not** in this part:
 the roadmap assigns higher Milnor residues, specialisation with a uniformiser and
 their product signs to `T.3:localization-comparison`, whose packet owns them. -/
 
