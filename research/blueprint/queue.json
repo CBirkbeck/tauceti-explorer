@@ -19246,8 +19246,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
@@ -29221,7 +29222,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-iwasawa-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1495"
   },
   {
    "id": "REV-RT-AREA-iwasawa-1",
@@ -29608,8 +29610,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-algebraicgeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1509"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1509",
+   "finishedAt": "2026-09-24T10:31:56Z"
   },
   {
    "id": "REV-RT-AREA-algebraicgeometry",
