@@ -1,3 +1,538 @@
+# LLHLM23 continuation: affine-Weyl proofs and corrected genericity
+
+Codex — codex-7e92bd, issue #1254, 24 September 2026. **Partial: 768 items (145 library, 48 planned, 575 missing), 25 routes, 93 unreviewed findings.** All inherited item IDs, statuses, routes, source data and91 earlier findings are preserved. This is source-level planning, not independent review or formal implementation.
+
+This pass supplies the46 missing Section2 theorem proof outlines, makes the recorded GL₁ exception operative in N80/N17, and propagates E79–E81 into the polynomial-genericity interfaces. The V15 proof now uses one auxiliary tensor type and an explicit central shift. E92 records the small-prime termination gap in Lemma2.3.3; E93 corrects its triangle-inequality sign. The substantial external supplier and remaining-paper obligations are still open.
+
+The bot confirmed claim5805214070. Another worker’s older checkpoint PR2585 then merged and released the issue. After rechecking the priority queue, renewed claim5805304360 was confirmed by5805305771. These files were refreshed from main and preserve that checkpoint’s23 homological additions. Its report and handoff are retained below with their original attribution.
+
+## Corrected polynomial and the all-generic-weight argument
+
+Use the source’s shifted product f^ω(X)=∏_ν f(X−ν), over integral points in the Weyl polytope. Put f=P_{η,e}P_{7n−3}, ω_{λ,j}=(λ+η−w₀η)_j and M_Λ=max_{λ,j}(6n−2+h_{(λ+η)_j}). A sufficient replacement for the printed polynomial is
+
+H_{Λ,e}(X)=P_{M_Λ}(X) · ∏_{λ,j}P_{(λ+η)_j,e}(X) · ∏_{λ,j}∏_{ν∈Conv(Wω_{λ,j})∩Zⁿ} f(X+ν).
+
+The local-model factors and explicit depth ensure membership in S_{Λ,t} (E79). The **positive** shifts transfer nonvanishing from μ to μ′=μ+ν (E80). The tensor-character identity propagates covering through σ(τ)⊗V(λ), as required by E81. Thus corrected B28 gives Definition8.4.6 genericity, including exclusion of covered weights from bad types. This uses the existing named representation-theoretic suppliers; it does not assert they are already formalized.
+
+For V15 take Λ={0,η} and c=−η−w₀η=−(n−1)(1,…,1). With an existing polynomial P_old for Theorem9.1.6, take
+
+P_new(X)=P_old(X) · P_{3h_η}(X) · H_{{0,η},e}(X+c),
+
+with the finite product over local coefficient data when necessary. If w̃(ρ̄)=t_μs, Lemma2.6.7 gives an auxiliary R with w̃(R)=w̃(ρ̄)t_c=t_{μ+c}s and W?(ρ̄)⊆JH(R̄⊗W(η)). The new polynomial makes μ+c H-generic, so B28 makes every weight of this tensor type generic. Theorem9.1.6 now identifies all automorphic weights with generic predicted weights. This avoids the former undefined uniform bound on an expression containing μ. The assembly gap `V15-genericity-polynomial` is discharged relative to its explicit suppliers.
+
+For transfer along an arbitrary admissible relative position, B30 uses the sufficient polynomial Q_{Λ,e}=∏_{λ,j}H_{Λ,e}^{(λ+η)_j}. Admissibility gives μ_τ=μ_ρ−ν, so its **negative** shifts apply in this direction. B31/B43 now state the resulting sufficient corrected hypotheses. H and Q are deliberately named separately from the printed polynomials; no symmetry of the inexplicit local-model factors is assumed.
+
+Sources: [published paper](https://math.rice.edu/~bl70/LocModels.pdf), PDF33–54,171–175,184–185; [Haines–He](https://www.math.umd.edu/~tjh/VertexAdm13.pdf), Corollary4.4 and Theorem1.4, with PDF4–11 read; [Weight elimination](https://math.rice.edu/~bl70/WEpaper.pdf), published PDF53–56. The reading log in the JSON records exact hashes and the boundary of each fresh reading.
+
+## Source findings and proof boundaries
+
+N80/N17 now apply **existing E84**: for GL₁ depth is vacuous but P_m=(−1)^m m!, so the converse needs m<p. For n≥2 the equivalence holds; the forward implication used by the genericity proof holds for every n≥1.
+
+**E92:** the Lemma2.3.3 height recurrence is H_new≤p+floor(H/p)+1. Above p+2 it can stall at (p,H)=(2,5),(2,6),(3,6). It proves strict descent for p≥5, but needs a further small-prime argument. This is a proof gap, not a counterexample to the lemma. Lemma2.3.4 excludes p≤3 through its own hypothesis. **E93:** the triangle inequality uses h_{μ+pν}, not the printed h_{μ−pν}. For GL₂, μ=(5,0),ν=(−2,0),p=2 gives the two heights1 and9. Both passages persist in arXivv2 PDF29; the published PDF40 was rendered. The publisher page, latest arXiv history and author’s publication page had no linked correction in the bounded search on24 September. All93 findings await independent review.
+
+All46 N theorem items now have `proofSteps`, but some explicitly import unresolved suppliers. The new `section2-source-suppliers` gap names Jantzen’s linkage/Steinberg/translation results, the full-root-datum generic constituent criterion, Deligne–Lusztig irreducibility and the tensor identity, Haines–Ngô acute-cone inputs, admissible-to-permissible, and the Schneider–Zink/Pyvovarov/depth-zero type results. The missing GL_n (−1)-depth proof and E92 small primes are also explicit. None of these gaps disappears merely because a proof-outline field exists.
+
+The internal graph has889 edges and is acyclic. The remaining theorem-like items with no `proofSteps` or `proofOutline` are U26, M32, K29, G43, B28, Z1, L136, P1. This is a mechanical field census, not a closure certificate; library items legitimately import their proofs. Z08 already has structured API/tests and does not need the earlier claimed two-test repair.
+
+## Verification in this continuation
+
+The exact diagnostics check2,799 lowest-alcove/P_m cases (including10 GL₁ failures of the unqualified converse),26,568 affine-group cases with23,210 noncommuting controls,180 auxiliary central translations, and2,928 genericity-loss cases. The E80 control uses27 lattice points of Conv(W(3,0,−2)): modulo11 at μ₁=3, the negative-shift product is0 while the positive-shift product is9. The height recurrence has exactly the three stated stalls among the tested primes and heights through10,000. The general strict-descent argument for p≥5 is given above. These finite diagnostics test formulas and boundary cases; they are not formal proofs.
+
+No library status or owner was changed and no new baseline declaration is claimed. The existing pinned-library audit and the preceding homological continuation remain attributed. No Lean file is required for this paper-extraction issue, produced or compiled. Required checker outcomes are recorded in the handoff and JSON after validation.
+
+## Updated theorem proof outlines
+
+### N07: Opposed dominant factors are reduced
+
+Lemma2.1.4, PDF31. For w1,w2 in Wplus, w2^-1 w0 w1 is a reduced product.
+
+1. Identify length with the number of affine root walls separating alcoves. Applying w₂ identifies the distance for w₂⁻¹w₀w₁ with the distance from w₂(A₀) to w₀w₁(A₀).
+2. For w₁,w₂ dominant, concatenate minimal galleries from w₀w₁(A₀) to w₀(A₀), then to A₀, then to w₂(A₀). In each positive-root direction the successive strips are ordered, so no separating wall is crossed twice.
+3. The concatenated gallery is minimal and has length ℓ(w₁)+ℓ(w₀)+ℓ(w₂), proving the reduced factorization. This is the geometric argument of [56, Lemma 4.1.9], published PDF56 of Weight elimination.
+
+### N08: Regular affine-element factorization
+
+Proposition2.1.5, PDF31. Every regular affine element is w2^-1 w0 t_nu w1 for w1,w2 in W1plus and dominant nu; the data are unique up to the central X0 action described in the proof.
+
+1. Choose the finite Weyl element w₂ carrying the regular alcove w(A₀) into the antidominant chamber, and its restricted lift w̃₂=t_{η₂}w₂. For each simple root the translated alcove has pairing <1; regularity excludes the intervening critical strip, hence its pairing is <0.
+2. Thus w₀w̃₂w is dominant. Subtract its integral simple-root strip indices to write it t_νw̃₁ with ν dominant and w̃₁ restricted. This gives w=w̃₂⁻¹w₀t_νw̃₁.
+3. The chamber determines the finite part of w̃₂; the strip indices determine the remaining translations modulo X⁰(T). Comparing the two factorizations therefore gives exactly the central equivalence in Proposition 2.1.5, not absolute uniqueness of the factors.
+
+### N09: Converse regularity
+
+Proposition2.1.5, PDF31. For any w1,w2 in Wplus, w2^-1 w0 w1 is regular.
+
+1. Apply w₂ to the alcoves used to test regularity of w₂⁻¹w₀w₁. The alcoves w₂(A₀) and w₀w₁(A₀) are in opposed dominant and antidominant chambers.
+2. For each root the two endpoint strips are separated by the critical strip. Pulling the separating walls back by w₂ shows that the resulting alcove meets none of the critical strips in the definition of regularity.
+
+### N10: Upper-arrow symmetry for admissible pairs
+
+Proposition 2.1.6, (1)⇔(2), PDF31. Suppose that w̃1 and w̃2 are elements in W̃^+. Let λ ∈ X*(T) be a dominant weight. Then w̃1 ↑ t_λ w̃_h^{-1} w̃2 if and only if w̃2 ↑ w̃_h t_{−λ} w̃1. (Conditions (1) and (2) of Proposition 2.1.6.)
+
+1. Use that the upper-arrow order is preserved by integral translation and reversed by the longest finite Weyl element; these are [56, Proposition 4.1.2], via Jantzen II.6.5(4).
+2. Apply this reversing affine transformation to both sides of w̃₁ ↑ t_λw̃_h⁻¹w̃₂ and simplify w̃_h=w₀t_{−η}. The result is w̃₂ ↑ w̃_h t_{−λ}w̃₁; applying the inverse transformation proves the converse.
+
+### N75: Upper-arrow condition as translation bounds
+
+Proposition 2.1.6, (1)⇔(3), PDF31–32. Suppose that w̃1 and w̃2 are elements in W̃^+. Let λ ∈ X*(T) be a dominant weight. Then w̃1 ↑ t_λ w̃_h^{-1} w̃2 if and only if w̃2^{-1} w0 w̃1 ≤ t_{w1^{-1}(λ+η)} and w̃2^{-1} w0 w̃1 ≤ t_{(w0 w2)^{-1}(λ+η)}, where w1, w2 ∈ W are the images of w̃1 and w̃2 in W. (Conditions (1) and (3) of Proposition 2.1.6.)
+
+1. Normalize the second factor to be restricted as in N76. Convert upper-arrow to Bruhat order by Wang’s theorem and prepend the reduced factor w̃₂⁻¹w₀; this gives the bound indexed by (w₀w₂)⁻¹.
+2. Apply N10 to exchange the two factors and repeat the calculation, obtaining the bound indexed by w₁⁻¹. Both translations contain λ+η; use the correction E6.
+3. Conversely, either translation bound implies membership in Adm(λ+η). N76 returns the upper-arrow condition. This proof uses N76 only in this reverse direction and does not use N75 in the proof of N76.
+
+### N76: Upper-arrow condition as admissibility
+
+Proposition 2.1.6, (1)⇔(4), PDF31–32. Suppose that w̃1 and w̃2 are elements in W̃^+. Let λ ∈ X*(T) be a dominant weight. Then w̃1 ↑ t_λ w̃_h^{-1} w̃2 if and only if w̃2^{-1} w0 w̃1 ∈ Adm(λ+η). (Conditions (1) and (4) of Proposition 2.1.6.)
+
+1. Translate the two dominant factors compatibly to reduce to w̃₂ restricted, compensating in w̃₁ by the opposite w₀-translate. This preserves their product and the upper-arrow condition.
+2. For the forward direction, Wang’s theorem equates upper-arrow and Bruhat order on dominant alcoves. Prepending w̃₂⁻¹w₀ is reduced by N07, giving w̃₂⁻¹w₀w̃₁ ≤ t_{(w₀w₂)⁻¹(λ+η)}, hence membership in Adm(λ+η).
+3. For the converse, the alcove of x=w̃₂⁻¹w₀w̃₁ lies in the chamber/acute cone with direction (w₀w₂)⁻¹. Haines–He Corollary 4.4 bounds an admissible alcove in that cone by t_{(w₀w₂)⁻¹(λ+η)}. Transport their antidominant base-alcove convention to the convention here before using the bound.
+4. Write this translation as w̃₂⁻¹w₀(t_λw̃_h⁻¹w̃₂). Both displayed products have the same reduced prefix by N07. Cancel its simple reflections using the Bruhat lifting property, then use Wang’s theorem again. The Haines–He proof is read through Proposition 4.1 and Corollary 4.4; its acute-cone suppliers from Haines–Ngô remain named external inputs.
+
+### N12: Admissible-pair parametrization
+
+Corollary2.1.7, PDF32–33. For dominant lambda, (w1,w2) maps to w2^-1 w0 w1 and gives a bijection AP(lambda+eta) -> Admreg(lambda+eta).
+
+1. The central diagonal action does not change w̃₂⁻¹w₀w̃₁. N09 gives regularity and N76 gives admissibility, so the displayed map is well defined.
+2. Factor a regular admissible element by N08. Absorb the dominant translation t_ν into the second factor using w₀t_ν=t_{w₀ν}w₀. The resulting first factor is restricted, the second dominant; N76 supplies the admissible-pair inequality.
+3. The uniqueness modulo central translations in N08 identifies any two pairs with this image. This proves injectivity on the stated quotient, and the preceding factorization proves surjectivity.
+
+### N13: Reversed restricted-factor parametrization
+
+Remark2.1.8, PDF33. The same bijection holds for pairs in Wplus times W1plus modulo X0 with the same upper-arrow relation; the formula for the affine element is unchanged.
+
+1. Repeat the regular factorization with the second factor restricted, moving the dominant translation into the first factor rather than the second.
+2. N10 exchanges the two upper-arrow forms; N76 still identifies the same product with admissibility. Central uniqueness is again N08. Thus the quotient with the restriction on the other factor has the same target and the same product formula.
+
+### N18: Genericity and smallness transport
+
+Proposition2.1.12(1), PDF34. For nu a weight and every finite Weyl s, t_nu is m-generic (respectively m-small) iff t_(s nu) is; depth is invariant under the p-dot action and smallness under the ordinary Weyl action.
+
+1. A finite Weyl element permutes all coroots, so max_α⟨ν,α∨⟩ is unchanged. This proves the smallness assertion.
+2. For genericity, use m<|⟨ν,α∨⟩+pk| for every root and integer k. The finite Weyl action permutes roots and the p-dot action on ν−η changes the root pairings by root permutations and multiples of p. Relabel α,k to obtain the equivalences.
+
+### N19: Smallness under products
+
+Proposition2.1.12(2), PDF34. If w is m-small and z is m'-small then wz is (m+m')-small, in either affine group.
+
+1. In right-translation notation, (a t_ν)(b t_μ)=ab t_{b⁻¹ν+μ}. Each coroot pairing of b⁻¹ν is bounded in absolute value by m and that of μ by m′.
+2. Apply the triangle inequality, then maximize over roots. The group law is the same for the dual affine group, so this argument applies there as well.
+
+### N20: Smallness under inversion and opposition
+
+Proposition2.1.12(3), PDF34. w is m-small iff w^-1 is m-small iff w^* is m-small.
+
+1. For w=a t_ν, its inverse has right translation −aν; the corrected opposition map has right translation aν (after the appropriate finite factor is moved left).
+2. Finite Weyl transformations and negation permute the full root set, so the three root-height maxima agree. This uses the antimultiplicative opposition convention of E1, not the printed group-isomorphism assertion.
+
+### N21: Loss of genericity under a small factor
+
+Proposition2.1.12(4), PDF34. If z is m'-generic and w is m-small with m<=m', then zw is (m'-m)-generic.
+
+1. Write z=a t_ν and w=b t_μ. The translation of zw is b⁻¹ν+μ. The first summand has the same distance >m′ from every affine p-wall as ν, by N18.
+2. The root pairing of μ has absolute value ≤m. The reverse triangle inequality gives distance >m′−m from each wall. Since m≤m′, this is the nonnegative-depth criterion of N15.
+
+### N25: Constituent depth bound
+
+Lemma2.2.1, PDF35–37. If dominant mu is not m-deep, h is an integer bounding <mu,alpha^vee> for every root, and sigma is a Jordan–Hölder factor of W(mu), then sigma is not (m+floor(h/(p-1)))-deep. Proof uses linkage, Steinberg tensor product, tensor-weight translation, convexity and a terminating height reduction; none may be replaced by an assumed constituent classification.
+
+1. Use the linkage principle and Steinberg tensor product theorem to replace a dominant highest weight whose module contains σ by a smaller dominant highest weight with the same property. For a nonrestricted weight μ₀+pμ₁, restriction to G replaces the Frobenius factor by its π-twist; tensor weights lie in the appropriate Weyl polytope. N26 makes the resulting weight dominant without leaving that polytope.
+2. The positive height paired with (η−w₀η)∨ strictly decreases at each nonterminal reduction. Hence the process terminates at a p-restricted λ with F(λ)=σ. Record the accumulated dominant translation γ and a perturbation in Conv(Wγ); do not merely assume an arbitrary constituent classification.
+3. The linkage inequalities imply (p−1)h_γ≤h_μ≤h, so all root pairings of the accumulated perturbation have absolute value ≤floor(h/(p−1)). The other accumulated transformations are p-dot transformations and preserve depth.
+4. A weight at distance ≤m from some p-wall cannot be moved to distance >m+floor(h/(p−1)) by such a perturbation. This proves the contrapositive depth estimate. The exact external representation-theoretic suppliers are Jantzen II.6.13 (linkage), II.3.17 (Steinberg), II.5.8 (tensor weights) and II.5.5 (virtual Weyl characters), as in PDF35–37; recursive proofs of these suppliers are not asserted here.
+
+### N26: Dominant translate remains in a Weyl polytope
+
+Lemma2.2.2, PDF36. If lambda is dominant, nu is in Conv(W kappa), and w(lambda+nu) is dominant, then w(lambda+nu)-lambda lies in Conv(W kappa). The proof moves across root walls and keeps each corrected nu on a segment between two Weyl conjugates.
+
+1. Choose a simple root α with ⟨λ+ν,α∨⟩<0. Reflect λ+ν and replace ν by ν′=s_α(λ+ν)−λ=ν−⟨λ+ν,α∨⟩α.
+2. Dominance of λ implies 0<−⟨λ+ν,α∨⟩≤−⟨ν,α∨⟩. Thus ν′ lies on the segment from ν to s_αν, which is contained in the Weyl-invariant convex polytope Conv(Wκ).
+3. Move across simple walls until reaching the dominant representative of the finite orbit of λ+ν. This terminates by the standard chamber algorithm. The resulting translated vector remains in Conv(Wκ).
+
+### N30: Central character of a lowest-alcove presentation
+
+Lemma2.2.3, PDF38. The lift in(2.7) reduces modulo(p-pi) to the central character of F_(w1,omega).
+
+1. Restrict the highest-weight character defining F_(w̃₁,ω) to Z. Finite Weyl elements act trivially on the central character lattice.
+2. The p-dot and π terms differ by an element of (p−π)X*(Z); reducing the lift represented by t_{ω−η}w̃₁ gives precisely the character of the finite centre. Keep the −η shift, as in equation (2.7).
+
+### N31: Presentations classified by central lifts
+
+Lemma2.2.4, PDF38, corrected E2. For a0-deep Serre weight sigma, (w1,omega) maps to the class of t_(omega-eta)w1 and bijects its lowest-alcove presentations with algebraic lifts of its finite central character. The printed formula omits -eta; retaining it would change the target character.
+
+1. All lowest-alcove presentations of a 0-deep weight form the Ω orbit (w̃₁π(δ)⁻¹, δ·(ω−η)+η). The affine action is the p-dot action.
+2. Under Ω≃X*(Z), acting by δ with central class ζ_δ changes the lift of t_{ω−η}w̃₁ by (p−π)ζ_δ. Thus the image is exactly the set of lifts of the fixed finite central character.
+3. The operator p−π is injective: π has finite order, so p^d−1 annihilates a hypothetical kernel element in the torsionfree lattice. Consequently each lift occurs once. This proves the corrected E2 formula rather than the unshifted printed one.
+
+### N34: Generic Deligne–Lusztig irreducibility
+
+§2.3 after Definition2.3.1, PDF39. A1-generic Deligne–Lusztig representation is irreducible; a0-deep lowest-alcove pair is good. Inputs are[19] Theorem6.8 and[56] Lemma2.2.3.
+
+1. For a 0-deep lowest-alcove pair, apply the good-pair criterion of [56, Lemma 2.2.3]. Its hypotheses include avoidance of the affine p-walls; a boundary presentation is not enough.
+2. For a 1-generic pair, the associated torus character is in general position. Deligne–Lusztig Theorem 6.8 [19], with the paper’s sign normalization of R_s(μ), then gives an irreducible representation.
+3. These are two separately named imported implications in the bundled source item. Their independent source proof/declaration closure remains in closure-external-inputs; the outline is not a replacement proof of Deligne–Lusztig theory.
+
+### N36: Deligne–Lusztig presentations and central lifts
+
+Lemma2.3.2, PDF39. For1-generic R, (s,mu-eta) maps to t_mu s modulo Wa and bijects its lowest-alcove presentations with algebraic lifts of its reduced finite central character.
+
+1. Use [56, Proposition 2.2.15] to describe equivalent generic lowest-alcove presentations: the change by (ν,w) sends (s,μ) to (wsπ(w)⁻¹,w(μ+pν−sπν)).
+2. On X*(Z), the change in the class of t_μs is (p−π)ν. The Ω parametrization therefore identifies its orbit with the lifts of the fixed central character.
+3. As in the torsionfree-lattice argument for N31, p−π is injective, so distinct presentation changes give distinct lifts. The 1-generic hypothesis is used for the presentation classification.
+
+### N37: A bounded presentation for every Deligne–Lusztig representation
+
+Lemma2.3.3, PDF40. Every R has R=R_s(mu) with mu dominant and h_mu<=p+2; consequently mu-eta is(-3)-deep in C0. For products of GLn the stronger(-1)-depth is available as Remark2.3.5 records, but needs its own justification.
+
+1. Preserve R_s(μ) while replacing μ by μ+pν−sπν. The affine-alcove covering supplies ν with h_{μ+pν}≤p, and the triangle inequality gives h_ν≤floor(h_μ/p)+1. Here the norm is h_{μ+pν}, correcting the printed h_{μ−pν} (E93).
+2. Thus the new height is bounded by p+floor(h_μ/p)+1. For p≥5 this is strictly smaller than h_μ whenever h_μ>p+2, so induction terminates at the asserted bound. A final finite Weyl conjugation makes μ dominant without changing height.
+3. The printed estimate also permits stationary heights (p,H)=(2,5),(2,6),(3,6). It therefore proves only eventual height ≤6 for p=2 or 3, not the asserted p+2 bound. A supplementary small-prime argument is required (E92). The GL_n (−1)-depth refinement in Remark2.3.5 also needs its own supplier; neither follows from this recurrence.
+
+### N38: Deep constituents force generic types
+
+Lemma2.3.4, PDF40. For dominant lambda with h_(lambda+eta)<p-3, if JH(Rbar tensor W(lambda)) contains an m-deep weight, then R admits(s,mu) with mu-eta(m-h_(lambda+2eta))-deep in C0. In the GLn-product refinement one may replace p-3 by p-1.
+
+1. Argue contrapositively using the bounded dominant presentation from N37. Jantzen’s Deligne–Lusztig character formula [39, Appendix A.3.4] puts each constituent of R̄⊗W(λ) inside a Weyl module W(ν) after tensor-weight translation and dominant adjustment.
+2. If μ−η is not (m−h_{λ+2η})-deep, the resulting ν is not (m−h_η)-deep. The restricted-alcove bound gives h_ν≤p h_η+h_λ+2.
+3. The hypothesis h_{λ+η}<p−3 implies floor((p h_η+h_λ+2)/(p−1))≤h_η. Apply N25 to conclude that the constituent is not m-deep.
+4. The stated hypothesis already excludes p≤3, so the termination edge in N37 does not obstruct this use. For the GL_n refinement replace N37’s (−3)-depth by the separately required (−1)-depth result before replacing p−3 by p−1.
+
+### N39: Jantzen constituent criterion
+
+Proposition2.3.6, PDF41. For a2h_eta-generic presentation(s,mu-eta) of R and lambda in X1, F(lambda) belongs to JH(Rbar) iff some z=w t_nu in Wplus satisfies z dot(mu-s pi(nu)-eta) upward wh dot lambda and z dot C0 upward wh dot C0.
+
+1. Start with Jantzen’s reduction formula for R_s(μ), as used in [56, Proposition 4.1.3]. Its nonzero constituent criterion is expressed by an affine dominant element z and the upper-arrow comparison of the corresponding highest weights.
+2. The 2h_η depth assumption bounds the possible correction translations in that formula. The argument of [56, proof of Proposition 4.1.3, published PDF54–55] compares the maximum coroot pairing M on both sides to obtain the required bound; the geometric bound h_η replaces the GL_n bound n−1.
+3. After this bound, the criterion is exactly the two upper-arrow conditions in N39. This is an explicit import of Jantzen’s formula and its generic-range reduction; extending the read GL_n proof to the full root-datum scope remains a supplier audit obligation, not an automatic change of the number 2n.
+
+### N40: Admissible-pair parametrization of tensor constituents
+
+Proposition2.3.7, PDF41–42. For dominant lambda, m>=max(2h_eta,h_(lambda+eta)), and a chosen m-generic presentation of R, (w1,w2) maps to F_(w1,wtilde(R)w2^-1(0)) and bijects AP(lambda+eta) with JH(Rbar tensor W(lambda)). These are sets of constituents; this does not assert multiplicity one.
+
+1. For an admissible pair, the upper-arrow bounds control every root pairing of w̃₂⁻¹(0) by h_{λ+η}. Thus ω=w̃(R)w̃₂⁻¹(0) is an allowed lowest-alcove parameter. The central-coset calculation gives the λ-compatible lift, and N31 identifies presentations with that lift, establishing injectivity on the central quotient.
+2. For surjectivity, the translation principle expresses a constituent of R̄⊗W(λ) as one of R̄ with a weight shift in Conv(Wλ). Apply N39, then choose the dominant representative in the relevant finite-Weyl coset. The resulting pair satisfies w̃₁ ↑ t_λw̃_h⁻¹w̃₂.
+3. Conversely, convert this inequality to Bruhat order and use the reduced factorization from N07 (through N12) to extract subwords x≤t_{−w₀λ} and y≤w̃_h w̃₁. Admissibility implies permissibility, so x(0) lies in Conv(W(−w₀λ)). Reverse the tensor-weight translation to obtain an actual constituent.
+4. The proof is a bijection of sets of simple constituents. It does not compare their multiplicities. The translation principle, Jantzen criterion and admissible-to-permissible inclusion [52] are explicit external inputs requiring shared-owner closure.
+
+### N41: Depth of tensor constituents
+
+Proposition 2.3.7, 'Moreover' clause (depth), PDF41. Let λ ∈ X*(T) be a dominant weight and let m ≥ max{2h_η, h_{λ+η}} be an integer. Let R be a Deligne–Lusztig representation together with an m-generic lowest alcove presentation, with corresponding element w̃(R) ∈ W̃ (cf. Definition 2.3.1). Then the Jordan–Hölder factors F_{(w̃1, w̃(R)w̃2^{-1}(0))}, (w̃1,w̃2) ∈ AP(λ+η), of R̄ ⊗ W(λ) (by (2.8), N40, these are all of JH(R̄ ⊗ W(λ))) are (m − h_{λ+η})-deep.
+
+1. For a pair in AP(λ+η), the upper-arrow inequalities bound h_{w̃₂⁻¹(0)} by h_{λ+η}. Multiplication by this bounded translation changes the generic parameter of R by at most that root height.
+2. Apply N21 to get (m−h_{λ+η})-depth of its displayed lowest-alcove parameter. N40 says that all constituents occur in this list, completing the assertion for JH(R̄⊗W(λ)).
+
+### N72: Compatibility of tensor-constituent presentations
+
+Proposition 2.3.7, 'Moreover' clause (λ-compatibility), PDF41. Let λ ∈ X*(T) be a dominant weight and let m ≥ max{2h_η, h_{λ+η}} be an integer. Let R be a Deligne–Lusztig representation together with an m-generic lowest alcove presentation, with corresponding element w̃(R) ∈ W̃ (cf. Definition 2.3.1). Then for every (w̃1,w̃2) ∈ AP(λ+η), the lowest alcove presentation (w̃1, w̃(R)w̃2^{-1}(0)) of the Serre weight F_{(w̃1, w̃(R)w̃2^{-1}(0))} ∈ JH(R̄ ⊗ W(λ)) is λ-compatible with the lowest alcove presentation of R.
+
+1. Compute the central class of the displayed constituent as w̃₁ t_{w̃(R)w̃₂⁻¹(0)−η}W_a = w̃₁ w̃(R)w̃₂⁻¹ t_{−η}W_a.
+2. The upper-arrow condition gives w̃₁≡t_{λ+η}w₀w̃₂ modulo W_a. Since the quotient W̃/W_a is abelian and finite Weyl elements vanish in it, the class simplifies to t_λw̃(R)W_a.
+3. This is precisely λ-compatibility. N40 supplies occurrence; the calculation itself uses neither multiplicity one nor the erroneous unshifted lift of E2.
+
+### N42: Constituents by translated Bruhat intervals
+
+Proposition2.3.8, PDF42. For dominant lambda, lambda-compatible lowest-alcove presentations(w1,omega) of sigma and(s,mu-eta) of R, and R max(2h_eta,h_(lambda+eta))-generic, sigma lies in JH(Rbar tensor W(lambda)) iff t_omega W_le_(w0 w1) is contained in t_mu s Adm(lambda+eta).
+
+1. Choose the unique dominant representative w̃₂ in the finite-Weyl coset of t_{−ω}w̃(R). λ-compatibility ensures the same W_a-coset as required by the admissible-pair criterion.
+2. N40 and N76 identify occurrence with w̃₂⁻¹w₀w̃₁∈Adm(λ+η). The lower Bruhat interval ending at w₀w̃₁ is left W-stable; reduced-prefix multiplication therefore converts this criterion to the stated containment of translated intervals.
+3. The converse follows by evaluating containment at the extremal element and removing the same finite-Weyl factor. Retain the entire interval condition: checking an unrelated single vertex would not establish it.
+
+### N44: Outer constituent controls upper-arrow inequalities
+
+Lemma2.3.9, PDF42–43. If F_(w',omega') is outer in Rbar and(w,omega) is a compatible presentation of any constituent in Rbar, then w upward t_(barw' barw(R)^-1(omega'-omega)) w'. Here the action on the difference uses the finite Weyl part; representatives may be chosen arbitrarily within the compatible classes.
+
+1. For the outer weight write ω′=w̃(R)(w̃_h w̃′)⁻¹(0). For the other weight, N40 and N72 give ω=w̃(R)w̃₂⁻¹(0) with w̃ ↑ w̃_h⁻¹w̃₂.
+2. Apply the inverse finite part of w̃(R) to ω′−ω and compare the resulting translated finite-Weyl cosets. Taking their dominant representatives gives the upper-arrow relation between w̃₂ and the translated w̃_h w̃′.
+3. Reverse by w̃_h and use translation invariance of upper-arrow to obtain the displayed bound for w̃. The difference ω′−ω is acted on by the finite Weyl part, not by the affine translation of w̃(R).
+
+### N46: Covering criterion by alcove inequalities
+
+Proposition 2.3.12, (1)⇔(2), PDF43–44. Suppose that (w̃,ω) and (w̃′,ω′) are (representatives for) compatible lowest alcove presentations of Serre weights and ω−η is 3h_η-deep. Then F_{(w̃,ω)} covers F_{(w̃′,ω′)} if and only if w̃′ ↑ t_{W(ω−ω′)} w̃, i.e. w̃′ ↑ t_{s(ω−ω′)} w̃ for every s ∈ W. (Conditions (1) and (2) of Proposition 2.3.12; the parenthetical length clause of (2) is N73.)
+
+1. Assume covering. Realize F_(w̃,ω) as an outer constituent of the family of Deligne–Lusztig types whose affine parameter x satisfies x((w̃_h w̃)⁻¹(0))=ω. The fixed offset has root height ≤h_η, so 3h_η-depth makes these types at least 2h_η-generic.
+2. The possible finite parts of x run through W. Covering places F_(w̃′,ω′) in every one of these types. Apply N44 to each finite part, obtaining w̃′ ↑ t_{s(ω−ω′)}w̃ for every s∈W.
+3. Conversely, these inequalities give the containment of translated lower Bruhat intervals: use Jantzen II.6.5(5) to compare the dominant representatives and Wang’s theorem to pass to Bruhat order. The calculation is the (2)⇒(3) argument in PDF44.
+4. For any Deligne–Lusztig representation containing the first weight, N42 puts its interval in the type’s admissible interval. The preceding containment puts the second interval there too; N42 then proves occurrence of the second weight. This is the universal covering condition. No dependence on the separately stated N47 is needed in this proof.
+
+### N73: Length inequality for covering
+
+Proposition 2.3.12(2), parenthetical 'in particular' clause, PDF44 (proof PDF44). Suppose that (w̃,ω) and (w̃′,ω′) are (representatives for) compatible lowest alcove presentations of Serre weights and ω−η is 3h_η-deep. If w̃′ ↑ t_{W(ω−ω′)} w̃, then ℓ(w̃′) ≤ ℓ(w̃), with equality if and only if (w̃,ω) ∼ (w̃′,ω′).
+
+1. Choose s∈W with s(ω′−ω) dominant. The assumed family of upper-arrow inequalities gives t_{s(ω′−ω)}w̃′ ↑ w̃; Wang’s theorem gives the corresponding Bruhat inequality.
+2. The translated dominant factorization is reduced, so ℓ(w̃′)≤ℓ(t_{s(ω′−ω)})+ℓ(w̃′)≤ℓ(w̃).
+3. Equality forces the translation to have length zero, hence ω′−ω central; equality in Bruhat order then identifies the affine elements up to the central presentation action. Compatibility and N31 give equivalent presentations. Conversely an equivalent presentation differs by a central length-zero translation, so lengths agree.
+
+### N47: Covering criterion by intervals
+
+Proposition2.3.12(1),(3), PDF43–45. Under N46's hypotheses, covering is equivalent to t_omega' W_le_(w0 w') being contained in t_omega W_le_(w0 w).
+
+1. The (2)⇒(3) calculation in N46 gives the interval inclusion from covering. It uses all finite-Weyl upper-arrow inequalities, not just one of them.
+2. Conversely, for every sufficiently generic Deligne–Lusztig representation containing F_(w̃,ω), N42 puts the larger interval inside the type’s translated admissible set. Its subinterval then gives occurrence of F_(w̃′,ω′), again by N42. This is covering.
+
+### N48: Covering criterion by algebraic modules
+
+Proposition 2.3.12, (1)⇔(4), PDF43–45. Suppose that (w̃,ω) and (w̃′,ω′) are (representatives for) compatible lowest alcove presentations of Serre weights and ω−η is 3h_η-deep. Then F_{(w̃,ω)} covers F_{(w̃′,ω′)} if and only if F_{(w̃′,ω′)} is a Jordan–Hölder factor of ⊕_{w̃1 ∈ W̃^+, w̃1 ↑ w̃} L(π^{-1}(w̃1)·(ω−η))|_G, where G = G0(F_p). (Conditions (1) and (4) of Proposition 2.3.12.)
+
+1. Write each dominant affine w̃₁ occurring in the direct sum as t_νw̃₁′ with restricted w̃₁′. Steinberg tensor product and the translation principle [60, Proposition 4.2.4(1)] reduce its restricted algebraic module to Serre constituents indexed by weights ν′ of L(ν).
+2. The weights ν′ lie in Conv(Wν). Dominant adjustment as in N26 and Jantzen’s upper-arrow properties show that each such constituent satisfies the covering inequalities of N46.
+3. Conversely, if the inequalities of N46 hold, choose the dominant Weyl representative ν of ω′−ω. The corresponding highest-weight term in the algebraic module occurs, producing the desired constituent in the stated sum. The 3h_η-depth hypothesis is retained throughout the translation step; no unrestricted semisimplicity claim is made.
+
+### N74: Covering is a partial order
+
+Remark 2.3.11, PDF43. Covering is a partial ordering on 3h_η-deep Serre weights.
+
+1. Reflexivity and transitivity follow from the universal occurrence implication defining covering.
+2. If two 3h_η-deep weights cover each other, N46 applies in both directions. N73 gives opposite length inequalities, hence equality and equivalent compatible presentations. They therefore represent the same Serre weight, proving antisymmetry.
+
+### N53: Characteristic-zero types and determinant lifts
+
+Lemma2.4.4, first part, PDF48. For1-generic tau over E, (s,mu) maps to t_(mu+eta)s modulo Wa and bijects lowest-alcove presentations with zeta in X*(Z) satisfying zeta composed with omega1=det tau.
+
+1. The injectivity of the tame-parameter/Deligne–Lusztig correspondence identifies equivalence of generic type presentations with equivalence of the corresponding Weyl data.
+2. The same Ω-orbit calculation as N36 classifies the central classes of t_{μ+η}s. Evaluation of this class on the fundamental tame character is det τ, so the orbit is exactly the stated set of determinant lifts.
+3. Injectivity follows from injectivity of p−π on the central lattice. This is the characteristic-zero convention of N51.
+
+### N54: Residual types and determinant lifts
+
+Lemma2.4.4, second part, PDF48, corrected E3. For1-generic bartau, the map(s,mu)->t_mu s modulo Wa bijects lowest-alcove presentations with zeta such that(zeta+eta restricted to Z) composed with baromega1=det bartau. The printed minus sign contradicts the definition of tau(s,mu+eta).
+
+1. Reduce the characteristic-zero parameter by the Teichmüller correspondence of N49. The determinant character reduces to the evaluation of the same μ+η central exponent.
+2. The residual compatibility class is represented by t_μs, one η less than the characteristic-zero class. Therefore its class ζ satisfies (ζ+η|_Z)∘ω̄₁=det τ̄. Use the plus sign of E3.
+3. The generic presentation orbit and injectivity of p−π give the bijection, as for N53. A minus sign here would fail already for a diagonal parameter.
+
+### N55: Changing a diagonal tame presentation
+
+Proposition2.4.5, PDF48. For z=t_nu w, omega a weight and kappa=pi^-1(z) dot(omega-eta), tau(1,kappa) is isomorphic to tau(pi^-1(w)^-1 w, omega+pi^-1(w)^-1(nu-eta)).
+
+1. Apply the conjugacy formula for tame parameters in [33, equation (10.1.11)] with change of presentation (π⁻¹ν,π⁻¹w) to the parameter on the right.
+2. The Weyl part becomes 1. The exponent becomes π⁻¹w(ω)+pπ⁻¹ν−η, which is exactly π⁻¹(t_νw)·(ω−η)=κ by the p-dot convention.
+3. Conjugate presentation data give isomorphic inertial parameters by N49. The η subtraction and the Frobenius permutation π must be kept in this computation.
+
+### N58: Occurrence of an inertial type bounds monodromy
+
+Theorem2.5.4(1), PDF50. For any WD inertial type tau of GLn(K) there exists smooth irreducible sigma(tau) of GLn(OK) over sufficiently large E such that its occurrence in an irreducible admissible pi implies rec_K(pi) restricted to inertia <=tau. No uniqueness of sigma(tau) is asserted.
+
+1. Decompose the inertial representation into its supercuspidal inertial blocks and attach the partition specifying nilpotent monodromy in each block.
+2. Import Schneider–Zink Theorem 3.7 [74] to choose the corresponding irreducible compact type. Its partition-order occurrence criterion implies equality of inertial semisimplifications and the required dominance inequality in every block.
+3. Assemble the blocks to obtain σ(τ). This is an existence result for a compatible choice, not uniqueness of all representations satisfying the implication. The detailed type-theoretic supplier proof remains an external input.
+
+### N59: Exact inertial type has multiplicity one
+
+Theorem2.5.4(2), PDF50. For the sigma(tau) supplied in N58, rec_K(pi) restricted to inertia=tau implies multiplicity one of sigma(tau) in pi restricted to GLn(OK).
+
+1. Use the same Schneider–Zink type selected in N58. When rec_K(π)|_I=τ, the block partitions agree exactly.
+2. The equality case of [74, Theorem 3.7] gives multiplicity one for this type. Assemble the block multiplicities; do not infer multiplicity one solely from the one-way occurrence implication in N58.
+
+### N60: Generic representations and dominated monodromy
+
+Theorem2.5.4(3), PDF50. For the same sigma(tau), if pi is generic and rec_K(pi) restricted to inertia<=tau, then sigma(tau) occurs; its multiplicity is one if additionally tau is maximal in the monodromy order.
+
+1. For generic π, import the converse type-occurrence criterion [68, Theorem 1.2] together with the choices of [74, Theorem 3.7]. The blockwise monodromy inequalities then force σ(τ) to occur.
+2. When τ is maximal, the maximal-partition multiplicity assertion in this criterion gives multiplicity one. The genericity and maximality hypotheses are separate; neither follows from N58.
+
+### N61: Tame types are constituents of Deligne–Lusztig representations
+
+Proposition2.5.5, PDF50–51. For G=GLn and(s,mu), one can choose the sigma(tau) of N58 as tau=(tau(s,mu),N_tau) varies so that their set is exactly the irreducible constituents of R_s(mu), inflated to GLn(Op). The proof uses cuspidal types, Bernstein covers and parabolic induction; it does not assert an arbitrary previously chosen sigma has this property.
+
+1. Reduce a product of local fields to one factor and first treat a cuspidal tame parameter. The character sum defining the tame torus parameter identifies its finite-field torus character θ; the representation is the cuspidal Deligne–Lusztig representation attached to θ.
+2. Use [25, Theorem 2.4.1(i)] for the corresponding depth-zero cuspidal compact type and its occurrence. The finite-field norm/character-sum identity matches its inertial parameter with N49.
+3. For a general parameter, decompose into the relevant Levi blocks. The Bernstein-cover constructions [8,9] and compatibility of Deligne–Lusztig induction with parabolic induction [21, Proposition 11.5] produce the compact types for the possible monodromy partitions.
+4. Use the choice described in [76, §6] to identify their set with all irreducible constituents of R_s(μ). This proves the existence of simultaneous choices; it does not replace them by arbitrary previously chosen σ(τ). The named type-theoretic suppliers remain explicit imports.
+
+### N63: Parametrization of Herzig weights
+
+Proposition2.6.2, PDF52. For m>=2h_eta and a chosen m-generic presentation of bartau, pairs(w,w2) in W1plus times Wplus modulo diagonal X0 with w2 upward w map bijectively to W?(bartau) by F_(w,wtilde(bartau)w2^-1(0)).
+
+1. Apply N40 with λ=0 to the Deligne–Lusztig representation of the Teichmüller lift. Apply the Herzig operator of N62 to its regular constituents.
+2. Rewrite the resulting restricted alcove representative using w̃_h. The admissible-pair inequality becomes w̃₂ ↑ w̃, and the parameter is w̃(τ̄)w̃₂⁻¹(0).
+3. The central quotient action is unchanged; N31 and the bijectivity of the Herzig operator identify both injectivity and surjectivity of the displayed parametrization.
+
+### N64: Depth and compatibility of Herzig weights
+
+Proposition2.6.2, PDF52. With N63's hypotheses all the displayed weights are(m-h_eta)-deep and their presentations are compatible with the F-valued presentation of bartau.
+
+1. The inequality w̃₂ ↑ w̃ with w̃ restricted bounds all root pairings of w̃₂⁻¹(0) by h_η. Apply N21 to the m-generic parameter of τ̄ to obtain (m−h_η)-depth.
+2. Compute the central coset of the Serre presentation using t_{ω−η}w̃. Substitute ω=w̃(τ̄)w̃₂⁻¹(0) and the coset equality from w̃₂ ↑ w̃. The result is the residual central class t_μs of N51, rather than the characteristic-zero class t_{μ+η}s.
+
+### N67: Breuil–Mézard weight-intersection criterion
+
+Proposition2.6.4, PDF53, corrected E4. For dominant lambda and lambda-compatible2h_eta-generic rhobar and max(2h_eta,h_(lambda+eta))-generic tau presentations, a compatible(w,omega) represents a weight in W?(rhobar) intersect JH(sigma(tau)bar tensor W(lambda)) iff there are w1,w2 in Wplus with w1 upward w upward t_lambda wh^-1 w2 and omega=wtilde(rhobar)w1^-1(0)=wtilde(tau)w2^-1(0). The tensor factor is omitted in the printed first assertion.
+
+1. N63 characterizes membership in W?(ρ̄) by a pair (w,w₁) with w₁ ↑ w and parameter w̃(ρ̄)w₁⁻¹(0). N40 characterizes membership in the tensor type by (w,w₂) with w ↑ t_λw̃_h⁻¹w₂.
+2. Use N31 and the λ-compatible central lift to choose the same restricted lowest-alcove representative for the two presentations. Equality of the remaining parameter is exactly the displayed equality for ω.
+3. Conversely, each of these two sets of data supplies membership by its parametrization. The tensor factor W(λ) is retained on both sides, as required by the source correction.
+
+### N68: Affine factorization of equal weight parameters
+
+Proposition2.6.4, last assertion, PDF53. In N67's setup, equality of the two expressions for omega holds iff wtilde(rhobar,tau)=w2^-1 s w1 for some finite Weyl s.
+
+1. Equality w̃(ρ̄)w₁⁻¹(0)=w̃(τ)w₂⁻¹(0) is equivalent to w₂ w̃(τ)⁻¹w̃(ρ̄)w₁⁻¹ fixing 0.
+2. The stabilizer of 0 for X*(T)⋊W is the finite Weyl group W. Calling this element s gives w̃(ρ̄,τ)=w₂⁻¹s w₁, and substituting this factorization proves the converse.
+
+### N69: Extremal intersection is a single obvious weight
+
+Corollary2.6.5, PDF53. Under N67's hypotheses, if wtilde(rhobar,tau)=t_(s^-1(lambda+eta)) for finite Weyl s, then W?(rhobar) intersect JH(sigma(tau)bar tensor W(lambda)) consists of exactly the obvious weight corresponding to s. In the proof the forced equality is w=w1, not the printed w=w2 (E5).
+
+1. N70 supplies at least one obvious common weight because the specified extremal translation is admissible.
+2. For any common weight, use N67 and N68 to write its relative position as w₂⁻¹s′w₁ with the intervening upper-arrow inequalities.
+3. Compare with the fixed extremal translation through the reduced factorizations of N07. The inequalities put t_{s⁻¹(λ+η)} below t_{w⁻¹(λ+η)}, where w is the finite part of the restricted representative. Both translations are extremal for the same regular weight λ+η, so equality forces that finite part to equal s. Equality in the reduced subword comparison also forces w̃=w̃₁. Hence the common weight is the obvious weight determined by s. The forced equality is w̃=w̃₁, as corrected in E5, not w̃=w̃₂.
+
+### N70: Admissibility produces an obvious common weight
+
+Proposition2.6.6, PDF53–54. Under N67's genericity and compatibility hypotheses, if wtilde(rhobar,tau) belongs to Adm(lambda+eta), then Wobv(rhobar) intersect JH(sigma(tau)bar tensor W(lambda)) is nonempty.
+
+1. Choose a translation t_{w⁻¹(λ+η)} above the admissible relative position. Its factorization (t_{−w₀λ}w̃_h w)⁻¹w₀w is reduced by N07.
+2. The subword property gives a factorization w₂⁻¹w′w₁ with w₁≤w and w₂≤t_{−w₀λ}w̃_h w. Choose dominant representatives using [56, Lemma 4.3.4]; Wang’s theorem and upper-arrow reversal give w₁ ↑ t_λw̃_h⁻¹w₂.
+3. Subtract the dominant integral strip translation from w₁ to make it restricted. Adjust w₂ inside its finite-Weyl coset as in [56, proof of Proposition 4.4.1], preserving the relative factorization and the upper-arrow inequality.
+4. The equal-parameter identity w̃(ρ̄)w₁⁻¹(0)=w̃(τ)w₂⁻¹(0) now exhibits an obvious weight of ρ̄ which is a tensor constituent by N40. This proves existence without invoking the single-weight assertion N69.
+
+### N71: Herzig weights lie in one auxiliary tensor type
+
+Lemma2.6.7, PDF54. For a3h_eta-generic chosen bartau presentation, take the eta-compatible Deligne–Lusztig representation R with wtilde(R)=wtilde(bartau)t_(-eta-w0 eta). Then W?(bartau) is contained in JH(Rbar tensor W(eta)); -eta-w0 eta is central.
+
+1. Set c=−η−w₀η∈X⁰(T) and w̃(R)=w̃(τ̄)t_c. For a predicted weight N63 gives ω=w̃(τ̄)w₂⁻¹(0) with w₂ ↑ w.
+2. Because c is central, ω=w̃(R)(t_cw₂)⁻¹(0). To apply N40 with λ=η it remains to prove w ↑ t_ηw̃_h⁻¹t_cw₂=t_{−w₀η}w̃_h⁻¹w₂.
+3. Reverse w₂ ↑ w by w̃_h⁻¹, then use Jantzen II.6.5(5) for the dominant alcove w̃_h⁻¹w to obtain w ↑ t_{−w₀η}w̃_h⁻¹w. Transitivity proves the required inequality.
+4. Central translation preserves numerical genericity; 3h_η suffices for the hypotheses of N40 with λ=η. Thus every predicted weight lies in this one auxiliary tensor type.
+
+### B28: Polynomial genericity places types in the good subsystem
+
+Lemma 8.4.11, PDF 174. Let Λ be a finite set of dominant weights containing 0, and let H_{Λ,e} be the corrected sufficient polynomial of B27. Let τ have a lowest-alcove presentation (s,μ−η) whose parameter μ is H_{Λ,e}-generic in every embedding. Then (λ+η,τ)∈S_{P,Λ,t} for every λ∈Λ. This is Lemma 8.4.11 with E79–E81 applied: H includes the local-model factors and explicit depth needed for S_{Λ,t}, uses positive parameter shifts, and covering is propagated through the tensor type.
+
+1. The factors P_{(λ+η)_j,e} and P_{M_Λ} give local-model polynomial genericity and (6n−2+h_{λ+η})-depth. Thus (λ+η,τ) belongs to S_{Λ,t}, the membership obligation missing from the printed proof (E79). Only the valid forward implication of N80 is used, including for GL₁.
+2. Fix σ∈JH(σ̄(λ,τ)). The Deligne–Lusztig tensor-character identity decomposes σ(τ)⊗V(λ) into Deligne–Lusztig representations with parameters shifted by weights of V(λ). The depth bound keeps these summands in the generic range. Consequently, if σ covers σ′, then σ′ is also a constituent of this tensor type: choose a summand containing σ and use the definition of covering. This is the E81 correction; it is not a claim that σ′ is already in σ̄(τ).
+3. For any such σ′ also in a 2n-generic σ̄(τ′), choose a compatible tame residual parameter ρ̄ with σ′∈W?(ρ̄), using the obvious-weight construction and its depth bound. N67 and N76 give w̃(ρ̄,τ)∈Adm(λ+η) and w̃(ρ̄,τ′)∈Adm(η). More explicitly, N68 writes the relative position as w₂⁻¹s w₁; its reduced-product comparison with w₂⁻¹w₀w₁ and N76 place it in the required lower admissible set.
+4. Invert the second admissible set and multiply: Adm(η)⁻¹=Adm(−w₀η), and Haines–He Theorem 1.4 gives w̃(τ)⁻¹w̃(τ′)∈Adm(λ+η−w₀η). Admissibility implies permissibility, so μ′−μ belongs componentwise to Conv(W(λ+η−w₀η)).
+5. The positive-shift factors of H therefore make μ′ generic for f=P_{η,e}P_{7n−3}. Thus (η,τ′) belongs to S_{0,t}; none of the covered weights can occur in a bad type. A generic Deligne–Lusztig tensor summand containing σ supplies such a type for σ itself (covering is reflexive), proving the existence clause as well as the exclusion clause of B22.
+6. All constituents are consequently generic, which is exactly the defining extra condition for S_{P,Λ,t}. The Deligne–Lusztig tensor identity, the admissible-to-permissible theorem and the type correspondence are explicit supplier boundaries; no recursive closure of those theories is claimed by this assembly.
+
+### B43: Polynomial-generic geometric Breuil–Mézard
+
+Corollary 8.4.12, PDF 175; stated in the introduction as Theorem 1.5.9 (PDF 18). Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0. Then there exist effective cycles Z_σ ∈ Z[X_{n,red}] for each Serre weight σ such that Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ for any λ ∈ Λ and tame inertial type τ with a lowest alcove presentation (s, μ−η) with μ H_{Λ,e}-generic for the corrected sufficient polynomial B27 (E79–E81).
+
+1. Corrected B28 places every type under consideration in S_{P,Λ,t}. Apply the global cycle equation and effectivity supplied by Theorem 8.3.5 through the proof of Theorem 8.4.10, as recorded in E82; the abbreviated printed statement alone is insufficient.
+2. For generic σ use these cycles. For every nongeneric σ set Z_σ=0; B51 says its multiplicity in all the relevant tensor types is zero, so this extension preserves every equation.
+3. This gives an effective family for all Serre weights. It makes no uniqueness assertion for cycles whose coefficients are always zero.
+
+### B30: Admissibility transports polynomial genericity
+
+Lemma8.5.1 PDF175. Let Λ be finite dominant and contain 0 (replace it by Λ∪{0} if necessary). Set Q_{Λ,e}(X)=∏_{λ∈Λ,j∈J}(H_{Λ,e})^{(λ+η)_j}(X), using B27’s negative-shift operation and corrected H. Suppose a residual tame type ρ̄ has a chosen lowest-alcove parameter μ that is Q_{Λ,e}-generic in every embedding. If a tame characteristic-zero type τ has a chosen λ-compatible lowest-alcove presentation with w̃(ρ̄,τ)∈Adm(λ+η) for λ∈Λ, then (λ+η,τ)∈S_{P,Λ,t}. This explicit sufficient enlargement of Lemma 8.5.1 propagates E79–E80; it is not identified with the printed P_{P,Λ,e}^η.
+
+1. Write w̃(ρ̄)=t_μs and w̃(τ)=t_{μ′}s′. Admissibility of w̃(τ)⁻¹w̃(ρ̄) and admissible-to-permissible imply s′⁻¹(μ−μ′)∈Conv(W(λ+η)). Weyl invariance removes s′⁻¹.
+2. Thus μ′=μ−ν for an integral point ν in this Weyl polytope, componentwise. The corresponding negative-shift factor of Q makes μ′ H_{Λ,e}-generic.
+3. Apply corrected B28. This direct factorwise argument avoids assuming an unstated symmetry of the local-model polynomial.
+
+### V15: Enlarging P makes every predicted weight generic
+
+Remark 9.1.7(2), PDF184. Remark 9.1.7(2). There exists P such that the P-genericity hypothesis of Theorem 9.1.6 implies that W?(r̄_p) contains only generic Serre weights. So W_gen(r̄) in Theorem 9.1.6 could be replaced by W(r̄), giving W(r̄) = W^BM_gen(r̄_p).
+
+1. For each local factor put Λ={0,η} and c=−η−w₀η=−(n−1)(1,…,1)∈X⁰(T). Form H=H_{Λ,e} from corrected B27. It is a nonzero integral polynomial depending only on the fixed rank and coefficient data. Take P_new(X)=P_old(X)·P_{3h_η}(X)·H(X+c), multiplying over the finitely many local choices of e if necessary. P_old is a polynomial for V07/V08.
+2. If μ is P_new-generic, it is P_old-generic and its lowest-alcove presentation is 3h_η-generic by the forward implication of N80. This remains valid in rank one; equivalence is not needed.
+3. For w̃(ρ̄)=t_μs, the auxiliary representation R of N71 has w̃(R)=w̃(ρ̄)t_c=t_{μ+c}s, since c is central. Central translation preserves lowest-alcove depth. By construction μ+c is H-generic. The generic tame-type correspondence N61 identifies R with σ(τ_c) for the zero-monodromy tame type of that presentation.
+4. Apply corrected B28 with λ=η: every constituent of R̄⊗W(η) is generic in Definition 8.4.6, including its covered-weight exclusion clause. N71 puts W?(ρ̄) inside precisely this set. Thus every predicted weight is generic; no bound involving the varying affine translation w̃(ρ̄)(0) has been used.
+5. V07 now gives W(r̄)=W?(r̄_p|_I), so W_gen(r̄)=W(r̄). Substitute in the generic Breuil–Mézard equality of V07 to obtain the stronger conclusion. This closes the V15 assembly gap relative to the explicit B28/N71 suppliers, not those suppliers’ entire recursive formalization.
+
+### N80: Lowest-alcove depth is P_m-genericity
+
+Remark 2.1.11(2), PDF34. Let G=GL_n^J, n≥1, and m≥0 be an integer. Define P_m(X)=∏_{i=1}^n∏_{j=1}^m(X_i−X_{i+1}−j), with X_{n+1}=X_1. For an integral λ with λ−η∈C₀, P_m-genericity always implies m-depth. The converse holds if n≥2 or m<p. For n=1 every λ is m-deep, while P_m=(−1)^m m! is nonzero modulo p exactly when m<p. This is Remark 2.1.11(2) with the already-recorded correction E84.
+
+1. For n≥2 write d_i=λ_i−λ_{i+1} for i<n and d_n=p−(λ_1−λ_n). The lowest-alcove hypothesis says every d_i is a positive integer and their sum is p.
+2. If m<p, nonvanishing of the factors for i<n excludes d_i=1,…,m; the wraparound factors exclude d_n=1,…,m. Thus each cyclic gap is ≥m+1. Every positive-root pairing and its complement modulo p is a sum of nonempty collections of these gaps, so this is precisely m-depth.
+3. For n≥2 and m≥p, no positive-root pairing in (0,p) can be m-deep, and a polynomial factor vanishes at every integral parameter. Both sides are false.
+4. For n=1 there are no roots, so depth is vacuous. The product is (−1)^m m!, which vanishes modulo p exactly when m≥p. This proves both the exception and the unrestricted forward implication.
+
+### B51: Only generic weights occur in polynomial-generic types
+
+Remark 8.4.13, PDF175. If σ is not generic (Definition 8.4.6), then σ ∉ JH(σ̄(λ,τ)) for any (λ+η,τ) ∈ S_{P,Λ,t}. Hence any σ such that Z_σ occurs in Corollary 8.4.12 must be generic.
+
+1. By the defining condition of S_{P,Λ,t}, every constituent of the type is generic. Taking the contrapositive proves the first assertion.
+2. The coefficient of Z_σ in every equation is the Jordan–Hölder multiplicity of σ. It vanishes for nongeneric σ, so those cycles are unconstrained and can be chosen to be zero.
+
+## Reproducible finite diagnostics
+
+The following standalone Python script uses only the standard library. Its output is diagnostic evidence; the root-data and representation-theoretic proofs are the plans above.
+
+```python
+import itertools,math,json,pathlib
+out={}; count=0;gl1fail=0
+for n in range(1,5):
+ for p in [2,3,5,7,11]:
+  weights=[(0,)] if n==1 else [tuple(sorted(t,reverse=True))+(0,) for t in itertools.combinations(range(1,p),n-1)]
+  for lam in weights:
+   for m in range(p+2):
+    depth=all(m<lam[i]-lam[j]<p-m for i in range(n) for j in range(i+1,n))
+    value=math.prod(lam[i]-lam[(i+1)%n]-j for i in range(n) for j in range(1,m+1))%p
+    generic=value!=0
+    assert not generic or depth
+    assert n==1 and m>=p or generic==depth
+    if n==1 and m>=p:assert depth and not generic;gl1fail+=1
+    count+=1
+out['lowest_alcove_Pm_cases']=count;out['GL1_converse_failures']=gl1fail
+# Exact permutation/translation group law, including noncommutative controls.
+def act(s,v):return tuple(v[s.index(i)] for i in range(len(v)))
+def comp(s,t):return tuple(s[t[i]] for i in range(len(s)))
+def mul(x,y):
+ v,s=x;w,t=y;sw=act(s,w)
+ return tuple(v[i]+sw[i] for i in range(len(v))),comp(s,t)
+def invperm(s):return tuple(s.index(i) for i in range(len(s)))
+def inv(x):v,s=x;t=invperm(s);return tuple(-z for z in act(t,v)),t
+def star(x):v,s=x;t=invperm(s);return act(t,v),t
+def height(v):return max(v)-min(v)
+count=0;noncomm=0;central=0
+for n in [2,3]:
+ perms=list(itertools.permutations(range(n)));vectors=list(itertools.product([-1,0,1],repeat=n));elements=list(itertools.product(vectors,perms))
+ for x,y in itertools.product(elements,elements):
+  xy=mul(x,y)
+  assert height(xy[0])<=height(x[0])+height(y[0])
+  assert height(inv(x)[0])==height(x[0])==height(star(x)[0])
+  assert star(xy)==mul(star(y),star(x))
+  if mul(x,y)!=mul(y,x):noncomm+=1
+  count+=1
+ for mu,s in elements:
+  c=tuple(-(n-1) for _ in range(n));ident=tuple(range(n));aux=mul((mu,s),(c,ident))
+  assert aux==(tuple(x+y for x,y in zip(mu,c)),s);central+=1
+out['affine_group_cases']=count;out['noncommuting_controls']=noncomm;out['central_auxiliary_cases']=central
+# Genericity loss: evaluate full root pairings on both sides of the affine product.
+count=0
+for p in [3,5,7,11]:
+ for v,w in itertools.product(itertools.product(range(-2,3),repeat=2),repeat=2):
+  d=min((v[0]-v[1])%p,(-v[0]+v[1])%p)
+  if d==0:continue
+  mp=d-1;m=height(w)
+  if m>mp:continue
+  for s,t in itertools.product([(0,1),(1,0)],repeat=2):
+   z=mul((v,s),(w,t))[0];dz=min((z[0]-z[1])%p,(-z[0]+z[1])%p)
+   assert dz>mp-m;count+=1
+out['genericity_loss_cases']=count
+# A GL3 sign control for E80, using the integral permutahedron of omega=(3,0,-2).
+omega=(3,0,-2);points=[]
+for v in itertools.product(range(-2,4),repeat=3):
+ if sum(v)!=1:continue
+ sv=sorted(v,reverse=True)
+ if sv[0]<=3 and sum(sv[:2])<=3:points.append(v)
+assert {v[0] for v in points}==set(range(-2,4))
+negative=math.prod(3-v[0] for v in points)%11
+positive=math.prod(3+v[0] for v in points)%11
+assert negative==0 and positive!=0
+out['shift_sign_control']={'polytope_points':len(points),'negative_product_mod11':negative,'positive_product_mod11':positive}
+# Detect every stalled upper-bound state; these are not counterexamples to the lemma.
+stalls=[];strict=0
+for p in [2,3,5,7,11,13,17,19,23,29,31]:
+ for H in range(p+3,10001):
+  bound=p+H//p+1
+  if bound>=H:stalls.append([p,H,bound])
+  else:strict+=1
+assert stalls==[[2,5,5],[2,6,6],[3,6,6]]
+out['height_recurrence_stalls']=stalls;out['height_strict_descent_checks']=strict
+mu=(5,0);nu=(-2,0);p=2
+assert height(tuple(mu[i]+p*nu[i] for i in range(2)))==1
+assert height(tuple(mu[i]-p*nu[i] for i in range(2)))==9
+out['height_sign_control']={'chosen_height':1,'printed_uncontrolled_height':9}
+print(json.dumps(out,indent=2))
+```
+
+## Preserved preceding checkpoint and reading history
+
 # LLHLM23 continuation: finite Koszul and determinantal interfaces
 
 Codex — codex-hjdg0j, issue #1254, 24 September 2026. Claim5805031698 was confirmed by bot5805033265. **Partial checkpoint: 768 items (145 library, 48 planned, 575 missing), 25 routes and91 unreviewed source findings.** This continuation adds L131–L142 and Z131–Z141. It preserves all745 inherited IDs, all91 source findings and all `sourceData`. No independent review or formalization claim is made.
@@ -6155,3 +6690,41 @@ source issue is claimed. No Lean file was required or compiled.
 
 
 Final submission checks: **PASS**. Paper checker; three-file intake with0 problems;768 unique items,744-edge internal DAG,575 missing items each routed once; external stage prerequisites resolve; exact three authorized files and no extras. All745 inherited IDs,91 source findings and sourceData preserved. Twelve pinned library files byte-verified. Eighteen input/deliverable blobs unchanged at publication base `aa8623ba4aadb4ae82e1f429386a30d48eca6fa6`. No Lean file compiled.
+
+
+<details><summary>Preceding handoff by codex-hjdg0j (historical, superseded above)</summary>
+
+# LLHLM23 — current handoff
+
+Codex — codex-hjdg0j, issue #1254, 24 September2026. **Partial** checkpoint. Claim5805031698 confirmed by5805033265. Census: **768 items (145 library,48 planned,575 missing),25 routes,91 unreviewed findings**. Last local-algebra IDs: **Z141,L142**. No independent review.
+
+## This continuation
+
+Added23 items, L131–L142 and Z131–Z141. All745 inherited IDs, all91 source findings and `sourceData` are preserved. The only changed inherited items are V15,Z99,Z122,Z123,Z125,Z126,Z127,Z129,Z130. Z122's former H0 assertion is split into Z131; other inherited statements are unchanged. The previous report and handoff are preserved with attribution in the report.
+
+- Z129 is **already library** at the exact pin: the full principal-cut dimension bound and equality cases. It is removed from the missing route. Do not replan it.
+- Z130's scalar-length assembly uses **existing L89** and new pinned L137. No new quotient-length theory is needed.
+- L133–L135 connect module projectivity, exactness and homology to ModuleCat. L142 supplies the existing chain-complex constructors. The general nonexact-source comparison Z123 remains a separate proof plan.
+- Z122/Z131–Z133 give the finite Koszul construction, H0, arbitrary termwise scalar change and multiplication homotopy. Route25 is a source route for the finite precursor of **DD.1**. Do not put the whole completion/animation stage ahead of regularity.
+- Z134–Z139 give fixed-size minors, basis independence, scalar change, rank control, split blocks and faithful-family rank detection. Z127 retains only the necessary criterion and uses its shifted induction before identifying rank-selected ideals.
+- Z140/Z141 supply finite-separable scalar-extension regularity for Z99. The polynomial presentation and derivative unit are explicit; no finite-type hypothesis on the regular algebra is added.
+- New/updated construction contracts Z122,Z126,Z134,L142 have structured uses, APIs and tests. Earlier Z106,Z111,Z120 still have inherited untyped `unitTests` rather than structured `tests`; inspect those contracts when normalizing the full inventory. Do not claim every inherited interface has been semantically checked.
+
+## Resume in order
+
+1. Continue `analytic-regularity-suppliers` at **Z102**: standard-smooth/cotangent-dimension inputs and their exact declarations. Then characteristic-p07PR/07PU, p-basis/formal-smoothness and Cohen structure032D behind Z79. The outer0381 proof was reread, but its general field-extension and smooth-ascent suppliers are not recursively closed. The just-completed finite-separable step of Z99 is not an unread gap.
+2. First resolve the newly recorded `V15-genericity-polynomial` proof gap: depth from Proposition2.6.2 does not by itself imply Definition8.4.6 genericity. The concurrently merged PR2578 proof of V16 is retained; the invalid V15 constant is replaced by the source’s exact depth bound and a conditional final implication. Then continue the main-paper proof queues. The preceding handoff counted theorem-like items without proofSteps/proofOutline as N46,U26,M32,K29,G43,B32,V2,Z1,P1; that is a historical queue count, not a closure certificate. This continuation adds explicit proofs to its new missing/planned theorem items, but does not re-audit those groups.
+3. Continue item-by-item library and ownership checks. This pass byte-verified12 Mathlib files, not all145 library entries. Keep R03.3/P7 existing owners and the finite DD.1 precursor distinct from entire later stages. See `libraryAudit.codexHjdg0jHomologicalAssembly` for input hashes and scope.
+4. Appendix B still requires the integral t³-in-Jacobian certificate Q06 with denominator locus, the parametric Gröbner computation Q08 over Z[a,b,1/P], and derivation of Table1 rows Q09. Preserve E91/Q13 and all genericity-polynomial findings.
+5. All91 source findings remain unreviewed. This session authored the extraction and must not independently review or red-team it.
+
+## Checks and provenance
+
+The paper checker, structural/routing/DAG checks and three-file intake are run before submission; their final result is appended below. Exact diagnostics passed258 symbolic Koszul homotopy basis columns,496 integer minor-ideal cases and9,680 finite scalar checks, with nonflat homology, rank-drop and inseparable controls. Source-level assertions remain proof plans. No Lean file required, produced or compiled.
+
+Fresh main reading: published PDF78–80 and33,52,172,184 with retained PDF hash verified. Fresh supplementary reading: nine individual Stacks pages saved with URLs, hashes and dates in the JSON. Previous full reading and numerical checks remain attributed and were not rerun. No new source finding is claimed.
+
+
+Final submission checks: **PASS**. Paper checker; three-file intake with0 problems;768 unique items,744-edge internal DAG,575 missing items each routed once; external stage prerequisites resolve; exact three authorized files and no extras. All745 inherited IDs,91 source findings and sourceData preserved. Twelve pinned library files byte-verified. Eighteen input/deliverable blobs unchanged at publication base `aa8623ba4aadb4ae82e1f429386a30d48eca6fa6`. No Lean file compiled.
+
+</details>

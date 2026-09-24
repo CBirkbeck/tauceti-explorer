@@ -1,32 +1,30 @@
 # LLHLM23 — current handoff
 
-Codex — codex-hjdg0j, issue #1254, 24 September2026. **Partial** checkpoint. Claim5805031698 confirmed by5805033265. Census: **768 items (145 library,48 planned,575 missing),25 routes,91 unreviewed findings**. Last local-algebra IDs: **Z141,L142**. No independent review.
+Codex — codex-7e92bd, issue #1254, 24 September 2026. **Partial checkpoint.** Renewed claim5805304360 confirmed by5805305771 after PR2585 released the earlier claim. **768 items:145 library,48 planned,575 missing;25 routes;93 unreviewed source findings.** Last IDs remain N82,Z141,L142,A107; no new item IDs. Latest source IDs E92–E93. No independent review.
 
-## This continuation
+## Completed in this continuation
 
-Added23 items, L131–L142 and Z131–Z141. All745 inherited IDs, all91 source findings and `sourceData` are preserved. The only changed inherited items are V15,Z99,Z122,Z123,Z125,Z126,Z127,Z129,Z130. Z122's former H0 assertion is split into Z131; other inherited statements are unchanged. The previous report and handoff are preserved with attribution in the report.
+- Added46 Section2 theorem `proofSteps` with explicit internal dependencies and named external inputs. The graph has889 internal edges and is acyclic. This is proof planning, not recursive proof closure.
+- Propagated existing E84 into N80/N17, including a GL₁ factorial counterexample. N80's universally valid forward implication is what genericity uses.
+- Propagated E79–E81 through B27/B28/B30/B31/B43. H includes local-model factors, explicit depth and positive shifts. Q transfers H through the larger admissible relative-position polytope. The source's original polynomial notation is retained separately.
+- Closed the V15 *assembly* gap using N71 and corrected B28: c=−η−w₀η is central, so the auxiliary type has parameter μ+c. P_new=P_old·P_{3h_η}·H_{{0,η},e}(X+c) makes all predicted weights generic in Definition8.4.6. This does not reduce genericity to depth. V16 is unchanged.
+- Added E92 (small-prime height-recurrence proof gap) and E93 (norm-sign misprint), with published-page rendering, arXivv2 comparison and bounded correction search. All91 earlier findings are unchanged and unreviewed.
+- Preserved all768 inherited IDs, all statuses and routes, sourceData and the23 homological additions of PR2585. No new library-match or ownership claim is made.
 
-- Z129 is **already library** at the exact pin: the full principal-cut dimension bound and equality cases. It is removed from the missing route. Do not replan it.
-- Z130's scalar-length assembly uses **existing L89** and new pinned L137. No new quotient-length theory is needed.
-- L133–L135 connect module projectivity, exactness and homology to ModuleCat. L142 supplies the existing chain-complex constructors. The general nonexact-source comparison Z123 remains a separate proof plan.
-- Z122/Z131–Z133 give the finite Koszul construction, H0, arbitrary termwise scalar change and multiplication homotopy. Route25 is a source route for the finite precursor of **DD.1**. Do not put the whole completion/animation stage ahead of regularity.
-- Z134–Z139 give fixed-size minors, basis independence, scalar change, rank control, split blocks and faithful-family rank detection. Z127 retains only the necessary criterion and uses its shifted induction before identifying rank-selected ideals.
-- Z140/Z141 supply finite-separable scalar-extension regularity for Z99. The polynomial presentation and derivative unit are explicit; no finite-type hypothesis on the regular algebra is added.
-- New/updated construction contracts Z122,Z126,Z134,L142 have structured uses, APIs and tests. Earlier Z106,Z111,Z120 still have inherited untyped `unitTests` rather than structured `tests`; inspect those contracts when normalizing the full inventory. Do not claim every inherited interface has been semantically checked.
+## Resume
 
-## Resume in order
+1. **Section2 supplier closure:** follow `section2-source-suppliers`, not just the now-empty N no-outline queue. Resolve the p=2,3 termination cases in N37 (E92), independently supply the GL_n (−1)-depth refinement, and atomize/reconcile the exact external Jantzen, Deligne–Lusztig tensor-character, Haines–Ngô, admissible/permissible and Schneider–Zink/Pyvovarov/depth-zero inputs with their shared owners. B28/N71 have explicit source-level assemblies; do not reopen V15 as an unspecified polynomial construction.
+2. **Regularity frontier:** continue Z102 standard-smooth/cotangent dimensions, then characteristic-p07PR/07PU, p-basis/formal-smoothness and Cohen structure032D behind Z79. Z129 is already library. Z130 uses existing scalar-length L89/L137. The finite DD.1 Koszul precursor and fixed-size minors from PR2585 are preserved.
+3. **Remaining main-paper outlines:** current field census U26, M32, K29, G43, B28, Z1, L136, P1. These are theorem items lacking both proofSteps and proofOutline, not semantic closure verdicts. Library entries may import existing proofs. Z08 already has4 structured APIs and4 tests; earlier instructions calling it a two-test gap were stale. Inspect inherited untyped unitTests in Z106/Z111/Z120 during the full contract audit.
+4. **AppendixB:** still supply integral t³-in-Jacobian certificate Q06 with denominator locus, uniform Gröbner certificate Q08 over Z[a,b,1/P], and Table1 row derivation Q09. Preserve E91/Q13. Itemwise library audit, global/analytic suppliers and ownership reconciliation remain as recorded in existing gaps.
+5. **Independence:** this session authored the extraction and must not independently review or red-team it. All93 source findings need an eligible finished review.
 
-1. Continue `analytic-regularity-suppliers` at **Z102**: standard-smooth/cotangent-dimension inputs and their exact declarations. Then characteristic-p07PR/07PU, p-basis/formal-smoothness and Cohen structure032D behind Z79. The outer0381 proof was reread, but its general field-extension and smooth-ascent suppliers are not recursively closed. The just-completed finite-separable step of Z99 is not an unread gap.
-2. First resolve the newly recorded `V15-genericity-polynomial` proof gap: depth from Proposition2.6.2 does not by itself imply Definition8.4.6 genericity. The concurrently merged PR2578 proof of V16 is retained; the invalid V15 constant is replaced by the source’s exact depth bound and a conditional final implication. Then continue the main-paper proof queues. The preceding handoff counted theorem-like items without proofSteps/proofOutline as N46,U26,M32,K29,G43,B32,V2,Z1,P1; that is a historical queue count, not a closure certificate. This continuation adds explicit proofs to its new missing/planned theorem items, but does not re-audit those groups.
-3. Continue item-by-item library and ownership checks. This pass byte-verified12 Mathlib files, not all145 library entries. Keep R03.3/P7 existing owners and the finite DD.1 precursor distinct from entire later stages. See `libraryAudit.codexHjdg0jHomologicalAssembly` for input hashes and scope.
-4. Appendix B still requires the integral t³-in-Jacobian certificate Q06 with denominator locus, the parametric Gröbner computation Q08 over Z[a,b,1/P], and derivation of Table1 rows Q09. Preserve E91/Q13 and all genericity-polynomial findings.
-5. All91 source findings remain unreviewed. This session authored the extraction and must not independently review or red-team it.
+## Evidence and checks
 
-## Checks and provenance
+Fresh readings: published PDF24–25,29–54,171–175,184–185; PDF40 rendered; arXivv2 PDF29 compared; Weight elimination published PDF53–56; Haines–He PDF1–11 (first3 via web). Existing full-paper reading and earlier numerical evidence are retained with attribution, not rerun. Main PDF hash reverified; supplementary hashes recorded in source.continuationReadings.
 
-The paper checker, structural/routing/DAG checks and three-file intake are run before submission; their final result is appended below. Exact diagnostics passed258 symbolic Koszul homotopy basis columns,496 integer minor-ideal cases and9,680 finite scalar checks, with nonflat homology, rank-drop and inseparable controls. Source-level assertions remain proof plans. No Lean file required, produced or compiled.
+Exact diagnostics:2,799 depth/P_m cases;26,568 affine-group cases;180 central shifts;2,928 genericity-loss cases; the27-point shift-sign control; height recurrence checks through10,000, with the exact three stalls (2,5),(2,6),(3,6). Reproducible script is in the report. These are finite diagnostics, not proofs. No Lean file required, produced or compiled.
 
-Fresh main reading: published PDF78–80 and33,52,172,184 with retained PDF hash verified. Fresh supplementary reading: nine individual Stacks pages saved with URLs, hashes and dates in the JSON. Previous full reading and numerical checks remain attributed and were not rerun. No new source finding is claimed.
+Validation status is appended after the required checks below.
 
-
-Final submission checks: **PASS**. Paper checker; three-file intake with0 problems;768 unique items,744-edge internal DAG,575 missing items each routed once; external stage prerequisites resolve; exact three authorized files and no extras. All745 inherited IDs,91 source findings and sourceData preserved. Twelve pinned library files byte-verified. Eighteen input/deliverable blobs unchanged at publication base `aa8623ba4aadb4ae82e1f429386a30d48eca6fa6`. No Lean file compiled.
+Final validation: **PASS** — paper checker; three-file intake (0 problems); unique IDs, exact inherited-ID/status/route preservation, all575 missing items routed once,889-edge acyclic graph,91 inherited findings and sourceData unchanged. Three deliverable and8 control blobs match fresh main `c961a097c7f7fb416cae20ea12b244a43a3821d7`. No Lean file compiled.
