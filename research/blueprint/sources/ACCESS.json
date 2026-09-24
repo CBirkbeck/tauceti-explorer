@@ -1159,8 +1159,8 @@
         "\\bHub96\\b",
         "Huber.{0,60}[EÉ]tale Cohomology of Rigid"
       ],
-      "substitute": "WEDHORN-ADIC",
-      "note": "Wedhorn's Adic Spaces covers the foundations; the etale cohomology results of Hub96 are NOT covered, so this only reduces the dependency.",
+      "substitute": null,
+      "note": "Out of print and not online. Wedhorn's Adic Spaces (arXiv, free) covers the foundations, but not the etale cohomology results these roadmaps cite, so this book is still needed.",
       "kind": "book"
     },
     {
