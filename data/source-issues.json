@@ -87972,9 +87972,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed as printed: Lemma 2.6.4 does assert the equality G_{S,γ} = θ_S^{-1}Hom(S, (R̄^{(m)})^{h_γ}) with no hypothesis beyond the order of γ being prime to ℓ. The failure mechanism the finding identifies is visible in the proof it quotes: the lift γ̃ is taken in Gal(F̃_S/F⁺) and only its [F:F⁺]-th power is compared with (g^{-1}Ψ)h_γ, so for [F:F⁺] = 2 the argument controls squares of lifts rather than lifts, which is exactly where the recorded counterexample bites. I checked the statement and the quoted step, and the replacement G_{S,γ} = q(N^α) is consistent with them; I did not re-derive the Kummer-class computation over ℚ(√5)(i), which the extraction records as independently re-derived on the page image, so that part rests on its work rather than mine. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E2",
@@ -88001,9 +88001,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed, and the linear-algebra obstruction is decisive and easy to check. Over O_λ/λ^n with n ⩾ 2 the matrix A = [[λ, 1], [0, λ]] has image {(λx + y, λy)} of index |k|², while its two coordinate projections have indices 1 and |k|; a diagonal matrix with those projections would have index |k|, and right multiplication by a change of basis preserves the image, so no basis diagonalises it. Hence ‘the first part is obvious from Definition 2.6.5’ does not follow for every abundant tuple. The extraction is right to have revised this from a gap to an error in the stated first part of Proposition 2.6.7, and its repair — use only what abundance gives, with the explicit substitution for the proof of Theorem 8.3.2 — keeps the application intact. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E3",
@@ -88028,9 +88028,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quoted step takes powers ℓ^{d_α e_α} of γ′_₀ and γ′_₁ with exponents chosen separately for α = 0, 1 while leaving ξ′ unchanged, and (GI^m) asks for a single element in the image of the joint homomorphism, so independently chosen exponents need not correspond to one Galois element. The repair — one common power ℓ^k divisible by both d_α and killing the ℓ-parts — is immediate, and the extraction is right that the lemma is true and that arXiv v1/v2 took the common power. Its second point, that (c) needs ker(h − 1) free of rank one rather than ‘1 is an eigenvalue’, is also right and follows from h having order prime to ℓ. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E4",
@@ -88055,9 +88055,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed, checked at the page. Proposition 2.7.2 reads ‘a polynomial 𝒫(T) ∈ ℤ[T]’ with no non-vanishing hypothesis, and condition (a) of (GI¹_{F′,𝒫}) requires 𝒫(ξ) to be invertible in O_λ/λ, which is unsatisfiable for 𝒫 = 0; the proof’s step ‘such pair (a, b) always exists for sufficiently large ℓ’ is where it breaks, since 𝒫(a^{-1}) ≠ 0 then has no solution. Lemma 2.7.1 itself is vacuous for 𝒫 = 0, so only Proposition 2.7.2(3) is affected, and the paper’s only application is 𝒫 = T² − 1. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E5",
@@ -88082,9 +88082,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E6",
@@ -88110,9 +88110,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E7",
@@ -88138,9 +88138,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E8",
@@ -88165,9 +88165,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed, and the reclassification from gap to error is right. The proof has just established that G acts trivially on the module in question, and for a procyclic group acting trivially on a discrete torsion or ℓ-adic module M one has H¹_cont(Ẑ, M) = Hom_cont(Ẑ, M) ≅ M by evaluation at Frobenius; so the asserted vanishing is equivalent to the module itself vanishing, and the invertibility of p² − 1 is irrelevant because the action is trivial. The extraction’s sharpening — what survives is the exact sequence and the injectivity F_{-1}H¹ ↪ H¹_sing, which is all the later uses need — is the right way to record it. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E9",
@@ -88193,9 +88193,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. Lemma A.1.4(4) is stated for an arbitrary admissible pair over κ, and admissible κ-forms differ by twists by the finite unitary group, which act non-trivially on the middle cohomology; the N = 2 witness (κ = 𝔽₉, p = 3, the form with diagonal (1, t) for t ∉ 𝔽₃, whose isotropic locus has four geometric points and no 𝔽₉-point, fourth powers in 𝔽₉^× lying in 𝔽₃^×) is correct as arithmetic. The added hypothesis — that the pair descends to 𝔽_{p²} over κ, or that the κ-Frobenius is a power of the 𝔽_{p²}-Frobenius — is what the application in Lemma 5.6.2(3) needs, and the extraction supplies the route to verifying it there. I checked the statement and the witness; the verification that the Shimura link fibres satisfy the added hypothesis rests on the extraction. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E10",
@@ -88221,9 +88221,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed, and it can be settled by inspection. At N = 2 the space Iso(Λ̄₂) is the finite set of q + 1 isotropic lines of a hermitian plane, of dimension 0, so H^N = H² = 0 and the printed kernel of ∪ c₁ is all of H⁰, a (q + 1)-dimensional permutation representation ≅ 𝟙 ⊕ St — not irreducible, so no Ω₂ as asserted exists. The paper’s own formula (C.1) points the same way, giving (R_{(2)} − R_{(1²)})/2 = St of degree q. The repair (reduced H⁰, equivalently the kernel of the Gysin map, with Ω₂ = St) restores the statement and, as the extraction notes, agrees with the printed definition for N ⩾ 3. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E11",
@@ -88248,9 +88248,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E12",
@@ -88275,9 +88275,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E13",
@@ -88302,9 +88302,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quoted step infers an integral statement from a rational isomorphism between two torsion-free O_λ[Γ_F]-modules, which does not follow — the standard witness is Γ = ℤ acting on O_λ² by (1 1; 0 1) and by (1 λ; 0 1), rationally conjugate and integrally non-isomorphic. The extraction is right that the integral statement is what the later use needs, since it transports a fixed exponent to a level-raised Shimura variety at a prime depending on m, and its repair via the determinant of the composed Hecke correspondences uses only inputs the paper already has. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E14",
@@ -88329,9 +88329,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E15",
@@ -88356,9 +88356,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E16",
@@ -88381,9 +88381,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E17",
@@ -88403,9 +88403,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E18",
@@ -88425,9 +88425,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E19",
@@ -88447,9 +88447,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E20",
@@ -88469,9 +88469,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E21",
@@ -88491,9 +88491,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E22",
@@ -88513,9 +88513,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E23",
@@ -88535,9 +88535,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E24",
@@ -88557,9 +88557,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E25",
@@ -88579,9 +88579,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E26",
@@ -88601,9 +88601,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E27",
@@ -88623,9 +88623,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E28",
@@ -88645,9 +88645,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E29",
@@ -88667,9 +88667,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E30",
@@ -88689,9 +88689,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E31",
@@ -88711,9 +88711,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E32",
@@ -88733,9 +88733,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E33",
@@ -88755,9 +88755,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E34",
@@ -88777,9 +88777,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E35",
@@ -88799,9 +88799,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E36",
@@ -88821,9 +88821,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E37",
@@ -88843,9 +88843,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E38",
@@ -88865,9 +88865,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E39",
@@ -88887,9 +88887,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E40",
@@ -88909,9 +88909,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E41",
@@ -88931,9 +88931,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E42",
@@ -88953,9 +88953,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E43",
@@ -88975,9 +88975,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E44",
@@ -88997,9 +88997,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E45",
@@ -89019,9 +89019,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E46",
@@ -89041,9 +89041,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E47",
@@ -89063,9 +89063,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E48",
@@ -89085,9 +89085,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E49",
@@ -89107,9 +89107,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E50",
@@ -89129,9 +89129,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E51",
@@ -89151,9 +89151,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E52",
@@ -89173,9 +89173,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E53",
@@ -89195,9 +89195,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E54",
@@ -89217,9 +89217,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E55",
@@ -89239,9 +89239,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E56",
@@ -89261,9 +89261,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E57",
@@ -89283,9 +89283,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E58",
@@ -89305,9 +89305,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E59",
@@ -89327,9 +89327,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E60",
@@ -89349,9 +89349,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E61",
@@ -89371,9 +89371,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E62",
@@ -89393,9 +89393,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E63",
@@ -89415,9 +89415,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E64",
@@ -89437,9 +89437,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E65",
@@ -89459,9 +89459,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E66",
@@ -89481,9 +89481,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E67",
@@ -89503,9 +89503,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E68",
@@ -89525,9 +89525,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E69",
@@ -89547,9 +89547,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E70",
@@ -89569,9 +89569,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E71",
@@ -89591,9 +89591,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E72",
@@ -89613,9 +89613,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E73",
@@ -89635,9 +89635,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E74",
@@ -89657,9 +89657,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E75",
@@ -89679,9 +89679,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E76",
@@ -89701,9 +89701,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E77",
@@ -89723,9 +89723,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E78",
@@ -89745,9 +89745,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E79",
@@ -89767,9 +89767,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E80",
@@ -89789,9 +89789,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E81",
@@ -89811,9 +89811,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E82",
@@ -89833,9 +89833,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E83",
@@ -89855,9 +89855,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E84",
@@ -89877,9 +89877,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E85",
@@ -89899,9 +89899,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E86",
@@ -89921,9 +89921,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E87",
@@ -89943,9 +89943,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E88",
@@ -89965,9 +89965,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E89",
@@ -89987,9 +89987,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E90",
@@ -90009,9 +90009,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E91",
@@ -90031,9 +90031,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E92",
@@ -90053,9 +90053,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E93",
@@ -90075,9 +90075,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E94",
@@ -90097,9 +90097,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E95",
@@ -90119,9 +90119,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E96",
@@ -90141,9 +90141,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E97",
@@ -90163,9 +90163,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E98",
@@ -90185,9 +90185,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E99",
@@ -90207,9 +90207,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E100",
@@ -90229,9 +90229,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E101",
@@ -90251,9 +90251,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E102",
@@ -90273,9 +90273,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E103",
@@ -90295,9 +90295,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E104",
@@ -90317,9 +90317,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E105",
@@ -90339,9 +90339,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E106",
@@ -90361,9 +90361,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E107",
@@ -90383,9 +90383,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E108",
@@ -90405,9 +90405,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E109",
@@ -90427,9 +90427,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E110",
@@ -90449,9 +90449,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E111",
@@ -90471,9 +90471,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E112",
@@ -90493,9 +90493,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E113",
@@ -90515,9 +90515,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E114",
@@ -90537,9 +90537,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E115",
@@ -90559,9 +90559,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E116",
@@ -90581,9 +90581,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E117",
@@ -90603,9 +90603,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E118",
@@ -90625,9 +90625,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E119",
@@ -90647,9 +90647,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E120",
@@ -90669,9 +90669,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E121",
@@ -90691,9 +90691,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E122",
@@ -90713,9 +90713,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E123",
@@ -90735,9 +90735,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E124",
@@ -90757,9 +90757,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E125",
@@ -90779,9 +90779,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-ETAL-22/E126",
@@ -90801,9 +90801,9 @@
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
    "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-ETAL-22",
+   "reviewReason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375)."
   },
   {
    "id": "PAPER-LIU-WANG-22/E1",
