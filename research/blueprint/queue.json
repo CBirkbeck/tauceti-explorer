@@ -26434,7 +26434,8 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1622"
   },
   {
    "id": "RT-RS-28",
@@ -26530,7 +26531,8 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-29.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1626"
   },
   {
    "id": "RT-RS-30",
@@ -27563,8 +27565,9 @@
     "REV-AUDIT-17"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1584"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1584",
+   "finishedAt": "2026-09-24T00:53:10Z"
   },
   {
    "id": "REV-RT-AUDIT-17",
