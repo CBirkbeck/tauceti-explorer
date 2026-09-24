@@ -12283,7 +12283,8 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #140"
   },
   {
    "id": "BP-BorelRegulators",
@@ -17974,8 +17975,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralAlgebraicKTheory--K.6.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #738"
   },
   {
    "id": "REV-GeneralAlgebraicKTheory--K.6",
@@ -19156,7 +19158,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.3",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #439"
   },
   {
    "id": "BP-KTheoryFiniteLocalFields",
@@ -20645,9 +20648,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #974"
+   "note": "released on GitHub issue #974"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
