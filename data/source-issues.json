@@ -57578,9 +57578,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. Located verbatim on p.733: \"…which is to say that both the upper limit δ+ and the lower limit δ− in Theorem 1.2 are equal to 1.\" In Theorem 1.2 δ± are the upper and lower densities of the imaginary quadratic extensions of F_q(t) whose ℓ-part of the class group is isomorphic to the fixed A; distinct A give disjoint events, so the δ for different A sum to at most 1 and none can equal 1 (Theorem 1.2 itself gives c_ℓ/|Aut A|, e.g. 0.560 for ℓ=3, A trivial). Remark 7.9 on p.769 confirms δ± are the lim sup and lim inf in n at fixed q, so no reading of the printed sentence makes it true. The intended statement is presumably that each density equals the Cohen–Lenstra mass — i.e. that the ratio, not the density, is 1 — and the correction's refusal to derive anything from the sentence as printed is the right instruction."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E2",
@@ -57601,9 +57601,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. p.739, last paragraph before p.740: \"the fibers above c_n are identified with Hom^c(π,G), Sur(π,G) and Sur^c(π,G), respectively, which in turn are identified with the set of n-tuples of elements of c ⊆ G, the elements of c^n that generate G, and the elements of G^n that generate G respectively.\" Sur(π,G) carries no c-restriction and Sur^c(π,G) does, so the second and third verbal descriptions are interchanged exactly as the finding states; the first (c^n) is right."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E3",
@@ -57624,9 +57624,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. In the proof of Lemma 4.6 (p.750) the text reads \"we obtain ker(β) ≃ Tor_1^R(R̄,M) and ker(α) ≅ M ⊗_R R^U\", while the display (4.6.3) it immediately feeds writes R^U ⊗_R M → M^U → Tor_1^R(R̄,M). M is declared a graded *left* R-module in the statement of 4.6 and R is noncommutative in general (§3 builds it from braid orbits, and §4 keeps left and right modules apart throughout — Lemma 4.4 is stated for N right, M left), so M cannot be the first factor. The display is right and the sentence is the slip."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E4",
@@ -57647,9 +57647,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. §5.2 (p.756) sets L_q = ⟨σ_{q+2},…,σ_{n−1}⟩ with the convention that L_q is trivial for q ≥ n−2, then defines A_q = B_n/L_q for every q with faces ∂_i(bL_q) = b s_{q,i} L_{q−1}, s_{q,i} = σ_{i+1}⋯σ_q. For q ≥ n the face formula names σ_n,…,σ_q, which are not generators of B_n, so the definition is literally undefined there; for q ≤ n−1 every generator used exists. Geometrically a q-simplex of the arc complex is q+1 disjoint arcs to distinct punctures, so it needs q+1 ≤ n, matching the correction's range 0 ≤ q < n and A_q empty beyond it. Without that restriction the combinatorial A has simplices in every dimension while the geometric A has dimension n−1, and the homeomorphism asserted in Proposition 5.6 could not hold."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E5",
@@ -57670,9 +57670,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. p.763 defines U_Q = ∑_{g∈c∩Q} r_g^{D|g|} and then prints (6.1.6) U = (|c|/|c∩Q|) U_Q modulo the sum over Q' ⪰ Q, and reuses the same scalar in \"0 = Q-component of Uy = (|c|/|c∩Q|) U_Q y_Q\". Since U = ∑_{g∈c} r_g^{D|g|} (Lemma 3.5) and each g ∉ Q enlarges the global monodromy to ⟨Q,g⟩ ⪰ Q, on H_p(Hur^{Q,c}) the surviving terms are exactly the |c∩Q| terms with g ∈ c∩Q, each once: U ≡ U_Q, with no scalar. I recomputed the witness: G = S_3, c the three transpositions, Q generated by one of them gives the printed factor 3 against the true coefficient 1. The induction on |Q| is unaffected, as the correction says."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E6",
@@ -57693,9 +57693,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed, and the enumeration reproduces exactly. Case (i) of the proof of Lemma 8.4 (p.772) asserts that for A' ≆ A × Z/ℓZ \"any such lift f̃ is surjective, and the set of lifts is a principal homogeneous space under Hom(X,Z/ℓZ)\" — in particular nonempty. Take ℓ=3, A = C3², A' = X = C9×C3 with π(x,y) = (x mod 3, y) (kernel of order 3, and A' ≆ A×C3, so case (i) applies), and f(x,y) = (y, x mod 3). A lift must send the order-3 generator (0,1) into π⁻¹(1,0) = {1,4,7}×{0}, all of whose elements have order 9, so no lift exists at all. Enumerating: |Sur(X,A)| = 48, of which exactly 12 lift and 36 do not. The aggregate conclusion (8.4.1) still holds here — |Sur(X,A')| = |Aut(C9×C3)| = 108 ≥ (ℓ−1)·48 = 96 — which is why the finding is recorded against the proof and not the statement."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E7",
@@ -57716,9 +57716,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. §8.5 (p.774) says the distributional Cohen–Lenstra statement \"is equivalent to\" the moment statement (8.5.1). Proposition 8.3 supplies only the direction moments ⇒ distribution; the converse fails for general sequences of measures on L, and the finding's witness is correct: for ν_n = (1−ℓ^{−n})μ + ℓ^{−n}δ_{(C_ℓ)^n} the total variation distance to μ is at most 2ℓ^{−n} → 0, while ⟨Sur(·,C_ℓ)⟩_{ν_n} = (1−ℓ^{−n})·1 + ℓ^{−n}(ℓ^n−1) → 2. The finding is careful to say this shows only the logical gap, not any failure of the number-field conjecture, which is the right scope."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E8",
@@ -57739,9 +57739,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. p.776–777: \"The number of monic squarefree polynomials of degree n with coefficients in F_q [is] q^n − q^{n−1}, from where we deduce (8.7.5) |S_n| = 2(q^n − q^{n−1}).\" The count q^n − q^{n−1} holds for n ≥ 2 only: every one of the q monic linear polynomials is squarefree, so at n = 1 the true count is q and |S_1| = 2q, not 2(q−1). Since S_n is used only for odd n and the theorems are asymptotic in n, nothing downstream changes, as the finding says."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E9",
@@ -57762,9 +57762,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. Theorem 8.8 on p.777 is printed \"Let ℓ be an odd prime not dividing q or q−1, and A an ℓ-group\", dropping \"finite abelian\". Class groups are abelian, so for nonabelian A the left side of (8.8.1) is |0−1| = 1 and the inequality fails for every large q. The standing hypothesis of §8.6 — \"let A be a nontrivial finite abelian ℓ-group\" — supplies the missing word, so the extraction's reclassification to \"affects: nothing\" is right; note the proof's own first line handles trivial A separately, in tension with §8.6's \"nontrivial\", which the correction also records."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E10",
@@ -57785,9 +57785,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. p.779 prints that the set X_n(K̄) of tame G-covers branched at D \"is naturally identified by the argument of Proposition 8.7 with Sur(V,A)\". Proposition 8.7 identifies covers with pairs (L,α) up to isomorphism and states that (L,α) and (L,β) are isomorphic iff β = −α; the proof of Theorem 8.8 uses precisely that to write ∑_{L∈S_n} m_A(L) = 2|X_n(F_q)|. At the generic point L is fixed, so the same argument gives Sur(V,A)/{±1} and the printed identification double-counts — for V = F_3², A = F_3 that is 8 against 4, as the finding says. The conclusion survives because −I ∈ Sp(V) lies in the geometric monodromy, so Sp-orbits on the two sets correspond; the correction says exactly that this must be argued, not assumed."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E11",
@@ -57808,14 +57808,14 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. Theorem 1.2 (p.730) states convergence \"as q → ∞ with q ≢ 1 (mod ℓ)\", a domain that contains q = 2^m and q = ℓ^m, and nothing in its neighbourhood restricts q further. What §8 proves is narrower: §8.6 fixes \"ℓ an odd prime not dividing q\"; Proposition 8.7 and (8.7.5) parametrise S_n by K(√f) with f squarefree of odd degree modulo (F_q^×)², which needs q odd (in characteristic 2 the quadratic extensions are Artin–Schreier and the tame A⋊Z/2-cover theory of §7 does not apply at all); and Theorem 8.8 assumes ℓ ∤ q(q−1). So the printed limit is supported only along odd q with ℓ ∤ q(q−1), which is the gap as recorded; it is a missing restriction, not a counterexample."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E12",
    "kind": "misprint",
-   "locator": "Published Annals 2016 version, end of Proposition 8.9 proof, p.782",
+   "locator": "Published Annals 2016 version, end of Lemma 8.9 proof, p.782",
    "printed": "i>g",
    "correction": "The basis vectors modified are indexed by k<i≤g, not i>g.",
    "reason": "The basis y_1,...,y_g has no vectors with index greater than g; the intended kernel adjustment applies to the remaining g−k vectors.",
@@ -57831,9 +57831,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. The last paragraph of the proof of Lemma 8.9 (p.782) reads \"extend y_1,…,y_k to a Z_ℓ-basis y_1,…,y_g for Z_ℓ^g where f(y_i)=0 for i>k: simply extend arbitrarily to a basis, and then modify the y_i's for i>g by linear combinations of y_1,…,y_k to ensure that f(y_i)=0 for i>k.\" The basis has no vector of index above g, and the vectors actually adjusted are the g−k with k<i≤g, so \"i>g\" is a slip for \"i>k\". (I also corrected this finding's own locator, which said Proposition 8.9; the paper labels it 8.9. Lemma.)"
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E13",
@@ -57854,9 +57854,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed, and read off the glyph stream rather than the text layer, since the display carries no ToUnicode map. On p.730 the tokens are, in order, \"1\", CMSY 0x00 (the minus), the CMEX ∏ raised to display position, \"(1\", minus, \"3\", a superscript minus and i, \")\", CMSY 0x18 (≈), \"0\", \".\", \"440\", ⋯ — that is, 1 − ∏(1−3^{−i}) ≈ 0.440⋯, offered as the probability that the class number is *indivisible* by 3. Numerically ∏_{i≥1}(1−3^{−i}) = 0.560126 is the Cohen–Lenstra mass of the trivial 3-group, i.e. the indivisibility probability, and its complement 0.439874 is the divisibility probability. The finding's correction is exactly right."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E14",
@@ -57877,9 +57877,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. p.777, in the deduction of Theorem 1.2 from Theorem 8.8: \"let ν_n be the probability measure on L with ν_n(A) equal to the fraction of L ∈ S_n with Cl(O_L) ≃ A\". §8.1 defines L as the set of isomorphism classes of finite abelian ℓ-groups, so any L whose class number has a prime factor other than ℓ would contribute to no A and ν_n would not be a probability measure. Since m_A(L) = |Sur(Cl(O_L),A)| = |Sur(Cl(O_L)_ℓ,A)| for A an ℓ-group, the moments being used are those of the ℓ-primary part, which is what ν_n must be built from."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E15",
@@ -57900,9 +57900,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed, and the counterexample verifies exactly. The proof of Corollary 3.5 (Achter–Pries p.14) reads \"Since the composition M_{Z_ℓ}(H̃_g⊗k) ↪ Sp_{2g}(Z_ℓ) → Sp_{2g}(Z/ℓ) is surjective, a standard group theory argument (e.g., [29, 1.3]) shows that M_{Z_ℓ}(H̃_g⊗k) ≅ Sp_{2g}(Z_ℓ)\", and [29] is Vasiu, Manuscripta Math. 112 (2003), 325–355 — the very source recorded as a prerequisite. I recomputed the subgroup of SL_2(Z/9) generated by [[0,1],[8,0]] and [[1,7],[6,7]]: both have determinant 1 mod 9, the group they generate has order 24 and index 27, and it maps onto SL_2(F_3) with trivial kernel. Its preimage in SL_2(Z_3) is therefore a proper closed subgroup with full mod-3 image, so the implication fails for (g,ℓ) = (1,3). Vasiu's own Theorem 1.3 matches the correction's scope: condition (a) is q ≥ 5, and condition (b) at q = 3 demands Lie_{F_3}(H) ∩ K_2 ≠ {0} for every normal PGL_2 or SL_2 subgroup H of G_k — vacuous for Sp_{2g} with g ≥ 2, but a real hypothesis for Sp_2 = SL_2; Vasiu adds that \"most of the extra assumptions of b) to d) were known to be needed before\". The conclusion of Corollary 3.5 is not in doubt, which is why the finding is a gap."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E16",
@@ -57923,9 +57923,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. The proof of Lemma 2.3 (Achter–Pries p.5) concludes that the branch functor β°_γ ⊗ C : M̃^{γ,°}_G ⊗ C → M̃^°_{0,r} ⊗ C \"is an isomorphism\", and §2.2 says explicitly that the same letters denote the representing stacks. An object over C is a smooth G-curve with a labelling of R_sm; the deck transformation ι_0(1) commutes with the G-action and fixes every ramification point, hence is a nontrivial automorphism of the object, while the image object is a genus-zero curve with r ≥ 3 distinct labelled points and has no nontrivial automorphisms. So the functor is not fully faithful and cannot be an isomorphism of stacks; it is a G-gerbe, μ_2 in the hyperelliptic case, and induces an isomorphism on coarse spaces — which is all irreducibility needs. That is precisely the correction offered, and item 131 of this extraction keeps the μ_2 stabiliser."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E17",
@@ -57946,9 +57946,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. §3.1 (Achter–Pries p.10) prints, with no hypothesis beyond \"S is an F-scheme\", that M_{Z_ℓ}(X→S,s)/M_{Z_ℓ}(X⊗F̄→S⊗F̄,s) ≅ Gal(F_{ℓ^∞}/F). The witness is right: over F = C(t) with S = Spec F and E : y² = x³ − t²x, the substitution x = tu, y = t√t·v identifies E with the constant curve y² = x³ − x over F(√t), and the nontrivial conjugation acts as [−1], so the arithmetic image is {±I} while the geometric image is trivial and F, containing C, has F_{ℓ^∞} = F. The quotient is Z/2 and the claimed group is trivial. The multiplier only gives a surjection onto the cyclotomic image in general; equality needs the geometric image to be the full symplectic group, which is exactly the situation of Corollary 3.6, and item 137 of this extraction records the correct exact sequence."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E18",
@@ -57967,9 +57967,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. Vasiu §2.2 (PDF p.4) reads \"If y, z ∈ Lie(S), then the Lie bracket [y,z] is yzy⁻¹z⁻¹, the product being taken inside Ker(S(R[x]/x²) → S(R))\". That kernel is isomorphic to the additive group of Lie(S) and is abelian, so the recipe returns 0 for every pair. The witness confirms it: in GL_2 over R[e]/(e²), (1+eE_{12})(1+eE_{21}) = 1 + e(E_{12}+E_{21}) = (1+eE_{21})(1+eE_{12}), while [E_{12},E_{21}] = diag(1,−1) ≠ 0. Two independent dual variables repair it: I recomputed (1+eX)(1+dY)(1+eX)⁻¹(1+dY)⁻¹ = 1 + ed[X,Y] in R[e,d]/(e²,d²), which is the correction offered."
   },
   {
    "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E19",
@@ -57988,9 +57988,9 @@
    "owner": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "file": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
    "citation": "Ellenberg–Venkatesh–Westerland, \"Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields\", Annals of Mathematics 183 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "reviewReason": "Confirmed. Vasiu §2.2 (PDF p.4) says \"We now assume that S is a smooth group scheme over R. So Lie(S) is a free R-module of rank equal to the relative dimension of S.\" The standing base is only a connected affine Spec(R) (§1, p.2: \"A reductive group scheme F over a connected affine scheme Spec(R)…\"), not a local ring, and over such a base Lie(S) is finite locally free but need not be free: for an invertible non-free R-module L the vector group S = Spec(Sym_R(L^∨)), which is the off-diagonal unipotent subgroup Hom(O,L) of GL(O⊕L), is smooth of relative dimension 1 with Lie(S) = L. As the finding notes, the applications run over W(k), where projective modules are free, so nothing downstream is affected."
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20/E1",
