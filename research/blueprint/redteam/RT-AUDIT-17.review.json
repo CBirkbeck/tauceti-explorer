@@ -1,0 +1,242 @@
+{
+  "redteam": "RT-AUDIT-17",
+  "reviewer": "independent-review-REV-RT-AUDIT-17",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-24",
+  "status": "complete",
+  "inputCommit": "b25d93a8b113cc1f3649538533a440aee4c43596",
+  "inputBlob": "4556356a4a739ab4b76a0f22f83dbc0c134b253f",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-17/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the exact fourteen listed duplicate entries and the full consumer stage descriptions: these stages apply or verify arithmetic hypotheses for the abstract algebra owner, including PA.4’s express handoff. Remove the listed pairs from duplicates and retain any useful consumer links as such. This does not certify every unchallenged duplicate as genuine; no such extra claim is needed for this correction."
+    },
+    {
+      "finding": "RT-AUDIT-17/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read TauCeti/RingTheory/KrullDimension/Integral.lean:57,76 with its section variables. The integral dimension inequality has no injectivity assumption; equality requires FaithfulSMul, hence an injective algebra map. Add these finite-map ingredients while keeping the composite depth/dimension target partial. Do not claim equality for arbitrary finite maps."
+    },
+    {
+      "finding": "RT-AUDIT-17/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a precise status fix. Evaluation.lean opens WithPiTopology and eval₂_unique explicitly assumes continuity in that topology. The complete-local specialization needs the adic/Pi topology and continuity assembly as well as IsAdic.isAdicComplete_iff and MvPowerSeries.hasEval_of_mem (both read with hypotheses). For the intended maximal-ideal-adic target, mark it partial until that assembly is supplied; the generic Pi-topological universal property itself remains available."
+    },
+    {
+      "finding": "RT-AUDIT-17/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Completeness.lean:213–214 completes with respect to the variable-generated ideal, whereas the local-ring instance is Inverse.lean:152. Neither is a maximal-ideal-adic completeness theorem over a complete local coefficient ring. Correct the topology qualifier and cite the local instance; retain partial status."
+    },
+    {
+      "finding": "RT-AUDIT-17/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GoingUp.lean:327 gives an over-prime for an integral map provided I.comap≤P; at I=0,P=0 this requires injectivity. Tau Ceti supplies the integral dimension inequality. These are omitted ingredients, not the full characteristic-zero point theorem. Retain the non-torsion/dimension and finite-extension realization obligations."
+    },
+    {
+      "finding": "RT-AUDIT-17/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LocalRing/Module.lean:112 is the stated finite-module fibre criterion. For q over p, the fibre of B⊗M is the scalar extension to κ(q) of κ(p)⊗M; field extension is faithfully flat and detects its nonvanishing. Thus for finite M the support equality holds along any ring map. Cite this ingredient and retain partial status for the whole transport/framing target."
+    },
+    {
+      "finding": "RT-AUDIT-17/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. HasSubst is algebraic nilpotence of the constant coefficient, while HasEval is topological nilpotence. PowerSeries.aeval, continuous_aeval and comp_aeval have the complete separated linear-topology hypotheses the re-expansion needs. Tau Ceti aeval_subst still assumes HasSubst: it is a compatibility result on that smaller domain, not a way to remove the nilpotence hypothesis. Construct the p-adic maps through evaluation; retain the actual completeness/continuity and cocycle assembly."
+    },
+    {
+      "finding": "RT-AUDIT-17/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed with the characteristic qualification restored. Over Z, P₁=1−X already refutes monicity, and the leading coefficient is (−1)^N. Divide by the monic associate (−1)^N P_N, generating the same ideal. The final proposed sentence that %ₘ is the identity for every odd N needs −1≠1 in R: in characteristic 2 the polynomial is monic. modByMonic only returns its input in the nonmonic case."
+    },
+    {
+      "finding": "RT-AUDIT-17/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed after reading Habiro printed 1134–1135 and the pinned characteristic-p cyclotomic formulas. Mapping the integral polynomial identity to ZMod p yields the congruence; the p-divisible case iterates cyclotomic_mul_prime_dvd_eq_pow. This does not supply the integral ideal containment (4.2) or the general resultant/comaximality theorem. Retain the n≠2 norm hypothesis (and the stated cyclotomic-extension/irreducibility assumptions)."
+    },
+    {
+      "finding": "RT-AUDIT-17/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a zero-ring boundary correction. For nonempty S⊂positive integers choose n∈S; divisibility by every Φ_n^k contradicts the finite degree of any nonzero polynomial, using the read monic-degree lemmas. No domain or p-adic separation hypothesis is needed. For S empty the target is the zero ring and the map fails to be injective when R is nontrivial; for the zero coefficient ring it is injective. The stage’s generic caution was not itself a false assertion, but the audit should give this exact elementary criterion."
+    },
+    {
+      "finding": "RT-AUDIT-17/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GroupCompletion.instModule and ContinuousLinearMap.completion work for arbitrary uniform additive modules with uniformly continuous scalar actions, not just one adic ideal. The cyclotomic module can reuse them after constructing its uniformity. Keep completed-ring scalars and inverse-limit comparison as assembly obligations. Generic product-completion machinery also exists (AbstractCompletion.prod), so do not describe the finite-product topology itself as absent merely because the specialized module equivalence is not packaged."
+    },
+    {
+      "finding": "RT-AUDIT-17/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed with an explicit fixed-domain construction. For ζ of order d∈S, project the Habiro completion to R[q]/(Φ_d^n), then use q↦ζ+X modulo X^n: Φ_d(ζ+X) has zero constant term, so its nth power vanishes there. These give compatible maps from the same completed source into R[ζ][[X]]/(X^n). Apply IsAdicComplete.liftRingHom with that source and the read X-adic completeness instance. Arbitrary f need not vanish modulo X^n; the proposed shorthand R[q]/(f) must use factors divisible by Φ_d^n. No cofinality of this single-root family in the full cyclotomic system is needed."
+    },
+    {
+      "finding": "RT-AUDIT-17/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. If n is a unit then X^n−1 is separable; for distinct positive d,e dividing n, Φ_dΦ_e divides its cyclotomic factorization, so Separable.of_dvd and Separable.isCoprime give comaximality. This applies to p-power orders over Z[1/p]. It is a compositional library proof, not a new cyclotomic resultant theorem. Additional orders not covered by the unit condition still need their appropriate arithmetic argument."
+    },
+    {
+      "finding": "RT-AUDIT-17/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read the seven polynomial declarations with their variables: division and remainder are ingredients in the completed expansion, while Taylor/Hasse identities describe polynomial inputs. None states the completed target. Use related for division and special case for the polynomial identities; keep partial status. A bare derivative definition can also be labelled related rather than claiming an exact completed theorem."
+    },
+    {
+      "finding": "RT-AUDIT-17/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mathlib UniformSpace.Completion.ext at line 414 already proves uniqueness for continuous maps into a T2 space. Tau Ceti ringHom_ext_of_continuous at line 113 explicitly packages it for ring homomorphisms. Correct the attribution; neither result constructs the specific cyclotomic uniformity."
+    },
+    {
+      "finding": "RT-AUDIT-17/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for the shared finite q-Pochhammer polynomial. HB.4 explicitly asks to define q-Pochhammer products and HC.1 defines P_N, so identify one carrier and its evaluated analytic specialization. Do not classify HB.4’s convergence or asymptotic expansion as duplicate completion theory. The existing ordinary Pochhammer file has q-Pochhammer as a TODO."
+    },
+    {
+      "finding": "RT-AUDIT-17/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read AdjoinRoot.equivPiFactors, isSeparable_of_separable and projFactor, Polynomial.Factors.linearEquivRoots, and the cyclotomic separability/squarefreeness statements. They provide the omitted finite-field algebra decomposition. Keep related fit for the composite HR.5 fracture/descent target: more general is appropriate only for an isolated field-factor decomposition subtarget. Lifting and reassembly remain missing. Respect the audit’s five-citation cap when replacing entries."
+    },
+    {
+      "finding": "RT-AUDIT-17/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the intended cyclotomic re-expansions. eval₂Hom and hasSum_eval₂ accept topological nilpotence in a complete Hausdorff linearly topologised ring; HasSubst requires algebraic nilpotence. Correct the finding’s ancillary generalization: p-torsion-free alone does not imply reduced (Z_p[ε]/ε² is a counterexample), so nonzero does not by itself imply nonnilpotent. In the intended reduced cyclotomic coefficient domains the distinction applies. Retain compatible root choices, topology and convergence hypotheses."
+    },
+    {
+      "finding": "RT-AUDIT-17/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a shared abstract-interface ownership gap, not duplication of the whole higher-K operations construction. The full HR.1, Z.3 and S.6 descriptions require compatible lambda/Adams laws, and a whole-tree search finds only lambda-ring TODO/documentation, not an abstract definition. Z.3’s general lambda-ring axioms must handle torsion; the torsion-free Adams characterization is a restricted comparison. Name one owner for that common interface. Higher Adams operations on K-groups and their weight/boundary laws remain S.6-specific; identical composition notation alone does not make their constructions duplicates."
+    },
+    {
+      "finding": "RT-AUDIT-17/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed with the coefficient restriction explicit. Read expand, expand_one, expand_mul, map_expand and map_frobenius_expand. They supply the toric polynomial operations over Z, whose reduction has Frobenius-fixed F_p coefficients. Over an arbitrary coefficient ring expand fixes coefficients, and the stated theorem includes map (frobenius R p); expand alone need not satisfy the Frobenius congruence. Preserve the base lambda-structure and Laurent/free-structure assembly obligations."
+    },
+    {
+      "finding": "RT-AUDIT-17/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. SqrtFive.lean declares [NeZero (2 : E)] before both factorization and reducibility theorems. The unrestricted audit sentence drops that hypothesis. Characteristic11 is allowed and 4²=5 there; characteristic 2 is a genuine counterexample to the unqualified sentence."
+    },
+    {
+      "finding": "RT-AUDIT-17/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The characteristic-p root criterion at Expand.lean:170 identifies roots with primitive roots of the prime-to-p order; uniqueness of that order supplies disjointness (apply in residue fields to infer disjoint closed loci). The norm theorem read at PrimitiveRoots.lean:360 requires its cyclotomic-extension and irreducibility assumptions and n≠2. Keep the actual completed intersection argument separate."
+    },
+    {
+      "finding": "RT-AUDIT-17/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a statement-expressibility correction. Abelian.Ext is defined with HasExt; enough projectives supplies HasExt with the required local-smallness universe. Vanishing for a module includes Ext⁰, not just positive degrees; for complexes use all shifts. AdicCompletion can be formed on the tensor product after explicitly transporting the A-action along σ. Neither observation supplies the derived completion functor, the intended Adams/Frobenius maps or their comparison theorem."
+    },
+    {
+      "finding": "RT-AUDIT-17/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read both closure instances and the HasLimits instance at CompleteSeparated/Limits.lean:52,64,111. The category abbreviation alone is not that evidence. Cite the actual instance by file/line (do not present the parenthetical descriptive label as a Lean identifier), and keep the specific Habiro objects and arrows absent."
+    },
+    {
+      "finding": "RT-AUDIT-17/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three statements concern separability, irreducible-factor degrees and their number over finite fields. None proves the completion/idempotent-descent fracture argument. Related is appropriate for that composite target; retain partial status and avoid increasing coverage solely because an arithmetic subfact is exact."
+    },
+    {
+      "finding": "RT-AUDIT-17/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read the finite-prime principal-ideal criterion at ClassNumber.lean:144 and its Galois simplification at 183, with the class-number-one equivalence. This certifies triviality of the entire class group, not merely found relations. It is a special case of the requested certificates; it does not compute arbitrary nontrivial class groups. Replace citations as needed to stay within five per target."
+    },
+    {
+      "finding": "RT-AUDIT-17/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read both quadratic integral-generation/discriminant pairs with hmin, hgen, squarefreeness and mod 4 hypotheses; read the cyclotomic integral-generation theorem, discriminant denominator bound and Eisenstein denominator-removal theorem. These are omitted certificates and ingredients. The proposed seven additions exceed the audit’s five-entry maximum: select five representative citations and describe companion results in the note/report. Do not assert a general algorithm or arbitrary-basis certificate from these special cases."
+    },
+    {
+      "finding": "RT-AUDIT-17/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed, retaining the hypotheses suppressed by the phrase “no conditional hypothesis”. SelmerGroupA.lean:149,219 proves finiteness and descent-image inclusion under the elliptic normal-form, Dedekind-base, finite-class-group and finitely-generated-unit hypotheses. The rank bound at SelmerGroup.lean:142 also needs AddGroup.FG W.Point. These are theorems to discharge in the number-field specialization, not a conjectural Selmer-finiteness assumption, and WeakMordellWeil.lean:97 already consumes the finite A(S,2). The genuinely missing parts are effective enumeration/local images/saturation; do not describe the full Selmer group’s finiteness as proved by this citation."
+    },
+    {
+      "finding": "RT-AUDIT-17/29",
+      "verdict": "rejected",
+      "reason": "Rejected as a duplicate-list change. CN.3 explicitly provides computations “through existing owners”; the proposed ModularForms L2 and EllipticCurves L1/L6/L7 links identify the existing operators, isogenies and descent theory those computations consume. An owner of a cited declaration is not thereby a second owner of the computational target. The same consumer/duplicate distinction confirmed in finding 1 applies here under make_audit_jobs.py step4 and PROTOCOL section15. Preserve these useful provenance/dependency links outside duplicates; the earlier review’s broader convention does not authorize new duplicates."
+    },
+    {
+      "finding": "RT-AUDIT-17/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read Monic.irreducible_of_irreducible_map with domain assumptions on both rings, and Mignotte’s bound with 1≤mahlerMeasure h. They are useful missing ingredients for integer-polynomial certificates, not a complete irreducibility/factorization algorithm. A monic irreducible polynomial need not have an irreducible reduction at any prime."
+    },
+    {
+      "finding": "RT-AUDIT-17/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read algEquivGaloisField and algEquivExtension with the field, characteristic, cardinality/degree and nonzero-degree assumptions. They prove noncanonical isomorphisms to the chosen standard field carriers. Say “isomorphism to a canonical carrier”, not a canonical isomorphism. Keep the executable quotient presentation/conversion target partial."
+    },
+    {
+      "finding": "RT-AUDIT-17/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The definitions read at RingHoms.lean:356,447 are noncomputable, and appr_spec is the exact congruence specification on the abstract carrier. Relabel the constructions related for CN.0’s executable-presentation target. Keeping appr_spec exact is appropriate only after isolating that specification as a subtarget; it does not establish execution."
+    },
+    {
+      "finding": "RT-AUDIT-17/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. localPolynomial at LFunction.lean:43 gives the finite-residue-field point-count convention and the three bad-reduction factors; LFunction at79 forms the global Euler product. Cite the local declaration directly. Retain the finite-residue-field condition when interpreting Nat.card as q; the definition explicitly has junk q=0 on infinite residue fields."
+    },
+    {
+      "finding": "RT-AUDIT-17/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a scope limit. The quoted integration remark belongs to Algebra/Order/Interval/Basic.lean. Read the multiplication, subtraction and division hypotheses there: multiplication requires both monotonicity classes; division also requires an ordered commutative group and does not apply to signed Q or R. These cited operations do not provide signed real interval multiplication/division or rounded precision propagation. Do not turn that file-level fact alone into a whole-library nonexistence proof."
+    },
+    {
+      "finding": "RT-AUDIT-17/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed for existence, with uniqueness distinguished. exists_smith_normal_form_of_det_ne_zero assumes a square integer matrix with nonzero determinant. The read smith_normal_form_unique theorem is broader: nonnegative divisibility-chain diagonals in the same GL equivalence class agree even when singular. State the nonsingularity restriction on existence, not on uniqueness."
+    },
+    {
+      "finding": "RT-AUDIT-17/36",
+      "verdict": "rejected",
+      "reason": "Rejected as an audit error. The finding acknowledges that both verdicts satisfy the reviewed per-target rule, and the machine-readable targets explicitly retain partial status, declarations and precise reuse notes. No incorrect target coverage or hypothesis is identified here. The concrete omissions are adjudicated separately in findings 26–28; optional summary wording does not warrant changing an otherwise correct verdict or duplicating those findings."
+    },
+    {
+      "finding": "RT-AUDIT-17/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed with the intended boundaryless smooth finite-dimensional and Hausdorff tangent-bundle assumptions. Read maximalIntegralCurve, its integral-curve and uniqueness theorems, and Geodesic/Maximal’s construction of the smooth spray witness. A chosen spray trajectory is available; its base projection is the candidate maximal geodesic. Identification of its interval with geodesicInterval, the projected initial-data predicate and homogeneity still need assembly. Do not mark the full exponential-map target built."
+    },
+    {
+      "finding": "RT-AUDIT-17/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The two local operator-norm bounds in Topology/VectorBundle/Riemannian.lean apply to the continuous Riemannian tangent bundle. The read endpoint theorems at IntegralCurve/Maximal.lean:264,296 provide the final no-cluster-point contradiction. Cauchy control of the base, bounded velocity coordinates, finite-dimensional subsequence compactness and identification with the chosen geodesic remain required. The proposed four additions on top of two current citations exceed five: replace/select representative entries."
+    },
+    {
+      "finding": "RT-AUDIT-17/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed. PathELength.lean:208 defines the distance infimum, while lines 105 and138 prove the target’s length addition and monotone reparametrization. Change only the distance definition’s fit or move it to the appropriate target. Its cited file and line are correct."
+    },
+    {
+      "finding": "RT-AUDIT-17/40",
+      "verdict": "rejected",
+      "reason": "Rejected as a coverage/verdict correction. The target expressly says to consume complete_of_proper, the pinned instance at ProperSpace.lean:104 proves precisely that implication for the compatible metric, and the seven remaining targets are recorded absent. “Partly built” therefore follows the audit’s stated rule. The existing roadmap summary already distinguishes this generic implication from the missing Riemannian implications. In particular do not adopt the proposed alternative “not built”."
+    },
+    {
+      "finding": "RT-AUDIT-17/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ProperSpace.of_seq_closedBall at line 84 needs compact balls of radii tending to infinity about a single centre, and directly supplies the final properness step once the Riemannian/tangent-ball compactness identification is established. It does not prove that identification or construct exp_p."
+    },
+    {
+      "finding": "RT-AUDIT-17/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an additional route. The compact-confinement theorem at Maximal.lean:328 applies to a maximal spray trajectory once it is shown to stay in a compact speed-level (or bounded-speed disk) subbundle. Compactness uses the finite-dimensional smooth Riemannian setting and compact base; the tangent bundle itself need not be compact. Constant speed and the maximal-curve identification are still needed, along with that bundle compactness assembly. No connectedness assumption is needed for this route."
+    },
+    {
+      "finding": "RT-AUDIT-17/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed with the compatibility assumptions made explicit. Read IsLengthSpace.of_exists_eVariationOn_lt, exists_lt_of_riemannianEDist_lt and eVariationOn_eq_pathELength. For an extended metric satisfying IsRiemannianManifold, a C¹ manifold and continuous Riemannian bundle, choose the short C¹ path, derive continuity/endpoints, and rewrite its variation as pathELength. The criterion then applies without completeness or connectedness (infinite-distance pairs impose no strict-bound obligation). This is a proposed Lean assembly, not a compiled new instance; the geodesic-space half remains missing."
+    },
+    {
+      "finding": "RT-AUDIT-17/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Read the full LieGroups L0 description, the audit duplicate entry, lieExp and the manifold inverse-function theorem. The Lie exponential uses a left-invariant vector field; the Riemannian exponential uses the geodesic spray. Sharing an ODE construction pattern and consuming the same inverse-function theorem is not duplicate ownership. Remove the duplicate and preserve a consumer/provenance note if useful; no metric-coincidence theorem is needed for this decision."
+    }
+  ],
+  "validation": {
+    "redteamChecker": "pass",
+    "exactFindingCoverage": "44 unique finding IDs, no extras or omissions",
+    "intakeCheckFiles": "3 files, 0 problems",
+    "leanCompiled": false,
+    "publicationBase": "c03eeef4e4b5b241fb7ba53a4a3a78b49615054e",
+    "unchangedControlBlobs": 26,
+    "claimComment": 5805498616,
+    "claimConfirmation": 5805499692
+  }
+}
