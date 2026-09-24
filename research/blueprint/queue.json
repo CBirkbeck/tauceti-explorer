@@ -26874,8 +26874,9 @@
     "REV-AUDIT-03"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-03.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1556"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1556",
+   "finishedAt": "2026-09-24T04:31:08Z"
   },
   {
    "id": "REV-RT-AUDIT-03",
@@ -28544,7 +28545,8 @@
     "RT-AREA-elementary"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-elementary.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1470"
   },
   {
    "id": "RT-AREA-computational",
