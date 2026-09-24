@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-NAKAMURA-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "AutomorphicCongruences at L3, L4 (source, 17 items) — Accept, and this is the route that explains the whole extraction. Both stages exist, and L3 — titled 'Deformation theory and universal zeta elements' — plans this paper BY NAME: its description contains, verbatim, 'Construct Nakamura's universal zeta morphism from the compatible modular/Hecke-level classes, including the completed-cohomology and local co-Whittaker input described below, and its fundamental determinant line over the coefficient ring actually used by the source.' I checked that text in the atlas myself. That is why 39 of the 61 items are marked planned rather than missing."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "KatoEulerSystems at L0-L4 (source, 11 items) — Accept. All five stage ids exist and own Kato's Euler system, the zeta elements and the explicit reciprocity law, which is what the eleven items import rather than prove."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "CompletedCohomologyAndLocalGlobalCompatibility at R31.1-R31.6 (source, 8 items) — Accept. Every cited stage exists, and Emerton's completed cohomology together with the refined local-global compatibility of §2.2 is precisely this owner's subject."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "CompletedCohomologyPartII at CC.3 (source, 4 items) — Accept. CC.3 exists and owns the completed-cohomology material that goes beyond the parent's stages."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "PadicLocalLanglandsForGL2Qp at R30.2, R30.3, R30.5, R30.6 (source, 5 items) — Accept. All four stages exist and own the p-adic local Langlands input for GL_2(Q_p) that §§2-4 use."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "SmoothRepresentationsOfLocalGroups at SR.5 (source, 3 items) — Accept. SR.5 exists and owns the smooth-representation background."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "ArithmeticGaloisDuality at D7 (source, 1 item) — Accept. D7 exists and owns the Poitou-Tate duality input the single item needs."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "ModularSymbolsPadicLFunctions at L0 (source, 1 item) — Accept. L0 exists and owns the modular-symbol construction of p-adic L-functions."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "SmoothRepresentationsPartII (part-ii, 1 item) — Accept. A one-item Part II looks thin until one checks whose id it is: this is a heavily joined identity, also proposed by PAPER-BUSHNELL-HENNIART-17 (78 items), PAPER-FINTZEN-21 (71), PAPER-LE-LEHUNG-LEVIN-ETAL-23 (13), PAPER-NEWTON-THORNE-21 (6), PAPER-GAN-HARRIS-SAWIN-ETAL-24 (3) and PAPER-NEWTON-THORNE-21-B (1). The parent SmoothRepresentationsOfLocalGroups exists, the title reproduces it before the colon, and the brief names PAPER-FINTZEN-21 as originator and instructs that its id, title, parent, area and brief be kept. The single item is Henniart's types for GL_2(Q_p) from the appendix to Breuil-Mezard, which is reuse and not a new sibling."
+    }
+  ],
+  "notes": "Independent review of issue #1243's extraction (cc-39fac3); cc-fb70e5 appears nowhere in its files. All nine routes accepted and all fifteen findings confirmed; nothing corrected in place and nothing added. Provenance: the recorded sha256 of the Springer open-access PDF matches byte for byte, and the paper is 120 pages, confirmed three independent ways (linearization /N, a page-tree /Count, and 120 /Type /Page objects). **Version discipline matters here and the extraction got it right.** arXiv:2006.13647's e-print is a single gzipped file dated May 2020 — a year before the paper was even received — and is not the accepted version: its appendix section headers are all commented out, so the appendix carrying E13 and E14 does not exist there as a numbered appendix. Comparing numbering, five of the eight cited statements agree between versions and three do not: 5.14 is a Theorem in print and a Corollary in the 2020 draft, and A.1 and A.3 have no counterpart. All eight are correct in the published text the extraction says it read. A practical note for whoever checks this paper next: the article is pp. 171-290 of the volume in a 120-page PDF, so printed page n is PDF page n - 170. The status split — 39 planned against 21 missing and 1 library — is the most distinctive thing about this extraction and it is justified: each planned item quotes the atlas stage that already plans it, and for the paper's main theorem that stage, AutomorphicCongruences:L3, names Nakamura's universal zeta morphism explicitly. This is the rare extraction whose principal job was to recognise that the work was already planned rather than to plan it again. The single library item cites mathlib:PowerSeries.exists_isWeierstrassFactorization and mathlib:PowerSeries.IsWeierstrassFactorization.unique for the definition of mu and lambda at §5.1; both exist in Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean and the citation is apt. One reservation worth recording rather than acting on: `baseline` is null, so no pinned commits are recorded at all — the thinnest library record I have met in this corpus, even though the two declarations check out."
+}

@@ -182,3 +182,43 @@ Twenty entries, all with DOIs confirmed on Crossref, except:
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-NAKAMURA-23.result.json` reports no errors. Every planned stage id exists in `data/atlas.json`.
+
+## Independent review (cc-fb70e5, 24 September 2026)
+
+**Accept.** All nine routes accepted, all fifteen findings confirmed, nothing corrected in place and nothing
+added. The full review is in [`reviews/REV-PAPER-NAKAMURA-23.md`](../reviews/REV-PAPER-NAKAMURA-23.md).
+
+The recorded hash of the Springer open-access PDF matches byte for byte; 120 pages, confirmed three
+independent ways. Practical note: the article is pp. 171–290 in a 120-page PDF, so **printed page n is PDF
+page n − 170**.
+
+**The extraction picked the right version, and it matters.** arXiv:2006.13647's e-print is dated May 2020 —
+a year before the paper was received — with its appendix headers commented out, so the appendix carrying two
+findings does not exist there. Five of eight cited statements agree between versions and three do not: 5.14
+is a Theorem in print and a Corollary in the draft, and A.1 and A.3 have no counterpart. All eight are
+correct in the published text.
+
+**The status split is the most distinctive thing here, and it is justified.** 39 `planned` against 21
+`missing` looked evasive until the notes turned out to quote the atlas stage that plans each item. For the
+main theorem that stage is `AutomorphicCongruences:L3`, whose description reads, verbatim: "Construct
+Nakamura's universal zeta morphism from the compatible modular/Hecke-level classes, including the
+completed-cohomology and local co-Whittaker input described below…". **The atlas anticipates this paper by
+name.** This is the rare extraction whose principal job was to recognise that the work was already planned.
+
+All nine routes resolve, and the lone one-item Part II is a heavily joined identity under Fintzen-21's id,
+shared with six other papers. The single library item cites Weierstrass preparation for the definition of μ
+and λ, and both declarations exist. One reservation recorded rather than acted on: `baseline` is **null**, so
+no pinned commits are recorded at all — the thinnest library record in this corpus, even though the
+declarations check out.
+
+All fifteen findings are confirmed, three of them by the paper contradicting itself. **E13** is decisive:
+printed p. 267 defines the analogous product twice, once with `d²` and once — the cited occurrence — with a
+bare `d`. **E5** is a production-introduced slip, with the arXiv source carrying `c²` in both factors where
+the published version has a bare `c`; together with E13 that is the same hazard twice, a squared letter
+dropped from the second factor of a two-factor Euler-system product. **E9** is circular as printed, defining
+`H²_Iw(ℤ[1/p], …)` as a kernel of `H²_Iw(ℤ[1/p], …)`. **E1** was verifiable only at the mechanism level, and
+decisive there: the source carries hard-coded literal `[Em06b]` strings rather than `\cite`s, which become
+dangling keys once the published version renumbers — my text extractor drops bracketed citations entirely,
+so the rendered result could not be inspected, and the review says so. **E8** and **E12** are confirmed as
+recorded rather than re-derived, both turning on sub/superscript detail the text layer does not render
+reliably.
