@@ -26183,8 +26183,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1744"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1744",
+   "finishedAt": "2026-09-24T00:48:34Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
@@ -26206,7 +26207,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1747"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
@@ -26352,7 +26354,8 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1621"
   },
   {
    "id": "REV-RT-RS-15",
@@ -26402,8 +26405,9 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1623"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1623",
+   "finishedAt": "2026-09-24T00:48:37Z"
   },
   {
    "id": "REV-RT-RS-26",
@@ -27922,7 +27926,8 @@
     "REV-AUDIT-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1595"
   },
   {
    "id": "RT-AUDIT-24",
