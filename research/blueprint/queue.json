@@ -28297,7 +28297,8 @@
     "REV-AUDIT-28"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-28.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1606"
   },
   {
    "id": "REV-RT-AUDIT-28",
@@ -28516,8 +28517,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-elementary.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1471"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1471",
+   "finishedAt": "2026-09-24T04:21:37Z"
   },
   {
    "id": "REV-RT-AREA-elementary",
@@ -28657,7 +28659,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-analytic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1477"
   },
   {
    "id": "REV-RT-AREA-analytic",
@@ -30474,8 +30477,9 @@
     "RT-AREA-combinatorics"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-combinatorics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1544"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1544",
+   "finishedAt": "2026-09-24T04:21:39Z"
   },
   {
    "id": "RT-AREA-topology",
