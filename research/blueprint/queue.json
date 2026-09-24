@@ -17388,9 +17388,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #726"
+   "note": "released on GitHub issue #726"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES0",
@@ -17433,8 +17433,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES5.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #727"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES5",
