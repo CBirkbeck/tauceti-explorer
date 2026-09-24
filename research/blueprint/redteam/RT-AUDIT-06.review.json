@@ -1,0 +1,350 @@
+{
+  "redteam": "RT-AUDIT-06",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-06/1",
+      "verdict": "confirmed",
+      "reason": "The two cited Laplace-operator bounds do not literally state the generator-resolvent bound. PowerBounds.lean:283 and :330 state precisely the needed generator versions, using Identity.lean:179. The necessity direction in Generation/HilleYosida/Generation.lean:228 calls the former. Add the public generator declarations or their bridge, keeping the library and layer verdicts. This is a low citation correction, not missing mathematics. The red-team evidence abbreviates the Generation file path; the actual path includes Semigroups/Generation/HilleYosida/Generation.lean."
+    },
+    {
+      "finding": "RT-AUDIT-06/2",
+      "verdict": "confirmed",
+      "reason": "Complexification.lean:133 and :153 supply the complex-linearity proof and unchanged growth bound needed to instantiate complexGenerator. The generic analyticOnNhd_resolvent theorem permits the resulting complex partial operator, and Complexification.instCompleteSpace supplies completeness. Naming these bridges makes the existing partial evidence actionable; it proves neither the complex half-plane inclusion nor the complex Laplace formula. Retain the current status and treat this solely as a low citation/note clarification."
+    },
+    {
+      "finding": "RT-AUDIT-06/3",
+      "verdict": "rejected",
+      "reason": "The boundedness observation is correct: ofMultiplication is ofBounded, its generator has domain top, and the contraction resolvent requires a nonnegative bounded continuous multiplier. But the accepted audit already states exactly these restrictions in both target notes. The roadmap's acceptance sentence asks for a multiplication-semigroup example and does not require an unbounded multiplier or a proper generator domain in that example. Its generality rule requires the overall generator API to support unbounded operators; it does not exclude bounded acceptance examples. The red team itself acknowledges this. No false availability claim or missing required acceptance case is established, so an additional C_0/Lp unbounded-multiplier obligation or mandatory relabel is unwarranted."
+    },
+    {
+      "finding": "RT-AUDIT-06/4",
+      "verdict": "confirmed",
+      "reason": "Mathlib RKHS.OfKernel and kernel_ofKernel construct the operator-valued positive-semidefinite-kernel Hilbert realization on an arbitrary index type; kerFun_dense and equiv give minimality/uniqueness under their completeness hypotheses. Tau Ceti's scalar KolmogorovSpace definition directly invokes this construction. Credit both libraries. Correct the suggested edit to respect the five-citation cap: there are already four Tau Ceti citations, so retain a representative scalar feature/inner-product/universal-isometry selection and add the two Mathlib citations, rather than retaining all four and adding two or three."
+    },
+    {
+      "finding": "RT-AUDIT-06/5",
+      "verdict": "confirmed",
+      "reason": "The roadmap explicitly requires the Gaussian representing measure and the V=0 comparison with Bernstein. The cited Gaussian theorem gives its characteristic function at a rescaled argument, while bochner only gives unique existence; representsLaplace_timeMarginal is a necessary slice identity, not the two-way identification of the BCR and continuous-complete-monotonicity predicates. The source search found no public theorem completing either comparison. Thus the partial target/partly-built layers correction is justified by these explicit acceptance obligations, not a blanket demand for a separate named specialization theorem: Bochner at V=R is already immediate. The proposed Gaussian pushforward scale sqrt(2)/(2*pi) is correct under fourierAtom=exp(-2*pi*i*inner): its characteristic function at -2*pi*a is exp(-norm(a)^2), with covariance 1/(2*pi^2) times identity. Use the existing uniqueness and transform lemmas to prove the missing comparison."
+    },
+    {
+      "finding": "RT-AUDIT-06/6",
+      "verdict": "confirmed",
+      "reason": "MeasureTheory.charFun_eq_fourierIntegral' at Mathlib Basic.lean:163 already gives the conversion with frequency -(2*pi)^(-1) times t. Tau Ceti Convention.lean:78 expresses the equivalent -2*pi scaling in fourierAtom notation. Both libraries provide this target; retain the convention distinction in the note."
+    },
+    {
+      "finding": "RT-AUDIT-06/7",
+      "verdict": "confirmed",
+      "reason": "BochnerTheorem.lean:142 is explicitly private. Its proof at :190/:193 calls Mathlib's Levy tightness and Prokhorov compactness. The public exists_isFiniteMeasure_integral_fourierAtom_eq (:218) and bochner_probabilityMeasure (:301) expose the result. Replace the private citation, credit both libraries, and use the fully qualified names MeasureTheory.isTightMeasureSet_of_tendsto_charFun and MeasureTheory.isCompact_closure_of_isTightMeasureSet; keep the five-citation cap. The latter compactness theorem requires its ambient topological/measurable hypotheses; finite-dimensional real inner-product spaces with Borel structure satisfy the application."
+    },
+    {
+      "finding": "RT-AUDIT-06/8",
+      "verdict": "confirmed",
+      "reason": "The current exact citation concludes IsContinuousCompletelyMonotoneOnIoi, not the roadmap's stronger C-infinity-at-zero predicate, and the target note does not explain that distinction. The source docstring explicitly flags it. Correct the note using the actual library notion of Bernstein function, which is continuous at zero and smooth with completely monotone derivative only on the open half-line; under that convention sqrt(t) is allowed and exp(-sqrt(t)) has no finite right derivative at zero. Do not claim this counterexample refutes a separately strengthened Bernstein class requiring a smooth derivative at zero: the roadmap's prose about derivatives is underspecified on this point. The fix should state the chosen standard convention and the resulting target precisely, and preserve the genuine theorem rather than assert a new library gap."
+    },
+    {
+      "finding": "RT-AUDIT-06/9",
+      "verdict": "confirmed",
+      "reason": "The summary's 'only' list is contradicted by Mathlib's RKHS construction, charFun Fourier-conversion/injectivity, Levy tightness, Prokhorov compactness and Gaussian characteristic-function theorem; Tau Ceti invokes these directly. Expand the summary. Narrow the suggested final sentence to the particular headline semigroup/Bernstein/Bochner/BCR theorems, rather than 'none of the roadmap's named theorems', which could misleadingly include the now-credited Kolmogorov construction."
+    },
+    {
+      "finding": "RT-AUDIT-06/10",
+      "verdict": "confirmed",
+      "reason": "Mathlib FundamentalDomain.lean:668/:679/:695 supplies HasFundamentalDomain, covolume and computation from any fundamental domain. PSLAction.lean:145/:153 supplies measurable action and measure invariance. The audit's explicit 'only ZLattice' search claim is false. Keep partial: general discrete-group fundamental-domain existence and cofiniteness theorems are still required. A cofiniteness predicate must include fundamental-domain existence, since generic covolume defaults to zero without it. The level-one instance uses fdo and its a.e. equality with the finite-volume fd, not a new volume definition."
+    },
+    {
+      "finding": "RT-AUDIT-06/11",
+      "verdict": "confirmed",
+      "reason": "strictPeriods is defined at Cusps.lean:227 by membership of unipotent translation matrices. Equality with zmultiples at :337 identifies this subgroup only; it neither excludes nontranslations in the full boundary stabilizer nor identifies a PSL stabilizer. strictWidthInfty_pos at :402 assumes IsArithmetic; the general positivity iff has separate discrete-period/determinant hypotheses. Correct both exact fits and expose the missing full-stabilizer theorem and general-cofinite positivity. State that theorem for the orientation-preserving PSL input or its SL lift: allowing arbitrary GL elements with determinant plus or minus one can also allow reflections."
+    },
+    {
+      "finding": "RT-AUDIT-06/12",
+      "verdict": "confirmed",
+      "reason": "The cusp API takes a subgroup of GL(2,R), whereas the public Fuchsian carrier is a subgroup of PSL(2,R). Projectivization.Action and OnePoint.ProjectiveLine provide actions/equivalences, not the missing lift, cusp-predicate comparison and width transport. Record that adapter explicitly and remove exact fits. Correct the proposed blanket 'more general' relabel: cosetToCuspOrbit assumes IsArithmetic and is only a special case/related result for the arbitrary cofinite target. The first three GL definitions are usable after an adapter, not literally on the PSL input."
+    },
+    {
+      "finding": "RT-AUDIT-06/13",
+      "verdict": "confirmed",
+      "reason": "ConstMulAction.lean:621 proves Hausdorffness for a continuous properly discontinuous action on a locally compact Hausdorff space; :657 proves second countability. Tau Ceti ProperAction.lean:33 supplies proper discontinuity for every discrete PSL subgroup, and the upper half-plane has the required topological instances. Thus the coarse quotient's topological half is present. Change the combined target to partial, retaining the missing gluing/holomorphic structure, and note this existing first summand in the compactification carrier target. Neither theorem compactifies the quotient."
+    },
+    {
+      "finding": "RT-AUDIT-06/14",
+      "verdict": "confirmed",
+      "reason": "The actual composition theorems in Analytic/Order.lean:540 and Meromorphic/Order.lean:907 give the local order identity; the meromorphic theorem requires the inner map not eventually constant, satisfied by the positive power chart. Tau Ceti analyticOrderAt_comp_pow_zero states the power specialization. Norm/Cusps.lean:468 also proves valence at every finite-index SL(2,Z) level. Change absent to partial and the level-one-only wording, while retaining quotient descent and coordinate-transport gaps. These order formulas do not construct a complex structure on the quotient."
+    },
+    {
+      "finding": "RT-AUDIT-06/15",
+      "verdict": "confirmed",
+      "reason": "Periodic.lean:250 is zero-at-infinity implies first-order exponential decay, the reverse direction from the requested growth-to-order result. Tau Ceti BigO.lean:70/:83 gives the two-way q-coefficient dictionary under AnalyticAt of the cusp function; QExpansion/Order.lean:43 identifies the order. Cite that evidence and preserve its analyticity hypothesis, obtained through the removable-singularity chain in the bounded regime. Retain partial and the missing cusp pole-growth theorem; do not turn a q-coordinate theorem into a directly stated I-infinity bound without the translation step. The public order lemma's namespace is TauCeti, not TauCeti.UpperHalfPlane."
+    },
+    {
+      "finding": "RT-AUDIT-06/16",
+      "verdict": "confirmed",
+      "reason": "Stabilizer.lean:206/:213/:220 directly proves the effective PSL stabilizer orders 2,3,1, and ellipticOrder packages them on the SL orbit space. Rho.lean:119 only proves norm one. Cusps.lean:133 proves that all level-one cusps lie in the orbit of infinity. Replace the weak citation by these precise inputs within the five-citation limit. Their fit is exact for the elliptic/cusp subcomponents only: they do not prove the whole signature or construct X(1), which stays partial."
+    },
+    {
+      "finding": "RT-AUDIT-06/17",
+      "verdict": "confirmed",
+      "reason": "AlgebraicTopology stages 7 and 8.7 explicitly own finite-CW Euler characteristic, homotopy invariance, finite-cover multiplicativity/excisive additivity, and finite-CW type of compact smooth manifolds. FuchsianOrbifolds layer 5.1 explicitly consumes them, and 5.3 uses precisely the excision/cover formula. The duplicate list omits this existing ownership boundary. Add the two consumption records and make the first target's supplier explicit, leaving the surface genus and branched-cover application here."
+    },
+    {
+      "finding": "RT-AUDIT-06/18",
+      "verdict": "confirmed",
+      "reason": "BelyiMaps 4.1 defines the abstract presented TriangleGroup; 4.5 constructs SL matrices inducing a PSL representation and proves its image infinite, explicitly disclaiming faithfulness and discreteness. Remark 2.29 is cited as a source, not a uniqueness milestone. FuchsianOrbifolds 2.6 supplies the geometric realization and stronger theorems. Rewrite the ownership boundary accordingly. The two parameter conventions can coexist through the adapter elliptic(m) to m and cusp to 0; require that comparison, not a duplicate presented group or a forced redesign of either carrier."
+    },
+    {
+      "finding": "RT-AUDIT-06/19",
+      "verdict": "confirmed",
+      "reason": "isCoveringMapOn_npow states a topological covering result, not holomorphy of local inverses. HasStrictDerivAt.to_localInverse supplies the derivative of the inverse under a nonzero derivative, applicable to the power map away from zero. Correct the fit and explain the analytic step (on a neighbourhood where the derivative remains nonzero), retaining the existing order-at-zero evidence and library value. One point's derivative alone is not the whole neighbourhood biholomorphism statement."
+    },
+    {
+      "finding": "RT-AUDIT-06/20",
+      "verdict": "confirmed",
+      "reason": "DiscCoordinate.lean:119 returns only Equiv; its complete public API contains the rational formula, injectivity, range/norm statements and the action-conjugation identity, with no continuity or differentiability theorem. Full-tree discCoordinate search adds no such result. Replace 'biholomorphism'/'continuous coercions' by the proved Cayley bijection and a related fit. This is a missing formalized property, not a mathematical claim that the rational bijection fails to be continuous or holomorphic."
+    },
+    {
+      "finding": "RT-AUDIT-06/21",
+      "verdict": "confirmed",
+      "reason": "Both declarations are explicitly private at the cited lines. coe_rootsOfUnityQuotientHomeomorph_mk (:103), or the ball specialization (:157), is the public orbit-map formula and is a direct replacement. quotientFunc_T_pow_apply computes a translated coset factor, not invariant-function descent. Drop it or use orderOfVanishingOnSubgroupOrbit solely as related evidence for descent of an integer-valued order for SL(2,Z) subgroups; it does not descend a holomorphic function."
+    },
+    {
+      "finding": "RT-AUDIT-06/22",
+      "verdict": "confirmed",
+      "reason": "Cusps.lean:204 directly declares Finite (CuspOrbits G) under IsArithmetic. ArithmeticSubgroups.lean:102 defines that condition as commensurability with SL(2,Z), not merely containment with finite index. Correct the note and mark the arithmetic finiteness evidence as a special case. Do not invent an anonymous instance's generated name: retaining the public surjectivity citation while giving the instance's file/line in the note is sufficient unless its generated name is verified in Lean. General cofinite finiteness and the PSL adapter remain missing."
+    },
+    {
+      "finding": "RT-AUDIT-06/23",
+      "verdict": "confirmed",
+      "reason": "The declaration-index and both-tree searches found no Riemannian volume construction, and the Riemannian modules describe metrics/path lengths rather than volume measures. UpperHalfPlane/Metric.lean defines the hyperbolic distance, not its Riemannian tensor/volume comparison. Clarify that the quoted riemannianVolume identifier does not exist and that the comparison requires those constructions. This clarifies an already-partial target; it does not remove the existing invariant y^-2 measure."
+    },
+    {
+      "finding": "RT-AUDIT-06/24",
+      "verdict": "confirmed",
+      "reason": "The audit's 'only ... anywhere in the atlas' statement contradicts its own ModularForms 10B duplicate and the explicit function-field Hurwitz theorem in AlgebraicCurves layer 7. ModularCurves layer 10 names that supplier and its dictionary to geometric fibres. Correct the universal claim and add AlgebraicCurves as a nominal overlap on a different carrier, exactly as FA.3 already is. Keep the analytic branched-cover target absent."
+    },
+    {
+      "finding": "RT-AUDIT-06/25",
+      "verdict": "confirmed",
+      "reason": "qParam_left_inv_mod_period states the inverse modulo hZ, not periodicity. TauCeti.Periodic.qParam_sub supplies the translation formula. Complex.isAddQuotientCoveringMap_exp is a public topological quotient theorem on C onto C minus zero; it needs scaling and restriction to the appropriate half-plane/horodisc to give the punctured-disc model. Cite it as related and state those remaining restrictions and the analytic inverse step, rather than saying it already constructs the cusp quotient biholomorphism. The target remains partial."
+    },
+    {
+      "finding": "RT-AUDIT-06/26",
+      "verdict": "confirmed",
+      "reason": "The proposed related inputs exist: qExpansion_nat_mul_order and qExpansionOrderAtCusp_nat_mul prove the width-multiplied order law under positive widths, periodicity, boundedness and holomorphy; GeometryType.ofOrders_eq_hyperbolic_iff handles positive finite orders only; MeromorphicOn.divisor is the locally finite planar divisor, with infinite order mapped to the stated junk value zero. Add these as related starting points, preserving the missing surface, cusp-inclusive triangle and divisor-pullback constructions and existing statuses."
+    },
+    {
+      "finding": "RT-AUDIT-06/27",
+      "verdict": "rejected",
+      "reason": "Rejected at the specified pin. Raw f790474821cf4256814db967cb154e7af3d0c369 PSLAction.lean, byte-verified against GitHub, has the docstring on lines 187-188, 'instance : FaithfulSMul PSL(2, Z) H where' on line 189, and its first field on line 190. The audit's line 189 and REV-AUDIT-06's correction are correct. The red team's quoted lines are shifted by one; applying its fix would introduce an error."
+    },
+    {
+      "finding": "RT-AUDIT-06/28",
+      "verdict": "confirmed",
+      "reason": "HasLaw.measure_singleton_le in Probability/HasLaw.lean:50 directly proves the general point-mass inequality with no measurable-singleton hypothesis. Monge.lean:359 invokes its null-singleton infeasibility corollary. Correct the explicit absence claim, replace the definitional wrapper citation by the general theorem, and label the Monge-value consequence as a special case. The atom-set version and arbitrary nonatomic-source realization remain separate gaps."
+    },
+    {
+      "finding": "RT-AUDIT-06/29",
+      "verdict": "confirmed",
+      "reason": "CTransform/Basic.lean:113/:120 fixes c : X times Y to R while potentials are EReal; its docstring expressly defers extended costs. Roadmap item 2 explicitly requires both cost regimes. Restore that scope and change to partial, qualifying the finite-cost citations and summary. The docstring's infinity-subtraction example concerns the double transform (the first transform of zero is top), not top minus zero itself. No new layer-verdict change is required."
+    },
+    {
+      "finding": "RT-AUDIT-06/30",
+      "verdict": "confirmed",
+      "reason": "Roadmap item 4 includes signed costs bounded below by integrable marginal terms. BoundedBelow.lean defines their normalized plan and transport values and proves lower-bound independence, but does not establish lower semicontinuity; both index and tree searches locate its API only in that file. The actual reusable lower-semicontinuous-integral theorems take ENNReal integrands. Restore the omitted signed clause and mark partial. Existence.lean:200 concerns increasing transport minima on compact metrizable spaces, so it is related rather than the exact plan-integral theorem."
+    },
+    {
+      "finding": "RT-AUDIT-06/31",
+      "verdict": "confirmed",
+      "reason": "Approximation.lean:237 gives the continuous-affine envelope for a real-valued lsc convex function on a closed convex domain in a locally convex real space. This supplies a substantive finite-domain Fenchel-Moreau input, not the full proper EReal theorem. The public arbitrary-real-cost Rockafellar-Ruschendorf theorem at CyclicalMonotonicity.lean:235 specializes at c=-pairing: negating the concave potential gives the convex subgradient construction, after explicit vocabulary/properness translation (handle empty S separately). Credit these and mark partial. Keep the missing conjugate, subgradient and general extended-valued APIs explicit; replace the private potential by the public existence theorem."
+    },
+    {
+      "finding": "RT-AUDIT-06/32",
+      "verdict": "confirmed",
+      "reason": "The roadmap assigns the weighted W1p construction to this OT item, consuming PDE weak derivatives, and assumes weighted compactness for the main theorem. Tau Ceti already defines HasWeakFDerivOn for an arbitrary measure and scalar W1p for Haar measure on a finite-dimensional real inner-product space. RellichKondrachov.lean:141 proves compact W1p0 to Lp inclusion for bounded open domains, 1<=p<infinity, not unrestricted W1p. Record these related inputs and retain the missing full-space extension needed by the smooth-domain specialization. Do not define the desired weighted space simply by changing the measure in the integration-by-parts identity: the ordinary weak derivative and weighted Lp norm must be related as the roadmap requires. The main factorization still depends on Brenier and the weighted-space construction."
+    },
+    {
+      "finding": "RT-AUDIT-06/33",
+      "verdict": "confirmed",
+      "reason": "The summary conflicts with its own target inventory: four of six layer-4 targets are absent; Borel-cost duality, the measured-metric carrier, moment compactness/empirical upgrades and contraction extensions are also missing. Together with findings 29-32, this warrants rewriting the inventory as proposed, distinguishing layers 0-3 from layer 4 and finite from extended costs. Coordinate with finding 56 for layers 5 onward; preserve the partially available Sobolev and convex inputs rather than ending with a new blanket 'everything else is missing'."
+    },
+    {
+      "finding": "RT-AUDIT-06/34",
+      "verdict": "confirmed",
+      "reason": "rockafellarPotential is a private definition at CyclicalMonotonicity.lean:175 and the module explicitly says consumers obtain a potential through the public existential at :235. Replace both citations, exact for the algebraic c-potential component and more general/related via the explained negative-pairing translation for the dual-pair target. This neither proves Schachermayer-Teichmann optimality nor the complete convex-analysis tower."
+    },
+    {
+      "finding": "RT-AUDIT-06/35",
+      "verdict": "confirmed",
+      "reason": "MeasurableSpace/Analytic.lean:298 is the reusable Lusin null-measurability theorem for analytic sets in Polish spaces with measurable opens and an s-finite measure. CTransform/Analytic.lean:77 calls it directly. Add its fully qualified TauCeti.MeasureTheory.AnalyticSet.nullMeasurableSet citation as more general than the finite-measure target and retain the completion, not Borel, conclusion."
+    },
+    {
+      "finding": "RT-AUDIT-06/36",
+      "verdict": "confirmed",
+      "reason": "The cited :687 characterizes finite moment of a measure anchor by its finite-Wasserstein component; it is not basepoint independence. The explicit basepoint result is :483, with both distance sections a.e. strongly measurable, a finite measure, and finite distance between basepoints. :601 specializes this to arbitrary prescribed basepoints in a pseudometric space. Name/cite those and describe :687 separately as the anchor criterion; the library status remains correct."
+    },
+    {
+      "finding": "RT-AUDIT-06/37",
+      "verdict": "confirmed",
+      "reason": "Probability/Quantile.lean supplies the generalized inverse (:72), its Galois characterization for levels strictly between zero and one (:125), measurability (:180), and inverse-transform sampling (:194). Wasserstein/Quantile.lean:73 directly uses the latter for both marginals. Add the omitted public pushforward citation and explain the definition's endpoint conventions. The existing transport estimate remains only an upper bound, so partial remains correct."
+    },
+    {
+      "finding": "RT-AUDIT-06/38",
+      "verdict": "confirmed",
+      "reason": "The two public declarations at Wasserstein/Basic.lean:771 and Existence.lean:243 explicitly discuss Kantorovich-Rubinstein and supply its primal cost identification and attainment. Replace the literal 'no declaration ... mentions' statement by the narrower missing-duality claim and add related citations. Neither statement identifies a Lipschitz dual norm, so absent remains appropriate for the duality target."
+    },
+    {
+      "finding": "RT-AUDIT-06/39",
+      "verdict": "confirmed",
+      "reason": "Mathlib's Lusin-Souslin image and measurable-embedding theorems at Polish/Basic.lean:836/:883, together with :1110 for a Borel subtype, give the claimed inverse-projection construction on a Borel relation with singleton fibres. Add this related route. Qualify the fix: the OT application must establish such a Borel relation (or a suitable Borel conull restriction); singleton fibres alone do not supply that hypothesis, and completion-level contact sets need further care. The OT a.e. selector and uniqueness remain unproved."
+    },
+    {
+      "finding": "RT-AUDIT-06/40",
+      "verdict": "confirmed",
+      "reason": "Chain.lean:43/:62/:138 takes an entire countable family, and the finite result is its projected prefix; :149 proves the actual projective-family restriction identity. Clarify the finite-input padding step and that no chainMeasure IsProjectiveLimit wrapper is stated. Keep the countable extension result and current status. A related fit for prefixChainMeasure is clearest for the finite-input subproblem; call it more general only with the additional countable-family inputs made explicit. The existing note correctly credits the restriction identities, which must not be removed."
+    },
+    {
+      "finding": "RT-AUDIT-06/41",
+      "verdict": "confirmed",
+      "reason": "The three explicit acceptance paragraphs at README lines 609,658,759 have no corresponding coverage target, unlike layers 0 and 1. Add them with subcheck-level notes. The Dirac distance and pseudometric-zero examples (:434/:89) and strict Monge relaxation (:368) are present. Retain partial for layers 3 and 4 and distinguish the missing quantile optimality, translation specialization, finite-law partition/graph approximation and twist checks. Layer 5's matrix algebra is an input, not optimality of the Gaussian transport or the other gradient/conjugate certificates; record that distinction without promoting the complete acceptance target. No layer verdict changes."
+    },
+    {
+      "finding": "RT-AUDIT-06/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the false absence of named path-space components: Mathlib ContinuousMap.lean:51/56/77/155 supplies the Borel instance, measurable evaluations and the evaluation-generated sigma algebra under the stated second-countability/local-compactness/regularity hypotheses; Analytic.lean:298/338 supplies the general completion bridge. Make the composite target partial and carry the Borel input into 13C. Correct the proposed fix: absence of a declaration literally named PolishSpace C(X,Y) does not imply absence of an instance. For a compact real interval and complete separable metric target, ContinuousMap/Compact.lean:85, SecondCountableSpace.lean:84 and CompactConvergence.lean:432 give a complete second-countable metric continuous-map space; Bases.lean:915, CompletelyMetrizable.lean:172 and MetricSpace/Polish.lean:65 infer PolishSpace. Do not list Polishness as missing. Endpoint/geodesic-relation and Jankov--von Neumann work remains; the BayesEstimator TODO is not proof that every restricted measurable-selection result is absent (compare finding 39)."
+    },
+    {
+      "finding": "RT-AUDIT-06/43",
+      "verdict": "confirmed",
+      "reason": "BoundedVariationOn at Mathlib BoundedVariation.lean:66 already covers the named BV predicate; VectorMeasure/BoundedVariation.lean:53/119/343 supplies a Stieltjes function, vector measure and interval variation identity in complete normed targets. The target is partial, not wholly absent merely because Skorokhod space is missing. Preserve the ordered-domain hypotheses and the right-limit representative: :343 identifies variation on Ioc with eVariationOn of f.rightLim, not an arbitrary unmodified curve. These results do not supply the general metric-valued path measure, its Borel dependence, or the ALS statements. Full source searches found no Skorokhod/cadlag API at the pins."
+    },
+    {
+      "finding": "RT-AUDIT-06/44",
+      "verdict": "confirmed",
+      "reason": "Roadmap item 4 explicitly includes the kernel predicates omitted from the audit target. Matrix.PosSemidef (Mathlib PosDef.lean:59) uses finitely supported vectors on arbitrary index types; RKHS/OfKernel, Tau Ceti Kolmogorov.lean:133/142, Gaussian/Basic.lean:153 and Schur powers supply substantial reusable kernel theory. Restore that component and use partial in the parent and corresponding 13A note. Gaussian positivity applies with c=1/epsilon for positive epsilon; it does not prove universality, the Laplace-distance kernel or the Sinkhorn theorem. The Laplace integration kernels found in CompletelyMonotone are exp(-xp), not the claimed exp(-norm(x-y)/epsilon) positive-definite kernel."
+    },
+    {
+      "finding": "RT-AUDIT-06/45",
+      "verdict": "confirmed",
+      "reason": "The duplicate lists are exactly one-sided as reported: semigroups Part C lists both OT entries, while OT Layer 13 has none and 13A only its parent. Add reciprocal consumption records for the existing PD-kernel/RKHS/Kolmogorov/Gaussian API. Narrow the proposed note: do not say the whole Part C is built after finding 5, and do not say that only universality and Sinkhorn divergence belong to Layer 13, which also owns the other entropic targets. This boundary concerns its kernel component."
+    },
+    {
+      "finding": "RT-AUDIT-06/46",
+      "verdict": "confirmed",
+      "reason": "Confirm the omitted shared-API/consumption boundaries, not the asserted identity of the estimates. OT README:820-849 explicitly owns local VMO/oscillation work and consumes PDE's BMO and the ordinary interior Schauder bootstrap; PDE B-11/E-21/E-22 identify the corresponding consumers/supplier. The audit omits these records and AUDIT-40 does record them reciprocally. Linear variable-coefficient W2p theory and nonlinear section-local Monge--Ampere regularity are not the same theorem. The fix must preserve that distinction and must not unilaterally move VMO ownership to PDE: the current OT text expressly assigns construction here, whereas E-21 consumes VMO coefficients. Record coordination of the shared definitions and the Schauder/BMO boundary. Case-insensitive BMO searches also have unrelated local Bmo polynomial variables; the report's literally empty grep assertion is inaccurate but no oscillation API was found."
+    },
+    {
+      "finding": "RT-AUDIT-06/47",
+      "verdict": "confirmed",
+      "reason": "OT Layer 11 explicitly consumes weak PDE infrastructure and identifies the entropy flow with PDE Lane F's heat semigroup (README:1220-1225 and :1303-1314); PDE Lane A and F-26 substantiate both references. Its duplicates currently name only OneParameterSemigroups. Add the two consumption boundaries, without treating them as duplicate ownership of the entire Wasserstein-flow theorem. AUDIT-40 has the reciprocal entries. Source searches found no heatSemigroup/heat-kernel/Fokker/Ornstein implementation at these pins."
+    },
+    {
+      "finding": "RT-AUDIT-06/48",
+      "verdict": "confirmed",
+      "reason": "Stability.lean:80-83 explicitly assigns abstract packaging to Layer 10; :103/118 are the transport liminf/recovery hypotheses, and :315/330/355 give value convergence and optimal-coupling limit results with their tightness, marginal convergence and cost assumptions. Thus 'in any form' and the summary's unqualified absence are false. Keep the abstract target absent and cite this specialization. Correct the fix's 'convergence of minimizers': :355 extracts a refining filter and convergent optimal couplings, not convergence of every whole family or uniqueness of its limit. The bridge must preserve these hypotheses."
+    },
+    {
+      "finding": "RT-AUDIT-06/49",
+      "verdict": "confirmed",
+      "reason": "All four RealPlans declarations at Duality.lean:148/286/298/302 are private, contrary to make_audit_jobs.py's citation rule; :302 cannot be a public supplier. Public TransportMatrix.independent (:82), primal attainment (Duality:307) and transportMatrixEquiv (:220) are usable substitutes. No public closed/compact TransportMatrix theorem was found; do not export the private proof's topological claims as public API. The independent matrix proves unrestricted nonemptiness, not feasibility for a prescribed support K. Preserve that remaining support constraint in the note."
+    },
+    {
+      "finding": "RT-AUDIT-06/50",
+      "verdict": "confirmed",
+      "reason": "The three complete target statements are unsupported by their cited inputs: the geodesic/distance API has no injectivity-radius/cut-locus/semiconcavity conclusion; Coupling plus klDiv does not define the entropic objective; ordinary OT gluing/attainment does not prove a Gromov--Wasserstein theorem. Their own notes acknowledge these gaps, unlike genuine component-level partial targets. Confirm the consistent absent classification while retaining the related citations. The job permits 'something close' as partial, so this is a calibration correction justified by these actual statements and the audit's contrasting treatment of interpolation, barycenters and Brownian prerequisites, not a general ban on partial composite targets. theory_graph.py and measure_distances.py do assign partial half the missing weight."
+    },
+    {
+      "finding": "RT-AUDIT-06/51",
+      "verdict": "confirmed",
+      "reason": "The cited statements are unmeasured ghDist and its embedding comparison (GromovHausdorff:176/185), levyProkhorovEDist on measures over one fixed space (:53), and the integrability/absolute-continuity criterion for infinite KL (Basic:94). None is the measured comparison or one of the extended KL properties being claimed. Related accurately describes the reuse; leave the underlying target classifications and genuine exact KL/data-processing citations alone."
+    },
+    {
+      "finding": "RT-AUDIT-06/52",
+      "verdict": "confirmed",
+      "reason": "Length.lean:159/223/290/301/328 supplies exactly the shared metric length/geodesic predicates, geodesic-to-length instance and normed-space example that HopfRinow Layer 4 owns and OT 8/9/12 consume. Cite these as related inputs to the still-missing Wasserstein and CAT statements and update the ownership note. Do not extend this finding into an unsupported blanket claim about all Riemannian work: identify the Riemannian-to-metric geodesic bridge still needed by that stage. Reconcile with finding 53 under the five-citation cap (replace a generic variation citation or put IsLengthSpace in the note rather than simply appending six citations)."
+    },
+    {
+      "finding": "RT-AUDIT-06/53",
+      "verdict": "confirmed",
+      "reason": "AbsolutelyContinuous.lean:357 is metric-valued but :443 is explicitly f : real -> real, so the note overstates its differentiability scope. ConstantSpeed.lean:231/234/243 gives variation-based natural parameterization, reconstruction up to zero distance, and unit speed on the image of the variation parameter; do not imply it supplies a p>1 action or a globally geodesic parameterization. BoundedVariation.lean:246 is lower semicontinuity for pointwise convergence on s and :521 is monotone-reparameterization invariance. Add these p=1 inputs and narrow the differentiability claim, coordinating the five-citation limit with finding 52."
+    },
+    {
+      "finding": "RT-AUDIT-06/54",
+      "verdict": "confirmed",
+      "reason": "The omitted related suppliers are real: Jacobian:1095, Vitali:59, GradientFlow:140, Approximation:62, HausdorffDimension:97, GeometricMean:41, Quantile:61 and ConditionallyIID/WeakConvergence:75 have the stated roles. Preserve crucial qualifications: the Jacobian theorem requires an injective gradient on the measurable set (general C2 convexity alone does not give injectivity); Vitali needs bounded nonnegative sizes, nonempty sets and a separate engulfing argument; the energy identity needs differentiability and interval integrability in a real Hilbert space; lscApproxAux is a truncated linear-penalty inf-convolution, not the quadratic Moreau resolvent. The matrix result is algebraic, and weak convergence of empirical measures is not convergence of their barycenters. The fully qualified last citation is TauCeti.Probability.ConditionallyIIDWith.tendsto_empiricalMeasure_ae. These additions do not complete the targets."
+    },
+    {
+      "finding": "RT-AUDIT-06/55",
+      "verdict": "confirmed",
+      "reason": "Read all three sublayer entries and the corresponding parent targets: each repeats the same 'only two ingredients' note although the parent documents finite transport matrices, unregularized finite/measure agreement and Brownian predicates. Those APIs and Mathlib's actual Birkhoff theorem (Analysis/Convex/Birkhoff.lean:166) are present. Replace the boilerplate with sublayer-specific inputs; 13A must incorporate the PD-kernel correction and 13C the existing Borel/Polish path-space inputs from finding 42. Coupling and klDiv remain legitimate inputs, so replacement is a citation-budget choice, not evidence they are irrelevant. Select at most five public declarations and preserve the absence of the actual entropic algorithm/reference-law results."
+    },
+    {
+      "finding": "RT-AUDIT-06/56",
+      "verdict": "confirmed",
+      "reason": "The summary's 'everything else is missing' contradicts both its preceding list and its own later partial entries, independently of the additional suppliers established above. Rewrite it using component-specific existing inputs and missing transport theorems, and qualify abstract Gamma-convergence as in finding 48. Do not copy the replacement's new 'transport-specific material is only the Gaussian matrix toolkit' blanket: finite transport, finite/measure agreement and stability are also reused later. Reconcile this edit with finding 33's earlier-layer summary correction."
+    },
+    {
+      "finding": "RT-AUDIT-06/57",
+      "verdict": "confirmed",
+      "reason": "All three cited Perron lemmas (:321/329/356) and perronFn (:258) are private. The rectangle identity actually takes an arbitrary holomorphic f and is a direct reparameterization of Mathlib CauchyIntegral:296; only the two bounds specialize to x^s/s. Tau Ceti StarConvex.lean:193/210, Residue/Cycle:226 and Residue/LogDeriv:63 provide public residue/argument-principle machinery with finite singular sets, off-pole curves and finite meromorphic orders. Replace the private citations and restore that existing pole/zero accounting. Keep partial: application needs a closed piecewise-C1 rectangle in an open neighborhood (not its own open interior), side/winding identifications, and the zeta-log-derivative estimates. Do not repeat the fix's claim that the private rectangle identity itself is Perron-specific."
+    },
+    {
+      "finding": "RT-AUDIT-06/58",
+      "verdict": "confirmed",
+      "reason": "The public argument principle at StarConvex:210 is the missing supplier in AN.3's inventory, and :193 is the residue-theorem input for the explicit formula. ZetaZeros:67 supplies finiteness in a compact set, not the asymptotic. A rectangle application still needs an open neighborhood with a finite singular set containing its zeros/poles, boundary avoidance, finite orders, winding numbers and the gamma/Stirling and S(T) estimates; the contour theorem alone does not prove Riemann--von Mangoldt. Confirm the added related citations and the proposed unchanged classifications."
+    },
+    {
+      "finding": "RT-AUDIT-06/59",
+      "verdict": "confirmed",
+      "reason": "PrimesInAP:90/101/288/303 gives nonnegative restricted von Mangoldt coefficients, summability to the right of 1, a continuous pole-subtracted boundary remainder, and its series identity for an invertible class with nonzero modulus. These instantiate BoundaryGrowth:236 with coefficients coerced to complex and A=(phi(q):complex)^(-1); q=1 recovers the ordinary case. They are material omitted inputs, so add them and retain the missing unsmoothing/application statements. Do not read 'one missing step' as a proof-completion claim: coefficient coercions, the rational-prime/prime-ideal adapter if using Tau Ceti's transfer, and the higher-prime-power and psi/theta/pi comparisons remain obligations. Restricted Lambda on n congruent to a is not definitionally primePsi of the subset of primes p congruent to a, because higher prime powers use different congruence tests."
+    },
+    {
+      "finding": "RT-AUDIT-06/60",
+      "verdict": "confirmed",
+      "reason": "The statement at PrimesInAP:378 is non-summability of the prime-restricted residueClass divided by n; :87 defines residueClass with vonMangoldt, whose prime values are log p. Thus the audit has strengthened divergence of sum log p/p to divergence of sum 1/p without a theorem. SumPrimeReciprocals:119 concerns all primes, not a fixed progression. Correct the weight exactly as proposed; infinitude and the absent PNT asymptotic remain separate claims."
+    },
+    {
+      "finding": "RT-AUDIT-06/61",
+      "verdict": "confirmed",
+      "reason": "The target omits a substantial L-series component: Weight:116/608 gives completely multiplicative/unitary ideal weights, Analytic:335/355 their Euler product and nonvanishing under ideal-indexed absolute convergence, Estimates:476 their convergence for Re s>1, and Logarithm/VonMangoldtCoeff:118 the logarithmic-derivative expansion to the right of the abscissa. RayClass/Basic:180 and Finite:154 give finite ray class groups. Confirm partial, with the missing ray-character-to-weight/Hecke carrier, infinity-type/conductor and continuation/functional-equation boundaries explicit. An arbitrary ideal weight is not itself a formal Hecke character. Correct the proposed convergence locator from Estimates:477 (the continuation of its signature) to the declaration start :476. General nonunitary norm twists need their shifted convergence region; Re s>1 is justified here for unitary weights."
+    },
+    {
+      "finding": "RT-AUDIT-06/62",
+      "verdict": "confirmed",
+      "reason": "MonoidHom.galoisCharacterWeight at Weight:181/199/216 gives the degree-one Frobenius weight with zero values at primes ramified in L/K. The additional public galoisCharacterUnitaryWeight at :237/251 supplies unitary packaging, so Estimates:476 and Analytic:335 genuinely yield the product on Re s>1. A zero weight makes the local factor 1. This is the imprimitive/partial product excluding all extension-ramified primes, not the full inertia-invariant Artin factor (even a character trivial on inertia may have a nontrivial factor there). Add this related starting point while keeping the Brauer-continuation target absent."
+    },
+    {
+      "finding": "RT-AUDIT-06/63",
+      "verdict": "confirmed",
+      "reason": "The summary omits the verified contour APIs and restricted-von-Mangoldt boundary data, and its unqualified 'no Hecke or Artin L-functions' hides the degree-one ideal-weight Euler-product infrastructure established in findings 61-62. Amend it consistently with those findings, retaining the absence of final PNT, general Hecke characters and continuation. Correct the suggested wording: a residue-class restricted von Mangoldt series is represented by a character-weighted combination of logarithmic derivatives, not generally -L'/L of one Dirichlet L-function. Likewise distinguish general completely multiplicative weights (their absolute-convergence region) from unitary/degree-one Galois weights (Re s>1), and full Artin functions from partial products with ramified factors removed."
+    },
+    {
+      "finding": "RT-AUDIT-06/64",
+      "verdict": "confirmed",
+      "reason": "RamifiedPrimes:95 is private, and its docstring explicitly directs consumers to the public Finset at :114 and membership theorem :121. Replace the citation by NumberField.Chebotarev.ramifiedPrimes with related fit. This is the relative K-to-L ramification set; do not substitute the differently scoped absolute NumberField.finite_ramifiedPrimes mentioned in that docstring."
+    },
+    {
+      "finding": "RT-AUDIT-06/65",
+      "verdict": "confirmed",
+      "reason": "All four subclaims are supported by the actual signatures: ZetaZeros:63/67 gives discreteness/finiteness, NaturalDensity:61/154 gives natural rather than Dirichlet density, evenKernel:67 is the Mellin/theta input rather than the continued Hurwitz function, and Analytic:386 is the Dedekind-zeta specialization. Change those fits as proposed and add EulerProductData.hasProd_eulerFactor (:237), retaining its ideal-indexed summability hypothesis (regrouped summability alone is insufficient). Branch.lean:55-60 requires a simply connected open region with absolute convergence at every point; it is not a logarithm on arbitrary zero-free continuation regions. Apply that qualification specifically to the branch claim; the logarithmic derivative itself does not require choosing a branch."
+    },
+    {
+      "finding": "RT-AUDIT-06/66",
+      "verdict": "confirmed",
+      "reason": "AbelSummation:117 is a public Northcott-indexed summatory identity with nonnegative ordered cutoffs, differentiability and integrability of g'; :164 specializes to prime ideals and :216 gives the exact theta-to-pi identity. The 'only a decay-weight application' sentence is false. Replace it with the more complete note proposed. These are proved reuse of Mathlib's Abel machinery through norm fibers, not a new asymptotic theorem by themselves."
+    },
+    {
+      "finding": "RT-AUDIT-06/67",
+      "verdict": "confirmed",
+      "reason": "All three named components have more useful public suppliers: Continuity:48 proves continuity on the closed half-plane determined by a summability point via the uniform majorant/M-test; DirichletLSeries:114 explicitly proves the Dirichlet-character Euler product; Ideal/Asymptotics:152 proves the ideal-counting limit with the class-number-formula constant (:128 is its nonzero-ideal version used in DedekindZeta:81). Use the proposed replacements/addition within the five-citation cap. Keep continuity's fit related: its conclusion is ContinuousOn, not a separately stated uniform-convergence or unrestricted interchange theorem; the proof's M-test supplies the relevant justification."
+    },
+    {
+      "finding": "RT-AUDIT-06/68",
+      "verdict": "confirmed",
+      "reason": "Misc.lean:404/429 proves the convolution and divisor floor-sum identities and :427 explicitly leaves the square-root-length hyperbola method as a TODO. These are useful omitted inputs beyond the sigma definition. Confirm their addition with related fit. Prefer retaining absent for the stated hyperbola/error-term target and explain that neither the hyperbola decomposition nor a Delta asymptotic is proved; the report itself allows that choice, and this avoids promoting prerequisites alone inconsistently with finding 50. The auxiliary sum_Ioc_mul_zeta_eq_sum starts at :420, not the evidence's :418."
+    },
+    {
+      "finding": "RT-AUDIT-06/69",
+      "verdict": "confirmed",
+      "reason": "HurwitzZeta:130-131 gives the exponential zeta series on Re s>1. Reindexing from n>=1 to n=m+1 yields z*sum(m>=0,z^m/(m+1)^s), with z=exp(2*pi*i*a); the factor z is indeed missing in the audit. NIST DLMF 25.14.1 and 25.14.3 (https://dlmf.nist.gov/25.14#E1 and https://dlmf.nist.gov/25.14#E3) independently give the Lerch definition and Li_s(z)=z*Phi(z,s,1). State this first on the convergence domain and then for compatible continuations away from exceptional poles; do not claim a totalized Lean identity at pole values. The report's n=0 power convention is harmless on Re s>1, but should not be asserted for arbitrary s (notably s=0)."
+    }
+  ]
+}
