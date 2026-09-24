@@ -27512,8 +27512,9 @@
     "REV-AUDIT-14"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1577"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1577",
+   "finishedAt": "2026-09-24T03:14:27Z"
   },
   {
    "id": "RT-AUDIT-15",
@@ -30192,7 +30193,8 @@
     "RT-AREA-representations-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1534"
   },
   {
    "id": "RT-AREA-homological",
