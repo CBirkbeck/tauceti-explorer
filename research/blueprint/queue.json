@@ -27316,7 +27316,8 @@
     "REV-AUDIT-10"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-10.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1569"
   },
   {
    "id": "RT-AUDIT-11",
@@ -29037,7 +29038,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-functionfields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1489"
   },
   {
    "id": "REV-RT-AREA-functionfields",
@@ -30361,8 +30363,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-analysis.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1539"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1539",
+   "finishedAt": "2026-09-24T05:56:35Z"
   },
   {
    "id": "REV-RT-AREA-analysis",
