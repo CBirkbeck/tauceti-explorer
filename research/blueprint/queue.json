@@ -12233,8 +12233,9 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #139"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #139",
+   "finishedAt": "2026-09-24T17:28:58Z"
   },
   {
    "id": "BP-Polylogarithms",
@@ -20635,8 +20636,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P8.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #974"
   },
   {
    "id": "REV-PerfectoidSpaces--P8",
