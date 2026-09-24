@@ -1,0 +1,326 @@
+{
+  "redteam": "RT-AUDIT-26",
+  "reviewer": "independent-review-REV-RT-AUDIT-26",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-24",
+  "status": "complete",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "atlasSnapshot": "331c5d75baf4bb6cd7b0d8d31a1305438445ffc4",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-26/1",
+      "verdict": "confirmed",
+      "reason": "The full L6 stage explicitly owns map-level convention/formulation comparisons and the conditional Heegner-index comparison, while only its third audit target is bookkeeping. All three are absent. The tracked make_audit_jobs.py grading rule and library_coverage.py process projection support not built. Correct the summary and target notes without moving arithmetic proof ownership away from HE.8b/BSD.6a/BSD.7a. Narrow the proposed phrase none of these objects exists to the required completed-coefficient, local-condition and period comparison packages; generic coefficient rings and scalar maps certainly exist.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/2",
+      "verdict": "confirmed",
+      "reason": "Scheme/Basic.lean:43–47 constructs codimension-one divisors and Scheme/Principal.lean:108,129 gives the finite-support principal-divisor order system on any Noetherian integral scheme. Mathlib’s Spec instances, finite-variable power-series Noetherianity and domain instances apply to a DVR coefficient ring. Thus partial is appropriate for this composite target. Two qualifications: the formal identification of the missing completed group algebra with the power-series model remains required; and div(f) describes a cyclic torsion module only for nonzero f, with the module-length/order identification still an explicit comparison, not an already-packaged characteristic-module theorem. Use more general fits for the divisor component, not pseudo-nullity or the full combined target.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Noetherian.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/OrderOfVanishing.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Properties.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/WeilDivisor/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Principal.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/3",
+      "verdict": "confirmed",
+      "reason": "NumberFieldArithmetic 5.3 expressly owns the semilocal tensor/product equivalence for every finite separable number-field extension, with its pure-tensor formula and five construction steps. Taking K=Q and commuting the tensor factors yields D.4’s unramified special case. AUDIT-04 records it absent and RS-26 does not name that supplier. AdicCompletionExtension.lean:282,336,353 supplies continuous component maps and uniqueness under the displayed Dedekind/fraction-field/LiesOver hypotheses. Add the supplier and related declarations, retain absent for the product equivalence, and remove the unique-owner assertion.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/DedekindDomain/AdicCompletionExtension.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/PadicHodgeRegulators/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/tau-ceti/NumberFieldArithmetic/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/4",
+      "verdict": "confirmed",
+      "reason": "The complete D.2 and V.6 descriptions both request agreement of the explicit p-adic Bloch regulator with the abstract K-theory regulator, and neither requires the other. AUDIT-29 already records the reverse overlap; RS-26 only flags M.8 and leaves this one unresolved. Add the scoped reciprocal entry and coordinate a single owner for the comparison. Rational, integral-torsion and finite-coefficient versions must retain their distinct hypotheses; D.2’s scalar/Frobenius normalization cannot be dropped.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/K3BlochGroups/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/PadicHodgeRegulators/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/5",
+      "verdict": "confirmed",
+      "reason": "L.7 explicitly supplies completion compatibility and the completed K3 model used by D; D.3 repeats the model/product comparison and D.4 repeats localization and norm/trace compatibility. Their prerequisite lists have no L.7 edge, and AUDIT-29 already records D.4 from the L.7 side. Confirm the missing supplier/overlap entries, retaining D.3’s unramified p>3 regulator theorem and D.4’s Frobenius/denominator/Habiro comparisons. A missing edge alone is not the proof of duplication: the repeated stated targets and model-ownership assertions are the evidence.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/KTheoryFiniteLocalFields/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/PadicHodgeRegulators/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/6",
+      "verdict": "confirmed",
+      "reason": "Read Regular.lean:174, PowerSeries/Ideal.lean:69,196, MvPowerSeries/Inverse.lean:152, NoZeroDivisors.lean:132 and DVR/TFAE.lean:244. Constant-coefficient surjectivity with X_dvd_iff identifies O[[X]]/(X) with O; the local nonzerodivisor dimension formula gives dimension two. The unit criterion identifies the maximal ideal as the inverse image of the DVR maximal ideal, and Ideal.lean:69 gives its two generators X,C(varpi). RegularLocalRing/Defs.lean:63 then supplies regularity. Polynomial.lean:35,78 independently refutes the claim that regularity is limited to local PIDs. Keep partial and describe this as an unelaborated composition of available results, not a named compiled power-series regularity theorem; O is a genuine DVR, not a field.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Regular.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PowerSeries/Ideal.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PowerSeries/NoZeroDivisors.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RegularLocalRing/Polynomial.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/7",
+      "verdict": "confirmed",
+      "reason": "Exactness.lean:55,87,166,195 defines coefficient-sum augmentation and proves both displayed kernel descriptions for an arbitrary coefficient ring, with a monoid for augmentation and a group as the source of the kernel theorem. These directly contradict the no-group-ring-augmentation note. Correct both L1/L3 notes and retain absent for the completed objects and procyclic principal-ideal/RJW statements. R[G/H] requires H normal (or use the general q:G→*H theorem); the existing result is for ordinary group rings, not itself a completed quotient theorem.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/MonoidAlgebra/Exactness.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/8",
+      "verdict": "confirmed",
+      "reason": "AmiceTransform.lean:80, Measure/Basic.lean:96 and MahlerBasis.lean:107 identify each Dirac-transform coefficient with choose(x,n) acting on 1. Binomial.lean:47,51 therefore gives equality by power-series extensionality, and line 61 supplies the Dirac product formula. Convolution is irrelevant to this computation. Keep partial and correct the causal denial, retaining the topological commutative Z_p-algebra hypotheses; the general convolution algebra/multiplicativity remains missing. This is a verified statement-level derivation, not a claim to have compiled the proposed one-line proof. The target already cites four declarations: select or replace citations so the proposed additions respect the audit’s five-declaration limit, with other evidence retained in the note.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/9",
+      "verdict": "confirmed",
+      "reason": "L6 imports the two BSD arithmetic branches and owns their common-interface transports; RS-30 explicitly preserves those exports. Remove the BSD.6a/BSD.7a duplicate labels while retaining their prerequisite edges and supplier provenance. Qualify the finding: these BSD stages do contain branch-specific convention/comparison work, so do not assert that they perform no comparisons at all. HE.8b actually repeats the Greenberg/BDP formulation with coefficient, local-condition and Euler-factor comparisons; describe that precise overlap instead of calling its arithmetic branch a duplicate.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/restructure/RS-30.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/HeegnerPointEulerSystems.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/RankZeroOneBSD.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/10",
+      "verdict": "confirmed",
+      "reason": "The complete L5 and L4 descriptions repeat the analytic coefficient-embedding and primitive/imprimitive Euler-factor comparison for a modular-form p-adic L-function. Their prerequisites do not connect them. RS-14 narrows AutomorphicPadicLFunctions L5 to the analytic existence/comparison-of-constructions proposition, and RS-08 forwards the PadicFamilies L3 input without resolving this pair. Add reciprocal overlap entries scoped to this analytic functoriality; retain the algebraic Selmer, characteristic-ideal and mu-invariant comparisons in MIMC L5.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/restructure/RS-08.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/restructure/RS-14.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularSymbolsPadicLFunctions.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/11",
+      "verdict": "confirmed",
+      "reason": "ProjectiveLine.lean:84,126 supplies the rational projective-line carrier and GL2 action. Cusps.lean:116,147,168,204 identifies arithmetic cusps and constructs the finite orbit quotient. These are directly relevant omitted inputs. Keep absent for the combined divisor/coefficient/module-symbol target and add related evidence. Distinguish the infinite cusp set P1(Q) from its finite orbit set; finiteness applies to CuspOrbits, not to P1(Q). The divisor module with its required action and modular-symbol package is not supplied by these declarations.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/Cusps.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/12",
+      "verdict": "confirmed",
+      "reason": "Read both Mathlib stabilizer classifications and Tau Ceti’s central/projective decomposition, orders two and three, bound and Fuchsian cyclicity statements. These are relevant to the precise integrality obstruction in L0, and the blanket note should record them. Retain absent for auxiliary-level descent. The bound three concerns the modular group and its subgroups, not arbitrary Fuchsian groups; the latter cyclicity theorem assumes a discrete subgroup of PSL2(R). Do not infer the missing torsion-free congruence-level/descent theorem from these point stabilizers.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Modular.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Fuchsian/Stabilizer.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Modular/Stabilizer.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularSymbolsPadicLFunctions.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/13",
+      "verdict": "confirmed",
+      "reason": "AbstractMeasure is the continuous-linear-dual carrier and amiceTransformEquiv is specifically a Z_p-linear equivalence for Z_p-valued measures on Z_p. L2 expressly distinguishes boundedness from integrality through its lattice/period input. Add both declarations as related, retain absent, and preserve that neither constructs the small-slope modular-symbol measure nor proves its boundedness or period-normalized integrality. Do not promote the measure-file introductory Iwasawa terminology to a completed group-algebra construction.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularSymbolsPadicLFunctions.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/14",
+      "verdict": "confirmed",
+      "reason": "Point.map, map_id and map_map give the functorial group-homomorphism action of algebra automorphisms on curve points. It restricts to p-torsion because group homomorphisms commute with multiplication by p. FrobeniusFixed.lean:108 is an actual finite-field specialization of that action. Correct the target note and summary to distinguish this existing action from a bundled continuous residual Galois representation, Tate module and the absent arithmetic hypotheses. The point-map API alone does not establish continuity for the absolute Galois group.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/FrobeniusFixed.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/15",
+      "verdict": "confirmed",
+      "reason": "R14.3 explicitly lists comparison, Poincare duality, trace and change-of-level compatibility. It does not explicitly promise Hecke compatibility. Replace the overstated duplicate note with that precise list and retain the cohomological overlap. Localization at a non-Eisenstein maximal ideal suggests Hecke structure will be needed, but is not evidence that this stage already specifies the asserted compatibility theorem.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/atlas/roadmaps/ModularCurvesPartII.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/16",
+      "verdict": "rejected",
+      "reason": "The locators do not establish the claimed duplicate object. D.2 specifies filtered de Rham/Frobenius syntomic complexes and a regulator in its smooth/unramified setting. PR.4 specifies integral p-completed Nygaard/divided-Frobenius Tate-twist fibers, with intrinsic twists, perfected-base qualifications and truncation/nearby-cycle comparisons. Its invitation to regulator consumers is evidence for a possible supplier comparison, not an identification with D.2’s classical mapping fiber. A comparison must specify coefficients, completion, twists and the integral range before the proposed same-target duplicate entry is justified. Keep the audit unchanged for this finding; a concrete comparison request would be a useful separately justified refinement.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/PadicHodgeRegulators/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/PrismaticCohomology/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/17",
+      "verdict": "confirmed",
+      "reason": "Both Mathlib Shapiro files prove the abstract-group result in every natural-number degree, via the displayed cochain/coinvariant-complex constructions. They are not restricted to finite groups; finite-level use is a specialization. Tau Ceti’s continuous closed-subgroup/discrete-coefficient file explicitly covers degrees zero and one. Add the two Mathlib declarations as related and distinguish abstract, continuous and Iwasawa settings in the note. Keep absent for the requested derived continuous Iwasawa induction/restriction package.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupHomology/Shapiro.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/18",
+      "verdict": "confirmed",
+      "reason": "The three stage descriptions explicitly import the cited suppliers, the four audit notes themselves call them imports, and the existing prerequisite edges preserve that dependency. RS-26 additionally keeps only the regulator normalization/comparison interface in D.1 and the period-convention interface in L0. The merge_library_audit docstring defines duplicates by shared targets, not by every input. Remove these four misleading duplicate labels, keep their supplier provenance and edges, and retain the new comparison theorems owned by the consumers. Relative K-theory of a ring map is K.5; localization-specific input should be named separately rather than conflated with its carrier.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/NoncommutativeAndEquivariantIwasawa/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/content/campaign/PadicHodgeRegulators/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/19",
+      "verdict": "confirmed",
+      "reason": "The upstream Layer 9 compact-module milestone explicitly owns compatible-family lifting for towers of compact modules, and L5’s compact inverse-limit exactness overlaps that case. AUDIT-22 and AUDIT-26 omit this pair; RS-16’s owner table does not reconcile the upstream milestone. Add the scoped overlap/supplier entry, but correct the proposed implication of reassignment: PROTOCOL section 15 preserves existing Tau Ceti work. L5 should import the upstream compact Z_p-module case and own any genuinely additional coefficient generality, comparisons and arithmetic applications; RS-16 does not authorize rebuilding the upstream theorem.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/20",
+      "verdict": "confirmed",
+      "reason": "L1 expressly separates bounded K-valued measures, O[[G]][1/p], from the unrestricted inverse limit of K[G/U]; its eight audited targets omit that rational comparison, and RS-16 explicitly retains it. The roadmap assumes finite K/Q_p for this measure theory. Add the absent target with AbstractMeasure as related evidence, deriving it from the integral-lattice/scaling and integral-convolution comparisons. Keep the boundedness distinction and the coefficient hypotheses; neither tree search finds a completed group-algebra implementation, and the linear Amice equivalence does not fill this gap.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/21",
+      "verdict": "confirmed",
+      "reason": "R0 and A0 explicitly construct the underlying completed topological tensor in compatible Huber-pair cases, including the scalar-extension Tate-algebra test, whereas L0 retains scalar/completed-tensor comparisons. Record a narrowly scoped shared construction for the compatible Banach K-algebra cases and its required comparison. Correct the proposed universal wording: specify the common tensor topology and hypotheses, and separate the plus-ring construction and any uniformization. The general Banach-space/module tensor is not a Huber pair and stays L0’s responsibility; no automatic equality with every completed projective tensor or arbitrary adic fiber product is established.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/22",
+      "verdict": "confirmed",
+      "reason": "AlgHom.compLeftContinuous at line 683, with its topological-semiring/algebra hypotheses, gives exactly the omitted map on continuous functions. Add it as related while keeping absent for the full scalar-extension package. Correct the suggested note’s tensor formula: an algebraic tensor comparison is appropriate for finite coefficient extensions; broader Banach scalar extension generally needs a completed tensor and explicit hypotheses. Postcomposition alone supplies neither comparison nor extension of measures.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ContinuousMap/Algebra.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/23",
+      "verdict": "confirmed",
+      "reason": "Normalize.lean defines ordIndex for an integer-valued valuation of a field and proves ord_normalization_mul_ordIndex, including the trivial-index case. Place/Extension/Basic.lean defines ramificationIdx by this index and proves the restricted-place order formula in its algebraic function-field tower. These are relevant omitted ingredients. Keep partial and add the normalization identity as related. The local-field rational normalization still needs its comparison and nontriviality/positive ramification hypotheses; do not divide by the index of a trivial valuation.",
+      "sources": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Valuation/Discrete/Normalize.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/24",
+      "verdict": "confirmed",
+      "reason": "Abelianization.lift is the algebraic universal property for maps to commutative groups, and TopologicalAbelianization is the quotient by the closure of the commutator with a CommGroup instance. Add both as related and retain absent for the character-space/domain package. Qualify the topological assertion: a continuous character into a Hausdorff commutative topological group has closed kernel, hence kills that closure; continuity of the induced map follows through the quotient topology. The cited topological file itself only defines the quotient and its commutative group structure, not a bundled continuous-character factorization theorem.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Abelianization/Defs.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/TopologicalAbelianization.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/25",
+      "verdict": "confirmed",
+      "reason": "Invariants.lean:39,43,53 defines the group-algebra average and proves left/right invariance over a commutative semiring with invertible group order. Expanding its first factor and using invariance gives average squared = average. Thus the integral trivial-character component is an omitted special case when p does not divide the finite group order. Keep partial and append that component without suggesting it gives the complete orthogonal family: nontrivial character idempotents, integral descent and componentwise comparisons remain separate. The original statement about a complete family is not contradicted by one idempotent.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Invariants.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-26/26",
+      "verdict": "confirmed",
+      "reason": "Different.lean:57 defines an R-stable trace-dual submodule with no maximal-order assumption; traceDual_span_of_basis at line 102 and Trace/Basic.lean:504 provide the finite-separable trace-pairing ingredients. This is related existing structure for a domain order finite and torsion-free over O whose fraction field is finite separable over K. Keep absent and remove the blanket nothing-for-orders wording. Correct the stronger proposed replacement: the identification with Hom_O(R,O), including its R-action and integral lattice, is a mathematical comparison still to be supplied, not an equivalence constructed by the cited definition. FractionalIdeal.dual imposes IsIntegralClosure and cannot be applied indiscriminately to a nonmaximal order; semisimple product algebras and the Gorenstein criterion remain missing.",
+      "sources": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/Different.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Trace/Basic.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/data/atlas.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/331c5d75baf4bb6cd7b0d8d31a1305438445ffc4/research/blueprint/audit/AUDIT-26.result.json"
+      ]
+    }
+  ],
+  "summary": "All 26 findings independently checked: 25 confirmed (2 high, 6 medium, 17 low); finding 16 rejected. Apply the qualified fixes in the reasons. No underlying audit or roadmap was edited.",
+  "validation": {
+    "status": "pass",
+    "leanCompiled": false,
+    "redteamChecker": "pass",
+    "findingCoverage": "26 of 26, no duplicate or extra verdicts",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "0b5c10216482a0180cabc80331f1a4625a6ebaa6",
+    "unchangedInputBlobs": 42,
+    "claimComment": 5808145722,
+    "claimConfirmation": 5808146975,
+    "baselineSourceHashes": "9055 Mathlib and 5489 Tau Ceti tracked Lean files match their pins"
+  }
+}
