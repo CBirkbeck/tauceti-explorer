@@ -17053,8 +17053,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #719"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
@@ -17099,9 +17100,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E5.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #720"
+   "note": "released on GitHub issue #720"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E5",
