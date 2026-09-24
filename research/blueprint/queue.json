@@ -19303,9 +19303,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KatoEulerSystems.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #766"
+   "note": "released on GitHub issue #766"
   },
   {
    "id": "REV-KatoEulerSystems",
@@ -20578,8 +20578,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces--P0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #973"
   },
   {
    "id": "REV-PerfectoidSpaces--P0",
