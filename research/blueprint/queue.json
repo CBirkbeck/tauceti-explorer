@@ -4291,8 +4291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -29351,7 +29351,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-modeltheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1507"
   },
   {
    "id": "REV-RT-AREA-modeltheory",
@@ -30000,8 +30001,8 @@
     "RT-AREA-representations-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-1.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1530"
+   "state": "external",
+   "note": "claimed on GitHub issue #1530"
   },
   {
    "id": "RT-AREA-representations-2",
