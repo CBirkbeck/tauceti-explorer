@@ -26905,8 +26905,9 @@
     "REV-AUDIT-03"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-03.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1555"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1555",
+   "finishedAt": "2026-09-24T04:47:10Z"
   },
   {
    "id": "RT-AUDIT-04",
@@ -28335,7 +28336,8 @@
     "REV-AUDIT-28"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-28.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1605"
   },
   {
    "id": "RT-AUDIT-29",
