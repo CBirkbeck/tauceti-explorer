@@ -15703,9 +15703,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #691"
+   "note": "released on GitHub issue #691"
   },
   {
    "id": "REV-BunGAndNewtonStrata",
@@ -17387,8 +17387,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #726"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES0",
