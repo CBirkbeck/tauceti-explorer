@@ -7,7 +7,7 @@
     "GeneralAlgebraicKTheory:K.6",
     "GeneralAlgebraicKTheory:K.7"
   ],
-  "summary": "The blueprint for the last two layers of the general algebraic K-theory roadmap: K.6, the nonconnective extension, and K.7, invariance, products and universal interfaces. Twenty-two nodes written from two sources. The first is Weibel’s K-book in the author-hosted combined draft of 29 August 2013, whose hash reproduces the one four other packets of this programme already record. The second is Schlichting’s 2003 preprint on negative K-theory of derived categories, whose hash reproduces the one the reviewed integrated decomposition of this roadmap records, so this is the file its accepted review checked. The reviewed audit AUDIT-28 and that decomposition were both read first, and every claim the audit makes about the pinned libraries was checked against the declaration index. Both layers are recorded as not built, and the index agrees: there is an idempotent completion, a Morita equivalence predicate with its matrix instance, an equivalence of module categories over a matrix ring, filtered colimits of categories, polynomial and Laurent polynomial rings, and on the Tau Ceti side the Grothendieck group of an exact category with its invariance under exact equivalences and the degree-zero product statement. There is no spectrum, no flasque ring in the K-theoretic sense (the pinned IsFlasque of both trees is about sheaves and the packet says so in the node that would collide with it), no Frobenius category, no negative K-group, no Nil group and no first K-group at all. K.6 is decomposed along two independent routes, both of which the stage text asks for. The algebraic route is Bass’s: flasque rings and the Eilenberg swindle, contracted functors and the contraction LF, the negative K-groups, the Fundamental Theorem with its Nil terms, the four axioms a theory of negative K-theory must satisfy, Mayer–Vietoris in negative degrees, the Bass delooping and the vanishing theorem for regular noetherian rings. The homotopical route is the flasque enlargement the stage text names, and it is Schlichting’s: Frobenius pairs and their derived categories, the countable flasque envelope with the swindle in functorial form and the suspension, the axiomatic set-up, localisation in negative degrees with the first negative group as the obstruction to idempotent completeness of quotients, additivity and filtered colimits, the IK-theory spectrum with its homotopy groups in all three ranges, and the agreement with Bass’s, Karoubi’s and Thomason’s groups together with the vanishing theorems. The vanishing node states the non-example the stage text demands: the connective model has no negative homotopy for any ring, so that absence proves nothing about a singular one. K.7 is decomposed into Morita invariance with the structure theorem, the derived statement with its enhancement hypothesis — stated in Schlichting’s precise form, a map of models inducing an equivalence of derived categories — and the explicit failure of a naked triangulated equivalence, compatibility with filtered colimits and finite products in both the connective and the non-positive ranges, the external products from biexact functors with associativity, unit and symmetry carried as data, graded commutativity, the compatibilities with relative groups, localisation boundaries and transfers, and the two unit tests the stage text names, the degree-zero tensor comparison and multiplication by a unit in degree one. Two duplications the audit records are honoured rather than re-planned: SchemeKTheoryOperations S.5 owns the scheme form of the Fundamental Theorem and S.6 the scheme form of the external products, and both are cited as prerequisites.",
+  "summary": "The blueprint for the last two layers of the general algebraic K-theory roadmap: K.6, the nonconnective extension, and K.7, invariance, products and universal interfaces. Twenty-two nodes written from two sources. The first is Weibel’s K-book in the author-hosted combined draft of 29 August 2013, whose hash reproduces the one four other packets of this programme already record. The second is Schlichting’s 2003 preprint on negative K-theory of derived categories, whose hash reproduces the one the reviewed integrated decomposition of this roadmap records, so this is the file its accepted review checked. The reviewed audit AUDIT-28 and that decomposition were both read first, and every claim the audit makes about the pinned libraries was checked against the declaration index. Both layers are recorded as not built, and the index agrees: there is an idempotent completion, a Morita equivalence predicate with its matrix instance, an equivalence of module categories over a matrix ring, filtered colimits of categories, polynomial and Laurent polynomial rings, and on the Tau Ceti side the Grothendieck group of an exact category with its invariance under exact equivalences and the degree-zero product statement. Tau Ceti also has the Frobenius condition on an exact structure, with the split structure as an instance, and Mathlib has triangulated subcategories with the morphism class attached to one; both are cited rather than re-planned. There is no spectrum, no flasque ring in the K-theoretic sense (the pinned IsFlasque of both trees is about sheaves and the packet says so in the node that would collide with it), no stable category of a Frobenius category, no Verdier quotient as a triangulated category, no Frobenius pair, no negative K-group, no Nil group and no first K-group at all. K.6 is decomposed along two independent routes, both of which the stage text asks for. The algebraic route is Bass’s: flasque rings and the Eilenberg swindle, contracted functors and the contraction LF, the negative K-groups, the Fundamental Theorem with its Nil terms, the four axioms a theory of negative K-theory must satisfy, Mayer–Vietoris in negative degrees, the Bass delooping and the vanishing theorem for regular noetherian rings. The homotopical route is the flasque enlargement the stage text names, and it is Schlichting’s: Frobenius pairs and their derived categories, the countable flasque envelope with the swindle in functorial form and the suspension, the axiomatic set-up, localisation in negative degrees with the first negative group as the obstruction to idempotent completeness of quotients, additivity and filtered colimits, the IK-theory spectrum with its homotopy groups in all three ranges, and the agreement with Bass’s, Karoubi’s and Thomason’s groups together with the vanishing theorems. The vanishing node states the non-example the stage text demands: the connective model has no negative homotopy for any ring, so that absence proves nothing about a singular one. K.7 is decomposed into Morita invariance with the structure theorem, the derived statement with its enhancement hypothesis — stated in Schlichting’s precise form, a map of models inducing an equivalence of derived categories — and the explicit failure of a naked triangulated equivalence, compatibility with filtered colimits and finite products in both the connective and the non-positive ranges, the external products from biexact functors with associativity, unit and symmetry carried as data, graded commutativity, the compatibilities with relative groups, localisation boundaries and transfers, and the two unit tests the stage text names, the degree-zero tensor comparison and multiplication by a unit in degree one. Two duplications the audit records are honoured rather than re-planned: SchemeKTheoryOperations S.5 owns the scheme form of the Fundamental Theorem and S.6 the scheme form of the external products, and both are cited as prerequisites.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -26,6 +26,16 @@
         "ref": "mathlib:CategoryTheory.Limits.HasFilteredColimits",
         "module": "Mathlib/CategoryTheory/Limits/Filtered.lean",
         "provides": "Filtered colimits, pinned at the level of categories; the K-theoretic commutation statement is what K.7 adds."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.IsTriangulated",
+        "module": "Mathlib/CategoryTheory/Triangulated/Subcategory.lean",
+        "provides": "Triangulated subcategories, pinned; the input to a Verdier quotient, which is not itself pinned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ObjectProperty.trW",
+        "module": "Mathlib/CategoryTheory/Triangulated/Subcategory.lean",
+        "provides": "The class of maps whose cone lies in a triangulated subcategory, pinned; the morphisms a Verdier quotient inverts."
       },
       {
         "ref": "mathlib:IsMoritaEquivalent",
@@ -76,6 +86,16 @@
         "ref": "tauceti:TauCeti.ExactK0.mapEquiv",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
         "provides": "Invariance of that group under an exact equivalence, the pinned degree-zero shadow of the derived invariance K.7 states."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactStructure.IsFrobenius",
+        "module": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+        "provides": "The Frobenius condition on an exact structure, PINNED in Tau Ceti: it is the hypothesis of the second construction of K.6, and the packet cites it rather than defining it again."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactStructure.split_isFrobenius",
+        "module": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+        "provides": "The split exact structure is Frobenius, pinned; it is the degenerate unit test of the Frobenius-pair node."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0",
@@ -1380,14 +1400,19 @@
         "Define a Frobenius pair, its maps, and its derived category as the Verdier quotient, and prove that the map of stable categories is fully faithful, which is what makes the quotient the right object.",
         "Prove the standing example: bounded complexes over an exact category with degreewise split conflations form a Frobenius category whose projective-injectives are the contractible complexes and whose stable category is the homotopy category, and the homotopy-acyclic complexes form a Frobenius pair with it whose derived category is the bounded derived category.",
         "Record the other examples the source gives, so that the scope of the machine is visible: complicial biWaldhausen categories, cell modules over a differential graded algebra, and small triangulated subcategories of the derived category of a Grothendieck abelian category.",
-        "Record the relation to the pinned libraries: Tau Ceti's exact structures supply the exact-category input, and neither library has Frobenius categories, stable categories or Verdier quotients of them."
+        "Record exactly what the pinned libraries supply. Tau Ceti already HAS the Frobenius condition on an exact structure, as a predicate, with the proof that injectives and projectives then agree and with the split structure as an instance, so this node cites it rather than defining it again. Mathlib has triangulated subcategories, the class of maps whose cone lies in one, and the general localisation of a category at a class of maps. What is absent is the enough-objects data, the stable category with its triangulated structure, the Verdier quotient as a triangulated category, and the notion of a Frobenius pair; those are this node's own work."
       ],
       "acceptance": [
         "Bounded complexes over an exact category form a Frobenius pair with derived category the bounded derived category.",
         "A map of Frobenius pairs induces a triangle functor of derived categories.",
-        "The stable category of a Frobenius category is triangulated; without the coincidence of projectives and injectives it is not."
+        "The stable category of a Frobenius category is triangulated; without the coincidence of projectives and injectives it is not.",
+        "The split exact structure on an additive category is Frobenius, which is Tau Ceti's pinned instance and the degenerate test of the definition."
       ],
       "prerequisites": [
+        "tauceti:TauCeti.ExactStructure.IsFrobenius",
+        "tauceti:TauCeti.ExactStructure.split_isFrobenius",
+        "mathlib:CategoryTheory.ObjectProperty.IsTriangulated",
+        "mathlib:CategoryTheory.ObjectProperty.trW",
         "tauceti:TauCeti.ExactK0",
         "mathlib:CategoryTheory.Idempotents.Karoubi"
       ],
@@ -1413,7 +1438,7 @@
         {
           "name": "FrobeniusCategory",
           "role": "structure",
-          "statement": "An exact category with enough projectives and injectives, which coincide."
+          "statement": "Enough projectives and injectives, which coincide; Tau Ceti’s pinned IsFrobenius is the coincidence, and this adds the enough-objects data."
         },
         {
           "name": "FrobeniusCategory.stable",
@@ -1457,16 +1482,16 @@
       ],
       "tests": [
         {
+          "name": "split_is_frobenius",
+          "statement": "The split exact structure is Frobenius; this is Tau Ceti’s pinned instance and the definition here must agree with it."
+        },
+        {
           "name": "complexes_are_a_pair",
           "statement": "The bounded complexes over an exact category form a Frobenius pair."
         },
         {
           "name": "derived_is_bounded_derived",
           "statement": "Its derived category is the bounded derived category of the exact category."
-        },
-        {
-          "name": "stable_is_triangulated",
-          "statement": "The stable category of a Frobenius category is triangulated."
         },
         {
           "name": "projinj_coincide",

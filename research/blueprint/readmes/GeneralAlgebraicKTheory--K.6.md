@@ -63,6 +63,8 @@ therefore cited rather than planned:
 - `mathlib:CategoryTheory.Functor.IsEquivalence` (`Mathlib/CategoryTheory/Equivalence.lean`) — Equivalence of categories, the hypothesis of the invariance statements; the enhanced version K.7 needs is not pinned and the comparison node says so.
 - `mathlib:CategoryTheory.Idempotents.Karoubi` (`Mathlib/CategoryTheory/Idempotents/Karoubi.lean`) — The idempotent completion, which the stage text names as one of the three enlargements; it exists at the pin, so K.6 cites it rather than building it.
 - `mathlib:CategoryTheory.Limits.HasFilteredColimits` (`Mathlib/CategoryTheory/Limits/Filtered.lean`) — Filtered colimits, pinned at the level of categories; the K-theoretic commutation statement is what K.7 adds.
+- `mathlib:CategoryTheory.ObjectProperty.IsTriangulated` (`Mathlib/CategoryTheory/Triangulated/Subcategory.lean`) — Triangulated subcategories, pinned; the input to a Verdier quotient, which is not itself pinned.
+- `mathlib:CategoryTheory.ObjectProperty.trW` (`Mathlib/CategoryTheory/Triangulated/Subcategory.lean`) — The class of maps whose cone lies in a triangulated subcategory, pinned; the morphisms a Verdier quotient inverts.
 - `mathlib:IsMoritaEquivalent` (`Mathlib/RingTheory/Morita/Basic.lean`) — The Morita equivalence predicate, pinned; K.7 supplies the K-theoretic consequence, which is absent.
 - `mathlib:IsMoritaEquivalent.matrix` (`Mathlib/RingTheory/Morita/Matrix.lean`) — The instance that a ring is Morita equivalent to its matrix ring, pinned and cited by the invariance node.
 - `mathlib:LaurentPolynomial` (`Mathlib/Algebra/Polynomial/Laurent.lean`) — The Laurent polynomial ring, the third term of that sequence and the ring whose K-theory the fundamental theorem decomposes.
@@ -73,6 +75,8 @@ therefore cited rather than planned:
 - `mathlib:TensorProduct` (`Mathlib/LinearAlgebra/TensorProduct/Defs.lean`) — The tensor product, the biexact functor from which the external products of K.7 are built.
 - `tauceti:TauCeti.ExactK0` (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`) — The Grothendieck group of an exact category, the degree-zero model against which this layer's invariance statements are checked.
 - `tauceti:TauCeti.ExactK0.mapEquiv` (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`) — Invariance of that group under an exact equivalence, the pinned degree-zero shadow of the derived invariance K.7 states.
+- `tauceti:TauCeti.ExactStructure.IsFrobenius` (`TauCeti/CategoryTheory/Exact/Frobenius.lean`) — The Frobenius condition on an exact structure, PINNED in Tau Ceti: it is the hypothesis of the second construction of K.6, and the packet cites it rather than defining it again.
+- `tauceti:TauCeti.ExactStructure.split_isFrobenius` (`TauCeti/CategoryTheory/Exact/Frobenius.lean`) — The split exact structure is Frobenius, pinned; it is the degenerate unit test of the Frobenius-pair node.
 - `tauceti:TauCeti.SplitK0` (`TauCeti/CategoryTheory/GrothendieckGroup/Split.lean`) — The split model of the zeroth K-group, in which the pinned product statement is proved.
 - `tauceti:TauCeti.SplitK0.of_mul_of` (`TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean`) — The pinned statement that the product of the classes of two objects is the class of their tensor product, the degree-zero unit test of K.7's product.
 
@@ -599,21 +603,22 @@ A Frobenius category is an exact category with enough projective and enough inje
 2. Define a Frobenius pair, its maps, and its derived category as the Verdier quotient, and prove that the map of stable categories is fully faithful, which is what makes the quotient the right object.
 3. Prove the standing example: bounded complexes over an exact category with degreewise split conflations form a Frobenius category whose projective-injectives are the contractible complexes and whose stable category is the homotopy category, and the homotopy-acyclic complexes form a Frobenius pair with it whose derived category is the bounded derived category.
 4. Record the other examples the source gives, so that the scope of the machine is visible: complicial biWaldhausen categories, cell modules over a differential graded algebra, and small triangulated subcategories of the derived category of a Grothendieck abelian category.
-5. Record the relation to the pinned libraries: Tau Ceti's exact structures supply the exact-category input, and neither library has Frobenius categories, stable categories or Verdier quotients of them.
+5. Record exactly what the pinned libraries supply. Tau Ceti already HAS the Frobenius condition on an exact structure, as a predicate, with the proof that injectives and projectives then agree and with the split structure as an instance, so this node cites it rather than defining it again. Mathlib has triangulated subcategories, the class of maps whose cone lies in one, and the general localisation of a category at a class of maps. What is absent is the enough-objects data, the stable category with its triangulated structure, the Verdier quotient as a triangulated category, and the notion of a Frobenius pair; those are this node's own work.
 
 **Acceptance.**
 
 - Bounded complexes over an exact category form a Frobenius pair with derived category the bounded derived category.
 - A map of Frobenius pairs induces a triangle functor of derived categories.
 - The stable category of a Frobenius category is triangulated; without the coincidence of projectives and injectives it is not.
+- The split exact structure on an additive category is Frobenius, which is Tau Ceti's pinned instance and the degenerate test of the definition.
 
-**Prerequisites.** `tauceti:TauCeti.ExactK0`, `mathlib:CategoryTheory.Idempotents.Karoubi`
+**Prerequisites.** `tauceti:TauCeti.ExactStructure.IsFrobenius`, `tauceti:TauCeti.ExactStructure.split_isFrobenius`, `mathlib:CategoryTheory.ObjectProperty.IsTriangulated`, `mathlib:CategoryTheory.ObjectProperty.trW`, `tauceti:TauCeti.ExactK0`, `mathlib:CategoryTheory.Idempotents.Karoubi`
 
 **API.**
 
 | name | role | statement |
 | --- | --- | --- |
-| `FrobeniusCategory` | structure | An exact category with enough projectives and injectives, which coincide. |
+| `FrobeniusCategory` | structure | Enough projectives and injectives, which coincide; Tau Ceti’s pinned IsFrobenius is the coincidence, and this adds the enough-objects data. |
 | `FrobeniusCategory.stable` | data | The stable category, with its triangulated structure. |
 | `FrobeniusPair` | structure | A fully faithful inclusion of small Frobenius categories preserving projective-injectives. |
 | `FrobeniusPair.derived` | data | The derived category, the Verdier quotient of the stable categories. |
@@ -628,9 +633,9 @@ A Frobenius category is an exact category with enough projective and enough inje
 
 **Unit tests.**
 
+- `split_is_frobenius` — The split exact structure is Frobenius; this is Tau Ceti’s pinned instance and the definition here must agree with it.
 - `complexes_are_a_pair` — The bounded complexes over an exact category form a Frobenius pair.
 - `derived_is_bounded_derived` — Its derived category is the bounded derived category of the exact category.
-- `stable_is_triangulated` — The stable category of a Frobenius category is triangulated.
 - `projinj_coincide` — Dropping the coincidence of projectives and injectives breaks the triangulation; an exact category with enough projectives only is not a Frobenius category.
 
 **Sources.**

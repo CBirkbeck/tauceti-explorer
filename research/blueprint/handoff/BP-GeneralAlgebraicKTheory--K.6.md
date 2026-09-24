@@ -6,8 +6,9 @@ Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-gak`.
 
 - `research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json` — 22 nodes
   (5 definitions, 4 constructions, 10 theorems, 1 comparison, 2 lemmas), 55 API
-  items, 36 unit tests, 8 planets (6 in K.6, 2 in K.7), 15 baseline declarations,
-  5 gaps, 5 requests, 3 structural proposals. `"part": "K.6"`,
+  items, 36 unit tests, 8 planets (6 in K.6, 2 in K.7),
+  5 gaps, 5 requests, 3 structural proposals, 19 baseline declarations.
+  `"part": "K.6"`,
   `"status": "partial"`.
 - `research/blueprint/readmes/GeneralAlgebraicKTheory--K.6.md` — 1378 lines.
 - `research/blueprint/suggested/GeneralAlgebraicKTheory--K.6.lean` — 443 lines
@@ -79,12 +80,20 @@ libraries was checked against the pinned declaration index, and all of them hold
 `TensorProduct`, `Matrix`, `RingHom`, and on the Tau Ceti side `TauCeti.ExactK0`,
 `TauCeti.ExactK0.mapEquiv`, `TauCeti.SplitK0`, `TauCeti.SplitK0.of_mul_of`.
 
+Two further pinned facts were found by searching the index directly, beyond what
+the audit lists, and are cited rather than re-planned: **Tau Ceti has
+`ExactStructure.IsFrobenius`**, with `injective_iff_projective` and
+`split_isFrobenius`, so the Frobenius *condition* exists at the pin; and Mathlib
+has `ObjectProperty.IsTriangulated` with `ObjectProperty.trW`, the triangulated
+subcategory and the class of maps a Verdier quotient inverts.
+
 Confirmed absent at both pins and therefore not cited: any spectrum, homotopy
 colimit or connective cover; Karoubi's flasque rings; the Eilenberg swindle;
-contracted functors; the negative K-groups; the Nil groups; the K-theory of a
-Waldhausen category; and **the first K-group**, which is missing from both trees,
-so every degree-one statement in this packet is stated against a group that does
-not yet exist.
+contracted functors; the negative K-groups; the Nil groups; the enough-objects
+data of a Frobenius category, its stable category and the Verdier quotient as a
+triangulated category; Frobenius pairs; the K-theory of a Waldhausen category;
+and **the first K-group**, which is missing from both trees, so every degree-one
+statement in this packet is stated against a group that does not yet exist.
 
 ## The naming collision, which is the one thing to fix before writing code
 
