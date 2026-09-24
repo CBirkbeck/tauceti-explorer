@@ -29645,8 +29645,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-padic-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1511"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1511",
+   "finishedAt": "2026-09-24T08:07:35Z"
   },
   {
    "id": "REV-RT-AREA-padic-1",
