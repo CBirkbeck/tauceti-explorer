@@ -5929,3 +5929,35 @@ Added44 items (L102–L119 and Z80–Z105), changed Z52–Z58,Z60,Z77–Z79, pre
 Paper checker and three-file intake pass. Structural audit:652 unique items; all inherited IDs/sourceData/findings preserved; all164 definitions/constructions have uses, APIs and at least three tests; exactly one route per missing item; planned/route stages resolve;577 internal edges acyclic;30 library blobs match Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369. No Lean file required or compiled.
 
 Current atlas input snapshot: `abe9bce4aa659b5c95a10c97aa69058af30de9d4`. `libraryAudit.affinoidTopologyContinuation` stores the searches, pinned files and owner input hashes. `source.continuationReadings` stores fresh PDF hashes, exact bounded pages and21 Stacks tags. The inherited full212-page main reading stays attributed to its original worker; this pass freshly read only main PDF78–80. The current report preserves earlier report/handoff text as attributed history and explicitly supersedes its false Z77 absence claim.
+
+## Continuation — Claude Code, session cc-d67081, 24 September 2026 (issue #1254)
+
+This pass closes the **V queue**: the two theorem-like items of §9.1 that carried no proof steps,
+V15 and V16, now have them. Nothing else in the file changed — all 745 items are preserved, and
+`source`, `sourceIssues`, `sourceData`, `routes`, `prerequisites` and `summary` are byte-identical to
+the inherited state.
+
+Both items are the remarks that make Theorem 9.1.6 (V07) usable, and both were written against the
+published text (author copy, SHA-256 `e5647879…42dd`, PDF p. 184, matching the recorded hash).
+
+- **V15 (Remark 9.1.7(2))** — "there exists P so that P-genericity forces every predicted weight to
+  be generic". The remark is one sentence; the steps now carry the construction. The mechanism is the
+  paper's own: by the conventions of §2.1 a weight with lowest alcove presentation `(w̃, ω)` is
+  m-generic exactly when `ω` is m-deep, and **Proposition 2.6.2** (p. 52) says every `σ ∈ W?(τ)` has
+  such a presentation with `ω = w̃(τ)w̃₂⁻¹(0)` — that is, `μ` translated by one of finitely many
+  elements of `X*(T) ≅ ℤⁿ` indexed by a set depending on `n` alone. So `μ` being `(m + c(n))`-deep
+  makes every predicted weight m-generic, and `P` is enlarged by exactly the linear factors
+  `(X + w̃w̃₂⁻¹(0))` that the proof of Lemma 9.1.9 already assembles into its `Q`. A blueprint must
+  prove the bound `c(n)`, not quote "there exists P".
+- **V16 (Remark 9.1.8)** — the globalization that shows the hypotheses of Theorem 9.1.6 are met by a
+  global object built from an arbitrary generic local one. The steps separate what is imported from
+  what is checked: **[14, Corollary A.7]** (Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin) is an
+  external input supplying the CM extension `F/F⁺` with `F⁺ ≠ ℚ` and the potentially diagonalizably
+  automorphic `r̄` with prescribed p-adic behaviour and adequate image; the four hypotheses of 9.1.6
+  are then verified one by one, with the local one inherited through the isomorphism at the p-adic
+  places — which is the only place that prescription is used.
+
+**Checks.** `scripts/check_paper.py` ok; `intake.py check-files` 3 files, 0 problems. 745 unique
+items, none lost and none added; only V15 and V16 changed, and only in `proofSteps`; every missing
+item still routed exactly once; the dependency graph is acyclic. No Lean file was required or
+compiled, and nothing here is a formalization claim.
