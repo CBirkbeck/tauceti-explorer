@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-CHARLES-16",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture",
     "authors": "François Charles",
@@ -42,7 +42,7 @@
       }
     ]
   },
-  "summary": "Charles proves birational boundedness for holomorphic symplectic varieties, constructs Zarhin-type fourfolds from K3 surfaces over any field, and deduces the Tate conjecture for K3 surfaces over finite fields of characteristic at least 5, and of any characteristic when the Picard number is at least 2. Complete (cc-442dc5): every numbered statement and cited input is an item, and every missing item is routed exactly once. Lemma 4.5 is restated and proved after a finite extension (E8). Twenty-one findings are recorded, including the unverified nonsuperspecial hypothesis for the partners (E21). Supplier proofs are deferred. Not formalised.",
+  "summary": "Charles proves birational boundedness for holomorphic symplectic varieties, constructs Zarhin-type fourfolds from K3 surfaces over arbitrary fields, and proves the stated finite-field K3 Tate cases. Independent review REV-PAPER-CHARLES-16: the 173-item inventory is useful, but it is not a closed extraction. Supplier proof leaves, the characteristic-2/3 input audit, and the partner hypotheses remain open. All 140 missing items are routed exactly once as proposals; routes 1–4 and 7 require revision, while 5,6,8,9 can be used as source routes. Of 26 source findings, 24 are confirmed and E3/E15 are rejected. Conditional mathematical repairs are not compiled Lean proofs.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3347,7 +3347,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. In Theorem 2.4(i) the two-form is on M_H(v), not on X (E26)."
     },
     {
       "id": "PAPER-CHARLES-16/16",
@@ -3651,7 +3651,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: similitude normalization; independence; Chern-character action; base change. Tests: (1) Changing a quasi-universal multiplicity does not change the rational map; (2) A universal sheaf has multiplicity one; (3) Division by multiplicity is not itself an integrality proof.",
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: similitude normalization; independence; Chern-character action; base change. Tests: (1) Changing a quasi-universal multiplicity does not change the rational map; (2) A universal sheaf has multiplicity one; (3) Division by multiplicity is not itself an integrality proof. Source corrections E23/E25: the dual map has domain H^(4n−2)(2n−1), and saturation refers to completed Picard/NS cycle maps. Raw Pic→H²(Z_ℓ(1)) is not asserted to have torsion-free abelian cokernel.",
       "api": [
         {
           "name": "Charles16.24.contract1",
@@ -3725,7 +3725,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. In the Beauville open-stratum description, the quotient of the blowup of S^n_* is S^[n]_*, not all S^[n] (E24). The complement has complex codimension two; the restriction argument still needs its topology proof."
     },
     {
       "id": "PAPER-CHARLES-16/28",
@@ -4146,7 +4146,7 @@
       "planned": [
         "AlgebraicModuliForArithmeticGeometry:R09.3"
       ],
-      "note": "R09.3 explicitly distinguishes line-bundle descent from object descent. The Brauer-obstruction/zero-cycle statement is its concrete additional source, not a library declaration."
+      "note": "R09.3 explicitly distinguishes line-bundle descent from object descent. The Brauer-obstruction/zero-cycle statement is its concrete additional source, not a library declaration. The zero-cycle c₄(M_H(v)) acts through Br(M_H(v)); the occurrence of Br(X) on p.504 is a carrier misprint (E26)."
     },
     {
       "id": "PAPER-CHARLES-16/46",
@@ -4196,12 +4196,12 @@
       "id": "PAPER-CHARLES-16/50",
       "kind": "theorem",
       "name": "K3 birational boundedness at fixed positive square",
-      "statement": "For each r>0 there exist N,d>0 such that every K3 surface X over an algebraically closed field of any characteristic with a line bundle L of square r has some L′ with h⁰(L′)≤N and |L′| birational onto an image of degree ≤d. One may take N=128r+2 and d=256r. The source's final constants, degree r in P^{r/2+1}, and its r=2 jet inequality are not asserted.",
+      "statement": "For each r>0 there exist N,d>0 such that every K3 surface X over an algebraically closed field of any characteristic with a line bundle L of square r has some L′ with h⁰(L′)≤N and |L′| birational onto an image of degree ≤d. One may take N=128r+2 and d=256r. The numerical bounds describe the proposed corrected construction; its characteristic-two birationality supplier remains open in G1. The source's final constants for 4L need correction (E9); the claimed r=2 defect is rejected (E3).",
       "locator": "Proposition 3.1, pp.504–506",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proof completed by the continuation of Claude Code (cc-fb70e5, 22 September 2026), following the paper's argument with three repairs: doubling to avoid s=2; the filtration vanishing for non-reduced C, which is what \"By Riemann–Roch\" needs; and corrected constants. Source-level issue recorded in research/blueprint/errata/PAPER-CHARLES-16.json (E3). The inputs in item 49 (Saint-Donat, Huybrechts) remain source-read items there.",
+      "note": "Independent review: retain the existential target and the conservative candidate bounds, but do not call the inherited proof complete. E3 is rejected: in the double-curve case r is divisible by four and positive. The characteristic-two jet/separability argument, including the use of two distinct tangent directions in a potentially inseparable linear system, still needs a checked proof from its suppliers. E9 is independent of E3.",
       "prerequisites": [
         "PAPER-CHARLES-16/49"
       ],
@@ -4209,8 +4209,8 @@
         "Reduction, as in the paper via item 49: replace L by a nef class of the same square. Saint-Donat's analysis gives a fixed-part-free, base-point-free big nef L₃ with L₃² equal to r or 4r (\"up to replacing L by 2L\"). Put L₄=L₃ if L₃²≥4, otherwise L₄=2L₃. So s:=L₄² satisfies 4≤s≤16r, h¹(mL₄)=0 for m≥1, and h⁰(mL₄)=m²s/2+2.",
         "If φ_{L₄} is birational onto its image, take L′=L₄. Otherwise φ_{L₄} is generically of degree 2. For general conjugate points x≠y (φ(x)=φ(y)), take C∈|L₄| through both, as a hyperplane section through φ(x). As in the paper, C=aC_red with C_red integral and a∈{1,2} (a=2 only in characteristic 2), and ω_C=L₄|_C by adjunction.",
         "For smooth points p,q of C_red, let D(p) be the Cartier divisor on C cut by a local function g that meets C_red transversally at p. It has degree 2 when a=2 (length of k[x,y]/(y²,x)) and restricts to p on C_red. Put N=−2L₄|_C+D(p)+D(q). By Serre duality on the Gorenstein curve C, the needed H¹(C,3L₄|_C−D(p)−D(q)) is dual to H⁰(C,N).",
-        "Vanishing when a=2: let I⊂O_C be the ideal of C_red, so I≅O_{C_red}(−C_red), of degree −s/4. Use 0→I⊗N|_{C_red}→N→N|_{C_red}→0. Here deg N|_{C_red}=−s+2<0 and deg(I⊗N|_{C_red})=−s/4−s+2<0, since L₄·C_red=s/2 and s>2. Both pieces are line bundles of negative degree on the integral curve C_red, so H⁰(C,N)=0. When a=1, use ordinary Riemann–Roch, since 3s−4>s. This is where the source's 3r−4>r needs s>2.",
-        "Hence H⁰(C,3L₄|_C)→3L₄|_C⊗O_C/(D(p)+D(q)) is surjective, so 3L₄|_C separates points and tangent directions on the smooth locus of C_red. Since H¹(X,2L₄)=0, sections of 3L₄|_C lift to X. Multiplying by a section of L₄ that does not vanish at x,y (L₄ is base-point-free), 4L₄ separates x and y. Using two members of |L₄| through a general x with distinct tangents, dφ_{4L₄} is injective at x. So φ_{4L₄} is separable and generically injective, hence birational onto its image.",
+        "Vanishing when C=2C_red: r=L²=4(C_red)²>0 implies r≥4 without an extra doubling. For the chosen L₄ the conormal calculation gives degrees −s+2 and −s/4−s+2, both negative. For reduced C, each point divisor has degree one, so the corresponding estimate is 3s−2>s for positive even s. The r=2 example does not refute the doubled-curve argument.",
+        "OPEN proof leaf: turn the displayed surjectivity on the Gorenstein curve and H¹(X,2L₄)=0 into the required generic point and tangent separation in characteristic two. In particular, justify any assertion of two distinct tangent directions from |L₄| when its map may be inseparable. The inherited outline is not a certification of this step.",
         "Bounds: L′=4L₄ has h⁰(L′)=8s+2≤128r+2, and the image has degree (4L₄)²=16s≤256r. This gives the stated N and d. The source's last display, degree r in P^{r/2+1}, gives the numbers for L, not 4L."
       ]
     },
@@ -4731,12 +4731,12 @@
       "id": "PAPER-CHARLES-16/74",
       "kind": "theorem",
       "name": "Obstruction-killing lift of a moduli line bundle",
-      "statement": "In the deformation of the Zarhin moduli space, the obstruction to extending L lies in H²(O_M) tensored with the successive deformation ideal, a free W-module of rank one. An already lifting power of L makes this obstruction torsion, hence zero; inductively lift L and algebraize the polarized family.",
+      "statement": "Let the formal polarized deformation base be Spf W[[t₁,…,t₁₉]], I=(t₁,…,t₁₉), and M_P the fiber over the W-point. The obstruction from P_n to P_(n+1) lies in H²(M_P,O_M_P) ⊗_W I^(n+1)/I^(n+2). The first factor is free of rank one, and the ideal quotient is finite free of rank binomial(n+19,18). Thus the obstruction module is torsion-free, not generally rank one. If a nonzero power of the line bundle already lifts, additivity kills the obstruction; iterate, then apply the separate existence/algebraization theorem.",
       "locator": "Proposition 3.10 proof, pp.512–513",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. Independent review corrects the omitted ideal quotient in the source (E22). Algebraization and compatible obstruction theory remain proof obligations."
     },
     {
       "id": "PAPER-CHARLES-16/75",
@@ -5296,12 +5296,12 @@
       "id": "PAPER-CHARLES-16/95",
       "kind": "definition",
       "name": "Corrected integral twisted Mukai lattice",
-      "statement": "For transcendental α and r=ℓ^n in the LMS exact-order scope, define the integral lattice as the Z-span of (r,α,0),(0,D,0),(0,0,1), D∈NS(X): vectors (ar,D+aα,c). Rational twisted Chow classes are exp(−B)^−1 of rational algebraic classes; the integral span is not exp(−B)^−1(N(X)).",
+      "statement": "In the consumer scope α∈NS(X_k̄)^⊥⊂H²(X_k̄,Z_ℓ(1)), α²∈2Z and r=ℓ^n of exact geometric Brauer order, define the even Z-lattice with generators (r,α,0), (0,D,0), (0,0,1), D∈NS(X). Its elements are (ar,D+aα,c), with the first generator of square α² and its pairing with (0,0,1) equal to −r. The integral-norm hypothesis makes this a Z-valued even form; an arbitrary transcendental ℓ-adic α gives only a Z-submodule with a Z_ℓ-valued pairing. Rational twisted classes are obtained by inverse untwisting from rational algebraic classes; the integral span is not the inverse image of the integral untwisted lattice.",
       "locator": "Equation (4.1) with LMS §3.3/Lemma 3.3.3 correction",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral generators; rank; pairing; rational untwist; realization. Tests: (1) The rank coordinate is divisible by r; (2) For α=0,r=1 the untwisted lattice is recovered; (3) The main vector untwists to a nonintegral last coordinate when ℓ∤d.",
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral generators; rank; pairing; rational untwist; realization. Tests: (1) The rank coordinate is divisible by r; (2) For α=0,r=1 the untwisted lattice is recovered; (3) The main vector untwists to a nonintegral last coordinate when ℓ∤d. The α=0,r=1 test is the separate untwisted specialization, not a positive-exponent exact-order example. The actual consumer α²=−2d satisfies the stated even-integral norm hypothesis.",
       "api": [
         {
           "name": "Charles16.95.contract1",
@@ -5360,11 +5360,11 @@
       "kind": "construction",
       "name": "Fixed-determinant twisted sheaf stack",
       "statement": "Use a μ_r-gerbe representing −[α_n] in LMS's exp(+α/r) convention, and objects (F,φ:det F≃O(D)) with prescribed twisted Mukai vector. Determinant trivialization cuts scalar automorphisms to μ_r; the stack of simple sheaves without φ instead has G_m inertia.",
-      "locator": "§4.1 p.519 corrected from LMS Definition 3.4.1 (arXiv v5)",
+      "locator": "§4.1 p.519, unpacking the explicitly cited LMS Definition 3.4.1 (arXiv v5 p.13); gerbe sign as in E14",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: objects and determinant trivialization; scalar inertia; pullback; coarse gerbe. Tests: (1) A scalar automorphism satisfies λ^r=1; (2) Forgetting φ restores G_m scalar inertia; (3) Switching gerbe sign without switching B fails the chosen Mukai convention.",
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: objects and determinant trivialization; scalar inertia; pullback; coarse gerbe. Tests: (1) A scalar automorphism satisfies λ^r=1; (2) Forgetting φ restores G_m scalar inertia; (3) Switching gerbe sign without switching B fails the chosen Mukai convention. E15 is rejected: the determinant condition is already part of the source definition Charles imports. Keeping it explicit is an interface clarification.",
       "api": [
         {
           "name": "Charles16.97.contract1",
@@ -5702,12 +5702,12 @@
       "id": "PAPER-CHARLES-16/113",
       "kind": "theorem",
       "name": "Norm-one vectors in the transcendental lattice (corrected Lemma 4.5)",
-      "statement": "Let X be a K3 surface over a finite field k with NS(X_k̄) = NS(X) and Br(X) infinite. Assume Frobenius acts semisimply on the eigenvalue-1 part of H²(X_k̄, Q_ℓ(1)) (item 111) and that −1 is not a Frobenius eigenvalue on it. The second condition holds after a finite extension of k, which keeps Br(X) infinite. Let g be the characteristic polynomial of Frobenius on the complement of the invariants, and put c = −g(1)g(−1)·disc NS(X) ∈ Q^×. Let x_1, …, x_r be −1 and the primes dividing the numerator or denominator of c. Then for every sufficiently large ℓ such that each x_i is a square modulo ℓ, there is α ∈ T(X, Z_ℓ) with α² = 1. The printed lemma omits the eigenvalue condition and −1 (E8).",
+      "statement": "Let X be a K3 surface over a finite field k with NS(X_k̄) = NS(X) and Br(X) infinite. Assume Frobenius acts semisimply on the eigenvalue-1 part of H²(X_k̄, Q_ℓ(1)) (item 111) and that −1 is not a Frobenius eigenvalue on the whole H²(X_k̄,Q_ℓ(1)). A finite extension killing all root-of-unity Frobenius eigenvalues ensures this condition; merely squaring once need not do so. The rational Tate descent argument preserves failure of Tate, and the Kummer criterion then preserves infinite Brauer group in the stated scope. Let g be the characteristic polynomial of Frobenius on the complement of the invariants, and put c = −g(1)g(−1)·disc NS(X) ∈ Q^×. Let x_1, …, x_r be −1 and the primes dividing the numerator or denominator of c. Then for every sufficiently large ℓ such that each x_i is a square modulo ℓ, there is α ∈ T(X, Z_ℓ) with α² = 1. The printed lemma omits the eigenvalue condition and −1 (E8).",
       "locator": "Lemma 4.5, pp. 520–521, corrected (E8)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Restated by Claude Code (cc-442dc5, 23 September 2026) with the rational-discriminant repair of E8, and routed. It gives the printed form of the lemma after the finite extension, with −1 among the p_i. The checkpoint's split-prime substitute (items 114 and simultaneous-k3-norm) is kept. Proposed target; no Lean declaration is claimed.",
+      "note": "Restated by Claude Code (cc-442dc5, 23 September 2026) with the rational-discriminant repair of E8, and routed. It gives the printed form of the lemma after the finite extension, with −1 among the p_i. The checkpoint's split-prime substitute (items 114 and simultaneous-k3-norm) is kept. Proposed target; no Lean declaration is claimed. This is a conditional replacement, not verification of the printed original-field lemma. The all-characteristic supplier audit remains G3.",
       "prerequisites": [
         "PAPER-CHARLES-16/111",
         "PAPER-CHARLES-16/112",
@@ -5837,7 +5837,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: n-indexed rank/class; norm computation; exact-order proof. Tests: (1) v_n²=γ²+D²=0; (2) rk v_n=ℓ^n; (3) ℓ∤2d is needed for the unit-norm/order argument. The new prime-choice supplier is proved in the audited p≥5 scope; the all-characteristic variant remains conditional on G2. The unit-norm lemma isolates exact geometric quotient order before the Kummer identification.",
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: n-indexed rank/class; norm computation; exact-order proof. Tests: (1) v_n²=γ²+D²=0; (2) rk v_n=ℓ^n; (3) ℓ∤2d is needed for the unit-norm/order argument. The new prime-choice supplier is proved in the audited p≥5 scope; the all-characteristic variant remains conditional on G3. The unit-norm lemma isolates exact geometric quotient order before the Kummer identification.",
       "api": [
         {
           "name": "Charles16.120.contract1",
@@ -6141,13 +6141,18 @@
     {
       "id": "PAPER-CHARLES-16/132",
       "kind": "theorem",
-      "name": "Finite-field descent of the rational Tate statement",
-      "statement": "If the divisor Tate statement holds after a finite extension k′/k, it holds over k: take invariants under Gal(k′/k) in the rational cycle map, descend invariant divisor classes using Br(k)=0, then recover the integral version from Kummer saturation.",
+      "name": "Integral K3 Tate consequence after rational finite-field descent",
+      "statement": "For a K3 surface over a finite field k and ℓ≠char k, import the rational implication finite-extension-tate-descent. Then use the saturated completed cycle-class map Pic(X)⊗Z_ℓ→H²(X_k̄,Z_ℓ(1))^Gal(k̄/k), with the Kummer and finite-field Brauer descent hypotheses proved, to deduce integral surjectivity from rational surjectivity. This is the additional K3 saturation step, not a second construction of rational trace descent.",
       "locator": "§4.2 finite-extension reduction p.520; LMS §2.3",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+      "note": "The generic rational descent lemma is planned by early MC.7, using MC.0/MC.2 trace. This item owns only the remaining K3 integral consequence; completion and saturation are explicit, and no division by the extension degree in Z_ℓ is allowed.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/finite-extension-tate-descent",
+        "PAPER-CHARLES-16/3",
+        "PAPER-CHARLES-16/24"
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/133",
@@ -6197,7 +6202,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Split from Proposition 2.6(1): its weaker p>2 threshold does not apply here."
+      "note": "Split from Proposition 2.6(1): its weaker p>2 threshold does not apply here. In Proposition 2.6 the Hodge sheaf is Ω^p_(M_H(v)/k), not Ω^p_(X/k) (E26)."
     },
     {
       "id": "PAPER-CHARLES-16/137",
@@ -7382,7 +7387,7 @@
         "PAPER-CHARLES-16/127",
         "PAPER-CHARLES-16/143"
       ],
-      "brief": "Construct the K3-specific geometry missing from the atlas and the proof architecture of Charles, Annals 184 (2016), pp.487–526. The exact geometric endpoints are Theorem 2.10: for every d>0, over any field, choose r,N>0 and nonzero a,b so that H²=2md with m≡1 mod N, gcd(m,ab)=1 and a,b squares modulo m produces a smooth four-dimensional stable-sheaf moduli space M and L with L⁴=r, q(L)>0, c₁(v) proportional to H and condition (C); include the specified prime-to-n ample class and W-lifting refinements. The complex endpoint is Theorem 3.3: fixed dimension 2n and positive top power r give uniform birational linear-series bounds after replacing L by L′ with the same top power, and hence a birationally bounded family. Do not claim uniformity for the original L, which the introduction asks as an open question.\n\nBuild numerical NS and its geometric/arithmetic distinction, the ℓ-adic/algebraic Mukai lattices, Mukai vectors and RR, lifting of at most ten divisor classes, stable-moduli smoothness, deformation to Hilbert schemes, the BB form with (2n)!q^n=n!2^n times top intersection, integral/étale θ maps and p-primary cokernel. Include the corrected discriminant formula p^(2a)(v²/I²), not an integer multiplier. Develop the IHS local/global period argument, finite monodromy index, bounded ample deformation representatives, algebraized period-covering families and codimension-two Picard transport. Supply the strong-admissibility, special-endomorphism and finite-NS arguments in p≥5, then corrected Proposition 3.17 for underlying surfaces, never infinitely varying polarized pairs.\n\nThe arithmetic branch builds the corrected LMS signed-gerbe B-field lattice, exact geometric Brauer order, isotropic moduli partners, v^⊥/Zv maps and discriminant growth. Export these geometric inputs to Algebraic cycles, pure and mixed motives (MotivesAndAlgebraicCycles:MC.7) for Charles Theorems 1.3 and 1.4: Tate for all K3 over finite fields in p≥5, and for Picard rank≥2 in every characteristic including two. The latter does not use Kuga–Satake. Withhold items113 and127 until their named gates are discharged. Item50 retains the inherited cc-fb70e5 repair; item119 imports Chebotarev Layer10. Remaining consumers retain their explicit geometric and characteristic restrictions.\n\nImport Stable and twisted sheaf moduli (AlgebraicModuliStableTwistedSheaves) for the general moduli/gerbe construction; Complex Shimura varieties and canonical models, Part II (OrthogonalIntegralModelsAndKugaSatake) for KS and good-prime models; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.2–GN.3) for the new embedding and finite-lattice theorems; existing Integral lattices (tauceti:Completed/IntegralLattices) and Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures) only through their actual pinned APIs. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.5), Algebraic moduli and representability (AlgebraicModuliForArithmeticGeometry:R09.1–R09.6), Complex comparison (ComplexComparisonPartII:C5), Crystalline cohomology (CrystallineCohomology:CR.1–CR.4), Cohomology comparisons (CohomologyComparisons:CP.2,CP.5), and the exact small-weight supplier in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. No private duplicate cycles, crystals, moduli stacks or comparison maps. Use only the early divisor (1,1) leaf of MC.7 for Lemma 3.15, never its later K3 Tate endpoint: refine that broad stage into acyclic early/late leaves before blueprint closure. Every object needs API, three discriminating tests, and separate proof leaves for every unread cited theorem. Counterexamples 35,89,96 are regression tests, not atlas planets.\nPrime selection imports Chebotarev Layer10 identity-class infinitude and NumberFieldArithmetic Layer5 canonical completions. Use one common finite Galois compositum after changing the finite base field. The corrected LMS unit-representation and reciprocal-discriminant proof feeds the p≥5 route. The original-field square-class claim and characteristic2/3 input audit remain separate gaps. Rational Tate descent is an early MC.7 implication, with MC.0/MC.2 trace suppliers, never the final K3 Tate theorem itself.",
+      "brief": "Construct the K3-specific geometry missing from the atlas and the proof architecture of Charles, Annals 184 (2016), pp.487–526. The exact geometric endpoints are Theorem 2.10: for every d>0, over any field, choose r,N>0 and nonzero a,b so that H²=2md with m≡1 mod N, gcd(m,ab)=1 and a,b squares modulo m produces a smooth four-dimensional stable-sheaf moduli space M and L with L⁴=r, q(L)>0, c₁(v) proportional to H and condition (C); include the specified prime-to-n ample class and W-lifting refinements. The complex endpoint is Theorem 3.3: fixed dimension 2n and positive top power r give uniform birational linear-series bounds after replacing L by L′ with the same top power, and hence a birationally bounded family. Do not claim uniformity for the original L, which the introduction asks as an open question.\n\nBuild numerical NS and its geometric/arithmetic distinction, the ℓ-adic/algebraic Mukai lattices, Mukai vectors and RR, lifting of at most ten divisor classes, stable-moduli smoothness, deformation to Hilbert schemes, the BB form with (2n)!q^n=n!2^n times top intersection, integral/étale θ maps and p-primary cokernel. Include the corrected discriminant formula p^(2a)(v²/I²), not an integer multiplier. Develop the IHS local/global period argument, finite monodromy index, bounded ample deformation representatives, algebraized period-covering families and codimension-two Picard transport. Supply the strong-admissibility, special-endomorphism and finite-NS arguments in p≥5, then corrected Proposition 3.17 for underlying surfaces, never infinitely varying polarized pairs.\n\nThe arithmetic branch builds the corrected LMS signed-gerbe B-field lattice, exact geometric Brauer order, isotropic moduli partners, v^⊥/Zv maps and discriminant growth. Export these geometric inputs to Algebraic cycles, pure and mixed motives (MotivesAndAlgebraicCycles:MC.7) for Charles Theorems 1.3 and 1.4: Tate for all K3 over finite fields in p≥5, and for Picard rank≥2 in every characteristic including two. The latter does not use Kuga–Satake. Items113 and127 are routed conditional targets; discharge their named gates before using their conclusions. Item50 has an open characteristic-two birationality leaf; the E3 objection is rejected, while E9 remains. item119 imports Chebotarev Layer10. Remaining consumers retain their explicit geometric and characteristic restrictions.\n\nImport Stable and twisted sheaf moduli (AlgebraicModuliStableTwistedSheaves) for the general moduli/gerbe construction; Complex Shimura varieties and canonical models, Part II (OrthogonalIntegralModelsAndKugaSatake) for KS and good-prime models; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.2–GN.3) for the new embedding and finite-lattice theorems; existing Integral lattices (tauceti:Completed/IntegralLattices) and Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures) only through their actual pinned APIs. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.5), Algebraic moduli and representability (AlgebraicModuliForArithmeticGeometry:R09.1–R09.6), Complex comparison (ComplexComparisonPartII:C5), Crystalline cohomology (CrystallineCohomology:CR.1–CR.4), Cohomology comparisons (CohomologyComparisons:CP.2,CP.5), and the exact small-weight supplier in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. No private duplicate cycles, crystals, moduli stacks or comparison maps. Use only the early divisor (1,1) leaf of MC.7 for Lemma 3.15, never its later K3 Tate endpoint: refine that broad stage into acyclic early/late leaves before blueprint closure. Every object needs API, three discriminating tests, and source-extracted proof leaves for every cited theorem before this route can be accepted. Counterexamples 35,89,96 are regression tests, not atlas planets.\nPrime selection imports Chebotarev Layer10 identity-class infinitude and NumberFieldArithmetic Layer5 canonical completions. Use one common finite Galois compositum after changing the finite base field. The corrected LMS unit-representation and reciprocal-discriminant proof feeds the p≥5 route. The original-field square-class claim and characteristic2/3 input audit remain separate gaps. Rational Tate descent is an early MC.7 implication, with MC.0/MC.2 trace suppliers, never the final K3 Tate theorem itself.",
       "reason": "No atlas stage, new-roadmap definition, accepted packet or reservation plans K3 surfaces or IHS boundedness. K3BlochGroups concerns algebraic K₃, not surfaces. MC.7 owns the Tate/divisor theorem register but not this geometric proof development. The route imports, rather than duplicates, the shared foundations."
     },
     {
@@ -7500,7 +7505,7 @@
         "PAPER-CHARLES-16/130",
         "PAPER-CHARLES-16/133"
       ],
-      "reason": "MC.7 owns exact Hodge/Tate statements and selected divisor cases. Register Lefschetz (1,1) as an early independent proof leaf and the two K3 Tate cases as late applications of the new geometry. Refine the stage before forming dependency edges: the K3 argument may consume the early leaf but cannot import its own later Tate theorem."
+      "reason": "MC.7 owns exact Hodge/Tate statements and selected divisor cases. Register Lefschetz (1,1) as an early independent proof leaf and the two K3 Tate cases as late applications of the new geometry. Refine the stage before forming dependency edges: the K3 argument may consume the early leaf but cannot import its own later Tate theorem. This review rejects activation until early divisor (1,1) and rational descent, and late K3 Tate applications, are assigned explicit acyclic owner leaves. A prose warning alone does not implement that dependency split."
     },
     {
       "route": "source",
@@ -7702,10 +7707,10 @@
       "items": [
         "PAPER-CHARLES-16/50"
       ],
-      "title": "Characteristic-two birational linear-series proof",
-      "detail": "The source's 3r−4>r fails at r=2, and the final degree/h⁰ bounds for 4L are not the displayed r and 2r+1. Always doubling before the argument may repair the inequality, and then tracking powers gives uniform bounds, but the nonreduced-curve jet-separation-to-birationality step still needs a complete proof. Read Saint-Donat/Huybrechts and the Artin–Swinnerton-Dyer cited passage; certify a precise corrected bound. Items 51,124,125 depend on this gap. RESOLVED (cc-fb70e5, 22 September 2026): item 50 now carries a complete proof. It doubles to s=L₄²≥4, proves H⁰(C,−2L₄|_C+D(p)+D(q))=0 for non-reduced C=2C_red by the conormal filtration, lifts separation through H¹(X,2L₄)=0, and certifies N=128r+2 and d=256r. Item 50 is routed to K3SurfacesAndSymplecticBoundedness.",
-      "status": "resolved",
-      "resolution": "Resolved by cc-fb70e5 (item 50); E3 and E9 record the paper's slips."
+      "title": "Characteristic-two birationality supplier and corrected final constants",
+      "detail": "The E3 r=2 objection is rejected: C=2C_red forces r divisible by four. E9 remains valid, since the final map uses 4L. The inherited filtration calculation is useful, but the passage to generic tangent separation and separability in characteristic two requires a checked supplier proof; the assertion of two distinct tangent directions in |L| is not automatic for an inseparable map. Item49 source scope and the resulting item50 bound remain to be certified.",
+      "status": "open",
+      "resolution": "No complete proof is certified by this review. Retain the conservative numerical target and explicit open leaf."
     },
     {
       "id": "G2",
@@ -7715,8 +7720,8 @@
       ],
       "title": "Valuation bounds do not provide rational square classes",
       "detail": "LMS Prop.2.1.2 gives ℓ-valuations of ℓ-adic discriminants, not a common rational square class supported on finitely many rational primes. Charles Lemma 4.5's rank-one deduction is therefore not justified by that citation alone. Either supply a compatible-system determinant theorem with its proof, or replace this literal claim by the split-prime/quadratic-extension LMS lemma, item 114. This continuation replaces the needed p≥5 prime selection by simultaneous-k3-norm with full finite-extension and compositum data. The literal original-field assertion113 is still unproved; no compatible rational determinant for its arithmetic invariant lattice has been inferred from valuations.",
-      "status": "resolved",
-      "resolution": "Item 113 now states Lemma 4.5 in corrected form, after a finite extension removing the eigenvalue −1 and with −1 among the p_i, and proves it from the rational discriminant −g(1)g(−1)·disc NS (cayley-discriminant). The paper's gap is recorded as E8."
+      "status": "partially-resolved",
+      "resolution": "The Cayley-transform replacement is valid with the stated eigenvalue, rationality and pairing hypotheses after a finite extension. It does not certify the printed original-field statement. The needed comparison/semisimplicity suppliers remain within G3/G6."
     },
     {
       "id": "G3",
@@ -7725,8 +7730,8 @@
       ],
       "title": "Complete the simultaneous split-prime replacement",
       "detail": "The complete p≥5 prime-choice composition is now simultaneous-k3-norm: finite base extension, quadratic Frobenius, one common Galois compositum, identity Chebotarev Layer10, canonical Q_l embeddings, unit representation, prime-power residue lifting and rational Tate descent. Item119 is assigned to the exact existing upstream layer. Remaining for the all-characteristic consumer: audit the original geometric semisimplicity, pairing-compatible comparison and Brauer/cohomology inputs in p=2,3. A source scope restriction is not silently removed.",
-      "status": "deferred",
-      "resolution": "The p ≥ 5 prime choice is complete. What remains is to audit the supplier inputs (Frobenius semisimplicity, the pairing-compatible comparison and the Brauer inputs) in characteristics 2 and 3 for Theorem 1.4. These are cited suppliers' proofs."
+      "status": "open",
+      "resolution": "Independent review: this is an outstanding extraction obligation, not a completed supplier audit. The p ≥ 5 prime choice is complete. What remains is to audit the supplier inputs (Frobenius semisimplicity, the pairing-compatible comparison and the Brauer inputs) in characteristics 2 and 3 for Theorem 1.4. These are cited suppliers' proofs."
     },
     {
       "id": "G4",
@@ -7735,8 +7740,8 @@
       ],
       "title": "Final partner polarization and nonsuperspecial hypotheses",
       "detail": "Construct the simultaneous deformation of the gerbe, v_n, projective twisted moduli space and H_n with generic Picard rank one. Item 128 spells out why a verified projective rank-one family proves special ampleness; mere generic ampleness would not. Separately verify that the X_n to which Proposition 3.17 is applied are nonsuperspecial, or establish an allowed reduction covering exceptions. Do not assume Tate to prove that hypothesis.",
-      "status": "recorded",
-      "resolution": "Ampleness: item 128 completes the paper's sketch given the family; building the family is a supplier step. The nonsuperspecial hypothesis for the partners is a gap in the paper, recorded as E21; item 127 states what is needed."
+      "status": "open",
+      "resolution": "Independent review: this is an outstanding extraction obligation, not a completed supplier audit. Ampleness: item 128 completes the paper's sketch given the family; building the family is a supplier step. The nonsuperspecial hypothesis for the partners is a gap in the paper, recorded as E21; item 127 states what is needed."
     },
     {
       "id": "G5",
@@ -7746,8 +7751,8 @@
       ],
       "title": "Primitive embedding interfaces resolved; deeper source proof leaves remain",
       "detail": "Primary Nikulin text1.4–1.6,1.13.4,1.14.2 and1.15.1–5 was read through the publisher web PDF. Item37 now separates genus existence from marked embedding/sublattice orbit classification. Item38 now requires an initial primitive embedding; nonprimitive-obstruction proves the printed broader statement false. Item41 now has an explicit primitive construction with all prime-to-n properties. Full local PDF acquisition/image checks and deeper local genus/strong-approximation proofs remain open; the text extraction contains some OCR-damaged formulas. No full Nikulin-paper read is claimed.",
-      "status": "deferred",
-      "resolution": "Nikulin's local genus and strong-approximation proofs are cited suppliers."
+      "status": "open",
+      "resolution": "Independent review: this is an outstanding extraction obligation, not a completed supplier audit. Nikulin's local genus and strong-approximation proofs are cited suppliers."
     },
     {
       "id": "G6",
@@ -7767,52 +7772,59 @@
       ],
       "title": "Original prerequisite proofs and remaining declaration-sized decomposition",
       "detail": "The main published paper and full LMS arXiv manuscript were read; the other prerequisite interiors listed in prerequisites were not. In particular verify Fontaine–Messing small-degree range, integral θ construction, twisted period-index/nonemptiness, Yoshioka's integral quotient, IHS Torelli and special-endomorphism lifting with the 2013 erratum. Their source-extracted endpoints are not a closure certificate. Expand each quoted proof into all intermediate declarations at blueprint time or in a resumed extraction. Fresh Huybrechts pp16–18 identify the full geometric K3 determinant input. Its pairing-compatible smooth-proper/Betti comparison is an explicit MC.2 request; WC.4 dimension comparison alone does not supply it.",
-      "status": "deferred",
-      "resolution": "The prerequisite interiors (Fontaine–Messing, Yoshioka, twisted moduli, IHS Torelli, special-endomorphism lifting) are cited suppliers' proofs."
+      "status": "open",
+      "resolution": "Independent review: this is an outstanding extraction obligation, not a completed supplier audit. The prerequisite interiors (Fontaine–Messing, Yoshioka, twisted moduli, IHS Torelli, special-endomorphism lifting) are cited suppliers' proofs."
     }
   ],
   "coverage": [
     {
       "section": "§1",
       "items": "1–3,12–14,17,42–44,69,90,125,130",
-      "status": "complete",
-      "note": "Theorems 1.1–1.4 and lifting proposition represented; introduction's stronger uniform-original-L question and suggested HMX/AV alternatives are not claimed results. Numbered endpoints extracted, not prerequisite-proof closure. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
+      "status": "partial",
+      "note": "Theorems 1.1–1.4 and lifting proposition represented; introduction's stronger uniform-original-L question and suggested HMX/AV alternatives are not claimed results. Numbered endpoints extracted, not prerequisite-proof closure. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     },
     {
       "section": "§2.1",
       "items": "4–35,134,136",
-      "status": "complete",
-      "note": "Every numbered definition/result represented with split outputs; original Mukai/Yoshioka/FM proof inputs remain open. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
+      "status": "partial",
+      "note": "Every numbered definition/result represented with split outputs; original Mukai/Yoshioka/FM proof inputs remain open. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     },
     {
       "section": "§2.2",
       "items": "36–47",
-      "status": "complete",
-      "note": "Full congruence/descent proof extracted; Nikulin G5 remains. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
+      "status": "partial",
+      "note": "Full congruence/descent proof extracted; Nikulin G5 remains. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     },
     {
       "section": "§3.1",
       "items": "48–53,137",
-      "status": "complete",
-      "note": "The current inherited item50 contains cc-fb70e5’s G1 proof and route; its Saint-Donat/source supplier scope remains as recorded there. This continuation does not claim an independent verification of that repair. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
+      "status": "partial",
+      "note": "The current inherited item50 contains cc-fb70e5’s G1 proof and route; its Saint-Donat/source supplier scope remains as recorded there. This continuation does not claim an independent verification of that repair. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     },
     {
       "section": "§3.2",
       "items": "54–69",
-      "status": "complete",
-      "note": "Period/Torelli route extracted, generic suppliers distinguished; cited original interiors remain. The algebraized-cover step 66 still needs its surjectivity/algebraization/noetherian-induction proof leaves split during the G6 source audit. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6)."
+      "status": "partial",
+      "note": "Period/Torelli route extracted, generic suppliers distinguished; cited original interiors remain. The algebraized-cover step 66 still needs its surjectivity/algebraization/noetherian-induction proof leaves split during the G6 source audit. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     },
     {
       "section": "§3.3–§3.4",
       "items": "70–89,133,135,143",
-      "status": "complete",
-      "note": "Primitive/twist/level corrections explicit; Kisin and special-endomorphism lifting source boundaries retained. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6). Remark 3.9 is item 143."
+      "status": "partial",
+      "note": "Primitive/twist/level corrections explicit; Kisin and special-endomorphism lifting source boundaries retained. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Remark 3.9 is item 143. Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     },
     {
       "section": "§4",
       "items": "90–132",
-      "status": "complete",
-      "note": "The p≥5 prime-choice composition is decomposed explicitly. The literal lemma113, characteristic2/3 input audit, geometric comparison sources and twisted-moduli deformation gates remain open. (cc-442dc5) Every numbered statement in this section has an item; supplier proofs are deferred (G3, G5, G6). Lemma 4.5 is item 113 in corrected form (E8); the partner hypotheses are item 127 (E21)."
+      "status": "partial",
+      "note": "The p≥5 prime-choice composition is decomposed explicitly. The literal lemma113, characteristic2/3 input audit, geometric comparison sources and twisted-moduli deformation gates remain open. (cc-442dc5) Every numbered statement in this section has an item; supplier proof leaves remain open (G3, G5, G6). Lemma 4.5 is item 113 in corrected form (E8); the partner hypotheses are item 127 (E21). Independent review: numbered-statement inventory does not establish Protocol §0/§16 proof-input closure; see the review report.",
+      "numberedStatementInventory": "complete"
     }
   ],
   "regressions": [
@@ -7933,9 +7945,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the index-discriminant identity: the multiplier is v²/I², times a p-primary index square. For v=(1,0,−1), v²=2 and I=2, so the prime-to-p multiplier is 1/2 in odd characteristic. The printed integral λ cannot express it. This does not invalidate the later valuation bound.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E2",
@@ -7951,9 +7969,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof starts with a primitive embedding not assumed in the statement. The lattice diag(8,8) embeds nonprimitively into ⟨2⟩⊕U but cannot embed primitively: mod 2, x²+yz has three nonzero isotropic vectors and no two-dimensional totally isotropic plane. Taking m=1 satisfies every congruence condition. The explicit split plane fixes the consumer.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E3",
@@ -7969,9 +7993,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected. This passage is in the branch C=2C_red with L=O(C), hence r=4(C_red)² is a positive multiple of four (and at least eight by K3 parity). Thus 3r−4>r already holds. The proposed r=2 counterexample violates the branch hypothesis. In the reduced branch the two point divisors subtract two, not four. This verdict does not certify the other jet/separability steps.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E4",
@@ -7987,9 +8017,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the preceding setup on p.513: level n≥3 and p∤n is required. The reversed inequality on p.516 is a misprint.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E5",
@@ -8005,9 +8041,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a distinction between underlying surfaces and polarized pairs. Powers of a fixed polarization produce arbitrarily large degrees; choosing an admissible prime congruence gives infinitely many pairs satisfying the displayed numerical conditions. The bounded-lattice argument can count underlying surfaces, not those pairs.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E6",
@@ -8023,9 +8065,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the source convention: exp(−α/r)(r,α+D,0)=(r,D,d/r) when αD=0 and α²=−2d. For ℓ∤d this is not integral, although the original vector belongs to the displayed span. Define the span directly; also state the even-integral norm condition when using a Z-valued lattice carrier.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E7",
@@ -8041,9 +8089,15 @@
         "arXiv 1407.0592: v1 (2 July 2014) and v2 (24 August 2014, the latest)",
         "F. Charles's publication page https://www.math.ens.psl.eu/~charles/, checked 22 September 2026: it links an erratum for Invent. Math. 194 (2013) only, not for this paper",
         "web search for an erratum or correction, 22 September 2026: none found",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
       ],
-      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation."
+      "provenance": "Inherited unchanged from the current errata record; included here as Protocol16 requires. No independent verdict is supplied by this continuation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the line bundle just constructed on X_n is H_n. B denotes the initial divisor class and cannot carry its growing square.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E8",
@@ -8058,8 +8112,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap, not a counterexample to the final Tate theorem. Bounds on valuations leave unit square classes undetermined. The conditional Cayley repair supplies a rational square class only with pairing compatibility, the common characteristic polynomial and exclusion of −1 on the whole cohomology. Its finite extension is part of the repair.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E9",
@@ -8074,8 +8134,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the final linear series is 4L, with square 16r and h⁰=8r+2 under the stated vanishing, not the numbers for L. Earlier replacements must also be propagated.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E10",
@@ -8090,8 +8156,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in LMS arXiv v5: a reciprocal block V_λ⊕V_(1/λ) with dim V_λ=d has Gram determinant (−1)^d times a square. The final total-rank formula remains correct.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E11",
@@ -8106,8 +8178,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in LMS arXiv v5: the unimodular rank-two form x²+y² over Z_3 cannot represent 3, as already seen modulo 9. Representation of units is sufficient after excluding the finitely many primes dividing the fixed nonzero rational target.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E12",
@@ -8122,8 +8200,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in LMS arXiv v5. Without the displayed weight-q^w similitude, the orthogonality step fails. Gram [[ℓ^m,1],[1,0]] with φ=diag(1,−1) has full discriminant −1 and fixed-lattice discriminant ℓ^m. The K3 application has the additional pairing compatibility.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E13",
@@ -8138,8 +8222,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparison with (3.3): the crystalline realization carries the primitive orthogonal complement and Tate twist (1). Neither can be silently erased when passing to (3.4) or Lemma 3.12.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E14",
@@ -8154,8 +8244,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a convention mismatch with the LMS definition explicitly imported on p.519. The positive exponential convention there uses the gerbe −[α_n]; simultaneous reversal would also be consistent.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E15",
@@ -8170,8 +8266,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected. Charles explicitly identifies his stack with the LMS stack M_X(v); LMS Definition 3.4.1 defines objects (F,φ:det F≃O(D)). Thus the determinant condition is already imported. The μ_r/G_m distinction belongs in the interface but is not an omitted source hypothesis.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E16",
@@ -8186,8 +8288,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing hypothesis for the cited automatic-stability proof. A primitive ℓ-adic numerator does not force exact geometric Brauer order: a primitive algebraic class can have zero Brauer image. The corrected consumer must establish exact order after algebraic closure, separately from rank and isotropy.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E17",
@@ -8202,8 +8310,14 @@
       "searched": [
         "Charles published PDF and Annals article page; targeted Charles title plus erratum/correction search on 2026-09-23. Inherited author/arXiv checks retained, not all repeated; no correction identified in these checks.",
         "For LMS findings: arXiv1107.1221v5 and published DOI10.24033/asens.2215 PDF compared; p. 302 inspected as an image. Search on 2026-09-23 found no correction for these passages.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the Mukai pairing: (r,γ+D,0)·(0,D,0)=D²=+2d. The partner divisor B_n belongs to X_n. These are local sign/carrier slips.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E18",
@@ -8216,8 +8330,14 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the lattice parameter is d and n is not defined in that proof. The finite-prime exclusion must be (2d)!.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E19",
@@ -8230,8 +8350,14 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the new lattice has discriminant group A_(2md); the occurrence of n is inconsistent with the transported parameter m.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E20",
@@ -8244,8 +8370,14 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Theorem 2.10 supplies a fourfold with v²=2. The expression n−2 is not the square of that Mukai vector.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     },
     {
       "id": "PAPER-CHARLES-16/E21",
@@ -8258,8 +8390,109 @@
       "known": "new",
       "source": "Charles2016",
       "searched": [
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none."
-      ]
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.184.2.4 registers no update relation, and a Crossref bibliographic search for a correction to this paper found none.",
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed narrowly as an unverified application hypothesis. The reduction to nonsuperspecial X does not itself prove nonsuperspeciality for infinitely many X_n. Item127 correctly retains that premise. A separate exceptional-case finiteness or comparison proof may repair it; this review does not infer superspecial Picard rank by assuming the Tate theorem being proved.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
+    },
+    {
+      "id": "PAPER-CHARLES-16/E22",
+      "kind": "error",
+      "locator": "Proposition 3.10 proof, pp.512–513 (published Charles 2016)",
+      "printed": "this group is a free W-module of rank 1",
+      "correction": "The obstruction group is H²(M_P,O_M_P)⊗_W I^(n+1)/I^(n+2), for I=(t₁,…,t₁₉). Only the cohomology factor has rank one; the quotient has rank binomial(n+19,18).",
+      "reason": "The square-zero extension P_n⊂P_(n+1) has ideal I^(n+1)/I^(n+2). Already its first step has 19 conormal directions. The tensor is finite free, so killing a nonzero multiple still kills the obstruction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "provenance": "Codex — codex-hjdg0j independent review; source text reread at the locator.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The square-zero extension P_n⊂P_(n+1) has ideal I^(n+1)/I^(n+2). Already its first step has 19 conormal directions. The tensor is finite free, so killing a nonzero multiple still kills the obstruction.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
+    },
+    {
+      "id": "PAPER-CHARLES-16/E23",
+      "kind": "misprint",
+      "locator": "Theorem 2.4(vii) proof, p.497 (published Charles 2016)",
+      "printed": "H^(2n−2)(M_H(v), Z_ℓ(1))",
+      "correction": "The dual θ map has domain H^(4n−2)(M_H(v),Z_ℓ(2n−1)); cup product with H_M^(2n−2) sends H²(1) to H^(4n−2)(2n−1). Correct the two displayed Q_ℓ targets as well.",
+      "reason": "The variety has dimension 2n. Poincaré duality pairs degrees 2 and 4n−2 and total twist 2n. The written degree and twists do not type-check.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "provenance": "Codex — codex-hjdg0j independent review; source text reread at the locator.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The variety has dimension 2n. Poincaré duality pairs degrees 2 and 4n−2 and total twist 2n. The written degree and twists do not type-check.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
+    },
+    {
+      "id": "PAPER-CHARLES-16/E24",
+      "kind": "misprint",
+      "locator": "Proposition 2.6 proof, p.498, Hilbert–Chow open stratum (published Charles 2016)",
+      "printed": "S^[n] is the quotient",
+      "correction": "Replace S^[n] by S^[n]_* in the quotient of the blowup of S^n_* along Δ_*.",
+      "reason": "The entire construction lies over S^(n)_*. For n≥3 the excluded triple-point locus is nonempty, and the quotient cannot equal the full Hilbert scheme. The following cohomology restriction argument already uses the correct open subset.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "provenance": "Codex — codex-hjdg0j independent review; source text reread at the locator.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The entire construction lies over S^(n)_*. For n≥3 the excluded triple-point locus is nonempty, and the quotient cannot equal the full Hilbert scheme. The following cohomology restriction argument already uses the correct open subset.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
+    },
+    {
+      "id": "PAPER-CHARLES-16/E25",
+      "kind": "misprint",
+      "locator": "Theorem 2.4(vi) proof, p.496, cycle-class cokernels (published Charles 2016)",
+      "printed": "has a torsion-free cokernel",
+      "correction": "State saturation for NS⊗Z_ℓ or Pic⊗Z_ℓ (equivalently the completed image in the finite-rank K3/moduli setting), not the raw abelian-group map. For integral numerical descent use the already integral geometric θ and Br(k)=0 over a finite field.",
+      "reason": "The quotient Z_ℓ/Z contains prime-to-ℓ torsion: 1/q mod Z for q≠ℓ has order q. Thus the printed uncompleted map does not have a torsion-free abelian cokernel. The intended ℓ-adic saturation is compatible with the diagram on p.497.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "provenance": "Codex — codex-hjdg0j independent review; source text reread at the locator.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The quotient Z_ℓ/Z contains prime-to-ℓ torsion: 1/q mod Z for q≠ℓ has order q. Thus the printed uncompleted map does not have a torsion-free abelian cokernel. The intended ℓ-adic saturation is compatible with the diagram on p.497.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
+    },
+    {
+      "id": "PAPER-CHARLES-16/E26",
+      "kind": "misprint",
+      "locator": "Theorem 2.4(i) p.493; Proposition 2.6 p.498; Theorem 2.10 proof p.504 (published Charles 2016)",
+      "printed": "Ω²_(X/k); Ω^p_(X/k); Br(X)",
+      "correction": "Use Ω²_(M_H(v)/k) for the moduli symplectic form, Ω^p_(M_H(v)/k) for its Hodge numbers, and Br(M_H(v)) in the transfer induced by c₄(M_H(v)).",
+      "reason": "These statements concern the moduli variety. A sheaf on X cannot directly define Hodge cohomology on M_H(v), and a zero-cycle on the latter induces Brauer transfer from the latter.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review on 2026-09-24: checked the Annals article page, Charles author draft and the separate 2013 erratum, and searched both paper titles with erratum/correction; also checked the LMS arXiv record. No correction for these passages was identified in those checks. This is not an exhaustive novelty claim; inherited Crossref and published-LMS comparisons were not repeated by this reviewer."
+      ],
+      "provenance": "Codex — codex-hjdg0j independent review; source text reread at the locator.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "These statements concern the moduli variety. A sheaf on X cannot directly define Hodge cohomology on M_H(v), and a zero-cycle on the latter induces Brauer transfer from the latter.",
+        "by": "REV-PAPER-CHARLES-16"
+      }
     }
   ],
   "continuationPrimeSelection": {
@@ -8538,5 +8771,24 @@
         }
       ]
     }
-  ]
+  ],
+  "independentReviewAudit": {
+    "job": "REV-PAPER-CHARLES-16",
+    "agent": "Codex — codex-hjdg0j",
+    "verdict": "revise",
+    "date": "2026-09-24",
+    "items": 173,
+    "statuses": {
+      "missing": 140,
+      "library": 16,
+      "planned": 17
+    },
+    "libraryDeclarations": 26,
+    "sourceIssues": 26,
+    "sourceVerdicts": {
+      "confirmed": 24,
+      "rejected": 2
+    },
+    "numberedInventoryVsClosure": "Numbered endpoints are inventoried; Protocol §0/§16 supplier-proof coverage remains partial. Earlier continuation counts and complete claims are historical, superseded by this audit."
+  }
 }
