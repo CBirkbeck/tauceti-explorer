@@ -13,7 +13,7 @@
   "ExcursionOperatorsAndSpectralAction:ES3",
   "ExcursionOperatorsAndSpectralAction:ES4"
  ],
- "summary": "Centres, excursion operators and the spectral action, layers ES0 to ES4. This roadmap has NO integrated decomposition - no file in data/decompositions/, no draft, no external contribution and no reviewed library audit - so every one of the twenty-six nodes of this packet was written from Fargues-Scholze read directly in this session, from a file whose SHA-256 reproduces the recorded value byte for byte, with the text extracted by inflating the PDF's object streams and every printed page read off the running heads. The sections read are VIII.4 in full, VIII.5's statements, IX.4, IX.5 in full, the head of IX.6, IX.7 in full and the whole of Chapter X. The packet covers: the Bernstein centre of a category as End(id_C), with the distinction between a natural endomorphism of the identity and an endomorphism of one object; excursion data and operators, the invariant function they factor through, the reindexing, multiplication and unit-insertion relations, and Theorem VIII.4.1's algebra map Exc(W,G-hat) -> End(id_C); the discretisation route by which a theory stated for a DISCRETE group reaches W_E, through the wild cutoff of IX.5.1 and a discretisation of the tame inertia; the map from the geometric centre to the classical Bernstein centre and the description of the latter as a limit over levels; the spectral centre, the geometric centre and the Hecke-compatible part; Proposition IX.5.1 with its proof in full and the component decomposition it produces, a sum on compact objects and a product on Ind-categories; Theorem IX.5.2 and the excursion-algebra fallback that survives without its coefficient hypothesis; compact support over a parameter stack that is an infinite disjoint union; Theorem X.1.1 and Lemma X.1.2 each with its proof in full, and Corollary X.1.3, the rational spectral action; the failure of X.1.2 integrally, the sifted-colimit approximation that replaces it, Propositions X.3.1 to X.3.4 and Theorems X.0.1 and X.0.2; and, for ES4, the duality square of IX.5.3 and the elliptic material of X.2 with its decomposition over the basic elements of B(G). Several statements a reader might expect here are deliberately NOT planned, because the roadmap assigns them elsewhere: FS Definition/Proposition IX.4.1 and its abstract form Corollary VIII.4.3 belong to ES5, the representation-level consequences of IX.5.3 to ES6:duality, and Definition IX.7.1 with Theorems IX.7.2, IX.7.3 and IX.7.4 to ES7:parabolic and ES7:GLn-comparison. All of them were read in this session and their locators are recorded in the handoff note for whoever takes those layers. Twenty-six baseline declarations, all read at the pinned commits. Eleven gaps, each with a next source action. Seventeen requests. Three structural findings.",
+ "summary": "Centres, excursion operators and the spectral action, layers ES0 to ES4. This roadmap has NO integrated decomposition - no file in data/decompositions/, no draft, no external contribution - so every one of the twenty-six nodes of this packet was written from Fargues-Scholze read directly in this session, from a file whose SHA-256 reproduces the recorded value byte for byte, with the text extracted by inflating the PDF's object streams and every printed page read off the running heads. The sections read are VIII.4 in full, VIII.5's statements, IX.4, IX.5 in full, the head of IX.6, IX.7 in full and the whole of Chapter X. The packet covers: the Bernstein centre of a category as End(id_C), with the distinction between a natural endomorphism of the identity and an endomorphism of one object; excursion data and operators, the invariant function they factor through, the reindexing, multiplication and unit-insertion relations, and Theorem VIII.4.1's algebra map Exc(W,G-hat) -> End(id_C); the discretisation route by which a theory stated for a DISCRETE group reaches W_E, through the wild cutoff of IX.5.1 and a discretisation of the tame inertia; the map from the geometric centre to the classical Bernstein centre and the description of the latter as a limit over levels; the spectral centre, the geometric centre and the Hecke-compatible part; Proposition IX.5.1 with its proof in full and the component decomposition it produces, a sum on compact objects and a product on Ind-categories; Theorem IX.5.2 and the excursion-algebra fallback that survives without its coefficient hypothesis; compact support over a parameter stack that is an infinite disjoint union; Theorem X.1.1 and Lemma X.1.2 each with its proof in full, and Corollary X.1.3, the rational spectral action; the failure of X.1.2 integrally, the sifted-colimit approximation that replaces it, Propositions X.3.1 to X.3.4 and Theorems X.0.1 and X.0.2; and, for ES4, the duality square of IX.5.3 and the elliptic material of X.2 with its decomposition over the basic elements of B(G). Several statements a reader might expect here are deliberately NOT planned, because the roadmap assigns them elsewhere: FS Definition/Proposition IX.4.1 and its abstract form Corollary VIII.4.3 belong to ES5, the representation-level consequences of IX.5.3 to ES6:duality, and Definition IX.7.1 with Theorems IX.7.2, IX.7.3 and IX.7.4 to ES7:parabolic and ES7:GLn-comparison. All of them were read in this session and their locators are recorded in the handoff note for whoever takes those layers. Twenty-six baseline declarations, all read at the pinned commits. Eleven gaps, each with a next source action. Seventeen requests. Three structural findings. A reviewed library audit DOES exist for this roadmap: AUDIT-20, reviewed as REV-AUDIT-20 on 17 September 2026 (240 targets checked, 89 corrections), covers every layer of ExcursionOperatorsAndSpectralAction and returns the verdict NOT BUILT for each of them. Two targets are recorded as PARTIAL and are cited here rather than planned: ES0's algebra of natural endomorphisms of the identity, which is Mathlib's `CategoryTheory.CatCenter`, and ES3's coefficient hypothesis, which the pinned root pairings can state.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -147,6 +147,31 @@
     "ref": "tauceti:TauCeti.SmoothDiscreteTopRep",
     "module": "TauCeti/RepresentationTheory/SmoothDiscrete.lean",
     "provides": "The category of smooth discrete representations. The classical Bernstein centre is End(id) of its derived category, so the pinned category is where that statement would be made."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.CatCenter",
+    "module": "Mathlib/CategoryTheory/Center/Basic.lean",
+    "provides": "THE BERNSTEIN CENTRE OF A CATEGORY, ALREADY IN MATHLIB: `abbrev CatCenter := End (1_C)`. This is exactly the object Theorem VIII.4.1 calls the Bernstein centre of C, and the reviewed audit AUDIT-20 records this target as PARTIAL for that reason. This packet therefore cites it and plans only what is missing: the enhanced, degree-zero version on D_lis(Bun_G,Lambda)."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.CatCenter.app",
+    "module": "Mathlib/CategoryTheory/Center/Basic.lean",
+    "provides": "Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.CatCenter.naturality",
+    "module": "Mathlib/CategoryTheory/Center/Basic.lean",
+    "provides": "Naturality of a central element, from which centrality follows. Already proved at the pins, so this packet does not plan it."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Linear.toCatCenter",
+    "module": "Mathlib/CategoryTheory/Center/Linear.lean",
+    "provides": "`def toCatCenter [Linear R C] : R ->+* CatCenter C`, the scalar structure on the centre of an R-linear category. The Lambda-algebra structure on the Bernstein centre is this map and is not planned again."
+   },
+   {
+    "ref": "mathlib:RootPairing.flip",
+    "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+    "provides": "The dual root pairing. AUDIT-20 records that although the dual group does not exist as a group scheme at the pins, the hypothesis of Theorem X.0.1 CAN be stated with what does: pi_1(G-hat) is the quotient of the character lattice by the root lattice, which the pinned root pairings express. ES3's coefficient hypothesis is therefore statable today."
    }
   ]
  },
@@ -181,33 +206,40 @@
    "realises": [
     "ExcursionOperatorsAndSpectralAction:ES0"
    ],
-   "title": "The Bernstein centre of a category: End(id_C), and one object against all objects",
+   "title": "The Bernstein centre of a category: what Mathlib already has, and the enhanced version that is missing",
    "kind": "definition",
-   "statement": "For a Lambda-linear category C the BERNSTEIN CENTRE of C is the algebra End(id_C) of endomorphisms of the identity functor. Fargues-Scholze use exactly this name for it: Theorem VIII.4.1 produces a map of algebras to 'the Bernstein center of C (i.e., the algebra of endomorphisms of the identity of C)'. For the enhanced categories of this roadmap the relevant object is the degree-zero part, Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id), which is what the excursion algebra maps to. An element of End(id_C) is a family of endomorphisms z_X in End(X), one for each object X, NATURAL in X; it is not the same datum as an endomorphism of a single object, and the Schur-irreducibility arguments of ES5 turn on that distinction.",
+   "statement": "For a Lambda-linear category C the BERNSTEIN CENTRE of C is End(id_C). Mathlib ALREADY HAS THIS at the pinned commit: `CategoryTheory.CatCenter C` is by definition `End (1_C)`, it is commutative, `CatCenter.app` evaluates a central element at an object, `CatCenter.naturality` records the naturality from which centrality follows, and `Linear.toCatCenter` gives the ring map R -> CatCenter C for an R-linear category. Fargues-Scholze use exactly this name for exactly this object: Theorem VIII.4.1 produces a map of algebras to 'the Bernstein center of C (i.e., the algebra of endomorphisms of the identity of C)'. WHAT IS MISSING, and what this node owns, is the ENHANCED version: for a stable Lambda-linear enhancement the relevant object is the DEGREE-ZERO part pi_0 End(id), which the proof of IX.5.1 writes Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id), together with its condensed structure. The reviewed audit AUDIT-20 records this target as PARTIAL for precisely this reason.",
    "hypotheses": [
-    "The centre is an invariant of the CATEGORY, not of any group: it is End(id_C) for the chosen enhanced category, and is a priori unrelated to the classical Bernstein centre of a locally profinite group. The comparison between the two is ES0:classical-center's",
-    "For a stable infinity-category End(id_C) is itself an E_1-ring spectrum; Fargues-Scholze use its degree-zero part pi_0 End(id), written Z(C), and it is that ring that receives the excursion algebra",
-    "Centrality is automatic: naturality in X forces z_X to commute with every morphism, hence z is central in End(X) for every X",
-    "Lambda is a Z_l[sqrt q]-algebra throughout this roadmap, and C is Lambda-linear, so End(id_C) is a Lambda-algebra"
+    "The 1-categorical construction is NOT planned here: it is `CategoryTheory.CatCenter` at Mathlib 082e2d3, together with its `app`, `naturality`, `ext` and `mul_app` lemmas and the scalar map `Linear.toCatCenter`. The reviewed audit AUDIT-20 calls this target partial, and PROTOCOL.md section 15 forbids planning it again",
+    "What is missing at the pins is the enhanced version: pi_0 of the endomorphism spectrum of the identity of a STABLE Lambda-linear infinity-category, and its condensed structure. That is what the excursion algebra maps to and what this node owns",
+    "The centre is an invariant of the CATEGORY, not of any group; the comparison with the classical Bernstein centre of a locally profinite group is ES0:classical-center's, and AUDIT-20 records that the classical Bernstein centre does not exist in either library",
+    "Centrality is automatic from naturality, and is already proved at the pins as `CatCenter.naturality`",
+    "Lambda is a Z_l[sqrt q]-algebra throughout this roadmap, and C is Lambda-linear, so the scalar structure is `Linear.toCatCenter`"
    ],
    "proofSteps": [
-    "Define End(id_C) as the endomorphism monoid of the identity functor, and its degree-zero part for a stable enhancement.",
-    "Check that naturality gives centrality, so that the evaluation End(id_C) -> End(X) lands in the centre of End(X) for every object X.",
-    "Record the scalar structure: the unit Lambda -> End(id_C) and the induced Lambda-algebra structure."
+    "Cite the pinned `CategoryTheory.CatCenter` for the 1-categorical notion, its commutativity, `app` and the scalar map.",
+    "Define the degree-zero centre of a stable Lambda-linear enhancement as pi_0 of the endomorphisms of the identity, and check that it recovers the pinned notion on the homotopy category.",
+    "Record the condensed structure it inherits from the condensed enhancement of D_lis(Bun_G,Lambda), which is what makes the excursion character continuous."
    ],
    "acceptance": [
-    "Check that an endomorphism of one object does not give an element of the centre, by exhibiting a category and a non-natural family",
-    "Check centrality: every element of End(id_C) commutes with every morphism",
-    "Check that evaluation at a Schur-irreducible object gives a character of the centre, which is the mechanism ES5 uses"
+    "Check that the 1-categorical notion is the pinned `CatCenter` and is cited rather than redefined",
+    "Check that the degree-zero centre of a stable enhancement recovers `CatCenter` of the homotopy category",
+    "Check that an endomorphism of one object does not give a central element, which `CatCenter.app` already makes precise",
+    "Check that evaluation at a Schur-irreducible object gives a character of the centre, the mechanism ES5 uses"
    ],
    "prerequisites": [
     "EnhancedDerivedSheaves:E5:abstract",
     "VStackSheavesAndLisseCategories:VS4",
     "SmoothRepresentationsOfLocalGroups:SR.0",
+    "mathlib:CategoryTheory.CatCenter",
+    "mathlib:CategoryTheory.CatCenter.app",
+    "mathlib:CategoryTheory.CatCenter.naturality",
+    "mathlib:CategoryTheory.Linear.toCatCenter",
     "mathlib:CategoryTheory.Functor",
     "mathlib:CategoryTheory.NatTrans",
     "mathlib:CategoryTheory.Preadditive",
-    "mathlib:Module.End"
+    "mathlib:Module.End",
+    "mathlib:Condensed"
    ],
    "sources": [
     {
@@ -221,39 +253,50 @@
      "locator": "Proof of Proposition IX.5.1, printed p. 328",
      "excerpt": "Theorem VIII.4.1 gives a canonical map of algebras Exc(W, G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id_{D^P_lis(Bun_G,Lambda)^omega}).",
      "match": "The degree-zero part, and the notation Z(-) for it, exactly as the excursion algebra's target."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition IX.5.1, printed p. 328",
+     "excerpt": "Exc(W, G-hat) -> Z(D^P_lis(Bun_G,Lambda)^omega) = pi_0 End(id_{D^P_lis(Bun_G,Lambda)^omega})",
+     "match": "The degree-zero part, which is the enhanced notion this node owns. The 1-categorical notion is already `CategoryTheory.CatCenter` at the pins and is cited, not planned."
     }
    ],
    "implementationStatus": "unchecked",
    "api": [
     {
-     "name": "centre",
+     "name": "CatCenter",
      "role": "data",
-     "statement": "Z(C) = pi_0 End(id_C), the degree-zero endomorphisms of the identity functor."
+     "statement": "PINNED. `CategoryTheory.CatCenter C = End (1_C)`, commutative, at Mathlib 082e2d3. Cited, not planned."
     },
     {
-     "name": "centre.eval",
+     "name": "CatCenter.app",
      "role": "projection",
-     "statement": "Evaluation Z(C) -> End(X) at an object X."
+     "statement": "PINNED. Evaluation at an object; this is the pinned form of the one-object/all-objects distinction."
     },
     {
-     "name": "centre.natural",
+     "name": "CatCenter.naturality",
      "role": "structure",
-     "statement": "z_X f = f z_Y for every morphism f : Y -> X; naturality is the definition, not a lemma about it."
+     "statement": "PINNED. Naturality, from which centrality follows."
     },
     {
-     "name": "centre.central",
+     "name": "Linear.toCatCenter",
      "role": "structure",
-     "statement": "Each z_X lies in the centre of End(X); this follows from naturality."
+     "statement": "PINNED. `R ->+* CatCenter C` for an R-linear category; the Lambda-algebra structure of the centre."
     },
     {
-     "name": "centre.algebra",
-     "role": "structure",
-     "statement": "Z(C) is a Lambda-algebra when C is Lambda-linear, through the unit of the identity functor."
+     "name": "centreOfStableEnhancement",
+     "role": "data",
+     "statement": "MISSING: pi_0 End(id) for a stable Lambda-linear enhancement, which is what Theorem VIII.4.1's target is in the geometric setting."
     },
     {
-     "name": "centre.notObjectwise",
+     "name": "centreOfStableEnhancement.toCatCenter",
+     "role": "compatibility",
+     "statement": "MISSING: it agrees with the pinned `CatCenter` of the homotopy category; this is the compatibility the audit's partial verdict asks for."
+    },
+    {
+     "name": "centreOfStableEnhancement.condensed",
      "role": "structure",
-     "statement": "A family of endomorphisms indexed by objects is not an element of Z(C) unless it is natural; this is the distinction the roadmap asks to be kept."
+     "statement": "MISSING: the condensed structure inherited from the condensed enhancement of D_lis(Bun_G,Lambda), without which no excursion character is continuous."
     }
    ],
    "uses": [
@@ -272,20 +315,20 @@
    ],
    "tests": [
     {
-     "name": "naturality_is_required",
-     "statement": "A family of endomorphisms that is not natural is not central; a definition that forgets naturality is wrong."
+     "name": "agrees_with_pinned_CatCenter",
+     "statement": "On the homotopy category the degree-zero centre of a stable enhancement is the pinned `CategoryTheory.CatCenter`; a definition that does not is wrong."
     },
     {
-     "name": "centrality_follows",
-     "statement": "Every element of Z(C) commutes with every endomorphism of every object."
+     "name": "naturality_is_required",
+     "statement": "A family of endomorphisms that is not natural is not central; `CatCenter.app` and `CatCenter.naturality` already make this precise at the pins."
     },
     {
      "name": "scalar_at_a_schur_object",
-     "statement": "If End(X) = Lambda then evaluation at X gives an algebra map Z(C) -> Lambda; this is the mechanism the parameter assignment of ES5 uses."
+     "statement": "If End(X) = Lambda then evaluation at X gives an algebra map out of the centre; this is the mechanism the parameter assignment of ES5 uses."
     },
     {
      "name": "degree_zero",
-     "statement": "For a stable C, Z(C) is pi_0 of the endomorphisms of the identity; using the whole spectrum changes the statement of Theorem VIII.4.1."
+     "statement": "For a stable C the target of Theorem VIII.4.1 is pi_0 of the endomorphisms of the identity; using the whole spectrum changes the statement."
     }
    ],
    "planet": {
@@ -2300,7 +2343,11 @@
  "gaps": [
   {
    "title": "This roadmap has no integrated decomposition; every node was written from the source read in this session",
-   "detail": "There is no file for ExcursionOperatorsAndSpectralAction in data/decompositions/, no draft in research/expansion/drafts/, no external contribution and no reviewed audit in data/library-coverage.json. All twenty-six nodes of this packet were therefore written from Fargues-Scholze read directly in this session, from Geometrization.pdf whose SHA-256 reproduces the recorded value byte for byte; the text was extracted by inflating the PDF's object streams and reading its text operators, and every printed page was read off the running heads. The sections read are listed in the source record. A reviewer of this packet is checking a first reading and not a refinement of a reviewed one, and should treat every locator as unconfirmed by anyone else."
+   "detail": "There is no file for ExcursionOperatorsAndSpectralAction in data/decompositions/, no draft in research/expansion/drafts/, no external contribution. All twenty-six nodes of this packet were therefore written from Fargues-Scholze read directly in this session, from Geometrization.pdf whose SHA-256 reproduces the recorded value byte for byte; the text was extracted by inflating the PDF's object streams and reading its text operators, and every printed page was read off the running heads. The sections read are listed in the source record. A reviewer of this packet is checking a first reading and not a refinement of a reviewed one, and should treat every locator as unconfirmed by anyone else."
+  },
+  {
+   "title": "CORRECTION: this roadmap does have a reviewed library audit, and the first version of this packet said it did not",
+   "detail": "The first version of this packet, merged as pull request #2862, stated that there is 'no reviewed audit in data/library-coverage.json' for this roadmap. That is wrong. AUDIT-20, reviewed as REV-AUDIT-20 on 17 September 2026 with 240 targets checked and 89 corrections, covers all seventeen layers of ExcursionOperatorsAndSpectralAction and returns NOT BUILT for every one. The verdicts do not overturn anything planned here - nothing in this packet duplicates a built target - but two of the audit's target notes do change the packet, and both corrections are applied in this version. First, ES0's target 'the algebra of natural endomorphisms of the identity of the enhanced category, its centrality and scalar structure' is recorded as PARTIAL, because Mathlib at the pinned commit already has `CategoryTheory.CatCenter C = End (1_C)` with `CatCenter.app`, `CatCenter.naturality` and `Linear.toCatCenter`; the node ES0/bernstein-center-of-a-category now cites those declarations and owns only the enhanced degree-zero version, which is what the audit says is missing. Second, ES3's target records that although the dual group is absent, the hypothesis that l not divide the order of pi_1(G-hat)_tors IS statable at the pins through `RootPairing.flip`, since pi_1(G-hat) is the quotient of the character lattice by the root lattice; that declaration is now cited. The audit's duplicate records are also acted on: ES0 duplicates GlobalShtukasAndFunctionFieldLanglands:GS.5, which constructs excursion operators indexed by invariant functions and Galois tuples with the same relations globally over a function field, and a request to it is added."
   },
   {
    "title": "V. Lafforgue's relations, on which the last step of Theorem VIII.4.1 rests, were not read",
@@ -2411,6 +2458,10 @@
   {
    "supplier": "GeometricSatakeAndFusion:GS4:integral-dual-group",
    "need": "The dual group G-hat with its Q-action and the category Rep((G-hat semidirect Q)^I) over the integral coefficients used here, together with the Chevalley involution and Proposition VI.12.1's identification of the switching involution. Every excursion datum is built from an object of that category. The atlas records no edge from GS4 to ES0, ES2 or ES3 although all three are stated in terms of Rep((G-hat semidirect Q)^I); that is filed as a structural finding."
+  },
+  {
+   "supplier": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+   "need": "The GLOBAL excursion operators: indexed by invariant functions and tuples of Galois elements, with the same reindexing, multiplication and unit-insertion relations, over the function field of a curve. The reviewed audit AUDIT-20 records GS.5 as a duplicate of ES0, and PROTOCOL.md section 15 says a construction two layers share is planned once. The relations are identical; what differs is that GS.5 works with the Galois group of a function field and a global Hecke stack, while ES0 works with the local Weil group and the condensed enhancement. A restructuring job should decide which layer owns the shared algebra and which imports it."
   }
  ],
  "restructure": [

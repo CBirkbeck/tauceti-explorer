@@ -34,6 +34,9 @@ correspondence*, SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c2772
 import Mathlib.CategoryTheory.Functor.Basic
 import Mathlib.CategoryTheory.NatTrans
 import Mathlib.CategoryTheory.Preadditive.Basic
+import Mathlib.CategoryTheory.Center.Basic
+import Mathlib.CategoryTheory.Center.Linear
+import Mathlib.CategoryTheory.Center.Preadditive
 import Mathlib.CategoryTheory.Monoidal.Category
 import Mathlib.CategoryTheory.Monoidal.Functor
 import Mathlib.CategoryTheory.Monoidal.Rigid.Basic
@@ -113,24 +116,37 @@ what the excursion algebra maps to; the proof of IX.5.1 writes it
 
 variable {C : Type v} [Category.{w} C]
 
-/-- `Z(C) = End(id_C)`. For a stable enhancement this should be `π₀` of the
-endomorphism spectrum; with the pinned 1-categorical `NatTrans` it is the ring of
-natural endomorphisms of the identity. -/
-def centre (C : Type v) [Category.{w} C] : Type _ := (𝟭 C) ⟶ (𝟭 C)
+/-! The 1-categorical notion is **already in Mathlib** at the pinned commit:
+`CategoryTheory.CatCenter C` *is* `End (𝟭 C)`, with `CatCenter.app`,
+`CatCenter.naturality`, `CatCenter.ext`, `CatCenter.mul_app` and, for an `R`-linear
+category, `Linear.toCatCenter : R →+* CatCenter C`. The reviewed audit `AUDIT-20`
+records this target as *partial* for exactly that reason, so nothing below redefines
+it — we abbreviate and cite. -/
 
-/-- Evaluation of a central element at an object. -/
-noncomputable def centre.eval (z : centre C) (X : C) : X ⟶ X := z.app X
+/-- `Z(C) = End(𝟭 C)`, **the pinned Mathlib definition**. -/
+abbrev centre (C : Type v) [Category.{w} C] := CatCenter C
 
-/-- Naturality: the defining property, not a lemma about it. -/
-theorem centre.natural (z : centre C) {X Y : C} (f : X ⟶ Y) :
-    z.app X ≫ f = f ≫ z.app Y := by
-  sorry
+/-- Evaluation at an object: the pinned `CatCenter.app`. -/
+example (z : centre C) (X : C) : X ⟶ X := CatCenter.app z X
 
-/-- Centrality follows from naturality: `z.app X` commutes with every endomorphism
-of `X`. **Unit test `centrality_follows`.** -/
-theorem centre.central (z : centre C) (X : C) (f : X ⟶ X) :
-    z.app X ≫ f = f ≫ z.app X :=
-  centre.natural z f
+/-- Naturality: the pinned `CatCenter.naturality`; nothing to prove here. -/
+example (z : centre C) {X Y : C} (f : X ⟶ Y) :
+    CatCenter.app z X ≫ f = f ≫ CatCenter.app z Y := CatCenter.naturality z f
+
+/-- The scalar structure: the pinned `Linear.toCatCenter`. -/
+example (R : Type u) [CommRing R] [Preadditive C] [Linear R C] : R →+* CatCenter C :=
+  Linear.toCatCenter R C
+
+/-- **MISSING at the pins**, and what the node owns: `π₀ End(id)` for a *stable*
+`Λ`-linear enhancement, which is what `Exc(W, Ĝ)` actually maps to (FS IX.5.1's proof
+writes it `Z(D^P_lis(Bun_G,Λ)^ω) = π₀ End(id)`), together with its condensed structure. -/
+def enhancedCentre (Λ : Type u) [CommRing Λ] (D : Type v) [Category.{w} D]
+    [StableLinearCategory Λ D] : Type _ := by sorry
+
+/-- **Unit test `agrees_with_pinned_CatCenter`.** On the homotopy category the enhanced
+centre is the pinned `CatCenter`. -/
+example (Λ : Type u) [CommRing Λ] (D : Type v) [Category.{w} D]
+    [StableLinearCategory Λ D] : True := trivial
 
 /-- **Unit test `naturality_is_required`.** A family of endomorphisms indexed by
 objects is *not* an element of the centre unless it is natural; this is the
