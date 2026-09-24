@@ -1,0 +1,42 @@
+{
+  "redteam": "RT-RS-26",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-26",
+  "worker": "Codex — codex-a71f92",
+  "date": "2026-09-24",
+  "inputRevision": "1ed743b888d9015618f5b6c56c2c2f0fd4ee8904",
+  "summary": "No substantiated finding in the accepted three-roadmap restructuring. Independently checked all 25 preserved stages, 12 overlap pairs, nine owner contracts, five added links and 21 existing external consumer statements. The recorded graph remains acyclic (3,508 to 3,513 edges); four additions expose existing paths and PG.7 -> PadicFamilies:L4 alone changes reachability. This is a bounded structural red-team result, not proof closure or an exhaustive library-absence audit.",
+  "checked": [
+    "Read RS-26.json, RS-26.result.json and RS-26.md completely, together with REV-RS-26.md. Author astra-7c41e9 and reviewer astra-20260921-f6b2d8 are distinct from this worker.",
+    "Read all three member README documents in full, including implementation handoffs, examples, hypothesis restrictions and readiness checkpoints. Programmatically matched all 25 stage descriptions to those documents and all 25 keep records to the atlas stage set; all three roadmap decisions are keep.",
+    "Rechecked all 24 directed family leads as 12 unordered pairs. Examined all nine owners: early analytic annulus carriers, then PG.0–7 for specialized coefficients, equivalence, overconvergence, Herr comparison, psi, Iwasawa comparison, Wach modules and qualified relative cohomology. Shared inputs were not treated as duplicate application theorems.",
+    "Read the early PHT annulus and later P7 comparison contracts, PHT R06.1/R06.2, ArithmeticGaloisDuality D7/R02.1, Selmer L2/L3, PadicFamilies L4 and GL2 R16.3 supplier/normalization boundaries. Checked each of the five proposed edges against the actual endpoint descriptions.",
+    "Enumerated all 21 existing direct external consumer stages from data/atlas.json and read each description; checked the additional PadicFamilies L4 consumer and the report's AutomorphicCongruences L3 and ModularIwasawaMainConjectures L4 textual applications. No stage, prerequisite, supplier statement or original graph edge is removed.",
+    "Independently reconstructed the complete recorded graph from stageEdges and separately from stages[].requires and checked equality. Verified 1,968 atlas stages plus 51 external vertices, 3,508 old edges and five distinct additions, acyclicity before/after, and no return path for any addition. Found the four old paths and the one genuinely new reachability pair.",
+    "Tested four cyclic negative controls: regulator L2, L3 or L4 feeding PG.5, and full PHT P7 feeding PG.0. All fail acyclicity, while the proposed early-annulus and regulator-L1 edges pass. The test uses the recorded atlas plus RS-26, not the simultaneous union of unintegrated proposals.",
+    "Read all ten reviewed PadicHodgeRegulators coverage entries and REV-AUDIT-26. Reproduced the merge_library_audit.py projection without writing the aggregate and verified exact equality for those ten records. KU-padicreg is unaudited; AUDIT-33/38 remain pending and the 14 PLL/PG stages are absent from the reviewed aggregate. Read their target/duplicate leads without adopting unreviewed absence claims.",
+    "Read Mathlib cyclotomicCharacter, spec, toZModPow and continuous with the surrounding domain/field and roots-of-unity hypotheses at 082e2d37e8b0463410cdb532e111cd43d5a66174. Read the whole pinned ContCohomology/Basic.lean, including TopRep.homogeneousCochains and continuousCohomology and the iterated-function/model-comparison limitation. Matched both file Git blobs against GitHub at the pin. Neither citation supplies a Robba action or Herr/Iwasawa comparison.",
+    "Checked preservation of integral versus rational coefficients, psi-complex degrees 1 and 2, derived-limit corrections, separate dyadic descent, bounded unramified Wach hypotheses, relative Tor/exceptional loci, vector versus scalar regulators, unramified p>3 K3, and the GL2(Q_p)/small-prime branch boundaries. No original-source proof rereading, broad library-absence certification or Lean compilation is claimed.",
+    "Ran check_restructure.py successfully and its eight regression tests. Ran independent stage-conservation, owner/endpoint, graph, negative-control, consumer and audit-projection checks; their results and source hashes are recorded in the report."
+  ],
+  "findings": [],
+  "validation": {
+    "atlasStages": 1968,
+    "externalVertices": 51,
+    "baseEdges": 3508,
+    "proposedEdges": 3513,
+    "existingDirectConsumers": 21,
+    "addedDirectConsumers": 1,
+    "matchedAuditRecords": 10,
+    "sha256": {
+      "content/campaign/PadicHodgeRegulators/README.md": "7a280f819ed03dacb1f2acad03e26858a54844fd220cca9508c4d4cd3b9c5e66",
+      "content/campaign/PadicLocalLanglandsForGL2Qp/README.md": "a32a051570c60bf58c04ba99363ff604a8d4a7d94c0e1c06bb533757ef2f9841",
+      "content/campaign/PhiGammaModulesAndIwasawaCohomology/README.md": "76fd9352c0b2e14865a9149ddcf114f43fb6b8e00e595ef07f91c8558ae9e94d",
+      "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
+      "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
+      "research/blueprint/restructure/RS-26.md": "27317b38350dc3e794b823a3150147a9f9ed87c8c4d74a78c6e4309ac91c289a",
+      "research/blueprint/restructure/RS-26.result.json": "f6457cd48d5da633d20adae154ed31253b278466b926f0f51653eb6ccec8f804"
+    }
+  }
+}
