@@ -28472,8 +28472,9 @@
     "REV-AUDIT-30"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-30.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1610"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1610",
+   "finishedAt": "2026-09-24T05:41:51Z"
   },
   {
    "id": "RT-AUDIT-31",
@@ -28958,8 +28959,9 @@
     "RT-AREA-arithmeticgeometry-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-arithmeticgeometry-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1484"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1484",
+   "finishedAt": "2026-09-24T05:41:54Z"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-3",
@@ -29937,7 +29939,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-ktheory-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1523"
   },
   {
    "id": "REV-RT-AREA-ktheory-2",
