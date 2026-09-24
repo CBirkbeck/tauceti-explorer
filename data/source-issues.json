@@ -43945,20 +43945,19 @@
    "correction": "… B^+_cr/F^r ≅→ B^+_cr,K/F^r ≅← B^+_dR/F^r …, and the composition B^+_st → B̂^+_st —ι→ B^+_dR.",
    "reason": "Two slips in one sentence. The displayed chain has the same ring B^+_cr/F^r at both ends, so it produces no map to B^+_dR and the announced ι : B̂^+_st → B^+_dR is not defined; the third term must be B^+_dR/F^r, which is what the comparison of the graded pieces of A_cr and A_cr,K just quoted from Tsuji (Lemma 4.6.2) identifies with B^+_cr,K/F^r. And B̂^+_dR is defined nowhere in the paper: the target of ι_ϖ in §1.4.2 is B^+_dR. This map is used in the definition of RΓ_syn(X_C,Q_p(r)) and in every fundamental diagram.",
    "affects": "the proof",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 19. The chain defining ι must end in B_dR^+/F^r; repeating B_cr^+ does not define the stated map into B_dR^+. The extra hat on B_dR in the following composition has no defined role. The same pair occurs in arXiv v2 p. 19."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E2",
@@ -43968,20 +43967,19 @@
    "correction": "(H^0_HK(X_0) ⊗̂_F B^+_st)^{φ=1,N=0}.",
    "reason": "For r = 0 the derived eigenspace in the definition of RΓ_syn(X_C,Q_p(r)) is [·]^{N=0,φ=p^0}, i.e. φ = 1, and it is the φ = 1 eigenspace that is B^{+,φ=1}_cr = Q_p. With the printed exponent φ = p the middle term would be H^0_HK(X_0) ⊗̂_F B^{+,φ=p}_cr, which is infinite dimensional, and the displayed identification with Q_p would be false.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 24. In degree r=0 the Frobenius eigenvalue is p^0=1. The next equality with B_cr^{+,φ=1}=Q_p confirms it. arXiv v2 p. 24 has the same p in the preceding eigenspace."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E3",
@@ -43991,20 +43989,19 @@
    "correction": "the exponent is φ = p^r in both rows, and both horizontal maps are ι_HK ⊗ θ.",
    "reason": "The degree r is fixed throughout the proof of Proposition 3.36 and the eigenspaces being compared are the ones in its statement, so the exponent p^i has no meaning here; and a map into H^r_dR(X_K) ⊗̂_K C is ι_HK ⊗ θ by the definition given on p. 25 (ι_HK ⊗ ι lands in H^r_dR(X_K) ⊗̂_K B^+_dR, resp. in DR(X_C,r)). Both slips are repeated in the two rows of the diagram.",
    "affects": "the proof",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 26. Both rows of (3.37) concern fixed degree r, so φ=p^r, not an unbound i; the target is C-valued de Rham cohomology, hence the map is ι_HK⊗θ. The older v2 diagram has the same discrepancies."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E4",
@@ -44014,20 +44011,19 @@
    "correction": "(H^i_HK(X_0) ⊗̂_F B̂^+_st)^{N=0,φ=p^r}.",
    "reason": "H^i_HK(X_0) is an F-vector space and B̂^+_st is a Banach space over F, so the completed tensor product is over F; every other occurrence in the paper (Example 3.16, (3.19), Lemmas 3.20, 3.26, 3.28, Proposition 3.36) writes ⊗̂_F.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed in the p. 24 long exact sequence and its defining HK complex. Hyodo–Kato cohomology is an F-module; no canonical K-module structure is supplied. Its completed scalar extension to B_st is over F. The older v2 passage also uses K."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E5",
@@ -44037,20 +44033,19 @@
    "correction": "RΓ_rig(M_•/O^0_F) ∈ D(C_F).",
    "reason": "Cohomology over the base O^0_F takes values in convex F-vector spaces: (3.1) defines RΓ_rig(Y/O^0_F) as \"a complex in D(C_F)\", and Remark 3.6 reserves D(C_K) for the O^×_K-version. Lemma 3.8, which immediately follows, treats both bases at once and describes the cohomology as \"finite dimensional vector spaces (over F or K)\".",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed at §3.1.5 p. 17: log-rigid cohomology over O_F^0 is an F-complex; D(C_F) is the coefficient category before scalar extension. The older v2 p. 17 repeats C_K."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E6",
@@ -44060,20 +44055,19 @@
    "correction": "in the language of Schneiders [75, Section 1.1].",
    "reason": "In this paper's bibliography [74] is P. Schneider, Nonarchimedean functional analysis, while [75] is J.-P. Schneiders, Quasi-abelian categories and sheaves — the source of the \"functor RR\" terminology and of §1.1, and the reference the paper uses for every other quasi-abelian notion ([75, 1.1.4] for strict exactness, [75, Prop. 1.2.28, Cor. 1.2.27], \"by [75]\" for the t-structure). The name printed is Schneiders, so the intended item is [75].",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: footnote 14 names Schneiders but references [74], the Schneider–Teitelbaum entry; [75] is the Schneiders source in this bibliography. v2 footnote 14 repeats [74]. This is a citation slip, not a failure of rationalization."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E7",
@@ -44083,20 +44077,19 @@
    "correction": "((y_{i,j})_{j∈J_i})_{i∈N}.",
    "reason": "The product defining Y is indexed by N two lines earlier and the double series are written Σ_{i∈N}(Σ_{j∈J_i} …); no index set I is introduced in the proof (I is used in §2.1.1 for the embedding C_K ↪ LH(C_K)). The same slip is repeated a few lines later for the element y_c constructed from c̄.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: the product defining Y is indexed by N, while the surrounding tuple displays use an undeclared I. The same tuples occur in v2 p. 12. This is only an index-name slip."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E8",
@@ -44106,20 +44099,19 @@
    "correction": "The interchange of ⊗̂_K with the inductive limit is point (5) of §2.1.3, whose hypotheses — a regular inductive system of Fréchet spaces with injective nuclear transition maps — should be added to the statement of Lemma 2.3(2), which assumes only an acyclic inductive system of Banach spaces.",
    "reason": "The only statement in §2.1.3 that commutes ⊗̂_K with an inductive limit is point (5), and it requires the system to be regular with injective nuclear transition maps; acyclicity (L^1hocolim = 0) is a statement about the exactness of the colimit, not about the interchange, and nuclearity of the transition maps does not follow from it. In the applications the authors do check the missing hypotheses separately — at p. 24 they invoke point (5) explicitly for ker d^i ⊗̂_K (B^+_dR/F^{r−i−1}), and at p. 23 they note that Ω^i(X_K) is of compact type — so the fix is to carry those hypotheses in the lemma.",
    "affects": "the proof",
-   "known": "new",
+   "known": "Rejected by independent review; not a confirmed mistake.",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Rejected as a missing-hypothesis finding. The printed reference to §2.1.3 does not by itself justify the general interchange, but the asserted need to add regularity and nuclear transition maps is false. Use the Banach injective resolution already invoked in the proof. Over the complete discretely valued K, every closed subspace of a Banach space is complemented (Schneider, Nonarchimedean Functional Analysis, Proposition 10.5(a), proof read together with 10.1). Each short exact segment of that resolution therefore splits continuously. The additive completed tensor functor V⊗̂_K− preserves these splittings, giving a split exact tensor resolution without interchanging any inductive limit. Equivalently, the resulting contracting homotopy is preserved. This establishes the needed exactness in the paper’s setting without the proposed extra hypothesis on V. The general nonarchimedean injective-resolution construction remains an explicit supplier contract, not something formally supplied by the cited complex-analytic Prosmans paper. v2 has the same proof paragraph."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E9",
@@ -44129,20 +44121,19 @@
    "correction": "irreducible components of X_0.",
    "reason": "The two weight spectral sequences converge to H^i_rig(X_0/O^0_F) and H^i_conv(X_0/O^0_F) and the S are asserted to be smooth and proper over k, so they are intersections of components of the special fibre, as in the hypothesis of the proposition (\"all irreducible components of X_0 are proper\"), not of the weak formal scheme X. The same definition of Θ_j is given correctly for X_0 in (3.3).",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: the strata in Proposition 4.5’s proof on p. 32 are intersections of components of X_0; the next sentence makes them smooth proper k-schemes. Components of the formal X would have the wrong base. The older v2 passage has the same X."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E10",
@@ -44152,43 +44143,41 @@
    "correction": "—ι_HK⊗ι→ (H^r_dR(X_K) ⊗̂_K B^+_dR)/F^r ← 0.",
    "reason": "This is the proper case, i.e. the pullback description of the semistable comparison theorem (4.14) three lines above, whose map is ι_HK ⊗ ι; the map ι_HK ⊗ θ is the composite with θ : B^+_dR → C and lands in H^r_dR(X_K) ⊗̂_K C, not in (H^r_dR(X_K) ⊗̂_K B^+_dR)/F^r.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: (4.14) on p. 35 correctly uses ι into B_dR^+, whereas the immediately following pullback label changes to θ despite retaining B_dR^+/F^r as target. Restore ι. v2 has the same pair of labels."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E11",
    "kind": "misprint",
    "locator": "§5.2.2, p. 38",
    "printed": "Let M^* := Hom_cont(M,Λ) for any topological Λ-module M, and equip M^* with the weak topology. Then Sp_J(Λ)^* is naturally isomorphic to lim←_n LC(X_{n,J},Λ)^*, i.e. a countable inverse limit of finite free Λ-modules.",
-   "correction": "Sp_J(Λ)^* ≅ lim←_n Sp_{J,n}(Λ)^*, the inverse limit of the duals of the level-n quotients through which Sp_J(Λ) = lim→_n Sp_{J,n}(Λ) is written.",
-   "reason": "As printed the right-hand side is the dual of LC(X_J,Λ) = lim→_n LC(X_{n,J},Λ), not of the proper quotient Sp_J(Λ) = LC(X_J,Λ)/Σ_i LC(X_{J∪{i}},Λ) whose dual is being described. The stated consequences (countable inverse limit of finite free modules, nuclear Fréchet dual, compact integral dual) are unaffected, since Sp_J(Λ) is the inductive limit of its own finite-dimensional level pieces.",
-   "affects": "nothing",
-   "known": "new",
+   "correction": "Replace the claimed equality by Sp_J(Λ)^* = Ann(Σ_i LC(X_{J∪{i}},Λ)) inside lim←_n LC(X_{n,J},Λ)^*. A presentation by finite free level modules, when used, needs its own compatible splitting/freeness argument.",
+   "reason": "Confirmed on rendered p. 38, with the proposed repair narrowed. The inverse limit of LC(X_{n,J},Λ)^* is the dual of LC(X_J,Λ), not the dual of its parabolic quotient. The latter is the annihilator of the parabolic-function subspace. For d=1,J=∅ this is the total-mass-zero subspace of distributions on P^1(K); a Dirac mass lies in the printed right side but not this subspace. Finite-level freeness needs a compatible presentation/proof; it does not follow for arbitrary quotients just by renaming them Sp_{J,n}. v2 p. 38 repeats the incorrect identification.",
+   "affects": "a stated result",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 38, with the proposed repair narrowed. The inverse limit of LC(X_{n,J},Λ)^* is the dual of LC(X_J,Λ), not the dual of its parabolic quotient. The latter is the annihilator of the parabolic-function subspace. For d=1,J=∅ this is the total-mass-zero subspace of distributions on P^1(K); a Dirac mass lies in the printed right side but not this subspace. Finite-level freeness needs a compatible presentation/proof; it does not follow for arbitrary quotients just by renaming them Sp_{J,n}. v2 p. 38 repeats the incorrect identification."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E12",
@@ -44198,20 +44187,19 @@
    "correction": "the fact that Sp^cont_J(O_L) is the p-adic completion of Sp_J(O_L).",
    "reason": "The symbol St^cont_J is never defined in the paper; the continuous representation introduced in the paragraph immediately above is Sp^cont_J, with unit ball Sp^cont_J(O_L), and it is its universal property that is being proved.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: St^cont_J in the proof of Corollary 5.4 on p. 39 is an undeclared spelling for Sp^cont_J used in the statement and preceding definition. v2 repeats it."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E13",
@@ -44221,43 +44209,41 @@
    "correction": "|ϖ|^n and (O^{d+1}_K/ϖ^n)^*.",
    "reason": "The uniformiser fixed in the paper is ϖ (\"Let ϖ be a uniformizer of O_K that we fix in this paper\", p. 7); π is not defined anywhere, and these are its only two occurrences as a uniformiser.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed only as an unannounced uniformizer notation change on p. 40: π has the same intended role as the fixed ϖ. The powers and congruence quotient are consistent once this dictionary is stated. v2 uses π too; no mathematical theorem changes."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E14",
    "kind": "misprint",
    "locator": "§5.3, p. 40",
    "printed": "The following theorem is one of the main results of [73]. See also [66] for a different argument (at least for a) and the compactly supported analogue of b)).",
-   "correction": "at least for b) and the compactly supported analogue of b).",
+   "correction": "Cite Orlik for the de Rham computation (b). Supply a separate precise source for the compactly supported assertion if retaining it; it was not verified in this Orlik text.",
    "reason": "Part a) of Theorem 5.8 is the ℓ-adic statement and part b) the de Rham one, while [66] is Orlik, \"The de Rham cohomology of Drinfeld's half space\" — a different argument for b), together with its compactly supported analogue. As printed the alternative argument is attributed to the ℓ-adic part.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed in the limited sense that the cited Orlik paper concerns de Rham part (b), not ℓ-adic part (a). Read the author’s public The de Rham cohomology of Drinfeld’s half space, pp. 1–2, including Theorem 1 and formula (1.1); https://www2.math.uni-wuppertal.de/~orlik/preprints/deRham_final.pdf. Its text search has no compact-support theorem. Thus changing (a) to (b) repairs the main attribution, but is not independent verification of the extra compactly supported claim. v2 p. 40 repeats the original attribution."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E15",
@@ -44267,20 +44253,19 @@
    "correction": "H^r_dR(H^d_K) and H^r_proét(H^d_C,Q_ℓ(r)).",
    "reason": "The index s is undefined; the surjections come from Sp_r(Z) ≅ LC_c(H^{r+1},Z) in degree r, and the next sentence as well as the regulators r_dR, r_proét and Theorem 5.10 all use r throughout.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: the p. 41 symbols use (r+1)-tuples and r-fold cup products, hence degree r and twist r throughout the displayed surjections. v2 p. 41 repeats H^s_dR and Q_ℓ(s)."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E16",
@@ -44290,20 +44275,19 @@
    "correction": "H^r(BT_s,F).",
    "reason": "The hypothesis is indexed by r (\"Let 1 ≤ r ≤ d\", pointed (r−1)-simplices) and the sentence itself says \"the r-th cohomology group\"; s is the truncation parameter of the building, not a cohomological degree.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 46: Lemma 6.8 explicitly says r-th cohomology, so the displayed H^s is an index slip. The truncation index s is not a cohomological degree. v2 repeats it."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E17",
@@ -44313,20 +44297,19 @@
    "correction": "without the Tate twist.",
    "reason": "The clause just before names the Tate twist explicitly; \"the Twist twist\" is a slip for it.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 47. The preceding sentence specifies the Tate twist (−j−k), so the following Twist twist is only a word typo. v2 repeats it."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E18",
@@ -44336,20 +44319,19 @@
    "correction": "M(H^{r+1},K), M(H^{r+1},F), M(H^{r+1},Q_p) in all four places.",
    "reason": "The regulators are defined on distributions and measures on H^{r+1}, the space of (r+1)-tuples of hyperplanes: that is how they are introduced in §5.4.1 (r_dR : D(H^{r+1},K) → H^r_dR(H^d_K)) and how they are used in the proof of this very statement, which invokes \"the corresponding maps M(H^{r+1},Z_p) → Sp_r(Z_p)^*\". With H^{d+1} the source would not depend on r at all, and for r < d it would be the wrong space.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered pp. 58–59. Each degree-r regulator integrates symbols of (r+1) hyperplanes, and the proof uses that domain. Replace d+1 by r+1 in all three regulators of 6.45(3) and the announced regulator in Remark 6.46. v2 p. 59 puts all four regulators in Theorem 6.45(3), with the same d+1 discrepancy; the later manuscript moves the étale regulator to a remark, so the two versions are not identical."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E19",
@@ -44359,20 +44341,19 @@
    "correction": "ι_{p,n} : RΓ_cr(Y_0/O^0_{F,n}) → RΓ_cr(Y/r^PD_{p,n}).",
    "reason": "ι_{p,n} is the case K = F of the construction, quoted from Hyodo–Kato Prop. 4.13, and the projection it sections is printed one line above as p_0 : RΓ_cr(Y/r^PD_{p,n}) → RΓ_cr(Y_0/O^0_{F,n}); moreover the definition ι_{ϖ,n} := g^*ι_{p,n}ψ^e applies the pullback along g : Spec r^PD_{ϖ,n} → Spec r^PD_{p,n}, which requires ι_{p,n} to land over r^PD_{p,n}.",
    "affects": "the proof",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 60: the K=F section has base r^PD_{p,n}; otherwise the subsequent g^* base change has the wrong source. arXiv v2 does not contain this expanded unramified-to-ramified construction: its Appendix A.1 p. 60 states the section more briefly. Do not claim this exact passage appears unchanged in v2."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E20",
@@ -44382,20 +44363,19 @@
    "correction": "The constant in the statement should be the one the proof produces: p_0 ι_{ϖ,n} = p^M with M = M(d,e) = N_ι + eN, where N_ι = N(d) is Hyodo–Kato's constant for the case K = F and N = N(d) is the constant of the p^N-inverse ψ.",
    "reason": "The symbol N_ι is used with two different meanings within four lines: in the quoted statement of Hyodo–Kato's Prop. 4.13 (the case K = F, N_ι = N(d)) and in the conclusion of the lemma (N_ι = N(d,e)), while the computation produces a third constant M = M(d,e). Since ι_HK is defined further down as p^{−N_ι} ι̃_HK, it matters which constant is meant; the proof shows it is the one produced by φ^e ψ^e = p^{eN}.",
    "affects": "the proof",
-   "known": "new",
+   "known": "Rejected by independent review; not a confirmed mistake.",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Rejected. Lemma 7.3 states existence of an exponent N_ι=N(d,e), not a prescribed numerical equality with the unramified exponent. Naming that exponent a(d) and the inverse-Frobenius exponent b(d), the displayed computation gives M=a(d)+e b(d). Taking N_ι=M satisfies the assertion and the later normalization p^(−N_ι). Renaming is all that is needed. The earlier v2 Appendix A.1 has a shorter construction; it is not the same proof."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E21",
@@ -44405,20 +44385,19 @@
    "correction": "Proposition 6.27 and Lemma 5.11.",
    "reason": "5.11 is a lemma (\"Lemma 5.11. Let r ≥ 0. There are natural isomorphisms of Fréchet spaces …\", p. 42), and it is cited correctly as such five other times in the paper, including on the same page (\"The right triangle commutes by Lemma 5.11\").",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: the p. 53 argument refers to the Hyodo–Kato regulator Lemma 5.11, not a theorem with that number. v2 repeats Theorem 5.11."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E22",
@@ -44428,20 +44407,19 @@
    "correction": "with kernel B^j_1 (equivalently, the n-fold composite C^n : Z^j_n → Ω^j has kernel B^j_n).",
    "reason": "By the paper's own conventions (proof of Lemma 6.20, p. 48: C^{-1} : Z^j_n ≅ Z^j_{n+1}/B^j_1) the single Cartier operator C : Z^j_{n+1} → Z^j_n has kernel B^j_1; B^j_n is the kernel of the composite C^n. The parenthesis as printed is correct only if read as a statement about the composites.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed on rendered p. 64. For a single Cartier map C:Z^j_{n+1}→Z^j_n, the kernel is B^j_1; B^j_n describes the corresponding iterated-Cartier kernel. Check against the Cartier quotient in §6.2.3 and the recursive filtration. arXiv v2 Appendix B p. 63 has the same incorrect B^j_n, under different appendix numbering."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E23",
@@ -44451,20 +44429,19 @@
    "correction": "By Proposition 6.3 …, and the range of the indices is 1 ≤ i ≤ j.",
    "reason": "6.3 is a proposition, not a theorem; and the exponents of η = y_1^{m_1}⋯y_j^{m_j} dlog y_1 ∧ ⋯ ∧ dlog y_j are m_1,…,m_j, so there is no m_0 to constrain.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed: p. 45 refers to Proposition 6.3 and to the j exponents m_1,…,m_j, so Theorem and the extra index 0 are slips. v2 repeats both."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E24",
@@ -44474,20 +44451,261 @@
    "correction": "Frobenius; torsion-free; vanishing.",
    "reason": "Three spelling slips, recorded for completeness because §18 asks for the register to be complete; none of them affects the mathematics.",
    "affects": "nothing",
-   "known": "new",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
    "searched": [
-    "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
-    "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
-    "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
-    "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
    ],
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Confirmed only as spelling slips at the indicated passages. Fobenius, torsion-fee and vanishining do not change a mathematical assertion; v2 retains the corresponding spellings (with its different appendix numbering)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E25",
+   "kind": "misprint",
+   "locator": "Text immediately after Theorem 1.8, p. 4 (authors’ manuscript, 7 September 2019)",
+   "printed": "ι_HK : H^r_HK(X_k)⊗_F K ≃ H^r_dR(X_C)",
+   "correction": "Replace X_C by X_K; the comparison over C is obtained by extending scalars.",
+   "reason": "For the point X=Spf O_K the two sides as printed are K and C, and the natural scalar-extension inclusion K→C is not an isomorphism. The full construction on p. 18 has X_K. Checked in the rendered page and in v2 p. 4.",
+   "affects": "a stated result",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "For the point X=Spf O_K the two sides as printed are K and C, and the natural scalar-extension inclusion K→C is not an isomorphism. The full construction on p. 18 has X_K. Checked in the rendered page and in v2 p. 4."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E26",
+   "kind": "misprint",
+   "locator": "Equation (1.13), p. 6 (authors’ manuscript, 7 September 2019)",
+   "printed": "H^0_ét(X_{k̄},WΩ^{r−1}_log) ⊗̂_{O_F} A_cr^{φ=p}",
+   "correction": "The completed tensor product of the logarithmic Witt sections with A_cr^{φ=p} is over Z_p.",
+   "reason": "Logarithmic Witt forms carry Z_p coefficients, not arbitrary O_F coefficients. For r=1 and k=F_(p^2), the logarithmic degree-zero term is Z_p; there is no compatible unital W(k)-action extending its usual Z_p-module structure (reduction would give F_(p^2)→F_p). The next long exact sequence and Lemma 6.37 use Z_p. Rendered p. 6 and v2 (1.13) both print O_F.",
+   "affects": "a stated result",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Logarithmic Witt forms carry Z_p coefficients, not arbitrary O_F coefficients. For r=1 and k=F_(p^2), the logarithmic degree-zero term is Z_p; there is no compatible unital W(k)-action extending its usual Z_p-module structure (reduction would give F_(p^2)→F_p). The next long exact sequence and Lemma 6.37 use Z_p. Rendered p. 6 and v2 (1.13) both print O_F."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E27",
+   "kind": "misprint",
+   "locator": "Example 3.10, p. 18, two quotient descriptions (authors’ manuscript, 7 September 2019)",
+   "printed": "sub-O_U-algebra generated by dlog(x_1x_2); sub-O_P-algebra generated by dlog(x_1x_2)",
+   "correction": "Quotient the logarithmic de Rham differential graded algebra by the differential ideal generated by dlog(x_1x_2).",
+   "reason": "A unital O-algebra contains 1 and is not an ideal to quotient by. Even interpreting only its underlying submodule fails to impose all wedge multiples. The relative differential relation is the homogeneous differential ideal; the generator is closed. This keeps degree zero O and the claimed one-dimensional relative differential direction. Both descriptions were checked on rendered p. 18 and in v2 p. 18.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "A unital O-algebra contains 1 and is not an ideal to quotient by. Even interpreting only its underlying submodule fails to impose all wedge multiples. The relative differential relation is the homogeneous differential ideal; the generator is closed. This keeps degree zero O and the claimed one-dimensional relative differential direction. Both descriptions were checked on rendered p. 18 and in v2 p. 18."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E28",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.32, p. 24, both asserted quotient surjections (authors’ manuscript, 7 September 2019)",
+   "printed": "B_dR^+/F^{r−i−1} → B_dR^+/F^{r−i}",
+   "correction": "Reverse the indicated quotient map: B_dR^+/F^{r−i} → B_dR^+/F^{r−i−1}.",
+   "reason": "The filtration is decreasing. For n=r−i≥2, the canonical quotient B^+/t^n→B^+/t^{n−1} is surjective; the map preserving representatives in the reverse direction is not well-defined, since t^{n−1} is zero only in its proposed source. The corrected direction also has kernel gr_F^{n−1}, as the displayed exact sequence requires. Both occurrences checked on rendered p. 24 and in v2.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "The filtration is decreasing. For n=r−i≥2, the canonical quotient B^+/t^n→B^+/t^{n−1} is surjective; the map preserving representatives in the reverse direction is not well-defined, since t^{n−1} is zero only in its proposed source. The corrected direction also has kernel gr_F^{n−1}, as the displayed exact sequence requires. Both occurrences checked on rendered p. 24 and in v2."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E29",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.36, p. 27, Stein surjectivity paragraph (authors’ manuscript, 7 September 2019)",
+   "printed": "H^1 holim_i (H^r_HK(U_i)⊗̂_F B̂_st^+)^{N=0,φ=p^{r−1}}",
+   "correction": "In the first obstruction, for surjectivity in degree r−1 at fixed Tate twist r, replace H^r_HK(U_i) by H^{r−1}_HK(U_i). Keep the kernel eigenvalue φ=p^{r−1}. The later degree-r closed-image argument is a separate use of H^r_HK.",
+   "reason": "The Tate twist r is fixed while the cohomological degree varies. In degree r−1 the surjection has domain (H^{r−1}_HK⊗B_st)^{φ=p^r,N=0}, and its kernel is (H^{r−1}_HK⊗B_st)^{φ=p^{r−1},N=0} by Lemma 3.39. This kernel system supplies the R^1-limit obstruction. Thus only the first cohomological H^r is wrong; the later degree-r closed-image argument uses H^r and is separate. Rendered p. 27 and the corresponding v2 passage checked.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "The Tate twist r is fixed while the cohomological degree varies. In degree r−1 the surjection has domain (H^{r−1}_HK⊗B_st)^{φ=p^r,N=0}, and its kernel is (H^{r−1}_HK⊗B_st)^{φ=p^{r−1},N=0} by Lemma 3.39. This kernel system supplies the R^1-limit obstruction. Thus only the first cohomological H^r is wrong; the later degree-r closed-image argument uses H^r and is separate. Rendered p. 27 and the corresponding v2 passage checked."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E30",
+   "kind": "error",
+   "locator": "Proposition 6.1 proof, p. 44, definition of the modified Tate lattice (authors’ manuscript, 7 September 2019)",
+   "printed": "Z_p(r)′=(p^a a!)^(−1)Z_p(r), r=(p−1)a+b, 0≤b≤p−1",
+   "correction": "Specify a unique quotient–remainder convention, including the endpoint and r=0, consistent with the Fontaine–Messing map being imported. Do not choose a convention without checking that supplier.",
+   "reason": "The printed inclusive interval gives two values when r is a positive multiple of p−1. With p=3,r=2, (a,b)=(0,2) and (1,0) yield Z_p(2) and p^(−1)Z_p(2). They are different lattices although they have the same rationalization. Both the rendered manuscript and v2 p. 44 have the ambiguous interval. The rational comparison theorem is unaffected.",
+   "affects": "a stated result",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "The printed inclusive interval gives two values when r is a positive multiple of p−1. With p=3,r=2, (a,b)=(0,2) and (1,0) yield Z_p(2) and p^(−1)Z_p(2). They are different lattices although they have the same rationalization. Both the rendered manuscript and v2 p. 44 have the ambiguous interval. The rational comparison theorem is unaffected."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E31",
+   "kind": "misprint",
+   "locator": "Definition before Lemma 6.8, p. 46 (authors’ manuscript, 7 September 2019)",
+   "printed": "N_η̂ = {[L] | ϖ L_r ⊊ L ⊊ L_1}; N_η̂ is a subset of vertices of BT_s",
+   "correction": "For the truncated building explicitly intersect this set with Vert(BT_s), or state [L]∈BT_s in the defining condition.",
+   "reason": "For d=1 take the radius-one truncated tree around [L_0], with L_0=O_K e_1+O_K e_2. Its boundary vertex L_1=O_K e_1+O_K ϖe_2 has the intermediate lattice L=O_K e_1+O_K ϖ²e_2: ϖL_1⊊L⊊L_1, but [L] is at distance two from [L_0] and lies outside BT_1. The displayed condition therefore does not imply membership in BT_s. A coefficient system restricted to BT_s cannot be evaluated there without intersecting the index set with that building. This corrects the indexing definition, not the acyclicity theorem; preservation of its recursive proof within the truncation remains a proof obligation. Rendered p. 46 and the corresponding v2 definition checked.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "For d=1 take the radius-one truncated tree around [L_0], with L_0=O_K e_1+O_K e_2. Its boundary vertex L_1=O_K e_1+O_K ϖe_2 has the intermediate lattice L=O_K e_1+O_K ϖ²e_2: ϖL_1⊊L⊊L_1, but [L] is at distance two from [L_0] and lies outside BT_1. The displayed condition therefore does not imply membership in BT_s. A coefficient system restricted to BT_s cannot be evaluated there without intersecting the index set with that building. This corrects the indexing definition, not the acyclicity theorem; preservation of its recursive proof within the truncation remains a proof obligation. Rendered p. 46 and the corresponding v2 definition checked."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E32",
+   "kind": "error",
+   "locator": "Proposition 6.11, p. 47 (authors’ manuscript, 7 September 2019)",
+   "printed": "X and Y are ordinary if and only if X̃ is ordinary",
+   "correction": "For the reverse implication, require the smooth centre to have codimension at least two (componentwise), or restrict to the forward implication used for blow-ups of ordinary centres.",
+   "reason": "The missing restriction has a direct counterexample. Over F_3 let X=P^2 and let Y be the smooth cubic y²z=x³−xz². X is ordinary. The curve is nonsingular, and Cartier kills its invariant differential dx/y: in characteristic 3, the coefficient of x² in x³−x is zero. Hence Y is a nonordinary elliptic curve. As Y is an effective Cartier divisor, Bl_Y X≅X is ordinary. This disproves the printed reverse implication. The paper’s applications to ordinary blow-up centres only need the forward direction. Rendered p. 47 and v2 Proposition 6.11 checked. The original Illusie Proposition 1.6 was not accessed; the counterexample, rather than an unverified quotation, establishes this verdict.",
+   "affects": "a stated result",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "The missing restriction has a direct counterexample. Over F_3 let X=P^2 and let Y be the smooth cubic y²z=x³−xz². X is ordinary. The curve is nonsingular, and Cartier kills its invariant differential dx/y: in characteristic 3, the coefficient of x² in x³−x is zero. Hence Y is a nonordinary elliptic curve. As Y is an effective Cartier divisor, Bl_Y X≅X is ordinary. This disproves the printed reverse implication. The paper’s applications to ordinary blow-up centres only need the forward direction. Rendered p. 47 and v2 Proposition 6.11 checked. The original Illusie Proposition 1.6 was not accessed; the counterexample, rather than an unverified quotation, establishes this verdict."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E33",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.45(4), p. 59, bounded-form injectivity argument (authors’ manuscript, 7 September 2019)",
+   "printed": "(dΩ^{r−1})^{G-bd}=0 or, equivalently, (Ω^{r−1,d=0})^{G-bd} → H^{r−1}_dR is injective",
+   "correction": "Use closed r-forms and H^r_dR throughout the following injectivity argument, leaving the initial dΩ^{r−1} unchanged.",
+   "reason": "dΩ^{r−1} consists of exact r-forms. Its bounded part is killed by injectivity of the bounded closed-r-form map to H^r; the stated degree-(r−1) map tests exact (r−1)-forms instead. Proposition 6.5 identifies the relevant bounded integral r-forms and Proposition 6.27 supplies the degree-r injection. This is a repair of the displayed proof, not a change to the theorem. Rendered p. 59 and v2 checked.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "dΩ^{r−1} consists of exact r-forms. Its bounded part is killed by injectivity of the bounded closed-r-form map to H^r; the stated degree-(r−1) map tests exact (r−1)-forms instead. Proposition 6.5 identifies the relevant bounded integral r-forms and Proposition 6.27 supplies the degree-r injection. This is a repair of the displayed proof, not a change to the theorem. Rendered p. 59 and v2 checked."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E34",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.28(1c), p. 54 (authors’ manuscript, 7 September 2019)",
+   "printed": "H^r_dR(X)⊗_{O_K}K ↪ H^r_dR(X) ≃ Sp_r(K)^*",
+   "correction": "The middle term is H^r_dR(X_K).",
+   "reason": "Diagram (6.31) immediately above has the generic fibre X_K, and Proposition 6.27 is precisely the injection from the model’s rational cohomology into that generic-fibre cohomology. The repeated formal X does not identify the unbounded smooth Steinberg dual. Rendered p. 54 and v2 checked.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "Diagram (6.31) immediately above has the generic fibre X_K, and Proposition 6.27 is precisely the injection from the model’s rational cohomology into that generic-fibre cohomology. The repeated formal X does not identify the unbounded smooth Steinberg dual. Rendered p. 54 and v2 checked."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20/E35",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.8, p. 63, the linearized ι_ϖ display after (7.9) (authors’ manuscript, 7 September 2019)",
+   "printed": "RΓ_cr(X_0/O_F^0)⊗̂^L_{O_F}r^PD_ϖ → RΓ_cr(X_0/r^PD_ϖ)",
+   "correction": "The target is RΓ_cr(X/r^PD_ϖ), as in Lemma 7.3 and (7.9).",
+   "reason": "This is the linearization of the section lifting from the special fibre to the formal model. Lemma 7.3 and the target of β in (7.9) both use X over r^PD_ϖ, not X_0. The inserted 0 in this display changes that target. The rendered p. 63 was checked; arXiv v2 Appendix A has a materially different, shorter argument, so no unchanged-passage claim is made for it.",
+   "affects": "the proof",
+   "known": "new — no correction identified in the bounded public checks listed; journal version of record not collated",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1801.06686 lists v1 (20 January 2018) and v2 (18 January 2019); downloaded https://arxiv.org/pdf/1801.06686v2, SHA-256 3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89. Corresponding passages were collated; this is not a claim to have reread the entire earlier version.",
+    "Checked the authors’ manuscript at https://webusers.imj-prg.fr/~wieslawa.niziol/cdn16.pdf, dated 7 September 2019, SHA-256 efabc016019575ae20b4dc6567d618dfe2fc1ab1daa374c1db044fa29f363cef. Findings below refer to this 68-page version; its identity with the publisher’s version of record is unverified.",
+    "Checked https://api.crossref.org/works/10.1007/s00222-019-00923-z: relation={}, no update-to/updated-by returned. https://link.springer.com/article/10.1007/s00222-019-00923-z exposes a subscription preview; no erratum identified there. These bounded metadata checks do not prove that no correction exists.",
+    "Checked publication pages https://webusers.imj-prg.fr/~wieslawa.niziol/, https://webusers.imj-prg.fr/~pierre.colmez/ and https://dospinescu.perso.math.cnrs.fr/, plus title/erratum and title/correction web searches. No correction notice for these passages identified. Older public copies at https://webusers.imj-prg.fr/~pierre.colmez/cdn19.pdf (18 January 2019) and https://dospinescu.perso.math.cnrs.fr/cdn16.pdf (20 January 2018) were located; their dates do not make them later corrections."
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "reviewReason": "This is the linearization of the section lifting from the special fibre to the formal model. Lemma 7.3 and the target of β in (7.9) both use X over r^PD_ϖ, not X_0. The inserted 0 in this display changes that target. The rendered p. 63 was checked; arXiv v2 Appendix A has a materially different, shorter argument, so no unchanged-passage claim is made for it."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21/E1",
