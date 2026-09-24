@@ -23924,7 +23924,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
@@ -23932,7 +23932,8 @@
     "BP-HeightsRationalPointsAndObstructions",
     "BP-SchemeAndStackFoundations",
     "BP-SieveMethodsAndPrimePatterns"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1038"
   },
   {
    "id": "REV-ArithmeticStatistics",
@@ -26559,8 +26560,9 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-28.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1624"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1624",
+   "finishedAt": "2026-09-24T15:57:49Z"
   },
   {
    "id": "RT-RS-29",
