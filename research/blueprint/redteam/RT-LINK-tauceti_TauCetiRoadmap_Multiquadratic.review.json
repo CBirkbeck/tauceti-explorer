@@ -1,0 +1,15 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+  "findings": [
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. NarrowGenusField.lean:68 already defines IsNarrowGenusField for a number field with a chosen quadratic root, abelian Galoisness over Q, unramifiedness at nonzero finite primes, and maximality; there is no infinite-place condition. Lines 100 and 130 prove root-preserving uniqueness/existence of an algebra equivalence, and lines 140–156 prove the predicate for candidateGenusField under Squarefree d and rational nonsquareness, without a sign restriction. These are implemented public declarations and proofs, not a future-work comment. The stale comment at GenusField.lean:55–57 exists, but cannot justify MQ-LINK-R1's contrary implementation obligation. Apply the proposed bounded fix to overlaps[1].proposal, MQ-LINK-R1 and reviewBaseline.qualification, and add the new pinned file to reviewBaseline.sources. Preserve the request's ordinary/narrow README correction: for positive radicands the ordinary construction uses candidateGenusFieldReal, while the narrow construction uses the full candidate. Keep remaining ray-class, narrow-class and unit-sign comparisons outside this finding. The narrow predicate quantifies comparison fields in the same universe; do not silently claim the stronger cross-universe signature of the ordinary predicate. Preserve all dependency edges and historical review text, recording the correction in the fix report."
+    },
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Read Multiplicative.lean completely, including assumptions and proofs. MultiplicativeSquareClassGroup is the literal quotient of K units by squares; multiplicativeSquareClassEquiv compares it to Multiplicative (SquareClassGroup K), and elementaryTwoQuotientEquivSquareClassGroup is ZMod 2-linear. finite_multiplicativeSquareClassGroup_iff and natCard_multiplicativeSquareClassGroup supply finiteness/cardinality transport. RingHom.multiplicativeSquareClassMap and squareClassMap supply field-map pushforward, generator/identity/composition laws, and a commuting comparison. Only Field hypotheses occur, with no characteristic-two exclusion. These implement precisely the three generic interop bullets in QuadraticFormInvariants Layer 0, so links[0].reason incorrectly leaves them as consumer additions. Keep the explicit Multiquadratic-0 -> QuadraticFormInvariants-0 edge, but name these generic interfaces as existing pinned imports alongside Basic.lean, add Multiplicative.lean to baseline sources, and retain only form-specific applications/comparisons as consumer work. Record an owner README correction request if that source is outside the fix scope. Nat.card equality transfers cardinality; it does not assert universal finiteness, and this does not establish the whole quadratic-form layer. No edge or owner change is needed."
+    }
+  ]
+}
