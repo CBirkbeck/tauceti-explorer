@@ -25968,7 +25968,8 @@
     "REV-PAPER-MARTIN-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1739"
   },
   {
    "id": "REV-RT-PAPER-MARTIN-25",
@@ -26317,8 +26318,9 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1619"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1619",
+   "finishedAt": "2026-09-24T01:30:48Z"
   },
   {
    "id": "REV-RT-RS-07",
@@ -26815,7 +26817,8 @@
     "REV-AUDIT-02"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-02.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1553"
   },
   {
    "id": "RT-AUDIT-03",
@@ -30003,8 +30006,9 @@
     "RT-AREA-representations-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1530"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1530",
+   "finishedAt": "2026-09-24T01:30:49Z"
   },
   {
    "id": "RT-AREA-representations-2",
