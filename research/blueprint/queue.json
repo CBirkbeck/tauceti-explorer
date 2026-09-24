@@ -3038,8 +3038,9 @@
    ],
    "avoidAccountOf": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1185"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1185",
+   "finishedAt": "2026-09-24T12:01:18Z"
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
@@ -6368,8 +6369,8 @@
    ],
    "avoidAccountOf": "PAPER-CANNING-LARSON-PAYNE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1363"
+   "state": "external",
+   "note": "claimed on GitHub issue #1363"
   },
   {
    "id": "PAPER-BHATT-MATHEW-23",
@@ -26509,8 +26510,8 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-28.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1625"
+   "state": "external",
+   "note": "claimed on GitHub issue #1625"
   },
   {
    "id": "REV-RT-RS-28",
