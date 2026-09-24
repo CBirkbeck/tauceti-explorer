@@ -125051,19 +125051,585 @@
    "kind": "misprint",
    "locator": "The K-book, author-hosted draft of 29 August 2013, Theorem VI.5.7 (PDF p. 498)",
    "printed": "Note: there was a typo in the published version.)",
-   "correction": "The parenthetical note is the author's own, flagging a typographical error in the published Graduate Studies in Mathematics printing of the same theorem. A reader working from the published book should take the statement in the form given in this draft: the first homology of the group of invertible two by two matrices is the units of the field, the second homology is the direct sum of the exterior square of the units and K_2 of the field, and the displayed sequence from the third homology of the monomial subgroup through the third homology of the general linear group onto the Bloch group is exact.",
+   "correction": "The parenthetical note is the author's own, flagging a typographical error in the published Graduate Studies in Mathematics printing of the same theorem. A reader working from the published book should take the statement in the form given in this draft: the first homology of the group of invertible two by two matrices is the units of the field, the second homology is the direct sum of the exterior square of the units and K_2 of the field, and the displayed sequence from the third homology of the monomial subgroup through the third homology of the general linear group onto the Bloch group is exact. (Review: the corrected form itself holds only for infinite F; for F₄, H₂(GL₂(F₄), ℤ) ≅ ℤ/2 while ∧²F₄× ⊕ K₂(F₄) = 0, recorded separately.)",
    "reason": "The draft carries an unbalanced parenthesis and an explicit note that the published version differs. The correction records which form this packet uses, since the two differ in a statement every node of V.4 depends on. The published text was not obtained, so no claim is made about what it prints.",
    "affects": "nothing",
-   "known": "new",
+   "known": "Weibel's errata to the published GSM 145 printing, https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (the live file returns 404; read from the Wayback Machine copy, SHA-256 ef7ed6d0…, on 2026-09-24): 'p.540 (VI.5.7): “H2(GL2(F), Z) = F×, and” should be: “H1(GL2(F), Z) = F×, H2(GL2(F), Z) = ∧2 F× ⊕ K2(F), and”'. The draft already prints the corrected form, with the author's note.",
    "searched": [
-    "2026-09-24: the author's book page at sites.math.rutgers.edu was read for an errata file; the combined draft itself carries the note quoted above. The published Graduate Studies in Mathematics printing was not obtained, so the difference could not be collated."
+    "Weibel's errata to the published GSM 145 printing, https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (the live file returns 404; read from the Wayback Machine copy, SHA-256 ef7ed6d0…, on 2026-09-24)",
+    "the author's K-book page at sites.math.rutgers.edu (2026-09-24)"
    ],
    "owner": "K3BlochGroups",
    "file": "research/blueprint/packets/K3BlochGroups.json",
    "citation": "Sources of the blueprint of K3BlochGroups",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "The note is printed at the locator (PDF p. 498, under the display of Theorem 5.7), and the published typo exists. The fields need correcting. (1) 'known' is not 'new': Weibel's errata to GSM 145 (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, linked from the book page; read from the Wayback copy of 10 Nov 2019, SHA-256 ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e) reads: 'p.540 (VI.5.7): “H2(GL2(F), Z) = F×, and” should be: “H1(GL2(F), Z) = F×, H2(GL2(F), Z) = ∧2 F× ⊕ K2(F), and”'. So 'printed' should quote the published p. 540 text, and 'searched' should cite the errata instead of saying the published text was not obtained. (2) The draft form the correction recommends is itself false for F_4 (H_2(GL_2(F_4)) ≅ ℤ/2); it holds for infinite F. That is recorded as a new issue, and the correction should say 'for infinite F'. (3) The unbalanced parenthesis in the draft affects nothing."
+  },
+  {
+   "id": "K3BlochGroups/E2",
+   "kind": "error",
+   "locator": "Ex. III.5.7, PDF p. 237 (printed p. 229), author-hosted draft of 29 August 2013",
+   "printed": "If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension.",
+   "correction": "Add the hypothesis that X is perfect (as when X is a universal central extension, by Lemma III.5.3.2).",
+   "reason": "D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central extensions, but the composite D_8 → Z/2 has kernel {1, r², s, sr²}, which contains the reflection s, not central because srs⁻¹ = r⁻¹ ≠ r. With X perfect the proof of V.1/central-extension-comp goes through.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E3",
+   "kind": "misprint",
+   "locator": "Proof of Corollary IV.1.20, PDF p. 281 (printed p. 273)",
+   "printed": "Since X = BGL(R+) is an H-space",
+   "correction": "X = BGL(R)⁺; likewise 'the map π3(S2) → K1(Z) sends η to [−1]' refers to the stable class η ∈ πs1 of Ex. IV.1.12(a).",
+   "reason": "The plus construction is applied to BGL(R), not to a ring R⁺; Ex. IV.1.12(a) is stated for η ∈ πs1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E4",
+   "kind": "misprint",
+   "locator": "Before Lemma IV.1.19, PDF p. 280 (printed p. 272), and Remark IV.1.19.1, PDF p. 281",
+   "printed": "ΩΣYn ≃ ∏_{i=1}^n ΩS3 × ∏_{i≠j} ΩS5 × Y′n; and in Remark 1.19.1: ΩYn is homotopy equivalent to ∏_i ΩS2 × ∏_{i≠j} ΩS3 × Y′′ where Y′′ is 3-connected, with π3(Yn) the sum of Zn and ⊕_{i≠j} π3(S3)",
+   "correction": "The weight-two products run over pairs i < j, and Y′′ is 2-connected.",
+   "reason": "The basic products of weight two in n letters number n(n−1)/2, so π_3(S² ∨ S²) ≅ Z³, not Z⁴. The weight-three Hilton–Milnor factors of Ω(∨S²) are copies of ΩS⁴, which is 2-connected but not 3-connected. Only π_3(ΩΣY_n) and π_2(ΩY_n) are used, and these are unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E5",
+   "kind": "misprint",
+   "locator": "Ex. IV.1.9, PDF p. 282 (printed p. 274)",
+   "printed": "πn(BS+) ≅ πn(BP+) ≅ πn(BG+) for all n ≥ 3 … this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3",
+   "correction": "Drop πn(BG+) (G is not introduced in the exercise; read it as in Ex. IV.1.8 with P ⊴ G), and read πnBSt(R)+.",
+   "reason": "The exercise introduces only A, S and P; the classifying-space B is missing before St(R)+.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E6",
+   "kind": "gap",
+   "locator": "Proof of Proposition VI.4.3.2, PDF p. 490 (printed p. 482)",
+   "printed": "Thus we may suppose that k is algebraically closed. In this case, K4(k) is divisible (by VI.1.6)",
+   "correction": "For char k = p > 2 cite Corollary VI.1.3.1(i) (PDF p. 473), which gives the divisibility in positive characteristic.",
+   "reason": "Theorem VI.1.6 is stated only for 'an algebraically closed field of characteristic 0'; the reduction keeps every characteristic other than 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E7",
+   "kind": "misprint",
+   "locator": "Corollary VI.5.3, PDF p. 496 (printed p. 488)",
+   "printed": "Let F be a number field, with r1 real embeddings and r2 complex embeddings",
+   "correction": "r_2 is the number of complex places (pairs of complex-conjugate embeddings), as the preceding sentence ('the number of factors of R and C in the R-algebra F ⊗Q R') fixes.",
+   "reason": "For F = Q(i) there are two complex embeddings but r_2 = 1, and K_3(Q(i)) has rank 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E8",
+   "kind": "misprint",
+   "locator": "III.5.3, PDF p. 226 (printed p. 218)",
+   "printed": "since extensions of a group G are classified by the cohomology group H2(G; Z)",
+   "correction": "Central extensions of G by A are classified by H²(G; A), as the text states on the next page.",
+   "reason": "The next page reads: 'the equivalence classes of central extensions of G by a fixed group A are in 1–1 correspondence with the elements of the cohomology group H2(G; A)'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's K-book page sites.math.rutgers.edu/~weibel/Kbook.html links an errata file Kbook/Kbook.errata.pdf that returns 404, and the Kbook/ directory listing contains no errata file.",
+    "2026-09-24: the author's 2012 chapter files Kbook/Kbook.III.pdf and Kbook/Kbook.IV.pdf print the same text where applicable.",
+    "The published Graduate Studies in Mathematics 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B1) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E9",
+   "kind": "error",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, the sentence before Lemma VI.5.4 and Lemma VI.5.4(c), PDF p. 496",
+   "printed": "The elements c = [x] + [1 − x] and ⟨x⟩ = [x] + [x^{-1}] of B(F) play an important role, as illustrated by the following calculations. … (c) There is a homomorphism F^× → B(F) sending x to ⟨x⟩.",
+   "correction": "⟨x⟩ lies in P(F), with ∂⟨x⟩ = x ∧ (−x). The homomorphism is Fˣ → P(F), and its image is 2-torsion. ⟨x⟩ ∈ B(F) if and only if x ∧ (−x) = 0 in ∧̃²Fˣ, e.g. for x = −1.",
+   "reason": "Over F_5, ∂⟨2⟩ = ∂[2] + ∂[3] = 2 ∧ 3, the nonzero element of ∧̃²(F_5ˣ) ≅ ℤ/2. This also contradicts the K-book's own Exercise 5.3, which says [2] ∈ B(F_5) and [3] ∉ B(F_5).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E10",
+   "kind": "misprint",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, Corollary VI.5.4.1, PDF p. 497",
+   "printed": "Corollary 5.4.1. If char(F) = 2 or √−1 ∈ F then 3c = 0 in B(F); if char(F) = 3 or ∛−1 ∈ F then 2c = 0 in B(F).",
+   "correction": "Read '∛−1 ∈ F' as 'F contains a root of t² − t + 1' (a primitive sixth root of unity, or −1 in characteristic 3). Then c = ⟨ζ⟩ and 2c = 0.",
+   "reason": "−1 is always a cube root of −1, yet c has order 6 in B(F_11) ≅ ℤ/6 (computed from the presentation).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E11",
+   "kind": "gap",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, proof of Lemma VI.5.4, PDF p. 497",
+   "printed": "Because |F| ≥ 4, any z ∈ F − {0, 1} has the form z = zx/x for x ≠ 1 and hence 2⟨z⟩ = 0.",
+   "correction": "Choose x ∉ {0, 1, z^{-1}}, which exists because |F| ≥ 4; then y = zx is admissible with y ≠ x.",
+   "reason": "Applying 2⟨y/x⟩ = 0 needs y = zx ∉ {0, 1}; x ≠ 1 alone allows zx = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E12",
+   "kind": "error",
+   "locator": "Calegari–Garoufalidis–Zagier, arXiv:1712.04887v3, Definition 2.1 (p. 8) and the remark after Definition 1.1 (p. 2)",
+   "printed": "Definition 2.1. Suslin's Bloch group of a field F is the quotient B̃(F) = Ã(F)/C̃(F), where Z̃(F) = Z[F^× \\ 1], Ã(F) is the kernel of the map d : Z̃(F) → ∧²F^×, [X] ↦ (X) ∧ (1 − X) … Our Bloch group is a quotient of Suslin's Bloch group B̃(F) by a subgroup of exponent 2 (see Lemma 2.2).",
+   "correction": "The group CGZ call Suslin's uses the exterior square as target, whereas the K-book (VI.5.1, following Suslin) uses the antisymmetric quotient ∧̃²Fˣ. The quotient statement holds for CGZ's B̃(F) but not for the K-book's B(F), which maps to CGZ's group with kernel and cokernel both elementary abelian 2-groups.",
+   "reason": "Over F_5, CGZ's B̃(F_5) = P(F_5) ≅ ℤ/6 while the K-book's B(F_5) ≅ ℤ/3 = (q + 1)/2 (Remark 5.1.1). Over F_11, the K-book's B(F_11) ≅ ℤ/6 = ⟨c⟩ maps onto ⟨[0]⟩ ≅ ℤ/3 inside B_CGZ(F_11) ≅ ℤ/6.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E13",
+   "kind": "error",
+   "locator": "Calegari–Garoufalidis–Zagier, arXiv:1712.04887v3, Definition 1.1 and the remark after it, p. 2",
+   "printed": "Definition 1.1. The Bloch group of a field F is the quotient B(F) = A(F)/C(F), where A(F) is the kernel of the map d : Z(F) → ∧²F^×, [X] ↦ (X) ∧ (1 − X) (and [0], [1], [∞] ↦ 0) and C(F) ⊆ A(F) the group generated by the five-term relation … with X and Y ranging over P^1(F) (but forbidding arguments 0/0 or ∞/∞ on the right-hand side).",
+   "correction": "Take C(F) := A(F) ∩ ⟨ξ_{X,Y}⟩, i.e. B(F) = the image of A(F) in Z(F)/⟨ξ⟩. The remark '[X] + [1/X] = 0 in B(F) for all X' is then meaningful only for X with X ∧ (−1) = 0.",
+   "reason": "ξ_{2,1} = [2] + [1/2] − [1] is an allowed specialisation (its arguments are 1/2, ∞, ∞), but d ξ_{2,1} = 2 ∧ (−1) ≠ 0 in ⋀²ℚˣ; this is detected by (a, b) ↦ s(a)v_2(b) − s(b)v_2(a) mod 2. For odd n, −1 is an n-th power, so C(F) ⊆ A(F; ℤ/n) and Theorem 2.11 is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E14",
+   "kind": "error",
+   "locator": "Calegari–Garoufalidis–Zagier, arXiv:1712.04887v3, Lemma 2.2, p. 9",
+   "printed": "Lemma 2.2. There is a surjection B̃(F) → B(F) whose kernel is the 2-torsion group generated by the elements ⟨X⟩ = [X] + [X^{-1}] for X ∈ F^× \\ 1.",
+   "correction": "Assume |F| ≥ 4. The kernel is B̃(F) ∩ ⟨Fˣ⟩, where ⟨Fˣ⟩ is the image of x ↦ ⟨x⟩ in P(F); ⟨X⟩ itself lies in B̃(F) only when X ∧ (−1) = 0.",
+   "reason": "Over ℚ, ⟨2⟩ ∉ Ã(ℚ). Over F_2, B̃(F_2) = 0 but B(F_2) ≅ ℤ/3 on [0], so the surjection fails. Over F_3 the kernel 2ℤ ⊂ B̃(F_3) ≅ ℤ is not 2-torsion. The cited [30, Lemmas 1.2, 1.3] need |F| ≥ 4.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E15",
+   "kind": "misprint",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, Exercise VI.5.3, PDF p. 508",
+   "printed": "Show that B(F_5) ≅ Z/3 on generator c = [2] = 2[3], with [−1] = 0. Then show that B(F_7) ≅ Z/4 on generator [−1] = 2[3] with c = [4] = 2[−1]. (In both cases, [3] ∉ B(F).) Show that B(F_4) ≅ Z/5.",
+   "correction": "For F_7: c = 2[4] = 2[−1] (and [4] = −[−1]).",
+   "reason": "c = [4] + [1 − 4] = 2[4] in F_7, so c = [4] would force [4] = 0 and c = 0, contradicting B(F_7) ≅ ℤ/4 on [−1] with c = 2[−1]. The presentation gives P(F_7) ≅ ℤ/8 on [3] with [4] = 6[3] and c = 4[3].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E16",
+   "kind": "error",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, Exercise VI.5.4(c), PDF p. 508",
+   "printed": "Show that c = 0 in B(F_q) if either: (a) char(F_q) = 2 and q ≡ 1 (mod 3); (b) char(F_q) = 3 and q ≡ 1 (mod 4); or (c) char(F_q) > 3 and q ≡ 1 (mod 6);",
+   "correction": "(c) char(F_q) > 3 and q ≡ 1 (mod 12).",
+   "reason": "q ≡ 1 (mod 6) gives only 2c = 0; c = 0 also needs √−1, i.e. q ≡ 1 (mod 4). Over F_7 and F_19, c has order 2 (computed from the presentation).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: only the versions read were checked (the K-book author-hosted draft of 29 Aug 2013; CGZ arXiv:1712.04887v3, the version in the packet); no errata listing was consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B2) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E17",
+   "kind": "error",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, Theorem VI.5.7 (PDF p. 498); published GSM 145, p. 540",
+   "printed": "Theorem 5.7. For all F, H1(GL2(F), Z) = F×, H2(GL2(F), Z) = (∧2 F×) ⊕ K2(F) and there is a map ψ and an exact sequence",
+   "correction": "For all infinite F. The H_2 formula fails for F = F_4 (and H_1 fails for F_2, which Remark 5.1.1 excludes).",
+   "reason": "GL_2(F_4) ≅ F_4^× × SL_2(F_4) ≅ ℤ/3 × A_5, so H_2(GL_2(F_4), ℤ) ≅ H_2(A_5, ℤ) ≅ ℤ/2 by Künneth, while ∧²(F_4^×) ⊕ K_2(F_4) = ∧²(ℤ/3) ⊕ 0 = 0. The proof's input 'the inclusion T2 ⊂ B induces an isomorphism on homology' ([184, §3]) is where it breaks: for F_4, B = U ⋊ T_2 with |U| = 4 and |T_2| = 9, and H_2(B) ≅ H_2(T_2) ⊕ H_2(U)_{T_2} = ℤ/3 ⊕ ℤ/2, because T_2 acts on ∧²_{F_2}F_4 through the norm to F_2, which is trivial.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata to the published version (https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, linked from the book page; now 404; read from the Wayback copy of 10 Nov 2019, SHA-256 ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e, accessed 2026-09-24): its p.540 entry corrects only the missing H_1 clause, not the hypothesis."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E18",
+   "kind": "gap",
+   "locator": "The K-book, draft of 29 August 2013, Theorem VI.5.2 (PDF p. 495) with its proof (PDF p. 507), and Remark VI.5.1.1 (PDF p. 495)",
+   "printed": "Theorem 5.2. (Suslin) For any field F with |F| ≥ 4, there is an exact sequence 0 → µ̃(F) → Kind3(F) → B(F) → 0.",
+   "correction": "The printed proof establishes the sequence for infinite F only. The finite-field case, and with it Remark 5.1.1's orders of B(F_q), needs a separate proof.",
+   "reason": "The proof uses 'If F is infinite' in Lemma 5.11, the acyclicity of the general-position complex for infinite X (Example 5.9.1), the stability H_3(GL_3(F)) ≅ H_3(GL(F)) of IV.1.15, stated for infinite fields (Remark 5.12.1), and the T_2 ⊂ B isomorphism, which fails for F_4. Theorem 5.7, used for the finite fields too, is false for F_4.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019, as above): its entry 'p.536 (VI.5.2): ’infinite field’ should be just ’field’' widens the published hypothesis to the draft's, without adding a proof for finite fields."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E19",
+   "kind": "misprint",
+   "locator": "The K-book, draft of 29 August 2013, paragraph after Theorem VI.5.7 (PDF p. 498)",
+   "printed": "the stabilizer of (0, ∞, 1) ∈ X3 is the subgroup ∆ = {(a, a−1)} of T2",
+   "correction": "the stabilizer of (0, ∞, 1) is the centre ∆ = {(a, a)} of GL2(F)",
+   "reason": "diag(a, b) fixes 1 = (1 : 1) only if a = b. The source's own E2_{1,1} = 0 'because Tσ2 = F×' needs the centre, and with {(a, a−1)} the page would not be a complex: (1 − σ)(a, a−1) = (a², a−2) ≠ 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E20",
+   "kind": "error",
+   "locator": "The K-book, draft of 29 August 2013, proof of Lemma VI.5.6 (PDF p. 498) and before Lemma VI.5.10 (PDF p. 501)",
+   "printed": "C3 is a free Z[G]-module on the set {[x] : x ∈ F − {0, 1}}. … while C4 and C5 are free Z[G]-modules on the set of all 5-tuples and 6-tuples",
+   "correction": "The stabilisers of these tuples are the centre F×·1, so the modules are sums of permutation modules induced from the centre, not free; their coinvariants are free abelian on the listed generators, which is all the computation uses.",
+   "reason": "Scalar matrices act trivially on ℙ¹(F) and ℙ²(F). Hence E1_{3,q} = ⊕ Hq(F×) ≠ 0 for q > 0, which the source's Figure 5.8.2 shows as the term E2_{3,1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E21",
+   "kind": "error",
+   "locator": "The K-book, draft of 29 August 2013, 'A cyclic homology construction' (PDF p. 499) and Exercise VI.5.6(a) (PDF p. 508)",
+   "printed": "For example, the chain complex C∗(X) of Definition 5.5 corresponds to a simplicial abelian group; eCn(X) is the free abelian group on the set Xn+1 of all (n + 1)-tuples (x0, . . . , xn) in X, including duplication.",
+   "correction": "C∗(X) is the subcomplex of injective tuples in the chain complex of eC(X); it is closed under faces and rotations but not under degeneracies (a precyclic abelian group), and it is not the Dold–Kan complex of eC(X). The acyclicity of the complex that omits the last face must be proved by the prepending homotopy for infinite X, not by the extra degeneracy of a cyclic set.",
+   "reason": "For X = {x, y}, the normalised complex of Z[X^{n+1}] is acyclic in positive degrees (the simplicial set with n-simplices X^{n+1} is contractible, and (x, y, x) is a nondegenerate 2-simplex), while C∗(X) = (Z² → Z²) has H1 ≅ Z generated by (x, y) + (y, x).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E22",
+   "kind": "misprint",
+   "locator": "The K-book, draft of 29 August 2013, Definition VI.5.9 (PDF p. 500)",
+   "printed": "there is a chain map N : C∗ → Ca∗ defined by N = Σ_{i=0}^{n} (−1)^i t_n^i on Cn",
+   "correction": "N = Σ_{i=0}^{n} ((−1)^n t_n)^i, with t_n the rotation of Ex. 5.6(b). The two agree for odd n. In the same definition, '∂i tn = tn ∂i−1' should read t_{n−1}.",
+   "reason": "With t(x0, x1, x2) = (x2, x0, x1) and da omitting the last face, the printed N satisfies da N ≠ N d on (x, y, z), while the corrected N is a chain map (checked by computer on injective tuples of a five-element set).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E23",
+   "kind": "error",
+   "locator": "The K-book, draft of 29 August 2013, construction of ψ before Lemma VI.5.10 (PDF p. 501)",
+   "printed": "d([a x]) = P, da([a x]) = N([a x]) = 0, … The map ψ′ : (DG)3 → P(F) defined by ψ′(P) = 2c, ψ′([a x]) = a vanishes on the image of (DG)4",
+   "correction": "ψ′([a x]) = [a], the cross-ratio of the projection from p3; N(P) = 0, not N([a x]) = 0 (N[a x] is a sum of five generators); and with the displayed cone differential (x, y) ↦ (dax − Ny, −dy), ψ′ vanishes on d(0, [a x]) = (−N[a x], −P) only if ψ′(P) = −2c.",
+   "reason": "The value [a] is forced by Lemma 5.10, since (p1, p2, q, (1 : a : x)) projects from p3 to (0, ∞, 1, a). With the corrected N, Σi ψ′(ti[a x]) = 2c in P(F), checked by computer for all admissible (a, x) in P(F11) and P(F17), where 2c ≠ 0; so ψ′(d(0, [a x])) = −4c = 2c ≠ 0 with the printed value. The image of ψ, generated up to sign, is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E24",
+   "kind": "misprint",
+   "locator": "The K-book, draft of 29 August 2013, proof of Lemma VI.5.11 (PDF p. 501)",
+   "printed": "Since p1 = (1 : 0 : 0) and p2 = (0 : 0 : 1) are fixed by T3",
+   "correction": "p2 = (0 : 1 : 0), as defined on p. 500; (0 : 0 : 1) is p3",
+   "reason": "Notation of p. 500. The argument is unaffected, since every coordinate point is fixed by T3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E25",
+   "kind": "error",
+   "locator": "The K-book, draft of 29 August 2013, proof of Lemma VI.5.14 (PDF p. 503) and Exercise VI.5.5 (PDF p. 508)",
+   "printed": "f2(1) = (∞, 0, x) + (1, ∞, x) = (0, 1, x) … − [x/y] − [(y−1)/(x−1)] − [y(x−1)/(x(y−1))] + [x(1 − y)] + [(1−x)/(xy)] + [y/((1−x)(1−y))] … we can take x ≠ −1 and y = x^{−1}, so this expression becomes −[x2]−2[−x2]+2[x−1]+[1/x2]. This equals −2c, by Exercise 5.5.",
+   "correction": "f2(1) = (∞, 0, x) + (1, ∞, x) + (0, 1, x). The last two terms are [(x − 1)/(xy)] and [y/((1 − x)(y − 1))]. The choice needs x ≠ 2 as well (otherwise y = w). The expression becomes −[x²] − 2[−x^{−1}] + 2[x − 1] + [(1 − x)^{−2}], and Ex. 5.5's second identity should read [x²] + 2[−x^{−1}] − 2[x − 1] − [(1 − x)^{−2}] = 2c.",
+   "reason": "Evaluating f3(1) by cross-ratios gives the corrected terms (checked numerically over C). The Bloch–Wigner function kills torsion, and it is nonzero on the printed six-term expression and on the printed final expression, so neither can equal the 3-torsion element −2c. In P(Fp), p = 5, …, 23, the corrected expressions equal −2c (respectively 2c) for every admissible x, and the printed ones fail, e.g. in P(F5) at x = 3. With y = x−1 = w (x = 2) the tuple (1, ∞, w, y) is degenerate. The conclusion of Lemma 5.14 stands.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's errata (Wayback copy of 10 Nov 2019): no entry."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B3) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E26",
+   "kind": "misprint",
+   "locator": "Remark VI.5.6.1 (PDF p. 498), in the author-hosted draft of 29 August 2013",
+   "printed": "The proof of Lemma 5.6 goes through for all finite fields, since | P1(F)| ≥ | P1(F2)| = 7. Hence Hn(C∗(X)) = 0 for n ≤ 3 by Exercise 5.1.",
+   "correction": "The proof goes through for all finite fields with at least four elements, since then |P¹(F)| ≥ |P¹(F_4)| = 5 > n + 1 for n ≤ 3, which is what Exercise VI.5.1 needs.",
+   "reason": "|P¹(F_2)| = 3, not 7. For |X| = 3 and |X| = 4 the configuration complex is not acyclic in degrees at most three: its reduced Euler characteristic up to degree three is −1 + 3 − 6 + 6 = 2 and −1 + 4 − 12 + 24 − 24 = −9 respectively. The section's standing hypothesis |F| ≥ 4 (Remark VI.5.1.1) makes the intended statement true.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the combined draft itself (PDF p. 498, rendered at 220 dpi); the published GSM 145 printing was not obtained."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B4) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E27",
+   "kind": "error",
+   "locator": "Lemma 4.4 and its proof, pp. 24-25, arXiv:1712.04887v3",
+   "printed": "Lemma 4.4. Let p > 2. There is a commutative diagram as follows: [left column B(F)/nB(F) = K3(F)/nK3(F)] ... Proof. The isomorphism of the left vertical map is a theorem of Suslin [30, Theorem 5.2] (taking into account Lemma 2.2)",
+   "correction": "The left vertical isomorphism B(F)/nB(F) ≅ K_3(F)/nK_3(F) needs µ(F) ⊗ Z/p = 0, i.e. ζ_p ∉ F; this holds under the hypothesis ζ ∉ F̃(ζ + ζ^{−1}) of Proposition 4.2 and under Theorem 1.2's hypothesis.",
+   "reason": "Reducing Suslin's sequence modulo n leaves the image of µ̃(F)/n in the kernel. For F = Q(√−3) and p = n = 3: K_3(F) ≅ Z ⊕ Z/24 (K-book Corollary VI.5.3(a), w_2 = 24), µ̃(F) ≅ Z/12, so B(F) ≅ Z ⊕ Z/2 and B(F)/3 ≅ Z/3, while K_3(F)/3 ≅ (Z/3)².",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv:1712.04887v3, the version supplied (text, TeX source and PDF p. 24 rendered). Earlier arXiv versions and any journal version were not examined."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B4) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E28",
+   "kind": "gap",
+   "locator": "Corollary 4.5 and its proof, p. 25, arXiv:1712.04887v3",
+   "printed": "Corollary 4.5. There is an algorithm to prove that a set of generators of B(F) is p-saturated for p > 2.",
+   "correction": "The proof applies under the hypothesis of Proposition 4.2, ζ ∉ F̃(ζ + ζ^{−1}); the corollary should carry it.",
+   "reason": "The proof searches for primes q ≡ −1 mod n splitting completely in F. By Remark 4.3 there are none when ζ ∈ F̃(ζ + ζ^{−1}), for instance F = Q(√−3), p = 3, where B(F) ⊗ Z_3 ≅ Z_3 ≠ 0, so the procedure has nothing to test.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv:1712.04887v3 only."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B4) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E29",
+   "kind": "error",
+   "locator": "§4.2, p. 23, arXiv:1712.04887v3",
+   "printed": "By a computation of Quillen, we know that H3(SL2(Fq), Z) is cyclic of order q2 −1.",
+   "correction": "The part of H_3(SL_2(F_q), Z) prime to q is cyclic of order q² − 1; the whole group has additional q-primary torsion.",
+   "reason": "For q = 5, which the section allows (5 ≡ −1 mod 3), SL_2(F_5) is the binary icosahedral group of order 120; it acts freely on S³, so it has periodic cohomology and H_3(SL_2(F_5), Z) ≅ Z/120, not Z/24. Likewise SL_2(F_3), of order 24, has H_3 ≅ Z/24, not Z/8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv:1712.04887v3 only."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B4) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
+  },
+  {
+   "id": "K3BlochGroups/E30",
+   "kind": "error",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, paragraph 5.8.2 in the proof of Theorem VI.5.7, PDF p. 499",
+   "printed": "By the Künneth formula [223, 6.1.13], Hn(T2) ≅ ⊕i+j=n Hi(F×) ⊗ Hj(F×), with σ interchanging the factors",
+   "correction": "Integrally H_n(T₂) ≅ ⊕_{i+j=n} H_i(Fˣ) ⊗ H_j(Fˣ) ⊕ ⊕_{i+j=n−1} Tor₁^ℤ(H_i(Fˣ), H_j(Fˣ)). The Tor summand vanishes for n ≤ 2, the degree the proof computes (H₂(T₂)_σ ≅ ∧²Fˣ ⊕ ∧̃²Fˣ); for n = 3 it contains Tor₁^ℤ(Fˣ, Fˣ) ≅ Tor₁^ℤ(μ(F), μ(F)), which is nonzero whenever F has a nontrivial root of unity.",
+   "reason": "For F = F_5, Fˣ ≅ ℤ/4 has H₀, …, H₃ = ℤ, ℤ/4, 0, ℤ/4. The displayed formula gives H₃(T₂) ≅ (ℤ/4)², while the Künneth theorem for the free bar complexes gives (ℤ/4)² ⊕ Tor₁(ℤ/4, ℤ/4) ≅ (ℤ/4)³. The proof uses only H₂(T₂), and of H₃(T₂) only that the relevant term is 'a quotient Q3 of H3(T2)σ', which the missing summand does not change.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the rendered PDF page 499 of the K-book draft of 29 August 2013 was checked (the formula is printed without a Tor term); Weibel's An Introduction to Homological Algebra, cited as [223, 6.1.13], and the published Graduate Studies in Mathematics 145 printing were not consulted."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "confirmed",
+   "reviewedBy": "REV-K3BlochGroups",
+   "reviewReason": "Found by the review (checker B5) and checked at the locator; the coordinator re-derived the finite-field counterexamples by an independent Smith normal form computation where they are used."
   },
   {
    "id": "KTheoryLowDegrees/E1",
