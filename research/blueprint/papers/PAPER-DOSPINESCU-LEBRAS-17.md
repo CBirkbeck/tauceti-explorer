@@ -10,6 +10,29 @@ The machine-readable extraction is [PAPER-DOSPINESCU-LEBRAS-17.result.json](PAPE
 - 13 prerequisite entries;
 - 5 recorded misprints.
 
+## Independent review (REV-PAPER-DOSPINESCU-LEBRAS-17)
+
+The independent review (Claude Code, session cc-2aeb03, 23–24 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-DOSPINESCU-LEBRAS-17.md`; the counts in the sections below it are the earlier
+ones and are superseded by these.
+
+- **Items: 180** (21 planned, 159 missing), each missing item routed once.
+  - 36 bundled items split, one numbered result per item; 88 items added for the split-off results and for definitions,
+    constructions and cited inputs the proofs use.
+  - 122 fields corrected: 52 statements, 36 locators, 30 names, 4 kinds. None removed.
+- **Routes.** All nine stand; the briefs of routes 1–3 and the items of routes 5 and 7 carry the confirmed corrections.
+- **Prerequisites.** The 13 entries checked, and 7 cited works the proofs use as black boxes added, among them Colmez's
+  Astérisque 330 memoir.
+- **Mistakes: 42 confirmed** (28 misprints, 9 gaps, 5 errors); 4 reach a stated result and 8 a proof.
+  - **E1–E5** are confirmed; E2 is revised.
+  - **E6–E42** are new, each checked independently. The main ones:
+    - **E9:** Théorème 1.10 is false as printed (±1 on the two copies of Ω in Σ_0); it holds with conclusion
+      f ∈ H^0_dR(Σ_n)·O(Ω), for components with trivial central character (E40).
+    - **E19:** Proposition 7.7 b) is false for k ≥ 2; only k = 1 is used.
+    - **E7, E12, E16, E22, E24, E27, E38, E41:** gaps in the uniqueness of Théorème 1.7, Lemme 3.3, Théorèmes 5.1, 8.3 and
+      9.7, Propositions 8.4 a) and 11.10 and Remarque 11.13, all fillable.
+  - Théorèmes 1.2, 1.4 and 1.7 stand.
+
 ## Sources read
 
 - **arXiv v2** (28 April 2017, "Final version, to appear in the Annals of Math"), read in full: 76 pages. Item locators are v2's pages.
