@@ -15703,8 +15703,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #691"
   },
   {
    "id": "REV-BunGAndNewtonStrata",
@@ -21209,9 +21210,9 @@
     "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #986"
+   "note": "released on GitHub issue #986"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF4",
