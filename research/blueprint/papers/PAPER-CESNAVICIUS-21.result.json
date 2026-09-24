@@ -13,10 +13,11 @@
    "Read in full in arXiv:1810.04493v2 (3 September 2020), whose abstract page describes it as \"24 pages; final version, to appear in Duke Mathematical Journal\": §1 Macaulayfication as a weak form of resolution of singularities; §2 (S₂)-ification of coherent modules; §3 Ubiquity of Cohen–Macaulay blowing ups; §4 Macaulayfication in the local case; §5 Macaulayfication in the global case; and the bibliography.",
    "Sources read: the arXiv e-print archive of v2, sha256 8704c071cf1029ba386764f13841d3871ea79d49c2b2af920086da4789dbd088, whose two files are macaulayfication.tex (2045 lines) and bibliography.ltb; the compiled arXiv PDF of v2, sha256 a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9, 24 pages; and the author's copy of the published version, https://webusers.imj-prg.fr/~kestutis.cesnavicius/macaulayfication.pdf, sha256 55ded201a17ae161400c1989d67ad7a09356c23f87b2e88eef2e763632939ac6, read 2026-09-23, whose listing on the author's publications page records Duke Mathematical Journal 170 (2021), no. 7, 1419–1455.",
    "Version check: the two PDFs were compared word by word after extracting the text from the content streams of both. Apart from line breaking and hyphenation they agree; no statement, hypothesis or reference differs, and both carry the two misprints recorded below. The numbering of the 53 numbered items of the paper was re-derived from the LaTeX — the class puts theorems, propositions, lemmas, corollaries, definitions, examples, remarks and the unnamed numbered paragraphs on the subsection counter, with the numbered items of the \\brems and \\begs lists stepping it through \\addtocounter, and equations numbered within it — and every one of the 42 numbered statements was located at its predicted number in the arXiv PDF; the four not found by that search are exactly the four remarks that are list items inside \\brems blocks and are therefore printed as bare numbers.",
-   "Mechanical audits of the LaTeX source, all clean: no duplicate \\lab, no undefined \\ref or \\Cref, and no cross-reference whose introducing word disagrees with the environment carrying the target label (the six apparent mismatches are all \\remi list items correctly referred to as Remarks)."
+   "Mechanical audits of the LaTeX source, all clean: no duplicate \\lab, no undefined \\ref or \\Cref, and no cross-reference whose introducing word disagrees with the environment carrying the target label (the six apparent mismatches are all \\remi list items correctly referred to as Remarks).",
+   "Review (REV-PAPER-CESNAVICIUS-21, Claude Code, session cc-38267a, 24 September 2026): the same three files, whose SHA-256 sums were re-checked (e-print 8704c071…, arXiv PDF a07d62e6…, author's copy 55ded201…). Three checkers split the work: §§1–2 with the mistakes recorded there; §§3–5 with the bibliography; and the statuses and routes of every item against data/atlas.json, the proposed roadmaps, the accepted restructurings (RS-08, RS-25), the library audits and the 30,831 items of the other extractions. Each checker compared the items with the TeX and with page renders of both PDFs and opened every cited declaration at the pinned commits (Mathlib 082e2d3, Tau Ceti f790474). The coordinator re-read at the TeX every new mistake and every locator it changed, and checked the counterexamples of E5 and E9 by hand."
   ]
  },
- "summary": "Česnavičius proves that Macaulayfication exists in complete generality. A Macaulayfication of a scheme X is a proper birational map X̃ → X with X̃ Cohen–Macaulay that is an isomorphism over the Cohen–Macaulay locus CM(X); it is the Cohen–Macaulay analogue of Grothendieck's resolution conjecture, proposed by Faltings, and reduces resolution of singularities to the Cohen–Macaulay case. The main theorem (Theorem 1.6, in the precise form Theorem 5.3) produces one for every CM-quasi-excellent Noetherian scheme, with the map projective and with finitely many prescribed coherent modules carried along. CM-quasi-excellence — Cohen–Macaulay formal fibres, and a nonempty Cohen–Macaulay open in every integral closed subscheme — is weaker than quasi-excellence, so the theorem is new even for Q-schemes, and Proposition 5.5 shows it is exactly the right hypothesis. The corollaries are proper flat Cohen–Macaulay integral models over a Dedekind base (Corollary 1.8), Cohen–Macaulay principalisation (Corollary 1.10) and Cohen–Macaulay compactifications (Corollary 1.11).\n\nThe proof has three parts. §2 constructs a noncanonical (S_2)-ification: an (S_1)-ification always exists, and for an (S_2)-quasi-excellent scheme a finite birational (S_2) modification exists (Theorem 2.13, Corollary 2.14), built by Noetherian induction, formal patching and Kollár's coherence criterion for j_*; this reduces the problem to CM-excellent, locally equidimensional schemes, using Ratliff's theorem and the fact that an (S_2) scheme with (S_2) formal fibres is formally equidimensional. §3 reviews Kawasaki's theory: secant and CM-secant sequences, the annihilator identity for local cohomology against a normalized dualizing complex, d-sequences and the Goto–Yamagishi equalities, and Kawasaki's theorem that for a CM-secant sequence the strict transform Bl_I(M) along I = ∏_i (r_1,…,r_i) is Cohen–Macaulay. §§4–5 run the induction: over a complete local base, with the special fibre already a divisor and its complement Cohen–Macaulay, one builds a decreasing chain of biequidimensional subschemes using the Gabber–Liu–Lorenzini avoidance lemma, so that the local generators form a CM-secant sequence at every point and Kawasaki's theorem applies to the product ideal (Proposition 4.4); Noetherian induction and the composition of blowing ups then globalise it (Proposition 5.2).\n\nThe paper needs: excellence and its CM- and (S_n)- variants with formal fibres; catenarity, local and formal equidimensionality and Ratliff's theorem; the openness of the (S_n) and Cohen–Macaulay loci; local cohomology with its Čech and spectral-sequence calculus; dualizing complexes over Noetherian rings and schemes, with Kawasaki's theorem settling Sharp's conjecture; blowing up, strict transforms in the sense of Raynaud–Gruson, and the composition of two blowing ups; the Nagata compactification; Kollár's coherence criterion for pushforward along an open immersion; the Gabber–Liu–Lorenzini avoidance lemma; and Kawasaki's construction of Cohen–Macaulay blowing ups, which is the only source of Cohen–Macaulayness in the argument.",
+ "summary": "Česnavičius proves that Macaulayfication exists in complete generality. A Macaulayfication of a scheme X is a proper birational map X̃ → X with X̃ Cohen–Macaulay that is an isomorphism over the Cohen–Macaulay locus CM(X); it is the Cohen–Macaulay analogue of Grothendieck's resolution conjecture, proposed by Faltings, and reduces resolution of singularities to the Cohen–Macaulay case. The main theorem (Theorem 1.6, in the precise form Theorem 5.3) produces one for every CM-quasi-excellent Noetherian scheme, with the map projective and with finitely many prescribed coherent modules carried along. CM-quasi-excellence — Cohen–Macaulay formal fibres, and a nonempty Cohen–Macaulay open in every integral closed subscheme — is weaker than quasi-excellence, so the theorem is new even for Q-schemes, and Proposition 5.5 shows it is exactly the right hypothesis. The corollaries are proper flat Cohen–Macaulay integral models over a Dedekind base (Corollary 1.8), Cohen–Macaulay principalisation (Corollary 1.10) and Cohen–Macaulay compactifications (Corollary 1.11).\n\nThe proof has three parts. §2 constructs a noncanonical (S_2)-ification: an (S_1)-ification always exists, and for an (S_2)-quasi-excellent scheme a finite birational (S_2) modification exists (Theorem 2.13, Corollary 2.14), built by Noetherian induction, formal patching and Kollár's coherence criterion for j_*; this reduces the problem to CM-excellent, locally equidimensional schemes, using Ratliff's theorem and the fact that an (S_2) scheme with (S_2) formal fibres is formally equidimensional. §3 reviews Kawasaki's theory: secant and CM-secant sequences, the annihilator identity for local cohomology against a normalized dualizing complex, d-sequences and the Goto–Yamagishi equalities, and Kawasaki's theorem that for a CM-secant sequence the strict transform Bl_I(M) along I = ∏_i (r_1,…,r_i) is Cohen–Macaulay. §§4–5 run the induction: over a complete local base, with the special fibre already a divisor and its complement Cohen–Macaulay, one builds a decreasing chain of biequidimensional subschemes using the Gabber–Liu–Lorenzini avoidance lemma, so that the local generators form a CM-secant sequence at every point and Kawasaki's theorem applies to the product ideal (Proposition 4.4); Noetherian induction and the composition of blowing ups then globalise it (Proposition 5.2).\n\nThe paper needs: excellence and its CM- and (S_n)- variants with formal fibres; catenarity, local and formal equidimensionality and Ratliff's theorem; the openness of the (S_n) and Cohen–Macaulay loci; local cohomology with its Čech and spectral-sequence calculus; dualizing complexes over Noetherian rings and schemes, with Kawasaki's theorem settling Sharp's conjecture; blowing up, strict transforms in the sense of Raynaud–Gruson, and the composition of two blowing ups; the Nagata compactification; Kollár's coherence criterion for pushforward along an open immersion; the Gabber–Liu–Lorenzini avoidance lemma; and Kawasaki's construction of Cohen–Macaulay blowing ups, which is the only source of Cohen–Macaulayness in the argument.\n\nAfter review (REV-PAPER-CESNAVICIUS-21): 81 items (3 library, 5 planned, 73 missing), 6 routes, all accepted as corrected. The three recorded mistakes are confirmed; E4–E9 are new: misprints in the Cohen–Macaulay condition of §1.14, Remark 3.9, Proposition 3.11(iii), the ideal I_s and (3.14.10) of the proof of Theorem 3.14, and an error in (4.4.1) of the proof of Proposition 4.4 (the product of annihilators must be taken in O_X, not as a preimage), repaired in one line. No stated result changes. Local cohomology beyond Mathlib, secant sequences and the injective hull go to R03.3 (route 4) and dualizing complexes to AS.1 (route 5), where accepted routes already put them; the Nagata compactification is planned in L2 and blowups in Tau Ceti StableReduction Layer 4; the commutative Part II is narrowed to Kawasaki's Cohen–Macaulay blowing ups.",
  "items": [
   {
    "id": "PAPER-CESNAVICIUS-21/1",
@@ -24,7 +25,12 @@
    "name": "Quasi-excellent and excellent schemes",
    "statement": "A scheme X is quasi-excellent if it is locally Noetherian, for each x ∈ X the geometric fibres of Spec(Ô_{X,x}) → Spec(O_{X,x}) — the formal fibres of X at x — are regular, and every integral X-scheme X' finite over some affine open of X has a nonempty regular open subscheme. For such an X the regular locus Reg(X) is open. A quasi-excellent X is excellent if it is in addition universally catenary.",
    "locator": "§1, the footnote to Conjecture 1.1, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 7.8.2, 7.8.5; Illusie–Laszlo–Orgogozo I.2.10, I.7.1)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): ring-level excellence and catenarity belong to Commutative algebra for deformation theory and patching R03.3, whose text says to 'state hypotheses on catenarity and excellence rather than importing geometric conclusions'; RS-08 keeps that clause, AUDIT-17 records 'Catenarity and excellence as explicit hypotheses' as absent, and PAPER-BOCKLE-IYENGAR-PASKUNAS-23/088 and PAPER-PASKUNAS-QUAST-26/76 are already sourced into R03.3 as missing. Route 1 imports the ring-level notions and builds only the scheme-level definitions and the openness of Reg(X) here: Tau Ceti ModularCurves 4D plans that openness only for schemes locally of finite type over an excellent base. Mathlib has regular local rings and regular rings (IsRegularLocalRing, IsRegularRing, RingTheory/RegularLocalRing/Defs.lean:51, 92).",
+   "library": [
+    "mathlib:IsRegularLocalRing",
+    "mathlib:IsRegularRing"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/2",
@@ -32,7 +38,8 @@
    "name": "Conjecture 1.1: resolution of singularities in Grothendieck's formulation",
    "statement": "Conjecture 1.1. For a quasi-excellent, reduced, Noetherian scheme X there are a regular scheme X̃ and a proper morphism π : X̃ → X that is an isomorphism over the regular locus Reg(X). It is known for Q-schemes by Temkin's theorem building on Hironaka; in positive and mixed characteristic it is open apart from low-dimensional cases and variants such as alterations. By Proposition 2.7 one may reduce it to the case when X is excellent and locally equidimensional.",
    "locator": "Conjecture 1.1 with the two paragraphs following it, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 7.9.6; Temkin, Theorem 1.1; Hironaka; de Jong)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): an open conjecture, recorded so that the design job states it and Proposition 2.7's reduction; nothing plans a proof, and none should be planned. Algebraic moduli R09.7 plans resolution only for varieties of finite type over a field of characteristic zero, and Temkin's theorem for quasi-excellent Q-schemes is unplanned."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/3",
@@ -110,9 +117,10 @@
    "id": "PAPER-CESNAVICIUS-21/12",
    "kind": "theorem",
    "name": "Corollary 1.11: Cohen–Macaulay compactifications",
-   "statement": "Corollary 1.11. For every CM-quasi-excellent Noetherian scheme S and every finite type, separated, Cohen–Macaulay S-scheme X there is an open S-immersion X ↪ X̄ into a proper, Cohen–Macaulay S-scheme X̄ such that X̄ \\ X is a (possibly nonreduced) divisor. It follows by combining the Nagata compactification with Theorem 1.6 and Corollary 1.10.",
+   "statement": "Corollary 1.11. For every CM-quasi-excellent Noetherian scheme S and every finite type, separated, Cohen–Macaulay S-scheme X there is an open S-immersion X ↪ X̄ into a proper, Cohen–Macaulay S-scheme X̄ such that X̄ \\ X is (the support of) a possibly nonreduced divisor in X̄ [the paper prints 'in X'; sourceIssues E1]. It follows by combining the Nagata compactification with Theorem 1.6 and Corollary 1.10.",
    "locator": "Corollary 1.11, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the statement now carries the correction of E1, which it had dropped along with the ambient scheme."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/13",
@@ -120,49 +128,49 @@
    "name": "The Nagata compactification theorem",
    "statement": "Every separated, finite type morphism of quasi-compact and quasi-separated schemes factors as an open immersion followed by a proper morphism. The paper uses it three times: to form the schematic image 𝒳_0 in Corollary 1.8, to produce the compactification of Corollary 1.11, and to deduce in §4.2 that every finite type separated scheme over a Noetherian scheme with a dualizing complex again has one.",
    "locator": "Used in Corollaries 1.8 and 1.11 and in §4.2, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Deligne, Le théorème de plongement de Nagata, Kyoto J. Math. 50 (2010), 1.6)",
-   "status": "missing"
-  },
-  {
-   "id": "PAPER-CESNAVICIUS-21/14",
-   "kind": "theorem",
-   "name": "§1.12: previous work on Macaulayfication",
-   "statement": "§1.12. The key novelty of Theorem 1.6 is that its Macaulayfication preserves the Cohen–Macaulay locus of X, which is what the corollaries need. Previously this had been achieved only when X \\ CM(X) is a disjoint union of points (Faltings, Satz 2; Brodmann §6.C), a situation tied to generalised Cohen–Macaulay and Buchsbaum rings (Goto 1.1; Schenzel 4.2). Without the isomorphy condition over CM(X) and under further assumptions, birational Macaulayfications were built by Faltings (Satz 3) and Brodmann (1.1, 1.2) when dim(X \\ CM(X)) ≤ 1, by Kawasaki (1998, 1.1) when it is ≤ 2, and by Kawasaki (2000, 1.1) with complements in his 2002 (1.1) and 2008 (1.2) papers in general; another method, based on de Jong's alterations, is in Hong §4.1. Macaulayfication of coherent modules was explored by Morales.",
-   "locator": "§1.12 (Previous work on Macaulayfication), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
-  },
-  {
-   "id": "PAPER-CESNAVICIUS-21/15",
-   "kind": "theorem",
-   "name": "§1.13: the inductive method",
-   "statement": "§1.13. The technique extends Kawasaki's, which builds on Faltings'. After an initial reduction to locally equidimensional schemes based on an inductive (S_2)-ification, Noetherian induction reduces to Macaulayfying a projective X-scheme Y → X when X is the spectrum of a complete Noetherian local ring with closed point x: by induction Y \\ Y_x is already Cohen–Macaulay and one seeks a Macaulayfying blowing up whose centre lies in a thickening of Y_x. It is essential to allow the centre to meet CM(Y) ∩ Y_x. One first blows up so that Y_x ⊂ Y is a divisor, then chooses hypersurfaces on Y whose restrictions to Y_x are as in Kawasaki's method, and — the key trick — complements them with a large power of the ideal 𝓘_{Y_x} regarded as an additional, first, hypersurface; this is legitimate because 𝓘_{Y_x} is locally principal and Cohen–Macaulayness is local, and it keeps the centre disjoint from Y \\ Y_x.",
-   "locator": "§1.13 (The inductive method), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "status": "planned",
+   "planned": [
+    "AdicCoefficientsAndComparisons:L2"
+   ],
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the status was missing; it is planned. Adic coefficients and comparison with schemes L2 plans the compactification of separated finite-type morphisms of qcqs schemes ('This gives the nonnoetherian Nagata statement, not merely its finite-presentation special case'), consuming the Noetherian case from UPSTREAM:ECD:SCH_SUPPORT_NOETH; AUDIT-18 lists the nonnoetherian case as absent, and the accepted PAPER-BOXER-PILLONI-26/nagata-compactification is planned there. All three uses here have Noetherian bases. The item left route 3."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/16",
    "kind": "definition",
    "name": "§1.14: support, the conditions (S_n) and Cohen–Macaulayness",
-   "statement": "§1.14. For a coherent module 𝓜 on a locally Noetherian X, its support Supp(𝓜) ⊂ X is the closed subscheme cut out by the coherent ideal Ann_{O_X}(𝓜). For n ∈ Z, 𝓜 is (S_n) if depth_{O_x}(𝓜_x) ≥ min(n, dim(Supp(𝓜_x))) for all x ∈ X, with dim(∅) = −∞; 𝓜 is (S_1) exactly when it has no embedded associated primes, and 𝓜 is Cohen–Macaulay if it is (S_n) for every n, that is, if depth_{O_x}(𝓜_x) = dim(Supp(𝓜_x)) for all x. A scheme is (S_n) or Cohen–Macaulay if it is locally Noetherian and O_X has that property.",
+   "statement": "§1.14. For a coherent module 𝓜 on a locally Noetherian X, its support Supp(𝓜) ⊂ X is the closed subscheme cut out by the coherent ideal Ann_{O_X}(𝓜). For n ∈ Z, 𝓜 is (S_n) if depth_{O_x}(𝓜_x) ≥ min(n, dim(Supp(𝓜_x))) for all x ∈ X, with dim(∅) = −∞; 𝓜 is (S_1) exactly when it has no embedded associated primes (EGA IV₂ 5.7.5), and 𝓜 is Cohen–Macaulay if it is (S_n) for every n, that is, if depth_{O_x}(𝓜_x) = dim(Supp(𝓜_x)) for all x ∈ Supp(𝓜) [the paper prints 'for all x ∈ X'; sourceIssues E4]. A scheme is (S_n) or Cohen–Macaulay if it is locally Noetherian and O_X has that property.",
    "locator": "§1.14 (Notation and conventions), first paragraph, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₁ 0.14.1.2; EGA IV₂ 5.7.5)",
    "status": "planned",
    "planned": [
     "DeformationAndDerivedPatchingAlgebra:R03.3",
     "SchemeAndStackFoundations:SF.0"
    ],
-   "note": "R03.3 plans depth, Cohen–Macaulay rings and modules, associated primes and support lemmas for finite modules; SF.0 the coherent modules on schemes. The Serre condition (S_n) itself, and the sheaf-level statement that (S_1) means no embedded associated primes, are the small additions this item records and are carried by the (S_n)-loci item."
+   "note": "R03.3 plans depth, Cohen–Macaulay rings and modules, associated primes and support lemmas for finite modules; SF.0 the coherent modules on schemes. The Serre condition (S_n) itself, and the sheaf-level statement that (S_1) means no embedded associated primes, are the small additions this item records and are carried by the (S_n)-loci item. Review (REV-PAPER-CESNAVICIUS-21): the Cohen–Macaulay clause is quantified over Supp(𝓜) (E4). The earlier note said (S_n) is carried by the (S_n)-loci item, but that item (§2.8) only states openness; the planning is this. R03.3 plans depth, Cohen–Macaulay rings and modules, associated primes and support for finite modules, and the Serre conditions (S_k) are planned there as in the accepted PAPER-HACON-WITASZEK-23/cm-depth; Scheme and stack foundations SF.0 plans quasi-coherent modules. Only the sheaf-level form is an addition, which route 1 states as an adapter. Mathlib has Module.support (RingTheory/Support.lean:49), Module.annihilator (RingTheory/Ideal/Maps.lean:860) and associatedPrimes (RingTheory/Ideal/AssociatedPrime/Basic.lean:103), and Rees's theorem ModuleCat.exists_isRegular_tfae (RingTheory/Depth/Rees.lean:158), but no depth.",
+   "library": [
+    "mathlib:Module.support",
+    "mathlib:Module.annihilator",
+    "mathlib:associatedPrimes",
+    "mathlib:ModuleCat.exists_isRegular_tfae"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/17",
    "kind": "definition",
-   "name": "§1.14: height, coheight, codimension and blowing up",
-   "statement": "§1.14. For a scheme X the height of x ∈ X is dim(O_{X,x}) and the coheight is dim of the closure of {x}; X^{(i)} is the set of points of height i; the codimension of a closed Y ⊂ X is the infimum of the heights of the points of X lying on Y. Bl_Y(X) — also written Bl_𝓘(X) for the quasi-coherent ideal 𝓘 cutting out Y — is the blowing up; the paper uses freely that it has a universal property, commutes with flat base change in X, and is projective over X when 𝓘 is of finite type. For a module M over a ring R and an ideal 𝔯 one writes M⟨𝔯⟩ for the 𝔯-torsion, M⟨𝔯^∞⟩ for the union of the M⟨𝔯^n⟩, and M' :_M 𝔯 for the preimage of (M/M')⟨𝔯⟩ in M.",
-   "locator": "§1.14 (Notation and conventions), second and third paragraphs, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Stacks 0806, 0805; EGA II 5.5.2)",
-   "status": "planned",
-   "planned": [
-    "AlgebraicModuliForArithmeticGeometry:R09.7a",
-    "SchemeAndStackFoundations:SF.0"
-   ],
-   "note": "R09.7a plans blowups by the Rees algebra with their projective universal property, affine charts and base-change comparison; SF.0 relative Proj. What R09.7a states in the characteristic-zero resolution setting is used here for an arbitrary Noetherian scheme and an arbitrary finite-type ideal, which is the same construction."
+   "name": "§1.14: height, coheight, codimension and torsion submodules",
+   "statement": "§1.14. For a scheme X the height of x ∈ X is dim(O_{X,x}) and the coheight is the dimension of the closure of {x}; X^{(i)} is the set of points of height i; the codimension of a closed Y ⊂ X is the infimum of the heights of the points of X lying on Y. For a module M over a ring R and an ideal 𝔯 one writes M⟨𝔯⟩ for the 𝔯-torsion, M⟨𝔯^∞⟩ for the union of the M⟨𝔯^n⟩, and M' :_M 𝔯 for the preimage of (M/M')⟨𝔯⟩ in M; R̂ is the completion of a local ring R.",
+   "locator": "§1.14 (Notation and conventions), second and third paragraphs, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "library",
+   "note": "R09.7a plans blowups by the Rees algebra with their projective universal property, affine charts and base-change comparison; SF.0 relative Proj. What R09.7a states in the characteristic-zero resolution setting is used here for an arbitrary Noetherian scheme and an arbitrary finite-type ideal, which is the same construction. Review (REV-PAPER-CESNAVICIUS-21): the item was split: blowing up is now item 62, planned in Tau Ceti StableReduction Layers 4 and 2. The former citation of Algebraic moduli R09.7a was wrong: R09.7a plans only 'smooth base-change comparison', and R09.7 is scoped to varieties over a field of characteristic zero, while the paper uses flat base change. What remains is in Mathlib: ringKrullDim (RingTheory/KrullDimension/Basic.lean:29); ringKrullDim_stalk_eq_coheight (AlgebraicGeometry/Properties.lean:376), which says dim O_{X,x} = Order.coheight x in Mathlib's specialisation order, so the paper's height is Mathlib's coheight and conversely; Order.height and Order.coheight (Order/KrullDimension.lean:89, 102); Ideal.height (RingTheory/Ideal/Height.lean:36); Submodule.torsionBy and torsionBySet (Algebra/Module/Torsion/Basic.lean:180, 185), with M⟨𝔯^∞⟩ the union of torsionBySet(𝔯^n); AdicCompletion (RingTheory/AdicCompletion/Basic.lean:171). X^{(i)}, the codimension of a closed subscheme and M' :_M 𝔯 are one-line definitions on top of these. Mathlib's Submodule.colon (RingTheory/Ideal/Colon.lean:35) is an ideal, not the submodule M' :_M 𝔯, and must not be used for it.",
+   "library": [
+    "mathlib:ringKrullDim",
+    "mathlib:AlgebraicGeometry.ringKrullDim_stalk_eq_coheight",
+    "mathlib:Order.height",
+    "mathlib:Order.coheight",
+    "mathlib:Ideal.height",
+    "mathlib:Submodule.torsionBy",
+    "mathlib:Submodule.torsionBySet",
+    "mathlib:AdicCompletion"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/18",
@@ -176,7 +184,7 @@
     "mathlib:RingTheory.Sequence.IsWeaklyRegular",
     "mathlib:RingTheory.Sequence.IsWeaklyRegular.of_flat"
    ],
-   "note": "Mathlib has regular and weakly regular sequences over a commutative ring with their localisation and flat base-change stability at the pinned commit; what it does not have is depth, which is why the (S_n) item is only planned."
+   "note": "Mathlib has regular and weakly regular sequences over a commutative ring with their localisation and flat base-change stability at the pinned commit; what it does not have is depth, which is why the (S_n) item is only planned. Review (REV-PAPER-CESNAVICIUS-21): Mathlib has no depth, but it has Rees's theorem ModuleCat.exists_isRegular_tfae (RingTheory/Depth/Rees.lean:158): for finite M over Noetherian R with IM ≠ M, an M-regular sequence of length n in I exists iff Ext^i_R(R/I, M) = 0 for i < n. The three cited declarations were checked (RingTheory/Regular/RegularSequence.lean:135, 146; RingTheory/Regular/Flat.lean:47)."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/19",
@@ -184,31 +192,35 @@
    "name": "§2.1: universal catenarity",
    "statement": "§2.1. A scheme X is universally catenary if it is locally Noetherian and every scheme X' locally of finite type over X is catenary, that is, any two saturated chains of specialisations of points of X' with the same endpoints have the same length (any such chain lies in every affine open of X' containing the endpoint of larger height). Every closed subscheme of a quasi-Cohen–Macaulay scheme is universally catenary; in particular every complete Noetherian local ring is.",
    "locator": "§2.1 (Catenarity), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 5.6.3(ii))",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): catenarity of Noetherian rings is an R03.3 hypothesis (RS-08, AUDIT-17), and PAPER-BOCKLE-IYENGAR-PASKUNAS-23/028 on universally catenary schemes is already sourced into R03.3; route 1 imports the ring-level notion and builds the scheme-level universal catenarity here. The clause on closed subschemes of quasi-Cohen–Macaulay schemes is item 5 (Remark 1.4, to which the paper refers back)."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/20",
    "kind": "definition",
-   "name": "§2.2: locally and formally equidimensional schemes, and Ratliff's theorem",
-   "statement": "§2.2. A scheme X is locally equidimensional if it is locally Noetherian and every local ring O_{X,x} is equidimensional, that is, all irreducible components of Spec(O_{X,x}) have the same dimension; X is formally equidimensional (quasi-unmixed) if it is locally Noetherian and Ô_{X,x} is equidimensional for every x. By a theorem of Ratliff, a locally Noetherian X is formally equidimensional if and only if it is locally equidimensional and universally catenary.",
+   "name": "§2.2: locally and formally equidimensional schemes",
+   "statement": "§2.2. A scheme X is locally equidimensional if it is locally Noetherian and every local ring O_{X,x} is equidimensional, that is, all irreducible components of Spec(O_{X,x}) have the same dimension; X is formally equidimensional (quasi-unmixed) if it is locally Noetherian and Ô_{X,x} is equidimensional for every x.",
    "locator": "§2.2 (Equidimensionality), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 7.1.1; Herrmann–Ikeda–Orbanz 18.17; Ratliff)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): Ratliff's theorem was split off as item 63. Equidimensionality of Noetherian local rings is an R03.3 target ('Give equidimensionality, associated-prime and support lemmas for finite modules'; AUDIT-17 records that equidimensionality is not defined), and route 1 imports it. The scheme forms and formal equidimensionality (EGA IV₂ 7.1.1) are added here."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/21",
    "kind": "theorem",
-   "name": "Lemma 2.3: formal equidimensionality is stable under divisors and blowing up",
-   "statement": "Lemma 2.3. Let X be a formally equidimensional scheme and 𝓘 ⊂ O_X a coherent ideal. (a) If 𝓘 is locally principal of height > 0 then Spec(O_X/𝓘) is formally equidimensional. (b) The blowing up Bl_𝓘(X) is formally equidimensional.",
-   "locator": "Lemma 2.3, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "name": "Lemma 2.3(a): formal equidimensionality is stable under locally principal divisors",
+   "statement": "Lemma 2.3(a). Let X be a formally equidimensional scheme and 𝓘 ⊂ O_X a coherent ideal. If 𝓘 is locally principal of height > 0, then Spec(O_X/𝓘) is formally equidimensional.",
+   "locator": "Lemma 2.3(a) with its proof, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Herrmann–Ikeda–Orbanz 18.20; alternatively EGA IV₂ 2.3.4)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the lemma was split: part (b) is item 64. The locator now names the sources the paper gives."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/22",
    "kind": "theorem",
    "name": "Lemma 2.4: (S_n) descends from the completion when the formal fibres are (S_n)",
    "statement": "Lemma 2.4. For a Noetherian local ring R with (S_n) formal fibres and an R-scheme X such that both X and X_{R̂} are locally Noetherian, a coherent O_X-module 𝓜 is (S_n) if and only if 𝓜|_{X_{R̂}} is. The 'if' direction does not need the hypothesis on the formal fibres, but the 'only if' does even for n = 1: Ferrand–Raynaud exhibited a two-dimensional Noetherian local domain that is (S_1) whose completion is not.",
-   "locator": "Lemma 2.4 with its footnote, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 6.4.1(i), 6.4.3; Ferrand–Raynaud 3.3)",
-   "status": "missing"
+   "locator": "Lemma 2.4 with its footnote and proof, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 6.4.1(i), 6.4.2, 6.4.3; Ferrand–Raynaud 3.3)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the locator now names EGA IV₂ 6.4.2, of which the proof says the claim is a special case; that input is item 72."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/23",
@@ -232,7 +244,11 @@
    "name": "Proposition 2.7: reduction of the resolution conjecture to the excellent equidimensional case",
    "statement": "Proposition 2.7. For a quasi-excellent, reduced scheme X, the normalisation morphism X̃ → X is finite and an isomorphism over Reg(X), and X̃ is excellent and formally equidimensional.",
    "locator": "Proposition 2.7, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the finiteness of the normalisation of a reduced excellent scheme is planned in Algebraic moduli and representability for arithmetic geometry A0-extension ('prove finite normalization under excellence'; AUDIT-01 lists it as partial), with its Nagata-ring prerequisite in R03.3 (the accepted review of PAPER-ANDRE-18-B, route 5). The construction is Mathlib's AlgebraicGeometry.Scheme.Hom.normalization (AlgebraicGeometry/Normalization.lean:123). Added here: the quasi-excellent case, the isomorphism over Reg(X), and that X̃ is excellent and formally equidimensional. Route 1 imports both.",
+   "library": [
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalization"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/26",
@@ -262,9 +278,10 @@
    "id": "PAPER-CESNAVICIUS-21/29",
    "kind": "theorem",
    "name": "Lemma 2.11: extending an (S_1) or (S_2) module across an open immersion",
-   "statement": "Lemma 2.11. For an open immersion j : U ↪ X of Noetherian, (S_2)-excellent schemes, any coherent O_U-module 𝓜 that is (S_1) (resp. (S_2)) extends to a coherent O_X-submodule 𝓜' ⊂ j_*(𝓜) that is (S_1) (resp. a finite direct sum of (S_2) modules); if 𝓜 underlies a commutative O_U-algebra then 𝓜' may be chosen to be an algebra extension, with the direct sum that of O_X-algebras. Moreover, if 𝓜 is (S_2) and for each x in the closure of Supp(𝓜) minus Supp(𝓜), of height ≥ 2 in that closure, the punctured spectrum of the local ring of the closure at x has no isolated points, then 𝓜' may be chosen (S_2) itself.",
-   "locator": "Lemma 2.11, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "statement": "Lemma 2.11. For an open immersion j : U ↪ X of Noetherian, (S_2)-excellent schemes, any coherent O_U-module 𝓜 that is (S_1) (resp. (S_2)) extends to a coherent O_X-submodule 𝓜' ⊂ j_*(𝓜) that is (S_1) (resp. a finite direct sum of (S_2) modules); if 𝓜 underlies a commutative O_U-algebra then 𝓜' may be chosen to be an algebra extension, with the direct sum that of O_X-algebras.",
+   "locator": "Lemma 2.11 with its proof, pp. 7–8, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA I 9.5.8, 9.4.7; EGA IV₄ 18.12.13; EGA IV₂ 5.10.5; Stacks 0BK3, 0AW6; Kollár, Methods Appl. Anal. 24 (2017), Thm. 2)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the final 'Moreover' clause was split off as item 65, to which E3 attaches. The locator now names the sources of the proof; its inputs are items 67 (Kollár's criterion), 69 (Zariski's main theorem), 70 ((S_2) of j_*), 71 (extension of coherent submodules), 63 (Ratliff) and 75 (schematic image)."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/30",
@@ -301,10 +318,14 @@
   {
    "id": "PAPER-CESNAVICIUS-21/34",
    "kind": "definition",
-   "name": "Definition 3.1: secant and CM-secant sequences",
-   "statement": "Definition 3.1. For a finite module M over a Noetherian local ring (R,𝔪), a sequence r_1,…,r_s ∈ 𝔪 (i) is secant for M, in Bourbaki's sense, if dim(Supp(M/(r_1,…,r_i)M)) < dim(Supp(M/(r_1,…,r_{i−1})M)) for every 1 ≤ i ≤ s (with dim(∅) = −∞, so only the empty sequence is secant when M = 0); (ii) is CM-secant for M if it is secant for M, the module M/(r_1,…,r_s)M is Cohen–Macaulay, and for every 1 ≤ i ≤ s one has r_i ∈ ∏_{j < dim(Supp(M/(r_1,…,r_{i−1})M))} Ann_R(H^j_𝔪(R, M/(r_1,…,r_{i−1})M)), so that informally r_i vanishes to high enough order on the non-Cohen–Macaulay locus of M/(r_1,…,r_{i−1})M.",
+   "name": "Definition 3.1(ii): CM-secant sequences",
+   "statement": "Definition 3.1(ii). For a finite module M over a Noetherian local ring (R,𝔪), a sequence r_1,…,r_s ∈ 𝔪 is CM-secant for M if it is secant for M (item 83), the module M/(r_1,…,r_s)M is Cohen–Macaulay, and for every 1 ≤ i ≤ s one has r_i ∈ ∏_{j < dim(Supp(M/(r_1,…,r_{i−1})M))} Ann_R(H^j_𝔪(R, M/(r_1,…,r_{i−1})M)), so that informally r_i vanishes to high enough order on the non-Cohen–Macaulay locus of M/(r_1,…,r_{i−1})M.",
    "locator": "Definition 3.1, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Bourbaki, Algèbre commutative VIII, §3, no. 2, Def. 1)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the definition was split: secant sequences (Definition 3.1(i)) are item 83, which belongs with systems of parameters in R03.3. dim(Supp(·)) is Mathlib's Module.supportDim (RingTheory/KrullDimension/Module.lean:32); CM-secant is in neither library.",
+   "library": [
+    "mathlib:Module.supportDim"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/35",
@@ -312,7 +333,13 @@
    "name": "Remark 3.2: secant sequences are parts of systems of parameters",
    "statement": "Remark 3.2. A sequence is secant for M if and only if it is part of a system of parameters for M: since dim(Supp(M/(r_1,…,r_{i−1})M)) − 1 ≤ dim(Supp(M/(r_1,…,r_i)M)), the sequence r_1,…,r_s is secant if and only if dim(Supp(M/(r_1,…,r_s)M)) = dim(Supp(M)) − s. Hence any permutation of a secant sequence is secant, as is r_1,…,r_{i−1},r_ir_j for 1 ≤ i ≤ j ≤ s, and any M-regular sequence is secant if M ≠ 0.",
    "locator": "Remark 3.2, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): moved from route 2 to the new R03.3 source route (route 4): it is the parameter-system theory that R03.3 is given by the accepted PAPER-ANDRE-18-B/secant-sequence and PAPER-BHATT-ETAL-23/sop and /parameter-height. Mathlib has the displayed inequality and its equality cases: Module.supportDim_le_supportDim_quotSMulTop_succ, Module.supportDim_quotSMulTop_succ_eq_of_notMem_minimalPrimes_of_mem_maximalIdeal and Module.supportDim_add_length_eq_supportDim_of_isRegular (RingTheory/KrullDimension/Regular.lean:141, 151, 182).",
+   "library": [
+    "mathlib:Module.supportDim_le_supportDim_quotSMulTop_succ",
+    "mathlib:Module.supportDim_quotSMulTop_succ_eq_of_notMem_minimalPrimes_of_mem_maximalIdeal",
+    "mathlib:Module.supportDim_add_length_eq_supportDim_of_isRegular"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/36",
@@ -333,17 +360,17 @@
   {
    "id": "PAPER-CESNAVICIUS-21/38",
    "kind": "definition",
-   "name": "Local cohomology and its Čech and spectral-sequence calculus",
-   "statement": "For an ideal 𝔞 ⊂ R and an R-module M, the local cohomology modules H^i_𝔞(R,M) are the right derived functors of the 𝔞-torsion functor, computed by the colimit of Ext^i_R(R/𝔞^n, M) or by the Čech complex on generators of 𝔞, and depend only on the radical of 𝔞. The paper uses the Čech interpretation to bound H^j_{(r,r')} in degrees > 2, the vanishing H^0 for a regular element, the composition spectral sequence H^j_𝔞(R,H^{j'}_𝔟(R,M)) ⇒ H^{j+j'}_{𝔞+𝔟}(R,M) (Stacks 0BJC), and the identification H^1_{(r)}(R,M) = colim_m M/r^mM (Stacks 0A6R).",
+   "name": "Local cohomology as a colimit of Ext",
+   "statement": "For an ideal 𝔞 ⊂ R and an R-module M, H^i_𝔞(R,M) := colim_n Ext^i_R(R/𝔞^n, M). It may be computed over any family of ideals cofinal with the powers of 𝔞, in particular over all ideals whose radical contains 𝔞, and for Noetherian R it depends only on the radical of 𝔞.",
    "locator": "Used throughout §3, in particular in the proofs of Proposition 3.11 and Theorem 3.14, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Stacks 0BJC, 0A6R, 0955, 0BJB)",
    "status": "library",
    "library": [
     "mathlib:localCohomology",
     "mathlib:localCohomology.ofSelfLERadical",
-    "mathlib:localCohomology.isoOfSameRadical",
-    "mathlib:localCohomology.idealPowersToSelfLERadical"
+    "mathlib:localCohomology.isoSelfLERadical",
+    "mathlib:localCohomology.isoOfSameRadical"
    ],
-   "note": "Mathlib defines local cohomology as the colimit of Ext over the ideal-powers diagram, proves independence of the ideal up to radical and the comparison with the cofinal diagram of ideals with the same radical. It does not have the Čech complex computation, the composition spectral sequence or the H^1 identification, which are the parts actually used; those are recorded as additions in the Part II brief."
+   "note": "Mathlib defines local cohomology as the colimit of Ext over the ideal-powers diagram, proves independence of the ideal up to radical and the comparison with the cofinal diagram of ideals with the same radical. It does not have the Čech complex computation, the composition spectral sequence or the H^1 identification, which are the parts actually used; those are recorded as additions in the Part II brief. Review (REV-PAPER-CESNAVICIUS-21): the item was split and its library claim narrowed. Mathlib (Algebra/Homology/LocalCohomology.lean:175, 180, 229, 263; the last two need [IsNoetherian R R]) has exactly this statement, and its 'Future work' list names the derived-functor description, the Čech complex and the long exact sequences as not done. Those, and the rest of the calculus the paper uses, are item 76 (missing, R03.3). The citation of idealPowersToSelfLERadical (:201), which is only the comparison functor, was replaced by the isomorphism isoSelfLERadical (:229)."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/39",
@@ -351,15 +378,17 @@
    "name": "§3.5: dualizing complexes over a Noetherian ring",
    "statement": "§3.5. For a Noetherian ring R, a complex ω^•_R is dualizing if its cohomology modules are finitely generated, its image in D(R) is isomorphic to a finite complex of injectives (so ω^•_R ∈ D^b_coh(R)) and R ≅ RHom_R(ω^•_R,ω^•_R) in D(R); then RHom_R(−,ω^•_R) is an involutive antiequivalence of D^b_coh(R). A dualizing complex is unique up to tensoring with an object that is Zariski-locally a shift of R; its formation commutes with localisation and with quotients, RHom_R(R',ω^•_R) being dualizing for R ↠ R'. For local R with residue field k, RHom_R(k,ω^•_R) is k in a single degree n, and ω^•_R is normalized if n = 0. By Kawasaki's theorem, which settled Sharp's conjecture, a Noetherian ring has a dualizing complex if and only if it is a quotient of a finite-dimensional Gorenstein ring; only the 'if' implication is used.",
    "locator": "§3.5 (Dualizing complexes), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Stacks 0A7B, 0A7C, 0A7F, 0A7G, 0A7I, 0DW7; Kawasaki, Trans. Amer. Math. Soc. 354 (2002), 1.4; Sharp 4.4)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): moved from route 2 to the new source route for Six-functor formalisms and analytic stacks AS.1 (route 5). The accepted routes 5 of PAPER-HACON-WITASZEK-23 ('Add its Noetherian singular dualizing-complex, finite-trace and local-duality adapters here') and PAPER-BHATT-ETAL-23 (normalized dualizing complex) already send the Noetherian dualizing complex there, as missing source refinements; AS.1's own text does not plan it. Route 2's claim that the only dualizing complexes in the atlas are the perverse-sheaf ones was wrong: besides AS.1, Algebraic moduli A0-extension (via PAPER-PILLONI-20 route 10) supplies f^! for embeddable morphisms, and Tau Ceti StableReduction Layer 2 has the relative dualizing sheaf of Cohen–Macaulay curves, a different object. The existence, localisation and Cohen–Macaulay facts of §3.5 are items 80 and 81."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/40",
    "kind": "theorem",
    "name": "Lemma 3.6: the annihilator identity and the Cohen–Macaulay locus",
    "statement": "Lemma 3.6. Let (R,𝔪) be a Noetherian local ring with a normalized dualizing complex ω^•_R. (a) For every finite R-module M and every j ∈ Z, Ann_R(H^j_𝔪(R,M)) = Ann_R(H^{−j}(RHom_R(M,ω^•_R))). (b) For every finite M with equidimensional support, the ideal ∏_{j < dim(Supp(M))} Ann_R(H^j_𝔪(R,M)) = ∏_{j < dim(Supp(M))} Ann_R(H^{−j}(RHom_R(M,ω^•_R))) cuts out a closed subscheme of Spec(R) whose complement is the Cohen–Macaulay locus of M.",
-   "locator": "Lemma 3.6, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "locator": "Lemma 3.6 with its proof, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Hartshorne, Residues and Duality V 6.2, or Schenzel 1.3.4, for local duality; Stacks 0A7Z, 0A7U)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the locator now names the three inputs of the proof, which are items 79, 80 and 78."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/41",
@@ -381,9 +410,10 @@
    "id": "PAPER-CESNAVICIUS-21/43",
    "kind": "theorem",
    "name": "Remark 3.9: the equivalent torsion formulation of a d-sequence",
-   "statement": "Remark 3.9. Definition 3.8 implies that the r_i-torsion and the r_ir_{i'}-torsion submodules of M/(r_1,…,r_{i−1})M agree for every 1 ≤ i ≤ i' ≤ s; that property is often taken as the definition, and the two notions agree by Herrmann–Ikeda–Orbanz 38.6 b) and its proof.",
-   "locator": "Remark 3.9, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
-   "status": "missing"
+   "statement": "Remark 3.9. Definition 3.8 implies that the r_{i'}-torsion and the r_ir_{i'}-torsion submodules of M/(r_1,…,r_{i−1})M agree for every 1 ≤ i ≤ i' ≤ s, i.e. ((r_1,…,r_{i−1})M :_M r_ir_{i'}) = ((r_1,…,r_{i−1})M :_M r_{i'}) [the paper prints 'the r_i-torsion'; sourceIssues E5]. This is Huneke's formulation, often taken as the definition, and the two notions agree by Herrmann–Ikeda–Orbanz 38.6 b) and its proof.",
+   "locator": "Remark 3.9, p. 12, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Herrmann–Ikeda–Orbanz 38.6 b))",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the statement had copied a misprint of the paper (E5)."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/44",
@@ -397,9 +427,10 @@
    "id": "PAPER-CESNAVICIUS-21/45",
    "kind": "theorem",
    "name": "Proposition 3.11: Kawasaki's properties of CM-secant sequences",
-   "statement": "Proposition 3.11 (Kawasaki). For a finite module M over a Noetherian local ring (R,𝔪), any initial subsequence r_1,…,r_s of a CM-secant for M sequence r_1,…,r_s,…,r_s̃ satisfies, with I_j := ∏_{i=1}^{j}(r_1,…,r_i): (i) for any secant for M/(r_1,…,r_s)M sequence r'_1,…,r'_{s'} ∈ 𝔪 and M' := M/(r'_1,…,r'_{s'})M, the reversed sequence r_s,…,r_1 is a d-sequence for M'; (ii) for such a sequence and M', and for m,n > 0, the r_s^m-torsion and the (r_1,…,r_s)-torsion of M'/I_{s−1}^nM' coincide, so this torsion does not depend on m (the claim is vacuous when s ≤ 1); (iii) for such a sequence with M' := M/(r'_1,…,r'_{s'−1})M, if r_{s'} is (M'/(r_1,…,r_s)M')-regular then it is M'-regular and (M'/I_s^nM')-regular for n > 0.",
-   "locator": "Proposition 3.11, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Kawasaki, Trans. Amer. Math. Soc. 352 (2000))",
-   "status": "missing"
+   "statement": "Proposition 3.11 (Kawasaki). For a finite module M over a Noetherian local ring (R,𝔪), any initial subsequence r_1,…,r_s of a CM-secant for M sequence r_1,…,r_s,…,r_s̃ satisfies, with I_j := ∏_{i=1}^{j}(r_1,…,r_i): (i) for any secant for M/(r_1,…,r_s)M sequence r'_1,…,r'_{s'} ∈ 𝔪 and M' := M/(r'_1,…,r'_{s'})M, the reversed sequence r_s,…,r_1 is a d-sequence for M'; (ii) for such a sequence and M', and for m,n > 0, the r_s^m-torsion and the (r_1,…,r_s)-torsion of M'/I_{s−1}^nM' coincide, so this torsion does not depend on m (the claim is vacuous when s ≤ 1); (iii) for such a sequence with M' := M/(r'_1,…,r'_{s'−1})M, if r'_{s'} is (M'/(r_1,…,r_s)M')-regular [the paper prints r_{s'}; sourceIssues E6] then it is M'-regular and (M'/I_s^nM')-regular for n > 0.",
+   "locator": "Proposition 3.11 with the paragraph after it, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Kawasaki, Trans. Amer. Math. Soc. 352 (2000), 2.9, 2.10, 3.1, 3.2, 3.3)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): clause (iii) had copied a misprint (E6). The paper does not reprove the proposition: (i) is a special case of Kaw00 2.10 via 2.9 and Remark 3.3, and (ii) and (iii) are special cases of Kaw00 3.2 and 3.3, which rest on Kaw00 3.1. The paper lists four misprints in Kaw00 that a formaliser reading it needs: in the last line of the proof of 2.8, 'n_{s+1},…,x_d' should be 'n_{s+1},…,n_d'; in the line before (3.1.5), and again before the last display of Step 3 of the proof of 3.1, 'y_u ∈ 𝔞(M/𝔮_kM)' should be 'y_u ∈ 𝔞(M/𝔮_kM) or y_u ∈ 𝔞(M)' (Kaw02 3.6 makes the same correction); in (3.1.6), 'y_1,…,y_{u−1}' should be 'y_1,…,y_u'; and in the last line of 3.3, 'k ≤ i ≤ j' should be 'k ≤ i ≤ j ≤ d'."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/46",
@@ -415,7 +446,8 @@
    "name": "§3.13: blowing up modules and strict transforms",
    "statement": "§3.13. For a scheme X, a quasi-coherent 𝓜 and a quasi-coherent ideal 𝓘, Bl_𝓘(𝓜) is the quasi-coherent O_{Bl_𝓘(X)}-module associated to the graded (⊕_{n≥0}𝓘^n)-module ⊕_{n≥0}𝓘^n𝓜; over an affine Spec(R) with I, M and i ∈ I, Γ(R_{(i)},Bl_𝓘(𝓜)) is the R_{(i)}-submodule M_{(i)} ⊂ M[1/i] generated by the image of M, so i is M_{(i)}-regular and Bl_𝓘(𝓜) has no nonzero sections supported on the exceptional divisor. The natural surjection 𝓜|_{Bl_𝓘(X)} ↠ Bl_𝓘(𝓜) is an isomorphism away from the vanishing locus of 𝓘 and its kernel consists of the local sections supported on the exceptional divisor, so Bl_𝓘(𝓜) is the strict transform of 𝓜 in the sense of Raynaud–Gruson I.5.1.1(ii). For a second ideal 𝓘' there are canonical identifications Bl_{𝓘𝓘'}(X) ≅ Bl_{𝓘·O}(Bl_{𝓘'}(X)) ≅ Bl_{𝓘'·O}(Bl_𝓘(X)) and the corresponding ones for Bl(𝓜).",
    "locator": "§3.13 (Blowing up modules), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Raynaud–Gruson I.5.1.1(ii); Stacks 080A)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): narrowed in scope, not in statement. Blowups of schemes, strict transforms, exceptional divisors and Stacks 080A for schemes are planned in Tau Ceti StableReduction Layer 4 (as in the accepted PAPER-BOXER-PILLONI-26/blow-up-exceptional-divisor-cartier), and the Raynaud–Gruson strict transform of a module in Adic coefficients and comparison with schemes L5 (PAPER-BOXER-PILLONI-26/flattening-by-blow-up). Route 2 imports both and adds Bl_𝓘(𝓜) = (⊕𝓘^n𝓜)~ for an arbitrary quasi-coherent 𝓜, its identification with that strict transform, and the module form of 080A."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/48",
@@ -429,9 +461,10 @@
    "id": "PAPER-CESNAVICIUS-21/49",
    "kind": "theorem",
    "name": "The proof of Theorem 3.14 and its two claims",
-   "statement": "The proof works under the weaker hypothesis that every initial subsequence satisfies conditions (i)–(iii) of Proposition 3.11 and that M/(r_1,…,r_s̃)M is Cohen–Macaulay; by Remark 3.12 this persists after quotienting by an M̄-regular element, which reduces to the case where M/(r_1,…,r_s̃)M is 0-dimensional, so that one must show depth(Bl_{I_s}(M)) ≥ s at every closed point of its support, by induction on s. The support of Bl_I(M) is the blowing up of Supp(M) at the restriction of I, whose dimension is ≤ dim(Supp(M)) by Herrmann–Ikeda–Orbanz 12.14. The inductive step passes to Bl_{(r_1,…,r_s)}(Bl_{I_{s−1}}(R)) and rests on two claims about R' := the local ring at a closed point and M' := the stalk of Bl_{I_{s−1}}(M): Claim 3.14.5, that both r_i and r_s kill H^1_{(r_i,r_s)}(R',M'), and Claim 3.14.6, that H^j_{𝔪'}(R',H^{j'}_{(r_i,r_s)}(R',M')) = 0 for j < s − 2 and any j'. Both are proved from conditions (i)–(ii), the Goto–Yamagishi equalities, the Čech description of local cohomology and the composition spectral sequence.",
-   "locator": "The proof of Theorem 3.14, including Claims 3.14.5 and 3.14.6, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Herrmann–Ikeda–Orbanz 12.14; EGA II 2.5.4, 2.5.6; Stacks 080E, 0BJC, 0A6R; EGA IV₁ 0.16.5.10(i))",
-   "status": "missing"
+   "statement": "The proof works under the weaker hypothesis that every initial subsequence r_1,…,r_s (s ≤ s̃) satisfies conditions (i)–(iii) of Proposition 3.11 and that M̄ := M/(r_1,…,r_s̃)M is Cohen–Macaulay. The support of Bl_I(M) is the blowing up of Supp(M) at the restriction of I (Stacks 080E), of dimension ≤ dim(Supp(M)) (Herrmann–Ikeda–Orbanz 12.14), so it suffices to have depth ≥ dim(Supp(M)) at the closed points of the support. For an M̄-regular r' ∈ 𝔪, Proposition 3.11(iii) and the snake lemma make r' regular on ⊕I^nM with quotient ⊕I^n(M/r'M), and Remark 3.12 keeps the hypotheses, so one may pass to M/r'M; iterating, M̄ becomes 0-dimensional. Then, with I_s := ∏_{i=1}^{s}(r_1,…,r_i) [misprinted in the paper; sourceIssues E7], one shows by induction on s that depth(Bl_{I_s}(M)) ≥ s at the closed points of its support; the case s = 1 holds because r_1 is regular on Bl_{I_1}(M) ≅ M/M⟨r_1^∞⟩. For s ≥ 2, let R'' be the local ring of Bl_{I_s}(R) ≅ Bl_{(r_1,…,r_s)}(Bl_{I_{s−1}}(R)) at a closed point of the support, R' the local ring of Bl_{I_{s−1}}(R) at its image, and M'', M' the stalks; by induction depth_{R'}(M') ≥ s − 1. There is 1 ≤ i ≤ s − 1 with r_i generating (r_1,…,r_{s−1})R', R'- and M'-regular, and then (r_1,…,r_s)R' = (r_a,r_b)R' with {a,b} = {i,s}. Via the affine charts (Stacks 0804), R'' ≅ (R'[T]/(r_bT − r_a))_{(𝔪', f(T))}/(r_b-torsion) for a monic f, and Grothendieck's depth criterion (SGA 2 III 3.3(iv)) reduces depth_{R''}(M'') ≥ s to H^j_{𝔪''}(R'',M'') = 0 for j < s, which the spectral sequence, the Čech complex and the exact sequence of multiplication by r_bT − r_a reduce to two claims: Claim 3.14.5, that both r_i and r_s kill H^1_{(r_i,r_s)}(R',M'); and Claim 3.14.6, that H^j_{𝔪'}(R',H^{j'}_{(r_i,r_s)}(R',M')) = 0 for j < s − 2 and any j'. The claims are proved from conditions (i)–(ii), the regularity statements of §3.13, the inductive hypothesis for M and for the M/r_s^mM (Remark 3.12), the Čech complex and the composition spectral sequence.",
+   "locator": "The proof of Theorem 3.14, including Claims 3.14.5 and 3.14.6, pp. 14–17, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Herrmann–Ikeda–Orbanz 12.14; EGA I 9.5.5; EGA II 2.5.4, 2.5.6; SGA 2 III 3.3(iv); Stacks 0804, 080E, 0955, 0A6R, 0ALZ, 0BJB, 0BJC; EGA IV₁ 0.16.5.10(i))",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the statement was rewritten from the TeX (ll. 1536–1705). It had left I_s, R', M' and i undefined, omitted the reduction through Proposition 3.11(iii), and named the Goto–Yamagishi equalities, which the proof never cites."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/50",
@@ -446,8 +479,9 @@
    "kind": "definition",
    "name": "§4.1: biequidimensional schemes",
    "statement": "§4.1. A scheme X is biequidimensional if it is Noetherian, of finite dimension, and the saturated chains of specialisations of its points all have the same length, necessarily dim(X). Every biequidimensional X is locally equidimensional, and by EGA IV₂ 5.2.1 every connected, locally equidimensional X of finite type over a field is biequidimensional. If X is biequidimensional then so is every nowhere dense closed subscheme whose ideal sheaf is locally principal; conversely, if such an X' inside a Noetherian, catenary, locally equidimensional X contains all the closed points of X and is biequidimensional, then so is X, because all closed points of X then have height dim(X') + 1.",
-   "locator": "§4.1 (Biequidimensionality) with its footnote, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₁ 0.14.3.3, corrected as in Illusie–Laszlo–Orgogozo XIV §2.4 footnote (i); EGA IV₂ 5.2.1; Heitmann §3)",
-   "status": "missing"
+   "locator": "§4.1 (Biequidimensionality) with its footnote, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₁ 0.14.3.3, corrected as in Illusie–Laszlo–Orgogozo XIV §2.4 footnote (i); EGA IV₂ 5.2.1; Heinrich, Some remarks on biequidimensionality of topological spaces and Noetherian schemes, J. Commut. Algebra 9 (2017), §3)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the locator cited 'Heitmann §3'; the paper's [Hei17] is Katharina Heinrich's article in J. Commut. Algebra."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/52",
@@ -455,15 +489,17 @@
    "name": "§4.2: dualizing complexes on schemes and their normalisation",
    "statement": "§4.2. For a Noetherian scheme X an object ω^•_X ∈ D^b_coh(O_X) is a dualizing complex if its restriction to every affine open is the image of a dualizing complex in the sense of §3.5. If X has one then so does every finite type, separated X-scheme, by Stacks 0AA3 and the Nagata compactification. If a Noetherian X with a dualizing complex is biequidimensional then, by Stacks 0AWF, there is a unique locally constant n such that for any x ∈ X of coheight δ(x) the complex (ω^•_X|_{O_{X,x}})[−δ(x)+n(x)] is a normalized dualizing complex for O_{X,x}; ω^•_X is called normalized when n = 0, which a unique locally constant shift arranges.",
    "locator": "§4.2 (Dualizing complexes on schemes), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Stacks 0A87, 0AA3, 0AWF, 0AX1)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): moved from route 1 to the AS.1 source route (route 5), for the reason given under item 39; the accepted PAPER-BHATT-ETAL-23/dualizing and PAPER-HACON-WITASZEK-23/dualizing ask AS.1 for the same normalisation. Route 1 imports it."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/53",
    "kind": "theorem",
    "name": "Lemma 4.3: the Gabber–Liu–Lorenzini avoidance lemma",
    "statement": "Lemma 4.3 (Gabber–Liu–Lorenzini 5.1). For a Noetherian ring R, a projective R-scheme X, a closed subscheme Y ⊂ X that contains no positive-dimensional irreducible component of any R-fibre of X, points x_1,…,x_n ∈ X \\ Y and a very R-ample line bundle 𝓛 on X, there are N > 0 and f ∈ Γ(X,𝓛^{⊗N}) such that the closed subscheme of X cut out by the coherent ideal im((𝓛^{⊗N})^{−1} →^f O_X) ⊂ O_X contains Y but contains none of the x_i.",
-   "locator": "Lemma 4.3, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Gabber–Liu–Lorenzini, The index of an algebraic variety, Invent. Math. 192 (2013), 5.1)",
-   "status": "missing"
+   "locator": "Lemma 4.3, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Gabber–Liu–Lorenzini, Hypersurfaces in projective schemes and a moving lemma, Duke Math. J. 164 (2015), 5.1)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the locator cited the wrong Gabber–Liu–Lorenzini paper ('The index of an algebraic variety'). The lemma is the Noetherian projective case of PAPER-CESNAVICIUS-22/avoidance (any ring, quasi-projective finitely presented X), which PAPER-CESNAVICIUS-22 route 7 proposes for SchemeAndStackFoundationsPartIIArithmeticPresentation (rejected pending revision, with the direction found justified) and whose id the accepted PAPER-BHATT-ETAL-23 route 13 reuses; it moved from route 1 to a route reusing that id (route 6)."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/54",
@@ -477,9 +513,10 @@
    "id": "PAPER-CESNAVICIUS-21/55",
    "kind": "construction",
    "name": "The construction in the proof of Proposition 4.4",
-   "statement": "One reduces to X and X_{R/𝔪} connected, notes that X_{R/𝔪} and hence X are biequidimensional by Lemma 2.3(a) and §4.1, and takes a normalized dualizing complex ω^•_X. The coherent ideals 𝓘_𝓜 := ∏_{j<dim(X)} Ann_{O_X}(H^{−j}(RHom_{O_X}(𝓜,ω^•_X))) have, by biequidimensionality and Lemma 3.6(a), the stalks ∏_{j<dim(O_{X,x})} Ann(H^j_{𝔪(x)}(O_{X,x},𝓜_x)), so by Lemma 3.6(b) they cut out the complement of CM(𝓜); hence 𝓙_1 := (𝓘_{X_{R/𝔪}})^{N_0} ⊂ 𝓘_𝓜 for some N_0 > 0. One then builds a decreasing chain X ⊃ X_1 ⊃ ⋯ ⊃ X_d of biequidimensional closed subschemes of strictly decreasing dimension, X_1 := Spec(O_X/𝓙_1), where X_{m+1} is cut out on X_m by a locally principal 𝓙_{m+1} := im((𝓛^{⊗N_m})^{−1} →^{f_m} O_X) produced by Lemma 4.3 so as to contain the non-CM locus of each 𝓜|_{X_m} but no generic point of X_m. For each x the sequence of local generators j_{1,x},…,j_{m_x,x} is then CM-secant for every 𝓜_x, so Theorem 3.14 applies to the coherent ideal 𝓙 := ∏_{i=1}^{d}(𝓙_1,…,𝓙_i), whose stalks are the corresponding products; one takes Z := Spec(O_X/𝓙) and n := N_0·d.",
+   "statement": "One reduces to X and X_{R/𝔪} connected, notes that X_{R/𝔪} and hence X are biequidimensional by Lemma 2.3(a) and §4.1, and takes a normalized dualizing complex ω^•_X. The coherent ideals 𝓘_𝓜 := ∏_{j<dim(X)} Ann_{O_X}(H^{−j}(RHom_{O_X}(𝓜,ω^•_X))) have, by biequidimensionality and Lemma 3.6(a), the stalks ∏_{j<dim(O_{X,x})} Ann(H^j_{𝔪(x)}(O_{X,x},𝓜_x)), so by Lemma 3.6(b) they cut out the complement of CM(𝓜); hence 𝓙_1 := (𝓘_{X_{R/𝔪}})^{N_0} ⊂ 𝓘_𝓜 for some N_0 > 0. One then builds a decreasing chain X ⊃ X_1 ⊃ ⋯ ⊃ X_d of biequidimensional closed subschemes of strictly decreasing dimension, X_1 := Spec(O_X/𝓙_1). Given X_m, stop with d := m if every 𝓜|_{X_m} is Cohen–Macaulay. Otherwise let ω^•_{X_m} := RHom_{O_X}(O_{X_m}, ω^•_X), which is normalized (Stacks 0AX1), and 𝓘_{𝓜,m} := ∏_{j<dim(X_m)} Ann_{O_{X_m}}(H^{−j}(RHom(𝓜|_{X_m}, ω^•_{X_m}))); it cuts out Y_{𝓜,m} := X_m \\ CM(𝓜|_{X_m}), which contains no generic point of X_m. For a fixed very R-ample 𝓛, Lemma 4.3 gives N_m and f_m such that the locally principal 𝓙_{m+1} := im((𝓛^{⊗N_m})^{−1} →^{f_m} O_X) cuts out a closed subscheme containing each Y_{𝓜,m} and no generic point of X_m, and X_{m+1} := X_m ∩ V(𝓙_{m+1}) is biequidimensional of smaller dimension. With j_{m,x} a generator of (𝓙_m)_x, j_{d+1,x} := 1 and m_x the least m with j_{m+1,x} a unit, one needs j_{m+1,x} ∈ ∏_{j<dim O_{X_m,x}} Ann_{O_{X,x}}(H^j_{𝔪(x)}(O_{X,x}, (𝓜|_{X_m})_x)), the product taken in O_{X,x}; the paper's (4.4.1) asserts this for the preimage of 𝓘_{𝓜,m}, which can be larger, and the repair is to apply Lemma 4.3 to the closed subscheme of X cut out by the product of the O_X-annihilators, or to change j_{m+1,x} modulo (j_{1,x},…,j_{m,x}) [sourceIssues E9]. Then j_{1,x},…,j_{m_x,x} is CM-secant for every 𝓜_x, so Theorem 3.14 applies to the coherent ideal 𝓙 := ∏_{i=1}^{d}(𝓙_1,…,𝓙_i), whose stalks are the corresponding products; one takes Z := Spec(O_X/𝓙) and n := N_0·d.",
    "locator": "The proof of Proposition 4.4, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA III₁ 5.5.1 for the connectedness of the special fibre; Stacks 0BJB, 0955, 0AX1)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the middle of the statement was made precise (ω^•_{X_m}, 𝓘_{𝓜,m}, j_{m,x} and m_x were undefined, and 'contains the non-CM locus' is set-theoretic where Definition 3.1(ii) needs an ideal membership); the step needs the repair of E9. Its inputs are items 81, 82 and 53."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/56",
@@ -501,9 +538,10 @@
    "id": "PAPER-CESNAVICIUS-21/58",
    "kind": "construction",
    "name": "The Noetherian induction in the proof of Proposition 5.2",
-   "statement": "Starting from an open U ⊊ X containing CM(X) ∩ ⋂_𝓜 CM(𝓜) for which the claim holds with a closed Z ⊂ U, one extends Z to a closed Z̃ ⊂ X by EGA I 9.4.7 and enlarges U using Lemma 5.1. Localising at a generic point of X \\ U — legitimate by EGA I 9.4.7 and a limit argument using the openness of the Cohen–Macaulay loci of CM-excellent schemes — one may assume X = Spec(R) local with U the punctured spectrum, sets Y := Bl_{Z̃}(X) with its modules 𝓜̃ := Bl_{Z̃}(𝓜), and, by Lemma 5.1 again, precomposes with Bl_{Y_{R/𝔪}}(Y) → Y so that Y_{R/𝔪} ⊂ Y is a divisor. Since X is formally equidimensional, Lemma 2.3(b) makes Y_{R̂} locally equidimensional, and Lemma 2.4 transports the Cohen–Macaulayness of Y_U and its modules to the completion; Proposition 4.4 applies to Y_{R̂} → Spec(R̂) and gives Z, and, since blowing up commutes with flat base change, Lemma 2.4 descends the conclusion to Y.",
-   "locator": "The proof of Proposition 5.2, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA I 9.4.7)",
-   "status": "missing"
+   "statement": "Starting from an open U ⊊ X containing CM(X) ∩ ⋂_𝓜 CM(𝓜) for which the claim holds with a closed Z ⊂ U, one extends Z to a closed Z̃ ⊂ X by EGA I 9.4.7 and enlarges U using Lemma 5.1. Localising at a generic point of X \\ U — legitimate by EGA I 9.4.7 and a limit argument using the openness of the Cohen–Macaulay loci of CM-excellent schemes — one may assume X = Spec(R) local with U the punctured spectrum, sets Y := Bl_{Z̃}(X) with its modules 𝓜̃ := Bl_{Z̃}(𝓜), and, by Lemma 5.1 again, precomposes with Bl_{Y_{R/𝔪}}(Y) → Y so that Y_{R/𝔪} ⊂ Y is a divisor. Since X is formally equidimensional, Lemma 2.3(b) makes Y_{R̂} locally equidimensional, and Lemma 2.4 transports the Cohen–Macaulayness of Y_U and its modules to the completion; Proposition 4.4 applies to Y_{R̂} → Spec(R̂) and gives Z ⊂ (Y_{R̂})_{R̂/𝔪^n} = Y_{R/𝔪^n}, so Z is a closed subscheme of Y disjoint from Y_U; since blowing up commutes with the flat base change R → R̂ (Stacks 0805), Bl_Z(Y_{R̂}) ≅ Bl_Z(Y)_{R̂}, and Lemma 2.4 descends the Cohen–Macaulayness to Y.",
+   "locator": "The proof of Proposition 5.2, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA I 9.4.7; Stacks 0805)",
+   "status": "missing",
+   "note": "Review (REV-PAPER-CESNAVICIUS-21): the step that makes Z descend to Y (it lies in Y_{R/𝔪^n}) was missing. The base change is flat, not smooth, which is why blowups are imported from Tau Ceti StableReduction Layer 4 and not from Algebraic moduli R09.7a."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/59",
@@ -528,6 +566,239 @@
    "statement": "Proposition 5.5. Let X be a locally Noetherian scheme. If for every integral, closed subscheme X' ⊂ X there are a Cohen–Macaulay scheme X̃' and a proper map X̃' → X' that is an isomorphism over a nonempty open subscheme of X' — that is, a Macaulayfication of X' — then X is CM-quasi-excellent. It is an analogue of Grothendieck's EGA IV₂ 7.9.5, and the proof reduces to showing that the generic formal fibre of a local integral X is Cohen–Macaulay, using the identification of the completed local rings of X̃_{R̂} and X̃ at corresponding closed points and the ascent and descent of Cohen–Macaulayness along completion.",
    "locator": "Proposition 5.5 with its proof, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (EGA IV₂ 7.9.5, 7.9.3.1, 6.3.5)",
    "status": "missing"
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/62",
+   "kind": "construction",
+   "name": "§1.14: blowing up, with the properties the paper uses",
+   "statement": "For a scheme X and a quasi-coherent ideal 𝓘 cutting out Y ⊂ X, Bl_Y(X) = Bl_𝓘(X) is the relative Proj of the Rees algebra ⊕_{n≥0}𝓘^n. The paper uses freely that it has the universal property (Stacks 0806), commutes with flat base change in X (Stacks 0805), and is projective over X when 𝓘 is of finite type (EGA II 5.5.2).",
+   "locator": "§1.14 (Notation and conventions), second paragraph (Stacks 0806, 0805; EGA II 5.5.2), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ],
+   "library": [
+    "mathlib:reesAlgebra"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Split from item 17. Tau Ceti StableReduction Layer 4 plans 'the Rees algebra and the blowup of a quasi-coherent finite-type ideal as a relative Proj', with 'the universal property, properness/projectivity, compatibility with flat base change, behaviour away from the centre, exceptional divisor, strict transform, and affine chart descriptions'; RS-25 (accepted) gives relative Proj of finitely generated graded quasi-coherent algebras to Layer 2. The accepted PAPER-BENOIST-19/172 is planned in Layer 4 in the same way. Mathlib has the Rees algebra of an ideal (RingTheory/ReesAlgebra.lean:39) and no blowup. The blowups of non-finite-type ideals used in §3.13 (item 47) lie beyond Layer 4 and are covered there."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/63",
+   "kind": "theorem",
+   "name": "Ratliff's theorem",
+   "statement": "A locally Noetherian scheme X is formally equidimensional if and only if it is locally equidimensional and universally catenary. In the form used in the proof of Lemma 2.11 (Stacks 0AW6): if X is universally catenary and x lies on the closure of a point u, then Ô_{closure({u}),x} is equidimensional.",
+   "locator": "§2.2, p. 5; the proof of Lemma 2.11, p. 8 (Herrmann–Ikeda–Orbanz 18.17; Stacks 0AW6; Ratliff), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Split from item 20, where it was a sentence of a definition. It is used in Corollary 2.14, Lemma 2.5 and Theorem 5.3 as well as in Lemma 2.11. Not in either library or in any atlas layer; R03.3 plans equidimensionality lemmas for finite modules, not this equivalence."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/64",
+   "kind": "theorem",
+   "name": "Lemma 2.3(b): formal equidimensionality is stable under blowing up",
+   "statement": "Lemma 2.3(b). For a formally equidimensional scheme X and a coherent ideal 𝓘 ⊂ O_X, the blowing up Bl_𝓘(X) is formally equidimensional.",
+   "locator": "Lemma 2.3(b) with its proof (Herrmann–Ikeda–Orbanz 18.26), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Split from item 21. Used in Corollary 1.10 and in the proof of Proposition 5.2."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/65",
+   "kind": "theorem",
+   "name": "Lemma 2.11, final clause: an (S_2) extension without a direct sum",
+   "statement": "Lemma 2.11 (final clause). In the situation of Lemma 2.11, if 𝓜 is (S_2) and for each x in the closure of Supp(𝓜) minus Supp(𝓜) that has height ≥ 2 in that closure the punctured spectrum of the local ring of the closure at x has no isolated points, then 𝓜' may be chosen to be (S_2) itself. [The proof does not return to this clause; sourceIssues E3 records the missing two lines.]",
+   "locator": "Lemma 2.11, last sentence of the statement, p. 7; used in the last sentence of the proof of Theorem 2.13, p. 9, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Split from item 29 so that E3 attaches to it. It is the clause Theorem 2.13 uses to get (S_2) extensions 𝓜'_i rather than direct sums; checking its hypothesis there is also left implicit (E3)."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/66",
+   "kind": "theorem",
+   "name": "Catenary (S_2) local rings are equidimensional",
+   "statement": "A Noetherian local ring that is (S_2) and catenary is equidimensional (EGA IV₂ 5.10.9).",
+   "locator": "Implicit in the proof of Lemma 2.5, p. 6 (the author's commented-out gloss at TeX l. 998 says this), and in the proof of Theorem 2.13, p. 9 (see sourceIssues E3), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. An equidimensionality lemma for local rings with a catenarity hypothesis, which is the kind R03.3 is asked to supply ('Give equidimensionality, associated-prime and support lemmas'; 'State hypotheses on catenarity'). Not in either library."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/67",
+   "kind": "theorem",
+   "name": "Kollár's coherence criterion for j_*",
+   "statement": "For an open immersion j : U ↪ X of Noetherian schemes and a coherent O_U-module 𝓜, Stacks 0BK3 (Kollár, Coherence of local and global hulls, Thm. 2) gives a necessary and sufficient condition for j_*𝓜 to be coherent, in terms of the associated primes of the completed local rings of the closures of the associated points of 𝓜. As used: with X local, x its closed point and U the punctured spectrum, j_*𝓜 is coherent as soon as, for every associated point u ∈ U of 𝓜, every associated prime of Ô_{closure({u}),x} has coheight ≥ 2.",
+   "locator": "The proof of Lemma 2.11, p. 8 (Stacks 0BK3; Kollár, Methods Appl. Anal. 24 (2017), Thm. 2), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. The engine of Lemma 2.11 and hence of the (S_2)-ification. Mathlib has only the quasi-coherence of pushforwards (SheafOfModules.isQuasicoherent_pushforward); nothing in the atlas mentions Kollár's criterion or Stacks 0BK3. The paper cites SGA 2 VIII 2.3 as the earlier criterion; that is PAPER-CESNAVICIUS-19/sga2-depth-coherence, sourced into Scheme and stack foundations SF.4 by an accepted route, so this item joins it there (route 3). The design job must take the exact hypotheses from Stacks 0BK3."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/68",
+   "kind": "theorem",
+   "name": "Formal patching along the completion",
+   "statement": "For X = Spec(R) with R Noetherian local and U its punctured spectrum, coherent data on U and on Spec(R̂) that agree on U_{R̂} glue (Ferrand–Raynaud 4.2). Together with the commutation of j_* with the flat base change R → R̂, this reduces Theorem 2.13 to complete X: coherence descends by SGA 1 VIII 1.10 and (S_2) by Lemma 2.4.",
+   "locator": "The proof of Theorem 2.13, p. 9 (Ferrand–Raynaud 4.2; SGA 1 VIII 1.10), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "library": [
+    "mathlib:Module.Finite.of_finite_tensorProduct_of_faithfullyFlat"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. The descent of finiteness along a faithfully flat map is in Mathlib (RingTheory/Finiteness/Descent.lean:36); the patching itself is in neither library or any layer. The design job must take the exact hypotheses from FR70 §4."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/69",
+   "kind": "theorem",
+   "name": "Zariski's main theorem, in the finite form used",
+   "statement": "For X Noetherian local of dimension 1 with punctured spectrum U and a commutative coherent O_U-algebra 𝓜, 𝓜 extends to a commutative O_X-algebra that is coherent as an O_X-module (EGA IV₄ 18.12.13).",
+   "locator": "The proof of Lemma 2.11, the case dim X = 1 for algebras, p. 8 (EGA IV₄ 18.12.13), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "library": [
+    "mathlib:AlgebraicGeometry.Scheme.Hom.exists_isIso_morphismRestrict_toNormalization"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Mathlib has Grothendieck's form, an open immersion into the integral (not necessarily finite) relative normalisation (AlgebraicGeometry/ZariskisMainTheorem.lean:206, Stacks 03GW); the finite form used here still needs a finite-subalgebra step."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/70",
+   "kind": "theorem",
+   "name": "(S_2) of j_* on a punctured spectrum",
+   "statement": "For X Noetherian local with punctured spectrum j : U ↪ X and an (S_2) coherent O_U-module 𝓜 with j_*𝓜 coherent, j_*𝓜 is (S_2) (EGA IV₂ 5.10.5): H⁰_x and H¹_x of j_*𝓜 vanish, so its depth at x is ≥ 2.",
+   "locator": "The proof of Lemma 2.11, p. 8 (EGA IV₂ 5.10.5), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Imported and uncited in the extraction."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/71",
+   "kind": "theorem",
+   "name": "Extension of coherent submodules and closed subschemes across an open",
+   "statement": "For a Noetherian scheme X, an open U ⊂ X with inclusion j and a coherent O_U-module 𝓜, there is a coherent O_X-submodule 𝓜' ⊂ j_*𝓜 with 𝓜'|_U = 𝓜 (EGA I 9.4.7); in particular every closed subscheme Z ⊂ U is Z̃ ∩ U for some closed subscheme Z̃ ⊂ X.",
+   "locator": "The proof of Lemma 2.11, the case dim X = 1, p. 8; the proof of Proposition 5.2, twice, p. 20 (EGA I 9.4.7), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Both checkers of §§2 and 5 found it independently. Scheme and stack foundations SF.0 constructs quasi-coherent modules but does not state this extension; it joins SF.0 as a source (route 3)."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/72",
+   "kind": "theorem",
+   "name": "(S_n) along flat morphisms",
+   "statement": "For a flat morphism g : X' → X of locally Noetherian schemes and a coherent O_X-module 𝓜: if g^*𝓜 is (S_n) then 𝓜 is; if 𝓜 is (S_n) and the fibres of g are (S_n), then g^*𝓜 is (S_n) (EGA IV₂ 6.4.1(i), 6.4.2). The local statement is the depth formula depth(M ⊗_A B) = depth(M) + depth(B/𝔪_AB) for a flat local homomorphism A → B. The proof of Lemma 2.4 also uses that (S_n) is kept by the base change of a formal fibre to a larger field.",
+   "locator": "The proof of Lemma 2.4, p. 6 (EGA IV₂ 6.4.1(i), 6.4.2), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. R03.3 is asked to 'prove depth and dimension formulas under the local maps actually used'; this paper uses flat local maps, so it is a source for that clause (route 4). The scheme form is Zariski-local."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/73",
+   "kind": "definition",
+   "name": "Divisors (effective Cartier divisors)",
+   "statement": "A divisor in a scheme X is a closed subscheme whose ideal sheaf is locally generated by a nonzerodivisor. The paper never defines it, but uses it in Remark 1.7, Corollaries 1.10 and 1.11 and §4 (where X_{R/𝔪} ⊂ X is a divisor), and uses that the preimage of a divisor under a birational map to a scheme without embedded associated points is a divisor.",
+   "locator": "Used in Remark 1.7, Corollaries 1.10 and 1.11 and §4, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Tau Ceti JacobianChallenge Layer C plans relative effective Cartier divisors, and ModularCurves 0A reuses that definition ('Use the shared definition: an effective Cartier divisor…'); the accepted PAPER-BOXER-PILLONI-26 cites Layer C for effective Cartier divisors in the same way. Tau Ceti's CartierDivisor (AlgebraicGeometry/CartierDivisor/Basic.lean) is the group of Cartier divisors, not the effective subscheme notion."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/74",
+   "kind": "definition",
+   "name": "Birational morphisms",
+   "statement": "A morphism π : X̃ → X is birational if it is an isomorphism over a dense open U ⊂ X whose preimage is dense in X̃ (this is how the proofs of Corollary 2.14 and Theorem 5.3 check it).",
+   "locator": "Used in Theorem 1.6, Remark 1.7, Corollary 2.14 and Theorem 5.3, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "library": [
+    "mathlib:AlgebraicGeometry.Scheme.PartialIso",
+    "mathlib:AlgebraicGeometry.Scheme.Birational"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Mathlib has birational equivalence of schemes through partial isomorphisms (AlgebraicGeometry/Birational/Birational.lean:39, 181) but no birational morphism; the design job defines it on top of PartialIso."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/75",
+   "kind": "construction",
+   "name": "Schematic image and its compatibilities",
+   "statement": "For a quasi-compact morphism f : Y → X the schematic image is the smallest closed subscheme through which f factors (EGA I 9.5.8); its formation commutes with flat base change and with localisation, as used to form 𝒳_0 in Corollary 1.8, to replace X by the schematic image of Ũ in Theorem 2.13, and in Lemma 2.11.",
+   "locator": "Used in Corollary 1.8, Lemma 2.11 and Theorem 2.13 (EGA I 9.5.8), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "planned",
+   "planned": [
+    "AdicCoefficientsAndComparisons:L2"
+   ],
+   "library": [
+    "mathlib:AlgebraicGeometry.Scheme.Hom.image"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. The construction is Mathlib's Scheme.Hom.image (AlgebraicGeometry/IdealSheaf/Subscheme.lean:661). L2 says 'Missing approximation, schematic closure, compactification … lemmas are owned here' and plans 'closure and plus-free scheme-theoretic constructions'."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/76",
+   "kind": "theorem",
+   "name": "The local cohomology calculus of §3",
+   "statement": "For an ideal 𝔞 of a Noetherian ring R: the H^i_𝔞 are the right derived functors of 𝔞^∞-torsion, with long exact sequences; for 𝔞 = (a_1,…,a_n) they are computed by the Čech complex (Stacks 0A6R), so H^j_𝔞 = 0 for j > n, H^{≥1}_{(r)} vanishes on r^∞-torsion modules and H^1_{(r)}(R,M) ≅ colim_m M/r^mM with transition maps given by r; the spectral sequence H^j_𝔞(R, H^{j'}_𝔟(R,M)) ⇒ H^{j+j'}_{𝔞+𝔟}(R,M) (Stacks 0BJC, with 0955); independence of the base, H^j_𝔞(R,M) ≅ H^j_{𝔞R'}(R',M) for R'-modules M (Stacks 0BJB); and compatibility with localisation (Stacks 0ALZ), flat base change and filtered colimits.",
+   "locator": "The proofs of Proposition 3.11 and Theorem 3.14 ((3.14.2)–(3.14.16)), pp. 13–17; (4.4.1), p. 19 (Stacks 0A6R, 0BJC, 0955, 0BJB, 0ALZ), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Split from item 38. Mathlib's LocalCohomology.lean lists the derived-functor and Čech descriptions and the long exact sequences as future work. R03.3 is the owner: the accepted route 5 of PAPER-ANDRE-18-B refines 'the existing R03.3 Matlis/local-cohomology supplier' and asks R03.3 for the Noetherian Čech comparison (top-local-cohomology-tensor), and the accepted PAPER-BHATT-ETAL-23/supported-cohom asks it for the Čech/Koszul models. This item joins them (route 4)."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/77",
+   "kind": "theorem",
+   "name": "Grothendieck's depth criterion",
+   "statement": "For a finite module M over a Noetherian local ring (R,𝔪) and n ≥ 0, depth(M) ≥ n if and only if H^j_𝔪(R,M) = 0 for all j < n (SGA 2 III 3.3(iv)).",
+   "locator": "The proof of Theorem 3.14, before Claims 3.14.5 and 3.14.6, p. 16; both directions are used (SGA 2 III 3.3(iv)), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "library": [
+    "mathlib:ModuleCat.exists_isRegular_tfae"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. R03.3 plans depth; the accepted PAPER-CESNAVICIUS-SCHOLZE-24/063 already records the vanishing half as planned in R03.3. With Rees's theorem in Mathlib (RingTheory/Depth/Rees.lean:158) and item 38 it is a short step, which R03.3 should take once for both directions."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/78",
+   "kind": "theorem",
+   "name": "The injective hull of the residue field and Matlis duality",
+   "statement": "For a Noetherian local ring (R,𝔪) there is an injective hull E of R/𝔪; Hom_R(−,E) is exact, and for a finite R-module M', Hom_R(M',E) = 0 if and only if M' = 0, and Ann_R(M') = Ann_R(Hom_R(M',E)).",
+   "locator": "The proof of Lemma 3.6(a), p. 11, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "library": [
+    "tauceti:TauCeti.IsInjectiveEnvelope"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Tau Ceti has the notion of an injective envelope and its uniqueness (Algebra/Module/Injective/Envelope.lean:101, 172) but not its existence. The accepted PAPER-ANDRE-18-B/residue-injective-hull, PAPER-HACON-WITASZEK-23/matlis and PAPER-BHATT-ETAL-23/matlis are sourced into R03.3 for the same facts; this item joins them."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/79",
+   "kind": "theorem",
+   "name": "Local duality",
+   "statement": "For a Noetherian local ring (R,𝔪) with a normalized dualizing complex ω^•_R and E the injective hull of R/𝔪, RΓ_𝔪(R,M) ≅ RHom_R(RHom_R(M,ω^•_R), E) naturally in M ∈ D^b_coh(R); hence H^j_𝔪(R,M) ≅ Hom_R(H^{−j}(RHom_R(M,ω^•_R)), E).",
+   "locator": "The proof of Lemma 3.6(a), p. 11 (Hartshorne, Residues and Duality V 6.2; Schenzel 1.3.4), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Joins AS.1 with items 39 and 52, which are 'the local-duality adapters' the accepted route 5 of PAPER-HACON-WITASZEK-23 asks AS.1 for; PAPER-BHATT-ETAL-23/local-duality-a is the proper-scheme form."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/80",
+   "kind": "theorem",
+   "name": "Normalized dualizing complexes: existence over complete local rings, localisation and the Cohen–Macaulay criterion",
+   "statement": "Every quotient of a finite-dimensional Gorenstein ring, in particular every complete Noetherian local ring, has a dualizing complex (Stacks 0DW7). For a Noetherian local R with normalized ω^•_R and 𝔭 of coheight δ(𝔭), (ω^•_R)_𝔭[−δ(𝔭)] is a normalized dualizing complex for R_𝔭 (Stacks 0A7Z). A finite R-module M is Cohen–Macaulay if and only if H^{−j}(RHom_R(M,ω^•_R)) = 0 for all j < dim(Supp(M)) (Stacks 0A7U); R itself is Cohen–Macaulay if and only if ω^•_R is concentrated in a single degree (Stacks 0AWS).",
+   "locator": "§3.5, p. 10; the proof of Lemma 3.6(b), p. 11; Proposition 4.4, p. 18 (Stacks 0DW7, 0A7Z, 0A7U, 0AWS), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. The facts of §3.5 and Lemma 3.6 that item 39 left out. They belong with the normalized dualizing complex in AS.1."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/81",
+   "kind": "theorem",
+   "name": "Noetherian rings with a dualizing complex are CM-excellent",
+   "statement": "A Noetherian ring R that has a dualizing complex is CM-excellent in the sense of Definition 1.2 (Stacks 0AWY, 0DW9, 0A80); in particular it is universally catenary, which is the catenarity used in the proof of Lemma 3.6(b).",
+   "locator": "§3.5, p. 10; the proof of Lemma 3.6(b), p. 11 (Stacks 0AWY, 0DW9, 0A80), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Stated in terms of the paper's CM-excellence (item 3), so it lives in route 1 with that notion and imports the dualizing complex from AS.1."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/82",
+   "kind": "theorem",
+   "name": "Zariski's connectedness theorem",
+   "statement": "For a complete Noetherian local ring (R,𝔪) and a proper R-scheme X, the (R/𝔪)-fibre of each connected component of X is connected (EGA III₁ 5.5.1).",
+   "locator": "The proof of Proposition 4.4, reduction to X and X_{R/𝔪} connected, p. 18 (EGA III₁ 5.5.1), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. No layer plans Zariski's connectedness or Stein factorisation. The theorem on formal functions it rests on is planned in Adic spaces Part II F0 ('formal functions and formal GAGA in the proper finite-presentation setting'), which route 1 imports."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/83",
+   "kind": "definition",
+   "name": "Definition 3.1(i): secant sequences",
+   "statement": "For a finite module M over a Noetherian local ring (R,𝔪), a sequence r_1,…,r_s ∈ 𝔪 is secant for M, in Bourbaki's sense, if dim(Supp(M/(r_1,…,r_i)M)) < dim(Supp(M/(r_1,…,r_{i−1})M)) for every 1 ≤ i ≤ s (with dim(∅) = −∞, so only the empty sequence is secant when M = 0).",
+   "locator": "Definition 3.1(i) (Bourbaki, Algèbre commutative VIII, §3, no. 2, Def. 1), Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455",
+   "status": "missing",
+   "library": [
+    "mathlib:Module.supportDim"
+   ],
+   "note": "Added by the review REV-PAPER-CESNAVICIUS-21. Split from item 34. Secant sequences are the partial systems of parameters of Remark 3.2 (item 35); R03.3 is given systems of parameters by the accepted PAPER-ANDRE-18-B/secant-sequence and PAPER-BHATT-ETAL-23/sop, so this item joins them."
   }
  ],
  "prerequisites": [
@@ -557,8 +828,8 @@
    "why": "12.14 bounds the dimension of a blowing up, 14.11 gives the example of a Cohen–Macaulay ring whose blowing up at a maximal ideal is not Cohen–Macaulay, 18.17 is Ratliff's characterisation of formal equidimensionality, 18.20 and 18.26 are Lemma 2.3(a) and (b), and 38.6 b) is the equivalence of the two definitions of a d-sequence. Five separate results of this book are used and none is reproved."
   },
   {
-   "citation": "Ofer Gabber, Qing Liu and Dino Lorenzini, \"The index of an algebraic variety\", Invent. Math. 192 (2013), no. 3, 567–626",
-   "link": "https://doi.org/10.1007/s00222-012-0419-y",
+   "citation": "Ofer Gabber, Qing Liu and Dino Lorenzini, \"Hypersurfaces in projective schemes and a moving lemma\", Duke Math. J. 164 (2015), no. 7, 1187–1270",
+   "link": "https://doi.org/10.1215/00127094-2877293",
    "why": "Lemma 5.1 there is Lemma 4.3 here, the avoidance lemma producing a section of a power of a very ample bundle whose zero scheme contains a prescribed closed subscheme and avoids prescribed points. It is what makes the inductive construction of §4 possible and is quoted without proof."
   },
   {
@@ -567,8 +838,8 @@
    "why": "3.3 is the two-dimensional Noetherian local (S_1) domain whose completion is not (S_1), which shows that the formal-fibre hypothesis in Lemma 2.4 cannot be dropped even for n = 1; 3.5 is the example showing that the (S_n) locus need not be open for n > 1; and 4.2 is the formal patching used in the proof of Theorem 2.13."
   },
   {
-   "citation": "János Kollár, \"Variants of normality for Noetherian schemes\", Pure Appl. Math. Q. 13 (2017), no. 2, 249–271 (Stacks Project, Tag 0BK3)",
-   "link": "https://stacks.math.columbia.edu/tag/0BK3",
+   "citation": "János Kollár, \"Coherence of local and global hulls\", Methods Appl. Anal. 24 (2017), no. 1, 63–70 (Theorem 2; Stacks Project, Tag 0BK3)",
+   "link": "https://doi.org/10.4310/MAA.2017.v24.n1.a5",
    "why": "The necessary and sufficient criterion for the coherence of j_*(𝓜) along an open immersion, in terms of the coheights of the associated primes of the completed local rings of the closures of the associated points. It is the engine of Lemma 2.11 and hence of the whole (S_2)-ification."
   },
   {
@@ -578,7 +849,7 @@
   },
   {
    "citation": "Pierre Deligne, \"Le théorème de plongement de Nagata\", Kyoto J. Math. 50 (2010), no. 4, 661–670",
-   "link": "https://doi.org/10.1215/0023608X-2010-001",
+   "link": "https://doi.org/10.1215/0023608X-2010-009",
    "why": "1.6 is the Nagata compactification, used for the integral model of Corollary 1.8, the compactification of Corollary 1.11, and the propagation of dualizing complexes along finite type separated maps in §4.2."
   },
   {
@@ -589,10 +860,10 @@
   {
    "citation": "The Stacks Project",
    "link": "https://stacks.math.columbia.edu/",
-   "why": "Tags 0805, 0806, 080A, 080B, 080E, 0955, 0A6R, 0A7B, 0A7C, 0A7F, 0A7G, 0A7I, 0A87, 0AA3, 0AW6, 0AWF, 0AX1, 0BJB, 0BJC, 0BK3 and 0DW7 are used by number for the blowup, dualizing-complex and local-cohomology facts. They are the intended proof sources for most of §§3.5, 3.13 and 4.2."
+   "why": "Tags 0804, 0805, 0806, 080A, 080B, 080E, 0955, 0A6R, 0A7B, 0A7C, 0A7F, 0A7G, 0A7I, 0A7U, 0A7Z, 0A80, 0A87, 0AA3, 0ALZ, 0AW6, 0AWF, 0AWS, 0AWY, 0AX1, 0BJB, 0BJC, 0BK3, 0DW7 and 0DW9 are used by number for the blowup, dualizing-complex and local-cohomology facts. They are the intended proof sources for most of §§3.5, 3.13 and 4.2."
   },
   {
-   "citation": "Gerd Faltings, \"Über Macaulayfizierung\", Math. Ann. 238 (1978), no. 2, 175–192; Markus Brodmann, several papers (1983, 1986); Shiro Goto (1982); Peter Schenzel (1983); Takesi Kawasaki (1998, 2008); Seok-Jin Hong (2004); Marcel Morales (1999)",
+   "citation": "Gerd Faltings, \"Über Macaulayfizierung\", Math. Ann. 238 (1978), no. 2, 175–192; Markus Brodmann, several papers (1983, 1986); Shiro Goto (1982); Peter Schenzel (1983); Takesi Kawasaki (1998, 2008); Morten Oskar Honsen, A compact moduli space for Cohen–Macaulay curves in projective space, PhD thesis, MIT (2004); Francesco Mordasini, On Macaulayfication of sheaves, Manuscripta Math. 99 (1999), 443–464; Katharina Heinrich, The space of Cohen–Macaulay curves, arXiv:1403.6082 (2014)",
    "link": "https://doi.org/10.1007/BF01424774",
    "why": "The previous constructions of Macaulayfications catalogued in §1.12, none of which preserves the Cohen–Macaulay locus except when the non-Cohen–Macaulay locus is a finite set of points. Faltings Satz 2 and Satz 3 are the origin of the problem and of the inductive method; Brodmann 3.9–3.11 is the proof that no canonical (S_2)-ification exists."
   },
@@ -602,9 +873,19 @@
    "why": "The status of Conjecture 1.1 that the paper's introduction records: Temkin's Theorem 1.1 in characteristic zero, building on Hironaka, and de Jong's alterations as the substitute in positive and mixed characteristic."
   },
   {
-   "citation": "Nguyen Tu Cuong, \"p-standard systems of parameters and p-standard ideals in local rings\", Acta Math. Vietnam. 20 (1995), no. 1, 145–161; Tetsushi Ogoma, Nagoya Math. J. 77 (1980); Raymond Heitmann, Trans. Amer. Math. Soc. 271 (1982), and J. Algebra (2017)",
-   "link": "https://www.mathnet.ru/",
-   "why": "The definition of a p-standard system of parameters compared with CM-secant sequences in Remark 3.4, and the Noetherian noncatenary normal local domains of Ogoma and Heitmann that show the formal-fibre hypothesis of Lemma 2.5 cannot be dropped."
+   "citation": "Nguyen Tu Cuong, \"p-standard systems of parameters and p-standard ideals in local rings\", Acta Math. Vietnam. 20 (1995), no. 1, 145–161; Tetsushi Ogoma, \"Noncatenary pseudogeometric normal rings\", Japan. J. Math. (N.S.) 6 (1980), 147–163",
+   "link": "https://mathscinet.ams.org/mathscinet-getitem?mr=1346354",
+   "why": "The definition of a p-standard system of parameters compared with CM-secant sequences in Remark 3.4 (Cuong 2.4), and the appendix of Ogoma's paper, one of the two Noetherian noncatenary normal local domains that show in Remark 2.6 that the formal-fibre hypothesis of Lemma 2.5 cannot be dropped."
+  },
+  {
+   "citation": "Raymond C. Heitmann, \"A noncatenary, normal, local domain\", Rocky Mountain J. Math. 12 (1982), no. 1, 145–148",
+   "link": "https://doi.org/10.1216/RMJ-1982-12-1-145",
+   "why": "The other example cited in Remark 2.6 of a Noetherian noncatenary normal local domain."
+  },
+  {
+   "citation": "Katharina Heinrich, \"Some remarks on biequidimensionality of topological spaces and Noetherian schemes\", J. Commut. Algebra 9 (2017), no. 1, 49–63",
+   "link": "https://doi.org/10.1216/JCA-2017-9-1-49",
+   "why": "§3 is cited in the footnote to §4.1 for the properties of biequidimensional schemes that the construction of Proposition 4.4 uses."
   }
  ],
  "routes": [
@@ -614,14 +895,20 @@
    "roadmap": "MacaulayficationOfNoetherianSchemes",
    "title": "Scheme, stack, cohomology and intersection foundations, Part II: excellence variants and Macaulayfication",
    "area": "algebraicgeometry",
-   "brief": "Cesnavicius, Duke Math. J. 170 (2021), 1419-1455, proves that every CM-quasi-excellent Noetherian scheme X admits a Macaulayfication: a Cohen-Macaulay X-tilde with a birational projective map to X that is an isomorphism over the Cohen-Macaulay locus CM(X). This is the Cohen-Macaulay case of Grothendieck's resolution conjecture and reduces that conjecture to the Cohen-Macaulay case. SchemeAndStackFoundations SF.4 plans deformations, models and birational geometry and says that resolution is a theorem only in a named proved setting; Macaulayfication is such a setting, proved unconditionally in all characteristics, and neither SF.4 nor the existing Part IIs on mixed-characteristic birational geometry and positivity plan it.\n\nFinal theorems. Theorem 1.6 with its precise form Theorem 5.3: the Macaulayfication exists, factors as a finite birational (S_2)-ification X' followed by a single blowing up along a centre disjoint from the Cohen-Macaulay locus, and carries finitely many prescribed coherent modules along with it. Corollary 1.8: proper flat Cohen-Macaulay integral models over a Dedekind base. Corollary 1.10: Cohen-Macaulay principalisation. Corollary 1.11: Cohen-Macaulay compactifications. Proposition 5.5: the converse, so that CM-quasi-excellence is exactly the right hypothesis.\n\nImport, never re-plan: SchemeAndStackFoundations SF.0 for schemes, coherent modules, support and relative Proj, SF.2 for the cohomology used in the pushforward arguments, SF.4 for models; DeformationAndDerivedPatchingAlgebra R03.3 for depth, Cohen-Macaulay rings and modules, associated primes, equidimensionality and dimension; AlgebraicModuliForArithmeticGeometry R09.7a for blowups by the Rees algebra with their universal property, affine charts and flat base change; and the Part II proposed alongside this one on the commutative-algebra roadmap for local cohomology, dualizing complexes over Noetherian rings, secant and CM-secant sequences, d-sequences, strict transforms of modules and Kawasaki's theorem that Bl_I(M) is Cohen-Macaulay. Mathlib supplies regular sequences and the definition of local cohomology; it has no depth, no Cohen-Macaulay predicate, no catenarity or excellence and no blowups.\n\nConstruct here: quasi-excellence and excellence, and the CM-quasi-excellent and CM-excellent variants, with the examples (every quasi-excellent scheme, every Dedekind scheme, every closed subscheme of a quasi-Cohen-Macaulay scheme) and the stability under localisation and finite type; universal catenarity, local and formal equidimensionality and Ratliff's equivalence; the stability of formal equidimensionality under locally principal divisors and under blowing up; the descent of (S_n) from the completion when the formal fibres are (S_n), with the Ferrand-Raynaud counterexample showing the hypothesis is needed already for n = 1; the openness of the (S_n) and Cohen-Macaulay loci under EGA IV_2 6.11.6 and 6.11.8, with the Ferrand-Raynaud example showing it can fail without them; the (S_1)-ification, the (S_n)-quasi-excellence hierarchy and the noncanonical (S_2)-ification of Theorem 2.13 and Corollary 2.14, together with Brodmann's result that no canonical one exists; biequidimensionality and normalized dualizing complexes on schemes; the Gabber-Liu-Lorenzini avoidance lemma; the local Macaulayfication Proposition 4.4 with its decreasing chain of biequidimensional subschemes and the product ideal built from the locally principal ideals; the composition-of-blowups Lemma 5.1; and the Noetherian induction of Proposition 5.2.\n\nTwo things must not be blurred. Quasi-excellence and CM-quasi-excellence are different conditions, and the theorem is new even for Q-schemes because the second is weaker. A Macaulayfication that does not preserve CM(X) is a strictly weaker statement and was already known in several cases; every corollary here needs the isomorphy over CM(X).",
+   "brief": "Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (arXiv:1810.04493v2), proves that every CM-quasi-excellent Noetherian scheme has a Macaulayfication. Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) SF.4 says that resolution is a theorem only in a named proved setting; this Part II builds such a setting, unconditional in all characteristics. It starts after SchemeAndStackFoundations and after its sibling Commutative algebra for deformation theory and patching, Part II: CM-secant sequences, d-sequences and Kawasaki's Cohen–Macaulay blowing ups (KawasakiCohenMacaulayBlowingUps), whose Theorem 3.14 is the only source of Cohen–Macaulayness in the argument.\n\nFinal theorems, as the paper states them. Theorem 1.6: for every CM-quasi-excellent, Noetherian scheme X, there are a Cohen–Macaulay scheme X̃ and a birational, projective morphism π: X̃ → X that is an isomorphism over the Cohen–Macaulay locus CM(X) ⊂ X. Theorem 5.3: for every CM-quasi-excellent, Noetherian scheme X equipped with finitely many coherent O_X-modules 𝓜 with |Supp(𝓜)| = |X|, there are a composition X̃ := Bl_Z(X') → X' →^{π'} X and for each 𝓜 a coherent O_{X'}-module 𝓜' for which |Supp(𝓜')| = |X'| such that X̃ is Cohen–Macaulay, its coherent modules Bl_Z(𝓜') are also all Cohen–Macaulay, and (i) X' is CM-excellent and locally equidimensional; (ii) π' is finite, birational, and is an isomorphism over the open U := U_{(S_2)}(X) ∩ (⋂_𝓜 U_{(S_2)}(𝓜)) ⊂ X that is dense in both X and X' and for which 𝓜'|_U ≅ 𝓜|_U; (iii) Z ⊂ X' is a closed subscheme that is disjoint from the dense open U' := CM(X') ∩ (⋂_𝓜 CM(𝓜')); (iv) U' is also dense in Bl_Z(X'), so that, in particular, the map X̃ → X is birational; if X itself is CM-excellent and locally equidimensional, then one may choose X' = X and 𝓜' = 𝓜. Remark 5.4: X̃ → X is projective. Corollary 1.8: for every integral Dedekind scheme S with the function field K and every proper, Cohen–Macaulay K-scheme X, there is a proper, flat, Cohen–Macaulay S-scheme 𝒳 with 𝒳_K ≃ X; if X is projective over K, then one may choose 𝒳 to be projective over S. Corollary 1.10: for every Noetherian, Cohen–Macaulay scheme X and every closed subscheme Z ⊂ X, there are a Cohen–Macaulay scheme X̃ and a projective morphism X̃ → X such that the scheme-theoretic preimage of Z in X̃ is a divisor and X̃ → X is an isomorphism over the maximal open subscheme U ⊂ X on which Z is already a divisor. Corollary 1.11: for every CM-quasi-excellent Noetherian scheme S and every finite type, separated S-scheme X that is Cohen–Macaulay, there is an open S-immersion X ↪ X̄ into a proper S-scheme X̄ that is Cohen–Macaulay such that X̄ \\ X is a (possibly nonreduced) divisor in X̄ (the paper prints 'in X'; sourceIssues E1). Proposition 5.5: let X be a locally Noetherian scheme; if for every integral, closed subscheme X' ⊂ X there are a Cohen–Macaulay scheme X̃' and a proper map X̃' → X' that is an isomorphism over a nonempty open subscheme of X', then X is CM-quasi-excellent.\n\nImport, never re-plan: from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0 for schemes, quasi-coherent modules and the extension of coherent submodules (item 71), SF.2 for scheme cohomology and SF.4 for models and Kollár's coherence criterion (item 67); from Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.3 for depth, Cohen–Macaulay modules, the Serre conditions, associated primes, support, equidimensionality, catenarity and excellence of rings as hypotheses, systems of parameters, the flat depth formula, Matlis duality and local cohomology; from Stable reduction of curves and stable maps (tauceti:TauCetiRoadmap/StableReduction) Layer 4 for blowups (universal property, projectivity, flat base change, exceptional divisors, charts) and Layer 2 for finitely generated relative Proj; from Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) Layer C for effective Cartier divisors; from Modular curves (tauceti:TauCetiRoadmap/ModularCurves) 4D for the openness of the regular locus in finite type over an excellent base; from Adic coefficients and comparison with schemes (AdicCoefficientsAndComparisons) L2 for Nagata compactification and schematic images; from Six-functor formalisms and analytic stacks (AnalyticStacks) AS.1 for dualizing complexes on Noetherian schemes and their normalisation (items 39, 52, 79, 80); from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry) A0-extension for finite normalisation under excellence; from Adic Spaces PartII (AdicSpacesPartII) F0 for the theorem on formal functions; and from SchemeAndStackFoundationsPartIIArithmeticPresentation the arbitrary-base avoidance lemma, of which Lemma 4.3 is the Noetherian projective case. Mathlib supplies regular sequences, Rees's depth criterion by Ext, Krull dimension, coheight, local cohomology as a colimit of Ext, the relative normalisation and Zariski's main theorem in Grothendieck's form, schematic images and birational equivalence; it has no depth, no Cohen–Macaulay predicate, no excellence and no blowups.\n\nConstruct here: quasi-excellence and excellence of schemes and the openness of Reg(X); CM-quasi-excellence and CM-excellence with the examples (quasi-excellent schemes, Dedekind schemes, closed subschemes of quasi-Cohen–Macaulay schemes) and their stability under localisation and finite type; universal catenarity of schemes, local and formal equidimensionality and Ratliff's theorem; the stability of formal equidimensionality under locally principal divisors and blowing up; the descent of (S_n) from the completion when the formal fibres are (S_n), with the Ferrand–Raynaud counterexample for n = 1; the openness of the (S_n) and Cohen–Macaulay loci under EGA IV₂ 6.11.6 and 6.11.8, with the Ferrand–Raynaud example; the (S_1)-ification; (S_n)-quasi-excellence; Lemma 2.11 with its final clause (E3), Zariski's main theorem in the finite form used, and the (S_2) property of j_*; formal patching along the completion; the noncanonical (S_2)-ification of Theorem 2.13 and Corollary 2.14, with Brodmann's absence of a canonical one; birational morphisms; biequidimensionality; the CM-excellence of rings with a dualizing complex; Zariski's connectedness theorem; the local Macaulayfication Proposition 4.4, with the repair of (4.4.1) (E9); the composition of blowups (Lemma 5.1); and the Noetherian induction of Proposition 5.2.\n\nTwo things must not be blurred. Quasi-excellence and CM-quasi-excellence are different conditions, and the theorem is new even for Q-schemes because the second is weaker. A Macaulayfication that does not preserve CM(X) is a strictly weaker statement, known earlier in several cases (Faltings, Brodmann, Kawasaki; §1.12); every corollary needs the isomorphy over CM(X).",
    "prerequisites": [
     "SchemeAndStackFoundations",
     "DeformationAndDerivedPatchingAlgebra",
+    "AdicCoefficientsAndComparisons",
+    "AnalyticStacks",
     "AlgebraicModuliForArithmeticGeometry",
+    "AdicSpacesPartII",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/ModularCurves",
     "FoundationsAndLibraryIntegration"
    ],
-   "reason": "SF.4 plans deformations, models and birational geometry and states that resolution is a theorem only in a named proved setting, without naming one; SF.0–SF.3 supply schemes, coherent modules, sites and curves. Nothing in the atlas defines quasi-excellence or catenarity, nothing plans the openness of the (S_n) or Cohen–Macaulay loci, and no layer plans an (S_2)-ification or a Macaulayfication. The two existing Part IIs of this roadmap concern mixed-characteristic birational geometry after Bhatt et al. and mixed-characteristic positivity; this theorem is unconditional in all characteristics and is their logical predecessor rather than a case of them.",
+   "reason": "SF.4 plans deformations, models and birational geometry and states that resolution is a theorem only in a named proved setting, without naming one; SF.0–SF.3 supply schemes, coherent modules, sites and curves. Nothing in the atlas defines quasi-excellence or catenarity, nothing plans the openness of the (S_n) or Cohen–Macaulay loci, and no layer plans an (S_2)-ification or a Macaulayfication. The two existing Part IIs of this roadmap concern mixed-characteristic birational geometry after Bhatt et al. and mixed-characteristic positivity; this theorem is unconditional in all characteristics and is their logical predecessor rather than a case of them. Review: accepted as corrected. The direction is justified: no layer, decomposition, restructuring or other extraction plans Macaulayfication, (S_2)-ification, CM- or (S_n)-quasi-excellence, the openness of the (S_n) loci or formal equidimensionality. Two sentences of the reason were wrong. Ring-level catenarity and excellence are R03.3 hypotheses (RS-08, AUDIT-17), so only their scheme-level forms are built here; and this roadmap has four accepted Part IIs, not two. The review removed the expository §§1.12–1.13 (items 14, 15) and moved the dualizing complexes on schemes (item 52) to AS.1 and the avoidance lemma (item 53) to the arithmetic-presentation Part II. It added Ratliff's theorem, Lemma 2.3(b), the final clause of Lemma 2.11, formal patching, Zariski's main theorem, the (S_2) property of j_*, birational morphisms, the CM-excellence of rings with a dualizing complex and Zariski's connectedness. The brief now states the final theorems verbatim and names its imports by title and id; 'R09.7a for blowups … and flat base change' is replaced by StableReduction Layers 4 and 2, because R09.7a plans only smooth base change.",
    "items": [
     "PAPER-CESNAVICIUS-21/1",
     "PAPER-CESNAVICIUS-21/2",
@@ -635,8 +922,6 @@
     "PAPER-CESNAVICIUS-21/10",
     "PAPER-CESNAVICIUS-21/11",
     "PAPER-CESNAVICIUS-21/12",
-    "PAPER-CESNAVICIUS-21/14",
-    "PAPER-CESNAVICIUS-21/15",
     "PAPER-CESNAVICIUS-21/19",
     "PAPER-CESNAVICIUS-21/20",
     "PAPER-CESNAVICIUS-21/21",
@@ -653,8 +938,6 @@
     "PAPER-CESNAVICIUS-21/32",
     "PAPER-CESNAVICIUS-21/33",
     "PAPER-CESNAVICIUS-21/51",
-    "PAPER-CESNAVICIUS-21/52",
-    "PAPER-CESNAVICIUS-21/53",
     "PAPER-CESNAVICIUS-21/54",
     "PAPER-CESNAVICIUS-21/55",
     "PAPER-CESNAVICIUS-21/56",
@@ -662,29 +945,36 @@
     "PAPER-CESNAVICIUS-21/58",
     "PAPER-CESNAVICIUS-21/59",
     "PAPER-CESNAVICIUS-21/60",
-    "PAPER-CESNAVICIUS-21/61"
+    "PAPER-CESNAVICIUS-21/61",
+    "PAPER-CESNAVICIUS-21/63",
+    "PAPER-CESNAVICIUS-21/64",
+    "PAPER-CESNAVICIUS-21/65",
+    "PAPER-CESNAVICIUS-21/68",
+    "PAPER-CESNAVICIUS-21/69",
+    "PAPER-CESNAVICIUS-21/70",
+    "PAPER-CESNAVICIUS-21/74",
+    "PAPER-CESNAVICIUS-21/81",
+    "PAPER-CESNAVICIUS-21/82"
    ]
   },
   {
    "route": "part-ii",
    "parent": "DeformationAndDerivedPatchingAlgebra",
-   "roadmap": "LocalCohomologyAndDualizingComplexes",
-   "title": "Commutative algebra for deformation theory and patching, Part II: local cohomology, dualizing complexes and Cohen–Macaulay blowing ups",
+   "roadmap": "KawasakiCohenMacaulayBlowingUps",
+   "title": "Commutative algebra for deformation theory and patching, Part II: CM-secant sequences, d-sequences and Kawasaki's Cohen–Macaulay blowing ups",
    "area": "commutative",
-   "brief": "Section 3 of Cesnavicius, Duke Math. J. 170 (2021), 1419-1455, reviews and reproves the commutative algebra behind Kawasaki's Cohen-Macaulay blowing ups, which is the engine of the Macaulayfication theorem and is reusable well beyond it. DeformationAndDerivedPatchingAlgebra R03.3 plans regular sequences, depth, Cohen-Macaulay modules, equidimensionality and associated primes; P9 plans depth and support inequalities for perfect complexes. Neither plans local cohomology beyond Mathlib's definition, dualizing complexes over a Noetherian ring, or any of the weak regularity notions used here, and nothing else in the atlas does either: the only dualizing complexes in the catalogue are the perverse-sheaf ones of EtaleDualityAndPerverseSheaves.\n\nFinal theorem: Theorem 3.14, due to Kawasaki. For a finite module M over a Noetherian local ring (R,m) and a CM-secant for M sequence r_1,...,r_s, the product ideal I = prod_{i} (r_1,...,r_i) is such that the strict transform Bl_I(M) is a Cohen-Macaulay module on Bl_I(R). The point of the statement is that Cohen-Macaulay blowing ups are otherwise hard to come by: even for Cohen-Macaulay R the blowing up at a maximal ideal need not be Cohen-Macaulay.\n\nImport, never re-plan: DeformationAndDerivedPatchingAlgebra R03.1-R03.3 for complete local coefficient categories, dimension, depth, regular sequences and Cohen-Macaulay modules; FoundationsAndLibraryIntegration LI.1 for the commutative-algebra inventory including dualizing modules; EnhancedDerivedSheaves for the derived-category formalism used to state that RHom(-,omega) is an involutive antiequivalence of D^b_coh; AlgebraicModuli R09.7a for the blowup itself. Mathlib's localCohomology gives the ideal-powers definition and its dependence only on the radical; the Cech computation, the composition spectral sequence H^j_a(H^{j'}_b) => H^{j+j'}_{a+b} and the identification H^1_{(r)}(M) = colim M/r^m M are additions to be proved here.\n\nConstruct here: local cohomology with the calculus just listed; dualizing complexes over a Noetherian ring, their uniqueness up to a locally-shift twist, compatibility with localisation and with quotients, and the normalisation over a local ring, together with the 'if' half of Kawasaki's theorem settling Sharp's conjecture, that a quotient of a finite-dimensional Gorenstein ring has one; the annihilator identity Ann(H^j_m(M)) = Ann(H^{-j}(RHom(M,omega))) and, for equidimensional support, the fact that the product of these annihilators over j < dim cuts out the complement of the Cohen-Macaulay locus, with Schenzel's set-theoretic description in the general case; secant sequences in Bourbaki's sense with their permutation and product stability, CM-secant sequences and their identification with p-standard systems of parameters; Schenzel's theorem that the product ideal kills the relevant torsion; d-sequences after Huneke with the equivalent torsion formulation and the Goto-Yamagishi equalities; Kawasaki's Proposition 3.11 with its three properties and the robustness Remark 3.12; blowing up a module, its identification with the Raynaud-Gruson strict transform and the two-ideal identities; and Theorem 3.14 with the two local-cohomology claims of its proof.\n\nSecant, CM-secant, d-sequence and regular sequence are four different conditions and the proofs turn on exactly which one is available; do not collapse them. The definition of CM-secant is not symmetric in the r_i, and the reversal r_s,...,r_1 in Proposition 3.11(i) is not a typographical convenience.",
+   "brief": "Section 3 of Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (arXiv:1810.04493v2), reproves in module generality Kawasaki's construction of Cohen–Macaulay blowing ups (Kawasaki, Trans. Amer. Math. Soc. 352 (2000)), the engine of the Macaulayfication theorem. It starts after Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.3.\n\nFinal theorem, as the paper states it. Theorem 3.14 (Kawasaki): for a finite module M over a Noetherian, local ring (R, 𝔪) and a CM-secant for M sequence r_1, …, r_s̃ ∈ 𝔪, the product ideal I := ∏_{i=1}^{s̃} (r_1, …, r_i) is such that Bl_I(M) is a Cohen–Macaulay module on Bl_I(R). Its proof (item 49) is to be followed under the weaker hypothesis that every initial subsequence satisfies (i)–(iii) of Proposition 3.11 and M/(r_1,…,r_s̃)M is Cohen–Macaulay, and it must use the corrected I_s := ∏_{i=1}^s (r_1,…,r_i) (sourceIssues E7) and r_bT − r_a in (3.14.10) (E8). Even for Cohen–Macaulay R the blowing up at a maximal ideal need not be Cohen–Macaulay (HIO 14.11); Kawasaki's class of ideals is what makes the theorem possible.\n\nImport, never re-plan: from Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.3, depth, Cohen–Macaulay modules, associated primes and support, secant sequences and systems of parameters (items 83, 35), the local cohomology calculus (item 76), Grothendieck's depth criterion (item 77) and the injective hull of the residue field (item 78); from Six-functor formalisms and analytic stacks (AnalyticStacks) AS.1, dualizing complexes over a Noetherian ring, their normalisation and localisation, and local duality (items 39, 79, 80); from Stable reduction of curves and stable maps (tauceti:TauCetiRoadmap/StableReduction) Layer 4, blowups of schemes, strict transforms and affine charts; from Adic coefficients and comparison with schemes (AdicCoefficientsAndComparisons) L5, the Raynaud–Gruson strict transform of a module. Mathlib supplies regular sequences, Module.supportDim with its behaviour under quotients by parameters, derived categories and local cohomology as a colimit of Ext.\n\nConstruct here: CM-secant sequences (Definition 3.1(ii)) and their identification with p-standard systems of parameters (Remark 3.4); Schenzel's theorem that the product of the annihilators of local cohomology kills the relevant torsion of a secant sequence (Remark 3.3); the annihilator identity Ann(H^j_𝔪(M)) = Ann(H^{−j}(RHom(M, ω^•))) and, for equidimensional support, the cutting out of the non-Cohen–Macaulay locus by the product of these annihilators (Lemma 3.6), with Schenzel's set-theoretic description in general (Remark 3.7); d-sequences after Huneke, with the torsion formulation in its corrected form (Remark 3.9, E5) and the Goto–Yamagishi equalities; Kawasaki's Proposition 3.11 with the corrected clause (iii) (E6) and the robustness Remark 3.12; blowing up a module, its identification with the Raynaud–Gruson strict transform and the two-ideal identities (§3.13); and Theorem 3.14 with the two local-cohomology claims of its proof.\n\nSecant, CM-secant, d-sequence and regular sequence are four different conditions and the proofs turn on exactly which one is available; do not collapse them. The definition of CM-secant is not symmetric in the r_i, and the reversal r_s, …, r_1 in Proposition 3.11(i) is not a typographical convenience.",
    "prerequisites": [
     "DeformationAndDerivedPatchingAlgebra",
-    "FoundationsAndLibraryIntegration",
-    "EnhancedDerivedSheaves",
-    "AlgebraicModuliForArithmeticGeometry"
+    "AnalyticStacks",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "AdicCoefficientsAndComparisons"
    ],
-   "reason": "R03.3 plans regular sequences, depth, Cohen–Macaulay modules and equidimensionality, and P9 depth and support for perfect complexes, but the roadmap plans no local cohomology beyond what Mathlib already defines and no dualizing complexes; the only dualizing complexes in the atlas are the perverse-sheaf ones of EtaleDualityAndPerverseSheaves, which are a different object. Kawasaki's construction of Cohen–Macaulay blowing ups, and the secant, CM-secant and d-sequence calculus it rests on, are reusable local algebra with consumers beyond this paper, so they belong in the commutative-algebra roadmap rather than inside the geometric Part II that consumes them.",
+   "reason": "R03.3 plans regular sequences, depth, Cohen–Macaulay modules and equidimensionality, and P9 depth and support for perfect complexes, but the roadmap plans no local cohomology beyond what Mathlib already defines and no dualizing complexes; the only dualizing complexes in the atlas are the perverse-sheaf ones of EtaleDualityAndPerverseSheaves, which are a different object. Kawasaki's construction of Cohen–Macaulay blowing ups, and the secant, CM-secant and d-sequence calculus it rests on, are reusable local algebra with consumers beyond this paper, so they belong in the commutative-algebra roadmap rather than inside the geometric Part II that consumes them. Review: accepted as corrected, retitled and renamed. The parent is right: Commutative algebra for deformation theory and patching is the atlas's local-algebra owner, and nothing plans CM-secant sequences, d-sequences, strict transforms of modules or Kawasaki's theorem. The scope was not. Local cohomology beyond Mathlib belongs to R03.3 (the accepted routes of PAPER-ANDRE-18-B and PAPER-BHATT-ETAL-23). Dualizing complexes of Noetherian rings belong to AS.1 (the accepted routes 5 of PAPER-HACON-WITASZEK-23 and PAPER-BHATT-ETAL-23). Secant sequences and systems of parameters belong to R03.3. Blowups of schemes belong to StableReduction Layer 4. The claim that the only dualizing complexes in the atlas are the perverse-sheaf ones was false. The brief cited 'AlgebraicModuli R09.7a', which is not an id, gave no titles, and claimed consumers beyond this paper, of which the atlas has none. So items 35 and 39 left for routes 4 and 5, the route was renamed from LocalCohomologyAndDualizingComplexes to KawasakiCohenMacaulayBlowingUps, and the brief was rewritten. The derived-category formalism comes from Mathlib, not EnhancedDerivedSheaves.",
    "items": [
     "PAPER-CESNAVICIUS-21/34",
-    "PAPER-CESNAVICIUS-21/35",
     "PAPER-CESNAVICIUS-21/36",
     "PAPER-CESNAVICIUS-21/37",
-    "PAPER-CESNAVICIUS-21/39",
     "PAPER-CESNAVICIUS-21/40",
     "PAPER-CESNAVICIUS-21/41",
     "PAPER-CESNAVICIUS-21/42",
@@ -702,12 +992,63 @@
    "route": "source",
    "roadmap": "SchemeAndStackFoundations",
    "stages": [
-    "SchemeAndStackFoundations:SF.0"
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.4"
    ],
-   "reason": "SF.0 owns schemes and morphisms with their separatedness, properness and finite-presentation hypotheses stated as properties of named morphisms. The Nagata compactification — every separated finite type morphism of quasi-compact quasi-separated schemes factors as an open immersion followed by a proper morphism — is exactly such a theorem about named morphisms and is used three times in this paper: for the schematic image giving the integral model of Corollary 1.8, for the compactification of Corollary 1.11, and in §4.2 to propagate the existence of a dualizing complex along finite type separated maps. The atlas currently has it only in two restricted forms that cannot be reused: AlgebraicModuliForArithmeticGeometry R09.7d is a characteristic-zero smooth compactification interface that explicitly says no general Nagata compactification is assumed, and AdicCoefficientsAndComparisons L4 follows Nagata compactification for finite type schemes over a complete DVR without owning it.",
+   "reason": "SF.0 constructs schemes and quasi-coherent modules, and the extension of a coherent submodule (or closed subscheme) across an open immersion of Noetherian schemes, EGA I 9.4.7 (item 71), used in Lemma 2.11 and twice in Proposition 5.2, is a basic statement about them that nothing states. SF.4 already receives the SGA 2 VIII 2.3 depth criteria for the coherence of local cohomology from the accepted route 4 of PAPER-CESNAVICIUS-19; Kollár's necessary and sufficient criterion for the coherence of j_* (Stacks 0BK3, item 67), which the paper cites as the successor of SGA 2 VIII 2.3, belongs beside it. Review (REV-PAPER-CESNAVICIUS-21): accepted as rewritten. The route first took only the Nagata compactification (item 13), which is planned in Adic coefficients and comparison with schemes L2, as its reason had missed; the review made the item planned and gave the route these two missing items instead.",
    "items": [
-    "PAPER-CESNAVICIUS-21/13"
+    "PAPER-CESNAVICIUS-21/67",
+    "PAPER-CESNAVICIUS-21/71"
    ]
+  },
+  {
+   "route": "source",
+   "roadmap": "DeformationAndDerivedPatchingAlgebra",
+   "stages": [
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "items": [
+    "PAPER-CESNAVICIUS-21/35",
+    "PAPER-CESNAVICIUS-21/66",
+    "PAPER-CESNAVICIUS-21/72",
+    "PAPER-CESNAVICIUS-21/76",
+    "PAPER-CESNAVICIUS-21/77",
+    "PAPER-CESNAVICIUS-21/78",
+    "PAPER-CESNAVICIUS-21/83"
+   ],
+   "reason": "Added by the review REV-PAPER-CESNAVICIUS-21. R03.3 is the atlas's owner of local commutative algebra: it develops depth and Cohen–Macaulay modules, proves 'depth and dimension formulas under the local maps actually used', gives 'equidimensionality, associated-prime and support lemmas', and states catenarity and excellence as hypotheses. Accepted routes have already given it systems of parameters (PAPER-ANDRE-18-B/secant-sequence, PAPER-BHATT-ETAL-23/sop), the Noetherian local cohomology comparison and its Čech models (PAPER-ANDRE-18-B route 5, PAPER-BHATT-ETAL-23/supported-cohom) and the residue-field injective hull with Matlis duality (PAPER-ANDRE-18-B, PAPER-HACON-WITASZEK-23, PAPER-BHATT-ETAL-23). This paper is a source for the same targets in the exact forms §§2–3 use: secant sequences and Remark 3.2 (items 83, 35), the local cohomology calculus (76), Grothendieck's depth criterion (77), the injective hull (78), the flat depth formula behind (S_n) along flat maps (72) and the equidimensionality of catenary (S_2) local rings (66)."
+  },
+  {
+   "route": "source",
+   "roadmap": "AnalyticStacks",
+   "stages": [
+    "AnalyticStacks:AS.1"
+   ],
+   "items": [
+    "PAPER-CESNAVICIUS-21/39",
+    "PAPER-CESNAVICIUS-21/52",
+    "PAPER-CESNAVICIUS-21/79",
+    "PAPER-CESNAVICIUS-21/80"
+   ],
+   "reason": "Added by the review REV-PAPER-CESNAVICIUS-21. Six-functor formalisms and analytic stacks AS.1 owns the quasi-coherent formalism and Grothendieck–Serre duality, and the accepted routes 5 of PAPER-HACON-WITASZEK-23 ('Add its Noetherian singular dualizing-complex, finite-trace and local-duality adapters here') and PAPER-BHATT-ETAL-23 (normalized dualizing complex) have made it the single owner of dualizing complexes of Noetherian rings and schemes; the rejected route 3 of PAPER-IYENGAR-KHARE-MANNING-24, which put them in R03.3, confirms the choice. This paper is a source for the ring-level definition and its localisation and quotient properties (item 39), the normalisation on biequidimensional schemes (52), local duality (79), and existence over complete local rings with the Cohen–Macaulay criteria (80). If the maintainer judges AS.1, which sits on the ∞-categorical AS.0, too heavy a home for the Noetherian ring case, these items and the accepted ones should move together to a single new owner."
+  },
+  {
+   "route": "part-ii",
+   "parent": "SchemeAndStackFoundations",
+   "roadmap": "SchemeAndStackFoundationsPartIIArithmeticPresentation",
+   "title": "Scheme, stack, cohomology and intersection foundations, Part II: arithmetic geometric presentation",
+   "area": "arithmeticgeometry",
+   "imports": [
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "DeformationAndDerivedPatchingAlgebra",
+    "LefschetzPencilsAndVanishingCycles"
+   ],
+   "items": [
+    "PAPER-CESNAVICIUS-21/53"
+   ],
+   "brief": "Start after Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), which is the first prerequisite. Import its schemes, smooth/étale/flat morphisms and generic descent; import finite-type relative Proj and coherent-curve interfaces from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2); import regular sequences, Cohen–Macaulay and dimension-flatness algebra from Deformation and derived patching algebra (DeformationAndDerivedPatchingAlgebra:R03.3). Reuse tangent/jet/incidence interfaces of Lefschetz pencils and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.3) where their scope matches; do not identify a finite-extension rational point with a point over the original finite field. Build one geometric-presentation library: arbitrary-base avoidance (3.1); arbitrary-field prescribed-locus Bertini (3.2) with separable reduced marked points, simultaneous incidence inequalities, and iterative degrees divisible by the characteristic exponent; weighted projective charts and section blowups (3.4–3.5), importing rather than rebuilding Proj; the seven separate weighted projection assertions over fields (3.6) and semilocal Dedekind bases (3.7), keeping total and fiberwise codimension distinct. The first final target is Proposition4.1: for smooth positive-relative-dimensional A/O, finitely many points and a closed total-codimension≥2 locus, find an affine neighborhood with a smooth relative-curve map to an affine open in a disjoint union of affine O-spaces, with that locus finite over the target. The second final target is Lemma6.3: over semilocal R, for a flat affine curve with pure one-dimensional Cohen–Macaulay fibers, finite retained Y and finite Z in the smooth locus satisfying the finite-residue degree-point inequalities, find an affine neighborhood and quasi-finite flat map to A1_R that is cartesian and an isomorphism over Z, étale along Z, and agrees on every infinitesimal neighborhood. Supply the finite-cover point-count lemma6.1, simple residue-extension lemma6.2 and monic-polynomial remark6.4. Read CTHK97 §3 to closure and use the corrected p.20 argument for imperfect fields: construct embeddings of first-order thickenings by geometric presentation and disjoint translates, not an unjustified base-linear Cohen isomorphism. No generic rational-section or Grothendieck–Serre torsor target belongs to this geometry supplier. Do not assert nonflat base change for weighted blowups. The current partial extraction exposes the unverified GLL15, Gab01, EGA and commutative-algebra proof obligations; close them before declaring the design blueprint closed. For BMPSTWW Theorem2.17, add simultaneous regular hypersurface sections of finitely many regular closed subschemes of projective space over a Noetherian local domain, using the finite-field Poonen/GK19 and infinite-field FOV branches, lifting and cotangent-space checks. Verify that this regular mixed-local conclusion is not inferred merely from geometric smoothness over an imperfect field. The avoidance lemma (3.1) must cover the Noetherian projective case quoted by PAPER-CESNAVICIUS-21 as Lemma 4.3 (Gabber–Liu–Lorenzini, Duke Math. J. 164 (2015), 5.1): for a Noetherian ring R, a projective R-scheme X, a closed Y ⊂ X containing no positive-dimensional irreducible component of any R-fibre of X, points x_1, …, x_n ∈ X \\ Y and a very R-ample line bundle 𝓛, there are N > 0 and f ∈ Γ(X, 𝓛^{⊗N}) whose zero scheme contains Y and none of the x_i.",
+   "reason": "Added by the review REV-PAPER-CESNAVICIUS-21. Lemma 4.3 is the Noetherian projective case of PAPER-CESNAVICIUS-22/avoidance, which PAPER-CESNAVICIUS-22 route 7 proposes for this Part II (rejected pending revision; its review found the direction justified) and whose id the accepted PAPER-BHATT-ETAL-23 route 13 reuses; it is reused, not proposed again. The title, area, imports and brief are the accepted route 13's, with one sentence added for the case used here: make_queue.py keeps one brief per shared design id and the later paper in papers.json wins, and this paper comes after both, so a shorter brief would replace theirs. The maintainer should merge the three routes of this id."
   }
  ],
  "sourceIssues": [
@@ -724,7 +1065,12 @@
     "the author's copy of the published version, read in full, and its PDF content streams at this sentence",
     "the arXiv abstract page for 1810.04493, whose v2 of 3 September 2020 is described as the final version and is the latest; no erratum is announced",
     "the author's publications page, which lists the paper with its Duke reference and no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "Confirmed by the review: page 3 of both PDFs, rendered, has the overline on the two earlier X̄ and on the first X of 'X̄ \\ X' and not on the final X, and TeX l. 855 reads 'divisor in $X$'. The proof applies Corollary 1.10 to the Macaulayfied Nagata compactification, so the divisor is in X̄. Item 12 now carries the correction."
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-21/E2",
@@ -739,22 +1085,152 @@
     "the author's copy of the published version, whose text at this point is identical to the preprint's",
     "the arXiv abstract page for 1810.04493, which has no version after v2 and announces no erratum",
     "the author's publications page, which lists no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "Confirmed by the review: 'ificaiton' is on p. 4 of both PDFs and at TeX l. 873."
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-21/E3",
    "kind": "gap",
    "affects": "nothing",
-   "locator": "Lemma 2.11, its final clause, and the proof of Lemma 2.11 (pages 8–9 of the author's copy of the published version); the same in arXiv:1810.04493v2",
+   "locator": "Lemma 2.11, its final clause, and the proof of Lemma 2.11 (pages 7–8 of the author's copy of the published version); the use of the clause in the last sentence of the proof of Theorem 2.13 (page 9); the same in arXiv:1810.04493v2",
    "printed": "Moreover, if 𝓜 is (S₂) and for each x ∈ closure(Supp(𝓜)) \\ Supp(𝓜) of height ≥ 2 in closure(Supp(𝓜)) the punctured spectrum of O_{closure(Supp(𝓜)),x} has no isolated points, then 𝓜' may be chosen to itself be (S₂).",
-   "correction": "the proof should return to this clause; as written its only trace is the parenthesis \"(in the (S₂) case, this step is the reason for a direct sum in the statement; in the (S₁) case, no direct sum issue arises …)\" in the middle of the dim X ≥ 2 case.",
+   "correction": "the proof should return to this clause; as written its only trace is the parenthesis \"(in the (S₂) case, this step is the reason for a direct sum in the statement; in the (S₁) case, no direct sum issue arises …)\" in the middle of the dim X ≥ 2 case. The clause is used in the last sentence of the proof of Theorem 2.13 ('Another application of Lemma 2.11, this time over X̃'), where checking its hypothesis is also left implicit: after the reduction to X complete local, X̃ is finite over X and (S₂), so its local rings over the closed point are complete, hence catenary, hence equidimensional by EGA IV₂ 5.10.9, and their punctured spectra of dimension ≥ 2 have no isolated points; the closure of Supp(𝓜_i) is X̃ because |Supp(𝓜_i)| = |Ũ| and O_X̃ ↪ j_*O_Ũ.",
    "reason": "The body of the proof establishes the first two assertions of the lemma and never mentions the extra hypothesis again, so the final clause is stated without an argument. The argument is short and is clearly what the author has in mind, and the clause is true: after the reductions made at the start of the proof one may assume that X is local with closed point x, that U is the punctured spectrum and that closure(Supp(𝓜)) = X, and the direct sum in the (S₂) case arises only from the summand U₀ of isolated points of U. If dim X ≥ 2 then x has height ≥ 2 and the extra hypothesis says exactly that U₀ = ∅, so no splitting occurs; if dim X = 1 the extension produced in that case is (S₁) and, the support having dimension ≤ 1, therefore also (S₂). A formalisation has to supply these two lines.",
    "known": "new",
    "searched": [
     "the proof of Lemma 2.11 in the published version and in arXiv:1810.04493v2, read in full; the two texts agree",
     "the arXiv abstract page for 1810.04493, which has no version after v2 and announces no erratum",
     "the author's publications page, which lists no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "Confirmed by the review: the proof of Lemma 2.11 (TeX ll. 1105–1165) proves the first two assertions and never returns to the final clause, and the argument in the reason is right. The locator was corrected: the lemma and its proof are on pp. 7–8 of both versions, not 8–9. The correction was extended to the use of the clause in Theorem 2.13 (TeX l. 1185). The clause is now item 65."
+   }
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E4",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§1.14 (Notation and conventions), first paragraph, the displayed Cohen–Macaulay condition (page 4; TeX l. 893) of the author's copy of the published version; the same in arXiv:1810.04493v2",
+   "printed": "𝓜 is Cohen–Macaulay if it is (S_n) for every n, that is, if depth_{O_x}(𝓜_x) = dim(Supp(𝓜_x)) for all x ∈ X.",
+   "correction": "'… for all x ∈ Supp(𝓜)'.",
+   "reason": "For x ∉ Supp(𝓜) the stalk is 0, whose depth is +∞, while dim(Supp(𝓜_x)) = dim(∅) = −∞ by the convention just recalled; so the equality fails there although '(S_n) for every n' holds. Read literally, only modules with full support could be Cohen–Macaulay, which contradicts Definition 3.1(ii), where M/(r_1,…,r_s)M has proper support, and Remark 1.4, which states Supp(𝓜) = X as a separate hypothesis.",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version and arXiv:1810.04493v2 at the locator; the two texts agree",
+    "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+    "the author's publications page, which lists the Duke reference and no corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "found by the review (checker of §§1–2); the coordinator checked the TeX (ll. 887–893)"
+   }
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E5",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Remark 3.9 (page 12; TeX l. 1387) of the author's copy of the published version; the same in arXiv:1810.04493v2",
+   "printed": "The definition implies that the r_i-torsion and the r_ir_{i'}-torsion submodules of M/(r_1,…,r_{i−1})M agree for every 1 ≤ i ≤ i' ≤ s",
+   "correction": "'the r_{i'}-torsion and the r_ir_{i'}-torsion submodules … agree', i.e. ((r_1,…,r_{i−1})M : r_ir_{i'}) = ((r_1,…,r_{i−1})M : r_{i'}), which is Huneke's condition.",
+   "reason": "The corrected form follows from Definition 3.8: if r_ir_{i'}x = 0 in M̄ := M/(r_1,…,r_{i−1})M then y := r_{i'}x ∈ 𝔯M̄ is r_i-torsion, so y = 0. The printed form fails: over R = k[[t,u]] take M = R/(u) ⊕ R and (r_1, r_2) = (t, u), a d-sequence for M (t is injective on 𝔯M = tk[[t]] ⊕ (t,u)R, and u on 𝔯(M/tM) = 0 ⊕ uk[[u]]); for i = 1, i' = 2 the t-torsion of M is 0 but its tu-torsion is R/(u) ⊕ 0, which is the u-torsion.",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version and arXiv:1810.04493v2 at the locator; the two texts agree",
+    "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+    "the author's publications page, which lists the Duke reference and no corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "found by the review (checker of §§3–5); the coordinator re-checked the example by hand"
+   }
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E6",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Proposition 3.11(iii) (page 13; TeX l. 1443) of the author's copy of the published version; the same in arXiv:1810.04493v2",
+   "printed": "with M' := M/(r'_1,…,r'_{s'−1})M, if r_{s'} is (M'/(r_1,…,r_s)M')-regular, then it is M'-regular and (M'/I_s^nM')-regular for n > 0.",
+   "correction": "'if r'_{s'} is (M'/(r_1,…,r_s)M')-regular'.",
+   "reason": "s' indexes the auxiliary secant sequence, whose first s' − 1 terms define M'; the next term is r'_{s'}. As printed, for s' ≤ s the element r_{s'} kills M'/(r_1,…,r_s)M', and for s' > s̃ it is undefined. The proof of Theorem 3.14 applies (iii) with s' = 1, M' = M and an M̄-regular r' (TeX l. 1541).",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version and arXiv:1810.04493v2 at the locator; the two texts agree",
+    "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+    "the author's publications page, which lists the Duke reference and no corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1436–1443, 1540–1544)"
+   }
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E7",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "The proof of Theorem 3.14, the definition of I_s (page 15; TeX l. 1550) of the author's copy of the published version; the same in arXiv:1810.04493v2",
+   "printed": "I_s := ∏_{i=1}^s (r_1,…,r_s) for 0 ≤ s ≤ s̃",
+   "correction": "I_s := ∏_{i=1}^s (r_1,…,r_i)",
+   "reason": "Proposition 3.11 defines I_j := ∏_{i=1}^j (r_1,…,r_i) (TeX l. 1421) and the theorem's I is I_{s̃}; the proof needs I_{s̃} = I and uses Bl_{I_s}(R) ≅ Bl_{(r_1,…,r_s)}(Bl_{I_{s−1}}(R)) from §3.13, which needs I_s = (r_1,…,r_s)·I_{s−1}. The printed ideal is (r_1,…,r_s)^s, which satisfies neither.",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version and arXiv:1810.04493v2 at the locator; the two texts agree",
+    "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+    "the author's publications page, which lists the Duke reference and no corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1421, 1550)"
+   }
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E8",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "The proof of Theorem 3.14, display (3.14.10) (page 16; TeX l. 1628) of the author's copy of the published version; the same in arXiv:1810.04493v2",
+   "printed": "multiplication by r_aT − r_b is the zero map on H^1_{(r_a,r_b)}(R'[T], M' ⊗_{R'} R'[T])",
+   "correction": "'multiplication by r_bT − r_a'",
+   "reason": "The exact sequence (3.14.7) that the argument feeds into is multiplication by r_bT − r_a, and (3.14.11) uses r_bT − r_a. The printed statement is also true (by Claim 3.14.5 and (3.14.8) both r_a and r_b act by zero), so nothing is lost.",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version and arXiv:1810.04493v2 at the locator; the two texts agree",
+    "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+    "the author's publications page, which lists the Duke reference and no corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1612–1632)"
+   }
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/E9",
+   "kind": "error",
+   "affects": "the proof",
+   "locator": "The proof of Proposition 4.4, display (4.4.1) and the sentence after it (page 19; TeX ll. 1806–1811) of the author's copy of the published version; the same in arXiv:1810.04493v2",
+   "printed": "if we identify 𝓘_{𝓜,m} with its preimage in O_X, then this stalk becomes (𝓘_{𝓜,m})_x = ∏_{j<dim(O_{X_m,x})} Ann_{O_{X,x}}(H^j_{𝔪(x)}(O_{X,x}, (𝓜|_{X_m})_x)).",
+   "correction": "The equality holds for the product in O_X of the O_X-annihilators, not for the preimage of the product. Apply Lemma 4.3 to the closed subscheme of X cut out by that product (its support is Y_{𝓜,m}), so that j_{m+1,x} lies in the product as Definition 3.1(ii) requires; or keep the preimage and replace j_{m+1,x} by j_{m+1,x} − b for a suitable b ∈ (j_{1,x},…,j_{m,x}), which changes none of the ideals (j_{1,x},…,j_{i,x}), hence neither secancy, the quotients, nor 𝓙_x.",
+   "reason": "Each O_{X,x}-annihilator is the preimage of the O_{X_m,x}-annihilator, but with K = (j_{1,x},…,j_{m,x}) the preimage of a product is the product of the preimages plus K, which can be larger. Over A = k[[s,t,u,v,z]]/((s,t) ∩ (u,v)) with K = (z) and the A/K-module (A/K) ⊕ k of support dimension 2, H⁰_𝔪 ≅ H¹_𝔪 ≅ k, so the product of the A-annihilators is 𝔪_A² while the preimage is 𝔪_A² + (z). Read with the preimage, Lemma 4.3 gives only j_{m+1,x} ∈ (product) + K. Proposition 4.4 is unaffected once the step is repaired.",
+   "known": "new",
+   "searched": [
+    "the author's copy of the published version and arXiv:1810.04493v2 at the locator; the two texts agree",
+    "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+    "the author's publications page, which lists the Duke reference and no corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-PAPER-CESNAVICIUS-21",
+    "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1795–1830) and the example by hand"
+   }
   }
  ]
 }

@@ -185,3 +185,47 @@ item naming layers that exist in the atlas, every library item citing declaratio
 the source route naming a layer owned by the roadmap it names, the Part II titles matching their parents
 and their areas being galaxy ids — do not certify the mathematics. No Lean file is authorised or compiled
 for this job.
+
+## Review (REV-PAPER-CESNAVICIUS-21, 24 September 2026)
+
+The review accepted the extraction after corrections made in place. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-CESNAVICIUS-21.md`. Three checkers read the paper against the arXiv TeX and page renders of both PDFs: §§1–2, §§3–5 with the bibliography, and every status and route. They opened every cited declaration at the pinned commits and read every cited layer. The coordinator settled their disagreements at the TeX and checked every new mistake there.
+
+Several statements above are superseded:
+
+- **Blowing up is not R09.7a's.** R09.7a plans only smooth base change, and the paper uses flat base change. Blowups are planned in Tau Ceti StableReduction Layer 4, with finitely generated relative Proj in Layer 2 (RS-25).
+- **The Nagata compactification is planned** in AdicCoefficientsAndComparisons L2.
+- **The atlas does have layers for depth, catenarity and excellence as hypotheses** (R03.3), for dualizing complexes (AnalyticStacks AS.1, by accepted routes of PAPER-HACON-WITASZEK-23 and PAPER-BHATT-ETAL-23), and for blowups.
+
+The changes:
+
+- **Items: 61 became 81** (3 library, 5 planned, 73 missing).
+  - The expository §§1.12–1.13 (items 14, 15) were removed.
+  - Items 17, 20, 21, 29, 34 and 38 were split.
+  - Items 13, 16, 43, 45, 49, 55 and 58 were corrected.
+  - The inputs the proofs use without an item were added. They include:
+    - Kollár's coherence criterion;
+    - formal patching;
+    - Zariski's main theorem;
+    - Ratliff's theorem;
+    - the local cohomology calculus;
+    - local duality;
+    - Grothendieck's depth criterion;
+    - Zariski's connectedness theorem;
+    - divisors, birational morphisms and schematic images.
+- **Routes: six, all accepted as corrected.**
+  1. **MacaulayficationOfNoetherianSchemes.** The brief now states the final theorems verbatim and names its imports by title and id.
+  2. **KawasakiCohenMacaulayBlowingUps**, renamed from LocalCohomologyAndDualizingComplexes. It is narrowed to CM-secant sequences, d-sequences, module blowups and Theorem 3.14.
+  3. **Source of SF.0 and SF.4.** It carries the extension of coherent submodules (EGA I 9.4.7) and Kollár's criterion.
+  4. **New source of R03.3.** It carries secant sequences, local cohomology, the depth criterion, the injective hull, flat depth and catenary (S₂) equidimensionality.
+  5. **New source of AS.1.** It carries the dualizing complexes.
+  6. **SchemeAndStackFoundationsPartIIArithmeticPresentation, reused.** It carries the avoidance lemma, with the accepted route's full brief, because make_queue.py keeps the later paper's brief for a shared id.
+- **Source issues.**
+  - E1–E3 are confirmed. E3's locator is pp. 7–8, and its correction now covers the use of the clause in Theorem 2.13.
+  - E4–E9 are new: misprints in §1.14, Remark 3.9, Proposition 3.11(iii), I_s and (3.14.10), and an error in (4.4.1). There the product of annihilators must be taken in O_X, not as a preimage; the repair is one line.
+  - No stated result changes.
+- **Prerequisites.** These are corrected:
+  - the Gabber–Liu–Lorenzini and Kollár papers, which were the wrong ones;
+  - the Deligne DOI;
+  - the §1.12 names (Honsen, Mordasini, Heinrich);
+  - the Ogoma and Heitmann references;
+  - the Cuong link.
