@@ -1,0 +1,200 @@
+{
+  "redteam": "RT-AREA-iwasawa-1",
+  "findings": [
+    {
+      "finding": "RT-AREA-iwasawa-1/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. HE.8 has no edge from GeometryOfNumbersAndQuadraticArithmetic:GN.4 in any graph, and no atlas stage plans the S-arithmetic Ratner theorem or a case of Andre-Oort; the only unipotent-flow stage is scoped as the finding says. So the distribution theorem HE.8 makes a proof target has no supplier on either of the two routes its source offers."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans Ribet or Diamond-Taylor level raising: SerreWeightAndLevelOptimisation R20.2 owns level lowering and ClassicalSerreModularity R27.4 owns only the Khare-Wintenberger step under the accepted RS-06, and the Tau Ceti declaration named for level raising is the degeneracy operator, not Ribet's theorem. The roadmap's own source line omits the section where the theorem it needs is stated."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked the graph: GZ.1's requires are A2, GZ.0 and three Tau Ceti layers, and neither HeightsRationalPointsAndObstructions RP.0 nor RP.1 is among its ancestors in any graph. RS-03 is accepted and keeps exactly the height machine, the canonical and local heights of abelian varieties and abelian-variety descent in those two layers, and GZ.1 was not in its family, so nothing resolves the overlap."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three inputs the rank-zero multiplicative case needs are supplied by no layer: MIMC L1 is the Fouquet-Wan theorem with p not dividing the level, MIMC L2's local hypothesis excludes multiplicative p, and no stage plans the Greenberg-Stevens exceptional-zero theorem or the transcendence of the Tate period that the non-vanishing of the L-invariant rests on. The branch is therefore stated without a route."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with one correction to the reasoning. BSD.7a's requires are wider than the eight the finding lists: they also include BSD.5, BSD.1, GZ.0 and four Tau Ceti EllipticCurves layers. That does not touch the substance, since none of those contains Rubin's main conjecture for imaginary quadratic fields, the Hida-Tilouine anticyclotomic main conjecture, Hida's vanishing of the anticyclotomic mu-invariant or Wuthrich's integral form of Kato's divisibility, and no atlas stage plans any of them. The Eisenstein branch has no supplier."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the graph statement is exact: in the atlas with every accepted restructuring and link map applied, the only AutomorphicGaloisRepresentationsPartII ancestors of AC L1, L2, L2s and L5w are AG2.0 and AG2.1a. The stages that plan the Galois representations of unitary-group cusp forms with local-global compatibility, AG2.2, AG2.5 and AG2.6, reach none of them, although all three unitary routes use exactly those representations."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans the mod-p nonvanishing theorems for anticyclotomic L-values or the Hida density and linear-independence results behind them, and neither library has them. Three planned targets need them, and the finding identifies each use precisely."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed in all three parts. HE.6's requires are ES.5, R17.5 and HE.5; R17.5 is automorphic induction and Langlands-Tunnell, which the argument does not use, while R17.3 (Jacquet-Langlands) is reached only transitively; there is no edge from any main-conjecture or Kato supplier, and BSD.6 cannot serve as one, since it requires HE.6 and covers a different curve and field."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage owns Serre's open-image theorem: FaltingsFinitenessAndIsogenyTheorems R28.6 avoids it, EllipticCurveModularity R29.1 avoids it after the accepted RS-06, and ArithmeticGaloisRepresentations R01.4 covers only finite-subgroup facts. The finding is right that irreducibility for almost all p is weaker: excluding a large image inside the normaliser of a Cartan is exactly the content of Serre's theorem."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The abstract self-dual Kolyvagin-system theory has no owner in the Euler-system roadmap: ES.4's two interfaces are the other two abstract theories and ES.5 records only the square-index bound, while the accepted decomposition realises the structure theorem inside an HE node. So a general theory is planned inside an application layer, against the one-owner rule."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GZ.9's requires contain neither AutomorphicPadicLFunctions L3h nor any GeneralizedHeegnerCycles stage, so the construction it plans and the p-adic Waldspurger identity at the weight-two point are planned a second time here, and no accepted proposal assigns an owner. The finding is careful to separate what is genuinely new in GZ.9 from what is not."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I read the pinned definition. TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean:124 defines the canonical height as the limit of the naive height of 2^n P divided by 2 times 4^n, and its docstring says in terms: 'The 2 is the standard normalisation: h is the height of the x-coordinate, which has a double pole at infinity, so h is attached to 2(O) and the Neron-Tate height to (O) is half of it.' So the library height is the one attached to (O), not twice it, and GZ.0's premise is false; the consequence the finding draws for the Gram determinant follows."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and this is the sharpest of the structural findings. The atlas descriptions of HeegnerPointEulerSystems HE.8 and HE.8b are byte-identical, 5951 characters each, so the HE.8 record does contain HE.8b's main-conjecture paragraph and the later sections. Both edges the finding names exist: HE.8 to BSD.7a and BSD.7a to HE.8b. The separation that keeps the arrangement acyclic therefore lives only in the prose, and a reader of the stage records cannot see it."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The edge MIMC L1 to BSD.6 exists, and the two hypotheses differ in the way the finding states: the Fouquet-Wan auxiliary-prime condition adds the vanishing of the invariants under the whole decomposition group, which the Skinner-Urban condition does not require, and the finding gives an explicit family where the extra condition fails. So the rank-zero ordinary branch imports a theorem that does not cover the cases it claims."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. None of the four inputs the corrected proof uses is supplied to BSD.6a: the Castella-Grossi-Skinner bound and factorization are owned by BSD.7a, which is not among BSD.6a's suppliers, and the other three results are planned by no stage. The finding names each use precisely rather than asserting a general gap."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No stage supplies nonnegativity of the central value for quadratic twists, and the finding is right that the alternatives do not give it: modular symbols give rationality, and the Gross-Zagier and Waldspurger formulas control only products or twisted values. Without that input the positivity of the defect is not available, and BSD.8's deduction from vanishing valuations does not close."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans the p-integrality of the Manin constant, and GZ.3 constructs Manin constants only as comparison quantities; neither library has one. The consequence the finding draws is exactly right: a p-part formula stated with the Neron period then follows only up to that constant."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. SelmerIwasawaCohomology L3 plans Iwasawa cohomology and control and does not plan either of Greenberg's structural theorems, and the main-conjecture arguments this area consumes use both, in the places the finding names. The second theorem is what turns a characteristic ideal into a Fitting ideal, so its absence is not cosmetic."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the counts are exact on the graph the finding used. On the raw atlas SelmerIwasawaCohomology L2 has 39 ancestors with the PadicHodgeRegulators L1 edge and 14 without it, which is the finding's '39 instead of 14'; on the restructured graph the numbers are 77 and 45, and with the accepted link maps 97 and 65. The substance holds in every graph: PadicHodgeTheory R06.1 and R06.2, PerfectoidSpaces P0, AInfCohomology AI.0 and CrystallineCohomology CR.0 are ancestors of a generic Selmer layer only because of that one edge, which the layer's own text says it does not need until L4."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The Tau Ceti EllipticCurves layer 7 does plan generic Selmer structures for a general Galois module, SIC does not cite it, and PROTOCOL section 15 forbids re-planning a Tau Ceti roadmap. That the layer is an ancestor of SIC L2 through other routes does not discharge the duplication, since the duplicated plan remains in both texts."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked it: SelmerIwasawaCohomology L4 is not an ancestor of EulerSystemsCyclotomicMainConjecture L3 in any graph, so neither stage imports the other while both plan the same identification with the same restrictions. RS-16 moved only the tower carriers and left the comparison where it was."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The finding separates three distinct errors in one paragraph of L1: the attribution of the weight lifting, the characterisation of the section 4.8 argument as a period refinement, and the missing import of the paper that actually proves the lifting, which only AC L5w plans. Each is a statement about the source's own organisation, and the finding states what the correct route is rather than merely objecting."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a correction to its scope. On the raw atlas only EllipticCurveModularity R29.1 to R29.4 are ancestors of MIMC L3, which is the finding's statement. Once the accepted restructurings are applied R29.5 and R29.6 do become ancestors, but only along six-step incidental paths (R29.5 to HE.1 to L3h to L5a to L5b to L5 to L3, and R29.6 through BSD.5 and BSD.7a), which supply Heegner and BSD material rather than the modular parametrization. There is still no direct edge, and the roadmap does not list EllipticCurveModularity as a prerequisite, so the defect the finding identifies stands."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. AC L2s is not an ancestor of AC L2, so L2 does not import the constructions that the source it must prove reuses from the paper L2s owns. The finding states the alternative honestly: either the semi-ordinary theory is planned twice or the gap is unrecorded."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. AutomorphicPadicLFunctions L3h is not an ancestor of AC L2s, and the finding names the three distinct uses the source makes of that material. L3h's own export list names other consumers, so the omission is symmetric."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Neither the anticyclotomic main conjecture for CM fields nor the Rankin-Selberg p-adic L-function for a CM Hida family is planned by any atlas stage, and both libraries lack them, so the integrality statement L2s must prove has no route."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Both AC L2 and GeneralizedHeegnerCycles GH.7 plan the unramified local Iwasawa theory and the Yager module from the same source theory, and GH.7 is already an ancestor of AC L2, so the duplication is avoidable by an import. The proposal that keeps the material in AC L2 is not accepted."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the graph is unambiguous: no stage of CompletedCohomologyAndLocalGlobalCompatibility or of PadicLocalLanglandsForGL2Qp is an ancestor of AC L3, even with every accepted restructuring and link map applied, although L3's own text says it imports from both."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The finding identifies a wrong theorem number with its consequence: the theorem L5a names is the one-variable anticyclotomic divisibility that HE.8 and HE.8b already own, and the two-variable comparison L5a is for is a different theorem of the same paper. A worker following the stage text would duplicate the Heegner layers."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed. There is no edge between AC L5a and BSD.6a, and BSD.6a already owns both the two-variable zeta element and the main-conjecture comparison that L5a claims, so the comparison is planned twice and L5a has no supplier for the zeta element it needs."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. L5b's requires are AC L5a and HE.8b only: it does require the anticyclotomic endpoint that the cyclotomic proof does not use, and it has no Kato supplier, which that proof does use. The consequence the finding draws about the staged order follows from the requires as recorded."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The finding restores two hypotheses of the source that the stage text drops, and is careful about their status: the distinctness of the characters, without which the p-stabilised vector is not unique, and temperedness, which the source itself says is only a convenience but has not been removed."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The accepted RS-14 narrowing keeps per-place growth in L2, and the source proves admissibility only for totally real or imaginary quadratic base fields under tighter conditions, saying that for a general number field the right notion is unclear. So the stage plans a theorem the source does not prove."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the graph statement is exact: in the atlas with the accepted restructurings, the only stages of the three named roadmaps among AutomorphicPadicLFunctions L1's ancestors are AL.0 and AL.1. Every other import the narrowed layer keeps has no edge."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ES.8's requires are ES.7 and SelmerIwasawaCohomology L3, so the rank-one statement its consumers use is made to wait on the higher-rank theory and on the Gorenstein homological algebra behind it, although the sharp rank-one statement needs only the earlier layers."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed. EulerSystemsAndKolyvaginSystems ES.2 is an ancestor of neither EulerSystemsCyclotomicMainConjecture L0 nor KatoEulerSystems L2, and KatoEulerSystems L4 reaches the Euler-system layers only through the cyclotomic-unit application, exactly as the finding says. So the generic handoffs are routed through one application."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked both sources directly. In 'Coleman maps and the p-adic regulator' (arXiv:1006.5163v2) 5.10 and 5.13 are both Theorems, the integral-images statement and the basis statement, quoted verbatim by the finding; in 'Wach modules and Iwasawa theory for modular forms' (arXiv:0912.1263v3) 5.10 is a Proposition on the logarithm matrix in the supersingular case and 5.13 is a Lemma on the kernels of the Coleman maps. So an unqualified citation of 'LLZ Theorem 5.13' is ambiguous between two papers, and the external packet the finding names sends a worker to the wrong one."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Each of the four locator problems is a statement about a named source and its versions, and the finding states what the correct attribution is in each case rather than only objecting. Low severity is right: the mathematics is unaffected and only the branch table changes."
+    },
+    {
+      "finding": "RT-AREA-iwasawa-1/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked it: the atlas descriptions of BSD.6 and BSD.6a are identical, and so are those of BSD.7 and BSD.7a, while in each pair the requires differ and the accepted RS-30 gives the 'a' stage a distinct sole-ownership role. AUDIT-27 does record separate targets for BSD.6a by hand, which is exactly the work an audit has to redo when the stage text does not separate them."
+    }
+  ]
+}
