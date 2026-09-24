@@ -24590,8 +24590,8 @@
       "prerequisites": [],
       "implementationStatus": "unchecked",
       "library": [
-        "mathlib:ShortComplex.moduleCat_exact_iff",
-        "mathlib:ShortComplex.moduleCat_exact_iff_range_eq_ker"
+        "mathlib:CategoryTheory.ShortComplex.moduleCat_exact_iff",
+        "mathlib:CategoryTheory.ShortComplex.moduleCat_exact_iff_range_eq_ker"
       ]
     },
     {
@@ -24604,8 +24604,8 @@
       "prerequisites": [],
       "implementationStatus": "unchecked",
       "library": [
-        "mathlib:ShortComplex.moduleCatHomologyIso",
-        "mathlib:ShortComplex.π_moduleCatCyclesIso_hom"
+        "mathlib:CategoryTheory.ShortComplex.moduleCatHomologyIso",
+        "mathlib:CategoryTheory.ShortComplex.π_moduleCatCyclesIso_hom"
       ]
     },
     {
@@ -24686,7 +24686,7 @@
       "prerequisites": [],
       "implementationStatus": "unchecked",
       "library": [
-        "mathlib:Algebra.IsSeparable.of_integral"
+        "mathlib:IsSeparable.of_integral"
       ]
     },
     {
