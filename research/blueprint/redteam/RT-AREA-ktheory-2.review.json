@@ -1,0 +1,265 @@
+{
+  "redteam": "RT-AREA-ktheory-2",
+  "findings": [
+    {
+      "finding": "RT-AREA-ktheory-2/1",
+      "verdict": "confirmed",
+      "reason": "E.5's text ends 'Recover K_1(E/F_q) = F_q^x + F_q^x, the finite positive-degree groups and their prime-to-characteristic property through the precise finite-curve theorem. The proof of that theorem includes its finite-generation, cohomology and Frobenius inputs; it is not a consequence of the finite-field calculation alone', so E.5 does own the proof with those inputs. Its requires are exactly ['ArithmeticKTheory:N.3:finite-generation','EllipticKTheory:E.4'], and N.3:finite-generation is the number-field case ('Prove finite generation of K_n(O_{F,S})', roadmap titled 'K-theory of number fields and S-integers'). The missing inputs are unowned: Grayson 0 files, Geisser 0 files, and the two Levine hits are the Levine/Friedlander-Suslin motivic spectral-sequence model, not Geisser-Levine; the Harder hits are Harder-Narasimhan strata. One correction for the fix job: the finding sends Bass-Tate to T.5, but K2SymbolsBrauer:T.4 already says 'Prove the Bass-Tate sequence for F(t) and use it to construct Milnor transfers and their transitivity'. The claim survives, because the sequence for F(t) is not the vanishing K^M_n(F)=0 for n>=3 over a global function field, but T.4 is the natural owner and fix (b) should target it."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/2",
+      "verdict": "confirmed",
+      "reason": "HB.2's text is quoted correctly and cites only Hutchinson ('Prove Hutchinson's refinement R_zeta=c_zeta^2 for odd N with its stated field/root-of-unity hypotheses (arXiv:2104.14413v4, sections 2-4, Theorem 3.1)'), and HB.2.requires = ['HabiroNumberFields:HB.1'], so it cannot reach the Nahm-sum asymptotics. HB.4 is the asymptotics stage ('Formalise the all-orders radial asymptotic expansion of CGZ Theorem 7.1'). The cycle argument holds: research/blueprint/plans/HABIRO.md line 868, the HB.4 row, ends 'add HB.2, HC.1', so under the accepted plan HB.4 will require HB.2 and HB.4 cannot be added to HB.2. I also checked the fix target rather than assuming it: HB.5.requires = ['HabiroNahmSeries:HB.4','HabiroNahmSeries:HB.5a','HabiroNumberFields:HB.2'], exactly the three inputs the fix relies on. Andrews-Gordon and Rogers-Ramanujan each return 0 files across both roadmap directories, and QM.0 plans only generic machinery ('partition functions, generating products, q-binomial identities and congruences in formal power-series rings'). Not verified by me: the Hutchinson and CGZ source quotations, which need the arXiv papers."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/3",
+      "verdict": "confirmed",
+      "reason": "The stage names the comparison only as a restriction, verbatim: 'The odd-prime restriction in the underlying Devalapurkar comparison must not be erased; an E_1/p=2 variant requires the source's separate even-resolution hypothesis.' RT.4:q-Hodge.requires = ['HabiroCohomologyFoundations:HQ.3','RefinedTraceMethods:RT.2','RefinedTraceMethods:RT.4:topological'], none of which supplies it, and Devalapurkar occurs in exactly one file (RefinedTraceMethods, 4 times, the four RT.4 records sharing one description). The sharpest corroboration is the asymmetry: Wagner, whose theorem the stage must prove, is cited in 7 roadmaps, while Raksit, 'image of J', j_{p,0} and THH(Z_p...) each return 0 files. Not verified by me: the Wagner and Devalapurkar thesis quotations, and the 'no spectra' library claim attributed to AUDIT-30."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/4",
+      "verdict": "confirmed",
+      "reason": "E.3 has 29 ancestors and K2SymbolsBrauer:T.5 is not among them; more strongly, E.3 has no ArithmeticKTheory ancestor and no KTheoryFiniteLocalFields ancestor at all, exactly as claimed. E.3's own segment runs K_3(X) -> K_3(F(X)) -> sum_x K_2(k(x)) -> K_2(X) -> K_2(F(X)) -> sum_x k(x)^x -> ..., so the comparison does turn on K_2 of the residue fields and of the function field, and nothing upstream supplies their torsion or vanishing."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/5",
+      "verdict": "confirmed",
+      "reason": "No ancestry in either direction between ER.5 and CM.4, and both plan the same object. ER.5: 'Construct the associated Hecke character by the CM theory of the elliptic curve and prove Deuring's comparison with its Hasse-Weil L-function. This requires the conductor and the local Euler factors'. CM.4 is titled 'CM Hecke characters and Galois realizations'."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/6",
+      "verdict": "confirmed",
+      "reason": "No edge between ER.7 and KatoEulerSystems. ER.7: 'Construct modular units, their divisors at cusps, the relevant Manin-Drinfeld relation and the modular-curve K_2 classes.' KatoEulerSystems:L0: 'Siegel units ... prove their product/q-expansion, transformation, divisor and integrality properties'; L2: 'Apply these regulators to the actual pairs of Siegel units on modular curves at varying level.' Siegel units are modular units, and both sides plan the divisors and the K_2 symbols of pairs."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/7",
+      "verdict": "confirmed",
+      "reason": "Neither Polylogarithms:P.5 nor MotivicEtaleKTheory:M.8 is an ancestor of ER.2, in either direction. ER.2: 'Construct the real Deligne complex, hypercohomology and its exact sequence in degree two and weight two.' P.5: 'Curves and regulator complexes ... the low-weight polylogarithmic complexes of a smooth curve.' M.8: 'Regulators and integral structures ... real Deligne cycle-class maps'."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/8",
+      "verdict": "confirmed",
+      "reason": "Neither C5 nor C6 is an ancestor of ER.1. ER.1: 'Compare algebraic de Rham cohomology, holomorphic differentials and singular cohomology. The source of the period matrix and its nondegeneracy are the comparison theorem and integration pairing.' C5 is 'Algebraic de Rham-Betti comparison'; C6 computes 'the Hodge line, invariant differential and polarized first cohomology of a complex elliptic curve', i.e. the elliptic case as an acceptance test, exactly as the finding says."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/9",
+      "verdict": "confirmed",
+      "reason": "EllipticCurveModularity is not reachable from ER.6 at all (91 ancestors), so the analytic continuation and functional equation of L(E,s) that the equivalence of the two formulations needs has no path into ER.6."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/10",
+      "verdict": "confirmed",
+      "reason": "ER.8 has 128 ancestors and ER.5 is not among them, so the CM class U that ER.5 constructs is not available to ER.8's required example."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/11",
+      "verdict": "confirmed",
+      "reason": "ColemanIntegration:L1 is not an ancestor of ER.8, and ER.8's text names both external inputs: 'compare the syntomic regulator with the explicit symbols and their p-adic elliptic integrals. State the associated p-adic Beilinson conjecture only after defining its p-adic L-function, periods a[nd ...]'."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/12",
+      "verdict": "confirmed",
+      "reason": "E.6 is an ancestor of neither E.7 (66 ancestors) nor E.8 (67), while both presuppose the regular model: E.7 'Where a class in the integral part is required, also supply the vertical certificates'; E.8 'arithmetic-integral symbol interfaces ... one bad-fibre integrality calculation must be worked out'."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/13",
+      "verdict": "confirmed",
+      "reason": "The finite-field inputs of CGZ's reduction are unowned: a search of both roadmap directories for H_3(SL_2(F_q)) in any spelling returns 0 files, and nothing states the finite-field Bloch group being cyclic of order q+1 up to 2-torsion."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/14",
+      "verdict": "confirmed",
+      "reason": "Keune returns 0 files across both roadmap directories, so the injection CGZ's Lemma 3.5 relies on has no owner."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/15",
+      "verdict": "confirmed",
+      "reason": "This is right at stage granularity, which a coarser check would miss: HB.7 (142 ancestors) does reach PadicHodgeRegulators:D.2, but D.1 is not among its ancestors. So the p-adic regulator is reached through the D.4 -> D.3 -> D.2 chain while Coleman's p-adic dilogarithm in GSWZ's normalisation, which D.1 owns, is unlinked."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/16",
+      "verdict": "confirmed",
+      "reason": "HB.6.requires = ['HabiroCyclotomicCompletions:HC.3','MotivicEtaleKTheory:M.1'], so M.1 is indeed its only non-Habiro prerequisite, and the text half holds too: HB.6 constructs 'the compatible root-of-unity coefficient rings, their p-adic completions and the Frobenius endomorphisms at primes not inverted', with no continuous Galois cohomology and no Tate twists anywhere in it. So M.1 is an unused prerequisite while the actual supplier is unlinked."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/17",
+      "verdict": "confirmed",
+      "reason": "I nearly rejected this on my own search error and record the correction. V.3's visible opening only says 'Use Suslin's convention for the integral K_3 comparison', and a grep for 'CGZ' in V.3 returns nothing, which looked like the finding attributing to V.3 something it does not plan. V.3's full text settles it: 'Separately construct the conventions used by Bloch, Goncharov and Calegari-Garoufalidis-Zagier. Prove the comparison maps, their exact small torsion corrections and their rational identifications. Do not erase 2- or 3-torsion merely because the real dilogarithm kills it.' V.3 spells out the names that HB.1 abbreviates. Both stages therefore plan the CGZ/Suslin comparison with its small-torsion corrections. One refinement: V.3 is an ancestor of HB.1, so the fix is for HB.1 to import V.3's comparison rather than for the programme to choose between two owners."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/18",
+      "verdict": "confirmed",
+      "reason": "Soule returns exactly one roadmap file, HabiroNumberFields, so HB.1's 'finite-coefficient K_3 and its Chern class' and HB.2's Soule Chern-product formula are the only places the name appears, while the same mathematics is planned unnamed elsewhere: M.8 'Construct etale Chern classes ... Prove compatibility with the higher K-theory Chern character, residues, norms and products', and D.2 'Construct the etale Chern regulator to continuous Galois cohomology'. This is the kind of duplication a name-based search would miss in both directions."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/19",
+      "verdict": "confirmed",
+      "reason": "The Bass-Tate number-field computation is unowned. Bass-Tate matches only K2SymbolsBrauer:T.4, 'Prove the Bass-Tate sequence for F(t)', which is the sequence for a rational function field rather than K^M_n(F) = (Z/2)^{r_1} for n >= 3 over a number field, and (Z/2) and r_1 match nothing else. Note this is a distinct gap from the one in finding /1: T.4 owns the sequence, and both the global-function-field vanishing and this number-field computation are separately missing."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/20",
+      "verdict": "confirmed",
+      "reason": "No ancestry either way between V.2 and T.2:graded-map, and V.2 also does not reach GeneralAlgebraicKTheory:K.7, so it cannot build products itself, exactly as claimed. V.2: 'Construct the product map from Milnor K_3 to Quillen K_3 and define K_3^ind(F)=coker(K_3^M(F)->K_3(F))'. T.2:graded-map: 'Construct the natural graded map K_*^M(F) -> K_*(F) from products.' V.2 builds the degree-three instance of a map T.2 builds in all degrees."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed but narrower than stated, and the fix should be scoped accordingly. L.1 is an indirect ancestor of V.5, as the finding says, and L.1 does construct 'the restriction and transfer maps for finite fields' while V.5 says 'Compute restriction and transfer through the finite-field model' - that part genuinely duplicates. But V.5's K_3(F_q) value is explicit consumption, not duplication: its verb is 'Use Quillen's finite-field calculation to construct K_3(F_q) = Z/(q^2-1), including q=2 and q=3'. So the fix is to add the direct V.5 -> L.1 edge and delete V.5's re-computation of restriction and transfer, keeping its q=2,3 emphasis; the K_3 calculation itself should not be described as duplicated."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/22",
+      "verdict": "confirmed",
+      "reason": "Neither N.5 nor N.8 is an ancestor of V.5, while V.5 states the dependency in words: 'Include K_3(Q(i)) = Z + Z/24 as an arithmetic test once N and R are available.' So an acknowledged dependency is recorded by no edge."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/23",
+      "verdict": "confirmed",
+      "reason": "P.2 is not an ancestor of V.6, in either direction, yet V.6 undertakes to prove something about Polylogarithms' object: 'Prove that P's real regulator a[grees]...'. P.2 is 'The weight-two regulator ... compare it with the Borel class'. A stage planning a comparison with another roadmap's construction while not depending on that roadmap is a structural defect independent of the duplication question, and that is the part I would fix first."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/24",
+      "verdict": "confirmed",
+      "reason": "Deligne-Beilinson returns 0 files across both roadmap directories, so no stage defines the real Deligne-Beilinson cohomology of a curve in general; consistent with finding /7, ER.2 builds only the degree-two weight-two real Deligne complex."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/25",
+      "verdict": "confirmed",
+      "reason": "QT.5 has no Polylogarithms ancestor, and both stages plan the identification: P.2 'Develop the configuration/cross-ratio cocycle and hyperbolic-volume calculation used by Bloch to identify this map with the abstract regulator'; QT.5 'Hyperbolic geometry, Bloch classes and regulators ... Construct oriented ideal tetrahedra, shape parameters, gluing/completeness equations and the Bloch/extended-Bloch element'."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed on a corrected reading, which the fix should follow. IntegralIwasawaTheory:I.2 is not an ancestor of P.6 and there is no edge either way. But the three statements differ - P.6 'state Leopoldt as injectivity of the correctly defined completed global-unit map to local units/logarithms, or equivalently nonvanishing of its regulator, and prove equivalence of the two formulations'; L4 'Abelian Leopoldt and Ferrero-Washington'; I.2 'Weak Leopoldt in the cyclotomic tower is a theorem to prove here' - so this is one object defined in P.6 and used in two other roadmaps with no edge, rather than the same theorem planned twice. The fix should add the edges and delete nothing."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/27",
+      "verdict": "confirmed",
+      "reason": "research/blueprint/reserved-ids.json reserves, both for job BP-K3BlochGroups, 'K3BlochGroups:V.3/bloch-wigner-dilogarithm' ('The Bloch-Wigner function D: P^1(C) -> R, D(z) = Im Li_2(z) + arg(1 - z) log|z|, real-analytic off {0, 1, infinity} and continuous on P^1(C)') and 'K3BlochGroups:V.3/bloch-wigner-five-term' ('D satisfies the five-term relation, hence induces a homomorphism P(C) -> R'). But P.1's text plans exactly this - 'For weight two define the Bloch-Wigner dilogarithm' - and Polylogarithms:P.1/single-valued-polylogarithm is separately reserved for BP-Polylogarithms as Zagier's P_n, whose n=2 case is D. V.3's own text is entirely algebraic and its only mention of the analytic side is a warning ('Do not erase 2- or 3-torsion merely because the real dilogarithm kills it'), not a construction. So an analytic object is reserved under an algebraic stage while the analytic stage plans it."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/28",
+      "verdict": "confirmed",
+      "reason": "Neither RT.4:q-Hodge nor RT.4:Habiro-comparison is an ancestor of RT.5 (18 ancestors), while RT.5's text requires their results: 'Reproduce the Meyer-Wagner computation for ku(x)Q and KU(x)Q over ku and KU with the exact completion/filtration conventions.'"
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/29",
+      "verdict": "confirmed",
+      "reason": "Moore spectra in either spelling and Burklund each return 0 files across both roadmap directories, so the multiplicative structures on S/m that the Meyer-Wagner computation takes from Burklund's theorem have no owner."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/30",
+      "verdict": "confirmed",
+      "reason": "The framework is unplanned: Pstragowski returns 0 files, 'perfect even filtration' 0 files, and 'even filtration' matches exactly one file - RefinedTraceMethods itself, i.e. RT.4's own instruction to 'construct the even filtration used in Wagner Theorem 1.2 / 4.27'. The light condensed and solid machinery exists only in SolidAnalyticRings and AnalyticStacks, which RT.4 does not reach."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/31",
+      "verdict": "confirmed",
+      "reason": "This is precise at sub-stage granularity and a roadmap-level check would have passed it: RT.4:Habiro-comparison does reach HabiroRings, with HR.1 through HR.5 and HR.5-number-field-comparison among its 70 ancestors, but HR.6 is not there. HR.6 is where the atlas plans the q-Hodge/relative-Habiro identification that Wagner's Corollary 6.15 combines with Theorem 5.63."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/32",
+      "verdict": "confirmed",
+      "reason": "Neither RT.2 nor RT.4:topological reaches StableHomotopyKTheory:H.5:S-delooping (9 ancestors each), so the smash product and E_1/E_infinity ring spectra both stages need are unlinked; RT.4:topological reaches H.5:spectra but not the delooping stage that supplies the smash product."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/33",
+      "verdict": "confirmed",
+      "reason": "RT.2 is an ancestor of L.4, exactly as the finding describes, and both construct the same comparison: L.4 'Construct the comparison to the classical TR/Frobenius convention used in Hesselholt-Madsen's field/DVR calculations'; RT.2 'prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations'. So L.4 imports RT.2 and then re-plans its result."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/34",
+      "verdict": "rejected",
+      "reason": "The atlas does not support two planned owners, and acting on this would redirect an acceptance example that is correctly placed. First, Bokstedt appears in no roadmap file at all - a search of both directories returns nothing, and none of RT.2, RT.3, RT.6 or L.5 contains it, THH(F_p), F_p[u] or 'periodicity' - so neither owner plans it by name and both are inferred from routes. Second, the accepted extraction that supplies the material names a single owner and it is L.5: PAPER-NIKOLAUS-SCHOLZE-18's route to KTheoryFiniteLocalFields:L.5 reads 'these are sources for L.5's calculation, and Bokstedt periodicity and the TC(F_p) computation, already planned there, are included'. Third, what RefinedTraceMethods receives is a different object: the same paper's RT.2 route lists, among what the paper supplies beyond RT.2's own scope, 'the Bokstedt construction and the co[mparison of the two THH]'. The Bokstedt construction of THH is not Bokstedt periodicity, and construction in the general trace machinery with the periodicity in the finite-field calculation is a correct split. Fourth, PAPER-LIU-WANG-22 states the ownership twice: 'Record this alternate source without replanning the same results' and 'L.5 owns finite-field TC computations', with its RT.6 route asking RT.6 to 'extend the existing BMS2 trace interface ... import RT.2'. Fifth, RT.6's text is an acceptance example rather than an ownership claim, and its wording - 'the finite-field THH comparison consumed by local K-theory' - describes a supplier/consumer relation. I checked this one twice in both directions because the route evidence does mention Bokstedt on both sides; the full route text resolves it."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/35",
+      "verdict": "confirmed",
+      "reason": "RT.3's text carries both halves: 'The chosen proof includes its excision, approximation/functor-calculus and convergence inputs as named subtargets' - the Dundas-Goodwillie-McCarthy inputs - and then 'Export the map-level square for a nilpotent extension, a henselian pair in the proven range, and a filtered tower.' The word henselian occurs only 3 times in the whole RefinedTraceMethods record, all within RT.3, so no layer plans the Clausen-Mathew-Morrow theorem the export needs."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/36",
+      "verdict": "confirmed",
+      "reason": "PrismaticCohomology:PR.4 is not an ancestor of RT.6 (35 ancestors), so the syntomic complexes whose graded comparison RT.6 must prove are unlinked."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/37",
+      "verdict": "confirmed",
+      "reason": "Stronger than the finding claims: DerivedDeRhamCohomology is not reachable from RT.1 at all (8 ancestors), so neither DD.2 nor DD.0 supplies the algebraic de Rham complex that RT.1's smooth HKR comparison and 'Compare the de Rham differential with B' require."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/38",
+      "verdict": "confirmed",
+      "reason": "Nisnevich topology, Nisnevich cover and elementary distinguished square each return 0 files across both roadmap directories, so nothing constructs the topology that S.4's Nisnevich descent and M.5a's Nisnevich sheaves with transfers presuppose."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/39",
+      "verdict": "confirmed",
+      "reason": "AlgebraicModuliForArithmeticGeometry is not reachable from S.5 (21 ancestors) or S.7 (24), so the projective bundles with their tautological line bundle, the blow-ups and the flag bundles that the projective-bundle theorem, blow-up formula and splitting principle need are unlinked."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/40",
+      "verdict": "confirmed",
+      "reason": "StableReduction is not reachable from S.2 (18 ancestors), so the coherence of higher direct images under proper morphisms of noetherian schemes, which its layer 2 plans, is unlinked to S.2's proper pushforward on G-theory."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/41",
+      "verdict": "confirmed",
+      "reason": "M.4.requires = ['SchemeKTheoryOperations:S.6'], so S.6 is M.4's only prerequisite, and M.4's own text says 'Define it independently of its anticipated rational K-theory description', with no lambda- or Adams operations in it. An edge the target does not use therefore makes the whole algebraic K-theory chain M.4's entire ancestry and serialises every consumer of M.4 behind it. That is a scheduling defect rather than untidy bookkeeping, which is why I would fix it."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/42",
+      "verdict": "confirmed",
+      "reason": "No ancestry either way between S.3 and N.2, and the RS-18 quotation checks out verbatim, which matters because the whole claim rests on it: RS-18's SchemeKTheoryOperations:S.3 entry has action 'narrow' and keeps '... Own DVR/Dedekind/regular-curve/arithmetic-surface applications and unit-valuation boundary ...'. So an accepted restructuring assigns the Dedekind applications to S.3 while N.2 independently constructs 'the full localisation sequence sum_{p not in S} K_n(k(p)) -> K_n(O_{F,S}) -> K_n(F) -> sum K_{n-1}(k(p))'."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/43",
+      "verdict": "confirmed",
+      "reason": "All eight Adams operation mentions in the atlas are algebraic - S.6 'Products, lambda-operations and Adams operations', MotivicEtaleKTheory comparing them on the motivic filtration, KTheoryLowDegrees ('Higher Adams operations belong to S'), HabiroRings' Lambda-ring psi^m (explicitly 'arithmetic lambda-ring, not an Iwasawa algebra'), EllipticKTheory 'Apply S's Adams operations' - and none is the topological psi^q on KU as a self-map of BU; 'cohomology of BU' returns 0 files. The corroboration is that KTheoryFiniteLocalFields:L.1 uses it - 'Compare the homotopy fibre of the relevant Adams operation with the plus-construction model' - with no stage constructing it."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/44",
+      "verdict": "confirmed",
+      "reason": "DGAInfinity layer 8 'Construct Hochschild chains and cochains of DG and A_infinity algebras/categories, normalized versions for strict units, the bar differential, cup product, braces, Gerstenhaber bracket ... invariance under quasi-equivalence and derived Morita equivalence' subsumes RT.1's 'Hochschild chain complex of an associative algebra', an associative algebra being a DG algebra in degree zero. Confirmed, but the fix must be narrow: RT.1 legitimately owns the cyclic and simplicial packaging (faces, degeneracies, the circle action) that THH needs and layer 8 does not provide, so deleting RT.1's simplicial content would break RT.2."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/45",
+      "verdict": "confirmed",
+      "reason": "The RS-18 quotation is verbatim - S.1's entry keeps '... Retain arbitrary-ring affine perfection beyond the complete-local P7 case; identify with that existing case on overlap ...' - and one detail sharpens the finding: RS-18 directs identification only with P7, so the overlap with DGAInfinity layer 5 ('derived modules, twisted complexes, and perfect envelopes', localising A_infinity modules at quasi-isomorphisms and identifying them with semi-free/cofibrant modules and D(U(A)) over any commutative base) is simply unaddressed. The fix must stay narrow: S.1's scheme-specific content - locally perfect complexes, locality, pullback stability, qcqs essential smallness, vector-bundle comparison, singular schemes - is genuinely not in DGAInfinity, and only the arbitrary-ring affine part duplicates."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/46",
+      "verdict": "confirmed",
+      "reason": "RT.3.requires = ['GeneralAlgebraicKTheory:K.4','RefinedTraceMethods:RT.2'], and none of K.2:plus, K.5 or K.7 is among its ancestors, exactly as claimed, while RT.3's text needs all three: 'Construct the Dennis/cyclotomic trace from the same K-theory functor and prove its naturality, multiplicativity and compatibility with support/relative fibres. Prove the relative nilpotent comparison theorem.'"
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/47",
+      "verdict": "confirmed",
+      "reason": "E.2.requires = ['EllipticKTheory:E.1','K2SymbolsBrauer:T.4','SchemeKTheoryOperations:S.3'], so the T.4 -> E.2 edge exists, and E.2's text is about K_0 of a curve - 'Import KTheoryLowDegrees Z.5's rank-determinant isomorphism ... K_0(X) = Z + Pic(X)' - with no mention of Bass-Tate, Milnor transfers or Weil reciprocity anywhere in it. So the edge is unused by its target."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/48",
+      "verdict": "confirmed",
+      "reason": "ER.7 names exactly one implementation source: 'The selected implementation source is Schappacher-Scholl, Beilinson's theorem on modular curves (1988), Theorem 1.1.2 and its integral-image proof.' Brunault returns 0 files across both roadmap directories, so the alternative placement of integrality that the finding recommends is absent from the atlas. This is a source-selection observation rather than a defect in the mathematics, which matches its low severity."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/49",
+      "verdict": "confirmed",
+      "reason": "A literal reading of 'admissible nonzero, nonunit field elements' does describe the empty set, since every nonzero element of a field is a unit, and the pre-Bloch group generated by it would be zero. The intended set is the elements other than 0 and 1, as V.3's own boundary formula requires (the boundary on [x] uses x and 1-x, so x = 1 must be excluded and x = 0 with it). A wording fix in the handoff row, with no change to V.3's mathematics."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/50",
+      "verdict": "confirmed",
+      "reason": "HB.1's text says, verbatim, 'Identify the chi^{-1}-eigenspace in cyclotomic units with the chosen cyclotomic-character convention', and cyclotomic units are not the groups CGZ's maps land in. I confirm the atlas half; the characterisation of CGZ's eigenspaces as those of O_n^x/n, O_{S,n}^x/n and F_n^x/n comes from the finding's reading of the source, which I did not re-verify."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/51",
+      "verdict": "confirmed",
+      "reason": "Goncharov-Rudenko and 'weight-four Zagier' match only Polylogarithms, i.e. P.4's own mention, so no roadmap owns the weight-four theorem that P.4 treats as a separately identified extension."
+    },
+    {
+      "finding": "RT-AREA-ktheory-2/52",
+      "verdict": "confirmed",
+      "reason": "RefinedTraceMethods:RT.4 has title 'Early topological K-theory (RT.4:topological)', which is the title of its first sub-stage - RT.4:topological itself is titled 'Early topological K-theory' - while the section it aggregates is '## RT.4. Complex K-theory, ku and KU' and it covers all three sub-stages. A metadata fix with no mathematical content."
+    }
+  ]
+}
