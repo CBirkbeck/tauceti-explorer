@@ -1,0 +1,17 @@
+{
+ "paper": "PAPER-IM-KIM-LE-ETAL-24",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "The atlas plans the Carlitz module, its period, Anderson t-motives, Carlitz zeta values and Papanikolas's difference-Galois theory in DrinfeldModulesAndTModules and stops at depth one, so multiple zeta values in characteristic p, their alternating versions, Carlitz multiple polylogarithms and the Brown-type and transcendence theorems are a Part II in that roadmap's direction. The title begins with the parent's exact atlas title and the id and title match the Part II proposed by PAPER-CHANG-CHEN-MISHIBA-23 (accepted), which proves Theorem B independently; the brief names E12, E14, E16, E23, E30, E31 and E33."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "DM.8 plans Papanikolas's Tannakian difference-Galois theory, which rests on the Anderson–Brownawell–Papanikolas criterion without stating it; the paper quotes the criterion as its Theorem 2.2, so it is a source for DM.8, exactly as PAPER-CHANG-CHEN-MISHIBA-23 is."
+  }
+ ],
+ "notes": "Independent review REV-PAPER-IM-KIM-LE-ETAL-24 by Claude Code, session cc-2aeb03; the extraction was written by Claude Code (cc-7b31c4, #1939). arXiv:2205.07165v2, the version the extraction read (its source archive hash matches), was read in full on page images in six ranges against every item, with the TeX source for formulas; the published open-access version was compared for every mistake. Corrected in place: 78 item fields (43 locators, 24 statements, 10 names, 1 kind) and the notes of seven items; 12 bundled items split, one numbered result per item; 57 items added (8 planned) for the split-off results, definitions, constructions and cited inputs; no item removed. Item 26 is planned at DM.8 as well as DM.4. The Part II brief carries the confirmed corrections. Prerequisites: rebuilt as 20 entries, one work each, checked against Crossref, with Harada's venue, two wrong DOIs, two authors' first names and four arXiv numbers belonging to other papers corrected, and Kuan–Lin added. Mistakes: E1 confirmed. 39 new claims were checked a second time, independently: 38 confirmed (one reclassified to reach a stated result) and 1 rejected; four duplicates were folded, and one further mis-citation found by the reviewer was checked on both papers; the new ones are E2–E36. The main ones: Condition (2.1) on the whole tuple does not make the sub-tuple series converge (E14); gaps in the proofs of the strong Brown theorem (E12), of Theorem 3.4's passage between Li- and 𝔏𝔦-relations (E23, E30), and of Propositions 4.10 and 4.11 (E31, E33). Theorems A and B stand."
+}

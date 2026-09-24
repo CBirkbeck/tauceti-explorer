@@ -19,6 +19,33 @@ layers, and the remaining 38 are routed exactly once: **37 to a Part II** of *Dr
 characteristic-p special values* — the same Part II proposed by `PAPER-CHANG-CHEN-MISHIBA-23` — and **1** as a
 source for that roadmap's stage DM.8.
 
+## Independent review (REV-PAPER-IM-KIM-LE-ETAL-24)
+
+The independent review (Claude Code, session cc-2aeb03, 24 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-IM-KIM-LE-ETAL-24.md`; the counts in the sections below are the earlier ones
+and are superseded by these.
+
+- **Items: 99** (1 library, 11 planned, 87 missing), each missing item routed once: 86 to the Part II (route 1) and 1 as a
+  source for DM.8 (route 2).
+  - 12 bundled items split, one numbered result per item (7, 10, 17, 19, 20, 23, 28, 30, 34, 37, 38, 42); 57 items added for
+    the split-off results and for the definitions, constructions and cited inputs the proofs use; none removed.
+  - 78 fields corrected: 43 locators (every page was missing), 24 statements, 10 names and 1 kind. Item 26 (effective dual
+    t-motives) is planned at DM.8 as well as DM.4.
+- **Routes.** Both stand; the Part II brief carries the confirmed corrections.
+- **Prerequisites.** Rebuilt as 20 entries, one work each, checked against Crossref. Harada's venue (Math. Z.), the DOIs of
+  Todd and Chen and those authors' first names are corrected. The arXiv numbers the extraction gave for Ngo Dac (2007.11060,
+  which is Green–Ngo Dac), Harada, Chang and Lara Rodríguez–Thakur belong to other papers and are dropped, here and below. Kuan–Lin (2016) is added.
+- **Mistakes: 36 confirmed** (29 misprints, 6 gaps, 1 error); 1 reaches a stated result and 5 a proof.
+  - **E1** is confirmed.
+  - **E2–E36** are new, each checked a second time independently. The main ones:
+    - **E14:** Condition (2.1), imposed on the whole tuple, does not make the sub-tuple series of Ψ_{s,Q} converge
+      (s = (q−1, q−1), Q = (1, θ^{q+1})); every application satisfies the termwise bound.
+    - **E12:** the proof of the strong Brown theorem (Theorem 1.11) asserts the congruence modulo D_1 without argument.
+    - **E23, E30:** Theorem 3.4 passes between K-relations among Li-values and among 𝔏𝔦-values without saying that the
+      algebra of §1 preserves characters.
+    - **E31, E33:** gaps in the proofs of Propositions 4.10 and 4.11.
+  - Theorems A and B stand; every gap is filled with the paper's own tools.
+
 ## What the paper proves
 
 Over `A = F_q[θ]` with `K = F_q(θ)`, `K_∞`, `C_∞` and `A_+` the monic polynomials, Thakur's multiple zeta values
@@ -89,10 +116,10 @@ paper and the Chang–Chen–Mishiba paper are sources for it, and both Part II 
 
 ## Prerequisites the atlas does not cover
 
-Twelve entries. The ones that matter most: **Ngo Dac** (arXiv:2007.11060) for the algebraic part and the method;
-**Harada** (arXiv:2004.07208) for the alternating values themselves; **Anderson–Brownawell–Papanikolas**
+Twelve entries. The ones that matter most: **Ngo Dac** (Ann. of Math. 2021) for the algebraic part and the method;
+**Harada** (Math. Z. 2021) for the alternating values themselves; **Anderson–Brownawell–Papanikolas**
 (arXiv:math/0207168) for the criterion; **Thakur**'s book and papers for the values, the shuffle relations and the
-basis conjecture; **Chang** (arXiv:1207.4736) for Carlitz multiple polylogarithms and the Goncharov analogues;
+basis conjecture; **Chang** (Compositio 2014) for Carlitz multiple polylogarithms and the Goncharov analogues;
 **Chang–Chen–Mishiba** (arXiv:2205.09929), the simultaneous proof; **Todd** for the dimension conjecture;
 **H.-J. Chen** for the shuffle formula; **Anderson–Thakur** for the period interpretation; **Papanikolas** for the
 difference-Galois framework; **Lara Rodríguez–Thakur** for the relations behind the ad hoc sets; and
