@@ -4427,8 +4427,9 @@
    ],
    "avoidAccountOf": "PAPER-DISEGNI-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-DISEGNI-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1261"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1261",
+   "finishedAt": "2026-09-24T00:24:20Z"
   },
   {
    "id": "PAPER-LIU-WANG-22",
@@ -26146,7 +26147,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1745"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
