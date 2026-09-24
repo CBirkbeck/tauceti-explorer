@@ -1,0 +1,1109 @@
+{
+  "redteam": "RT-AUDIT-05",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-05/1",
+      "verdict": "confirmed",
+      "reason": "Read Mathlib Perm/Cycle/Type.lean:571–598 and Tau Ceti Perm/Partition.lean's definition and bridge documentation. fullCycleType is definitionally the parts of Mathlib's partition, whose sum and complete conjugacy invariant are proved. Mark the combined target both and distinguish this Mathlib core from Tau Ceti's additional transport/count API. Do not suggest Mathlib alone supplies the entire requested API.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Perm/Cycle/Type.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Perm/Partition.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/2",
+      "verdict": "confirmed",
+      "reason": "Read Polynomial.Lifts:88,175–196 and ZMod/QuotientRing:78–92. Surjectivity gives membership in lifts, and lifts_and_natDegree_eq_and_monic supplies the monic same-natDegree lift. ZMod.prodEquivPi supplies the finite-family scalar CRT with its projection formula. The audit's claim that nothing lifts monic polynomials of fixed degree is false. Mark partial and retain the coefficientwise assembly/compatibility for a common prescribed degree as a remaining obligation, not an already compiled application.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Lifts.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/QuotientRing.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/3",
+      "verdict": "confirmed",
+      "reason": "GaloisField.finrank requires d nonzero, exactly the d>=1 target; finite-base primitive-element existence applies to that finite-dimensional extension. IntermediateField.adjoin.finrank, minpoly.monic and minpoly.irreducible supply the degree, monicity and irreducibility after identifying the generated field with top. I read these statements and searched the finite-field files for the assembled existence result. Record partial support and these ingredients, retaining the two worked small degrees; do not advertise the assembled theorem as already named or compiled.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Finite/Extension.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Finite/GaloisField.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Minpoly/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/PrimitiveElement.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/4",
+      "verdict": "confirmed",
+      "reason": "Read Polynomial.Gal.restrict and restrict_surjective: they require q to split in the ambient normal extension E. Taking E=p.SplittingField gives the desired surjection from p.Gal. restrictDvd_surjective is the special divisibility case and does not cover a general resolvent. Correct the citation and note, preserving the relevant splitting and normality assumptions and the existing product/tower assessment.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/PolynomialGaloisGroup.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/5",
+      "verdict": "confirmed",
+      "reason": "The roadmap explicitly requests the sign homomorphism and transport interfaces. The discriminant theorem at Discriminant/Basic:144 gives alternating containment under monicity, separability and characteristic not 2; it does not construct that whole interface. Field:191–199 defines the even automorphism subgroup through restriction and alternating containment and gives its sign membership test. Searches found no separately packaged Galois sign/full-cycle-type transport API. Mark the bundled target partial, cite evenAutSubgroup as supporting input, and treat the discriminant test as related. A short composition of existing homomorphisms remains possible; this is not a claim of a deep missing theorem.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Discriminant/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Discriminant/Field.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for multiplicity of irreducible polynomial factors. I read the complete FactorDegrees.lean API: its factorization formula does not assert nodup under a discriminant hypothesis. Polynomial.Separable.squarefree and squarefree_iff_nodup_normalizedFactors (the latter requires nonzero input) give the missing assembly after the proved separability criterion. Keep monicity/nonzero hypotheses explicit and mark partial. Correct the finding's loose phrase 'factorDegrees is multiplicity-free': distinct irreducible factors may have equal degrees, so the degree multiset can repeat even when normalizedFactors is nodup. Do not assert Nodup of factorDegrees or turn the multiset image into a set.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Squarefree/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Separable.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Polynomial/FactorDegrees.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/7",
+      "verdict": "confirmed",
+      "reason": "Read natDegree_galResolvent and all degree search hits in the Resolvent files: their endpoint is renameOrbit.card. The roadmap demands its identification with the subgroup index using an exact stabilizer. The searched files contain no stabilizer comparison. universalResolvent_map_rename is invariance of the polynomial after renaming, not naturality of a subgroup-bearing ResolventSpec. Correct both notes and label the full index-degree contract partial; preserve the already proved orbit-product construction, monicity, base-change and cardinality degree formulas.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Resolvent/Specialization.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Resolvent/Symmetric.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/8",
+      "verdict": "confirmed",
+      "reason": "Read all fourteen reference-subgroup simp cases. Eight are top, alternating, or the mapped Klein-four subgroup, exactly as the finding enumerates. The audit undercounts these identifications. dihedralGroupMulEquiv is a usable recognition theorem under two nonidentity involutions, product order and generation hypotheses; those hypotheses still need checking in each reference subgroup. Keep zero-based indices clear: referenceSubgroup 4 2 is label 4T3, whereas referenceSubgroup_four_one gives 4T2. Do not promote missing label-invariant transport or dihedral identifications to completed results.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/SpecificGroups/Dihedral/Basic.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/9",
+      "verdict": "confirmed",
+      "reason": "The roadmap explicitly includes the order-eight dihedral/Sylow example, and the WreathProduct file's special-case equivalences do not supply it. Mathlib Sylow.mulEquivIteratedWreathProduct gives the general regular-iterated-wreath comparison under |alpha|=p^n and |G|=p, but a comparison with Tau Ceti's permutation wreath carrier and the dihedral isomorphism remains. Add this missing example and related citation. In a Lean signature use Multiplicative (ZMod 2), or another actual cyclic group of order two: plain ZMod 2 is the additive cyclic group and is not a multiplicative Group instance.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/RegularWreathProduct.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Perm/WreathProduct.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/10",
+      "verdict": "confirmed",
+      "reason": "Read Eval/Irreducible:42 with its ambient integral-domain assumptions: lifting mod-p irreducibility concludes Irreducible in Z[X]. GaussLemma:149 supplies the separate monic irreducibility iff over the fraction field for an integrally closed domain. Cite and compose that theorem to reach Q[X], and qualify both notes. The arithmetic criterion is accessible; the original single citation simply omits the fraction-field step.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Eval/Irreducible.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Polynomial/GaussLemma.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted reusable input. Normal/Closure.lean defines IsNormalClosure, its uniqueness equivalence, and the criterion under Algebra.IsAlgebraic; AlgEquiv.autCongr transports automorphism groups. The criterion's full name is Algebra.IsAlgebraic.isNormalClosure_iff, not an unqualified root declaration. Add these supporting citations; the identification of the splitting field as the relevant normal closure and its root stabilizer still needs assembling. Keep the partial assessment and the polynomial's irreducibility/separability assumptions explicit.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Algebra/Equiv.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Normal/Closure.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap's Layer 1 Needs explicitly credits both Jordan recognition results, contrary to the audit summary's implication. The audit's own Layer 9 records two degree examples and a partial prerequisite bundle, so 'no declaration of any kind' is too broad. Qualify this as absence of the assembled general realization theorem and name its existing supporting material, including the monic lifting input verified in finding 2. Do not call the small-degree examples missing merely because the full theorem is absent.",
+      "evidenceUrls": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/ec8fd3cee1dfad8cd48ac687cce1788750b9cf57/research/blueprint/audit/AUDIT-05.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed with partial as the conservative replacement classification. CliffordAlgebraQuaternion.Q is the binary quadratic form on K×K; its public equiv identifies its Clifford algebra with the quaternion algebra. CliffordAlgebra.equivOfIsometry transports an actual quadratic-form isometry to an algebra equivalence. The inverse finTwoArrow coordinate isometry identifies the roadmap's weightedSumSquares on Fin 2→K with Q; composition gives the claimed quaternion equivalence. I read these declarations and the realCliffordZeroTwoIsometry/equivalence precedent. Thus 'nothing produces an AlgEquiv' is false, and a new norm-form proof is unnecessary. Record the short coordinate/composition wrapper as outstanding; do not inherit the red team's reported Lean compilation as my own verification. The general commutative-ring declarations have no unit or invertible-two requirement, although the roadmap retains its own field/unit conventions. Add related rank-two support to the Brauer/Clifford targets without claiming those invariants or the optional four-fold criterion have been assembled.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap's supplier row and 6A milestone require the square-subgroup/power-map-range dictionary, but the audit lists no such target. TauCeti.square_eq_powMonoidHom_two_range is precisely that equality for every CommGroup. powerSubgroup is definitionally the range, and kummerClassMap has this power-class quotient as domain. Add the built dictionary target and supporting citation in 7A. Specializing the Kummer map still requires IsUnit (2:K), coefficient identifications and Hilbert-90 surjectivity; a subgroup equality is not the missing cohomological isomorphism.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Group/PowMonoidHom.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Group/PowerClassGroup.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisCohomology/Kummer.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The complete PowerSubgroup.lean file proves openness/closedness away from residue characteristic and openness conditional on a unit exponent/index. It does not prove that the power subgroup has finite index. Searches found no local-field power-quotient finiteness theorem; the general finiteIndex_range_powMonoidHom_of_fg requires abstract finite generation and is not a ready instance for local multiplicative groups. Replace the finite-index claim by the actual openness/closedness results, and record square-quotient finiteness in the roadmap's characteristic-not-two local-field regimes as outstanding. Do not read the conditional index theorem backwards or extend the requested finiteness to equal characteristic two.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/LocalField/PowerSubgroup.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. normalizedValuation takes values in Multiplicative Z: its literal value 1 is additive valuation zero, the unit equation. normalizedValuation_irreducible instead has value Multiplicative.ofAdd 1. The audit conflates these. Cite the latter in the first target and correct both notes. Valuation.isUniformizer_iff_ord_eq_one_of_surjective is a general supporting theorem for a surjective Z-multiplicative-with-zero valuation with nontrivial value group. The local file's intValuation and toAdd_normalizedValuation_eq_ord are private, so the proposed local adapter cannot import them directly; use public comparisons or expose/prove the necessary bridge. Keep that adapter and dyadic-level package partial.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Valuation/Discrete/Order.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Representation.lean:245 directly proves Represents Q a for every scalar a from nondegeneracy and failure of anisotropy; the preceding theorem uses a trivial radical. The Layer 1 note should cite this public theorem rather than describe universality only as a downstream consequence of splitting. This is a citation/note improvement, with no status change or new universality proof requested.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/QuadraticForm/Representation.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omission of supporting material, with narrower wording. Mathlib supplies radical, quotient lift for N<=radical and isometry invariance of radical finrank. These help construct and compare the degenerate radical summand; rank invariance alone is not the entire degenerate decomposition theorem. Tau Ceti SpinPolarizationData contains actual isotropic summands and a duality pairing, and hyperbolic constructs them provided linear functionals separate points. Its half-dimension theorem assumes a finite-dimensional field space. Cite these as related inputs while retaining the missing general maximal-isotropic/Witt-index characterization and respecting those hypotheses.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Spin/Polarization/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Spin/Polarization/Hyperbolic.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed. QuadraticForm.discr' is the coordinate-space determinant, while discr b is the determinant in a specified finite basis and discr_comp proves its determinant-square transformation. The ambient API assumes 2 invertible, consistent with this roadmap. Add the basis-version citations and keep the general RegularFormClass square-class comparison as the missing bridge. Do not confuse the determinant of an orthogonal automorphism with the discriminant of the form.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/QuadraticForm/Basic.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing reusable-construction citation, not a claim that a named Witt ring already exists. The to_additive-generated Algebra.GrothendieckAddGroup, its injective map for cancellative additive monoids and its universal lift apply to RegularFormClass; the public IsCancelAdd instance is present in Witt/Cancellation. Record this additive group-completion route and preserve the outstanding induced multiplication/ring laws, hyperbolic ideal, quotient, functoriality and dimension map. The original partial verdict stands. The broad absence of a general semiring-to-ring implementation is unnecessary to the correction and is not asserted here.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed as omitted supporting declarations. QuaternionAlgebra.starAe is an algebra equivalence with the opposite; together with BrauerGroup.orderOf_mk_dvd_two_of_algEquiv_op it gives order dividing two once the quaternion algebra is known central simple. It does not prove central simplicity or exact order two. CliffordAlgebra.equivEven identifies Cl(Q) with the even part of Cl(Q orthogonal-sum <-1>); this is useful odd-rank input but does not directly identify the even algebra of an arbitrary odd-rank form without the normalization/scaling and diagonalization steps. Keep those bridges and the invariant construction outstanding.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Quaternion.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/CliffordAlgebra/EvenEquiv.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/BrauerGroup/Group.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed with explicit carrier and hypothesis qualifications. Mathlib H1ofAutOnUnitsUnique proves finite-extension Hilbert 90. Tau Ceti subsingleton_H1_of_forall_openNormalSubgroup passes finite-level vanishing to H1 for a compact totally disconnected topological group with discrete continuous module action. The absolute-Galois application still needs quotient/fixed-unit identifications and comparison of Mathlib's H1 carrier with Tau Ceti's explicit continuous H1; it is not obtained by equating the names. Degree two already has continuous Z2/B2/H2, explicitFiniteQuotientSystem2, comparison/cocone and cocycle descent. No explicitFiniteQuotientColimit2 was found. Add those inputs, retain partial Kummer/H2-Brauer status, and do not advertise the degree-two cocone as a proved colimit. The optional twistedMonoidAlgebra input has a normalized cocycle for a trivial coefficient action and a coboundary equivalence; it is related prior material, not the semilinear Galois crossed product or a Brauer comparison.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/MonoidAlgebra/Twisted.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/DegreeTwoDescent.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Explicit.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap's Layer 2 explicitly requires no central simplicity; Layer 5 owns that milestone. Quaternion.instIsCentral at the pin is for the standard Hamilton structure constants, under its ring/non-zero-divisor and nonzero-two hypotheses. Correct the summary's layer number and avoid generalizing it to all quaternion parameters. Also qualify the broad absence summary by the binary Clifford/quaternion input verified in finding 13.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Central/Quaternion.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ImmersionDecomposition and CrossingAngleSum require hbase : gamma a != s; the on-curve RealIntegral theorem requires the singular preimage set to lie in the interior, also excluding the join. The roadmap's Layer 1 and HW Propositions 2.2/2.3 have no such basepoint restriction. The off-curve formula and the presence of basepointAngle/ConditionB do not supply a re-basing theorem; searches found none. Mark both full proposition targets partial and Layer 1 partly built, retaining the proved restricted results. The source read is HW arXiv:1808.00997v2, printed pages 7-10. Lipschitz control only near crossings weakens another hypothesis, so the existing on-curve theorem and full source scope should not be ordered solely by that hypothesis. No error in HW is alleged.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/RegularityConditions.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/CrossingAngleSum.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/RealIntegral/Basic.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
+        "https://arxiv.org/pdf/1808.00997v2"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. All ArcFTC wrappers assume differentiability at every interior parameter, excluding genuine corners; the countable-exception log and higher-order polar FTCs handle fixed primitives only. The roadmap asks for an arbitrary primitive along a piecewise-C1 curve, and the audit already concedes it is not packaged. Mark this target partial and Layer 2 partly built. The public PiecewiseC1On countable-differentiability API and Mathlib integral_eq_of_hasDerivAt_off_countable supply the route. Crucially, a proposed weaker wrapper must retain or prove continuity of the composed primitive and interval integrability of its derivative integrand; do not silently drop these hypotheses from the suggested fix.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Integral/DivergenceTheorem.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/ArcFTC.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/LogDerivFTC.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/PerWindow/HigherOrder.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/PiecewiseC1On.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed as the summary consequence of findings 24 and 25. Replace the claim that everything requested is built by an account of the extensive completed material and the two remaining Layer 1 basepoint/general Layer 2 primitive wrappers. The Layer 4 roadmap explicitly limits its pinned scope, but that does not make the distinct Layer 1 basepoint gap out of scope. I do not adopt the summary's file/declaration counts or whole-tree proof-completeness assertion as independently verified facts.",
+      "evidenceUrls": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/ec8fd3cee1dfad8cd48ac687cce1788750b9cf57/research/blueprint/audit/AUDIT-05.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an orientation and dependency clarification. The public fdBoundary theorems give -1/6 at rho and rho+1, and -1/2 at an open arc point, with the stated height and arc hypotheses. Their logarithmic-derivative telescope proofs compute these values directly; they are not simple calls to the positive model-sector corollary. The ModularForms Layer 1 roadmap uses positive elliptic weights, so distinguish those weights/orientation from this clockwise contour's signed winding values. Preserve ContourIntegration as supplier and ModularForms as consumer; this finding does not justify removing the architecture edge or claim that the audit cited a theorem with a literally positive conclusion.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/NonCorner/Arc.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/AddOne/Value.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/Value.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/ec8fd3cee1dfad8cd48ac687cce1788750b9cf57/content/tau-ceti/ModularForms/README.md#L327"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Chebyshev HilbertBasis.lean directly uses mkOfOrthogonalEqBot with the independently packaged orthonormality and B1 completeness proofs; its coe theorem directly uses coe_mkOfOrthogonalEqBot. The roadmap calls for assembly via B2, so the audit's assertion of literal specialization is inaccurate. Envelope.lean does use hilbertBasisOfOrthogonalSystem, and WeightIsometry.lean proves equality with the transported measure-side basis. Correct the route descriptions and cite this equality, retaining the mathematical built verdict and distinguishing the assembly-route deviation from a missing basis theorem.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Envelope.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/WeightIsometry.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed after reading the operator definition/action/eigen-equation and the Fourier basis definition and diagonalization theorems. The oscillator CLM is the halved operator on Schwartz space, with eigenvalue n+1/2, so its fit is an exact (an equivalent normalized formulation), not more general. The Fourier coefficient equation repr_fourier_twoPiHermiteHilbertBasis is exact for diagonalization; twoPiHermiteHilbertBasis alone constructs the carrier basis and is related. Preserve the normalization and the substantive built claims.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/HilbertBasis.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with narrower wording than a claim that all private declarations were removed. integrable_aeval_mul_aeval_mul_gaussian and gaussianSchwartzMap are explicitly private in files with a public section. They may be described as internal proof steps, not importable API. The former follows by applying public integrable_aeval_mul_gaussian to p*q (and the public real-polynomial envelope theorem is more general); the latter is internally used to construct public hermiteSchwartzMap, whose apply theorem exposes the function. Correct the two notes without adding private citations or changing status.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Function/Schwartz.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/PolynomialMemLp.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The Part C open-target note needs citations for more than finiteness: orthogonal_span_normalizedChebyshevTLp_eq_bot is RCLike-generic and explicitly calls B1 using integrable_exp_mul_abs_smul_measureT at the constant one. The measure-level exponential-moment determinacy theorem is exactly the form called in the vanishing-moments proof, and is a useful supporting citation. Replace a less direct B1 citation if necessary to keep the five-citation limit; do not add a sixth or conflate measure determinacy with the function-level theorem.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Moments/Determinacy.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Moments/VanishingMoments.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed as related prior material only. Read Polynomial.shiftedLegendre, its Rodrigues identity and degree theorem, and searched both pinned trees for Laguerre/Jacobi and shifted-Legendre analysis. The Jacobi-(0,0) special family is algebraically present (the convention gives P_n(1-2x)); neither its orthogonality nor its L2 basis was found. Cite it as related to the deferred family roadmap while leaving the general Laguerre/Jacobi target absent and out of scope. Reuse of B1/B2 is a future proof route, not an already proved Legendre instance.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Polynomial/ShiftedLegendre.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The audit itself assigns the Part C input target to Mathlib and the explicitly deferred Laguerre/Jacobi target to absent, contradicting its unqualified opening. Say the in-scope targets are built from both libraries and distinguish the deferred target. Incorporate the direct-versus-B2 Chebyshev assembly qualification of finding 28 (the red-team fix's reference to finding 1 is local prose numbering, not RT-AUDIT-05/1). Do not infer a new whole-tree sorry-free verification from this summary correction.",
+      "evidenceUrls": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/ec8fd3cee1dfad8cd48ac687cce1788750b9cf57/research/blueprint/audit/AUDIT-05.result.json"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I read the public Approach.lean statements and proof assembly, the Jordan-curve/domain definitions, and the inverse-cluster injectivity interface. injOn_closedBall_of_isJordanCurve_frontier needs no boundary-injectivity hypothesis: holomorphy and injectivity inside, bounded Jordan frontier, and a continuous agreeing extension suffice. exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier gives the closure homeomorphism for an open simply connected bounded domain with Jordan frontier. This is exactly the stated L5 Riemann-map case, not the prime-ends extension. Set this target to tauceti and in-scope L5 to built, correct the obsolete summary and L6 dependency clause. Keep L6's separate global injectivity/image problem and finding 36's qualification; do not imply this removes every other recorded partial target. The older Caratheodory docstring is not the controlling evidence.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Inverse/BoundaryCluster.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Jordan/Approach.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Jordan/Domain.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/JordanCurve/Basic.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the actual module text: RiemannMapping.lean has module and only public imports, with no public section/declaration; its introductory comment explicitly says the lemmas are private. DiscInjection.lean records why the construction is re-derived. Treat the two Mathlib statements as private prior work, not an importable supplier; retain related citations with the qualification or omit them. I did not run the red team's import/#check experiment and claim no elaboration result.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/RiemannMapping.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/DiscInjection.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The derivative theorem is an inequality; AutomorphismIsometry proves attainment by known automorphisms, and all the Rigidity public conclusions take equality at two distinct points. Mathlib's dslope theorem gives the centered equality case (and pointwise Schwarz equality), not the arbitrary-point infinitesimal Schwarz-Pick converse without conjugation and derivative transport. Searches found no packaged general converse. Koebe explicitly uses norm_deriv_lt_one_of_not_injOn, not SchwarzPick rigidity. Mark the bundled audit target partial and correct the alleged RMT dependency. Correction to the proposed fix: under make_audit_jobs' verdict rule, keeping this in-scope partial target requires L2 partly built. To retain L2 built for its narrower stage contract, explicitly separate the extra arbitrary-point derivative-rigidity request as outside that contract; do not leave an unexplained built/partial inconsistency. The absent result is an assembly task, not an obstacle to the already proved RMT.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/Schwarz.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Koebe.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Schwarz.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzPick/AutomorphismIsometry.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzPick/Derivative.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzPick/Rigidity.lean",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/ec8fd3cee1dfad8cd48ac687cce1788750b9cf57/research/blueprint/make_audit_jobs.py#L52"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The conformal argument-principle wrapper explicitly calls argumentPrinciple_nullHomologous and permits a general null-homologous piecewise-C1 cycle; argumentPrinciple without the suffix is the circle-integral statement. The domain open-mapping theorem is is_constant_or_isOpen and is used in ImageSimplyConnected; the univ version is a special case for this purpose. Add appropriate public residue/homological-Cauchy/winding support within five citations and correct ownership to winding Layers 0-1, residues/argument principle Layer 2 and homological Cauchy Layer 3. The general null-homologous residue result also consumes Layer 3. Preserve the consumer edge; this is attribution and fit correction, not new analytic work.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/OpenMapping.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/ArgumentPrinciple.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/ImageSimplyConnected.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Argument/Cycle.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Argument/Principle.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/HomologyCauchy.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Residue/Cycle.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/Number/Basic.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mathlib's two cited declarations conclude continuous branches only. Tau Ceti's public exists_differentiableOn_eqOn_exp_comp upgrades the continuous logarithm using local holomorphic branches, and its root theorem constructs exp(L/n). DiscInjection uses that holomorphic root route. Mark the continuous inputs related, cite the holomorphic logarithm as exact, retain the existing holomorphic-root citation and both-libraries classification. Do not describe Mathlib's continuous root declaration as a consumed step of this implementation.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/BranchLogRoot.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/BranchLogRoot.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/DiscInjection.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a precise distinction: Mathlib's documentation already names isExactOn_ball Morera's theorem, while Tau Ceti adds its named open-set wrapper. DifferentiableAt.conj_conj is public Mathlib pointwise input; Tau Ceti adds the within-set result, so do not replace its full L4.0 contract by only the pointwise theorem. Mathlib's countable-exception analyticity theorem requires continuity on a closed positive-radius disc and differentiability off a countable set inside; it exceeds isolated-point removability but does not remove a nondegenerate arc. Correct the summaries/notes and keep these hypotheses explicit.",
+      "evidenceUrls": [
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/Deriv/Star.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/CauchyIntegral.lean",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/HasPrimitives.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Reflection/Basic.lean"
+      ]
+    },
+    {
+      "finding": "RT-AUDIT-05/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The directory has 107 files. Applying the repository declaration-header regex line by line gives 1083 matches; its comment-aware scanner gives 1065. Both support about 1100, not 2600. These are source-scan counts, not elaborated declaration counts; I do not endorse the finding's exact anonymous-instance/theorem subtotals. The compactified-boundary Jordan theorem explicitly assumes integrable finite prevertex exponents, decay at infinity and global injectivity. Its injective_iff theorem restates the condition, and the short-turn theorem only separates certain nonadjacent bounded edges. There are also existing interval/individual-edge injectivity lemmas, so the finding's phrase 'only injectivity results' is too broad; none found supplies the missing global boundary simplicity. Correct the count and conditional summary, preserving this local progress and the outstanding L6 summit.",
+      "evidenceUrls": [
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Boundary.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Compactification.lean",
+        "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Polygon/ShortTurn.lean"
+      ]
+    }
+  ],
+  "reviewer": "Codex / codex-7e92bd",
+  "date": "2026-09-24",
+  "snapshot": "ec8fd3cee1dfad8cd48ac687cce1788750b9cf57",
+  "scope": "Independent verification of the 40 supplied findings, not a new audit of every original citation.",
+  "sources": [
+    {
+      "file": "Mathlib/GroupTheory/Perm/Cycle/Type.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Perm/Cycle/Type.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/GroupTheory/Perm/Partition.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Perm/Partition.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Algebra/Polynomial/Lifts.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Lifts.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Data/ZMod/QuotientRing.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/QuotientRing.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Finite/Extension.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Finite/GaloisField.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/Minpoly/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Minpoly/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/PrimitiveElement.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/PrimitiveElement.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/FieldTheory/GaloisGroups/Discriminant/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Discriminant/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/FieldTheory/GaloisGroups/Discriminant/Field.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Discriminant/Field.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Algebra/Squarefree/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Squarefree/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/Separable.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Separable.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RingTheory/Polynomial/FactorDegrees.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Polynomial/FactorDegrees.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/FieldTheory/GaloisGroups/Resolvent/Specialization.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Resolvent/Specialization.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/FieldTheory/GaloisGroups/Resolvent/Symmetric.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisGroups/Resolvent/Symmetric.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Perm/TransitiveGroupLabel.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/GroupTheory/SpecificGroups/Dihedral/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/SpecificGroups/Dihedral/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/GroupTheory/RegularWreathProduct.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/RegularWreathProduct.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/GroupTheory/Perm/WreathProduct.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Perm/WreathProduct.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Algebra/Polynomial/Eval/Irreducible.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Eval/Irreducible.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Algebra/Algebra/Equiv.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Algebra/Equiv.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/FieldTheory/Normal/Closure.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Normal/Closure.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/CliffordAlgebra/Equivs.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Algebra/Group/PowMonoidHom.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Group/PowMonoidHom.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Algebra/Group/PowerClassGroup.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Group/PowerClassGroup.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/NumberTheory/LocalField/PowerSubgroup.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/LocalField/PowerSubgroup.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/LinearAlgebra/QuadraticForm/Representation.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/QuadraticForm/Representation.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/Spin/Polarization/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Spin/Polarization/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/Spin/Polarization/Hyperbolic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Spin/Polarization/Hyperbolic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Algebra/Quaternion.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Quaternion.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/CliffordAlgebra/EvenEquiv.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/CliffordAlgebra/EvenEquiv.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Algebra/BrauerGroup/Group.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/BrauerGroup/Group.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Algebra/MonoidAlgebra/Twisted.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/MonoidAlgebra/Twisted.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/DegreeTwoDescent.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/DegreeTwoDescent.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Explicit.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Explicit.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Algebra/Central/Quaternion.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Central/Quaternion.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Crossing/ImmersionDecomposition.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/RegularityConditions.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/RegularityConditions.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Winding/CrossingAngleSum.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/CrossingAngleSum.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/RealIntegral/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/RealIntegral/OnCurve.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/MeasureTheory/Integral/DivergenceTheorem.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Integral/DivergenceTheorem.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/ArcFTC.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/ArcFTC.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/LogDerivFTC.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/LogDerivFTC.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/PerWindow/HigherOrder.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/PerWindow/HigherOrder.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/PiecewiseC1On.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/PiecewiseC1On.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/NonCorner/Arc.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/NonCorner/Arc.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/AddOne/Value.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/AddOne/Value.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/Value.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Winding/Rho/Value.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Envelope.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Envelope.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Measure.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/WeightIsometry.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/WeightIsometry.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/HilbertBasis.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Function/Fourier/HilbertBasis.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Function/Operator.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Function/Schwartz.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Function/Schwartz.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/SpecialFunctions/Hermite/Orthogonality.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Probability/Distributions/Gaussian/PolynomialMemLp.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/PolynomialMemLp.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Probability/Moments/Determinacy.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Moments/Determinacy.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Probability/Moments/VanishingMoments.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Moments/VanishingMoments.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/RingTheory/Polynomial/ShiftedLegendre.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Polynomial/ShiftedLegendre.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/BoundaryCorrespondence.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Inverse/BoundaryCluster.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Inverse/BoundaryCluster.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Jordan/Approach.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Jordan/Approach.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Jordan/Domain.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Jordan/Domain.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Topology/JordanCurve/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/JordanCurve/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Complex/RiemannMapping.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/RiemannMapping.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/DiscInjection.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/DiscInjection.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Complex/Schwarz.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/Schwarz.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Koebe.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Koebe.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Schwarz.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Schwarz.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/AutomorphismIsometry.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzPick/AutomorphismIsometry.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Derivative.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzPick/Derivative.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Rigidity.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzPick/Rigidity.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Complex/OpenMapping.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/OpenMapping.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/ArgumentPrinciple.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/ArgumentPrinciple.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/ImageSimplyConnected.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/ImageSimplyConnected.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Argument/Cycle.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Argument/Cycle.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Argument/Principle.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Argument/Principle.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/HomologyCauchy.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/HomologyCauchy.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Residue/Cycle.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Residue/Cycle.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Contour/Winding/Number/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Contour/Winding/Number/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Complex/BranchLogRoot.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/BranchLogRoot.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/BranchLogRoot.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/BranchLogRoot.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Calculus/Deriv/Star.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/Deriv/Star.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/CauchyIntegral.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "Mathlib/Analysis/Complex/HasPrimitives.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/HasPrimitives.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/Reflection/Basic.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/Reflection/Basic.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Boundary.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Boundary.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Compactification.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Compactification.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "file": "TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Polygon/ShortTurn.lean",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Complex/Conformal/SchwarzChristoffel/Polygon/ShortTurn.lean",
+      "read": "2026-09-24",
+      "scope": "Relevant statements, ambient hypotheses and implementation passages; not a whole-file proof audit."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1808.00997v2",
+      "read": "2026-09-24",
+      "locator": "Propositions 2.2 and 2.3 and proofs, printed pages 7–10; standing curve conventions and Definition 2.1."
+    }
+  ],
+  "validation": {
+    "leanCompiled": false,
+    "findingIds": 40,
+    "confirmed": 40,
+    "rejected": 0,
+    "sourceProvenance": {
+      "mathlib": {
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sourceFilesMatchedToGitBlobs": 9055,
+        "remote": "https://github.com/leanprover-community/mathlib4"
+      },
+      "TauCeti": {
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "sourceFilesMatchedToGitBlobs": 5489,
+        "remote": "https://github.com/TauCetiProject/TauCeti"
+      }
+    },
+    "lexicalDiagnostics": {
+      "TauCeti.Analysis.Complex.Conformal.Jordan.Approach": {
+        "TauCetiModuleCount": 129,
+        "placeholderTokenHits": [],
+        "SchwarzPickModules": []
+      },
+      "TauCeti.Analysis.Complex.Conformal.RiemannMapping.Existence": {
+        "TauCetiModuleCount": 66,
+        "placeholderTokenHits": [],
+        "SchwarzPickModules": []
+      }
+    },
+    "conformalCount": {
+      "files": 107,
+      "namedHeaders": 1065,
+      "anonymousInstances": 0,
+      "namedTheoremLemma": 999,
+      "rawLineRegexMatches": 1083,
+      "commentStrippedRegexMatches": 1065
+    },
+    "coverageMirror": {
+      "layers": 49,
+      "commonFieldMismatches": []
+    },
+    "redteamChecker": "pass",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "4cd736bbf09c8a9a7ee22fc77f6e6598c84e6b95",
+    "unchangedInputBlobs": 23,
+    "claimComment": 5806274875,
+    "claimConfirmation": 5806276270
+  }
+}
