@@ -1,0 +1,620 @@
+{
+  "redteam": "RT-AREA-topology",
+  "findings": [
+    {
+      "finding": "RT-AREA-topology/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. QT.0's requires in data/atlas.json are exactly ['FoundationsAndLibraryIntegration:LI.0','FoundationsAndLibraryIntegration:LI.4'], with no GeometricTopology prerequisite, and the two stage edges into QT.0 come from LI.0 and LI.4 alone. The GeometricTopology README's Layer 4 does own knot and link presentations carrying orientation and framing, Reidemeister moves and the geometric-to-diagram correspondence, and Layer 5 surgery on framed links. The five Tau Ceti declarations cited (PDCode/Basic.lean:129 for the framing integers, GaussCode/FramedUnbased.lean:25, Markov.lean:112, SmoothLink/Basic.lean:61, SpecificGroups/Braid.lean:97) all exist at f790474 and say what the finding says. PROTOCOL section 15 gives one owner per piece of mathematics, so the duplication is real and the import is the right fix."
+    },
+    {
+      "finding": "RT-AREA-topology/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The distinction is the substance of Habiro's paper: J_M is defined from an algebraically split ±1-framed (admissible) surgery presentation, and its independence needs the refined Kirby calculus for admissible links (Hoste moves), because an ordinary Kirby move leaves the admissible class. QT.3's 'independence under Kirby moves' is therefore not the statement that can be proved, and no stage names the refined theorem. I read the Habiro e-print (math/0605314v1, the source the roadmap declares) for the shape of the argument and found nothing that weakens the finding."
+    },
+    {
+      "finding": "RT-AREA-topology/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap's own declared source builds J_M from U_h(sl2) as a ribbon Hopf algebra, the universal sl2 invariant of bottom tangles valued in completed tensor powers of the even integral form, and the twist element omega in P-hat, none of which QT.1-QT.3 name; what QT.1 plans (ribbon categories, U_q(sl2) modules, the semisimplified root-of-unity category) is the Reshetikhin-Turaev route to tau_zeta, a different construction. The three Mathlib citations resolve at the pin (Braided/Basic.lean:50 BraidedCategory, Rigid/Basic.lean:77 ExactPairing, HopfAlgebra/Basic.lean:65), so the duplication half is right too."
+    },
+    {
+      "finding": "RT-AREA-topology/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. QT.1 constructs only U_q(sl2), and a search of all 1968 atlas stage descriptions finds no quantum group of a general simple Lie algebra, no Drinfeld-Jimbo presentation and no Lusztig or De Concini-Procesi integral form. The Habiro-Le construction that QT.4's general-Lie-type target names therefore has no supplier."
+    },
+    {
+      "finding": "RT-AREA-topology/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GeometricTopology Layer 4's text does own the Jones polynomial 'via the Kauffman bracket with t = A^-4 and V_unknot = 1', with two algorithms and an agreement theorem, and TauCeti/KnotTheory/TemperleyLieb.lean:107 exists at the pin. QT.2 neither imports it nor plans the comparison, so the two normalisations would stand side by side unreconciled."
+    },
+    {
+      "finding": "RT-AREA-topology/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I read the requires directly: QT.5 requires ['ArithmeticQuantumTopology:QT.0','K3BlochGroups:V.3','K3BlochGroups:V.5'], so both (i) and (ii) are as stated. (iv) is right as well: Polylogarithms P.1 owns the Bloch-Wigner dilogarithm and P.2 'the weight-two regulator ... and hyperbolic' volume calculation, and K3BlochGroups has no regulator stage."
+    },
+    {
+      "finding": "RT-AREA-topology/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. P.2's stage text places Bloch's hyperbolic-volume calculation in the weight-two regulator, and QT.5 plans the same identity again as the comparison of the real regulator with volume. AUDIT-30 has a result file and flags the pair; RS-10, the only proposal that touches this family, is not in data/restructure and its review REV-RS-10 records 'needs changes', so nothing resolves it."
+    },
+    {
+      "finding": "RT-AREA-topology/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. A search of every atlas stage description finds no ideal triangulation, no cusped hyperbolic 3-manifold and no Thurston gluing or completeness equations, and GeometricTopology Layer 7's hyperbolic volume and Mostow statement are written for closed manifolds. QT.5's own acceptance test is the figure-eight complement, which is none of those things."
+    },
+    {
+      "finding": "RT-AREA-topology/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Neither the extended Bloch group, the extended Rogers dilogarithm, combinatorial flattenings nor the Chern-Simons invariant of a hyperbolic 3-manifold occurs in any atlas stage, and QT.5 names 'the extended-Bloch element' and 'the specified Chern-Simons class' with no definition and no source. Neumann's theorem is the missing bridge, exactly as the fix says."
+    },
+    {
+      "finding": "RT-AREA-topology/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. HabiroNahmSeries HB.9 does prove the Nahm-data half, and nothing in the atlas supplies the topological input: no stage names the Neumann-Zagier datum, the Dimofte-Garoufalidis series or their topological invariance. Without that bridge the roadmap's central theorem has no route, which is what makes this high rather than medium."
+    },
+    {
+      "finding": "RT-AREA-topology/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. HB.10's text does undertake the identification and independence of presentation for knot perturbative series, which is QT.6's topological content, and QT.6 plans its own asymptotic expansion without importing HB.4 or HB.8. AUDIT-14 has a result file and flags both overlaps, and no accepted proposal touches either roadmap."
+    },
+    {
+      "finding": "RT-AREA-topology/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Neither the Kashaev invariant nor the volume conjecture occurs anywhere in the roadmap's text, although QT.7's quantum-modularity and refined-volume targets are statements about the Kashaev invariant. Naming no proved case, where several exist, leaves QT.7 with no provable target."
+    },
+    {
+      "finding": "RT-AREA-topology/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. QT.7 formulates quantum-modularity conjectures and QM.5 develops quantum modular examples linking Habiro and this roadmap; AUDIT-15 has a result file and records that QM.5 imports QT.7's statements; neither stage defines a quantum modular form, and the atlas has no edge between them."
+    },
+    {
+      "finding": "RT-AREA-topology/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Faddeev's non-compact quantum dilogarithm occurs in no atlas stage, and the state integrals QT.6 plans cannot be defined without it. The finding is careful to note that the formal pentagon for (x;q)_infty is planned only in an unaccepted draft, which does not discharge the need."
+    },
+    {
+      "finding": "RT-AREA-topology/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage defines Gevrey-1 series, the Borel transform, resurgent functions, Stokes constants or lateral Borel summation, so QT.7's 'arithmetic resurgence conjectures' cannot be stated, let alone proved."
+    },
+    {
+      "finding": "RT-AREA-topology/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The QT document does not mention Habiro cohomology or the relative Habiro ring, and the atlas has no QT-to-HabiroRings edge, although the programme's own plan file records the follow-up. The two Tau Ceti declarations cited (Alexander.lean:312, Burau/Alexander.lean:329) exist at the pin, so the Melvin-Morton/Rozansky boundary the finding adds is available."
+    },
+    {
+      "finding": "RT-AREA-topology/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. q-holonomicity of the coloured Jones function and the A-polynomial appear in no atlas stage, and Garoufalidis-Zagier's matrix invariants are defined through the q-difference equation the roadmap never plans. Low severity is right: this is a boundary gap, not a false statement."
+    },
+    {
+      "finding": "RT-AREA-topology/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap neither plans the rational-homology-sphere extension nor lists it as a non-goal, so its boundary sentence reads as open where the literature is not. Low severity is right."
+    },
+    {
+      "finding": "RT-AREA-topology/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The source list of content/campaign/ArithmeticQuantumTopology/README.md has two entries, one locator is a year range rather than a version, and four of the eight stages say 'acquire the original' without naming a source, against PROTOCOL section 0's coverage rule."
+    },
+    {
+      "finding": "RT-AREA-topology/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I reproduced the disagreement exactly: research/blueprint/atlas/roadmaps/ArithmeticQuantumTopology.json gives QT.0 requires [] and lists no LI edge, while data/atlas.json gives requires ['FoundationsAndLibraryIntegration:LI.0','FoundationsAndLibraryIntegration:LI.4'] and carries both stage edges. A browser agent working from the extract would see a different graph from a local worker."
+    },
+    {
+      "finding": "RT-AREA-topology/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. QT.6's requires are ['ArithmeticQuantumTopology:QT.4','ArithmeticQuantumTopology:QT.5','HabiroNahmSeries:HB.5a','HabiroNahmSeries:HB.9'], and neither HB.5a nor QT.4 is used by anything in QT.6's text, while the coloured Jones and Kashaev invariants it does need sit in QT.2. The consequence the finding draws, that QT.6 waits for the whole unified-invariant chain, follows from the requires as recorded."
+    },
+    {
+      "finding": "RT-AREA-topology/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Stage 6's four quoted sentences and the dependency-table row are verbatim in content/tau-ceti/AlgebraicTopology/README.md, and PAPER-BENOIST-WITTENBERG-20/ordinary-topology (status planned) does import 'proper manifold pushforward' from this stage while PAPER-BROWNING-SAWIN-20/ordinarytopology imports 'manifold duality'. Neither pinned library has singular cohomology at all. The mathematics is not in doubt: Hatcher's proof of closed Poincare duality runs by Mayer-Vietoris over open subsets and needs compactly supported cohomology and duality for those noncompact pieces, and Poincare-Lefschetz comes from applying it to M minus its boundary through a collar. I could not machine-extract this PDF here (see the report), so the page locators rest on the red team's reading and on my own knowledge of the book, not on my reading of these pages."
+    },
+    {
+      "finding": "RT-AREA-topology/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 8.1's two sentences and the encoding convention are verbatim, and the convention asks only for a BasedTopPair, with no NDR hypothesis. Relative homotopy groups and the long exact sequence of a based pair do exist for every pair with basepoint in the subspace, and the fibration long exact sequence comes from p_* on pi_n(E,F,x_0), where F inside E is not an NDR pair in general, so the restriction removes the main use. Mathlib's TopPair at Topology/Category/TopPair.lean:31 is an embedding arrow, as cited, and RS-33's keeps for StableHomotopyKTheory H.2 do import 'the based-pair interface'."
+    },
+    {
+      "finding": "RT-AREA-topology/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and this is the sharpest of the AlgebraicTopology findings. The Inventory line is verbatim, and 'grep -rni \"exact couple\" Mathlib' at 082e2d3 has no match, which I ran. Mathlib does have Algebra/Homology/SpectralObject/ (nine files, including HasSpectralSequence.lean) and CategoryTheory/Triangulated/SpectralObject.lean, whose header TODO reads verbatim '(the spectral sequence is already constructed: it remains to study convergence)'. Tau Ceti f790474 has no file mentioning a spectral sequence at all, and ProfiniteCohomology's README puts them out of scope. So six stated targets each carry their own spectral sequence and convergence with no owner for the generic construction."
+    },
+    {
+      "finding": "RT-AREA-topology/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The completion criterion, the encoding convention, item 1.4 and check 5 are verbatim, and they do ask for a theorem about the groupoid on a set of basepoints that items 1-3 (full fundamental groupoids of the covering opens) cannot give. The two Mathlib pieces the fix uses exist at the pin (Groupoid/Subgroupoid.lean:584 for the full subgroupoid, NielsenSchreier.lean:77 for free groupoids), and Tau Ceti's CoverGeneration.lean works only with the full groupoid."
+    },
+    {
+      "finding": "RT-AREA-topology/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Items 8.3, 5.5 and 4.5 are as quoted, and no stage of the roadmap plans CW approximation, the compression lemma, invariance of singular homology under weak equivalence, or the degree-one Hurewicz theorem; RS-33 does make Stage 8 the Hurewicz owner for StableHomotopyKTheory H.1, whose retained test is the abelianisation statement. All three inputs are standard and each is needed exactly where the finding puts it. The Hatcher locators rest on the red team's reading and my knowledge of the book, not on my own reading of the pages."
+    },
+    {
+      "finding": "RT-AREA-topology/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The prohibition is in the document and no stage builds a CW structure on a manifold or on a specific space; the two citations resolve at the pin (Mathlib CWComplex/Classical/Basic.lean:337 and TauCeti RealProjective/Basic.lean:59), so the gap between what is forbidden and what is supplied is real."
+    },
+    {
+      "finding": "RT-AREA-topology/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage owns Stiefel-Whitney, Chern or Pontryagin classes, the Thom class or the Thom isomorphism, and Mathlib 082e2d3 has no orientation of a vector bundle; the consumers the finding names need them. This is the same missing package that finding 88 hits from the GeometricTopology side."
+    },
+    {
+      "finding": "RT-AREA-topology/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. In research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicTopology.json every stage has empty requires and consumers and stageEdges is empty, while the document declares the chain 2 -> 3 -> 4 strict and says no implementation may reverse it."
+    },
+    {
+      "finding": "RT-AREA-topology/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed. All five declaration citations resolve at the pins (TauCeti Singular/Relative.lean:43, Topology/Category/TopTriple.lean:36, LocalCoefficient.lean:41; Mathlib EilenbergSteenrod.lean:36, SingularHomology/Basic.lean:123), so the stage is recorded as unknown while part of it is built. Recording it is what the audit needs."
+    },
+    {
+      "finding": "RT-AREA-topology/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 2.5, the acceptance line, item 3.5 and the strictness sentence are verbatim. The mathematics is right: the pair sequence gives H_k(D^n,S^{n-1}) only in terms of H~_{k-1}(S^{n-1}), and computing the sphere needs excision or Mayer-Vietoris, which the roadmap itself places in Stage 3, so item 2.5 reverses the arrow the document declares strict."
+    },
+    {
+      "finding": "RT-AREA-topology/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The transfer route genuinely does not give the Euler characteristic: for a d-sheeted cover it identifies the rational homology of the base with the invariants (regular case) or a summand, and chi(E) needs all of H_*(E;Q); Hatcher's own Example 3G.2 (S^1 wedge S^k) shows invariants and total homology differ. The cell-lifting proof the fix substitutes is the standard one and uses only Stage 4's cellular chains."
+    },
+    {
+      "finding": "RT-AREA-topology/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The Ownership paragraph assigns basepoint change and induced maps on homotopy groups to UniversalCovers, and item 8.1 plans them again; the absolute API is built at f790474 (Map.lean:119 map and :222 mapHom among the declarations I checked), the link map records the overlap with recommendation 'rescope', and RS-33's owners entry gives it to UniversalCovers Stage 3 while narrowing only StableHomotopyKTheory H.2. Mathlib's SSet.PtSimplex at KanComplex/MulStruct.lean:35 exists, so 8.2's remark is understated too."
+    },
+    {
+      "finding": "RT-AREA-topology/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. TauCeti/AlgebraicTopology/FundamentalGroupoid/CoverGeneration.lean:104 and :127 exist at f790474 with the stated hypothesis form, and the stage records neither as built. The finding is right to keep the relations and the existence half open."
+    },
+    {
+      "finding": "RT-AREA-topology/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The four quoted items are verbatim and do state the same two theorems twice inside one roadmap, and the dependency table assigns Euler characteristic to Stage 7. Either split in the fix is acceptable; what matters is that one of them is chosen."
+    },
+    {
+      "finding": "RT-AREA-topology/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The bridge sentence is verbatim. Every fibre bundle has the homotopy lifting property for disks over any base, by the compactness argument that covers I^n x I by finitely many trivialising opens; paracompactness is needed only for the Hurewicz-fibration strengthening. So the hypothesis excludes bundles for no reason."
+    },
+    {
+      "finding": "RT-AREA-topology/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Both source paragraphs and the References line are verbatim. Hatcher's Section 4.1 contains Whitehead's theorem, cellular approximation (Theorem 4.8) and CW approximation, and the Hurewicz theorems are Section 4.2 (Theorems 4.32 and 4.37); Section 2.A is where H_1 = pi_1^ab lives. The corrected citations in the fix are right."
+    },
+    {
+      "finding": "RT-AREA-topology/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 8.7's corollary is verbatim and carries no hypothesis on the space. The counterexample works: S^n wedge the Warsaw circle is simply connected for n >= 2 with the integral homology of S^n but is not homotopy equivalent to S^n, since a retract of a CW-type space has CW type and a weakly contractible CW-type space is contractible, which the Warsaw circle is not. Item 8.5 shows the roadmap knows the CW-type hypothesis elsewhere, which makes this an omission rather than a misunderstanding."
+    },
+    {
+      "finding": "RT-AREA-topology/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mathlib 082e2d3 has both objects: Topology/Covering/Deck.lean:41 defines deck as a subgroup of the self-homeomorphisms, and Topology/Homotopy/Lifting.lean:456 defines monodromyFunctor from the fundamental groupoid to types. Tau Ceti's MonodromyEquivalence.lean:157 and LocalCoefficient.lean:41 exist, so the permutation local system is a composition of things that are already there."
+    },
+    {
+      "finding": "RT-AREA-topology/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-33's report proposes the title for StableHomotopyKTheory, and the part-ii routes of PAPER-BENOIST-19 (EquivariantTopologyRealVarieties) and PAPER-BROWNING-SAWIN-20 (ConfigurationSpacesAndRationalLoops) both carry the same 'Algebraic topology of spaces and manifolds, Part II' stem with parent tauceti:TauCetiRoadmap/AlgebraicTopology. Three siblings with one designation is exactly what PROTOCOL section 15's single-extension picture does not cover, so a coordinator decision is the right disposition."
+    },
+    {
+      "finding": "RT-AREA-topology/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and this is the most consequential finding in the CombinatorialHeegaardFloer block. The README's standing conventions are verbatim: 'GH-tilde(G) ~= GH-hat(L) tensor W^{tensor(n-1)}' and 'A = 1/2(M_O - M_X) - (n-1)/2: integer-valuedness is a lemma, not a definition'. The book's normalisation is (n - l): I found Lemma 8.2.1 ('For any grid state x the Alexander function A(x) is an integer') on the book's printed p. 136 and Lemma 8.2.3 on p. 137, matching the locators, and Manolescu-Ozsvath-Szabo-Thurston's LaTeX source states the multi-graded shift as -(n_i-1)/2 per component and the fully blocked formula as a tensor product of V_i^{tensor(n_i-1)}, whose total exponent is n - l. Tau Ceti implemented the roadmap's formula and proved the consequence: Gradings.lean:91 defines alexander with (n-1)/2 and Grading/Parity.lean:279 proves integrality iff the component count is odd, which is why its bigraded statements are restricted to OddComponentGridDiagram, while TauCeti/Algebra/Bigraded/Stabilization.lean:17 already writes W^{tensor(n-l)} against the roadmap's convention. So the G.2 lemma is false as stated for even-component links and the GH-tilde formula is wrong for l > 1."
+    },
+    {
+      "finding": "RT-AREA-topology/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I read Remark 4.6.10 in the book itself (printed p. 79, after Lemma 4.6.9): 'Lemma 4.6.9 uses the fact that the grid diagram G represents a knot rather than a link; in general, the actions of variables corresponding to different link components are not chain homotopic; cf. also Lemma 8.2.3'. Manolescu-Ozsvath-Szabo-Thurston's source carries the same statement as its Lemma on U_i and U_k for markings on the same component. Tau Ceti's Grid/Chain/Complex.lean:25 already records that the simply blocked interpretation is the knot one. So G.6's 'All V_i act identically on homology' is false for the link objects the roadmap builds on."
+    },
+    {
+      "finding": "RT-AREA-topology/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed in all four parts. I located Proposition 6.1.4's proof on the book's printed p. 114 ('Since any knot K can be connected to the unknot by a sequence of unknotting operations ...'), the Theorem 5.3.1 proof's appeal to Lemma 4.6.9 on p. 107, Proposition 5.1.8 (switches) on p. 99 and Proposition 5.2.17 (a quasi-isomorphism, not an identification) on p. 105 - every page locator matches the running head. Tau Ceti's Move.lean:62 IsMove and the commutation file's degenerate row-sharing cases are as described. So the planned order G.5 -> G.6 -> G.7 inverts the proofs and G.5's move list is short of switches."
+    },
+    {
+      "finding": "RT-AREA-topology/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The README's two Lean signatures and the sentence 'nothing in Lane G waits for topology' are verbatim, and a search of all 1968 atlas stage descriptions finds no occurrence of 'unknotting', 'crossing change' or 'torus knot' in any stage of any roadmap. So the v1 headline names an object the atlas does not define. The book's cross-commutation material is where the finding says (Definition 3.1.12 is on the printed p. 48, immediately before Proposition 3.1.13), and Lemma 6.3.4 is on p. 121 with its proof on p. 122, both matching."
+    },
+    {
+      "finding": "RT-AREA-topology/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans normal forms of knot cobordisms, and GeometricTopology Layer 6's text plans cobordisms as surfaces in S^3 x [0,1] without them. The category point is decisive and correctly argued: with the topological slice genus the bound fails, since the untwisted negative Whitehead double of the left trefoil has trivial Alexander polynomial, hence is topologically slice by Freedman, while its tau is -1. G.10 says only 'g_s'."
+    },
+    {
+      "finding": "RT-AREA-topology/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Seifert genus' occurs in no atlas stage and 'Seifert surface' only in GeometricTopology, whose Layer 4 plans the Alexander polynomial from a Seifert matrix and the Seifert framing, not surfaces or their genus; Layer 6 nevertheless lists 'Layer 4's knots, slice-ness, and Seifert surfaces' among its inputs, which I read in the README. So the G.8 bound's right-hand side has no owner and its proof needs smooth topology."
+    },
+    {
+      "finding": "RT-AREA-topology/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed. A search of all atlas stage texts finds 'alternating knot/link/diagram' only in this roadmap's Lane G and G.9, and no stage anywhere mentions the Goeritz matrix, quasi-alternating links or the determinant of a link. The thinness statement is phrased through the signature, and the only signature the atlas plans is the Seifert-matrix one in GeometricTopology Layer 6."
+    },
+    {
+      "finding": "RT-AREA-topology/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Multivariable Alexander' occurs only in this roadmap, and Fox calculus, the link group and Torres' theorem occur in no atlas stage; GeometricTopology Layer 4's polynomial list is the one-variable Alexander, Jones and HOMFLY, which I read in the README. So G.9's Theorem 11.6.1 target has neither its object nor its inputs."
+    },
+    {
+      "finding": "RT-AREA-topology/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Thurston norm' occurs only in this roadmap, so the norm itself has no owner, and the finding is right that the book proves the polytope comparison only in the one direction h_1 + ... + h_l and states the full comparison without proof. Calling the bound combinatorial therefore overstates what Lane G can reach."
+    },
+    {
+      "finding": "RT-AREA-topology/50",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Legendrian' occurs only in this roadmap's Lane G and G.11, and 'contact structure' and 'transverse knot' occur in no atlas stage at all. Without the contact objects, G.11 can only state a theorem about grid diagrams modulo the restricted move set, which is not Chekanov's theorem."
+    },
+    {
+      "finding": "RT-AREA-topology/51",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans a universal coefficient theorem: AlgebraicTopology Stage 6 only says 'Derive universal-coefficient consequences through the natural duality maps', which is the singular-cochain instance, not the theorem for a complex of free modules over a PID. The mirror formulas the acceptance test needs rest on exactly that theorem, so the gap is real and shared with AlgebraicTopology."
+    },
+    {
+      "finding": "RT-AREA-topology/52",
+      "verdict": "confirmed",
+      "reason": "Confirmed. TauCeti/KnotTheory/Grid/TorusLink.lean:100 exists at the pin, and the mathematics is right: the staircase grid realises the negative torus knot in the book's conventions, tau of the negative torus knot is -(p-1)(q-1)/2, and passing to the positive one needs tau(m(K)) = -tau(K), which is the mirror formula of the previous finding. So the acceptance value as written has the wrong sign, and 'the trefoil' does not say which trefoil."
+    },
+    {
+      "finding": "RT-AREA-topology/53",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the algebra is exactly right. With V_i of bidegree (-2,-1) the homogeneous pieces GC_{d,s} are not submodules over F[V_1,...,V_n], so a Z x Z-indexed HomologicalComplex in ModuleCat R cannot carry the R-action; what is needed is a graded module over the graded ring with a homogeneous differential. Tau Ceti's own workaround is visible at Grid/Chain/Complex.lean:15, which packages the complex with a one-object shape and keeps the bigrading separately. So the inventory's two claims do not combine as stated."
+    },
+    {
+      "finding": "RT-AREA-topology/54",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Only one atlas stage mentions filtered chain complexes, this roadmap's Lane ALG, while AlgebraicTopology Stage 4 needs the filtered chain-homotopy category and DGAInfinity layer 3 plans the perturbation lemma for complete filtered contractions; no owner is recorded for the shared notion. The internal mismatch between Lane ALG's filtered homotopy equivalence and G.13's filtered quasi-isomorphism type is a second, independent defect and is correctly identified."
+    },
+    {
+      "finding": "RT-AREA-topology/55",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Kneser' occurs in no atlas stage and 'prime decomposition' only in GeometricTopology, whose Layer 1 plans connected sum without a prime or irreducible predicate. The definitional role of the splitting is exactly as the finding says: I read Ozsvath-Stipsicz-Szabo's source, where Definition 1.2 forms the stable class from Y = Y_1 # n(S^1 x S^2) with Y_1 containing no S^1 x S^2 summand, so the decomposition enters the definition and cannot be absorbed into 'diagrams modulo moves'."
+    },
+    {
+      "finding": "RT-AREA-topology/56",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The identification of the twisted invariant with HF-hat for rational homology spheres is proved in the appendix that compares with the holomorphic theory, so listing it among what is 'combinatorial all the way down' is wrong by the roadmap's own rule. The finding is careful to keep the combinatorial invariance theorem itself, which is genuinely combinatorial."
+    },
+    {
+      "finding": "RT-AREA-topology/57",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked it in the source. Ozsvath-Stipsicz-Szabo's Definition 1.2 makes HF-hat_st(Y) the equivalence class [V, b], not a vector space, so 'gives F^p' is a category error as worded; their paper defers spin^c to a sequel ('In the follow-up articles [signs, spinc, knots], we extend this approach'), so there is no spin^c decomposition to give one generator per structure; and S^1 x S^2 summands are split off by the definition rather than presented by a diagram."
+    },
+    {
+      "finding": "RT-AREA-topology/58",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Lattice homology is defined for negative-definite plumbing graphs, and its graph-independence is proved under the blow-up and blow-down moves that connect negative-definite graphs; Neumann's full calculus passes through graphs outside that class, where the object is undefined. TauCeti/LowDimTopology/Plumbing/BlowUp.lean:609 exists at the pin and is about exactly the negative-definiteness of a blow-up, which supports the finding rather than the stage text."
+    },
+    {
+      "finding": "RT-AREA-topology/59",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GeometricTopology Layer 6's text does import 'tau ... and ideally s' from this roadmap, and Layer 4 credits Problem 1.41 to Piccirillo 'jointly with the combinatorial Heegaard Floer roadmap's tau'; 'Rasmussen' occurs in no atlas stage, and no roadmap plans Khovanov homology or the Lee deformation. The substitution does not work: Piccirillo's shake-genus argument bounds the slice genus with s, and in the Conway-knot paper tau vanishes on the whole trace family, so tau cannot replace s."
+    },
+    {
+      "finding": "RT-AREA-topology/60",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GeometricTopology Layer 6's text calls tau 'a homomorphism on the concordance group', and no CHF stage plans a connected-sum formula or a grid diagram of a connected sum, so additivity, which the word homomorphism asserts, has no owner. The other ingredients are spread over G.5, G.8 and G.10 with nothing assembling them, as the finding says."
+    },
+    {
+      "finding": "RT-AREA-topology/61",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GeometricTopology Layer 4's build list does contain Cromwell's theorem and names the grid-to-diagram edge, while CHF Lane K plans the same theorem; the atlas records no stage edge between the two roadmaps at all. Low severity is right, since the fix is an ownership line rather than new mathematics."
+    },
+    {
+      "finding": "RT-AREA-topology/62",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Manolescu-Ozsvath-Szabo-Thurston's source has six sections, and its sign assignments are its Definition 4.1 and Theorem 4.2, so a 'section 15.2' citation belongs to the book, not the paper; I verified the section structure in the paper's LaTeX. The appendix-ownership split and the missing Sarkar citation are correctly identified."
+    },
+    {
+      "finding": "RT-AREA-topology/63",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The filtered GC- over F[U] corresponds to CFK^{-,*}, and CFK^infinity is obtained by inverting U, so the stage should say which object it builds. The point about Upsilon is right too: the grid construction, its invariance and the agreement with the holomorphic invariant are published, so it can be a target rather than a 'door'."
+    },
+    {
+      "finding": "RT-AREA-topology/64",
+      "verdict": "confirmed",
+      "reason": "Confirmed. In the per-roadmap extract every one of the 22 stages has requires [] and consumers [], and the only edges are three roadmap-level declared edges with stageCount 0. The re-ordering the earlier findings force is exactly why the internal order needs recording."
+    },
+    {
+      "finding": "RT-AREA-topology/65",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Every stage is marked 'unknown', data/library-coverage.json has no CHF entry, and research/blueprint/audit/ contains AUDIT-44.json with no AUDIT-44 result file, so nothing records the state of the library. I verified the library side directly: at f790474 there is no 'sorry' in any of the 124 files under TauCeti/KnotTheory, TauCeti/LowDimTopology and TauCeti/Algebra/Bigraded, and the four cited declarations resolve (Grid/Diagram/Basic.lean:63, GrothendieckGroup/EulerCharacteristic.lean:300, EulerCharacteristic/FiniteDimensional.lean:143, Mathlib Module/PID.lean:257)."
+    },
+    {
+      "finding": "RT-AREA-topology/66",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The vacuity argument is decisive and I checked it: as sketched the bound quantifies over every embedded surface with right-hand side -chi(S), and an embedded 2-sphere gives 0 <= -2, which is false, so the predicate holds of no foliation and the disproof target is vacuously true; with |chi| or with spheres excluded the target contradicts Thurston's inequality, which is a theorem. The direction is also as the finding says: the inequality is Thurston's theorem and what was disproved is the Euler class one conjecture. The layer plans neither the Thurston norm nor its dual, without which the real conjecture cannot be written down."
+    },
+    {
+      "finding": "RT-AREA-topology/67",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The PL half is false in codimension two, by the standard example the finding gives: the cone on a nontrivial knot in S^3 = boundary D^4 is a PL embedded disc that is not locally flat at the cone point, since local flatness would make every knot topologically slice. PL embeddings are locally flat in codimension at least three (Zeeman), and codimension two is exactly where Layers 4 and 6 use the predicate. TauCeti/Geometry/Manifold/LocallyFlat/Smooth.lean:213 and KnotTheory/Signature.lean:161 both exist at the pin, so the smooth half is built and the trefoil signature is available as the obstruction."
+    },
+    {
+      "finding": "RT-AREA-topology/68",
+      "verdict": "confirmed",
+      "reason": "Confirmed in all four parts. A compact piece with torus boundary cannot carry a complete locally homogeneous metric modelled on a boundaryless X, so the target as sketched fails for every manifold with a nonempty JSJ family; the proved statement puts the structure on the interior and asks for finite volume, and the Sol example shows why T^2 x I has no finite-volume geometric interior. The source point is right too: the cited Morgan-Tian text proves the Poincare conjecture, and the geometrization completion is the later monograph."
+    },
+    {
+      "finding": "RT-AREA-topology/69",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Without minimality the family is not unique: a vertical torus over an essential curve in the base orbifold of a Seifert-fibred piece gives a second admissible family, so both it and the empty family satisfy the stated conditions. Jaco-Shalen-Johannson canonicity is for the minimal family, and the standard hypothesis is irreducibility, which 'prime' does not give (S^2 x S^1 is prime and not irreducible)."
+    },
+    {
+      "finding": "RT-AREA-topology/70",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The triviality argument is right: the Poincare homology sphere has Rokhlin invariant one and so is not homology cobordant to S^3, hence no knot in it is concordant to a knot in S^3 in any homology cobordism, and the target as written is satisfied by every knot in it. I read Kirby's Problem 1.31 in the source: it is Matsumoto's, about knots in homology 3-spheres that bound PL acyclic 4-manifolds modulo homology bordism of pairs, and asks whether the natural map is an isomorphism - exactly the framing the finding restores. The layer plans none of the objects that framing needs."
+    },
+    {
+      "finding": "RT-AREA-topology/71",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Smooth triangulation' occurs in only one atlas stage, AlgebraicTopology's, which consumes it; GeometricTopology places it in a far-horizon section that is not a stage, so there is no supplier and no commitment. TauCeti/Topology/Triangulable.lean:40 defines IsTriangulable through the realization of an abstract simplicial complex, which is the other half of the finding: even given a triangulation, nothing bridges that realization to Mathlib's RelCWComplex."
+    },
+    {
+      "finding": "RT-AREA-topology/72",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked Kirby's list: 1.41(A) is the Akbulut-Kirby 0-shake genus problem, exactly as the finding says. The invariant point is right: the shake-genus resolution bounds the slice genus with Rasmussen's s, and in the Conway-knot paper tau vanishes on the whole 0-trace family, so tau cannot give the argument; no atlas stage plans Khovanov homology or s. The README's references do attach the Conway-knot paper to [Kir97, 1.41], which is the misattribution."
+    },
+    {
+      "finding": "RT-AREA-topology/73",
+      "verdict": "confirmed",
+      "reason": "Confirmed, all four parts, against Kirby's list itself. Problem 3.34 is 'Smale conjecture: Diff(S^3) is homotopy equivalent to SO(4)' with the update recording Hatcher's proof, while Problem 4.34 asks 'What is pi_0(Diff(S^4))? Indeed, is Diff(S^4) ~ O(5)?' with 'no progress but see Problem 4.126'. Problem 1.16 is Property R ('does surgery on K with framing 0 always give a manifold other than S^1 x S^2'). Problem 3.2 is Waldhausen's virtual Haken question ('if M^3 is not sufficiently large, must it have a finite cover which is sufficiently large'), and 3.51 is Thurston's virtual fibering question. Problem 4.4 is the Rokhlin-invariant-one question whose remarks cite Galewski-Stern and Matumoto, which is what Manolescu answered. The README labels each of these as the finding says."
+    },
+    {
+      "finding": "RT-AREA-topology/74",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the source. Kirby's Problem 1.82 reads 'Characterize those framed links in S^3 which produce a connected sum of S^1 x S^2's', with the conjecture about handleslides from the 0-framed unlink, and its remarks say that a 0-framed knot which does not give S^1 x S^2 is said to have Property R, citing Gabai - so 1.82 is the generalized conjecture, Gabai settled the one-component case, which is 1.16, and listing 1.82 among solved problems is wrong."
+    },
+    {
+      "finding": "RT-AREA-topology/75",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the source. Kirby's Problem 4.82 is Teichner's 'does *RP^4 # *CP^2 have a smooth structure?', so it is about the connected sum, and the README's parenthetical gloss 'connected sum plus a smooth structure on a fake RP^4' misstates it; *RP^4 has nonzero Kirby-Siebenmann invariant and is not smoothable. The README attaches no resolving reference to 4.82, which I checked."
+    },
+    {
+      "finding": "RT-AREA-topology/76",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Kirby's 1.81 is Bleiler's cosmetic-surgery problem and the README lists 'chirally cosmetic surgery [Kir97, Problem 1.81]' among Layer 5's unlocks with no part and no source, although the problem has parts with different statuses. Calling it solved, without saying which part or citing anything, is the defect."
+    },
+    {
+      "finding": "RT-AREA-topology/77",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the source. Kirby's Problem 1.19 is the Akbulut-Kirby conjecture 'if 0-framed surgeries on two knots give the same 3-manifold then the knots are concordant', and the README lists it as a Layer 5 unlock; concordance is built in Layer 6, so Layer 5 cannot state it, and no resolving reference is attached."
+    },
+    {
+      "finding": "RT-AREA-topology/78",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Seifert genus' occurs in no atlas stage, and Layer 6's own input list names 'Layer 4's knots, slice-ness, and Seifert surfaces' while Layer 4 plans only the Alexander polynomial from a Seifert matrix and the Seifert framing; TauCeti/KnotTheory/Alexander.lean:312 defines alexander from a matrix, which is the built half and not a surface."
+    },
+    {
+      "finding": "RT-AREA-topology/79",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The cycle is real at layer granularity: Layer 6 imports tau from G.10, which needs the slice genus of Layer 4 and knot cobordisms of Layer 6, and the atlas carries declared roadmap edges in both directions. The normal-form theorem that would break the cycle is planned by neither side, and Layer 6's import of s is the same gap as finding 59."
+    },
+    {
+      "finding": "RT-AREA-topology/80",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the mathematics is right. With mirror read as the Layer 4 convention (reflection negating every crossing) the relation is not reflexive, since the product annulus gives K and K, and a trefoil is not concordant to its mirror (signatures -2 and 2). The standard definition runs the annulus from K x {0} to K' x {1}, the orientation reversal coming from the boundary orientation of S^3 x I."
+    },
+    {
+      "finding": "RT-AREA-topology/81",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The closed ball is never given a manifold-with-boundary structure with boundary diffeomorphic to Mathlib's sphere, and neither library has one, yet four layers use it. The corners point is right as well: handles and products of manifolds with boundary are manifolds with corners, Mathlib's product of half-space models is not its quadrant model, and no straightening-the-angle step is planned."
+    },
+    {
+      "finding": "RT-AREA-topology/82",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The isotopy extension theorem occurs in no atlas stage, and the disc theorem the layer cites gives an isotopy of disc embeddings, not the ambient isotopy that transports the connected-sum construction; TauCeti/Topology/Homotopy/Isotopy/Basic.lean:108 has AmbientIsotopic, which is the carrier but not the theorem. A named consumer elsewhere in the atlas asks for 'isotopy extension (GeometricTopology Layer 1)'."
+    },
+    {
+      "finding": "RT-AREA-topology/83",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The target's 'inside' and 'region between' are exactly Jordan-Brouwer separation and the generalized Schoenflies theorem, and neither library has them: Mathlib 082e2d3 has no Jordan curve theorem, which I checked, and TauCeti/Analysis/Complex/PlaneSeparation/Basic.lean:76 and Geometry/Manifold/LocallyFlat/Sphere.lean:69 are as cited. No atlas stage plans either theorem."
+    },
+    {
+      "finding": "RT-AREA-topology/84",
+      "verdict": "confirmed",
+      "reason": "Confirmed in all five parts. Layer 1 plans connected sum without a prime or irreducible predicate and without Kneser-Milnor, so Layer 8's deferral has no target; Seifert-fibred spaces are used as a JSJ condition and never defined; incompressible surfaces are planned in two layers with no shared definition; the Haken definition given omits irreducibility, which the standard definition and the cited paper require; and 'atoroidal' is left with two inequivalent readings."
+    },
+    {
+      "finding": "RT-AREA-topology/85",
+      "verdict": "confirmed",
+      "reason": "Confirmed, including the normalisations. Mathlib's UpperHalfPlane distance (Analysis/Complex/UpperHalfPlane/Metric.lean:42) is the curvature -1 metric, while Tau Ceti's hyperbolicDist on the disc (Conformal/Hyperbolic/Distance.lean:68) is artanh of the norm, the metric |dz|/(1-|z|^2) of curvature -4, which is exactly half the curvature -1 distance. The layer plans no model of H^n and no isometry group, so the factor is unpinned and the volume comparison a consumer needs has no fixed convention."
+    },
+    {
+      "finding": "RT-AREA-topology/86",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The target's own signature takes a proof that the manifold is hyperbolic, which for the Weeks manifold needs a construction that no layer plans, and the uniqueness half of the theorem is omitted. The locator point is right: the expository survey is not where the theorem is proved."
+    },
+    {
+      "finding": "RT-AREA-topology/87",
+      "verdict": "confirmed",
+      "reason": "Confirmed in all parts. Neither library has the classification of surfaces and no GeometricTopology layer plans it; Layer 3 plans diffeomorphism groups, not mapping class groups, and the atlas now plans both elsewhere; and the existence of a Heegaard splitting has no supplier, since the triangulation theorem sits in the stage-less far-horizon section."
+    },
+    {
+      "finding": "RT-AREA-topology/88",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mathlib 082e2d3 has singular homology and no singular cohomology, which I checked, and no atlas stage plans de Rham cohomology; the Euler class of an oriented plane bundle needs a Thom class or obstruction theory, none of which is planned, and Mathlib has no orientation of a vector bundle; Mathlib/Geometry/Manifold/VectorField/LieBracket.lean:73 exists but a bracket is not a distribution, so the Frobenius input is missing too."
+    },
+    {
+      "finding": "RT-AREA-topology/89",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Collapsibility is a property of a cell structure, not of the underlying polyhedron, and there are non-collapsible triangulations of the 3-ball, so requiring one specific staircase triangulation to collapse is a strictly stronger statement than Zeeman's conjecture and could fail while the conjecture holds. TauCeti/AlgebraicTopology/SimplicialComplex/Zeeman.lean:124 exists at the pin and is the statement the finding describes."
+    },
+    {
+      "finding": "RT-AREA-topology/90",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Every stage is marked 'unknown', no accepted audit covers the roadmap, and the per-layer verdicts are the kind of record the audit needs; I verified the library side that they rest on, including that at f790474 there is no 'sorry' in the 73 files under TauCeti/Geometry/Manifold or in the other trees the finding reads, and that Geometry/Manifold/Boundary/Charts.lean:342 resolves."
+    },
+    {
+      "finding": "RT-AREA-topology/91",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Every layer of the roadmap has empty requires and consumers in the extract, while the document states the internal order in prose, and the misplaced unlocks the finding lists follow from the earlier findings about what each layer can state."
+    },
+    {
+      "finding": "RT-AREA-topology/92",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Kirby's list. Problem 1.53 asks 'Does mutation preserve the concordance type of a knot in S^3?' and its update reads 'No [Kearton 1989 Proc. Amer. Math. Soc.]. But if the knot is oriented and the mutation is the one (of three types) which preserves orientation, then the problem is still open.' So the target as stated was first answered by Kearton, the positive-mutant case is where the later work lives, and the Conway/Kinoshita-Terasaka pair is the smooth refinement. The README credits the whole statement to the refinement."
+    },
+    {
+      "finding": "RT-AREA-topology/93",
+      "verdict": "confirmed",
+      "reason": "Confirmed from Kirby's list. Problem 3.15's update (vi) reads 'There are examples of 3-manifolds for which the rank of the fundamental group is 2 but the Heegaard genus is 3. See [Boileau & Zieschang, 1984, Invent. Math.]', so the existential target is witnessed by Seifert fibred examples from 1984 and needs no hyperbolic geometry; the later work is the hyperbolic strengthening. The README credits the disproof to it."
+    },
+    {
+      "finding": "RT-AREA-topology/94",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Every file the finding adds exists at the pin and I checked the cited lines (Bordism.lean, Instances/Icc.lean:64, Wanted/.../PoincareConjecture.lean, LeviCivita.lean, GroupTheory/Rank.lean, VectorField/LieBracket.lean:73, Immersion.lean), and Group.rank does exist with an FG hypothesis, which answers the layer's warning. Adding them to the inventory is a straightforward improvement."
+    },
+    {
+      "finding": "RT-AREA-topology/95",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The sketch asserts only the existence of some homotopy equivalence, while the layer's own design note says the sharp form is that the inclusion is one, and the model in the sketch is the wrong one; TauCeti/Geometry/Diffeomorphism/Sphere.lean:168 already supplies the inclusion the sharp statement needs. Kirby's 4.126(C) is indeed stated as 'the inclusion SO(5) -> SDiff(S^4) is a homotopy equivalence', which I read in the source, so the four-dimensional target has the same shape."
+    },
+    {
+      "finding": "RT-AREA-topology/96",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The route is over-claimed in the way the finding says: the Hamiltonian isotopy holds for the Kaehler forms that make the Heegaard tori Lagrangian, with a two-point transversality hypothesis, an area constraint and the basepoint outside the handlesliding region, and the Floer theory it lives in is monotone Lagrangian theory with minimal Maslov index two - which is precisely the setting F4.1 tells the builder to avoid ('T_alpha is only ever needed totally real ... do not chase Lagrangian-ness'). So F4.4 cannot both follow this route and keep F4.1's instruction, and 'invariance reduces to F3's continuation maps instead of a new moduli problem' is not what the cited work gives."
+    },
+    {
+      "finding": "RT-AREA-topology/97",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the theorem numbers check out in the source. In the Ozsvath-Szabo LaTeX (math/0101206v4) the associativity theorem is 8.16 (label thm:Associativity), handleslide invariance is 9.5 (thm:HandleslideInvariance) and the lemma it uses is 9.6 (lemma:Assoc), so handleslide invariance does run through varying-modulus rectangles, which F2.3's 'fixed genus-zero domains only' excludes. Neck stretching is likewise outside the planned compactness scope."
+    },
+    {
+      "finding": "RT-AREA-topology/98",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The cited theorem is stated for plumbings of a tree of disc bundles over S^2, is an isomorphism with the U-completed HF^-, and is relatively graded only when b_1 vanishes, so 'computes the holomorphic HF^- of every plumbed 3-manifold' overstates it on three counts; and the completion the statement needs is planned by no layer, which is the same gap as finding 112."
+    },
+    {
+      "finding": "RT-AREA-topology/99",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas layer plans multi-pointed Heegaard diagrams, their complexes, invariance under adding basepoint pairs or the tensor-with-V^{l-1} theorem, and both reconciliations rest on exactly that theory. F5's text names only the knot theory, so the roadmap's own owned targets have no supplier."
+    },
+    {
+      "finding": "RT-AREA-topology/100",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Nothing in the atlas connects a diagram to a 3-manifold: the combinatorial roadmap's H.1 is explicitly 'no smooth topology yet' and GeometricTopology Layer 9 plans splittings and genus without attaching circles, so Reidemeister-Singer in its pointed form, and the 1- and 2-parameter families behind naturality, have no owner. Without them the object built is an invariant of diagrams."
+    },
+    {
+      "finding": "RT-AREA-topology/101",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked the library side. Mathlib 082e2d3 has no orientation of a manifold and no degree of a map (I grepped Geometry/Manifold and the whole library), and no atlas stage defines either; the HeegaardFloer README lists them among what is missing rather than planning them, so AlgebraicTopology names an owner that plans nothing, and three consumers are left without a supplier."
+    },
+    {
+      "finding": "RT-AREA-topology/102",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the counterexample is decisive: any holomorphic u, for instance the constant 1, has vanishing dbar u and positive W^{1,p} norm, so the inequality as stated is false. Both missing hypotheses are the right ones: compact support (or a lower-order term with interior shrinking) and 1 < p < infinity, since the Beurling transform that carries dbar u to du is a Calderon-Zygmund operator, unbounded on L^1 and L^infinity."
+    },
+    {
+      "finding": "RT-AREA-topology/103",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked the pin. Mathlib 082e2d3's exterior derivative is in Analysis/Calculus/DifferentialForm/Basic.lean, whose header says 'Exterior derivative of a differential form on a normed space', so there is no d on manifolds; no atlas stage plans differential forms, d or Stokes on manifolds. Without them 'omega is closed', 'omega = d lambda' and the action-energy identity that F3's d^2 = 0 rests on cannot be stated."
+    },
+    {
+      "finding": "RT-AREA-topology/104",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the numbered references resolve in the source: Lemma 2.19 is lemma:VarySpinC and Definition 4.10 is def:NonTorsionAdmissible in math/0101206v4, exactly the two the finding names. No atlas layer plans parallelizability of 3-manifolds or the obstruction theory the construction uses, and c_1(s) enters strong admissibility, which the non-hat flavours need."
+    },
+    {
+      "finding": "RT-AREA-topology/105",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the three propositions resolve in the source: 8.2 is prop:HomologyOfX, 8.4 is prop:AssocSpinC and 8.5 is prop:SpinCForTriangles. None of the four-dimensional input they need - Spin^c structures on 4-manifolds, cobordism maps and their handle-move invariance, the absolute grading behind d - is planned by any layer."
+    },
+    {
+      "finding": "RT-AREA-topology/106",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and every numbered reference resolves in the source: Lemma 2.6 is lemma:IdentifyPiOneSym, Proposition 2.7 is prop:PiTwoSym, Lemma 2.8 is lemma:ChernClass, Proposition 2.15 is prop:WhitneyDisks with Remark 2.16 immediately after, and Lemma 3.3 is lemma:MasClass. F4.1 plans none of them, and the roadmap's own acceptance tests use genus-one diagrams, where the exception in Remark 2.16 bites. TauCeti/Geometry/Manifold/SymmetricPower.lean:258 exists at the pin, so the carrier is there and the topology is not."
+    },
+    {
+      "finding": "RT-AREA-topology/107",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Every promised computation reduces to the odd-count lemma for embedded bigons and rectangles, whose proof is conformal (Riemann mapping with boundary correspondence, or the involution in the symmetric square), and the README says the route needs no Riemann mapping theorem. TauCeti's ConformalMapping supplies exactly that input - Analysis/Complex/Conformal/RiemannMapping/Existence.lean:69 exists at the pin - and the atlas records no link."
+    },
+    {
+      "finding": "RT-AREA-topology/108",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The index formula is proved in the cylindrical setting, and the erratum the roadmap cites only under F5 repairs a gap in that proof, so F4.2 as planned depends on F5 and on the erratum without saying so. Naming the alternative proof inside the symmetric product, which also serves F4.5's triangles, is the right fix."
+    },
+    {
+      "finding": "RT-AREA-topology/109",
+      "verdict": "confirmed",
+      "reason": "Confirmed. F4.2 and the combinatorial roadmap's H.1 plan the same domains and the same combinatorial Maslov index, F4 itself says it consumes H.1's diagram combinatorics, and no restructuring proposal touches either roadmap, so nothing records which of the two owns it."
+    },
+    {
+      "finding": "RT-AREA-topology/110",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Exactness excludes bubbling but not escape to infinity: the cotangent bundles F3 names are non-compact, so compactness needs a convexity or maximum-principle hypothesis (a Liouville domain with contact-type almost complex structure at infinity, or compactly supported Hamiltonians), which F3 does not state, and the Floer-Morse comparison needs C^0 bounds."
+    },
+    {
+      "finding": "RT-AREA-topology/111",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Naturality is proved for functors to F_2[U]-modules, and over Z the published statement is projective naturality, well defined up to sign, so a Z-coefficient naturality target stated in the same form as the F_2 one would have no proof behind it. The standing convention that every F_2 theorem be stated so the ring can be generalised is what makes this worth recording."
+    },
+    {
+      "finding": "RT-AREA-topology/112",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The flavours differ in exactly the way the finding says: the surgery exact sequences are proved for the hat and plus flavours, and the minus-flavour triangle is the completed statement over F[[U]]; no layer plans the completion, which is also what the Zemke reconciliation needs."
+    },
+    {
+      "finding": "RT-AREA-topology/113",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the argument is right. In the standard genus-one diagram of L(p,q) the p intersection points lie in p distinct spin^c structures, so pi_2(x,y) is empty for distinct generators and the differential vanishes for purely topological reasons; no moduli space is counted, and any definition with the right generators and spin^c splitting passes the test. As an acceptance check for the holomorphic theory it is vacuous."
+    },
+    {
+      "finding": "RT-AREA-topology/114",
+      "verdict": "confirmed",
+      "reason": "Confirmed. All 22 stages are 'unknown', data/library-coverage.json has no HeegaardFloer layer and research/blueprint/audit/ has AUDIT-45.json with no result file. The library claim is right at the pin: Mathlib now has Analysis/Normed/Operator/Fredholm/Basic.lean and Open.lean (the structure at Basic.lean:123 resolves), while Tau Ceti re-proves the same results (Fredholm/Comp.lean:53, Fredholm/ClosedRange.lean:133), so the README's 'nothing exists' is out of date and the duplication should be recorded."
+    },
+    {
+      "finding": "RT-AREA-topology/115",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The extract's 22 stages are Lane M, M.1-M.2, F0, F1, F1.1-F1.3, F2, F2.1-F2.5, F3, F4, F4.1-F4.5 and F5, with no stage for any reconciliation or for the acceptance seam, so the three targets the document says this roadmap owns have no atlas owner and no endpoint for edges from the combinatorial roadmap."
+    },
+    {
+      "finding": "RT-AREA-topology/116",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Every stage has empty requires and consumers and the only roadmap edge is a stage-free declared edge, while the document states the lane order explicitly. The internal edges the fix lists follow from the document's own text."
+    },
+    {
+      "finding": "RT-AREA-topology/117",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and both locators check out in the source. The section order of math/0101206v4 is Introduction, first steps, analysis, definition, special moves, independence of complex structures, isotopies, holomorphic triangles, handleslide invariance, stabilization, conclusion - so F4.4's invariance material is in sections 6 to 10, not 2 to 4. And in the same source the energy bound is Lemma 3.5 (lemma:EnergyBound), while 4.12 is lemma:EnergyZero, which characterises weak admissibility by a volume form with zero-area periodic domains, 4.13 is lemma:WeakFiniteness and 4.14 is lemma:StrongFiniteness - exactly the correction the finding makes."
+    },
+    {
+      "finding": "RT-AREA-topology/118",
+      "verdict": "confirmed",
+      "reason": "Confirmed. All thirteen declaration citations resolve at f790474 and there is no 'sorry' in TauCeti/AlgebraicTopology or TauCeti/Topology, while the extract has lifecycle 'active' with every stage 'unknown'; the README still lists the three pull requests as work to port, still carries the convention warning in Stage 1, and still calls the pi_n API 'the bulk of the work', and STATUS.md says in terms that 'Every stage of the roadmap now has its stated targets proved'. The consequence the finding draws - consumers re-planning built objects - is borne out by findings 120 and 121."
+    },
+    {
+      "finding": "RT-AREA-topology/119",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mathlib 082e2d3 has deck as a subgroup of the self-homeomorphisms at Topology/Covering/Deck.lean:41 with the carrier {h | p o h = p}, while Tau Ceti keeps its own TauCeti.Deck at UniversalCover/Deck/Basic.lean:40 with a pointwise carrier, and the README still lists the port as open; both files resolve at the pins and the duplication is exactly as described. The two Mathlib declarations the fix adds to the inventory also exist (Homotopy/Lifting.lean:690 and Covering/AddCircle.lean:28), so the remark about the circle case is understated as the finding says. I could not check the Mathlib merge commit, since the local checkout is shallow; what matters, that the declaration is there at the pin, I verified directly."
+    },
+    {
+      "finding": "RT-AREA-topology/120",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The two Tau Ceti instances resolve at f790474 (Classification/GaloisCategory.lean:324 and ProfiniteFiberFunctor.lean:69), so finite covers already form a Galois category with the profinite completion identified, while STATUS.md's frontier still says the automorphism group 'is not identified' and BelyiMaps Layer 12.6 re-plans both steps in its own words, which I read in the atlas. The duplication is real and the import is the right fix."
+    },
+    {
+      "finding": "RT-AREA-topology/121",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LieGroups Layer 5's text does plan the covering space along with the lifted group law and the transported structure, and Layer 4 says the covering-space construction 'is the topological half of Layer 5'; the link map records the overlap with recommendation 'rescope'; and the generic construction is built at f790474, including SemilocallySimplyConnected/Basic.lean:125, which supplies the hypothesis class from local contractibility. No restructuring proposal covers LieGroups, so the overlap stands."
+    },
+    {
+      "finding": "RT-AREA-topology/122",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The extract has empty requires and consumers for all five stages and no stage edges, the README states the internal order in prose, and the link map records eleven links that the atlas does not carry. The van Kampen point is right as well: BelyiMaps Layer 5 names this roadmap as the supplier of Seifert-van Kampen, which no stage here plans."
+    },
+    {
+      "finding": "RT-AREA-topology/123",
+      "verdict": "confirmed",
+      "reason": "Confirmed. At Mathlib 082e2d3 the class is LocallyPathConnectedSpace and LocPathConnectedSpace is a deprecated alias (Topology/Connected/LocallyPathConnected.lean:61 and the alias just below it), while both stages state their hypotheses with the deprecated name; Tau Ceti's own declarations use the current one. Low severity is right, and the rename is mechanical."
+    }
+  ]
+}
