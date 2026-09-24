@@ -27074,7 +27074,8 @@
     "REV-AUDIT-06"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1561"
   },
   {
    "id": "RT-AUDIT-07",
@@ -27511,7 +27512,8 @@
     "REV-AUDIT-14"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-14.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1577"
   },
   {
    "id": "RT-AUDIT-15",
@@ -27763,7 +27765,8 @@
     "REV-AUDIT-19"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1588"
   },
   {
    "id": "REV-RT-AUDIT-19",
@@ -27849,7 +27852,8 @@
     "REV-AUDIT-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1589"
   },
   {
    "id": "RT-AUDIT-21",
@@ -28531,8 +28535,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-computational.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1473"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1473",
+   "finishedAt": "2026-09-24T03:08:57Z"
   },
   {
    "id": "REV-RT-AREA-computational",
@@ -28574,7 +28579,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-finitefields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1475"
   },
   {
    "id": "REV-RT-AREA-finitefields",
