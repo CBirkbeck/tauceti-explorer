@@ -27111,8 +27111,9 @@
     "REV-AUDIT-07"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1564"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1564",
+   "finishedAt": "2026-09-24T06:33:34Z"
   },
   {
    "id": "REV-RT-AUDIT-07",
@@ -29184,7 +29185,8 @@
     "RT-AREA-automorphic-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-automorphic-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1492"
   },
   {
    "id": "RT-AREA-iwasawa-1",
@@ -29988,7 +29990,8 @@
     "RT-AREA-ktheory-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-ktheory-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1522"
   },
   {
    "id": "RT-AREA-geomlanglands",
