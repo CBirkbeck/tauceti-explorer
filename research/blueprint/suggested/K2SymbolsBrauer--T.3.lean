@@ -163,4 +163,45 @@ theorem moore_theorem : True := by sorry
 /-- T.7/comparison-and-reciprocity: the change-of-root rule is this layer's own. -/
 theorem change_of_root : True := by sorry
 
+/-- T.5/k2-of-a-finite-field: `K₂(F_q) = 1`, by Matsumoto's presentation and the
+counting argument on non-squares. -/
+theorem k2_finiteField_trivial (q : ℕ) : True := by sorry
+
+/-- T.5/k2-of-the-integers-and-of-the-rationals: the sign symbol on `ℝ`, the
+non-triviality of `{-1,-1}`, Milnor's order-two computation (imported), and the split
+sequence for `ℚ`. -/
+def signSymbol (r s : ℝˣ) : ZMod 2 := by sorry
+
+theorem signSymbol_steinberg (r : ℝˣ) : True := by sorry
+
+theorem k2_integers_order_two : True := by sorry
+
+theorem k2_rationals_split : True := by sorry
+
+/-- T.5/certified-presentation: generators, relations, generation, completeness. An
+upper bound with a surjection is NOT an isomorphism. -/
+structure CertifiedPresentation where
+  dummy : Unit
+
+theorem certifiedPresentation_not_iso_of_surjective : True := by sorry
+
+/-- T.7/twisted-roots-of-unity: `μ_m^{⊗n}` as a Galois module, the trivialisation
+attached to a CHOICE of primitive root, and the change-of-root rule. Neither pinned
+library has the twisted module. -/
+def rootsOfUnityModule (m : ℕ) : Type := by sorry
+
+def twist (m : ℕ) (n : ℤ) : Type := by sorry
+
+theorem twist_zero (m : ℕ) : True := by sorry
+
+theorem trivialisation_change_of_root (m : ℕ) (n : ℤ) : True := by sorry
+
+theorem cup_mem_twist_two : True := by sorry
+
+/-- T.7/etale-chern-class-and-what-is-imported: stated with its owners, used nowhere
+as an unconditional input. -/
+theorem etale_chern_class_agreement : True := by sorry
+
+theorem tate_comparison_local_global : True := by sorry
+
 end TauCeti.TameSymbol

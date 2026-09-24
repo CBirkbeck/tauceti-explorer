@@ -1,8 +1,59 @@
 # Handoff — BP-K2SymbolsBrauer--T.3
 
 **Job** `BP-K2SymbolsBrauer--T.3` (issue #762) · Claude Code, session `cc-7b31c4` · 24 September 2026 ·
-packet status **partial**: T.3 (both sub-stages), T.4 and T.6 `source_decomposed`; T.5 and T.7
-`partial`, by design.
+packet status **partial**; **all seven stages in scope are now `source_decomposed`**. The first pass left T.5
+and T.7 partial; the continuation below closes both. The sections after it are the first pass's note, kept as
+written.
+
+## Continuation: T.5 and T.7 decomposed
+
+The first pass read Weibel's K-book III.5.10–III.5.11.1, III.6.2.2–III.6.4.2 and III.7.3–III.7.3.1, and left
+five items in the two `remaining` lists, all of them statements other roadmaps own. This pass reads the same
+chapter further — III.5.2.2, III.6.1.1, III.6.2.1 and III.6.5.1 — and separates what this layer can own from
+what it can only import. 22 nodes → **27**; 46 API items, 32 unit tests, 11 planets, 5 gaps, 15 requests.
+`check_blueprint.py`: **0 errors, 0 warnings**. The Lean file is now 208 lines with 54 `sorry`s and was **not
+compiled**.
+
+**T.5**, three new nodes:
+
+- `k2-of-a-finite-field` — Corollary 6.1.1 with the source's **complete** proof, which is elementary and was
+  simply not read the first time: reduce to `{x,x}` by Matsumoto; dispose of even `q`; for odd `q` use
+  skew-symmetry to replace `x` by any odd power, identify odd powers with non-squares, and count — the
+  involution `u ↦ 1−u` acts on a set with `(q−1)/2` non-squares and `(q−3)/2` squares, so some non-square `u`
+  has `1−u` a non-square.
+- `k2-of-the-integers-and-of-the-rationals` ★ — the part of this computation that **is** this layer's own is
+  the sign symbol on `ℝ`: it is a Steinberg symbol because a number and one minus it are never both negative,
+  it sends `{−1,−1}` to `−1`, and it therefore both proves the generator non-trivial and splits the sequence
+  for `ℚ`, giving `K₂(ℚ) ≅ K₂(ℤ) ⊕ ⨁_p 𝔽_p^×` (Application 6.5.1). The order-two statement for `K₂(ℤ)` is
+  Milnor's Euclidean-algorithm computation, which the source cites rather than proves, and which this packet
+  cites the same way.
+- `certified-presentation` — the **format** the layer's text asks for, with the rule it insists on: generators,
+  relations, a generation proof and a completeness proof; the first three give an upper bound, only the fourth
+  turns it into an isomorphism, and an upper bound with a surjection may not be reported as an isomorphism. The
+  two sources of lower bounds available here are named: the sign symbol at a real place and the tame symbols at
+  the finite places. The instances belong to `ArithmeticKTheory:N.6`.
+
+**T.7**, two new nodes:
+
+- `twisted-roots-of-unity` ★ — the target every statement of the layer needs and that **neither pinned library
+  has**: `μ_m^{⊗n}` as a Galois module, with the cup product of two Kummer classes landing in the second
+  cohomology of the twice-twisted module, the trivialisation attached to a **choice** of primitive root, and
+  the change-of-root rule proved on it. Tau Ceti has `kummerMap` and an explicit cup product in low degrees and
+  Mathlib has the roots of unity as a group; the Galois module structure on the tensor powers is in neither.
+  This is what makes the Hilbert comparison a well-posed statement rather than a statement with a silent
+  choice.
+- `etale-chern-class-and-what-is-imported` — the remaining four comparisons stated precisely, each with its
+  owner and its hypotheses: the agreement of the symbol formula with the étale Chern class and Tate's local,
+  global and S-integer comparisons (`MotivicEtaleKTheory:M.3`), the identification of the local symbol with the
+  Kummer cup product followed by the local invariant (ClassFieldTheory Layer 5) and the Hilbert product formula
+  (Layer 14). The shortcut the roadmap forbids is named: the ring statement comes from the étale localisation
+  sequence, never from the blanket assertion that the étale cohomology of a scheme is the Galois cohomology of
+  its function field. A new gap records that no source read here proves any of the four and names Tate's 1976
+  paper as the next source to obtain.
+
+---
+
+The first pass's note follows, kept as written.
 
 ## What is closed
 
