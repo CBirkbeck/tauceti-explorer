@@ -16713,9 +16713,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondsAndVStacks.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #712"
+   "note": "released on GitHub issue #712"
   },
   {
    "id": "REV-DiamondsAndVStacks",
@@ -22386,7 +22386,7 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/BP-GlobalShtukasAndFunctionFieldLanglands.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeligneWeightsAndPurity--DWP.0",
     "BP-DeligneWeightsAndPurity--DWP.7",
@@ -22394,7 +22394,8 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4",
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1010"
   },
   {
    "id": "REV-GlobalShtukasAndFunctionFieldLanglands",
