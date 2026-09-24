@@ -15029,8 +15029,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.1.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #677"
   },
   {
    "id": "REV-ArithmeticKTheory--N.1",
