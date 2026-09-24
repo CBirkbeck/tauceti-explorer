@@ -121813,6 +121813,1287 @@
    "reviewReason": "The page image (p. 491) reads 'Inst. Hautes Études Sci. Publ. Math. 7 (1960), 567.' Serre's 'Groupes proalgébriques' occupies pp. 5–67. arXiv v2 and v3 both print 'p. 5-67', and the Numdam id printed in the same entry (PMIHES_1960__7__5_0) gives start page 5. The dash was lost in production. The [Gro66] '255' and [Gro67] '361' entries follow the MR total-pages style and are harmless."
   },
   {
+   "id": "DiophantineApproximationAndTranscendence/E1",
+   "kind": "misprint",
+   "locator": "Chapter 1, Corollary 1.2, display (1.1), printed p. 2 (dio19-1.pdf, 2019 edition as served in September 2026)",
+   "printed": "y ⩾ 0",
+   "correction": "y > 0.",
+   "reason": "For y = 0 the quotient x/y is undefined; the proof takes the pairs of Theorem 1.1, which have 0 < y ⩽ Q.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (no errata listed; only the 2019 chapter files are served)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E2",
+   "kind": "misprint",
+   "locator": "Chapter 3, proof of Lemma 3.19, printed p. 52",
+   "printed": "i = 1, . . . , n",
+   "correction": "i = 1, . . . , d (d = [K : Q]).",
+   "reason": "n is not defined in Section 3.4; the embeddings are σ_1, …, σ_d and the proof treats i ≤ r₁ and i > r₁ up to d.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E3",
+   "kind": "misprint",
+   "locator": "Chapter 3, remark after Theorem 3.20, printed p. 53",
+   "printed": "σ1, . . . , σD",
+   "correction": "σ1, . . . , σd.",
+   "reason": "The degree of K is d throughout the section; D is undefined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E4",
+   "kind": "error",
+   "locator": "Chapter 2, proof of Theorem 2.22 (Kronecker), printed p. 35",
+   "printed": "b := (θ1, . . . , θn, 2Mε)T",
+   "correction": "b := (−θ1, . . . , −θn, 2ε)T.",
+   "reason": "With u = (x_1 − α_1y, …, x_n − α_ny, M^{-1}y), the stated b gives |x_i − α_iy − θ_i| ⩽ ε, i.e. (2.7) for −θ rather than θ, and |M^{-1}y − 2Mε| ⩽ ε, whereas the next display writes M^{-2}(y − 2Mε)², which corresponds to the last coordinate 2ε. With b = (−θ, 2ε) one gets ∑(x_i − α_iy + θ_i)² + M^{-2}(y − 2Mε)² ⩽ ε², which yields (2.7) and |y − 2Mε| ⩽ Mε as claimed. Checked on the rendered page (printed pp. 35-36).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E5",
+   "kind": "misprint",
+   "locator": "Chapter 4, proof of Lemma 4.22, printed p. 78",
+   "printed": "Theorem 3.22",
+   "correction": "Theorem 3.20 (Siegel's Lemma over a number field, recalled on p. 77).",
+   "reason": "Chapter 3 has no Theorem 3.22; Lemma 3.22 is the criterion for integrality over a ring. The bound used, (3D₁D₂ e^{c₂(…)})^{dL²/(D₁D₂ − dL²)}, is exactly (3.3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E6",
+   "kind": "misprint",
+   "locator": "Chapter 5, proof of Corollary 5.11, printed p. 93",
+   "printed": "exercise 3.6 (ii)",
+   "correction": "Exercise 3.6(iii) (which rests on 3.6(ii)).",
+   "reason": "Exercise 3.6(ii) is the bound H(α) ⩽ (2⌈α⌉)^d; the finiteness of algebraic integers of bounded degree and house is Exercise 3.6(iii) (DT.0/finite-algebraic-integers-house-le).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E7",
+   "kind": "misprint",
+   "locator": "Section 2, Lemma 2.5 and its proof, p. 4",
+   "printed": "Lemma 2.5. h(x) is independent of the choice of coordinates.",
+   "correction": "Lemma 2.5: h(x) is independent of the choice of the number field K containing the coordinates; in the proof the left-hand sum runs over w ∈ M_L, not w ∈ M_K.",
+   "reason": "The proof passes to a larger field L and regroups places of L over places of K; independence of coordinates is Lemma 2.6, stated with the same words.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the notes' web page https://www.math.columbia.edu/~xiaorunw/diop/ (single version)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Xiaorun Wu, Diophantine geometry, week 08 notes: arithmetic heights, Columbia University seminar notes, 15 pp., downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E101",
+   "kind": "misprint",
+   "locator": "Chapter 6, proof of Lemma 6.12, printed p. 120 (PDF p. 14)",
+   "printed": "So, using F = P_r(Q′_r − αP′_r) − P′_r(Q_r − αP_r) we see that F is divisible by (X − α)^{r−1}.",
+   "correction": "F = Q′_r(P_r − αQ_r) − Q_r(P′_r − αQ′_r).",
+   "reason": "The printed identity is algebraically true but its factors Q′_r − αP′_r and Q_r − αP_r are not divisible by powers of X − α; the stated conclusion needs the factors P_r − αQ_r (divisible by (X − α)^r) and P′_r − αQ′_r (divisible by (X − α)^{r−1}), i.e. the roles of P_r and Q_r are swapped.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E102",
+   "kind": "misprint",
+   "locator": "Chapter 6, text after Lemma 6.12 and proof of Theorem 6.9, printed pp. 121-122",
+   "printed": "This is clearly an integer, and by Lemma 6.12 there is k < d(2εr + 1) such that A_{r,k} ≠ 0.",
+   "correction": "k ≤ d(2εr + 1), here and in 'Let k be an integer with 0 ⩽ k < d(2εr + 1)' and 'there is k < d(2εr+1) such that A_{r,k} is a non-zero integer'.",
+   "reason": "Lemma 6.12 proves only k ≤ d(2εr + 1) (from t ≤ d(2εr + 1) − 1 one gets k = t + 1 ≤ d(2εr + 1)), and equality is possible when d(2εr + 1) is an integer. The subsequent bound u ≤ r((1/2 + ε)d + 1 − κ + 2κεd) + 1 + κd holds with ≤, so the proof is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E103",
+   "kind": "gap",
+   "locator": "Chapter 6, (6.20) and the proof of Theorem 6.9, printed pp. 121-123",
+   "printed": "We note that the polynomial P_r^{((k))} − αQ_r^{((k))} is divisible by (X − α)^{r−k}",
+   "correction": "Add: under (6.21) one has d(2εr + 1) ≤ r, so every k in the range satisfies k ≤ r.",
+   "reason": "Both the divisibility by (X − α)^{r−k} and the estimate |ξ_1 − α|^{r−k} ⩽ H(ξ_1)^{−κ(r−k)} need r − k ≥ 0, which the source does not check. With ε = (κ − 1 − d/2)/((2κ + 2)d) one has 1 − 2εd = (2 + d/2)/(κ + 1), and r ≥ 2(1 + κd)/(dε) gives r(1 − 2εd) ≥ 4(1 + κd)(2 + d/2)/(κ − 1 − d/2) > d, i.e. d(2εr + 1) ≤ r.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E104",
+   "kind": "gap",
+   "locator": "Chapter 6, Theorem 6.14, printed p. 124",
+   "printed": "Theorem 6.14. Let α be an algebraic number of degree d and κ > 1/2 d + 1.",
+   "correction": "Assume d ≥ 2 (or treat d = 1 separately: for rational α the solutions have bounded height, so the statement holds vacuously for large C).",
+   "reason": "The theorem is derived from the proof of Theorem 6.9, whose Lemma 6.12 uses α ∉ ℚ (the step Q_r = (c − α)^{−1}(P_r − αQ_r) needs c ≠ α for rational c). For rational α one may have P_r = αQ_r and F ≡ 0, so the proof does not cover d = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E105",
+   "kind": "misprint",
+   "locator": "Chapter 6, proof of Corollary 6.4, printed p. 112",
+   "printed": "Put F∗(X, Y) = Y^d f(X/Y) and G(X, Y) := Y^{deg F−d} g(X/Y).",
+   "correction": "F∗(X, Y) = Y^d f∗(X/Y).",
+   "reason": "No polynomial f is defined in the proof; the square-free divisor is built from f∗ = g_1 · · · g_t.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E106",
+   "kind": "gap",
+   "locator": "Chapter 6, proof of Theorem 6.3, printed pp. 111-112",
+   "printed": "Theorem 6.2 says that if α_i is real algebraic then there is a constant c(α_i, κ) > 0 such that |ξ − α_i| ⩾ c(α_i, κ)H(ξ)^{−κ}",
+   "correction": "Use Theorem 6.2 for real α_i of degree ≥ 3 and Theorem 6.1 (Liouville) for α_i of degree 1 or 2, as in the remark after Theorem 6.2.",
+   "reason": "Theorem 6.2 is stated for degree ≥ 3 only, but the roots α_i of F(X, 1) may be rational or quadratic, and the reduction to F_1 = F/Y produces forms of degree d − 1 ≥ 2. The remark after Theorem 6.2 supplies the missing cases.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E107",
+   "kind": "misprint",
+   "locator": "Lemma 3.2.7, printed p. 82 (PDF p. 88)",
+   "printed": "|f| ⩽ Π_{i=1}^{n} (rn choose ⌊rn/2⌋) · M(f).",
+   "correction": "|f| ⩽ Π_{i=1}^{n} (r_i choose ⌊r_i/2⌋) · M(f).",
+   "reason": "The product index is i; the end of the proof (printed p. 83) concludes with Π_i (r_i choose ⌊r_i/2⌋).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E108",
+   "kind": "misprint",
+   "locator": "Lemma 3.2.8, proof, printed p. 83",
+   "printed": "But the left hand side tells us that every coefficient of this polynomial is less or equal to (r1+r2 choose ⌊(r1+r2)/2⌋).",
+   "correction": "right hand side",
+   "reason": "The bound on all coefficients comes from (1 + x)^{r1+r2}, the right-hand side of the displayed identity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E109",
+   "kind": "gap",
+   "locator": "Proposition 3.3.3, proof, printed p. 86",
+   "printed": "This means that the f1, . . . , fm+1 are solutions of one homogeneous partial differential equation (PDE) of order m. But the dimension of the F-vector space of solutions of such a PDE has dimension m.",
+   "correction": "Use the algebraic argument: dependence of the columns over F(X) with normalised coefficients c_l, differentiate, conclude c_l′ = 0 from the nonvanishing minor, and c_l ∈ F in characteristic 0 (node wronskian-criterion-one-variable).",
+   "reason": "The equation is an ordinary differential equation with polynomial coefficients, and the bound on the dimension of its solution space over F (rather than over ℂ on an interval where V_m ≠ 0) is asserted without proof; the notes state that the proofs of Section 3.3 are only sketched.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E110",
+   "kind": "misprint",
+   "locator": "Lemma 3.3.9, statement, printed p. 88",
+   "printed": "Here, for every i ∈ {0, . . . , s} we have d(i) = (d1(i), . . . , dn−1(i)) ∈ N_0^{n−1}, with Σ_{j=1}^{n−1} dj(i) ⩽ i − 1, and (d(i), j) = (d1(i), . . . , ds(i), j) ∈ N_0^n for all j ∈ {0, . . . , n}.",
+   "correction": "Σ_j d_j(i) ⩽ i; (d(i), j) = (d_1(i), . . . , d_{n−1}(i), j); j ∈ {0, . . . , s}.",
+   "reason": "With rows indexed from 0 the admissibility condition of Definition 3.3.5 reads ord ⩽ i; the vector d(i) has n − 1 entries; the matrix is (s + 1) × (s + 1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E111",
+   "kind": "error",
+   "locator": "Section 3.4.6, archimedean estimate and first line of (3.21), printed pp. 92-93",
+   "printed": "⩽ (s + 1)!2^{r1+...+rn} max_{π∈S_{s+1}} Π_{i=0}^{s} |∂(d(i),π(i))P|_v",
+   "correction": "The factor from Remark 3.2.11 is 2^{(s+1)(r1+...+rn)}, since the product Π_i ∂P has partial degrees up to (s + 1)r_j; the first line of (3.21) becomes h(W) ⩽ (s + 1)h(P) + 2(s + 1)(r1 + ... + rn) log 2 + log((s + 1)!).",
+   "reason": "Remark 3.2.11 bounds |f| by 2^{Σ_j deg_{x_j}(f)} Π|f_i| for the product f; here deg_{x_j} f ⩽ (s + 1)r_j. With the corrected factor, dividing by s + 1 gives exactly the last line of (3.21), so (3.19) and Roth's lemma are unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E112",
+   "kind": "gap",
+   "locator": "Section 3.4.7, application of Lemma 3.4.8 in (3.25), printed p. 94",
+   "printed": "= Σ_{i=0}^{s} (max{Ind_{r,β}(P) − i/rn, 0}) − (s + 1)σ ⩾ (s + 1) min{1/2 Ind_{r,β}(P), 1/2 Ind_{r,β}(P)^2} − (s + 1)σ.",
+   "correction": "Insert max{δ − i/r_n, 0} ⩾ max{δ − i/s, 0} (s ⩽ r_n) before applying Lemma 3.4.8 with k = s, and treat s = 0 directly.",
+   "reason": "Lemma 3.4.8 is stated with the denominator k equal to the upper summation index, while (3.25) has denominator r_n ⩾ s; the monotonicity step is omitted.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E113",
+   "kind": "misprint",
+   "locator": "Lemma 3.5.7, last display of the proof, printed p. 99",
+   "printed": "hP(Q) ⩽ log(2^{2D/L}) + hP(P) ⩽ 2D/L log(2) + C1 2D/L ⩽ 4C1 2D/L,",
+   "correction": "⩽ 2C_1 · 2D/L = 4C_1 D/L.",
+   "reason": "Since C_1 ⩾ log 2, (2D/L) log 2 + C_1(2D/L) ⩽ 2C_1(2D/L); the statement (iv) h_P(Q) ⩽ 4C_1 D/L is correct and is what the rest of the proof uses (C_2 contains 4C_1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E114",
+   "kind": "misprint",
+   "locator": "Section 3.5.3, Taylor expansion (3.35), printed p. 100",
+   "printed": "Q(β) = Σ_{d∈N_0^n} ∂dQ(α)(α − β1)^{d1} · · · (α − βn)^{dn}.",
+   "correction": "(β_1 − α)^{d_1} · · · (β_n − α)^{d_n}.",
+   "reason": "The Taylor expansion of Q at α evaluated at β has increments β_j − α. Only absolute values are used afterwards, so nothing depends on the sign.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E115",
+   "kind": "misprint",
+   "locator": "Section 3.5.3, (3.40), printed p. 102",
+   "printed": "≤ d · ((n + C2/L)D + n max_{1⩽j⩽n}{2 log(rj + 1)/rj}) + ...",
+   "correction": "n max_{1⩽j⩽n} 2 log(r_j + 1).",
+   "reason": "The term comes from Σ_j r_j · 2 log(r_j + 1)/r_j = 2 Σ_j log(r_j + 1) ⩽ 2n max_j log(r_j + 1); (3.41) then uses 2 log(r_j + 1) ⩽ 2 log D (valid as r_j + 1 ⩽ D), which is correct for the corrected term.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E116",
+   "kind": "gap",
+   "locator": "Section 3.5.4, printed pp. 103-104",
+   "printed": "Lastly, we let D and L tend to infinity, so that the left hand side of (3.42) is greater than 1 and the right hand side is equal to 1.",
+   "correction": "Fix L before choosing β_1, . . . , β_n, large enough that 1 + C_2/(nL) < κ(1/2 − 3ε)(1 − |S|/N); then choose the β_j and let only D tend to infinity.",
+   "reason": "The β_j are chosen after L (condition (B) h(β_1) ⩾ L), so L cannot be sent to infinity with the β_j fixed; the argument is correct once the order of choices is made explicit.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E117",
+   "kind": "misprint",
+   "locator": "Theorem 2.6.5, proof, equations (2.36), printed p. 71",
+   "printed": "for all d = (d1, . . . , dn) ∈ N^n such that Σ di/ri < n/2 (1−ε). By Lemma 2.6.4 there are at most |B(r1, . . . , rn)| exp(−ε^2 n/4) of such tuples.",
+   "correction": "for all d ∈ B(r_1, . . . , r_n) with Σ d_i/r_i < n/2 (1 − ε) (the equations for d outside the box are trivial since ∂_d P = 0).",
+   "reason": "Lemma 2.6.4 counts only tuples in the box; tuples with some d_i > r_i can also satisfy the inequality when n is large, but give the zero equation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/: only the version of January 17, 2022, no errata list."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Lukas Pottmeyer, Diophantine Approximation (lecture notes), Version of January 17, 2022 (the only version on the author's lecture-notes page https://esaga.uni-due.de/lukas.pottmeyer/skripte/), 131 printed pages; printed page = PDF page - 6; downloaded and read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E118",
+   "kind": "gap",
+   "locator": "Chapter 6, Lemma 6.10, end of the proof, printed p. 119",
+   "printed": "Then using 3(2 + 2ε)dr ⩽ 3^{(2+2ε)dr}, we see that Lemma 6.10 holds with C1 = (6b · max(1, house α))^{d(1+ε^{−1})}.",
+   "correction": "The displayed chain bounds max(max_i |p_i|, max_i |q_i|) by C1^r; the lemma asserts ∥P_r∥, ∥Q_r∥ ⩽ C1^r for the ℓ¹-norm, which needs the extra factor m + 1. Take C1 = (12b · max(1, house α))^{d(1+ε^{−1})} (m + 1 ⩽ 2^{dr}).",
+   "reason": "∥P_r∥ = Σ|p_i| ⩽ (m + 1) max|p_i|, and the proof never bounds the sum. The stated constant is in fact still valid, because the estimate of A is generous (one checks (m + 1)^{2ε} · 3(2m + 2) · 2^m (bH)^{m+1} ⩽ (6bH)^{2(1+ε)dr} with H = max(1, house α)), but the proof does not show it; doubling the base of C1 makes the step immediate and changes nothing downstream (C2 is defined from C1).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023 edition): lists the chapter PDFs, no errata list.",
+    "The chapter PDFs as served (the 2019 notes regenerated 2023-2025); no other version found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E201",
+   "kind": "misprint",
+   "locator": "Chapter 7, Remark after Theorem 7.7, printed p. 143",
+   "printed": "0 < |x −αy| ⩽ C · |y| · max(|x|, |y|)−κ ⩽ C max(|x|, |y|)1−δ",
+   "correction": "The last exponent should be −1−δ: 0 < |x − αy| ≤ C max(|x|, |y|)^{−1−δ}.",
+   "reason": "With κ = 2 + δ, |y| · max(|x|, |y|)^{−κ} ≤ max(|x|, |y|)^{1−κ} = max(|x|, |y|)^{−1−δ}, which is the exponent 1 − n − δ (n = 2) required by Theorem 7.7; the printed exponent 1 − δ is positive for δ < 1 and would not allow Theorem 7.7 to be applied.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E202",
+   "kind": "misprint",
+   "locator": "Chapter 7, proof of Theorem 7.7, printed p. 143",
+   "printed": "Consider the solutions of (7.6) in Ti. … So Ti contains only finitely many solutions x of (7.6).",
+   "correction": "Both references should be to (7.10), the inequality of Theorem 7.7.",
+   "reason": "(7.6) is the inequality of Theorem 7.4 (r forms in general position); the proof of Theorem 7.7 concerns (7.10).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E203",
+   "kind": "error",
+   "locator": "Chapter 7, proof of Theorem 7.8, printed p. 144",
+   "printed": "Using |ξ + t(α −ξ)| ⩽ |α| + |ξ| ⩽ |α| + C for 0 ⩽ t ⩽ 1, we obtain",
+   "correction": "Use |ξ + t(α − ξ)| = |α + (1 − t)(ξ − α)| ≤ |α| + |ξ − α| ≤ |α| + C, since |ξ − α| ≤ C·H(ξ)^{−κ} ≤ C.",
+   "reason": "The printed second inequality |α| + |ξ| ≤ |α| + C needs |ξ| ≤ C, which is false in general: for α = 100, C = 1 and ξ ∈ ℚ close to 100, |ξ| ≈ 100 > C. The corrected bound gives the same constant, so the theorem is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E204",
+   "kind": "misprint",
+   "locator": "Chapter 7, proof of Theorem 7.8, printed p. 144",
+   "printed": "By Theorem 7.8 with n = d + 1, this has at most finitely many solutions x ∈ Zd+1.",
+   "correction": "Read 'By Theorem 7.7 with n = d + 1'.",
+   "reason": "The proof being given is that of Theorem 7.8; the inequality 0 < |Σ x_iα^i| ≤ C'C‖x‖^{−d−δ} is (7.10) with n = d + 1.",
+   "affects": "nothing",
+   "known": "Recorded in the reviewed decomposition data/decompositions/DiophantineApproximationAndTranscendence.json (review of node DT.2/subspace-theorem-and-its-exceptional-subspaces); no published erratum",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E205",
+   "kind": "misprint",
+   "locator": "Chapter 7, Example after Theorem 7.13, printed p. 150",
+   "printed": "Hence every n ∈ Z yields a solution ξ := 6√2(1 − 3√2)n ∈ M of NK/Q(ξ) = NK/Q(6√2) = 2.",
+   "correction": "N_{K/ℚ}(⁶√2) = −2, so the solutions satisfy N_{K/ℚ}(ξ) = −2.",
+   "reason": "The conjugates of ⁶√2 are ζ^k·⁶√2 (ζ = e^{πi/3}, k = 0, …, 5), whose product is 2·ζ^{15} = −2; equivalently N(θ) = (−1)^6·(−2) for the minimal polynomial X^6 − 2. The conclusion (infinitely many solutions for some c ∈ ℚ^*) is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E206",
+   "kind": "gap",
+   "locator": "Chapter 7, proof of Lemma 7.6, printed p. 142",
+   "printed": "For instance from Minkowski’s convex body theorem (see Chapter 2), one deduces that there are infinitely many x = (x1, . . . , xn) ∈ Zn such that at least one of x1, . . . , xn−1 is non-zero, and (7.9)",
+   "correction": "Apply Minkowski's linear forms theorem (Corollary 2.6) for each Q > 1 to X_1, …, X_{n−1}, X_n − β·X' with A_i = Q, A_n = Q^{1−n}; x' ≠ 0 because |x_n| < 1 otherwise; infinitely many distinct x arise because α·x ≠ 0 for x ≠ 0 (linear independence over ℚ) while |x_n − β·x'| ≤ Q^{1−n} → 0.",
+   "reason": "The deduction is not given in Chapter 2 either: Corollary 2.7(ii), which is the needed statement, is followed by 'We prove only (i).' The linear independence hypothesis of Lemma 7.6 is used exactly in the infinitude step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E207",
+   "kind": "misprint",
+   "locator": "Chapter 8, proof of Lemma 8.9, printed p. 164",
+   "printed": "Proof. The same as that of Lemma 7.4 (verify this).",
+   "correction": "Read 'Lemma 7.5'.",
+   "reason": "Lemma 7.4 does not exist (7.4 is a theorem); the proof meant is that of Lemma 7.5, which bounds ‖x‖ by n independent linear forms.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E208",
+   "kind": "misprint",
+   "locator": "Chapter 8, Lemma 8.15, printed p. 170",
+   "printed": "such that the set of solutions (x0, . . . , xn) of (8.14) (non-degenerate or not) lies in T1 ∪ · · · ∪ Tt.",
+   "correction": "Read '(8.15)'.",
+   "reason": "(8.14) is the inhomogeneous equation in x_1, …, x_n; the lemma and its proof concern the homogeneous equation (8.15) in x_0, …, x_n and the subspace H it defines.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E209",
+   "kind": "error",
+   "locator": "Chapter 8, proof of Lemma 8.15, printed p. 170",
+   "printed": "Let p1, . . . , ps be the prime numbers occurring in the numerators and denominators of α1, . . . , αn, g1, . . . , gr.",
+   "correction": "Also include the primes occurring in α_0.",
+   "reason": "The proof needs y_1 + ⋯ + y_n = −wα_0x_0 to be composed of p_1, …, p_s. Example: α_0 = −3, α_1 = α_2 = 1, Γ = ⟨2⟩ (so the primes listed are {2}) and the solution (x_0, x_1, x_2) = (1, 1, 2); then y = (1, 2) and y_1 + y_2 = 3, and the left side of (8.16) is 1·2·3·|6|_2 = 3 ≠ 1. With 3 added to the prime set the argument works unchanged.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E210",
+   "kind": "misprint",
+   "locator": "Chapter 8, Lemma 8.16 (printed p. 170) and proof of Theorem 8.14 (printed p. 171)",
+   "printed": "for every solution (x1, . . . , xn) of (8.15) (non-degenerate or not) there are distinct i, j ∈ {0, . . . , n}",
+   "correction": "Read '(x0, . . . , xn)' here and in 'the non-degenerate solutions (x1, . . . , xn) of (8.15)' in the proof of Theorem 8.14.",
+   "reason": "Solutions of (8.15) have n + 1 coordinates indexed from 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E211",
+   "kind": "misprint",
+   "locator": "Chapter 8, proof of Theorem 8.14, printed p. 171",
+   "printed": "Each non-empty subsum of the left-hand side is non-zero, since (x0, . . . , xn) is non-degenerate.",
+   "correction": "Read 'Each proper non-empty subsum'.",
+   "reason": "The full left-hand side equals 0; non-degeneracy for (8.15) concerns proper non-empty subsums, which is what the induction hypothesis needs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E212",
+   "kind": "error",
+   "locator": "Chapter 8, Theorem 8.18, first formulation, printed p. 174",
+   "printed": "Theorem 8.18. (Skolem-Mahler-Lech, 1953) Let U be a non-degenerate linear recurrence sequence. Then its zero set is finite.",
+   "correction": "Add the hypothesis that U is not the zero sequence (as the 'stated equivalently' form does with 'not all equal to 0').",
+   "reason": "The zero sequence is a linear recurrence sequence whose minimal recurrence has order 0 and companion polynomial 1; it is vacuously non-degenerate and its zero set is all of ℤ_{≥0}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E213",
+   "kind": "misprint",
+   "locator": "Chapter 8, proof of Theorem 8.18, printed p. 175",
+   "printed": "Σ i∈I aiβh i ≠ 0 for each non-empty subset I of {1, . . . , m}.",
+   "correction": "Read '{1, . . . , m − 1}'.",
+   "reason": "Equation (8.21) has the m − 1 terms a_1β_1^h, …, a_{m−1}β_{m−1}^h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (Fall 2023, links the 2019 chapter files; no errata listed)",
+    "Evertse's publication and lecture-notes pages (pub.math.leidenuniv.nl/~evertsejh/publications.shtml, jhelecturenotes.shtml)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E214",
+   "kind": "misprint",
+   "locator": "arXiv:1008.2340v1, §12, p. 49",
+   "printed": "if it is homogeneous of degree rh in block Xh for h = 1, . . . , m, i.e., if in (12.1) the sum is taken over tuples j ∈ ZmN ⩾0 with PN l=1 jhl = dh for h = 1, . . . , m.",
+   "correction": "Read 'Σ_l j_{hl} = r_h'.",
+   "reason": "The degrees in the definition of multihomogeneity are r_1, …, r_m; d_h is not defined in §12.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1008.2340 version history (only v1)",
+    "Evertse's publication page (preprint 10-subspace.pdf); the Annals version was not consulted"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Roberto G. Ferretti, A further improvement of the Quantitative Subspace Theorem, arXiv:1008.2340v1 (13 August 2010, the only arXiv version); published in Annals of Math. 177 (2013), 513–590 (not consulted); author preprint also at pub.math.leidenuniv.nl/~evertsejh/10-subspace.pdf; accessed 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E301",
+   "kind": "misprint",
+   "locator": "Chapter 4, proof of Theorem 4.11 ⇒ Theorem 4.8, (4.10) and the sentence after it, printed p. 69",
+   "printed": "where δk = X (i1,...,ik)∈Jk τ1(βi1) · · · τd(βid).",
+   "correction": "The summation (and, two lines below, 'there is a tuple (i1, . . . , ik)') should run over tuples (i1, . . . , id).",
+   "reason": "The tuples in J_k have d entries, one for each τ_i ∈ Gal(L/Q) = {τ_1, …, τ_d}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E302",
+   "kind": "misprint",
+   "locator": "Chapter 4, proof of Theorem 4.11 ⇒ Theorem 4.8, printed p. 70",
+   "printed": "Since α1, . . . , αd were assumed to be distinct, for each τ ∈ Gal(L/Q), the numbers τ(α1), . . . , τ(αd) are distinct.",
+   "correction": "Read α_1, …, α_n (the exponents of Theorem 4.8), not α_1, …, α_d.",
+   "reason": "d = [L : Q] is the number of automorphisms; the given distinct numbers are α_1, …, α_n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E303",
+   "kind": "misprint",
+   "locator": "Chapter 4, §4.2, preliminary comments, printed p. 68",
+   "printed": "we may again proceed by contradiction and assume that β0eα0 +· · ·+βneαn = 0. By following the transcendence proof of e, but replacing 0, 1, , . . . , n by α1, . . . , αn and q0, . . . , qn by β1, , . . . , βn,",
+   "correction": "The relation should be β_1e^{α_1} + ⋯ + β_ne^{α_n} = 0, matching Theorem 4.8 (indices from 1).",
+   "reason": "Theorem 4.8 indexes α, β from 1 to n; the replacement 0, …, n ↦ α_1, …, α_n has mismatched lengths.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E304",
+   "kind": "misprint",
+   "locator": "Chapter 4, Lemma 4.13 and its proof, printed p. 72",
+   "printed": "Then (p −1)!g has algebraically integral coeﬃcients. Using (4.8), one easily shows that the coeﬃcients of (p −1)!g(j) 1 /j! are algebraic integers.",
+   "correction": "g^{(j)}_1 should read g^{(j)} (there is no g_1); also the lemma opens 'let k ∈ {1, . . . , t}' but states the facts for f_1 only.",
+   "reason": "g is defined as f_1(X/l) just before; no function g_1 occurs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E305",
+   "kind": "misprint",
+   "locator": "Chapter 4, proof of Lemma 4.22, printed p. 78",
+   "printed": "We are now in a position to apply Theorem 3.22 and conclude that system (4.22) has a solution in integers aij, not all zero,",
+   "correction": "Theorem 3.22 should be Theorem 3.20 (Siegel's Lemma for algebraic-integer coefficients).",
+   "reason": "Chapter 3 numbers Siegel's Lemma over O_K as Theorem 3.20 (printed p. 52); Lemma 3.22 (printed p. 55) concerns integrality in ring extensions.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E306",
+   "kind": "gap",
+   "locator": "Chapter 4, proof of Lemma 4.22, printed p. 78",
+   "printed": "where the constant c2 has been chosen large enough in terms of m, d and H. These parameters are functions of α, β and γ, so c2 depends only on α, β and γ.",
+   "correction": "Assume L ≥ 3 (so log L ≥ 1), or replace log L by log(eL); the lemma is only used with L large and D_1 = D_2L.",
+   "reason": "For L = 1 the right-hand side is exp(c_2D_2) while the left-hand side is at least m^{D_1}, unbounded in D_1 for fixed D_2 when m ≥ 2: no constant c_2 works for all D_1, D_2 with D_1D_2 ⩾ 2dL².",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E307",
+   "kind": "error",
+   "locator": "Chapter 4, proof of Lemma 4.27(i), printed p. 81",
+   "printed": "A simple application of the triangle inequality gives |F|T ⩽ D1−1 X i=0 D2−1 X j=0 |aij|T i|(1 + |α|)Tj ⩽D1D2 exp(c3L3/2 log L) · T D1(1 + |α|)TD2.",
+   "correction": "Use |α^{jz}| = e^{j·Re(z)·log α} ≤ e^{jT|log α|} for |z| = T; then |F|_T ≤ D_1D_2 exp(c_3L^{3/2} log L)T^{D_1}e^{D_2T|log α|} ≤ exp(c_4L^{3/2} log L), as claimed.",
+   "reason": "The printed bound |α^{jz}| ≤ (1 + |α|)^{Tj} fails for 0 < α < (√5 − 1)/2: for α = 1/10 and z = −T, |α^{jz}| = 10^{jT} > 1.1^{jT}.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E308",
+   "kind": "gap",
+   "locator": "Chapter 4, §4.4, after Lemma 4.23, printed p. 79",
+   "printed": "Notice that we can apply this lemma to our above function F(z), thanks to our assumption that α, β are real and α > 0. Thus, this lemma implies that F(z) has at most D1D2 = 2dL2 zeros.",
+   "correction": "Discard the j with p_j(z) = Σ_i a_{ij}z^i identically 0 (Lemma 4.23 requires nonzero p_k) and note that F ≢ 0 because some a_{ij} ≠ 0; then F has at most D_1D_2 − 1 real zeros.",
+   "reason": "Lemma 4.23 is stated for nonzero polynomials p_k; some columns of (a_{ij}) may vanish.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E309",
+   "kind": "error",
+   "locator": "Chapter 4, proof of Corollary 4.18, printed p. 73",
+   "printed": "Suppose β1 log α1 + β2 log α2 = 0. Put γ := −β2/β1. Then by assumption, γ ∉ Q, and α2 = elog α2 = eγ log α1 = αγ 1, contradicting Theorem 4.16.",
+   "correction": "Put γ := −β_1/β_2 (so that log α_2 = γ log α_1), and if α_1 = 1 (log α_1 = 2kπi, k ≠ 0) apply Theorem 4.16 to the base −1 with log(−1) = πi and exponent 2kγ; or use the form of Theorem 4.16 for an arbitrary nonzero logarithm (Waldschmidt, DALAG p. 3).",
+   "reason": "From β_1 log α_1 + β_2 log α_2 = 0 one gets log α_2 = −(β_1/β_2) log α_1, not −(β_2/β_1) log α_1. The corollary allows α_1 = 1 with a nonzero logarithm, which Theorem 4.16 (α ≠ 0, 1) excludes.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E310",
+   "kind": "gap",
+   "locator": "Chapter 4, proof of Corollary 4.20, printed p. 74",
+   "printed": "By Theorem 4.19, log α1, . . . , log αn and log αn+1 are linearly dependent over Q,",
+   "correction": "Apply Theorem 4.19 to the subfamily of logarithms with nonzero coefficients (a subfamily of a Q-linearly independent family is independent), or use Baker's theorem in the form 'Q-independent logarithms are Q̄-independent together with 1'.",
+   "reason": "Theorem 4.19 assumes all coefficients β_i nonzero, while the relation log α_{n+1} = Σβ_i log α_i, and later Σ(x_{n+1}β_i + x_i) log α_i = 0, may have vanishing coefficients.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E311",
+   "kind": "misprint",
+   "locator": "Chapter 5, Theorems 5.1 and 5.2, printed pp. 85-86",
+   "printed": "For i = 1, . . . , n let log αi be a solution of ez = αi and assume that log α1, . . . , log αm are linearly independent over Q.",
+   "correction": "Read i = 1, . . . , m (both theorems).",
+   "reason": "The theorems concern α_1, …, α_m.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E312",
+   "kind": "gap",
+   "locator": "Chapter 5, Theorem 5.4, printed p. 87",
+   "printed": "Then |ab1 1 · · · abm m −1| ⩾(eB)−C′, where B = max(|b1|, . . . , |bm|), C′ = 1 2e · m4.530m+3 m Y j=1 max  1, log H(aj)  .",
+   "correction": "Either weaken the conclusion to |a^b − 1| ⩾ (2/3)(eB)^{−C'} (equivalently ⩾ (eB)^{−(C'+1)}), or replace ½e by 1.4, the constant of Bugeaud-Mignotte-Siksek's Theorem 9.4 for real fields, which absorbs the loss.",
+   "reason": "Matveev's Corollary 2.3 bounds the logarithmic form Λ = Σ b_j log a_j: for K = Q (κ = 1, D = 1) it gives |Λ| > (eB)^{−C'} with exactly C' = ½e m^{4.5}30^{m+3}∏A_j. Passing to a^b − 1 = e^Λ − 1 loses a factor, |Λ| ⩽ (3/2)|a^b − 1| (|log(1 + z)| ⩽ (3/2)|z| for |z| ⩽ 1/2), so only |a^b − 1| > (2/3)(eB)^{−C'} follows; no slack remains in the constant.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)",
+    "Matveev, Izv. Math. 64:6 (2000), §2 (Corollary 2.3)",
+    "Bugeaud-Mignotte-Siksek, arXiv:math/0403046, Theorem 9.4 and its proof"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E313",
+   "kind": "misprint",
+   "locator": "Chapter 5, Exercise 5.9(i), printed p. 106",
+   "printed": "(i) Let a be an integer, and p a prime, such that |a|p ⩽ p−1 if p > 2 and |a|2 ⩽ 2−2 if p = 2. Prove that for any positive integer b we have |(1 + a)b −1|p = |ab|p ⩾ 1/ab.",
+   "correction": "Assume a ≠ 0 and read ⩾ 1/|ab|.",
+   "reason": "a = 0 satisfies the hypothesis and makes 1/ab undefined; for negative a, 1/ab < 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (only the 2019 chapter files and exam files are posted; no errata list)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E314",
+   "kind": "gap",
+   "locator": "Chapter 4, §4.6, Step 5, printed p. 140 (PDF 160)",
+   "printed": "Now we use Proposition 4.7 for the function f (z) = F(z1y1 + · · · + znyn), with a new parameter E′ ≥ E, and with E1 = · · · = En = {0, 1, . . . , S1 −1}, r = c9S1, R = 18nE′r, (and also with S0 and E replaced by S′0 and E′ respectively).",
+   "correction": "Define S'_0 through the total order ‖σ‖ (the largest integer with D^σF(sy) = 0 for all ‖σ‖ < S'_0 and |s| < S_1); then D^κf(s) = 0 whenever ‖κ‖ < S'_0, in particular when |κ| < ⌈S'_0/n⌉, and Proposition 4.7 applies with multiplicity ⌈S'_0/n⌉. The upper bound becomes −(S'_0S_1/n) log E′ + …, and Step 6 goes through after enlarging c_8 and c_11 by the factor n.",
+   "reason": "Proposition 4.7 needs D^κf = 0 on {0, …, S_1 − 1}^n for all κ with |κ| = max κ_i < S'_0. But D^κf(s) = ∏_j(Σ_i y_{ij}∂/∂z_i)^{κ_j}F(sy) is a combination of the D^σF(sy) with ‖σ‖ = ‖κ‖, and for κ = (1, 1, 0, …) it involves D^{(2,0,…)}F(sy), whose |σ| = 2 need not be < S'_0 = 2. The known vanishing (|σ| < S'_0 in the standard coordinates) does not imply the required one unless y is the standard basis.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "DALAG Chapter 4 text and exercises",
+    "Waldschmidt, CIME lectures LNM 1819 (2003): footnote 8 on p. 285 corrects DALAG Proposition 10.2, not this step",
+    "the author's publication page https://webusers.imj-prg.fr/~michel.waldschmidt/"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups. Transcendence Properties of the Exponential Function in Several Variables, Grundlehren der mathematischen Wissenschaften 326, Springer 2000; complete text posted by the author (653 pp.); printed page = PDF page - 20 in the main text; accessed 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E401",
+   "kind": "misprint",
+   "locator": "Chapter 5, proof of Theorem 5.12, definition of Λ_i, printed p. 94 (2019 notes, PDF p. 10)",
+   "printed": "Λi := |σi(α)σ(ζ1)σi(ε1)^{a1} · · · σi(εr)^{ar} − 1| = |σi(β)σi(y)|",
+   "correction": "σ(ζ1) should be σi(ζ1).",
+   "reason": "The identity Λ_i = |σ_i(αx) − 1| requires every factor to be taken under the same embedding σ_i.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page http://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (no errata listed)",
+    "the 2019 chapter file dio19-5.pdf is the version currently linked there"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E402",
+   "kind": "gap",
+   "locator": "Chapter 5, proof of Theorem 5.12, printed pp. 94-95",
+   "printed": "Subsequently, by Lemma 5.9 we have e^B ⩽ ⌈y⌉^C, hence |σi(y)| ⩽ ⌈y⌉^{−1/(d−1)} ⩽ e^{−(B/C(d−1))}.",
+   "correction": "The argument needs unit rank r ≥ 1 (hence d ≥ 2); when r = 0 (K = ℚ or imaginary quadratic) the unit group is finite and the theorem is immediate. State the case split.",
+   "reason": "For d = 1 the exponent −1/(d − 1) is undefined, and for r = 0 Lemma 5.9 is vacuous (no fundamental units).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E403",
+   "kind": "gap",
+   "locator": "Chapter 5, proof of Theorem 5.12, application of Corollary 5.3, printed p. 95",
+   "printed": "So we can apply Corollary 5.3 and obtain |Λi| ⩾ (eB)^{−C′} for some effectively computable number C′ depending on α, ε1, . . . , εr and the finitely many roots of unity of K.",
+   "correction": "Corollary 5.3 requires every α_i ∉ {0, 1}: when σ_i(αζ₁) = 1 that factor must be dropped. The constant is applied to the conjugates σ_i(·), so one must note that degrees and heights are conjugation-invariant (the constant is then independent of i), and that C′ also depends on β (the symmetric case).",
+   "reason": "Take α = 1: then σ_i(αζ₁) = 1 for ζ₁ = 1, and Corollary 5.3 as stated does not apply to the tuple (1, σ_i(ε₁), …).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E404",
+   "kind": "gap",
+   "locator": "Chapter 5, proof of Theorem 5.17, application of Theorem 5.16, printed p. 102",
+   "printed": "0 < | ± p1^{b1} · · · pr^{br} p_{r+1}^{−b_{r+1}} · · · ps^{−bs} − 1|pt = |w/v|pt = pt^{−bt} = pt^{−B}. From Theorem 5.16 we obtain that | · · · |pt ⩾ (eB)^{−C}",
+   "correction": "Theorem 5.16 must be applied to the p_t-adic units −1, p₁, …, p_s (the sign ± is a factor −1 with exponent 0 or 1), and C is the maximum over the choice of p_t ∈ S of the resulting constants.",
+   "reason": "Theorem 5.16 concerns products of given rationals a_i; the sign is not among p₁, …, p_s, so −1 has to be added to the list.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E405",
+   "kind": "misprint",
+   "locator": "Chapter 5, remark after Theorem 5.17 (de Weger), printed p. 102",
+   "printed": "he showed that the equation x + y = 1 has precisely 545 solutions in positive integers x, y ∈ US with 0 < x ⩽ y, where S = {2, 3, 5, 7, 11, 13}.",
+   "correction": "'positive integers' should be 'positive rational numbers' (equivalently: x + y = z in coprime positive S-integers with x ≤ y).",
+   "reason": "x + y = 1 has no solution in positive integers.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E406",
+   "kind": "misprint",
+   "locator": "Chapter 5, Exercise 5.9(i), printed p. 106",
+   "printed": "|(1 + a)^b − 1|p = |ab|p ⩾ 1/ab.",
+   "correction": "1/ab should be 1/|ab| (a may be negative), and a ≠ 0 is needed.",
+   "reason": "For a = −p and b = 1 the right-hand side 1/ab is negative; for a = 0 the left side is 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E407",
+   "kind": "misprint",
+   "locator": "Chapter 5, proof of Lemma 5.10, printed p. 93",
+   "printed": "such that for every x ∈ H there is ε ∈ O∗K with ∥x − log(ε)|∥2 ⩽ c1.",
+   "correction": "Delete the stray bar: ∥x − log(ε)∥₂ ≤ c₁.",
+   "reason": "Typographical.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E408",
+   "kind": "gap",
+   "locator": "Chapter 5, proof of Theorem 5.13, printed p. 98",
+   "printed": "We can compute x/y from (x − α1y)/(x − α3y) and then x, y from y^dF(x/y, 1) = F(x, y) = m.",
+   "correction": "The solutions with y = 0 (a₀x^d = m) must be listed separately; for y ≠ 0 note that (x − α₁y)/(x − α₃y) ≠ 1.",
+   "reason": "x/y is undefined for y = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page (no errata listed)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (lecture notes for the Leiden/Mastermath course), chapters 1–8, 2019 edition, chapter PDFs dio19-1.pdf to dio19-8.pdf from the author's Leiden page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E501",
+   "kind": "gap",
+   "locator": "Section 5.4, proof of Theorem 3.4.1, p. 25",
+   "printed": "Now let us assume that g(x) is a G-function and so, it satisﬁes a Fuchsian diﬀerential equation.",
+   "correction": "Only regularity of g's minimal equation at 0 (Theorem 5.1.2, proved in the notes) is used: it is equivalent to regularity at x = ∞ of the equation of (1/x)g(1/x), which gives A_{K,M} ≠ 0 and A_{K,m} = 0 for m < M. Theorem 5.1.1 (Fuchsian everywhere, via Chudnovsky and Katz) is not proved in the notes and is not needed.",
+   "reason": "The step of the proof that uses the Fuchsian property concerns only the point x = ∞.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the Arizona Winter School 2008 page for Beukers' course (only the draft notes and slides are posted)",
+    "Beukers, Ann. of Math. 163 (2006) takes André's theorem as an input and does not reprove it"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Frits Beukers, E-functions and G-functions (lecture notes, Arizona Winter School 2008), draft of 26 February 2008; fetched 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E502",
+   "kind": "misprint",
+   "locator": "Section 3.4, proof of Corollary 3.4.2, p. 15",
+   "printed": "|gn| = |−Σ_{k>n} n!fk/k!| ≤ Σ_{k>n} |fk|/(n −k)! ≤ Σ_{k>n} C^k/(n −k)! < C^n e^C",
+   "correction": "(n − k)! should be (k − n)! (and the first inequality uses n!/k! ≤ 1/(k − n)!).",
+   "reason": "For k > n, (n − k)! is undefined; n!/k! ≤ 1/(k − n)! is the intended estimate.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Arizona Winter School 2008 page (only the 2008 draft of the notes is posted)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Frits Beukers, E-functions and G-functions (lecture notes, Arizona Winter School 2008), draft of 26 February 2008; fetched 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E503",
+   "kind": "gap",
+   "locator": "Section 6.2, Theorem 6.2.7 (Shidlovskii's Lemma II), p. 29",
+   "printed": "Theorem 6.2.7 (Shidlovskii's Lemma II) ... Then, when M > N(1 −ϵ)/n and N is suﬃciently large, ∆(z) ≠ 0. Proof. To be added...",
+   "correction": "A proof is required; the notes' proof of Theorem 4.4.3 (Chudnovsky) depends on it ('According to Shidlovskii's Lemma 6.2.7 the matrix R(0) is invertible').",
+   "reason": "The lemma is used but not proved in the source; Lemma 6.2.5, used for Lemma I, is also left as an exercise.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the Arizona Winter School 2008 page (only the 2008 draft of the notes is posted)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Frits Beukers, E-functions and G-functions (lecture notes, Arizona Winter School 2008), draft of 26 February 2008; fetched 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E504",
+   "kind": "misprint",
+   "locator": "Section 1, paragraph after the definition of E-functions, p. 1 (arXiv v3)",
+   "printed": "Actually, Siegel's deﬁnition was slightly more general in that condition (3) reads h(a0, a1, . . . , ak) = o(k log k).",
+   "correction": "'condition (3)' should be 'condition (2)' (condition 3 is the differential equation; condition 2 is the height bound).",
+   "reason": "The listed conditions are 1. algebraic coefficients, 2. h = O(k), 3. the differential equation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv versions v1-v3 listing (math/0405549)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "F. Beukers, A refined version of the Siegel-Shidlovskii theorem, arXiv:math/0405549v3 (6 August 2004); published Ann. of Math. 163 (2006) 369-379; fetched 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E505",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 2.5, p. 5, and proof of Proposition 4.1, p. 8 (arXiv v3)",
+   "printed": "Hence, from Andr´e's Theorem 2.2 it follows that all solutions of Ly = 0 vanish at z = 1. ... Taking up the notations of the proof of Theorem 2.2 we now see that",
+   "correction": "'Theorem 2.2' should be 'Corollary 2.2' in both places.",
+   "reason": "The numbered result 2.2 is Corollary 2.2 (André); there is no Theorem 2.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv versions v1-v3 listing (math/0405549)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "F. Beukers, A refined version of the Siegel-Shidlovskii theorem, arXiv:math/0405549v3 (6 August 2004); published Ann. of Math. 163 (2006) 369-379; fetched 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E2",
    "kind": "misprint",
    "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
