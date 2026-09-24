@@ -1,0 +1,64 @@
+{
+  "redteam": "RT-AREA-analysis",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "area:analysis",
+  "summary": "Five findings: four high-severity false hypotheses/proof claims (Bernstein endpoint, general Yosida contractions, monoid positive-definiteness bounds, barycenter small-set threshold) and one medium-severity analytic-arc proof-route error. Three semigroup corrections and the charted-reflection repair already have qualified implementations at the pin. No new missing-owner or duplicate finding established.",
+  "checked": [
+    "Read all six assigned roadmap documents in full: Completed/ContourIntegration, Completed/OrthogonalL2Bases, ConformalMapping, FuchsianOrbifolds, OneParameterSemigroups and OptimalTransport. Read the corresponding 63 full stage descriptions and verified each is a whitespace-normalized substring of its document.",
+    "Read the reviewed coverage of all 63 focal stages: 398 target records (including parent/sub-layer repetition), with verdicts, qualification notes and duplicate-owner leads. This is coverage review, not a fresh proof audit of all 398 records or every declaration they cite.",
+    "Screened current packets, integrated decompositions and all RS result files for the six roadmap identities/names; no focal packet, decomposition or touching restructuring result was found. Read six directly touching link entries and seven overlap records in the StandardDistributions, OneParameterSemigroups and OrthogonalL2Bases link maps, retaining their review status.",
+    "Screened paper routes; read the three directly parented Part-II briefs: Bakker-Tsimerman to HyperbolicCurveVolumesAndGonality, Duke-Imamoglu-Toth to FuchsianOrbifoldsPartII, and Calegari-Dimitrov-Tang to PuncturedPlaneUniformizationAndValueDistribution. Read relevant extraction-report context and checked the parent import boundaries. Previously authored/reviewed paper work was used only as consumer context, not red-teamed here.",
+    "Searched the declaration index before both pinned Lean trees, using contour/winding/PV, Hermite/weighted-L2/product-basis, conformal/reflection, Fuchsian/cusp, semigroup/Yosida/Bernstein/positive-definite, OT/coupling/Wasserstein/barycenter, and cross-area kernel/degree/genus vocabulary. Focused statement reads and nine source-file blob checks support the findings; no universal absence claim is made from a name search.",
+    "Read the strong/open/continuous-at-zero completely-monotone definitions, finite Laplace representation and all-moments converse, Hausdorff-Bernstein-Widder iff/uniqueness, Yosida M-bound and shift reduction, general PD quadratic form and qualified bounds/continuity, and charted Schwarz-reflection statements at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.",
+    "Read Engel-Nagel II.3.5 and II.3.8 with their proof passages, and both Agueh-Carlier author manuscripts at Definition 3.2 and Proposition 3.5 with proof. Verified the revised manuscript date and all three PDF hashes. Accessed 2026-09-24. No full-book reading or fresh extraction of all OT sources is claimed.",
+    "Independence: findings concern upstream roadmap text this worker neither authored nor reviewed. Prior audit/link qualifications are credited as leads and are not misrepresented as new library defects. No atlas edge, audit verdict, upstream document or previous worker deliverable is changed."
+  ],
+  "findings": [
+    {
+      "id": "RT-AREA-analysis/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "content/tau-ceti/OneParameterSemigroups/README.md:163-192; tauceti:TauCetiRoadmap/OneParameterSemigroups#part-b--completely-monotone-and-bernstein-functions; tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--bernsteins-theorem",
+      "claim": "The closed-half-line C-infinity predicate is not equivalent to representation by an arbitrary finite positive measure. Its advertised unrestricted pointwise-limit closure is also false. Finite mass ensures continuity at zero, not finite derivatives of every order there.",
+      "evidence": "The roadmap explicitly uses ContDiffOn on Ici 0 at lines 163-164 and an iff with every finite representing measure at 178-192. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, CompletelyMonotone/Basic.lean:195 uses within derivatives for that strong predicate, while :483 defines IsContinuousCompletelyMonotoneOnIoi as continuity on Ici 0 plus complete monotonicity on Ioi 0. Bernstein/HausdorffBernsteinWidder.lean:70 proves the unique-representation iff for the latter. Laplace/Representation.lean:504 requires all moments for the strong converse; :517 defines RepresentsLaplace. Counterexample: mu=sum(n>=1) 2^(-n) delta_(2^n) has mass 1, but its Laplace transform has infinite negative right derivative at zero. Also exp(-n t) converges on [0,infinity) to the discontinuous indicator of {0}.",
+      "fix": "In Part B and its Bernstein milestone, import IsContinuousCompletelyMonotoneOnIoi and hausdorff_bernstein_widder_existsUnique for the finite-measure iff. Retain the stronger closed-smooth predicate separately with iteratedDerivWithin and the all-moments sufficient converse. State pointwise-limit closure on the open half-line with a finite-valued limit; the continuous-at-zero variant additionally requires continuity of the limit there. Add the infinite-first-moment and exp(-n t) endpoint regression examples. Do not rebuild the existing representation theorem."
+    },
+    {
+      "id": "RT-AREA-analysis/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "content/tau-ceti/OneParameterSemigroups/README.md:121-135; tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups; tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--hilleyosida-generation-theorem",
+      "claim": "The common proof paragraph wrongly says the Yosida approximants generate contraction semigroups for both general (M,omega) Hille-Yosida and Lumer-Phillips. The general-growth case does not have this property in the original norm.",
+      "evidence": "Roadmap lines 129-131 apply the contraction assertion to both milestones. For A=I on R, M=1 and omega=1, R(lambda,A)=(lambda-1)^(-1) I and A_lambda=lambda/(lambda-1) I for lambda>1. Its positive-time exponential has norm greater than 1. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, Semigroups/Generation/HilleYosida/Approximation.lean:105 gives a bound by M under exponent-zero power estimates, and Shift.lean:49 supplies the A-omega I reduction. Engel-Nagel, One-Parameter Semigroups, II.3.5 and II.3.8, printed pp.73-78, distinguish contraction generation from general growth.",
+      "fix": "Split the proof contracts: use contractive Yosida exponentials for the contraction hypotheses; for general growth use the existing shift reduction, the exponent-zero uniform M estimate, convergence and shift back (or an explicitly justified equivalent norm). Update the stale build-here sentence to import the pinned generation construction. Add A=I as a regression distinguishing the two regimes. Keep PDE and OT consumers on the existing general semigroup interface."
+    },
+    {
+      "id": "RT-AREA-analysis/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "content/tau-ceti/OneParameterSemigroups/README.md:200-215; tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+      "claim": "The bound norm(F a)<=Re(F 0) and continuity-at-zero implies uniform continuity are not valid for positive-definite functions on an arbitrary involutive additive monoid. They silently import the group-negation specialization into the BCR time monoid.",
+      "evidence": "The generic monoid scope is explicit at roadmap lines 200-208 and the unqualified conclusions at 211-213. On nonnegative reals with identity involution, F(t)=exp(t) is positive definite since its finite quadratic form is the squared modulus of sum_i c_i exp(t_i). It is continuous at zero, unbounded and not uniformly continuous. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, PositiveDefinite/Basic.lean:206 has the general diagonal Cauchy-Schwarz bound; :213 assumes a+star(a)=0 for the bound by F(0). PositiveDefinite/Continuity.lean:250 assumes a seminormed additive group and star(x)=-x for uniform continuity.",
+      "fix": "Keep the general monoid definition and diagonal Cauchy-Schwarz API. Restrict the bound by F(0) to a+star(a)=0, and the cited uniform-continuity theorem to the group-negation setting. Retain boundedness as an independent BCR hypothesis; import the existing qualified declarations. Add exp(t) on the identity-involution time monoid as a negative test. Carry this distinction into graph-gluing and kernel consumers."
+    },
+    {
+      "id": "RT-AREA-analysis/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "content/tau-ceti/OptimalTransport/README.md:1379-1386; tauceti:TauCetiRoadmap/OptimalTransport#layer-12-fréchet-and-wasserstein-barycenters, item 7",
+      "claim": "The strict Hausdorff-dimension threshold dim_H(A)<n-1 does not imply uniqueness of a Wasserstein barycenter. The roadmap follows an older Agueh-Carlier draft; the revised manuscript uses the non-strict threshold.",
+      "evidence": "Roadmap lines 1379-1382 explicitly require only sets of dimension less than n-1. Agueh-Carlier, Barycenters in the Wasserstein space, Definition 3.2 p.10, December 10, 2010 author manuscript, says \"less than or equal to d − 1\"; Proposition 3.5 p.11 uses that predicate. The August 17, 2010 draft has the older strict inequality. In R^2, the uniform laws on perpendicular centred line segments both kill all Borel sets of dimension <1. Every coupling has squared transport cost 2/3. Coupling equal parameters or opposite parameters gives distinct midpoint laws on the two diagonal segments, each an equal-weight barycenter. Full calculation and version hashes are in the report.",
+      "fix": "Change the predicate in OT Layer 12 item 7 and its stage description to nullity of every Borel set with Hausdorff dimension at most n-1, citing the revised Definition 3.2 and Proposition 3.5. Propagate this predicate to the uniqueness and multi-map assertions. Keep absolute-continuity and L-infinity conclusions at their separate stronger tiers. Add the perpendicular-segment example rejecting the strict-threshold variant. This repairs an outdated target, not a newly discovered error in the revised source."
+    },
+    {
+      "id": "RT-AREA-analysis/5",
+      "kind": "error",
+      "severity": "medium",
+      "where": "content/tau-ceti/ConformalMapping/README.md:118-123; tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
+      "claim": "Möbius reduction handles lines and circles, but cannot straighten a general regular real-analytic arc. The L4 proof route needs a local biholomorphic chart for that case.",
+      "evidence": "Roadmap line 120 says \"across an analytic arc / circle by Möbius reduction\". A Möbius preimage of the real axis is a generalized circle, whereas the regular real-analytic parabola t+i t^2 lies on no line or circle on any interval. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, Complex/Conformal/Reflection/Arc.lean:160, differentiableOn_chartedSchwarzReflection_of_symmetric, uses holomorphic open partial homeomorphisms for source and target charts, conjugation-invariant chart domains, continuity, one-sided holomorphy and the real-boundary condition. It does not require those charts to be Möbius transformations.",
+      "fix": "State Möbius reduction only for lines/circles. For a general regular analytic arc, use a local biholomorphic straightening chart and the existing charted-reflection theorem, keeping its source/target and boundary hypotheses. Add a parabolic-arc example using the local inverse of z+i z^2 near zero. Update the prose and extracted L4 description without rebuilding reflection or changing its reviewed built verdict."
+    }
+  ]
+}
