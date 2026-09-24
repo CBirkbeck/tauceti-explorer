@@ -128817,6 +128817,681 @@
    "reviewReason": null
   },
   {
+   "id": "PerfectoidSpaces/E1",
+   "kind": "gap",
+   "locator": "Proofs of Theorem 5.3 (p. 28) and Theorem 5.8 (p. 31), first paragraph, arXiv v2",
+   "printed": "By Lemma 5.2 we can choose a G-clean open neighborhood U_x ⊆ |X|^h of π(x). Set Ũ_x = π^{-1}(U_x), so Ũ_x is a G-clean open neighborhood of x containing \\overline{\\{x\\}}.",
+   "correction": "Ũ_x is G-clean at x only if the stabilizer of π(x) in G equals the stabilizer H_x of x, i.e. π(xg) ≠ π(x) for g ∉ H_x. This holds when π is injective on rank-one points, for instance when |X| is taut; the theorems are recorded with this hypothesis.",
+   "reason": "A G-clean U_x at π(x) is stable under Stab_G(π(x)) ⊇ H_x; for g ∈ Stab_G(π(x)) ∖ H_x, Ũ_x g = Ũ_x, so Ũ_x ∩ Ũ_x g ≠ ∅. The source's own footnote 7 says it is not clear that π^{-1}(π(x)) is the closure of {x}, so two points of one orbit may have the same image.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E2",
+   "kind": "gap",
+   "locator": "Theorem 5.8, p. 30, and its proof, arXiv v2",
+   "printed": "Let X be a perfectoid space over a nonarchimedean field, with an action of a finite group G. … V_x/H_x ≅ Spa(A^{H_x}, A^{+H_x}) is an affinoid perfectoid space by [Han16, Theorem 1.4]",
+   "correction": "Hansen's Theorem 1.4 needs |G| invertible in O_X(X) or a K-linear action over a perfectoid field K. Either state the action over Spa(K, K⁺) (then in characteristic p it is linear over the completed perfection of K, a perfectoid field) or replace the citation by CGJ Proposition 2.1.3 with Kedlaya–Liu II Theorem 3.3.26, which need neither.",
+   "reason": "In characteristic p with p dividing |H_x| and an action that is not linear over a perfectoid field, neither hypothesis of Hansen's Theorem 1.4 holds.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E3",
+   "kind": "gap",
+   "locator": "Theorem 5.3, p. 28, arXiv v2",
+   "printed": "Let X be a rigid analytic space over some nonarchimedean field K with an action of a finite group G. … V_x/H_x ≅ Spa(A^{H_x}, A^{◦H_x}) is an affinoid rigid space (e.g. by [Han16])",
+   "correction": "The action should be K-linear, as in Hansen's Theorems 1.3 and 3.4, for X/G to be a rigid space over K and for the invariants of an affinoid K-algebra to be K-affinoid.",
+   "reason": "Hansen's Theorem 3.4 and Bosch–Güntzer–Remmert 6.3.3/3, on which the affinoid step rests, assume K-algebra automorphisms.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E4",
+   "kind": "misprint",
+   "locator": "Theorem 5.8, second assertion, p. 30, arXiv v2",
+   "printed": "any point y ∈ X/G admits a neighborhood basis of open affinoid perfectoid subsets Y ⊆ X whose preimages q^{-1}(Y) are affinoid perfectoid",
+   "correction": "Y ⊆ X/G.",
+   "reason": "q^{-1}(Y) only makes sense for Y ⊆ X/G, and the proof takes Y ⊆ W_x/H_x ⊆ X/G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.13(1), p. 33, arXiv v2",
+   "printed": "if U_j ⊆ V_j ⊆ Y are open affinoid perfectoid subsets pulled back from some finite-level affinoids U_{j,i_j}, V_{j,i_j} ⊆ Y_i",
+   "correction": "U_{j,i_j}, V_{j,i_j} ⊆ Y_{i_j}.",
+   "reason": "The finite-level affinoids live at level i_j, as Definition 5.12(3) prints correctly.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E6",
+   "kind": "misprint",
+   "locator": "Lemma 5.10, p. 32 (also p. 5), arXiv v2",
+   "printed": "[BS19, Theorem 1.16(1)] guarantees the existence of an integral perfectoid S⁺-algebra S⁺_perfd",
+   "correction": "In the version of Bhatt–Scholze read (arXiv v4, as published) the statement is Theorem 1.17(1), proved in Theorem 10.11 with the universal property from Corollary 8.14; Theorem 1.16 there is the Nygaard filtration.",
+   "reason": "The bibliography dates [BS19] to May 2019; the number is presumably that preprint's, not the published one. The 2019 version was not read.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E7",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.1, p. 27, arXiv v2",
+   "printed": "Then for any k ∈ K, Ũ ∩ X₀k = Ũk ∩ X₀k = (Ũ ∩ X₀)k = Uk is an affinoid perfectoid space. … with the property that each connected component of Ũ ∩ X₀K is affinoid perfectoid. By [Sch17, Lemma 11.27] …",
+   "correction": "Add: the connected components of Ũ ∩ X₀K are connected components of the affinoid perfectoids Uk, and a connected component of an affinoid perfectoid space is affinoid perfectoid (a cofiltered limit of clopen affinoid perfectoid subspaces).",
+   "reason": "ECD Lemma 11.27 needs every connected component to be affinoid perfectoid; the proof checks only the Uk.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E8",
+   "kind": "gap",
+   "locator": "Paragraph before Definition 5.4, p. 29, arXiv v2",
+   "printed": "if X and Y are perfectoid spaces over Spa(K,K⁺) for some affinoid field (K,K⁺), then the fiber product X ×_{Spa(K,K⁺)} Y is naturally a perfectoid space. By gluing, this reduces to the claim … which is [KL15, Corollary 3.6.18].",
+   "correction": "Kedlaya–Liu 3.6.18 treats uniform Banach ℚ_p-algebras and gives only that the uniform completion is perfectoid; in characteristic p use that uniform completions of tensor products of perfect uniform rings are perfect, and identify Spa of the uniform completion with the fibre product as in Perfectoid spaces, Proposition 6.18.",
+   "reason": "The cited corollary's hypotheses are characteristic 0, while the claim is used over all affinoid fields.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E9",
+   "kind": "gap",
+   "locator": "Theorem 1.1, p. 1, and its proof in §2, p. 4, author's PDF of 28 August 2016",
+   "printed": "Let X be an analytic adic space with an action of a finite group G. Suppose that X has a covering by G-stable open affinoid subspaces … By Theorem 1.2, each U_i/G is an affinoid adic space",
+   "correction": "Ask for a covering by G-stable affinoids Spa(A_i, A_i⁺) with A_i Tate (or extend Theorem 1.2 to analytic Huber pairs).",
+   "reason": "Theorem 1.2 and Step 1 of Theorem 3.1 use a pseudouniformizer, so they need Tate pairs; an analytic space has a cover by Tate affinoids, but the chosen G-stable ones need not be Tate.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
+    "the citations of it in Hansen–Johansson and CGJ"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Quotients of adic spaces by finite groups, Author's PDF dated 28 August 2016 (published in Math. Res. Lett.); 10 pages, printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E10",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3.1, Step 1, p. 5",
+   "printed": "continuous relative to the nonarchimedean field topology on K induced by the unique rank one generization of v in Cont(A)",
+   "correction": "… of v in Cont(A^G).",
+   "reason": "v is a point of Cont(A^G), and K = Frac(A^G/p).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
+    "the citations of it in Hansen–Johansson and CGJ"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Quotients of adic spaces by finite groups, Author's PDF dated 28 August 2016 (published in Math. Res. Lett.); 10 pages, printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E11",
+   "kind": "gap",
+   "locator": "Proof of Theorem 3.1, Step 1, pp. 4–5",
+   "printed": "Fix a choice of G-invariant pseudouniformizer ϖ ∈ A^G (so it also does the job for A). … Since L/K is a finite algebraic extension … w is continuous by the criterion above.",
+   "correction": "Supply: a G-invariant pseudouniformizer exists (the norm ∏_g g(ϖ₁)); A is integral over A^G (so lying over applies); and the continuity of the induced valuation on A follows from the criterion on A with a G-stable ring of definition A₀, whose image in L is integral over K°.",
+   "reason": "The proof shows continuity of w on the field L only, and uses integrality and an invariant pseudouniformizer without justification.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
+    "the citations of it in Hansen–Johansson and CGJ"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Quotients of adic spaces by finite groups, Author's PDF dated 28 August 2016 (published in Math. Res. Lett.); 10 pages, printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E12",
+   "kind": "gap",
+   "locator": "Proof of Theorem 3.1, Step 2, p. 5",
+   "printed": "since φ is a surjective generalizing spectral map of spectral spaces, Lemma 3.2 below implies that φ is a quotient map",
+   "correction": "Prove that φ: Cont(A) → Cont(A^G) is spectral (comap along the continuous map A^G → A) and generalizing: generalizations in Cont of a Tate ring are coarsenings, and convex subgroups of Γ_v and Γ_w correspond because Γ_w/Γ_v is torsion.",
+   "reason": "Lemma 3.2's hypotheses are asserted, not verified.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
+    "the citations of it in Hansen–Johansson and CGJ"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Quotients of adic spaces by finite groups, Author's PDF dated 28 August 2016 (published in Math. Res. Lett.); 10 pages, printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E13",
+   "kind": "misprint",
+   "locator": "Theorem 3.6, p. 9",
+   "printed": "Theorem 3.6 (Kedlaya-Liu [KL16, Theorem 3.3.24]).",
+   "correction": "In Kedlaya–Liu II arXiv v3 the statement is Theorem 3.3.26; 3.3.24 there is the almost purity theorem.",
+   "reason": "Compared with the version read; the 2016 preprint numbering was not checked.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
+    "the citations of it in Hansen–Johansson and CGJ"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Quotients of adic spaces by finite groups, Author's PDF dated 28 August 2016 (published in Math. Res. Lett.); 10 pages, printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E14",
+   "kind": "gap",
+   "locator": "Beginning of §3, p. 4",
+   "printed": "Theorems 1.3 and 1.4 follow immediately from (the proof of) Theorem 1.1 combined with Theorems 3.4 and 3.5-3.6 below.",
+   "correction": "For Theorem 1.4 in characteristic p with p dividing |G| the hypothesis |G| ∈ O_X(X)^× of Theorem 1.1 fails; that case uses the separate untilting argument given on p. 9, which relies on the case (i) of Theorem 1.4 for the untilt.",
+   "reason": "Theorem 1.1 assumes |G| invertible, which Theorem 1.3 and case (ii) of Theorem 1.4 drop.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's page davidrenshawhansen.net (the PDF read; no erratum listed)",
+    "the citations of it in Hansen–Johansson and CGJ"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Quotients of adic spaces by finite groups, Author's PDF dated 28 August 2016 (published in Math. Res. Lett.); 10 pages, printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E15",
+   "kind": "misprint",
+   "locator": "Theorem 3.3.26 and its proof, p. 68, arXiv v3",
+   "printed": "Let P be a p-Sylow subgroup of G and let S be a set of left coset representatives of P in G. … z = [G:P]^{-1} Σ_{g∈S} y^g ∈ A^{G∘}",
+   "correction": "With G acting on the right and y ∈ A^P, y^g depends only on the coset Pg, so S should be a set of representatives of P∖G (with a left action, of G/P); the congruence x ≡ z^p then uses [G:P]^{1−p} ≡ 1 mod p. The action must be continuous for A^G to be closed and for G to act on R(A).",
+   "reason": "For left coset representatives gP the element y^g is not well defined, and the sum need not be G-invariant. The packet uses left actions on rings and cosets G/P, where the formula is correct.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1602.06899 versions v1–v3 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3 (dated 21 October 2019)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E16",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.1.3, p. 5 (also p. 20), arXiv v2",
+   "printed": "we are implicitly using the fact that A^G is perfectoid [KL16, Thm. 3.3.25]",
+   "correction": "Kedlaya–Liu II arXiv v3 Theorem 3.3.26; 3.3.25 there is descent of perfectoidness along faithfully finite étale maps.",
+   "reason": "Compared with the version read.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1910.09214 versions v1–v2 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Ana Caraiani, Daniel R. Gulotta, Christian Johansson, Vanishing theorems for Shimura varieties at unipotent level, arXiv:1910.09214v2, 5 July 2021",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E17",
+   "kind": "error",
+   "locator": "Remark II.2.4, p. 14, arXiv v2",
+   "printed": "We caution the reader that in general, the map R → S is not surjective. For an example, let R = K⟨T^{1/p^∞}⟩ for some K of characteristic 0, and look at the Zariski closed subset defined by I = (T − 1).",
+   "correction": "R → S is always surjective: Zariski closed subsets of affinoid perfectoid spaces are strongly Zariski closed.",
+   "reason": "Bhatt–Scholze Theorem 7.4 (surjectivity of perfectoidization) with Remark 7.5.",
+   "affects": "a stated result",
+   "known": "Bhatt–Scholze, Prisms and prismatic cohomology, Remark 7.5; ECD v4 §5, the paragraph before Theorem 5.8 ('The example turned out to be erroneous').",
+   "searched": [
+    "arXiv:1306.2070 v2 (the version read)",
+    "ECD v4 §5",
+    "Bhatt–Scholze v4 Remark 7.5"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2, 2 June 2015 (published in Ann. of Math. 182 (2015)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E18",
+   "kind": "gap",
+   "locator": "Definition II.2.6 and the sentence after it, p. 15, arXiv v2",
+   "printed": "A map Z = Spa(S, S⁺) → X = Spa(R, R⁺) is strongly Zariski closed if the map R⁺ → S⁺ is almost surjective. Of course, something strongly Zariski closed is also Zariski closed",
+   "correction": "Add that S⁺ is the integral closure of the image of R⁺ (as in ECD Definition 5.7(ii)); without it the second sentence can fail.",
+   "reason": "R = S = K⟨T^{1/p^∞}⟩, R⁺ = {f ∈ R° : |f(x)| ≤ 1} for the rank-two point x with |T(x)| = 1⁺, S⁺ = R°: R⁺ → S⁺ is almost surjective, but Spa(S, S⁺) omits x, so it is not the vanishing locus of ker(R → S) = 0.",
+   "affects": "a stated result",
+   "known": "ECD Definition 5.7(ii) adds the integral-closure condition.",
+   "searched": [
+    "arXiv:1306.2070 v2 (the version read)",
+    "ECD v4 §5",
+    "Bhatt–Scholze v4 Remark 7.5"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2, 2 June 2015 (published in Ann. of Math. 182 (2015)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E19",
+   "kind": "gap",
+   "locator": "Paragraph after Definition 5.7, p. 24, arXiv v4 (also Scholze, torsion, Lemma II.2.8)",
+   "printed": "By [KL15, Proposition 3.6.9 (c)], if f is strongly Zariski closed, then R⁺ → S⁺ is almost surjective",
+   "correction": "Kedlaya–Liu 3.6.9(c) covers perfectoid uniform Banach ℚ_p-algebras; the characteristic-p case is Scholze, torsion, Lemma II.2.5 (or KL15 3.6.9(a) with Remark 3.1.6). ECD's own sentence after Theorem 5.8 gives almost surjectivity in all characteristics from Bhatt–Scholze 7.4.",
+   "reason": "The cited proposition is stated only in characteristic 0.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1709.07343 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E20",
+   "kind": "misprint",
+   "locator": "Sentence after Theorem 5.8, p. 25, arXiv v4",
+   "printed": "We note that [BS22, Theorem 7.4] also implies that S⁺ → R⁺ is almost surjective",
+   "correction": "R⁺ → S⁺ is almost surjective.",
+   "reason": "The map is R → S (compare the paragraph after Definition 5.7).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1709.07343 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E21",
+   "kind": "misprint",
+   "locator": "Definition 10.12, p. 53, arXiv v4",
+   "printed": "A G-torsor is map f: X̃ → X of v-stacks",
+   "correction": "A G-torsor is a map …",
+   "reason": "Missing article.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1709.07343 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4, 14 April 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E22",
+   "kind": "misprint",
+   "locator": "Proof of Theorem IV.1.1, p. 68, arXiv v2",
+   "printed": "Y*_{K^p}(J) = lim_{K^p ⊂ K^{p′} ⊂ G(A^p_f)} Y*_{K^{p′}}(J)",
+   "correction": "K^p ⊂ K^{p′} ⊂ G′(𝔸^p_f).",
+   "reason": "The K^{p′} are tame levels of G′ = Sp_{2g}, as in the preceding sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1306.2070 v2 (the version read)",
+    "ECD v4 §5",
+    "Bhatt–Scholze v4 Remark 7.5"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2, 2 June 2015 (published in Ann. of Math. 182 (2015)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E23",
+   "kind": "gap",
+   "locator": "Theorem IV.1.1(i) and its proof, pp. 67–69, arXiv v2",
+   "printed": "Going through the argument, and using part (i) for G′, it is easy to deduce part (i) for G.",
+   "correction": "The construction gives R⁺_{K^p} as the completion of lim→ of the rings of Zariski-closed subspaces of the infinite-level Siegel space; identifying it with the completion of lim→ R⁺_{J,K_p} of the finite-level X*_{K_pK^p} and checking the tilde-limit is a separate argument. The packet's closed-loci theorem proves the tilde-limit and the rational density, and records the integral statement only where the Siegel case supplies it.",
+   "reason": "The finite-level rings of X*_{K_pK^p} do not appear in the construction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1306.2070 v2 (the version read)",
+    "ECD v4 §5",
+    "Bhatt–Scholze v4 Remark 7.5"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, arXiv:1306.2070v2, 2 June 2015 (published in Ann. of Math. 182 (2015)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E24",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.7, p. 10, arXiv v4",
+   "printed": "for an affinoid open V ⊆ Y with affinoid perfectoid preimage W = h^{-1}(V) we have O⁺_{X_U}(V × U)^Γ = O⁺_{Y_U}(W × U)",
+   "correction": "O⁺_{X_U}(W × U)^Γ = O⁺_{Y_U}(V × U).",
+   "reason": "V ⊆ Y and W ⊆ X; the roles are swapped.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1902.03985 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, arXiv:1902.03985v4, 10 May 2021; printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E25",
+   "kind": "gap",
+   "locator": "Proof of Lemma 3.7, p. 10, arXiv v4",
+   "printed": "Since by our assumptions Y is stably uniform, [CHJ, Lem. 2.23 (2)] reduces this to checking that (h_*O⁺_X)^Γ = O⁺_Y.",
+   "correction": "CHJ Lemma 2.23(2) is a rational statement for Banach spaces over ℚ_p. Prove the rational statement over L with t-orthogonal bases of the countable-type space O(U), then deduce the integral one: an invariant f ∈ O⁺(W × U) lies in O(V × U) and has |f| ≤ 1 at every point, since W × U → V × U is surjective.",
+   "reason": "The cited lemma is neither integral nor over a perfectoid field L.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1902.03985 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, arXiv:1902.03985v4, 10 May 2021; printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E26",
+   "kind": "gap",
+   "locator": "Lemma 3.6, p. 9, arXiv v4",
+   "printed": "Lemma 3.6 ([KL, Thm. 8.2.3]]). Let Y be a seminormal adic space (see [KL, Defn. 3.7.1]), for example a smooth rigid space.",
+   "correction": "Kedlaya–Liu II Theorem 8.2.3 is proved for rigid analytic spaces over an analytic field containing ℚ_p (Hypothesis 8.0.1), and the proof of the lemma uses O_Y(V)° = O⁺_Y(V), true for rigid spaces; state it for seminormal rigid spaces.",
+   "reason": "The hypothesis of the cited theorem and the last step of the proof are specific to rigid spaces.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1902.03985 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, arXiv:1902.03985v4, 10 May 2021; printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E27",
+   "kind": "misprint",
+   "locator": "Paragraph after Proposition 2.27, p. 22, arXiv v2",
+   "printed": "the usual idempotent e_n = |G_n|^{-1} Σ_{γ∈G_n} χ_U(j_{U,n}(γ))^{-1} γ",
+   "correction": "e_n = |G_n|^{-1} Σ_γ χ_U(j_{U,n}(γ)) γ^*, the averaging operator of the twisted action f₀ ↦ χ_U(j_{U,n}(γ)) γ^*f₀ whose fixed points are computed just before; that this is an action is the cocycle law for j_{U,n}, which is used but not checked.",
+   "reason": "With the printed inverse the idempotent projects onto the invariants of the opposite twist.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 versions v1–v2 (listing page)",
+    "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2, 22 August 2016 (published in Doc. Math. 22 (2017)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E28",
+   "kind": "gap",
+   "locator": "Proof of Lemma 2.29, p. 23, arXiv v2",
+   "printed": "by the flatness of A_U ⊗̂ O_{X_{K(p^n)}}(U_n) over A_U (proved in the same way as Lemma 6.13(2))",
+   "correction": "Lemma 6.13(2) is flatness of R(U) → R(V) for rational V ⊆ U; flatness of A_U ⊗̂ O(U_n) over A_U needs its own argument (for instance via Lemma 6.13(1) and the description of the completed tensor product by pseudobases).",
+   "reason": "The cited lemma is a different statement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 versions v1–v2 (listing page)",
+    "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2, 22 August 2016 (published in Doc. Math. 22 (2017)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E29",
+   "kind": "error",
+   "locator": "Lemma 6.21, p. 53, arXiv v2",
+   "printed": "Then we have natural isomorphisms M ⊗_{R(X)} R_C(X) ≅ M ⊗_K C and f^{-1}(Loc(M)) ⊗_{f^{-1}R} R_C ≅ Loc(M ⊗_K C).",
+   "correction": "M ⊗̂_K C, the completed tensor product.",
+   "reason": "For M = R(X), R_C(X) = O(X_C) ⊗̂ R is complete while R(X) ⊗_K C is not.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 versions v1–v2 (listing page)",
+    "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2, 22 August 2016 (published in Doc. Math. 22 (2017)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E30",
+   "kind": "gap",
+   "locator": "Proof of Proposition 4.4, pp. 29–30, arXiv v2",
+   "printed": "the higher inverse limit R^i lim_k ((D^{s,◦}_U/Fil^k D^{s,◦}_U) ⊗_{Z_p} O⁺_X) vanishes for i > 0. This follows from [Sch3, Lemma 3.18]",
+   "correction": "Only the almost version follows: on the affinoid perfectoid basis the higher cohomology of the terms is almost zero and the transition maps are almost surjective, so R^i lim is almost zero; this suffices after inverting p. The appendix (proof of Lemma 6.11(1)) states the almost version.",
+   "reason": "The hypotheses of Scholze's Lemma 3.18 hold only in the almost sense here.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 versions v1–v2 (listing page)",
+    "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2, 22 August 2016 (published in Doc. Math. 22 (2017)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E31",
+   "kind": "gap",
+   "locator": "Lemma 4.1 and the setup of §4.1, p. 28, arXiv v2",
+   "printed": "where M̃_i is the locally constant sheaf on X_ét associated with M_i",
+   "correction": "M̃_i is the locally constant sheaf obtained by descending the G-module M_i along the finite étale covers X_j → X (constant only after pullback to X_j); with the constant sheaf the diagonal action does not match.",
+   "reason": "M_i carries a nontrivial continuous G-action.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1507.04875 versions v1–v2 (listing page)",
+    "Hansen 2016, which corrects an earlier gap in CHJ §6.4"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2, 22 August 2016 (published in Doc. Math. 22 (2017)); printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E32",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.10, p. 32, arXiv v2",
+   "printed": "Set T = S⁺_perfd[1/ϖ], and let T⁺ ⊂ T be the integral closure of S⁺_perfd in T. Then T is a perfectoid Tate ring",
+   "correction": "T = ((S⁺_perfd)^∧_ϖ)[1/ϖ] with T⁺ the integral closure of the completion; maps to perfectoid pairs still factor uniquely because their plus rings are ϖ-adically complete.",
+   "reason": "In characteristic p the perfectoidization of S⁺ is its perfection (Bhatt–Scholze Example 8.3), which need not be ϖ-adically complete, so S⁺_perfd[1/ϖ] need not be complete.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2011.03951 versions v1–v2 (listing page, 2026-09-24)",
+    "the authors' pages (no erratum listed)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "David Hansen, Christian Johansson, Perfectoid Shimura varieties and the Calegari–Emerton conjectures, arXiv:2011.03951v2 (printed page = PDF page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E33",
+   "kind": "gap",
+   "locator": "Remark 7.5, p. 56, arXiv v4",
+   "printed": "Then S is a semiperfectoid ring, and so by the theorem R′ = S_perfd[1/ϖ] is a perfectoid Tate ring that is a quotient of R",
+   "correction": "R′ = ((S_perfd)^∧_ϖ)[1/ϖ]; in characteristic p the statement is Scholze, torsion, Lemma II.2.5.",
+   "reason": "In characteristic p, S_perfd is the uncompleted perfection of S (Example 8.3), which need not be ϖ-adically complete.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1905.08229 versions v1–v4 (listing page)",
+    "the REV-PAPER-BHATT-SCHOLZE-22 review file in this repository"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Bhargav Bhatt, Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, 12 January 2022 (published in Ann. of Math. 196 (2022))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpaces/E34",
+   "kind": "gap",
+   "locator": "Proof of Lemma 3.7, p. 10, arXiv v4",
+   "printed": "As the statement is local on Y_U, it suffices to check that for an affinoid open V ⊆ Y with affinoid perfectoid preimage W = h^{-1}(V) we have …",
+   "correction": "The opens V × U′ (V ⊆ Y, U′ ⊆ U affinoid) are not a basis of Y ×_L U, so the argument proves the equality of sections only on such products; either restrict the statement to them (as the packet does, which is what the character sheaves on Y need) or add an argument for rational subsets of the product.",
+   "reason": "A rational subset of V × U′ need not be a product, and the reduction to U = point via CHJ Lemma 2.23 uses the product structure.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1902.03985 versions v1–v4 (listing page)"
+   ],
+   "owner": "PerfectoidSpaces",
+   "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
+   "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, arXiv:1902.03985v4, 10 May 2021; printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
