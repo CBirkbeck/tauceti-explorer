@@ -25840,7 +25840,8 @@
     "REV-PAPER-BENNETT-SIKSEK-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1733"
   },
   {
    "id": "REV-RT-PAPER-BENNETT-SIKSEK-20",
@@ -26350,8 +26351,9 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1618"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1618",
+   "finishedAt": "2026-09-24T01:36:44Z"
   },
   {
    "id": "RT-RS-15",
