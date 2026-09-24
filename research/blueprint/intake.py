@@ -109,6 +109,34 @@ def claimants(comments):
     return sessions
 
 
+SUBMITTED = re.compile(r"^Submitted in #(\d+)\.")
+
+
+def submitter(comments, number):
+    """The session that sent pull request `number`, as a set (empty if unknown).
+
+    A job that was claimed, refused for independence and claimed again by another
+    session keeps both claims in its comments for good. Judging the submission on
+    every session that ever claimed the issue refuses the second worker for the
+    first one's conflict, which is what happened to #2778 and #2790. The claim that
+    counts is the one standing when this pull request was announced.
+    """
+    current, found = None, None
+    for comment in comments:
+        if (comment.get("user") or {}).get("login") != BOT:
+            continue
+        body = comment.get("body") or ""
+        claim = CLAIM.match(body)
+        if claim:
+            current = claim.group(1).split(" — ")[-1].strip()
+            continue
+        announced = SUBMITTED.match(body)
+        if announced and int(announced.group(1)) == number:
+            found = current
+    session = found if found is not None else current
+    return {session} if session else set()
+
+
 def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already_complete=False, follow_up=False):
     """Why an automatic merge must leave this pull request to the maintainer.
     follow_up: the job's own worker is correcting it before its review starts."""
@@ -227,7 +255,7 @@ def inspect(number, jobs, mapping, auto=False):
             problems.append("the pull request comes from a fork")
         reviewer, author = set(), set()
         if job and independent_of(job):
-            reviewer = claimants(comments(issue))
+            reviewer = submitter(comments(issue), data["number"])
             for other in independent_of(job):
                 if mapping.get(other):
                     author |= claimants(comments(mapping[other]))
