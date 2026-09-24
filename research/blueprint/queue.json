@@ -12228,7 +12228,8 @@
    ],
    "avoidAccountOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/REV-K3BlochGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #139"
   },
   {
    "id": "BP-Polylogarithms",
