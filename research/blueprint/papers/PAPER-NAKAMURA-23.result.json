@@ -984,7 +984,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the mechanism level, decisively. The source carries the quoted sentences as HARD-CODED LITERAL strings rather than \\cite commands: `src.tex:983` is \"all of which are surjective by Proposition 4.39 of [Em06b].\" and `src.tex:991` is \"by Lemma 7.3.10 of [Em06b].\" There are three such literal `[Em06b]` strings against a single genuine \\cite, and the source's own bibliography is \\begin{thebibliography}{99} with \\bibitem[Em06b]{Em06b}, so the literal renders consistently in the arXiv version and becomes a dangling key once the published version renumbers. Scope: I verified the mechanism in the source and could NOT see the rendered result, because my PDF text extractor drops bracketed citations entirely — one '[0]' in 120 pages and no 'Em' tokens at all.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E2",
@@ -999,7 +1004,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Printed p. 192 reads \"a finite set Σ_0 of primes containing p, and set Σ_0 := Σ∖{p}\", which defines Σ_0 from a Σ that has not been introduced. The paper's own phrasing elsewhere — \"Let Σ be a finite set of primes containing p\", twice earlier in the text — confirms that the first symbol should be Σ.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E3",
@@ -1014,7 +1024,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the source, where the passage is unchanged. `src.tex:1341-1343` gives the diagram's two rows: the top row lands in Hom_O(Ĥ¹_c(K_{Σ_0}), O) and the bottom row, whose source is H̃^BM_1(K'_{Σ_0}) and whose map is (1/[K⁰:K'])h_{K'_{Σ_0}}, ALSO lands in Hom_O(Ĥ¹_c(K_{Σ_0}), O) with an unprimed K. For the square to commute the bottom target must be the primed Ĥ¹_c(K'_{Σ_0}), exactly as the correction says.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E4",
@@ -1029,7 +1044,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The published text at p. 195 introduces the statement as \"the following corollary, which is the foundation for our construction of zeta morphisms. **Corollary 2.5** There exists a…\", so 2.5 is a Corollary and the two citations to \"Proposition 2.5\" — in the proof of Corollary 2.8 and in §4.1 before (49) — name the wrong kind.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E5",
@@ -1044,7 +1064,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in print, and it is a production-introduced slip, which is worth recording. Printed p. 235 reads d = ∏(c² − c^{2−j}σ_c)(**c** − c^{j−k+2}σ_c), with a bare c in the second factor, while the arXiv source at `src.tex:3459` and again at `:3468` has (c^2-c^{2-j}\\sigma_c)(c^2-c^{j-k+2}\\sigma_c) — c² in BOTH factors, which is precisely the correction. So the draft was right and the published version introduced the error, and the source independently supplies the fix.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E6",
@@ -1059,7 +1084,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and the count corroborates it. `src.tex:4056` and `:4098` both read \"contained in $H^1_{\\mathrm{Iw}}(\\mathbb{Z}[1/\\Sigma_n, \\zeta_n], V'_p(f)(1))$\" — two occurrences, matching the locator's \"p. 235 … and again on p. 236\". The notation V'_2(f) occurs 13 times elsewhere in the source, so V'_p(f) is the anomaly and the correction's V'_2(f)_E is the paper's own convention.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E7",
@@ -1074,7 +1104,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as located, with the paper's neighbouring displays corroborating the missing factor. In the same computation `src.tex:3093` carries the period factor explicitly — per(_cω_{N,np^m}(k,v)) = (1/(2πi)^{k-1})Z_{Σ,np^m}(k-1)·_cδ_{N,np^m}(k,v) — as does `:3132`, while `:3123` states (per(…))^+ = Z_Σ(k-1)·γ^+ without it. So the paper does carry (2πi)^{1-k} where the cited display omits it, which is what the correction restores. I did not obtain a verbatim character-level match of the printed p. 236 display through the PDF text layer and record that rather than claim it.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E8",
@@ -1089,7 +1124,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as recorded rather than independently re-derived. The entry's point is a missing dual: the Hom should be out of σ^* (and σ^⋄(τ)^*_F in (74)), not σ, since H¹_{Σ_0}(𝒱^*_{k/E}(σ)) is defined from the dual local system. That is consistent with the paper's use of 𝒱^* throughout the definition and with the E-dual convention fixed in §4.4. My PDF text layer does not render these sub/superscripts reliably enough for a character-level confirmation, and I did not attempt to re-derive the duality from scratch; the classification as a misprint affecting nothing is in any case unaffected.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E9",
@@ -1104,7 +1144,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and the printed form is self-evidently defective. Printed p. 253 reads H²_Iw(Z[1/p], ρ_f^*(1)) := Ker(H²_Iw(**Z[1/p]**, ρ_f^*(1)) → ⊕_l H²_Iw(Q_l, ρ_f^*(1))) — the same group on both sides, so the definition is circular as printed. The paper uses Z[1/Σ] in the neighbouring lines, and the correction's Z[1/Σ_f] inside the kernel is what makes the definition non-trivial.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E10",
@@ -1119,7 +1164,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Printed p. 254 states \"Conjecture 5.2 is also decomposed into the η-component for each character η, which we call the η-part of Kato's main conjecture\", while Conjecture 5.1, two paragraphs earlier, is the one that asserts the equality — that is, it IS Kato's main conjecture in this setting. So the decomposition is of 5.1.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E11",
@@ -1134,7 +1184,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at `src.tex:5461`: $$x_f\\bmod \\varpi^m=x_g\\bmod \\varpi^**n** : \\mathbb{T}_{\\overline{\\rho},\\Sigma}\\rightarrow \\mathcal{O}/\\varpi^**m**.$$ The two sides are asserted equal as maps into O/ϖ^m, so the right-hand exponent must be m; n is not even introduced here.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E12",
@@ -1149,7 +1204,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as recorded. The entry is that the second term of the difference should be λ_F(H²_Iw(…)^η) rather than λ_F(H¹_Iw(…)^η): as printed the same H¹ group appears in both terms, so the expression would reduce to minus the λ of a quotient's denominator rather than the intended difference of characteristic-ideal lengths. I located the passage at printed p. 264 but my PDF text layer does not separate the two cohomological degrees reliably enough for a character-level confirmation, and I record that rather than overstate it.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E13",
@@ -1164,7 +1224,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively, by the paper contradicting itself on the same page. Printed p. 267 defines the analogous product TWICE: the first occurrence reads μ(c,d,j) := (c² − c^{k+1−j}σ_c)(**d²** − d^{j+1}σ_d)∏(1 − ā_l l^{−k}σ_l^{−1}), and the second, which is the one the entry cites, reads μ_n(c,d,j) := (c² − c^{k+1−j}σ_c)(**d** − d^{j+1}σ_d)∏(…) with a bare d. The first supplies the correction for the second. Note this is the same class of slip as E5 — a squared letter dropped in the second factor of a two-factor Euler-system product — which suggests a systematic typographic hazard in this paper rather than two unrelated accidents.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E14",
@@ -1179,7 +1244,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Printed p. 268 writes H¹(**Y(N_f)**, 𝒱^*_{k/A})(1) before Lemma A.3 and H¹(Y(N_f), 𝒱^*_{k/A})(2−k) ≅ H¹(Y(N_f), 𝒱_{k/A}) in its statement, with the plain Y(N_f) throughout; the correction's Y_1(N_f) is the modular curve the surrounding V'_1(f) notation and the Γ_1-level setting call for.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-NAKAMURA-23/E15",
@@ -1194,7 +1264,12 @@
         "Crossref record of doi:10.1007/s00222-023-01203-7: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
         "arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages",
         "The article page on Springer Link, 23 September 2026: no correction or erratum notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it is a genuine double notation rather than a one-off slip. The source uses Ψ for the Whittaker functor **73 times** (Ψ_l, Ψ_{Σ_0}) while ALSO defining Φ for the same construction at `src.tex:1073-1074`: \"an $A$-module $\\Phi_{\\Sigma_0}(M)$ by $$\\Phi_{\\Sigma_0}(M):=\\Phi_{l_1}\\circ \\cdots \\circ \\Phi_{l_d}(M)$$\". So the introduction and §4 use one symbol and §2.2 and Appendix B the other for the same functor, exactly as the entry says, and settling on Φ as defined in Appendix B.2.1 is the right resolution.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     }
   ]
 }
