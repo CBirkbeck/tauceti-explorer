@@ -86216,6 +86216,46 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E92",
+   "kind": "gap",
+   "locator": "Lemma 2.3.3, termination sentence, published PDF40; arXiv v2 PDF29",
+   "printed": "Repeatedly replacing μ … we eventually have that h_μ ≤ p + 2.",
+   "correction": "The displayed integer recurrence H_new≤p+floor(H/p)+1 proves strict descent above p+2 for p≥5. For p=2 it only guarantees eventual height ≤6, allowing stationary heights 5 and6; for p=3 it also allows stationary height6>p+2. Supply a sharper or tie-breaking argument for these small primes, or restrict this proof to p≥5. This observation does not refute the lemma at p=2 or3.",
+   "reason": "The upper-bound recurrence has stationary states (p,H,H_new)=(2,5,5),(2,6,6),(3,6,6) above the target p+2. For p≥5 and H≥p+3, p+floor(H/p)+1<H, as follows first at H=p+3 and then by monotonicity of H−floor(H/p). Section1.8 permits every prime. Lemma2.3.4 uses h_{λ+η}<p−3, which excludes p≤3, so its application of the bounded-presentation result is unaffected. The separate GL_n refinement needs its own argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "24 September 2026: published author-hosted Springer PDF40, rendered and checked; arXiv:2007.05398v2 PDF29 text compared. Both retain the displayed height estimate and termination assertion.",
+    "24 September 2026: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; https://link.springer.com/article/10.1007/s00222-022-01163-4 and https://math.rice.edu/~bl70/ show no linked correction to this paper. An exact-title correction search found no relevant erratum. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E93",
+   "kind": "misprint",
+   "locator": "Lemma 2.3.3, triangle-inequality display, published PDF40 (rendered); arXiv v2 PDF29",
+   "printed": "h_{pν} ≤ h_μ + h_{μ−pν} ≤ h_μ + p",
+   "correction": "Use h_{pν}≤h_μ+h_{μ+pν}≤h_μ+p. The chosen ν bounds μ+pν, and pν=(μ+pν)−μ.",
+   "reason": "The root-height norm is invariant under negation, so the corrected triangle inequality is immediate. The printed final bound need not hold: in GL₂ with μ=(5,0), p=2 and ν=(−2,0), h_{μ+pν}=1≤2 but h_{μ−pν}=9>2. The intended bound on h_ν and its uses are unchanged after the sign is corrected; E92 is the separate termination issue.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: published author-hosted Springer PDF40, rendered and checked; arXiv:2007.05398v2 PDF29 text compared. Both retain the displayed height estimate and termination assertion.",
+    "24 September 2026: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; https://link.springer.com/article/10.1007/s00222-022-01163-4 and https://math.rice.edu/~bl70/ show no linked correction to this paper. An exact-title correction search found no relevant erratum. This is a bounded search, not proof that no correction exists."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
