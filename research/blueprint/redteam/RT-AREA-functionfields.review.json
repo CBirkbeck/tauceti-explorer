@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AREA-functionfields",
+  "findings": [
+    {
+      "finding": "RT-AREA-functionfields/1",
+      "verdict": "rejected",
+      "reason": "Rejected as a missing-owner finding. The full DM.8 construction already asks to build the analytic trivialization and prove a specialization/lifting criterion; the finding quotes only the later Carlitz-logarithm application. More decisively, PAPER-CHANG-CHEN-MISHIBA-23 source route 2 assigns its precisely stated ABP item /31 to DrinfeldModulesAndTModules:DM.8, and its independent review explicitly accepts that route and owner. PAPER-NGODAC-21 source route 5 and PAPER-WEI-26 source route 2 likewise assign their exact ABP lifting items there and are individually accepted (Wei's overall revise verdict concerns a different route). Under PROTOCOL section 16, accepted source routes add these items to the named layer's blueprint instructions; the absence of the acronym from a short stage description does not make the item unowned. The red team's cited IM-KIM-LE-ETAL-24 route also explicitly assigns item /27 to DM.8, regardless of its observation about the older short description. Primary-source check: Papanikolas arXiv:math/0506078v2 Theorem 5.1.1, p.32, restates ABP lifting, while Theorem 1.2.6, p.4, assumes k-linear independence of the chosen Carlitz logarithms to conclude algebraic independence over k-bar. ABP does not supply that assumption for arbitrary logarithms. ABP arXiv:math/0207168v1 Theorem 3.1.1, pp.7-8, lifts a vanishing special-value row to a polynomial row relation. Thus the proposed replacement of the logarithm hypothesis by a citation to ABP is also incorrect. A future DM.8 blueprint should name/decompose that already-assigned lifting input and retain the genuine logarithm independence assumption; this is the declared source-decomposition task, not a new missing owner or an additional prerequisite stage. No implementation or full proof-closure claim follows from this rejection."
+    }
+  ]
+}
