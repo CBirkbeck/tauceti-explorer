@@ -29067,8 +29067,9 @@
     "RT-AREA-functionfields"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-functionfields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1488"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1488",
+   "finishedAt": "2026-09-24T06:11:39Z"
   },
   {
    "id": "RT-AREA-automorphic-1",
@@ -29150,7 +29151,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-automorphic-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1493"
   },
   {
    "id": "REV-RT-AREA-automorphic-2",
