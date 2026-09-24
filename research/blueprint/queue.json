@@ -4292,8 +4292,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -26982,8 +26982,9 @@
     "REV-AUDIT-05"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1560"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1560",
+   "finishedAt": "2026-09-24T02:15:38Z"
   },
   {
    "id": "REV-RT-AUDIT-05",
@@ -27037,7 +27038,8 @@
     "REV-AUDIT-06"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1562"
   },
   {
    "id": "REV-RT-AUDIT-06",
@@ -27470,7 +27472,8 @@
     "REV-AUDIT-14"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-14.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1578"
   },
   {
    "id": "REV-RT-AUDIT-14",
@@ -30078,8 +30081,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-representations-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1533"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1533",
+   "finishedAt": "2026-09-24T02:15:40Z"
   },
   {
    "id": "REV-RT-AREA-representations-2",
