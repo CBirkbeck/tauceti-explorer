@@ -1,0 +1,307 @@
+{
+  "redteam": "RT-AREA-padic-1",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "area:padic-1",
+  "summary": "Red team of part 1 of 3 of the area p-adic Hodge theory and p-adic geometry: AdicEtaleGeometry, AdicSpacesPartII, DiamondsAndVStacks, FarguesFontaineDiamonds, HodgeTateAndCanonicalSubgroups, PerfectoidQuotients, PerfectoidSpaces and RelativeFarguesFontaine. That is 63 stages, the paper routes of the 32 papers routed into them, and the restructurings touching them (RS-01, RS-02, RS-05, RS-08 and RS-32 accepted; RS-20 needs_changes). The other two parts' roadmaps were read for cross-part duplication. 32 findings: 4 high, 22 medium, 6 low. High: (1) Bhatt–Scholze's perfectoidization of integral algebras and J-almost purity (BS22 §§8.2, 10) are planned nowhere, though P8 and PerfectoidShimuraVarieties S4 follow Hansen–Johansson, whose descent needs them. (2) André's perfectoid Abhyankar lemma is used by two accepted designs, but its only route was rejected. (3) The v-sheaf X^♢ of non-analytic pre-adic spaces (Spd O_E, Spd O_C, Spd(R⁺,R⁺)) is planned nowhere, though the relative Fargues–Fontaine curve, Div^d and geometric Satake need it. (4) The general toroidal-tower Hodge–Tate map (Boxer–Pilloni 4.4.40) is planned in both T6:comparison and S6. Medium findings include: the tilting equivalence is planned by a superseded field-only deformation route; Q4 → A3 is an unnecessary edge that puts derived prismatic cohomology below every diamond; RS-05's R5 links put classical étale sheaves below the diamonds; the Berkovich spectrum is planned twice; RS-05's canonical-compactification owner is implemented nowhere; Div^1 is defined as the wrong object over Perf_Fq; Div^1 properness lacks its six-functor prerequisites; the [ϖ]=0 part of the period domain and Kedlaya's algebraization are unplanned; AI.2 plans Fargues' equivalence from a source that proves only full faithfulness; B_dR⁺ is planned twice; the Hodge-type π_HT is planned twice; Scholze's primitive comparison has no stage its consumers can reach, and its logarithmic version none at all; the BT_1 Hasse invariant's owner is downstream of its users; and shared Part II ids lose a brief.",
+  "checked": [
+    "Every stage of the eight part-1 roadmaps (AdicEtaleGeometry 5, AdicSpacesPartII 8, DiamondsAndVStacks 7, FarguesFontaineDiamonds 6, HodgeTateAndCanonicalSubgroups 9, PerfectoidQuotients 7, PerfectoidSpaces 10, RelativeFarguesFontaine 11), in full from data/atlas.json and the per-roadmap extracts, with every stage edge touching them and the roadmap READMEs. Also the Tau Ceti AdicSpaces roadmap text (Layers 0–6), which these roadmaps build on.",
+    "The five reviewed decompositions of this part (AdicEtaleGeometry, AdicSpacesPartII, PerfectoidQuotients, PerfectoidSpaces, RelativeFarguesFontaine), with their nodes, links, gaps, coverage and review. For cross-edges, the decompositions of VectorBundlesAndIsocrystals, AInfCohomology, PadicHodgeTheory, CohomologyComparisons and TropicalAndBerkovichArithmetic.",
+    "Restructuring proposals: RS-05 in full (71 layers, 62 owners, 454 links, review and the RS-05.md tables), plus RS-01, RS-02, RS-08 and RS-32 (accepted). RS-20 and its two reviews (needs_changes) were read for context only. The review status of every RS file was checked.",
+    "Paper routes: all routes of the 32 papers whose route roadmap or parent is one of the eight roadmaps, with their items, briefs and reviews. The routes of other papers were cross-checked where they plan the same mathematics, including the ArcTopologyAndDescent, PerfectoidRamification, DirectSummandsAndBigCohenMacaulay, HigherHidaAndColemanTheory, DiamondsAndVStacksIntegralPartII and PerfectoidQuotientsIntegralPerfectoidPartII briefs. research/blueprint/make_queue.py (accepted_routes and design-job assembly) was read.",
+    "Cross-part stage texts: PrismaticCohomology, AInfCohomology, DerivedDeRhamCohomology, PadicHodgeTheory, CohomologyComparisons, VectorBundlesAndIsocrystals, DiamondEtaleCohomology, DiamondSixOperations, PerfectoidShimuraVarieties, TropicalAndBerkovichArithmetic, FiniteFlatGroupsAndIntegralPadicHodgeTheory and PhiGammaModules. Also the cross-area stages BunGAndNewtonStrata, GeometricSatakeAndFusion, HeckeStacksAndLocalShtukas, VStackSheavesAndLisseCategories, IgusaVarieties, TorsionCohomologyInfrastructure, OverconvergentAutomorphicForms, ShimuraCompactifications, HilbertModularVarieties, AlgebraicModularFormsAndSerreWeights R15.3 and EndoscopicTransfer ET.6/ET.6a.",
+    "Graph checks: reachability and cycle tests over all 3508 atlas stageEdges, with and without the links of every accepted RS, for every edge claim and proposed edge. Every proposed edge is acyclic. One candidate fix, P8 → CP.3, was found to close a cycle and was replaced by an early stage.",
+    "Pinned libraries (Mathlib 082e2d3, Tau Ceti f790474): a declaration index and source greps for perfectoid, tilt/untilt, PreTilt, fontaineTheta, BDeRham, almost mathematics, δ-rings and prisms, Spd, v-sheaves, diamonds, Berkovich spectrum (MulRingSeminorm, T2Quotient), Huber rings and Spa, the pro-étale site, the Hodge–Tate map, canonical subgroups, the Hasse invariant, p-divisible groups and the primitive comparison. Mathlib has PreTilt, Tilt (field), fontaineTheta and BDeRham but no perfectoid predicate. Tau Ceti has Huber rings, Spa and the affinoid analytic locus but nothing perfectoid.",
+    "Public sources read (accessed 2026-09-24): Bhatt–Scholze, Prisms (arXiv:1905.08229v4) §§1, 7, 8, 10; Hansen–Johansson arXiv:2011.03951v2 §5; Scholze, torsion paper (Annals 182, 2015) §§II.2, III.2.3; Kedlaya–Liu arXiv:1301.0792v5 §3.6; Scholze–Weinstein, Berkeley Lectures, Lectures 6, 13, 14, 18; Scholze, Étale cohomology of diamonds (2026 manuscript and arXiv:1709.07343v4), §§5–6, 13, 15, 18, 24; Fargues–Scholze arXiv:2102.13459 (v1 and v4) Chapters II, IV, VI; Bhatt–Morrow–Scholze arXiv:1602.03148v3 §4.3; Kedlaya arXiv:1602.09016v5 §3; Boxer–Pilloni arXiv:2110.10251v1 §4.4; BCGP arXiv:2502.20645v1 §4.4; Diao–Lan–Liu–Zhu arXiv:1912.09836 (abstract)."
+  ],
+  "findings": [
+    {
+      "id": "RT-AREA-padic-1/1",
+      "kind": "missing",
+      "severity": "high",
+      "where": "PerfectoidSpaces:P8; PerfectoidShimuraVarieties:S4 (and S2); PerfectoidQuotients:Q4; PAPER-BHATT-SCHOLZE-22 routes 2–3 (unreviewed)",
+      "claim": "P8 and S4 follow Hansen–Johansson §5, whose descent argument needs Bhatt–Scholze's theorem that every integral algebra over a perfectoid ring has a universal perfectoidization (BS22 Thm 1.17(1) = Thm 10.11). Its proof uses BS22 §8.2 (the arc-sheaf description of perfectoidization) and §§10.1–10.2 (almost mathematics for an arbitrary ideal J and J-almost purity 10.9). No layer plans these: Q2 and Q4 stop at semiperfectoid quotients (BS22 7.3–7.4). The only proposal, the unreviewed BS22 extraction, routes them into Q2/Q4 and P0/P3, which is impossible without cycles.",
+      "evidence": "P8: 'For Hodge-type closed embeddings, combine the tower's closed loci with Q4's universal perfectoidization … Source: Hansen–Johansson §5 and ECD 5.8.' HJ arXiv:2011.03951v2, Lemma 5.10 (p. 32): 'Since R⁺ is integral perfectoid and R⁺→S⁺ is an integral ring map, [BS19, Theorem 1.16(1)] guarantees the existence of an integral perfectoid S⁺-algebra S⁺_perfd such that any map from S⁺ to an integral perfectoid ring factors uniquely'; Prop. 5.14 (p. 34): 'relies crucially on the perfectoidization theorem of Bhatt-Scholze recalled in Lemma 5.10'. BS22 arXiv:1905.08229v4 p. 9 (Thm 1.17(1) = Thm 10.11) and p. 81: 'The key inputs in the argument are: (1) The arc-descent properties of S ↦ S_perfd, especially Corollary 8.12. (2) André's lemma (Theorem 7.14).' Atlas stages mentioning perfectoidization: Q2, Q4, P8, S2, PR.2, E5 only, all semiperfectoid. No PAPER-BHATT-SCHOLZE-22.review.json exists; the reverse edges its routes would need (Q4→P0, Q4→P3, Q3/Q4→Q2) each close a cycle.",
+      "fix": "Add a late stage PerfectoidQuotients:Q5 'Perfectoidization of integral algebras and J-almost purity' (BS22 §8.2 Cor. 8.11–8.14, §10.1 Def. 10.1–Lemma 10.5, §10.2 Thms 10.9, 10.11 and Lemma 10.12), requiring Q3, Q4, PR.2 and the arc-topology roadmap (BS22 8.10, already routed there). Add edges Q5→P8, Q5→S4, Q5→S2 (acyclic). Rewrite P8's Hodge-type paragraph to follow HJ Lemmas 5.9–5.10, and add Hansen, 'Quotients of adic spaces' (HJ Thm 5.8 uses it) to P8's sources. At the BS22 review, route its items /52, /60, /61 to Q5."
+    },
+    {
+      "id": "RT-AREA-padic-1/2",
+      "kind": "missing",
+      "severity": "high",
+      "where": "Part II PerfectoidRamification (ANDRE-18-B route 4, accepted); Part II DirectSummandsAndBigCohenMacaulay (ANDRE-18-B route 1, accepted)",
+      "claim": "André's perfectoid Abhyankar lemma ('Le lemme d'Abhyankar perfectoïde', Théorème 0.3.1) is used by two accepted designs but planned nowhere. The accepted PerfectoidRamification brief is only an increment on the ANDRE-18 design, and ANDRE-18's route 2 was rejected with paper verdict 'revise', so make_queue applies none of ANDRE-18's routes.",
+      "evidence": "ANDRE-18-B route 4 brief: 'Extend the same PerfectoidRamification design proposed by PAPER-ANDRE-18; do not create a second Part II … Import the companion's root-algebra, tubular-colimit and ramified Abhyankar results by their extracted ids'; item abhyankar-mod-p: 'Import the companion's Theorem 0.3.1'. Route 1 brief: 'Import PerfectoidSpaces P0–P3 and the companion's shared PerfectoidRamification Part II'. PAPER-ANDRE-18.review.json: verdict 'revise', route 2 'reject'. make_queue.py accepted_routes() (lines 397–400) returns nothing unless the paper verdict is 'accept'. Stage descriptions mentioning Abhyankar: IG.5 and LPV.5 only (the classical tame lemma). BS22 p. 9: Theorem 1.17(2) 'improves on the perfectoid Abhyankar lemma [And18b] when J = (g) … our proof avoids adic spaces'.",
+      "fix": "Give BS22 Theorem 10.9 with J = (g) an owner, the Q5 stage of the perfectoidization finding, and make PerfectoidRamification and DirectSummandsAndBigCohenMacaulay import it. Reword the ANDRE-18-B route 4 brief so that it does not rest on a rejected route. Alternatively, finish the ANDRE-18 revision and accept its Abhyankar items as their own Part II scope before DESIGN-PerfectoidRamification runs."
+    },
+    {
+      "id": "RT-AREA-padic-1/3",
+      "kind": "missing",
+      "severity": "high",
+      "where": "DiamondsAndVStacks:D6; consumers RelativeFarguesFontaine:RF0:integral-Y, RF2:integral-divisors, GeometricSatakeAndFusion:GS0:loop-geometry, GS1; Part II DiamondsAndVStacksIntegralPartII (KISIN-PAPPAS-ZHOU-26 route 6, GLEASON-LIM-XU-26 route 9)",
+      "claim": "No layer plans the v-sheaf X^♢ of a non-analytic pre-adic space or Huber pair (Scholze–Weinstein, Berkeley Lectures §§18.1–18.2): Spd O_E, Spd O_C, Spd(R,R), Spd(R⁺,R⁺) and the v-sheaves of formal schemes. D6 builds only Spd ℤ_p, Spd(A,A⁺) for Tate pairs, and X^♢ for analytic spaces. AdicCoefficientsAndComparisons:L1 builds only v-sheaves of schemes and is not an ancestor of the consumers. Neither library has any of it. Consumer statements cannot be formulated without it: FS II.1.2, the definition Div^d_𝒴 = (Spd O_E)^d/Σ_d, GS1's categories over Spd(O_C), and the integral Part II briefs.",
+      "evidence": "D6: 'Construct Spd ℤ_p by marked untilts … Construct Spd(A,A⁺) for a Tate ℤ_p-pair … Distinguish a Tate pair from an arbitrary formal base such as (ℤ_p,ℤ_p)' and 'define X^♢ for analytic adic spaces'. RF0:integral-Y: 'Prove II.1.2's untilt functor 𝒴_S^diamond ≅ S × Spd(O_E)'. RF2:integral-divisors: 'Construct Div^d_𝒴=(Spd O_E)^d/Σ_d'. GS1: 'flat-perverse categories over Spd(O_C), Spd(C) and Spd(k̄)'. GLEASON-LIM-XU-26/D22: 'F_red(Spec R)=F(Spd(R,R))'. SW Berkeley §18.1: 'Let X be any pre-adic space over Zp. Consider the presheaf X♦ …', Lemma 18.1.1 ('the presheaf X♦ is a v-sheaf'), Lemma 18.1.2, Prop. 18.2.2 ('|X♦|→|X| … surjective'). FS arXiv:2102.13459 Prop. II.1.2 and Def. VI.1.1. No Spd, v-sheaf or diamond declaration in either library.",
+      "fix": "Add a DiamondsAndVStacks sub-stage D6:pre-adic with the construction of SW §§18.1–18.2: X^♢ for any pre-adic space over Spa ℤ_p, Lemma 18.1.1 (via ECD 15.1(i) and D2's v-descent of O⁺), Prop. 18.2.2 and Lemma 18.1.2. Tests: Spd O_E, (Spd O_E)^d, Spd O_C, Spd(R,R), Spd(R⁺,R⁺) and Spf; comparison maps with L1's integral conventions. D6 is already an ancestor of RF0:integral-Y, RF2:integral-divisors, GS0 and GS1, so no new atlas edge is needed. The RF nodes name it as their supplier, and the DiamondsAndVStacksIntegralPartII brief imports it."
+    },
+    {
+      "id": "RT-AREA-padic-1/4",
+      "kind": "duplicate",
+      "severity": "high",
+      "where": "HodgeTateAndCanonicalSubgroups:T6:comparison vs PerfectoidShimuraVarieties:S6",
+      "claim": "The general Hodge–Tate morphism on the toroidal tower diamond, with its Levi-torsor pullback (Boxer–Pilloni, Higher Coleman theory, Thm 4.4.40), is planned in two layers. No accepted restructuring assigns an owner: RS-05 keeps S6, but HodgeTateAndCanonicalSubgroups is not in its family and none of its owners entries covers this theorem.",
+      "evidence": "T6:comparison: 'Apply this to the toroidal tower in diamonds, giving the general Hodge–Tate map and coefficient pullback statement of Boxer–Pilloni Theorem 4.4.40.' S6: 'For an arbitrary datum, construct the Hodge–Tate map from the toroidal tower diamond and the canonical Levi-torsor pullback isomorphism via Boxer–Pilloni Theorem 4.4.40.' RS-05 layers[S6]: 'keep … Retain general toroidal diamond Hodge-Tate morphisms and their logarithmic comparison input'. RS-05's roadmaps list has 9 members, without HodgeTate, and its 62 owners have no Hodge–Tate map entry. Boxer–Pilloni arXiv:2110.10251v1 p. 78: 4.4.38 and the text before Thm 4.4.40 give the finite-level log association and M_HT = M_dR on S^tor_{K,Σ}; Thm 4.4.40 concerns the limit S^{tor,◇}_{K^p,Σ}. T6:comparison has no ancestor in PerfectoidShimuraVarieties, where the towers are built, while S6 already requires T6.",
+      "fix": "Add an owners entry {target 'General-datum toroidal-tower π^tor_HT and Levi-torsor pullback (BP Thm 4.4.40)', owner PerfectoidShimuraVarieties:S6, formerly [HodgeTateAndCanonicalSubgroups:T6:comparison]}. Narrow T6:comparison, the T6 parent text and the roadmap summary to the finite-level logarithmic content (log period sheaves, log Poincaré lemma, log Riemann–Hilbert, W_p⊗OB_dR,log ≅ W_dR⊗OB_dR,log, the HT filtration and M_HT = M_dR at finite level, BP 4.4.38–4.4.39), exported to S6 through the existing T6→S6 edge."
+    },
+    {
+      "id": "RT-AREA-padic-1/5",
+      "kind": "other",
+      "severity": "medium",
+      "where": "PerfectoidSpaces:P1 nodes P1/cotangent-complex-vanishing-mod-varpi and P1/deformation-lifting-of-perfectoid-mod-varpi-algebras; RS-05 narrowing of P0",
+      "claim": "The accepted decomposition proves the tilting equivalence by Scholze 2012's field-only route: the almost cotangent complex and Gabber–Ramero almost deformation theory. RS-05 therefore makes P0 build the almost cotangent/deformation extension. That work is unnecessary. P1 already plans ECD 3.14–3.17, the classification of untilts with its converse construction, and in the literature this implies the tilting equivalence (ECD 3.13) directly in the general Tate-ring setting P1 demands, with no cotangent complex. Scholze 2012's route proves only the field case, which is the gap the decomposition records.",
+      "evidence": "P1: 'Prove classification of marked untilts by primitive degree-one ideals, including the converse construction … (ECD 3.14–3.17) … Construct the equivalence of perfectoid algebras over a fixed perfectoid ring and over its tilt'. Node P1/tilting-equivalence-and-explicit-tilt: 'Sch12 proves the equivalence over a perfectoid base field K; the Tate-ring version (ECD 3.13) is not proved in either source read here'. Decomposition gap: 'the almost-context versions (GR §2.5, §3.2) have no supplier stage'. RS-05 P0 keeps: 'Add the almost-context cotangent/deformation extension required by the accepted P1 nodes, using DD.0 classical cotangent theory'. Scholze–Weinstein Berkeley §6.2: 'From here, one gets the following theorem, which implies Theorem 6.2.7. Theorem 6.2.11 ([KL15], [Fon13]). There is an equivalence of categories between: 1. Perfectoid Tate-Huber pairs (S,S⁺) 2. Triples (R,R⁺,J) …'. Kedlaya–Liu arXiv:1301.0792v5 Thm 3.6.5 (p. 88).",
+      "fix": "In P1, derive ECD 3.13 as a corollary of 3.17 (untilt a perfectoid R♭-algebra T as W(T⁺)/J·W(T⁺)[1/[ϖ]] with J = ker θ_R). Drop the two Scholze 2012 deformation nodes or mark them optional alternatives. Remove from RS-05's P0 narrowing the almost-context cotangent/deformation extension and the DD.0 → P0/P1/P2/P3/P7 links added only for it, keeping any almost-étale lifting that P0 or P3 need for their own results as a separate question for P3."
+    },
+    {
+      "id": "RT-AREA-padic-1/6",
+      "kind": "error",
+      "severity": "medium",
+      "where": "Stage edge PerfectoidQuotients:Q4 → AdicEtaleGeometry:A3",
+      "claim": "A3 lists Q4 among its inputs, but the proof A3 implements (ECD Prop. 6.4(iv)) works in characteristic p. It uses Huber 1.7.1, Kedlaya–Liu's pseudocoherent sheaves and FS IV.4.19, which concerns Zariski-closed immersions of sousperfectoid spaces in FS's surjectivity sense. It does not use ECD 5.8 or BS22 7.4 (prismatic perfectoidization), and the transfer by tilting concerns the étale map, which P3 supplies. The single edge makes derived prismatic cohomology an ancestor of every diamond: with the accepted RS links applied, deleting it removes 17 stages from D1's ancestry (PR.0–PR.2, the seven Q stages, CR.0–CR.2, DD.1, DD.2, DD.5, E4).",
+      "evidence": "A3: 'Inputs: P2–P5 and Q4, plus A0–A2 … Prove the following analytic input in characteristic p, then transfer by tilting' (the text cites no use of Q4). ECD (Scholze, Étale cohomology of diamonds, 2026 manuscript), proof of Prop. 6.4(iv): 'For essential surjectivity, we can work in characteristic p, where it follows from [Hub96, Proposition 1.7.1], which holds for affinoid perfectoid spaces of characteristic p by using the theory of pseudocoherent sheaves of Kedlaya–Liu, [KL16]. More precisely, … one can find a Zariski closed immersion of sousperfectoid adic spaces Y ↪ B^n_X … see [FS26, Proposition IV.4.19]'. ECD Thm 5.8 ('a Zariski closed immersion … is strongly Zariski closed. Proof. This follows from [BS22, Theorem 7.4, Remark 7.5]') concerns perfectoid spaces and is not invoked in 6.4(iv). FS Prop. IV.4.19 / Def. IV.4.20 use no BS22 input. Scholze, torsion paper (Annals 182, 2015), Lemma II.2.5, for characteristic p: 'the map R⁺ → S⁺ is almost surjective'.",
+      "fix": "Delete Q4 → A3 and remove Q4 from A3's Inputs line. If a characteristic-p Zariski-closed statement is needed, have P4 prove it elementarily (torsion paper Lemma II.2.5, extended to perfectoid Tate rings of characteristic p) and add P4 → A3. Keep P3 → A3 for the tilting transfer. Q4 then remains an input only of P8, S2, S4 and PR.4."
+    },
+    {
+      "id": "RT-AREA-padic-1/7",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "Part II PerfectoidQuotientsIntegralPerfectoidPartII (CESNAVICIUS-SCHOLZE-24 route 3, accepted) vs PerfectoidQuotients:Q0:integral-algebra, PerfectoidSpaces:P7 and Q4",
+      "claim": "The Part II plans, as missing, statements that earlier accepted routes already assigned to existing layers, or that Q4's own proof needs before any Part II can exist. No restructuring covers this. It also imports Scholze's rank-one tilting from the wrong stage.",
+      "evidence": "ČS24/012 ('the ϖ-adic completion of every ind-étale A-algebra is perfectoid') duplicates ANSCHUTZ-LEBRAS-23/13 (accepted route 3 → Q0:integral-algebra); the ČS24 item's own note says 'one home should be chosen'. ČS24/037 restates Česnavičius's Lemmas 5.1–5.2, which CESNAVICIUS-19 route 16 (accepted → P7) already carries (residue-tower, perfectoid-tower). ČS24/010, /013 and /014 overlap CESNAVICIUS-19 route 7 (→ Q0:integral-algebra) items perfectoid-reduced, integral-frob-inject and completion-perfectoid. ČS24/010 and /018 are inputs of Q4: node Q4/surjectivity-of-perfectoidization 'Uses that perfectoid rings are reduced and that the p-completion of R/(f^{1/p^∞}) is perfectoid (asserted)'. The brief imports 'PerfectoidSpaces P1 (Scholze's rank-one tilting, Theorem 3.7)', but the decomposition places Scholze 2012 Thm 3.7 in P3 (node P3/finite-extensions-of-perfectoid-fields).",
+      "fix": "Move ČS24/010, /012, /013, /014, /017, /018 and /019 into Q0:integral-algebra, so that Q4 imports them, and /037 into P7. The Part II keeps the ind-syntomic André lemma (2.3.4 with 2.3.1–2.3.2), fibre products (2.1.4), valuation-ring tilting (2.1.9), 2.1.12, semiperfectoid covers (2.3.7) and /020. Change the P1 import to P3."
+    },
+    {
+      "id": "RT-AREA-padic-1/8",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "PerfectoidSpaces:P1 vs RelativeFarguesFontaine:RF2:untilts (and FarguesFontaineDiamonds:F4)",
+      "claim": "The marked-untilt / primitive-θ-kernel correspondence is planned in P1 and again in RF2:untilts. RS-05's owner entry makes P1 the owner only against D6 and S5. The RS-20 owner entry that would resolve it is not a decision, because RS-20 is needs_changes over an unrelated RF3 issue.",
+      "evidence": "P1: 'Construct Fontaine's θ … principal non-zero-divisor description of its kernel. Prove classification of marked untilts by primitive degree-one ideals'. RF2:untilts: 'Construct marked untilts over E, the primitive kernel of theta, and its divisor on Y_S and X_S'. F4: 'For an untilt … the local equation given by the primitive kernel of θ'. RS-05 owner: 'General perfectoid tilting and marked-untilt theory → P1, formerly [D6, S5]'. RS-20 owner: 'P-typical marked-untilt and primitive degree-one Witt-ideal correspondence → P1, formerly [F4, RF2:untilts]'; RS-20 review status needs_changes.",
+      "fix": "Apply that single RS-20 owner entry independently of RF3: RF2:untilts and F4 import P1 for the p-typical correspondence and add only the E-linear and divisor statements, with edge P1 → RF2:untilts."
+    },
+    {
+      "id": "RT-AREA-padic-1/9",
+      "kind": "error",
+      "severity": "medium",
+      "where": "AdicSpacesPartII:R5; RS-05 links R5 → AdicEtaleGeometry:A3 and R5 → PerfectoidSpaces:P6",
+      "claim": "R5 is a single stage bundling the early sousperfectoid class, which is all A3 uses, with family coefficient sheaves, whose input is ClassicalAdicEtaleCohomology:H0. RS-05's stage-level links therefore put H0 (classical étale sheaves, D⁺, constructibility) upstream of A3, P6, D1–D6 and everything diamond-based, although none of them uses H0. The path H0 → R5 → P6 → D1 exists only through the RS links, and R5's text cites a nonexistent 'ClassicalAdicEtaleCohomology C0'.",
+      "evidence": "RS-05 link reason: 'Only the EARLY R5 ambient class is imported'; RS-05.md: 'R5 precedes A3 and P9. The sousperfectoid ambient class/products are early'. The link R5 → P6 exists only as 'Direct component import after narrowing AdicEtaleGeometry:A3'. R5 text: 'together with completed coefficient sheaves and torsor descent … sheaf base-change and equalizer results needed to define and descend families', with dependency '[ClassicalAdicEtaleCohomology C0]' (the atlas edge is H0 → R5). The A3 decomposition uses only node R5/sousperfectoid-rings. F0: 'PerfectoidSpaces P0–P8 use the earlier R0–R3/F0 inputs; its P9 weight-space extension additionally consumes R5'.",
+      "fix": "Split R5 into R5:sousperfectoid (nodes R5/sousperfectoid-rings and R5/perfectoid-times-smooth-fibre-product; inputs Tau Ceti AdicSpaces Layers 0–5, R0 and P0–P3 only) and R5 (families and coefficient sheaves, keeping H0, R3, E1, DD.0). Re-point the RS-05 links R5 → A3, RF0:integral-Y, RF0:annuli and BG0 to R5:sousperfectoid, drop R5 → P6, and correct 'C0' to H0."
+    },
+    {
+      "id": "RT-AREA-padic-1/10",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "DiamondsAndVStacks:D5 vs TropicalAndBerkovichArithmetic:TB.0",
+      "claim": "Two layers plan the Berkovich spectrum M(R) of bounded multiplicative seminorms and the theorem that |Spa(A,A⁺)| → M(A) is the maximal Hausdorff quotient: D5 for affinoid perfectoid spaces (ECD 13.7–13.11) and TB.0 for Banach and strictly affinoid algebras. There is no edge between them and no restructuring covers the pair.",
+      "evidence": "D5: 'Construct the Berkovich/maximal-Hausdorff quotient functor'. TB.0: 'Construct the Berkovich spectrum of a Banach algebra from bounded multiplicative seminorms … Compare a strictly affinoid algebra with its Huber adic spectrum by rank-one points/maximal generalizations … the correct quotient topology'. ECD Def. 13.7 ('|X|^B … all multiplicative bounded nonarchimedean seminorms') and Prop. 13.9 ('identifying |X|^B as the maximal Hausdorff quotient of |X|'). Accepted routes into TB.0: SCHOLZE-26/4 and ZAVYALOV-25/134. Mathlib carriers only: MulRingSeminorm (RingSeminorm.lean:62), T2Quotient (Hausdorff.lean:413).",
+      "fix": "Make an early TB.0:spectrum (inputs LI.0 and Tau Ceti AdicSpaces Layer 2 only) the single owner of M(R) for Banach and complete Tate rings and of the maximal-Hausdorff theorem for complete Tate Huber pairs, built on MulRingSeminorm and T2Quotient. Narrow D5 to ECD 13.10–13.13, the extension to small v-sheaves, and add TB.0:spectrum → D5 (acyclic)."
+    },
+    {
+      "id": "RT-AREA-padic-1/11",
+      "kind": "error",
+      "severity": "medium",
+      "where": "RS-05 owners entry 'Diamond canonical compactification geometry' → DiamondsAndVStacks:D5; RS-05 layers D5, D2, DiamondEtaleCohomology:C4, DiamondSixOperations:S0",
+      "claim": "RS-05 assigns the canonical compactification (ECD §18) to D5. But D5's text disclaims it, and C4 is kept unchanged with the construction still in its text. The decision is implemented nowhere. DiamondsAndVStacks has no decomposition yet, so its blueprint will follow RS-05's D5 reason while C4 also builds the object, which duplicates it. The same off-by-one shift in RS-05's DiamondsAndVStacks reasons gives effective descent (ECD 9.2–9.11, D3's text) to D2.",
+      "evidence": "RS-05 layer D5 keep: 'Retain separatedness, specialization, partially proper/proper maps, canonical compactification'; RS-05 layer C4 keep: 'D5 supplies compactification geometry'; RS-05.md row 76: 'D5 owns the compactification object'. C4 text: 'Build ECD §18 … construct the partially proper envelope/canonical compactification with its universal property'. D5 text: 'Canonical compactifications in C4 are not assumed to remain spatial'. S0: 'Prove ECD 22.3 using C4's canonical compactification'.",
+      "fix": "Either correct the owner to DiamondEtaleCohomology:C4 (formerly D5 and S0) and rewrite the D5 and D2 keep reasons to match their texts (D5 = ECD §§11–13; effective descent = D3), or narrow C4 to cohomology and extend D5 with ECD §18. The proposal must pick one."
+    },
+    {
+      "id": "RT-AREA-padic-1/12",
+      "kind": "error",
+      "severity": "medium",
+      "where": "BHATT-MATHEW-21 route 2 (accepted) → DiamondsAndVStacks:D0, items /58–/61",
+      "claim": "Items /58–/61 are ∞-categorical sheaf statements, and D0 is strictly 1-categorical. D0 precedes the enhanced-sheaf owner (atlas edges D0 → E1 and D0 → E2), so it cannot import E1's model without a cycle and would have to build a second ∞-sheaf model.",
+      "evidence": "/58: 'identifies the ∞-category of C-valued sheaves on X with the ∞-category of functors B^op → C'; /61: 'For C compactly generated …'. D0: 'Use the existing presheaf/sheaf and Grothendieck-topology carriers … These ordinary foundations … do not presuppose the enhanced diamond étale category'. RS-05 owner: 'Generic enhanced sheaf model and derived functors' → EnhancedDerivedSheaves:E1.",
+      "fix": "Re-route /58–/61 to EnhancedDerivedSheaves (E1/E2, with E0's quasicategory operations) or to the arc-topology roadmap; keep only the spectral-space items /38–/43 in D0, or restate /58–/61 there in 1-categorical form."
+    },
+    {
+      "id": "RT-AREA-padic-1/13",
+      "kind": "other",
+      "severity": "medium",
+      "where": "Part II DiamondsAndVStacksIntegralPartII (KISIN-PAPPAS-ZHOU-26 route 6, GLEASON-LIM-XU-26 route 9, both accepted)",
+      "claim": "One Part II id carries two titles and two briefs. make_queue.py writes one prompt per job id, and KISIN-PAPPAS-ZHOU-26 comes later in papers.json (#143 against #77). So its 2-item brief wins, and Gleason–Lim–Xu's 13 accepted items drop out of the design job: reduction, formally adic morphisms, specializing v-sheaves, the specialization map, kimberlites, tubes, and Gleason 4.53/4.55.",
+      "evidence": "Titles: '…Part II: recovery of integral models' (KPZ) vs '…Part II: integral recovery and kimberlite specialization' (GLX). The GLX brief restates the KPZ targets only as 'Preserve the earlier full-faithfulness and integral-recovery targets'. research/blueprint/make_queue.py:720–726 (prompt keyed by job id) and :851 (dedup only against the seven fixed designs).",
+      "fix": "Write one merged brief under one title (GLX's items plus KPZ's explicit targets: SW 18.4.1 with its hypotheses, the v-sheaf of a flat closure, gap E34) on one route, or have make_queue.py merge briefs sharing an id. The merged brief imports D6:pre-adic."
+    },
+    {
+      "id": "RT-AREA-padic-1/14",
+      "kind": "error",
+      "severity": "medium",
+      "where": "ZAVYALOV-25 route 4 (accepted 2026-09-23) → AdicSpacesPartII:R2 and F0",
+      "claim": "All seven items concern admissible formal O_K-schemes with K algebraically closed, which are non-noetherian (BLR Thm 2.7.1, B.2–B.15, Elkik over O_K). RS-05 narrowed F0 to noetherian Spf and explicitly kept these objects in R2. The route's review justified F0 with the very paragraph RS-05 removed.",
+      "evidence": "Review: 'F0 proves properness, separatedness and smoothness comparisons with formal models, which is where … the Reduced Fibre Theorem and Elkik's algebraization belong'. RS-05 F0 keeps: 'Noetherian Spf … The analytic paragraph becomes a forward reference to R0-R3'. RS-05 R2 keeps: 'Conrad FS_C over nondiscrete valuation rings … F0 noetherian models do not replace them'.",
+      "fix": "Set route 4's stages to [AdicSpacesPartII:R2] only."
+    },
+    {
+      "id": "RT-AREA-padic-1/15",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "AdicEtaleGeometry:A0 as narrowed by RS-05 (suppliedBy AdicSpacesPartII:R0)",
+      "claim": "RS-05 dropped A0's paragraph on the global analytic locus, analytic adic spaces over Spa(ℤ_p,ℤ_p) and Tate charts on non-Tate (Witt) inputs, and named no supplier that plans it. Tau Ceti AdicSpaces Layer 2.3 owns only the affinoid Spa(A,A⁺)^a, and R0's keeps do not contain it. D6 (ECD Def. 15.5), A4 and RF0:integral-Y are stated on analytic adic spaces or analytic opens of Witt Huber pairs.",
+      "evidence": "A0: 'Construct the analytic locus and morphism restriction interfaces required to apply these constructions to analytic adic spaces over Spa(ℤ_p,ℤ_p). Preserve non-Tate Huber pairs such as Witt rings'. RS-05 A0 keeps: 'Supplier-contract comparison of the completed tensor/plus-ring topology, universal property and analytic pullbacks supplied by R0'. R0 keeps list tensors, fibre products and morphism classes only. Tau Ceti Layer 2.3: 'the analytic locus Spa(A,A⁺)^a'; Tau Ceti spaAnalytic at AlgebraicGeometry/AdicSpace/Spa/Analytic.lean:80 (affinoid only). No other stage owns it.",
+      "fix": "Restore to A0's keeps, or add to R0: X^a ⊂ X as an open adic subspace independent of the chart; morphisms into analytic spaces are adic; the full subcategory of analytic adic spaces over Spa ℤ_p; Tate charts on the analytic locus of non-Tate pairs (the Witt rings of RF0). Import Tau Ceti Layer 2.3."
+    },
+    {
+      "id": "RT-AREA-padic-1/16",
+      "kind": "error",
+      "severity": "medium",
+      "where": "RelativeFarguesFontaine:RF2:untilts (and parent RF2, README §RF2)",
+      "claim": "The stage defines the wrong object as Div^1. Over Perf_Fq, Div^1 = Spd(E)/φ^ℤ (FS Def. II.1.19). The formula Spd(Ĕ)/φ^ℤ holds only after restricting to Perf_k with k = F̄_q: over Perf_Fq, Spd Ĕ = Spd E × Spd F̄_q, and φ moves only the F̄_q-structure. The text contradicts FarguesFontaineDiamonds F4 and its own reviewed node.",
+      "evidence": "RF2:untilts: 'Define Div^1 using the unramified coefficient base Spd(E-breve)/phi^Z over Perf_Fq.' FS arXiv:2102.13459 Def. II.1.19, p. 56: 'the moduli space Div1 of degree 1 closed Cartier divisors is given by Div1 = Spd(E)/φZ', on Perf_Fq; p. 61: 'if one works on Perf_k, then Div1 = Spd Ĕ/φZ'. Node RF2:untilts/div1-moduli-and-properness: 'Div^1 = Spd(E)/phi^Z … over Perf_k … Div^1 = Spd(E-breve)/phi^Z'. F4: 'Div¹ = Spd ℚ_p/φ^ℤ'.",
+      "fix": "In RF2:untilts, RF2 and the README, write: 'Define Div^1 = Spd(E)/φ^ℤ on Perf_Fq (FS II.1.19), and prove its presentation Spd(Ĕ)/φ^ℤ after restriction to Perf_k, k = F̄_q (FS p. 61).' This is independent of the RF3 blocker in RS-20 and can be applied now."
+    },
+    {
+      "id": "RT-AREA-padic-1/17",
+      "kind": "error",
+      "severity": "medium",
+      "where": "RelativeFarguesFontaine:RF2:untilts, node div1-moduli-and-properness — missing prerequisites",
+      "claim": "The node proves FS II.1.21 (Div^1 → * is proper, representable in spatial diamonds and cohomologically smooth). That proof needs ECD Prop. 24.5 and the valuative criterion ECD 18.3, which the atlas plans only in DiamondSixOperations:S5 and DiamondEtaleCohomology:C4. RF2:untilts has no ancestor in either. Adding those edges would put RF3, RF4, VB1, BG0 and everything below behind the six-functor formalism. Every actual consumer of II.1.21 (HS0, HS1, VS1, VB3:general-BC) already descends from S5 and C4.",
+      "evidence": "Node hypotheses: 'Cohomological smoothness of Spd(E) → * is quoted from ECD Proposition 24.5 …', 'Properness is obtained from the valuative criterion of ECD Proposition 18.3'. FS II.1.21 proof (p. 56) cites [Sch17a, 24.5] and [Sch17a, 18.3]. S5: 'Deduce 24.5 for Spd ℚ_p → *'; C4: 'Build ECD §18 … prove the valuative criteria'. Graph: RF2:untilts has 65 ancestors, none in DiamondSixOperations or DiamondEtaleCohomology.",
+      "fix": "Keep only the definition of Div^1 and the degree-1 divisor description in RF2:untilts. Move the properness/smoothness statement to a stage after C4 and S5: VectorBundlesAndIsocrystals:VB3:general-BC already owns FS II.3.7, of which Div^1 = (BC(O(1))∖0)/E^× is a case by II.2.4, or else to a new RF2 child with edges C4, S5 → child → HS0, HS1, VS1. Do not add C4 or S5 → RF2:untilts."
+    },
+    {
+      "id": "RT-AREA-padic-1/18",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "RelativeFarguesFontaine:RF0 (period domains); GUO-REINECKE-24 route 6; nodes VB1/cohomology-of-twists and VB3:positive-basic-examples/lubin-tate-universal-cover",
+      "claim": "No layer plans the part of Spa W_{O_E}(R⁺) where [ϖ] = 0: the locus 𝒴_{[0,∞]} = Spa W(R⁺) ∖ V(π,[ϖ]), its affinoids Y_{S,[r,∞]} and rings B_{R,[r,∞]}, sheafiness of W_{O_E}(R⁺)[1/π] with the π-adic topology, and Kedlaya's adic-to-scheme equivalence for vector bundles there. Consumers include FS II.2.5 (planned as a VB1 node), FS II.2.2 in the p-adic case (VB3), the accepted GUO-REINECKE-24 route 6, and AInfCohomology AI.2. The libraries have none of this.",
+      "evidence": "RF0:integral-Y constructs only '𝒴_S = Spa(W_OE(R+)) \\ V([varpi])'; RF0:annuli uses intervals 'I = [a,b] contained in (0,infty)'; Tau Ceti Layer 6 excludes '[r,∞]'. FS pp. 62–63: 'B_{R,[1,∞]} = O(Y_{S,[1,∞]}) … Y_{S,[1,∞]} = {|[ϖ]| ≤ |π| ≠ 0} ⊂ Spa W_{O_E}(R⁺). (We warn the reader that Y_{S,[0,1]} and Y_{S,[1,∞]} are not contained in Y_S …)' and '(obtained from sheafyness of W_{O_E}(R⁺)[1/π] when endowed with the π-adic topology)'. Node VB1/cohomology-of-twists: '…a part in [varpi]B_{R,[1,infty]}…'. GUO-REINECKE-24/129 cites [Ked20, Thm 3.8]; Kedlaya arXiv:1602.09016v5 Thm 3.8: 'the complement in Spec A (resp. Spa(A,A)) of the closed subspace where p = [x] = 0. Then pullback … defines an equivalence'.",
+      "fix": "Add an RF0 child (e.g. RF0:crystalline-end) constructing 𝒴_{[0,∞]}, Y_{S,[r,∞]}, B_{R,[r,∞]}, the π-adic sheafiness of W_{O_E}(R⁺)[1/π] with FS's two short exact sequences (p. 63), Kedlaya Thm 3.8 and SW20 Prop. 14.2.6. Add edges from it to VB1, VB3:positive-basic-examples and AI.2's essential-surjectivity part. Retarget GUO-REINECKE-24 route 6 and the GR Part II import to it."
+    },
+    {
+      "id": "RT-AREA-padic-1/19",
+      "kind": "error",
+      "severity": "medium",
+      "where": "AInfCohomology:AI.2 (consumer of RelativeFarguesFontaine:RF4:vector-bundles)",
+      "claim": "AI.2 plans Fargues' equivalence ('Construct both directions') from BMS1 Thm 4.28 and its proof. But BMS1 proves only full faithfulness (Remark 4.29) and defers essential surjectivity to Scholze–Weinstein, whose proof (SW20 Thm 14.1.1) uses the classification of vector bundles, GAGA for the curve and Kedlaya on Y, none of which AI.2 has. Conversely, full faithfulness, which is all BMS's main theorems need, uses no curve input. Yet the edge RF4:vector-bundles → AI.2 raises AI.2's ancestor count from 24 to 72, putting diamonds, FarguesFontaineDiamonds F0–F3, RF0–RF2 and AdicSpacesPartII in front of AI.5, PR.7 and 194 descendants.",
+      "evidence": "BMS1 (arXiv:1602.03148v3) p. 42: 'Theorem 4.28 (Fargues) … we refer to [61] for a proof', with [61] the Scholze–Weinstein Berkeley notes; Remark 4.29, p. 43: 'For the proof of our main theorems, we only need fully faithfulness … which is easy to prove directly'. SW20 printed p. 116 (proof of Thm 14.1.1) uses Cor. 13.5.5 ('all vector bundles … semistable of slope 0 are trivial, which follows from the classification of vector bundles'), the Beauville–Laszlo lemma, Thm 13.5.6 and Thm 14.2.1. AI.2 requires only AI.0, P7:annulus-foundations, R06.1 and RF4:vector-bundles; no VB stage is an ancestor.",
+      "fix": "Split AI.2 into (a) the BKF category and full faithfulness (BMS1 Lemmas 3.23, 4.26, Remark 4.29), with no Fargues–Fontaine-curve input, dropping RF4:vector-bundles → (a); and (b) essential surjectivity, sourced to SW20 Thm 14.1.1 and §§14.2–14.3, with edges from VB2:classification, VB2:ampleness, RF4:vector-bundles and the new RF0 crystalline-end child. Retarget AI.5 to (a) and other consumers by what they use."
+    },
+    {
+      "id": "RT-AREA-padic-1/20",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "PadicHodgeTheory:R06.1 vs RelativeFarguesFontaine:RF2:untilts (node BdR-completion-and-filtration)",
+      "claim": "B_dR⁺ and B_dR, with the theorem that B_dR⁺(C) is a complete DVR with residue field C, are planned twice, with no edge or comparison between the two, and consumers cite different owners. RS-01 made R06.1 the owner of the rational period rings without considering RF2:untilts; RS-20 asks only for comparison with the Mathlib carriers.",
+      "evidence": "R06.1: 'Construct B_dR^+, its filtration and B_dR … Prove the … filtration … properties'; RS-01 owner entry: 'PadicHodgeTheory:R06.1 … Rational period-ring constructions … reusing the existing BDeRhamPlus/BDeRham carriers'. RF2:untilts: 'Construct completion along a divisor, B_dR^+ and its localization B_dR … At a geometric untilt identify the complete discrete valuation ring and its residue field'. FS p. 196 treats B⁺_dR(C♯) as a known input. AI.0: 'B_dR^+ … supplied by PadicHodgeTheory'; the HOWE-KLEVDAL-26 brief imports 'B_dR^+, B_dR … from RelativeFarguesFontaine RF2:untilts'. There is no path between R06.1 and RF2:untilts in either direction.",
+      "fix": "R06.1 owns B_dR⁺(C) for arbitrary complete algebraically closed C over E (on Mathlib BDeRhamPlus), including the complete-DVR/residue-field theorem. Add R06.1 → RF2:untilts. RF2:untilts keeps only the relative completion B⁺_{Div^1}(S), its I_S-adic filtration and the identification at geometric points with R06.1's ring. Align the HOWE-KLEVDAL-26 brief."
+    },
+    {
+      "id": "RT-AREA-padic-1/21",
+      "kind": "other",
+      "severity": "medium",
+      "where": "RS-20 blocker (RF3) together with the VectorBundlesAndIsocrystals ordering gaps",
+      "claim": "RS-20's open blocker (RF3's global map X_S → Proj P needs the covering by non-vanishing loci of positive-degree sections, FS II.2.6, which sits in the later VB2:ampleness) is solvable, but not inside RF3 alone. It is one instance of a single order inversion in the FS II.2 chain across RF3, VB1, VB2:ampleness and VB3:positive-basic-examples. At a geometric point the covering is elementary, while for affinoid S it needs II.2.6. Degree (II.2.10) needs II.2.9, which sits in VB2:ampleness, so VB1's degree node already depends on a stage downstream of VB1.",
+      "evidence": "REV-RS-20~2's open objection (RF3). FS Thm II.0.4 (p. 46) groups 'there is a natural map of locally ringed spaces X_S → X_S^alg' with II.2.6–II.2.7; the II.2.9 proof (p. 68) uses 'any g ∈ H⁰(X_C,O(1)) that does not vanish at x'; II.2.10 opens 'By Proposition II.2.9…'. The VB1 node degree-rank-slope-and-HN-formalism uses 'Pic(X_C) = Z'. Atlas edges VB1 → VB2:ampleness, VB1 → VB3:positive-basic-examples, RF3 → VB2:ampleness; the VB decomposition gap 'Atlas substage order is the reverse…'.",
+      "fix": "Adopt REV-RS-20~2's option 2 in this acyclic form: (1) RF3: O(n), the graded ring P and chart maps on D₊(g) only; (2) an early VB1 part: II.2.1 descent, the isocrystal functor, II.2.5 cohomology of O(λ), co-located with VB3's II.2.2–II.2.4; (3) a geometric-point stage: classical points (II.1.11, II.1.22), X_C → X_C^alg, II.2.9 and II.2.10; (4) VB2:ampleness: II.2.6, the global map for affinoid S, II.2.7; (5) VB2:classification."
+    },
+    {
+      "id": "RT-AREA-padic-1/22",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "HodgeTateAndCanonicalSubgroups:T2 vs PerfectoidShimuraVarieties:S3 (and the HigherHidaAndColemanTheory and PAN-26 briefs)",
+      "claim": "The Hodge-type Hodge–Tate period map is planned twice, together with its main properties: the map on the tower, Hecke equivariance, the Levi-torsor pullback, the elliptic 𝒪(1) formula and the Hilbert restriction-of-scalars identification. RS-05 kept S3 without considering T2, and briefs of the same Part II name different owners. T2 also builds a map 'on a tower' without an edge from the tower's construction.",
+      "evidence": "T2: 'Construct the Hodge–Tate parabolic reduction and Levi torsor … Construct the universal flag-valued map on a tower where the Tate module is trivialized … Check the elliptic 𝒪(1) formula and the Hilbert restriction-of-scalars formula'. S3: 'Construct the Hodge–Tate period map on the open perfectoid tower. Prove its equivariance … pullback identification of the Levi torsor … Identify the elliptic map with … π_HT*𝒪(1)=ω. Identify the Hilbert map with the restriction-of-scalars flag variety'. RS-05 layers[S3]: 'Retain Hodge-type perfectoid/period-map theorem, compactifications, Hecke equivariance and automorphic bundle pullback'. BP-26/1 and BCGP-21/2 import π_HT from S1/S3; BCGP-25/22 from HodgeTateAndCanonicalSubgroups; PAN-26/1 from both. No PerfectoidShimuraVarieties stage is an ancestor of T2.",
+      "fix": "Add an owners entry {target 'Hodge-type π_HT on the tower: equivariance, Levi-torsor/automorphic-bundle pullback, elliptic π_HT*𝒪(1)=ω and Hilbert Res_{O_F/Z}P¹ identification', owner PerfectoidShimuraVarieties:S3, formerly [HodgeTateAndCanonicalSubgroups:T2]}. Narrow T2 to the finite-level HT exact sequence, the HT parabolic reduction and its comparison with the de Rham torsor, and the PEL and Hodge-tensor flag conditions. Align the four briefs on the single owner."
+    },
+    {
+      "id": "RT-AREA-padic-1/23",
+      "kind": "error",
+      "severity": "medium",
+      "where": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25 route 23 (source → HodgeTateAndCanonicalSubgroups T4, T5, T6; items 4.4.1-usual, 4.4.1-cusp, 4.4.1-analytic-usual, 4.4.1-analytic-cusp)",
+      "claim": "Four statements comparing completed cohomology with coherent cohomology on the infinite-level toroidal tower are routed to layers that plan none of them: T4 is the BHW period estimates, T5 Igusa torsors and ω^int, T6 log sites and log Riemann–Hilbert. All four items are 'missing' with no planned layer, yet the review accepted them as 'the paper's uses of that layer rather than new theory'.",
+      "evidence": "Item 4.4.1-usual: 'The completed étale cohomology complex tensored with C_p agrees with analytic cohomology of O_Sh on the infinite-level toroidal tower'. No T4, T5 or T6 description mentions completed cohomology or a primitive comparison. BCGP arXiv:2502.20645v1 p. 72, Thm 4.4.1: RΓ(Sh^tor_{K^p}, Q_p) ⊗ C_p = RΓ_an(Sh^tor_{K^p}, O), with variants; proof: 'The first part is immediate from [DLLZ23, Thm. 6.2.1], by passing to the limit as in the proof of [Sch15, Thm. 4.2.1]. The second part is [RC22, Thm. 6.2.6].' TorsionCohomologyInfrastructure:TC.2 plans 'the cohomological comparison diagram between finite-level torsion classes, completed cohomology, Čech cohomology on perfectoid charts'.",
+      "fix": "Remove the four items from route 23. Route 4.4.1-usual and 4.4.1-cusp to TorsionCohomologyInfrastructure:TC.2 (Hodge-type toroidal rational form), and 4.4.1-analytic-usual/-cusp to BCGP-25 route 22 (HigherHidaAndColemanTheory), which already holds VB_Σ and the Sen items. Both import the logarithmic primitive comparison of the next finding."
+    },
+    {
+      "id": "RT-AREA-padic-1/24",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "Scholze's primitive comparison theorem and its logarithmic version: owner PadicHodgeTheory:P8 (via accepted source routes); consumers CohomologyComparisons:CP.3, TorsionCohomologyInfrastructure:TC.2, IgusaVarietiesAndTorsionConcentration:IG.3, BCGP-25 Thm 4.4.1, HodgeTateAndCanonicalSubgroups:T6",
+      "claim": "Scholze's primitive comparison theorem for proper smooth adic spaces over C (Scholze 2013 Thm 5.1, with Thm 4.9 and Lemma 4.12) is assigned to PadicHodgeTheory:P8 only through accepted source routes (ZAVYALOV-25 route 7; BHATT-MORROW-SCHOLZE-18 for the finiteness theorem). Neither P8's stage text nor the PadicHodgeTheory decomposition records this; the decomposition says 'no owner stage was identified', and CohomologyComparisons' decomposition lists 'Scholze Theorem 5.1 owner' as open. CP.3 reaches only the prefix P8:local-rational, not P8. The logarithmic (Kummer-étale) version (Diao–Lan–Liu–Zhu, Thm 6.2.1), which BCGP-25 Thm 4.4.1 uses, is planned nowhere, and T6:log-sites takes only DLLZ's site.",
+      "evidence": "ZAVYALOV-25 route 7 (accepted, source → PadicHodgeTheory:P8): 'P8 owns the relative period sheaves and their proper-smooth comparison on rigid spaces, and PAPER-BHATT-MORROW-SCHOLZE-18 routes Scholze's finiteness theorem … here. The paper consumes three more theorems of the same paper of Scholze: the primitive comparison, the agreement of pro-étale and étale cohomology for F_p and O^+/p, …'. PadicHodgeTheory decomposition, coverage[P8:local-rational].remaining: 'Theorem 4.9 … and Lemma 4.12 … belong to the primitive comparison theorem (Theorem 5.1)… no owner stage was identified.' IG.3: 'must use connected Stein fibers and the precise primitive comparison'. Ancestor check: P8 is an ancestor of TC.2 and IG.3 but not of CP.3 (only P8:local-rational). DLLZ arXiv:1912.09836 abstract: 'We also establish the primitive comparison theorem in this context'. BCGP-25 items 4.4.1-* are 'missing' with planned none.",
+      "fix": "Do not simply add P8 → CP.3: CP.3 is already an ancestor of P8, so that edge would close a cycle. Instead, split the primitive comparison into an early stage PadicHodgeTheory:P8:primitive before P8:local-rational, owning Scholze 2013 Thm 4.9, Lemma 4.12, Thm 5.1 and the finiteness corollaries (with the items routed to P8 by ZAVYALOV-25 route 7 and BHATT-MORROW-SCHOLZE-18). Its inputs (PerfectoidSpaces P2/P3, AdicEtaleGeometry A1, AdicSpacesPartII R3, ClassicalAdicEtaleCohomology H0) are already ancestors of P8:local-rational. Add edges P8:primitive → P8:local-rational, CohomologyComparisons:CP.3, TorsionCohomologyInfrastructure:TC.2 and IgusaVarietiesAndTorsionConcentration:IG.3, and close the two stale 'no owner' gaps. Add HodgeTateAndCanonicalSubgroups:T6:log-primitive (DLLZ Thm 6.2.1 with its finiteness/vanishing corollaries) between T6:log-sites and T6:comparison, importing P8, and export it to TC.2 and the HigherHidaAndColemanTheory design."
+    },
+    {
+      "id": "RT-AREA-padic-1/25",
+      "kind": "error",
+      "severity": "medium",
+      "where": "PAPER-CARAIANI-SCHOLZE-17 route 6 (items 52, 53, 143 → HodgeTateAndCanonicalSubgroups:T2); consumer EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "claim": "Local Scholze–Weinstein results were routed into T2, which sits downstream of AutomorphicBundles B0–B2 and ShimuraVarieties V0–V8: Thm 5.1.4 (p-divisible groups over O_C/p and bundles on X_{C♭}), Thm B/5.2.1 (p-divisible groups over O_C ↔ pairs (T,W)) and Prop. 5.1.6. The same paper routed their companions (SW Thm A, universal covers) to FiniteFlat R07.1/R07.2. T2 lacks the imports the route requires, and ET.6a, which the extraction identifies as resting on this classification, has no edge to T2.",
+      "evidence": "Item 52 note: 'T2 must then import VectorBundlesAndIsocrystals VB1…, VB2:ampleness… and VB2:classification'; T2's only VectorBundles ancestor is VB0. Item 53 note: 'ET.6 and ET.6a cite Scholze–Weinstein §§6–7 … which rest on this classification, but they do not plan it'; T2 is not an ancestor of ET.6a. Items 49, 50, 138, 139 (SW §3, Thm A) were routed by route 7 to FiniteFlat R07.1/R07.2.",
+      "fix": "Move items 52, 53 and 143 to a new FiniteFlatGroupsAndIntegralPadicHodgeTheory stage after R07.2 importing VB1, VB2:ampleness and VB2:classification, with edges to T2, IG.3 and ET.6a (checked acyclic); T2 keeps the global HT sequence and torsors. Minimum repair if the route stands: add VB1, VB2:ampleness, VB2:classification → T2 and T2 → ET.6a."
+    },
+    {
+      "id": "RT-AREA-padic-1/26",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "HodgeTateAndCanonicalSubgroups:T0 (via PAPER-PILLONI-20 route 8) vs HilbertModularVarietiesAndShimuraCurves:H2 (also AlgebraicModularFormsAndSerreWeights:R15.3, ShimuraCompactifications:C6)",
+      "claim": "Paper routes made T0 the owner of the Hasse invariant Ha(G) = det V* of a BT_1 over any F_p-scheme, and of Fargues' LF. Yet H2 constructs the Hilbert instance and R15.3 the elliptic one. T0 is an ancestor of none of H2, C6, R15.3 or IG.2, and T0 sits downstream of ShimuraCompactifications:C4, so those stages cannot import it. No accepted restructuring decides this, and one brief cites three owners for the same invariant.",
+      "evidence": "PILLONI-20 route 8 (accepted): T0 'gets, for a BT_1 G over any F_p-scheme: Ha(G) = det V^⋆… Fargues's LF… SiegelModularFormsModPn imports Ha from T0'. BP-26/1: 'Ha is imported from HodgeTateAndCanonicalSubgroups T0'. H2: 'Construct its Hasse ideal… Prove independence of a local lift of the Hasse invariant'. R15.3: 'Construct the Hasse invariant'. BCGP-21/2 cites T0/SiegelModularFormsModPn, R15.3 and H1–H2. Ancestor check: C4 is an ancestor of T0; FiniteFlat R07.2 is an ancestor of T0, H2, C6 and IG.2.",
+      "fix": "Own Ha(G) = det V*, LF and the BT_1 Hodge–Tate sequence in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2, which already plans Frobenius/Verschiebung and is upstream of H2, C6, IG.2 and T0. T0 keeps only the semi-abelian/boundary extension. H2 builds its Hasse ideal from the imported Ha, and R15.3 proves compatibility of its elliptic Ha (add edge R07.2 → R15.3). Add the owners entry and re-point the four briefs."
+    },
+    {
+      "id": "RT-AREA-padic-1/27",
+      "kind": "other",
+      "severity": "low",
+      "where": "PAPER-BHATT-18 route 9 (unreviewed, Part II RegularRingSplittings) vs PAPER-ANDRE-18-B route 1 (accepted, DirectSummandsAndBigCohenMacaulay)",
+      "claim": "The direct summand theorem is proposed as the main theorem of two roadmaps. BHATT-18 is unreviewed, so this is not yet accepted duplication, but its review should resolve it.",
+      "evidence": "ANDRE-18-B route 1 brief: '…then the finite direct-summand theorem…'; item /direct-summand: 'For every commutative Noetherian regular ring R and commutative R-algebra S that is faithful and finite as an R-module, R→S admits an R-linear retraction.' BHATT-18 route 9 brief: 'The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction'; item BHATT-18/direct-summand is 'missing', planned none. No PAPER-BHATT-18.review.json exists.",
+      "fix": "For REV-PAPER-BHATT-18: mark BHATT-18/direct-summand as planned in DirectSummandsAndBigCohenMacaulay and make it a source route there; restrict RegularRingSplittings to Bhatt's derived splitting theorem (Thms 1.2, 6.1), importing the direct-summand roadmap's purity/retraction prefix and P7's towers."
+    },
+    {
+      "id": "RT-AREA-padic-1/28",
+      "kind": "error",
+      "severity": "low",
+      "where": "PerfectoidSpaces:P7 and its decomposition gap 'Frobenius-controlled towers'",
+      "claim": "P7's source for the Frobenius-lift perfectoid criterion, 'torsion paper II.1–II.2' (the gap says 'Lemma II.2.1 / Cor. II.2.3 range'), points to the wrong sections, 'Constructing formal models from affinoid covers' and 'Closed Embeddings of perfectoid spaces'. The argument is in §III.2.3, with tilde-limit uniqueness from Scholze–Weinstein, Moduli of p-divisible groups §2.4.",
+      "evidence": "Scholze, torsion paper (Annals 182, 2015), Cor. III.2.19 (pp. 989–990): 'using that the transition maps R_m/p^{1−ε} → R_{m+1}/p^{1−ε} agree with the relative Frobenius map, we find that (absolute) Frobenius induces an isomorphism R∞/p^{(1−ε)/p} ≅ R∞/p^{1−ε}. Thus … R∞^a is a perfectoid …; cf. [55, Def. 2.4.1, Prop. 2.4.2] and, for uniqueness, cf. [55, Prop. 2.4.5].'",
+      "fix": "Replace the P7 locator with 'torsion paper §III.2.3, Def. III.2.18 – Cor. III.2.19; Scholze–Weinstein (Moduli of p-divisible groups) Def. 2.4.1, Prop. 2.4.2 and 2.4.5', and correct the decomposition gap."
+    },
+    {
+      "id": "RT-AREA-padic-1/29",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "data/decompositions/AdicSpacesPartII.json: coverage for R3; nodes R3/stably-uniform-sheafy and R3/tate-kiehl-affinoid",
+      "claim": "The accepted packet (2026-09-16) predates RS-05 and the pin. Its R3 coverage asserts that Tau Ceti has no adic-space primitives, which is false at f790474. It still plans Buzzard–Verberkmoes, and the Tate half of Tate–Kiehl, as R3 theorems, although RS-05 assigns them to Tau Ceti AdicSpaces Layer 4.",
+      "evidence": "Coverage note: 'the TauCeti project has no adic-space or sheaf-trace primitives (grep for Huber, AdicSpace, Spa ( found only topological-ring files)'. At the pin: TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean:97 'def spa'; Spa/StructurePresheaf/Basic.lean:298 'presentationLimitPresheaf'. RS-05 owner: 'Strongly-noetherian/stably-uniform sheafiness and structure-sheaf Tate acyclicity' → Tau Ceti Layer 4, formerly R3.",
+      "fix": "Correct the coverage note, and mark the two nodes as imports of Tau Ceti Layers 4.1/4.2; R3 keeps Kiehl and KL 2.8.12."
+    },
+    {
+      "id": "RT-AREA-padic-1/30",
+      "kind": "error",
+      "severity": "low",
+      "where": "FarguesFontaineDiamonds:F0 and the roadmap record",
+      "claim": "F0 is literally 'Reuse the actual adic objects' of Tau Ceti AdicSpaces Layer 6, but it has no stage edge from Layer 6, even after RS-05; its only upstream is an unresolved sentinel. The roadmap's prerequisites do not list tauceti:TauCetiRoadmap/AdicSpaces, although PROTOCOL §15 makes a Part II's base its first prerequisite.",
+      "evidence": "F0: 'Obtain from AdicSpaces Layer 6'; F0 requires ['DiamondsAndVStacks:D6', 'UPSTREAM:ECD:FF_ADIC'], the sentinel having status 'requires_declaration_and_proof_verification' and no snapshot candidates. Roadmap prerequisites: ['AdicCoefficientsAndComparisons', 'AdicEtaleGeometry', 'DiamondEtaleCohomology', 'DiamondsAndVStacks', 'PerfectoidQuotients', 'PerfectoidSpaces']. RS-05 links Layer 6 → F1 but not → F0.",
+      "fix": "Add tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve → FarguesFontaineDiamonds:F0, resolve or retire the UPSTREAM:ECD:FF_ADIC sentinel, and put tauceti:TauCetiRoadmap/AdicSpaces first in the prerequisites."
+    },
+    {
+      "id": "RT-AREA-padic-1/31",
+      "kind": "error",
+      "severity": "low",
+      "where": "Stage edge RelativeFarguesFontaine:RF0:integral-Y → VectorBundlesAndIsocrystals:VB0",
+      "claim": "VB0 (isocrystals and Dieudonné–Manin, semilinear algebra) needs only W_{O_E}(F̄_q) from RF0's raw ramified-Witt construction. The atlas cannot point at that construction, because the RF0 aggregate depends on its own children, so VB0 is wired to the integral period space and inherits P1–P4, AdicSpacesPartII R0–R3/R5 and A3. The same unaddressable prefix is the target of the ZHU-17/3 and BHATT-SCHOLZE-17/15 routes, whose consumer is GS0:Witt-geometry.",
+      "evidence": "VB0 requires ['RelativeFarguesFontaine:RF0:integral-Y', 'UPSTREAM:LocalFieldsRamification']; its decomposition node works over 'L = W_{O_E}(F_q-bar)' with no 𝒴_S. RS-15 (accepted), VB0: 'the actual bundle-functor comparison is performed only after the VB1 functor exists'. RF0 requires RF0:annuli and RF0:integral-Y; the decomposition gap notes 'the ramified Witt construction precedes the integral period space'.",
+      "fix": "Split node RF0/ramified-witt-universal-property into its own stage (e.g. RF0:ramified-Witt) with inputs LocalFieldsRamification and Mathlib WittVector only, add edges from it to RF0:integral-Y, VB0 and GS0:Witt-geometry, delete RF0:integral-Y → VB0, and retarget the ZHU-17/3 and BHATT-SCHOLZE-17/15 routes."
+    },
+    {
+      "id": "RT-AREA-padic-1/32",
+      "kind": "error",
+      "severity": "low",
+      "where": "HodgeTateAndCanonicalSubgroups:T1 (README dependencies line)",
+      "claim": "T1's dependency text links 'ClassicalAdicEtaleCohomology C0', which does not exist; the stage edge is to H0.",
+      "evidence": "T1 description: '[ClassicalAdicEtaleCohomology C0](../ClassicalAdicEtaleCohomology/README.md)'. T1's requires include 'ClassicalAdicEtaleCohomology:H0'; ClassicalAdicEtaleCohomology's stages are H0–H5 and H1:* only.",
+      "fix": "Replace 'C0' by 'H0' and give the link its anchor."
+    }
+  ]
+}
