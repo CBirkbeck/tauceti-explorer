@@ -29394,8 +29394,9 @@
     "RT-AREA-modeltheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-modeltheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1506"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1506",
+   "finishedAt": "2026-09-24T01:45:36Z"
   },
   {
    "id": "RT-AREA-algebraicgeometry",
@@ -29943,7 +29944,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-grouptheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1529"
   },
   {
    "id": "REV-RT-AREA-grouptheory",
