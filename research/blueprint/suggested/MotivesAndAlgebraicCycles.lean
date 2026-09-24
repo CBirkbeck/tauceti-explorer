@@ -510,6 +510,48 @@ theorem motivic_eq_higherChow : True := by sorry
 
 end Geometric
 
+/-- MC.4/blow-up-triangle-and-formula: under resolution of singularities, an abstract
+blow-up with centre `Z` gives a distinguished triangle, and for smooth `X`, `Z` with
+`Z` of codimension `c` the motive of the blow-up splits off `c - 1` Tate twists. -/
+theorem blowup_triangle (X Z : Type) : True := by sorry
+
+theorem blowup_formula (X Z : Type) (c : ℕ) : True := by sorry
+
+/-- MC.4/motives-with-compact-support: `Mᶜ(X) = z_equi(X,0)`, contravariant for étale
+maps, covariant for proper maps, equal to `M(X)` for proper `X`, with
+`Mᶜ(𝔸ⁱ) ≅ ℤ(i)[2i]` and a localisation triangle under resolution of singularities. -/
+def motiveCompactSupport (X : Type) : Type := by sorry
+
+theorem motiveCompactSupport_proper (X : Type) : True := by sorry
+
+theorem motiveCompactSupport_affine (i : ℕ) : True := by sorry
+
+theorem motiveCompactSupport_localisation (X Z : Type) : True := by sorry
+
+theorem motiveCompactSupport_tensor (X Y : Type) : True := by sorry
+
+/-- MC.4/borel-moore-motivic-homology: `H^{n,i}_c` and `H^{BM}_{n,i}`, the bivariant
+cycle cohomology, the shifting theorem and Friedlander-Voevodsky duality. -/
+def borelMooreMotivicHomology (X : Type) (n i : ℤ) : Type := by sorry
+
+theorem borelMoore_localisation (X Z : Type) : True := by sorry
+
+theorem motives_duality (X Y T : Type) (d : ℕ) : True := by sorry
+
+/-- MC.4/cancellation-over-a-perfect-field: tensoring with `ℤ(1)` is fully faithful.
+The first form assumes resolution of singularities; Voevodsky's later form assumes
+only that the base field is perfect. -/
+theorem cancellation_of_resolution (M N : Type) : True := by sorry
+
+theorem cancellation_of_perfect (M N : Type) : True := by sorry
+
+/-- MC.4/nisnevich-versus-etale-and-rational-coefficients: with `ℚ ⊆ R` the Nisnevich
+and étale theories agree, and over a perfect field Lichtenbaum motivic cohomology with
+rational coefficients is motivic cohomology with rational coefficients. -/
+theorem nisnevich_eq_etale_rationally (F : Type) : True := by sorry
+
+theorem lichtenbaum_eq_motivic_rationally (X : Type) : True := by sorry
+
 /-! ## MC.5 Nori motives and diagram categories -/
 
 /-- MC.5/diagram: a directed graph with a distinguished identity edge at each vertex.
@@ -724,5 +766,59 @@ theorem conjectureC_of_finiteField (H : WeilCohomology k F) (X : SmProj k) : Tru
 irreducible smooth projective `X`, the `n`-fold exterior power of `[x] - [x']` is
 torsion in `CH₀(Xⁿ)` for `n` large. Torsion, not zero. -/
 theorem smash_nilpotence (X : SmProj k) : True := by sorry
+
+/-- MC.7/hodge-conjecture: over `ℂ`, every rational class of type `(p,p)` is a
+rational combination of cycle classes. Rational, not integral; projective, not
+Kähler. -/
+def HodgeClass (X : Type) (p : ℕ) : Type := by sorry
+
+def HodgeConjecture (X : Type) (p : ℕ) : Prop := by sorry
+
+theorem hodgeConjecture_degree_two (X : Type) : True := by sorry
+
+/-- MC.7/tate-conjecture: over a field finitely generated over the prime field, the
+Galois-fixed part of `H^{2a}(X, ℚ_l(a))` is spanned by cycle classes. -/
+def TateClass (X : Type) (a : ℕ) : Type := by sorry
+
+def TateConjecture (X : Type) (a : ℕ) : Prop := by sorry
+
+theorem tateConjecture_of_finite_extension (X : Type) (a : ℕ) : True := by sorry
+
+/-- MC.7/tate-conjecture-variants: the strong, Borel-Moore, separable-closure,
+integral and Tate-Beilinson forms. The integral form is mostly false and is recorded
+as a variant, never asserted. -/
+def StrongTateConjecture (X : Type) (a : ℕ) : Prop := by sorry
+
+def TateBeilinsonConjecture (X : Type) (a : ℕ) : Prop := by sorry
+
+theorem strongTate_implies_conjectureD (X : Type) : True := by sorry
+
+/-- MC.7/lefschetz-and-hodge-standard-conjectures. In characteristic zero the Hodge
+standard conjecture is a theorem; the Lefschetz standard conjecture is open. -/
+def LefschetzStandardConjecture (H : WeilCohomology k F) (X : SmProj k) : Prop := by sorry
+
+def HodgeStandardConjecture (H : WeilCohomology k F) (X : SmProj k) : Prop := by sorry
+
+theorem lefschetzStandard_implies_C (H : WeilCohomology k F) (X : SmProj k) : True := by sorry
+
+theorem hodgeStandard_char_zero (H : WeilCohomology k F) (X : SmProj k) : True := by sorry
+
+/-- MC.7/bloch-beilinson-filtration-and-murre: the Chow-level idempotent decomposition
+is stated; the further conditions of Murre and the axioms of the filtration are in no
+source read for this packet and are NOT stated here. -/
+def MurreDecomposition (X : SmProj k) : Prop := by sorry
+
+/-- MC.7/motivic-t-structure: no statement is planned, and this is the record of why. -/
+theorem no_motivic_t_structure : True := by sorry
+
+/-- MC.7/tate-and-hodge-known-cases: each entry carries its base field, characteristic,
+codimension and coefficients. -/
+theorem tate_divisors_abelian_finiteField (A : Type) : True := by sorry
+
+theorem tate_divisors_abelian_numberField (A : Type) : True := by sorry
+
+theorem tate_divisors_h20_one (X : Type) : True := by sorry
+
+theorem tate_K3_finiteField (X : Type) : True := by sorry
 
 end TauCeti.Motives
