@@ -12273,6 +12273,14 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
           "how": "Not cited in any proof. It strengthens the conclusion of Theorem 9.1.6 to W(r̄) = W^BM_gen(r̄_p) for suitable P."
         }
+      ],
+      "proofSteps": [
+        "The remark is one sentence and asserts existence of P; the blueprint must carry the construction of that P, because the whole point is to replace W_gen(r-bar) by W(r-bar) in the conclusion of Theorem 9.1.6 (V07). Work throughout with the tame inertial L-parameter tau = r-bar_p|_{I_{Q_p}} and its lowest alcove presentation (s, mu - eta).",
+        "Genericity of a Serre weight is a condition on its lowest alcove presentation: by the conventions of 2.1 (p. 33), a weight with lowest alcove presentation (w-tilde, omega) is m-generic exactly when omega is m-deep. So it suffices to control the omega attached to each predicted weight.",
+        "Proposition 2.6.2 (p. 52) supplies exactly that control, for m >= 2h_eta: for a tame inertial L-parameter with an m-generic lowest alcove presentation, (w-tilde, w-tilde_2) |-> F(w-tilde, w-tilde(tau) w-tilde_2^{-1}(0)) is a bijection onto W?(tau). Hence every sigma in W?(tau) has a lowest alcove presentation whose omega is mu translated by one of the finitely many elements w-tilde(tau) w-tilde_2^{-1}(0) of X^*(T) = Z^n, the pairs ranging over a finite set determined by n alone (the same set R and w-tilde_2 that index the product Q in the proof of Lemma 9.1.9).",
+        "Therefore, for any target depth m, if mu is (m + c(n))-deep with c(n) := max over that finite set of the sup-norm of w-tilde(tau) w-tilde_2^{-1}(0), then every omega above is m-deep, i.e. every element of W?(tau) is m-generic. The bound c(n) depends only on n, not on p or on mu, which is what makes a single polynomial work for all p.",
+        "Take P to be the product of the polynomial of Theorem 9.1.6 with the finitely many linear factors (X + w-tilde w-tilde_2^{-1}(0)) over the same index set - the construction the proof of Lemma 9.1.9 already performs for Q - shifted so that non-vanishing mod p forces the depth (m + c(n)) required above. P-genericity of mu then makes every predicted weight generic.",
+        "Consequence for V07: W?(r-bar_p|_{I_{Q_p}}) consists of generic Serre weights only, so W_gen(r-bar) = W(r-bar) and the conclusion of Theorem 9.1.6 may be stated as W(r-bar) = W^BM_gen(r-bar_p). A blueprint must prove the depth bound c(n) explicitly rather than quoting 'there exists P'; nothing else in 9.1.6 changes."
       ]
     },
     {
@@ -12288,6 +12296,14 @@
           "where": "not cited later",
           "how": "It shows that the hypotheses of Theorem 9.1.6 (V07) are met by a large supply of global r̄."
         }
+      ],
+      "proofSteps": [
+        "This is a realization statement, not a new theorem about deformation rings: it says that the hypotheses of Theorem 9.1.6 (V07) are non-vacuous and are met by a global object built from an arbitrary generic local one. The blueprint should carry it as the existence step that makes the main application usable.",
+        "Input: p does not divide 2n, K/Q_p finite unramified, and rho-bar : G_K -> GL_n(F) semisimple continuous with rho-bar|_{I_K} admitting a lowest alcove presentation (s, mu - eta) whose mu is P-generic for the P of Theorem 9.1.6. Only the restriction to inertia and its presentation are used.",
+        "Apply [14, Corollary A.7] (Caraiani-Emerton-Gee-Geraghty-Paskunas-Shin, Patching and the p-adic local Langlands correspondence): it produces a CM extension F/F^+ with F^+ not equal to Q and a potentially diagonalizably automorphic r-bar : G_{F^+} -> G_n(F) which is isomorphic to rho-bar at all p-adic places and whose restriction r-bar|_{G_F}(G_{F(zeta_p)}) is adequate. This is an external input: the blueprint must import it with its own hypotheses, not re-prove it.",
+        "Check the hypotheses of Theorem 9.1.6 against what the corollary returns: automorphy holds because potentially diagonalizable automorphy is automorphy in the sense used there; adequacy of r-bar|_{G_F}(G_{F(zeta_p)}) is part of the conclusion; and p not dividing 2n is assumed.",
+        "Check the local hypothesis: the inertial L-parameter r-bar_p|_{I_{Q_p}} is determined by the restrictions at the p-adic places, where r-bar is isomorphic to rho-bar, so it is tame and inherits the lowest alcove presentation (s, mu - eta) with mu P-generic. This is the only place where the isomorphism 'at all p-adic places' is used, and it is why the corollary must be applied with that prescription rather than with a weaker local condition.",
+        "Conclude that Theorem 9.1.6 applies to r-bar, giving W(r-bar) = W^g_gen(r-bar_p) = W?(r-bar_p|_{I_{Q_p}}) and W_gen(r-bar) = W^BM_gen(r-bar_p) for a global object whose local behaviour at p was prescribed arbitrarily among P-generic semisimple ones. Combined with V15, the first equality may be stated with W(r-bar) throughout."
       ]
     },
     {
