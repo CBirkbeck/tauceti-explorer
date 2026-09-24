@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject the remaining bundled scope after the Part II correction. AdicSpacesPartII F1 already owns dagger algebras, spaces and overconvergent de Rham complexes; RD.3–5 owns ordinary rigid frames/cohomology. CR.5–6, CP.0/4 and the proposed convergent Part II are separate suppliers. Put the genuinely nonproper syntomic comparison in a CohomologyComparisons continuation and the new log-rigid/HK scope in a CrystallineCohomology continuation, coordinating the Colmez–Nizioł 2017 route. The 44-item bundle has no complete definition APIs, tests or supplier closure."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Reject the brief as written. ET.6a constructs Drinfeld towers for arbitrary n, so the claim that the atlas stops at dimension one is false. Import base geometry and compare the standard semistable model explicitly. Generic smooth induction/Steinberg constructions extend SmoothRepresentationsOfLocalGroups, and buildings come from RG2.2. Retain a possible Drinfeld cohomology application route only after these boundaries and the CDN21 shared identifier are settled. Split the bundled §§5–6 and Appendix statements and correct Y versus Ȳ before design."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "Reject pending a shared-foundation design. LocallyAnalyticDistributions L0/L4 is a reasonable analytic parent, but it is itself a consumer of generic nonarchimedean convex/derived theory. Specify one common exact/derived carrier, its relation to existing abelian derived categories, and imports for all consumers; do not silently assume L0 supplies Banach/Fréchet foundations. Close the integral pro-discrete and rationalization proof contracts, all definition APIs and tests. E8 supplies no reason to strengthen Lemma 2.3."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject pending a joint contract with the proposal in PAPER-DING-25. Reusing its identifier is appropriate, but that proposal is not an accepted library/atlas supplier. State coefficient and Q_p-analytic versus K-analytic conventions, separate the general locally analytic foundation from Steinberg-specific results, and import the smooth carrier from SR.0/2. Remark citations alone do not supply the Orlik–Strauch/Orlik–Schraen proof chain or APIs."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "Reject this mixed source route: CR.5 covers the elementary log bases, but CR.6 is proper and CR.4 does not assert ordinarity of log schemes. The two broader bundled items are now missing. Separate a narrow CR.5 source from explicit continuation contracts for the new HK and log-Witt/ordinarity results."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject this mixed source route: the period rings are planned by R06.1 with CP.0 normalization, and the proper comparison is CP.4; the Stein pullback in the same item is beyond CP.4. Split the proper theorem from the nonproper continuation and keep the sheafwise versus global rationalization distinction."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Reject: D.2’s smooth/unramified regulator construction is a supplier only. The semistable formal O_C Fontaine–Messing construction and two rationalization orders exceed its stated scope."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "Reject: an étale/pro-étale site and H1’s nearby-cycle interfaces are not the Fontaine–Messing period theorem. Preserve the corrected Scholze site and prove the coefficient-limit comparison with its separate hypotheses."
+    },
+    {
+      "route": 9,
+      "verdict": "reject",
+      "reason": "Reject: the VB3 stage describes geometric Banach–Colmez constructions with a carefully staged classification dependency. Neither the classical Dimension/height calculus nor the two specific Stein/eigenspace theorems follows by naming VB3. Require an explicit comparison bridge and independent proof leaves."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Accept only this narrow source route for the finite-K Drinfeld half-plane and GL2 action, already within ET.6a’s arbitrary-n Drinfeld-tower construction. It supplies no new cohomology theorem, no separate definition of a tower, and no claim that higher-dimensional Drinfeld geometry is absent. The original item statement itself has the required K/Q_p finite hypothesis."
+    },
+    {
+      "route": 11,
+      "verdict": "reject",
+      "reason": "Reject: RG2.2 owns buildings, not the entire algebraic-parabolic and profinite-flag bundle. Import upstream parabolics without replanning, RG2.0 rational-point topology and RG2.4 Iwasawa decomposition as needed; prove the quotient/profinite topology comparison explicitly."
+    }
+  ],
+  "notes": "The independent review is complete. The extraction is partial: narrower library leaves, ten downgraded bundles, corrected source/type statements, and a partial direct dependency graph. Missing definition APIs, tests, granularity and supplier closure remain acceptance blockers. Source findings each carry a separate verdict; see the result and review report."
+}

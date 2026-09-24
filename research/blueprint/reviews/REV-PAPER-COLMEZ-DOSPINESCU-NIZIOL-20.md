@@ -42,6 +42,98 @@ Independent searches covered every item through five recorded subject families i
 
 Ten complete-item status claims were downgraded: the two original library bundles, overconvergent Frobenius/monodromy, Stein limits, Lemma 3.39, semistable Fontaine–Messing cohomology, its period map, the combined proper/Stein comparison, parabolic/profinite flag spaces, and log ordinarity. The remaining three planned records are elementary arithmetic/log setup at CR.5, period-ring input at CP.0/R06.1, and the finite-K half-plane at ET.6a. Planned means proposed work, not a proved library declaration.
 
+| Original/new item | Changed fields |
+| --- | --- |
+| `1-drinfeld-half-plane` | note |
+| `1-fact-1-1` | note |
+| `1-thm-1-3` | uses |
+| `1-remark-1-7` | note |
+| `1-thm-1-8` | sourceIssueRefs, statement, uses |
+| `1-etale-strategy` | note, sourceIssueRefs, statement, uses |
+| `1-part3-gbounded` | sourceIssueRefs |
+| `2-strict-morphism` | library, note, status, statusReview, supplierReferences, uses |
+| `2-open-mapping-metrisable` | library, note, status, statusReview, supplierReferences, uses |
+| `2-lemma-2-1` | uses |
+| `2-derived-tensor` | uses |
+| `3-semistable-weak-formal` | statement |
+| `3-frobenius-monodromy` | note, planned, status, statusReview, supplierReferences |
+| `3-hk-deformation-spaces` | sourceIssueRefs |
+| `3-stein-limits` | note, planned, status, statusReview, supplierReferences |
+| `3-example-3-30` | sourceIssueRefs |
+| `3-prop-3-36` | note, sourceIssueRefs, uses |
+| `3-lemma-3-39` | note, planned, status, statusReview, supplierReferences |
+| `33-fm-syntomic` | note, planned, status, statusReview, supplierReferences |
+| `33-period-map` | note, planned, status, statusReview, supplierReferences |
+| `4-iota-rig` | statement |
+| `4-convergent-cohomology` | statement |
+| `4-change-of-topology` | statement |
+| `4-h-cr` | statement |
+| `4-compatibility-f1-f2` | statement |
+| `4-thm-4-12` | uses |
+| `4-remark-4-13` | note, planned, status, statusReview, supplierReferences |
+| `5-parabolics-flag-spaces` | note, planned, status, statusReview, supplierReferences |
+| `5-generalized-steinberg` | statement |
+| `5-topology-steinberg` | note |
+| `5-simplicial-complexes` | name, note, statement |
+| `5-lemma-5-11` | uses |
+| `5-eq-5-12` | note |
+| `5-thm-5-13` | uses |
+| `6-integral-fm-period-map` | note, sourceIssueRefs, statement |
+| `6-standard-model-components` | statement |
+| `6-acyclicity-differentials` | sourceIssueRefs |
+| `6-ordinarity` | note, planned, sourceIssueRefs, statement, status, statusReview, supplierReferences |
+| `6-prop-6-23` | note |
+| `6-prop-6-27` | statement, uses |
+| `6-thm-6-28` | statement, uses |
+| `6-integral-regulators` | sourceIssueRefs, statement, uses |
+| `6-gamma-hk` | statement |
+| `6-lemma-6-37` | statement, uses |
+| `6-thm-6-45` | note, sourceIssueRefs, statement, uses |
+| `7-frobenius-p-inverse` | note |
+| `7-prop-7-1` | uses |
+| `7-cor-7-6` | uses |
+| `7-lemma-7-8` | sourceIssueRefs, uses |
+| `library-strict-map` | addedBy, id, kind, library, locator, name, note, statement, status (new exact supplier) |
+| `library-tate-open-mapping` | addedBy, id, kind, library, locator, name, note, statement, status (new exact supplier) |
+
+| Finding | Verdict | Independent verification |
+| --- | --- | --- |
+| E1 | confirmed | Confirmed on rendered p. 19. The chain defining ι must end in B_dR^+/F^r; repeating B_cr^+ does not define the stated map into B_dR^+. The extra hat on B_dR in the following composition has no defined role. The same pair occurs in arXiv v2 p. 19. |
+| E2 | confirmed | Confirmed on rendered p. 24. In degree r=0 the Frobenius eigenvalue is p^0=1. The next equality with B_cr^{+,φ=1}=Q_p confirms it. arXiv v2 p. 24 has the same p in the preceding eigenspace. |
+| E3 | confirmed | Confirmed on rendered p. 26. Both rows of (3.37) concern fixed degree r, so φ=p^r, not an unbound i; the target is C-valued de Rham cohomology, hence the map is ι_HK⊗θ. The older v2 diagram has the same discrepancies. |
+| E4 | confirmed | Confirmed in the p. 24 long exact sequence and its defining HK complex. Hyodo–Kato cohomology is an F-module; no canonical K-module structure is supplied. Its completed scalar extension to B_st is over F. The older v2 passage also uses K. |
+| E5 | confirmed | Confirmed at §3.1.5 p. 17: log-rigid cohomology over O_F^0 is an F-complex; D(C_F) is the coefficient category before scalar extension. The older v2 p. 17 repeats C_K. |
+| E6 | confirmed | Confirmed: footnote 14 names Schneiders but references [74], the Schneider–Teitelbaum entry; [75] is the Schneiders source in this bibliography. v2 footnote 14 repeats [74]. This is a citation slip, not a failure of rationalization. |
+| E7 | confirmed | Confirmed: the product defining Y is indexed by N, while the surrounding tuple displays use an undeclared I. The same tuples occur in v2 p. 12. This is only an index-name slip. |
+| E8 | rejected | Rejected as a missing-hypothesis finding. The printed reference to §2.1.3 does not by itself justify the general interchange, but the asserted need to add regularity and nuclear transition maps is false. Use the Banach injective resolution already invoked in the proof. Over the complete discretely valued K, every closed subspace of a Banach space is complemented (Schneider, Nonarchimedean Functional Analysis, Proposition 10.5(a), proof read together with 10.1). Each short exact segment of that resolution therefore splits continuously. The additive completed tensor functor V⊗̂_K− preserves these splittings, giving a split exact tensor resolution without interchanging any inductive limit. Equivalently, the resulting contracting homotopy is preserved. This establishes the needed exactness in the paper’s setting without the proposed extra hypothesis on V. The general nonarchimedean injective-resolution construction remains an explicit supplier contract, not something formally supplied by the cited complex-analytic Prosmans paper. v2 has the same proof paragraph. |
+| E9 | confirmed | Confirmed: the strata in Proposition 4.5’s proof on p. 32 are intersections of components of X_0; the next sentence makes them smooth proper k-schemes. Components of the formal X would have the wrong base. The older v2 passage has the same X. |
+| E10 | confirmed | Confirmed: (4.14) on p. 35 correctly uses ι into B_dR^+, whereas the immediately following pullback label changes to θ despite retaining B_dR^+/F^r as target. Restore ι. v2 has the same pair of labels. |
+| E11 | confirmed | Confirmed on rendered p. 38, with the proposed repair narrowed. The inverse limit of LC(X_{n,J},Λ)^* is the dual of LC(X_J,Λ), not the dual of its parabolic quotient. The latter is the annihilator of the parabolic-function subspace. For d=1,J=∅ this is the total-mass-zero subspace of distributions on P^1(K); a Dirac mass lies in the printed right side but not this subspace. Finite-level freeness needs a compatible presentation/proof; it does not follow for arbitrary quotients just by renaming them Sp_{J,n}. v2 p. 38 repeats the incorrect identification. |
+| E12 | confirmed | Confirmed: St^cont_J in the proof of Corollary 5.4 on p. 39 is an undeclared spelling for Sp^cont_J used in the statement and preceding definition. v2 repeats it. |
+| E13 | confirmed | Confirmed only as an unannounced uniformizer notation change on p. 40: π has the same intended role as the fixed ϖ. The powers and congruence quotient are consistent once this dictionary is stated. v2 uses π too; no mathematical theorem changes. |
+| E14 | confirmed | Confirmed in the limited sense that the cited Orlik paper concerns de Rham part (b), not ℓ-adic part (a). Read the author’s public The de Rham cohomology of Drinfeld’s half space, pp. 1–2, including Theorem 1 and formula (1.1); https://www2.math.uni-wuppertal.de/~orlik/preprints/deRham_final.pdf. Its text search has no compact-support theorem. Thus changing (a) to (b) repairs the main attribution, but is not independent verification of the extra compactly supported claim. v2 p. 40 repeats the original attribution. |
+| E15 | confirmed | Confirmed: the p. 41 symbols use (r+1)-tuples and r-fold cup products, hence degree r and twist r throughout the displayed surjections. v2 p. 41 repeats H^s_dR and Q_ℓ(s). |
+| E16 | confirmed | Confirmed on rendered p. 46: Lemma 6.8 explicitly says r-th cohomology, so the displayed H^s is an index slip. The truncation index s is not a cohomological degree. v2 repeats it. |
+| E17 | confirmed | Confirmed on rendered p. 47. The preceding sentence specifies the Tate twist (−j−k), so the following Twist twist is only a word typo. v2 repeats it. |
+| E18 | confirmed | Confirmed on rendered pp. 58–59. Each degree-r regulator integrates symbols of (r+1) hyperplanes, and the proof uses that domain. Replace d+1 by r+1 in all three regulators of 6.45(3) and the announced regulator in Remark 6.46. v2 p. 59 puts all four regulators in Theorem 6.45(3), with the same d+1 discrepancy; the later manuscript moves the étale regulator to a remark, so the two versions are not identical. |
+| E19 | confirmed | Confirmed on rendered p. 60: the K=F section has base r^PD_{p,n}; otherwise the subsequent g^* base change has the wrong source. arXiv v2 does not contain this expanded unramified-to-ramified construction: its Appendix A.1 p. 60 states the section more briefly. Do not claim this exact passage appears unchanged in v2. |
+| E20 | rejected | Rejected. Lemma 7.3 states existence of an exponent N_ι=N(d,e), not a prescribed numerical equality with the unramified exponent. Naming that exponent a(d) and the inverse-Frobenius exponent b(d), the displayed computation gives M=a(d)+e b(d). Taking N_ι=M satisfies the assertion and the later normalization p^(−N_ι). Renaming is all that is needed. The earlier v2 Appendix A.1 has a shorter construction; it is not the same proof. |
+| E21 | confirmed | Confirmed: the p. 53 argument refers to the Hyodo–Kato regulator Lemma 5.11, not a theorem with that number. v2 repeats Theorem 5.11. |
+| E22 | confirmed | Confirmed on rendered p. 64. For a single Cartier map C:Z^j_{n+1}→Z^j_n, the kernel is B^j_1; B^j_n describes the corresponding iterated-Cartier kernel. Check against the Cartier quotient in §6.2.3 and the recursive filtration. arXiv v2 Appendix B p. 63 has the same incorrect B^j_n, under different appendix numbering. |
+| E23 | confirmed | Confirmed: p. 45 refers to Proposition 6.3 and to the j exponents m_1,…,m_j, so Theorem and the extra index 0 are slips. v2 repeats both. |
+| E24 | confirmed | Confirmed only as spelling slips at the indicated passages. Fobenius, torsion-fee and vanishining do not change a mathematical assertion; v2 retains the corresponding spellings (with its different appendix numbering). |
+| E25 | confirmed | For the point X=Spf O_K the two sides as printed are K and C, and the natural scalar-extension inclusion K→C is not an isomorphism. The full construction on p. 18 has X_K. Checked in the rendered page and in v2 p. 4. |
+| E26 | confirmed | Logarithmic Witt forms carry Z_p coefficients, not arbitrary O_F coefficients. For r=1 and k=F_(p^2), the logarithmic degree-zero term is Z_p; there is no compatible unital W(k)-action extending its usual Z_p-module structure (reduction would give F_(p^2)→F_p). The next long exact sequence and Lemma 6.37 use Z_p. Rendered p. 6 and v2 (1.13) both print O_F. |
+| E27 | confirmed | A unital O-algebra contains 1 and is not an ideal to quotient by. Even interpreting only its underlying submodule fails to impose all wedge multiples. The relative differential relation is the homogeneous differential ideal; the generator is closed. This keeps degree zero O and the claimed one-dimensional relative differential direction. Both descriptions were checked on rendered p. 18 and in v2 p. 18. |
+| E28 | confirmed | The filtration is decreasing. For n=r−i≥2, the canonical quotient B^+/t^n→B^+/t^{n−1} is surjective; the map preserving representatives in the reverse direction is not well-defined, since t^{n−1} is zero only in its proposed source. The corrected direction also has kernel gr_F^{n−1}, as the displayed exact sequence requires. Both occurrences checked on rendered p. 24 and in v2. |
+| E29 | confirmed | The Tate twist r is fixed while the cohomological degree varies. In degree r−1 the surjection has domain (H^{r−1}_HK⊗B_st)^{φ=p^r,N=0}, and its kernel is (H^{r−1}_HK⊗B_st)^{φ=p^{r−1},N=0} by Lemma 3.39. This kernel system supplies the R^1-limit obstruction. Thus only the first cohomological H^r is wrong; the later degree-r closed-image argument uses H^r and is separate. Rendered p. 27 and the corresponding v2 passage checked. |
+| E30 | confirmed | The printed inclusive interval gives two values when r is a positive multiple of p−1. With p=3,r=2, (a,b)=(0,2) and (1,0) yield Z_p(2) and p^(−1)Z_p(2). They are different lattices although they have the same rationalization. Both the rendered manuscript and v2 p. 44 have the ambiguous interval. The rational comparison theorem is unaffected. |
+| E31 | confirmed | For d=1 take the radius-one truncated tree around [L_0], with L_0=O_K e_1+O_K e_2. Its boundary vertex L_1=O_K e_1+O_K ϖe_2 has the intermediate lattice L=O_K e_1+O_K ϖ²e_2: ϖL_1⊊L⊊L_1, but [L] is at distance two from [L_0] and lies outside BT_1. The displayed condition therefore does not imply membership in BT_s. A coefficient system restricted to BT_s cannot be evaluated there without intersecting the index set with that building. This corrects the indexing definition, not the acyclicity theorem; preservation of its recursive proof within the truncation remains a proof obligation. Rendered p. 46 and the corresponding v2 definition checked. |
+| E32 | confirmed | The missing restriction has a direct counterexample. Over F_3 let X=P^2 and let Y be the smooth cubic y²z=x³−xz². X is ordinary. The curve is nonsingular, and Cartier kills its invariant differential dx/y: in characteristic 3, the coefficient of x² in x³−x is zero. Hence Y is a nonordinary elliptic curve. As Y is an effective Cartier divisor, Bl_Y X≅X is ordinary. This disproves the printed reverse implication. The paper’s applications to ordinary blow-up centres only need the forward direction. Rendered p. 47 and v2 Proposition 6.11 checked. The original Illusie Proposition 1.6 was not accessed; the counterexample, rather than an unverified quotation, establishes this verdict. |
+| E33 | confirmed | dΩ^{r−1} consists of exact r-forms. Its bounded part is killed by injectivity of the bounded closed-r-form map to H^r; the stated degree-(r−1) map tests exact (r−1)-forms instead. Proposition 6.5 identifies the relevant bounded integral r-forms and Proposition 6.27 supplies the degree-r injection. This is a repair of the displayed proof, not a change to the theorem. Rendered p. 59 and v2 checked. |
+| E34 | confirmed | Diagram (6.31) immediately above has the generic fibre X_K, and Proposition 6.27 is precisely the injection from the model’s rational cohomology into that generic-fibre cohomology. The repeated formal X does not identify the unbounded smooth Steinberg dual. Rendered p. 54 and v2 checked. |
+| E35 | confirmed | This is the linearization of the section lifting from the special fibre to the formal model. Lemma 7.3 and the target of β in (7.9) both use X over r^PD_ϖ, not X_0. The inserted 0 in this display changes that target. The rendered p. 63 was checked; arXiv v2 Appendix A has a materially different, shorter argument, so no unchanged-passage claim is made for it. |
+
 There are 35 source findings: 33 confirmed and two rejected. Eleven findings were added (E25–E35). E11’s repair is narrowed to the annihilator description: freeness of arbitrary finite-level quotients was not proved. E14 confirms only the de Rham citation correction; the additional compact-support attribution needs a source. E13 is only an unannounced notation change. The correction search checked arXiv history, all three author publication pages, publisher preview, Crossref and targeted title searches; no explicit correction notice was found. “New” is bounded by these checks. It is not an assertion about every historical copy or the inaccessible journal body.
 
 Five exact diagnostics support the formula checks: a Dirac mass fails the Steinberg annihilator condition; the reverse filtered quotient does not preserve representatives; the two p=3,r=2 Tate normalizations give different lattices; explicit adjacent tree lattices leave a truncated ball; and the F_3 elliptic cubic has Cartier/Hasse coefficient zero while its divisor blow-up in ordinary P² is P² itself. The smoothness argument for the cubic works over the algebraic closure, not merely on enumerated rational points. These are mathematical diagnostics, not Lean compilation.
