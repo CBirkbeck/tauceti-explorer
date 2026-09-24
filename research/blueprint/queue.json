@@ -27541,7 +27541,8 @@
     "REV-AUDIT-15"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1580"
   },
   {
    "id": "REV-RT-AUDIT-15",
@@ -28564,8 +28565,9 @@
     "RT-AREA-computational"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-computational.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1472"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1472",
+   "finishedAt": "2026-09-24T03:29:39Z"
   },
   {
    "id": "RT-AREA-finitefields",
