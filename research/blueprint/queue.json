@@ -4291,8 +4291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -12351,8 +12351,9 @@
    "waitForLogs": [
     "{WORKERS}/EXT-07-continued/run.log"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #76"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #76",
+   "finishedAt": "2026-09-24T00:34:08Z"
   },
   {
    "id": "RS-01",
@@ -27853,7 +27854,8 @@
     "REV-AUDIT-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1593"
   },
   {
    "id": "RT-AUDIT-23",
