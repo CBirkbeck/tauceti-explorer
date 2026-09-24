@@ -1,3 +1,89 @@
+# LLHLM23 continuation: fine ownership of the library and planned citations
+
+Claude Code — cc-d67081; issue 1254; 24 September 2026. This continuation finishes the half of the
+per-item audit that the preceding checkpoint left open. That checkpoint established that every
+library citation *resolves* — the declaration exists, at the pin, in the right library, not private,
+not deprecated. The question left over was the harder one: does the cited declaration actually
+**provide** the item's statement, hypotheses and all?
+
+## Method
+
+All 146 library items and their 224 citations were resolved to a file and line in the pinned trees,
+and for each the declaration's own binders were read **together with every `variable` line in scope
+at that line**, since in Mathlib most hypotheses of a statement live in the section variables rather
+than in the declaration itself. That standing context was then compared with the item statement. The
+48 planned items were checked the same way against the **full text** of every stage they name, not
+the truncated extract.
+
+A mechanical overlap screen is not adequate for this, as the preceding checkpoint found: it produces
+naming-style false positives. Every judgement below rests on a read statement.
+
+## Result: 143 of 146 library items hold as stated
+
+One citation defect, and it is a real one.
+
+**L75** — "A compact Hausdorff space is a Baire space, being locally compact and T2" — cited
+`IsGδ.baireSpace_of_t2Space_locallyCompactSpace`. That declaration exists, at
+`Mathlib/Topology/Baire/LocallyCompactRegular.lean:62`, but it states that a **Gδ subset** `s` of a
+locally compact R₁ space is a Baire space: `(hG : IsGδ s) : BaireSpace s`. It is not the statement
+the item makes about the space itself. The declaration that *is* that statement sits nine lines
+above, at line 23: the instance `BaireSpace.of_t2Space_locallyCompactSpace`, docstring "**Second
+Baire theorem**: locally compact R₁ spaces are Baire", with binders `[R1Space X]
+[LocallyCompactSpace X]`; R₁ is weaker than T2, so a compact Hausdorff space qualifies. The Gδ
+lemma's own proof invokes it at line 64. The citation has been replaced and the item's note records
+why. The item's status is unaffected: the fact is in Mathlib, under a different name.
+
+## Two stale warnings discharged
+
+`L55` and `L77` carried notes telling a downstream blueprint author that their citations were
+*unverified* and must be opened before being relied on. They have now been opened, and all three are
+correct:
+
+- `Module.Flat.instTensorProduct` is the anonymous instance at `Mathlib/RingTheory/Flat/Basic.lean:232`,
+  `[Flat S M] [Flat R N] : Flat S (M ⊗[R] N)` — including the S-flat refinement L55 states — and
+  Mathlib's own `example [Flat R M] [Flat R N] : Flat R (M ⊗[R] N) := inferInstance` at line 242
+  witnesses the plain form. The comment at `Flat/Stability.lean:91` refers to the instance by exactly
+  this name.
+- `HenselianRing.is_henselian` is the second field of `class HenselianRing` at
+  `Mathlib/RingTheory/Henselian.lean:96`, and its statement matches L77 clause for clause, down to
+  the `jac` field supplying the `I ≤ Jac(R)` the item records; `IsAdicComplete.henselianRing` is the
+  named instance at line 170.
+
+All three are missing from the declarations index only because anonymous instances and structure
+fields are not indexed. The notes now say verified rather than unverified, so that the next worker
+neither distrusts them nor re-does this work.
+
+## The planned half: all 48 routings hold
+
+The three that most needed checking were confirmed against explicit stage text rather than
+plausibility. `Z23`, `Z28` and `Z96` route to ModularCurves 4D, a stage whose visible summary is
+about Katz–Mazur regularity of moduli problems and looks at first like the wrong owner for a
+statement about completions of local rings; its full text lists among the API it owns
+"preservation and reflection of regularity and dimension under completion of noetherian local
+rings", which is exactly these three items. `Z49` and `Z80` route to AdicSpaces Layer 0, whose
+section 0.5 lists as separate milestones "Weierstrass division and preparation over a complete
+rank-one nonarchimedean field" and "Noetherianity of `K⟨X₁,…,Xₙ⟩` for such a field `K`".
+
+## Contract tests
+
+`Z106`, `Z111` and `Z120` now carry both `api` and `unitTests`; that resume item is closed. Measuring
+the whole surface: of the 174 definition and construction items, 90 carry the contract — 9 in the
+item, 84 through `definitionApiGroups` — and 84 carry `api` with no `unitTests` and belong to no
+group. PROTOCOL section 16 imposes no api-or-tests requirement on paper items, so this is this
+extraction's own convention and not a checker or protocol gap; it is recorded here so the remaining
+surface is a named list rather than an impression. Those items are:
+
+N22, N32, N49, N50, U01, U03, U06, U13, U17, U25, U27, U39, M01, M06, M12, M40, M24, M27, M28, K01, K06, K14, K21, K26, K32, P01, P02, P03, G01, G04, G07, G08, G12, G13, G17, G26, G27, G32, B01, B03, B05, B06, B18, B19, B27, B36, V03, V06, V14, V08, V10, A06, A08, A09, A10, A15, A16, A18, A19, A20, A22, A23, Q01, Q07, Z02, L05, Z52, A26, Z66, A34, A35, A46, A60, A66, L70, L71, L80, A90, A94, A95, Z67, N82, L142, Z134
+
+## Evidence and scope
+
+No Lean was compiled and none is required for this job. No item status, route, statement or locator
+changed; the only edits are one citation in L75 and the notes of L55, L75 and L77. `check_paper.py`
+passes. The audit itself is recorded in `validation.claudeCcD67081FineOwnership`.
+
+This continuation did not re-extract any mathematics and does not review the extraction: this
+session has now edited the result file, so it remains ineligible to review or red-team it.
+
 # LLHLM23 continuation: Kisin uniqueness and finite-length restriction
 
 Codex — codex-c83e7a, issue #1254, 24 September 2026. Confirmed claim5805811150. This continues the768-item checkpoint from PR2620 at `594e4e119c04bc68d43628fdc211d2370794a934`.

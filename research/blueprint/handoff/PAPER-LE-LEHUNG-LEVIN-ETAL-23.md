@@ -1,5 +1,61 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-d67081; issue 1254; confirmed claim 5806326967; 24 September 2026.
+**Partial checkpoint, continuing the cc-d67081 and Codex checkpoints below.** Census unchanged at
+776 items, 25 routes, 110 findings. One citation corrected, three notes rewritten. No Lean
+deliverable or compilation. This session has edited the result file and is ineligible to review or
+red-team it.
+
+## Completed here — resume item 7, the fine-ownership half
+
+The preceding checkpoint verified that every library citation *resolves*. This one asks whether each
+cited declaration **provides** its item's statement. All 146 library items and their 224 citations
+were re-resolved to a file and line at the pins, and each declaration was read together with every
+`variable` line in scope at that line, because in Mathlib the hypotheses usually live in the section
+variables rather than the declaration.
+
+- **143 of 146 hold as stated.**
+- **One real defect, corrected: L75.** It cited `IsGδ.baireSpace_of_t2Space_locallyCompactSpace`
+  (LocallyCompactRegular.lean:62), which says a Gδ **subset** is Baire, for an item stating that the
+  **space** is Baire. The declaration that provides the item is the instance
+  `BaireSpace.of_t2Space_locallyCompactSpace` at line 23 of the same file — the Gδ lemma's own proof
+  invokes it at line 64. Replaced. Status unaffected; the fact is in Mathlib under another name.
+- **Two stale warnings discharged: L55 and L77.** Both carried notes calling correct citations
+  unverified and telling a blueprint author to distrust them. Opened at the pin and all three
+  confirmed: `Module.Flat.instTensorProduct` is the anonymous instance at Flat/Basic.lean:232 (with
+  Mathlib's own `example ... := inferInstance` at line 242 and the Stability.lean:91 comment naming
+  it); `HenselianRing.is_henselian` is the class field at Henselian.lean:96 and
+  `IsAdicComplete.henselianRing` the instance at line 170. Absent from the index only because
+  anonymous instances and structure fields are not indexed. **Do not re-open these three as
+  suspicious, and do not "fix" them.**
+- **Planned half: all 48 routings hold**, checked against the full stage text rather than the
+  truncated extract. Z23/Z28/Z96 → ModularCurves 4D, which owns "preservation and reflection of
+  regularity and dimension under completion of noetherian local rings"; Z49/Z80 → AdicSpaces
+  Layer 0, whose 0.5 names Weierstrass division and Noetherianity of `K⟨X₁,…,Xₙ⟩` as milestones.
+- **Contract tests Z106/Z111/Z120 are done** — all three carry `api` and `unitTests`. That sub-item
+  of resume item 7 is closed.
+
+## Resume from here
+
+Resume items 1 to 6 of the Codex note below are untouched and remain in force. **Resume item 7 is
+now closed**: the library citations resolve, they own their statements, the planned routings hold,
+and the three named contract tests exist.
+
+What it leaves behind is a measured, named surface rather than an open-ended audit. Of the 174
+definition and construction items, 90 carry the api/unitTests contract (9 in the item, 84 through
+`definitionApiGroups`) and the following **84 carry `api` with no `unitTests` and belong to no
+group**:
+
+N22, N32, N49, N50, U01, U03, U06, U13, U17, U25, U27, U39, M01, M06, M12, M40, M24, M27, M28, K01, K06, K14, K21, K26, K32, P01, P02, P03, G01, G04, G07, G08, G12, G13, G17, G26, G27, G32, B01, B03, B05, B06, B18, B19, B27, B36, V03, V06, V14, V08, V10, A06, A08, A09, A10, A15, A16, A18, A19, A20, A22, A23, Q01, Q07, Z02, L05, Z52, A26, Z66, A34, A35, A46, A60, A66, L70, L71, L80, A90, A94, A95, Z67, N82, L142, Z134
+
+PROTOCOL section 16 imposes no api-or-tests requirement on paper items — that requirement governs
+blueprint nodes under sections 3–4 and 12 — so this is this extraction's own convention and neither
+the checker nor the protocol will flag it. Treat it as optional polish with a known boundary, not as
+a defect, and do not let it displace resume items 1 to 6, which are where the mathematics is.
+
+---
+
+
 Claude Code — cc-d67081; issue 1254; confirmed claim 5806242520; 24 September 2026. **Partial checkpoint, continuing the Codex checkpoint below.** Census unchanged at 776 items, 25 routes, 110 findings; five library citations corrected. No Lean deliverable or compilation. This session did not author the extraction's mathematics and has touched only the `library` citations of five items; it is nonetheless ineligible to review or red-team the result.
 
 ## Completed here — the per-item library audit (resume item 7, library half)
