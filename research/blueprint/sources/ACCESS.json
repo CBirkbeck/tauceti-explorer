@@ -497,14 +497,16 @@
     },
     {
       "id": "COMMELIN-FORMALISING-PERFECTOID-SPACES",
-      "kind": "book",
+      "kind": "article",
       "title": "J. Commelin, and P. Massot, Formalising perfectoid spaces",
       "match": [
         "\\*Formalising\\ perfectoid\\ spaces\\*"
       ],
-      "access": "restricted",
-      "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
+      "access": "free",
+      "note": "arXiv. A paper about formalising the definition, not a mathematical source to obtain.",
+      "urls": [
+        "https://arxiv.org/abs/1910.12320"
+      ]
     },
     {
       "id": "CONRAD-AWS",
@@ -1585,6 +1587,19 @@
       "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
+      "id": "LAN-EXAMPLE-INTRO",
+      "kind": "notes",
+      "access": "free",
+      "title": "Lan, An example-based introduction to Shimura varieties",
+      "match": [
+        "example-based introduction"
+      ],
+      "urls": [
+        "http://www.kwlan.org/articles/intro-sh-ex.pdf"
+      ],
+      "note": "Author's page. Several roadmaps cite this rather than the book."
+    },
+    {
       "id": "LAN-PEL",
       "title": "Lan, Arithmetic Compactifications of PEL-Type Shimura Varieties",
       "access": "restricted",
@@ -1592,9 +1607,21 @@
         "Lan, \\*Arithmetic Compactifications",
         "Lan's \\*Arithmetic Compactifications"
       ],
-      "substitute": null,
-      "note": "The author's thesis version is on his page and covers the cited chapters; pin it and this becomes free.",
+      "substitute": "LAN-THESIS",
+      "note": "The book is the author's Harvard thesis revised, and he posts both the thesis and a corrected revision, so the book itself is not needed. Chapter-level pins carry over; finer numbering and the book's later corrections do not, so re-pin what is cited.",
       "kind": "book"
+    },
+    {
+      "id": "LAN-THESIS",
+      "kind": "notes",
+      "access": "free",
+      "title": "Lan, Arithmetic compactifications of PEL-type Shimura varieties (Harvard thesis, author's revision)",
+      "match": [],
+      "urls": [
+        "http://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+        "http://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf"
+      ],
+      "note": "The author posts the thesis and a revised single-spaced version with typos and minor mistakes corrected. The book is this thesis further revised, so numbering can differ: re-pin locators to whichever copy is read."
     },
     {
       "id": "LANDO-GRAPHS-SURFACES-THEIR-APPLICATIONS",
