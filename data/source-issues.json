@@ -49461,35 +49461,37 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
     "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
-    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage",
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-DOSPINESCU-LEBRAS-17",
    "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
    "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Both passages checked on the page images. Φ : Π(π, 0)^* → O(Σ_n)^ρ is O(Ω)-linear, so twisting by det g·(a − c∂)^{-2} gives a map into O(2)(Σ_n)^ρ ⊗ det = Ω^1(Σ_n)^ρ. This map is surjective onto the ρ-part, not onto Ω^1(Σ_n), which has other isotypic components. The second display divides by d(O(Σ_n)^ρ). §11.3 (p. 63) writes Φ : Π(π, 2)^* → Ω^1(Σ_n)^ρ. The same display also sets the star in the wrong place, u^+(Π(π, 0))^* for u^+(Π(π, 0)^*), which is equally harmless."
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17/E2",
    "kind": "misprint",
    "locator": "§5.1, proof of Lemme 5.6, p. 27 (arXiv v2); p. 351 (Annals)",
-   "printed": "Soit χ un caractère de Hecke χ de F tel que η̄_p = ω_2^{r+1}, χ_∞(z) = z^{−1} et χ_ℓ choisi de sorte que […]",
-   "correction": "χ̄_p = ω_2^{r+1} (a condition on the reduction of χ's component at p)",
-   "reason": "The only character in the construction is χ, and η is not defined anywhere in the proof; the condition must prescribe χ at p so that the induced representation has r̄_p = Ind ω_2^{r+1}, which is what the preceding sentence asks for.",
+   "printed": "Soit χ un caractère de Hecke χ de F tel que η̄_p = ω_2^{r+1}, χ_∞(z) = z^{−1} et χ_ℓ choisi de sorte que l'induite automorphe locale (pour le groupe GL_2) Ind_{F_ℓ}^{Q_ℓ} χ_ℓ soit supercuspidale.",
+   "correction": "Soit χ un caractère de Hecke de F et η : G_F → Q̄_p^* le caractère galoisien p-adique associé à χ par la théorie du corps de classes, tels que (η|_{G_{F_p}})‾ = ω_2^{r+1} à twist non ramifié près (F_p = Q_{p²}, p inerte), χ_∞(z) = z^{-1} … Then r̄_p = Ind_{Q_{p²}}^{Q_p}(η|_{G_{F_p}})‾. Here η is taken in the normalization matching the paper's r; if r is normalized as the dual, replace η by η^{-1}. Stated on the automorphic side, the condition would be χ̄_p|_{O_{F_p}^*} = ω_2^{r+1} times the reduction of τ, not χ̄_p = ω_2^{r+1}.",
+   "reason": "Confirmed as a misprint: η is defined nowhere in the proof, and χ is the only character in the construction. The recorded correction ('χ̄_p = ω_2^{r+1}, a condition on the reduction of χ's component at p') needs refining. Taken literally as a condition on the automorphic local component χ_p on O_{F_p}^*, it gives the wrong result, because the infinity type χ_∞(z) = z^{-1} contributes to the Galois character on inertia. For u ∈ O_{F_p}^*, η(Art(u)) = χ_p(u)·u^{±1} (via the embedding F_p → Q̄_p), so η̄|_{I_p} = χ̄_p·ω_2^{±1} (or ω_2^{±p}, depending on the embedding). Imposing χ̄_p = ω_2^{r+1} would then make r̄_p induced from ω_2^{r+1±1} or ω_2^{r+1±p}, which is not an unramified twist of Ind ω_2^{r+1}. So the condition must be on the Galois character, which is presumably what 'η' denotes. The doubled 'χ ... χ' in the same sentence is a further trivial slip. In the authors' defence, the intended meaning is clear from the preceding sentence, which prescribes r̄_p.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
     "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
-    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage",
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-DOSPINESCU-LEBRAS-17",
    "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
    "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Revised on re-reading; independent check: Checked on the p. 27 image at 400 dpi. The text reads 'Soit χ un caractère de Hecke χ de F tel que \\overline{η_p} = ω_2^{r+1}, χ_∞(z) = z^{-1} et χ_ℓ choisi …'. The η on p. 27 is the only η in the whole text layer, so η is never defined. The doubled 'χ … χ' is also on the page. The revision is right, and the ledger correction ('χ̄_p = ω_2^{r+1}, a condition on the reduction of χ's component at p') is wrong or meaningless if χ_p is read as the automorphic local component. (i) χ_p takes non-integral values on F_p^*. Since χ is trivial on F^* and χ_∞(p) = p^{-1}, we get χ_p(p) = p·(root of unity), which has valuation 1, so 'χ̄_p' is not defined on F_p^*. (ii) On O_{F_p}^* it is defined, but it differs from the Galois character on inertia. The p-adic avatar is ψ(x) = χ_fin(x)·τ(x_p)^{-1}, where τ: F_p = Q_{p²} → Q̄_p comes from the fixed embeddings. It is trivial on F^* because χ_fin(α) = α. For u ∈ O_{F_p}^* this gives ψ(u) = χ_p(u)·τ(u)^{-1}, so ψ̄|_{I} = χ̄_p·ω_2^{ε} with ε ∈ {±1, ±p}, depending on the embedding and the sign convention for Art. Imposing χ̄_p = ω_2^{r+1} would give r̄_p|_I = ω_2^{a} ⊕ ω_2^{pa} with a = r+1+ε. This is an unramified twist of Ind ω_2^{r+1} only if a ≡ r+1 or p(r+1) mod p²−1. Reducing mod p−1 forces p−1 | 1, which is impossible for odd p. (For p = 2 some conventions coincide by accident.) So the condition must be on the reduction of the Galois character attached to χ, restricted to G_{Q_{p²}}. Presumably that is what η denotes, and it makes r̄_p = Ind_{Q_{p²}}^{Q_p}(η|_{G_{F_p}})‾ the induced representation the preceding sentence asks for. The intended meaning is recoverable from that sentence, so this is a misprint that affects nothing."
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17/E3",
@@ -49503,14 +49505,15 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
     "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
-    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage",
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-DOSPINESCU-LEBRAS-17",
    "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
    "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on the image at 300 dpi: an italic i with a dot, the same glyph as in i_{j,n}, not the dotless ι of ι_{V,α}. The identity needed is ι_{V,α}(v) = α_dif(Ψ_V(ξ_{V,α}(v))) = α_dif(Ψ_V(v_1)), by the definition on p. 58. No map i_{V,α} is defined anywhere."
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17/E4",
@@ -49524,14 +49527,15 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
     "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
-    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage",
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-DOSPINESCU-LEBRAS-17",
    "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
    "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "The map whose equivariance is being proved is d : (Π^an)^* → Π(π,2)^*, defined at the start of the proof and named d again in the same sentence. No F occurs in §11. I checked the Borel step: u^+ (a,b;0,d) = (d/a)(a,b;0,d) u^+ in D(G), which is what u^+(gl) = det g·a^{-2}·g(u^+l) needs when c = 0. I also checked the w step: w∂w = ∂^{-1} from Théorème 9.7, so w∂^{-2}w = ∂², and u^− = −∂²u^+ on (Π^an)^* (Proposition 9.6(b))."
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17/E5",
@@ -49545,14 +49549,718 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
     "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
-    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+    "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage",
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-DOSPINESCU-LEBRAS-17",
    "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
    "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image. Π(V_2)^lisse is not a subspace of Π(V_1)^an. The next sentence applies Proposition 11.6 to each Π(V_j), which requires Π(π,0) ≃ Π(V_j)^an/Π(V_j)^lisse."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E6",
+   "kind": "misprint",
+   "locator": "§1.2, footnote 14, p. 8",
+   "printed": "il ne suffit pas de savoir que Π^an apparaît dans l'espace propre LA(X(K^p))[𝔭], mais qu'en plus Π^an est l'unique sous-quotient irréductible de cet espace.",
+   "correction": "… mais qu'en plus Π est l'unique sous-quotient irréductible de C^0(X(K^p))[𝔭] (Théorème 5.4: C^0(X(K^p))[𝔭] ≅ Π^{⊕r}), de sorte que LA(X(K^p))[𝔭] ≅ (Π^an)^{⊕r}.",
+   "reason": "Π^an is not topologically irreducible: for Π ∈ V(π) it contains the nonzero closed G-stable subspace Π^lisse ≅ π, and 0 → π → Π^an → Π(π, 0) → 0 (p. 5). So it cannot be an irreducible subquotient. The strong compatibility actually used is Théorème 5.4 on the Banach eigenspace, whose locally analytic vectors are (Π^an)^{⊕r}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "I checked the quotation on the image of p. 8 (footnote 14). For Π ∈ V(π), Π^an contains the closed G-stable subspace Π^lisse ≅ π ≠ 0, with quotient Π(π, 0) (p. 5, and p. 30, where Φ is restricted along this extension). So Π^an is not topologically irreducible, and it cannot be 'l'unique sous-quotient irréductible' of anything. The strong compatibility actually used is Théorème 5.4 (p. 26), C^0(X)[𝔭] ≅ Π(𝔭)^{⊕r} with X = X(K^p) (appendix, p. 69). Its locally analytic vectors are LA(X(K^p))[𝔭] ≅ (Π^an)^{⊕r}, and this gives Φ_0 : (Π^an)^* → Ω^1(Σ_n)^ρ on p. 30. The footnote is an informal comment in the overview, its meaning is clear, and nothing depends on it."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E7",
+   "kind": "gap",
+   "locator": "§1.2, Théorème 1.7, p. 9; §9.2, Théorème 9.9, p. 48, and its proof, p. 51; also §9.2, Théorème 9.9, p. 48 (= Théorème 1.7, p. 9); proof p. 51",
+   "printed": "Théorème 1.7: 'Pour tout Π ∈ V(π) il existe une unique structure de O(Ω)-module sur Π(π, 0)^* qui étend sa structure de L-espace vectoriel, et telle que z ∈ O(Ω) agit comme ∂.' Théorème 9.9: 'Il existe une unique structure de O(Ω)-module sur Π(π, 0)^* qui soit compatible avec sa structure de L-espace vectoriel et telle que z.l = ∂(l) pour tout l ∈ Π(π, 0)^*.' | Also: Il existe une unique structure de O(Ω)-module sur Π(π, 0)^* qui soit compatible avec sa structure de L-espace vectoriel et telle que z.l = ∂(l) pour tout l ∈ Π(π, 0)^*. … [p. 51] Le seul point qu'il nous reste à vérifier est que (fg).l = f.(g.l)",
+   "correction": "Add a uniqueness argument after the proof on p. 51. Either state uniqueness among the structures for which f ↦ f·l is continuous (the constructed one is, by Proposition 9.15 b)); then 1/(z − x) must act as (∂ − x)^{-1}, and the density of S in O(Ω) (p. 50) concludes. Or keep the algebraic statement and prove uniqueness after Théorème 1.2: two structures differ on f by an operator with values in ∩_k(∂ − a)^k Π(π, 0)^*_{L′} for a ∈ Ω(L′). Via Φ, this intersection is ∩_k(z − a)^k O(Σ_n)^ρ_{L′} = 0. Also: Either state uniqueness among module structures for which f ↦ f·l is continuous, and add the argument: z − x ∈ O(Ω)^× acts as ∂ − x, so 1/(z − x) acts as (∂ − x)^{-1}, f acts as T_f for f ∈ S, and by density of S for all f. Or keep the algebraic statement and prove uniqueness after §11: the difference of two structures maps Π(π,0)* into ∩_{P ∈ L[z]∖0} P(∂)Π(π,0)*, and the injective O(Ω)-linear Φ sends this into ∩_P P·O(Σ_n)^ρ = 0.",
+   "reason": "The proof on p. 51 only constructs f·l := T_f(l) and checks (fg)·l = f·(g·l); it gives no argument for uniqueness. Any structure with z ↦ ∂ is forced on the algebra generated by z and the 1/(z − x). But an abstract O(Ω)-module structure is not determined by its restriction to a dense subalgebra, so uniqueness as stated needs continuity or an extra argument. Defence: the unrestricted claim is true a posteriori. For a ∈ Ω(L′) and f = f(a) + (z − a)h, two such structures differ on l by an element of ∩_k(∂ − a)^k Π(π, 0)^*. That intersection is 0, because Π(π, 0)^* ≅ O(Σ_n)^ρ O(Ω)-linearly (Théorème 1.2, Proposition 9.16), and a function on Σ_n divisible by every power of z − a vanishes: every connected component of Σ_n maps onto Ω. Uniqueness is never used; Proposition 9.16 and everything after it use the constructed structure.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "I checked the quotations on the images of pp. 9 and 48; the proof is on p. 51. Théorème 1.7 and Théorème 9.9 both assert that the structure is unique. The proof ('Le théorème 9.9 se déduit maintenant facilement…', p. 51) sets f·l := T_f(l) and checks only (fg)·l = f·(g·l). Uniqueness is never addressed. With the literal statement, which has no continuity condition, it is not a formality. The structure is forced on L[z] and on the units 1/(z − x), x ∈ Q_p, which must act as (∂ − x)^{-1}. But a ring homomorphism O(Ω) → End_L(Π(π, 0)^*) is not determined by a dense subalgebra. With continuity of f ↦ f·l, which the constructed structure has (Proposition 9.15 b)), uniqueness follows at once from the density of S (p. 50). Without continuity it is still true, a posteriori, as the first reading says; I re-derived it. For a ∈ Ω(L′), write f − f(a) = (z − a)h in O(Ω)_{L′}. Two structures then differ on f by (∂ − a) times their difference on h. Iterating, the difference lands in ∩_k(∂ − a)^k Π(π, 0)^*_{L′}. By Théorème 1.2 and Proposition 9.16 (whose proof gives Φ∘∂ = z·Φ), this is ∩_k(z − a)^k O(Σ_n)^ρ_{L′}. That intersection is 0: Σ_n → Ω is étale, and each connected component of Σ_{n,L′} maps onto the connected Ω_{L′}, so it contains a point over a, where z − a is a local parameter; the identity principle then applies. This argument uses only the existence part, so it is not circular. Uniqueness is not used later: Proposition 9.16 and §§10–11 use the constructed structure and its continuity. Kind: gap is right. Reach: 'nothing' understates it. The uniqueness claim of a numbered theorem, stated twice, has no proof at all. But the paper's own results fill it in a few lines (or the statement can add continuity), so the reach is the proof of Théorème 9.9, not the stated result. The same place also has: Checked on pp. 48, 51 and 9. Théorème 9.9 (« une unique structure de O(Ω)-module … compatible avec sa structure de L-espace vectoriel ») and Théorème 1.7 (« qui étend sa structure de L-espace vectoriel ») both claim uniqueness with no topological condition. The proof (p. 51) constructs f·l = T_f(l) and says that « le seul point qu'il nous reste à vérifier » is (fg)·l = f·(g·l). Uniqueness is never argued. As printed it is not immediate. Another structure ·' must agree with T on R = L[z, (z − x)^{-1} : x ∈ Q_p], because z − x is a unit of O(Ω) and ∂ − x is invertible. For f ∈ O(Ω) and any nonzero P ∈ L[z], interpolation on the finite subscheme V(P) ∩ Ω gives f = r + P·h with r ∈ L[z] and h ∈ O(Ω). So T_f − (f·') has image in ∩_P P(∂)Π(π,0)*. Nothing available in §9 shows that this intersection is 0; the paper itself says (p. 9) that the O(Ω)-module structure of Π(π,0)* is known only as a corollary of the final result. The clause is nevertheless true. (i) For a module structure with f ↦ f·l continuous, uniqueness follows in one line: 1/(z − x) must act as (∂ − x)^{-1}, so f acts as T_f on S, and S is dense (p. 50). (ii) For the algebraic statement, Φ is injective (§11) and O(Ω)-linear for T (Prop. 9.16), so it sends ∩_P P(∂)Π(π,0)* into ∩_P P·O(Σ_n)^ρ = 0. Nothing later uses uniqueness: Prop. 9.16, §10 and §11 use only the constructed T_f and Prop. 9.15. So the gap does not spread, but it sits in the uniqueness clause of Théorème 9.9 = 1.7 itself, which the paper states and never proves. Unlike E27, the algebraic clause cannot be closed from what §9 has available. 'Gap; affects a stated result' is right."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E8",
+   "kind": "misprint",
+   "locator": "§1.2, p. 9 (display after Théorème 1.7)",
+   "printed": "Ω^1(Ω) ≃ (St^an)^*,  µ ∈ (St^an)^* ↦ ω_f = (∫_{P^1(Q_p)} 1/(z − x) µ(x)) dz.",
+   "correction": "ω_µ (= f_µ dz, as in Proposition 9.12 b))",
+   "reason": "No f is defined here, and the form depends on µ. Proposition 9.12 writes f_µ(z) = ∫ µ(x)/(z − x). The duality itself checks out: µ has total mass 0, and d log((z − x)/(z − y)) is G-equivariant, so µ ↦ ω_µ is G-equivariant for the left actions of §2 (3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "I checked the display at 220 dpi on p. 9: 'Ω^1(Ω) ≃ (St^an)^*, µ ∈ (St^an)^* ↦ ω_f = (∫_{P^1(Q_p)} 1/(z − x) µ(x)) dz'. No f is defined in the introduction, and the image depends on µ. Proposition 9.12 b) (p. 50) calls the function f_µ, so the form is ω_µ = f_µ dz. The isomorphism itself is right. µ kills the constants, and the kernel 1/(z − x) is analytic at x = ∞ and vanishes there. The G-equivariance is footnote 46 (p. 50). The meaning is clear, and nothing depends on the slip."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E9",
+   "kind": "error",
+   "locator": "§1.3, Théorème 1.10, p. 11; §12.1, Démonstration du théorème 1.10, p. 66; also §1.3, Théorème 1.10, p. 11; proof §12.1, p. 66",
+   "printed": "p. 11: 'Théorème 1.10. — Soit f ∈ O(Σ_n) une fonction infiniment primitivable sur Σ_n. Alors f ∈ O(Ω).' p. 66: 'Fixons i et supposons ρ_i non triviale. L'hypothèse sur f implique que f_i est dans l'image de l'opérateur (u^+)^j sur O(Σ_n)^{ρ_i} = Π(π_i, 0)^*, où π_i = JL(ρ_i) (puisque ρ_i est non triviale, on peut appliquer le théorème 1.2) pour tout j. [...] La seule possibilité est donc que ρ_i soit triviale, i.e. que f ∈ O(Ω).' | Also: Fixons i et supposons ρ_i non triviale. L'hypothèse sur f implique que f_i est dans l'image de l'opérateur (u^+)^j sur O(Σ_n)^{ρ_i} = Π(π_i, 0)^*, où π_i = JL(ρ_i) (puisque ρ_i est non triviale, on peut appliquer le théorème 1.2) pour tout j. […] La seule possibilité est donc que ρ_i soit triviale, i.e. que f ∈ O(Ω).",
+   "correction": "Théorème 1.10 should conclude f ∈ H^0_dR(Σ_n)·O(Ω). That is, f = Σ_χ e_χ g_χ with g_χ ∈ O(Ω) and e_χ a locally constant function in H^0_dR(Σ_n)^{χ∘Nrd}, where χ∘Nrd runs over the one-dimensional representations of D^* occurring in O(Σ_n). Equivalently, the components of f along the irreducible ρ_i with dim ρ_i > 1 vanish, or: on each geometric connected component of Σ_n, f is the pullback of a function on Ω. For the components with nontrivial central character this is subject to E40. In the proof on p. 66, 'supposons ρ_i non triviale' should read 'supposons dim ρ_i > 1', and 'La seule possibilité est donc que ρ_i soit triviale, i.e. que f ∈ O(Ω)' should read '… que dim ρ_i = 1, i.e. que f ∈ H^0_dR(Σ_n)·O(Ω)'. Also: Théorème 1.10 should conclude that f lies in the sum of the isotypic components O(Σ_n)^ρ over the one-dimensional ρ = χ∘Nrd, the trivial one giving O(Ω). Equivalently, f_i = 0 whenever dim ρ_i > 1. In the proof, 'supposons ρ_i non triviale' should read 'supposons dim ρ_i > 1'.",
+   "reason": "Counterexample from the paper's own description. By p. 3, Σ_0 is two copies of Ω, with O_D^* acting trivially and ϖ_D exchanging them. By footnote 16, O(Ω) ≅ O(Σ_0)^{D^*} sits in O(Σ_0) ⊂ O(Σ_n) diagonally. Let e ∈ O(Σ_0) be 1 on one copy and −1 on the other. (Over Q_p, where the copies are exchanged by Frobenius, take instead e = α ∈ Q_{p²} with σ(α) = −α.) Since de = 0 and z ∈ O(Ω) (∞ ∉ Ω), e = (d/dz)^k(e·z^k/k!) for every k, so e is infinitely primitivable on Σ_0 and, by pullback, on every Σ_n. But ϖ_D·e = −e, so e ∉ O(Ω). More generally, e_χ·z^m is a counterexample for every nontrivial character χ∘Nrd occurring in H^0_dR(Σ_n); D^* acts on the geometric components through Nrd ([79], [37]). The failing step is the appeal to Théorème 1.2, which needs π_i supercuspidal, that is, dim ρ_i > 1. Footnote 11 itself uses dim ρ > 1 to get H^0_dR(Σ_n)^ρ = 0. For a nontrivial one-dimensional ρ_i, JL^{-1}(ρ_i) is a twist of the Steinberg representation, and O(Σ_n)^{ρ_i} = e_χ·O(Ω) contains e_χ·L[z], all of which are infinitely primitivable. The argument does prove the corrected statement for the ρ_i of dimension > 1, subject to the next entry. Defence: if 'f ∈ O(Ω)' is read loosely as 'on each geometric component, f comes from a function on Ω', the statement is true. But the proof explicitly identifies O(Ω) with the trivial isotypic part ('ρ_i soit triviale, i.e. que f ∈ O(Ω)'), so the printed statement is false as written. Théorème 1.10 is a stand-alone corollary and nothing else in the paper depends on it.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "I checked the quotations on the images of pp. 11 and 66. I also checked the conventions on pp. 3, 4, 9 (footnote 16), 13 (§2 (5)–(6)), 14–15 (§3.1) and 23. (1) Σ_0. On p. 3, Σ_0 is 'deux copies de Ω, avec action triviale de O_D^*, l'élément ϖ_D permutant les deux copies'. By §3.1 the Weil descent datum is the canonical one composed with the shift by 1, so over Q_p, Σ_0 ≅ Ω ⊗_{Q_p} Q_{p²}. O(X) means L ⊗_{Q_p} H^0(X, O_X) (§2 (6)). (2) O(Ω) inside O(Σ_n). Footnote 16 says 'O(Ω) ≃ O(Σ_0)^{D^*} (… plongement diagonal …)'. The proof on p. 66 ends 'ρ_i soit triviale, i.e. que f ∈ O(Ω)'. So O(Ω) is the D^*-invariant part, which is the trivial isotypic part for σ^ρ = Hom_{D^*}(ρ, σ) (p. 4). D^* acts on Σ_n through the finite group D^*/p^Z(1 + p^nO_D), so the decomposition f = Σ v_i ⊗ f_i is legitimate. (3) 'Infinitement primitivable' (p. 11) means f ∈ Im((d/dz)^k) for every k, where d/dz comes from Ω^1(Σ_n) = O(Σ_n)dz. No condition excludes locally constant functions. Counterexample: H^0_dR(Σ_0) = L ⊗ Q_{p²} has L-dimension 2, while its intersection with O(Ω) is H^0_dR(Ω) = L, because Ω is geometrically connected. Take e = α ∈ Q_{p²} with σ(α) = −α; if Q_{p²} ⊂ L, e is ±α on the two copies. ϖ_D acts on O(Σ_0) = O(Ω) ⊗ Q_{p²} O(Ω)-linearly (footnote 16) and nontrivially (it swaps the geometric components), so it acts by σ on the second factor. Hence ϖ_D·e = −e, and e ∉ O(Ω). Since de = 0 and z ∈ O(Ω) (∞ ∈ P^1(Q_p) is not in Ω), e = (d/dz)^k(e z^k/k!) for every k. The same holds after pullback to every Σ_n, and for e·z^m. So Théorème 1.10 is false for every n. The character involved is χ∘Nrd with χ unramified and χ(p) = −1 (Nrd ϖ_D = −p). It has trivial central character (χ(x²) = 1), so no convention on central characters excludes it. The failing step is 'puisque ρ_i est non triviale, on peut appliquer le théorème 1.2' on p. 66. Théorème 1.2 needs π supercuspidal, i.e. dim ρ > 1. A nontrivial one-dimensional ρ = χ∘Nrd corresponds to a twist of the Steinberg representation. The paper itself uses dim ρ > 1 to get H^0_dR(Σ_n)^ρ = 0 (footnote 11), notes that D^* acts on the geometric components through Nrd (p. 23), and says that the Steinberg case has H^0_dR ≠ 0 (Remarque 1.5). Defence: the statement is true if 'f ∈ O(Ω)' is read as 'on each geometric component, f is the pullback of a function on Ω'. But footnote 16 and the last line of the proof fix the stricter meaning. So this is an error, not a misprint. Théorème 1.10 is not used elsewhere: it is cited only on pp. 10, 64 (Remarque 11.11) and 66. The reach is this stated result. The same place also has: Confirmed on the images: p. 11 has 'Soit f ∈ O(Σ_n) une fonction infiniment primitivable sur Σ_n. Alors f ∈ O(Ω)'. The proof on p. 66 applies Théorème 1.2 to every nontrivial ρ_i ('puisque ρ_i est non triviale, on peut appliquer le théorème 1.2') and concludes 'ρ_i soit triviale, i.e. que f ∈ O(Ω)'. Théorème 1.2 needs π_i = JL(ρ_i) supercuspidal, that is dim ρ_i > 1. For a nontrivial character ρ = χ∘Nrd, JL(ρ) is a twist of the Steinberg representation, and footnote 11 (p. 6) itself says that H^0_dR(Σ_n)^ρ = 0 uses dim ρ > 1. Here is my own counterexample from the paper's definitions. By p. 3, Σ_0 is two copies of Ω, with O_D^* acting trivially and ϖ_D exchanging the copies. By footnote 16 (p. 9), O(Ω) ≅ O(Σ_0)^{D^*} sits diagonally in O(Σ_0) ⊂ O(Σ_n), and u^+ = −d/dz on O(Σ_n) (p. 19). Let f = (1, −1) on Σ_0, pulled back to Σ_n. Since ∞ ∉ Ω, z ∈ O(Ω), and f = (d/dz)^k(z^k/k!, −z^k/k!) for every k. So f is infinitely primitivable, but ϖ_D f = −f, so f ∉ O(Ω). This f lies in the isotypic part of the sign character of D^*/p^Z O_D^*, which is trivial on p since v(Nrd p) = 2. The counterexample does not depend on how the copies are defined over Q_p: if they are exchanged by Frobenius, take the constant α ∈ Q_{p²} with σ(α) = −α instead. More generally, every locally constant function on Σ_n is infinitely primitivable. The argument does prove that the components along ρ_i with dim ρ_i > 1 vanish. That holds subject to Théorème 1.2 for supercuspidal π_i with nontrivial central character, which the paper only asserts (Remarque 1.3(a)); that is a separate issue. So the corrected statement is the one proposed. Théorème 1.10 is a stand-alone corollary, and nothing else depends on it."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E10",
+   "kind": "misprint",
+   "locator": "§3.3, proof of Théorème 3.2, p. 16",
+   "printed": "avec a_α ∈ L et lim_{α→∞} v_p(α) + r|α| = ∞ pour tout r > 0",
+   "correction": "lim_{α→∞} v_p(a_α) + r|α| = ∞ pour tout r > 0.",
+   "reason": "The condition bounds the coefficients a_α of λ = Σ a_α b^α (Schneider–Teitelbaum's description of D(G_2): |a_α| s^{|α|} → 0 for all 0 < s < 1). v_p(α) of a multi-index is meaningless.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "The page image (p. 16, zoomed) reads 'lim_{α→∞} v_p(α) + r|α| = ∞ pour tout r > 0'. Here α ∈ N^4 is a multi-index, so v_p(α) means nothing. The condition must bound the coefficients a_α of λ = Σ a_α b^α. By Schneider–Teitelbaum, D(G_2) for the uniform group G_2 consists of the series with |a_α| s^{|α|} → 0 for all 0 < s < 1. Writing s = p^{−r}, this is v_p(a_α) + r|α| → ∞ for all r > 0. The intended meaning is clear, and nothing depends on the slip."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E11",
+   "kind": "error",
+   "locator": "§3.3, proof of Théorème 3.2, p. 17",
+   "printed": "les éléments de U_h(𝔤) s'écrivent de manière unique λ = Σ_α a_α𝔛^α, avec v_p(a_α) − c_h|α| → ∞, où c_h > p^{h−1} ne dépend que de h.",
+   "correction": "…avec v_p(a_α) − c_h|α| → ∞, où c_h = h − 1 + O(1) (exactly h − 1 when 𝔛_j = log g_{i,j}), i.e. |a_α|‖𝔛^α‖_h → 0 with ‖𝔛_j‖_h ≍ p^{h−1}. The proof needs only p^{c_h} > C for h large.",
+   "reason": "Confirmed on the image (p. 17): 'avec v_p(a_α) − c_h|α| → ∞, où c_h > p^{h−1} ne dépend que de h', with ‖Σ a_α b_i^α‖_h = sup |a_α| p^{−|α|/p^h} displayed just above. (1) Under this norm, log g = Σ_{m≥1} (−1)^{m+1}(g − 1)^m/m has ‖log g‖_h = sup_k p^{k − p^{k−h}} = p^{h−1}, attained at m = p^h. For a fixed basis 𝔛_j of 𝔤, ‖𝔛_j‖_h is therefore p^{h−1} up to a factor that does not depend on h, so the natural exponent is c_h = h − 1 + O(1). (2) The printed bound is false for h large, and uniqueness of the expansion is not needed to see this. Take 𝔛_1 with tr 𝔛_1 ≠ 0 and κ with ‖𝔛_1‖_h ≤ p^{h−1+κ}. Then λ = Σ_n p^{(h+κ)n}𝔛_1^n converges in D_h(G_i) (terms of norm ≤ p^{−n}), so λ ∈ U_h(𝔤). Evaluate at the characters χ_t = det^t (|t| ≤ 1), which are continuous for ‖·‖_h, and on which 𝔛^α acts by t^{|α|}Π_j tr(𝔛_j)^{α_j}. Comparing coefficients of t^n gives p^{(h+κ)n}(tr𝔛_1)^n = Σ_{|α|=n} a_α Π_j tr(𝔛_j)^{α_j} for any expansion λ = Σ a_α𝔛^α. With v_p(a_α) − c_h|α| → ∞ this forces p^{(c_h−h−κ)n} ≤ ε_n(M/m)^n with ε_n → 0, where m = |tr 𝔛_1| and M = max_j |tr 𝔛_j|, which is impossible once c_h − h is large. That happens for large h, since c_h > p^{h−1}. So the recalled form of Frommer's result is wrong: in all likelihood the norm p^{h−1} of 𝔛_j, an absolute-value constant, was written where the valuation exponent (about h − 1) belongs. It is an error, not a misprint, because no single intended reading can be recovered: the same proof later assumes 'si p^{h/2} > C', which suggests c_h ≥ h/2 was meant. Defence: the proof needs only |a_α|C^{|α|} → 0 for h large, that is p^{c_h} ≥ C. This holds with the true c_h = h − 1 + O(1) under the proof's own condition p^{h/2} > C, once h is large.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image (p. 17): 'avec v_p(a_α) − c_h|α| → ∞, où c_h > p^{h−1} ne dépend que de h', with ‖Σ a_α b_i^α‖_h = sup |a_α| p^{−|α|/p^h} displayed just above. (1) Under this norm, log g = Σ_{m≥1} (−1)^{m+1}(g − 1)^m/m has ‖log g‖_h = sup_k p^{k − p^{k−h}} = p^{h−1}, attained at m = p^h. For a fixed basis 𝔛_j of 𝔤, ‖𝔛_j‖_h is therefore p^{h−1} up to a factor that does not depend on h, so the natural exponent is c_h = h − 1 + O(1). (2) The printed bound is false for h large, and uniqueness of the expansion is not needed to see this. Take 𝔛_1 with tr 𝔛_1 ≠ 0 and κ with ‖𝔛_1‖_h ≤ p^{h−1+κ}. Then λ = Σ_n p^{(h+κ)n}𝔛_1^n converges in D_h(G_i) (terms of norm ≤ p^{−n}), so λ ∈ U_h(𝔤). Evaluate at the characters χ_t = det^t (|t| ≤ 1), which are continuous for ‖·‖_h, and on which 𝔛^α acts by t^{|α|}Π_j tr(𝔛_j)^{α_j}. Comparing coefficients of t^n gives p^{(h+κ)n}(tr𝔛_1)^n = Σ_{|α|=n} a_α Π_j tr(𝔛_j)^{α_j} for any expansion λ = Σ a_α𝔛^α. With v_p(a_α) − c_h|α| → ∞ this forces p^{(c_h−h−κ)n} ≤ ε_n(M/m)^n with ε_n → 0, where m = |tr 𝔛_1| and M = max_j |tr 𝔛_j|, which is impossible once c_h − h is large. That happens for large h, since c_h > p^{h−1}. So the recalled form of Frommer's result is wrong: in all likelihood the norm p^{h−1} of 𝔛_j, an absolute-value constant, was written where the valuation exponent (about h − 1) belongs. It is an error, not a misprint, because no single intended reading can be recovered: the same proof later assumes 'si p^{h/2} > C', which suggests c_h ≥ h/2 was meant. Defence: the proof needs only |a_α|C^{|α|} → 0 for h large, that is p^{c_h} ≥ C. This holds with the true c_h = h − 1 + O(1) under the proof's own condition p^{h/2} > C, once h is large."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E12",
+   "kind": "gap",
+   "locator": "§3.3, proof of Lemme 3.3, pp. 17–18",
+   "printed": "Comme de plus lim_{n→∞} (P(f_n) − P(f))/(f_n − f) = P′(f) ≠ 0, on en déduit que lim_{n→∞} (f_n − f)/p^n existe [...] En comparant les deux formules et en utilisant le fait que P′(f) ≠ 0 (puisque le revêtement est étale), le résultat s'en déduit.",
+   "correction": "Multiplication by P′(f) is an injective O(U_{0,i})-linear map of the finite O(U_{0,i})-module O(U_i). Its image is a finite submodule, hence closed (BGR 3.7.2), so by the open mapping theorem ‖P′(f)y‖ ≥ c‖y‖. Since Q_n → P′(f), for n large ‖Q_n y‖ ≥ (c/2)‖y‖. Hence x_n is bounded, P′(f)x_n = Q_nx_n − (Q_n − P′(f))x_n → −∂_𝔛(P)(f), and ‖x_n − x_m‖ ≤ c^{−1}‖P′(f)(x_n − x_m)‖ → 0, so lim x_n exists.",
+   "reason": "Confirmed on the images (pp. 17–18). The proof puts x_n = (f_n − f)/p^n and gets Q_n x_n → −∂_𝔛(P)(f), where Q_n = (P(f_n) − P(f))/(f_n − f), read as the polynomial difference quotient, since f_n − f need not be invertible. It then concludes from 'lim Q_n = P′(f) ≠ 0' that lim x_n exists. That inference holds only if multiplication by P′(f) is bounded below on O(U_i), for instance if P′(f) is a unit, and P′(f) is in general not a unit. If P_f has degree d ≥ 2 and t ∈ O(U_{0,i}) is a nonzero non-unit, then tf has minimal polynomial t^d P_f(X/t) and P′_{tf}(tf) = t^{d−1}P′_f(f), which is not a unit. Degree ≥ 2 does occur, since Σ_n → Σ_0 has degree > 1. Also, P′(f) ≠ 0 is automatic in characteristic 0, so 'puisque le revêtement est étale' does not supply what the argument needs. The final comparison P′(f)(lim x_n − ∂_𝔛 f) = 0 only needs P′(f) to be a non-zero-divisor, which is true when P is taken componentwise over the normal domains making up O(U_{0,i}). The lemma is true: the missing step is supplied by the standard affinoid argument in the correction. So this is a gap in the proof, not a false statement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the images (pp. 17–18). The proof puts x_n = (f_n − f)/p^n and gets Q_n x_n → −∂_𝔛(P)(f), where Q_n = (P(f_n) − P(f))/(f_n − f), read as the polynomial difference quotient, since f_n − f need not be invertible. It then concludes from 'lim Q_n = P′(f) ≠ 0' that lim x_n exists. That inference holds only if multiplication by P′(f) is bounded below on O(U_i), for instance if P′(f) is a unit, and P′(f) is in general not a unit. If P_f has degree d ≥ 2 and t ∈ O(U_{0,i}) is a nonzero non-unit, then tf has minimal polynomial t^d P_f(X/t) and P′_{tf}(tf) = t^{d−1}P′_f(f), which is not a unit. Degree ≥ 2 does occur, since Σ_n → Σ_0 has degree > 1. Also, P′(f) ≠ 0 is automatic in characteristic 0, so 'puisque le revêtement est étale' does not supply what the argument needs. The final comparison P′(f)(lim x_n − ∂_𝔛 f) = 0 only needs P′(f) to be a non-zero-divisor, which is true when P is taken componentwise over the normal domains making up O(U_{0,i}). The lemma is true: the missing step is supplied by the standard affinoid argument in the correction. So this is a gap in the proof, not a false statement."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E13",
+   "kind": "misprint",
+   "locator": "§4.1, Lemme 4.7, p. 22",
+   "printed": "C^0(X)_{K_p−alg} ⊗_{L,ι} C ≃ ⊕_{W∈Alg(G)} ⊕_{π_∞≃W_∞} W_∞ ⊗ π_f^{K_p}.",
+   "correction": "C^0(X)_{K_p−alg} ⊗_{L,ι} C ≃ ⊕_{W∈Alg(G)} ⊕_{π_∞≃W_∞} W_∞ ⊗ π_f^{K_pK^p}.",
+   "reason": "C^0(X)_{K_p−alg} is the image of ⊕_W W ⊗_L Hom_{K_p}(W, C^0(X)), and by the first display of the lemma Hom_{K_p}(W, C^0(X)) ⊗ C ≅ ⊕_{π_∞≅W_∞} π_f^{K_pK^p}. Functions on X = B̄^*(Q)\\B̄^*(A_f)/K^p only see K^p-invariants, and π_f^{K_p} is infinite-dimensional, so the printed right-hand side is too big. The 'Ainsi' clause is meant to follow from the first display, so the meaning is clear. §13 (Lemmes 13.8–13.9) uses the correct form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the zoomed image (p. 22). The first display of Lemme 4.7 has π_f^{K_pK^p}, but the 'Ainsi' display has W_∞ ⊗ π_f^{K_p}. Définition 4.3 sets X = X(K^p) = B̄^*(Q)\\B̄^*(A_f)/K^p, so every function in C^0(X) is K^p-invariant. By notation (9), C^0(X)_{K_p−alg} is the image of ⊕_W W ⊗_L Hom_{K_p}(W, C^0(X)), and the first display identifies Hom_{K_p}(W, C^0(X)) ⊗ C with ⊕_{π_∞≃W_∞} π_f^{K_pK^p}. For each W the left side is finite-dimensional, because X/K_p is finite. In general π_f^{K_p} is infinite-dimensional, because of the restricted tensor product away from p, so the printed right side is wrong. It follows from the first display ('Ainsi'), so the intended K_pK^p is clear. Later uses cite Lemme 4.7 only qualitatively, as in the proof of Lemme 13.8, or for W trivial on p. 24."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E14",
+   "kind": "error",
+   "locator": "§4.2, proof of Théorème 4.1, p. 23",
+   "printed": "La suite exacte de Hochschild-Serre [68, par. 5] pour le revêtement galoisien M̆_{n,N} → Γ_i\\M̆_{n,N} [...] fournissent une suite spectrale E_2^{p,q} = ∏_{i=1}^r H^p(Γ_i, H^q_dR(Σ_{n,N})) ⇒ H^{p+q}_dR(Sh_K).",
+   "correction": "E_2^{p,q} = ∏_{i=1}^r H^p(Γ_i/p^{NZ}, H^q_dR(Σ_{n,N})) ⇒ H^{p+q}_dR(Sh_K). Correspondingly: ∏ Ext^p_{Γ_i/p^{NZ}}(H^{2−q}_{dR,c}(Σ_{n,N}), 1) = ∏ Ext^p_{G/p^{NZ}}(H^{2−q}_{dR,c}(Σ_{n,N}), Ind_{Γ_i/p^{NZ}}^{G/p^{NZ}} 1), and E_2^{p,q}(K^p) = Ext^p_{G/p^{NZ}}(H^{2−q}_{dR,c}(Σ_{n,N}), LC(X(K^p))), with Ext in smooth representations of G/p^{NZ}. The ρ-part and (2) are unchanged.",
+   "reason": "Confirmed on the image (p. 23). N is chosen with p^N ∈ Γ_i, and M̆_{n,N} = p^{NZ}\\M̆_n. So p^N ∈ Γ_i acts trivially on M̆_{n,N}, and the Galois group of M̆_{n,N} → Γ_i\\M̆_{n,N} is Γ̄_i = Γ_i/p^{NZ}, not Γ_i. With Γ_i, the Hochschild–Serre sequence computes Γ_i-equivariant cohomology, not H_dR(Sh_K). The difference is real. The homomorphism v_p∘det: Γ_i → Z is injective on p^{NZ}, so the central extension 1 → p^{NZ} → Γ_i → Γ̄_i → 1 splits over Q. Hence H^1(Γ_i, V) ≅ H^1(Γ̄_i, V) ⊕ V^{Γ_i} for L-vector spaces V on which p^N acts trivially, functorially and so D^*-equivariantly; the extra classes are γ ↦ v_p(det γ)v. For q = 0, V contains the constants, so the printed E_2^{1,0} is too big. The printed sequence even contradicts the paper. Its ρ-part is the single row q = 1, so it would give H^2_dR(Sh_K)^ρ = ∏ H^1(Γ_i, H^1_dR(Σ_{n,N}))^ρ ⊇ ∏ H^0(Γ_i, H^1_dR(Σ_{n,N}))^ρ = H^1_dR(Sh_K)^ρ. But H^2_dR(Sh_K)^ρ = 0, since D^* acts on geometric components through the reduced norm and dim ρ > 1, while H^1_dR(Sh_K)^ρ ≠ 0 (p. 24). The same slip carries into Ext_{Γ_i}, Ind_{Γ_i}^G and Ext_G. It is an error rather than a misprint because the displayed spectral sequence is false and the fix changes the group in three displays. The intended object, Hochschild–Serre for the Galois cover named in the text, is still clear. Defence: the proof uses only the ρ-part, where only q = 1 survives, and only E_2^{0,1}. There H^0(Γ_i, ·) = H^0(Γ̄_i, ·) and Hom_G = Hom_{G/p^{NZ}} on representations where p^N acts trivially; p^N does act trivially on X(K^p), since p^N ∈ Γ_i means p^N ∈ K^p. So (2), (3) and Théorème 4.1 are unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image (p. 23). N is chosen with p^N ∈ Γ_i, and M̆_{n,N} = p^{NZ}\\M̆_n. So p^N ∈ Γ_i acts trivially on M̆_{n,N}, and the Galois group of M̆_{n,N} → Γ_i\\M̆_{n,N} is Γ̄_i = Γ_i/p^{NZ}, not Γ_i. With Γ_i, the Hochschild–Serre sequence computes Γ_i-equivariant cohomology, not H_dR(Sh_K). The difference is real. The homomorphism v_p∘det: Γ_i → Z is injective on p^{NZ}, so the central extension 1 → p^{NZ} → Γ_i → Γ̄_i → 1 splits over Q. Hence H^1(Γ_i, V) ≅ H^1(Γ̄_i, V) ⊕ V^{Γ_i} for L-vector spaces V on which p^N acts trivially, functorially and so D^*-equivariantly; the extra classes are γ ↦ v_p(det γ)v. For q = 0, V contains the constants, so the printed E_2^{1,0} is too big. The printed sequence even contradicts the paper. Its ρ-part is the single row q = 1, so it would give H^2_dR(Sh_K)^ρ = ∏ H^1(Γ_i, H^1_dR(Σ_{n,N}))^ρ ⊇ ∏ H^0(Γ_i, H^1_dR(Σ_{n,N}))^ρ = H^1_dR(Sh_K)^ρ. But H^2_dR(Sh_K)^ρ = 0, since D^* acts on geometric components through the reduced norm and dim ρ > 1, while H^1_dR(Sh_K)^ρ ≠ 0 (p. 24). The same slip carries into Ext_{Γ_i}, Ind_{Γ_i}^G and Ext_G. It is an error rather than a misprint because the displayed spectral sequence is false and the fix changes the group in three displays. The intended object, Hochschild–Serre for the Galois cover named in the text, is still clear. Defence: the proof uses only the ρ-part, where only q = 1 survives, and only E_2^{0,1}. There H^0(Γ_i, ·) = H^0(Γ̄_i, ·) and Hom_G = Hom_{G/p^{NZ}} on representations where p^N acts trivially; p^N does act trivially on X(K^p), since p^N ∈ Γ_i means p^N ∈ K^p. So (2), (3) and Théorème 4.1 are unaffected."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E15",
+   "kind": "misprint",
+   "locator": "§5.2, proof of Lemme 5.8, p. 28",
+   "printed": "il suffit de noter que ℓ(g^{−1}.ω_i) = (g.ℓ)(ω_i) et d'utiliser le fait que G → Ω^1(M_n)^*, g ↦ g.ℓ est localement analytique (cf. 3.2).",
+   "correction": "… d'utiliser le fait que G → W = ((Ω^1(Σ_n))^ρ)^*, g ↦ g.ℓ est localement analytique (cf. théorème 3.2; W is a quotient of ρ ⊗ Ω^1(Σ_n)^*).",
+   "reason": "ℓ ∈ W = ((Ω^1(Σ_n))^ρ)^*. The paper never defines a space M_n without breve (only M̆_n over Q̆_p and its Q_p-model Σ_n of p^Z\\M̆_n), and Théorème 3.2, cited here, concerns duals of the bundles O^{(k)}(Σ_n) (Ω^1 ≅ O^{(2)} ⊗ det^{-1}). The meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on the p. 28 image at 300 dpi. The printed space is Ω^1(𝓜_n)^*, with a calligraphic M and no breve (the first reading's 'M_n'). A scan of all calligraphic M glyphs in the PDF finds only this one without a breve: everywhere else the space is M̆_n, the Rapoport–Zink space over Q̆_p (pp. 3, 15, 22–23, 29), and Σ_n is the Q_p-model of p^Z\\M̆_n. Since ℓ ∈ W = ((Ω^1(Σ_n))^ρ)^*, the orbit map g ↦ g.ℓ takes values in W, not in the dual of Ω^1 of M̆_n. Its local analyticity is what p. 28 has just derived from Théorème 3.2 ('W est une représentation localement analytique de G'). Théorème 3.2 concerns O(k)(Σ_n)^*, and Ω^1 = O(2) ⊗ det (p. 16), not O(2) ⊗ det^{-1} as the first reading wrote. Proposition 3.6 uses it in the form 'Ω^1(Σ_n)^* est … localement analytique (théorème 3.2)', so the intended symbol is W, or at least Σ_n in place of 𝓜_n. The meaning is clear."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E16",
+   "kind": "gap",
+   "locator": "§5.3, Preuve du théorème 5.1, pp. 29–30 (also §4.2, p. 24)",
+   "printed": "On a d'après le théorème 5.7 Hom_G((LA(X(K^p))[𝔭])^*, Ω^1(Σ_n)^ρ) ≃ Ω^1(Sh_K)^ρ[𝔭] ≠ 0 [p. 29] … où Π = Π(𝔭) ∈ V(π) (modulo un twist non ramifiée que l'on va ignorer dans la suite). [p. 30]",
+   "correction": "Before applying Théorème 5.7, make ξ trivial. ξ has finite order, since ξ² is the p-component of the finite-order central character of π(f). Choose a Dirichlet character ψ of modulus prime to p with ψ(p) = ξ(p)^{-1}; for instance take modulus p^m − 1, m = ord ξ(p), and extend p ↦ ξ(p)^{-1} from ⟨p⟩ ≅ Z/m. Replace f by f ⊗ (χ_ψ∘Nrd), shrinking K^p and enlarging Σ. The new form has weight 2, r̄ = r̄_f ⊗ ψ̄ is still absolutely irreducible on G_{Q_p}, and π(f)_p = π. Then Ω^1(Sh_K)^ρ[𝔭] ≠ 0 (global Jacquet–Langlands, JL(π) = ρ), and Π(𝔭) ∈ V(π) (Π(𝔭)^lisse ≅ π(f)_p by Théorème 5.4 and Lemme 4.7). Make the same replacement on p. 24.",
+   "reason": "Both quotations checked on the images: p. 29 '… ≃ Ω^1(Sh_K)^ρ[𝔭] ≠ 0' and p. 30 'où Π = Π(𝔭) ∈ V(π) (modulo un twist non ramifiée que l'on va ignorer dans la suite)'. Théorème 5.5 (p. 26, and as recalled on p. 29) gives only π(f)_p = π ⊗ ξ∘det with ξ unramified. The proof of 5.5 (p. 27) picks 𝔭_1 only through a GL_2(Z_p)-type, so nothing controls ξ(p). The form f lives on X(K^p) = B̄^*(Q)\\B̄^*(A_f)/K^p (Déf. 4.3), and no central character is imposed. Its transfer to B^* has p-component JL(π ⊗ ξ∘det) = ρ ⊗ ξ∘Nrd. By strong multiplicity one, it is the only representation contributing to the [𝔭]-part. With σ^ρ = Hom_{D^*}(ρ, σ) (p. 4), Ω^1(Sh_K)^ρ[𝔭] ≠ 0 therefore requires ρ ⊗ ξ∘Nrd ≅ ρ. This fails whenever ξ(p)² ≠ 1, because the central characters are ξ² and 1. It fails in general for the unramified quadratic ξ as well. Likewise Π(𝔭)^lisse ≅ π(f)_p (Théorème 5.4 with Lemme 4.7) puts Π(𝔭) in V(π ⊗ ξ∘det) = V(π) ⊗ ξ∘det. Twisting back on the local side does not work: Σ_n is the model of p^Z\\M̆_n, where p ∈ Z(G) acts trivially (p. 15). So when ξ² ≠ 1 the ρ⊗ξ-part vanishes, and nothing on Σ_n sees π ⊗ ξ∘det. The step 'on va ignorer' is therefore an unjustified reduction, not a harmless convention. It is repaired by a global twist. ξ has finite order: π(f)_∞ is trivial (weight 2, definite B̄), so the central character of π(f) is a character of the profinite group A^*/Q^*R^*, hence of finite order, and its p-component is ξ²·ω_π = ξ². Let m be the order of ξ(p). The class of p has order exactly m in (Z/(p^m−1))^*. A character of the subgroup ⟨p⟩ with p ↦ ξ(p)^{-1} extends to a Dirichlet character ψ of modulus p^m−1, which is prime to p, so the idelic χ satisfies χ_p = ξ^{-1}∘(unramified). Replace f by f ⊗ (χ∘Nrd), shrinking K^p and enlarging Σ. This preserves weight 2 (Nrd > 0 on B̄^*(R)), and r̄ becomes r̄_f ⊗ ψ̄, whose restriction to G_{Q_p} is still absolutely irreducible. Now π(f)_p = π, so every step of §5.3 holds as written. The same unexplained removal of ξ occurs on p. 24 ('Du théorème 5.5, on déduit … π(f)_p = π', in the proof of Théorème 4.1). In the authors' defence, they flag the twist explicitly, and the repair is standard. Théorème 5.1 itself is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Both quotations checked on the images: p. 29 '… ≃ Ω^1(Sh_K)^ρ[𝔭] ≠ 0' and p. 30 'où Π = Π(𝔭) ∈ V(π) (modulo un twist non ramifiée que l'on va ignorer dans la suite)'. Théorème 5.5 (p. 26, and as recalled on p. 29) gives only π(f)_p = π ⊗ ξ∘det with ξ unramified. The proof of 5.5 (p. 27) picks 𝔭_1 only through a GL_2(Z_p)-type, so nothing controls ξ(p). The form f lives on X(K^p) = B̄^*(Q)\\B̄^*(A_f)/K^p (Déf. 4.3), and no central character is imposed. Its transfer to B^* has p-component JL(π ⊗ ξ∘det) = ρ ⊗ ξ∘Nrd. By strong multiplicity one, it is the only representation contributing to the [𝔭]-part. With σ^ρ = Hom_{D^*}(ρ, σ) (p. 4), Ω^1(Sh_K)^ρ[𝔭] ≠ 0 therefore requires ρ ⊗ ξ∘Nrd ≅ ρ. This fails whenever ξ(p)² ≠ 1, because the central characters are ξ² and 1. It fails in general for the unramified quadratic ξ as well. Likewise Π(𝔭)^lisse ≅ π(f)_p (Théorème 5.4 with Lemme 4.7) puts Π(𝔭) in V(π ⊗ ξ∘det) = V(π) ⊗ ξ∘det. Twisting back on the local side does not work: Σ_n is the model of p^Z\\M̆_n, where p ∈ Z(G) acts trivially (p. 15). So when ξ² ≠ 1 the ρ⊗ξ-part vanishes, and nothing on Σ_n sees π ⊗ ξ∘det. The step 'on va ignorer' is therefore an unjustified reduction, not a harmless convention. It is repaired by a global twist. ξ has finite order: π(f)_∞ is trivial (weight 2, definite B̄), so the central character of π(f) is a character of the profinite group A^*/Q^*R^*, hence of finite order, and its p-component is ξ²·ω_π = ξ². Let m be the order of ξ(p). The class of p has order exactly m in (Z/(p^m−1))^*. A character of the subgroup ⟨p⟩ with p ↦ ξ(p)^{-1} extends to a Dirichlet character ψ of modulus p^m−1, which is prime to p, so the idelic χ satisfies χ_p = ξ^{-1}∘(unramified). Replace f by f ⊗ (χ∘Nrd), shrinking K^p and enlarging Σ. This preserves weight 2 (Nrd > 0 on B̄^*(R)), and r̄ becomes r̄_f ⊗ ψ̄, whose restriction to G_{Q_p} is still absolutely irreducible. Now π(f)_p = π, so every step of §5.3 holds as written. The same unexplained removal of ξ occurs on p. 24 ('Du théorème 5.5, on déduit … π(f)_p = π', in the proof of Théorème 4.1). In the authors' defence, they flag the twist explicitly, and the repair is standard. Théorème 5.1 itself is unaffected."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E17",
+   "kind": "misprint",
+   "locator": "§5.2, proof of Lemme 5.9, p. 29",
+   "printed": "Puisque D(G) et W sont tous deux des espaces de Fréchet, on peut tester la continuité de F^* avec des suites.",
+   "correction": "Puisque D(G) et W^* sont tous deux des espaces de Fréchet …; only the metrizability of D(G) is needed.",
+   "reason": "In Lemme 5.9, W is a space of compact type, which is not Fréchet unless finite-dimensional (in the application W = ((Ω^1(Σ_n))^ρ)^* is infinite-dimensional). The spaces relevant to F^* : D(G) → W^* are D(G) (G compact, so D(G) is a nuclear Fréchet space) and W^* (Fréchet). Testing continuity with sequences only needs the source D(G) to be metrizable, so the argument is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on the p. 29 image: 'Puisque D(G) et W sont tous deux des espaces de Fréchet, on peut tester la continuité de F^* avec des suites.' In Lemme 5.9, W is a space of compact type. An infinite-dimensional space of compact type is never metrizable: a Fréchet space whose strong dual is also Fréchet is normable, and a normable Montel space is finite-dimensional. In the application W = ((Ω^1(Σ_n))^ρ)^* is infinite-dimensional. Ω^1(Σ_n)^ρ is nonzero (pp. 29–30), and u^+ acts injectively on it (p. 30, Lemme 3.5). On a nonzero finite-dimensional locally analytic G-representation, u^+ would act nilpotently, which is impossible here. For G compact, the spaces in play for F^* : D(G) → W^* are D(G) = LA(G)^*_b (nuclear Fréchet) and W^* (Fréchet, by reflexivity). Checking continuity on sequences needs only the source D(G) to be metrizable. The subsequent argument is correct: weak convergence in W^* is pointwise convergence on W = (W^*)', followed by Lemme 5.10 applied to V = W^*. So 'W' is a slip for 'W^*' and nothing is affected."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E18",
+   "kind": "misprint",
+   "locator": "§5.2, Remarque 5.11, p. 29",
+   "printed": "s'identifie via les isomorphismes de la proposition 5.7 et du théorème 4.1 à la filtration de Hodge Ω^1(Sh_K)^ρ → H^1_dR(Sh_K)^ρ.",
+   "correction": "s'identifie via les isomorphismes du théorème 5.7 et (2) (preuve du théorème 4.1) à la filtration de Hodge …",
+   "reason": "5.7 is a Théorème, not a proposition. Théorème 4.1 is a dimension statement (dim_L Hom_G(H^1_dR,c(Σ_n)^{ρ∨}, π) = 2), not an isomorphism. The isomorphism that identifies Hom_G(H^1_dR,c(Σ_n)^{ρ(∨)}, LC(X(K^p))) with H^1_dR(Sh_K)^ρ is (2) on p. 23, from the proof of Théorème 4.1. Remark 5.11 also writes H^1_dR,c(Σ_n)^ρ where (2) has ρ^∨; this is harmless, since ρ ≅ ρ^∨ (ρ = JL(π) has trivial central character).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on the p. 29 image: 's'identifie via les isomorphismes de la proposition 5.7 et du théorème 4.1 à la filtration de Hodge Ω^1(Sh_K)^ρ → H^1_dR(Sh_K)^ρ.' Numbers in §5 are shared across kinds, and 5.7 is 'Théorème 5.7' (p. 27); there is no Proposition 5.7. Théorème 4.1 (p. 19) states only dim_L Hom_G(H^1_dR,c(Σ_n)^{ρ∨}, π) = 2, not an isomorphism. The isomorphism meant is (2), Hom_G(H^1_dR,c(Σ_n)^{ρ∨}, LC(X(K^p))) ≃ H^1_dR(Sh_K)^ρ, established on p. 23 in the proof of Théorème 4.1 (together with its limit (3), p. 24). The remark writes H^1_dR,c(Σ_n)^ρ where (2) has ρ^∨. This is harmless: ρ = JL(π) and π has trivial central character, so π^∨ ≅ π and ρ^∨ = JL(π^∨) ≅ ρ. The meaning is clear."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E19",
+   "kind": "error",
+   "locator": "§7.4, Proposition 7.7 b), p. 38",
+   "printed": "b) Si V est de de Rham à poids de Hodge-Tate 0 et k ≥ 1, alors pour tout n assez grand l'orthogonal de N^+_dif,n(V̌) est t^k N^+_dif,n(V).",
+   "correction": "b) Si V est de de Rham, alors pour tout n assez grand l'orthogonal de N^+_dif,n(V̌) (dans D^+_dif,n(V)[1/t]) est tN^+_dif,n(V); de façon équivalente, t^kN^+_dif,n(V) est l'orthogonal de t^{1−k}N^+_dif,n(V̌) (this is the form of Colmez [17, lemme VI.4.16], whose N for Ď is N_dif,n(D) ⊗ δ_D^{-1} = t^{1−k}N^+_dif,n(V̌)).",
+   "reason": "Confirmed on the zoomed image (p. 38): 'b) Si V est de de Rham à poids de Hodge-Tate 0 et k ≥ 1, alors pour tout n assez grand l'orthogonal de N^+_dif,n(V̌) est t^k N^+_dif,n(V).' Conventions checked. Exemple 6.5 (p. 32) sets N^+_dif,n(V) = L_n[[t]] ⊗_L D_dR(V) for every de Rham V, with D^+_dif,n(V) = Fil^0(L_n((t)) ⊗ D_dR(V)). On p. 34 (and Remarque 7.10), weights 0, 1 give D^+ = tN^+ + L_n[[t]] ⊗ Fil^0, so weights 0, k give t^kN^+(V) ⊂ D^+(V) ⊂ N^+(V). V̌ = V^*(1) has weights 1 and 1 − k, so tN^+(V̌) ⊂ D^+(V̌). (1) Direct computation. ⟨ , ⟩ is L_n((t))-bilinear and maps N^+(V̌) × N^+(V) into L_n[[t]] ⊗ D_dR(L(1)) = L_n[[t]]·t^{−1}dt, perfectly, because D_dR(V̌) = Hom(D_dR(V), D_dR(L(1))). σ_{−1} preserves N^+(V̌). Write z = Σ t^i z_i with z_i ∈ L_n ⊗ D_dR(V). Then res_0 ∘ Tr_{L_n/L} kills ⟨t^j N^+_0(V̌), z⟩ for every j ≥ 0 iff z_i = 0 for all i ≤ 0. So the orthogonal is tN^+_dif,n(V), whatever k is: N^+ does not see the Hodge filtration. (2) Internal contradiction. This one uses neither the normalization of dt nor the direct computation. Printed (b) and L_n[[t]]-linearity give orth(tN^+(V̌)) = t^{k−1}N^+(V). Then (a) gives D^+(V) = orth(D^+(V̌)) ⊂ orth(tN^+(V̌)) = t^{k−1}N^+(V). This is false for k ≥ 2, since D^+(V) ⊃ L_n[[t]] ⊗ Fil^0 D_dR(V) ≠ 0. (3) Source of the slip. Colmez [17, lemme VI.4.16(i)], which the proof cites, uses the identification Ď ≅ D ⊗ δ_D^{-1}. There, 't^k N_dif,n' means t^k(N_dif,n(D) ⊗ δ_D^{-1}), and δ_D has weight k − 1. In the normalization of Exemple 6.5 this is t^k·t^{1−k}N^+_dif,n(V̌) = tN^+_dif,n(V̌). So the 'traduction élémentaire' drops a factor t^{k−1}; the two normalizations agree only when k = 1. Reach: Prop. 7.7 b) is false as stated for every k ≥ 2. Every later use (Prop. 7.9, 8.2, Th. 8.3, 8.6, all for V ∈ V(π)) has k = 1, where it is correct, so no later argument is affected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the zoomed image (p. 38): 'b) Si V est de de Rham à poids de Hodge-Tate 0 et k ≥ 1, alors pour tout n assez grand l'orthogonal de N^+_dif,n(V̌) est t^k N^+_dif,n(V).' Conventions checked. Exemple 6.5 (p. 32) sets N^+_dif,n(V) = L_n[[t]] ⊗_L D_dR(V) for every de Rham V, with D^+_dif,n(V) = Fil^0(L_n((t)) ⊗ D_dR(V)). On p. 34 (and Remarque 7.10), weights 0, 1 give D^+ = tN^+ + L_n[[t]] ⊗ Fil^0, so weights 0, k give t^kN^+(V) ⊂ D^+(V) ⊂ N^+(V). V̌ = V^*(1) has weights 1 and 1 − k, so tN^+(V̌) ⊂ D^+(V̌). (1) Direct computation. ⟨ , ⟩ is L_n((t))-bilinear and maps N^+(V̌) × N^+(V) into L_n[[t]] ⊗ D_dR(L(1)) = L_n[[t]]·t^{−1}dt, perfectly, because D_dR(V̌) = Hom(D_dR(V), D_dR(L(1))). σ_{−1} preserves N^+(V̌). Write z = Σ t^i z_i with z_i ∈ L_n ⊗ D_dR(V). Then res_0 ∘ Tr_{L_n/L} kills ⟨t^j N^+_0(V̌), z⟩ for every j ≥ 0 iff z_i = 0 for all i ≤ 0. So the orthogonal is tN^+_dif,n(V), whatever k is: N^+ does not see the Hodge filtration. (2) Internal contradiction. This one uses neither the normalization of dt nor the direct computation. Printed (b) and L_n[[t]]-linearity give orth(tN^+(V̌)) = t^{k−1}N^+(V). Then (a) gives D^+(V) = orth(D^+(V̌)) ⊂ orth(tN^+(V̌)) = t^{k−1}N^+(V). This is false for k ≥ 2, since D^+(V) ⊃ L_n[[t]] ⊗ Fil^0 D_dR(V) ≠ 0. (3) Source of the slip. Colmez [17, lemme VI.4.16(i)], which the proof cites, uses the identification Ď ≅ D ⊗ δ_D^{-1}. There, 't^k N_dif,n' means t^k(N_dif,n(D) ⊗ δ_D^{-1}), and δ_D has weight k − 1. In the normalization of Exemple 6.5 this is t^k·t^{1−k}N^+_dif,n(V̌) = tN^+_dif,n(V̌). So the 'traduction élémentaire' drops a factor t^{k−1}; the two normalizations agree only when k = 1. Reach: Prop. 7.7 b) is false as stated for every k ≥ 2. Every later use (Prop. 7.9, 8.2, Th. 8.3, 8.6, all for V ∈ V(π)) has k = 1, where it is correct, so no later argument is affected."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E20",
+   "kind": "misprint",
+   "locator": "§7.4, Proposition 7.7 a), p. 38",
+   "printed": "Pour tout n assez grand l'orthogonal de D^+_dif,n(V̌) est D^+_dif,n(V).",
+   "correction": "Pour tout n assez grand l'orthogonal de D^+_dif,n(V̌) dans D^+_dif,n(V)[1/t] est D^+_dif,n(V) (and likewise in b), the orthogonal is taken in D^+_dif,n(V)[1/t]).",
+   "reason": "The previous sentence makes { }_dif a pairing on D^+_dif(V̌)[1/t] × D^+_dif(V)[1/t], so the orthogonal would be taken there; but there it also contains the kernel of the normalized trace to level n: if β ∈ L_{n+1}, β ≠ 0, Tr_{L_{n+1}/L_n}(β) = 0, and y ∈ D^+_dif,n(V)[1/t], y ≠ 0, then β ⊗ y ∉ D^+_dif,n(V) but {ž, β ⊗ y}_dif = 0 for all ž ∈ D^+_dif,n(V̌), since Tr_{L_m((t))/L((t))}(βf) = p^{m−n−1}Tr_{L_n((t))/L((t))}(Tr_{L_{n+1}/L_n}(β)f) = 0 for f ∈ L_n((t))dt. With the ambient space D^+_dif,n(V)[1/t] the statement is right; the consequence drawn ('Ainsi', perfect pairing D^+_dif(V̌) × D^−_dif(V)) is correct, and the later uses (Prop. 8.2, Th. 8.3, Th. 8.6) pair level-n elements only.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the zoomed image (p. 38). The pairing { }_dif is defined just before on the colimits D^+_dif(V̌)[1/t] × D^+_dif(V)[1/t], and a) then says 'Pour tout n assez grand l'orthogonal de D^+_dif,n(V̌) est D^+_dif,n(V)' without naming the ambient space. With the literal ambient D^+_dif(V)[1/t] this is false. Take β ∈ L_{n+1} with β ≠ 0 and Tr_{L_{n+1}/L_n}(β) = 0, and y ∈ D^+_dif,n(V)[1/t] with y ≠ 0. Computing at level m ≥ n+1 gives Tr_{L_m((t))/L((t))}(βf) = Tr_{L_n((t))/L((t))}(Tr_{L_m/L_n}(β)f) = 0 for f ∈ L_n((t))dt. So βy is orthogonal to D^+_dif,n(V̌) but not in D^+_dif,n(V). Inside D^+_dif,n(V)[1/t] the statement is right: the level-n pairing into L_n((t))dt is perfect on D^+ × D^+ (Colmez [17, VI.3 no. 4 and lemme VI.3.3], where the pairing is defined at level n and the statement is made there). The deduction 'Ainsi … accouplement parfait entre D^+_dif(V̌) et D^-_dif(V)' and every later use need only the level-n statement. The intended meaning is clear, so this is a missing qualifier (misprint), not an error."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E21",
+   "kind": "misprint",
+   "locator": "§7.5, proof of Théorème 7.11, p. 40",
+   "printed": "On conclut en utilisant l'inclusion (1 − u)Π(V)^{P−lisse} ⊂ Π(V)^{P−lisse}_c (remarque 7.5).",
+   "correction": "(1 − u)Π(V)^lisse ⊂ Π(V)^{P−lisse}_c",
+   "reason": "Π(V)^{P−lisse} (without the index c) is defined nowhere; only Π(V)^{P−lisse}_c is (Proposition 7.9). The needed inclusion is (1 − u)Π(V)^lisse ⊂ Π(V)^{P−lisse}_c: a smooth v is P-finite with k = 1, so (1 − u)v ∈ Π^{P−fini}_c by Remarque 7.5, and u^+, a^+ kill it (u^+ commutes with u, a^+(1 x; 0 1) = (1 x; 0 1)(a^+ + xu^+)). The meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the zoomed image (p. 40): 'On conclut en utilisant l'inclusion (1 − u)Π(V)^{P−lisse} ⊂ Π(V)^{P−lisse}_c (remarque 7.5).' A search of the whole text finds Π(V)^{P−lisse} without the index c only here. Only Π(V)^{P−lisse}_c is defined (Prop. 7.9). The step needs (1 − u)Π(V)^lisse ⊂ Π(V)^{P−lisse}_c, and this holds. A smooth v is P-finite with k = 1 in the sense of Définition 7.4 a): it is fixed by (1 p^n; 0 1) for n large and has a finite Z_p^*-orbit. So (1 − u)v ∈ Π^{P−fini}_c by Remarque 7.5. Also u^+ commutes with u, and a^+(1 x; 0 1) = (1 x; 0 1)(a^+ + xu^+) (p. 39), so u^+ and a^+ kill (1 − u)v. The meaning is clear."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E22",
+   "kind": "gap",
+   "locator": "§8.1, p. 41 (paragraph before Théorème 8.3) and proof of Théorème 8.3, pp. 41–42",
+   "printed": "Ainsi, l'inclusion (Π(V)^an)^* ⊂ D_rig(V) ⊠ P^1 composée avec Res_{Z_p} induit une inclusion [(Π(V)^an)^*]^{(p 0; 0 1)=1} ⊂ D_rig(V)^{ψ=1}.",
+   "correction": "Add: if z ∈ [(Π(V)^an)^*]^{(p 0;0 1)=1} and Res_{Z_p}(z) = 0, then Res_{Z_p^*}(z) = 0. Since (p 0;0 1)w = w(1 0;0 p) and the center acts trivially, wz is also fixed by (p 0;0 1), so y = Res_{Z_p}(wz) ∈ D_rig(V)^{ψ=1}. Moreover Res_{Z_p^*}(y) = w(Res_{Z_p^*}(z)) = 0, hence y = φψ(y) = φ(y) ∈ D_rig(V)^{φ=1} = 0 (V non trianguline). So Res_{Z_p}(z) = Res_{Z_p}(wz) = 0 and z = 0.",
+   "reason": "Confirmed on the images (pp. 41–42). The identity Res_{Z_p} ∘ (p^{−1} 0; 0 1) = ψ ∘ Res_{Z_p} shows only that Res_{Z_p} maps [(Π(V)^an)^*]^{(p 0;0 1)=1} into D_rig(V)^{ψ=1}. Nevertheless 'Ainsi … induit une inclusion' is asserted, and Théorème 8.3 says 'est un isomorphisme'. The proof of 8.3 ('Commençons par montrer que … est un isomorphisme') proves only surjectivity: it writes z = Σ∫γ(x_i)μ_i and lifts each x_i via [24, rem. V.14]. The Banach statement of [24] gives injectivity only on (Π^*)^{(p 0;0 1)=1}, not on the larger (Π^an)^*. Injectivity is true, by the argument in the correction. That argument uses only facts in the paper: the center acts trivially (Remarque 7.2, δ_V = 1), and D_rig(V)^{φ=1} = 0, which the paper invokes only for the second part. The theorem is therefore correct, but its proof omits half of the claimed isomorphism, which the second statement (the isomorphism with (tN_rig)^{ψ=1}) and Prop. 8.4 then rely on. The reach is 'the proof', not 'nothing'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the images (pp. 41–42). The identity Res_{Z_p} ∘ (p^{−1} 0; 0 1) = ψ ∘ Res_{Z_p} shows only that Res_{Z_p} maps [(Π(V)^an)^*]^{(p 0;0 1)=1} into D_rig(V)^{ψ=1}. Nevertheless 'Ainsi … induit une inclusion' is asserted, and Théorème 8.3 says 'est un isomorphisme'. The proof of 8.3 ('Commençons par montrer que … est un isomorphisme') proves only surjectivity: it writes z = Σ∫γ(x_i)μ_i and lifts each x_i via [24, rem. V.14]. The Banach statement of [24] gives injectivity only on (Π^*)^{(p 0;0 1)=1}, not on the larger (Π^an)^*. Injectivity is true, by the argument in the correction. That argument uses only facts in the paper: the center acts trivially (Remarque 7.2, δ_V = 1), and D_rig(V)^{φ=1} = 0, which the paper invokes only for the second part. The theorem is therefore correct, but its proof omits half of the claimed isomorphism, which the second statement (the isomorphism with (tN_rig)^{ψ=1}) and Prop. 8.4 then rely on. The reach is 'the proof', not 'nothing'."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E23",
+   "kind": "misprint",
+   "locator": "§8.1, proof of Proposition 8.2, p. 41",
+   "printed": "et donc Res_{Z_p}(l) ⊂ tN^{]0,r_{m(V)}]}(V) (cf. l'exemple 6.5)",
+   "correction": "Res_{Z_p}(l) ∈ tN^{]0,r_{m(V)}]}(V)",
+   "reason": "Res_{Z_p}(l) is an element, not a subset; ⊂ for ∈.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the zoomed image (p. 41): 'et donc Res_{Z_p}(l) ⊂ tN^{]0,r_{m(V)}]}(V) (cf. l'exemple 6.5)'. Res_{Z_p}(l) is a single element, since l ∈ (Π(V)^an/Π(V)^lisse)^*, so ⊂ should be ∈. With ∈, the step is the description of N^{]0,r_n]} in Exemple 6.5 applied to φ^{−n}(Res_{Z_p}(l)) ∈ tN^+_dif,n(V) for all n ≥ m(V)."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E24",
+   "kind": "error",
+   "locator": "§8.1, proof of Proposition 8.4 a), p. 42",
+   "printed": "Ensuite, tN_rig(V) ⊠ Z_p^* = (tN_rig)^{ψ=0} est engendré comme D(Γ)-module par (1 − φ)(tN_rig(V))^{ψ=1} (cela suit par exemple de [52, prop. 4.3.8]), ce qui permet de conclure, en utilisant le fait que w ∘ σ_a = σ_{a^{−1}} ∘ w sur D_rig(V) ⊠ Z_p^*",
+   "correction": "Replace the step by a correct generation statement over the Robba ring of Γ, from KPX [52, prop. 4.3.8(3)]: (φ−1)M^{ψ=1} ⊗_{D(Γ)} R^{r_0}(Γ) ≅ (M^{r_0})^{ψ=0} for M = tN_rig(V), after checking its hypotheses. Then extend w ∘ λ = ι(λ) ∘ w from L[Γ] to L[Γ, (γ−1)^{−1}] and, by continuity, to R^{r_0}(Γ). Alternatively quote Prop. 8.4 a) from Colmez [17, ch. VI] or [21].",
+   "reason": "Confirmed on the image (p. 42). D(Γ) is the algebra of L-valued distributions on Γ (p. 10), and Théorème 8.3 itself treats (1 − φ)(tN_rig(V))^{ψ=1} as a D(Γ)-module. So the D(Γ)-module generated by (1 − φ)(tN_rig)^{ψ=1} is that set itself, and the claim says 1 − φ maps (tN_rig)^{ψ=1} onto (tN_rig)^{ψ=0}. This is false. By Prop. 8.2 and Th. 8.3, (tN_rig)^{ψ=1} = Res_{Z_p}([(Π^an/Π^lisse)^*]^{(p 0;0 1)=1}) ⊂ tN^{]0,r_m]}(V) for a fixed m, so its image under 1 − φ lies in tN^{]0,r_{m+1}]}(V). But (tN_rig)^{ψ=0} contains (1+T)φ(y) for every y ∈ tN_rig(V). If (1+T)φ(y) ∈ tN^{]0,r_{m+1}]}, then y = ψ((1+T)^{−1}·(1+T)φ(y)) ∈ tN^{]0,r_m]}, and tN_rig ≠ tN^{]0,r_m]}. The cited reference does not say what the paper attributes to it. KPX [52, prop. 4.3.8(3)] (checked in arXiv:1203.5718) states C ⊗_{R^∞(Γ)} R^{r_0}(Γ) ≅ (M^{r_0})^{ψ=0}, with C = M^{ψ=1}/M^{φ=1} ≅ (φ − 1)M^{ψ=1}, R^∞(Γ) = D(Γ) and R^{r_0}(Γ) a Robba-type ring of Γ. So generation holds only over that larger ring, for the r_0-model, and under hypotheses M/(ψ−1) = M^*/(ψ−1) = 0 that the paper does not check. Applying w ∘ σ_a = σ_{a^{−1}} ∘ w then needs the ι-semilinearity of w extended to R^{r_0}(Γ). D(Γ) is not dense there, so this goes through (γ − 1)^{−1} and continuity. It also needs control of w relative to the r_0-level. The paper gives none of this, so the step fails as written. The conclusion of Prop. 8.4 a) is true: it follows from the G-stability of tN_rig(V) ⊠ P^1, proved by Colmez [17, ch. VI] and [21], as the paper recalls on p. 40.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image (p. 42). D(Γ) is the algebra of L-valued distributions on Γ (p. 10), and Théorème 8.3 itself treats (1 − φ)(tN_rig(V))^{ψ=1} as a D(Γ)-module. So the D(Γ)-module generated by (1 − φ)(tN_rig)^{ψ=1} is that set itself, and the claim says 1 − φ maps (tN_rig)^{ψ=1} onto (tN_rig)^{ψ=0}. This is false. By Prop. 8.2 and Th. 8.3, (tN_rig)^{ψ=1} = Res_{Z_p}([(Π^an/Π^lisse)^*]^{(p 0;0 1)=1}) ⊂ tN^{]0,r_m]}(V) for a fixed m, so its image under 1 − φ lies in tN^{]0,r_{m+1}]}(V). But (tN_rig)^{ψ=0} contains (1+T)φ(y) for every y ∈ tN_rig(V). If (1+T)φ(y) ∈ tN^{]0,r_{m+1}]}, then y = ψ((1+T)^{−1}·(1+T)φ(y)) ∈ tN^{]0,r_m]}, and tN_rig ≠ tN^{]0,r_m]}. The cited reference does not say what the paper attributes to it. KPX [52, prop. 4.3.8(3)] (checked in arXiv:1203.5718) states C ⊗_{R^∞(Γ)} R^{r_0}(Γ) ≅ (M^{r_0})^{ψ=0}, with C = M^{ψ=1}/M^{φ=1} ≅ (φ − 1)M^{ψ=1}, R^∞(Γ) = D(Γ) and R^{r_0}(Γ) a Robba-type ring of Γ. So generation holds only over that larger ring, for the r_0-model, and under hypotheses M/(ψ−1) = M^*/(ψ−1) = 0 that the paper does not check. Applying w ∘ σ_a = σ_{a^{−1}} ∘ w then needs the ι-semilinearity of w extended to R^{r_0}(Γ). D(Γ) is not dense there, so this goes through (γ − 1)^{−1} and continuity. It also needs control of w relative to the r_0-level. The paper gives none of this, so the step fails as written. The conclusion of Prop. 8.4 a) is true: it follows from the G-stability of tN_rig(V) ⊠ P^1, proved by Colmez [17, ch. VI] and [21], as the paper recalls on p. 40."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E25",
+   "kind": "misprint",
+   "locator": "§8.2, proof of Théorème 8.6, p. 44",
+   "printed": "Soient Π^0_1 et Π^0_2 les boules unités pour des normes G-invariantes sur Π_1, respectivement Π_2. […] il suffit donc de montrer que u^+(Π^{(0)}_1)^* et (Π^{(0)}_2)^* sont orthogonaux",
+   "correction": "Write Π^0_1, Π^0_2 throughout (or Π^{(0)}_1, Π^{(0)}_2 throughout).",
+   "reason": "The unit balls are introduced as Π^0_1, Π^0_2 and then written Π^{(0)}_1, Π^{(0)}_2 in the rest of the argument; the objects are the same, so the meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image (p. 44). The unit balls are introduced as Π^0_1, Π^0_2 ('Soient Π^0_1 et Π^0_2 les boules unités …', '(Π^0_1)^* ⊗_{O_L} L = Π_1^*'). The rest of the argument writes (Π^{(0)}_1)^*, (Π^{(0)}_2)^* five times. The notation Π^{(0)}_i occurs nowhere else in the paper, so it denotes the same unit balls. This is a notational inconsistency with a clear meaning."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E26",
+   "kind": "misprint",
+   "locator": "§9.1, proof of Théorème 9.4, p. 46",
+   "printed": "En considérant l_1 comme une forme linéaire sur Π^an s'annulant sur Π^lisse, il s'agit de montrer que l_1(a^+v + v) = 0 pour tout v ∈ Π^an tel que u^+v ∈ Π^lisse.",
+   "correction": "« il s'agit de montrer que l(a^+v + v) = 0 (c'est-à-dire l_1(v) = 0) pour tout v ∈ Π^an tel que u^+v ∈ Π^lisse »",
+   "reason": "l_1 = a^+l − l for the dual action, so l_1(v) = −l(a^+v) − l(v) = −l(a^+v + v). What must be shown (l_1 vanishes on (Π^an/Π^lisse)^{u^+=0}, by Corollaire 9.3) is therefore l(a^+v + v) = 0 for every v with u^+v ∈ Π^lisse. That follows from Lemme 9.5 because l vanishes on Π^lisse. As printed, « l_1(a^+v + v) = 0 » is a different statement: it would not suffice, since it only tests l_1 on the image of a^+ + 1. The sign in Lemme 9.5 (a^+v + v, not a^+v − v) confirms that l is meant.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Quotation checked on the p. 46 image. With the dual action, l_1 = a^+l − l gives l_1(v) = −l(a^+v) − l(v) = −l(a^+v + v). The sign in Lemme 9.5, a^+v + v, matches this convention. By Corollaire 9.3, one must show that l_1 vanishes on (Π^an/Π^lisse)^{u^+=0}. That is, l(a^+v + v) = 0 for every v ∈ Π^an with u^+v ∈ Π^lisse, and Lemme 9.5 gives exactly this because l vanishes on Π^lisse. The printed « l_1(a^+v + v) = 0 » is a different condition: it tests l_1 only on the image of a^+ + 1, and Lemme 9.5 does not give it. The intended meaning is clear from the next sentence and from Lemme 9.5."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E27",
+   "kind": "gap",
+   "locator": "§9.1, end of the proof of Théorème 9.7, p. 48",
+   "printed": "Le théorème 9.7 est ainsi réduit à la preuve de l'inversibilité de a − c∂. Or, on déduit du lemme 9.8 la relation (c · g∂g^{-1} + d)(a − c∂) = det g, ce qui permet de conclure.",
+   "correction": "Add the right inverse. Lemme 9.8 applied to g^{-1} gives g^{-1}∂g(d + c∂) = a∂ + b. Conjugating by g gives ∂(c·g∂g^{-1} + d) = a·g∂g^{-1} + b, hence (a − c∂)(c·g∂g^{-1} + d) = det g. So (det g)^{-1}(c·g∂g^{-1} + d) is a two-sided inverse of a − c∂. Alternatively: Lemme 9.8 for w = (0 1; 1 0) and w² = 1 show that ∂ is invertible with inverse w∂w^{-1}, and Lemme 9.8 for (1 x; 0 1) gives ∂ − x = (1 x; 0 1)∂(1 x; 0 1)^{-1}.",
+   "reason": "The displayed relation gives only a left inverse of a − c∂. That makes a − c∂ injective, not surjective, and a one-sided inverse does not give invertibility for operators on an infinite-dimensional space. No commutation between a − c∂ and g∂g^{-1} is available at this point. Defence: the missing half follows in two lines from the same lemma applied to g^{-1}, as above, and the statement of Théorème 9.7 is correct. The conclusion g∂g^{-1} = (d∂ − b)(a − c∂)^{-1} then follows from Lemme 9.8.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 48. Lemme 9.8 gives g∂g^{-1}(a − c∂) = d∂ − b, so (c·g∂g^{-1} + d)(a − c∂) = c(d∂ − b) + d(a − c∂) = ad − bc. This is only a left inverse. It makes a − c∂ injective, but on the infinite-dimensional space Π(π,0)* it does not make a − c∂ surjective. Nothing proved so far lets g∂g^{-1} commute with ∂. The formula g∂g^{-1} = (d∂ − b)(a − c∂)^{-1} needs the two-sided inverse, and so does every later use of (a − c∂)^{-1} (Lemme 9.11, Définition 9.13, the action on Π(π,2)*). I checked the first reading's repair. Lemme 9.8 for g^{-1} = (det g)^{-1}(d, −b; −c, a) gives g^{-1}∂g(d + c∂) = a∂ + b. Conjugating by g gives ∂(c·g∂g^{-1} + d) = a·g∂g^{-1} + b, so (a − c∂)(c·g∂g^{-1} + d) = det g. A shorter repair also works. For w = (0 1; 1 0), Lemme 9.8 reads w∂w^{-1}∂ = 1, and conjugating by w (w² = 1) gives ∂·w∂w^{-1} = 1, so ∂ is invertible. For n_x = (1 x; 0 1), Lemme 9.8 reads n_x∂n_x^{-1} = ∂ − x, so a − c∂ = −c·n_{a/c}∂n_{a/c}^{-1} is invertible when c ≠ 0, and it is the scalar a when c = 0. Théorème 9.7 is true, and the missing half takes two lines from the paper's own lemma, so the gap reaches only the proof."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E28",
+   "kind": "misprint",
+   "locator": "§9.2, proof of Proposition 9.15 b), p. 51",
+   "printed": "Le lemme 5.10 montre qu'il suffit de vérifier que lim_{n→∞}⟨T_{f_n}(l), v⟩ = ⟨T_f(l), v⟩ pour tout v ∈ Π(π, 0)^*.",
+   "correction": "« pour tout v ∈ Π(π, 0) »",
+   "reason": "T_{f_n}(l) and T_f(l) lie in Π(π, 0)^*. They are paired with v ∈ Π(π, 0), which is also the dual of Π(π, 0)^* by reflexivity, as needed for Lemme 5.10. This matches the statement of part a) and the proof of Proposition 9.14.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 51 at 250 dpi: the page prints « pour tout v ∈ Π(π, 0)^* ». The pairing ⟨ , ⟩ is between Π(π,0)* and Π(π,0) (p. 48), and T_{f_n}(l), T_f(l) ∈ Π(π,0)*. Lemme 5.10 (p. 29) says that a sequence converges if and only if it converges weakly, that is against the continuous dual. The continuous dual of Π(π,0)* is Π(π,0) by reflexivity, as the proof of Prop. 9.14 says. Part a) is stated for v ∈ Π(π,0). The meaning is clear."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E29",
+   "kind": "misprint",
+   "locator": "§10.1, proof of Proposition 10.3, p. 52",
+   "printed": "puisqu'un sous-module fermé d'un module coadmissible est lui-même coadmissible et puisque O(M̆_n) est coadmissible, en tant que O(Ω̆)-module projectif de type fini [72].",
+   "correction": "« puisque O(M̆_n)^ρ (= O(Σ_n)^ρ ⊗̂ Q̆_p) est coadmissible, en tant que O(Ω̆)-module projectif de type fini ([56, prop. A5], cf. note 50, et [72]) »",
+   "reason": "By §3.1 (pp. 14–15), M̆_0 ≃ Ω̆ × Z and M̆_n is an étale covering of M̆_0, so O(M̆_n) is an infinite product over the height components. It is not finitely generated over O(Ω̆). What is finitely generated projective is O(Σ_n) ⊗̂ Q̆_p = O(p^Z\\M̆_n), or its ρ-part O(M̆_n)^ρ, which coincide because ρ(p) = 1 and p ∈ D^* acts on M̆_n as p^{-1} ∈ G. The argument only needs the ρ-part, so the meaning is clear. The projectivity comes from Kohlhaase [56, prop. A5] (footnote 50), not from [72]; [72] gives coadmissibility of finitely presented modules.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 52. By §3.1 (pp. 14–15), M̆_0 ≃ Ω̆ × Z and M̆_n is an étale Galois covering of M̆_0. So O(M̆_n) = ∏_{h∈Z} O(M̆_n^{(h)}) is an infinite product of nonzero O(Ω̆)-modules. Its reduction at any point is infinite-dimensional, so it is not finitely generated, and the sentence is false as printed. The argument needs only O(M̆_n)^ρ, the module that contains W and appears in the statement of Prop. 10.3 and in Théorème 10.5 b). Since ρ has trivial central character (convention (5), p. 7) and the diagonal p acts trivially on the tower, O(M̆_n)^ρ = O(p^Z\\M̆_n)^ρ = O(Σ_n)^ρ ⊗̂ Q̆_p. This is finitely generated projective by note 50 ([56, prop. A5]) and a direct summand. The meaning is clear. Citing [72] is not wrong: [72] is the reference for 'finitely presented ⇒ coadmissible'. The projectivity itself comes from [56]."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E30",
+   "kind": "gap",
+   "locator": "§10, after Théorème 10.1, p. 52",
+   "printed": "En appliquant [72, lemma 3.6] et le théorème 8.8, on en déduit que le D(G)-module O(Σ_n)^ρ est coadmissible. En décomposant O(Σ_n) selon l'action de D^*, on obtient la coadmissibilité du D(G)-module O(Σ_n).",
+   "correction": "On p. 52, state the coadmissibility only for O(Σ_n)^ρ with ρ = JL(π), π supercuspidal of trivial central character. Alternatively, add arguments for the one-dimensional components O(Σ_n)^{χ∘Nrd} (e.g. via O(Ω) and Morita duality) and for components with nontrivial central character (Remarque 1.3 a)). On p. 67, replace RΓ_dR(Σ_n) by its ρ-part RΓ_dR(Σ_n)^ρ, which is all Prop. 12.2 uses.",
+   "reason": "Checked on p. 52. With σ^ρ = Hom_{D^*}(ρ, σ) (p. 4), O(Σ_n) = ⊕_ρ ρ ⊗ O(Σ_n)^ρ, over the irreducible representations ρ of the finite group D^*/p^Z(1 + p^nO_D). Théorème 8.8 and Théorème 10.1, and hence the coadmissibility of O(Σ_n)^ρ, are proved only for ρ = JL(π) with π supercuspidal of trivial central character (convention (5), p. 7: « ρ est aussi à caractère central trivial »). The decomposition also contains the one-dimensional components ρ = χ∘Nrd. For n = 0 these are all the components: O_D^* acts trivially on Σ_0. For p odd and n ≥ 1 it also contains components with dim ρ > 1 on which Z_p^*/(1 + p^nZ_p) acts nontrivially: that group sits inside the Galois group of M̆_n/M̆_0, which acts freely, so every character of it occurs. Components of the second kind are covered only by the unproved assertion in Remarque 1.3 a) that the central-character hypothesis « n'est pas essentielle ». The components of the first kind are not covered at all. So « En décomposant O(Σ_n) selon l'action de D^*, on obtient la coadmissibilité du D(G)-module O(Σ_n) » is not justified. It is plausible: the χ∘Nrd components are expected to reduce to O(Ω) twisted by smooth characters, which is coadmissible by Morita duality. Correction to the first reading's reason: the claim is used later. §12.2, p. 67, says « D'après le théorème 10.1 » that the full complex O(Σ_n) → Ω^1(Σ_n) is, for every n ≥ 0, an object of D^b of coadmissible D(G)-modules; for n = 0, Théorème 10.1 covers none of it. The first reading's §10.2 argument concerns O(Ω)-coadmissibility of Π(π,0)*, a different notion. Prop. 12.2 uses only RΓ_dR(Σ_n)^ρ with ρ = JL(π), which is covered, so no numbered result fails. The unnumbered assertion on p. 52, and its reuse on p. 67, remain unproved. 'Gap; a stated result' stands.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 52. With σ^ρ = Hom_{D^*}(ρ, σ) (p. 4), O(Σ_n) = ⊕_ρ ρ ⊗ O(Σ_n)^ρ, over the irreducible representations ρ of the finite group D^*/p^Z(1 + p^nO_D). Théorème 8.8 and Théorème 10.1, and hence the coadmissibility of O(Σ_n)^ρ, are proved only for ρ = JL(π) with π supercuspidal of trivial central character (convention (5), p. 7: « ρ est aussi à caractère central trivial »). The decomposition also contains the one-dimensional components ρ = χ∘Nrd. For n = 0 these are all the components: O_D^* acts trivially on Σ_0. For p odd and n ≥ 1 it also contains components with dim ρ > 1 on which Z_p^*/(1 + p^nZ_p) acts nontrivially: that group sits inside the Galois group of M̆_n/M̆_0, which acts freely, so every character of it occurs. Components of the second kind are covered only by the unproved assertion in Remarque 1.3 a) that the central-character hypothesis « n'est pas essentielle ». The components of the first kind are not covered at all. So « En décomposant O(Σ_n) selon l'action de D^*, on obtient la coadmissibilité du D(G)-module O(Σ_n) » is not justified. It is plausible: the χ∘Nrd components are expected to reduce to O(Ω) twisted by smooth characters, which is coadmissible by Morita duality. Correction to the first reading's reason: the claim is used later. §12.2, p. 67, says « D'après le théorème 10.1 » that the full complex O(Σ_n) → Ω^1(Σ_n) is, for every n ≥ 0, an object of D^b of coadmissible D(G)-modules; for n = 0, Théorème 10.1 covers none of it. The first reading's §10.2 argument concerns O(Ω)-coadmissibility of Π(π,0)*, a different notion. Prop. 12.2 uses only RΓ_dR(Σ_n)^ρ with ρ = JL(π), which is covered, so no numbered result fails. The unnumbered assertion on p. 52, and its reuse on p. 67, remain unproved. 'Gap; a stated result' stands."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E31",
+   "kind": "misprint",
+   "locator": "§10.2, proof of Proposition 10.11, p. 56",
+   "printed": "De plus, si (U_j)_j est un recouvrement Stein de X, alors V(J ∩ O(U_j)) = ∅, donc J ∩ O(U_j) = O(U_j) par le Nullstellensatz affinoïde, pour tout j.",
+   "correction": "« alors V(J·O(U_j)) = ∅, donc J·O(U_j) = O(U_j) par le Nullstellensatz affinoïde » (J·O(U_j) = the ideal of O(U_j) generated by the restrictions of f_1, …, f_m)",
+   "reason": "J is an ideal of O(X), not a subset of O(U_j). The intended object, as the use of the Nullstellensatz for the affinoid U_j shows, is the ideal (f_1|U_j, …, f_m|U_j) of O(U_j). The argument then works: that ideal is O(U_j) for every j, the image of J is dense in each O(U_j), so J is dense in O(X), and it is closed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 56 at 230 dpi: the page prints « V(J ∩ O(U_j)) = ∅, donc J ∩ O(U_j) = O(U_j) ». J is an ideal of O(X), and O(X) → O(U_j) is a restriction map, not an inclusion. Even with O(X) viewed inside O(U_j), J ∩ O(U_j) would be J, which is not an ideal of O(U_j) and not equal to O(U_j). The appeal to the affinoid Nullstellensatz shows what is meant: the ideal J·O(U_j) = (f_1|_{U_j}, …, f_m|_{U_j}), whose zero locus V(f_1, …, f_m) ∩ U_j is empty, so it is the unit ideal. The argument then works. Write 1 = Σ a_k f_k on U_j and approximate the a_k by elements of O(X); O(X) → O(U_j) has dense image because the cover is Stein (p. 15). So 1 lies in the closure of J for each U_j-seminorm, J is dense in O(X), and since J is closed, J = O(X)."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E32",
+   "kind": "misprint",
+   "locator": "§10.2, proof of Proposition 10.11, p. 56",
+   "printed": "Ainsi, V(f) ∩ Z est un fermé strict de Z et donc dim V(f) ∩ Z < dim Z.",
+   "correction": "« Ainsi, V(f_i) ∩ Z est un fermé strict de Z et donc dim V(f_i) ∩ Z < dim Z »",
+   "reason": "The function just constructed is f_i, and the next display uses V(f_1, …, f_i) ∩ U_j. No f is defined here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 56 at 230 dpi: the page prints « V(f) ∩ Z est un fermé strict de Z et donc dim V(f) ∩ Z < dim Z ». No f is defined in the proof of Prop. 10.11. The objects there are F, f_1, …, f_m, ξ_k, h_n and c_n. The preceding sentence is about f_i (« f_i ne s'annule pas en z_n »), and the next display is dim V(f_1, …, f_i) ∩ U_j ≤ …. So f stands for f_i."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E33",
+   "kind": "misprint",
+   "locator": "§10.2, proof of Proposition 10.11, p. 56",
+   "printed": "On choisit pour chaque composante un point fermé quelconque de cette composante. Répétant cette opération pour chaque j, on obtient une suite dénombrable (z_n)_{n∈N} de points de X. Pour chaque k, on choisit un élément ξ_k ∈ O(X) s'annulant en z_j, pour tout j = 0, …, k − 1 et ne s'annulant pas en z_k",
+   "correction": "« … on obtient un ensemble dénombrable de points fermés de X, que l'on numérote sans répétition (z_n)_n » (the z_n pairwise distinct). Then ξ_k exists, e.g. by Theorem B applied to the finite set {z_0, …, z_k}.",
+   "reason": "Checked on p. 56. The literal defect is real. In the case used (X = Ω, a curve), every irreducible component of V(f_1) ∩ U_j is a point. A 0-dimensional component {z} of V(f_1, …, f_{i−1}) ∩ U_j stays a component of V(f_1, …, f_{i−1}) ∩ U_{j'} for every j' ≥ j: the cover is increasing, and U_j is an admissible open, so a positive-dimensional component through z would meet U_j in positive dimension. The recipe « pour chaque composante un point … Répétant cette opération pour chaque j » therefore picks the same z for every j' ≥ j. For such a repeated point, no ξ_k can vanish at the earlier copy and not at z_k. But nothing is missing mathematically: the z_n are clearly meant to enumerate the countable set of chosen points without repetition. The only property used afterwards, that each component of each V(f_1, …, f_{i−1}) ∩ U_j contains some z_n, survives removing duplicates. For pairwise distinct points, ξ_k exists by the paper's own hint (or by Theorem B), and if the set is finite the sum defining f_i is finite. The wording omits the distinctness of the z_n; the meaning is clear and the mathematics is right as intended, so this is a misprint that affects nothing, not a gap in the proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on p. 56. The literal defect is real. In the case used (X = Ω, a curve), every irreducible component of V(f_1) ∩ U_j is a point. A 0-dimensional component {z} of V(f_1, …, f_{i−1}) ∩ U_j stays a component of V(f_1, …, f_{i−1}) ∩ U_{j'} for every j' ≥ j: the cover is increasing, and U_j is an admissible open, so a positive-dimensional component through z would meet U_j in positive dimension. The recipe « pour chaque composante un point … Répétant cette opération pour chaque j » therefore picks the same z for every j' ≥ j. For such a repeated point, no ξ_k can vanish at the earlier copy and not at z_k. But nothing is missing mathematically: the z_n are clearly meant to enumerate the countable set of chosen points without repetition. The only property used afterwards, that each component of each V(f_1, …, f_{i−1}) ∩ U_j contains some z_n, survives removing duplicates. For pairwise distinct points, ξ_k exists by the paper's own hint (or by Theorem B), and if the set is finite the sum defining f_i is finite. The wording omits the distinctness of the z_n; the meaning is clear and the mathematics is right as intended, so this is a misprint that affects nothing, not a gap in the proof."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E34",
+   "kind": "misprint",
+   "locator": "§11.2, definition of ι_{V,α} (p. 58), Théorème 11.3 (p. 59), end of its proof (p. 60), proof of Corollaire 11.9 (p. 63)",
+   "printed": "ι_{V,α} : Π(π,0)^{u^+=0} → LC(Q_p^*, L_∞(−1) ⊗_L M_dR(π)) (p. 58); in the diagram of Théorème 11.3: LC(Q_p^*, L_∞(−1) ⊗_L M_dR(π))^Γ and LC(Q_p^*, t^{-1}N^+_dif(V)/N^+_dif(V))^Γ (p. 59); 'le sous-espace des (1 Q_p; 0 1)-invariants de LC(Q_p^*, L_∞(−1) ⊗_L M_dR(π)^Γ' (p. 60); LC_c(Q_p^*, L_∞ ⊗ t^{-1}N^+_dif(V_ℒ)/N^+_dif(V_ℒ))^Γ (p. 63)",
+   "correction": "Replace LC (resp. LC_c) by LP (resp. LP_c) for every space of functions with values in L_∞(−1) ⊗_L M_dR(π) or t^{-1}N^+_dif/N^+_dif: ι_{V,α} : Π(π,0)^{u+=0} → LP(Q_p^*, L_∞(−1) ⊗_L M_dR(π))^Γ (p. 58, also adding the missing Γ); LP(Q_p^*, L_∞(−1) ⊗_L M_dR(π))^Γ and LP(Q_p^*, t^{-1}N^+_dif(V)/N^+_dif(V))^Γ (p. 59); 'de LP(Q_p^*, L_∞(−1) ⊗_L M_dR(π))^Γ' (p. 60, closing parenthesis restored); LP_c(Q_p^*, L_∞ ⊗ t^{-1}N^+_dif(V_ℒ)/N^+_dif(V_ℒ))^Γ (p. 63).",
+   "reason": "In the paper LC means locally constant (Remarque 7.10, Théorème 7.11). LP(Q_p^*, X)^Γ (p. 37) means compactly supported functions with φ(ax) = σ_a(φ(x)) for a ∈ Z_p^*. On t^{-1}N^+_dif/N^+_dif ≃ L_∞(−1) ⊗ D_dR, σ_a acts on t^{-1} by a^{-1}. Take φ(x_0) ≠ 0 and a ∈ 1 + p^kZ_p fixing its L_∞-coefficients. Then φ(ax_0) = a^{-1}φ(x_0) ≠ φ(x_0) for a ≠ 1, so no nonzero Γ-equivariant function of this kind is locally constant. The printed LC spaces are therefore 0. Proposition 11.2 correctly has LP, and Ψ_V takes values there. The one legitimate LC is the untwisted target LC(Q_p^*, L_∞ ⊗ M_dR(π))^Γ of ι on Π(π,2)^{u^+=0}, where Γ acts smoothly. With LP the end of the proof of Théorème 11.3 works: e^{tbx} acts trivially on values killed by t, and ε(bx) ≠ 1 for suitable b, so (1, Q_p; 0, 1)-invariants vanish.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Checked on 240–260 dpi crops. p. 58 prints ι_{V,α} : Π(π,0)^{u+=0} → LC(Q_p^*, L_∞(−1) ⊗_L M_dR(π)), with no Γ. The Théorème 11.3 diagram (p. 59) prints LC(Q_p^*, L_∞(−1) ⊗_L M_dR(π))^Γ and LC(Q_p^*, t^{-1}N^+_dif(V)/N^+_dif(V))^Γ. p. 60 prints 'LC(Q_p^*, L_∞(−1) ⊗_L M_dR(π)^Γ', with the closing parenthesis missing. The second diagram on p. 63 prints LC_c(Q_p^*, L_∞ ⊗ t^{-1}N^+_dif(V_ℒ)/N^+_dif(V_ℒ))^Γ. By the paper's conventions (p. 13: LC = locally constant; p. 37: LP(Q_p^*, X)^Γ = functions with compact support in Q_p and φ(ax) = σ_a(φ(x)) for a ∈ Z_p^*), the printed spaces are 0. On t^{-1}N^+_dif/N^+_dif ≅ t^{-1}L_∞ ⊗ D_dR, and so on L_∞(−1) ⊗ M_dR via the Γ-equivariant α_dif, σ_a acts as a^{-1} times the smooth Galois action on the coefficients. Suppose φ is locally constant and equivariant with φ(x_0) = w ≠ 0. Take a ∈ 1 + p^kZ_p, a ≠ 1, close enough to 1 that σ_a fixes the finitely many L_n-coefficients of w and φ(ax_0) = φ(x_0). Then w = φ(ax_0) = σ_a(w) = a^{-1}w, so w = 0. Without the Γ (p. 58) the space is not 0, but the image of ι is Γ-equivariant, so the same argument kills it. The source Π(π,0)^{u+=0} ≅ (Π^an/Π^lisse)^{u+=0} is nonzero, so the printed 'plongement' is impossible. The intended target is clear from the definition ι_{V,α} = α_dif ∘ Ψ_V ∘ ξ_{V,α} and from Proposition 11.2, which correctly has LP(Q_p^*, t^{-1}N^+_dif(V)/N^+_dif(V))^Γ. With LP the end of the proof of Théorème 11.3 is valid: e^{tbx} acts as 1 on values killed by t, so a (1 Q_p; 0 1)-invariant φ satisfies (ε(bx) − 1)φ(x) = 0 for all b, hence φ = 0. The untwisted LC/LC_c spaces are correct as printed: the target of ι on Π(π,2)^{u+=0}, the first diagram on p. 63, and the targets with values in L_∞ ⊗ M_dR or N^+_dif/D^+_dif on pp. 62–63. There Γ acts smoothly and LP = LC (Remarque 7.10)."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E35",
+   "kind": "misprint",
+   "locator": "§11.2, proof of Proposition 11.6, p. 61",
+   "printed": "la première flèche étant l ↦ −u^+(l) et la dernière étant simplement l ↦ l dz est bien définie et un plongement car u^+ est injectif d'image fermée sur Π(π, 0)^*.",
+   "correction": "… car u^+ est injectif d'image fermée sur (Π^an)^* (proposition 9.1).",
+   "reason": "The first arrow l ↦ −u^+(l) is defined on (Π^an)^*, not on Π(π,0)^* = (Π^an/Π^lisse)^*. Its injectivity and closed image are Proposition 9.1, which is stated for (Π^an)^*. Injectivity on the subspace Π(π,0)^* (Corollaire 9.3) does not give injectivity on (Π^an)^*. The needed fact is in the paper, so the slip is harmless.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "The printed sentence is confirmed on the image (p. 61). It is a different sentence from the existing E4 (the stray 'F'). The map to be shown injective is l ↦ −u^+(l) on (Π^an)^*. Its image lies in (Π^an/Π^lisse)^* ≅ Π(π,0)^* because u^+ kills Π^lisse. The paper uses 'u^+ … sur X' consistently to mean u^+ acting on X (Proposition 9.1, Corollaire 9.3, proof of Théorème 9.4). So 'injectif d'image fermée sur Π(π,0)^*' cites Corollaire 9.3, which concerns the subspace Π(π,0)^* = (Π^an/Π^lisse)^* ⊂ (Π^an)^*. Injectivity on a subspace does not give injectivity on (Π^an)^*. The fact needed is Proposition 9.1 (p. 45): u^+ has closed image on (Π^an)^* and induces a homeomorphism of (Π^an)^* onto u^+((Π^an)^*). Defence: one could read the phrase as 'u^+ : (Π^an)^* → Π(π,0)^* is injective with closed image in Π(π,0)^*'. That reading is true, but it goes against the paper's usage. The needed fact is in the paper, so the slip is harmless."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E36",
+   "kind": "misprint",
+   "locator": "§11.2, proof of Corollaire 11.9, second diagram, p. 63",
+   "printed": "LC_c(Q_p^*, L_∞ ⊗ t^{-1}N^+_dif(V_ℒ)/N^+_dif(V_ℒ))^Γ  →^{t}  LC_c(Q_p^*, L_∞ ⊗ N^+_dif(V_ℒ)/D^+_dif(V_ℒ))^Γ",
+   "correction": "The bottom arrow is φ ↦ (x ↦ txφ(x)) (multiplication by tx), not multiplication by t.",
+   "reason": "In the Kirillov model P acts by ((1, b; 0, 1)φ)(x) = ε(bx)e^{tbx}φ(x) (p. 37). Since ε(bx) = 1 for b small, u^+ acts as multiplication by tx, and that is what the top arrow u^+ corresponds to. Multiplication by t alone does not even preserve Γ-equivariance, because σ_a(t) = at, whereas φ ↦ txφ does: (txφ)(ax) = σ_a(txφ(x)). The paper's justification (the embedding is (1, Q_p; 0, 1)-equivariant) gives the arrow tx, and the conclusion of the corollary is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "The image (p. 63, zoomed) shows the bottom arrow of the second diagram labelled 't'. The P-action on LP (p. 37) is ((1 b; 0 1)φ)(x) = ε(bx)e^{tbx}φ(x). Here ε is trivial on Z_p, and φ has support bounded in Q_p, so for b small ε(bx) = 1 on the support. Differentiating at b = 0 gives u^+φ = (x ↦ txφ(x)). The paper's own justification, that the embedding Π(V_ℒ)^{P−fini} → LP(Q_p^*, D^−_dif(V_ℒ))^Γ is (1 Q_p; 0 1)-equivariant, therefore gives the arrow φ ↦ txφ. Multiplication by t alone does not even preserve Γ-equivariance: (tφ)(ax) = tσ_a(φ(x)) = a^{-1}σ_a(tφ(x)), since σ_a(t) = at. In contrast, (txφ)(ax) = σ_a(t)xσ_a(φ(x)) = σ_a(txφ(x)). Multiplication by tx is well defined from t^{-1}N^+_dif/N^+_dif to N^+_dif/D^+_dif, because tN^+_dif ⊂ D^+_dif. The conclusion of Corollaire 11.9 is unaffected."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E37",
+   "kind": "misprint",
+   "locator": "§11.3, proof of Proposition 11.10, p. 64",
+   "printed": "Par conséquent, v ∈ Im u^+ : il existe v′ ∈ Π(π, 2)^* tel que v′ = u^+.v. Or 0 = Φ(v) = Φ(u^+.v′) = u^+.Φ(v′).",
+   "correction": "il existe v′ ∈ Π(π, 2)^* tel que v = u^+.v′",
+   "reason": "v ∈ Im u^+ means v = u^+v′, and the next display uses Φ(v) = Φ(u^+.v′).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image (p. 64): 'il existe v′ ∈ Π(π, 2)^* tel que v′ = u^+.v'. The previous sentence says v ∈ Im u^+, which means v = u^+.v′. The next display uses exactly this: 0 = Φ(v) = Φ(u^+.v′) = u^+.Φ(v′). The printed version would also make the following deduction Φ(v′) = 0 meaningless."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E38",
+   "kind": "gap",
+   "locator": "§11.3, proof of Proposition 11.10, p. 64 (also Remarque 12.1, p. 67)",
+   "printed": "Comme v′ ∈ Im(u^+)^j pour tout j > 0, z_1 est infiniment divisible par t. On voit immédiatement que cela force z_1 = 0 en prenant une base de N_rig(π) sur R.",
+   "correction": "Use the fixed radius: Π(π,0)^* ⊂ tN^{]0,r_n]} ⊠ P^1 for one n (p. 59; [24, cor. VI.13]). If v′ = (u^+)^j y_j with y_j ∈ Π(π,0)^*, then z_1 = t^j Res_{Z_p}(y_j) with Res_{Z_p}(y_j) ∈ tN^{]0,r_n]} for all j. So each coordinate of z_1 (in a basis of N^{]0,r_n]}) vanishes to infinite order at the zeros ζ_{p^m} − 1 of t lying in that annulus, hence z_1 = 0. The same applies to z_2 via w, and in Remarque 12.1.",
+   "reason": "Confirmed on the image (p. 64). As v′ = (u^+)^j y_j with y_j ∈ Π(π,0)^*, and u^+ multiplies the Res_{Z_p}-component by t (proof of Proposition 9.1: u^+(x, y) = (tx, −t∂²y)), z_1 = t^j Res_{Z_p}(y_j) for every j. The paper concludes z_1 = 0 'en prenant une base de N_rig(π) sur R'. That reduces the claim to ∩_j t^j R = 0 in the Robba ring, which is false. For the counterexample, let f = ∏_{m≥1}(Φ_{p^m}(1+T)/p)^m. Write (1+T)^{p^{m−1}} = 1 + u_m, with |u_m|_ρ → 0 on |T| ≤ ρ < 1. Then |Φ_p(1+u_m)/p − 1|_ρ ≤ max(|u_m|_ρ, p|u_m|_ρ^{p−1}) → 0, and |g^m − 1|_ρ ≤ |g − 1|_ρ when |g − 1|_ρ < 1. So the product converges on the open unit disc, and f(0) = 1, so f ≠ 0. It vanishes to order m at each ζ_{p^m} − 1, and t = T∏_m Φ_{p^m}(1+T)/p has simple zeros there. Hence f/t^j is analytic on the annulus beyond the zeros of level < j, that is f ∈ t^j R for every j. The step is still true, by a fact the paper records on p. 59 but does not invoke: Π(π,0)^* ⊂ tN^{]0,r_n]} ⊠ P^1 for one fixed n ([24, cor. VI.13], p. 38). Then every coordinate of z_1 is a function on a fixed annulus. It is divisible by t^j there for all j, so it vanishes to infinite order at a zero ζ_{p^m} − 1 of t in that annulus, and hence it is 0. Remarque 12.1 ('satisfait trivialement Res_{Z_p}(z) = 0', p. 67) rests on the same point, via the fixed radius r_{m(V)} for (Π^an)^*. Reclassification: the gap is real, but the justification the paper gives is not just terse, it is invalid as written. So the proof of Proposition 11.10 is affected until the fixed-radius argument is supplied, even though Proposition 11.10 itself is true. The same fact also follows from [31] (Remarque 11.11). This matches how the other invalid-inference gaps with short repairs were classed (E12, E27).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the image (p. 64). As v′ = (u^+)^j y_j with y_j ∈ Π(π,0)^*, and u^+ multiplies the Res_{Z_p}-component by t (proof of Proposition 9.1: u^+(x, y) = (tx, −t∂²y)), z_1 = t^j Res_{Z_p}(y_j) for every j. The paper concludes z_1 = 0 'en prenant une base de N_rig(π) sur R'. That reduces the claim to ∩_j t^j R = 0 in the Robba ring, which is false. For the counterexample, let f = ∏_{m≥1}(Φ_{p^m}(1+T)/p)^m. Write (1+T)^{p^{m−1}} = 1 + u_m, with |u_m|_ρ → 0 on |T| ≤ ρ < 1. Then |Φ_p(1+u_m)/p − 1|_ρ ≤ max(|u_m|_ρ, p|u_m|_ρ^{p−1}) → 0, and |g^m − 1|_ρ ≤ |g − 1|_ρ when |g − 1|_ρ < 1. So the product converges on the open unit disc, and f(0) = 1, so f ≠ 0. It vanishes to order m at each ζ_{p^m} − 1, and t = T∏_m Φ_{p^m}(1+T)/p has simple zeros there. Hence f/t^j is analytic on the annulus beyond the zeros of level < j, that is f ∈ t^j R for every j. The step is still true, by a fact the paper records on p. 59 but does not invoke: Π(π,0)^* ⊂ tN^{]0,r_n]} ⊠ P^1 for one fixed n ([24, cor. VI.13], p. 38). Then every coordinate of z_1 is a function on a fixed annulus. It is divisible by t^j there for all j, so it vanishes to infinite order at a zero ζ_{p^m} − 1 of t in that annulus, and hence it is 0. Remarque 12.1 ('satisfait trivialement Res_{Z_p}(z) = 0', p. 67) rests on the same point, via the fixed radius r_{m(V)} for (Π^an)^*. Reclassification: the gap is real, but the justification the paper gives is not just terse, it is invalid as written. So the proof of Proposition 11.10 is affected until the fixed-radius argument is supplied, even though Proposition 11.10 itself is true. The same fact also follows from [31] (Remarque 11.11). This matches how the other invalid-inference gaps with short repairs were classed (E12, E27)."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E39",
+   "kind": "misprint",
+   "locator": "§11.3, Remarque 11.13, pp. 65–66",
+   "printed": "lim_{→ K_p} Ω^1(Sh_{(1+ϖ_DO_D)K^p})[π(g)^p_f]^ρ → lim_{→ K_p} H^1_dR(Sh_{(1+ϖ_DO_D)K^p})[π(g)^p_f]^ρ (p. 65) and lim_{→ K_p} H^1_dR(Sh_{(1+ϖ_DO_D)K^p})[π(g)^p_f]^ρ ≃ M_dR(π)^* (p. 66)",
+   "correction": "lim_{→ K^p} in all three places.",
+   "reason": "The level at p is fixed (1 + ϖ_DO_D) and the limit runs over the tame level K^p, as in the first display of the remark (p. 65, lim over K^p) and in the subscripts Sh_{(1+ϖ_DO_D)K^p}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the 300 dpi crops. Both colimits in the last display of p. 65 and the colimit in the display at the top of p. 66 are indexed by K_p (subscript). The spaces are Sh_{(1+ϖ_DO_D)K^p}, whose level at p is fixed at 1 + ϖ_DO_D, so only the tame level K^p varies. The first display of the remark (p. 65) and the Saito sentence both correctly write lim over K^p. A colimit over K_p of objects not depending on K_p is meaningless here."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E40",
+   "kind": "gap",
+   "locator": "§12.1, Démonstration du théorème 1.10, p. 66; §1.1, Remarque 1.3(a), p. 4",
+   "printed": "p. 66: 'O(Σ_n)^{ρ_i} = Π(π_i, 0)^*, où π_i = JL(ρ_i) (puisque ρ_i est non triviale, on peut appliquer le théorème 1.2)'; p. 4: 'De même, l'hypothèse que le caractère central de π est trivial n'est pas essentielle'",
+   "correction": "The step needs Théorème 1.2 for supercuspidal π_i with nontrivial central character. The paper only asserts this, in Remarque 1.3(a). Either prove that case, or restrict Théorème 1.10 (as corrected in E9) to the components along ρ_i whose central character is the square of a character of Q_p^* trivial on p² (for p odd: ω(−1) = 1). Those components reduce to trivial central character by multiplying by a locally constant unit e_χ at a deeper level.",
+   "reason": "Σ_n → Σ_0 is Galois with group O_D^*/(1 + p^nO_D), so every irreducible representation of that finite group occurs in O(Σ_n). For p odd and n = 1 this group is F_{p²}^* ⋉ F_{p²}. Among its representations are the (p + 1)-dimensional ones Ind(η ⊗ ψ), with ψ a nontrivial additive character and η an arbitrary character of F_p^* = Z_p^*/(1 + pZ_p). So constituents ρ_i of dimension > 1 on which the centre Z_p^* acts by any character η occur. Théorème 1.2 is proved only for trivial central character (§2 (5)); its proof relies on det V = χ_cyc, the globalisation of §5 and Colmez's results in that setting. Defence: if the central character is a square χ², multiplying by the locally constant unit e_χ on a deeper level reduces the claim to trivial central character. But η need not be a square: take η a generator of the character group of F_p^*, which has even order p − 1. The authors state that the extension holds, and it is plausible, so this is a gap rather than an error.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "I checked the quotations on the images of pp. 4 and 66. The gap is real. Théorème 1.2 assumes π supercuspidal with trivial central character, and §2 (5) (p. 13) fixes such a π. Its proof uses this repeatedly: det V(Π) = χ_cyc 'car le caractère central de π est trivial' (p. 5); 'H^k_dR,c(Σ_n, N)^{ρ∨} = H^k_dR,c(Σ_n)^{ρ∨} puisque le caractère central de ρ est trivial' (p. 23); δ_V = 1 (p. 35); π is projective among the smooth representations with trivial central character (p. 64). Remarque 1.3(a) only asserts that this hypothesis 'n'est pas essentielle'. The proof of 1.10 applies Théorème 1.2 to every ρ_i occurring in O(Σ_n), and ρ_i with dim > 1 and nontrivial central character do occur. p acts trivially on Σ_n, but Z_p^* ⊂ Z(D^*) need not. I re-derived the first reading's example (p odd, n = 1). O_D^*/(1 + pO_D) ≅ F_{p²}^* ⋉ F_{p²}, and x acts by y ↦ x^{p−1}y (from ϖ_D x = σ(x)ϖ_D). The stabiliser of a nontrivial additive character ψ is F_p^*. So the irreducible representations Ind(η ⊗ ψ) have dimension p + 1, for every character η of F_p^*, and the central F_p^* (the image of Z_p^*) acts by η. The sum of the squares of the dimensions checks: (p² − 1) + (p − 1)²(p + 1)² = p²(p² − 1). Σ_1 → Σ_0 is Galois with this group (p. 3), and Σ_0 is Stein. So every irreducible representation of the group occurs in O(Σ_1): each isotypic part becomes nonzero after the faithfully flat base change to O(Σ_1). The first reading's reduction also checks. Multiplying by a locally constant unit e_χ at a deeper level commutes with d/dz and changes the central character by χ². So a square central character ω reduces to the trivial case. For p odd, ω is a square if and only if ω(−1) = 1: the character group of μ_{p−1} is cyclic of even order, and (1 + pZ_p)/(1 + p^nZ_p) has odd order. When η(−1) = −1, as for a generator η, nothing in the paper covers the component. It is not an error: the extension is asserted by the authors and plausible. Reach: I would change 'the proof' to 'a stated result'. Filling the gap is not a routine step. It needs Théorème 1.2 for supercuspidal π with nontrivial central character, which means redoing the main theorem without det V = χ_cyc. So Théorème 1.10 (even as corrected in E9) is not established by the paper for these components. This matches the treatment of the parallel gap for the coadmissibility of all of O(Σ_n) (§10, p. "
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E41",
+   "kind": "gap",
+   "locator": "§11.3, Remarque 11.13, p. 66",
+   "printed": "Identifions P(M_dR) à P^1(Q_p) via le choix de la base (ℒ, ℒ′) de M_dR. Soit maintenant ℒ″ une filtration admissible quelconque, et (a, b) ∈ P^1(Q_p) l'élément correspondant. Alors on a [BS(ℒ″)] = a[BS(ℒ)] + b[BS(ℒ′)] et [Π^an_{ℒ″}] = a[Π^an_ℒ] + b[Π^an_{ℒ′}] dans le groupe Ext^1_G((O(Σ_n)^ρ)^*, π). Donc BS(ℒ″) = Π^an_{ℒ″}.",
+   "correction": "Run the global argument for a third quaternionic form, whose line ℒ‴ differs from ℒ and ℒ′ (obtained, as the text says, by varying the residual representation). Then γ preserves three distinct lines of the 2-dimensional M_dR^*, so it is a scalar. Hence [BS(ℒ″)] ∝ [Π^an_{ℒ″}] and BS(ℒ″) = Π^an_{ℒ″} for every ℒ″. (P^1(Q_p) should read P^1(L).)",
+   "reason": "Confirmed on the images (pp. 65–66). Let E be the extension 0 → π ⊗ M_dR → (Ω^1(Σ)^ρ)^* → (O(Σ)^ρ)^* → 0, the dual of 0 → O^ρ → Ω^{1,ρ} → H^1_dR,ρ → 0 after an identification H^1_dR(Σ)^ρ ≅ π^* ⊗ M_dR(π)^*. The class of the dual of the preimage of ℒ^⊥ ⊗ π^* is then Ψ(λ) := (id ⊗ λ)_*E, for a generator λ of ℒ^⊥ ⊂ M_dR^*. So BS(ℒ) and Π^an_ℒ (Théorème 1.4, Corollaire 11.9) come from two linear maps Ψ_BS and Ψ_DLB : M_dR^* → Ext^1_G((O(Σ)^ρ)^*, π). These are built from the Hyodo–Kato/Saito identification and from the identification of Théorème 1.4. They differ by some γ ∈ GL(M_dR^*): Aut_G(π^* ⊗ M_dR^*) = GL(M_dR^*) by Schur, and no compatibility between the two identifications is known a priori, which is exactly the content of the conjecture. For an extension of Π(π,0) by π, 'BS(ℒ) ≅ Π^an_ℒ' means only that the classes are proportional, since End(π) = End(Π(π,0)) = L. The two global forms therefore give Ψ_BS(e) = λΨ_DLB(e) and Ψ_BS(e′) = μΨ_DLB(e′), with e ∈ ℒ^⊥, e′ ∈ ℒ′^⊥ and unknown λ, μ ∈ L^*. The two displays write [BS(ℒ″)] = a[BS(ℒ)] + b[BS(ℒ′)] and [Π^an_{ℒ″}] = a[Π^an_ℒ] + b[Π^an_{ℒ′}] with the same (a, b), and then conclude that the two classes agree. That needs λ = μ. Otherwise, for ab ≠ 0, aλΨ_DLB(e) + bμΨ_DLB(e′) is not proportional to aΨ_DLB(e) + bΨ_DLB(e′), because Ψ_DLB(e) and Ψ_DLB(e′) are independent, distinct lines giving non-isomorphic Π^an. A 'base (ℒ, ℒ′)' fixes two points of P^1, and two points do not determine a projective linear map. Defence: the conclusion is true once a third global form with a third line is used. The text already asserts that forms with different filtrations exist by varying the residual representation, and the same input gives a third. So this is a gap in the argument of the remark, not a false claim. Also, P(M_dR) is P^1(L), not P^1(Q_p).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the images (pp. 65–66). Let E be the extension 0 → π ⊗ M_dR → (Ω^1(Σ)^ρ)^* → (O(Σ)^ρ)^* → 0, the dual of 0 → O^ρ → Ω^{1,ρ} → H^1_dR,ρ → 0 after an identification H^1_dR(Σ)^ρ ≅ π^* ⊗ M_dR(π)^*. The class of the dual of the preimage of ℒ^⊥ ⊗ π^* is then Ψ(λ) := (id ⊗ λ)_*E, for a generator λ of ℒ^⊥ ⊂ M_dR^*. So BS(ℒ) and Π^an_ℒ (Théorème 1.4, Corollaire 11.9) come from two linear maps Ψ_BS and Ψ_DLB : M_dR^* → Ext^1_G((O(Σ)^ρ)^*, π). These are built from the Hyodo–Kato/Saito identification and from the identification of Théorème 1.4. They differ by some γ ∈ GL(M_dR^*): Aut_G(π^* ⊗ M_dR^*) = GL(M_dR^*) by Schur, and no compatibility between the two identifications is known a priori, which is exactly the content of the conjecture. For an extension of Π(π,0) by π, 'BS(ℒ) ≅ Π^an_ℒ' means only that the classes are proportional, since End(π) = End(Π(π,0)) = L. The two global forms therefore give Ψ_BS(e) = λΨ_DLB(e) and Ψ_BS(e′) = μΨ_DLB(e′), with e ∈ ℒ^⊥, e′ ∈ ℒ′^⊥ and unknown λ, μ ∈ L^*. The two displays write [BS(ℒ″)] = a[BS(ℒ)] + b[BS(ℒ′)] and [Π^an_{ℒ″}] = a[Π^an_ℒ] + b[Π^an_{ℒ′}] with the same (a, b), and then conclude that the two classes agree. That needs λ = μ. Otherwise, for ab ≠ 0, aλΨ_DLB(e) + bμΨ_DLB(e′) is not proportional to aΨ_DLB(e) + bΨ_DLB(e′), because Ψ_DLB(e) and Ψ_DLB(e′) are independent, distinct lines giving non-isomorphic Π^an. A 'base (ℒ, ℒ′)' fixes two points of P^1, and two points do not determine a projective linear map. Defence: the conclusion is true once a third global form with a third line is used. The text already asserts that forms with different filtrations exist by varying the residual representation, and the same input gives a third. So this is a gap in the argument of the remark, not a false claim. Also, P(M_dR) is P^1(L), not P^1(Q_p)."
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17/E42",
+   "kind": "misprint",
+   "locator": "§11.3, Remarque 11.13, p. 66",
+   "printed": "On a donc un autre ℒ′ pour lequel on sait que Π^an_{ℒ′} = BS(ℒ).",
+   "correction": "Π^an_{ℒ′} = BS(ℒ′)",
+   "reason": "The argument for the second quaternionic form gives BS(ℒ′) = Π^an_{ℒ′}. The next display uses [BS(ℒ′)] and [Π^an_{ℒ′}] as the second basis vector. Π^an_{ℒ′} ≠ BS(ℒ) = Π^an_ℒ since ℒ′ ≠ ℒ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2017.186.2.1, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-DOSPINESCU-LEBRAS-17",
+   "file": "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "reviewReason": "Confirmed on the 300 dpi crop (p. 66): 'On a donc un autre ℒ′ pour lequel on sait que Π^an_{ℒ′} = BS(ℒ).' The global argument, rerun for the second quaternionic form, gives BS(ℒ′) = Π^an_{ℒ′}. The next displays use [BS(ℒ′)] and [Π^an_{ℒ′}] as the second basis vectors. As printed, the claim would contradict the first case: BS(ℒ) = Π^an_ℒ ≇ Π^an_{ℒ′} for ℒ′ ≠ ℒ, since Π^an determines V ([24])."
   },
   {
    "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
