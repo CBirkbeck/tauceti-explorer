@@ -1761,8 +1761,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-LIU-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1116"
+   "state": "external",
+   "note": "claimed on GitHub issue #1116"
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -17517,9 +17517,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #729"
+   "note": "deliverables arrived from an external worker on issue #729",
+   "finishedAt": "2026-09-24T14:46:06Z"
   },
   {
    "id": "REV-FaltingsFinitenessAndIsogenyTheorems",
@@ -19084,7 +19085,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #438"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.3",
@@ -19300,8 +19302,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KatoEulerSystems.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #766"
   },
   {
    "id": "REV-KatoEulerSystems",
