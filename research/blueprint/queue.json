@@ -5632,8 +5632,9 @@
    ],
    "avoidAccountOf": "PAPER-CALEGARI-GERAGHTY-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-CALEGARI-GERAGHTY-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1325"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1325",
+   "finishedAt": "2026-09-24T01:58:33Z"
   },
   {
    "id": "PAPER-PILLONI-20",
@@ -25798,7 +25799,8 @@
     "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1731"
   },
   {
    "id": "REV-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -25913,8 +25915,9 @@
     "REV-PAPER-COUVEIGNES-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-COUVEIGNES-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1734"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1734",
+   "finishedAt": "2026-09-24T01:58:36Z"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -26974,7 +26977,8 @@
     "REV-AUDIT-05"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1560"
   },
   {
    "id": "REV-RT-AUDIT-05",
@@ -29984,8 +29988,9 @@
     "RT-AREA-grouptheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-grouptheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1528"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1528",
+   "finishedAt": "2026-09-24T01:58:39Z"
   },
   {
    "id": "RT-AREA-representations-1",
@@ -30065,7 +30070,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-representations-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1533"
   },
   {
    "id": "REV-RT-AREA-representations-2",
