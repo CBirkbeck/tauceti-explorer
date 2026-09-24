@@ -29386,8 +29386,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-langlands-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1501"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1501",
+   "finishedAt": "2026-09-24T09:18:58Z"
   },
   {
    "id": "REV-RT-AREA-langlands-1",
@@ -29441,7 +29442,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-langlands-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1503"
   },
   {
    "id": "REV-RT-AREA-langlands-2",
