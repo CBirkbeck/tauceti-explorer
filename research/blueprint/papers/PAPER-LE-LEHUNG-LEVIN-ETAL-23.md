@@ -1,3 +1,130 @@
+# LLHLM23 continuation: finite Koszul and determinantal interfaces
+
+Codex — codex-hjdg0j, issue #1254, 24 September 2026. Claim5805031698 was confirmed by bot5805033265. **Partial checkpoint: 768 items (145 library, 48 planned, 575 missing), 25 routes and91 unreviewed source findings.** This continuation adds L131–L142 and Z131–Z141. It preserves all745 inherited IDs, all91 source findings and all `sourceData`. No independent review or formalization claim is made.
+
+The immediate homological handoff now has explicit imports and mathematical contracts. The full extraction is still incomplete. The next source branch is the standard-smooth/cotangent-dimension argument of Z102, followed by characteristic-p formal fibres and Cohen structure in Z79. The main-paper proof queues, itemwise library matching and Appendix B uniform certificates remain open.
+
+## Imports already provided by the pinned library
+
+Z129 is **library**, not missing. Mathlib directly proves the principal-cut dimension bound, the equality when the element avoids the minimal primes of the support, and the regular-element specialization. Quotient monotonicity supplies the other inequality. These match the whole source statement, with the required Noetherian, finite-module and local hypotheses. Z129 retains its stable identifier and is removed from the R03.3 missing-item route. See [the pinned dimension file](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/Regular.lean) and [the source](https://stacks.math.columbia.edu/tag/0B52).
+
+The finite-length scalar restriction in Z130 needs no new theorem. Its module is annihilated by Ann(M), so the quotient scalar map is surjective and the already extracted L89 identifies the two lengths. New L137 converts finiteness of the extended-natural length into `IsFiniteLength`. This includes the zero module. [Pinned length API](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Length.lean).
+
+L133–L135 supply the module/category comparison: projective modules correspond to projective objects, categorical exactness is image equals kernel, and categorical homology is the cycles quotient. The projectivity equivalence retains Mathlib's universe-smallness assumption. These imports connect the explicit module calculations to the existing resolution API. They do not weaken `ProjectiveResolution.lift` into a theorem with a nonexact source; Z123 retains its separate lifting proof.
+
+## The shared finite Koszul complex
+
+Z122 now gives the construction proof on the exterior basis. Deleting two distinct positions in either order produces opposite coefficients, so d²=0 in every characteristic. Existing `ChainComplex.of` bundles the data; existing projectivity supplies its finite free terms. The H0 assertion is split into Z131. Z132 proves termwise scalar change without flatness by identifying the two bases; Z133 gives the homotopy d(e_j∧−)+(e_j∧−)d=x_j. [Stacks finite Koszul construction](https://stacks.math.columbia.edu/tag/0621).
+
+The consumer Z125 uses only this finite complex, its quotient augmentation and its scalar-change identification. It cannot assume the complex is exact before regularity has been proved. The one-element list[0] over a nonzero ring has nonzero H1. Likewise the complex[Z --2→ Z] has H1=0, while its F2 scalar change has H1=F2; a chain-level scalar-change isomorphism does not commute homology with a nonflat tensor product. [Residue-field comparison proof](https://stacks.math.columbia.edu/tag/00OA).
+
+Route25 supplies these planned imports to the **finite algebraic precursor** of DerivedDeRhamCohomology:DD.1. No new roadmap is proposed. DD.1's completion, animation and inverse-limit machinery are not prerequisites of the finite complex. Its existing consumers in prismatic, A_inf and derived de Rham theory share this construction. The R03.3 and P7 depth and minimal-complex owners remain unchanged.
+
+## Fixed-size minors and the necessary criterion
+
+Z134 defines J_r(φ) intrinsically using values of linear forms on the image of exterior^r φ. The pinned exterior-coordinate formula L132 identifies its generators with the r-minors. Z135 proves basis independence by composing with the exterior-power isomorphisms; Z136 proves arbitrary scalar change by the pinned determinant formula. The size r stays fixed throughout. [Source rank convention](https://stacks.math.columbia.edu/tag/00MV).
+
+Z137 separately identifies the maximum nonzero exterior degree and explains when the rank-selected ideal I commutes with scalar change. For[t] over k[t], the fixed J1=(t) becomes zero at t=0, while the resulting zero map has rank0 and rank-selected ideal J0=k. This is a required negative test of the interface.
+
+Z138 provides the identity-block calculation and the alternating-sum ranks of a split finite free resolution. The formula J_r(diag(1,A))=J_(r−1)(A) follows by Laplace expansion, including the containment J_r(A)⊆J_(r−1)(A). Z139 then makes the associated-prime argument explicit: an injective map to a nonempty product detects the vanishing of all larger minors, while one nonzero r-minor in a factor detects a nonzero source minor. [Split-complex calculation](https://stacks.math.columbia.edu/tag/00MW).
+
+Z127 uses these statements in the required order. It first obtains the prescribed ranks at the associated-prime localizations, descends those ranks, and only then identifies the rank-selected ideals. In the induction modulo a regular element, the shortened complex's rank formula is proved by induction before applying the fixed-size base-change formula. This supplies the assembly behind the necessary direction, without asserting the converse Buchsbaum–Eisenbud criterion closed. [Full necessary-direction proof](https://stacks.math.columbia.edu/tag/00N1).
+
+These generic determinantal contracts refine the existing R03.3 owner. They introduce no second matrix, exterior-power or rank carrier, and no claim that the library already implements the fixed-size ideal interface.
+
+## Finite separable regularity
+
+Z140 fills Z99's finite-separable scalar-extension step. For L/k finite separable, use its primitive power basis to write L=k[T]/(f). Then A⊗_k L=A[T]/(f). Polynomial regularity is already in Mathlib. A Bezout identity af+bf′=1 makes f′ invertible modulo f, so the derivation d/dT and Z98 prove regularity of the quotient. This works for any regular Noetherian k-algebra A, with no finite-type assumption on A and no irreducibility requirement on f after coefficient change. [Derivation criterion](https://stacks.math.columbia.edu/tag/07PF).
+
+Z141 applies this to every finite extension of a characteristic-zero field, using the pinned separability theorem. This is the finite-extension geometric-regularity criterion consumed by Z99. The full positive-characteristic equivalence with tests over all finitely generated extensions still has the separately recorded supplier boundary of [Stacks0381](https://stacks.math.columbia.edu/tag/0381). Neither Z102's smoothness proof nor the characteristic-p G-ring branch is thereby closed.
+
+## Concurrent checkpoint reconciliation
+
+PR2578 merged after the bot confirmed this session’s claim. Its V16 proof is preserved unchanged. Its V15 source statement is also preserved, but its new proof needed correction: the proposed n-only bound included the varying affine translation of τ, and it used depth in place of the stronger unqualified genericity of Definition8.4.6. Freshly read Proposition2.6.2 already provides the exact (m−h_η)-depth bound. V15 now separates that fact from the still-required shifted-polynomial occurrence/exclusion argument. The new gap `V15-genericity-polynomial` records the latter. This is an extraction correction, not a new source erratum or an independent review of PR2578.
+
+## Validation and reading scope
+
+Twelve Mathlib files were inspected and byte-verified at the full pin. Searches covered both pinned source trees; the generic finite Koszul and fixed-size determinantal constructions were not found. The reviewed R03.3/P7/SF.4 audit rows and exact owner contracts were read; DD.1 has no reviewed audit row at this snapshot. The two previously read upstream model documents were byte-confirmed unchanged. This is a bounded new audit, not a fresh verification of every inherited library claim.
+
+Fresh main reading is published PDF78–80 and, during concurrency reconciliation, PDF33,52,172,184, with the cached PDF's retained SHA-256 checked. Fresh supplementary reading covers nine saved Stacks pages, with URL, SHA-256 and date in the JSON, including complete printed proof text and the omitted-proof boundaries of0621. The inherited full212-page reading remains attributed to its original worker. No new source finding is asserted and the91 inherited findings remain unreviewed.
+
+The diagnostics below check Koszul signs and scalar-change boundaries, the integral minor ideals under unimodular basis change and identity blocks, finite quotient images of each minor, and separability controls. They passed258 symbolic homotopy basis columns,496 integer minor-ideal cases and9,680 finite scalar checks. They test formulas and boundaries; they are not proofs of the general theorems. No Lean file was requested, produced or compiled.
+
+```python
+import itertools as it, math, random, json
+from pathlib import Path
+import sympy as s
+p=Path(__file__).parent
+out={}
+def bases(n,i):return list(it.combinations(range(n),i)) if 0<=i<=n else []
+def differential(xs,i):
+    a,b=bases(len(xs),i),bases(len(xs),i-1)
+    D=s.zeros(len(b),len(a))
+    for col,J in enumerate(a):
+        for j,k in enumerate(J):D[b.index(J[:j]+J[j+1:]),col]+=(-1)**j*xs[k]
+    return D
+def wedge(n,i,j):
+    a,b=bases(n,i),bases(n,i+1);H=s.zeros(len(b),len(a))
+    for col,J in enumerate(a):
+        if j not in J:
+            K=tuple(sorted((j,)+J));H[b.index(K),col]=(-1)**sum(k<j for k in J)
+    return H
+count=0
+for n in range(6):
+    xs=s.symbols('x:'+str(n));ds={i:differential(xs,i)for i in range(n+2)}
+    for i in range(2,n+2):assert ds[i-1]*ds[i]==s.zeros(len(bases(n,i-2)),len(bases(n,i)))
+    for i in range(n+1):
+        for j in range(n):
+            L=ds[i+1]*wedge(n,i,j)+wedge(n,i-1,j)*ds[i]
+            assert s.simplify(L-xs[j]*s.eye(len(bases(n,i))))==s.zeros(*L.shape)
+            count+=len(bases(n,i))
+out['koszul_symbolic_homotopy_basis_columns']=count
+out['koszul_symbolic_square_zero']='PASS for lengths0–5; exact polynomial identities over Z'
+assert differential([2],1).rank()==1
+assert differential([0],1).rank()==0
+out['nonflat_homology_boundary']='[2] over Z has H1=0; its F2 scalar change has zero differential and H1=F2'
+
+def minors(A,r):
+    if r==0:return [s.Integer(1)]
+    return [A.extract(I,J).det()for I in it.combinations(range(A.rows),r)for J in it.combinations(range(A.cols),r)]
+def idealgen(A,r):return math.gcd(*(int(v)for v in minors(A,r)))
+random.seed(20260924);count=0;modchecks=0
+for m,n in it.product(range(1,5),repeat=2):
+    for _ in range(8):
+        A=s.Matrix(m,n,[random.randrange(-4,5)for _ in range(m*n)])
+        U=s.eye(m);V=s.eye(n)
+        if m>1:U[0,1]=3
+        if n>1:V[1,0]=-2
+        B=U*A*V;C=s.diag(s.ones(1),A)
+        for r in range(min(m,n)+2):
+            assert idealgen(A,r)==idealgen(B,r)
+            if r>=1:assert idealgen(C,r)==idealgen(A,r-1)
+            for q in [2,3,4,5,6]:
+                vals=minors(A,r);mods=minors(A.applyfunc(lambda v:v%q),r)
+                assert [int(v)%q for v in vals]==[int(v)%q for v in mods]
+                modchecks+=len(vals)
+            count+=1
+out['integer_minor_ideal_cases']=count
+out['fixed_size_minor_scalar_checks']=modchecks
+t=s.symbols('t')
+A=s.Matrix([[t]])
+assert A.rank()==1 and A.subs(t,0).rank()==0
+out['rank_selected_ideal_boundary']='[t] has I=(t); at t=0 the fixed J1 vanishes but the rank-selected ideal is J0=k'
+f=t*t-2
+assert s.expand(-f/s.Integer(2)+t*s.diff(f,t)/4)==1
+g=s.Poly(t*t+1,t,modulus=2)
+assert g.diff().is_zero
+assert s.rem((t+1)**2,t*t+1,domain=s.GF(2))==0
+out['separability_boundaries']='Q[T]/(T²−2): derivative inverse T/4; F2[T]/(T²+1): nonzero nilpotent T+1 and zero derivative'
+(p/'diagnostics.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))
+
+```
+
+The report below is retained as historical provenance. Its older counts and frontier sentences are superseded by this continuation where explicitly described above. In particular, Z129 and finite-length scalar restriction are no longer missing mathematical suppliers, and Z99's finite-separable step is now explicit.
+
+---
+
 # LLHLM23 continuation: homological regularity suppliers
 
 Codex — codex-c83e7a, issue #1254, 23 September 2026. Claim5804746186 was confirmed by bot5804748061. **Partial checkpoint: 745 items (132 library,45 planned,568 missing),24 routes,91 unreviewed findings.** This pass adds36 items, L120–L130 and Z106–Z130, and changes the proof/dependency records of Z100/Z101. All709 inherited item statements, all91 findings and `sourceData` are unchanged. No Lean file was required or compiled.
@@ -5961,3 +6088,70 @@ published text (author copy, SHA-256 `e5647879…42dd`, PDF p. 184, matching the
 items, none lost and none added; only V15 and V16 changed, and only in `proofSteps`; every missing
 item still routed exactly once; the dependency graph is acyclic. No Lean file was required or
 compiled, and nothing here is a formalization claim.
+
+
+---
+
+## Previous handoff, retained with attribution
+
+# LLHLM23 — current handoff
+
+Claude Code — session cc-d67081, issue #1254, 24 September 2026. **Partial** checkpoint. Census:
+**745 items (132 library, 45 planned, 568 missing), 24 routes, 91 unreviewed findings**. Last
+local-algebra IDs: **Z130, L130**; findings remain **E91**. This continues the checkpoint of Codex
+(codex-c83e7a) and preserves its work and attribution, and that of the workers before it.
+
+## This continuation
+
+Closed the **V queue**. V15 and V16 — the two theorem-like items of §9.1 with neither `proofSteps`
+nor `proofOutline` — now carry six steps each, written against the published text at PDF p. 184
+(author copy, SHA-256 `e5647879…42dd`, matching the recorded hash). Nothing else changed: all 745
+inherited items are preserved, no item was added, and `source`, `sourceIssues`, `sourceData`,
+`routes`, `prerequisites` and `summary` are byte-identical to the inherited state.
+
+- **V15** (Remark 9.1.7(2)) rests on Proposition 2.6.2 (p. 52) and the §2.1 depth conventions: every
+  predicted weight's lowest alcove presentation has `ω = w̃(τ)w̃₂⁻¹(0)`, so `μ` being `(m + c(n))`-deep
+  makes them all m-generic, and `P` is enlarged by the same linear factors the proof of Lemma 9.1.9
+  assembles into `Q`. The bound `c(n)` is the obligation a blueprint must discharge.
+- **V16** (Remark 9.1.8) is a realization step. [14, Corollary A.7] (CEGGPS) is imported, not
+  re-proved; the four hypotheses of Theorem 9.1.6 are then checked one at a time, the local one
+  inherited through the isomorphism at the p-adic places.
+
+## Resume in order
+
+1. **The main-paper proof queues.** After this pass the theorem-like backlog with neither
+   `proofSteps` nor `proofOutline` is `{'N': 46, 'U': 26, 'M': 32, 'K': 29, 'G': 43, 'B': 32,
+   'Z': 1, 'L': 125, 'P': 1}` — V is now empty. The N, G and B buckets are the largest; L is
+   local-algebra supplier work and belongs with the `analytic-regularity-suppliers` frontier below,
+   not with the main paper.
+2. **`analytic-regularity-suppliers`**, unchanged from the previous handoff: the remaining
+   declaration/assembly work (generic finite Koszul, module/category comparisons, exact
+   principal-cut and finite-length scalar-restriction declarations, basis-independent fixed-size
+   minor ideals), then finite-separable regularity base change behind Z99, standard-smooth/cotangent
+   dimensions behind Z102, characteristic-p 07PR/07PU, and Cohen structure 032D. None of those
+   branches was audited in this pass either.
+3. **Item-by-item pinned matching**, unchanged: neither this pass nor the last inspected all 132
+   library entries.
+4. **Appendix B** still owes its three concrete obligations (uniform integral t³-in-Jacobian
+   certificate Q06 with denominator locus; parametric Gröbner computation Q08 over `ℤ[a,b,1/P]`;
+   Table 1 rows Q09 derived from that system), with the E91/Q13 flatness and generic-normality
+   discussion preserved.
+5. **One inherited gap worth naming:** `Z08` is the only missing definition/construction in the file
+   without an API or without three tests. It was already so before this pass; whoever next touches
+   the Z queue should close it, since every other one of the 154 satisfies the contract.
+6. **No independent review is performed.** All 91 findings remain unreviewed, and the sessions that
+   authored this extraction — including this one — may not review it.
+
+## Checks and provenance
+
+`scripts/check_paper.py` ok; `intake.py check-files` 3 files, 0 problems. Structural audit: 745
+unique items, none lost and none added; only V15 and V16 changed, and only in `proofSteps`; every
+missing item routed exactly once; dependency graph acyclic; all inherited statements, findings and
+`sourceData` preserved byte for byte. Fresh reading: the author copy of the paper re-downloaded and
+hashed (`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`, 212 pages), read at
+PDF pp. 183–185 (Theorem 9.1.6, Remarks 9.1.7–9.1.8, Lemma 9.1.9), p. 52 (Proposition 2.6.2), p. 54
+(its use) and p. 33 (the m-deep/m-generic conventions), and the bibliography entry for [14]. No new
+source issue is claimed. No Lean file was required or compiled.
+
+
+Final submission checks: **PASS**. Paper checker; three-file intake with0 problems;768 unique items,744-edge internal DAG,575 missing items each routed once; external stage prerequisites resolve; exact three authorized files and no extras. All745 inherited IDs,91 source findings and sourceData preserved. Twelve pinned library files byte-verified. Eighteen input/deliverable blobs unchanged at publication base `aa8623ba4aadb4ae82e1f429386a30d48eca6fa6`. No Lean file compiled.
