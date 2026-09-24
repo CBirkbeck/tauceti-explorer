@@ -1,0 +1,42 @@
+{
+ "paper": "PAPER-LI-LIU-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Part II of GrossZagierAndArithmeticHeights, 50 items. The parent exists, the new id is free, the area arithmeticgeometry is a galaxy id of data/galaxies.json, and the title is an exact prefix extension of the parent's atlas title 'Gross-Zagier formulas and arithmetic heights'. Co-proposed with identical id, parent and title by PAPER-LI-LIU-22, so it merges rather than competes. The reason given is specific: the parent plans rank-one height formulas on Shimura curves and does not plan Beilinson-Bloch heights of arithmetic theta lifts on higher unitary Shimura varieties. Accepted: this is where the arithmetic inner product formula belongs, and I would build on it."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Part II of PELModuli, 7 items, id free, area a galaxy id, title an exact prefix extension of 'Siegel and PEL moduli problems'. Co-proposed with identical id, parent and title by five other extractions (PAPER-HE-LI-SHI-ETAL-23, PAPER-LI-LIU-22, PAPER-LI-ZHANG-22-B, PAPER-LIU-ETAL-22, PAPER-ZHANG-21): a six-way merge. The brief keeps the route moduli-theoretic, which is the right boundary, since the parent plans PEL moduli functors and good-level representability only. Accepted."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Part II of GrossZagierAndArithmeticHeights, 4 items, id free, area a galaxy id, title an exact prefix extension of the parent's. Co-proposed with identical id, parent and title by four other extractions: a five-way merge. It reuses the candidate proposed by PAPER-LI-ZHANG-22-B, and the items are exactly the integral special cycles and the two local Kudla-Rapoport identities that this paper consumes without change. Accepted."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Source addition to MetaplecticAutomorphicForms:MP.3, 2 items. The stage exists and the reason is specific about what MP.3 owns (unitary dual pairs, local theta modules, see-saw identities, first occurrence) and what the paper adds (doubling multiplicity one with local theta dichotomy, and the almost-unramified local results). Accepted."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Source addition to IgusaVarietiesAndTorsionConcentration:IG.5 and IG.7, 2 items. Both stages exist. The reason names what each owns and what Lemma 7.3 adds. I read the proof of Lemma 7.3 on p.35 of the final version for this review: it runs through the Igusa varieties of [HT01, section IV.1], the projective system with finite etale transition maps and [CS17, Corollary 6.1.4], which is precisely the IG.4/IG.5 direction. Accepted."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Source addition to SchemeAndStackFoundations:SF.2, 1 item. The stage exists; the reason is specific, and it is consistent with the reviewed audit of SF.2, which records the localisation sequence, extension by zero and purity as absent from both pinned libraries. The route's observation that EDC.2 explicitly excludes Gabber's theorem is what makes SF.2 rather than the etale-duality roadmap the right owner. Accepted."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Source addition to MotivesAndAlgebraicCycles:MC.7, 1 item, the equivariant Beilinson-Bloch conjecture and Beilinson's height positivity. The stage exists and MC.7's brief does ask for typed statements of the cycle conjectures and a register of proved cases, so the route is right. One caveat for whoever consumes it, from first-hand knowledge: the blueprint packet for MC.7 states Conjecture C and Conjecture D and records the Bloch-Beilinson filtration and the remaining cycle conjectures as not planned, because no source read there states them. So the supplier stage is the right home for this item but cannot discharge it today; the design job that takes this route will have to bring its own source for the Beilinson-Bloch statement. Accepted with that note."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-7b31c4. I did not write the extraction. Verdict: accept; all seven routes accepted; all eleven sourceIssues confirmed, each with the check written out in its review field; one correction made in place, to the count of occurrences in E6. Both source files were re-downloaded and both recorded SHA-256 hashes reproduce byte for byte: the authors' final version at math.columbia.edu/~chaoli/AIPF.pdf and arXiv 2006.06139v5. E1, E2 and E9 were checked on both versions, so the claim that each is corrected in the final version and not in arXiv v5 is reproduced rather than taken on trust. E3, the only new finding that affects a stated result, was checked in three places: Li-Liu's proof of Proposition 9.1 cites Li-Zhang Theorem 10.5.1 with no hypothesis; Li-Zhang arXiv 1908.01701v3 says immediately before that theorem that the result is conditional on their Conjecture 10.4.1, and immediately after stating that conjecture that the authors assume it; and Li-Rapoport-Zhang arXiv:2404.02214v2 has the Theorem 14.6.2 that should discharge it. E10 and E11 were checked against Disegni-Liu section 4.10 in the arXiv version 2204.09239v3, where they are Remarks 4.50 and 4.51, and both match word for word. The 81 items were checked for structure: 67 missing, 14 planned, none library, every one of the 19 stage references of the planned items resolves in data/atlas.json, and every route target exists. I added no finding of my own. The extraction records no libraryPins and needs none: it has no library-status item, and no other paper extraction in this corpus carries that field."
+}
