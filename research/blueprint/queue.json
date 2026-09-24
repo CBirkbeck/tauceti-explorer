@@ -2612,8 +2612,9 @@
    ],
    "avoidAccountOf": "PAPER-DOSPINESCU-LEBRAS-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-DOSPINESCU-LEBRAS-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1160"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1160",
+   "finishedAt": "2026-09-24T00:05:05Z"
   },
   {
    "id": "PAPER-CARAIANI-SCHOLZE-17",
@@ -12344,7 +12345,8 @@
    "waitForLogs": [
     "{WORKERS}/EXT-07-continued/run.log"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #76"
   },
   {
    "id": "RS-01",
