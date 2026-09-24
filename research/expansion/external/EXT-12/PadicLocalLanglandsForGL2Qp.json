@@ -12,6 +12,15 @@
    "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
    "readSections": [
     "Whole paper read: Introduction (pp. 1-3), Section 1 (Theorems 1.1-1.11, Lemmas 1.13-1.15, pp. 3-10), Section 2 (Pasos 1-6, Lemmas 2.1, 2.3, pp. 10-15), Section 3 (p = 2, p. 15), references (pp. 15-17)"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2108.07577v2",
+     "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+     "date": "2026-09-23",
+     "version": "arXiv v2, 3 May 2022 (matches packet)",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -23,6 +32,15 @@
    "sha256": "fce17b369313877b7efedab0844e8ece721a0c249dee1ef212f1d1303fc82c18",
    "readSections": [
     "Whole paper read: Section 1 (Theorem 1.1, pp. 1-3), Section 2 (Lemmas 2.1-2.39, Theorems 2.42, 2.44, pp. 3-16), Section 3 (pp. 17-18), Section 4 (Lemmas 4.3-4.8, Proposition 4.9, 4.14, Theorem 4.15, Lemma 4.16, Definition 4.17, Lemma 4.18, Theorem 4.19, Lemma 4.20, Corollary 4.21, pp. 18-28), Section 5 (Proposition 5.1, Theorem 5.2, Corollary 5.3, pp. 28-30), Section 6 (Proposition 6.1 - Theorem 6.24, pp. 30-39), Section 7 (Theorem 7.1 with Lemmas 7.4-7.8, pp. 39-43), Section 8 (pp. 43), references. Formulas on pp. 2-3 checked on page images."
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1209.5205v3",
+     "sha256": "fce17b369313877b7efedab0844e8ece721a0c249dee1ef212f1d1303fc82c18",
+     "date": "2026-09-23",
+     "version": "arXiv v3, 20 Mar 2014 (matches packet)",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -40,6 +58,22 @@
     "Section 5 opening, Proposition 5.2, formula (23), Section 5.3 (Theorems 5.11, 5.12, pp. 1410-1417)",
     "Section 6 in full (Lemma 6.1, Proposition 6.2, Theorem 6.3, pp. 1417-1419)",
     "Bibliography"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1309.1658v2",
+     "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2",
+     "date": "2026-09-23",
+     "version": "arXiv v2, 13 Nov 2014 (packet used ASENS 48 (2015), DOI 10.24033/asens.2272; same theorem numbering)",
+     "by": "independent-review-REVIEW-EXT-12"
+    },
+    {
+     "url": "https://smf.emath.fr/sites/default/files/2023-11/ens_ann-sc_48_1383-1421__sample.pdf",
+     "sha256": "9a9f54ff2c3e047f209ad4ae71efb25d7e68926df759b5f6b03b7e99c24a2454",
+     "date": "2026-09-23",
+     "version": "ASENS free sample, printed pp. 1383-1385 only",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -51,6 +85,15 @@
    "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2",
    "readSections": [
     "Whole paper read: Introduction and main Theorem (pp. 1-2), Section 1 (Conjecture 1.1, Theorem 1.2, Remark 1.3, pp. 3-4; p. 3 checked on page image), Section 2 (blocks, Colmez functor, p = 3 exceptional block computations Lemmas 2.2-2.6, Lemma 2.7, Propositions 2.8, 2.9, pp. 4-9), Section 3 (patched modules, Propositions 3.4, 3.5, Theorem 3.7, Corollary 3.8, Proposition 3.9, Corollary 3.10, pp. 9-12), Section 4 (Theorem 4.1, Lemma 4.2, Corollary 4.3, Proposition 4.4, Remark 4.5, proof of Theorem 1.2, Corollary 4.6, Theorem 4.7, Remark 4.8, pp. 12-15), references"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1803.07451v4",
+     "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2",
+     "date": "2026-09-23",
+     "version": "arXiv v4, 21 Mar 2021 (matches packet); published ANT 15 (2021) 2173-2194, DOI 10.2140/ant.2021.15.2173",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -67,6 +110,15 @@
     "Section 2C in full (Propositions 2.27-2.30, Corollaries 2.31, 2.32, Proposition 2.33, Theorem 2.34, Remarks 2.35, 2.36, Theorem 2.37, Corollary 2.38, Remark 2.39, pp. 1323-1330; pp. 1324-1326 checked on page images)",
     "Section 3A-3B (pp. 1330-1334), Section 3D opening with Proposition 3.18 and Corollary 3.19 (pp. 1343-1345), Section 3F in full (Lemma 3.29, Theorem 3.30, pp. 1353-1355); Sections 3C, 3E only located, not read",
     "References"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1509.00332v2",
+     "sha256": "727addeb49ee302052a493cf097a868a70c340286981598b5e7382fcd8f86749",
+     "date": "2026-09-23",
+     "version": "arXiv v2, 25 Apr 2016 (packet used ANT 10 (2016) 1301-1358; same numbering, sections 2.1-2.3/3.1-3.6 = 2A-2C/3A-3F)",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -85,6 +137,15 @@
     "Section 7.3 Theorem 7.3.1 with proof (pp. 37-38)",
     "Section 8 in full (Theorem 8.0.1, Corollary 8.0.2, Theorem 8.0.3, p. 38-39)",
     "References"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1908.06174v3",
+     "sha256": "a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8",
+     "date": "2026-09-23",
+     "version": "arXiv v3, 21 Mar 2021 (matches packet); Math. Z. 298 (2021) 107-159, DOI 10.1007/s00209-020-02588-4",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -98,6 +159,22 @@
     "Introduction (main Theorem and remarks, pp. 1-4)",
     "Section 1.2 (Proposition 1.2.2, Theorem 1.2.4, Hypothesis 1.2.6, remark 1.2.7, Theorem 1.2.8 with proof, Lemma 1.2.10, remark 1.2.11, pp. 8-10)",
     "Theorem 2.2.17 with proof and Section 2.3 (Lemma 2.3.1, Corollary 2.3.2, pp. 45-46)"
+   ],
+   "reviewCopies": [
+    {
+     "url": "http://people.math.harvard.edu/~kisin/dvifiles/fmc.dvi",
+     "sha256": "663d83eba34d147b58823b23d63c007f79be47a29054902032d3325a83920d50",
+     "date": "2026-09-23",
+     "version": "Public 2008 DVI on the author's homepage (TeX output 2008.09.11); identical to the library copy. Not on arXiv.",
+     "by": "independent-review-REVIEW-EXT-12"
+    },
+    {
+     "url": "https://www.ams.org/journals/jams/2009-22-03/S0894-0347-09-00628-6/S0894-0347-09-00628-6.pdf",
+     "sha256": "0bb3747bfa3f4738160be3addf9e61aab98945e8ff232e313bba8a0017c2c2a1",
+     "date": "2026-09-23",
+     "version": "JAMS 22 (2009) 641-690, free publisher PDF (DOI 10.1090/s0894-0347-09-00628-6); renumbers DVI 2.2.16/2.2.17 as 2.2.17/2.2.18 and adds footnotes 1-3",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   }
  ],
@@ -107,41 +184,47 @@
    "parentStageId": "PadicLocalLanglandsForGL2Qp:R30.4",
    "title": "Kisin's Hypothesis (1.2.6) (admissible lattice with the Henniart type inside) and its proof for abelian types, Theorem (1.2.8)",
    "kind": "theorem",
-   "statement": "Let p be odd and (k, tau, psi) a p-adic Hodge type (k >= 2, tau: I_Qp -> GL_2 with open kernel, psi a continuous character). Hypothesis (1.2.6) for (k, tau, psi): for every finite E'/E and every 2-dimensional E'-representation V of G_Qp of type (k, tau, psi) there exists an admissible O_E'-lattice Pi with central character psi (a p-adically complete and separated GL_2(Q_p)-representation on an O-module such that every Pi/p^n is admissible of finite length, (1.2.5)) with V(Pi) (x)_{Z_p} Q_p = V, where V(Pi) = lim V(Pi/p^n) is Colmez's functor (Theorem 1.2.4), and a GL_2(Z_p)-equivariant inclusion sigma(k, tau) -> Pi (x)_{Z_p} Q_p. Theorem (1.2.8): if tau is of abelian type (tau has an abelian extension to W_Qp, which is stronger than tau having abelian image) then a Pi as in (1.2.6) exists.",
+   "statement": "Let p be odd. Following Kisin Section (1.1), a type (k, tau, psi) consists of an integer k >= 2, a representation tau: I_Qp -> GL_2(E) with open kernel that is of Galois type (it extends to the Weil group W_Qp), and a continuous character psi: G_Qp -> O^x with psi chi_cyc^{2-k}|_{I_Qp} ~ det tau; a 2-dimensional representation V of G_Qp is of type (k, tau, psi) if it is potentially semi-stable of type tau with Hodge-Tate weights 0, k-1 and determinant psi chi_cyc. Put sigma(k, tau) = sigma(tau) (x)_E Sym^{k-2} E^2, where sigma(tau) is Henniart's type (for scalar tau ~ chi + chi, sigma(tau) (x) chi^{-1} o det is the Steinberg representation of functions on P^1(F_p) with average value 0). Hypothesis (1.2.6) for (k, tau, psi): for every finite E'/E and every 2-dimensional E'-representation V of G_Qp of type (k, tau, psi) there exists an admissible O_E'-lattice Pi with central character psi (a p-adically complete and separated GL_2(Q_p)-representation on an O-module such that every Pi (x) Z/p^n is admissible of finite length, (1.2.5)) with V(Pi) (x)_{Z_p} Q_p ~ V, where V(Pi) = lim V(Pi (x) Z/p^n) is Colmez's functor (Theorem (1.2.4)), and a GL_2(Z_p)-equivariant inclusion sigma(k, tau) -> Pi (x)_{Z_p} Q_p. Theorem (1.2.8): if tau is of abelian type (tau has an abelian extension to W_Qp, which is stronger than tau having abelian image) then a Pi as in (1.2.6) exists. The published JAMS version (footnotes 1 and 3, pp. 642 and 649; absent from the 2008 DVI) adds that the revised version of Colmez's [Co 2] asserts that (1.2.6) always holds, the proof at press time relying on forthcoming work of Emerton on local-global compatibility.",
    "hypotheses": [
-    "p odd (Section 1.0: 'Throughout p will denote an odd prime').",
-    "Abelian type: tau extends to an abelian representation of W_Qp; equivalently (for de Rham V of type tau) V becomes semi-stable over an abelian extension of Q_p, which is condition (2) of Kisin's main theorem.",
-    "The existence of Pi with V(Pi) (x) Q_p = V alone is attributed to Kisin's appendix [Ki 6, Thm 0.1] for any 2-dimensional V except p = 3 with residual (omega *; 0 1) (x) chi or Ind omega_2^2 (x) chi (remark 1.2.7); this remark was read but its source was not.",
-    "Irreducible V: Pi is the Berger-Breuil / Colmez unitary completion ([BB 1] Section 4, [Co 1] Thm 0.4), and V(Pi) = V follows by comparing [BB 1] Thm 5.2.7 and [Co 1] Thm 0.6 with [Co 2] Prop 4.26 (Colmez's (phi, Gamma)-module paper in its 2007 preprint numbering); none of these was read here.",
+    "p odd (Section (1.0): 'Throughout p will denote an odd prime').",
+    "Abelian type: tau extends to an abelian representation of W_Qp. Kisin states no equivalence with condition (2) of his main theorem. In the proof of Theorem (2.2.17) [DVI; (2.2.18) in JAMS] he passes from its condition (1) (rho|G_Fv becomes semi-stable over an abelian extension of F_v) to Corollary (2.2.16) [DVI; (2.2.17) in JAMS], whose hypothesis is (1.2.6) for each tau_v; the step 'semi-stable over an abelian extension, hence tau_v of abelian type, hence (1.2.6) by (1.2.8)' is used without comment.",
+    "The existence of Pi with V(Pi) (x) Q_p ~ V alone is attributed to [Ki 6, Thm 0.1] (Kisin's appendix to Colmez's [Co 2]) for every 2-dimensional V, except when p = 3 and the residual representation has the form (omega *; 0 1) (x) chi (2008 DVI, p. 9) -- printed (1 *; 0 omega) (x) chi in JAMS p. 649 -- or Ind_{G_{Q_{p^2}}}^{G_Qp} omega_2^2 (x) chi (remark (1.2.7)). [Ki 6] was not read.",
+    "Irreducible V: Pi is constructed in [BB 1, Section 4] (Berger-Breuil, 'Sur quelques representations potentiellement cristallines de GL2(Qp)') and [Co 1, Thm 0.4] (Colmez, 'La serie principale unitaire de GL2(Qp)', 2007 preprint), and V(Pi) (x) Q_p ~ V follows by comparing [BB 1, Thm 5.2.7] and [Co 1, Thm 0.6] with [Co 2, Prop 4.26] ([Co 2] = the earlier, shorter 2007 preprint of Colmez's (phi, Gamma)-module paper, JAMS footnote 2). None of these was read.",
     "Reducible V: uses the lattices P-bar(chi_1, chi_2) in continuous parabolic inductions (Lemma 1.2.10), non-triviality of V on non-trivial extensions ([Co 2] Thm 5.1) and constructions of extensions by Breuil-Emerton [BE] Thm 2.2.2 and Breuil [Br 3]."
    ],
    "proofSteps": [
-    "Irreducible V of abelian type (crystabelline up to twist): take Pi from [BB 1] Section 4 and [Co 1] Thm 0.4; the inclusion of sigma(k,tau) is built into the construction from locally algebraic principal series (proof of 1.2.8, not detailed in the source).",
+    "Irreducible V of abelian type: take Pi from [BB 1, Section 4] and [Co 1, Thm 0.4]; V(Pi) (x) Q_p ~ V by comparing [BB 1, Thm 5.2.7] and [Co 1, Thm 0.6] with [Co 2, Prop 4.26] (the assignment V -> Pi in [BB 1] is contravariant, so the formulae of [BB 1, Lem 5.2.4] differ slightly from those of [Co 2, Section 4.1]). The source gives no separate argument for the inclusion sigma(k, tau) -> Pi (x) Q_p in this case; it is left to the cited constructions, which were not read.",
     "Reducible V = extension of V(chi_2) by V(chi_1), with Hodge-Tate weights k-1 of chi_1 and 0 of chi_2: Lemma 1.2.10 gives admissible lattices P-bar(chi_1, chi_2) with V(P-bar(chi_1,chi_2)) = O(chi_1).",
     "Applying V to an extension 0 -> P-bar(chi_1,chi_2) -> Pi -> P-bar(chi_2,chi_1) -> 0 (1.2.9) gives an extension of O(chi_2) by O(chi_1), non-trivial if (1.2.9) is ([Co 2] Thm 5.1); it suffices to build a non-trivial (1.2.9) when chi_1 chi_2^{-1} != chi_cyc (Breuil-Emerton) and a 2-dimensional space of them when chi_1 chi_2^{-1} = chi_cyc (Breuil)."
    ],
    "acceptance": [
-    "For V crystalline irreducible with Hodge-Tate weights (0, k-1) and tau trivial, check that the Pi of (1.2.6) contains Sym^{k-2} (x) (unramified principal series) with the Henniart type sigma(k, 1) as a K-subrepresentation.",
+    "For V crystalline irreducible with Hodge-Tate weights (0, k-1) and tau = 1 + 1, check that the locally algebraic vectors of the Pi of (1.2.6) are Sym^{k-2} (x) pi with pi an unramified principal series, and that sigma(k, tau) = st (x) Sym^{k-2} E^2 (Kisin 1.1: sigma(tau) is the Steinberg type when tau is scalar), not Sym^{k-2} E^2 itself, embeds K-equivariantly.",
     "Record that Paskunas 2015 Proposition 4.14 (with Colmez VI.6.50 and Emerton 3.3.22) supersedes (1.2.6) for rho-bar with End = k and p >= 5, so R30.6 does not depend on the abelian-type restriction."
    ],
    "sources": [
     {
      "sourceId": "kisin-2009-fontaine-mazur-gl2",
-     "locator": "Hypothesis (1.2.6), p. 9",
+     "locator": "Hypothesis (1.2.6), 2008 DVI p. 9 (JAMS p. 649)",
      "excerpt": "Then there exists an admissible OE ′ -lattice Π with central character ψ such",
      "match": "The existence clause of the hypothesis."
     },
     {
      "sourceId": "kisin-2009-fontaine-mazur-gl2",
-     "locator": "Theorem (1.2.8), p. 9",
+     "locator": "Theorem (1.2.8), 2008 DVI p. 9 (JAMS p. 649 reads 'as in Hypothesis (1.2.6)')",
      "excerpt": "Suppose that τ is of abelian type. Then a representation Π as in (1.2.6) exists.",
      "match": "Proof of the hypothesis for abelian types."
     },
     {
      "sourceId": "kisin-2009-fontaine-mazur-gl2",
-     "locator": "Introduction, p. 2",
+     "locator": "Introduction, 2008 DVI p. 2 (JAMS p. 642)",
      "excerpt": "The condition (2) in the theorem can be removed, assuming a compatibility between the p-adic and classical local Langlands correspondences",
-     "match": "Explains why condition (2) of the main theorem is the abelian-type restriction."
+     "match": "Condition (2) of the main theorem is what (1.2.6) replaces."
+    },
+    {
+     "sourceId": "kisin-2009-fontaine-mazur-gl2",
+     "locator": "JAMS p. 649, footnote 3 (absent from the 2008 DVI)",
+     "excerpt": "As remarked in the introduction, the latest version of [Co 2] asserts that this hypothesis is always satisfied.",
+     "match": "General validity of (1.2.6) as asserted by Colmez; footnote 1 (p. 642) adds that the proof relied on Emerton's forthcoming local-global compatibility."
     }
    ],
    "implementationStatus": "unchecked"
@@ -258,11 +341,11 @@
    "parentStageId": "PadicLocalLanglandsForGL2Qp:R30.6",
    "title": "Tung 2021a, Theorem 1.2: Breuil-Mezard cycles for every residual type when p is odd, proved by patching",
    "kind": "theorem",
-   "statement": "Assume p > 2. Let E/Q_p be sufficiently large (O, varpi, k), r-bar: G_Qp -> GL_2(k) any continuous representation, R^box_r-bar its universal framed deformation ring and R^{box,psi}_r-bar the quotient with determinant psi eps. A p-adic Hodge type (lambda, tau, psi) is lambda = (a, b) integers with a > b, tau: I_Qp -> GL_2(E) with open kernel and psi: G_Qp -> O^x continuous with psi|_{I_Qp} = eps^{a+b-1} det tau; r is of type (lambda, tau, psi) if potentially semi-stable with Hodge-Tate weights (a, b), WD(r|_{I_Qp}) = tau and det r = psi eps; R^{box,psi}_r-bar(lambda,tau) and R^{box,psi,cr}_r-bar(lambda,tau) are Kisin's reduced, 4-dimensional (if nonzero), p-torsion free quotients. Then for each irreducible smooth k-representation sigma-bar of K there is a 4-dimensional cycle C_sigma-bar(r-bar) of R^{box,psi}_r-bar, independent of lambda and tau, with Z(R^{box,psi}_r-bar(lambda,tau)/varpi) = sum m_sigma-bar(lambda,tau) C_sigma-bar(r-bar) and Z(R^{box,psi,cr}_r-bar(lambda,tau)/varpi) = sum m^cr_sigma-bar(lambda,tau) C_sigma-bar(r-bar), where m_sigma-bar is the multiplicity of sigma-bar in the semisimplified reduction of sigma(lambda,tau) = Sym^{a-b-1} E^2 (x) det^b (x) sigma(tau). The source says this is new for p = 3 and r-bar a twist of an extension of the trivial character by the mod p cyclotomic character. Corollary 4.6: every irreducible component of R^box_r-bar(sigma)[1/p] is automorphic, i.e. meets the support of the patched module M_infty(sigma).",
+   "statement": "Assume p > 2. Let E/Q_p be sufficiently large (O, varpi, k), r-bar: G_Qp -> GL_2(k) any continuous representation, R^box_r-bar its universal framed deformation ring and R^{box,psi}_r-bar the quotient with determinant psi eps. A p-adic Hodge type (lambda, tau, psi) is lambda = (a, b) integers with a > b, tau: I_Qp -> GL_2(E) with open kernel and psi: G_Qp -> O^x continuous with psi|_{I_Qp} = eps^{a+b-1} det tau; r is of type (lambda, tau, psi) if potentially semi-stable with Hodge-Tate weights (a, b), WD(r|_{I_Qp}) = tau and det r = psi eps; R^{box,psi}_r-bar(lambda,tau) and R^{box,psi,cr}_r-bar(lambda,tau) are Kisin's reduced, 4-dimensional (if nonzero), p-torsion free quotients. Then for each irreducible smooth k-representation sigma-bar of K there is a 4-dimensional cycle C_sigma-bar(r-bar) of R^{box,psi}_r-bar, independent of lambda and tau, with Z(R^{box,psi}_r-bar(lambda,tau)/varpi) = sum m_sigma-bar(lambda,tau) C_sigma-bar(r-bar) and Z(R^{box,psi,cr}_r-bar(lambda,tau)/varpi) = sum m^cr_sigma-bar(lambda,tau) C_sigma-bar(r-bar), where m_sigma-bar is the multiplicity of sigma-bar in the semisimplified reduction of sigma(lambda,tau) = Sym^{a-b-1} E^2 (x) det^b (x) sigma(tau). The source says this is new for p = 3 and r-bar a twist of an extension of the trivial character by the mod p cyclotomic character. Corollary 4.6: every irreducible component of R^box_r-bar(sigma)[1/p] is automorphic, i.e. lies in the support of the patched module M_infty(sigma) (Definition 3.2: that support is a union of irreducible components of Spec R^box_r-bar(sigma), called the automorphic components).",
    "hypotheses": [
     "p > 2 (Theorem 1.2; Section 3 onwards 'From now on we make the assumption p > 2').",
     "Normalisation (page image p. 3): lambda = (a, b) with a > b, psi|_{I_Qp} = eps^{a+b-1} det tau, det r = psi eps.",
-    "The proof is GLOBAL, not local: it uses a suitable globalisation of r-bar over an imaginary CM field (Emerton-Gee [EG14] Cor. A.7), the patched module M_infty of [CEG+16] for definite unitary groups with its arithmetic action (AA1)-(AA4), local-global compatibility ([CEG+16] Thm. 4.35, [Pyv18] Thm. 6.1), the faithfulness and density results of Emerton-Paskunas [EP20] (Thms. 5.1, 5.3, 6.3), Wang-Erickson's Cayley-Hamilton finiteness [WE18] Prop. 3.6, the capture family of Paskunas 2016 Prop. 2.7, Allen [All16] Thm. 1.2.7, Barnet-Lamb-Gee-Geraghty [BLGG13] Thm. A.4.1 for ordinary components, and Colmez-Dospinescu-Paskunas [CDP14] Cor. 1.7, Thm. 1.3, Thm. 3.14.",
+    "The proof is GLOBAL, not local: it uses a suitable globalisation of r-bar over an imaginary CM field (Emerton-Gee [EG14] Cor. A.7), the patched module M_infty of [CEG+16] for definite unitary groups with its arithmetic action (AA1)-(AA4), local-global compatibility ([CEG+16] Thm. 4.35, [Pyv18] Thm. 6.1), the faithfulness and density results of Emerton-Paskunas [EP20] (Thms. 5.1, 5.3, 6.3), Wang-Erickson's Cayley-Hamilton finiteness [WE18] Prop. 3.6, the capture family of Paskunas 2016 Prop. 2.7, Allen [All16] Thm. 1.2.7, Barnet-Lamb-Gee-Geraghty [BLGG13] Thm. A.4.1 for ordinary components, and Colmez-Dospinescu-Paskunas [CDP14] Cor. 1.7, Thm. 1.3, Thm. 3.14. Further imports in the proof: Colmez [Col10] Thm VI.6.50 (Theorem 4.1); Paskunas 2013 Lemma 10.26 and Prop 2.8/[CDP14] Thm 3.14(i) (Corollary 4.3); Paskunas 2013 Cor B.5 and Boeckle [Boc10] Thms 4.2, 5.2 (irreducibility of Spec R^box, Proposition 3.9); Emerton-Gee [EG14] Lemma 5.5.1 (proof of Theorem 1.2), Thm 5.5.2 (Corollary 4.6) and Prop 3.3.1 (Remark 4.5); Paskunas 2015 Lemma 2.3 and Cor 2.5 (projectivity, AA3); Nekovar [Nek93] Prop 1.24 (Proposition 4.4); Boston-Lenstra-Ribet [BLR91] Thm 1 (Theorem 4.1).",
     "Exceptional component: for r-bar ~ (omega *; 0 1) (x) chi, lambda = (a+1, a), tau = eta + eta, Proposition 4.4 does not show the semi-stable non-crystalline component automorphic; the cycle identity is then checked directly from Breuil-Mezard [BM02] Thm. 5.3.1 and [KW09] Section 3.2.7.",
     "For p = 3 and the block B = {1, Sp, omega o det, Sp (x) omega o det} (x) delta o det, the source proves its own Ext computations (Section 2.3, Lemmas 2.2-2.6) to extend Paskunas 2013's equivalence V-check: D(O)[B] -> Mod^pro_{G_Qp}(O)[B] (Proposition 2.8)."
    ],
@@ -332,21 +415,21 @@
    "sources": [
     {
      "sourceId": "paskunas-2016-two-adic",
-     "locator": "Section 2C, p. 1323",
+     "locator": "Section 2C, p. 1323 (arXiv v2 Section 2.3, p. 19)",
      "excerpt": "We place no restriction on p in this section.",
      "match": "The local Breuil-Mezard results of Section 2C hold for every prime, under the residual hypotheses stated there."
     },
     {
      "sourceId": "paskunas-2016-two-adic",
-     "locator": "Theorem 2.34, p. 1328",
-     "excerpt": "The cycle Cσ is nonzero if and only if Hom K (σ, π ) 6= 0, in which case its Hilbert–Samuel multiplicity is equal to 1.",
-     "match": "Nonvanishing and multiplicity statement of Theorem 2.34 (the text layer renders the not-equal sign as 6=)."
+     "locator": "Theorem 2.34, p. 1328 (arXiv v2 p. 23)",
+     "excerpt": "in which case its Hilbert–Samuel multiplicity is equal to 1.",
+     "match": "Multiplicity statement of Theorem 2.34; the preceding clause is 'The cycle C_sigma is non-zero if and only if Hom_K(sigma, pi) != 0' (arXiv v2 wording)."
     },
     {
      "sourceId": "paskunas-2016-two-adic",
-     "locator": "Corollary 2.38, p. 1329",
-     "excerpt": "In other words, every semistable lift of ρ with Hodge–Tate weights (0, 1) is crystalline.",
-     "match": "The p = 2 consequence used in the global part."
+     "locator": "Corollary 2.38, p. 1329 (arXiv v2 p. 24)",
+     "excerpt": "with Hodge–Tate weights (0, 1) is crystalline.",
+     "match": "The p = 2 consequence used in the global part: every semi-stable lift with Hodge-Tate weights (0,1) is crystalline (arXiv v2 hyphenates 'semi-stable')."
     }
    ],
    "implementationStatus": "unchecked"
@@ -356,7 +439,7 @@
    "parentStageId": "PadicLocalLanglandsForGL2Qp:R30.6",
    "title": "Tung 2021b, Corollary 8.0.2: Breuil-Mezard for every residual type when p = 2, proved by patching",
    "kind": "theorem",
-   "statement": "Let p = 2 and r-bar: G_Q2 -> GL_2(k) any continuous representation. For a Hodge type lambda, an inertial type tau and a continuous zeta: G_Qp -> O^x with zeta|_{I_Qp} = (Art^{-1}_{Q_p})^{lambda_1 + lambda_2} det tau, let sigma = sigma(lambda,tau) or sigma^cr(lambda,tau) be the locally algebraic type and R^zeta_r-bar(sigma) the local universal lifting ring of type sigma and determinant zeta eps. Then Conjecture 5.1.2 holds: there are non-negative integers mu_a(r-bar), indexed by Serre weights a, with e(R^zeta_r-bar(sigma)/varpi) = sum_a m_a(sigma) mu_a(r-bar) for every locally algebraic type sigma, m_a(sigma) the Jordan-Hoelder multiplicity of sigma_a in the reduction of sigma; and Conjecture 5.1.3 holds: there are 4-dimensional cycles C_a(r-bar) of R^zeta_r-bar, independent of lambda and tau, with Z(R^zeta_r-bar(sigma)/varpi) = sum_a m_a(sigma) C_a(r-bar). The source says this is new for r-bar ~ (chi *; 0 chi), chi: G_Qp -> k^x continuous.",
+   "statement": "Let p = 2. (Theorem 8.0.1) Suppose p splits completely in the totally real field F (F_v ~ Q_2 for v | p), and let M_infty be the module patched in Section 4 from definite quaternion algebras over F for a suitable globalisation (Definition 4.3.2). Then for each locally algebraic type sigma the support of M_infty(sigma°) (x)_{Z_p} Q_p meets every irreducible component of R_infty(sigma)[1/p]. (Corollary 8.0.2) Let r-bar: G_Q2 -> GL_2(k) any continuous representation. For a Hodge type lambda, an inertial type tau and a continuous zeta: G_Qp -> O^x with zeta|_{I_Qp} = (Art^{-1}_{Q_p})^{lambda_1 + lambda_2} det tau, let sigma = sigma(lambda,tau) or sigma^cr(lambda,tau) be the locally algebraic type and R^zeta_r-bar(sigma) the local universal lifting ring of type sigma and determinant zeta eps. Then Conjecture 5.1.2 holds: there are non-negative integers mu_a(r-bar), indexed by Serre weights a, with e(R^zeta_r-bar(sigma)/varpi) = sum_a m_a(sigma) mu_a(r-bar) for every locally algebraic type sigma, m_a(sigma) the Jordan-Hoelder multiplicity of sigma_a in the reduction of sigma; and Conjecture 5.1.3 holds: there are 4-dimensional cycles C_a(r-bar) of R^zeta_r-bar, independent of lambda and tau, with Z(R^zeta_r-bar(sigma)/varpi) = sum_a m_a(sigma) C_a(r-bar). The source says this is new for r-bar ~ (chi *; 0 chi), chi: G_Qp -> k^x continuous.",
    "hypotheses": [
     "p = 2 (Section 1.2 and Section 5 opening: 'We assume that p (= 2) splits completely in F').",
     "Both conjectures are independent of the choice of zeta (Remark 5.1.4).",
@@ -393,6 +476,12 @@
      "locator": "Introduction, p. 2",
      "excerpt": "The combined work of Kisin, Hu-Tan and Paškūnas handle the Breuil-Mézard conjecture in all cases except when p = 2 or 3",
      "match": "The source's account of which residual cases remained open before Tung's two papers."
+    },
+    {
+     "sourceId": "tung-2021b-two-adic-pst-rings",
+     "locator": "Theorem 8.0.1, p. 38",
+     "excerpt": "the support of M∞(σ◦) ⊗Zp Qp meets every irreducible component of R∞(σ)[1/p].",
+     "match": "The patched-module output consumed by Theorem 8.0.3."
     }
    ],
    "implementationStatus": "unchecked"
@@ -402,12 +491,13 @@
    "parentStageId": "PadicLocalLanglandsForGL2Qp:R30.6",
    "title": "Hypothesis table: the residually modular lifting theorems behind Dieulefait-Pacetti Theorems 1.4 and 1.5",
    "kind": "comparison",
-   "statement": "Exact hypotheses of the theorems cited by Dieulefait-Pacetti, as the cited sources state them. (K) Kisin 2009a, main theorem: p > 2, rho: G_{Q,S} -> GL_2(O) continuous with (1) rho|G_Qp potentially semi-stable with distinct Hodge-Tate weights, (2) rho becomes semi-stable over an abelian extension of Q_p, (3) rho-bar odd and rho-bar|Q(zeta_p) absolutely irreducible, (4) rho-bar|G_Qp not ~ (omega chi *; 0 chi); conclusion: rho modular up to twist. Residual modularity is supplied by Khare-Wintenberger/Kisin (Serre's conjecture); the residually modular form is Theorem 2.2.17 (F totally real, p totally split, rho-bar modular). Condition (2) is removable under Hypothesis (1.2.6). (HT) Hu-Tan 2015, p >= 5: Theorem 1.4 (rho: G_Q -> GL_2(O) unramified away from finitely many primes, rho-bar odd with rho-bar|Q(zeta_p) absolutely irreducible, rho|G_Qp potentially semi-stable with distinct Hodge-Tate weights => rho from a modular form up to twist) is deduced from Theorem 6.3 plus Khare-Wintenberger's modularity of rho-bar; Theorem 6.3 is the residually modular form (F totally real with p split, rho-bar odd, rho-bar|G_{F(zeta_p)} absolutely irreducible, rho|G_Fv potentially semi-stable with distinct Hodge-Tate weights for v | p, rho-bar modular => rho from a Hilbert modular form); its local input is Theorem 1.3 with Paskunas 2015. (T21a) Tung 2021a: the introduction's Theorem (p > 2, rho irreducible odd, rho-bar|Q(zeta_p) absolutely irreducible, rho|G_Qp potentially semi-stable with distinct Hodge-Tate weights => rho from a cuspidal eigenform up to twist) has no residual modularity hypothesis; the residually modular form is Theorem 4.7 (p odd, F totally real with p split completely, (1) rho-bar modular, (2) rho-bar|F(zeta_p) absolutely irreducible, (3) rho|G_Fv potentially semi-stable with distinct Hodge-Tate weights for v | p => rho from a Hilbert modular form up to twist), new when p = 3 and rho-bar|G_Fv is a twist of an extension of 1 by omega; its proof is only indicated ('following from the method of' Kisin 2.2.18 and Hu-Tan 6.3). (P16) Paskunas 2016 Theorem 1.1 = Theorem 3.30: p = 2, F totally real with 2 totally split, S finite containing the places above 2 and infinity, rho: G_{F,S} -> GL_2(O) with (i) rho-bar modular with nonsolvable image, (ii) rho|G_Fv potentially semi-stable with distinct Hodge-Tate weights for v | 2, (iii) det rho totally odd, (iv) rho-bar|G_Fv not isomorphic to (chi *; 0 chi) for v | 2 => rho modular. (T21b) Tung 2021b Theorem A: p = 2, rho: G_Q -> GL_2(O) continuous, irreducible, odd, unramified outside finitely many places, de Rham at 2 with distinct Hodge-Tate weights, rho-bar modular with non-solvable image => rho modular; Theorem 8.0.3 is the version over F totally real with p split completely ((1) finitely ramified, (2) rho-bar modular, (3) rho-bar totally odd, (4) rho-bar non-solvable image, (5) rho|F_v potentially semi-stable with distinct Hodge-Tate weights for v | p => rho from a Hilbert modular form up to twist), which removes Paskunas 2016's condition (iv).",
+   "statement": "Exact hypotheses of the theorems cited by Dieulefait-Pacetti, as the cited sources state them. (K) Kisin 2009a, main theorem: p > 2, rho: G_{Q,S} -> GL_2(O) continuous with (1) rho|G_Qp potentially semi-stable with distinct Hodge-Tate weights, (2) rho becomes semi-stable over an abelian extension of Q_p, (3) rho-bar odd and rho-bar|Q(zeta_p) absolutely irreducible, (4) rho-bar|G_Qp not ~ (omega chi *; 0 chi); conclusion: rho modular up to twist. Residual modularity is supplied by Khare-Wintenberger/Kisin (Serre's conjecture). The residually modular form is Theorem (2.2.17) of the 2008 DVI = Theorem (2.2.18) of JAMS (the number cited by Hu-Tan and Tung): F totally real with p totally split, rho: G_{F,S} -> GL_2(O) continuous with (1) for v | p, rho|G_Fv becomes semi-stable over an abelian extension of F_v and has distinct Hodge-Tate weights, (2) rho-bar modular and rho-bar|F(zeta_p) absolutely irreducible, (3) for v | p, rho-bar|G_Fv not ~ (omega chi *; 0 chi) => rho modular; its proof runs through Corollary (2.2.16) [DVI] = (2.2.17) [JAMS], which assumes (1.2.6) for each tau_v and the same residual condition. Condition (2) of the main theorem is removable under Hypothesis (1.2.6). (HT) Hu-Tan 2015, p >= 5: Theorem 1.4 (rho: G_Q -> GL_2(O) unramified away from finitely many primes, rho-bar odd with rho-bar|Q(zeta_p) absolutely irreducible, rho|G_Qp potentially semi-stable with distinct Hodge-Tate weights => rho from a modular form up to twist) is deduced from Theorem 6.3 plus Khare-Wintenberger's modularity of rho-bar; Theorem 6.3 is the residually modular form (F totally real with p split, rho-bar odd, rho-bar|G_{F(zeta_p)} absolutely irreducible, rho|G_Fv potentially semi-stable with distinct Hodge-Tate weights for v | p, rho-bar modular => rho from a Hilbert modular form); its local input is Theorem 1.3 with Paskunas 2015. (T21a) Tung 2021a: the introduction's Theorem (p > 2, rho irreducible odd, rho-bar|Q(zeta_p) absolutely irreducible, rho|G_Qp potentially semi-stable with distinct Hodge-Tate weights => rho from a cuspidal eigenform up to twist) has no residual modularity hypothesis; the residually modular form is Theorem 4.7 (p odd, F totally real with p split completely, (1) rho-bar modular, (2) rho-bar|F(zeta_p) absolutely irreducible, (3) rho|G_Fv potentially semi-stable with distinct Hodge-Tate weights for v | p => rho from a Hilbert modular form up to twist), new when p = 3 and rho-bar|G_Fv is a twist of an extension of 1 by omega; its proof is only indicated ('following from the method of' Kisin 2.2.18 and Hu-Tan 6.3). (P16) Paskunas 2016 Theorem 1.1 = Theorem 3.30: p = 2, F totally real with 2 totally split, S finite containing the places above 2 and infinity, rho: G_{F,S} -> GL_2(O) with (i) rho-bar modular with nonsolvable image, (ii) rho|G_Fv potentially semi-stable with distinct Hodge-Tate weights for v | 2, (iii) det rho totally odd, (iv) rho-bar|G_Fv not isomorphic to (chi *; 0 chi) for v | 2 => rho modular. (T21b) Tung 2021b Theorem A: p = 2, rho: G_Q -> GL_2(O) continuous, irreducible, odd, unramified outside finitely many places, de Rham at 2 with distinct Hodge-Tate weights, rho-bar modular with non-solvable image => rho modular; Theorem 8.0.3 is the version over F totally real with p split completely ((1) finitely ramified, (2) rho-bar modular, (3) rho-bar totally odd, (4) rho-bar non-solvable image, (5) rho|F_v potentially semi-stable with distinct Hodge-Tate weights for v | p => rho from a Hilbert modular form up to twist), which removes Paskunas 2016's condition (iv).",
    "hypotheses": [
-    "Serre-conjecture dependence (verified in the sources): Kisin 2009a's introduction theorem, Hu-Tan Theorem 1.4 and Tung 2021a's introduction Theorem obtain residual modularity from Khare-Wintenberger/Kisin; a proof of Serre's conjecture may only use the residually modular forms Kisin 2.2.17, Hu-Tan 6.3, Tung 2021a 4.7, Paskunas 2016 1.1/3.30 and Tung 2021b A/8.0.3.",
+    "Serre-conjecture dependence: Kisin 2009a's introduction (DVI p. 2, JAMS p. 642) and Hu-Tan (proof of Theorem 6.3) state that residual modularity for Theorem 1.4 comes from Khare-Wintenberger/Kisin; Tung 2021a's introduction Theorem has no residual-modularity hypothesis and says only that it 'follows immediately from the original proof of [Kis09]' (Tung 2021b p. 2 makes the Khare-Wintenberger dependence explicit for its own introduction theorem). A proof of Serre's conjecture may therefore only use the residually modular forms Kisin 2.2.17 [DVI] = 2.2.18 [JAMS], Hu-Tan 6.3, Tung 2021a 4.7, Paskunas 2016 1.1/3.30 and Tung 2021b A/8.0.3.",
     "Paskunas 2016 Theorem 1.1 has the extra local hypothesis (iv) excluding (chi *; 0 chi) at every place above 2; Dieulefait-Pacetti's Theorem 1.5 omits it and therefore needs Tung 2021b Theorem A.",
-    "The dyadic theorems require 2 to split completely in F (needed because p-adic local Langlands is only available for GL_2(Q_p)); over Q this is automatic.",
+    "The dyadic theorems (Paskunas 2016 Thm 3.30, Tung 2021b Thm 8.0.3) require 2 to split completely in F; over Q this is automatic. No source read gives a reason for the restriction beyond using F_v ~ Q_p in the local part.",
     "The p = 2 global part of Paskunas 2016 uses, as inputs, modularity lifting theorems of Khare-Wintenberger II (Prop. 9.3, Thm. 9.7) and Kisin 2009b (Thm. 3.3.5) in Section 3D; these are residually modular lifting theorems, not Serre's conjecture itself.",
+    "Hu-Tan's Section 6 also has global imports: Lemma 6.1 uses Khare-Wintenberger II Thm 9.7 (existence of modular lifts of prescribed type when rho-bar|G_Fv is a twist of (omega *; 0 1)) and Breuil-Mezard 2002 Thm 5.3.1(i), and every citation of Kisin 2009a Section 2 is to the corrected version in Gee-Kisin [13, Appendix B] (arXiv v2 pp. 33-35). These are lifting results inside KW II, not Serre's conjecture itself.",
     "Tung 2021b's globalisation Lemma 4.3.3 (used for the local Corollary 8.0.2, not for Theorem 8.0.3 with a given modular rho-bar) cites the proof of Khare-Wintenberger II Thm. 6.1."
    ],
    "proofSteps": [
@@ -424,19 +514,19 @@
    "sources": [
     {
      "sourceId": "kisin-2009-fontaine-mazur-gl2",
-     "locator": "Introduction, p. 2",
+     "locator": "Introduction, 2008 DVI p. 2 (JAMS p. 642 prints the sentence without the comma after 'odd')",
      "excerpt": "the hypothesis that ρ̄ is odd, implies that it is modular.",
      "match": "Kisin's introduction theorem takes residual modularity from Serre's conjecture."
     },
     {
      "sourceId": "kisin-2009-fontaine-mazur-gl2",
-     "locator": "Theorem 2.2.17, pp. 45-46",
+     "locator": "Theorem (2.2.17), 2008 DVI pp. 45-46 (= Theorem (2.2.18), JAMS p. 685)",
      "excerpt": "is modular and ρ̄|F (ζp ) is absolutely irreducible.",
      "match": "The residually modular form of Kisin's theorem."
     },
     {
      "sourceId": "hu-tan-2015-split-breuil-mezard",
-     "locator": "Theorem 6.3 proof, p. 1419",
+     "locator": "Theorem 6.3 proof, p. 1419 (arXiv v2 p. 35)",
      "excerpt": "For Theorem 1.4, one only needs that ρ is modular, which is the main result of [17], [18].",
      "match": "Hu-Tan Theorem 1.4 uses Khare-Wintenberger for residual modularity; Theorem 6.3 is the residually modular form."
     },
@@ -448,7 +538,7 @@
     },
     {
      "sourceId": "paskunas-2016-two-adic",
-     "locator": "Theorem 1.1, p. 1302",
+     "locator": "Theorem 1.1, p. 1302 (arXiv v2 p. 1)",
      "excerpt": "Assume that p = 2. Let F be a totally real field where 2 is totally split",
      "match": "Opening of the dyadic theorem whose hypothesis (iv) excludes (chi *; 0 chi)."
     },
@@ -466,7 +556,7 @@
    "parentStageId": "PadicLocalLanglandsForGL2Qp:R30.6",
    "title": "Dieulefait-Pacetti, proofs of Theorems 1.4 and 1.5: which p-adic Langlands results are cited for which primes",
    "kind": "comparison",
-   "statement": "In Dieulefait-Pacetti (arXiv:2108.07577v2), Section 1.2.1, p. 4: Theorem 1.4 (p odd; rho: Gal_Q -> GL_2(Q_p-bar) continuous, odd, ramified at finitely many primes; rho-bar|Gal_{Q(sqrt(p*))} absolutely irreducible; rho|Gal_Qp de Rham with Hodge-Tate weights {0, k-1}, k > 1; rho-bar modular => rho matches a weight k modular form) is justified by Kisin 2009c for k = 2 and Kisin 2009a in general, where 'the second' extra hypothesis of Kisin 2009a (the compatibility of classical and p-adic local Langlands, Kisin's Hypothesis (1.2.6)) is removed by Emerton 2011 Theorem 1.2.1 and Paskunas 2015 Theorem 1.1, and 'the other hypothesis' is removed for p >= 5 by Hu-Tan 2015 Theorem 1.4 and for p = 3 by Tung 2021a (main theorem). Theorem 1.5 (p = 2; rho odd, finitely ramified, de Rham at 2 with Hodge-Tate weights {0, k-1}, k > 1, rho-bar modular with non-solvable image => rho matches a weight k modular form) is justified by Kisin 2009b Theorem 0.1 (k = 2, rho potentially Barsotti-Tate), Paskunas 2016 Theorem 1.1 and Tung 2021b Theorem A. This case division sits in the proofs of Theorems 1.4 and 1.5 in Section 1.2.1, not in the introduction; matched against the sources, 'the other hypothesis' is Kisin's residual condition (4) rho-bar|G_Qp not ~ (omega chi *; 0 chi), and the removal of Kisin's condition (2) goes through Hypothesis (1.2.6).",
+   "statement": "In Dieulefait-Pacetti (arXiv:2108.07577v2), Section 1.2.1, p. 4: Theorem 1.4 (p odd; rho: Gal_Q -> GL_2(Q_p-bar) continuous, odd, ramified at finitely many primes; rho-bar|Gal_{Q(sqrt(p*))} absolutely irreducible; rho|Gal_Qp de Rham with Hodge-Tate weights {0, k-1}, k > 1; rho-bar modular => rho matches a weight k modular form) is justified by Kisin 2009c for k = 2 and Kisin 2009a in general, where 'the second' extra hypothesis of Kisin 2009a (the compatibility of classical and p-adic local Langlands, Kisin's Hypothesis (1.2.6)) is removed by Emerton 2011 Theorem 1.2.1 and Paskunas 2015 Theorem 1.1, and 'the other hypothesis' is removed for p >= 5 by Hu-Tan 2015 Theorem 1.4 and for p = 3 by Tung 2021a (main theorem). Theorem 1.5 (p = 2; rho odd, finitely ramified, de Rham at 2 with Hodge-Tate weights {0, k-1}, k > 1, rho-bar modular with non-solvable image => rho matches a weight k modular form) is justified by Kisin 2009b Theorem 0.1 (k = 2, rho potentially Barsotti-Tate), Paskunas 2016 Theorem 1.1 and Tung 2021b Theorem A. This case division sits in the proofs of Theorems 1.4 and 1.5 in Section 1.2.1, not in the introduction; matched against the sources, 'the other hypothesis' is Kisin's residual condition (4) rho-bar|G_Qp not ~ (omega chi *; 0 chi), and the removal of Kisin's condition (2) goes through Hypothesis (1.2.6). Theorem 1.4 is applied at p = 3 in the proof of Lemma 2.3 (step (2) of Paso 4) and possibly in Paso 3; Tung 2021a's new case (residual representation at 3 a twist of an extension of 1 by omega) is therefore not avoidable in the argument as written.",
    "hypotheses": [
     "Dieulefait-Pacetti state residual irreducibility over Q(sqrt(p*)); the cited sources use Q(zeta_p). Their Lemma 1.13 proves the equivalence for odd p and odd rho-bar (irreducibility over F_p-bar coefficients).",
     "Dieulefait-Pacetti's Theorems 1.4 and 1.5 assert matching 'a weight k modular form', while the cited theorems conclude modularity 'up to twist'; the twist bookkeeping is not discussed in the source.",
@@ -477,7 +567,7 @@
     "Read the proof of Theorem 1.4 (p. 4): Kisin 2009c for k = 2, Kisin 2009a in general; two extra hypotheses; removal by Eme11 Thm 1.2.1 / Pas15 Thm 1.1 (second) and HT15 Thm 1.4 (p >= 5) / Tun21a main theorem (p = 3) (other).",
     "Read the proof of Theorem 1.5 (p. 4): Kis09b Thm 0.1 for k = 2 and potentially Barsotti-Tate, Pas16 Thm 1.1 and Tun21b Thm A in general.",
     "Match 'the second' extra hypothesis with Kisin 2009a's condition (2) and Hypothesis (1.2.6), and 'the other hypothesis' with Kisin's condition (4) (Kisin p. 2, Hu-Tan p. 1386, Tung 2021a p. 2).",
-    "Check where the theorems are used: Theorem 1.4 in Pasos 1-3, 5 and 6 (odd primes, including q, N, 3 and 5), Theorem 1.5 in Paso 4 (steps (1) and (3)) at p = 2."
+    "Check where the theorems are used: Theorem 1.4 in Paso 1 (prime w, including the solvable-residual-image branch), Paso 2 (prime q), Paso 3 (the odd primes p_i of the level, which can include 3), the proof of Lemma 2.3 (a congruence modulo 3, used in step (2) of Paso 4), Paso 5 (prime N), Paso 6 (prime 5; the p = 3 step of Paso 6 uses Theorem 1.7, not Theorem 1.4) and Section 3 (the p = 2 case, at an odd prime > 3); Theorem 1.5 in steps (1) and (3) of Paso 4 at p = 2."
    ],
    "acceptance": [
     "Every use of Theorem 1.4 at p = 3 must be covered by Tung 2021a Theorem 4.7, and every use at p >= 5 by Hu-Tan 2015 Theorem 6.3 (with Paskunas 2015 and Emerton 2011 for the (1.2.6) compatibility).",
@@ -548,7 +638,7 @@
   {
    "source": "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-odd-via-patching",
    "target": "PadicLocalLanglandsForGL2Qp:R30.6/residually-modular-lifting-theorems-and-their-exact-hypotheses",
-   "reason": "Supplies automorphy of every component of the potentially semi-stable framed deformation ring for p > 2 (Corollary 4.6, from Theorem 1.2 and Emerton-Gee). Consumer use: Theorem 4.7 is stated as following from the method of Kisin 2.2.18 and Hu-Tan 6.3, whose patching step needs exactly that the patched module is supported on every component; the source does not write this proof out, so the dependency is recorded as the source's indicated route. Scope: p odd; the new case is p = 3 with rho-bar|G_Fv a twist of an extension of 1 by omega.",
+   "reason": "Supplies automorphy of every component of the potentially semi-stable framed deformation ring for p > 2 (Corollary 4.6, from Theorem 1.2 and Emerton-Gee). Consumer use: Theorem 4.7 is stated as following from the method of Kisin 2.2.18 and Hu-Tan 6.3, whose patching step needs exactly that the patched module is supported on every component; the source does not write this proof out, so the dependency is recorded as the source's indicated route. Scope: p odd; the new case is p = 3 with rho-bar|G_Fv a twist of an extension of 1 by omega. Review (REVIEW-EXT-12): Tung 2021a p. 15 says only that Theorem 4.7 follows 'from the method of [Kis09, Theorem 2.2.18] and [HT15, Theorem 6.3]'; the use of Corollary 4.6 is the indicated route, not a written proof. Keep, with that caveat (already in the reason).",
    "sources": [
     {
      "sourceId": "tung-2021a-automorphy-pst-rings",
@@ -559,7 +649,7 @@
   {
    "source": "PadicLocalLanglandsForGL2Qp:R30.6/paskunas-breuil-mezard-cycles-generic-residual-types-all-p",
    "target": "PadicLocalLanglandsForGL2Qp:R30.6/residually-modular-lifting-theorems-and-their-exact-hypotheses",
-   "reason": "Supplies the local Breuil-Mezard identity and Corollary 2.38 for generic rho-bar at p = 2. Consumer use: Theorem 1.1 is deduced 'from a weak form of the Breuil-Mezard conjecture, which we prove ... (see Theorems 2.34 and 2.37)', whose residual assumptions force hypothesis (iv); Corollary 2.38 is used in Section 3D. Scope: excludes residual (chi *; 0 chi) at places above 2. The Section 3E step converting the local identity into the global patching inequality was located but not read.",
+   "reason": "Supplies the local Breuil-Mezard identity and Corollary 2.38 for generic rho-bar at p = 2. Consumer use: Theorem 1.1 is deduced 'from a weak form of the Breuil-Mezard conjecture, which we prove ... (see Theorems 2.34 and 2.37)', whose residual assumptions force hypothesis (iv); Corollary 2.38 is used in Section 3D. Scope: excludes residual (chi *; 0 chi) at places above 2. The Section 3E step converting the local identity into the global patching inequality was located but not read. Review (REVIEW-EXT-12): Add the exact consumer locator: the patching inequality (56) at the end of the proof of Proposition 3.26 (arXiv v2 p. 43, Section 3.5 = ANT 3E) cites Remark 2.39, which rests on Theorems 2.34, 2.37 and Corollary 2.38; Corollary 2.38 is also used in Section 3.4 (arXiv pp. 35, 37). The drafter's 'Section 3E located but not read' is thereby resolved for this step.",
    "sources": [
     {
      "sourceId": "paskunas-2016-two-adic",
@@ -570,7 +660,7 @@
   {
    "source": "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-equals-2-via-patching",
    "target": "PadicLocalLanglandsForGL2Qp:R30.6/residually-modular-lifting-theorems-and-their-exact-hypotheses",
-   "reason": "Supplies the p = 2 automorphy of components (Theorem 8.0.1), of which Corollary 8.0.2 is the Breuil-Mezard form. Consumer use: Theorem 8.0.3 applies Theorem 8.0.1 and Lemma 5.3.2(3) directly to conclude automorphy, removing Paskunas 2016's condition (iv). Scope: p = 2, F totally real with p split completely; the same patching argument, not the corollary itself, is what the global theorem uses.",
+   "reason": "Supplies the p = 2 automorphy of components (Theorem 8.0.1), of which Corollary 8.0.2 is the Breuil-Mezard form. Consumer use: Theorem 8.0.3 applies Theorem 8.0.1 and Lemma 5.3.2(3) directly to conclude automorphy, removing Paskunas 2016's condition (iv). Scope: p = 2, F totally real with p split completely; the same patching argument, not the corollary itself, is what the global theorem uses. Review (REVIEW-EXT-12): The output consumed by Theorem 8.0.3 is Theorem 8.0.1 (proof, p. 39), not Corollary 8.0.2; the node statement is corrected to include Theorem 8.0.1, after which the link is correct.",
    "sources": [
     {
      "sourceId": "tung-2021b-two-adic-pst-rings",
@@ -581,7 +671,7 @@
   {
    "source": "PadicLocalLanglandsForGL2Qp:R30.4/kisin-hypothesis-1-2-6-locally-algebraic-lattice-and-abelian-types",
    "target": "PadicLocalLanglandsForGL2Qp:R30.6/residually-modular-lifting-theorems-and-their-exact-hypotheses",
-   "reason": "Supplies the precise content of Kisin's local compatibility hypothesis (1.2.6) and its proof for abelian types (Theorem 1.2.8). Consumer use: in the table, Kisin's condition (2) (semi-stable over an abelian extension) is exactly what (1.2.8) needs; the later local results remove it. Scope: p odd; the existence of Pi with V(Pi) = V is separately credited to Kisin's appendix (1.2.7).",
+   "reason": "Supplies the precise content of Kisin's local compatibility hypothesis (1.2.6) and its proof for abelian types (Theorem 1.2.8). Consumer use: in the table, Kisin's condition (2) (semi-stable over an abelian extension) is exactly what (1.2.8) needs; the later local results remove it. Scope: p odd; the existence of Pi with V(Pi) = V is separately credited to Kisin's appendix (1.2.7). Review (REVIEW-EXT-12): Exact consumer locator: Corollary (2.2.16) [DVI p. 45] = (2.2.17) [JAMS p. 685] assumes (1.2.6) for each tau_v, and Theorem (2.2.17) [DVI] = (2.2.18) [JAMS] supplies it through its abelian-semistability condition (1) and Theorem (1.2.8). Implied stage edge R30.4 -> R30.6 is a transitive shortcut of R30.4 -> R30.5 -> R30.6; acyclic.",
    "sources": [
     {
      "sourceId": "kisin-2009-fontaine-mazur-gl2",
@@ -603,13 +693,25 @@
   {
    "source": "PadicLocalLanglandsForGL2Qp:R30.6/dieulefait-pacetti-citation-map-for-theorems-1-4-and-1-5",
    "target": "GL2ModularityLifting:R32.1",
-   "reason": "Supplies the case division (p >= 5, p = 3, p = 2) with exact theorem numbers and hypotheses for the residually irreducible lifting theorems that R32.1 must state as separate declarations ('the odd-prime residually modular theorem, the dyadic nonsolvable-residual theorem'). Consumer use: Dieulefait-Pacetti Theorem 1.4 and Theorem 1.5 (p. 4). Scope mismatch: R32.1 also lists Pan's residually reducible theorem and the ordinary p = 3 theorem (Dieulefait-Pacetti Theorems 1.6, 1.7), which are not supplied here; and the global patching proofs of the tabled theorems belong to R22/R32, not to R30.",
+   "reason": "Supplies the case division (p >= 5, p = 3, p = 2) with exact theorem numbers and hypotheses for the residually irreducible lifting theorems that R32.1 must state as separate declarations ('the odd-prime residually modular theorem, the dyadic nonsolvable-residual theorem'). Consumer use: Dieulefait-Pacetti Theorem 1.4 and Theorem 1.5 (p. 4). Scope mismatch: R32.1 also lists Pan's residually reducible theorem and the ordinary p = 3 theorem (Dieulefait-Pacetti Theorems 1.6, 1.7), which are not supplied here; and the global patching proofs of the tabled theorems belong to R22/R32, not to R30. Review (REVIEW-EXT-12): R32.1's description asks for four separate declarations; this link supplies only the odd-prime residually modular and dyadic nonsolvable theorems (Dieulefait-Pacetti Thms 1.4, 1.5). Pan's theorem and the ordinary p = 3 theorem (Thms 1.6, 1.7) need other suppliers. Atlas edge R30.6 -> R32.1 already exists.",
    "sources": [
     {
      "sourceId": "dieulefait-pacetti-simplified-serre",
      "locator": "Section 1.2.1, Theorems 1.4 and 1.5, p. 4"
     }
    ]
+  },
+  {
+   "source": "PadicLocalLanglandsForGL2Qp:R30.6/paskunas-breuil-mezard-cycles-scalar-endomorphisms-p-at-least-5",
+   "target": "PadicLocalLanglandsForGL2Qp:R30.6/hu-tan-breuil-mezard-cycles-split-distinct-characters-p-at-least-5",
+   "reason": "Hu-Tan Theorem 4.2 proof (arXiv v2 p. 21) uses [26, Cor 6.5] and [26, Thm 6.6] (Paskunas 2015's generic-case results, part of Theorem 1.1) for rho_1, the non-split extension of omega by 1 (generic in Paskunas's sense); Remark 5.7 (p. 30) uses [20] and [26] for the two non-split extensions in the generic split case. Both nodes are in R30.6; no stage edge added.",
+   "sources": [
+    {
+     "sourceId": "hu-tan-2015-split-breuil-mezard",
+     "locator": "Proof of Theorem 4.2, arXiv v2 p. 21; Remark 5.7, p. 30"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
  ],
  "coverage": [
@@ -618,35 +720,40 @@
    "status": "not_read",
    "remaining": [
     "Colmez 2010 Chapters I-II conventions for (phi, Gamma)-modules not yet read",
-    "Supplier check of PhiGammaModulesAndIwasawaCohomology PG.0-PG.3 (EXT-16 packet), PadicHodgeTheory P7 and GL2AutomorphicRepresentationsAndTransfer R16.3 not yet done"
+    "Supplier check of PhiGammaModulesAndIwasawaCohomology PG.0-PG.3 (EXT-16 packet), PadicHodgeTheory P7 and GL2AutomorphicRepresentationsAndTransfer R16.3 not yet done",
+    "Review (REVIEW-EXT-12): not_read is accurate; no change."
    ]
   },
   {
    "stageId": "PadicLocalLanglandsForGL2Qp:R30.2",
    "status": "not_read",
    "remaining": [
-    "Block classification (Paskunas 2014, cited by Paskunas 2016 Section 1) and category definitions not yet recorded"
+    "Block classification (Paskunas 2014, cited by Paskunas 2016 Section 1) and category definitions not yet recorded",
+    "Review (REVIEW-EXT-12): Add to remaining: the exceptional-block Ext computations read in this packet's sources -- Tung 2021a Section 2.3 (p = 3 block {1, Sp, omega o det, Sp (x) omega o det}, Lemmas 2.2-2.7, Prop 2.8) and Tung 2021b Section 1.2 (p = 2 block {1, Sp}, Lemmas 1.2.3-1.2.7, Prop 1.3.2) -- and the block list in Paskunas 2016 Section 1 citing Paskunas 2014 [42]. The stage text requires the classification 'including exceptional low-characteristic blocks'."
    ]
   },
   {
    "stageId": "PadicLocalLanglandsForGL2Qp:R30.3",
    "status": "not_read",
    "remaining": [
-    "Colmez 2010 main theorems and construction of V and Pi(V) not yet read"
+    "Colmez 2010 main theorems and construction of V and Pi(V) not yet read",
+    "Review (REVIEW-EXT-12): not_read is accurate."
    ]
   },
   {
    "stageId": "PadicLocalLanglandsForGL2Qp:R30.4",
    "status": "partial",
    "remaining": [
-    "Colmez 2010 Theorem VI.6.50, Emerton 2011 3.3.22, Paskunas 2015 Proposition 4.14/Theorem 4.19/Theorem 7.1 not yet transcribed as nodes"
+    "Colmez 2010 Theorem VI.6.50, Emerton 2011 3.3.22, Paskunas 2015 Proposition 4.14/Theorem 4.19/Theorem 7.1 not yet transcribed as nodes",
+    "Review (REVIEW-EXT-12): partial is accurate. Add to remaining: JAMS footnotes 1, 3 and Colmez's revised [Co 2]; Kisin's appendix [Ki 6]; Paskunas 2016 Prop 2.18 (locally algebraic vectors in Pi(kappa(n)) for principal-series types, all p) as a candidate node."
    ]
   },
   {
    "stageId": "PadicLocalLanglandsForGL2Qp:R30.5",
    "status": "not_read",
    "remaining": [
-    "Paskunas 2015 Sections 2, 5, 6 and Paskunas 2016 Section 2B (read) not yet transcribed as nodes"
+    "Paskunas 2015 Sections 2, 5, 6 and Paskunas 2016 Section 2B (read) not yet transcribed as nodes",
+    "Review (REVIEW-EXT-12): Status not_read conflicts with its own remaining item, which says Paskunas 2015 Sections 2, 5, 6 and Paskunas 2016 Section 2B were read; those arguments are summarised in the R30.6 nodes' proof steps. Recommend status partial, with remaining = transcribe Paskunas 2015 Thms 2.42, 2.44, 5.2, Prop 6.1/Thm 6.10 and Paskunas 2016 Prop 2.7, Thm 2.22, Thm 2.23 as nodes (see the gaps)."
    ]
   },
   {
@@ -654,7 +761,8 @@
    "status": "partial",
    "remaining": [
     "Global patching proofs of the tabled theorems are R22/R32 material and not decomposed",
-    "Kisin 2009b, Kisin 2009c and Emerton 2011 Theorem 1.2.1 cited by Dieulefait-Pacetti not decomposed here"
+    "Kisin 2009b, Kisin 2009c and Emerton 2011 Theorem 1.2.1 cited by Dieulefait-Pacetti not decomposed here",
+    "Review (REVIEW-EXT-12): partial is accurate. Add to remaining: Hu-Tan Sections 3.1-3.2, 4.2 (Theorem 4.10) and 5.1-5.2 (Props 5.3, 5.5, Cor 5.10), on which Theorems 5.11-5.12 depend (disclosed only in the node's hypotheses); the five new gaps."
    ]
   }
  ],
@@ -680,6 +788,102 @@
     "PadicLocalLanglandsForGL2Qp:R30.6/dieulefait-pacetti-citation-map-for-theorems-1-4-and-1-5"
    ],
    "detail": "Verified: Dieulefait-Pacetti cite them in the proofs of Theorems 1.4 and 1.5 (p. 4). Kisin 2009b is only a DVI in the library (SS_Kisin2) and was not rendered; Kisin 2009c (SS_KisinFlat) was not opened; Emerton 2011 Theorem 1.2.1 is in the library (ADD_EMERTON11) and is decomposed at statement level by the EXT-10 packet (CompletedCohomologyAndLocalGlobalCompatibility R31.4). Next action: R32/R22 owners read Kisin 2009b Theorem 0.1 and Kisin 2009c's main theorem; this packet does not supply them."
+  },
+  {
+   "title": "Hu-Tan Section 6: global imports not read",
+   "neededBy": [
+    "PadicLocalLanglandsForGL2Qp:R30.6/residually-modular-lifting-theorems-and-their-exact-hypotheses",
+    "PadicLocalLanglandsForGL2Qp:R30.6/hu-tan-breuil-mezard-cycles-split-distinct-characters-p-at-least-5"
+   ],
+   "detail": "Lemma 6.1 (arXiv v2 p. 35) uses Khare-Wintenberger II Thm 9.7 (modular lifts of prescribed type for rho-bar|G_Fv a twist of (omega *; 0 1)) and Breuil-Mezard 2002 Thm 5.3.1(i) (component structure of R^{box}(2, (omega~^m)^{+2}, rho-bar)); Section 6 reads every citation of Kisin 2009a Section 2 in the corrected form of Gee-Kisin [13, Appendix B] (p. 33). None was read. Next action: read KW II Section 9 and Gee-Kisin App. B; record whether KW II Thm 9.7 depends on Serre's conjecture.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Paskunas 2015 Section 2/5 formalism has no node but is consumed by three other nodes",
+   "neededBy": [
+    "PadicLocalLanglandsForGL2Qp:R30.6/paskunas-breuil-mezard-cycles-generic-residual-types-all-p",
+    "PadicLocalLanglandsForGL2Qp:R30.6/hu-tan-breuil-mezard-cycles-split-distinct-characters-p-at-least-5",
+    "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-odd-via-patching",
+    "PadicLocalLanglandsForGL2Qp:R30.5"
+   ],
+   "detail": "Paskunas 2016 Section 2.3 uses [40] Cor 2.5, Prop 2.22, 2.24, 2.30, 2.32, Lemma 2.27, 2.33, Thm 5.2, Cor 5.3, Cor 4.21, Thm 4.19 (arXiv v2 pp. 19-23); Hu-Tan Section 2 uses [26, Def 2.2] and Section 4 uses [26, Cor 6.5, Thm 6.6]; Tung 2021a uses [Pas15, Cor 2.5] (AA3, p. 9) and [Pas15, Lemma 2.3] (proof of Theorem 1.2, p. 14). These appear only in the proof steps of the Paskunas 2015 node. Next action: give Paskunas 2015 Theorems 2.42/2.44, Proposition 2.22 and Theorem 5.2 their own R30.5 nodes and link them to the consumers.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Cross-paper reuse between Paskunas 2016, Tung 2021a and Tung 2021b has no supplier node",
+   "neededBy": [
+    "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-odd-via-patching",
+    "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-equals-2-via-patching"
+   ],
+   "detail": "Tung 2021a Theorem 3.7 (p. 11) uses Paskunas 2016 Prop 2.7 (capture by principal-series types). Tung 2021b reuses Tung 2021a's arguments verbatim for p = 2: Prop 1.3.3 from [Tun18, Prop 2.9]; Prop 6.3.2 from [Tun18, Prop 3.4]; Cor 6.3.4 = [Tun18, Cor 3.8]; Cor 6.3.6 = [Tun18, Cor 3.10] (arXiv v3 pp. 10, 32-33). No node states these intermediate results as outputs, so no link can be drawn. Next action: add R30.5 nodes for Paskunas 2016 Prop 2.7 and for the Tung finiteness/faithfulness results, then link them.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "General validity of Kisin's Hypothesis (1.2.6) not decomposed",
+   "neededBy": [
+    "PadicLocalLanglandsForGL2Qp:R30.4/kisin-hypothesis-1-2-6-locally-algebraic-lattice-and-abelian-types",
+    "PadicLocalLanglandsForGL2Qp:R30.6/dieulefait-pacetti-citation-map-for-theorems-1-4-and-1-5",
+    "PadicLocalLanglandsForGL2Qp:R30.4"
+   ],
+   "detail": "JAMS footnotes 1 and 3 (pp. 642, 649) say the revised Colmez [Co 2] (Asterisque 330) asserts (1.2.6) always holds, relying on Emerton's local-global compatibility; Paskunas 2015 Prop 4.14 and Paskunas 2016 Prop 2.18 use Colmez VI.6.50 and Emerton 3.3.22 for the locally algebraic vectors. Kisin's appendix [Ki 6, Thm 0.1] (existence of Pi, with p = 3 exceptions) is also unread. Next action: read Colmez 2010 Section VI.6 and Emerton 2011 Section 3.3 and 7.4 under R30.4.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Tung 2021a/2021b patching and ordinary-component imports not read",
+   "neededBy": [
+    "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-odd-via-patching",
+    "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-equals-2-via-patching"
+   ],
+   "detail": "Tung 2021a: [CEG+16] Section 2, Cor 4.26, Thm 4.35, Cor 5.4; [Pyv18] Thm 3.6, 6.1; [EP20] Thms 5.1, 5.3, 6.3; [WE18] Prop 3.6; [BLGG13] Thm A.4.1; [EG14] Cor A.7, Prop 3.3.1, Lemma 5.5.1, Thm 5.5.2; [BM02] Thm 5.3.1 and [KW09] 3.2.7 for the exceptional case. Tung 2021b: [Cal12] Prop 3.2, [Sno09] Prop 8.2.1, KW II Thm 6.1 proof (Lemma 4.3.3); [Tho12] Thm 10.2 (Theorem 7.3.1). The existing 'not purely local' gap records that these proofs are global; this gap records that their inputs are unread.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-12",
+  "date": "2026-09-24",
+  "notes": "All eight nodes and eight links were checked against public copies. Four sources (Dieulefait-Pacetti, Paskunas 2015, Tung 2021a, Tung 2021b) are the exact arXiv files the drafter read (SHA-256 identical). Hu-Tan and Paskunas 2016 were read in arXiv v2 (same numbering as the published versions the packet cites; arXiv pages recorded). Kisin was read both in the public 2008 DVI (identical SHA-256 to the library copy) and in the free JAMS PDF. Main findings: (1) Kisin's residually modular theorem is 2.2.17 in the DVI but 2.2.18 in JAMS, which is the number Hu-Tan and Tung cite, and the table listed only one of its three hypotheses; (2) the Kisin node lacked the definition of the type and contained unsourced glosses; the JAMS footnotes on the general validity of (1.2.6) were missing; (3) the Dieulefait-Pacetti use map misplaced the p = 3 use of Theorem 1.4 (it is in Lemma 2.3, not Paso 6); (4) Tung 2021b's link consumes Theorem 8.0.1, not Corollary 8.0.2; (5) a missing link Paskunas 2015 -> Hu-Tan (Thm 4.2, Rem 5.7) was added; (6) five gaps added for unread imports and for shared intermediate results that have no supplier node. Source-record recommendations: add the public DVI and JAMS URLs to the Kisin source; record arXiv v2 alongside the published editions for Hu-Tan and Paskunas 2016. Status stays partial; implementationStatus stays unchecked.",
+  "checked": [
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.4/kisin-hypothesis-1-2-6-locally-algebraic-lattice-and-abelian-types",
+    "verdict": "corrected",
+    "note": "Checked against the public 2008 DVI on Kisin's homepage (SHA-256 identical to the library copy; text extracted with a reviewer-written DVI parser) and against the free JAMS PDF. Hypothesis (1.2.6), Remark (1.2.7), Theorem (1.2.8) with proof and Lemma (1.2.10) read in both. The definition of 'type (k, tau, psi)' (Kisin 1.1: tau of Galois type, HT weights 0,k-1, det = psi*chi_cyc) was missing. The 'equivalently ... condition (2)' gloss is not in the source; Kisin uses the implication only implicitly in the proof of Theorem (2.2.17) [DVI] = (2.2.18) [JAMS]. The proof step's 'crystabelline up to twist' and 'built from locally algebraic principal series' are not in the source. Remark (1.2.7) prints (omega *; 0 1) (x) chi in the DVI but (1 *; 0 omega) (x) chi in JAMS (page image p. 649 checked). JAMS footnotes 1 and 3 (absent from the DVI) say the revised [Co 2] asserts (1.2.6) always holds, with the proof relying on Emerton's local-global compatibility; this is the route by which Dieulefait-Pacetti credit Emerton 2011. Acceptance item 1 wrongly suggested sigma(k,1) = Sym^{k-2}: for scalar tau Kisin's sigma(tau) is the Steinberg type."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/paskunas-breuil-mezard-cycles-scalar-endomorphisms-p-at-least-5",
+    "verdict": "verified",
+    "note": "arXiv 1209.5205v3 (SHA-256 matches the packet). Read Section 1 (Thm 1.1, pp. 1-3), Section 2.6 (Thms 2.42, 2.44), Section 3 opening, Section 4 (Lemmas 4.3-4.8, Prop 4.14, Thm 4.15, Thm 4.19, Cor 4.21), Section 5 (Prop 5.1, Thm 5.2, Cor 5.3), Section 6 (Prop 6.1, Rem 6.2, Cor 6.4-6.5, Thm 6.6, Lemma 6.7, Thm 6.10, Lemma 6.13, Props 6.20-6.21, Cor 6.22, Prop 6.23, Thm 6.24) and Section 7 opening. Statement, normalisation (det = psi, psi|_I = eps^{a+b} det tau; Section 4 sets psi = zeta*eps), case split, imports and all four excerpts confirmed. Minor: the quoted 'From now on we assume that p >= 5 unless it is stated otherwise' splices the text on p. 17 with its footnote 1; 'Theorem 1.1 = Theorems 6.6 + 6.24 with z(sigma, rho-bar) := z_1(M(sigma))' is the evident assembly but is not written out in the source."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/hu-tan-breuil-mezard-cycles-split-distinct-characters-p-at-least-5",
+    "verdict": "verified",
+    "note": "Read in arXiv 1309.1658v2 (13 Nov 2014; theorem numbering identical to the ASENS version cited by the packet) plus the free ASENS sample (printed pp. 1383-1385, confirming the p. 1383 Notation and the p. 1384 normalisation psi|_I = eps^{k-2} det tau, det rho = psi*eps). Checked Thms 1.1, 1.3, 1.4, Conj 1.2, Section 2 (hypothesis (H), Prop 2.3, Prop 2.9, Prop 2.11, Cor 2.12), Thm 4.2 with proof, Prop 5.2, formula (23), Rem 5.7, Thms 5.11-5.12 with proofs, Section 6 (Lemma 6.1, Prop 6.2, Thm 6.3). All excerpts occur. arXiv page equivalents: Notation p. 1; Thm 1.3 p. 4; 'only new case' p. 5; Thm 5.11 p. 32; Thm 6.3 proof p. 35. Gaps added for the unread Section 6 imports (KW II Thm 9.7, Breuil-Mezard Thm 5.3.1(i), Gee-Kisin App. B)."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-odd-via-patching",
+    "verdict": "corrected",
+    "note": "arXiv 1803.07451v4 (SHA-256 matches). Whole paper read. Statement, normalisation (lambda=(a,b), a>b, psi|_I = eps^{a+b-1} det tau, det = psi*eps), proof steps and excerpts confirmed. Corrections: Definition 3.2 defines automorphic components as those making up the support of M_infty(sigma) (a union of components), so 'meets the support' is replaced by 'lies in the support'; the import list omitted Colmez VI.6.50 (Thm 4.1), Paskunas 2013 Lemma 10.26 and Cor B.5, Boeckle 2010, Emerton-Gee Lemma 5.5.1/Thm 5.5.2/Prop 3.3.1, Paskunas 2015 Lemma 2.3 and Nekovar Prop 1.24."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/paskunas-breuil-mezard-cycles-generic-residual-types-all-p",
+    "verdict": "corrected",
+    "note": "Read in arXiv 1509.00332v2 (25 Apr 2016); numbering identical to the ANT version (subsections 2.1-2.3 and 3.1-3.6 correspond to ANT 2A-2C and 3A-3F). Checked Thm 1.1, block list, Section 2.2 (Props 2.7-2.14, 2.17-2.19, Cor 2.20, Lemma 2.21, Thm 2.22), Section 2.3 in full, Lemma 3.29, Thm 3.30, the Cor 2.38 uses in 3.4 and the Remark 2.39 use at the end of 3.5. Statement, hypotheses (including the drafter's 'determinant equal to psi' typo finding, which is also in arXiv p. 21) and proof steps confirmed. Correction: two excerpts are not literal text (text-layer '6=' for the not-equal sign; hyphenation 'non-zero', 'semi-stable' in the version read); locators given with arXiv pages."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/tung-breuil-mezard-cycles-all-residual-types-p-equals-2-via-patching",
+    "verdict": "corrected",
+    "note": "arXiv 1908.06174v3 (SHA-256 matches). Read Intro with Thms A-C, Section 1.2 statements, Section 4.3 (Def 4.3.2, Lemmas 4.3.1-4.3.4), Section 5.1, Lemma 5.3.2 and Thm 5.3.3 statements, Section 6.3 statements, Section 7.3 (Thm 7.3.1 with proof), Section 8 in full. All excerpts occur. Correction: the only link out of this node supplies Theorem 8.0.1 (used by Theorem 8.0.3), which was in the proof steps but not in the statement; Theorem 8.0.1 is added to the statement with its excerpt."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/residually-modular-lifting-theorems-and-their-exact-hypotheses",
+    "verdict": "corrected",
+    "note": "Every tabled statement re-read (Kisin DVI/JAMS, Hu-Tan 1.4/6.3, Tung 2021a intro Theorem/4.7, Paskunas 2016 1.1/3.30, Tung 2021b A/8.0.3). Corrections: (K) omitted two of the three hypotheses of Kisin's residually modular theorem (semi-stable over an abelian extension; residual type at v|p) and used the DVI number 2.2.17, whereas JAMS, Hu-Tan (Thm 6.3 proof, Prop 6.2) and Tung 2021a (p. 15) cite it as 2.2.18; the reason given for 'p splits completely' is not in any source read; Tung 2021a's introduction does not itself invoke Khare-Wintenberger (only implicitly via 'the original proof of [Kis09]'); Hu-Tan's Section 6 also imports KW II Thm 9.7 and Gee-Kisin's corrected Kisin Section 2."
+   },
+   {
+    "nodeId": "PadicLocalLanglandsForGL2Qp:R30.6/dieulefait-pacetti-citation-map-for-theorems-1-4-and-1-5",
+    "verdict": "corrected",
+    "note": "arXiv 2108.07577v2 (SHA-256 matches); whole paper read. Statement, the matching of 'the second'/'the other' hypothesis with Kisin (2)/(4), Lemma 1.13 and all excerpts confirmed. Correction to the use map: Theorem 1.4 is used at p = 3 in the proof of Lemma 2.3 (step (2) of Paso 4), not in Paso 6 (whose p = 3 step uses Theorem 1.7); it is also used in Section 3 (p = 2 case) at an odd prime > 3."
+   }
+  ]
+ }
 }

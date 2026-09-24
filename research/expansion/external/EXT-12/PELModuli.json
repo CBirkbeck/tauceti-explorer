@@ -16,6 +16,15 @@
     "Chapter 2: 2.1.1-2.1.3 (pp. 111-121) proofs read; 2.1.4 statements only; 2.1.5 (pp. 123-129) Proposition 2.1.5.3 and its proof, 2.1.5.9-2.1.5.15; 2.1.6 (pp. 129-136) Propositions 2.1.6.4, 2.1.6.8, 2.1.6.9 and the preceding discussion; 2.1.7 (pp. 137-139); 2.2.1-2.2.4 (pp. 140-160) in full; 2.3.1-2.3.5 (pp. 161-167) in full",
     "Appendix: Proposition A.7.4 statement (p. 609); Theorems B.3.7, B.3.9, B.3.11 and Remark B.3.12 with proofs (pp. 632-637)",
     "Page images inspected: PDF pp. 25, 26, 65, 68, 88-92, 110, 114, 117, 122-136, 182, 183, 186, 190-192"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf",
+     "sha256": "a7a454f5d0735f4bf11f00a8afc14c361c5fc2cefd691d7466f7620ab4c3a079",
+     "date": "2026-09-23",
+     "version": "Thesis revision, title page '(Revised March 14, 2021)', 696 pp., PDF created 2021-03-14; identical to the drafter's copy (hash matches)",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -31,6 +40,15 @@
     "Section 5.1.2 Smooth PEL moduli problems, p. 53",
     "Section 5.1.3 PEL-type Shimura varieties including Examples 5.1.3.4-5.1.3.6 and Remark 5.1.3.8, pp. 54-56",
     "Sections 5.1.4-5.1.5, pp. 56-58"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://www.kwlan.org/articles/intro-sh-ex.pdf",
+     "sha256": "d9a3e75544a0a168db70d552a80696c4ef2f84d8184654cd0ca45eae81b32dad",
+     "date": "2026-09-23",
+     "version": "Author's preprint, 80 pp., PDF created 2022-04-12; hash matches the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -46,6 +64,15 @@
     "Section 8 PEL Shimura varieties, pp. 79-89 (Propositions 8.1-8.14, Remarks 8.2, 8.8, 8.9, 8.16, 8.18, Definition 8.15, Theorem 8.17 with footnote 54, Proposition 8.19, Lemmas 8.20-8.21)",
     "Section 12 Example 12.4(c), p. 112",
     "Section 14 paragraph 'Simple PEL Shimura varieties of type A or C' and Proposition 14.14, pp. 126-127"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://www.jmilne.org/math/xnotes/svi.pdf",
+     "sha256": "f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e",
+     "date": "2026-09-23",
+     "version": "'October 23, 2004; revised September 16, 2017', 172 pp.; hash matches the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -60,6 +87,15 @@
     "Section 6 introduction and 6.1 Shimura varieties of PEL type (6.1.1 Endomorphisms, 6.1.2 Construction of the moduli), pp. 46-53",
     "Section 6.2 Shimura variety of unitary similitude groups including 6.2.1 Classification of G, pp. 53-54",
     "Sections 5.1 and 6.2 beyond 6.2.1 were not read"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://www.math.ucla.edu/~hida/Poincare.pdf",
+     "sha256": "fc85157f7d45f3040240021395ec0dca725b47d55d30905f4f33d43943040f81",
+     "date": "2026-09-23",
+     "version": "Poincare.dvi, 96 pp. (PDF generated 2010-05-29); hash matches the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -71,6 +107,15 @@
    "sha256": "0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2",
    "readSections": [
     "Section 3: statement of Satz 1 (p. 356) and its proof and Lemma 4 (p. 357), read on the page image; nothing else in this paper was read for this packet"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0073/LOG_0026.pdf",
+     "sha256": "f72a869f4a050e6e4a435cc790f4ac2e47b61fcac35d564041b5f43d89c2f87a",
+     "date": "2026-09-23",
+     "version": "Goettingen GDZ scan of Invent. Math. 73 (1983), no. 3, 349-366 (Crossref DOI 10.1007/BF01388432); 19 PDF pages including a GDZ cover sheet, no text layer; printed p. 356 = PDF p. 9, p. 357 = PDF p. 10. Differs from the drafter's library scan (0b7fb3e5...); the printed pages agree",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   }
  ],
@@ -237,16 +282,16 @@
    "parentStageId": "PELModuli:M0",
    "title": "Multirank classification and residue-field detection of projective O_R-modules at unramified primes (Lan 1.1.3, 1.2.1.21-1.2.1.33)",
    "kind": "lemma",
-   "statement": "(a) Lemma 1.1.3.1: let R_0 be a noetherian domain and O an R_0-order that is projective over R_0; let R be a noetherian local R_0-algebra with residue field k, M_1 a finitely generated O tensor R-module that is projective over O tensor R, and M_2 a finitely generated O tensor R-module projective over R. Then M_1 and M_2 are isomorphic iff they are isomorphic modulo the maximal ideal. (b) Now let R_0 be the ring of integers of a number field, k a field of characteristic 0 or a finite field with R_0 -> k of kernel p, p unramified in O, Lambda = k if p = 0 and the unramified complete extension with residue field k otherwise (W(k) if R_0 = Z), R a noetherian local Lambda-algebra with residue field k. Every finitely generated projective O_R-module is isomorphic to a direct sum of the M_{tau,R}^{m_tau} for uniquely determined integers m_tau >= 0, its O_R-multirank (Lemma 1.1.3.4, Def. 1.1.3.5); being projective over O_R is not the same as being locally free (Remark 1.1.3.2). (c) For R_0 = Z the O-multirank of an O-lattice is the B-multirank of its rationalization (Def. 1.2.1.21); an O tensor R-module is integrable if it is M tensor R for an O-lattice M (Def. 1.2.1.23); under the assumptions of (b) with p not dividing Disc, an O_R-module is integrable of O-multirank (m_[tau]) iff it is finitely generated projective of O_R-multirank (m_tau) with m_tau = s_[tau] m_[tau], and this can be checked modulo the maximal ideal (Lemmas 1.2.1.29, 1.2.1.33). (d) Generalized Noether-Skolem (Lemma 1.1.3.6): every C-automorphism of End_{O_F,R}(M) is inner by an invertible element of End_C(M), for M finitely generated projective and C an O_{F,R}-subalgebra containing O_{F,R}.",
+   "statement": "(a) Lemma 1.1.3.1: let R_0 be a noetherian domain and O an R_0-order that is projective over R_0; let R be a noetherian local R_0-algebra with residue field k, M_1 a finitely generated O tensor R-module that is projective over O tensor R, and M_2 a finitely generated O tensor R-module projective over R. Then M_1 and M_2 are isomorphic iff they are isomorphic modulo the maximal ideal. (b) Now let R_0 be the ring of integers of a number field, k a field of characteristic 0 or a finite field with R_0 -> k of kernel p, p unramified in O, Lambda = k if p = 0 and the unramified complete extension with residue field k otherwise (W(k) if R_0 = Z), R a noetherian local Lambda-algebra with residue field k. Every finitely generated projective O_R-module is isomorphic to a direct sum of the M_{tau,R}^{m_tau} for uniquely determined integers m_tau >= 0, its O_R-multirank (Lemma 1.1.3.4, Def. 1.1.3.5); being projective over O_R is not the same as being locally free (Remark 1.1.3.2). (c) For R_0 = Z the O-multirank of an O-lattice is the B-multirank of its rationalization (Def. 1.2.1.21); an O tensor R-module is integrable if it is M tensor R for an O-lattice M (Def. 1.2.1.23); under the assumptions of (b) with R_0 = Z, p not dividing Disc and R moreover a noetherian complete local ring with residue field k (the setting stated before Lemma 1.2.1.26), an O_R-module is integrable of O-multirank (m_[tau]) iff it is finitely generated projective of O_R-multirank (m_tau) with m_tau = s_[tau] m_[tau], and this can be checked modulo the maximal ideal (Lemmas 1.2.1.29, 1.2.1.33). (d) Generalized Noether-Skolem (Lemma 1.1.3.6): every C-automorphism of End_{O_F,R}(M) is inner by an invertible element of End_C(M), for M finitely generated projective and C an O_{F,R}-subalgebra containing O_{F,R}.",
    "hypotheses": [
     "(a): O projective over R_0; M_1 projective over O tensor R and M_2 projective over R",
     "(b)-(d): R_0 ring of integers of a number field (R_0 = Z in Section 1.2.1); k of characteristic 0 or finite; p = ker(R_0 -> k) unramified in O",
-    "(c): p does not divide Disc_{O/Z}; s_[tau] = 1 when p > 0 (Def. 1.2.1.28)"
+    "(c): R_0 = Z; p does not divide Disc_{O/Z}; R a noetherian complete local ring with residue field k (setting before Lemma 1.2.1.26, printed p. 38); s_[tau] = 1 when p > 0 (Def. 1.2.1.28)"
    ],
    "proofSteps": [
     "(a): lift a residue isomorphism to a morphism f using projectivity of M_1 over O tensor R; since O is a direct summand of a free R_0-module, both modules are R-projective, so f is an isomorphism by Nakayama.",
     "(b): by Prop. 1.1.1.21 O tensor Lambda is maximal and, for p > 0, a product of matrix algebras M_{d_tau}(O_{F_tau}); by (a) reduce to finite-dimensional modules over a semisimple algebra with separable center, classified by Cor. 1.1.2.6.",
-    "(c): Lemma 1.2.1.24 shows the rationalization of an integrable module over a flat R is well defined; Lemma 1.2.1.29 compares multiranks through O tensor Lambda, which is projective by Props. 1.1.1.21 and 1.1.1.23 (maximal orders are hereditary, cited to [107, Thm. 21.4]).",
+    "(c): Lemma 1.2.1.24 shows the rationalization of an integrable module over a flat R is well defined; Lemma 1.2.1.29 writes M = (M_[Z] tensor Lambda) tensor_Lambda R, where the O_Lambda-lattice M_[Z] tensor Lambda is projective over O_Lambda by Props. 1.1.1.21 and 1.1.1.23 (maximal orders are hereditary, cited to [107, Thm. 21.4 and Cor. 21.5]), and compares multiranks by Lemma 1.2.1.26; Lemma 1.2.1.33 follows from Lemma 1.2.1.29, and its reduction to the residue field from Lemma 1.1.3.1.",
     "(d): twist the E-module structure of M by the automorphism; the twisted module is isomorphic modulo the maximal ideal because the center is separable over k, hence isomorphic by (a); the isomorphism is the inner automorphism."
    ],
    "acceptance": [
@@ -304,13 +349,13 @@
     "Definitions 1.1.4.2, 1.1.4.6-1.1.4.11 (symplectic modules, symplectic morphisms (f, nu(f)) where nu(f) is part of the datum, dual lattice).",
     "Definitions 1.2.1.2, 1.2.1.3 and 1.2.1.6 as stated; Remark 1.2.1.8 notes that for non-flat R the induced pairing need not be nondegenerate.",
     "Lemma 1.2.1.11: positivity forces every simple factor of B to be *-stable (otherwise x x* = 0 for x in a factor moved by *).",
-    "Hodge-theoretic meaning of positivity (Milne Section 6 dictionary): for a complex structure J on V(R), psi(Ju, Jv) = psi(u, v) together with positive-definiteness of psi_J(u, v) = psi(u, Jv) is equivalent to +-2 pi i psi being a polarization of the Hodge structure h_J (Milne cites his 2.12).",
+    "Hodge-theoretic meaning of positivity (Milne Section 6 dictionary, p. 67): for a nondegenerate alternating form psi and a complex structure J on V(R), psi(Ju, Jv) = psi(u, v) together with positive-definiteness of psi_J(u, v) = psi(u, Jv) is equivalent to psi being a polarization of the Hodge structure (V, h_J) of type (-1, 0), (0, -1) (Milne cites his 2.12).",
     "Lan intro 5.1.1: (L tensor R)/L is an abelian variety with polarization induced by L in L^# (cited to Mumford and [Lan12a, Sec. 2.2], not re-proved there)."
    ],
    "acceptance": [
     "Siegel example (Lan intro Example 5.1.3.4): O = Z, * trivial, L = Z^{2n}, pairing 2 pi i times the standard alternating matrix, h_0(e^{i theta}) the rotation matrix; check G = GSp_{2n} and positivity of (2 pi i)^{-1}<x, h_0(i)y>.",
     "Check G = G_m when L = 0 and that nu is then not determined by g.",
-    "Check that for L with [L^# : L] = d^2 over Z the group G tensor Z_p is smooth only for p not dividing d (compare the smoothness node)."
+    "For O = Z, * trivial and L = Z^{2n} with [L^# : L] = d^2: check that G tensor Z_p is smooth for p not dividing d (Cor. 1.2.3.12, Cor. 1.2.5.17), and that for p dividing d it is not flat, hence not smooth; e.g. for n = 1 and pairing d times the standard alternating form, the condition <gx, gy> = r<x, y> reads d(det g - r) = 0, which is vacuous over F_p, so the special fibre GL_2 x G_m has dimension 5 while the generic fibre GL_2 has dimension 4."
    ],
    "sources": [
     {
@@ -354,6 +399,12 @@
      "locator": "Section 1.2.1, Lemma 1.2.1.11, printed p. 34 (PDF p. 62)",
      "excerpt": "Every simple factor of B is mapped by ⋆ to itself.",
      "match": "Consequence of positivity used in all decompositions."
+    },
+    {
+     "sourceId": "milne-2017-introduction-shimura-varieties",
+     "locator": "Section 6, 'Dictionary', p. 67 (read on the page image; the text layer drops psi and J)",
+     "excerpt": "is a polarization of the Hodge structure",
+     "match": "Milne's equivalence between the period relations for (psi, J) and psi being a polarization of (V, h_J), used in proof step 4."
     }
    ],
    "implementationStatus": "unchecked"
@@ -448,14 +499,14 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.2, Proposition 1.2.2.3, printed pp. 42-43 (PDF pp. 70-71); verified on the page image",
-     "excerpt": "can have nonzero p-torsion only when Λ is not a field, and when p| Ibad Disc[L2 : %(L1 )].",
-     "match": "The torsion criterion; the text layer drops the superscript epsilon on I_bad and renders rho as %."
+     "excerpt": "can have nonzero p-torsion only when Λ is not a field, and when p | I^ϵ_bad Disc[L_2 : ϱ(L_1)].",
+     "match": "The torsion criterion, read on the page image (PDF p. 71)."
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.2, after Proposition 1.2.2.3, printed p. 43 (PDF p. 71)",
-     "excerpt": "Here Ibad is given its literal meaning",
-     "match": "Definition of I_bad^epsilon (equal to I_bad for epsilon = 1 and 1 for epsilon = 0, read on the page image)."
+     "excerpt": "Here I^ϵ_bad is given its literal meaning: I^ϵ_bad = I_bad when ϵ = 1 and I^ϵ_bad = 1 when ϵ = 0.",
+     "match": "Definition of I_bad^epsilon."
     }
    ],
    "implementationStatus": "unchecked"
@@ -465,7 +516,7 @@
    "parentStageId": "PELModuli:M0",
    "title": "Self-dual symplectic O_R-modules are of standard type and determined by multirank up to finite etale extension (Lan 1.2.3.1-1.2.3.10)",
    "kind": "theorem",
-   "statement": "Let k be a field of characteristic 0 with O tensor k a product of matrix algebras (Lambda = k), or a finite field of characteristic p (Lambda = W(k)); assume p does not divide I_bad Disc, and let R be a noetherian complete local Lambda-algebra. Prop. 1.2.3.7: every finitely generated self-dual projective symplectic O_R-module is symplectic isomorphic to one of standard type (Def. 1.2.3.6): on components of type C it is H^n tensor O (hyperbolic), on components of type D and of type A it is an orthogonal direct sum of rank-one modules (A_alpha, <,>_alpha) with alpha a unit satisfying alpha = -alpha*. Cor. 1.2.3.10: two such modules of the same O_R-multirank become isomorphic after a finite etale extension R -> R'; if p > 0 and B has no type D factor one may take R' = R.",
+   "statement": "Let k be a field of characteristic 0 with O tensor k a product of matrix algebras (Lambda = k), or a finite field of characteristic p (Lambda = W(k)); assume p does not divide I_bad Disc, and let R be a noetherian complete local Lambda-algebra. Prop. 1.2.3.7: every finitely generated self-dual projective symplectic O_R-module is symplectic isomorphic to one of standard type (Def. 1.2.3.6), described componentwise as follows (proof of Prop. 1.2.3.7, summary on printed p. 51). On components of type C it is H^n tensor O (hyperbolic). On components of type A it is an orthogonal direct sum of rank-one modules (A_alpha, <,>_alpha) with alpha a unit of O_{F,R} satisfying alpha = -alpha*. On components of type D, after the reduction of Lemma 1.2.3.2 to a symmetric O_{F,R}-pairing on N, it is an orthogonal direct sum of rank-one modules A_alpha with alpha a unit of O_{F,R}, tensored back with a self-dual pairing on O inducing *. (Def. 1.2.3.6(2) as printed also imposes alpha = -alpha* with alpha in O_F in type D; since * is trivial on F = F^+ there and p != 2, that condition admits no unit, so the printed type-D clause is inconsistent and the proof's description is the one used.) Cor. 1.2.3.10: two such modules of the same O_R-multirank become isomorphic after a finite etale extension R -> R'; if p > 0 and B has no type D factor one may take R' = R.",
    "hypotheses": [
     "p does not divide I_bad Disc (so p != 2 whenever B has a type D factor)",
     "if p = 0: O tensor k a product of matrix algebras",
@@ -476,7 +527,7 @@
     "Lemma 1.2.3.2 (p not dividing I_bad Disc): for B simple, symplectic-type involutions on M correspond to symplectic-type involutions on N in type C, to orthogonal-type in type D, and to unitary-type in type A; this uses the classification of pairings by involutions, Prop. 1.1.5.17 (built on Lemmas 1.1.5.2, 1.1.5.9, Cor. 1.1.5.14, Lemma 1.1.5.16; the unitary case needs F/F^+ split over k when char k = 0).",
     "Lemmas 1.2.3.8-1.2.3.9: an element x with unit (|x, x|) splits off an orthogonal rank-one summand; a pair x, y with (|x, x|) = (|y, y|) = 0 and unit (|x, y|) splits off a hyperbolic plane.",
     "Induction on the rank: in type D use beta with 2 beta = 1 (p != 2) to produce a unit norm vector; in type A use the unit beta - beta*; in type C split off hyperbolic planes; finally tensor back with a self-dual pairing on O.",
-    "Cor. 1.2.3.10: in type D take square roots of units by Hensel's lemma over a finite etale extension (needs p != 2); in type A use surjectivity of the norm, Lemma 1.1.5.9 with epsilon = 1 (successive approximation over the complete ring)."
+    "Cor. 1.2.3.10: in type D take square roots of units by Hensel's lemma (cited to [41, Thm. 7.3]) over a finite etale extension (needs p != 2); in type A, when char(k) = 0 first pass to a finite etale extension over which F/F^+ splits, then use Lemma 1.1.5.9 with epsilon = 1 (a unit gamma with gamma = gamma* is delta delta*; successive approximation over the complete ring, cited to [110, Ch. V, Lem. 2])."
    ],
    "acceptance": [
     "Type C example: the standard symplectic Z_p^{2n} and any other self-dual alternating Z_p-lattice of rank 2n are isomorphic over Z_p (R' = R).",
@@ -493,7 +544,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.3, Corollary 1.2.3.10, printed p. 52 (PDF p. 80); verified on the page image",
-     "excerpt": "If p > 0 and B does not involve any simple factor of type D, then we may take R0 = R.",
+     "excerpt": "If p > 0 and B does not involve any simple factor of type D, then we may take R′ = R.",
      "match": "No extension is needed away from type D in positive characteristic."
     },
     {
@@ -523,7 +574,7 @@
    ],
    "acceptance": [
     "Siegel case: H = GSp_{2n} over Z_p for every p.",
-    "Type D case at p = 2 is excluded by hypothesis; check that the explicit form GO_m is disconnected (compare Milne Remark 8.9).",
+    "Type D case at p = 2 is excluded by hypothesis; check that the explicit form GO_m (Prop. 1.2.3.11 proof) is disconnected when m is even (compare Milne Remark 8.9) and connected, equal to G_m x SO_m, when m is odd (the type B case of Prop. 1.2.3.11(2)).",
     "Unitary case over an imaginary quadratic E with p split: H tensor Z_p = GL_m x G_m."
    ],
    "sources": [
@@ -536,7 +587,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.3, Proposition 1.2.3.11(1), printed p. 53 (PDF p. 81)",
-     "excerpt": "then the existence of h · , · i forces m[τ ] to be even",
+     "excerpt": "then the existence of ⟨· , · ⟩ forces m[τ] to be even",
      "match": "Type C factors force even multirank."
     },
     {
@@ -591,7 +642,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.4, Lemma 1.2.4.3, printed p. 56 (PDF p. 84)",
-     "excerpt": "In the case that p = 2 and B involves any simple factor of type C, we assume moreover that the alternating pairing h · , · i is sufficiently alternating.",
+     "excerpt": "In the case that p = 2 and B involves any simple factor of type C, we assume moreover that the alternating pairing ⟨· , · ⟩ is sufficiently alternating.",
      "match": "Extra hypothesis at p = 2 for type C."
     },
     {
@@ -603,7 +654,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.4, Proposition 1.2.4.5, printed pp. 57-58 (PDF pp. 85-86)",
-     "excerpt": "If M1 ⊕ M1∨ has the same OR -multirank as M , then there is a symplectic automorphism of (M, h · , · i) that sends M1 to M2 .",
+     "excerpt": "If M1 ⊕ M1∨ has the same OR-multirank as M, then there is a symplectic automorphism of (M, ⟨· , · ⟩) that sends M1 to M2.",
      "match": "Transitivity on totally isotropic submodules."
     },
     {
@@ -640,13 +691,13 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.5, (1.2.5.1) and following, printed p. 59 (PDF p. 87)",
-     "excerpt": "Both V0 and V0c are totally isotropic submodules of",
+     "excerpt": "Both V_0 and V^c_0 are totally isotropic submodules of",
      "match": "Isotropy of the Hodge pieces."
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.5, Definition 1.2.5.2, printed p. 60 (PDF p. 88)",
-     "excerpt": "The integers (pτ )τ and (qτ )τ are called the signatures of V0 and V0c , respectively",
+     "excerpt": "The integers (p_τ)_τ and (q_τ)_τ are called the signatures of V_0 and V^c_0, respectively",
      "match": "Definition of signatures."
     },
     {
@@ -672,6 +723,12 @@
      "locator": "Section 5.1.1, (5.1.1.16), p. 53",
      "excerpt": "This is the smallest subfield of C over which we can formulate a trace or determinantal condition on the Lie algebra of an abelian variety",
      "match": "Interpretation of F_0 as the field of definition of the Lie algebra condition."
+    },
+    {
+     "sourceId": "hida-padic-automorphic-forms-reductive-groups",
+     "locator": "Section 6.1.1, p. 47",
+     "excerpt": "The field E is called the reflex field (of B).",
+     "match": "Hida's reflex field: the fixed field of the sigma with rho_1^sigma isomorphic to rho_1, rho_1 the representation of B on the eigenspace V_1 where h(z) acts by z (Lan's V_0)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -689,17 +746,17 @@
    "proofSteps": [
     "Lemma 1.2.5.9: by Cor. 1.1.2.14 p_tau = p_tau' for tau, tau' in one Aut(C/F_0')-orbit, so an O tensor F_0'-module V_00 with V_00 tensor C of multirank (p_tau) exists (s_[tau] = 1 for split algebras); take L_0 the O-span of a full O_{F_0'}-lattice in V_00.",
     "Lemma 1.2.5.10: Aut(C/F_0) fixes Det_{O|V_0} because V_0 is isomorphic to its twists, so Det lies in F_0[O^vee], and O_{F_0}[O^vee] = F_0[O^vee] intersect O_{F_0'}[O^vee] by Lemma 1.2.5.9.",
-    "Lemma 1.2.5.11: (3) implies (1) by Prop. 1.1.2.20 over k (O_F tensor k separable because p is unramified) and Lemma 1.1.3.1 to lift the isomorphism."
+    "Lemma 1.2.5.11: (3) implies (1) by Prop. 1.1.2.20 over k (O_F tensor k separable because p is unramified) and Lemma 1.1.3.1 to lift the isomorphism. Lemma 1.1.3.1 needs M projective over O tensor R, whereas Lemma 1.2.5.11 assumes only that M and M' are R-projective; this holds because O tensor Lambda is a product of matrix algebras over finite etale Lambda-algebras (p > 0) or O tensor k is separable (p = 0), a step the source does not write out."
    ],
    "acceptance": [
-    "Siegel case: Det_{O|V_0}(X) = X^n, and a rank-2n Lie algebra condition is just rank n.",
+    "Siegel case (O = Z, L of rank 2n): Det_{O|V_0}(X) = X^n, so the Lie algebra condition says only that Lie A is locally free of rank n.",
     "Unitary case with signature (a, b) over O_E, p split: check that Det condition on Lie A over a W(k)-algebra forces ranks (a, b) on the two eigen-summands, whereas a trace condition in characteristic p would fix these ranks only modulo p (it cannot distinguish (a, b) from (a - p, b + p) when a >= p)."
    ],
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
-     "locator": "Section 1.2.5, Lemma 1.2.5.9, printed p. 61 (PDF p. 89); the text layer drops the prime on F_0'",
-     "excerpt": "We can take F0 to be unramified at any prescribed finite set",
+     "locator": "Section 1.2.5, Lemma 1.2.5.9, printed p. 61 (PDF p. 89); read on the page image (the prime on F′_0 is printed)",
+     "excerpt": "We can take F′0 to be unramified at any prescribed finite set",
      "match": "Unramified choice of the splitting field F_0'."
     },
     {
@@ -748,19 +805,19 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.5, Definition 1.2.5.13, printed p. 63 (PDF p. 91)",
-     "excerpt": "The subgroup functor P0,Λ0 of GΛ0 := G ⊗ Λ0 is defined",
+     "excerpt": "The subgroup functor P0,Λ′ of GΛ′ := G ⊗_Z Λ′ is defined",
      "match": "Definition of P_0."
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.5, Proposition 1.2.5.15, printed p. 63 (PDF p. 91)",
-     "excerpt": "The functor GΛ0 /P0,Λ0 is formally smooth over Λ0 .",
+     "excerpt": "The functor GΛ′/P0,Λ′ is formally smooth over Λ′.",
      "match": "Formal smoothness of G/P_0, used in the proof of Prop. 2.2.4.9."
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.2.5, Proposition 1.2.5.16, printed p. 64 (PDF p. 92)",
-     "excerpt": "With assumptions on k and Λ0 as above, the group P0,Λ0 is smooth.",
+     "excerpt": "With assumptions on k and Λ′ as above, the group P0,Λ′ is smooth.",
      "match": "Smoothness of P_0."
     },
     {
@@ -853,7 +910,7 @@
     "Lemma 1.3.1.11: reduce to S noetherian by Theorem 1.3.1.3 and quote EGA."
    ],
    "acceptance": [
-    "Check that [N] : A -> A is a Z_(box)^x-isogeny iff N is prime-to-box, and that N^{-1} h is its inverse notation (Remark 1.3.1.21).",
+    "Check that, for A of positive relative dimension, [N] : A -> A is a Z_(box)^x-isogeny iff N is prime-to-box, and that the notation f = N^{-1}h of Remark 1.3.1.21 means f o [N] = [N] o f = h with h a prime-to-box isogeny (S with finitely many connected components, or N a section of (Z_(box)^x)_S).",
     "Check that over a disconnected S the rank of an isogeny kernel is only locally constant (Cor. 1.3.1.12)."
    ],
    "sources": [
@@ -878,7 +935,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.3.1, Definition 1.3.1.16, printed p. 72 (PDF p. 100)",
-     "excerpt": "is an equivalence class of triples (B, g, h), where g : B → A and h : B → A0 are isogenies over S",
+     "excerpt": "is an equivalence class of triples (B, g, h), where g : B → A and h : B → A′ are isogenies over S",
      "match": "Definition of quasi-isogenies."
     },
     {
@@ -895,7 +952,7 @@
    "parentStageId": "PELModuli:M1",
    "title": "Dual abelian scheme, lambda_L, polarizations and Z_(box)^x-polarizations (Lan 1.3.2)",
    "kind": "definition",
-   "statement": "For an abelian scheme A -> S the rigidified Picard functors Pic_e(A/S) and Pic^0_e(A/S) are representable, and Pic^0_e(A/S) is represented by an abelian scheme A^vee (Theorem 1.3.2.3, quoted from Faltings-Chai [42, Ch. I, Section 1]; representability under local projectivity also follows from Hilbert schemes, Remark 1.3.2.4). A rigidified L gives lambda_L : A -> A^vee via D_2(L) = m*L tensor pr_1*L^{-1} tensor pr_2*L^{-1} (Construction 1.3.2.7); lambda_L is symmetric (Lemma 1.3.2.13); A -> (A^vee)^vee is an isomorphism (Lemma 1.3.2.8); dual isogenies have the same rank (Lemma 1.3.2.11). Etale locally every symmetric homomorphism A -> A^vee is some lambda_L (Prop. 1.3.2.14). For symmetric lambda the conditions (1) lambda is lambda_L with L ample on geometric fibers, (2) etale locally lambda = lambda_L with L relatively ample, (3) (Id, lambda)*P_A relatively ample, are equivalent (Prop. 1.3.2.15); a polarization is a symmetric lambda satisfying them, principal if an isomorphism, prime-to-box if a prime-to-box isogeny (Def. 1.3.2.16). A Z_(box)^x-polarization is a Z_(box)^x-isogeny lambda : A -> A^vee with [N] o lambda a polarization for some locally constant positive integer N, not necessarily prime-to-box (Def. 1.3.2.19); f^vee o lambda o f and lambda^{-1} are again Z_(box)^x-polarizations (Cor. 1.3.2.21).",
+   "statement": "For an abelian scheme A -> S the rigidified Picard functors Pic_e(A/S) and Pic^0_e(A/S) are representable, and Pic^0_e(A/S) is represented by an abelian scheme A^vee (Theorem 1.3.2.3, quoted from Faltings-Chai [42, Ch. I, Section 1]; representability under local projectivity also follows from Hilbert schemes, Remark 1.3.2.4). A rigidified L gives lambda_L : A -> A^vee via D_2(L) = m*L tensor pr_1*L^{-1} tensor pr_2*L^{-1} (Construction 1.3.2.7); lambda_L is symmetric (Lemma 1.3.2.13); A -> (A^vee)^vee is an isomorphism (Lemma 1.3.2.8); dual isogenies have the same rank (Lemma 1.3.2.11). Etale locally every symmetric homomorphism A -> A^vee is some lambda_L (Prop. 1.3.2.14). For symmetric lambda the conditions (1) over each geometric point s of S, lambda_s is lambda_L for some ample invertible sheaf L over A_s, (2) etale locally lambda = lambda_L with L relatively ample, (3) (Id, lambda)*P_A relatively ample, are equivalent (Prop. 1.3.2.15); a polarization is a symmetric lambda satisfying them, principal if an isomorphism, prime-to-box if a prime-to-box isogeny (Def. 1.3.2.16). A Z_(box)^x-polarization is a Z_(box)^x-isogeny lambda : A -> A^vee with [N] o lambda a polarization for some locally constant positive integer N, not necessarily prime-to-box (Def. 1.3.2.19); f^vee o lambda o f and lambda^{-1} are again Z_(box)^x-polarizations (Cor. 1.3.2.21).",
    "hypotheses": [
     "A -> S an abelian scheme over an arbitrary base scheme S (Theorem 1.3.2.3 is used without local projectivity; Remark 1.3.2.4 notes that polarized abelian schemes are locally projective anyway)",
     "Prop. 1.3.2.14 uses fppf-local splitting of extensions of finite flat groups by G_m and theta groups (imports [92, Thm. 2.3(ii)], [94, Section 23, Thm. 3], [6, Cor. 6.2], [73, II, 6.16], [22, Section 2.2, Prop. 14])"
@@ -967,7 +1024,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.3.3, Definition 1.3.3.1, printed p. 79 (PDF p. 107)",
-     "excerpt": "Concretely, this means the equality i(b)∨ ◦ λ = λ ◦ i(b? ) holds for every b ∈ O⊗ R.",
+     "excerpt": "Concretely, this means the equality i(b)∨ ◦ λ = λ ◦ i(b⋆) holds for every b ∈ O ⊗_Z R.",
      "match": "The Rosati condition."
     },
     {
@@ -1050,10 +1107,10 @@
    "proofSteps": [
     "Lemma 1.3.5.2 is stated without proof (over an algebraically closed field prime-to-box isogenies are determined by their kernels).",
     "Prop. 1.3.5.3 is quoted from SGA 1 V Section 7 / [44, A I.7] (not read).",
-    "Cor. 1.3.5.4 combines Lemma 1.3.5.2 with Prop. 1.3.5.3: prime-to-box isogenies are characterized by their finite etale kernels, i.e. by pi_1-stable finite subgroups of prime-to-box torsion; the quotient by a finite locally free subgroup is taken in the category of abelian schemes (supplier AbelianSchemesAndArithmeticModuli A3)."
+    "Cor. 1.3.5.4 has no written proof: the source says only 'Combining the above two propositions, we have the following corollary' (PDF p. 112). The implicit argument is that prime-to-box isogenies are characterized by their finite etale kernels ('Since prime-to-□ isogenies are characterized by their kernels, which are commutative group schemes finite étale over the base field', PDF p. 112), i.e. by pi_1-stable finite subgroups of prime-to-box torsion, and that the quotient of an abelian scheme by a finite etale subgroup exists; Lan does not state the quotient step (Hida 6.1.2, p. 50, cites [ABV, Section 12] and [GME, Prop. 1.8.4] for it; supplier AbelianSchemesAndArithmeticModuli A3)."
    ],
    "acceptance": [
-    "Elliptic curves over a field with box = {p}: the Z_(p)^x-isogeny class of E corresponds to Gal-stable lattices in V^p E, e.g. the lattice (1/l) T_l E recovers E itself via [l].",
+    "Elliptic curve E over a field k of characteristic p or 0, box = {p}, O = Z: equivalence classes of Z_(p)^x-isogenies out of (E, lambda) correspond to Gal(k^sep/k)-invariant open compact subgroups of V^p E_kbar via f -> V(f)^{-1}(T^p E'); e.g. for a prime l != p the subgroup l^{-1} T^p E_kbar corresponds to the class of [l] : E -> E, whose target is E itself.",
     "Check Remark 1.3.5.5 on a degree-p^2 polarization with p in box."
    ],
    "sources": [
@@ -1086,12 +1143,12 @@
    "proofSteps": [
     "Lemma 1.3.6.5: pull the compatible tower back to the geometric point to obtain a compatible system of isomorphisms, i.e. an isomorphism of Tate modules.",
     "Lemma 1.3.6.6: on a connected component, the U^box(n)-orbit of a lift alpha^ is pi_1-invariant because A[n] and mu_n are locally constant, giving pi_1(S, s) -> U^box(n); preimages of U^box(m) define the finite etale covers S_m, and Prop. 1.3.5.3 converts the pi_1-equivariant isomorphisms back to isomorphisms of group schemes over S_m.",
-    "The claim that nu_n is determined by alpha_n when L != 0 is stated inside Def. 1.3.6.2 without proof; Lan's later survey (intro 5.1.1) says nu_{0,n} is not determined by alpha_{0,n} when <,> is not perfect mod n; the packet therefore keeps nu_n as part of the datum."
+    "The claim that nu_n is determined by alpha_n when L != 0 is stated inside Def. 1.3.6.2 without proof. Lan's survey (intro 5.1.1, after (5.1.1.11)) says nu_{0,n} is not determined by alpha_{0,n} when <,> is not perfect modulo n; that is true of the defining diagram alone (compare Lan Def. 1.2.1.6: r is determined by g only when L != {0} and R is flat over Z, and Z/nZ is not flat; Remark 1.1.4.9). For symplectic-liftable pairs the claim holds by an argument not written in any read source (reviewer's argument): two lifts (alpha^, nu^), (alpha^', nu^') of the same alpha_n at a geometric point differ by g in G(Z^^box) with g ≡ 1 mod n on L tensor Z^^box; writing g = 1 + n u gives (nu(g) - 1)<x, y> = n(<ux, y> + <x, uy> + n<ux, uy>) in n I, where I != 0 is the Z^^box-ideal of values of <,> (L != 0 and <,> nondegenerate over Q), so nu(g) ≡ 1 mod n and nu_n = nu_n'. The packet keeps nu_n in the datum, as the README requires."
    ],
    "acceptance": [
-    "Take L = Z^2 with <e_1, e_2> = 2 (non-self-dual at 2), box not containing 2 and n = 2: check that the induced pairing on L/2L vanishes, so the diagram in Def. 1.3.6.1 alone imposes no condition on nu_2, and determine whether symplectic liftability pins nu_2 down.",
+    "Take O = Z, L = Z^2 with <e_1, e_2> = 3 (in Z(1) = Z), box not containing 3 and n = 3: check that the pairing induced on L/3L vanishes, so the diagram of Def. 1.3.6.1 alone allows both isomorphisms nu_3 : (Z/3Z)(1) -> mu_3, whereas for a symplectic-liftable alpha_3 two lifts differ by g in G(Z_3) with g ≡ 1 mod 3 on L, which forces nu(g) = det g ≡ 1 mod 3, so nu_3 is determined. (The case n = 2 is vacuous: Isom((Z/2Z)(1), mu_2) has one element.)",
     "Principally polarized Siegel case: L self-dual, liftability is automatic over geometric points (Lan: 'This candidate works perfectly well' for Faltings-Chai's moduli).",
-    "Check Remark 1.3.6.3 for n = 1: the condition says ker(lambda) is isomorphic to the constant group (L^#/L) tensor Z^^box."
+    "Check Remark 1.3.6.3 for n = 1: symplectic liftability forces ker(lambda) to be isomorphic to the constant group ((L^# tensor Z^^box)/(L tensor Z^^box))_S (a consequence, not an equivalent form, of liftability)."
    ],
    "sources": [
     {
@@ -1103,7 +1160,7 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.3.6, after Definition 1.3.6.1, printed p. 85 (PDF p. 113)",
-     "excerpt": "the pairing on L/nL induced by h · , · i may be degenerate, or even trivial.",
+     "excerpt": "the pairing on L/nL induced by ⟨· , · ⟩ may be degenerate, or even trivial.",
      "match": "Why liftability is needed."
     },
     {
@@ -1115,8 +1172,8 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.3.6, Definition 1.3.6.2, printed p. 86 (PDF p. 114)",
-     "excerpt": "If L 6= 0, then νn is uniquely determined by αn . If L = 0, then νn is the essential nontrivial information.",
-     "match": "Lan's claim about nu_n (text layer renders 'is not equal' as '6=')."
+     "excerpt": "If L ≠ 0, then νn is uniquely determined by αn. If L = 0, then νn is the essential nontrivial information.",
+     "match": "Lan's claim about nu_n; '≠' confirmed on the page image of PDF p. 114."
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -1133,7 +1190,7 @@
     {
      "sourceId": "lan-example-based-introduction-shimura",
      "locator": "Section 5.1.1, after (5.1.1.11), p. 52",
-     "excerpt": "although ν0,n is not determined by α0,n when h · , · i is not a perfect pairing modulo n.",
+     "excerpt": "although ν0,n is not determined by α0,n when ⟨· , · ⟩ is not a perfect pairing modulo n.",
      "match": "Lan's survey keeps nu as independent datum when the pairing is not perfect mod n."
     }
    ],
@@ -1201,7 +1258,7 @@
     "Lemma 1.3.8.6: use Cor. 1.3.5.4 to move to an isogenous triple on which alpha^ is integral, apply Construction 1.3.8.4 at the other base point, and transport back."
    ],
    "acceptance": [
-    "Check on an elliptic curve with box empty that a rational level-GL_2(Z^) structure is the same as an isomorphism class of the curve up to isogeny together with a Z^-lattice in V(E) (compare Cor. 1.3.5.4)."
+    "Check on an elliptic curve E over a connected locally noetherian Q-scheme S (box empty, O = Z, L = Z^2 standard, G = GL_2 with similitude det, H = GL_2(Z^)) that a rational level-H structure based at s is the same as a pi_1(S, s)-invariant Z^-lattice in V(E_s), and that by Cor. 1.3.5.4 this lattice singles out, up to isomorphism, the member E' of the isogeny class of E with T(E'_s) equal to it (compare Prop. 1.4.3.4)."
    ],
    "sources": [
     {
@@ -1355,7 +1412,7 @@
     "Hida 6.1.2 runs the same normalization eta(L^(p)) = T^(p)(A) to replace prime-to-p isogeny classes by isomorphism classes, citing Deligne [D1] 4.10 and 4.12."
    ],
    "acceptance": [
-    "Siegel case with box = {p} and H = G(Z^^p) ∩ U^p(n): check that every Z_(p)^x-isogeny class of principally polarized abelian schemes with rational level structure contains exactly one member with alpha^(L tensor Z^^p) = T^p A.",
+    "Siegel case (O = Z, L self-dual) with box = {p} and H = U^p(n), over a connected locally noetherian base: check that every object (A, lambda, i, [alpha^]_H) of M^rat_H is Z_(p)^x-isogenous to an object with alpha^'(L tensor Z^^p) = T^p A' and nu(alpha^')(Z^^p(1)) = T^p G_m (then lambda' is a principal polarization), and that any two such normalized objects in one isogeny class are isomorphic by a unique isomorphism of M_H (the Z_(p)^x-isogeny between them is an isomorphism and r = 1).",
     "Check that r = 1 is forced by nu(H) contained in Z^^box^x (the approximation step)."
    ],
    "sources": [
@@ -1368,13 +1425,13 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.4.3, proof of Proposition 1.4.3.4, printed p. 101 (PDF p. 129)",
-     "excerpt": "implies that f : A → A0 is an isomorphism of abelian schemes.",
+     "excerpt": "implies that f : A → A′ is an isomorphism of abelian schemes.",
      "match": "Full faithfulness via Cor. 1.3.5.4."
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 1.4.3, proof of Proposition 1.4.3.4, printed p. 102 (PDF p. 130)",
-     "excerpt": "showing that λ0 is a polarization (instead of merely a",
+     "excerpt": "showing that λ′ is a polarization (instead of merely a",
      "match": "Essential surjectivity: the rescaled Z_(box)^x-polarization is a polarization."
     },
     {
@@ -1391,9 +1448,9 @@
    "parentStageId": "PELModuli:M1",
    "title": "M_H is a stack for the etale topology (Lan 2.3.4, condition 1)",
    "kind": "lemma",
-   "statement": "M_H is a stack for the etale topology over S_0 (effective descent of objects and morphisms), and it is locally of finite presentation. The source proof: for (A, lambda, i, alpha_H), the pair (A, L) with L = (Id_A x lambda)*P_A satisfies etale (indeed fpqc) descent by SGA 1 VIII 7.8, and lambda, i and alpha_H descend because they are morphisms or etale-locally-defined orbits of morphisms. The set of isomorphism classes of objects is not claimed to be a sheaf; only the fibered category is a stack.",
+   "statement": "M_H is a stack for the etale topology over S_0 (effective descent of objects and morphisms), and it is locally of finite presentation. The source proof: for (A, lambda, i, alpha_H), the pair (A, L) with L = (Id_A, lambda)*P_A (printed '(Id_A × λ)*P_A' in the source at this point, a misprint: the finite-type paragraph on the next page and Prop. 1.3.2.15(3) use (Id_A, λ)*P_A) satisfies etale (indeed fpqc) descent by SGA 1 VIII 7.8, and lambda, i and alpha_H descend because they are morphisms or etale-locally-defined orbits of morphisms. The set of isomorphism classes of objects is not claimed to be a sheaf; only the fibered category is a stack.",
    "hypotheses": [
-    "L = (Id_A x lambda)*P_A is relatively ample because lambda is a polarization (Prop. 1.3.2.15), which is what makes SGA 1 VIII 7.8 applicable",
+    "L = (Id_A, lambda)*P_A is relatively ample because lambda is a polarization (Prop. 1.3.2.15(3)), which is what makes SGA 1 VIII 7.8 applicable (the source's '(Id_A × λ)*P_A' in condition 1 is a misprint)",
     "descent of level structures uses that they are subschemes of Isom schemes of finite etale group schemes"
    ],
    "proofSteps": [
@@ -1445,7 +1502,7 @@
    ],
    "acceptance": [
     "Siegel case: removing a prime p from box (H' -> H) is an isomorphism because self-dual symplectic Z_p-lattices of fixed rank are unique.",
-    "Type D case: exhibit, for B definite quaternion with box empty and box' = {p}, how non-isomorphic self-dual forms at p can make Lemma 1.4.4.2 a proper open and closed immersion (Remark 1.4.4.5; requires Kottwitz Section 8, absent)."
+    "Type D case: for B a definite quaternion algebra with box empty and box' = {p} (p good), determine whether non-isomorphic self-dual Z_p(1)-valued O tensor Z_p-lattices of the same multirank exist and whether they make the open and closed immersion of Lemma 1.4.4.2 non-surjective. The source only says 'the question is delicate' (Remark 1.4.4.5, citing Kottwitz [76, Section 8], absent)."
    ],
    "sources": [
     {
@@ -1486,18 +1543,18 @@
    "parentStageId": "PELModuli:M2",
    "title": "Obstruction theory for smooth schemes, morphisms and invertible sheaves along square-zero thickenings (Lan 2.1.1-2.1.5)",
    "kind": "lemma",
-   "statement": "Let S -> S~ be a closed immersion of noetherian separated schemes with ideal I, I^2 = 0. (1) For X smooth over S there is a unique obstruction o(X; S -> S~) in H^2(X, Der_{X/S} tensor I) vanishing iff X lifts to a smooth S~-scheme; if it vanishes, the set of liftings is a torsor under H^1(X, Der_{X/S} tensor I), and o is functorial for isomorphisms (Prop. 2.1.2.2). (2) For f : X -> Y between smooth S-schemes with smooth liftings X~, Y~ there is o(f; X~, Y~) in H^1(X, f*Der_{Y/S} tensor I) vanishing iff f lifts, the liftings forming a torsor under H^0(X, f*Der_{Y/S} tensor I), with the change-of-lifting formula o(f; m_X + X~, m_Y + Y~) = o(f; X~, Y~) - df(m_X) + f*(m_Y) (Prop. 2.1.3.2); automorphisms of X~ over S~ inducing the identity on X are H^0(X, Der_{X/S} tensor I) (Cor. 2.1.1.3). (3) For an invertible sheaf L on X with X lifted to X~ there is o(L; X~) in H^2(X, O_X tensor I) vanishing iff L lifts; if it vanishes and H^0(X~, O^x) -> H^0(X, O^x) is surjective, liftings form a torsor under H^1(X, O_X tensor I); and o(L; m + X~) = o(L; X~) + d_L(m) where d_L is cup product with dlog(L) (Prop. 2.1.5.3). For a smooth group scheme, Der_{X/S} is the pullback of Lie_{X/S} (Lemma 2.1.5.11); for an abelian scheme d_L : Lie_{X/S} -> Lie_{X^vee/S} is the differential of lambda_L (Prop. 2.1.5.13); cup product gives wedge^i H^1(X, O_X) = H^i(X, O_X) (Prop. 2.1.5.14, quoted from Berthelot-Breen-Messing [18, Prop. 2.5.2]), and Cor. 2.1.5.15 relates d_L on H^1(X, Der) to Id tensor d lambda_L.",
+   "statement": "Let S -> S~ be a closed immersion of noetherian separated schemes with ideal I, I^2 = 0. (1) For X smooth over S there is a unique obstruction o(X; S -> S~) in H^2(X, Der_{X/S} tensor I) vanishing iff X lifts to a smooth S~-scheme; if it vanishes, the set of liftings is a torsor under H^1(X, Der_{X/S} tensor I), and o is functorial for isomorphisms (Prop. 2.1.2.2). (2) For f : X -> Y between smooth S-schemes with smooth liftings X~, Y~ there is o(f; X~, Y~) in H^1(X, f*Der_{Y/S} tensor I) vanishing iff f lifts, the liftings forming a torsor under H^0(X, f*Der_{Y/S} tensor I), with the change-of-lifting formula o(f; m_X + X~, m_Y + Y~) = o(f; X~, Y~) + df(m_X) - f*(m_Y) (Prop. 2.1.3.2(3) with the sign of book erratum (14); the revision's statement still prints - df(m_X) + f*(m_Y), but its own proof, printed p. 121, derives c'_ab = c_ab + df(m_X,ab) - f*(m_Y,ab)); automorphisms of X~ over S~ inducing the identity on X are H^0(X, Der_{X/S} tensor I) (Cor. 2.1.1.3). (3) For an invertible sheaf L on X with X lifted to X~ there is o(L; X~) in H^2(X, O_X tensor I) vanishing iff L lifts; if it vanishes and H^0(X~, O^x) -> H^0(X, O^x) is surjective, liftings form a torsor under H^1(X, O_X tensor I); and o(L; m + X~) = o(L; X~) + d_L(m) where d_L is cup product with dlog(L) (Prop. 2.1.5.3). For a smooth group scheme, Der_{X/S} is the pullback of Lie_{X/S} (Lemma 2.1.5.11); for an abelian scheme d_L : Lie_{X/S} -> Lie_{X^vee/S} is the differential of lambda_L (Prop. 2.1.5.13); cup product gives wedge^i H^1(X, O_X) = H^i(X, O_X) (Prop. 2.1.5.14, quoted from Berthelot-Breen-Messing [18, Prop. 2.5.2]), and Cor. 2.1.5.15 relates d_L on H^1(X, Der) to Id tensor d lambda_L.",
    "hypotheses": [
     "schemes noetherian and separated throughout Section 2.1; I^2 = 0",
-    "X, Y smooth over S; X~ flat (hence smooth) liftings",
+    "X, Y smooth over S; the liftings X~, Y~ are smooth over S~ (Defs. 2.1.2.1, 2.1.3.1); Lemma 2.1.1.1 needs only its source flat over S~, and Lemma 2.1.1.2 needs its source flat and its target smooth",
     "(3): surjectivity of units H^0(X~, O^x) -> H^0(X, O^x) for the torsor statement"
    ],
    "proofSteps": [
-    "Lemma 2.1.1.1: a morphism of flat S~-schemes that is an isomorphism mod a nilpotent ideal is an isomorphism (Nakayama with Tor-vanishing).",
+    "Lemma 2.1.1.1: a morphism of S~-schemes whose source is flat over S~ and which is an isomorphism modulo a nilpotent ideal is an isomorphism (Nakayama with Tor-vanishing).",
     "Lemma 2.1.1.2: liftings of a morphism into a smooth scheme form a torsor under derivations (Matsumura [88, Thm. 7.7] for flatness).",
     "Lemma 2.1.1.7 ([56, III, Thm. 4.1]): smooth affine opens lift, uniquely up to non-unique isomorphism (via Lemmas 2.1.1.5-2.1.1.6, EGA IV-4 17.11.4, 18.1.2).",
     "Prop. 2.1.2.2: glue local liftings U~_a with isomorphisms xi_ab; the failure of the cocycle condition c_abc is a Cech 2-cocycle in the commutative groups Aut(U~_a|U_abc, S) = H^0(Der tensor I); changes of xi_ab change c by a coboundary; o := [c].",
-    "Prop. 2.1.3.2: local liftings f~_a differ on overlaps by a Cech 1-cocycle; its class is the obstruction; the change-of-lifting formula is computed from the cocycle.",
+    "Prop. 2.1.3.2: local liftings f~_a differ on overlaps by a Cech 1-cocycle; its class is the obstruction; re-lifting X~ and Y~ changes the cocycle to c'_ab = c_ab + df(m_X,ab) - f*(m_Y,ab) (proof, printed p. 121), which gives the change-of-lifting formula with the corrected sign.",
     "Prop. 2.1.5.3: lift the transition functions l_ab of L; the defect h_abc is a 2-cocycle; twisting X~ by T = {T_ab} changes it by T_ab(dlog l_bc), i.e. by the cup product with dlog(L).",
     "Prop. 2.1.5.13: identify a tangent vector T with a first-order deformation of D_2(L) and compare with the universal property of the Poincare sheaf.",
     "Prop. 2.1.5.14 is quoted from [18] (not read)."
@@ -1545,7 +1602,7 @@
    "parentStageId": "PELModuli:M2",
    "title": "Liftings of an abelian scheme correspond to liftings of the Hodge filtration in de Rham homology (Lan 2.1.6.4-2.1.6.9)",
    "kind": "theorem",
-   "statement": "For X smooth over S and a lifting X~, H^1_dR(X~/S~) is canonically independent of the lifting (Prop. 2.1.6.2), and a morphism f : X -> Y~ x S induces f~* : H^1_dR(Y~/S~) -> H^1_dR(X~/S~) lifting f* (Prop. 2.1.6.4). For X~ an abelian scheme the Hodge sequence 0 -> Lie^vee_{X~/S~} -> H^1_dR(X~/S~) -> Lie_{X~^vee/S~} -> 0 is exact (the surjectivity is quoted from [18, Lem. 2.5.3]), and dually 0 -> Lie^vee_{X~^vee/S~} -> H_1^dR(X~/S~) -> Lie_{X~/S~} -> 0. Prop. 2.1.6.8 (a weak form of Grothendieck-Messing): for a closed immersion of affine schemes S -> S~ with I^2 = 0 and an abelian scheme X~ over S~ with X = X~ x S, the liftings of X to S~ are in bijection with O_S~-submodules M of H_1^dR(X~/S~) in exact sequences 0 -> M -> H_1^dR(X~/S~) -> N -> 0 of projective O_S~-modules with M tensor O_S = Lie^vee_{X^vee/S}. Prop. 2.1.6.9: for abelian schemes X~, Y~, a morphism f : X -> Y lifts to X~ -> Y~ iff the dual of the canonical map H^1_dR(Y~/S~) -> H^1_dR(X~/S~) carries Lie^vee_{X~^vee/S~} into Lie^vee_{Y~^vee/S~}. Lan's route to PEL smoothness uses only these statements and explicitly avoids Serre-Tate theory, Barsotti-Tate groups and Dieudonne theory.",
+   "statement": "For X smooth over S and a lifting X~, H^1_dR(X~/S~) is canonically independent of the lifting (Prop. 2.1.6.2), and a morphism f : X -> Y~ x S induces f~* : H^1_dR(Y~/S~) -> H^1_dR(X~/S~) lifting f* (Prop. 2.1.6.4). For X~ an abelian scheme the Hodge sequence 0 -> Lie^vee_{X~/S~} -> H^1_dR(X~/S~) -> Lie_{X~^vee/S~} -> 0 is exact (the surjectivity is quoted from [18, Lem. 2.5.3]), and dually 0 -> Lie^vee_{X~^vee/S~} -> H_1^dR(X~/S~) -> Lie_{X~/S~} -> 0. Prop. 2.1.6.8 (a weak form of Grothendieck-Messing): for a closed immersion of affine schemes S -> S~ with I^2 = 0 and an abelian scheme X~ over S~ with X = X~ x S, the liftings of X to S~ are in bijection with O_S~-submodules M of H_1^dR(X~/S~) in exact sequences 0 -> M -> H_1^dR(X~/S~) -> N -> 0 of projective O_S~-modules with M tensor O_S = Lie^vee_{X^vee/S}. Prop. 2.1.6.9: for abelian schemes X~, Y~, a morphism f : X -> Y lifts to X~ -> Y~ iff the dual of the canonical map H^1_dR(Y~/S~) -> H^1_dR(X~/S~) carries Lie^vee_{X~^vee/S~} into Lie^vee_{Y~^vee/S~}. Lan's route to PEL smoothness does not use Serre-Tate theory, Barsotti-Tate groups or Cartier-Dieudonne theory (Chapter 2 introduction, printed p. 110); it combines these statements with the obstruction theory of Sections 2.1.2-2.1.5 and the linear algebra of Section 1.2.",
    "hypotheses": [
     "S -> S~ closed immersion of affine schemes defined by I with I^2 = 0",
     "X~ an abelian scheme over S~ (so the Hodge pieces are locally free)",
@@ -1555,7 +1612,7 @@
     "Prop. 2.1.6.2: compute H^1_dR via the Cech-de Rham double complex on affine opens etale over affine space; a change of lifting by T = {T_ab} induces an explicit isomorphism of first cohomologies (Id + E) independent of the representative.",
     "Prop. 2.1.6.4: lift f locally, record the Cech 1-cochain T_ab o d with T_ab o d = f~_a* - f~_b*, and write down the cochain map C^1_Y~ -> C^1_X~ commuting with the differentials.",
     "Hodge sequence (2.1.6.6)-(2.1.6.7): from the truncation Omega^{>=1} -> Omega -> O and [18, Lem. 2.5.3].",
-    "Prop. 2.1.6.8: projective submodules lifting Lie^vee_{X^vee/S} are parameterized by Hom(Lie^vee_{X~^vee}, I Lie_{X~}) = Lie_{X^vee/S} tensor Lie_{X/S} tensor I = H^1(X, Der_{X/S} tensor I), the same torsor as Lift(X; S -> S~), and the two identifications coincide.",
+    "Prop. 2.1.6.8: for S affine, the projective submodules M lifting Lie^vee_{X^vee/S} with projective quotient are parameterized by Hom(Lie^vee_{X~^vee}, I Lie_{X~}) = Lie_{X^vee/S} tensor Lie_{X/S} tensor I = H^1(X, Der_{X/S} tensor I), the same group under which Lift(X; S -> S~) is a torsor; Lan concludes 'Thus they must coincide'. The map X~' |-> Lie^vee_{X~'^vee} (inside H_1^dR(X~'/S~) = H_1^dR(X~/S~) via Prop. 2.1.6.2) and its equivariance, which the explicit formula (2.1.6.3) would give, are not written out (gap).",
     "Prop. 2.1.6.9: the same explicit comparison for morphisms (the source says 'similar analysis')."
    ],
    "acceptance": [
@@ -1610,7 +1667,7 @@
     "Remark 2.1.7.4 identifies the induced map on graded pieces with the Gauss-Manin connection (stated, not re-proved)."
    ],
    "acceptance": [
-    "Legendre family of elliptic curves: check that KS is an isomorphism exactly where the j-invariant map is etale.",
+    "Legendre family y^2 = x(x - 1)(x - lambda) over U = Spec Z[1/2], S = Spec Z[1/2][lambda, 1/(lambda(1 - lambda))]: check that the Kodaira-Spencer morphism is an isomorphism at every point of S (S is etale over the moduli stack of elliptic curves), even though lambda |-> j(lambda) = 256(lambda^2 - lambda + 1)^3/(lambda^2(lambda - 1)^2) is ramified over j = 0 and j = 1728; KS detects etaleness over the moduli stack, not etaleness of the j-map.",
     "Check that KS vanishes for a constant family X x S."
    ],
    "sources": [
@@ -1715,7 +1772,7 @@
     "Theorem 2.2.1.4 is quoted from Schlessinger [109, Thm. 2.11 (weakened) and Prop. 2.5(i)]"
    ],
    "proofSteps": [
-    "Prop. 2.2.3.4, Schlessinger's condition: for a Cartesian diagram of small surjections, the fibers of Def_{A_0} are Lift sets (Prop. 2.2.2.3) and base change of liftings along Q~ -> R~ is bijective (Cor. 2.1.4.3); the isomorphism of abelian schemes lifting the identification is unique (Cor. 2.2.2.2).",
+    "Prop. 2.2.3.4, Schlessinger's condition: for a Cartesian diagram (2.2.3.1) whose vertical arrows r : R~ -> R and q : Q~ -> Q are small surjections (Q -> R an arbitrary surjection, J -> I an isomorphism), the fibers of Def_{A_0} are Lift sets (Prop. 2.2.2.3) and base change of liftings along Q~ -> R~ is bijective (Cor. 2.1.4.3); the isomorphism of abelian schemes lifting the identification is unique (Cor. 2.2.2.2).",
     "Tangent space: Def_{A_0}(k[eps]) = Lift(A_0; t) = H^1(A_0, Der) = Lie_{A_0^vee} tensor Lie_{A_0} (Lemma 2.1.5.11, Cor. 2.1.5.9), of dimension g^2.",
     "Prop. 2.2.3.7: Def_{(A_0, lambda_0)} is a subfunctor (Cor. 2.2.2.10); obstructions to lifting lambda_Q vanish by Cor. 2.1.4.4 because lambda_R~ lifts, and Cors. 2.2.2.2, 2.2.2.6 produce a unique polarization.",
     "Prop. 2.2.3.9: same argument for the endomorphisms, ignoring the Rosati and Lie algebra conditions (Cor. 2.2.2.10).",
@@ -1772,7 +1829,7 @@
    ],
    "acceptance": [
     "g = 1: Def_{(E_0, lambda_0)} = Def_{E_0} = Lambda[[t]] (g(g+1)/2 = 1 = g^2).",
-    "Inseparable test case: for lambda_0 of degree divisible by p = char(k), check that d lambda_0 is not an isomorphism and the surjectivity step of Prop. 2.2.4.4 breaks down."
+    "Inseparable test case: for lambda_0 with non-etale kernel (e.g. lambda_0 = p lambda_0' with p = char(k), where d lambda_0 = 0), check that d lambda_0 is not an isomorphism, so the surjectivity step of Prop. 2.2.4.4 breaks down; degree divisible by p alone is not enough, since an isogeny with etale kernel of order p is separable and has bijective differential."
    ],
    "sources": [
     {
@@ -1832,7 +1889,7 @@
     "Siegel case: r = dim Sym^2(C^g) = g(g+1)/2, agreeing with Cor. 2.2.4.6.",
     "Hilbert-Blumenthal case O = O_F, F totally real of degree d, L = O_F^2 with trace pairing: r = d.",
     "Unitary GU(a, b) over an imaginary quadratic field: r = ab.",
-    "Negative test at a prime p dividing [L^# : L]: the self-dual symplectic module (H_1^dR, <,>_lambda) is not isomorphic to L tensor R and the reduction to G/P_0 is unavailable (compare Hida 6.2.1 and the non-smooth models of Lan intro 5.1.5)."
+    "Negative test at a prime p dividing [L^# : L] (such p is bad by Def. 1.4.1.1 and excluded from box): a polarization of the required type then has degree divisible by p and need not be separable, the pairing <,>_lambda on H_1^dR need not be perfect, and neither Cor. 2.2.4.8 nor the reduction to G/P_0 applies (compare the non-smooth integral models of Lan intro 5.1.5; Hida 6.2.1 records the separate p = 2 exclusion in type D)."
    ],
    "sources": [
     {
@@ -1844,8 +1901,8 @@
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
      "locator": "Section 2.2.4, proof of Proposition 2.2.4.9, printed p. 158 (PDF p. 186)",
-     "excerpt": "the perfect pairing h · , · iλ̃ defined by the separable isogeny λ̃ and invariant under the action defined by i.",
-     "match": "The de Rham homology is a self-dual symplectic module because lambda is separable."
+     "excerpt": "the perfect pairing ⟨ · , · ⟩λ̃ defined by the separable isogeny λ̃ and invariant under the action defined by i.",
+     "match": "The de Rham homology is a self-dual symplectic module because lambda is separable. (Brackets read on the page image; the drafter's text layer rendered them as 'h' and 'i'.)"
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -1855,7 +1912,7 @@
     },
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
-     "locator": "Section 2.2.4, Corollary 2.2.4.12, printed p. 160 (PDF p. 188)",
+     "locator": "Section 2.2.4, Corollary 2.2.4.12, printed pp. 159-160 (PDF pp. 187-188); the excerpt runs across the page break",
      "excerpt": "where r is an integer that can be calculated as follows",
      "match": "Dimension formula."
     },
@@ -1965,14 +2022,14 @@
    "parentStageId": "PELModuli:M2",
    "title": "Theorem 1.4.1.11: M_H is a separated smooth algebraic stack of finite type over O_{F_0,(box)}, an algebraic space at neat level (Lan 1.4.1.11-1.4.1.13, 2.3.4, B.3.7-B.3.11)",
    "kind": "theorem",
-   "statement": "For H open compact in G(Z^^box), M_H is an algebraic (Deligne-Mumford) stack, separated, smooth and of finite type over S_0 = Spec(O_{F_0,(box)}); it is representable by an algebraic space if its objects have no nontrivial automorphisms, in particular when H is neat (Theorem 1.4.1.11); M_n is an algebraic space if n >= 3 (Cor. 1.4.1.12). The diagonal is finite, and a closed immersion when objects have no automorphisms (Remark 2.3.4.1). Relative dimension at a point is r = dim_C Sym_rho(V_0) (Cor. 2.2.4.12). The same holds for M^rat_H on locally noetherian bases (Cor. 1.4.3.7). Quasi-projectivity, hence scheme representability at neat level, is not proved here but deferred to Cor. 7.2.3.10 (Remark 1.4.1.13).",
+   "statement": "For H open compact in G(Z^^box), M_H is an algebraic (Deligne-Mumford) stack, separated, smooth and of finite type over S_0 = Spec(O_{F_0,(box)}); it is representable by an algebraic space if its objects have no nontrivial automorphisms, in particular when H is neat (Theorem 1.4.1.11); M_n is an algebraic space if n >= 3 (Cor. 1.4.1.12). The diagonal is finite, and a closed immersion when objects have no automorphisms (Remark 2.3.4.1). Lan does not state the relative dimension of M_H; it follows from Theorem 2.2.4.13 and Cor. 2.2.4.12 (the complete local rings at points of finite type are Lambda[[x_1, ..., x_r]]) that M_H has relative dimension r = dim_C Sym_rho(V_0) over S_0 at every point. The same holds for M^rat_H on locally noetherian bases (Cor. 1.4.3.7). Quasi-projectivity, hence scheme representability at neat level, is not proved here but deferred to Cor. 7.2.3.10 (Remark 1.4.1.13).",
    "hypotheses": [
     "box a set of good primes (no prime in box divides n I_bad Disc [L^# : L]); H open compact in G(Z^^box)",
     "algebraic-space conclusion only when objects have no nontrivial automorphisms (e.g. H neat)",
     "Artin's criterion in the form of Lan's Theorems B.3.7, B.3.9 (perfect residue fields of finite type) and B.3.11 (S of finite type over a field or an excellent Dedekind domain with infinitely many points, all complete local rings normal of the same Krull dimension)"
    ],
    "proofSteps": [
-    "Reduction: by Lemma 1.4.4.2 replace box by a larger set so that box is empty or infinite; then S_0 has one or infinitely many closed points and Theorem B.3.11 lets one suppress the openness-of-versality condition (Remark B.3.12 notes this fails for bases like Spec(Z_(p))).",
+    "Reduction (Section 2.3.4, printed p. 164): by Lemma 1.4.4.2 replace box by a larger set of good primes so that box is empty or infinite. For H open compact in G(Z^^box) this needs H = H' x U_{box'-box} (the setting of Section 1.4.4), which holds when box' adds good primes p at which H contains G(Z_p); since H contains the product of G(Z_p) over all p outside a finite set, such an infinite box' exists, but Lan does not write this out (the thesis errata record that the original thesis omitted the reduction). Then S_0 has one or infinitely many closed points, the complete local rings Lambda[[x_1, ..., x_r]] of Theorem 2.2.4.13 are normal of constant Krull dimension, and Theorem B.3.11 suppresses the openness-of-versality condition (Remark B.3.12: the Krull-dimension assumption is not reasonable for bases such as Spec(Z_(p))).",
     "Condition 1 (etale stack, LFP): M1 node on the etale stack property and Lemma 1.4.1.10.",
     "Condition 2 (Isom_U(xi, eta) algebraic space locally of finite type): Hilbert schemes and Artin [6, Cor. 6.2]; quasi-finite by Lemma 2.3.3.1; proper, hence finite, by the valuative criterion over discrete valuation rings 'using the theory of Neron models' (one sentence, not detailed).",
     "Condition 3 (effective prorepresentability of Def_{xi_0}): Prop. 2.3.2.1 with Theorem 2.2.3.10.",
@@ -1981,7 +2038,7 @@
     "Smoothness: the points of finite type are dense (LFP) and M_H is formally smooth at them (Theorem 2.2.4.13), hence smooth."
    ],
    "acceptance": [
-    "Siegel case g = 1, n >= 3: M_n is the smooth affine curve Y(n) over Z[1/n] (compare ModularCurves); check separatedness and smoothness.",
+    "Siegel case g = 1 with box the set of primes not dividing n (so S_0 = Spec Z[1/n]) and n >= 3: M_n is the smooth affine curve Y(n) over Z[1/n] (compare ModularCurves); check separatedness and smoothness.",
     "Check that for a non-neat H (e.g. H = G(Z^^box) in the Siegel case) M_H is a Deligne-Mumford stack but not an algebraic space ([-1] is an automorphism).",
     "Check that the proof never uses geometric invariant theory (Remark 2.3.4.2) and that M2 does not assert quasi-projectivity."
    ],
@@ -2076,21 +2133,21 @@
    "parentStageId": "PELModuli:M6",
    "title": "Rigidity by level n >= 3 as the input to converting geometric moduli points into K-isomorphism classes (Lan 2.3.3.1-2.3.3.2; Faltings Satz 1 proof)",
    "kind": "application",
-   "statement": "Statement supplied: for a polarized abelian scheme (A, lambda) and n >= 3, Aut(A, lambda) -> Aut(A[n]) is injective with image acting through roots of unity (Lan Lemma 2.3.3.1), and objects of M_H have no nontrivial automorphisms at neat level (Cor. 2.3.3.2), so M_H is an algebraic space there (Theorem 1.4.1.11) while at non-neat level only the stack is fine. Application recorded from Faltings (Satz 1, p. 357): after fixing a class over Kbar of principally polarized semiabelian models with h(A) <= c over a number field K, all members have bad reduction at the same places, so by Lemma 4 (Hermite-Minkowski) there is a finite extension K' of K containing the coordinates of the n-division points of all of them for some n >= 3; Faltings states that they are then already isomorphic over K', and that the rest follows from general principles of Galois cohomology. Neither source spells out the descent; the passage from a rational point of a coarse space or a Kbar-class to an object over K is exactly where level rigidity and Galois cohomology are needed.",
+   "statement": "Statement supplied: for an abelian scheme A over a base scheme S, a polarization lambda and n >= 3, the restriction Aut_S(A, lambda) -> Aut_S(A[n]) is injective and its image acts via a subgroup of the roots of unity (Lan Lemma 2.3.3.1); objects of M_H have no nontrivial automorphisms when H is neat (Cor. 2.3.3.2), so M_H is an algebraic space there (Theorem 1.4.1.11), while for non-neat H only the algebraic stack is available. Application recorded from the proof of Faltings' Satz 1 (Section 3, pp. 356-357). Satz 1 counts isomorphism classes of pairs consisting of a semiabelian variety p : A -> Spec(R) of relative dimension g with proper generic fibre A/K and a principal polarization on A/K, with h(A) <= c, where R is the ring of integers of the number field K. After Lemma 3 leaves finitely many moduli points x in A_g(K) (A_g the coarse moduli scheme), Faltings fixes a class over Kbar and considers the corresponding A/K. He states as known ('Es ist bekannt') that all of them have bad reduction at the same places of K. Lemma 4 (Hermite-Minkowski) then gives a finite extension K' of K containing, for some n >= 3, the coordinates of the n-division points of all these A/K'. He asserts ('Bekanntlich') that the A are then already isomorphic over K', 'and the rest follows from general principles of Galois cohomology'. Neither source spells out the descent. Not proved in the passages read: the Galois-invariance argument, which uses the injectivity of Lemma 2.3.3.1 over Kbar; the finiteness of the K-forms of a K'-object via H^1(Gal(K'/K), Aut); and the same-bad-reduction claim, which depends on the semiabelian (everywhere semistable) hypothesis.",
    "hypotheses": [
-    "n >= 3 (Lan Lemma 2.3.3.1; Faltings 'n >= 3', verified on the page image of p. 357)",
-    "principally polarized abelian varieties over a number field K (Faltings Satz 1); for Lan, any base scheme",
-    "Faltings uses the moduli stack A_g of principally polarized abelian varieties and its coarse space; the fine-moduli statement at neat level is Lan Theorem 1.4.1.11 for the Siegel PEL datum"
+    "n >= 3 (Lan Lemma 2.3.3.1; Faltings 'n ≥ 3', read on the page image of p. 357)",
+    "Faltings Satz 1: K a number field with ring of integers R; semiabelian varieties A -> Spec(R) of relative dimension g with proper generic fibre A/K, a principal polarization on A/K, and h(A) <= c. Lan Lemma 2.3.3.1: any abelian scheme over any base scheme, with any polarization",
+    "Faltings works with the coarse moduli scheme A_g, embedded in P^n_Z via the bundle M (p. 354), and its K-points x in A_g(K); no stack appears in the passages read. The fine-moduli statement at neat level is Lan Theorem 1.4.1.11 for the Siegel PEL datum"
    ],
    "proofSteps": [
     "Lan Lemma 2.3.3.1: reduce to a point by Lemma 2.2.2.1 and quote Mumford [94, Section 21, Thm. 5].",
-    "Faltings Satz 1 proof, descent paragraph: fix a Kbar-class; same bad reduction; Lemma 4 gives K'; 'Bekanntlich' the members are isomorphic over K'; the remaining finiteness of K-classes is attributed to 'allgemeine Grundsaetze der Galois-Kohomologie' without detail.",
+    "Faltings Satz 1 proof, descent paragraph (p. 357). Fix a Kbar-class. All its members have bad reduction at the same places; this is stated as known ('Es ist bekannt'), with no argument, and it relies on the semiabelian hypothesis. Lemma 4 (Hermite-Minkowski, proof 'Bekannt') gives K'. 'Bekanntlich' the members are isomorphic over K'. The remaining finiteness of K-classes is attributed to 'allgemeine Grundsaetze der Galois-Kohomologie' without detail.",
     "Not transcribed from any read source (recorded as a gap): the argument that a Kbar-isomorphism compatible with polarizations between abelian varieties whose n-torsion is K'-rational is Gal(Kbar/K')-invariant, and the finiteness of the set of K-forms of a K'-object via H^1(Gal(K'/K), Aut)."
    ],
    "acceptance": [
     "Test: for sigma fixing K' and a Kbar-isomorphism phi : (A_1, lambda_1) -> (A_2, lambda_2) of principally polarized abelian varieties over K' with all n-torsion K'-rational, check that sigma(phi) o phi^{-1} acts trivially on A_2[n] and hence is the identity by Lemma 2.3.3.1.",
-    "Test: exhibit quadratic twists of an elliptic curve over Q (Aut = {+-1}) that are Qbar-isomorphic but not Q-isomorphic, showing why the Galois-cohomology step is needed.",
-    "Check that a rational point of the coarse space of the stack at level 1 need not come from an abelian variety over K (the descent obstruction required by the stage text); no read source proves this."
+    "Test: take a number field K with an everywhere unramified quadratic extension K(sqrt d)/K. The quadratic twist, by that extension, of an elliptic curve over K with semistable reduction everywhere and j != 0, 1728 is again semistable everywhere and is Kbar-isomorphic but not K-isomorphic to it. So one Kbar-class within the scope of Satz 1 can contain several K-classes, which is why the Galois-cohomology step is needed. Over Q no nontrivial quadratic twist of a semistable elliptic curve stays semistable, because every nontrivial quadratic character of G_Q ramifies at some prime.",
+    "Check that a rational point of the coarse space of the stack at level 1 need not come from an abelian variety over K (the descent obstruction required by the stage text); no read source proves this. For g = 1 every K-point of the j-line comes from an elliptic curve over K, so an example needs g >= 2."
    ],
    "sources": [
     {
@@ -2101,9 +2158,9 @@
     },
     {
      "sourceId": "faltings-1983-endlichkeitssaetze",
-     "locator": "Section 3, proof of Satz 1, p. 357 (PDF p. 9)",
+     "locator": "Section 3 (Hoehen), proof of Satz 1, printed p. 357 (PDF p. 10 of the public GDZ copy, whose PDF p. 1 is a cover sheet; PDF p. 9 of the drafter's library copy); the statement of Satz 1 begins on p. 356",
      "excerpt": "Bekanntlich sind dann unsere A's schon über K' isomorph, und der Rest folgt aus allgemeinen Grundsätzen der Galois-Kohomologie.",
-     "match": "verified on page image; text layer garbled. The consumer's descent step, which invokes level-n rigidity (n >= 3) and Galois cohomology without proof."
+     "match": "Read on the page image (the GDZ copy has no text layer). This is the consumer's descent step, which invokes level-n rigidity (n ≥ 3) and Galois cohomology without proof."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2113,7 +2170,7 @@
   {
    "source": "PELModuli:M0/discriminant-inverse-different-and-unramified-primes-of-an-order",
    "target": "PELModuli:M0/multirank-classification-of-projective-modules-at-unramified-primes",
-   "reason": "Prop. 1.1.1.21 (p unramified implies O maximal at p and O tensor Lambda a product of matrix algebras) is the input that makes projective O_R-modules classified by multirank in Lemma 1.1.3.4 and makes O tensor Lambda hereditary in Lemma 1.2.1.29.",
+   "reason": "Prop. 1.1.1.21 (p unramified implies O maximal at p and O tensor Lambda a product of matrix algebras) is the input that makes projective O_R-modules classified by multirank in Lemma 1.1.3.4 and makes O tensor Lambda hereditary in Lemma 1.2.1.29. Review (REVIEW-EXT-12): Correct direction and use: Section 1.1.3 (printed p. 16) and the proof of Lemma 1.1.3.4 use Prop. 1.1.1.21 (maximality at p; matrix algebras when p > 0). Annotation: the hereditary property used in Lemma 1.2.1.29 is Prop. 1.1.1.23 ([107, Thm. 21.4, Cor. 21.5]), which is not part of the source node; the source node supplies only the maximality that makes 1.1.1.23 applicable.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2300,7 +2357,7 @@
   {
    "source": "PELModuli:M0/lagrangian-quotient-G-mod-P0-formally-smooth-and-G-smooth",
    "target": "PELModuli:M0/similitude-group-is-smooth-with-determined-geometric-type-at-good-primes",
-   "reason": "Cor. 1.2.5.17 gives an alternative proof of the smoothness of G tensor Lambda (Remark 1.2.5.18) under the explicit hypothesis p not dividing I_bad Disc [L^# : L].",
+   "reason": "Cor. 1.2.5.17 gives an alternative proof of the smoothness of G tensor Lambda (Remark 1.2.5.18) under the explicit hypothesis p not dividing I_bad Disc [L^# : L]. Review (REVIEW-EXT-12): Not a logical prerequisite of Cor. 1.2.3.12, which proves smoothness of H independently (Remark 1.2.5.18: 'a special case of Corollary 1.2.3.12, with an alternative reasoning'). Keep only as the source of the consumer's statement about G tensor Lambda with the explicit hypothesis p not dividing I_bad Disc [L^# : L], which the 'in particular' clause of Cor. 1.2.3.12 leaves implicit. No cycle: links 8, 14 and 17 form no directed loop.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2513,7 +2570,7 @@
   {
    "source": "PELModuli:M1/prime-to-box-isogenies-correspond-to-invariant-lattices-in-tate-modules",
    "target": "PELModuli:M1/rational-level-H-structures-and-comparison-with-integral-ones",
-   "reason": "Lemma 1.3.8.6 moves to an isogenous triple on which the rational structure is integral using Cor. 1.3.5.4.",
+   "reason": "Lemma 1.3.8.6 moves to an isogenous triple on which the rational structure is integral using Cor. 1.3.5.4. Review (REVIEW-EXT-12): Keep. Add to the reason: the proof of Lemma 1.3.8.5 (PDF p. 120) also uses Prop. 1.3.5.3 ('By Proposition 1.3.5.3, α_{n,s̄} is the specialization of an O-equivariant isomorphism'), besides the use of Cor. 1.3.5.4 in the proof of Lemma 1.3.8.6.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2656,7 +2713,7 @@
   {
    "source": "PELModuli:M1/etale-stack-property-of-M-H",
    "target": "PELModuli:M1/change-of-lattice-order-and-set-of-good-primes",
-   "reason": "Cor. 1.4.3.1 uses that M_H is determined by its fibers over affine schemes (stack property) together with the limit formula.",
+   "reason": "Cor. 1.4.3.1 uses that M_H is determined by its fibers over affine schemes (stack property) together with the limit formula. Review (REVIEW-EXT-12): Keep with annotation. Lan introduces Cor. 1.4.3.1 as 'A consequence of Theorem 1.4.1.11' and argues from 'algebraic stacks of finite type over S0 are ... locally of finite presentation' (PDF p. 128); he does not cite the stack property. The edge étale-stack -> change-of-lattice is valid only for the packet's re-derivation (Lemma 1.4.1.10 = Def. A.5.9 limit formula, plus the stack property for determination by affine fibres), which the reviewer confirms. Without that re-derivation the source dependency is M2/representability -> this node, which would close a cycle with link 84 (this node -> representability, via Lemma 1.4.4.2). Recommend splitting part (c) (Lemma 1.4.4.2, Prop. 1.4.4.3) into its own node, since only that part feeds Section 2.3.4.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2678,7 +2735,7 @@
   {
    "source": "AbelianSchemesAndArithmeticModuli:A2",
    "target": "PELModuli:M1/polarizations-and-prime-to-box-polarizations",
-   "reason": "Supplies the dual abelian scheme as the representing object of Pic^0, the morphism phi_L = lambda_L, symmetric homomorphisms, positivity making a polarization, and Rosati involutions; Lan quotes Theorem 1.3.2.3 from Faltings-Chai and uses these objects in Defs. 1.3.2.16, 1.3.2.19 and 1.3.3.1. Scope mismatch: Lan's Prop. 1.3.2.14 (every symmetric homomorphism is etale-locally lambda_L, via theta groups) and the Z_(box)^x-polarizations of Def. 1.3.2.19 are not named in A2's text and are recorded as a shared-supplier request.",
+   "reason": "Supplies the dual abelian scheme as the representing object of Pic^0, the morphism phi_L = lambda_L, symmetric homomorphisms, positivity making a polarization, and Rosati involutions; Lan quotes Theorem 1.3.2.3 from Faltings-Chai and uses these objects in Defs. 1.3.2.16, 1.3.2.19 and 1.3.3.1. Scope mismatch: Lan's Prop. 1.3.2.14 (every symmetric homomorphism is etale-locally lambda_L, via theta groups) and the Z_(box)^x-polarizations of Def. 1.3.2.19 are not named in A2's text and are recorded as a shared-supplier request. Review (REVIEW-EXT-12): Keep. A2's description covers the dual as the degree-zero Picard space (Raynaud route), phi_L, biduality, symmetric homomorphisms, polarizations and Rosati involutions. Add to the scope-mismatch note: Thm 1.3.2.3 also asserts representability of the full rigidified Pic_e(A/S), which Prop. 1.3.2.14 uses for L -> lambda_L; A2 names only the degree-zero functor. Lemma 1.3.2.11 (deg f = deg f^vee, [94, §15, Thm 1]) is in neither A2 nor A3 by name.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2689,7 +2746,7 @@
   {
    "source": "AbelianSchemesAndArithmeticModuli:A3",
    "target": "PELModuli:M1/prime-to-box-isogenies-correspond-to-invariant-lattices-in-tate-modules",
-   "reason": "Supplies isogenies with finite flat kernels, quotients of abelian schemes by finite locally free subgroups, and etaleness of [n] for n invertible; Cor. 1.3.5.4 uses that prime-to-box isogenies are characterized by their finite etale kernels. Scope mismatch: the equivalence between finite etale group schemes and pi_1-modules (Prop. 1.3.5.3, SGA 1 V) is not in A3.",
+   "reason": "Supplies isogenies with finite flat kernels, quotients of abelian schemes by finite locally free subgroups, and etaleness of [n] for n invertible; Cor. 1.3.5.4 uses that prime-to-box isogenies are characterized by their finite etale kernels. Scope mismatch: the equivalence between finite etale group schemes and pi_1-modules (Prop. 1.3.5.3, SGA 1 V) is not in A3. Review (REVIEW-EXT-12): Keep. A3's description ('For a finite locally free subgroup, construct the fppf quotient abelian scheme...') covers the quotient step. Annotate: Lan gives no proof of Cor. 1.3.5.4 ('Combining the above two propositions'), so the use is inferred; Hida 6.1.2 (p. 50) names it explicitly ('Make the quotient abelian scheme A′ = A/C over S (see [ABV] Section 12 and [GME] Proposition 1.8.4)'). Prop. 1.3.5.3 (SGA 1 V) has no supplier.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2711,7 +2768,7 @@
   {
    "source": "AlgebraicModuliForArithmeticGeometry:R09.2",
    "target": "PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability",
-   "reason": "Supplies representability of relative Hom schemes for projective schemes via Hilbert schemes, used in the proof of Prop. 1.3.3.7 (the functor of O-structures is a disjoint union of schemes projective over S). Scope: R09.2 states Hom and Isom schemes 'where the subsequent moduli proofs invoke them'.",
+   "reason": "Supplies representability of relative Hom schemes for projective schemes via Hilbert schemes, used in the proof of Prop. 1.3.3.7 (the functor of O-structures is a disjoint union of schemes projective over S). Scope: R09.2 states Hom and Isom schemes 'where the subsequent moduli proofs invoke them'. Review (REVIEW-EXT-12): Keep. R09.2 ('Develop relative Hom schemes and Isom schemes where the subsequent moduli proofs invoke them') covers the first step of the proof of Prop. 1.3.3.7 (disjoint union of schemes projective over S). It does not cover quasi-finiteness, which uses Jordan-Zassenhaus [107, Thm 26.4] and the positivity/classification of real positive involutions [94, §21], [76, §2] (PDF p. 109); those are gaps, not supplied by R09.2.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2722,7 +2779,7 @@
   {
    "source": "AlgebraicModuliForArithmeticGeometry:R09.3",
    "target": "PELModuli:M1/etale-stack-property-of-M-H",
-   "reason": "Supplies effective descent for polarized projective objects (R09.3 separates descent of a line bundle from descent of an object with its line bundle); Lan invokes SGA 1 VIII 7.8 for fpqc descent of the pair (A, (Id x lambda)*P_A).",
+   "reason": "Supplies effective descent for polarized projective objects (R09.3 separates descent of a line bundle from descent of an object with its line bundle); Lan invokes SGA 1 VIII 7.8 for fpqc descent of the pair (A, (Id x lambda)*P_A). Review (REVIEW-EXT-12): Keep. R09.3 ('Prove effective descent for the sheaves, finite flat groups, polarisations and projective objects ... Separate descent of a line bundle from descent of an object equipped with that line bundle') covers SGA 1 VIII 7.8 for (A, L). Correct the reason: the sheaf is (Id_A, λ)*P_A (Lan's '(Id_A × λ)*P_A' at PDF p. 192 is a misprint).",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2843,7 +2900,7 @@
   {
    "source": "DeformationAndDerivedPatchingAlgebra:R03.2/rim-schlessinger-condition-and-prorepresentability",
    "target": "PELModuli:M2/prorepresentability-of-local-pel-deformation-functors",
-   "reason": "Supplies Schlessinger's prorepresentability theorem (deformation functor, finite tangent space) and the statement that a smooth morphism of deformation functors inducing an isomorphism on tangent spaces is an isomorphism, which covers Lan's Theorem 2.2.1.4 including R^univ = Lambda[[t_1, ..., t_m]] for formally smooth R^univ. Scope: the supplier node is written over C_Lambda for a complete local Lambda with residue field k; Lan uses Lambda = k or W(k), where the Der_Lambda(k, k) condition is vacuous.",
+   "reason": "Supplies Schlessinger's prorepresentability theorem (deformation functor, finite tangent space) and the statement that a smooth morphism of deformation functors inducing an isomorphism on tangent spaces is an isomorphism, which covers Lan's Theorem 2.2.1.4 including R^univ = Lambda[[t_1, ..., t_m]] for formally smooth R^univ. Scope: the supplier node is written over C_Lambda for a complete local Lambda with residue field k; Lan uses Lambda = k or W(k), where the Der_Lambda(k, k) condition is vacuous. Review (REVIEW-EXT-12): The endpoint exists (data/decompositions). The supplier (Stacks 90.18.2) states Schlessinger's criterion over C_Lambda; the Der_Lambda(k, k) condition is vacuous for Lambda = k or W(k) because Lambda -> k is surjective. It does not state Lan's second half (Schlessinger Prop. 2.5(i): a formally smooth prorepresenting ring with tangent dimension m is Lambda[[t_1, ..., t_m]]). That is derivable but not among the supplier's listed outputs, so the reason's 'covers ... including R^univ = Lambda[[t_1, ..., t_m]]' overstates the supply. The stage edge DeformationAndDerivedPatchingAlgebra:R03.2 -> PELModuli:M2 is new and acyclic.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2887,7 +2944,7 @@
   {
    "source": "AbelianSchemesAndArithmeticModuli:A4",
    "target": "PELModuli:M2/de-rham-lifting-criterion-for-abelian-schemes",
-   "reason": "Supplies relative H^1_dR of abelian schemes with its Hodge exact sequence, base change and cup-product pairing, which Lan's Props. 2.1.6.8-2.1.6.9 and the pairing <,>_lambda of Section 2.2.4 use; Lan imports the Hodge-sequence surjectivity and exterior-algebra facts from Berthelot-Breen-Messing [18, Lem. 2.5.3, Prop. 2.5.2, 5.1]. Scope mismatch: A4 also imports Grothendieck-Messing and Serre-Tate theory, which Lan's route explicitly does not use; only the degree-one de Rham statements are consumed here.",
+   "reason": "Supplies relative H^1_dR of abelian schemes with its Hodge exact sequence, base change and cup-product pairing, which Lan's Props. 2.1.6.8-2.1.6.9 and the pairing <,>_lambda of Section 2.2.4 use; Lan imports the Hodge-sequence surjectivity and exterior-algebra facts from Berthelot-Breen-Messing [18, Lem. 2.5.3, Prop. 2.5.2, 5.1]. Scope mismatch: A4 also imports Grothendieck-Messing and Serre-Tate theory, which Lan's route explicitly does not use; only the degree-one de Rham statements are consumed here. Review (REVIEW-EXT-12): The existing atlas edge A4 -> M2 applies. A4's stated scope (H^1_dR, the Hodge exact sequence, base change, the cup-product pairing) covers (2.1.6.5)-(2.1.6.7). It does not name the perfect duality of H_1^dR(A) and H_1^dR(A^vee) through c_1 of the Poincare bundle ([37, 1.5], [18, 5.1]), which defines <,>_lambda (printed p. 156), nor H^i(A, O) = wedge^i H^1(A, O) ([18, Prop. 2.5.2]). Those remain in the Berthelot-Breen-Messing gap. The pairing is consumed in the polarized formal-smoothness node, not in this target.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -2997,7 +3054,7 @@
   {
    "source": "SchemeAndStackFoundations:SF.4/formal-functions-grothendieck-existence-and-algebraization",
    "target": "PELModuli:M2/effective-prorepresentability-by-grothendieck-existence",
-   "reason": "Supplies Grothendieck's existence theorem and algebraization of a compatible system of proper schemes with ample invertible sheaves (Stacks 30.27.1, 30.28.4), which are Lan's quoted Theorems 2.3.1.2 and 2.3.1.4; full faithfulness gives Theorem 2.3.1.3. Scope: the supplier node records that uniqueness in its morphism lemma is omitted in its source, while Lan needs unique algebraization of lambda_i.",
+   "reason": "Supplies Grothendieck's existence theorem and algebraization of a compatible system of proper schemes with ample invertible sheaves (Stacks 30.27.1, 30.28.4), which are Lan's quoted Theorems 2.3.1.2 and 2.3.1.4; full faithfulness gives Theorem 2.3.1.3. Scope: the supplier node records that uniqueness in its morphism lemma is omitted in its source, while Lan needs unique algebraization of lambda_i. Review (REVIEW-EXT-12): The endpoint exists only in the unpromoted draft research/expansion/external/EXT-01/SchemeAndStackFoundations.json, so the link is valid only once that packet is promoted. The supplier covers EGA III 5.1.2, 5.1.4 and 5.4.5 (Stacks 30.20.5, 30.27.1, 30.28.4). It omits the uniqueness of algebraized morphisms (EGA III 5.4.1, Lan Theorem 2.3.1.3), which Lan needs for the unique lambda: A -> A^vee. The stage edge SchemeAndStackFoundations:SF.4 -> PELModuli:M2 is new and acyclic.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -3107,7 +3164,7 @@
   {
    "source": "AlgebraicModuliForArithmeticGeometry:A0-extension",
    "target": "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H",
-   "reason": "Supplies Artin's representability criterion itself (limit preservation, representable diagonal, deformation/obstruction, openness of versality, algebraization), which Lan states and proves in Appendix B modulo Artin's algebraization theorem and applies in Section 2.3.4. Scope mismatch: Lan uses the variants Theorem B.3.9 (effective prorepresentability over complete Lambda_k' when residue fields of finite type are perfect) and Theorem B.3.11 (suppressing openness of versality when S has one or infinitely many closed points and all complete local rings are normal of the same Krull dimension); A0-extension does not name these variants (shared-supplier request).",
+   "reason": "Supplies Artin's representability criterion itself (limit preservation, representable diagonal, deformation/obstruction, openness of versality, algebraization), which Lan states and proves in Appendix B modulo Artin's algebraization theorem and applies in Section 2.3.4. Scope mismatch: Lan uses the variants Theorem B.3.9 (effective prorepresentability over complete Lambda_k' when residue fields of finite type are perfect) and Theorem B.3.11 (suppressing openness of versality when S has one or infinitely many closed points and all complete local rings are normal of the same Krull dimension); A0-extension does not name these variants (shared-supplier request). Review (REVIEW-EXT-12): This is a new stage edge (A0-extension -> M2); it is acyclic. The M2 stage text lists A0 as a dependency, and A0-extension is 'the sole owner of Shimura A0'. A0-extension states Artin's criterion with openness of versality. Lan uses the variants B.3.9 (effective prorepresentability) and B.3.11 (openness of versality suppressed, with normal complete local rings of constant Krull dimension), which A0-extension does not name. The shared-supplier request in the reason stands.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -3129,7 +3186,7 @@
   {
    "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
    "target": "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H",
-   "reason": "Supplies the Neron mapping property (functorial extension of homomorphisms and comparison of good reduction with abelian-scheme models), which Lan invokes in one sentence to prove that Isom_U(xi, eta) satisfies the valuative criterion of properness over discrete valuation rings. Scope: Lan gives no details; R11.1 is stated over excellent discrete valuation rings and Dedekind bases, which suffices for test rings essentially of finite type over S_0.",
+   "reason": "Supplies the Neron mapping property (functorial extension of homomorphisms and comparison of good reduction with abelian-scheme models), which Lan invokes in one sentence to prove that Isom_U(xi, eta) satisfies the valuative criterion of properness over discrete valuation rings. Scope: Lan gives no details; R11.1 is stated over excellent discrete valuation rings and Dedekind bases, which suffices for test rings essentially of finite type over S_0. Review (REVIEW-EXT-12): This is a new stage edge (R11.1 -> M2); it is acyclic. R11.1 supplies the Neron mapping property and the comparison of good reduction with abelian-scheme models, which extends an isomorphism of generic fibres to the abelian-scheme models over a discrete valuation ring. Compatibility with lambda, i and alpha_H then follows from rigidity and separatedness, which neither Lan nor R11.1 writes out. R11.1 is stated over excellent discrete valuation rings and Dedekind bases, while the valuative criterion needs discrete valuation rings over U; the reason's 'essentially of finite type over S_0' is the drafter's assumption. The existing Neron-model gap stands.",
    "sources": [
     {
      "sourceId": "lan-2021-arithmetic-compactifications-pel",
@@ -3217,6 +3274,186 @@
      "locator": "Section 2.3.3, Lemma 2.3.3.1, printed pp. 162-163"
     }
    ]
+  },
+  {
+   "source": "PELModuli:M0/multirank-classification-of-projective-modules-at-unramified-primes",
+   "target": "PELModuli:M0/universal-domains-of-balanced-pairings-are-torsion-free-at-good-primes",
+   "reason": "Prop. 1.2.2.1's proof uses the decomposition O_Lambda = prod O_[tau],Lambda of Lemma 1.2.1.31 ((1.2.2.2)); Prop. 1.2.2.3's proof decomposes the projective O_Lambda-lattice L_Lambda into modules M_tau by Lemma 1.1.3.4 (with Prop. 1.1.1.23).",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.2.2, proof of Proposition 1.2.2.1, printed p. 41 (PDF p. 69); proof of Proposition 1.2.2.3, printed p. 43 (PDF p. 71)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M0/pel-type-lattice-polarization-and-similitude-group-scheme",
+   "target": "PELModuli:M0/universal-domains-of-balanced-pairings-are-torsion-free-at-good-primes",
+   "reason": "The proof of Prop. 1.2.2.1 reduces to simple B by Lemma 1.2.1.11 (every simple factor is *-stable), which is in the source node.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.2.2, proof of Proposition 1.2.2.1, printed p. 41 (PDF p. 69)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M0/pel-type-lattice-polarization-and-similitude-group-scheme",
+   "target": "PELModuli:M0/standard-form-of-self-dual-symplectic-modules-at-good-primes",
+   "reason": "The reduction of pairings before Lemma 1.2.3.2 uses Lemma 1.2.1.11 and Remark 1.2.1.12, and the proof of Prop. 1.2.3.7 reduces to simple B by Lemmas 1.2.1.11 and 1.2.1.31.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.2.3, paragraph after Lemma 1.2.3.1, printed p. 45 (PDF p. 73); proof of Proposition 1.2.3.7, printed p. 49 (PDF p. 77)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M0/pel-type-lattice-polarization-and-similitude-group-scheme",
+   "target": "PELModuli:M0/similitude-group-is-smooth-with-determined-geometric-type-at-good-primes",
+   "reason": "Prop. 1.2.3.11 applies 'in particular ... to the group functor G tensor R (cf. Definition 1.2.1.6)', its proof ignores similitude factors by Remark 1.2.1.12, and Cor. 1.2.3.12 concludes smoothness of G tensor Lambda for the G of Def. 1.2.1.6.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.2.3, Proposition 1.2.3.11 and proof, printed p. 53 (PDF p. 81); Corollary 1.2.3.12, printed p. 55 (PDF p. 83)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M0/pel-type-lattice-polarization-and-similitude-group-scheme",
+   "target": "PELModuli:M0/lagrangian-quotient-G-mod-P0-formally-smooth-and-G-smooth",
+   "reason": "P_{0,Lambda'} is a subgroup functor of G_Lambda' := G tensor Lambda' (Def. 1.2.1.6), the hypothesis involves [L^# : L] (Def. 1.1.4.11), and Lemma 1.2.5.14 uses that L tensor R is pulled back from Z.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.2.5, paragraph before (1.2.5.12), Definition 1.2.5.13 and Lemma 1.2.5.14 with proof, printed pp. 62-63 (PDF pp. 90-91)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M0/positive-involution-types-A-C-D-and-the-invariant-I-bad",
+   "target": "PELModuli:M0/similitude-group-is-smooth-with-determined-geometric-type-at-good-primes",
+   "reason": "Prop. 1.2.3.11 describes the simple factors of H^ad(k^sep) 'based on the classification of the simple factors B[tau] as in Proposition 1.2.1.14 and Definition 1.2.1.15', and its hypothesis uses I_bad.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.2.3, Proposition 1.2.3.11, printed p. 53 (PDF p. 81)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M0/discriminant-inverse-different-and-unramified-primes-of-an-order",
+   "target": "PELModuli:M1/change-of-lattice-order-and-set-of-good-primes",
+   "reason": "Remark 1.4.3.9 uses Prop. 1.1.1.21 (O maximal at primes not dividing Disc) to get O′ ⊗ Z_(box) = O ⊗ Z_(box) for a maximal order O′ containing O, hence that the O′-span L′ of L is still self-dual over Z_(box).",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.4.3, Remark 1.4.3.9, printed p. 103 (PDF p. 131): 'By Proposition 1.1.1.21, we have O′⊗Z(□) = O⊗Z(□)'"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/symplectic-liftable-principal-level-n-structures",
+   "target": "PELModuli:M1/rational-level-H-structures-and-comparison-with-integral-ones",
+   "reason": "Construction 1.3.8.4 lifts α_n to α^ by Lemma 1.3.6.5, and the proof of Lemma 1.3.8.5 uses Lemma 1.3.6.6 and Cor. 1.3.6.7 (liftability at one geometric point of a connected component).",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.3.8, Construction 1.3.8.4 and proof of Lemma 1.3.8.5, printed pp. 91-92 (PDF pp. 119-120)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/polarizations-and-prime-to-box-polarizations",
+   "target": "PELModuli:M1/moduli-problem-M-rat-H-by-prime-to-box-isogeny-classes",
+   "reason": "Def. 1.4.2.1 item 2 requires a Z_(box)^x-polarization (Def. 1.3.2.19), and its morphism condition λ = r f^vee ∘ λ′ ∘ f uses the dual Z_(box)^x-isogeny (Def. 1.3.2.20).",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.4.2, Definition 1.4.2.1, printed pp. 98-99 (PDF pp. 126-127)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability",
+   "target": "PELModuli:M1/moduli-problem-M-rat-H-by-prime-to-box-isogeny-classes",
+   "reason": "Def. 1.4.2.1 item 3 requires an O ⊗ Z_(box)-structure (Def. 1.3.3.1) and its morphisms are O-equivariant (Def. 1.3.3.5).",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 1.4.2, Definition 1.4.2.1, printed pp. 98-99 (PDF pp. 126-127)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/isogenies-quasi-isogenies-and-prime-to-box-quasi-isogenies",
+   "target": "PELModuli:M2/local-deformation-functors-rigidity-and-openness-of-conditions",
+   "reason": "Rigidity of abelian schemes from Section 1.3.1 is consumed here: Lemma 2.2.2.1 and Cor. 2.2.2.7 use Cor. 1.3.1.5, Cor. 2.2.2.2 uses Cor. 1.3.1.6, and Prop. 2.2.2.5 uses Prop. 1.3.1.4 to verify the group axioms of the lifted scheme.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 2.2.2, proofs of Lemma 2.2.2.1, Cor. 2.2.2.2, Prop. 2.2.2.5 and Cor. 2.2.2.7, printed pp. 143-147"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/polarizations-and-prime-to-box-polarizations",
+   "target": "PELModuli:M2/local-deformation-functors-rigidity-and-openness-of-conditions",
+   "reason": "Cor. 2.2.2.6 shows that a lifted symmetric homomorphism is a polarization by checking it fibrewise with Prop. 1.3.2.15.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 2.2.2, proof of Corollary 2.2.2.6, printed p. 147"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/polarizations-and-prime-to-box-polarizations",
+   "target": "PELModuli:M2/formal-smoothness-of-polarized-abelian-deformations",
+   "reason": "Prop. 2.2.4.4 writes lambda = lambda_L with L ample after an etale surjective base change (Prop. 1.3.2.15, Construction 1.3.2.7) and then lifts L.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 2.2.4, proof of Proposition 2.2.4.4, printed p. 154"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability",
+   "target": "PELModuli:M2/local-deformation-functors-rigidity-and-openness-of-conditions",
+   "reason": "Cor. 2.2.2.7 (in 'the setting as in Section 1.3.3') lifts O-structures (Def. 1.3.3.1) uniquely and shows that their Rosati condition holds automatically on liftings.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 2.2.2, Corollary 2.2.2.7 and proof, printed p. 147"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PELModuli:M1/isogenies-quasi-isogenies-and-prime-to-box-quasi-isogenies",
+   "target": "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H",
+   "reason": "The finite-type argument in Section 2.3.4 uses limit arguments by Theorem 1.3.1.3 (EGA IV-3 Section 8) to show that the rigidified moduli problem is represented by a quasi-compact scheme.",
+   "sources": [
+    {
+     "sourceId": "lan-2021-arithmetic-compactifications-pel",
+     "locator": "Section 2.3.4, finite type argument, printed p. 165"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
  ],
  "coverage": [
@@ -3228,7 +3465,8 @@
     "Section 1.1.4-1.1.5 (Hermitian pairings and the classification of pairings by involutions, Prop. 1.1.5.17) was read but is only summarized inside the standard-form node; a separate node with Lemma 1.1.5.9's successive-approximation argument is still to be written.",
     "The identification of the PEL reflex field with the Shimura-datum reflex field is only cited in the read sources (Deligne 1971c 6.1; Lan intro Theorem 2.4.3); read Deligne, Travaux de Shimura (library SS_DeligneTravaux) Section 6 for a proof.",
     "Milne Prop. 8.7 (connectedness and simply connected derived groups in types A and C) is proved 'directly' by base change; the explicit verification and the component count in type D (Milne Remark 8.9) are not transcribed.",
-    "README asks for p-integral PEL data with restriction/rationalization maps as separate objects; Lan works with a single integral lattice and uses Z_(box)-structures only through Remark 1.4.2.4, so no separate construction was transcribed."
+    "README asks for p-integral PEL data with restriction/rationalization maps as separate objects; Lan works with a single integral lattice and uses Z_(box)-structures only through Remark 1.4.2.4, so no separate construction was transcribed.",
+    "Review (REVIEW-EXT-12): Owner and stage are correct, and 'partial' is correct. Kottwitz 1992 is now public, and the imports named in the new gap should be added to 'remaining': Herstein [63, Lem. 4.3.2], Eisenbud [41, Thm. 7.3], Serre Local Fields [110, Ch. V, Lem. 2] and Lemma B.1.1.11. Also add the Def. 1.2.3.6(2) type-D inconsistency. Item 5 is inaccurate: Lan intro 5.1.2 (p. 53) writes the rational datum (5.1.2.1) and the p-integral datum (5.1.2.2) as base changes, and Hida 6.1.1 (p. 47) uses a Z_(p)-order. These were read but not transcribed; the item should say so. 'Relate positivity to the Hodge structure' is covered only by Milne's dictionary (p. 67, corrected: psi itself is the polarization) and Milne Prop. 8.14 (types A and C)."
    ]
   },
   {
@@ -3239,7 +3477,8 @@
     "Imports not read: Faltings-Chai [42, Ch. I, Section 1] (Theorem 1.3.2.3 representability of Pic and the dual), SGA 1 V Section 7 (Prop. 1.3.5.3), SGA 1 VIII 7.8 (descent), the theta-group arguments [92, Thm. 2.3(ii)], [94, Section 23, Thm. 3] in Prop. 1.3.2.14, Jordan-Zassenhaus [107, Thm. 26.4] in Prop. 1.3.3.7.",
     "Section 1.3.1 Theorem 1.3.1.3 (EGA IV-3 limits) is quoted; Lemma 1.3.1.11 quotes EGA IV-3 11.3.10 and 15.4.2.",
     "Kottwitz's own definition [76, Section 5], which Lan says agrees with Def. 1.4.2.1 for box of one element, is absent; the comparison with Kottwitz's functor is only asserted in Remark 1.4.3.12.",
-    "The README's 'changes of polarization type' beyond Cor. 1.4.3.8 and Remark 1.4.3.9 (e.g. comparing moduli for lattices that differ at primes in box) are not treated in Lan Chapter 1."
+    "The README's 'changes of polarization type' beyond Cor. 1.4.3.8 and Remark 1.4.3.9 (e.g. comparing moduli for lattices that differ at primes in box) are not treated in Lan Chapter 1.",
+    "Review (REVIEW-EXT-12): Owner and stage are correct, and 'partial' is correct. Item 1 should read: Lemma 1.3.5.2, Cor. 1.3.5.4, Lemma 1.3.1.18 and Remark 1.3.6.3 are stated without proof. Lemma 1.3.7.2 is unproved but never used (Lan's errata). The nu_n claim has no source proof; a reviewer argument is recorded in the node. Item 2 should also list [94, §§13, 15, 21], [76, §2], [6, Cor. 6.2], [73, II, 6.16], [22, §2.2, Prop. 14], [37, 1.2-1.4], [92, Thm. 2.3(ii)], Serre's lemma (Rem. 1.4.1.9) and EGA IV-2 6.15.3. The stage asks for 'the all-primes adelic variant' in characteristic zero. It is covered only as the case box = empty of Def. 1.4.2.1. The comparison with Deligne's variant is asserted in Hida 6.1.1-6.1.2 and not proved. Effective descent rests on SGA 1 VIII 7.8 (unread) plus a one-sentence argument for the extra structures."
    ]
   },
   {
@@ -3250,7 +3489,8 @@
     "Imported results not read: Berthelot-Breen-Messing [18, Lem. 2.5.3, Prop. 2.5.2, 5.1]; Deligne [37, 1.5]; Schlessinger [109]; EGA III-1 Section 5; Artin [6, Cor. 6.2] and the algebraization theorem B.2.1.6 of Appendix B; Mumford [94, Section 21, Thm. 5] for Lemma 2.3.3.1 and [96, Prop. 6.13] for pi_*(L^3); Knudson [83, 4.4] for Prop. A.7.4; the Neron-model valuative argument for properness of Isom (one sentence in the source).",
     "Appendix B.2 (Artin's algebraization Theorem B.2.1.6) and Appendix A (algebraic stacks, Definition A.7.2.7, Lemma A.7.2.6) were not read beyond Def. A.5.9 and Prop. A.7.4.",
     "Base change of the smoothness theorem is covered only through Lemma 1.4.4.2 (change of box); base change to arbitrary S_0-schemes is implicit in the fibered-category definition and not separately proved.",
-    "Quasi-projectivity and scheme representability are deferred by Lan to Cor. 7.2.3.10 (supplier ShimuraCompactifications C5), not read."
+    "Quasi-projectivity and scheme representability are deferred by Lan to Cor. 7.2.3.10 (supplier ShimuraCompactifications C5), not read.",
+    "Review (REVIEW-EXT-12): Owner and stage are correct, and 'partial' is correct. Add to 'remaining': the imports in the new Chapter 2 imports gap, including Appendix B.1 (Theorem B.1.1.9, Lemma B.1.1.11); the unwritten equivariance in Prop. 2.1.6.8 and the unwritten descent steps after the etale or finite etale base changes in Props. 2.2.4.4 and 2.2.4.9; and the fact that Lan does not state the relative dimension of M_H (the node derives it from Theorem 2.2.4.13 and Cor. 2.2.4.12). Also add that the reduction to an empty or infinite box needs H = H' x U_{box'-box}, which Lan does not spell out. The stage's 'p = 2 exclusion for quaternionic factors' is I_bad = 2 exactly when a type D factor occurs (Def. 1.2.1.18) and enters through Def. 1.4.1.1; the nodes state it correctly. Schlessinger [109] is public (Trans. AMS)."
    ]
   },
   {
@@ -3258,21 +3498,24 @@
    "status": "not_read",
    "remaining": [
     "Complex uniformization and the open-and-closed immersion X_U -> M_U(C): proof in Lan, Comparison between analytic and algebraic constructions of toroidal compactifications of PEL-type Shimura varieties, J. reine angew. Math. 664 (2012), Sections 2.4-2.5 (absent from the library).",
-    "Indexing of the components of M_U(C) by rational forms and the ker^1 statement: Kottwitz, Points on some Shimura varieties over finite fields, JAMS 5 (1992), Sections 7-8 (absent from the library)."
+    "Indexing of the components of M_U(C) by rational forms and the ker^1 statement: Kottwitz, Points on some Shimura varieties over finite fields, JAMS 5 (1992), Sections 7-8 (absent from the library).",
+    "Review (REVIEW-EXT-12): The record names a real stage. 'not_read' is accurate for the stage argument, since the proofs are in Lan, Crelle 664 (2012) Sections 2.4-2.5 and Kottwitz 1992 Sections 7-8. Both are now public (see the gap updates), so 'absent from the library' is no longer a reason. The packet summary says 'M3-M5 use Lan's example-based introduction..., Milne... and Hida...' although no M3-M5 node exists. The summary should say that those passages were located only. The statement to be proved (open and closed immersion (5.1.3.7), X_U^{(j)} indexed by the G^{(j)} with G^{(j)}(A) ≅ G(A), harmless in types A and C, serious in type D) is on Lan intro p. 55."
    ]
   },
   {
    "stageId": "PELModuli:M4",
    "status": "not_read",
    "remaining": [
-    "Canonical models: Milne Section 14 PEL paragraph and Lan intro 5.1.3 were located but not yet transcribed; normalization models at higher p-level (Lan intro 5.1.5 cites Lan 2016-2018 and Lan-Stroh, not read)."
+    "Canonical models: Milne Section 14 PEL paragraph and Lan intro 5.1.3 were located but not yet transcribed; normalization models at higher p-level (Lan intro 5.1.5 cites Lan 2016-2018 and Lan-Stroh, not read).",
+    "Review (REVIEW-EXT-12): The record names a real stage. 'not_read' is accurate. Lan intro 5.1.5 cites [Lan16], [Lan17], [Lan18b] and [LS18a] (p. 58), matching 'Lan 2016-2018 and Lan-Stroh'. Lan intro p. 55 also states, without proof, that the disjoint union over the G^{(j)} descends to F_0 by checking CM points; this belongs to M4's source list."
    ]
   },
   {
    "stageId": "PELModuli:M5",
    "status": "not_read",
    "remaining": [
-    "Examples in Lan intro 5.1.3.4-5.1.3.6, Milne Section 6 and Hida 5.2 located but not yet transcribed; genus-one comparison with #81 and the Hilbert trace-pairing datum not read."
+    "Examples in Lan intro 5.1.3.4-5.1.3.6, Milne Section 6 and Hida 5.2 located but not yet transcribed; genus-one comparison with #81 and the Hilbert trace-pairing datum not read.",
+    "Review (REVIEW-EXT-12): The record names a real stage. 'not_read' is accurate. Examples 5.1.3.4-5.1.3.6 are on Lan intro p. 54. Example 5.1.3.6 (quaternionic, type D) says 'G is not connected as an algebraic group over Q', which matters for the unitary and non-principal examples the stage requires."
    ]
   },
   {
@@ -3281,7 +3524,8 @@
    "remaining": [
     "The descent comparison between rational points of the coarse space (non-neat level) and objects over the field is not proved in any read source (Faltings p. 357 says 'allgemeine Grundsaetze der Galois-Kohomologie').",
     "The universal Hodge line bundle and its export to ArakelovGeometryAndAbelianHeights R35.5 are in Lan Chapter 7 (not read).",
-    "Explicit nonempty Siegel and unitary examples with nonprincipal polarization for the arithmetic consumer: see M5 (not yet transcribed)."
+    "Explicit nonempty Siegel and unitary examples with nonprincipal polarization for the arithmetic consumer: see M5 (not yet transcribed).",
+    "Review (REVIEW-EXT-12): Owner and stage are correct, and 'partial' is correct. Add: Faltings is public (GDZ) and pp. 353-357 were read by the reviewer. The same-bad-reduction step of Satz 1 is also unproved. The M6 node supplies only the rigidity input; the conversion of moduli points into K-isomorphism classes required by the stage text is still unconstructed. The universal Hodge line export (Lan Chapter 7) remains unread."
    ]
   }
  ],
@@ -3294,21 +3538,21 @@
     "PELModuli:M0/positive-involution-types-A-C-D-and-the-invariant-I-bad",
     "PELModuli:M1/moduli-problem-M-rat-H-by-prime-to-box-isogeny-classes"
    ],
-   "detail": "Checked the flattened catalogue: only Kottwitz, Isocrystals with additional structure I and II, and Kottwitz-Shelstad are present. Lan cites [76, Section 2, Lem. 2.11] for real positive involutions (proof of Prop. 1.2.1.14), [76, Section 5] for the isogeny-class moduli problem (Remark 1.4.3.12), [76, Lem. 7.2] (Remark 1.4.4.4) and [76, Section 8] for the failure of the Hasse principle and the isomorphism of the resulting canonical models outside type D (Remarks 1.4.3.12, 1.4.4.5); Lan intro 5.1.3 and Hida 6.1.1 also cite Section 8. Not verified. Next action: obtain J. Amer. Math. Soc. 5 (1992), no. 2, 373-444 and read Sections 2, 5, 7, 8."
+   "detail": "Checked the flattened catalogue: only Kottwitz, Isocrystals with additional structure I and II, and Kottwitz-Shelstad are present. Lan cites [76, Section 2, Lem. 2.11] for real positive involutions (proof of Prop. 1.2.1.14), [76, Section 5] for the isogeny-class moduli problem (Remark 1.4.3.12), [76, Lem. 7.2] (Remark 1.4.4.4) and [76, Section 8] for the failure of the Hasse principle and the isomorphism of the resulting canonical models outside type D (Remarks 1.4.3.12, 1.4.4.5); Lan intro 5.1.3 and Hida 6.1.1 also cite Section 8. Not verified. Next action: obtain J. Amer. Math. Soc. 5 (1992), no. 2, 373-444 and read Sections 2, 5, 7, 8. Review (REVIEW-EXT-12): No longer an access gap: the article is public at https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf (Crossref DOI 10.1090/s0894-0347-1992-1124982-1; SHA-256 a13bffe1...; 72 pp.). Located by the reviewer: Lemma 2.11 (PDF p. 10), Section 5 'Moduli spaces of PEL type' (PDF p. 17), Section 7 with the ker^1/Hasse-principle discussion (PDF p. 21), Lemma 7.2 (PDF p. 23), Section 8 'Complex points of moduli spaces of PEL type' (PDF p. 26). They were located, not read for the packet. Add neededBy PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability: the proof of Prop. 1.3.3.7 (printed p. 81) cites '[94, §21] and [76, §2]'. Lan cites [76, Lem. 7.2] also in the remark after Prop. 1.2.3.7 (printed p. 48), not only in Remark 1.4.4.4. Retitle the gap and change its next action to reading these sections."
   },
   {
    "title": "Lan's Crelle 2012 comparison paper is absent: the open and closed immersion X_U -> M_U(C) is unproved here",
    "neededBy": [
     "PELModuli:M3"
    ],
-   "detail": "Lan intro 5.1.3 states the open and closed immersion X_U -> M_U(C) for every PEL datum and cites [Lan12a, Sec. 2.4 and 2.5] = K.-W. Lan, Comparison between analytic and algebraic constructions of toroidal compactifications of PEL-type Shimura varieties, J. Reine Angew. Math. 664 (2012), 163-228. Not in the library; no read source proves the algebraic comparison. Next action: obtain that paper and read Sections 2.4-2.5."
+   "detail": "Lan intro 5.1.3 states the open and closed immersion X_U -> M_U(C) for every PEL datum and cites [Lan12a, Sec. 2.4 and 2.5] = K.-W. Lan, Comparison between analytic and algebraic constructions of toroidal compactifications of PEL-type Shimura varieties, J. Reine Angew. Math. 664 (2012), 163-228. Not in the library; no read source proves the algebraic comparison. Next action: obtain that paper and read Sections 2.4-2.5. Review (REVIEW-EXT-12): No longer an access gap: the author's copy is public at https://www.kwlan.org/articles/cpt-ana-alg.pdf (61 pp., SHA-256 c77eb9b5...; errata at https://www.kwlan.org/articles/cpt-ana-alg-err.pdf). Crossref DOI 10.1515/CRELLE.2011.099 is linked from the author's page. Sections 2.4 'Variation of complex structures' (PDF p. 12) and 2.5 'PEL-type Shimura varieties' (PDF p. 14) are located. PDF p. 16 has 'embedded as an open and closed subscheme of M_{H,C}'. These were located, not read. Next action: read Sections 2.2-2.5 with the errata."
   },
   {
    "title": "Reflex-field identification for PEL Shimura data is cited, not proved, in the read sources",
    "neededBy": [
     "PELModuli:M0/pel-reflex-field-versus-shimura-datum-reflex-field"
    ],
-   "detail": "Milne Example 12.4(c) cites Deligne 1971c 6.1; Lan intro 5.1.3 cites its Theorem 2.4.3, itself a list of citations. Verified only that both sources state the identification when (G, D) is a Shimura datum. Next action: read Deligne, Travaux de Shimura (library copy SS_DeligneTravaux), Section 6, and check the hypothesis that G is connected."
+   "detail": "Milne Example 12.4(c) cites Deligne 1971c 6.1; Lan intro 5.1.3 cites its Theorem 2.4.3, itself a list of citations. Verified only that both sources state the identification when (G, D) is a Shimura datum. Next action: read Deligne, Travaux de Shimura (library copy SS_DeligneTravaux), Section 6, and check the hypothesis that G is connected. Review (REVIEW-EXT-12): Confirmed. Lan intro Thm. 2.4.3 is a list of citations. Milne 12.4(c) covers only simple data of type (A) or (C) and cites Deligne 1971c 6.1. Milne's notes also point to Kottwitz 1992 Sections 1-4, which are now publicly available (see the Kottwitz gap)."
   },
   {
    "title": "Reiner, Maximal Orders: order-theoretic imports of Lan Section 1.1",
@@ -3318,7 +3562,7 @@
     "PELModuli:M0/determinant-of-the-hodge-subspace-is-integral-over-the-reflex-field",
     "PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability"
    ],
-   "detail": "Lan quotes [107] Thms. 8.7, 9.26, 10.4, 10.5, 11.1, 11.5, 21.4, 25.2, 25.3, 25.7 (maximal orders over Dedekind domains, discriminants, hereditary property), 26.4 (Jordan-Zassenhaus) and 32.15, 32.18 (Grunwald-Wang construction of an unramified splitting field) without proof. Not verified. Next action: locate an owner (general algebra roadmap) or obtain Reiner, Maximal Orders (LMS Monographs 5, 1975)."
+   "detail": "Lan quotes [107] Thms. 8.7, 9.26, 10.4, 10.5, 11.1, 11.5, 21.4, 25.2, 25.3, 25.7 (maximal orders over Dedekind domains, discriminants, hereditary property), 26.4 (Jordan-Zassenhaus) and 32.15, 32.18 (Grunwald-Wang construction of an unramified splitting field) without proof. Not verified. Next action: locate an owner (general algebra roadmap) or obtain Reiner, Maximal Orders (LMS Monographs 5, 1975). Review (REVIEW-EXT-12): Add the imports [107, Thm. 7.4] (Wedderburn, before Prop. 1.2.1.13), [107, Cor. 10.4, Cor. 11.2] (Props. 1.1.1.10, 1.1.1.12), [107, Thm. 2.44, Cor. 21.5] (Props. 1.1.1.23-1.1.1.24) and [107, p. 99] (separable algebras). Add neededBy PELModuli:M0/positive-involution-types-A-C-D-and-the-invariant-I-bad. Edition: Lan's bibliography [107] names 'London Mathematical Society Monographs. New Series, vol. 28, Clarendon Press, Oxford University Press, Oxford, 1975'. Crossref dates that OUP printing to 2003 (chapter DOIs 10.1093/oso/9780198526735.003.*). The packet's 'LMS Monographs 5, 1975' is the Academic Press original. Record the printing whose numbering is used."
   },
   {
    "title": "Berthelot-Breen-Messing and Deligne imports for de Rham cohomology of abelian schemes",
@@ -3327,7 +3571,7 @@
     "PELModuli:M2/de-rham-lifting-criterion-for-abelian-schemes",
     "PELModuli:M2/formal-smoothness-of-polarized-abelian-deformations"
    ],
-   "detail": "Lan quotes [18, Prop. 2.5.2] (wedge^i H^1(O) = H^i(O)), [18, Lem. 2.5.3] (surjectivity in the Hodge sequence), [18, 5.1] (perfect de Rham duality between A and A^vee) and [37, 1.5] (Chern class pairing) without proof. Candidate supplier AbelianSchemesAndArithmeticModuli A4 (degree-one de Rham realizations); its scope for these exact statements is not verified. Next action: obtain Berthelot-Breen-Messing, Theorie de Dieudonne cristalline II (LNM 930), Section 2.5 and 5.1."
+   "detail": "Lan quotes [18, Prop. 2.5.2] (wedge^i H^1(O) = H^i(O)), [18, Lem. 2.5.3] (surjectivity in the Hodge sequence), [18, 5.1] (perfect de Rham duality between A and A^vee) and [37, 1.5] (Chern class pairing) without proof. Candidate supplier AbelianSchemesAndArithmeticModuli A4 (degree-one de Rham realizations); its scope for these exact statements is not verified. Next action: obtain Berthelot-Breen-Messing, Theorie de Dieudonne cristalline II (LNM 930), Section 2.5 and 5.1. Review (REVIEW-EXT-12): Confirmed. The annotation on link 70 records that A4's description names H^1_dR, the Hodge sequence and the cup product. It does not name the perfect duality between H_1^dR(A) and H_1^dR(A^vee) through c_1 of the Poincare bundle ([37, 1.5], [18, 5.1]), which defines <,>_lambda (printed p. 156). Nor does it name wedge^i H^1(O) = H^i(O) ([18, Prop. 2.5.2])."
   },
   {
    "title": "Mumford, Abelian Varieties imports (Albert, rigidity by level n >= 3, theta groups)",
@@ -3336,21 +3580,21 @@
     "PELModuli:M2/automorphisms-of-polarized-abelian-schemes-and-neat-rigidification",
     "PELModuli:M1/polarizations-and-prime-to-box-polarizations"
    ],
-   "detail": "Lan quotes [94, Section 21] for Albert's classification (Prop. 1.2.1.13), [94, Section 21, Thm. 5 and its proof] for injectivity of Aut(A, lambda) -> Aut(A[n]) over a field (Lemma 2.3.3.1) and [94, Section 23, Thm. 3] for theta groups (Prop. 1.3.2.14). The catalogue lists Mumford's book as book_requested (#313). Not verified. Next action: obtain Mumford, Abelian Varieties, Sections 21 and 23."
+   "detail": "Lan quotes [94, Section 21] for Albert's classification (Prop. 1.2.1.13), [94, Section 21, Thm. 5 and its proof] for injectivity of Aut(A, lambda) -> Aut(A[n]) over a field (Lemma 2.3.3.1) and [94, Section 23, Thm. 3] for theta groups (Prop. 1.3.2.14). The catalogue lists Mumford's book as book_requested (#313). Not verified. Next action: obtain Mumford, Abelian Varieties, Sections 21 and 23. Review (REVIEW-EXT-12): Add neededBy PELModuli:M0/universal-domains-of-balanced-pairings-are-torsion-free-at-good-primes: the proof of Prop. 1.2.2.1 cites '[94, §21, p. 195]' (printed p. 41). Add neededBy PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability ([94, §21], proof of Prop. 1.3.3.7). Also add [94, §13] (Lemma 1.3.2.8) and [94, §15, Thm. 1] (Lemma 1.3.2.11); the new gap on the imports of Lan 1.3.2 records these. The finite-type argument of Section 2.3.4 (printed p. 165) cites GIT [96, Prop. 6.13] and uses fibrewise very ampleness of L^{tensor 3} with no citation. Put these here or in the quasi-projectivity gap, which already names GIT."
   },
   {
    "title": "Artin algebraization and the variants of Artin's criterion used by Lan",
    "neededBy": [
     "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H"
    ],
-   "detail": "Read: Lan Theorems B.3.7, B.3.9, B.3.11 and Remark B.3.12 with proofs (pp. 632-637), which rest on Artin's algebraization Theorem B.2.1.6 (not read) and on [6, Cor. 6.2] for Isom. The supplier AlgebraicModuliForArithmeticGeometry A0-extension owns Artin's criterion but does not name the variants B.3.9/B.3.11; shared-supplier request recorded. Next action: read Lan Appendix B.1-B.2 and Artin, Algebraization of formal moduli I, Cor. 6.2."
+   "detail": "Read: Lan Theorems B.3.7, B.3.9, B.3.11 and Remark B.3.12 with proofs (pp. 632-637), which rest on Artin's algebraization Theorem B.2.1.6 (not read) and on [6, Cor. 6.2] for Isom. The supplier AlgebraicModuliForArithmeticGeometry A0-extension owns Artin's criterion but does not name the variants B.3.9/B.3.11; shared-supplier request recorded. Next action: read Lan Appendix B.1-B.2 and Artin, Algebraization of formal moduli I, Cor. 6.2. Review (REVIEW-EXT-12): The proofs of Thms. B.3.7 and B.3.11 also use Theorem A.4.4.3, Props. A.6.11 and A.7.2.4, Remark B.3.3, EGA IV-2 7.8.3 and IV-4 18.10.1, 18.10.4 and 17.14.1-2; they are listed in the new Chapter 2 imports gap. The thesis errata confirm that the reduction to an empty or infinite box, which B.3.11 needs, was added only in the revision. Book errata (95)-(96) on B.3.7(5) and the proof of B.3.11 are already incorporated in the revision read."
   },
   {
    "title": "Properness of Isom via Neron models is a one-sentence sketch",
    "neededBy": [
     "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H"
    ],
-   "detail": "Section 2.3.4 says Isom_U(xi, eta) is proper 'by the valuative criterion over discrete valuation rings, using the theory of Neron models' with no further argument. The needed input is the extension of an isomorphism of abelian varieties over the fraction field of a discrete valuation ring to the abelian-scheme models, compatibly with polarizations, O-structures and level structures. Candidate supplier NeronModelsAndSemistableAbelianVarieties R11.1 (linked). Not verified for the extra structures."
+   "detail": "Section 2.3.4 says Isom_U(xi, eta) is proper 'by the valuative criterion over discrete valuation rings, using the theory of Neron models' with no further argument. The needed input is the extension of an isomorphism of abelian varieties over the fraction field of a discrete valuation ring to the abelian-scheme models, compatibly with polarizations, O-structures and level structures. Candidate supplier NeronModelsAndSemistableAbelianVarieties R11.1 (linked). Not verified for the extra structures. Review (REVIEW-EXT-12): The Neron mapping property (R11.1) extends an isomorphism of generic fibres to the abelian-scheme models over a discrete valuation ring. Compatibility with lambda, i and alpha_H should follow from uniqueness of extensions (separatedness and rigidity as in Lemma 2.2.2.1), but neither Lan nor R11.1 writes this. R11.1 is stated for excellent discrete valuation rings and Dedekind bases; the valuative criterion here needs discrete valuation rings mapping to U."
   },
   {
    "title": "Unproved statements inside Lan Chapter 1 and the nu_n tension",
@@ -3359,7 +3603,7 @@
     "PELModuli:M1/level-H-structures-as-orbits-of-etale-locally-defined-level-structures",
     "PELModuli:M1/symplectic-liftable-principal-level-n-structures"
    ],
-   "detail": "Lemma 1.3.5.2 and Lemma 1.3.7.2 are stated without proof. Def. 1.3.6.2 asserts that nu_n is uniquely determined by alpha_n when L != 0; Lan's example-based introduction (5.1.1) says nu_{0,n} is not determined by alpha_{0,n} when the pairing is not perfect modulo n. The packet keeps nu_n in the datum as the README requires. Next action: write out the determination argument using symplectic liftability (compare G(Z^^box) with G(Z/nZ) on similitude factors) or confirm with the author's errata for the 2013 book."
+   "detail": "Lemma 1.3.5.2 and Lemma 1.3.7.2 are stated without proof. Def. 1.3.6.2 asserts that nu_n is uniquely determined by alpha_n when L != 0; Lan's example-based introduction (5.1.1) says nu_{0,n} is not determined by alpha_{0,n} when the pairing is not perfect modulo n. The packet keeps nu_n in the datum as the README requires. Next action: write out the determination argument using symplectic liftability (compare G(Z^^box) with G(Z/nZ) on similitude factors) or confirm with the author's errata for the 2013 book. Review (REVIEW-EXT-12): Retitle to 'Unproved statements inside Lan Chapter 1'. There is no contradiction between the sources. Lan intro 5.1.1 (p. 52) says nu_{0,n} is not determined by alpha_{0,n} for the mod-n diagram alone when the pairing is not perfect mod n. This matches Lan's own Def. 1.2.1.6 in the revision: r is determined by g only 'if L != {0} and R is flat over Z'. Def. 1.3.6.2 claims determination for symplectic-liftable pairs. The corrected level-n node records a short argument for that claim (lifts differing by g ≡ 1 mod n force nu(g) ≡ 1 mod n). It is the reviewer's argument, found in no read source, so the gap stays open until the drafter writes it as a lemma or finds a source. Lemma 1.3.7.2 is stated without proof. Lan's thesis errata (original numbering Lem. 1.3.7.3) say it 'is never used' and only motivates Def. 1.3.7.3, so its absence blocks nothing. Add further results stated without proof: Cor. 1.3.5.4 ('Combining the above two propositions', printed p. 84), Lemma 1.3.1.18 (printed p. 72) and Remark 1.3.6.3 (printed p. 86)."
   },
   {
    "title": "Descent from geometric or coarse moduli points to objects over the ground field",
@@ -3367,7 +3611,7 @@
     "PELModuli:M6",
     "PELModuli:M6/level-n-rigidity-and-descent-of-isomorphism-classes-for-height-finiteness"
    ],
-   "detail": "Required by the M6 stage text and by FaltingsFinitenessAndIsogenyTheorems R28.1. Read: Lan Lemma 2.3.3.1 and Cor. 2.3.3.2 (rigidity), Faltings p. 357 (descent asserted with 'Bekanntlich' and 'allgemeine Grundsaetze der Galois-Kohomologie'). Not found in any read source: the Galois-invariance argument, finiteness of K-forms via H^1(Gal(K'/K), Aut), and the statement that a K-point of a coarse space need not carry an object over K. Next action: find a source (e.g. the stack-theoretic treatment in Laumon-Moret-Bailly, catalogue #310, book_requested) or a supplier stage in AlgebraicModuliForArithmeticGeometry R09.5 (coarse spaces and rigidification)."
+   "detail": "Required by the M6 stage text and by FaltingsFinitenessAndIsogenyTheorems R28.1. Read: Lan Lemma 2.3.3.1 and Cor. 2.3.3.2 (rigidity), Faltings p. 357 (descent asserted with 'Bekanntlich' and 'allgemeine Grundsaetze der Galois-Kohomologie'). Not found in any read source: the Galois-invariance argument, finiteness of K-forms via H^1(Gal(K'/K), Aut), and the statement that a K-point of a coarse space need not carry an object over K. Next action: find a source (e.g. the stack-theoretic treatment in Laumon-Moret-Bailly, catalogue #310, book_requested) or a supplier stage in AlgebraicModuliForArithmeticGeometry R09.5 (coarse spaces and rigidification). Review (REVIEW-EXT-12): Faltings 1983 is public: GDZ, https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0073/LOG_0026.pdf (SHA-256 f72a869f..., no text layer; printed p. 357 = PDF p. 10). The descent paragraph (p. 357) also asserts with 'Es ist bekannt' that all members of a Kbar-class have bad reduction at the same places. The reviewer's observation, not argued in the source: this uses the semiabelian (semistable) hypothesis of Satz 1 and fails for arbitrary twists. Add it to this gap and to the R28.1 consumer. For g = 1 every K-point of the coarse j-line comes from an elliptic curve over K, so a coarse-point-without-family example needs g >= 2."
   },
   {
    "title": "Quasi-projectivity of M_H at neat level is deferred to Lan Cor. 7.2.3.10",
@@ -3375,7 +3619,7 @@
     "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H",
     "PELModuli:M6"
    ],
-   "detail": "Remark 1.4.1.13 defers scheme representability and quasi-projectivity to Cor. 7.2.3.10 (minimal compactification), owned by ShimuraCompactifications C5; not read. The alternative route through geometric invariant theory (Lan Chapter 2 introduction; Hida 5.2 Theorem 5.9 and 6.1.2) needs Mumford's GIT (catalogue #313, book_requested). Next action: read Lan Section 7.2.3 or obtain GIT Chapter 7."
+   "detail": "Remark 1.4.1.13 defers scheme representability and quasi-projectivity to Cor. 7.2.3.10 (minimal compactification), owned by ShimuraCompactifications C5; not read. The alternative route through geometric invariant theory (Lan Chapter 2 introduction; Hida 5.2 Theorem 5.9 and 6.1.2) needs Mumford's GIT (catalogue #313, book_requested). Next action: read Lan Section 7.2.3 or obtain GIT Chapter 7. Review (REVIEW-EXT-12): Located: Cor. 7.2.3.10 is on printed p. 548 (PDF p. 576): 'The coarse moduli space [M_H] of M_H is a quasi-projective scheme over S_0 = Spec(O_{F_0,(box)}). In particular, M_H is a quasi-projective scheme over S_0 when H is neat.' Lan intro (p. 55-56) gives an alternative route. At neat level M_U is 'finite over the base change of some Siegel moduli scheme'; this is stated there, not proved. That route would need only the Siegel case of GIT plus finiteness of the forgetful map."
   },
   {
    "title": "SGA 1 and EGA imports in Chapters 1-2",
@@ -3385,7 +3629,270 @@
     "PELModuli:M2/effective-prorepresentability-by-grothendieck-existence",
     "PELModuli:M2/obstruction-theory-for-smooth-schemes-morphisms-and-line-bundles"
    ],
-   "detail": "Quoted without proof: SGA 1 VIII 7.8 (fpqc descent of polarized schemes), SGA 1 V Section 7 (finite etale groups as pi_1-modules), SGA 1 III Thm. 4.1 and 6.3 (smooth liftings), EGA III-1 5.1.2, 5.1.4, 5.4.1, 5.4.5 (formal functions, existence, algebraization), EGA IV-4 17.9.1, 17.11.4, 18.1.2. Supplier links: AlgebraicModuliForArithmeticGeometry R09.3 (descent), SchemeAndStackFoundations SF.4 (existence). The SF.4 node on deformations of schemes records no obstruction statement for smooth schemes, so Lan's own Cech proof of Prop. 2.1.2.2 is transcribed here (shared-supplier request)."
+   "detail": "Quoted without proof: SGA 1 VIII 7.8 (fpqc descent of polarized schemes), SGA 1 V Section 7 (finite etale groups as pi_1-modules), SGA 1 III Thm. 4.1 and 6.3 (smooth liftings), EGA III-1 5.1.2, 5.1.4, 5.4.1, 5.4.5 (formal functions, existence, algebraization), EGA IV-4 17.9.1, 17.11.4, 18.1.2. Supplier links: AlgebraicModuliForArithmeticGeometry R09.3 (descent), SchemeAndStackFoundations SF.4 (existence). The SF.4 node on deformations of schemes records no obstruction statement for smooth schemes, so Lan's own Cech proof of Prop. 2.1.2.2 is transcribed here (shared-supplier request). Review (REVIEW-EXT-12): Add neededBy PELModuli:M1/change-of-lattice-order-and-set-of-good-primes: the proof of Lemma 1.4.4.2 (printed p. 106) uses EGA IV-2 6.15.3 with IV-4 17.9.1. The SF.4 supplier node of link 80 exists only in the unpromoted draft research/expansion/external/EXT-01/SchemeAndStackFoundations.json. It omits uniqueness of algebraized morphisms (EGA III 5.4.1, Lan Theorem 2.3.1.3). Schlessinger [109] (Trans. AMS 130 (1968), 208-222, DOI 10.1090/s0002-9947-1968-0217093-3), listed in the M2 coverage as unread, is public on ams.org."
+  },
+  {
+   "title": "Standard algebra imports in Lan Sections 1.1.2, 1.1.3, 1.1.5 and 1.2.3 outside the Reiner gap",
+   "neededBy": [
+    "PELModuli:M0/determinant-polynomial-classifies-modules-over-a-separable-algebra",
+    "PELModuli:M0/multirank-classification-of-projective-modules-at-unramified-primes",
+    "PELModuli:M0/standard-form-of-self-dual-symplectic-modules-at-good-primes"
+   ],
+   "detail": "Quoted without proof and not named in any packet gap: Herstein, Noncommutative rings [63, Lem. 4.3.2] (Lemma 1.1.2.4: all simple modules of a simple Artinian algebra are isomorphic; printed p. 8, PDF p. 36); Lan's own Lemma B.1.1.11 (characterization of Lambda as the complete local R_0-algebra with residue field k; Section 1.1.3, printed p. 16, PDF p. 44); Eisenbud [41, Thm. 7.3] (Hensel's lemma; proof of Cor. 1.2.3.10, printed p. 52, PDF p. 80); Serre, Local Fields [110, Ch. V, Lem. 2] (successive approximation; proof of Lemma 1.1.5.9, printed p. 29, PDF p. 57), which carries the type A case of Cor. 1.2.3.10. Next action: name a general-algebra supplier or read these statements; the Lemma 1.1.5.9 proof itself is still to be transcribed (M0 coverage).",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Lan Def. 1.2.3.6(2): the printed type-D standard form is inconsistent",
+   "neededBy": [
+    "PELModuli:M0/standard-form-of-self-dual-symplectic-modules-at-good-primes",
+    "PELModuli:M0/similitude-group-is-smooth-with-determined-geometric-type-at-good-primes"
+   ],
+   "detail": "Def. 1.2.3.6(2) (revision of 14 March 2021, printed p. 48, PDF p. 76, checked on the page image) requires type D components to be orthogonal sums of (A_alpha, <,>_alpha) with alpha a unit of O_{F_[tau]c,R} satisfying alpha = -alpha*. In type D, * is trivial on F = F^+ (Prop. 1.2.1.14(3)) and p != 2, so alpha = -alpha forces alpha = 0. The proof of Prop. 1.2.3.7 (summary, printed p. 51, item 2) instead produces, for the symmetric O_{F,R}-pairing on N, units alpha of O_{F,R} with no sign condition, and then tensors with a self-dual pairing on O. Neither the thesis errata nor the 2013 book errata list this. Prop. 1.2.3.11's type-D description (GO_m over the strict henselization) follows the proof and is unaffected. Next action: record as a source issue (sourceIssues / errata register); if the 2013 book text is available, check whether it differs.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Imports of Lan 1.3.2 (duality and polarizations) other than Faltings-Chai are not owned or read",
+   "neededBy": [
+    "PELModuli:M1/polarizations-and-prime-to-box-polarizations"
+   ],
+   "detail": "Lan quotes without proof: [94, §13] for biduality over geometric points (Lemma 1.3.2.8, PDF p. 103); [94, §15, Thm 1] for deg f = deg f^vee (Lemma 1.3.2.11, PDF p. 104); in the proof of Prop. 1.3.2.14 (PDF pp. 104-105): [37, 1.2-1.4], [6, Cor. 6.2] plus Hilbert schemes (Hom_sym(A, A^vee) is an algebraic space), [73, II, 6.16] (an unramified algebraic space is a scheme), [92, Thm 2.3(ii)] (extensions of finite flat groups by G_m split fppf locally), [94, §23, Thm 3] (theta groups), [22, §2.2, Prop. 14] (smooth morphisms have étale-local sections); [59, III-1, 4.7.1] (fibrewise ampleness) in Prop. 1.3.2.15. Only [94, §23] appears in an existing gap. A2 covers biduality in its own words; the rest has no named supplier. Next action: assign these to AbelianSchemesAndArithmeticModuli A2 (Prop. 1.3.2.14 in particular) or AlgebraicModuliForArithmeticGeometry A0-extension/R09.3, or read Mumford §§13, 15, 23.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Serre's lemma and neatness of U^box(n) for n >= 3 are quoted without proof",
+   "neededBy": [
+    "PELModuli:M1/good-primes-and-the-moduli-problem-M-H-by-isomorphism-classes",
+    "PELModuli:M2/automorphisms-of-polarized-abelian-schemes-and-neat-rigidification"
+   ],
+   "detail": "Remark 1.4.1.9 (printed p. 97, PDF p. 125): 'The usual version of Serre's lemma, which asserts that no nontrivial root of unity can be congruent to 1 modulo n if n ≥ 3, shows that H is neat if H ⊂ U^□(n)'. Neither Serre's lemma nor the eigenvalue argument deducing neatness is written; Cor. 1.4.1.12 (algebraic space for n ≥ 3) depends on it through Cor. 2.3.3.2. Next action: write the argument (eigenvalues of g ≡ 1 mod n are roots of unity ≡ 1 mod n in an integral extension) or name a supplier.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Unwritten verification steps in Lan's smoothness argument (Sections 2.1.6 and 2.2.4)",
+   "neededBy": [
+    "PELModuli:M2/de-rham-lifting-criterion-for-abelian-schemes",
+    "PELModuli:M2/formal-smoothness-of-polarized-abelian-deformations",
+    "PELModuli:M2/formal-smoothness-and-dimension-of-pel-deformations-at-good-primes"
+   ],
+   "detail": "(i) Prop. 2.1.6.8 (printed p. 136). Lan shows that Lift(X; S -> S~) and the set of Hodge liftings M are both parameterized by H^1(X, Der_{X/S} tensor I) and concludes 'Thus they must coincide'. He does not write out the map X~' |-> Lie^vee_{X~'^vee} (transported by Prop. 2.1.6.2) or its equivariance; both are derivable from (2.1.6.3). (ii) Prop. 2.2.4.4 (printed p. 154) makes an etale surjective base change of the Artinian base to write lambda = lambda_L, and Prop. 2.2.4.9 (printed pp. 158-159) replaces k by a finite extension and R by a finite etale R'. Neither proof descends the resulting lifting back to R~. Next action: write the equivariance computation from (2.1.6.3). Write the descent: the set of good liftings is a torsor under a k-vector space, compatible with field extension, and a lifted polarization or O-structure is unique (Lemma 2.2.2.1), hence descends. Or cross-check with Grothendieck-Messing through A4.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Standard imports in Lan Chapter 2 and Appendix B.3 proofs not recorded as imports",
+   "neededBy": [
+    "PELModuli:M2/obstruction-theory-for-smooth-schemes-morphisms-and-line-bundles",
+    "PELModuli:M2/de-rham-lifting-criterion-for-abelian-schemes",
+    "PELModuli:M2/kodaira-spencer-class-and-morphism",
+    "PELModuli:M2/local-deformation-functors-rigidity-and-openness-of-conditions",
+    "PELModuli:M2/formal-smoothness-of-polarized-abelian-deformations",
+    "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H",
+    "PELModuli:M2/kodaira-spencer-isomorphism-on-M-H"
+   ],
+   "detail": "Quoted without proof, and absent from the packet's gaps and coverage lists: Matsumura [88, Thm. 7.7] (Lemma 2.1.1.2, printed p. 112); Bosch-Luetkebohmert-Raynaud [22, Section 4.2, Prop. 2] (Lemma 2.1.5.11, p. 128); EGA 0_I 5.4.10.1, the projection formula (pp. 127, 139, 143); Godement [48, Ch. II, Section 5] with EGA III-2 6.2.2 and [67, Sec. 3] (Prop. 2.1.6.1, p. 130); EGA III-2 6.7.8, the Kunneth formula (Props. 2.2.2.5 and 2.2.4.1, pp. 146, 153); EGA IV-4 17.2.3, 17.3.1 and 17.5.2 (Section 2.1.7, p. 137); EGA 0_IV 20.4.9 (Prop. 2.3.5.2, p. 167). Also: Theorem B.1.1.9 (the completed local ring of S_0 is W(k(s))) and Lemma B.1.1.11 (Lambda), from Appendix B.1, which was not read (Section 2.2.1, p. 140); the fibrewise very ampleness of L^{tensor 3} for L = (Id, lambda)*P_A, used with no citation in the finite-type argument (p. 165; Lefschetz's theorem); in the proof of Theorem B.3.7, Theorem A.4.4.3, Props. A.6.11 and A.7.2.4, and Remark B.3.3 (EGA IV-4 17.14.1-17.14.2, Artin [6, Lem. 3.3]); in the proof of Theorem B.3.11, EGA IV-2 7.8.3, IV-4 18.10.1 and 18.10.4, and the Jacobson-scheme property [59, IV-3, Section 10] (pp. 630-637). Next action: assign each to an owner (SchemeAndStackFoundations, AlgebraicModuliForArithmeticGeometry, AbelianSchemesAndArithmeticModuli A1-A2) or read Lan Appendices A-B.1.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-12",
+  "date": "2026-09-24",
+  "notes": "All 39 nodes, 100 links, 12 gaps and 7 coverage records were checked against public copies. The four library sources the packet names (Lan thesis revision, Lan intro, Milne, Hida) were fetched from the author sites. Their SHA-256 hashes match the packet. Faltings 1983 is public on GDZ (different scan, same printed pages). Lan's public thesis and book errata were used to check that the nodes follow the corrected statements. Verdicts: 13 nodes verified and 26 corrected (51 field corrections); none unverifiable. Links: 87 kept, 13 annotated, none removed or re-targeted; 15 added. Gaps: 6 added (12 -> 18); 12 existing gaps updated (see gapUpdates). Main corrections: (1) Lan Def. 1.2.3.6(2) prints a type-D standard form (unit alpha in O_F with alpha = -alpha*) that no unit satisfies when p != 2. The proof summary (printed p. 51) has no sign condition. The node now follows the proof, and a gap and source issue are recorded; neither errata list has it. (2) Lan's revision still prints the wrong sign in Prop. 2.1.3.2(3). Its own proof and book erratum (14) give +df(m_X) - f*(m_Y); the obstruction node had copied the wrong sign. (3) Faltings Satz 1 counts semiabelian models over Spec(R) with principal polarization and h(A) <= c, and A_g there is the coarse moduli scheme. The 'same bad reduction' step is also unproved and relies on semistability. The M6 node misdescribed all three, and its twist test over Q was out of scope. (4) Prop. 1.3.2.15(1) is fibrewise, not a global L. (5) Multirank lemmas need R complete local. (6) Milne's dictionary: psi, not +-2 pi i psi, is the polarization. (7) The etale-stack node copied Lan's misprint (Id_A x lambda)*P_A for (Id_A, lambda)*P_A. (8) Cor. 1.3.5.4 and Prop. 2.1.6.8's bijection have no written proof; they were presented as proved. (9) Four acceptance tests were false: KS versus the j-map, 'degree divisible by p' as inseparability, GO_m always disconnected, and n = 2 for nu_n. (10) Many excerpts reproduced text-layer artefacts (A0 for A', F0 for F'_0, Lambda0 for Lambda', 'h , i' for angle brackets); these were replaced by the printed text. (11) The representability reduction to an empty or infinite box needs H = H' x U_{box'-box}, and B.3.11 needs constant Krull dimension; the relative dimension is the packet's derivation, not Lan's statement. The nu_n 'tension' is not a contradiction: the survey remark concerns the bare mod-n diagram. The reviewer records an argument for Lan's claim, but no source proves it, and the gap stays open. Packet-level corrections, which are not node fields: the summary claims M3-M5 'use' the survey sources, but no M3-M5 node exists. The Faltings source entry should give the public GDZ URL. The Kottwitz and Crelle-2012 access gaps are now reading tasks, since both are public. Link 80's endpoint exists only in the unpromoted EXT-01 SchemeAndStackFoundations draft. Link 49 is valid only for the packet's re-derivation of Cor. 1.4.3.1; Lan calls it 'a consequence of Theorem 1.4.1.11'. Stage edges: the links imply 10 edges new to the atlas: D3->M0, A2->M1, A3->M1, R09.2->M1, R09.3->M1, M0->M2, R03.2->M2, SF.4->M2, A0-extension->M2 and R11.1->M2. The union with the 3508 atlas stageEdges is acyclic, including the 15 added links. The node graph is acyclic.",
+  "checked": [
+   {
+    "nodeId": "PELModuli:M0/discriminant-inverse-different-and-unramified-primes-of-an-order",
+    "verdict": "verified",
+    "note": "Defs. 1.1.1.6, 1.1.1.8, Lemma 1.1.1.9, Prop. 1.1.1.16 with proof, Def. 1.1.1.18, Props. 1.1.1.19-1.1.1.21 with proof read (printed pp. 3-7, PDF 31-35). Statement, hypotheses (Dedekind R, global field for 1.1.1.21, separable A via [107, Thm. 9.26], locally free O for 1.1.1.9) and proof steps match; the Reiner imports (Thms. 10.5, 25.3, 25.7) are named. Acceptance checked by hand: Z[i] has trace Gram matrix diag(2,-2), Disc = (4); Z[2i] has Disc = (16), divisible by 2; M_n(Z) has a permutation-matrix Gram matrix, Disc = (1). All four excerpts occur (the fourth drops the subscript R under the tensor signs, a harmless linearization). The locator remark that the text layer renders the non-divides sign as a hyphen does not hold for the pymupdf layer of the same file (it prints the non-divides sign), but this affects no content."
+   },
+   {
+    "nodeId": "PELModuli:M0/determinant-polynomial-classifies-modules-over-a-separable-algebra",
+    "verdict": "verified",
+    "note": "Section 1.1.2 read in full (printed pp. 7-15, PDF 35-43): Lemma 1.1.2.1, Cors. 1.1.2.2-1.1.2.6, (1.1.2.10) with the multiplicity s_[tau] (the corrected form of the thesis erratum on (1.1.2.6)), Lemma 1.1.2.13, Cor. 1.1.2.14, Remark 1.1.2.15, Defs. 1.1.2.18 and 1.1.2.21, Lemma 1.1.2.19 and Prop. 1.1.2.20 with proofs. Hida p. 48 (printed = PDF page) and Milne p. 79 (Prop. 8.1, Remark 8.2) excerpts occur. Acceptance items are correct (0 and k^p over F_p have equal traces and Det 1 versus X^p; (X_1 + iX_2)^a (X_1 - iX_2)^b for Q(i))."
+   },
+   {
+    "nodeId": "PELModuli:M0/field-of-definition-of-a-module-and-its-trace-description",
+    "verdict": "verified",
+    "note": "Def. 1.1.2.7, Remarks 1.1.2.8-1.1.2.9, (1.1.2.10), Cors. 1.1.2.11-1.1.2.12 and 1.1.2.16 with proofs read (printed pp. 9-12). Acceptance checked: Q(i) examples give K_0 = Q(i) and Q; the quaternion example is a correct instance of Remark 1.1.2.9 (K_0 = Q by Cor. 1.1.2.12, while D-modules have Q-dimension divisible by 4 and K^2 has K-dimension 2)."
+   },
+   {
+    "nodeId": "PELModuli:M0/multirank-classification-of-projective-modules-at-unramified-primes",
+    "verdict": "corrected",
+    "note": "Lemma 1.1.3.1-1.1.3.6 and 1.2.1.21-1.2.1.33 read (printed pp. 15-18, 37-40). Parts (a), (b), (d) are correct. Part (c) omits the source's hypothesis that R is a noetherian COMPLETE local ring (stated before Lemma 1.2.1.26, printed p. 38), and the proof step attributes projectivity to 'O tensor Lambda' where Lan uses the O_Lambda-lattice M_[Z] tensor Lambda (proof of Lemma 1.2.1.29, printed p. 39). Excerpts and locators are correct."
+   },
+   {
+    "nodeId": "PELModuli:M0/pel-type-lattice-polarization-and-similitude-group-scheme",
+    "verdict": "corrected",
+    "note": "Defs. 1.1.4.2-1.1.4.11, 1.2.1.2-1.2.1.9, Lemma 1.2.1.11 and Lan intro 5.1.1, 5.1.3 read. Statement, hypotheses and Lan excerpts are correct and use the corrected wording of Def. 1.2.1.6 (book erratum 1). Proof step 4 misquotes Milne's dictionary (p. 67, checked on the page image): Milne's equivalence is with 'psi is a polarization of the Hodge structure (V, h_J)', with no factor +-2 pi i; the step also cites Milne without a Milne source entry. Acceptance item 3 is true only with O = Z made explicit and was reformulated with the verifying computation."
+   },
+   {
+    "nodeId": "PELModuli:M0/positive-involution-types-A-C-D-and-the-invariant-I-bad",
+    "verdict": "verified",
+    "note": "Props. 1.2.1.13-1.2.1.14 with proof, Defs. 1.2.1.15, 1.2.1.18 and Remarks 1.2.1.16-1.2.1.19 read (printed pp. 35-37); I_bad := 2 confirmed on the page image (PDF p. 65). Milne Props. 8.3-8.7 and Remarks 8.8-8.9 read (pp. 80-84); '2^[F:k] connected components' and 'G' is semisimple and simply connected' confirmed on page images; Milne assumes V and B free over F, as the node says. Lan intro Example 5.1.3.6 excerpt occurs (p. 54). Acceptance items are correct. Note: Kottwitz 1992, Lemma 2.11 (the import in the proof of Prop. 1.2.1.14) is present in the orchestrator's src/kottwitz1992.pdf, PDF p. 10."
+   },
+   {
+    "nodeId": "PELModuli:M0/universal-domains-of-balanced-pairings-are-torsion-free-at-good-primes",
+    "verdict": "corrected",
+    "note": "Props. 1.2.2.1 and 1.2.2.3 with proofs read (printed pp. 40-44); statement, hypotheses and proof steps are correct, acceptance correct (i = -i* in Z[i] is not z - z* when 2 is not a unit; Sym^1 over O = Z is Sym^2 L). Two excerpts were not literal: excerpt 2 has '%' for rho and drops the superscript epsilon (page image PDF p. 71 prints 'p | I^epsilon_bad Disc[L_2 : rho(L_1)]'), and excerpt 3 drops the epsilon ('Here I^epsilon_bad is given its literal meaning')."
+   },
+   {
+    "nodeId": "PELModuli:M0/standard-form-of-self-dual-symplectic-modules-at-good-primes",
+    "verdict": "corrected",
+    "note": "Section 1.2.3 read (printed pp. 44-52): Lemmas 1.2.3.1-1.2.3.2, 1.2.3.8-1.2.3.9, Defs. 1.2.3.3-1.2.3.6, Prop. 1.2.3.7 and Cor. 1.2.3.10 with proofs. (1) The node copies Def. 1.2.3.6(2) (page image PDF p. 76), which requires in type D a unit alpha in O_{F_[tau]c,R} with alpha = -alpha*; in type D the involution is trivial on F = F^+ and p != 2, so no such unit exists. The proof's own summary (printed p. 51, item 2) describes type D components, for the symmetric pairing on N after Lemma 1.2.3.2, as orthogonal sums of A_alpha with alpha a unit of O_{F,R} and no sign condition; the O-level module is obtained by tensoring with a self-dual pairing on O. Statement corrected and the inconsistency recorded as a gap (not in the thesis or book errata). (2) Proof step 5 omitted the finite etale extension splitting F/F^+ when char(k) = 0 (proof of Cor. 1.2.3.10). (3) Excerpt 2 had 'R0 = R' for the printed 'R′ = R' (page image PDF p. 80)."
+   },
+   {
+    "nodeId": "PELModuli:M0/similitude-group-is-smooth-with-determined-geometric-type-at-good-primes",
+    "verdict": "corrected",
+    "note": "Prop. 1.2.3.11 with proof, Cor. 1.2.3.12, Cor. 1.2.5.17 and Remark 1.2.5.18 read (printed pp. 52-55, 65). Statement, hypotheses and proof steps are correct; the node rightly notes that the 'in particular G tensor Lambda' clause of Cor. 1.2.3.12 needs self-duality of L tensor Lambda, which Cor. 1.2.5.17 states explicitly. Acceptance item 2 asserted that GO_m is disconnected without restriction; the orthogonal similitude group is disconnected only for m even (for m odd it is G_m x SO_m, the type-B case of Prop. 1.2.3.11(2)). Excerpt 2 had the text-layer artefact 'h · , · i' for the pairing brackets."
+   },
+   {
+    "nodeId": "PELModuli:M0/gram-schmidt-lifting-of-totally-isotropic-submodules",
+    "verdict": "corrected",
+    "note": "Section 1.2.4 read in full (printed pp. 55-59). Statement, hypotheses, proof steps and acceptance are correct. Excerpts 2 and 4 contain the extraction artefact 'h · , · i' for the printed angle brackets; corrected to the printed text."
+   },
+   {
+    "nodeId": "PELModuli:M0/hodge-subspace-signatures-and-pel-reflex-field",
+    "verdict": "corrected",
+    "note": "(1.2.5.1)-(1.2.5.8), Def. 1.2.5.2, Remark 1.2.5.3, Def. 1.2.5.4, Cors. 1.2.5.6-1.2.5.7 read (printed pp. 59-61); Lan intro (5.1.1.12)-(5.1.1.16) read. Content, hypotheses and acceptance are correct (m_tau = s_[tau] m_[tau] = p_tau + p_{tau o c}, consistent with the corrected (1.1.2.6)). The statement's claim about Hida's reflex field E had no source entry; Hida p. 47 (printed = PDF page) defines E as the fixed field of {sigma : rho_1^sigma = rho_1} for B acting on V_1, where h(z) acts by z. A Hida source entry was added."
+   },
+   {
+    "nodeId": "PELModuli:M0/determinant-of-the-hodge-subspace-is-integral-over-the-reflex-field",
+    "verdict": "corrected",
+    "note": "Lemmas 1.2.5.9-1.2.5.11 with proofs read (printed pp. 61-62; Lemma 1.2.5.9 on the page image). The node transcribes the corrected versions (thesis erratum: the original Lem. 1.2.5.10, its preceding paragraph and the map (1.2.5.11) were wrong; the revision's Lemma 1.2.5.9 has L_0 over a finite extension F_0' and Lemma 1.2.5.10 uses O_{F_0}[O^vee] = F_0[O^vee] intersect O_{F_0'}[O^vee]); no retracted claim is carried. Corrections: (1) excerpt 1 had 'F0' where the page prints F′_0, which changes the field; (2) acceptance item 1 was garbled ('a rank-2n Lie algebra condition is just rank n'); (3) the proof of Lemma 1.2.5.11 applies Lemma 1.1.3.1, which needs M projective over O tensor R, while the lemma assumes only R-projectivity; the step is valid because O tensor R is separable over R when p does not divide Disc, but the source does not say so."
+   },
+   {
+    "nodeId": "PELModuli:M0/lagrangian-quotient-G-mod-P0-formally-smooth-and-G-smooth",
+    "verdict": "corrected",
+    "note": "Paragraph before (1.2.5.12), Def. 1.2.5.13, Lemma 1.2.5.14, Props. 1.2.5.15-1.2.5.16 with proofs, Cor. 1.2.5.17 and Remark 1.2.5.18 read (printed pp. 62-65); O_{F_0,(box)} confirmed on the page image PDF p. 91. The node follows the revision's corrected argument with the finite etale Lambda -> Lambda' (thesis erratum on the removed (1.2.5.15)). Statement, hypotheses, proof steps and acceptance are correct. Excerpts 2-4 render Lambda′ as 'Λ0'; since the switch from Lambda to Lambda′ is exactly the erratum, the excerpts were corrected to the printed Λ′."
+   },
+   {
+    "nodeId": "PELModuli:M0/pel-reflex-field-versus-shimura-datum-reflex-field",
+    "verdict": "verified",
+    "note": "Lan intro 2.4 (Thm. 2.4.3 is a citation of Shimura, Deligne, Milne, Borovoi), 5.1.1-5.1.3 and Milne Section 8 (8.10-8.19, footnote 54) and 12.1-12.4 read. Milne Prop. 8.13(a) (G'(R)-conjugacy class determined by t) and 8.14 ('2 pi i psi is a polarization', h unique up to G(R)-conjugacy) confirmed on the page image p. 86. Hypotheses are faithful: Milne 12.4(c) is for simple PEL data of type (A) or (C); Lan intro restricts to the case where (G, D) is a Shimura datum and says type D data violate the axioms. Lan's V_0 (h(z) acts by z) is Milne's V^{-1,0} = V(C)/F^0_h, so F_0 = Q(Tr(b|V_0)) and Milne's Tr_X agree. The node carries no claim that h is determined by (L tensor R, <,>) up to conjugacy (retracted in the thesis erratum to Remark 1.3.4.1); Milne's uniqueness is confined to simple types A and C. All excerpts occur."
+   },
+   {
+    "nodeId": "PELModuli:M1/isogenies-quasi-isogenies-and-prime-to-box-quasi-isogenies",
+    "verdict": "corrected",
+    "note": "Statement, hypotheses and proof steps match Lan 1.3.1 (PDF pp. 95-101): Def. 1.3.1.1, Thm 1.3.1.3, Prop. 1.3.1.4 with its proof (one-point case, then the closed locus Z and connectedness), Cors. 1.3.1.5-1.3.1.8, Def. 1.3.1.9, Lemma 1.3.1.11 (proof = reduction to noetherian S + EGA IV-3 11.3.10, 15.4.2), Cor. 1.3.1.12, Defs. 1.3.1.15-1.3.1.19, Rems. 1.3.1.20-1.3.1.21 (finitely many components). Lemma 1.3.1.18 has no written proof. Corrected: excerpt of Def. 1.3.1.16 ('A0' for A′) and acceptance item 1 (misread N^{-1}h notation)."
+   },
+   {
+    "nodeId": "PELModuli:M1/polarizations-and-prime-to-box-polarizations",
+    "verdict": "corrected",
+    "note": "Checked Lan 1.3.2 (PDF pp. 101-106): Thm 1.3.2.3 (quoted from [42, Ch. I, §1]), Rem. 1.3.2.4, Constr. 1.3.2.7, Lemmas 1.3.2.8, 1.3.2.11 (fibrewise, [94, §15, Thm 1]), 1.3.2.13 with proof, Prop. 1.3.2.14 with proof (lambda_M = 2 lambda; Hom_sym algebraic space by [6, Cor. 6.2], unramified hence scheme by [73, II, 6.16]; theta groups [92], [94, §23]; sections of smooth maps [22, §2.2, Prop. 14]), Prop. 1.3.2.15 (proof via [59, III-1, 4.7.1]), Defs. 1.3.2.16, 1.3.2.19, Cor. 1.3.2.21. Excerpts all occur. Corrected: condition (1) of Prop. 1.3.2.15 is fibrewise, not a global L. Lemma 1.3.2.8 rests on [94, §13] and Lemma 1.3.2.11 on [94, §15, Thm 1]; neither is in any packet gap (gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M1/endomorphism-structures-rosati-condition-and-finite-representability",
+    "verdict": "corrected",
+    "note": "Def. 1.3.3.1, Rems. 1.3.3.3-1.3.3.4, Def. 1.3.3.5 and Prop. 1.3.3.7 with its full proof (PDF pp. 106-109) match: reduction to A projective, Hilbert-scheme representability [96, Ch. 0, §5 d) and p. 117], finiteness up to (O'_l)^x-conjugation by Jordan-Zassenhaus [107, Thm 26.4], f*'f in C^x, compactness of K from positivity and the classification of real positive involutions ([94, §21], [76, §2]), discreteness. Corrected: excerpt 1 ('b?' for b⋆). The [94, §21] and [76, §2] uses in this proof are not listed in the Mumford/Kottwitz gaps (see gapNotes)."
+   },
+   {
+    "nodeId": "PELModuli:M1/kottwitz-determinantal-condition-on-the-lie-algebra",
+    "verdict": "verified",
+    "note": "Def. 1.3.4.1 and Rem. 1.3.4.2 (PDF pp. 109-110) match; '□ ∤ Disc' in Rem. 1.3.4.2 confirmed on the page image; Det_{O|V_0} in O_{F_0}[O^vee] by Lemma 1.2.5.10 (PDF p. 109); Def. 1.1.2.21 (PDF p. 43) requires O free over R_0, automatic for a Z-order. Hida 6.1.1 (det) on p. 48 matches (f = det(sum alpha_j X_j | V_1), coefficients in O_E ⊗ Z_(p) generating E, j(f) = g). Acceptance 1 matches Lan intro (5.1.1.15) 'Lie A0 ≅ V0 as O ⊗ C-modules' (pp. 52-53)."
+   },
+   {
+    "nodeId": "PELModuli:M1/prime-to-box-isogenies-correspond-to-invariant-lattices-in-tate-modules",
+    "verdict": "corrected",
+    "note": "Def. 1.3.5.1, the exact sequences, Lemma 1.3.5.2 (stated without proof, confirmed), Prop. 1.3.5.3 (quoted from [56, V, §7], [44, A I.7]), Cor. 1.3.5.4 and Rem. 1.3.5.5 (PDF pp. 110-112) match the statement and hypotheses. Corrected: proof step 3 (Cor. 1.3.5.4 has no proof in the source; the quotient step is the packet's, named only in Hida 6.1.2) and acceptance 1 ('(1/l) T_l E' is not a subgroup of V^p E)."
+   },
+   {
+    "nodeId": "PELModuli:M1/symplectic-liftable-principal-level-n-structures",
+    "verdict": "corrected",
+    "note": "Defs. 1.3.6.1-1.3.6.2, Rem. 1.3.6.3, Lemma 1.3.6.5 with proof, Lemma 1.3.6.6 with proof and Cor. 1.3.6.7 (PDF pp. 113-117) match statement and hypotheses; 'L ≠ 0' confirmed on the page image of PDF p. 114. Corrected: three excerpts (text-layer garbage), proof step 3 (the nu_n 'tension' is resolved: the claim holds for symplectic-liftable pairs; reviewer's argument recorded), acceptance 1 (n = 2 is vacuous) and 3 (one direction only)."
+   },
+   {
+    "nodeId": "PELModuli:M1/level-H-structures-as-orbits-of-etale-locally-defined-level-structures",
+    "verdict": "verified",
+    "note": "Def. 1.3.7.1, Lemma 1.3.7.2 (no proof in the source, confirmed), Def. 1.3.7.3, Rem. 1.3.7.4, Lemma 1.3.7.5 with proof, Def. 1.3.7.6 and Rem. 1.3.7.7 (PDF pp. 117-118) match. Lan's thesis errata (original numbering Lem. 1.3.7.3) say this lemma 'is never used' and only motivates the definition, so its missing proof blocks nothing. Acceptance 2 is correct (e.g. L = Z^2, <e_1,e_2> = 3, n = 3: G(Z/3) = GL_2 x (Z/3)^x but G^ess(Z/3) forces r = det g)."
+   },
+   {
+    "nodeId": "PELModuli:M1/rational-level-H-structures-and-comparison-with-integral-ones",
+    "verdict": "corrected",
+    "note": "Defs. 1.3.8.1-1.3.8.2, Constr. 1.3.8.4, Lemma 1.3.8.5 with proof (Prop. 1.3.5.3, Lemma 1.3.6.6, Cor. 1.3.6.7), Lemma 1.3.8.6 with proof (Cor. 1.3.5.4, Lemma 1.3.8.5, Constr. 1.3.8.4) and Def. 1.3.8.7 (PDF pp. 118-122) match statement, hypotheses and proof steps; excerpts occur. Corrected: acceptance item (conflated structure and object; pi_1-invariance missing)."
+   },
+   {
+    "nodeId": "PELModuli:M1/good-primes-and-the-moduli-problem-M-H-by-isomorphism-classes",
+    "verdict": "verified",
+    "note": "Def. 1.4.1.1 (bad iff p | n I_bad Disc [L^#:L]), Defs. 1.4.1.2 and 1.4.1.4 (prime-to-□ polarization, O-structure, determinantal condition, integral level structure; isomorphisms), Rem. 1.4.1.6, Def. 1.4.1.8, Rem. 1.4.1.9 (n ≥ 3) and Lemma 1.4.1.10 (PDF pp. 122-125) match; I_bad = 2 iff B has a type D factor (Def. 1.2.1.18, PDF p. 65); Def. A.5.9 (PDF p. 629) is the limit formula quoted in proof step 2. Lan intro 5.1.2 (p. 53) lists the same conditions. Note: Lemma 1.4.1.10's proof is one sentence and does not discuss the symplectic-liftability condition (an infinite-tower condition); by Cor. 1.3.6.7 it is decided on geometric points of connected components, so the limit argument goes through, but this is not written in the source. Rem. 1.4.1.9 quotes Serre's lemma without proof (gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M1/moduli-problem-M-rat-H-by-prime-to-box-isogeny-classes",
+    "verdict": "verified",
+    "note": "Def. 1.4.2.1 (over (LNSch/S0)), Rems. 1.4.2.3-1.4.2.4 (PDF pp. 126-128) and Hida 6.1.1 pp. 46-49 ((unr), (L1)-(L2), P^(p)_K, (det), P_K with (pol)) match. The revision still prints 'rational principal level-H structure' in Def. 1.4.2.1(5); the node's 'rational level-H structure' agrees with Lan's errata. Rem. 1.4.2.4 adds that G(Z^^box) and U^box(n) still depend on L tensor Z^^box; the node omits this caveat but does not contradict it."
+   },
+   {
+    "nodeId": "PELModuli:M1/isomorphism-classes-versus-prime-to-box-isogeny-classes",
+    "verdict": "corrected",
+    "note": "Constr. 1.4.3.2, Prop. 1.4.3.4, Rem. 1.4.3.5 and the proof (PDF pp. 128-130) match the statement and proof steps (Cor. 1.3.5.4 in both directions, approximation A^{infty,box,x} = Z_(box),>0^x . Z^^box^x, Lemma 1.3.8.5). Hida 6.1.2 (pp. 49-50) cites [D1] 4.10 and 4.12, as stated. Corrected: two excerpts (A0/λ0 for A′/λ′) and acceptance 1."
+   },
+   {
+    "nodeId": "PELModuli:M1/etale-stack-property-of-M-H",
+    "verdict": "corrected",
+    "note": "Section 2.3.4, condition 1 (PDF p. 192) matches: SGA 1 VIII 7.8 for (A, L), one-sentence descent of λ, i, α_H, Lemma 1.4.1.10. Excerpts occur (accents only differ). Corrected: the node copied Lan's misprint (Id_A × λ)*P_A, a sheaf on A ×_S A; the ample sheaf is (Id_A, λ)*P_A."
+   },
+   {
+    "nodeId": "PELModuli:M1/change-of-lattice-order-and-set-of-good-primes",
+    "verdict": "corrected",
+    "note": "Cor. 1.4.3.1 with proof, Cor. 1.4.3.8 with proof, Rem. 1.4.3.9, Cond. 1.4.3.10, Lemma 1.4.4.2 with proof, Prop. 1.4.4.3 with proof and Rems. 1.4.4.4-1.4.4.5 (PDF pp. 128-135) match. The packet's observation in proof step (a) is correct: Def. A.5.9 (PDF p. 629) is exactly the limit formula of Cor. 1.4.3.1, so Lemma 1.4.1.10 plus the stack property gives Cor. 1.4.3.1 without Theorem 1.4.1.11, although Lan himself calls it 'A consequence of Theorem 1.4.1.11'. Rem. 1.4.3.9 uses Prop. 1.1.1.21 (link added). Lan's proof of Lemma 1.4.4.2 prints the target as (T_p G_m, e^λ, T_p G_m), a misprint for T_p A; the node correctly writes T_p A. Corrected: acceptance 2 presupposed a type D failure that the source does not assert."
+   },
+   {
+    "nodeId": "PELModuli:M2/obstruction-theory-for-smooth-schemes-morphisms-and-line-bundles",
+    "verdict": "corrected",
+    "note": "All five excerpts and locators verified (PDF = printed + 28; the Prop. 2.1.5.3(2) excerpt differs from the text layer only by the stacked subscript O_S under the tensor sign). Statement, hypotheses and proof steps checked against Lemmas 2.1.1.1-2.1.1.7, Props. 2.1.2.2, 2.1.3.2, 2.1.5.3, Lemma 2.1.5.11, Props. 2.1.5.13-2.1.5.14 and Cor. 2.1.5.15 (printed pp. 110-129). Corrected: the sign in Prop. 2.1.3.2(3) (the revision's statement contradicts its own proof; book erratum (14) confirms + df - f*), and the 'flat (hence smooth)' hypothesis. Unrecorded imports: Matsumura [88, Thm. 7.7], BLR [22, Section 4.2, Prop. 2] (Lemma 2.1.5.11), EGA 0_I 5.4.10.1 (see gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M2/de-rham-lifting-criterion-for-abelian-schemes",
+    "verdict": "corrected",
+    "note": "Props. 2.1.6.1-2.1.6.4, (2.1.6.5)-(2.1.6.7), Props. 2.1.6.8-2.1.6.9 read (printed pp. 129-136); all five excerpts and locators verified. Statements of 2.1.6.2, 2.1.6.4, 2.1.6.8 and 2.1.6.9 are accurate. Corrected the overclaim that the smoothness route 'uses only these statements' and recorded that the equivariance in Prop. 2.1.6.8 is asserted, not computed. Additional unrecorded import: Godement [48, Ch. II, Section 5] for Prop. 2.1.6.1; the identifications H^0(Omega^1) = Lie^vee and H^1(O) = Lie_{X^vee} are stated as 'known' without reference (printed p. 135)."
+   },
+   {
+    "nodeId": "PELModuli:M2/kodaira-spencer-class-and-morphism",
+    "verdict": "corrected",
+    "note": "Def. 2.1.7.1, Prop. 2.1.7.3 with proof, Remark 2.1.7.4 and Def. 2.1.7.9 read (printed pp. 137-139); statement, hypotheses, proof steps and all three excerpts verified. Minor: the form H^1(X, O_X) tensor Omega^1_{S/U} in Remark 2.1.7.4 already needs Omega^1_{S/U} locally free of finite rank. Lan's text cites Prop. 2.1.3.2 where Prop. 2.1.2.2 is meant (printed p. 137); the node cites correctly. Corrected the first acceptance test, which was mathematically false."
+   },
+   {
+    "nodeId": "PELModuli:M2/local-deformation-functors-rigidity-and-openness-of-conditions",
+    "verdict": "verified",
+    "note": "Sections 2.2.1-2.2.2 read in full (printed pp. 140-148). Statement matches Lemma 2.2.2.1, Cor. 2.2.2.2, Props. 2.2.2.3, 2.2.2.5, Cors. 2.2.2.6-2.2.2.8, Prop. 2.2.2.9 and Cor. 2.2.2.10; good primes are p not dividing n I_bad Disc [L^# : L] (Def. 1.4.1.1, printed p. 94) and Lemma 1.2.5.11 needs p not dividing Disc (printed p. 62). All seven excerpts and locators verified (the non-literal matches are hats and tildes dropped by the text layer). Unrecorded imports: Theorem B.1.1.9 and Lemma B.1.1.11 (Appendix B.1, not read), EGA III-2 6.7.8 (Kunneth) in Prop. 2.2.2.5 (see gap added). Missing supplier links from the M1 rigidity and polarization nodes are added."
+   },
+   {
+    "nodeId": "PELModuli:M2/prorepresentability-of-local-pel-deformation-functors",
+    "verdict": "corrected",
+    "note": "Theorem 2.2.1.4 and its proof, Section 2.2.3 (Props. 2.2.3.4, 2.2.3.7, 2.2.3.9, Theorem 2.2.3.10) read (printed pp. 142, 149-152); statement and all four excerpts verified. Corrected the description of diagram (2.2.3.1). The first acceptance test (Lambda[[t]] for an elliptic curve) also needs formal smoothness (Cor. 2.2.4.3), which is the next node."
+   },
+   {
+    "nodeId": "PELModuli:M2/formal-smoothness-of-polarized-abelian-deformations",
+    "verdict": "corrected",
+    "note": "Props. 2.2.4.1, 2.2.4.4 with proofs, Cors. 2.2.4.3, 2.2.4.5, 2.2.4.6, the pairing construction and Cor. 2.2.4.8 read (printed pp. 152-158); statement, hypotheses (prime-to-box hence separable, read on the page image of printed p. 155), proof steps and all five excerpts verified. Only the inseparable acceptance test was wrong. Note: the proof of Prop. 2.2.4.4 passes to an etale surjective base change to write lambda = lambda_L over an Artinian base and does not descend the resulting lifting (recorded in the gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M2/formal-smoothness-and-dimension-of-pel-deformations-at-good-primes",
+    "verdict": "corrected",
+    "note": "Prop. 2.2.4.9 with proof, Cors. 2.2.4.10 and 2.2.4.12 with proof, Theorem 2.2.4.13 read (printed pp. 158-160). Statement (including Sym_rho(V_0) := (V_0 tensor_C V_0)/(x tensor y - y tensor x, (bx) tensor z - x tensor (b* z)), the symmetric O-balanced quotient over C) and proof steps verified; the Siegel (g(g+1)/2), Hilbert (d) and unitary GU(a,b) (ab) dimension tests are correct. Hida 6.2.1 excerpt verified (p. 54). Corrected an excerpt with text-layer artifacts, a page locator and the negative acceptance test. The revision already incorporates thesis errata on this section (finite-type hypothesis on O_{F_0,(box)} -> Lambda, finite etale R -> R'); the descent back from R' is not written (gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M2/effective-prorepresentability-by-grothendieck-existence",
+    "verdict": "verified",
+    "note": "Section 2.3.1 (Prop. 2.3.1.1, Theorems 2.3.1.2-2.3.1.4) and Section 2.3.2 with Prop. 2.3.2.1 read (printed pp. 161-162); all three excerpts verified. The node's 'with proper source' for Theorem 2.3.1.3 is the hypothesis of EGA III 5.4.1, which Lan's printed statement leaves implicit (his following sentence speaks of schemes proper over S). The acceptance test (no effectivity claimed for Def_{A_0}) matches the source: Prop. 2.3.2.1 covers only the three polarized functors."
+   },
+   {
+    "nodeId": "PELModuli:M2/automorphisms-of-polarized-abelian-schemes-and-neat-rigidification",
+    "verdict": "verified",
+    "note": "Lemma 2.3.3.1 and Cor. 2.3.3.2 with proofs read (printed pp. 162-163). Exact statement: for an abelian scheme A over a base scheme S, n >= 3 and a polarization lambda, the restriction Aut_S(A, lambda) := {f in Aut_S(A) : f^vee o lambda o f = lambda} -> Aut_S(A[n]) is injective and its image acts via a subgroup of the roots of unity; the proof reduces to a point by Lemma 2.2.2.1 and quotes Mumford [94, Section 21, Thm. 5]. The node reproduces this and Cor. 2.3.3.2 (neat H) exactly; all three excerpts verified."
+   },
+   {
+    "nodeId": "PELModuli:M2/representability-smoothness-and-finite-type-of-M-H",
+    "verdict": "corrected",
+    "note": "Theorem 1.4.1.11, Cor. 1.4.1.12, Remark 1.4.1.13 (printed pp. 97-98), Cor. 1.4.3.7 (p. 103), Lemma 1.4.4.2 (p. 105), Section 2.3.4 in full (pp. 163-165), Prop. A.7.4 (p. 609) and Theorems B.3.7, B.3.9, B.3.11, Remark B.3.12 with proofs (pp. 632-637) read. Hypotheses on B.3.7/B.3.9/B.3.11 match the source. All nine excerpts and locators verified. Corrected the relative-dimension attribution, the reduction step (H = H' x U_{box'-box}, Krull-dimension input) and the base in the Siegel test. Unrecorded imports: fibrewise very ampleness of L^{tensor 3} (no citation), Theorem A.4.4.3, Prop. A.6.11, Prop. A.7.2.4, Remark B.3.3 and EGA IV-2 7.8.3, IV-4 18.10.1, 18.10.4 in the proofs of B.3.7 and B.3.11 (gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M2/kodaira-spencer-isomorphism-on-M-H",
+    "verdict": "verified",
+    "note": "Def. 2.3.5.1 and Prop. 2.3.5.2 with proof read (printed pp. 165-167). The proof already uses completions of an etale presentation of M_H at points of finite type, as the thesis errata require. Statement, hypotheses, proof steps and the Siegel test (Sym^2 of Lie^vee_A via the separable lambda) verified; the excerpt differs from the text layer only by the accent in 'etale'. Unrecorded import: EGA 0_IV 20.4.9 (gap added)."
+   },
+   {
+    "nodeId": "PELModuli:M6/level-n-rigidity-and-descent-of-isomorphism-classes-for-height-finiteness",
+    "verdict": "corrected",
+    "note": "Lan Lemma 2.3.3.1 and Cor. 2.3.3.2 checked (printed pp. 162-163). Faltings pp. 353-357 read on page images of the public GDZ copy (https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0073/LOG_0026.pdf). The excerpt 'Bekanntlich sind dann unsere A's schon über K' isomorph, und der Rest folgt aus allgemeinen Grundsätzen der Galois-Kohomologie.' is literal, and 'n ≥ 3' is confirmed. Corrected: the Satz 1 scope (semiabelian models over Spec(R), principal polarization, h(A) <= c); A_g is the coarse moduli scheme, not a stack; the same-bad-reduction claim is also unproved and depends on semistability; the twist test is mis-scoped over Q; the PDF page in the public copy. The first acceptance test (sigma(phi) o phi^{-1} is trivial on A_2[n], hence the identity) is correct."
+   }
+  ]
+ }
 }

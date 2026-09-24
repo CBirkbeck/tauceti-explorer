@@ -7,7 +7,7 @@
    "id": "BHW-OverconvergentHilbert-2023",
    "title": "Overconvergent Hilbert modular forms via perfectoid modular varieties",
    "authors": "Christopher Birkbeck, Ben Heuer, Chris Williams",
-   "edition": "Annales de l'Institut Fourier 73 (2023), no. 4, 1709-1794, DOI 10.5802/aif.3560 (received 12 July 2020, revised 9 July 2021, accepted 15 July 2021); journal version with journal pagination, Centre Mersenne PDF dated 7 July 2023; supplied reference library copy (catalogue id SS_BHW). Printed page = PDF page index + 1707. Formulas were checked on page images rendered from this PDF.",
+   "edition": "Annales de l'Institut Fourier 73 (2023), no. 4, 1709-1794, DOI 10.5802/aif.3560 (received 12 July 2020, revised 9 July 2021, accepted 15 July 2021); journal version with journal pagination, Centre Mersenne PDF dated 7 July 2023. The reference-library copy (catalogue id SS_BHW) is byte-identical to the public PDF at https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf (same SHA-256). Printed page = PDF page index + 1707. Formulas were checked on page images rendered from this PDF. The last arXiv version, 1902.03985v4 (10 May 2021), has the same numbering; excerpts are literal for the journal version.",
    "url": "https://doi.org/10.5802/aif.3560",
    "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4",
    "readSections": [
@@ -21,6 +21,126 @@
     "§8.1-8.5 (Lemma 8.2 to Lemma 8.28), pp. 1765-1780",
     "§9 (Definition 9.1 to Theorem 9.12 and proofs), pp. 1780-1787",
     "§10.1-10.4 (Lemma 10.1 to Proposition 10.8 and proofs) and bibliography, pp. 1787-1793"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf",
+     "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4",
+     "date": "2026-09-23",
+     "version": "Ann. Inst. Fourier 73 (2023) no. 4, 1709-1794, DOI 10.5802/aif.3560 (Crossref: published 2023-07-07). Byte-identical to the packet's library copy (same SHA-256), so the packet's source is public. Printed page = PDF page + 1707.",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
+   ]
+  },
+  {
+   "id": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+   "title": "The adic, cuspidal, Hilbert eigenvarieties",
+   "authors": "Fabrizio Andreatta, Adrian Iovita, Vincent Pilloni",
+   "edition": "Res. Math. Sci. 3 (2016), article 34, 36 pp., DOI 10.1186/s40687-016-0076-7 (open access)",
+   "url": "https://doi.org/10.1186/s40687-016-0076-7",
+   "sha256": "b6b0b67e266a86538cbf41e413ae669b387abe18f832e794cb44ef4a6bb432aa",
+   "readSections": [
+    "§2.4 (Lemmas 2.4-2.6, Proposition 2.8), pp. 6-8",
+    "§3.2 (Proposition 3.2), p. 10",
+    "§3.4, §4.1-4.3 (Propositions 4.1, 4.3, 4.7, 4.8), pp. 12-17",
+    "§6.4 (Theorem 6.7), pp. 26-27",
+    "§8.1-8.5 (Lemma 8.1, §8.2, Theorem 8.2, Corollary 8.3, Proposition 8.4, Lemmas 8.5 and 8.7), pp. 30-35",
+    "numbering of all results"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://link.springer.com/content/pdf/10.1186/s40687-016-0076-7.pdf",
+     "sha256": "b6b0b67e266a86538cbf41e413ae669b387abe18f832e794cb44ef4a6bb432aa",
+     "date": "2026-09-23",
+     "version": "Andreatta-Iovita-Pilloni, 'The adic, cuspidal, Hilbert eigenvarieties', Res. Math. Sci. 3 (2016), article 34, DOI 10.1186/s40687-016-0076-7 (Crossref), open access = BHW [2]. Read: §§1-2.4.3, 3.2, 3.4, 4.1-4.3, 6.4, 8.1-8.5, numbering of all results.",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
+   ]
+  },
+  {
+   "id": "Heuer-LineBundlesVTopology-2020",
+   "title": "Line bundles on rigid spaces in the v-topology",
+   "authors": "Ben Heuer",
+   "edition": "arXiv 2012.07918v2 (5 May 2021); published Forum Math. Sigma 10 (2022) e82, DOI 10.1017/fms.2022.72, same numbering",
+   "url": "https://arxiv.org/abs/2012.07918v2",
+   "sha256": "7d07fca4f8fdf0fb80a49509b5116852a537b19e38fd6aa094adfd3b88ae261f",
+   "readSections": [
+    "§3 (Corollaries 3.1-3.6, Definition 3.7, Proposition 3.8, Example 3.9)",
+    "Remark 2.26",
+    "table of contents (no Corollary 4.1 / Proposition 4.8 with the content BHW cite)"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2012.07918v2",
+     "sha256": "7d07fca4f8fdf0fb80a49509b5116852a537b19e38fd6aa094adfd3b88ae261f",
+     "date": "2026-09-24",
+     "version": "Heuer, 'Line bundles on rigid spaces in the v-topology', arXiv 2012.07918v2 (2021-05-05, latest) = BHW [14]. Read: §3 (Corollaries 3.1-3.6, Definition 3.7, Proposition 3.8, Example 3.9), Remark 2.26, section list.",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
+   ]
+  },
+  {
+   "id": "Heuer-CuspsQExpansion-2020",
+   "title": "Cusps and q-expansion principles for modular curves at infinite level",
+   "authors": "Ben Heuer",
+   "edition": "arXiv 2002.02488v1 (6 Feb 2020); published Doc. Math. 27 (2022) 2385-2439, DOI 10.4171/dm/x32, same numbering",
+   "url": "https://arxiv.org/abs/2002.02488v1",
+   "sha256": "3408139126f9692a2e6c19729e25b3db431e708936193be1c01c75ebabee30f1",
+   "readSections": [
+    "Proposition 2.22",
+    "Proposition 3.8",
+    "Theorem 3.17",
+    "Proposition 3.19",
+    "list of numbered results of §§1-6"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2002.02488v1",
+     "sha256": "3408139126f9692a2e6c19729e25b3db431e708936193be1c01c75ebabee30f1",
+     "date": "2026-09-24",
+     "version": "Heuer, 'Cusps and q-expansion principles for modular curves at infinite level', arXiv 2002.02488v1 (only version) = BHW [13]. Read: numbered results of §§1-3, Propositions 2.22, 3.8 and 3.19, Theorem 3.17.",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
+   ]
+  },
+  {
+   "id": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
+   "title": "Overconvergent modular forms and perfectoid Shimura curves",
+   "authors": "Przemysław Chojecki, David Hansen, Christian Johansson",
+   "edition": "Doc. Math. 22 (2017) 191-262, DOI 10.4171/dm/564",
+   "url": "https://doi.org/10.4171/dm/564",
+   "sha256": "227a79d38b9f119323d279d408f14228eda4c9354c5ee9fedf85f543ec332205",
+   "readSections": [
+    "§2.6: Proposition 2.22, Lemma 2.23, Lemma 2.24 (pp. 214-215)"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://content.ems.press/assets/public/full-texts/serials/dm/22/8965495/online/10.4171-dm-564.pdf",
+     "sha256": "227a79d38b9f119323d279d408f14228eda4c9354c5ee9fedf85f543ec332205",
+     "date": "2026-09-24",
+     "version": "Chojecki-Hansen-Johansson, 'Overconvergent modular forms and perfectoid Shimura curves', Doc. Math. 22 (2017) 191-262, DOI 10.4171/dm/564 (Crossref) = BHW [9]. Read: §2.6 (Proposition 2.22, Lemmas 2.23-2.24).",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
+   ]
+  },
+  {
+   "id": "Pilloni-OverconvergentModularForms-2013",
+   "title": "Overconvergent modular forms",
+   "authors": "Vincent Pilloni",
+   "edition": "Ann. Inst. Fourier 63 (2013) no. 1, 219-239, DOI 10.5802/aif.2759",
+   "url": "https://doi.org/10.5802/aif.2759",
+   "sha256": "c3533f2b5de0031d7750d48293c9e8d057f355e050d16739afde143af9a7d855",
+   "readSections": [
+    "§3.3-3.5 (Theorem 3.2, Remarks 3.3-3.4, Proposition 3.5, definition of omega^{(chi,lambda)}), pp. 225-228"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://aif.centre-mersenne.org/item/10.5802/aif.2759.pdf",
+     "sha256": "c3533f2b5de0031d7750d48293c9e8d057f355e050d16739afde143af9a7d855",
+     "date": "2026-09-24",
+     "version": "Pilloni, 'Overconvergent modular forms', Ann. Inst. Fourier 63 (2013) no. 1, 219-239, DOI 10.5802/aif.2759 (Crossref) = BHW [24]; BHW's entry has a French title and swaps volume and number. Read: §§3.3-3.5 (Theorem 3.2, Proposition 3.5, definition of omega^{(chi,lambda)}).",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   }
  ],
@@ -30,12 +150,12 @@
    "parentStageId": "OverconvergentAutomorphicForms:O0",
    "title": "Geometric and arithmetic Hilbert weight spaces, bounded smooth weights, and the map rho from W to W* (with the sign discrepancy in BHW Definition 6.1)",
    "kind": "definition",
-   "statement": "Let T := Res_{O_F|Z} G_m, so T(Z_p) = O_p^x where O_p = O_F (x) Z_p (p is not assumed unramified in F), and let L be the fixed perfectoid field extension of Q_p^cyc. The weight space for G = Res_{F/Q} GL_2 is W := Spf(Z_p[[T(Z_p) x Z_p^x]])^an_eta x L and the weight space for G* is W* := Spf(Z_p[[T(Z_p)]])^an_eta x L. An L-point of W is a pair (w,t) of continuous characters w: T(Z_p) -> L^x and t: Z_p^x -> L^x; an L-point of W* is a character T(Z_p) -> L^x. A weight is a morphism kappa: U -> W (for G) or kappa: U -> W* (for G*), where U is a smooth rigid space over some perfectoid field extension of L; kappa is bounded if its image lies in some affinoid open subspace. A weight kappa: U -> W* is the same as a morphism kappa: O_p^x x U -> hat-G_m, and it is bounded iff |T_kappa| := sup_{(t,x) in O_p^x x U} |kappa(t,x) - 1| < 1. A weight kappa: U -> W gives maps w_kappa: O_p^x x U -> hat-G_m and t_kappa: Z_p^x x U -> hat-G_m, and is regarded as the G*-weight rho(w_kappa, t_kappa). BHW Definition 6.1 defines rho as the morphism attached to the group map T(Z_p) -> T(Z_p) x Z_p^x, x |-> (x^2, N_{F/Q}(x)), and in the same sentence writes kappa = w^2 * (t^{-1} o N_{F/Q}) for the image of (w,t) (again rho(w_kappa,t_kappa) = w_kappa^2 * (t_kappa^{-1} o N_{F/Q}) on p. 1757). These two descriptions disagree by an inversion of t: pulling characters back along x |-> (x^2, N(x)) gives w^2 * (t o N), whereas the displayed formula is the pull-back along x |-> (x^2, N_{F/Q}(x)^{-1}). This roadmap pins the displayed character formula kappa = w^2 * (t^{-1} o N_{F/Q}) together with the group map x |-> (x^2, N_{F/Q}(x)^{-1}); the discrepancy is recorded, not silently resolved.",
+   "statement": "Let T := Res_{O_F|Z} G_m, so T(Z_p) = O_p^x where O_p = O_F (x) Z_p (p is not assumed unramified in F), and let L be the fixed perfectoid field extension of Q_p^cyc. The weight space for G = Res_{F/Q} GL_2 is W := Spf(Z_p[[T(Z_p) x Z_p^x]])^an_eta x L and the weight space for G* is W* := Spf(Z_p[[T(Z_p)]])^an_eta x L. An L-point of W is a pair (w,t) of continuous characters w: T(Z_p) -> L^x and t: Z_p^x -> L^x; an L-point of W* is a character T(Z_p) -> L^x. A weight is a morphism kappa: U -> W (for G) or kappa: U -> W* (for G*), where U is a smooth rigid space over some perfectoid field extension of L; kappa is bounded if its image lies in some affinoid open subspace. A weight kappa: U -> W* determines a morphism kappa: O_p^x x U -> hat-G_m, and BHW state that kappa is bounded iff |T_kappa| := sup_{(t,x) in O_p^x x U} |kappa(t,x) - 1| < 1. As printed this criterion is right only for weights trivial on the prime-to-p torsion subgroup of O_p^x: if kappa is nontrivial on it then |T_kappa| = 1 although, for example, a single point is bounded. T_kappa (and every radius derived from it) is therefore to be computed on the free part, as in AIP [2, §2.4], where the weight space W^0_F consists of characters trivial on the torsion group H and the torsion character is twisted in separately (AIP [2, §6.4]). A weight kappa: U -> W gives maps w_kappa: O_p^x x U -> hat-G_m and t_kappa: Z_p^x x U -> hat-G_m, and is regarded as the G*-weight rho(w_kappa, t_kappa). BHW Definition 6.1 defines rho as the morphism attached to the group map T(Z_p) -> T(Z_p) x Z_p^x, x |-> (x^2, N_{F/Q}(x)), and in the next sentence writes kappa = w^2 * (t^{-1} o N_{F/Q}) for the image of (w,t) (again rho(w_kappa,t_kappa) = w_kappa^2 * (t_kappa^{-1} o N_{F/Q}) on p. 1757). These two descriptions disagree by an inversion of t: pulling characters back along x |-> (x^2, N(x)) gives w^2 * (t o N), whereas the displayed formula is the pull-back along x |-> (x^2, N_{F/Q}(x)^{-1}). AIP [2, §8.2], whose sheaf omega^{kappa^un_G} BHW Definition 9.11 names as the comparison object, defines W^G_F -> W_F by the same group homomorphism t |-> (t^2, Nm_{F/Q}(t)), so its G*-weight is nu^2 * (w o Nm). As the atlas stage requires, this roadmap pins the displayed character formula kappa = w^2 * (t^{-1} o N_{F/Q}) together with the group map x |-> (x^2, N_{F/Q}(x)^{-1}). The discrepancy is recorded, not silently resolved. Under this pin, the G-weight (w, t) corresponds to AIP's G-weight (nu, w) = (w, t^{-1}).",
    "hypotheses": [
     "L is a perfectoid field extension of Q_p^cyc (BHW §1.5); U is smooth rigid over a perfectoid extension of L; W and W* are base-changed to L",
-    "Boundedness = image contained in an affinoid open of W or W*; BHW assert its equivalence with |T_kappa| < 1 'by unravelling the definitions' without further argument",
+    "Boundedness = image contained in an affinoid open of W or W*. BHW assert its equivalence with |T_kappa| < 1 'by unravelling the definitions' without further argument. The equivalence holds for weights trivial on the prime-to-p torsion of O_p^x (their image lies in the identity component, an open polydisc, and an affinoid there lies in a closed polydisc of radius < 1). It fails as printed for weights nontrivial on that torsion: roots of unity of order prime to p are at distance 1 from 1, so |T_kappa| = 1. AIP [2, Lemma 2.5 and §6.4] work on W^0_F (characters trivial on the finite group H) and twist by the torsion character chi through the sheaf w_chi.",
     "No hypothesis that p is unramified in F; T(Z_p) = O_p^x is a product over the primes above p",
-    "Convention: the displayed formula kappa = w^2 * (t^{-1} o N_{F/Q}) (read on the page image of printed p. 1756 and p. 1757; the text layer drops the exponents) is not the pull-back along the stated group map x |-> (x^2, N_{F/Q}(x)); BHW attribute the convention to [3] (AIP, Asterisque 382), which is not in the library"
+    "Convention: the displayed formula kappa = w^2 * (t^{-1} o N_{F/Q}) (read on the page images of printed pp. 1756 and 1757; the text layer drops the exponents) is not the pull-back along the stated group map x |-> (x^2, N_{F/Q}(x)). BHW attribute the convention to [3] (AIP, Asterisque 382), which is not in the library and was not obtained. AIP [2, §8.2] (Res. Math. Sci. 3 (2016), p. 31; it says it follows [3]) prints the same group map t |-> (t^2, Nm_{F/Q}(t)) as BHW, whose pull-back is w^2 * (t o N)."
    ],
    "proofSteps": [
     "Definition 6.1 (printed p. 1756): define T, W, W*, their L-points, and rho through the group map; display kappa = w^2 * (t^{-1} o N_{F/Q}) and note that kappa(x) * w(x^{-2}) factors through a power of the norm.",
@@ -48,7 +168,8 @@
     "Compute rho on a pair (w, t) with t trivial and on a pair with w trivial, and check the result against the group map x |-> (x^2, N_{F/Q}(x)^{-1}).",
     "Check kappa(x) * w(x^{-2}) = t^{-1}(N_{F/Q}(x)) for kappa = rho(w,t).",
     "Check kappa^{-1}(eta) w(eta^2) = t(N_{F/Q}(eta)) = 1 for every totally positive unit eta (identity (9.1)).",
-    "Expert/source confirmation (BHW authors or AIP [3]) of which group map is intended; record the answer before any downstream sign is fixed."
+    "Before any downstream sign is fixed, record that AIP [2, §8.2] uses the group map t |-> (t^2, Nm_{F/Q}(t)), whose pull-back is w^2 (t o N). Under the atlas pin, the comparison of Definition 9.11 with AIP's omega^{kappa^un_G} relabels t as t^{-1}. Confirm the intended map with the BHW authors or with AIP [3].",
+    "For a weight whose restriction to the prime-to-p torsion of O_p^x is a nontrivial character chi, check that |T_kappa| = 1 as printed. Check that the boundedness criterion and the radii built from T_kappa (Proposition 6.3, Definition 7.7) are applied to kappa chi^{-1}, that is, on the free part."
    ],
    "sources": [
     {
@@ -80,6 +201,18 @@
      "locator": "§9, proof of Lemma 9.2, (9.1), printed p. 1781",
      "excerpt": "The relation of wκ and κ given in Definition 6.2 implies that",
      "match": "Downstream identity (9.1) kappa^{-1}(eta) w_kappa(eta^2) = t_kappa o N_{F/Q}(eta) = 1, consistent with the displayed formula (verified on page image PDF p. 74)."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§8.2 (Descending the sheaf w^{kappa^un}), p. 31 of 36",
+     "excerpt": "There is a natural map of formal schemes 𝔚^G_F → 𝔚_F defined by the group homomorphism (O_F ⊗ Z_p)^* → (O_F ⊗ Z_p)^* × Z_p^* given by t ↦ (t^2, Nm_{F/Q}(t)).",
+     "match": "The group map in the AIP source of the arithmetic comparison agrees with the group map BHW print in Definition 6.1 (checked on the page image); its pull-back of (nu, w) is nu^2 (w o Nm), without inversion."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§6.4, p. 26 of 36",
+     "excerpt": "Let H be the torsion subgroup of T(Zp). Let χ : H → Λ⋆F be the restriction of the universal character to H.",
+     "match": "AIP treat the torsion character separately (twist by w_chi), so parameters such as T are taken on the free part."
     }
    ],
    "implementationStatus": "unchecked"
@@ -89,10 +222,10 @@
    "parentStageId": "OverconvergentAutomorphicForms:O0",
    "title": "Analytic continuation of a bounded weight to the thickened torus B_r(O_p^x : 1), with the radius r_kappa of BHW Proposition 6.3",
    "kind": "theorem",
-   "statement": "Neighbourhoods: embed G_a -> P^1 by z |-> (z : 1) and apply Res_{O_F|Z}; for r in (0,1] cap |L|, B_r(O_p : 1) subset Res_{O_F|Z} hat-G_a is the union of the balls of radius r around the points (a : 1), a in O_p, and B_r(O_p^x : 1) is defined analogously; B_0(O_p : 1) := O_p as a profinite perfectoid space (Definitions 5.16-5.17). In the elliptic case (Definitions 2.2, 3.10) B_r(Z_p^x : 1) is, for r < 1, an adic group thickening of Z_p^x. Proposition 6.3: let kappa: U -> W* be a bounded smooth weight, r_0 := 1 if p > 2 and r_0 := 3 if p = 2, and r_kappa := |p|^{r_0} |T_kappa|. Then for every r with r_kappa >= r > 0 the morphism kappa: O_p^x x U -> hat-G_m extends uniquely to a morphism kappa^an: B_r(O_p^x : 1) x U -> hat-G_m. Elliptic version (Proposition 3.12): for a bounded smooth weight kappa: U -> W there exists r_kappa such that for r_kappa >= r > 0 there is a unique kappa^an: B_r(Z_p^x : 1) x U -> hat-G_m whose restriction along Z_p^x -> B_r(Z_p^x : 1), a |-> (a : 1), is kappa; Definition 3.13 takes r_kappa to be the supremum of such r. For a G-weight the continuation is applied to rho(w_kappa, t_kappa) (§9, p. 1780).",
+   "statement": "Neighbourhoods: embed G_a -> P^1 by z |-> (z : 1) and apply Res_{O_F|Z}; for r in (0,1] cap |L|, B_r(O_p : 1) subset Res_{O_F|Z} hat-G_a is the union of the balls of radius r around the points (a : 1), a in O_p, and B_r(O_p^x : 1) is defined analogously; B_0(O_p : 1) := O_p as a profinite perfectoid space (Definitions 5.16-5.17). In the elliptic case (Definitions 2.2, 3.10) B_r(Z_p^x : 1) is, for r < 1, an adic group thickening of Z_p^x. Proposition 6.3 as printed: let kappa: U -> W* be a bounded smooth weight, r_0 := 1 if p > 2 and r_0 := 3 if p = 2, and r_kappa := |p|^{r_0} |T_kappa|; then for every r with r_kappa >= r > 0 the morphism kappa: O_p^x x U -> hat-G_m extends uniquely to a morphism kappa^an: B_r(O_p^x : 1) x U -> hat-G_m. The printed radius is not the one the cited AIP [2, Proposition 2.8] provides, and it is too large in general. AIP [2, Proposition 2.8] states that for n >= 0 and I ⊂ [0, p^n] the universal character over W^0_{F,I} extends to T(Z_p)·(1 + p^{n+r_0} O_F ⊗ G_a) (their epsilon = r_0). In the notation here: if |T|^{p^n} <= |p| on U, with T computed on the free part, then kappa extends analytically to B_{|p|^{n+r_0}}(O_p^x : 1) x U. A direct check shows the printed radius fails: take F = Q, p = 3 and kappa trivial on ±1 with kappa(4) = 1 + T and v_3(T) = 1/3. Then |T_kappa| = |3|^{1/3} and r_kappa = |3|^{4/3}. But |log(1 + T)| = 1, so near 1 the continuation must be exp(c log z) with |c| = 3, which converges only for |z - 1| < |3|^{3/2} < r_kappa. For T_kappa = 0 the printed range of r is empty. This roadmap therefore uses the AIP radius |p|^{n+r_0}. With it, the later claim epsilon_kappa <= epsilon^def_kappa (Definition 7.7) holds. Elliptic version (Proposition 3.12): for a bounded smooth weight kappa: U -> W there exists r_kappa such that for r_kappa >= r > 0 there is a unique kappa^an: B_r(Z_p^x : 1) x U -> hat-G_m whose restriction along Z_p^x -> B_r(Z_p^x : 1), a |-> (a : 1), is kappa; Definition 3.13 takes r_kappa to be the supremum of such r. For a G-weight the continuation is applied to rho(w_kappa, t_kappa) (§9, p. 1780).",
    "hypotheses": [
     "kappa bounded and U smooth rigid over a perfectoid extension of L",
-    "Radius formula r_kappa := |p|^{r_0}|T_kappa| with r_0 = 1 (p > 2), r_0 = 3 (p = 2) as printed on p. 1757 (checked on page image PDF p. 50); BHW derive the value from AIP [2, Proposition 2.8], which is not in the library, so the value is recorded but not verified",
+    "Radius: the printed formula r_kappa := |p|^{r_0}|T_kappa| (p. 1757, checked on the page image) is attributed to AIP [2, Proposition 2.8]. The reviewer read that result: it gives the radius |p|^{n+r_0} over W^0_{F,[0,p^n]}, and the printed formula does not follow from it. With the AIP radius, Definition 7.7's claim epsilon_kappa <= epsilon^def_kappa holds for every p (derived in the annuli node). With the printed radius the claim fails for weights near the trivial one: for p = 5 and |T_kappa| = |p|^3, r_kappa = |p|^4 gives epsilon^def_kappa = 1/(2·5^4) < epsilon_kappa = 5^{-4}.",
     "Existence in the elliptic case is imported from Buzzard, Eigenvarieties [6, Proposition 8.3] for affinoid U",
     "When F is not split in L, existence uses Galois descent from a finite Galois extension L'|L splitting F"
    ],
@@ -105,8 +238,9 @@
    "acceptance": [
     "The restriction of kappa^an to O_p^x x U along a |-> (a : 1) equals kappa, and kappa^an is multiplicative in the first variable (needed for the cocycle law of kappa(cz + d) in O2).",
     "r_kappa depends on kappa only through |T_kappa|, a supremum over O_p^x x U, so a single radius works uniformly over the family U.",
-    "For the trivial weight T_kappa = 0 and the printed formula gives r_kappa = 0, so Proposition 6.3 is vacuous there; compare the printed radius with [2, Proposition 2.8] (expected: a radius that does not shrink as |T_kappa| -> 0) before using it to fix epsilon^def_kappa.",
-    "F = Q and p > 2: compare with Buzzard's radius for the universal character on an affinoid of weight space."
+    "For the trivial weight, T_kappa = 0 and the printed formula gives r_kappa = 0, so the printed statement is vacuous. With the AIP radius (n = 0), kappa^an = 1 on B_{|p|^{r_0}}(O_p^x : 1) x U.",
+    "F = Q and p > 2: compare with Buzzard's radius for the universal character on an affinoid of weight space.",
+    "Counterexample to the printed radius: F = Q, p = 3, kappa(±4^a) = (1+T)^a with v_3(T) = 1/3. The dominant term of log(1+T) is T^3/3, of absolute value 1. So kappa^an(z) = exp(c log z) with |c| = |log(1+T)|/|log 4| = 3, convergent exactly for |z - 1| < |3|^{3/2}, which is smaller than r_kappa = |3|^{4/3}."
    ],
    "sources": [
     {
@@ -144,6 +278,12 @@
      "locator": "§5.3, Definition 5.17, printed p. 1751",
      "excerpt": "We make analogous definitions for open subspaces",
      "match": "Defines B_r(O_p^x : 1) and B_r(1 : pO_p) analogously to B_r(O_p : 1)."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§2.4.3, Proposition 2.8, p. 8 of 36",
+     "excerpt": "Let n ≥ 0 be an integer. Suppose that I ⊂ [0, p^n]. The character κ extends to a pairing",
+     "match": "The pairing is W^0_{F,I} × T(Z_p)·(1 + p^{n+ϵ} O_F ⊗ G_a) → G_m with ϵ = 1 (p ≠ 2), 3 (p = 2), checked on the page image. The analyticity radius is |p|^{n+ϵ} on W^0_{F,[0,p^n]}, not |p|^{ϵ}|T_κ|."
     }
    ],
    "implementationStatus": "unchecked"
@@ -153,7 +293,7 @@
    "parentStageId": "OverconvergentAutomorphicForms:O1",
    "title": "Left action on infinite-level level structures, pull-back of functions and sections, and the resulting automorphy-factor law",
    "kind": "definition",
-   "statement": "Conventions fixed once, following BHW. (i) Level action: gamma in GL_2(Z_p) (elliptic, (2.1)), in G*(Z_p) (Definition 5.14) or in G(Z/p^n) acting on the hybrid spaces (Definition 8.8) acts on moduli data by gamma . (A, iota, lambda, mu, alpha) = (A, iota, lambda, mu, alpha o gamma^vee), where alpha: O_p^2 -> T_p A^vee (resp. Z_p^2 -> T_p E) and gamma^vee := det(gamma) gamma^{-1}; composing with gamma^vee rather than gamma^{-1} is what makes this a LEFT action (Remark 5.8). (ii) Functions pull back by gamma^* f := f o gamma, so (gamma_1 gamma_2)^* = gamma_2^* gamma_1^*. (iii) The Hodge-Tate period map is equivariant, and on the pulled-back coordinate z (on the anticanonical locus) gamma^* z = (a z + b)/(c z + d) for gamma = (a b; c d) in Gamma_0(p) (equation (3.1), from the Moebius action of Lemma 2.4, which preserves B_r(Z_p : 1)). (iv) On P^1 the Gamma_0(p)-equivariant structure of O(1) compatible with (2.1) lets gamma act through det(gamma)^{-1} gamma, so gamma^{-1} acts as gamma^vee, and a section s pulls back as gamma^* s := gamma^{-1} o s o gamma (proof of Lemma 3.19). Consequently an automorphy factor j(gamma, x) used in a transformation law gamma^* f = j(gamma)^{-1} f is compatible with composition exactly when j(gamma_1 gamma_2, x) = j(gamma_1, gamma_2 x) j(gamma_2, x) (left-action cocycle law); for j = gamma^* s / s with s a nowhere-vanishing section this law is automatic.",
+   "statement": "Conventions fixed once, following BHW. (i) Level action: gamma in GL_2(Z_p) (elliptic, (2.1)), in G*(Z_p) (Definition 5.14) or in G(Z/p^n) acting on the hybrid spaces (Definition 8.8) acts on moduli data by gamma . (A, iota, lambda, mu, alpha) = (A, iota, lambda, mu, alpha o gamma^vee), where alpha: O_p^2 -> T_p A^vee (resp. Z_p^2 -> T_p E) and gamma^vee := det(gamma) gamma^{-1}; composing with the dual gamma^vee, rather than with gamma itself, is what makes this a left action. BHW prefer gamma^vee to gamma^{-1}, which would also give a left action, because of Lemma 8.23 (Remark 5.8). (ii) Functions pull back by gamma^* f := f o gamma, so (gamma_1 gamma_2)^* = gamma_2^* gamma_1^*. (iii) The Hodge-Tate period map is equivariant, and on the pulled-back coordinate z (on the anticanonical locus) gamma^* z = (a z + b)/(c z + d) for gamma = (a b; c d) in Gamma_0(p) (equation (3.1), from the Moebius action of Lemma 2.4, which preserves B_r(Z_p : 1)). (iv) On P^1 the Gamma_0(p)-equivariant structure of O(1) compatible with (2.1) lets gamma act through det(gamma)^{-1} gamma, so gamma^{-1} acts as gamma^vee, and a section s pulls back as gamma^* s := gamma^{-1} o s o gamma (proof of Lemma 3.19). Consequently an automorphy factor j(gamma, x) used in a transformation law gamma^* f = j(gamma)^{-1} f is compatible with composition exactly when j(gamma_1 gamma_2, x) = j(gamma_1, gamma_2 x) j(gamma_2, x) (left-action cocycle law); for j = gamma^* s / s with s a nowhere-vanishing section this law is automatic.",
    "hypotheses": [
     "Level structures trivialise the dual Tate module T_p A^vee (BHW Remark 5.5), not T_p A",
     "The Moebius formula (3.1) is stated for gamma in Gamma_0(p) on the anticanonical locus, where |c z + d| = 1 (Lemma 2.4 uses c in pZ_p, d in Z_p^x and |z| <= 1)",
@@ -213,7 +353,7 @@
    "hypotheses": [
     "Exactly the hypotheses of Lemma 3.7: Y affinoid over L and either smooth rigid or perfectoid; Gamma profinite; X affinoid perfectoid and a pro-etale Gamma-torsor in Y_proet; U smooth over L",
     "The torsor hypothesis is only available away from the cusps in the elliptic case; the boundary needs Proposition 3.8 (see O2)",
-    "Imports inside Lemma 3.7: Lemma 3.6 = Kedlaya-Liu [20, Theorem 8.2.3] (for seminormal Y, v_* hat-O^+_{Y_proet} = O^+_Y); Chojecki-Hansen-Johansson [9, Lemma 2.23 (2)] (reduction for stably uniform Y); Scholze's pro-etale sites [27] and [26]",
+    "Imports inside Lemma 3.7. First, Lemma 3.6, attributed to Kedlaya-Liu [20, Theorem 8.2.3]. The Kedlaya-Liu result gives v_* hat-O_{Y_proet} = O_{Y_an} for seminormal Y (the attribution is corroborated by Heuer [14, Remark 2.26]). The O^+ statement v_* hat-O^+ = O^+_Y is BHW's own deduction and uses that Y is rigid, so that O_Y(V)^o = O^+_Y(V). Second, Chojecki-Hansen-Johansson [9, Lemma 2.23 (2)] (Doc. Math. 22 (2017), p. 215, read by the reviewer). It is stated for a uniform Q_p-Banach algebra A_infinity with a continuous action of a profinite G, with A = A_infinity^G, and a Q_p-Banach space V with trivial action: (A_infinity ⊗^_{Q_p} V)^G = A ⊗^_{Q_p} V. BHW apply it to fibre products over L and to O^+, so they need an L-linear version and a passage from O to O^+ (power-bounded functions, using that X_U -> Y_U is surjective). Third, Scholze's pro-etale sites [27] and [26].",
     "No cocycle law is needed for omega_j to be a sheaf of modules; the law (O1 conventions node) is needed for omega_j to be the descent of a twisted trivial bundle and is verified for the concrete factor kappa(cz+d) in O2"
    ],
    "proofSteps": [
@@ -271,6 +411,12 @@
      "locator": "§9, proof of Lemma 9.3, printed p. 1782",
      "excerpt": "Since the map XU ,Γ∗ (p∞ ) (ϵ)a → XU ,Γ(p∞ ) (ϵ)a is equivariant under Γ0∗ (pn ) → Γ0 (pn ), it follows that the associated map",
      "match": "Functoriality of the twisted-invariant sheaves under equivariant maps of torsors."
+    },
+    {
+     "sourceId": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
+     "locator": "§2.6, Lemma 2.23 (2), p. 215",
+     "excerpt": "Let V be a Banach space over Qp (in particular V could be a reduced affinoid Qp-algebra topologically of finite type). Equip V with the trivial G-action. Then (A∞b⊗QpV )G = Ab⊗QpV .",
+     "match": "The import used in the proof of Lemma 3.7; its setting is a Q_p-Banach tensor product (Proposition 2.22 setup), not the L-linear O^+ statement BHW need."
     }
    ],
    "implementationStatus": "unchecked"
@@ -404,7 +550,7 @@
    "kind": "construction",
    "statement": "Definition 6.4: let kappa: U -> W* be a smooth bounded weight and let epsilon^def_kappa > 0 be such that the Hodge-Tate period map sends X_{Gamma(p^infinity)}(epsilon^def_kappa)_a into B_{r_kappa}(O_p : 1) (BHW refer to Proposition 5.18 for a precise bound). Then for c in pO_p and d in O_p^x the invertible function kappa(c𝔷 + d) in O^+(X_{U,Gamma^*(p^infinity)}(epsilon)_a)^x is the composite X_{U,Gamma^*(p^infinity)}(epsilon)_a --(pi_HT x id)--> B_r(O_p : 1) x U --((z |-> cz + d) x id)--> B_r(O_p^x : 1) x U --kappa^an--> hat-G_m, where X_{U,Gamma^*(p^infinity)}(epsilon)_a := X_{Gamma^*(p^infinity)}(epsilon)_a x_L U (a sousperfectoid space). Elliptic version (Definitions 3.13-3.14): epsilon^def_kappa is the maximal epsilon satisfying Proposition 2.6 for r_kappa, and for epsilon^def_kappa > epsilon >= 0, c in pZ_p, d in Z_p^x, kappa(c𝔷 + d) := kappa^an o ((z |-> cz + d) x id) o (pi_HT x id). Cocycle law (derived): for gamma_1, gamma_2 in Gamma_0^*(p), kappa(c_{12}𝔷 + d_{12}) = gamma_2^*(kappa(c_1𝔷 + d_1)) kappa(c_2𝔷 + d_2) where gamma_1 gamma_2 = (a_12 b_12; c_12 d_12), because the factor c𝔷 + d satisfies this law by Lemma 5.31 and kappa^an is multiplicative in its first variable.",
    "hypotheses": [
-    "kappa bounded smooth; r = r_kappa from Proposition 6.3 (O0) and epsilon <= epsilon^def_kappa",
+    "kappa bounded smooth. The radius r must be the analyticity radius of the corrected O0 node (AIP [2, Prop. 2.8]: |p|^{n+r_0} when |T|^{p^n} <= |p|), not the printed |p|^{r_0}|T_kappa|. epsilon <= epsilon^def_kappa, with epsilon^def_kappa chosen from that radius by Proposition 5.18.",
     "The inclusion pi_HT(X_{Gamma^*(p^infinity)}(epsilon)_a) subset B_r(O_p : 1) is Proposition 5.18 (2) (supplied by T4): for m >= 1 with p^{-m} <= r < 1 and epsilon <= 1/(2p^m), or epsilon <= 1/(3p^m) if p = 3, or epsilon <= 1/(4p^m) if p = 2 (bounds read on page image of printed p. 1751)",
     "Definition 6.4 writes the target of pi_HT x id as B_r(O_p : 1) x U without naming r; with the preceding sentence the intended radius is r = r_kappa",
     "The multiplicativity of kappa^an and the cocycle law are not stated in BHW; they follow from the uniqueness in Proposition 6.3 and Lemma 5.31 (see acceptance)"
@@ -465,7 +611,7 @@
    "hypotheses": [
     "Hypotheses of the twisted-invariant construction (O1) with Gamma = Gamma_0^*(p^n), Y = X_{U,Gamma_0^*(p^n)}(epsilon)_a (over which X_{Gamma^*(p^infinity)}(epsilon)_a is a pro-etale Gamma_0^*(p^n)-torsor, Theorem 5.11, supplied by S5) and j(gamma) = kappa(c𝔷 + d)",
     "g = [F:Q] >= 2 in §§5-7 ('by the Koecher principle, largely ignore the boundary'); the spaces are sections over the open (non-compactified) varieties",
-    "0 <= epsilon <= epsilon^def_kappa (non-strict in Definition 6.5; the elliptic Definition 3.14 has epsilon^def_kappa > epsilon); for n = 0 the radius changes from p epsilon to epsilon through AL",
+    "0 <= epsilon <= epsilon^def_kappa (non-strict in Definition 6.5; the elliptic Definition 3.14 has epsilon^def_kappa > epsilon). For n = 0 the sheaf is AL_* omega_1^kappa, with omega_1^kappa on X_{U,Gamma_0^*(p)}(p epsilon)_a, so it is defined only for p epsilon <= epsilon^def_kappa. Definitions 6.5 and 6.8 leave this implicit. The elliptic Definition 3.15 imposes epsilon_kappa/p > epsilon for n = 0, with epsilon_kappa introduced only later, in Definition 4.5.",
     "c a polarisation ideal, N >= 4 coprime to p (Definition 5.4) with mu_N-level; the dependence on c and on the choice of beta (Definition 5.6) is suppressed in the notation (Remark 5.10, footnote 2)"
    ],
    "proofSteps": [
@@ -521,9 +667,10 @@
    "kind": "theorem",
    "statement": "Proposition 6.6: omega_n^kappa is an analytic line bundle on X_U(epsilon) (as printed; the sheaf of Definition 6.5 lives on X_{U,Gamma_0^*(p^n)}(epsilon)_a). Elliptic Proposition 3.24: for 0 <= epsilon < epsilon^def_kappa, omega^kappa is an analytic line bundle on X^*_U(epsilon). Also (§3.4) in the elliptic case omega^kappa at epsilon = 0 is the pull-back of the pro-etale line bundle on X^*(0) attached to the cocycle kappa: Z_p^x -> O(U)^x through the Igusa tower (stated as following formally from Heuer [15, Lemma 2.8.4]).",
    "hypotheses": [
-    "Uses Heuer, 'Line bundles on rigid spaces in the v-topology' [14]: Corollary 3.5 (a pro-etale line bundle is analytic if analytic on a Zariski-dense open), Proposition 3.8, Corollary 4.1 (analyticity overconverges from epsilon = 0), Proposition 4.8; this reference is not in the library",
+    "Uses Heuer, 'Line bundles on rigid spaces in the v-topology' [14] (arXiv 2012.07918). The reviewer read v2 (5 May 2021, the version that added the analyticity criteria) and the published version, Forum Math. Sigma 10 (2022) e82; their numbering agrees. The criterion BHW cite as [14, Cor. 3.5] (a v-line bundle that is analytic on a Zariski-dense open is analytic) is Corollary 3.1 there; Corollary 3.5 there is a different criterion, a nontrivial map to an analytic vector bundle. [14, Cor. 3.6] (the fibrewise criterion on X x Y) and [14, Prop. 3.8] (a cocycle on a pro-etale torsor of a formal scheme gives a Zariski line bundle) match. [14, Cor. 4.1] and [14, Prop. 4.8], cited in the proof of Proposition 6.6, have no counterpart in either version; §4 there concerns the image of the Hodge-Tate logarithm. The argument BHW describe is Corollary 3.1 followed by Proposition 3.8, as sketched for the elliptic case in [14, Example 3.9].",
     "Uses that the good-reduction (Hilbert) or ordinary (elliptic, including boundary) locus carries an Igusa tower with a pro-etale formal model",
-    "The pro-etale line bundle property away from the boundary comes from the descent datum along the pro-etale torsor X_{Gamma_0(p^infinity)}(epsilon)_a -> X_{Gamma_0(p)}(epsilon)_a"
+    "The pro-etale line bundle property away from the boundary comes from the descent datum along the pro-etale torsor X_{Gamma_0(p^infinity)}(epsilon)_a -> X_{Gamma_0(p)}(epsilon)_a",
+    "The identification of omega^kappa at epsilon = 0 with the pro-etale line bundle of the cocycle kappa through the Igusa tower is stated in §3.4 (p. 1734) to follow 'formally' from Heuer's thesis [15, Lemma 2.8.4], which is unread. The equivariance of t under a b c d |-> cz + d is asserted ('One now checks')."
    ],
    "proofSteps": [
     "Elliptic (p. 1734): away from the boundary omega^kappa is a pro-etale line bundle (invertible module over the completed structure sheaf of X_U(epsilon)_proet) defined by a descent datum; by [14, Cor. 3.5] it suffices to prove analyticity on a Zariski-dense open, so reduce to the ordinary locus including the boundary; the Igusa tower admits a formal model that is a pro-etale Z_p^x-torsor, and [14, Prop. 3.8] gives local triviality in the analytic topology.",
@@ -565,6 +712,18 @@
      "locator": "§3.4, proof of Proposition 3.24, printed p. 1734",
      "excerpt": "We can thus reduce to proving the statement over the ordinary locus, including the boundary; the analyticity will then automatically overconverge.",
      "match": "Reduction to the ordinary locus."
+    },
+    {
+     "sourceId": "Heuer-LineBundlesVTopology-2020",
+     "locator": "arXiv v2 §3, Corollary 3.1, p. 13 (Forum Math. Sigma 10 (2022) e82, Corollary 3.1, p. 14)",
+     "excerpt": "Let X be a smooth rigid space and L a v-line bundle on X. Let V ⊆X be any Zariski-dense open subspace. Then L is analytic if L|V is.",
+     "match": "The result BHW invoke as [14, Cor. 3.5] in the proofs of Propositions 3.24 and 6.6."
+    },
+    {
+     "sourceId": "Heuer-LineBundlesVTopology-2020",
+     "locator": "arXiv v2 §3, Proposition 3.8, p. 15 (Forum Math. Sigma, p. 16)",
+     "excerpt": "Then for any 1-cocycle c : G →O(X∞)×, the associated v-line bundle on the generic ﬁbre X is the analytiﬁcation of a Zariski-line bundle on X.",
+     "match": "The Igusa-tower step: for a pro-etale G-torsor of formal schemes of topologically finite type, cocycle line bundles are Zariski line bundles."
     }
    ],
    "implementationStatus": "unchecked"
@@ -574,10 +733,10 @@
    "parentStageId": "OverconvergentAutomorphicForms:O2",
    "title": "Elliptic overconvergent sheaves on the compactified modular curve: invariants extend over the cusps (Proposition 3.8)",
    "kind": "theorem",
-   "statement": "Elliptic setting (§§2-3): X^* the compactified modular curve of a tame level Gamma^p at N coprime to p whose moduli problem is representable by a scheme, X^*_{Gamma(p^infinity)}(epsilon)_a the anticanonical locus at infinite level. Proposition 3.8: let U be a smooth adic space over a perfectoid field extension L' of L and h: X^*_{U,Gamma(p^infinity)}(epsilon)_a -> X^*_{U,Gamma_0(p^n)}(epsilon)_a (n >= 1); then (h_* O^+)^{Gamma_0(p^n)} = O^+_{X^*_{U,Gamma_0(p^n)}(epsilon)_a} and (h_* O)^{Gamma_0(p^n)} = O_{X^*_{U,Gamma_0(p^n)}(epsilon)_a}, including over the cusps. Definitions 3.14-3.16: kappa(c𝔷 + d), the sheaves omega_n^kappa and omega_n^{kappa,+} on X^*_{U,Gamma_0(p^n)}(epsilon)_a (n in Z_{>=1} cup {infinity}, 0 <= epsilon <= epsilon^def_kappa), omega^kappa := AL_* omega_1^kappa on X^*_U(epsilon), and M_kappa(Gamma_0(p^n), epsilon) := H^0(X^*_{U,Gamma_0(p^n)}(epsilon)_a, omega_n^kappa), with the Atkin-Lehner isomorphism M^+_kappa(Gamma_0(p^n), epsilon) = M^+_kappa(p^{-n} epsilon) for n < infinity; the transformation law uses (3.1).",
+   "statement": "Elliptic setting (§§2-3): X^* the compactified modular curve of a tame level Gamma^p at N coprime to p whose moduli problem is representable by a scheme, X^*_{Gamma(p^infinity)}(epsilon)_a the anticanonical locus at infinite level. Proposition 3.8: let U be a smooth adic space over a perfectoid field extension L' of L and h: X^*_{U,Gamma(p^infinity)}(epsilon)_a -> X^*_{U,Gamma_0(p^n)}(epsilon)_a (n >= 1); then (h_* O^+)^{Gamma_0(p^n)} = O^+_{X^*_{U,Gamma_0(p^n)}(epsilon)_a} and (h_* O)^{Gamma_0(p^n)} = O_{X^*_{U,Gamma_0(p^n)}(epsilon)_a}, including over the cusps. Definitions 3.14-3.16: kappa(c𝔷 + d) (for epsilon^def_kappa > epsilon >= 0), the sheaves omega_n^kappa and omega_n^{kappa,+} on X^*_{U,Gamma_0(p^n)}(epsilon)_a (n in Z_{>=1} cup {infinity}, 0 <= epsilon <= epsilon^def_kappa), omega^kappa := AL_* omega_1^kappa on X^*_U(epsilon) for epsilon_kappa/p > epsilon >= 0 (as printed; epsilon_kappa is defined only in Definition 4.5), and, for 0 <= epsilon < epsilon^def_kappa, M_kappa(Gamma_0(p^n), epsilon) := H^0(X^*_{U,Gamma_0(p^n)}(epsilon)_a, omega_n^kappa), with the Atkin-Lehner isomorphism M^+_kappa(Gamma_0(p^n), epsilon) = M^+_kappa(p^{-n} epsilon) for n < infinity; the transformation law uses (3.1).",
    "hypotheses": [
-    "Prime p arbitrary; the Hodge-Tate image bound is Proposition 2.6: epsilon <= r/2 (p >= 5), r/3 (p = 3), r/4 (p = 2), whose proof away from the cusps is Proposition 5.18 (T4) and at the cusps uses that cusps are ordinary",
-    "Imports from Heuer, 'Cusps and q-expansion principles for modular curves at infinite level' [13]: Proposition 2.10 (q |-> q^{p^n} on Tate parameter discs), Theorem 3.8 (Cartesian diagram with Gamma_0(p^infinity) x D_infinity x mu_d), Theorem 3.21 (description of the Gamma_0(p^n)-action); [13] is not in the library",
+    "Prime p arbitrary. The Hodge-Tate image bound is Proposition 2.6: 0 <= r < 1 and epsilon <= r/2 (p >= 5), r/3 (p = 3), r/4 (p = 2) (page image of p. 1723). Away from the cusps BHW call it a special case of Proposition 5.18 (T4). That proposition needs some m >= 1 with p^{-m} <= r and epsilon <= 1/(c_p p^m), so it yields the bound r/c_p only when r = p^{-m}; for other r, and for r = 0, the reduction is not literal. At the cusps the bound holds because the cusps are ordinary.",
+    "Imports from Heuer, 'Cusps and q-expansion principles for modular curves at infinite level' [13] (arXiv 2002.02488v1; Doc. Math. 27 (2022) 2385-2439, same numbering; both read by the reviewer for §§2-3). BHW's locators do not match the labels there. '[13, Prop. 2.10]' (q |-> q^{p^n} on the Tate discs of the anticanonical Gamma_0(p^n)-locus) is Proposition 2.22; Remark 2.10 there is unrelated. '[13, Thm 3.8]' (the Cartesian tower with Gamma_0(p^infinity) x D_infinity over X^*_{Gamma(p^infinity)}(epsilon)_a) is Theorem 3.17; Proposition 3.8 there is the Gamma_0(p^infinity)-level square. '[13, Thm 3.21]' (the Gamma_0(p)-action through the right pZ_p-action q^{1/p^m} |-> zeta^h q^{1/p^m}) is Proposition 3.19; Lemma 3.21 there concerns constant functions and Theorem 3.22 is the GL_2(Z_p)-version.",
     "Away from the cusps the statement is Lemma 3.7 (O1); U may be assumed affinoid for the boundary argument"
    ],
    "proofSteps": [
@@ -621,6 +780,18 @@
      "locator": "§2.2, proof of Proposition 2.6, printed p. 1723",
      "excerpt": "For the cusps, the statement is clear since these are contained in the ordinary locus and are thus sent to P1 (Qp ).",
      "match": "Hodge-Tate bound at the cusps."
+    },
+    {
+     "sourceId": "Heuer-CuspsQExpansion-2020",
+     "locator": "arXiv v1 §3.3, Theorem 3.17, p. 22 (Doc. Math. 27, p. 2416)",
+     "excerpt": "We have a tower of Cartesian squares, where the top left map sends",
+     "match": "The Cartesian tower Gamma_0(p^infinity) x D_{infinity,x} -> Z_p^x x D_{infinity,x} -> D_{infinity,x} -> D_x over the anticanonical tower that BHW cite as [13, Thm 3.8]."
+    },
+    {
+     "sourceId": "Heuer-CuspsQExpansion-2020",
+     "locator": "arXiv v1 §3.3, Proposition 3.19, p. 22 (Doc. Math. 27, p. 2417)",
+     "excerpt": "Over any cusp x of X ∗, the Γ0(p)-action on X ∗ Γ(p∞)(ǫ)a restricts to an action on Γ0(p∞)×D∞",
+     "match": "The description of the Gamma_0(p)-action (right pZ_p-action on q^{1/p^m}) that BHW cite as [13, Thm 3.21]."
     }
    ],
    "implementationStatus": "unchecked"
@@ -682,7 +853,7 @@
     "Same hypotheses as the rational sheaves (O2): bounded smooth weight, 0 <= epsilon <= epsilon^def_kappa, g >= 2 for the Hilbert case with the boundary ignored",
     "The integrality of the automorphy factor (kappa(c𝔷 + d) in O^+(X_{U,Gamma^*(p^infinity)}(epsilon)_a)^x, Definition 6.4) is what makes the O^+-condition meaningful",
     "Invertibility is only asserted for 0 <= epsilon <= epsilon_kappa (Theorem 7.14), where epsilon_kappa <= epsilon^def_kappa (Definition 7.7); BHW do not claim the bound epsilon_kappa is optimal (Remark 4.6)",
-    "BHW do not define an overconvergent space as a colimit over epsilon -> 0, nor any Banach topology on these spaces; Remark 6.9 obtains projective Banach module structures on cusp forms only through [2, Theorem 3.16] after Theorem 7.14"
+    "BHW do not define an overconvergent space as a colimit over epsilon -> 0, nor any Banach topology on these spaces. Remark 6.9 cites '[2, Theorem 3.16]' for projective Banach modules with surjective specialisation. AIP [2] has no Theorem 3.16 (the reviewer checked its full numbering). The nearest statements there are Corollary 8.3(3), for G and cuspidal forms: g_* omega^{kappa^un}_G(-D) is a projective Banach module over the members of a finite affinoid cover of weight space. The other is §1.2(3), on surjective specialisation on cuspidal forms 'as in' the Asterisque paper [3], which is unread."
    ],
    "proofSteps": [
     "Definition 3.15 and Definition 6.5 (pp. 1729, 1758): the O^+ version of the twisted-invariant sheaf (O1 construction with O^+).",
@@ -981,8 +1152,8 @@
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
      "locator": "§9, before Lemma 9.7, printed p. 1784",
-     "excerpt": "Restricting to the subspace XU ,Γ(p∞ ) (ϵ)a , the universal property of G b m associates to wκ (eβ ) a function in O+ (XU ,Γ(p∞ ) (ϵ)a )× that we might reasonably also denote by wκ (eβ ).",
-     "match": "Definition of the twist; (9.5) verified on page image PDF p. 77."
+     "excerpt": "Restricting to the subspace XU,Γ(p∞)(ϵ)a, the universal property of Ĝm associates to wκ(eβ) a function in O+(XU,Γ(p∞)(ϵ)a)× that we might reasonably also denote by wκ(eβ).",
+     "match": "Definition of the twist; (9.5) verified on page image PDF p. 77. Excerpt re-transcribed from the page image (the text layer renders the hat of Ĝm as a separate letter b)."
     },
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1048,8 +1219,8 @@
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
      "locator": "§9, Definition 9.10, printed p. 1786",
-     "excerpt": "then RF /TF is the narrow class group.",
-     "match": "Indexing set."
+     "excerpt": "then R^{(p)}_F / T^{+,(p)}_F is the narrow class group.",
+     "match": "Indexing set: fractional ideals coprime to p modulo totally positive p-adic units (superscripts restored from the page)."
     },
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1071,28 +1242,29 @@
    "parentStageId": "OverconvergentAutomorphicForms:O5",
    "title": "The weight annuli W_k^*, the integer r, and the radius epsilon_kappa on which the AIP comparison is proved",
    "kind": "definition",
-   "statement": "Hilbert (Definitions 7.7-7.8): for a bounded smooth weight kappa: U -> W*, regarded as kappa: O_p^x x U -> hat-G_m, put |delta_kappa| := max(|p|, |T_kappa|), r := 3 if p > 2 and r := 5 if p = 2, and define epsilon_kappa > 0 by |p|^{epsilon_kappa} = |delta_kappa|^{1/p^{r+1}}; BHW note epsilon_kappa <= epsilon^def_kappa. For k >= 1, W_k^* is the open of weight space denoted W_{F,[p^{k-1},p^k]} in AIP [2, §2] and W_0^* is W_{F,[0,1]}; explicitly W_k^* := W*(|delta_kappa|^{p^k} <= |p| <= |delta_kappa|^{p^{k-1}}), W* = union of the W_k^*, and U_k := kappa^{-1}(W_k^*), U = union of the U_k. Elliptic (Definition 4.5): T := kappa^un(q) - 1 for a fixed topological generator q of Z_p^x, W_k := W(|T|^{p^k} <= |p| <= |T|^{p^{k-1}}) for k >= 1, W_0 := W(|T| <= |p|), with the same |T_kappa|, |delta_kappa|, r, epsilon_kappa and U_k; Remark 4.6: epsilon_kappa <= epsilon^def_kappa, the integral sheaf is defined for epsilon < epsilon^def_kappa and invertible for epsilon < epsilon_kappa (no optimality claimed). Level of the canonical subgroup used on U_k: m = r + k - 1 in the elliptic case (Definition 4.7, 'this implies epsilon_kappa <= epsilon^can_m'), m = k + r in the Hilbert case (Definition 7.9, 'so that epsilon_kappa <= epsilon^can_m'), where epsilon^can_m := 1/p^{m+1}.",
+   "statement": "Hilbert (Definitions 7.7-7.8): for a bounded smooth weight kappa: U -> W*, regarded as kappa: O_p^x x U -> hat-G_m, put |delta_kappa| := max(|p|, |T_kappa|), r := 3 if p > 2 and r := 5 if p = 2, and define epsilon_kappa > 0 by |p|^{epsilon_kappa} = |delta_kappa|^{1/p^{r+1}}; BHW note epsilon_kappa <= epsilon^def_kappa. For k >= 1, W_k^* is the open of weight space denoted W_{F,[p^{k-1},p^k]} in AIP [2, §2] and W_0^* is W_{F,[0,1]}; explicitly W_k^* := W*(|delta_kappa|^{p^k} <= |p| <= |delta_kappa|^{p^{k-1}}), W* = union of the W_k^*, and U_k := kappa^{-1}(W_k^*), U = union of the U_k. Elliptic (Definition 4.5): T := kappa^un(q) - 1 for a fixed topological generator q of Z_p^x, W_k := W(|T|^{p^k} <= |p| <= |T|^{p^{k-1}}) for k >= 1, W_0 := W(|T| <= |p|), with the same |T_kappa|, |delta_kappa|, r, epsilon_kappa and U_k; Remark 4.6: epsilon_kappa <= epsilon^def_kappa, the integral sheaf is defined for epsilon < epsilon^def_kappa and invertible for epsilon < epsilon_kappa (no optimality claimed). Level of the canonical subgroup used on U_k: m = r + k - 1 in the elliptic case (Definition 4.7, 'this implies epsilon_kappa <= epsilon^can_m'). BHW print m = k + r in the Hilbert case (Definition 7.9, 'so that epsilon_kappa <= epsilon^can_m', and the proof of Theorem 7.14), where epsilon^can_m := 1/p^{m+1}. AIP [2, §4.2] builds w_{n,r,I} for I = [p^a, p^b] only when r >= 3 and r + a >= n >= b + 2 (n >= b + 4 if p = 2); Proposition 3.2 there gives the canonical subgroup only up to level r + a. For W_k^* = W_{F,[p^{k-1},p^k]} (a = k - 1, b = k) and BHW's r = 3 (p > 2) or r = 5 (p = 2), this forces n = k + r - 1. The printed Hilbert value m = k + r is therefore off by one for k >= 1. This roadmap uses m = k + r - 1 on U_k, which gives epsilon_kappa <= epsilon^can_m and matches Definition 4.7. The case k = 0 needs no separate treatment, since W_0^* ⊂ W_1^*.",
    "hypotheses": [
     "kappa bounded, so |T_kappa| < 1 and 0 < |delta_kappa| < 1 (|delta_kappa| >= |p|)",
     "Formulas for r, epsilon_kappa and W_k^* read on the page images of printed pp. 1736-1737 and 1761",
-    "The inequality epsilon_kappa <= epsilon^def_kappa is asserted ('One checks easily', Remark 4.6; 'We note', Definition 7.7) without proof and depends on the radius r_kappa of Proposition 6.3 (O0 gap)",
-    "The Hilbert annuli are identified with AIP's W_{F,I}, which is not in the library"
+    "The inequality epsilon_kappa <= epsilon^def_kappa is asserted without proof ('One checks easily', Remark 4.6; 'We note', Definition 7.7). With the radius of AIP [2, Prop. 2.8] it holds for every p. Derivation: if |T_kappa|^{p^n} <= |p| < |T_kappa|^{p^{n-1}}, Proposition 5.18 with m = n + r_0 gives epsilon^def_kappa >= 1/(c_p p^{n+r_0}), while epsilon_kappa <= p^{-(n+r)}; for n = 0, epsilon_kappa = p^{-(r+1)}. With the printed radius |p|^{r_0}|T_kappa| it fails for small |T_kappa| (see the O0 analytic-continuation node).",
+    "The Hilbert annuli are AIP's W_{F,I}, defined through the parameters of the free part W^0_F (AIP [2, §2.4.3], read). T_kappa and delta_kappa must be computed on the free part (see the O0 weight-space node). As printed, |T_kappa| = 1 for weights nontrivial on the prime-to-p torsion; this gives epsilon_kappa = 0, and W* is not the union of the W_k^*. The elliptic Definition 4.5 also uses a topological generator of Z_p^x, which does not exist for p = 2."
    ],
    "proofSteps": [
     "Definitions 4.5 and 7.7-7.8: definitions only.",
-    "Consistency computation (derived, not in BHW): writing |delta_kappa| = |p|^v with 0 < v <= 1, epsilon_kappa = v/p^{r+1}; on W_k^* (k >= 1) the pointwise v lies in [p^{-k}, p^{1-k}], so epsilon_kappa <= p^{-(k+r)} = epsilon^can_{k+r-1}, which matches the elliptic choice m = r + k - 1, while epsilon_kappa <= epsilon^can_{k+r} = p^{-(k+r+1)} holds only when v <= p^{-k}."
+    "Consistency computation (derived, not in BHW): writing |delta_kappa| = |p|^v with 0 < v <= 1, epsilon_kappa = v/p^{r+1}; on W_k^* (k >= 1) the pointwise v lies in [p^{-k}, p^{1-k}], so epsilon_kappa <= p^{-(k+r)} = epsilon^can_{k+r-1}, which matches the elliptic choice m = r + k - 1, while epsilon_kappa <= epsilon^can_{k+r} = p^{-(k+r+1)} holds only when v <= p^{-k}.",
+    "Resolution by AIP [2, §4.2, Prop. 3.2, Prop. 4.7]. For I = [p^{k-1}, p^k] the admissible Igusa level is n = k + r - 1 (r = 3, resp. 5). The gluing over U_k ∩ U_{k+1} (Proposition 4.7, with I' = [p^k, p^k]) needs a common level n' <= r + k; the level k + r qualifies, but k + r + 1, which the printed choice would require on U_{k+1}, does not."
    ],
    "acceptance": [
     "W* is covered by the W_k^* and each bounded U meets only finitely many of them.",
-    "Decide, against AIP [2] (their variable n and radius r), whether the Hilbert choice m = k + r or the elliptic choice m = r + k - 1 is the one for which epsilon_kappa <= epsilon^can_m holds on U_k; record the answer before Proposition 7.11 (which needs epsilon <= epsilon^can_m) is applied.",
+    "Use m = k + r - 1 on U_k (admissible by AIP [2, §4.2]) and check epsilon_kappa <= epsilon^can_{k+r-1} there. Record BHW's m = k + r as a misprint, to be confirmed with the authors.",
     "Verify epsilon_kappa <= epsilon^def_kappa from Proposition 5.18 and the radius r_kappa once r_kappa is confirmed."
    ],
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
      "locator": "§7.1, Definition 7.7, printed p. 1761",
-     "excerpt": "be implicitly defined by |p|ϵκ = |δκ |1/p . We note that ϵκ ⩽ ϵdef κ .",
-     "match": "epsilon_kappa (|p|^{epsilon_kappa} = |delta_kappa|^{1/p^{r+1}}, exponent read on page image PDF p. 54) and its comparison with epsilon^def_kappa."
+     "excerpt": "Let ϵκ > 0 be implicitly defined by |p|^{ϵκ} = |δκ|^{1/p^{r+1}}. We note that ϵκ ⩽ ϵ^{def}_κ.",
+     "match": "epsilon_kappa and its comparison with epsilon^def_kappa (exponents restored from the page image PDF p. 54; the drafter's excerpt dropped r+1)."
     },
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1117,6 +1289,18 @@
      "locator": "§4.1, Definition 4.7, printed p. 1737",
      "excerpt": "In order to define ωAIP , we need to split this up into opens Uk as in Definition 4.5",
      "match": "Use of the annuli for the elliptic AIP sheaf."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§4.2, p. 14 of 36",
+     "excerpt": "We assume that r ≥ 3, r + k ≥ n ≥ k′ + 2 (resp. r + k ≥ n ≥ k′ + 4 if p = 2).",
+     "match": "Standing assumptions for w_{n,r,I}, I = [p^k, p^{k′}] in AIP notation (checked on the page image). For BHW's W_k^* this forces n = k + r - 1."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§3.2, Proposition 3.2, p. 10 of 36",
+     "excerpt": "Then for every integer 1 ≤n ≤r + k one has a canonical subgroup scheme Hn of G[pn] over Yr",
+     "match": "Canonical subgroups exist only up to level r + k (AIP k = lower exponent of I)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1126,12 +1310,12 @@
    "parentStageId": "OverconvergentAutomorphicForms:O5",
    "title": "The Andreatta-Iovita-Pilloni sheaves omega^{kappa,+}_AIP on X_U(epsilon), glued over the weight annuli, and their level-p^n versions",
    "kind": "construction",
-   "statement": "Definition 7.9: let kappa: U -> W* be smooth bounded, 0 <= epsilon <= epsilon_kappa, k >= 0 and m = k + r. On X(epsilon) x U_k, omega^kappa_AIP|U_k := O_{F_m(epsilon) x U_k}[kappa^{-1}] = {f in O_{F_m(epsilon) x U_k} : gamma^* f = kappa^{-1}(gamma) f for all gamma in B_m} (pushed forward along F_m(epsilon) x U_k -> X(epsilon) x U_k), and omega^{kappa,+}_AIP|U_k is defined with O^+. Here F_m(epsilon) -> X_{Ig(p^m)}(epsilon) is the analytic total space of the AIP torsor inside omega^int (Definition 7.5), an etale torsor over X(epsilon) for B_m := O_p^x (1 + I'_m Res_{O_F|Z} hat-G_a), I'_m := p^m Hdg^{-p^m/(p-1)}. Proposition 7.10 (AIP [2, Proposition 4.3]): the sheaves omega^{kappa,+}_AIP|U_k are canonically identified on X(epsilon) x (U_k cap U_{k+1}) and glue to an invertible O^+-module omega^{kappa,+}_AIP on X_U(epsilon) = X(epsilon) x U; likewise a line bundle omega^kappa_AIP. Definition 7.13: for n >= 0, omega^{kappa,+}_{AIP,n} := AL^{n*} omega^{kappa,+}_AIP with AL^n: X_{Gamma_0^*(p^n)}(p^n epsilon)_a -> X(epsilon); by AIP [2, Theorem 6.7.3] its restriction to X_{Gamma_0(p^n)}(epsilon)_a equals q_n^* omega^{kappa,+}_AIP; and omega^{kappa,+}_{AIP,infinity} := q^* omega^{kappa,+}_AIP on X_{Gamma_0^*(p^infinity)}(epsilon)_a.",
+   "statement": "Definition 7.9: let kappa: U -> W* be smooth bounded, 0 <= epsilon <= epsilon_kappa, k >= 0 and m = k + r - 1 (BHW print m = k + r; see the annuli node). On X(epsilon) x U_k, omega^kappa_AIP|U_k := O_{F_m(epsilon) x U_k}[kappa^{-1}] = {f in O_{F_m(epsilon) x U_k} : gamma^* f = kappa^{-1}(gamma) f for all gamma in B_m} (pushed forward along F_m(epsilon) x U_k -> X(epsilon) x U_k), and omega^{kappa,+}_AIP|U_k is defined with O^+. Here F_m(epsilon) -> X_{Ig(p^m)}(epsilon) is the analytic total space of the AIP torsor inside omega^int (Definition 7.5), an etale torsor over X(epsilon) for B_m := O_p^x (1 + I'_m Res_{O_F|Z} hat-G_a), I'_m := p^m Hdg^{-p^m/(p-1)}. Proposition 7.10 (AIP [2, Proposition 4.3]): the sheaves omega^{kappa,+}_AIP|U_k are canonically identified on X(epsilon) x (U_k cap U_{k+1}) and glue to an invertible O^+-module omega^{kappa,+}_AIP on X_U(epsilon) = X(epsilon) x U; likewise a line bundle omega^kappa_AIP. Definition 7.13: for n >= 0, omega^{kappa,+}_{AIP,n} := AL^{n*} omega^{kappa,+}_AIP with AL^n: X_{Gamma_0^*(p^n)}(p^n epsilon)_a -> X(epsilon); by AIP [2, Theorem 6.7.3] its restriction to X_{Gamma_0(p^n)}(epsilon)_a equals q_n^* omega^{kappa,+}_AIP; and omega^{kappa,+}_{AIP,infinity} := q^* omega^{kappa,+}_AIP on X_{Gamma_0^*(p^infinity)}(epsilon)_a.",
    "hypotheses": [
     "Imports the AIP torsor F_m(epsilon), the group B_m, and (7.1) O_p^x(1 + p^x Res hat-G_a) subset B_m for x := m - epsilon p^m/(p-1) (HodgeTateAndCanonicalSubgroups T5: BHW Definitions 7.1-7.5, Lemma 7.2 = 'Le halo spectral' [4, Cor. A.4], Proposition 7.4 = AIP [2, Prop. 4.1])",
-    "Invertibility and gluing are imported from AIP [2, Propositions 4.3 and 4.7] and the level-n restriction from [2, Theorem 6.7.3]; none of these is in the library",
-    "The identification of BHW's epsilon with AIP's radius r uses that the generic fibre of AIP's formal scheme X_{r,[p^{k-1},p^k]} is cut out in X x W_k^* by |Ha^{p^{r+1}}| >= |delta_kappa|",
-    "m = k + r as printed; see the consistency check in the annuli node"
+    "Invertibility and gluing are AIP [2, Propositions 4.3 and 4.7], which the reviewer read (pp. 15, 17). Under the standing assumptions of §4.2 (r >= 3, r + a >= n >= b + 2 for I = [p^a, p^b], p > 2), w_{n,r,I} is an invertible O_{X_{r,I}}-module, and Proposition 4.7 identifies the sheaves for (I', r', n') and (I, r, n) when I' ⊂ I. The level-n restriction is cited as '[2, Theorem 6.7.3]'. This is item 3 of AIP Theorem 6.7 (p. 27): i^* omega^{kappa^un} ≅ phi^* omega^{kappa^un} for the inclusion and the Frobenius M_{r+1} -> M_r, stated for the analytic sheaf. The integral analogue is AIP Proposition 4.8 (phi^* w_I ≅ w_I). 'Le halo spectral' [4] is still unread.",
+    "BHW identify their epsilon with AIP's radius r through the generic fibre of X_{r,[p^{k-1},p^k]}. AIP cut this out by the pointwise condition |Ha^{p^{r+1}}| >= |alpha| (AIP [2, Definition 3.1 and §6.4]: |H̃a^{p^{r+1}}| >= sup_{alpha in m} |alpha|), not by the constant |delta_kappa|. X(epsilon) x U_k lies in it for epsilon <= epsilon_kappa, because pointwise |delta| <= |delta_kappa| on U.",
+    "m = k + r - 1 (corrected from the printed k + r; see the annuli node)."
    ],
    "proofSteps": [
     "Proposition 7.10, proof (p. 1762): AIP's sheaf w_{n,r,I} (I = [p^{k-1}, p^k]) lives on a formal scheme X_{r,[p^{k-1},p^k]} over Z_p whose generic fibre (base-changed to L) is {|Ha^{p^{r+1}}| >= |delta_kappa|} in X x W_k^*; since |p|^{epsilon_kappa} = |delta_kappa|^{1/p^{r+1}} BHW relate this to X(epsilon) x W_k^*; by definition omega^{kappa,+}_AIP|U_k is the pull-back of w_{n,r,I} along (X(epsilon) x U_k, O^+) -> X_{r,k}, hence invertible by [2, Prop. 4.3].",
@@ -1179,6 +1363,18 @@
      "locator": "§7.1, Definition 7.5, printed p. 1760",
      "excerpt": "The Andreatta–Iovita–Pilloni-torsor is the subsheaf",
      "match": "The torsor on which the AIP sheaf is built (supplied by T5)."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§4.2, Proposition 4.3, p. 15 of 36",
+     "excerpt": "The sheaf wn,r,I is an invertible OXr,I -module of rank 1.",
+     "match": "The invertibility BHW import in Proposition 7.10, valid under the §4.2 standing assumptions."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§6.4, p. 26 of 36",
+     "excerpt": "Mr is the open subset of the M(μN, c) ×Spec Zp WF deﬁned by the conditions:",
+     "match": "The defining condition |H̃a^{p^{r+1}}| ≥ sup_{α∈m}|α| is pointwise on weight space, which fixes the direction of the inclusion used in the proof of Proposition 7.10."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1190,13 +1386,13 @@
    "kind": "comparison",
    "statement": "Theorem 7.14: let kappa: U -> W* be a bounded smooth weight and 0 <= epsilon <= epsilon_kappa. For every n in Z_{>=0} cup {infinity}, the map tilde-𝔰^* induces an isomorphism of O^+_{X_{U,Gamma_0(p^n)}(epsilon)_a}-modules between omega_n^{kappa,+} and omega^{kappa,+}_{AIP,n} (BHW write tilde-𝔰^*: omega_n^{kappa,+} -> omega^{kappa,+}_{AIP,n}; the map constructed in the proof is pull-back f |-> f o tilde-𝔰 from omega^{kappa,+}_{AIP,n} to omega_n^{kappa,+}). In particular omega_n^{kappa,+} is an invertible O^+-module and omega^kappa = omega^kappa_AIP (inverting p). Here tilde-𝔰 := 𝔰 o u_n, with u_n: X_{Gamma^*(p^infinity)}(p^n epsilon)_a -> X_{Gamma^*(p^infinity)}(epsilon)_a the action of (p^n 0; 0 1), and 𝔰: X_{Gamma^*(p^infinity)}(epsilon)_a -> F_m(epsilon) the factorisation of the canonical section through the AIP torsor (Proposition 7.11). The statement 'Hecke-equivariant' in Theorem 7.14 is proved later, in Proposition 10.8 (O6).",
    "hypotheses": [
-    "0 <= epsilon <= epsilon_kappa (not only epsilon^def_kappa); m = k + r on U_k (see the annuli node)",
+    "0 <= epsilon <= epsilon_kappa (not only epsilon^def_kappa). m = k + r - 1 on U_k; the proof prints m := k + r (see the annuli node). The proof treats only k >= 1, which suffices because W_0^* ⊂ W_1^*.",
     "Proposition 7.11 (for 0 <= epsilon <= epsilon^can_m, 𝔰 factors through F_m(epsilon)) and Lemma 7.12 / diagram (7.2) (the square with (c𝔷 + d) x 𝔰 into B_m x F_m(epsilon) commutes, using (7.1) and (5.4)) are supplied by HodgeTateAndCanonicalSubgroups T5",
     "Lemma 3.7: (O^+_{X_{U,Gamma^*(p^infinity)}(epsilon)_a})^{Gamma_0^*(p^n)} = O^+_{X_{U,Gamma_0^*(p^n)}(epsilon)_a}",
     "Invertibility of omega^{kappa,+}_{AIP,n} (Proposition 7.10, from AIP [2])"
    ],
    "proofSteps": [
-    "Reduce locally on W*: assume kappa has image in W_k^* (k >= 1) and set m := k + r.",
+    "Reduce locally on W*: assume kappa has image in W_k^* (k >= 1) and set m := k + r - 1 (printed: m := k + r).",
     "Well-definedness: for a section f of omega^{kappa,+}_{AIP,n}, viewed as a function on F_m(epsilon) x U with gamma^* f = kappa^{-1}(gamma) f for gamma in B_m, and gamma in Gamma_0^*(p^n), diagram (7.2) (with u_n) together with the defining property of f shows gamma^*(tilde-𝔰^* f) = kappa^{-1}(c𝔷 + d) tilde-𝔰^* f, so tilde-𝔰^* f is a section of omega_n^{kappa,+}.",
     "Isomorphism for n >= 1: locally omega^{kappa,+}_{AIP,n} = f O^+ with f invertible on F_m(epsilon) x U; then tilde-𝔰^* f is invertible and, by Lemma 3.7 (elliptic: Proposition 3.8), omega_n^{kappa,+} = tilde-𝔰^* f O^+ locally, so the map is an isomorphism (argument written out in the elliptic proof of Theorem 4.8, 'As before' in Theorem 7.14).",
     "n = infinity: the same argument with the diagram of Lemma 7.12 (no u_n).",
@@ -1265,7 +1461,10 @@
     "p arbitrary (r = 3 for p > 2, r = 5 for p = 2); canonical subgroup H_m exists for epsilon <= epsilon^can_m ('Le halo spectral' [4, Cor. A.2])",
     "Lemma 4.3 (exact sequence 0 -> p^m Hdg^{-(p^m-1)/(p-1)} omega^+ -> omega^+ -> omega^+_{H_m} -> 0) uses [4, Cor. A.4.2]; the Pilloni torsor is T5-owned",
     "The first part of Lemma 4.9 away from the cusps is (the elliptic case of) Proposition 7.11; it extends over the cusps because the relative moduli interpretation of F_m(epsilon) -> X_{Ig(p^m)}(epsilon) -> X(epsilon) holds there",
-    "Invariants at the cusps: Proposition 3.8"
+    "Invariants at the cusps: Proposition 3.8",
+    "Definition 4.7 is stated for 0 <= epsilon < epsilon_kappa, while Theorem 4.8 allows epsilon = epsilon_kappa.",
+    "Definition 4.7(1) imposes equivariance only for gamma in Z_p^x(1 + p^m hat-G_a). The torsor group of Definition 4.4 is B_m = Z_p^x(1 + p^m Hdg^{-(p^m-1)/(p-1)} hat-G_a), which the Hilbert Definition 7.9 and diagram (4.2) use, and the diagram in the proof of Theorem 4.8 again uses Z_p^x(1 + p^m hat-G_a). Pilloni [24, §3.5] (Ann. Inst. Fourier 63 (2013), p. 227, read by the reviewer; printed title 'Overconvergent modular forms') defines omega^{(chi,lambda)} as the Z_p^x-homogeneous sections on F_n^x. How the printed group relates to B_m is unresolved (gap).",
+    "Both parts of Lemma 4.9 use the canonical section 𝔰 = pi_HT^* s. The first part goes through Proposition 7.11 (T5) away from the cusps. The second uses (3.3) and 𝔰 from the O2 canonical-section node."
    ],
    "proofSteps": [
     "Lemma 4.9, second part (pp. 1738-1739): 𝔰 = pi_HT^* s and GL_2(Q_p)-equivariance of pi_HT give tilde-𝔰 = pi_HT^* tilde-s with tilde-s := u_n^* s; u_n sends (z : 1) to (p^n z : 1), so u_n^* z = p^n z (4.3) and u_n maps hat-G_a onto p^n hat-G_a, which is preserved by Gamma^0(p^n) = {b in p^n Z_p}; the computation (3.3) gives gamma'^* s = (c'z + d')s there; with gamma' = u_n gamma u_n^{-1} = (a p^n b; p^{-n} c d) one gets gamma^* tilde-s = u_n^*((p^{-n} c z + d) s) = (cz + d) tilde-s.",
@@ -1338,7 +1537,8 @@
    "hypotheses": [
     "kappa a G-weight, viewed as a G*-weight via rho; 0 <= epsilon <= epsilon_kappa",
     "Lemma 9.5, last statement: the w_kappa-twisted action matches the one of AIP ([2] in the statement, [3, Section 4.1] in the proof), using Lemma 9.3, Theorem 7.14, and that the polarisation action commutes with 𝔰 (it changes neither the wild level alpha nor the Hodge-Tate map)",
-    "The Delta(N)-action on the AIP side and the definition of omega^{kappa^un_G} are imported from AIP [2, §8.2] and [3, §4.1] (not in the library)"
+    "The Delta(N)-action on the AIP side and the definition of omega^{kappa^un_G}, from AIP [2, §8.2] (read, pp. 31-32). AIP descend w^{kappa^un_G} along the free Delta-action after multiplying the canonical isomorphisms mu_epsilon: [epsilon]^* w -> w by nu(epsilon). By AIP Lemma 8.1, Delta = O_F^{+,*}/U_N^2 acts freely and M -> M_G is finite etale. AIP's map W^G_F -> W_F is t |-> (t^2, Nm(t)). The matching with Definition 9.4 is asserted in Lemma 9.5 with reference to [3, §4.1], which is unread. Under the atlas pin of rho (O0 weight-space node), Definition 9.11's sheaf at the G-weight (w, t) is AIP's omega^{kappa^un_G} at (nu, w) = (w, t^{-1}).",
+    "That omega^{kappa,+}_{G,c,n} is 'in particular' invertible needs integral descent along pi. BHW do not argue it; it is available because AIP's Delta-quotient is finite etale on the formal model (AIP [2, Lemma 8.1])."
    ],
    "proofSteps": [
     "Chain (proof of Theorem 9.12, p. 1787): omega^{kappa,+}_{G,n} = omega^{kappa,+}_{G,(G,Gamma,n)} (Definition 9.8) = omega^{kappa,+}_{G,(G*,Gamma,n)} (Lemma 9.7) = (pi_* omega^{kappa,+}_{G*,(G*,Gamma,n)})^{Delta(N)} (Lemma 9.6) = (pi_* omega^{kappa,+}_{G*,(G*,Gamma*,n)})^{Delta(N)} (Lemma 9.3) = (pi_* omega^{kappa,+}_{G*,AIP,n})^{Delta(N)} (Theorem 7.14 and Lemma 9.5, equivariance of the comparison for the Delta(N)-actions) = omega^{kappa,+}_{G,AIP,n} (Definition 9.11).",
@@ -1386,6 +1586,18 @@
      "locator": "§1.3.4, printed p. 1719",
      "excerpt": "We establish this for G∗ , and prove that our modular forms for G are the descent of those for G∗ under the action of ∆(N ) (see Lemma 9.6)",
      "match": "Strategy for G."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§8.1, Lemma 8.1, p. 31 of 36",
+     "excerpt": "The group Δ acts freely on M(μN, c). One can form the quotient M(μN, c)G := M(μN, c)/Δ. The quotient map M(μN, c) →M(μN, c)G is ﬁnite étale with group Δ.",
+     "match": "Source of BHW Proposition 8.4, integral finite etale descent."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§8.2, p. 32 of 36",
+     "excerpt": "We modify the action by multiplying μϵ by ν(ϵ).",
+     "match": "The twisted Delta-action on the AIP side that Lemma 9.5 claims to match."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1398,7 +1610,7 @@
    "statement": "Hilbert, G* (Remark 6.9): by the Koecher principle (AIP [2, Proposition 8.4] or [3, Theorem 5.5.1]) the sheaf omega^kappa_c extends uniquely to a line bundle on a suitable toroidal compactification X^tor(c); with boundary divisor boundary, cusp forms are the sections of the subsheaf omega^kappa_c(-boundary); via Theorem 7.14 they agree with the cusp forms of AIP [3], and hence (by [2, Theorem 3.16]) form projective Banach modules with surjective specialisation maps. G (Remark 9.9): defined in the same way. Elliptic (§3.2, after Definition 3.16): cusp forms are sections of omega_n^kappa(-boundary) with boundary the divisor of cusps in X^*_{U,Gamma_0(p^n)}(epsilon)_a, where the sheaves are defined over the cusps by Proposition 3.8. Remark 10.5: via the Koecher principle the Hecke operators extend to the boundary and preserve cusp forms.",
    "hypotheses": [
     "g >= 2 for the Koecher extension; the toroidal compactification is 'suitable' and not specified in BHW",
-    "The Koecher principle, the identification with AIP cusp forms, the Banach property and surjective specialisation are all imported from AIP [2] and [3] (not in the library); BHW give no proofs",
+    "The Koecher principle and the comparison with AIP cusp forms are imported. AIP [2, Proposition 8.4] (read, p. 33) states that g^o_* omega^{kappa^un} -> g_* omega^{kappa^un}, and its G analogue, are isomorphisms, where g^o and g are the structure maps to weight space from the open Hilbert variety and from the toroidal compactification. The line bundle on the toroidal compactification is AIP's own construction. So 'omega^kappa_c extends uniquely to a line bundle' combines Theorem 7.14 on the open part with AIP's toroidal sheaf. '[2, Theorem 3.16]' does not exist in AIP [2]; the nearest statement is Corollary 8.3(3), for G and cuspidal forms: projective Banach modules over a finite affinoid cover of weight space. [3, Theorem 5.5.1] is unread.",
     "Extension across the boundary is distinct from vanishing along it: cusp forms are cut out by the ideal of the boundary divisor after extension"
    ],
    "proofSteps": [
@@ -1442,6 +1654,12 @@
      "locator": "§10.3, Remark 10.5, printed p. 1790",
      "excerpt": "Moreover, the subspaces of cusp forms will be preserved by the action of Hecke operators.",
      "match": "Hecke stability (asserted)."
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§8.4, Proposition 8.4, p. 33 of 36",
+     "excerpt": "The natural morphisms go ∗ωκun →g∗ωκun and go ∗ωκun G →g∗ωκun G are isomorphisms.",
+     "match": "The Koecher statement BHW cite: sections over the open variety extend over the toroidal compactification, relative to weight space."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1712,7 +1930,7 @@
   {
    "source": "PadicMeasuresIwasawaAlgebras:L0a",
    "target": "OverconvergentAutomorphicForms:O0/hilbert-weight-spaces-and-the-weight-map-rho",
-   "reason": "Supplies (a) the rigid space of continuous characters of a compact abelian p-adic analytic group as the generic fibre of its completed group ring, (b) the universal character and its evaluation, (c) pull-back along group homomorphisms. BHW Definition 6.1 applies (a) to T(Z_p) = O_p^x and to T(Z_p) x Z_p^x, uses (b) when a weight kappa: U -> W* is unravelled into kappa: O_p^x x U -> hat-G_m (p. 1757), and uses (c) to define rho. Scope differences: BHW base-change to the perfectoid field L and allow U over perfectoid extensions of L; the inversion of t in the displayed rho must be fixed before (c) is applied.",
+   "reason": "Supplies (a) the rigid space of continuous characters of a compact abelian p-adic analytic group as the generic fibre of its completed group ring, (b) the universal character and its evaluation, (c) pull-back along group homomorphisms. BHW Definition 6.1 applies (a) to T(Z_p) = O_p^x and to T(Z_p) x Z_p^x, uses (b) when a weight kappa: U -> W* is unravelled into kappa: O_p^x x U -> hat-G_m (p. 1757), and uses (c) to define rho. Scope differences: BHW base-change to the perfectoid field L and allow U over perfectoid extensions of L; the inversion of t in the displayed rho must be fixed before (c) is applied. Review (REVIEW-EXT-12): Keep. L0a's scope (rigid character spaces, universal character, pull-back in G) covers Definition 6.1. L0a must also supply the component (torsion) decomposition: BHW's T_kappa is only meaningful on the free part. The rho convention issue is recorded in the O0 node.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1723,7 +1941,7 @@
   {
    "source": "PadicMeasuresIwasawaAlgebras:L0a",
    "target": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
-   "reason": "Supplies the analyticity radius of the universal character over affinoids of weight space (L0a: 'analytic universal-character action ... including radii'). BHW Propositions 3.12 and 6.3 need exactly this: an explicit r such that the character of a bounded family U extends analytically to B_r(O_p^x : 1) x U (imported by BHW from Buzzard [6, Prop. 8.3] and AIP [2, Prop. 2.8]). Scope differences: L0a is stated for a general compact abelian group; the Hilbert case needs the multi-variable group O_p^x with p possibly ramified, and the radius in terms of |T_kappa|.",
+   "reason": "Supplies the analyticity radius of the universal character over affinoids of weight space (L0a: 'analytic universal-character action ... including radii'). BHW Propositions 3.12 and 6.3 need exactly this: an explicit r such that the character of a bounded family U extends analytically to B_r(O_p^x : 1) x U (imported by BHW from Buzzard [6, Prop. 8.3] and AIP [2, Prop. 2.8]). Scope differences: L0a is stated for a general compact abelian group; the Hilbert case needs the multi-variable group O_p^x with p possibly ramified, and the radius in terms of |T_kappa|. Review (REVIEW-EXT-12): Keep. The radius L0a must supply is AIP [2, Prop. 2.8]'s |p|^{n+r_0} on W^0_{F,[0,p^n]} for O_p^x with p possibly ramified and with torsion split off, not BHW's printed |p|^{r_0}|T_kappa|.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1734,7 +1952,7 @@
   {
    "source": "LocallyAnalyticDistributions:L0",
    "target": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
-   "reason": "Supplies Banach spaces of functions analytic on every residue ball of a fixed radius, with a uniform radius for a compact domain, and the distinction between Q_p-analytic and F-analytic functions on O_F-type domains. The consumer's kappa^an: B_r(O_p^x : 1) x U -> hat-G_m is such a function on the union of radius-r balls around O_p^x, with coefficients in O(U), for the Res_{O_F|Z} (i.e. Q_p-analytic in [F:Q] coordinates) structure used in BHW §5.3. Scope difference: L0 treats scalar or Banach coefficients; the consumer needs the unit group of O^+ of the family.",
+   "reason": "Supplies Banach spaces of functions analytic on every residue ball of a fixed radius, with a uniform radius for a compact domain, and the distinction between Q_p-analytic and F-analytic functions on O_F-type domains. The consumer's kappa^an: B_r(O_p^x : 1) x U -> hat-G_m is such a function on the union of radius-r balls around O_p^x, with coefficients in O(U), for the Res_{O_F|Z} (i.e. Q_p-analytic in [F:Q] coordinates) structure used in BHW §5.3. Scope difference: L0 treats scalar or Banach coefficients; the consumer needs the unit group of O^+ of the family. Review (REVIEW-EXT-12): Keep as the atlas-intended supplier (O0 requires L0; the O0 text asks for a radius 'locally uniformly in U using LocallyAnalyticDistributions'). BHW never invoke it. Scope difference: L0 has scalar or Banach coefficients, while the consumer needs units of O^+(U).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1745,7 +1963,7 @@
   {
    "source": "PerfectoidSpaces:P9",
    "target": "OverconvergentAutomorphicForms:O1/weight-twisted-invariant-sheaf-along-a-pro-etale-torsor",
-   "reason": "Supplies continuous profinite torsor descent for O and O^+ with smooth coefficient/weight spaces, i.e. the output of BHW Lemma 3.7: (h_* O^+_{X_U})^Gamma = O^+_{Y_U} and (h_* O_{X_U})^Gamma = O_{Y_U} for an affinoid perfectoid pro-etale Gamma-torsor X over an affinoid Y that is smooth rigid or perfectoid, and U smooth over L. The consumer uses it to give the twisted-invariant sheaves their O_{Y_U}-module structure and to identify the j = 1 case with O_{Y_U}. Scope: P9's description ('descent for O, O^+ ... for affinoid smooth rigid coefficient/weight spaces') covers this; BHW also need a perfectoid base Y and non-affinoid smooth U (handled locally), and the import of Kedlaya-Liu Theorem 8.2.3 (BHW Lemma 3.6). P9 has no decomposed nodes yet (shared-supplier request recorded).",
+   "reason": "Supplies continuous profinite torsor descent for O and O^+ with smooth coefficient/weight spaces, i.e. the output of BHW Lemma 3.7: (h_* O^+_{X_U})^Gamma = O^+_{Y_U} and (h_* O_{X_U})^Gamma = O_{Y_U} for an affinoid perfectoid pro-etale Gamma-torsor X over an affinoid Y that is smooth rigid or perfectoid, and U smooth over L. The consumer uses it to give the twisted-invariant sheaves their O_{Y_U}-module structure and to identify the j = 1 case with O_{Y_U}. Scope: P9's description ('descent for O, O^+ ... for affinoid smooth rigid coefficient/weight spaces') covers this; BHW also need a perfectoid base Y and non-affinoid smooth U (handled locally), and the import of Kedlaya-Liu Theorem 8.2.3 (BHW Lemma 3.6). P9 has no decomposed nodes yet (shared-supplier request recorded). Review (REVIEW-EXT-12): Keep. P9's stated scope (descent for O, O^+ with smooth coefficient spaces; 'distinguish almost integral statements from actual equalizers') covers Lemma 3.7. The CHJ import (Lemma 2.23(2), read) is stated over Q_p for Q_p-Banach coefficients, so P9 must provide the L-linear and O^+ versions BHW use.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1800,7 +2018,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S3",
    "target": "OverconvergentAutomorphicForms:O2/pulled-back-canonical-section-and-moduli-interpretation",
-   "reason": "Supplies the Hodge-Tate period map of the Hodge-type (here PEL Hilbert G*) tower and the pull-back identification of the tautological bundle: omega_{Gamma^*(p^infinity)} = pi_HT^* Res_{O_F|Z} O(1) (BHW Proposition 5.25, special case of Caraiani-Scholze Theorem 2.1.3 (2)) with its fibrewise description (Remark 5.15), and in the elliptic case pi_HT^* O(1) = omega (Scholze, Theorem III.3.18). The consumer defines 𝔰 := pi_HT^* s and proves Lemmas 5.31-5.32 from it. Scope: S3's description explicitly includes identifying the Hilbert map with the restriction-of-scalars flag variety and pi_HT^* O(1) = omega; the G*-equivariance with the BHW action alpha |-> alpha o gamma^vee on T_p A^vee must be part of the supplied statement. Linked at stage level only (sibling EXT-12 worker owns S3).",
+   "reason": "Supplies the Hodge-Tate period map of the Hodge-type (here PEL Hilbert G*) tower and the pull-back identification of the tautological bundle: omega_{Gamma^*(p^infinity)} = pi_HT^* Res_{O_F|Z} O(1) (BHW Proposition 5.25, special case of Caraiani-Scholze Theorem 2.1.3 (2)) with its fibrewise description (Remark 5.15), and in the elliptic case pi_HT^* O(1) = omega (Scholze, Theorem III.3.18). The consumer defines 𝔰 := pi_HT^* s and proves Lemmas 5.31-5.32 from it. Scope: S3's description explicitly includes identifying the Hilbert map with the restriction-of-scalars flag variety and pi_HT^* O(1) = omega; the G*-equivariance with the BHW action alpha |-> alpha o gamma^vee on T_p A^vee must be part of the supplied statement. Linked at stage level only (sibling EXT-12 worker owns S3). Review (REVIEW-EXT-12): Keep at stage level. The matching supplier nodes exist in the sibling draft PerfectoidShimuraVarieties.json: S3/levi-torsor-pullback-identifies-automorphic-vector-bundles (CS Thm 2.1.3(2), the source of Prop. 5.25). Re-target there once that packet is accepted. Its node S3/elliptic-hodge-line-as-pullback-of-O1-via-quotient-line duplicates the elliptic content of three O2 nodes (gap).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1833,7 +2051,7 @@
   {
    "source": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
    "target": "OverconvergentAutomorphicForms:O2/automorphy-factor-kappa-of-cz-plus-d",
-   "reason": "Supplies kappa^an: B_r(O_p^x : 1) x U -> hat-G_m (Proposition 6.3), which is composed with (c𝔷 + d) x id in Definition 6.4; its uniqueness gives the multiplicativity used for the cocycle law.",
+   "reason": "Supplies kappa^an: B_r(O_p^x : 1) x U -> hat-G_m (Proposition 6.3), which is composed with (c𝔷 + d) x id in Definition 6.4; its uniqueness gives the multiplicativity used for the cocycle law. Review (REVIEW-EXT-12): Keep; the radius supplied is the corrected AIP radius (O0 node).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1888,7 +2106,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S5",
    "target": "OverconvergentAutomorphicForms:O2/geometric-overconvergent-hilbert-sheaves-and-spaces",
-   "reason": "Supplies BHW Theorem 5.11: the perfectoid tilde-limit X_{Gamma^*(p^infinity)}(epsilon)_a ~ lim_n X_{Gamma^*(p^n)}(epsilon)_a and the tower of pro-etale torsors (in particular X_{Gamma^*(p^infinity)}(epsilon)_a -> X_{Gamma_0^*(p^n)}(epsilon)_a under Gamma_0^*(p^n)), used as the torsor in Definition 6.5. Scope: S5 ('The modular and Hilbert towers ... compatibility with canonical/anticanonical domains and their radii at every rational prime') covers the Hilbert anticanonical tower; BHW's proof of Theorem 5.11 ignores the boundary and cites Scholze [28] and Hansen/Hansen-Johansson for the quotient argument. Linked at stage level only (sibling EXT-12 worker).",
+   "reason": "Supplies BHW Theorem 5.11: the perfectoid tilde-limit X_{Gamma^*(p^infinity)}(epsilon)_a ~ lim_n X_{Gamma^*(p^n)}(epsilon)_a and the tower of pro-etale torsors (in particular X_{Gamma^*(p^infinity)}(epsilon)_a -> X_{Gamma_0^*(p^n)}(epsilon)_a under Gamma_0^*(p^n)), used as the torsor in Definition 6.5. Scope: S5 ('The modular and Hilbert towers ... compatibility with canonical/anticanonical domains and their radii at every rational prime') covers the Hilbert anticanonical tower; BHW's proof of Theorem 5.11 ignores the boundary and cites Scholze [28] and Hansen/Hansen-Johansson for the quotient argument. Linked at stage level only (sibling EXT-12 worker). Review (REVIEW-EXT-12): Keep. S5 must include Theorem 5.11 (1)-(4) for G*: the case c ≠ 1 via Galois quotients [10]/[11], the proof ignoring the boundary, and the torsor groups of the finite-level diagram on p. 1749.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1921,7 +2139,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T5",
    "target": "OverconvergentAutomorphicForms:O2/analyticity-of-the-perfectoid-weight-sheaves",
-   "reason": "Supplies the finite Igusa torsors and the ordinary inverse (Igusa) tower with its pro-etale formal model over the ordinary/good-reduction locus; the proofs of Propositions 3.24 and 6.6 reduce analyticity to epsilon = 0 and use this tower. Scope: T5's description covers the Igusa torsors of trivialisations of the dual canonical subgroup and their inverse tower; the statement that the formal model is a pro-etale Z_p^x- (resp. O_p^x-) torsor must be included. New stage edge T5 -> O2 (acyclic: T5 depends only on T4 and P9).",
+   "reason": "Supplies the finite Igusa torsors and the ordinary inverse (Igusa) tower with its pro-etale formal model over the ordinary/good-reduction locus; the proofs of Propositions 3.24 and 6.6 reduce analyticity to epsilon = 0 and use this tower. Scope: T5's description covers the Igusa torsors of trivialisations of the dual canonical subgroup and their inverse tower; the statement that the formal model is a pro-etale Z_p^x- (resp. O_p^x-) torsor must be included. New stage edge T5 -> O2 (acyclic: T5 depends only on T4 and P9). Review (REVIEW-EXT-12): Keep. T5 supplies the Igusa tower. The analyticity criteria come from Heuer [14] (Cor. 3.1 and Prop. 3.8, read); no atlas stage owns them (gap retained). T5's formal model must be a pro-etale torsor of formal schemes of topologically finite type, as Heuer's Prop. 3.8 requires.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -1943,7 +2161,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T4",
    "target": "OverconvergentAutomorphicForms:O2/elliptic-specialisation-and-extension-over-the-cusps",
-   "reason": "Supplies the elliptic Hodge-Tate image bound (BHW Proposition 2.6, a special case of Proposition 5.18 away from the cusps) used to define epsilon^def_kappa and kappa(c𝔷 + d) (Definitions 3.13-3.14), and the Atkin-Lehner isomorphism AL: X^*_{Gamma_0(p)}(p epsilon)_a -> X^*(epsilon) used for omega^kappa and for M^+_kappa(Gamma_0(p^n), epsilon) = M^+_kappa(p^{-n} epsilon).",
+   "reason": "Supplies the elliptic Hodge-Tate image bound (BHW Proposition 2.6, a special case of Proposition 5.18 away from the cusps) used to define epsilon^def_kappa and kappa(c𝔷 + d) (Definitions 3.13-3.14), and the Atkin-Lehner isomorphism AL: X^*_{Gamma_0(p)}(p epsilon)_a -> X^*(epsilon) used for omega^kappa and for M^+_kappa(Gamma_0(p^n), epsilon) = M^+_kappa(p^{-n} epsilon). Review (REVIEW-EXT-12): Keep. Two caveats: T4's description is Hilbert-oriented, and Proposition 2.6 (the elliptic case with cusps) is a literal special case of Proposition 5.18 only for r = p^{-m}. The cusp case uses only that the cusps are ordinary.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2130,7 +2348,7 @@
   {
    "source": "HilbertModularVarietiesAndShimuraCurves:H3",
    "target": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action-and-delta-descent",
-   "reason": "Supplies the totally positive unit action on polarisations, Delta(N) = O_F^{x,+}/((1 + N O_F)^x)^2 and the finite etale Delta(N)-torsor X -> X_G (Proposition 8.4 = AIP [2, Lemma 8.1]; Lemma 8.5 at Gamma_0(p^n)-level on the anticanonical locus), used for etale descent in Definition 9.4 and Lemmas 9.5-9.6. Scope: H3's description constructs exactly this Delta(N) 'in BHW's tame convention' and the quotient comparison. New stage edge H3 -> O4 (acyclic; H3 already feeds H4 -> O4).",
+   "reason": "Supplies the totally positive unit action on polarisations, Delta(N) = O_F^{x,+}/((1 + N O_F)^x)^2 and the finite etale Delta(N)-torsor X -> X_G (Proposition 8.4 = AIP [2, Lemma 8.1]; Lemma 8.5 at Gamma_0(p^n)-level on the anticanonical locus), used for etale descent in Definition 9.4 and Lemmas 9.5-9.6. Scope: H3's description constructs exactly this Delta(N) 'in BHW's tame convention' and the quotient comparison. New stage edge H3 -> O4 (acyclic; H3 already feeds H4 -> O4). Review (REVIEW-EXT-12): Keep. H3 supplies Delta(N) and Proposition 8.4 (= AIP [2, Lemma 8.1], read). Lemma 8.5 (the Gamma_0(p^n)-level Cartesian square on the anticanonical locus) is H4/S5 material, beyond H3's tame-level scope.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2174,7 +2392,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S5",
    "target": "OverconvergentAutomorphicForms:O4/weil-pairing-twist-identifies-the-arithmetic-presentations",
-   "reason": "Supplies the limit Weil-pairing map e_beta: X_{Gamma(p^infinity)} -> O_p^x with Lemma 8.26 ((gamma, x) acts on e_beta by det(gamma) x^{-1}), and Proposition 8.21 (3) (X_{Gamma(p^infinity)} -> X_{G,Gamma(p^infinity)} is a pro-etale Delta(p^infinity N)-torsor), both used in Lemma 9.7. Scope: S5's description includes 'the full-tower profinite polarization torsor statement'; the linearised Weil pairing and its equivariance (Lemmas 8.9, 8.26) must be part of the supplied statement. Stage-level link.",
+   "reason": "Supplies the limit Weil-pairing map e_beta: X_{Gamma(p^infinity)} -> O_p^x with Lemma 8.26 ((gamma, x) acts on e_beta by det(gamma) x^{-1}), and Proposition 8.21 (3) (X_{Gamma(p^infinity)} -> X_{G,Gamma(p^infinity)} is a pro-etale Delta(p^infinity N)-torsor), both used in Lemma 9.7. Scope: S5's description includes 'the full-tower profinite polarization torsor statement'; the linearised Weil pairing and its equivariance (Lemmas 8.9, 8.26) must be part of the supplied statement. Stage-level link. Review (REVIEW-EXT-12): Keep. The finite-level linearised Weil pairing e_{n,beta} (Lemmas 8.9-8.10) is H4's ('calculate their components through the linearized Weil pairing'); the limit e_beta and Lemma 8.26 are S5's. The supplied statement must include the det(gamma) x^{-1} equivariance.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2183,42 +2401,9 @@
    ]
   },
   {
-   "source": "OverconvergentAutomorphicForms:O4/weil-pairing-twist-identifies-the-arithmetic-presentations",
-   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
-   "reason": "Definition 9.8 takes the intrinsic arithmetic presentation (4); Lemma 9.7 (with Lemmas 9.3 and 9.6) shows that it agrees with descent from G*.",
-   "sources": [
-    {
-     "sourceId": "BHW-OverconvergentHilbert-2023",
-     "locator": "§9, Definition 9.8 and proof of Theorem 9.12, printed pp. 1786-1787"
-    }
-   ]
-  },
-  {
-   "source": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action-and-delta-descent",
-   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
-   "reason": "Lemma 9.6 is one of the three identifications that make the intrinsic definition agree with Delta(N)-descent from G*.",
-   "sources": [
-    {
-     "sourceId": "BHW-OverconvergentHilbert-2023",
-     "locator": "§9, proof of Theorem 9.12, printed p. 1787"
-    }
-   ]
-  },
-  {
-   "source": "OverconvergentAutomorphicForms:O4/geometric-forms-independent-of-the-full-level-tower",
-   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
-   "reason": "Lemma 9.3 is the first identification in the chain relating the G-sheaf to descent from the G*-sheaf.",
-   "sources": [
-    {
-     "sourceId": "BHW-OverconvergentHilbert-2023",
-     "locator": "§9, proof of Theorem 9.12, printed p. 1787"
-    }
-   ]
-  },
-  {
    "source": "HilbertModularVarietiesAndShimuraCurves:H3",
    "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
-   "reason": "Supplies the maps associated with changing the polarisation ideal c and the disjoint union over polarisation classes (H3 description), which Definition 9.10 and the isomorphisms P_x use. Scope: BHW import P_x from AIP [3, Lemma 4.5] rather than constructing it.",
+   "reason": "Supplies the maps associated with changing the polarisation ideal c and the disjoint union over polarisation classes (H3 description), which Definition 9.10 and the isomorphisms P_x use. Scope: BHW import P_x from AIP [3, Lemma 4.5] rather than constructing it. Review (REVIEW-EXT-12): Keep. H3 supplies the change-of-c maps on varieties. P_x on overconvergent forms is imported from AIP [3, Lemma 4.5] (unread, existing gap).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2229,7 +2414,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T4",
    "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
-   "reason": "Supplies the Atkin-Lehner isomorphism used to define the n = 0 sheaves omega^kappa_{G,c} := AL_* omega^kappa_{G,c,1} on X_{G,c,U}(epsilon). Scope: T4's Atkin-Lehner comparison must be available on the arithmetic (G) varieties, i.e. compatible with the Delta(N)-quotient.",
+   "reason": "Supplies the Atkin-Lehner isomorphism used to define the n = 0 sheaves omega^kappa_{G,c} := AL_* omega^kappa_{G,c,1} on X_{G,c,U}(epsilon). Scope: T4's Atkin-Lehner comparison must be available on the arithmetic (G) varieties, i.e. compatible with the Delta(N)-quotient. Review (REVIEW-EXT-12): Keep. The n = 0 arithmetic sheaves need Atkin-Lehner on X_G; it descends from X because the Gamma_0(p^n) anticanonical square of Lemma 8.5 is Cartesian. T4 must state it compatibly with the Delta(N)-quotient.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2240,7 +2425,7 @@
   {
    "source": "OverconvergentAutomorphicForms:O0/hilbert-weight-spaces-and-the-weight-map-rho",
    "target": "OverconvergentAutomorphicForms:O5/aip-weight-annuli-and-the-radius-epsilon-kappa",
-   "reason": "Supplies |T_kappa| for a bounded weight, from which |delta_kappa| and epsilon_kappa are defined.",
+   "reason": "Supplies |T_kappa| for a bounded weight, from which |delta_kappa| and epsilon_kappa are defined. Review (REVIEW-EXT-12): Keep. T_kappa is to be computed on the free part (O0 node correction).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2262,7 +2447,7 @@
   {
    "source": "OverconvergentAutomorphicForms:O5/aip-weight-annuli-and-the-radius-epsilon-kappa",
    "target": "OverconvergentAutomorphicForms:O5/aip-sheaf-on-weight-annuli-gluing-and-level-structure",
-   "reason": "The AIP sheaf is defined on each X(epsilon) x U_k with m = k + r and 0 <= epsilon <= epsilon_kappa.",
+   "reason": "The AIP sheaf is defined on each X(epsilon) x U_k with m = k + r and 0 <= epsilon <= epsilon_kappa. Review (REVIEW-EXT-12): Keep. The level is m = k + r - 1 (annuli node correction).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2306,7 +2491,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T5",
    "target": "OverconvergentAutomorphicForms:O5/perfectoid-and-aip-geometric-sheaves-agree",
-   "reason": "Supplies the comparison of the AIP torsor with the Hodge-Tate trivialisation: Corollary 7.6 (any lift of psi(1) lies in 𝔉_m), Proposition 7.11 (𝔰 factors through F_m(epsilon) for epsilon <= epsilon^can_m, via phi: X_{Gamma^*(p^infinity)}(epsilon)_a -> X_{Ig(p^m)}(epsilon) and Lemma 5.32) and Lemma 7.12 with diagram (7.2) (the square with (c𝔷 + d) x 𝔰 commutes, using (7.1) and (5.4)). Theorem 7.14 consists of feeding these into the AIP sheaf. Scope: T5's description ends with 'Prove the comparison of this torsor with the Hodge-Tate trivialization on the anticanonical tower. This is the substantive input to O5's comparison'. Stage-level link.",
+   "reason": "Supplies the comparison of the AIP torsor with the Hodge-Tate trivialisation: Corollary 7.6 (any lift of psi(1) lies in 𝔉_m), Proposition 7.11 (𝔰 factors through F_m(epsilon) for epsilon <= epsilon^can_m, via phi: X_{Gamma^*(p^infinity)}(epsilon)_a -> X_{Ig(p^m)}(epsilon) and Lemma 5.32) and Lemma 7.12 with diagram (7.2) (the square with (c𝔷 + d) x 𝔰 commutes, using (7.1) and (5.4)). Theorem 7.14 consists of feeding these into the AIP sheaf. Scope: T5's description ends with 'Prove the comparison of this torsor with the Hodge-Tate trivialization on the anticanonical tower. This is the substantive input to O5's comparison'. Stage-level link. Review (REVIEW-EXT-12): Keep, with a structural caveat. The T5 outputs credited here (Proposition 7.11 uses Lemma 5.32; Lemma 7.12's left square is Lemma 5.31) consume the canonical section 𝔰, which this packet places in O2. Made explicit, that is a stage edge O2 -> T5, which with the atlas edges T5 -> S5 -> O2 is a cycle. See the placement gap.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2350,7 +2535,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S5",
    "target": "OverconvergentAutomorphicForms:O5/perfectoid-and-aip-geometric-sheaves-agree",
-   "reason": "Supplies the action of u_n = (p^n 0; 0 1) on the anticanonical tower, u_n: X_{Gamma^*(p^infinity)}(p^n epsilon)_a -> X_{Gamma^*(p^infinity)}(epsilon)_a, compatible with pi_HT and the Atkin-Lehner maps, used to form tilde-𝔰 = 𝔰 o u_n in (7.2). Scope: S5 covers the Hilbert towers and their period maps; the G*(Q_p)- (resp. G(Q_p)-, §8.4.1) action on the tower must be included. Stage-level link.",
+   "reason": "Supplies the action of u_n = (p^n 0; 0 1) on the anticanonical tower, u_n: X_{Gamma^*(p^infinity)}(p^n epsilon)_a -> X_{Gamma^*(p^infinity)}(epsilon)_a, compatible with pi_HT and the Atkin-Lehner maps, used to form tilde-𝔰 = 𝔰 o u_n in (7.2). Scope: S5 covers the Hilbert towers and their period maps; the G*(Q_p)- (resp. G(Q_p)-, §8.4.1) action on the tower must be included. Stage-level link. Review (REVIEW-EXT-12): Keep. S5's description does not name the G*(Q_p)- and G(Q_p)-actions on the towers (u_n, §8.4.1); gap added.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2383,7 +2568,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T5",
    "target": "OverconvergentAutomorphicForms:O5/elliptic-comparison-with-the-pilloni-torsor",
-   "reason": "Supplies the elliptic Igusa curves and Pilloni torsor (Definitions 4.1-4.4, Lemma 4.3 with the canonical subgroup of 'Le halo spectral' [4, Cor. A.2] and [4, Cor. A.4.2]) and the factorisation of 𝔰 through F_m(epsilon) (first part of Lemma 4.9, proved via Proposition 7.11 away from the cusps).",
+   "reason": "Supplies the elliptic Igusa curves and Pilloni torsor (Definitions 4.1-4.4, Lemma 4.3 with the canonical subgroup of 'Le halo spectral' [4, Cor. A.2] and [4, Cor. A.4.2]) and the factorisation of 𝔰 through F_m(epsilon) (first part of Lemma 4.9, proved via Proposition 7.11 away from the cusps). Review (REVIEW-EXT-12): Keep, with the same structural caveat as the T5 link to the Theorem 7.14 node. The first part of Lemma 4.9 (Proposition 7.11 away from the cusps) consumes 𝔰.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2460,7 +2645,7 @@
   {
    "source": "ShimuraCompactifications:C6",
    "target": "OverconvergentAutomorphicForms:O6/cusp-forms-via-koecher-extension-and-boundary-divisor",
-   "reason": "Supplies the Hilbert toroidal compactifications around the ordinary locus and the precise Koecher extension theorem for g > 1 (C6: 'For g>1, prove the precise Koecher extension theorem needed for Hilbert sections. Cusp forms are still distinguished by their boundary ideal'). Remark 6.9 extends omega^kappa_c to X^tor(c) by Koecher and defines cusp forms by the boundary ideal. Scope: BHW apply Koecher to the p-adic overconvergent sheaves (via AIP [2, Prop. 8.4], [3, Thm 5.5.1]), which needs C6's statement over the anticanonical/overconvergent neighbourhood, not only for classical bundles.",
+   "reason": "Supplies the Hilbert toroidal compactifications around the ordinary locus and the precise Koecher extension theorem for g > 1 (C6: 'For g>1, prove the precise Koecher extension theorem needed for Hilbert sections. Cusp forms are still distinguished by their boundary ideal'). Remark 6.9 extends omega^kappa_c to X^tor(c) by Koecher and defines cusp forms by the boundary ideal. Scope: BHW apply Koecher to the p-adic overconvergent sheaves (via AIP [2, Prop. 8.4], [3, Thm 5.5.1]), which needs C6's statement over the anticanonical/overconvergent neighbourhood, not only for classical bundles. Review (REVIEW-EXT-12): Keep. C6 must state the Koecher principle in AIP's form (AIP [2, Prop. 8.4], read: g^o_* omega ≅ g_* omega relative to weight space) for the overconvergent sheaves, not only for classical bundles.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2526,7 +2711,7 @@
   {
    "source": "HilbertModularVarietiesAndShimuraCurves:H3",
    "target": "OverconvergentAutomorphicForms:O6/tame-hecke-operators-by-pull-identify-trace",
-   "reason": "Supplies BHW Lemma 8.22: the quotient A -> A/D by an O_F-submodule D of A[a] (a coprime to N) is uniquely a morphism of HBAVs onto a cb-polarised HBAV, which defines pi_2 and changes the polarisation ideal. Scope: H3's description ('Construct the maps associated with changing c') covers the polarisation change; BHW take the cyclic case from Kisin-Lai [21, §1.9].",
+   "reason": "Supplies BHW Lemma 8.22: the quotient A -> A/D by an O_F-submodule D of A[a] (a coprime to N) is uniquely a morphism of HBAVs onto a cb-polarised HBAV, which defines pi_2 and changes the polarisation ideal. Scope: H3's description ('Construct the maps associated with changing c') covers the polarisation change; BHW take the cyclic case from Kisin-Lai [21, §1.9]. Review (REVIEW-EXT-12): Keep. Lemma 8.22 (A -> A/D is a morphism of HBAVs onto a cb-polarised HBAV, taken from Kisin-Lai [21, §1.9]) is covered only loosely by H3's 'maps associated with changing c'. H3 must state the isogeny version.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2559,7 +2744,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S5",
    "target": "OverconvergentAutomorphicForms:O6/u-frak-p-operators-via-the-action-of-u-frak-p",
-   "reason": "Supplies the G(Q_p)-action on the infinite-level Hilbert towers permuting polarisation ideals (§8.4.1, Lemma 8.23) and the G(Q_p)-equivariance of pi_HT, giving u_𝔭 and u_𝔭^* 𝔷 = varpi 𝔷 in Lemma 10.3. Scope mismatch: S5's description does not name the G(Q_p)-action explicitly (shared-supplier request recorded). Stage-level link.",
+   "reason": "Supplies the G(Q_p)-action on the infinite-level Hilbert towers permuting polarisation ideals (§8.4.1, Lemma 8.23) and the G(Q_p)-equivariance of pi_HT, giving u_𝔭 and u_𝔭^* 𝔷 = varpi 𝔷 in Lemma 10.3. Scope mismatch: S5's description does not name the G(Q_p)-action explicitly (shared-supplier request recorded). Stage-level link. Review (REVIEW-EXT-12): Keep. S5's description does not name the G(Q_p)-action on the infinite-level towers (Lemmas 8.22-8.23); gap added.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2570,7 +2755,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T4",
    "target": "OverconvergentAutomorphicForms:O6/u-frak-p-operators-via-the-action-of-u-frak-p",
-   "reason": "Supplies the anticanonical Gamma_0(p^n) cap Gamma_0(𝔭^l)-level moduli spaces and the behaviour of the quotient by D[𝔭] on the Hasse radius (the image of pi_2 lies in a partial-Hasse neighbourhood; for F = Q in X(p^{-1} epsilon)). Scope: T4 covers canonical/anticanonical loci, finite-level maps and change of radius; the partial Hasse invariant at a single prime above p must be included.",
+   "reason": "Supplies the anticanonical Gamma_0(p^n) cap Gamma_0(𝔭^l)-level moduli spaces and the behaviour of the quotient by D[𝔭] on the Hasse radius (the image of pi_2 lies in a partial-Hasse neighbourhood; for F = Q in X(p^{-1} epsilon)). Scope: T4 covers canonical/anticanonical loci, finite-level maps and change of radius; the partial Hasse invariant at a single prime above p must be included. Review (REVIEW-EXT-12): Keep. T4's description does not cover partial Hasse invariants at a single prime above p; BHW assert the image statement for pi_2 without proof. Gap added.",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2691,7 +2876,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T5",
    "target": "OverconvergentAutomorphicForms:O6/hecke-equivariance-of-the-aip-comparisons",
-   "reason": "Supplies the AIP torsor F_m(epsilon), its pull-back F_{m,Gamma_0(a)}(epsilon) along pi_1 and its functoriality along isogenies (pi_2 induced by omega_{A/D} -> omega_A), used in diagram (10.4). Scope: T5 constructs the torsor; functoriality under prime-to-p isogenies and under A -> A/D[𝔭] must be part of the supplied statement.",
+   "reason": "Supplies the AIP torsor F_m(epsilon), its pull-back F_{m,Gamma_0(a)}(epsilon) along pi_1 and its functoriality along isogenies (pi_2 induced by omega_{A/D} -> omega_A), used in diagram (10.4). Scope: T5 constructs the torsor; functoriality under prime-to-p isogenies and under A -> A/D[𝔭] must be part of the supplied statement. Review (REVIEW-EXT-12): Keep. The functoriality of the AIP torsor under isogenies is AIP [2, Lemma 8.5] (read: pi_ell induces p_1^* w_I ≅ p_2^* w_I). T5 must include it for prime-to-p isogenies and for A -> A/D[𝔭].",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2702,7 +2887,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S5",
    "target": "OverconvergentAutomorphicForms:O6/hecke-equivariance-of-the-aip-comparisons",
-   "reason": "Supplies Lemma 8.23 (alpha' o u_𝔭^vee corresponds to phi^vee o alpha) used to show 𝔰 o u_𝔭 = phi^* o 𝔰. Stage-level link.",
+   "reason": "Supplies Lemma 8.23 (alpha' o u_𝔭^vee corresponds to phi^vee o alpha) used to show 𝔰 o u_𝔭 = phi^* o 𝔰. Stage-level link. Review (REVIEW-EXT-12): Keep. Lemma 8.23 and the G(Q_p)-action are outside S5's stated scope (same gap as the S5 link to the U_𝔭 node).",
    "sources": [
     {
      "sourceId": "BHW-OverconvergentHilbert-2023",
@@ -2742,6 +2927,70 @@
      "locator": "§10.3, Remark 10.6, printed p. 1791"
     }
    ]
+  },
+  {
+   "source": "OverconvergentAutomorphicForms:O4/four-torsor-presentations-of-hilbert-weight-sheaves",
+   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
+   "reason": "Definition 9.8 sets omega^{kappa,+}_{G,c,n} := omega^{kappa,+}_{G,(G,Gamma,n)}, presentation (4) of Definition 9.1. This replaces the three removed lemma links.",
+   "sources": [
+    {
+     "sourceId": "BHW-OverconvergentHilbert-2023",
+     "locator": "§9, Definition 9.8, printed p. 1786"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
+   "target": "OverconvergentAutomorphicForms:O5/aip-sheaf-on-weight-annuli-gluing-and-level-structure",
+   "reason": "Definition 7.9 evaluates kappa^{-1}(gamma) for gamma in B_m = O_p^x(1 + I'_m Res hat-G_a). This needs kappa extended analytically to B_m, which AIP obtain from their Proposition 2.8 (AIP [2, §4.2, after Lemma 4.2]).",
+   "sources": [
+    {
+     "sourceId": "BHW-OverconvergentHilbert-2023",
+     "locator": "§7.1, Definition 7.9, printed p. 1761"
+    },
+    {
+     "sourceId": "AIP-AdicCuspidalHilbertEigenvarieties-2016",
+     "locator": "§4.2, after Lemma 4.2, p. 15 of 36"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "OverconvergentAutomorphicForms:O2/pulled-back-canonical-section-and-moduli-interpretation",
+   "target": "OverconvergentAutomorphicForms:O5/elliptic-comparison-with-the-pilloni-torsor",
+   "reason": "The proof of Lemma 4.9 writes tilde-𝔰 = pi_HT^* u_n^* s using 𝔰 = pi_HT^* s and the computation (3.3).",
+   "sources": [
+    {
+     "sourceId": "BHW-OverconvergentHilbert-2023",
+     "locator": "§4.2, proof of Lemma 4.9, printed pp. 1738-1739"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S5",
+   "target": "OverconvergentAutomorphicForms:O2/elliptic-specialisation-and-extension-over-the-cusps",
+   "reason": "The cusp step of Proposition 3.8 uses perfectoid Tate-curve parameter spaces at infinite level and the Gamma_0(p)-action on them (Heuer [13] Thm 3.17, Prop. 3.19). S5's description includes 'Identify completed cusp charts and the action on q-parameters'. The stage edge S5 -> O2 already exists in the atlas.",
+   "sources": [
+    {
+     "sourceId": "BHW-OverconvergentHilbert-2023",
+     "locator": "§3.1, proof of Proposition 3.8, printed pp. 1726-1727"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S3",
+   "target": "OverconvergentAutomorphicForms:O6/tame-hecke-operators-by-pull-identify-trace",
+   "reason": "Lemma 10.1 needs pi_HT o pi_{1,infinity} = pi_HT o pi_{2,infinity}, which follows from the functoriality (10.2) of the Hodge-Tate sequence under the prime-to-p isogeny A -> A/D, together with the extension (10.1) of pi_1, pi_2 to infinite level. S3 ('Prove its equivariance, functoriality ...') is the nearest supplier. Scope caveat: T_a changes c to ca, so it is not a G*(A_f^p)-Hecke operator, and S3 must state HT functoriality for such isogenies. New stage edge S3 -> O6, acyclic.",
+   "sources": [
+    {
+     "sourceId": "BHW-OverconvergentHilbert-2023",
+     "locator": "§10.1, proof of Lemma 10.1, (10.1)-(10.2), printed p. 1788"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
  ],
  "coverage": [
@@ -2753,7 +3002,8 @@
     "Read AIP [2, Proposition 2.8] (The adic, cuspidal, Hilbert eigenvarieties) to verify the radius r_kappa := |p|^{r_0}|T_kappa| of BHW Proposition 6.3.",
     "Read Buzzard, Eigenvarieties, Proposition 8.3 (cited for Proposition 3.12); not in the library.",
     "Resolve the rho convention of BHW Definition 6.1 against AIP [3] (Asterisque 382) or by expert confirmation.",
-    "Atlas edges AdicSpacesPartII:R5 and PerfectoidSpaces:P1 -> O0 are not used by the BHW content of O0 (the sousperfectoid product and perfectoid base first enter in O1/O2); no link added from them to O0 nodes."
+    "Atlas edges AdicSpacesPartII:R5 and PerfectoidSpaces:P1 -> O0 are not used by the BHW content of O0 (the sousperfectoid product and perfectoid base first enter in O1/O2); no link added from them to O0 nodes.",
+    "Review (REVIEW-EXT-12): Records correct as partial. Update 'remaining': AIP [2, Prop. 2.8] has now been read, so the printed r_kappa is withdrawn and the AIP radius |p|^{n+r_0} replaces it (node corrected). AIP [2, §8.2] has been read (group map t |-> (t^2, Nm t)); the rho pin remains an orchestrator decision. Add: the torsion normalisation of T_kappa (new gap), and that supplier L0a must state the radius for O_p^x with ramified p and with torsion split off. Still unread: Buzzard [6, Prop. 8.3] (the file fetched from Buzzard's homepage has only 6 pages and does not contain §8), AIP [3], and sources for finite-rank coefficient modules."
    ]
   },
   {
@@ -2763,7 +3013,8 @@
     "BHW construct only rank-one (character) coefficients; the vector-valued/nontrivial-representation version of the equalizer construction, independence of local trivialisation and local freeness with descent hypotheses are not in BHW (candidate sources: AIP Siegel §§4.5, 5.2; Boxer-Pilloni §§4.1, 6.3; reports pending).",
     "Read Kedlaya-Liu II, Theorem 8.2.3 (library #22) and Chojecki-Hansen-Johansson, Lemma 2.23 (2) (not in library) for the imports of Lemmas 3.6-3.7.",
     "The cocycle law is derived rather than quoted; its verification for kappa(cz + d) is recorded in O2.",
-    "Atlas edge AutomorphicBundles:B0 -> O1: BHW never use the classical associated-bundle construction; B0 becomes relevant only for vector-valued coefficients (O8), so no link is added from B0 to the BHW-based O1 nodes."
+    "Atlas edge AutomorphicBundles:B0 -> O1: BHW never use the classical associated-bundle construction; B0 becomes relevant only for vector-valued coefficients (O8), so no link is added from B0 to the BHW-based O1 nodes.",
+    "Review (REVIEW-EXT-12): Records correct as partial. CHJ Lemma 2.23 has been read (Q_p-linear statement; see the P9 gap). Kedlaya-Liu II Theorem 8.2.3 is still unread. Vector-valued coefficients and independence of local trivialisation are not in BHW."
    ]
   },
   {
@@ -2774,7 +3025,8 @@
     "Proposition 6.6 depends on Heuer, 'Line bundles on rigid spaces in the v-topology' (Cor. 3.5, 3.6, 4.1; Prop. 3.8, 4.8), not in the library; Proposition 3.8 depends on Heuer, 'Cusps and q-expansion principles for modular curves at infinite level' (Prop. 2.10, Thm. 3.8, 3.21), not in the library.",
     "Proposition 5.25 (Caraiani-Scholze Thm 2.1.3 (2)), Theorem 5.11 (tower) and Proposition 5.18 (period bound) are supplier outputs of S3, S5 and T4; their proofs are not decomposed here.",
     "The multiplicativity of kappa^an and the cocycle law of kappa(c𝔷 + d) are derived, not quoted; confirm with the BHW authors or AIP [2].",
-    "Hilbert classical-weight comparison beyond the determinant (Remark 6.7) is not stated in BHW."
+    "Hilbert classical-weight comparison beyond the determinant (Remark 6.7) is not stated in BHW.",
+    "Review (REVIEW-EXT-12): Records correct as partial. Update: the Heuer [13]/[14] imports have been located, with locator mismatches (gap updated); [15, Lemma 2.8.4] is unread (new gap); the n = 0 radius condition p epsilon <= epsilon^def_kappa has been added; the canonical-section placement and duplication with the sibling S3 draft are new gaps. Change-of-level and change-of-radius maps remain unstated in BHW."
    ]
   },
   {
@@ -2784,7 +3036,8 @@
     "The colimit over positive radii, Banach topologies and continuity of restriction maps asked for in the roadmap are not constructed in BHW; Remark 6.9 obtains projective Banach modules only for cusp forms via AIP [2, Theorem 3.16] (source absent; acquisition in progress).",
     "Base change in the weight (the intro claim that the fibre of omega^kappa at kappa_0 in U is omega^{kappa_0}, §1.2.2) is not proved in the body of BHW; check via Theorem 7.14 and AIP [2, Proposition 4.3].",
     "The ramified-p calculation (modified lattice omega^int, BHW Definition 7.3 and Proposition 7.4 = AIP [2, Proposition 4.1]) is a HodgeTateAndCanonicalSubgroups T5 output; it is consumed in O5, not in the definition of omega^{kappa,+}. The atlas edge T5 -> O3 is therefore not linked to the O3 node.",
-    "Local freeness of the integral sheaves is proved only through the AIP comparison (O5, Theorems 4.8 and 7.14)."
+    "Local freeness of the integral sheaves is proved only through the AIP comparison (O5, Theorems 4.8 and 7.14).",
+    "Review (REVIEW-EXT-12): Records correct as partial. Update: '[2, Theorem 3.16]' has no referent (new gap); AIP [2] Corollary 8.3(3) gives projective Banach modules only for G cusp forms. The colimit over radii, the Banach topology on the full spaces and weight base change are still not in BHW."
    ]
   },
   {
@@ -2794,7 +3047,8 @@
     "Section 8 (towers for G, hybrid tower, Delta(N), Delta_n(N), E(p^n), Weil pairing, G(Q_p)-action) is consumed from H3, H4 and S5 at stage level; its proofs (Lemmas 8.5-8.28, Propositions 8.7, 8.21, which import Shen [31] and Hansen [10]) are not decomposed here.",
     "The canonical independence of the Hecke operators for G and the dependence on representatives for G* (Remark 10.6) are asserted, not proved, in BHW; see O6.",
     "P_x (polarisation isomorphisms) and the matching of the Delta(N)-action with AIP are imported from AIP [3, Lemma 4.5, §4.1] (absent from the library; acquisition in progress).",
-    "Dependence of the Lemma 9.7 isomorphism on the choice of beta is not discussed in BHW (footnote 2 only says the choices do not affect G-forms)."
+    "Dependence of the Lemma 9.7 isomorphism on the choice of beta is not discussed in BHW (footnote 2 only says the choices do not affect G-forms).",
+    "Review (REVIEW-EXT-12): Records correct as partial. Add: the G(Q_p)-action of §8.4.1 has no supplier (new gap). AIP [2, Lemma 8.1] has been read and confirms Proposition 8.4. P_x and the §4.1 Delta-action of AIP [3] are still unread. Three links into the Definition 9.8 node were removed and one from the presentation node added."
    ]
   },
   {
@@ -2805,7 +3059,8 @@
     "The AIP torsor, omega^int and Proposition 7.11/Lemma 7.12 are T5 outputs (no T5 nodes yet); their proofs are not decomposed here.",
     "Consistency check between m = k + r (Definition 7.9) and m = r + k - 1 (Definition 4.7) against epsilon_kappa <= epsilon^can_m; direction of the inclusion in the proof of Proposition 7.10.",
     "Compatibility of the comparison with change of level, radius and weight is not stated in BHW; uniqueness 'with the chosen tautological section' (roadmap) is not discussed in BHW.",
-    "Delta(N)-equivariance of the Theorem 7.14 isomorphism for the twisted actions is asserted through Lemma 9.5; the AIP side of that action ([3, §4.1]) is unread."
+    "Delta(N)-equivariance of the Theorem 7.14 isomorphism for the twisted actions is asserted through Lemma 9.5; the AIP side of that action ([3, §4.1]) is unread.",
+    "Review (REVIEW-EXT-12): Records correct as partial. Update: AIP [2] Propositions 4.1, 4.3, 4.7, 4.8, Theorem 6.7 and §§6.4, 8.1-8.2 have been read. The level is corrected to m = k + r - 1, the direction of the inclusion is settled, and epsilon_kappa <= epsilon^def_kappa holds with the AIP radius. Still unread: 'Le halo spectral' [4] (Cor. A.2, A.4, A.4.2, Prop. A.3, Thm 6.2.4) and AIP [3, §4.1]. New gap: the group in the elliptic Definition 4.7(1) (Pilloni [24] read). Compatibility with change of level, radius and weight is not stated in BHW."
    ]
   },
   {
@@ -2817,21 +3072,24 @@
     "q-expansion comparison with AutomorphicBundles B5 is not made in BHW for Hilbert forms; the atlas edge B5 -> O6 is therefore not linked to a node. Elliptic q-expansions appear only in Proposition 3.8.",
     "Koecher principle, AIP cusp forms and Hecke operators ([2, Prop. 8.4, Thm 3.16, §8.5, Lemma 8.5], [3, Thm 5.5.1, §4.3, Lemma 3.27]) are unread imports.",
     "Handoff to PadicFamilies L2a: L2a's description is group-independent with 'no modular-form ... input'; no link O6 -> L2a is added (the Hilbert eigenvariety would be a separate consumer of O6 and L2a).",
-    "Diamond operators are not defined in BHW."
+    "Diamond operators are not defined in BHW.",
+    "Review (REVIEW-EXT-12): Records correct as partial. Update: AIP [2] Proposition 8.4, §8.5 and Lemmas 8.5 and 8.7 have been read. AIP [3] (Lemma 3.27, Theorem 5.5.1, §4.3) is still unread. New gaps: partial Hasse invariants/image of pi_2, and the G(Q_p)-action. The renormalisation of U_𝔭, diamond operators and q-expansions versus B5 are still absent from BHW."
    ]
   },
   {
    "stageId": "OverconvergentAutomorphicForms:O7",
    "status": "not_read",
    "remaining": [
-    "No source argument decomposed yet for this stage."
+    "No source argument decomposed yet for this stage.",
+    "Review (REVIEW-EXT-12): The status not_read is right, but 'remaining' must be specific. The only BHW material is §3.4 (pp. 1733-1734): Katz's convergent forms at epsilon = 0 via the Igusa tower, with the equivariance diagram asserted. Candidate sources, none read for O7: Heuer [13] §§4-6 (the Igusa tower at infinite level, tilting to characteristic p, q-expansion principles; only §§2-3 were read here); AIP [2] §7 (overconvergent forms in characteristic p over the Igusa tower); Hida [16]."
    ]
   },
   {
    "stageId": "OverconvergentAutomorphicForms:O8",
    "status": "not_read",
    "remaining": [
-    "No source argument decomposed yet for this stage."
+    "No source argument decomposed yet for this stage.",
+    "Review (REVIEW-EXT-12): The status not_read is right, but 'remaining' must be specific. BHW treat GL_2/Q and Hilbert only, so there is no BHW content. Candidate sources, none read: AIP, 'p-adic families of Siegel modular cuspforms' (Ann. of Math. 181 (2015)); Boxer-Pilloni, 'Higher Coleman theory' (used by the sibling S3 draft); and a Crossref record, 'Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler-Shimura morphism', Res. Math. Sci. 13 (2026), DOI 10.1007/s40687-026-00610-5 (authorship and content not checked)."
    ]
   }
  ],
@@ -2841,21 +3099,21 @@
    "neededBy": [
     "OverconvergentAutomorphicForms:O0/hilbert-weight-spaces-and-the-weight-map-rho"
    ],
-   "detail": "Verified on the page images of printed pp. 1756-1757: the group map is printed as x |-> (x^2, N_{F/Q}(x)) while the character is printed as kappa = w^2 (t^{-1} o N_{F/Q}); these correspond to different group maps (N versus N^{-1} in the second coordinate). The later identity (9.1) is written in the form produced by the displayed character formula, and its value 1 does not distinguish the conventions. BHW say they follow AIP [3] (Asterisque 382), which is absent from the library. Next action: read the corresponding definition in [3] (AIP Hilbert paper, acquisition in progress) and ask the BHW authors which map is intended."
+   "detail": "Unchanged finding, new evidence. AIP [2, §8.2] (public, read; it follows [3]) defines W^G_F -> W_F by t |-> (t^2, Nm_{F/Q}(t)), the same group map BHW print, whose pull-back is w^2 (t o N). The displayed t^{-1} is therefore inconsistent with both BHW's own group map and AIP [2]. The atlas pin (displayed formula with an inverted group map) relabels G-weights relative to AIP [2] by t |-> t^{-1}; this matters for the identification in Definition 9.11 and Theorem 9.12. (9.1) does not decide the sign. Next action: orchestrator to reconsider the pin; ask the authors."
   },
   {
    "title": "Radius of analyticity r_kappa in BHW Proposition 6.3",
    "neededBy": [
     "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights"
    ],
-   "detail": "BHW print r_kappa := |p|^{r_0}|T_kappa| and cite AIP [2, Proposition 2.8] for it, without proof. As printed the radius shrinks to 0 when T_kappa -> 0 (the trivial weight gives an empty range 0 >= r > 0), and Definition 6.4 chooses epsilon^def_kappa from r_kappa via Proposition 5.18. Not verified. Next action: read [2, Proposition 2.8] and compare with the elliptic Proposition 3.12 (Buzzard [6, Prop. 8.3])."
+   "detail": "Resolved against the printed value. AIP [2, Proposition 2.8] (read, p. 8) gives analyticity on T(Z_p)(1 + p^{n+r_0} O_F ⊗ G_a) over W^0_{F,[0,p^n]}. The printed |p|^{r_0}|T_kappa| does not follow from it and is false: for F = Q, p = 3, v(T) = 1/3 there is no continuation to radius |3|^{4/3} (see the node). With AIP's radius, epsilon_kappa <= epsilon^def_kappa holds (derived); with the printed radius it fails for small |T_kappa|. Remaining: confirm the misprint with the authors; Buzzard [6, Prop. 8.3] (elliptic existence) is still unread."
   },
   {
    "title": "Shared supplier: BHW Lemma 3.7 and its imports are not decomposed in PerfectoidSpaces P9",
    "neededBy": [
     "OverconvergentAutomorphicForms:O1/weight-twisted-invariant-sheaf-along-a-pro-etale-torsor"
    ],
-   "detail": "The O1 construction consumes (h_* O^+_{X_U})^Gamma = O^+_{Y_U} (BHW Lemma 3.7), whose proof imports Kedlaya-Liu II Theorem 8.2.3 (library copy exists, not read here) and Chojecki-Hansen-Johansson [9, Lemma 2.23 (2)] (Doc. Math. 22 (2017); not in the library). PerfectoidSpaces P9 is the atlas owner of torsor descent with coefficients but has no nodes. Verified: the statement and proof structure of Lemmas 3.6-3.7 on page images of printed pp. 1725-1726. Next action: P9 owner to decompose Lemma 3.7 with both imports; obtain Chojecki-Hansen-Johansson, 'Overconvergent modular forms and perfectoid Shimura curves', Doc. Math. 22 (2017), 191-262 (open access)."
+   "detail": "Chojecki-Hansen-Johansson (Doc. Math. 22 (2017)) was obtained and Lemma 2.23 read (p. 215). Part (2) is stated for a uniform Q_p-Banach algebra A_infinity with continuous profinite G-action, A = A_infinity^G, and a Q_p-Banach space V with trivial action, with ⊗^ over Q_p. BHW need the L-linear version, and the O^+ statement follows from the O statement by a power-boundedness argument that BHW do not give. Kedlaya-Liu II Theorem 8.2.3 is still unread; Heuer [14, Remark 2.26] corroborates the attribution v_* O = O for seminormal rigid spaces."
   },
   {
    "title": "Heuer's v-topology line-bundle results and q-expansion paper are absent from the library",
@@ -2863,7 +3121,7 @@
     "OverconvergentAutomorphicForms:O2/analyticity-of-the-perfectoid-weight-sheaves",
     "OverconvergentAutomorphicForms:O2/elliptic-specialisation-and-extension-over-the-cusps"
    ],
-   "detail": "Proposition 6.6 uses Heuer, Line bundles on rigid spaces in the v-topology (arXiv:2012.07918) Cor. 4.1 and Prop. 4.8 (Hilbert) and Cor. 3.5, Prop. 3.8, Cor. 3.6 (elliptic); Proposition 3.8 uses Heuer, Cusps and q-expansion principles for modular curves at infinite level (arXiv:2002.02488) Prop. 2.10, Thm. 3.8, Thm. 3.21. Verified: how BHW invoke them (printed pp. 1726-1727, 1734, 1758). Not verified: the cited statements. Next action: obtain both arXiv papers (BHW cite these arXiv numbers) and read the cited results; for Prop. 6.6 an alternative is the integral invertibility of Theorem 7.14 (O5)."
+   "detail": "Both were obtained and the cited passages read: [14] in arXiv 2012.07918v2 and Forum Math. Sigma 10 (2022) e82; [13] in arXiv 2002.02488v1 and Doc. Math. 27 (2022) 2385-2439. The content BHW use exists, but most locators are wrong. [14, Cor. 3.5] is Cor. 3.1; [14, Cor. 3.6] and [14, Prop. 3.8] are correct; [14, Cor. 4.1] and [14, Prop. 4.8] do not exist with that content. [13, Prop. 2.10] is Prop. 2.22, [13, Thm 3.8] is Thm 3.17, and [13, Thm 3.21] is Prop. 3.19. Remaining: the formal-model input (Igusa tower as a pro-etale torsor of formal schemes) and [15] (separate gap)."
   },
   {
    "title": "Proposition 6.6 domain and the 'weight 1' of Remark 6.7",
@@ -2878,7 +3136,7 @@
    "neededBy": [
     "OverconvergentAutomorphicForms:O3/integral-perfectoid-weight-sheaves-and-integral-forms"
    ],
-   "detail": "BHW §1.2.2 (printed p. 1714) says the family sheaf omega^kappa on X^*(p^{-1} epsilon) x_L U has fibre omega^{kappa_0} at kappa_0 in U; the body proves no base-change statement, and a pull-back of invariants need not commute with specialisation without a local freeness/flatness input. Verified: absence of a proof in §§3-7. Next action: derive from Theorem 7.14 (invertibility over O^+) plus base change of the AIP sheaf (AIP [2, Proposition 4.3]; source acquisition in progress), or ask the BHW authors for the intended argument."
+   "detail": "Unchanged for the perfectoid side. On the AIP side, AIP [2, Theorem 6.7(2)] (read) gives specialisation at locally algebraic weights, and w_{n,r,I} is invertible over X_{r,I} (Prop. 4.3). Base change of an invertible sheaf along a point of weight space then gives the fibre statement for omega^{kappa,+}_{AIP}. Combining this with Theorem 7.14 in families and at the point would prove BHW's §1.2.2 claim, but the compatibility of Theorem 7.14 with base change in U is not stated in BHW."
   },
   {
    "title": "Polarisation isomorphisms P_x are imported from AIP [3, Lemma 4.5]",
@@ -2902,14 +3160,14 @@
     "OverconvergentAutomorphicForms:O5/aip-sheaf-on-weight-annuli-gluing-and-level-structure",
     "OverconvergentAutomorphicForms:O5/perfectoid-and-aip-geometric-sheaves-agree"
    ],
-   "detail": "Verified on page images: Definition 4.7 (elliptic, printed p. 1737) sets m = r + k - 1 and says this implies epsilon_kappa <= epsilon^can_m; Definition 7.9 (Hilbert, printed p. 1761) and the proof of Theorem 7.14 (p. 1764) set m = k + r 'so that epsilon_kappa <= epsilon^can_m', with epsilon^can_m = 1/p^{m+1} (Definition 7.1) and W_k^* = {|delta|^{p^k} <= |p| <= |delta|^{p^{k-1}}} (Definition 7.8). Derived: on W_k^* one has epsilon_kappa = v/p^{r+1} with v in [p^{-k}, p^{1-k}], so epsilon_kappa <= 1/p^{k+r} = epsilon^can_{k+r-1} always, but epsilon_kappa <= epsilon^can_{k+r} only at the inner boundary. Not verified: AIP's own normalisation of n, r and I in [2] (possibly the source of the shift). Next action: compare with AIP [2, §§2-4] and ask the BHW authors; if needed replace m = k + r by m = k + r - 1 or shrink epsilon."
+   "detail": "Resolved. AIP [2, §4.2] (read, p. 14) assume r >= 3 and r + a >= n >= b + 2 (n >= b + 4 if p = 2) for I = [p^a, p^b], and Proposition 3.2 gives canonical subgroups only up to level r + a. For W_k^* (a = k - 1, b = k) and BHW's r this forces n = k + r - 1, the elliptic choice. The Hilbert m = k + r (Definition 7.9, proof of Theorem 7.14) is a misprint. The gluing via AIP Proposition 4.7 also works with k + r - 1 and not with k + r. Nodes corrected; confirm with the authors."
   },
   {
    "title": "Direction of the inclusion relating epsilon to AIP's formal scheme in the proof of Proposition 7.10",
    "neededBy": [
     "OverconvergentAutomorphicForms:O5/aip-sheaf-on-weight-annuli-gluing-and-level-structure"
    ],
-   "detail": "Verified on the page image of printed p. 1762: BHW say the generic fibre {|Ha^{p^{r+1}}| >= |delta_kappa|} of AIP's X_{r,[p^{k-1},p^k]} 'is contained in X(epsilon) x W_k^*', whereas pulling back AIP's sheaf to X(epsilon) x U_k for epsilon <= epsilon_kappa needs X(epsilon) x U_k to be contained in that generic fibre (which holds because |delta| <= |delta_kappa| on U). Next action: confirm the intended inclusion; read AIP [2, §3] for the definition of X_{r,I}."
+   "detail": "Settled in the drafter's favour. AIP [2, §6.4] (read) define the space by the pointwise condition |H̃a^{p^{r+1}}| >= sup_{alpha in m}|alpha|, so X(epsilon) x U_k lies in AIP's generic fibre for epsilon <= epsilon_kappa. BHW's sentence 'this is contained in X(epsilon) x W_k^*' states the reverse inclusion and is a slip."
   },
   {
    "title": "Complete continuity of U_p is asserted, not proved, in BHW",
@@ -2924,7 +3182,249 @@
     "OverconvergentAutomorphicForms:O6/hecke-equivariance-of-the-aip-comparisons",
     "OverconvergentAutomorphicForms:O6/cusp-forms-via-koecher-extension-and-boundary-divisor"
    ],
-   "detail": "Proposition 10.8 compares with AIP [2, §8.5, Lemma 8.5]; Remark 6.9 uses [2, Proposition 8.4], [3, Theorem 5.5.1] and [2, Theorem 3.16]. None is in the library. Verified: how BHW use them (printed pp. 1759, 1791-1792). Next action: obtain [2] (Res. Math. Sci. 3 (2016), open access) and [3] (Asterisque 382) and read the cited results."
+   "detail": "AIP [2] was obtained (Res. Math. Sci. 3 (2016) 34, open access) and read: Proposition 8.4 (Koecher, relative to weight space), §8.5 with Lemmas 8.5 and 8.7 (Hecke correspondences, degrees), and Corollary 8.3 (cohomology and Banach property for G). '[2, Theorem 3.16]' does not exist (separate gap). Still unread: AIP [3] (Asterisque 382: Theorem 5.5.1, §4.1, §4.3, Lemmas 3.27 and 4.5)."
+  },
+  {
+   "title": "Torsion normalisation of T_kappa, delta_kappa and the weight annuli",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O0/hilbert-weight-spaces-and-the-weight-map-rho",
+    "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
+    "OverconvergentAutomorphicForms:O5/aip-weight-annuli-and-the-radius-epsilon-kappa"
+   ],
+   "detail": "BHW define |T_kappa| := sup over all of O_p^x (Hilbert, p. 1757) or Z_p^x (elliptic, Definition 4.5(3), p. 1737). The elliptic T is kappa^un(q) - 1 for 'a fixed topological generator q' of Z_p^x (Definition 4.5(1)). For weights nontrivial on the prime-to-p torsion, |T_kappa| = 1, so the printed criterion 'bounded iff |T_kappa| < 1' fails, epsilon_kappa = 0, and W* is not the union of the W_k^*. Z_2^x has no topological generator. AIP [2] (read) avoid this by working on the free part W^0_F (Lemma 2.5: kappa is trivial on H) and twisting by the torsion character through w_chi (§6.4). Next action: restate O0 and O5 with T computed on the free part and the torsion character carried separately; ask the BHW authors to confirm.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Placement of the canonical section 𝔰: hidden O2 -> T5 dependency and duplicate sibling node",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O2/restriction-of-scalars-tautological-section-transformation",
+    "OverconvergentAutomorphicForms:O2/pulled-back-canonical-section-and-moduli-interpretation",
+    "OverconvergentAutomorphicForms:O2/classical-weight-comparison",
+    "OverconvergentAutomorphicForms:O5/perfectoid-and-aip-geometric-sheaves-agree",
+    "OverconvergentAutomorphicForms:O5/elliptic-comparison-with-the-pilloni-torsor"
+   ],
+   "detail": "This packet credits HodgeTateAndCanonicalSubgroups:T5 with Proposition 7.11, Lemma 7.12 and the first part of Lemma 4.9 (the packet's links from T5 to the Theorem 7.14 and Theorem 4.8 nodes). Those results use Lemma 5.32 (𝔰(x) = HT(alpha(1,0))) and Lemma 5.31 (gamma^* 𝔰 = (c𝔷 + d)𝔰), which the packet places in O2. As a stage edge, O2 -> T5 together with the atlas edges T5 -> S5 -> O2 is a cycle (checked by script); S3 -> T5 would be acyclic. The sibling draft PerfectoidShimuraVarieties.json already has S3/elliptic-hodge-line-as-pullback-of-O1-via-quotient-line, with BHW Lemma 3.17, Definition 3.18, Lemma 3.19, Proposition 3.21 and Proposition 3.22. That duplicates the elliptic parts of the O2 nodes on the tautological section and the canonical section, and the classical-weight node. Next action (orchestrator): move BHW Lemmas 3.17-3.21 and 5.29-5.32 to S3 and add S3 -> T5, or keep them in O2 and prove Proposition 7.11/Lemma 7.12 in O5; then dedupe with the sibling node.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Heuer's thesis [15, Lemma 2.8.4] (convergent forms as an Igusa-tower line bundle) is unread",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O2/analyticity-of-the-perfectoid-weight-sheaves"
+   ],
+   "detail": "§3.4 (printed pp. 1733-1734) says that omega^kappa at epsilon = 0 'follows formally (e.g. [15, Lemma 2.8.4])' to be the pull-back of the pro-etale line bundle of the cocycle kappa: Z_p^x -> O(U)^x through the Igusa tower. The t-equivariance diagram is asserted ('One now checks'). The proof of Proposition 3.24 relies on this identification before applying Heuer [14, Prop. 3.8]. [15] = B. Heuer, 'Perfectoid geometry of p-adic modular forms', PhD thesis, King's College London, 2019; not obtained. Next action: obtain the thesis or prove the identification from the diagram on p. 1734.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "G*(Q_p)- and G(Q_p)-actions on the infinite-level Hilbert towers have no stated supplier",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O5/perfectoid-and-aip-geometric-sheaves-agree",
+    "OverconvergentAutomorphicForms:O6/u-frak-p-operators-via-the-action-of-u-frak-p",
+    "OverconvergentAutomorphicForms:O6/hecke-equivariance-of-the-aip-comparisons"
+   ],
+   "detail": "Theorem 7.14 uses u_n = (p^n 0; 0 1) acting on X_{Gamma^*(p^infinity)} (diagram (7.2), p. 1763). Lemma 10.3 uses u_𝔭 and the G(Q_p)-equivariance of pi_HT. Proposition 10.8 uses Lemma 8.23. The proof of Theorem 5.11(4) also uses the G*(Q_p)-action 'recalled in Section 8.4.1'. §8.4.1 (Lemmas 8.22-8.23, pp. 1776-1778) builds the action by quotienting by stable kernels of gamma in M_2(O_p) ∩ GL_2(F_p). PerfectoidShimuraVarieties:S5's description does not mention this action; the packet's S5 links to the Theorem 7.14, U_𝔭 and Proposition 10.8 nodes note the mismatch, and one says 'shared-supplier request recorded', but the packet had no gap. Next action: extend S5 (or H4) to own §8.4.1.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Partial Hasse invariants at 𝔭 | p and the image of pi_2 in the U_𝔭 correspondence",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O6/u-frak-p-operators-via-the-action-of-u-frak-p",
+    "OverconvergentAutomorphicForms:O6/compactness-of-the-controlling-operator-u-p"
+   ],
+   "detail": "§10.2 (p. 1789) asserts without proof that pi_2 is not surjective and that its image lies in an open subspace 'described using the partial Hasse invariant at 𝔭' (for F = Q, in X_{pc,Gamma_0(p^n)}(p^{-1} epsilon)_a). This is the overconvergence-improving property a direct compactness proof would use. HodgeTateAndCanonicalSubgroups:T4's description covers the total Hasse invariant and canonical/anticanonical loci only. Next action: assign partial Hasse invariants (T3/T4) and find a source (for example AIP [3] §3 or Kisin-Lai [21]).",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Remark 6.9's '[2, Theorem 3.16]' has no referent in AIP [2]",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O3/integral-perfectoid-weight-sheaves-and-integral-forms",
+    "OverconvergentAutomorphicForms:O6/cusp-forms-via-koecher-extension-and-boundary-divisor"
+   ],
+   "detail": "The reviewer read AIP, 'The adic, cuspidal, Hilbert eigenvarieties' (Res. Math. Sci. 3 (2016) 34) and listed all its numbered results; there is no Theorem 3.16 (§3 ends with Corollary 3.8). The nearest statements are Corollary 8.3(3), where g_* omega^{kappa^un}_G(-D) is a projective Banach module over a finite affinoid cover of W^G_F, and §1.2(3), where surjectivity of specialisation on cuspidal forms is shown 'as in [2]', i.e. in the Asterisque paper. The citation probably intends AIP [3] (Asterisque 382), unread. Next action: obtain [3] and locate the Banach and specialisation statements.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Group in the elliptic AIP sheaf (Definition 4.7(1)) versus the torsor group B_m",
+   "neededBy": [
+    "OverconvergentAutomorphicForms:O5/elliptic-comparison-with-the-pilloni-torsor"
+   ],
+   "detail": "Definition 4.7(1) (p. 1737, page image) takes f with gamma^* f = kappa^{-1}(gamma) f only for gamma in Z_p^x(1 + p^m hat-G_a) x U. The torsor group of Definition 4.4 (p. 1736) is B_m = Z_p^x(1 + p^m Hdg^{-(p^m-1)/(p-1)} hat-G_a). The Hilbert Definition 7.9 uses B_m. Over the non-ordinary part, invariance under a proper subgroup of the torsor group does not give an invertible sheaf. Pilloni [24, §3.5] (Ann. Inst. Fourier 63 (2013) p. 227, read) defines omega^{(chi,lambda)} as Z_p^x-homogeneous sections on F_n^x with its own radius conditions. The BHW bibliography entry [24] gives a French title and '1 (2013), no. 63'; the printed article is 'Overconvergent modular forms', Tome 63 no. 1. Next action: reconcile Definition 4.7 with Pilloni [24] and AIP [4] ('Le halo spectral', unread).",
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
- ]
+ ],
+ "removedLinks": [
+  {
+   "source": "OverconvergentAutomorphicForms:O4/weil-pairing-twist-identifies-the-arithmetic-presentations",
+   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
+   "reason": "Definition 9.8 takes the intrinsic arithmetic presentation (4); Lemma 9.7 (with Lemmas 9.3 and 9.6) shows that it agrees with descent from G*.",
+   "removedBy": "independent-review-REVIEW-EXT-12",
+   "why": "Remove. Definition 9.8 and Definition 9.10 do not use Lemma 9.7; the lemma is consumed by Theorem 9.12, where the packet's link from the Lemma 9.7 node to the Theorem 9.12 node already records it (proof of Theorem 9.12, p. 1787)."
+  },
+  {
+   "source": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action-and-delta-descent",
+   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
+   "reason": "Lemma 9.6 is one of the three identifications that make the intrinsic definition agree with Delta(N)-descent from G*.",
+   "removedBy": "independent-review-REVIEW-EXT-12",
+   "why": "Remove. Lemma 9.6 is consumed by Theorem 9.12 (the packet's link from the Delta-descent node to the Theorem 9.12 node), not by Definitions 9.8/9.10."
+  },
+  {
+   "source": "OverconvergentAutomorphicForms:O4/geometric-forms-independent-of-the-full-level-tower",
+   "target": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
+   "reason": "Lemma 9.3 is the first identification in the chain relating the G-sheaf to descent from the G*-sheaf.",
+   "removedBy": "independent-review-REVIEW-EXT-12",
+   "why": "Remove. Lemma 9.3 is consumed by Theorem 9.12 (the packet's link from the Lemma 9.3 node to the Theorem 9.12 node), not by Definitions 9.8/9.10."
+  }
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REVIEW-EXT-12",
+  "date": "2026-09-24",
+  "notes": "Checked all 29 nodes against the public journal PDF of BHW, Ann. Inst. Fourier 73 (2023) 1709-1794. It is byte-identical to the packet's library copy. The packet's claims were also compared with arXiv 1902.03985v4, which has the same numbering (editorial differences only), and with the cited imports that are public: AIP [2], Heuer [13] and [14], CHJ [9] and Pilloni [24]. 151 of the 154 excerpts occur at the cited printed pages. The other three were text-layer artefacts and are fixed. Main corrections: (1) Proposition 6.3's printed radius r_kappa = |p|^{r_0}|T_kappa| is not what the cited AIP [2, Prop. 2.8] gives and fails for an explicit weight; the AIP radius is substituted, and with it Definition 7.7's claim epsilon_kappa <= epsilon^def_kappa holds. (2) The Hilbert level m = k + r (Definition 7.9, Theorem 7.14) violates AIP [2, §4.2]'s standing assumptions; corrected to k + r - 1, the elliptic choice. (3) The boundedness criterion |T_kappa| < 1 and every radius derived from T_kappa are valid only on the free part of weight space. (4) AIP [2, §8.2] prints the same group map as BHW for rho, so the displayed t^{-1} is the anomaly; the atlas pin relabels weights relative to AIP. (5) Remark 5.8 was misread in the O1 conventions node. (6) BHW's locators for Heuer [13] and [14] mostly do not match either public version; the content was located. (7) '[2, Theorem 3.16]' does not exist in AIP [2]. Structural finding: T5's credited outputs (Prop. 7.11, Lemma 7.12) consume the O2 canonical-section node. Made explicit, this dependency closes the stage cycle O2 -> T5 -> S5 -> O2. The sibling S3 draft duplicates the elliptic canonical-section material. This needs an orchestrator decision, hence needs_changes. Links: 3 removed (lemmas pointed at the Definition 9.8 node instead of Theorem 9.12), 24 annotated, 5 added. Gaps 12 -> 19, with 8 existing gaps updated (see gapsUpdated). No stage cycle in the union of atlas stageEdges with the packet's and the added links. Packet status stays partial; implementationStatus stays unchecked everywhere.",
+  "checked": [
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O0/hilbert-weight-spaces-and-the-weight-map-rho",
+    "verdict": "corrected",
+    "note": "Definitions 6.1-6.2 and p. 1757 read on the page images. The group map x ↦ (x², N(x)) and the display κ = w²(t⁻¹∘N) stand in consecutive sentences, as the node says. Corrected: BHW say a weight 'determines' κ on O_p^× × U. The printed criterion 'bounded iff |T_κ| < 1' fails for weights nontrivial on the prime-to-p torsion (|T_κ| = 1 there), so T_κ must be read on the free part, as AIP do. AIP [2] §8.2 (read) prints the same group map t ↦ (t², Nm t), so the displayed t⁻¹ is the anomaly. The atlas pin is kept and its effect on the AIP comparison recorded. All excerpts occur at the cited places."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
+    "verdict": "corrected",
+    "note": "Prop. 6.3 and proof (page image), Prop. 3.12, Defs. 3.10, 3.13, 5.16-5.17 read. The printed radius r_κ = |p|^{r_0}|T_κ| is not what the cited AIP [2, Prop. 2.8] gives: that result, read by the reviewer, gives |p|^{n+r_0} on W^0_{F,[0,p^n]}. The printed radius is also false in general. For F = Q, p = 3 and κ(±4^a) = (1+T)^a with v(T) = 1/3, κ has no continuation to balls of radius r_κ = |3|^{4/3}, since exp(c log z) with |c| = 3 converges only for |z−1| < |3|^{3/2}. Corrected to carry the AIP radius. Existence (Buzzard [6, Prop. 8.3] plus Galois descent) is as printed; uniqueness is still unargued in BHW. Excerpts verified."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O1/left-action-pullback-and-automorphy-conventions",
+    "verdict": "corrected",
+    "note": "(2.1), Def. 5.14, Remark 5.8, Lemma 2.4, (3.1) and the proof of Lemma 3.19 read. Remark 5.8 says the dual gives a left action and that γ^∨ is preferred to γ⁻¹ because of Lemma 8.23; both α∘γ⁻¹ and α∘γ^∨ are left actions. Statement (i) corrected. The derived cocycle law was checked for j = cz + d. Excerpts verified (the det(γ)⁻¹γ excerpt matches up to text-layer ordering)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O1/weight-twisted-invariant-sheaf-along-a-pro-etale-torsor",
+    "verdict": "corrected",
+    "note": "Lemmas 3.6-3.7, Defs. 3.15, 6.5, 9.1 and the proof of Lemma 9.3 read. The construction is correctly labelled as the drafter's pattern; module structure and the j = 1 case follow from Lemma 3.7. Hypotheses corrected: the O^+ statement of Lemma 3.6 is BHW's deduction for rigid Y from Kedlaya-Liu's v_*Ô = O. CHJ Lemma 2.23(2) (read) is a statement over Q_p for a Q_p-Banach space V. (Source slip: the first line of the proof of Lemma 3.7 swaps V and W.)"
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/restriction-of-scalars-tautological-section-transformation",
+    "verdict": "verified",
+    "note": "Def. 3.18, Lemma 3.19 with (3.3)-(3.4), Defs. 5.22 and 5.26, Remarks 5.23 and 5.27-5.28, and Lemma 5.29 read. γ^∨(1,0)^T = (d,−c)^T and the reduction modulo ⟨(z,1)^T⟩ were checked. Correct as written. The elliptic half duplicates the sibling draft node PerfectoidShimuraVarieties:S3/elliptic-hodge-line-as-pullback-of-O1-via-quotient-line (gap added)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/pulled-back-canonical-section-and-moduli-interpretation",
+    "verdict": "verified",
+    "note": "Defs. 5.20, 5.24 and 5.30, Prop. 5.25 (CS Thm 2.1.3(2)), Remark 5.21, Lemmas 5.31-5.32, (3.2), Lemma 3.17, Def. 3.20, (3.5) and Prop. 3.21 read. Correct as written. Placement problem: T5's comparison results (Prop. 7.11 and Lemma 7.12, credited to T5 by this packet) consume this node, which would close a stage cycle (gap added)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/automorphy-factor-kappa-of-cz-plus-d",
+    "verdict": "corrected",
+    "note": "Def. 6.4 (page image), Defs. 3.13-3.14 and 5.20, and Prop. 5.18 (page image) read. The node is faithful to the text, but the radius it uses must be the corrected analyticity radius of the O0 node; hypothesis corrected. Def. 6.4 prints X_{Γ(p∞)}(ϵ^def_κ)_a ⊆ B_{r_κ}(O_p:1), omitting π_HT and the star; the node reads it correctly."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/geometric-overconvergent-hilbert-sheaves-and-spaces",
+    "verdict": "corrected",
+    "note": "Defs. 6.5 and 6.8, Remark 6.7 and §1.3 read. Added the implicit condition pϵ ≤ ϵ^def_κ for the n = 0 sheaf. The elliptic Def. 3.15 prints ϵ_κ/p > ϵ there, although ϵ_κ is defined only in §4. The reading of 'weight 1' in Remark 6.7 as parallel weight one is right."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/analyticity-of-the-perfectoid-weight-sheaves",
+    "verdict": "corrected",
+    "note": "Prop. 6.6 and proof, Prop. 3.24 and proof, Remark 3.25 and §3.4 read. Heuer [14] read in arXiv v2 and in the published version (same numbering). BHW's '[14, Cor. 3.5]' is Cor. 3.1 there; Cor. 3.6 and Prop. 3.8 match; '[14, Cor. 4.1]' and '[14, Prop. 4.8]' do not exist with the cited content. The statements actually needed, Cor. 3.1 and Prop. 3.8, say what BHW use for the smooth space X_U(ϵ). Still unread: the formal Igusa model as a pro-étale torsor, and [15, Lemma 2.8.4] (now named)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/elliptic-specialisation-and-extension-over-the-cusps",
+    "verdict": "corrected",
+    "note": "Prop. 3.8 and proof, Remark 3.9, Defs. 3.14-3.16 (page image of p. 1729) and Prop. 2.6 (page image) read. Heuer [13] read in arXiv v1 and in Doc. Math. 27 (same numbering). The cited '[13, Prop. 2.10], [13, Thm 3.8], [13, Thm 3.21]' are Prop. 2.22, Thm 3.17 and Prop. 3.19 there; content confirmed. Corrected: the strict radius of Def. 3.16, the n = 0 condition of Def. 3.15, and the claim that Prop. 2.6 is a special case of Prop. 5.18 (literal only when r = p^{-m})."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O2/classical-weight-comparison",
+    "verdict": "verified",
+    "note": "Prop. 3.22 with proof and Remark 3.23 read; correct as written. The same content appears in the sibling S3 draft node (gap added)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O3/integral-perfectoid-weight-sheaves-and-integral-forms",
+    "verdict": "corrected",
+    "note": "Defs. 3.15, 3.16, 6.5 and 6.8, §1.1, Remark 4.6 (page image) and Thm 7.14 read. Correct except the Banach hypothesis: Remark 6.9's '[2, Theorem 3.16]' has no counterpart in AIP [2], whose numbering was checked in full. Hypothesis corrected."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O4/arithmetic-automorphy-factors-are-well-defined",
+    "verdict": "verified",
+    "note": "Lemma 9.2 and proof, (9.1) (page image), Def. 8.17, §8.3.1 and Lemma 8.24 read; correct. The drafter extends (4) from (1+NO_F)^{×,+} to (1+NO_F)^× using N_{F/Q}(η) = 1 for η ≡ 1 mod N with N ≥ 4. This is valid, and it does not depend on the ρ convention."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O4/four-torsor-presentations-of-hilbert-weight-sheaves",
+    "verdict": "verified",
+    "note": "Def. 9.1 (page image p. 74), the programme (i)-(iii), Prop. 8.18, Lemmas 8.19 and 8.24, Remark 8.27 and §8.2 read; correct."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O4/geometric-forms-independent-of-the-full-level-tower",
+    "verdict": "verified",
+    "note": "Lemma 9.3 and proof read, with Lemmas 8.25 and 8.28. Correct, including both printed index slips: 'f″ ∈ ω_{G*,(G*,Γ*,n)}' occurs on p. 1782 and again on p. 1783."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action-and-delta-descent",
+    "verdict": "verified",
+    "note": "Def. 9.4, Lemmas 9.5-9.6 and proofs, Lemma 8.12 and Prop. 8.4 read; correct, and the η-range slip in the proof of Lemma 9.5 is correctly flagged. The attribution of Prop. 8.4 to AIP [2, Lemma 8.1] was checked (read: Δ acts freely, and M → M_G is finite étale)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O4/weil-pairing-twist-identifies-the-arithmetic-presentations",
+    "verdict": "corrected",
+    "note": "(9.5), Lemma 9.7 and its proof, Lemma 8.26 and Prop. 8.21 read. The mathematics is correct as written. One excerpt ('the universal property of G b m') was a text-layer artefact; it is re-transcribed from the page image (Ĝm)."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O4/arithmetic-sheaves-spaces-and-polarisation-classes",
+    "verdict": "corrected",
+    "note": "Defs. 9.8 and 9.10, Remark 9.9 and P_x read; the content is correct. The excerpt 'then RF /TF is the narrow class group.' dropped superscripts and is fixed. The hypothesis that the n ≥ 1 sheaves on X_{G,c,U}(ϵ) are push-forwards is the drafter's reading of BHW's H^0(X_{G,c,U}(ϵ), ω_{G,c,n}); it is accepted as such."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O5/aip-weight-annuli-and-the-radius-epsilon-kappa",
+    "verdict": "corrected",
+    "note": "Defs. 4.5, 4.7 and 7.7-7.9 (page images pp. 1737 and 1761) and Remark 4.6 read. The drafter's off-by-one check is right, and AIP [2, §4.2 and Prop. 3.2] (read) settle it: the admissible level is n = k + r − 1, as in the elliptic Def. 4.7. ϵ_κ ≤ ϵ^def_κ holds with the AIP radius (derived). One excerpt dropped the exponent r+1 and is fixed. Also recorded: the torsion normalisation, and the absence of a topological generator of Z_2^×."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O5/aip-sheaf-on-weight-annuli-gluing-and-level-structure",
+    "verdict": "corrected",
+    "note": "Defs. 7.1-7.5 and 7.9, Prop. 7.10 and proof, Def. 7.13 read; AIP [2] Props. 4.1, 4.3, 4.7, 4.8, Thm 6.7 and §6.4 read. Level corrected to m = k + r − 1. '[2, Thm 6.7.3]' is Thm 6.7 item 3, the Frobenius compatibility of the analytic sheaf. AIP's defining condition is pointwise, which confirms the drafter's reading of the inclusion."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O5/perfectoid-and-aip-geometric-sheaves-agree",
+    "verdict": "corrected",
+    "note": "Prop. 7.11, Lemma 7.12, (7.2), Def. 7.13 and Thm 7.14 with proof read. Correct except the level m, now k + r − 1 per AIP. The restriction to k ≥ 1 in the proof is harmless because W_0^* ⊂ W_1^*."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O5/elliptic-comparison-with-the-pilloni-torsor",
+    "verdict": "corrected",
+    "note": "§4.1-4.2 (Defs. 4.1-4.7, Lemma 4.3, Thm 4.8, Lemma 4.9, Remark 4.10) read; page image of p. 1737. The node is faithful to the text. Added hypotheses: Def. 4.7 needs ϵ < ϵ_κ while Thm 4.8 allows ϵ = ϵ_κ; Def. 4.7(1) uses the group Z_p^×(1+p^mĜ_a) rather than the torsor group B_m (Pilloni [24] §3.5 read, unresolved); Lemma 4.9 depends on 𝔰."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O5/arithmetic-comparison-with-aip-by-delta-descent",
+    "verdict": "corrected",
+    "note": "Def. 9.11, Thm 9.12 with its chain, and Lemma 9.5 read; AIP [2] §8.1-8.2 read. Correct chain. Hypotheses updated: AIP's twisted Δ-action and group map are now recorded, integral descent is available through AIP Lemma 8.1, and the weight relabelling that the ρ pin induces is stated."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O6/cusp-forms-via-koecher-extension-and-boundary-divisor",
+    "verdict": "corrected",
+    "note": "Remarks 6.9, 9.9 and 10.5 and the elliptic cusp-form sentence after Def. 3.16 read; AIP [2] Prop. 8.4 and Cor. 8.3 read. What AIP's Koecher statement actually says is now recorded. '[2, Theorem 3.16]' has no referent in AIP [2]."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O6/tame-hecke-operators-by-pull-identify-trace",
+    "verdict": "verified",
+    "note": "§10.1, (10.1)-(10.2), Lemma 10.1 and proof, Def. 10.2 (page image p. 82) and Lemma 8.22 read; correct. The 'coprime to n' misprint is correctly flagged."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O6/u-frak-p-operators-via-the-action-of-u-frak-p",
+    "verdict": "verified",
+    "note": "§10.2, (10.3), Lemma 10.3 and proof, Def. 10.4 read. The conjugation j and u_𝔭^*𝔷 = ϖ𝔷 were checked; j(γ) ∈ Γ_0(p^n) because l = ne + 1. Correct."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O6/hecke-action-on-arithmetic-forms-and-canonicity",
+    "verdict": "verified",
+    "note": "§10.3 and Remarks 10.5-10.7 (page image p. 84) read; correct. The claims are assertions in BHW, as the node says."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O6/hecke-equivariance-of-the-aip-comparisons",
+    "verdict": "verified",
+    "note": "Prop. 10.8 and proof read; the (10.4) typo was confirmed on the page image. The top-left entry is X_{c𝔭,Γ(p∞)} although the bottom row is the tame correspondence F_{m,Γ0(𝔞)}, and the middle top entry also lacks Γ0(𝔞). AIP [2] §8.5, Lemma 8.5 and Lemma 8.7 read; they are consistent with the node."
+   },
+   {
+    "nodeId": "OverconvergentAutomorphicForms:O6/compactness-of-the-controlling-operator-u-p",
+    "verdict": "verified",
+    "note": "Remark 10.6 (page image p. 84) read: U_p = ∏_{𝔭|p} U_𝔭^{e_i}, with no proof and no Banach structure specified. The node is correct and does not overstate the source."
+   }
+  ]
+ }
 }

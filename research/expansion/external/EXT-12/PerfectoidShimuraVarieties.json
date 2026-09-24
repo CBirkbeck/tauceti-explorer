@@ -16,6 +16,15 @@
     "Chapter 3 in full: Section 3.1 (Definition 3.1.1, Theorem 3.1.2, Lemma 3.1.3), Section 3.2.1-3.2.5 (Theorem 3.2.1-Theorem 3.2.36), Section 3.3.1-3.3.3 (Proposition 3.3.1-Lemma 3.3.20 and the proof of Theorem 3.3.18) with proofs, printed pp. 970-1015; page images checked for printed pp. 971, 974, 978, 979, 983, 985, 986, 988, 994, 995, 1002, 1009, 1012, 1013",
     "Chapter 4 opening and Section 4.1 (setup, Theorem 4.1.1 with proof, footnotes 15-16), printed pp. 1016-1020; page image of printed p. 1018",
     "References list, printed pp. 1061-1066"
+   ],
+   "reviewCopies": [
+    {
+     "url": "http://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+     "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16",
+     "date": "2026-09-23",
+     "version": "Annals of Mathematics 182 (2015), no. 3, 945-1066 (published PDF; received 29 June 2013, revised 6 January 2015); DOI 10.4007/annals.2015.182.3.3 confirmed with Crossref ; SHA-256 identical to the packet's library copy",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -30,6 +39,15 @@
     "Section 4.1 (recollections, Definition 4.1, Lemma 4.3), p. 23; page image",
     "Section 5 in full: 5.1 (Lemma 5.1-Proposition 5.13 with proofs), 5.2 (Proposition 5.14, Corollary 5.15 with proofs), 5.3 (Propositions 5.16-5.19, Definition 5.17, Theorem 5.20, Corollary 5.21, Remark 5.22), pp. 27-38; page images of pp. 34-38",
     "References, pp. 38-40"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2011.03951v2",
+     "sha256": "0054e56be6624b564e1d5a3058e1ef3bbfe5140ca9f06ca64bded18478419cd9",
+     "date": "2026-09-23",
+     "version": "arXiv:2011.03951v2 (arXiv API: updated 2025-08-29; PDF dated 1 September 2025) ; SHA-256 identical to the packet's library copy",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -42,6 +60,15 @@
    "readSections": [
     "Introduction, Theorem B statement, p. 4",
     "Section 2.4, Definition 2.4.1, Propositions 2.4.2-2.4.5, Conjecture 2.4.6, Theorem 2.4.7 and the following remark, pp. 19-21"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1211.6357v2",
+     "sha256": "984411ef6c3d735a713684d4c9251fbad411a40eab33cefed8ab5c8412b09f6d",
+     "date": "2026-09-23",
+     "version": "arXiv:1211.6357v2 (arXiv API: updated 2013-04-13); published Camb. J. Math. 1 (2013), no. 2, 145-237 (Crossref, DOI 10.4310/CJM.2013.v1.n2.a1) ; SHA-256 identical to the packet's library copy",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -54,6 +81,15 @@
    "readSections": [
     "Front matter and contents, pp. 1-3",
     "Section 2 in full: 2.1 (Example 2.1.1, Theorems 2.1.2-2.1.3, Remarks 2.1.4-2.1.5), 2.2 (Definition 2.2.1-Proposition 2.2.5), 2.3 (Lemmas 2.3.1-2.3.8, Proposition 2.3.9), pp. 10-22; page image of p. 12"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1511.02418v1",
+     "sha256": "aa93df3947e57ab78b070a82d638e70c25ae2ae15aeb60346575e74fdf85b349",
+     "date": "2026-09-23",
+     "version": "arXiv:1511.02418v1 (8 Nov 2015); published Ann. of Math. 186 (2017), no. 3, 649-766 (Crossref DOI 10.4007/annals.2017.186.3.1; pages from the Annals article page) ; SHA-256 identical to the packet's library copy",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -66,6 +102,15 @@
    "readSections": [
     "Front matter and contents",
     "Section 4.4 in full except the formal-model boundary charts: 4.4.1-4.4.11 (Definitions 4.4.2-4.4.3, Lemmas 4.4.6-4.4.7, Siegel torsors and pi_HT), 4.4.12-4.4.20 skimmed, statements of Theorems 4.4.21, 4.4.23, 4.4.36, 4.4.37, 4.4.24-4.4.35 (Hodge type, Proposition 4.4.29), 4.4.38-4.4.40 (general data), 4.4.41-4.4.53 (abelian type), pp. 63-85; page image of p. 78"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2110.10251v1",
+     "sha256": "85526b90c48d0955f2a042f63d619a22584e3801391934504563994733d58596",
+     "date": "2026-09-23",
+     "version": "arXiv:2110.10251v1 (19 Oct 2021) ; SHA-256 identical to the packet's library copy",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -81,6 +126,15 @@
     "Section 3.3 (formula (3.2), Lemma 3.17-Remark 3.23), pp. 1730-1733",
     "Section 5.1-5.3 (Notation 5.1-Proposition 5.19), pp. 1740-1752; page image of p. 1751",
     "Section 8 in full (Lemma 8.2-Lemma 8.28), pp. 1765-1780; page image of p. 1775"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf",
+     "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4",
+     "date": "2026-09-23",
+     "version": "Ann. Inst. Fourier 73 (2023), no. 4, 1709-1794 (open access; Crossref, DOI 10.5802/aif.3560); arXiv:1902.03985v4 exists but was not used ; SHA-256 identical to the packet's library copy",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   }
  ],
@@ -106,7 +160,7 @@
    ],
    "acceptance": [
     "For I = R (Z empty) both sides are (R+/t)^a by [52, Th. 6.3(iii),(iv)] (Remark 2.3.3).",
-    "Remark 2.3.3: for x outside Z the image of I+ in O_{k(x)} is almost everything, so evaluation lands in O^a_{k(x)}/t; the map is pinned down by injectivity of H^0 into the product of stalks."
+    "Remark 2.3.3: for x outside Z the image I+_{k(x)} of I+ in O_{k(x)} is not the zero ideal, so I+_{k(x)}^{1/p^infty} is almost equal to O_{k(x)} and evaluation lands in O^a_{k(x)}/t; the map is pinned down by injectivity of H^0 into the product of stalks."
    ],
    "sources": [
     {
@@ -145,7 +199,7 @@
    ],
    "acceptance": [
     "Application check (Lemma 3.2.27): A0 an affine open of X* (x) F_p for the Siegel minimal compactification, f = Ha, I0 the boundary ideal; the resolution is a toroidal compactification.",
-    "Smooth test: A0 = F_p[x, y], f = y, I0 = (x, y); the statement reduces to the smooth case of Lemma 2.3.6."
+    "Smooth test (reviewer-suggested, not in the source): A0 = F_p[x, y], f = y, I0 = (x, y - 1); V(I0) is a codimension-2 point where |f| = 1, so Z is nonempty in X = {|f| >= |t|}, the resolution is the identity, and the statement reduces to the smooth case of Lemma 2.3.6."
    ],
    "sources": [
     {
@@ -177,7 +231,7 @@
    "statement": "Definition 2.3.8: for a perfectoid field K and 0 != t in K with |p| <= |t| < 1, a triple (X, Z, U) of an affinoid perfectoid X over K, a closed Z in X and a quasi-compact open U in X \\ Z is good if H^0(X, O+/t)^a = H^0(X \\ Z, O+/t)^a injects into H^0(U, O+/t)^a; this is independent of t, compatible with tilting, and then holds for every t in O_K including t = 0 (bounded functions extend uniquely from X \\ Z to X). Lemma 2.3.9: if A0 is normal of finite type over F_p admitting a resolution of singularities, R0 = (A0 (x)^ K)<u>/(uf - t) with f in A0 not a zero-divisor, I0 = J R0 with V(J) of codimension >= 2 in Spec A0, U0 = {|g| = 1 for some g in J} and K = F_p((t^{1/p^infty})), then the perfected triple (X, Z, U) is good. Lemma 2.3.10: if (X, Z, U) is good, R0 is normal, V(I0) has codimension >= 2, and R0' is a finite normal R0-algebra etale outside V(I0) with no irreducible component of Spec R0' mapping into V(I0), then the trace pairing is perfect on R0', almost perfect on the perfected integral rings, H^0(V', O+/t)^a = Hom_{R°/t}(R'°/t, H^0(V, O+/t))^a for opens V with preimage V', the pulled back triple (X', Z', U') is good, and if X' -> X is surjective then H^0(X, O+/t) -> H^0(X', O+/t) cap H^0(U, O+/t) is an almost isomorphism. Lemma 2.3.11: for a filtered inductive system of such R0^(i) with surjective transition maps X^(i) -> X^(j), the limit triple (X~, Z~, U~) is good. Corollary 2.3.12: Lemma 2.3.9 holds for K the completion of an algebraic extension of F_p((t^{1/p^infty})).",
    "hypotheses": [
     "Lemmas 2.3.9-2.3.11 are in characteristic p: R0 a reduced Tate K-algebra topologically of finite type, R its completed perfection, X = Spa(R, R°).",
-    "Codimension >= 2 of the boundary is essential in Lemmas 2.3.9 and 2.3.10; for the Siegel boundary this means g >= 2 (the g = 1 variant of Section 3.2.5 uses that the boundary does not meet V(f), or that the cover is finite etale).",
+    "Codimension >= 2 of the boundary is assumed in Lemmas 2.3.9 and 2.3.10; for the Siegel boundary this means g >= 2. For g = 1 the source (after Proposition 3.2.33) notes that Lemma 2.3.9 still holds in codimension 1 when the boundary V(J) does not meet V(f), and Lemma 2.3.10 when the map is finite etale.",
     "Lemma 2.3.10 needs R0' finite normal over R0, etale outside V(I0), with no component inside V(I0)."
    ],
    "proofSteps": [
@@ -360,7 +414,7 @@
    "statement": "Let 0 <= epsilon < 1/2. (i) There is a unique diagram of formal schemes F~: A(p^{-1} epsilon) -> A(epsilon), X(p^{-1} epsilon) -> X(epsilon), X*(p^{-1} epsilon) -> X*(epsilon) that reduces to the Frobenius diagram (1) modulo p^{1-epsilon}. (ii) For m >= 0, A(p^{-m} epsilon) has a canonical subgroup C_m of level m; the pair (A(p^{-m} epsilon)/C_m, A(p^{-m} epsilon)[p^m]/C_m) defines a morphism of generic fibres X(p^{-m} epsilon) -> X_{Gamma_0(p^m)}, which extends uniquely to X*(p^{-m} epsilon) -> X*_{Gamma_0(p^m)}; these are open immersions, and for m >= 1 the square formed with (F~_{X(p^{-m-1} epsilon)})^ad_eta and X*_{Gamma_0(p^{m+1})} -> X*_{Gamma_0(p^m)} is commutative and cartesian. (iii) A(epsilon) has a weak canonical subgroup C of level 1, and X(p^{-1} epsilon) is identified with the open and closed subset X_{Gamma_0(p)}(epsilon)_a of X_{Gamma_0(p)}(epsilon) parametrizing D in A(epsilon)[p] with D cap C = {0} (Theorem 3.2.15, Remark 3.2.16).",
    "hypotheses": [
     "0 <= epsilon < 1/2 (page image, printed p. 985).",
-    "Gamma_0(p^m) is Scholze's nonstandard group requiring in addition det gamma = 1 mod p^m (Definition 3.1.1), and X_{K_p} for K_p in {Gamma_0(p^m), Gamma_1(p^m), Gamma(p^m)} is the adic space of X_{K_p} (x)_{Q(zeta_{p^m})} Q_p^cycl.",
+    "Gamma_0(p^m) is Scholze's nonstandard group requiring in addition det gamma = 1 mod p^m (Definition 3.1.1). For K_p in {Gamma_0(p^m), Gamma_1(p^m), Gamma(p^m)}, X^ad_{K_p} is the adic space of X_{K_p} (x)_{Q(zeta_{p^m})} Q_p^cycl (zeta_{p^m} given by the similitude factor), the calligraphic X_{K_p} in X^ad_{K_p} is the preimage of the good-reduction locus X, and X*_{K_p} is the adic space of the minimal compactification; so X(p^{-m} epsilon) -> X_{Gamma_0(p^m)} lands in the good-reduction locus.",
     "The extension to the minimal compactification is proved for g >= 2 via Lemma 3.2.10; for g = 1 the source says the case is easy and left to the reader (possibly via E -> E x E into the Siegel threefold).",
     "The statement of (iii) in the source says 'weak canonical subgroup C of level p'; the proof and later use (C in A(epsilon)[p]) show that level 1 is meant."
    ],
@@ -402,7 +456,7 @@
    "parentStageId": "PerfectoidShimuraVarieties:S1",
    "title": "The anticanonical Gamma_0(p^m)-tower on the minimal compactification and its affinoidness at deep level",
    "kind": "construction",
-   "statement": "For m >= 1 define X_{Gamma_0(p^m)}(epsilon)_a in X_{Gamma_0(p^m)} and X*_{Gamma_0(p^m)}(epsilon)_a in X*_{Gamma_0(p^m)} as the images of X(p^{-m} epsilon) and X*(p^{-m} epsilon). X*_{Gamma_0(p^m)}(epsilon)_a is open and closed in X*_{Gamma_0(p^m)}(epsilon) (open by Theorem 3.2.15, closed because X*(p^{-m} epsilon) -> X*(epsilon) is finite) and is the locus where the universal totally isotropic D in A(epsilon)[p^m] has D[p] cap C = {0}. The resulting tower ... -> X*_{Gamma_0(p^{m+1})}(epsilon)_a -> X*_{Gamma_0(p^m)}(epsilon)_a -> ... is the pullback of the full Gamma_0-tower along the open X*_{Gamma_0(p)}(epsilon)_a, it has integral models X*(p^{-m} epsilon) whose transition maps are relative Frobenius modulo p^{1-epsilon}, and carries the abelian schemes A_{Gamma_0(p^m)}(epsilon)_a by pullback. Lemma 3.2.17: for fixed 0 <= epsilon < 1/2 and m sufficiently large, X*_{Gamma_0(p^m)}(epsilon)_a is affinoid.",
+   "statement": "For m >= 1 define X_{Gamma_0(p^m)}(epsilon)_a in X_{Gamma_0(p^m)} and X*_{Gamma_0(p^m)}(epsilon)_a in X*_{Gamma_0(p^m)} as the images of X(p^{-m} epsilon) and X*(p^{-m} epsilon). On the good-reduction locus, X_{Gamma_0(p^m)}(epsilon)_a is open and closed in X_{Gamma_0(p^m)}(epsilon) and is the locus where the universal totally isotropic D in A(epsilon)[p^m] satisfies D[p] cap C = {0}, for C in A(epsilon)[p] the weak canonical subgroup (Theorem 3.2.15(ii),(iii)). On the minimal compactification, X*_{Gamma_0(p^m)}(epsilon)_a is open and closed in X*_{Gamma_0(p^m)}(epsilon) (open by Theorem 3.2.15, closed because X*_{Gamma_0(p^m)}(epsilon)_a = X*(p^{-m} epsilon) -> X*(epsilon) is finite). The resulting tower ... -> X*_{Gamma_0(p^{m+1})}(epsilon)_a -> X*_{Gamma_0(p^m)}(epsilon)_a -> ... -> X*_{Gamma_0(p)}(epsilon)_a is the pullback of the full Gamma_0-tower along the open X*_{Gamma_0(p)}(epsilon)_a in X*_{Gamma_0(p)}, it has integral models X*(p^{-m} epsilon) whose transition maps are relative Frobenius modulo p^{1-epsilon}, and over the good-reduction part it carries the abelian schemes A_{Gamma_0(p^m)}(epsilon)_a -> X_{Gamma_0(p^m)}(epsilon)_a by pullback. Lemma 3.2.17: for fixed 0 <= epsilon < 1/2 and m sufficiently large, X*_{Gamma_0(p^m)}(epsilon)_a is affinoid.",
    "hypotheses": [
     "0 <= epsilon < 1/2; notation X_{K_p}(epsilon) for preimages of X(epsilon).",
     "Lemma 3.2.17 uses Serre vanishing H^i(X*, omega^{(x) p^m (p-1)}) = 0 for i > 0 on the projective integral minimal compactification with ample omega."
@@ -412,7 +466,7 @@
     "Lemma 3.2.17: choose m with H^i(X*, omega^{(x) p^m (p-1)}) = 0 for i > 0, lift Ha^{p^m} globally; |Ha| >= |p|^{p^{-m} epsilon} iff |Ha~^{p^m}| >= |p|^epsilon, a non-vanishing condition for a section of an ample line bundle, which defines an affinoid space X*(p^{-m} epsilon) = X*_{Gamma_0(p^m)}(epsilon)_a."
    ],
    "acceptance": [
-    "Check that the level-m piece is the pullback of the level-(m+1) piece along the cartesian square of Theorem 3.2.15(ii).",
+    "Check that the level-(m+1) piece is the pullback of the level-m piece: by the cartesian square of Theorem 3.2.15(ii), X*_{Gamma_0(p^{m+1})}(epsilon)_a = X*_{Gamma_0(p^{m+1})} x_{X*_{Gamma_0(p^m)}} X*_{Gamma_0(p^m)}(epsilon)_a.",
     "Affinoidness at deep level is what makes Lemma 3.2.24 and Proposition 3.2.33 statements about global sections."
    ],
    "sources": [
@@ -552,7 +606,7 @@
    ],
    "proofSteps": [
     "(i): with R = H^0(X*_{Gamma_0(p^m)}(epsilon)_a, O) and S = S_m, both normal noetherian with boundary of codimension >= 2; the trace S -> R exists away from the boundary and extends; the trace pairing induces S = Hom_R(S, R) by extension across codimension 2.",
-    "As in Lemma 2.3.10(iii), H^0(V, O_{Y*}) = Hom_R(S, H^0(U, O)) for opens U with preimage V, so (i) reduces to H^0(X_{Gamma_0(p^m)}(epsilon)_a, O^+) = H^0(X*_{Gamma_0(p^m)}(epsilon)_a, O^+), which is Lemma 3.2.10.",
+    "As in Lemma 2.3.10(iii) (repeating the argument after pullback to affinoid opens), the trace pairing gives H^0(V, O_{Y*_m}) = Hom_R(S, H^0(U, O_{X*_{Gamma_0(p^m)}(epsilon)_a})) for opens U with preimage V, so (i) is deduced from H^0(X_{Gamma_0(p^m)}(epsilon)_a, O_{X*_{Gamma_0(p^m)}(epsilon)_a}) = H^0(X*_{Gamma_0(p^m)}(epsilon)_a, O_{X*_{Gamma_0(p^m)}(epsilon)_a}), which the source calls a consequence of Lemma 3.2.10. The display is printed with O, not O^+ (page image, printed p. 996); the passage to the O^+-statement S^+_{m'} = H^0(Y_{m'}, O^+) is left implicit.",
     "(ii): Tate's normalized traces (Corollary 3.2.23) with (i) give retractions and injectivity; convergence tr_m(x) -> x gives density.",
     "(iii): immediate from (ii)."
    ],
@@ -575,7 +629,7 @@
    "parentStageId": "PerfectoidShimuraVarieties:S1",
    "title": "Adding Gamma_1(p^m)-structure: guess the tilt as a perfected normalization and prove it is the untilt",
    "kind": "theorem",
-   "statement": "Assume g >= 2 and 0 <= epsilon < 1/2. Let D_m = A_{Gamma_0(p^m)}(epsilon)_a[p^m]/C_m on the anticanonical tower; then A_{Gamma_0(p^infty)}(epsilon)_a[p^m] -> D_{m,Gamma_0(p^infty)} is an isomorphism of perfectoid spaces (Lemma 3.2.25) and its tilt is the perfection of D'_m = A'(epsilon)[p^m]/C'_m (Lemma 3.2.26). In characteristic p let X^{ord*}_{Gamma_1(p^m)} = Spec H^0(X^ord_{Gamma_1(p^m)}, O), finite over the affine ordinary minimal locus X^{ord*}, and X'*_{Gamma_1(p^m)}(epsilon) its Hasse-locus generic fibre; the triple (X'*(epsilon)^perf, Z'*(epsilon)^perf, X'(epsilon)^perf) is good (Lemma 3.2.27) and so is its Gamma_1(p^m) analogue (Corollary 3.2.28). For Y*_m = X*_{Gamma_1(p^m)}(epsilon)_a, the tilt of Y_infty is X'_{Gamma_1(p^m)}(epsilon)^perf (Lemma 3.2.29), the tilt of Y*_infty \\ boundary is X'*_{Gamma_1(p^m)}(epsilon)^perf \\ boundary (Lemma 3.2.30, via Lemma 3.2.31), and S_infty = H^0(Y_infty, O) is perfectoid with tilt X'*_{Gamma_1(p^m)}(epsilon)^perf (Lemma 3.2.32). Consequently (Proposition 3.2.33) for m >= 1 there is a unique perfectoid X*_{Gamma_1(p^m) cap Gamma_0(p^infty)}(epsilon)_a ~ lim_{m'} X*_{Gamma_1(p^m) cap Gamma_0(p^{m'})}(epsilon)_a, affinoid together with the finite levels for m' large, with dense image of global sections and a good triple with its boundary and good-reduction locus; and (Proposition 3.2.34) the same holds for X*_{Gamma_1(p^infty)}(epsilon)_a ~ lim_m X*_{Gamma_1(p^m)}(epsilon)_a.",
+   "statement": "Assume g >= 2 and 0 <= epsilon < 1/2. Let D_m = A_{Gamma_0(p^m)}(epsilon)_a[p^m]/C_m on the anticanonical tower; then A_{Gamma_0(p^infty)}(epsilon)_a[p^m] -> D_{m,Gamma_0(p^infty)} is an isomorphism of perfectoid spaces (Lemma 3.2.25) and its tilt is the perfection of D'_m = A'(epsilon)[p^m]/C'_m (Lemma 3.2.26). In characteristic p let X^{ord*}_{Gamma_1(p^m)} = Spec H^0(X^ord_{Gamma_1(p^m)}, O), finite over the affine ordinary minimal locus X^{ord*}, and X'*_{Gamma_1(p^m)}(epsilon) the open locus |Ha| >= |t|^epsilon of the adic space attached to X^{ord*}_{Gamma_1(p^m)} (x) F_p((t^{1/(p-1)p^infty})), finite over X'*(epsilon) and etale away from the boundary; the triple (X'*(epsilon)^perf, Z'*(epsilon)^perf, X'(epsilon)^perf) is good (Lemma 3.2.27) and so is its Gamma_1(p^m) analogue (Corollary 3.2.28). For Y*_m = X*_{Gamma_1(p^m)}(epsilon)_a, the tilt of Y_infty is X'_{Gamma_1(p^m)}(epsilon)^perf (Lemma 3.2.29), the tilt of Y*_infty \\ boundary is X'*_{Gamma_1(p^m)}(epsilon)^perf \\ boundary (Lemma 3.2.30, via Lemma 3.2.31), and S_infty = H^0(Y_infty, O) is perfectoid with tilt X'*_{Gamma_1(p^m)}(epsilon)^perf (Lemma 3.2.32). Consequently (Proposition 3.2.33) for m >= 1 there is a unique perfectoid X*_{Gamma_1(p^m) cap Gamma_0(p^infty)}(epsilon)_a ~ lim_{m'} X*_{Gamma_1(p^m) cap Gamma_0(p^{m'})}(epsilon)_a, affinoid together with the finite levels for m' large, with dense image of global sections and a good triple with its boundary and good-reduction locus; and (Proposition 3.2.34) the same holds for X*_{Gamma_1(p^infty)}(epsilon)_a ~ lim_m X*_{Gamma_1(p^m)}(epsilon)_a.",
    "hypotheses": [
     "g >= 2 for Lemmas 3.2.24, 3.2.27, 3.2.28 and the construction of X^{ord*}_{Gamma_1(p^m)}; for g = 1 the source notes that X*_{Gamma_1(p^m)}(epsilon)_a -> X*_{Gamma_0(p^m)}(epsilon)_a is finite etale, the boundary lies in the ordinary locus, and Lemmas 2.3.9-2.3.10 still apply in codimension 1 under those conditions.",
     "Lemma 3.2.27 needs a resolution of singularities of X* (x) F_p, supplied by the toroidal compactification of Faltings-Chai [28].",
@@ -586,20 +640,20 @@
     "Lemma 3.2.26: perfection kills ker Frobenius = C'_m, so (D'_m)^perf = A'(epsilon)[p^m]^perf, the tilt of A_{Gamma_0(p^infty)}(epsilon)_a[p^m] by Corollary 3.2.19.",
     "Lemma 3.2.27: locally over affine opens of X'*, apply Lemma 2.3.9 with t replaced by t^epsilon (and Corollary 2.3.12); Corollary 3.2.28 follows by Lemma 2.3.10.",
     "Lemma 3.2.29: Y_infty -> X_{Gamma_0(p^infty)}(epsilon)_a parametrizes isomorphisms D_{m,Gamma_0(p^infty)} = (Z/p^m)^g, whose tilt parametrizes (D'_m)^perf = (Z/p^m)^g by Lemma 3.2.26.",
-    "Lemma 3.2.30: untilt X'*_{Gamma_1(p^m)}(epsilon)^perf = Spa(T, T+) to (U, U+); get U+ -> S_infty^+ and maps of adic spaces away from the boundary; both sides are perfectoid finite etale over X*_{Gamma_0(p^infty)}(epsilon)_a \\ boundary; conclude with Lemmas 3.2.27 and 3.2.31.",
+    "Lemma 3.2.30: untilt X'*_{Gamma_1(p^m)}(epsilon)^perf = Spa(T, T+) to (U, U+); Lemma 3.2.29 gives U+ -> H^0(Y_infty, O^+) = S_infty^+, and by Lemma 3.2.24 the right-hand side is the p-adic completion of colim S_m^+; hence a map of adic spaces in the sense of [55, Def. 2.1.5] to Spa(S_infty, S_infty^+) and then to Spa(U, U+) (the source prints the source space as Y*_m \\ boundary, apparently a misprint for Y*_infty \\ boundary, since it then calls both spaces perfectoid; printed p. 999); away from the boundary both sides are perfectoid and finite etale over X*_{Gamma_0(p^infty)}(epsilon)_a \\ boundary; conclude with Lemma 3.2.29, Lemma 3.2.27 and Lemma 3.2.31.",
     "Lemma 3.2.32: U+/p injects into S_infty^+/p almost (goodness, Corollary 3.2.28), and S_infty^+/p injects into H^0(Y*_infty \\ boundary, O+/p) = (U+/p)^a (Lemma 3.2.30, Corollary 3.2.28), so U = S_infty.",
-    "Propositions 3.2.33-3.2.34: combine with Lemma 3.2.24(iii); pass to the limit over m using Lemma 2.3.11."
+    "Proposition 3.2.33: the source says only 'Summarizing the discussion'; Lemma 3.2.32 with Lemma 3.2.24(iii) gives the affinoid perfectoid Y*_infty ~ lim, and goodness of its triple follows from Corollary 3.2.28 through the tilt (goodness is compatible with tilting, Definition 2.3.8) (reviewer reconstruction). Proposition 3.2.34: pass to the limit over m using Lemma 2.3.11."
    ],
    "acceptance": [
     "Check on the ordinary locus epsilon = 0 that the characteristic-p candidate is the perfected normalization of the Igusa-type cover trivializing D'_m.",
-    "The resulting triple (X*_{Gamma_1(p^infty)}(epsilon)_a, boundary, good-reduction part) is good, which is what later extends pi_HT."
+    "The resulting triple (X*_{Gamma_1(p^infty)}(epsilon)_a, boundary, good-reduction part) is good; via Lemmas 2.3.10-2.3.11 it yields the goodness in Theorem 3.2.36, which Corollary 3.3.17 and Theorem 3.3.18(vi) use to extend pi_HT and sections of omega across the boundary."
    ],
    "sources": [
     {
      "sourceId": "sch15-torsion",
-     "locator": "Section 3.2.5, Lemmas 3.2.25-3.2.32 and Propositions 3.2.33-3.2.34 with proofs and the g = 1 remark, printed pp. 996-1001",
+     "locator": "Section 3.2.5, introduction, printed p. 995; Lemmas 3.2.25-3.2.32 and Propositions 3.2.33-3.2.34 with proofs and the g = 1 remark, printed pp. 997-1001",
      "excerpt": "Our strategy is to first guess what the tilt of the space is and then prove that our guess is correct.",
-     "match": "The source's own description of the untilting strategy."
+     "match": "The source's own description of the untilting strategy (Section 3.2.5 introduction, p. 995); the lemmas transcribed in the node are on pp. 997-1001."
     },
     {
      "sourceId": "sch15-torsion",
@@ -663,16 +717,16 @@
    "parentStageId": "PerfectoidShimuraVarieties:S1",
    "title": "Hodge-Tate filtration and Hasse invariant of an abelian variety with bad reduction via its connected Neron model",
    "kind": "comparison",
-   "statement": "Proposition 3.3.1: let C be algebraically closed complete over Q_p and A/C an abelian variety with connected Neron model G/O_C; its p-adic completion is an extension 0 -> T^ -> G^ -> B^ -> 0 of an abelian scheme B over O_C by a split torus T, G^[p^infty] is a p-divisible group over O_C, and the Hodge-Tate filtration Lie G^ (x) C(1) -> T_p G^ (x) C is compatible with the Hodge-Tate filtration Lie A(1) -> T_p A (x) C of A. Lemma 3.3.2: if A comes from x in X(C) = X_{g,K^p}(C), extended to x in X*_{g,K^p}(O_C) by properness, then (i) x^* omega_{X*} = omega_G, and (ii) modulo p, Ha(x) = Ha(B (x) O_C/p) (x) (omega_T^can)^{p-1} in omega_G^{(x)(p-1)}/p = omega_B^{(x)(p-1)}/p (x) omega_T^{(x)(p-1)}/p, where omega_T^can = dlog Z_1 ^ ... ^ dlog Z_m up to sign.",
+   "statement": "Proposition 3.3.1: let C be an algebraically closed complete extension of Q_p and A/C an abelian variety with connected Neron model G/O_C; the p-adic completion G^ (a formal scheme over Spf O_C) is an extension 0 -> T^ -> G^ -> B^ -> 0 with T a split torus over O_C and B an abelian variety over O_C, so G^[p^infty] is a p-divisible group over O_C with Hodge-Tate filtration 0 -> Lie G^ (x)_{O_C} C(1) -> T_p G^ (x)_{Z_p} C -> (Lie G^[p^infty]^*)^* (x)_{O_C} C -> 0; A has its Hodge-Tate filtration 0 -> Lie A(1) -> T_p A (x)_{Z_p} C -> (Lie A^*)^* -> 0; and the square formed by the two filtration maps, the identification Lie G^ (x)_{O_C} C(1) = Lie A(1) and the injection T_p G^ (x)_{Z_p} C -> T_p A (x)_{Z_p} C commutes. Lemma 3.3.2: if A comes from x in X(C) = X_{g,K^p}(C), extended to x in X*_{g,K^p}(O_C) by properness, then (i) x^* omega_{X*} = omega_G, and (ii) modulo p, Ha(x) = Ha(B (x) O_C/p) (x) (omega_T^can)^{p-1} in omega_G^{(x)(p-1)}/p = omega_B^{(x)(p-1)}/p (x) omega_T^{(x)(p-1)}/p, where omega_T^can = dlog Z_1 ^ ... ^ dlog Z_m up to sign.",
    "hypotheses": [
-    "C algebraically closed and complete; A has connected Neron model (semistable reduction after the implicit base change over C).",
+    "C an algebraically closed complete extension of Q_p; A/C is assumed to have a connected Neron model G/O_C (hypothesis of Proposition 3.3.1).",
     "The sign ambiguity of omega_T^can disappears in the (p-1)-th power for p != 2, and modulo p for p = 2 (footnote 14).",
     "Proposition 3.3.1's proof is 'identical to the proof of [54, Prop. 4.15]' (Scholze, Perfectoid spaces: a survey), which is not in the library.",
     "Lemma 3.3.2 uses a smooth projective toroidal compactification of Faltings-Chai [28] with its semiabelian family G^univ and omega_{G^univ} = f^* omega_{X*}."
    ],
    "proofSteps": [
     "Proposition 3.3.1: by reference to [54, Prop. 4.15] (unread import).",
-    "Lemma 3.3.2(i): pull back omega_{G^univ} = f^* omega_{X*} from the toroidal compactification to x.",
+    "Lemma 3.3.2(i): with f: Xbar -> X* the smooth projective toroidal compactification and omega_{G^univ} = f^* omega_{X*} (by construction of X*), 'pulling back to x gives part (i)'; the lift of x to Xbar(O_C) and the identification of the pulled-back semiabelian scheme with the connected Neron model G are left implicit in the source.",
     "Lemma 3.3.2(ii): the Verschiebung of G^univ in characteristic p defines Ha' in H^0(Xbar (x) F_p, omega_{G^univ}^{(x)(p-1)}) extending Ha, hence equal to the pullback of Ha; pulling back to x reduces to a direct verification on the torus and abelian parts."
    ],
    "acceptance": [
@@ -819,7 +873,7 @@
    "hypotheses": [
     "Tame level K^p contained in the principal congruence subgroup of level N >= 3 prime to p (Theorem 3.1.2); 0 < epsilon < 1/2.",
     "The GSp_2g(Q_p)-action does not preserve the structure map to Spa(Q_p^cycl, Z_p^cycl) (footnote 7).",
-    "Gluing uses Definition 3.3.5: affinoid perfectoid subsets of |X*_{Gamma(p^infty)}| defined through finite levels glue to a perfectoid space; overlaps are handled by the rational-subset stability of this notion."
+    "Gluing uses Definition 3.3.5. The source asserts that any perfectoid subset of |X*_{Gamma(p^infty)}| has a natural perfectoid structure 'by gluing the spaces Spa(R_infty, R_infty^+) on affinoid perfectoid subsets' (printed p. 1006) and does not discuss compatibility on overlaps. Stability of the finite-level affinoid perfectoid condition under rational subsets, [54, Prop. 2.22(ii)], is cited only later, in the proof of Theorem 3.3.18(i) (p. 1014)."
    ],
    "proofSteps": [
     "Choose 0 < epsilon < 1/2; by Lemma 3.3.11 finitely many translates of |X*_{Gamma(p^infty)}(epsilon)| cover.",
@@ -913,7 +967,7 @@
     "(ii): from the construction in (i), Corollary 3.2.20 and the pullback Lemma 2.2.9."
    ],
    "acceptance": [
-    "Hansen-Johansson Proposition 5.14 and Scholze Theorem 4.1.1 consume exactly (i)-(ii): affinoid perfectoid V_J pulled back from finite level.",
+    "Scholze Theorem 4.1.1 consumes (i)-(ii): the affinoid perfectoid charts Y*(J) = pi_HT^{-1}(Fl_J), pulled back from finite level, and the strongly Zariski closed boundary (printed p. 1020). Hansen-Johansson Proposition 5.14 cites Theorem 3.3.18 only for perfectoidness of the Siegel minimal tower. Otherwise it uses the finitely many translates of X*_{Gamma(p^infty)}(epsilon)_a (Corollary 3.3.12, Theorem 3.2.36; HJ p. 34 and footnote 9), not V_J or (ii).",
     "Check that V_J for J = {g+1, ..., 2g} contains the anticanonical ordinary locus."
    ],
    "sources": [
@@ -1064,19 +1118,21 @@
    "parentStageId": "PerfectoidShimuraVarieties:S2",
    "title": "Hodge type: the tower of genuine minimal compactifications is perfectoid, analytically separated and a good tower",
    "kind": "theorem",
-   "statement": "Hansen-Johansson Proposition 5.14 and Corollary 5.15: let (G, X) be a Shimura datum of Hodge type with reflex field E and Hodge cocharacter mu, Sh_K(G, X) its canonical model (normal, quasi-projective over E) and Sh*_K(G, X) its normal projective minimal compactification; fix a prime of E over p with completion E_p and let X_K, X*_K be the associated rigid spaces over E_p. For every open compact K^p in G(A_f^p), X*_{K^p} = lim_{K_p} X*,diamond_{K^pK_p} is a perfectoid space; it is analytically separated and has a pair of coverings by finitely many open affinoid perfectoid U_i, V_i with closure of U_i contained in V_i, all pulled back from open affinoids at some finite level. Hence for any cofinal system of open compact K_p in G(Q_p) the tower (X*_{K^pK_p}) is a good tower over E_p (Definition 5.12). Corollary 5.15: for any open compact K in G(A_f) and cofinal K_p, the tower (X*_{K cap K_p}) is a good tower, where K cap K_p means K cap (G(A_f^p)K_p). By construction there is a map X*_{K^p} -> Xbar*_{K^p} to Scholze's image compactification, which need not be an isomorphism.",
+   "statement": "Hansen-Johansson Proposition 5.14 and Corollary 5.15: let (G, X) be a Shimura datum of Hodge type with reflex field E and Hodge cocharacter mu, Sh_K(G, X) its canonical model (normal, quasi-projective over E) and Sh*_K(G, X) its normal projective minimal compactification; fix a prime of E over p with completion E_p and let X_K, X*_K be the associated rigid spaces over E_p. For every open compact K^p in G(A_f^p), X*_{K^p} = lim_{K_p} X*,diamond_{K^pK_p} is a perfectoid space; it is analytically separated and has a pair of coverings by finitely many open affinoid perfectoid U_i, V_i with closure of U_i contained in V_i, all pulled back from open affinoids at some finite level. Hence for any cofinal system of open compact K_p in G(Q_p) the tower (X*_{K^pK_p}) is a good tower over E_p (Definition 5.12). Corollary 5.15: for any open compact K in G(A_f) and cofinal K_p, the tower (X*_{K cap K_p}) is a good tower, where K cap K_p means K cap (G(A_f^p)K_p). By construction there is a map X*_{K^p} -> Xbar*_{K^p} to Scholze's image compactification, which need not be an isomorphism. Proposition 5.14 as printed in v2 also asserts a G(Q_p)-equivariant Hodge-Tate period map pi_HT: X*_{K^p} -> Fl_{G,mu}, functorial in the tame level. Its proof defines pi_HT as the composite of the natural map X*_{K^p} -> Xbar*_{K^p} with the 'previously known' map Xbar*_{K^p} -> Fl_{G,mu}. It cites [CGH+18, Theorem 3.3.1] for the latter and gives no further argument (p. 35).",
    "hypotheses": [
     "Hodge type with a fixed closed embedding iota: (G, X) -> (GSp_2g, H_g^{+-}); no condition on the tame level K^p of G.",
     "Siegel input [Sch15, Thm. 3.3.18] is available for tame levels contained in a conjugate of a principal congruence subgroup of level >= 3; the source removes this with [Han16, Theorem 1.4] (quotients of affinoid perfectoid spaces by finite groups), using that S*_{K^p} is covered by finitely many GSp_2g(Q_p)-translates of S*_{K^p}(epsilon)_a, invariant under K'^p/K^p for normal inclusions K^p in K'^p.",
     "The genuine minimal compactification is handled only through Lemma 5.9, i.e. the perfectoidization theorem [BS19, Theorem 1.16(1)] recalled as Lemma 5.10.",
-    "Not claimed: X*_{K^p} ~ lim X*_{K^pK_p} in the Scholze-Weinstein sense; Boxer-Pilloni 4.4.27 state that this is not known in general."
+    "Not claimed: X*_{K^p} ~ lim X*_{K^pK_p} in the Scholze-Weinstein sense; Boxer-Pilloni 4.4.27 state that this is not known in general.",
+    "The Hodge-Tate map in Proposition 5.14 rests on [CGH+18, Theorem 3.3.1], which was not read and has no packet node. Scholze Theorem 4.1.1 gives the Siegel-valued map on Xbar*, and Boxer-Pilloni 4.4.27 its factorization through Fl_{G,mu}. The v2 introduction's removal of the Hodge-Tate material (p. 5) concerns the pre-abelian towers."
    ],
    "proofSteps": [
     "Siegel case: lim_{K_p} S*_{K^pK_p} is perfectoid for all tame levels after the [Han16, Theorem 1.4] reduction.",
     "The embedding gives compatible finite maps X*_{K cap G(A_f)} -> S*_K; for K^p in G(A_f^p), choose K'^p in GSp_2g(A_f^p) containing it and a cofinal chain of neat K_n in GSp_2g(Q_p); the map of towers (X*_{K^p iota^{-1}(K_n)}) -> (S*_{K'^pK_n}) has finite maps and finite transitions, so Lemma 5.9 makes X*_{K^p} perfectoid with quasicompact map to S*_{K'^p}.",
     "Analytic separatedness by Lemma 5.6.",
     "Choose 0 < epsilon < epsilon' < 1/2 and g_i in GSp_2g(Q_p) with S*_{K'^p}(epsilon)_a g_i covering; each translate is pulled back from finite level, so by Lemma 5.9 the preimages U_i of S*_{K'^p}(epsilon)_a g_i and V_i of S*_{K'^p}(epsilon')_a g_i are affinoid perfectoid, pulled back from finite level, and the closure of S*(epsilon)_a g_i lies in S*(epsilon')_a g_i gives closure(U_i) in V_i.",
-    "Corollary 5.15: K cap K_p has finite index in K^pK_p (K^p the image of K), so the finite maps X*_{K cap K_p} -> X*_{K^pK_p} form a map of towers into a good tower; apply Proposition 5.13(1)."
+    "Corollary 5.15: K cap K_p has finite index in K^pK_p (K^p the image of K), so the finite maps X*_{K cap K_p} -> X*_{K^pK_p} form a map of towers into a good tower; apply Proposition 5.13(1).",
+    "Hodge-Tate map: compose X*_{K^p} -> Xbar*_{K^p} with the map Xbar*_{K^p} -> Fl_{G,mu} of [CGH+18, Theorem 3.3.1] (p. 35). The source adds, without detail, that the argument of [CGH+18] also constructs pi_HT on X*_{K^p} directly."
    ],
    "acceptance": [
     "Independence of the symplectic embedding: the space represents the embedding-free diamond limit of canonical models; only the auxiliary coverings U_i, V_i depend on iota.",
@@ -1157,7 +1213,7 @@
     "(v): directly from the construction of pi_HT (Lemma 3.3.4); (iii) is clear and (iv) is checked on geometric points using Proposition 3.3.1.",
     "(vi) boundedness away from the boundary: by [30, Th. II.1.1] or by induction on g, using quasi-compactness of the good-reduction locus and Proposition 3.3.1 near the boundary.",
     "With j the inclusion of the open part, omega_{K^p} and pi_HT^* omega_Fl are subsheaves of j_* j^* omega_{K^p}; show omega in pi_HT^* omega_Fl after pullback to X*(epsilon)_a for small epsilon (Corollary 3.3.12), where pi_HT^* omega^+_Fl is trivial (Lemma 3.3.16), omega is generated by global sections on the affinoid, sections of omega are bounded for pi^* omega^+_Fl, and goodness (Theorem 3.2.36) extends them across the boundary.",
-    "This gives alpha: omega_{K^p} -> pi_HT^* omega_Fl on all of X*; on an affinoid U trivializing both, alpha(f1) = h f2 with |h(x)| >= |p|^C off the boundary; the open subset |h| <= |p|^{C+1} misses the boundary and is empty, so h is invertible."
+    "This gives alpha: omega_{K^p} -> pi_HT^* omega_Fl on all of X*. On an affinoid U trivializing both, alpha(f1) = h f2 with |h(x)| >= |p|^C off the boundary. The open subset |h| <= |p|^{C+1} therefore contains no point of U outside the boundary, i.e. it lies in the boundary. Hence it is empty (as in the uniqueness argument of Corollary 3.3.17), and h is invertible. The source prints 'an open subset of U that does not meet the boundary' (printed p. 1015, page image), a slip for 'does not meet U \\ boundary'."
    ],
    "acceptance": [
     "For g = 1, Fl = P^1, W_Fl is the tautological line and omega_Fl = W_Fl^* = O(1), so omega = pi_HT^* O(1) (used by Birkbeck-Heuer-Williams (3.2)).",
@@ -1200,7 +1256,7 @@
    "hypotheses": [
     "GL_2(Z_p) acts on points by gamma . (E, mu, alpha) = (E, mu, alpha o gamma^vee) with gamma^vee = det(gamma) gamma^{-1} (formula (2.1)); the equivariant structure on O(1) compatible with (2.1) is gamma acting via det(gamma)^{-1} gamma.",
     "The comparison of sections is on the anticanonical locus X*_{Gamma(p^infty)}(epsilon)_a, where z = pi_HT^* z lies in B_r(Z_p : 1) for suitable epsilon (Proposition 2.6).",
-    "BHW write X for the whole modular curve, unlike Scholze's use of X for the good-reduction locus (footnote 1)."
+    "BHW write X for the rigid analytification of the open modular curve of tame level, which parametrizes all elliptic curves with Gamma^p-structure, and X* for its compactification. Scholze's Chapter III uses X for the good-reduction locus (BHW footnote 1, printed p. 1721)."
    ],
    "proofSteps": [
     "Lemma 3.17 is the fibrewise description of Theorem 3.3.18(vi) for g = 1.",
@@ -1210,7 +1266,7 @@
    ],
    "acceptance": [
     "Check the sign convention: gamma^* s = (cz + d) s p-adically versus gamma^* eta_can = (cz + d)^{-1} eta_can on the upper half plane.",
-    "Check on a Tate curve at a cusp that s(x) = HT(alpha(e_1)) is the canonical differential when alpha(e_1) generates mu_{p^infty}."
+    "Reviewer check (not in the source). The section s vanishes at infinity = (1 : 0) (Definition 3.18), and away from the cusps pi_HT^{-1}(infinity) parametrizes triples with alpha(e_1) generating the canonical p-divisible subgroup (p. 1722). At such points s(x) = HT(alpha(e_1)) = 0, consistent with the kernel of the Hodge-Tate map being the multiplicative part (Scholze Remark 3.3.7). On the anticanonical locus, where pi_HT lands in B_r(Z_p : 1) (Proposition 2.6), s is invertible and s(x) = HT(alpha(e_1)) is a nowhere-vanishing differential (Proposition 3.21)."
    ],
    "sources": [
     {
@@ -1355,8 +1411,8 @@
     {
      "sourceId": "bp21-higher-coleman",
      "locator": "Section 4.4.26, arXiv v1 p. 73",
-     "excerpt": "Since the torsor Gpet,p becomes trivial over SK p , we",
-     "match": "Boxer-Pilloni restatement: the pro-etale torsor trivializes over the perfectoid tower, giving pi_HT and the torsor pullback identity."
+     "excerpt": "Since the torsor G^an_pet,p becomes trivial over S^an_{K^p}, we",
+     "match": "Boxer-Pilloni restatement: the pro-etale torsor trivializes over the perfectoid tower, giving pi_HT and the torsor pullback identity (superscripts 'an' restored from the page; the text layer splits them onto separate lines)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1380,7 +1436,7 @@
    ],
    "acceptance": [
     "Sign/inverse convention test: for g = 1, compare x^{-1} in P_mu \\ GL_2 with Birkbeck-Heuer-Williams' action gamma . alpha = alpha o gamma^vee.",
-    "Check that the pullback of the tautological M_mu-torsor recovers omega_A = det-part of M_dR."
+    "Check that the pullback of the tautological M_mu-torsor recovers the Hodge bundle (reviewer check, not in the source). omega_A (rank g) is the bundle attached to the standard representation of the GL_g-factor of M_mu = GL_g x G_m, up to the similitude normalisation, and det omega_A is attached to its determinant."
    ],
    "sources": [
     {
@@ -1413,7 +1469,8 @@
    "hypotheses": [
     "The factorization in (a) needs the open perfectoid Shimura variety to be Zariski dense in the image-compactified tower and Fl_{G,mu} Zariski closed in the Siegel flag variety.",
     "Perfect cone decompositions exist for a cofinal set of Sigma by [Lan20]; for arbitrary Sigma perfectoidness of the toroidal tower is not proved (Remark 4.4.28).",
-    "Inputs not in the library or not read: [CGH+18, Thm. 3.3.1], [Lan20], [EH19, Cor. 5.2], [MP19], [BS19, thm. 1.16]."
+    "Inputs not in the library or not read: [CGH+18, Thm. 3.3.1], [Lan20], [EH19, Cor. 5.2], [MP19], [BS19, thm. 1.16].",
+    "Boxer-Pilloni 4.4.27 cite [Sch15, thm. IV.1.1] for the perfectoid image-compactified tower Sbar*_{K^p} ~ lim and its Siegel-valued pi_HT without the tame-level condition. Scholze proves it for K^p inside the principal level-N subgroup of the Siegel group, N >= 3 prime to p (printed p. 1018). For other tame levels, Hansen-Johansson Lemma 5.9 gives perfectoidness of the diamond limit of Xbar*, but not the ~-limit and good-affinoid statements used in 4.4.27."
    ],
    "proofSteps": [
     "(a): combine Scholze Theorem IV.1.1 (Siegel-valued map on Sbar*) with Caraiani-Scholze Theorem 2.1.3 on the dense open part and Zariski closedness of Fl_{G,mu}.",
@@ -1521,8 +1578,8 @@
    "implementationStatus": "unchecked"
   },
   {
-   "id": "PerfectoidShimuraVarieties:S4/good-towers-finite-maps-and-finite-quotients",
-   "parentStageId": "PerfectoidShimuraVarieties:S4",
+   "id": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
+   "parentStageId": "PerfectoidShimuraVarieties:S2",
    "title": "Good towers: stability under finite maps of towers and perfectoidness of finite group quotients commuting with the limit",
    "kind": "theorem",
    "statement": "Hansen-Johansson Definition 5.12: over a nonarchimedean field K, a good tower is a cofiltered inverse system (X_i) of locally noetherian adic spaces over Spa K such that (1) each X_i is the analytification of a projective variety and the transition maps are finite, (2) X = lim X_i^diamond is a perfectoid space, and (3) X has a pair of coverings by open affinoid perfectoid U_j, V_j with closure(U_j) in V_j, each pulled back from an open affinoid at some finite level. Proposition 5.13: (1) if (Y_i) is a good tower and (X_i) -> (Y_i) is a map of cofiltered systems with finite maps f_i, then (X_i) is a good tower; (2) if (X_i) is a good tower with an action of a finite group G, then the categorical quotient X/G is a perfectoid space and X/G = lim X_i/G. It is not claimed that (X_i/G) is again a good tower.",
@@ -1566,10 +1623,10 @@
    "parentStageId": "PerfectoidShimuraVarieties:S4",
    "title": "Property P: the full minimally compactified tower is perfectoid iff the neutral component tower is",
    "kind": "lemma",
-   "statement": "Hansen-Johansson Section 5.3 and Proposition 5.16: work over a complete algebraically closed C over C_p (after fixing C = C_p); for a Shimura datum (G, X), Sh_K(G, X) over C, Sh*_K(G, X) its minimal compactification, Sh_K(G, X)^0 the component that is the image of X^+ x {e}, Sh*_K(G, X)^0 its Zariski closure (pi_0 Sh_K -> pi_0 Sh*_K is a homeomorphism by normality), and X*_{K^p}(G, X) = lim_{K_p} X*_{K^pK_p}(G, X)^diamond (limit in diamonds over Spd C), with variants X*_{K^p}(G, X)^0 etc. The following are equivalent: (1) X*_{K^p}(G, X) is a perfectoid space for every K^p; (2) X*_{K^p}(G, X)^0 is a perfectoid space for every K^p. (G, X) satisfies Property P if these hold.",
+   "statement": "Hansen-Johansson Section 5.3 and Proposition 5.16. Sh_K(G, X) is the Shimura variety regarded as a quasi-projective variety over the complex numbers, Sh*_K(G, X) its projective minimal compactification, Sh_K(G, X)^0 the component whose analytification is the image of X^+ x {e}, and Sh*_K(G, X)^0 its Zariski closure; pi_0 Sh_K -> pi_0 Sh*_K is a homeomorphism by normality. Fix an isomorphism of the complex numbers with C_p and a complete algebraically closed extension C of C_p. Then X*_K(G, X) is the rigid space of Sh*_K(G, X) base changed to C, and X*_{K^p}(G, X) = lim_{K_p} X*_{K^pK_p}(G, X)^diamond (limit in diamonds over Spd C), with variants X*_{K^p}(G, X)^0 etc. The following are equivalent: (1) X*_{K^p}(G, X) is a perfectoid space for every K^p; (2) X*_{K^p}(G, X)^0 is a perfectoid space for every K^p. (G, X) satisfies Property P if these hold.",
    "hypotheses": [
     "Arbitrary Shimura datum (no pre-abelian hypothesis in this equivalence).",
-    "(2) => (1) uses that K_p acts with finitely many open orbits on the profinite set pi_0 X*_{K^p}(G, X), identified in the source with G(Q)_+ \\ G(A_f)/K^p by [Bor63, Theorem 5.1] (as a profinite set this is the limit over K_p of the finite double coset sets), and that each connected component is isomorphic to X*_{gK^pg^{-1}}(G, X)^0 for some g in G(A_f^p)."
+    "(2) => (1) uses two facts. First, K_p acts with finitely many open orbits on the profinite set pi_0 X*_{K^p}(G, X), which the source identifies with G(Q)_+ \\ G(A_f)/K^p by [Bor63, Theorem 5.1]. Second, each connected component is isomorphic to X*_{gK^pg^{-1}}(G, X)^0 for some g in G(A_f^p). As a profinite set, pi_0 is the limit over K_p of the finite sets G(Q)_+\\G(A_f)/K^pK_p, i.e. the quotient by the closure of G(Q)_+ in G(A_f). The source's formula omits the closure; Boxer-Pilloni 4.4.48 write it explicitly (p. 83)."
    ],
    "proofSteps": [
     "(1) => (2): X*_{K^p}(G, X)^0 is an inverse limit of open-closed subfunctors X_i; for U affinoid perfectoid in the full tower, U cap X*_{K^p}(G, X)^0 = lim U cap X_i is affinoid perfectoid.",
@@ -1603,7 +1660,9 @@
    "statement": "Hansen-Johansson Definition 5.17 and Proposition 5.18: for a connected Shimura datum (G, X^+) and an arithmetic Gamma in G(Q)_+, Sh_Gamma(G, X^+) is the connected normal quasi-projective variety with analytification Gamma \\ X^+, with normal projective minimal compactification Sh*_Gamma (smooth open part if Gamma is torsion free); (G, X^+) satisfies Property P if for every arithmetic Gamma in G^ad(Q)^+ the diamond X*_{Gamma,infty}(G, X^+) = lim_{K_p} X*_{Gamma cap K_p}(G, X^+)^diamond is perfectoid, with Gamma cap K_p shorthand for Gamma cap (G(A_f^p)K_p). Proposition 5.18: if (G^ad, X^+) satisfies Property P, then so does (G, X), for (G, X) a Shimura datum or a connected Shimura datum.",
    "hypotheses": [
     "Arithmetic subgroups of G^ad(Q)^+ (not only congruence subgroups) appear in the definition.",
-    "For Shimura data the proof passes through Proposition 5.16 and the neutral component tower."
+    "For Shimura data the proof passes through Proposition 5.16 and the neutral component tower.",
+    "As printed (p. 36, page image), Definition 5.17 quantifies over arithmetic Gamma in G^ad(Q)^+, while the limit runs over K_p in G(Q_p) and uses X*_{Gamma cap K_p}(G, X^+). For G not adjoint this only makes sense for Gamma in G(Q)_+; the proof of Proposition 5.18 takes Gamma in G(Q)^+ and passes to pi(Gamma). The definition is unambiguous for G = G^ad, the only case used in Proposition 5.19. Theorem 5.20 (connected case) repeats the mixed notation.",
+    "In the connected case the identification X_{Gamma,infty}(G, X^+) = X_{pi(Gamma),infty}(G^ad, X^+) is asserted without argument ('and the result follows'). It requires comparing the systems {pi(Gamma cap K_p)} and {pi(Gamma) cap K'_p}; the source also omits the * of the minimal compactification here."
    ],
    "proofSteps": [
     "Connected datum: for arithmetic Gamma in G(Q)_+, X_{Gamma,infty}(G, X^+) = X_{pi(Gamma),infty}(G^ad, X^+).",
@@ -1611,7 +1670,7 @@
    ],
    "acceptance": [
     "Check the finite map on complex points: Gamma' \\ X^+ -> pi(Gamma') \\ X^+ for Gamma' = G(Q)_+ cap K^pK_p.",
-    "Test: G = G^ad gives a tautology."
+    "Test: for a connected Shimura datum with G = G^ad the statement is a tautology. For a Shimura datum (G, X) with G adjoint, Proposition 5.18 still passes from the neutral component to the full tower through Proposition 5.16."
    ],
    "sources": [
     {
@@ -1726,7 +1785,7 @@
   {
    "source": "PerfectoidSpaces:P7",
    "target": "PerfectoidShimuraVarieties:S1/perfectoid-anticanonical-gamma0-tower-and-its-tilt",
-   "reason": "Supplies tilde-limits X ~ lim X_i and the Frobenius-controlled tower criterion. Corollary 3.2.19 uses exactly: an integral tower whose transition maps are relative Frobenius modulo p^{1-epsilon} has perfectoid completed colimit, and the generic fibre satisfies X ~ lim X_i with uniqueness ([55, Def. 2.4.1, Props. 2.4.2, 2.4.5]). Scope mismatch: the promoted node PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison transcribes the residue-field notion of Perfectoid Spaces Definition 7.14, which Scholze-Weinstein state is weaker than the Definition 2.4.1 notion used here; P7 must also supply Propositions 2.4.2 and 2.4.5 of Scholze-Weinstein.",
+   "reason": "Supplies tilde-limits X ~ lim X_i and the Frobenius-controlled tower criterion. Corollary 3.2.19 uses exactly: an integral tower whose transition maps are relative Frobenius modulo p^{1-epsilon} has perfectoid completed colimit, and the generic fibre satisfies X ~ lim X_i with uniqueness ([55, Def. 2.4.1, Props. 2.4.2, 2.4.5]). Scope mismatch: the promoted node PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison transcribes the residue-field notion of Perfectoid Spaces Definition 7.14, which Scholze-Weinstein state is weaker than the Definition 2.4.1 notion used here; P7 must also supply Propositions 2.4.2 and 2.4.5 of Scholze-Weinstein. Review (REVIEW-EXT-12): Source side: Cor. 3.2.19 (printed pp. 989-990) imports from the ~ theory only [55, Def. 2.4.1, Prop. 2.4.2] and, for uniqueness, [55, Prop. 2.4.5], all Scholze-Weinstein statements. The 'Frobenius-controlled tower criterion' is not imported: Scholze proves it in place from the Frobenius isomorphism R_infty/p^{(1-epsilon)/p} = R_infty/p^{1-epsilon} via [52, Def. 5.1(ii), Lemma 5.6], which is link 2's supplier (P1 almost-integral dictionary). The reason should drop that phrase. The drafter's scope caveat is confirmed: SW13 p. 21 says its ~ is stronger than the ~' of [Sch12]. Supplier scope: the P7 stage description covers Huber tilde-limits with the inverse-limit topology and affinoid density condition, i.e. the SW13 Definition 2.4.1 notion, and uniqueness in the perfectoid class. The promoted P7 node transcribes only Sch12's ~' (residue fields), so P7 must still state SW13 Propositions 2.4.2 and 2.4.5. Existing stage edge P7 -> S1.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1785,7 +1844,7 @@
   {
    "source": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
    "target": "PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz-almost-hom-description",
-   "reason": "Supplies the sheaf property and H^0(X, O^+_X/t)^a = (R+/t)^a for perfectoid affinoids ([52, Th. 6.3(iii),(iv)]), used in Remark 2.3.3 and in the gluing step of the general case of Proposition 2.3.2. No scope mismatch.",
+   "reason": "Supplies the sheaf property and H^0(X, O^+_X/t)^a = (R+/t)^a for perfectoid affinoids ([52, Th. 6.3(iii),(iv)]), used in Remark 2.3.3 and in the gluing step of the general case of Proposition 2.3.2. No scope mismatch. Review (REVIEW-EXT-12): Source side: [52, Th. 6.3(iii),(iv)] is cited only in Remark 2.3.3 (global sections of (O+/t)^a are (R+/t)^a, printed p. 959) and is implicit in identifying H^0(U_n, O+/t)^a in the principal case. The gluing step of the general case (printed p. 961, 'By using the sheaf property') uses only the sheaf axiom for O+_X/t, not Th. 6.3. The reason's 'and in the gluing step' overstates.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1796,7 +1855,7 @@
   {
    "source": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
    "target": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
-   "reason": "Supplies fibre products of perfectoid spaces and their affinoid formula ([52, Prop. 6.18]), used in Lemma 2.3.10(iii) to identify H^0(V', O+/t) with a tensor product over H^0(V, O+/t), and in Lemma 2.2.9 for pullbacks of Zariski closed embeddings. No scope mismatch (perfectoid field of characteristic p).",
+   "reason": "Supplies fibre products of perfectoid spaces and their affinoid formula ([52, Prop. 6.18]), used in Lemma 2.3.10(iii) to identify H^0(V', O+/t) with a tensor product over H^0(V, O+/t), and in Lemma 2.2.9 for pullbacks of Zariski closed embeddings. No scope mismatch (perfectoid field of characteristic p). Review (REVIEW-EXT-12): Only the first cited location supports this target: proof of Lemma 2.3.10(iii), printed p. 969 ('by the formula for fibre products in the category of perfectoid spaces; cf. [52, Prop. 6.18]'). The second location, Lemma 2.2.9 (printed pp. 957-958, 'recalling that fibre products always exist, cf. [52, Prop. 6.18]' and 'by the proof of [52, Prop. 6.18]'), is not part of the good-triples node. Lemma 2.2.9 is consumed by Theorem 3.3.18(ii), i.e. by the Siegel main-theorem node (and Theorem 4.1.1(ii)). Drop that location from this link, or add a separate P2 -> siegel-main-theorem link. Resolution: drop the Lemma 2.2.9 location from this link; an added link P2/fibre-products -> siegel-main-theorem node carries it.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1811,7 +1870,7 @@
   {
    "source": "PerfectoidSpaces:P4",
    "target": "PerfectoidShimuraVarieties:S1/gamma0-infinite-level-affinoid-with-strongly-zariski-closed-boundary",
-   "reason": "Supplies Zariski closed immersions of affinoid perfectoid spaces. Corollary 3.2.20 and Theorem 3.3.18(ii) use Scholze's Definition 2.2.1, Lemma 2.2.2 (universal perfectoid Zariski closed subspace), Definition 2.2.6 and Lemmas 2.2.5, 2.2.7, 2.2.9 (characteristic-p almost surjectivity, detection on tilts, pullback). Scope mismatch: P4 is described through ECD Section 5 and no existing node transcribes torsion-paper Lemmas 2.2.2-2.2.9; also Scholze's Remark 2.2.4 (R -> S need not be surjective) is contradicted by Bhatt-Scholze Remark 7.5 as recorded in PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed.",
+   "reason": "Supplies Zariski closed immersions of affinoid perfectoid spaces. Corollary 3.2.20 and Theorem 3.3.18(ii) use Scholze's Definition 2.2.1, Lemma 2.2.2 (universal perfectoid Zariski closed subspace), Definition 2.2.6 and Lemmas 2.2.5, 2.2.7, 2.2.9 (characteristic-p almost surjectivity, detection on tilts, pullback). Scope mismatch: P4 is described through ECD Section 5 and no existing node transcribes torsion-paper Lemmas 2.2.2-2.2.9; also Scholze's Remark 2.2.4 (R -> S need not be surjective) is contradicted by Bhatt-Scholze Remark 7.5 as recorded in PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed. Review (REVIEW-EXT-12): Source side: the proof of Cor. 3.2.20 (printed pp. 990-991) uses Lemma 2.2.7 and Lemma 2.2.5 (with Defs 2.2.1, 2.2.6, and Lemma 2.2.2 implicitly). Lemma 2.2.9 is not used there; its use is in Thm 3.3.18(ii), printed p. 1014, a different node. The reason's claim about Remark 2.2.4 depends on Bhatt-Scholze Remark 7.5, which this review has not read. HJ p. 38 cites it as showing that all Zariski closed sets are strongly Zariski closed; strongly Zariski closed means R+ -> S+ is almost surjective, so R -> S is surjective, contrary to Remark 2.2.4 (printed p. 956). Supplier scope: the P4 description covers Zariski closed immersions (ECD Section 5) and explicitly leaves 'Zariski closed implies strongly Zariski closed' to Q4. No P4 node transcribes torsion-paper Lemmas 2.2.2-2.2.9; the existing gap stands. New stage edge P4 -> S1, acyclic.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1826,7 +1885,7 @@
   {
    "source": "ShimuraCompactifications:C5",
    "target": "PerfectoidShimuraVarieties:S1/hasse-neighbourhood-blowups-and-frobenius-diagram",
-   "reason": "Supplies the integral minimal compactification X*_{g,K^p} over Z_(p) of the Siegel moduli space with its ample Hodge line bundle omega (Proj of sections of omega^k for g >= 2), used to define the Hasse neighbourhood blow-ups X*(epsilon) and to extend Ha. Scholze cites Faltings-Chai [28]; C5 is the good-prime PEL construction (Lan). The proofs also need that all geometric fibres of X* over Z_p are normal with boundary of codimension g (Section 3.1 remark) and Serre vanishing for omega; these must be exported by C5.",
+   "reason": "Supplies the integral minimal compactification X*_{g,K^p} over Z_(p) of the Siegel moduli space with its ample Hodge line bundle omega (Proj of sections of omega^k for g >= 2), used to define the Hasse neighbourhood blow-ups X*(epsilon) and to extend Ha. Scholze cites Faltings-Chai [28]; C5 is the good-prime PEL construction (Lan). The proofs also need that all geometric fibres of X* over Z_p are normal with boundary of codimension g (Section 3.1 remark) and Serre vanishing for omega; these must be exported by C5. Review (REVIEW-EXT-12): Source side confirmed: integral X* over Z_(p) from Faltings-Chai with ample omega and Proj description for g >= 2 (printed p. 971); normal geometric fibres and boundary of codimension g (p. 975); extension of Ha for g >= 2 (p. 983); normality of R/p for affine opens, needed by Lemma 3.2.10 in Lemma 3.2.13 (p. 984). However, Serre vanishing for omega and the cited Lemma 3.2.17 (p. 988) are consumed by the anticanonical-tower-and-deep-level-affinoidness node, not by this target. That use needs its own link from C5 (or should be recorded in that node's inputs). Supplier scope: C5 covers the integral minimal compactification with Hodge-line positivity and projectivity at good primes (Siegel case included). Normal geometric fibres and boundary codimension g are not in its description (existing Faltings-Chai gap). An added link C5 -> anticanonical-tower-and-deep-level-affinoidness carries the Lemma 3.2.17 use.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1837,7 +1896,7 @@
   {
    "source": "ShimuraCompactifications:C5",
    "target": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
-   "reason": "Supplies a smooth toroidal compactification resolving X* (x) F_p, which Lemma 3.2.27 uses as the resolution of singularities hypothesis of Lemma 2.3.9. Scholze cites Faltings-Chai [28]; C5 must export smoothness over Z_(p) (hence over F_p) of the toroidal compactification and properness of the map to X*.",
+   "reason": "Supplies a smooth toroidal compactification resolving X* (x) F_p, which Lemma 3.2.27 uses as the resolution of singularities hypothesis of Lemma 2.3.9. Scholze cites Faltings-Chai [28]; C5 must export smoothness over Z_(p) (hence over F_p) of the toroidal compactification and properness of the map to X*. Review (REVIEW-EXT-12): Source side confirmed: printed p. 999 'Observe that X* (x)_{Z_(p)} F_p admits a resolution of singularities, given by the toroidal compactification; cf. [28].' Annotate: Lemma 2.3.9 as applied in Lemma 3.2.27 also needs A0 normal (normality of the special fibre of X*) and V(J) of codimension >= 2 (boundary codimension g >= 2), and 'resolution' means a proper birational T -> Spec A0 with T smooth over F_p over each affine open (Corollary 2.3.5, p. 962). These are C5/Faltings-Chai exports as well. Supplier scope: C5's description covers integral toroidal compactifications, but not the statement that they are smooth resolutions of X* (x) F_p; the existing Faltings-Chai gap covers this.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1848,7 +1907,7 @@
   {
    "source": "ShimuraCompactifications:C5",
    "target": "PerfectoidShimuraVarieties:S1/hodge-tate-filtration-of-degenerating-abelian-varieties",
-   "reason": "Supplies the smooth projective toroidal compactification with its universal semiabelian family G^univ and omega_{G^univ} = f^* omega_{X*}, used in Lemma 3.3.2 to compare pullbacks of omega and of the Hasse invariant at boundary points. Scholze cites Faltings-Chai [28]; C5 constructs the integral toroidal spaces with universal semi-abelian extensions for PEL data at good primes, which covers the Siegel case.",
+   "reason": "Supplies the smooth projective toroidal compactification with its universal semiabelian family G^univ and omega_{G^univ} = f^* omega_{X*}, used in Lemma 3.3.2 to compare pullbacks of omega and of the Hasse invariant at boundary points. Scholze cites Faltings-Chai [28]; C5 constructs the integral toroidal spaces with universal semi-abelian extensions for PEL data at good primes, which covers the Siegel case. Review (REVIEW-EXT-12): Source side confirmed: printed p. 1004 'Let f: Xbar -> X* be a (smooth projective) toroidal compactification, as constructed in [28] ... by construction of X*, omega_{G^univ} = f^* omega_{X*}.' Annotate: Lemma 3.3.2 also uses properness of X*_{g,K^p} to extend x to an O_C-point (p. 1003), and (implicitly) properness of Xbar to lift it. Supplier scope: C5 constructs the universal semi-abelian extensions over integral toroidal compactifications, which covers G^univ and omega_{G^univ} = f^* omega_{X*} in the Siegel case.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1859,7 +1918,7 @@
   {
    "source": "PELModuli:M4",
    "target": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
-   "reason": "Supplies the moduli description of the finite-level Siegel varieties X_{K_p} = X_{g,K_pK^p} over Q (principally polarized abelian varieties with level-K^pK_p structure) compatibly with changes of level and isogenies. Theorem 3.2.15 uses the Gamma_0(p^m)-moduli of pairs (A, D) with the map (A, D) -> A/D and the isogeny A -> A/C_m. Scope mismatch: M4's normalizations at higher p-level are not used by Scholze; only the generic-fibre moduli interpretation and level/isogeny compatibilities are consumed.",
+   "reason": "Supplies the moduli description of the finite-level Siegel varieties X_{K_p} = X_{g,K_pK^p} over Q (principally polarized abelian varieties with level-K^pK_p structure) compatibly with changes of level and isogenies. Theorem 3.2.15 uses the Gamma_0(p^m)-moduli of pairs (A, D) with the map (A, D) -> A/D and the isogeny A -> A/C_m. Scope mismatch: M4's normalizations at higher p-level are not used by Scholze; only the generic-fibre moduli interpretation and level/isogeny compatibilities are consumed. Review (REVIEW-EXT-12): Confirmed: moduli description X_{K_p} = X_{g,K_pK^p} over Q (printed p. 971); proof of Thm 3.2.15 (pp. 986-987) uses the Gamma_0(p^m)-pairs (A, D), the map (A, D) -> A/D with its principal polarization and level-N structure, the etaleness of X_{Gamma_0(p^m)} -> X, and the degree p^{g(g+1)/2} of the level-changing maps for m >= 1. The etaleness and degree facts are also consumed and should be listed in the reason. Supplier scope: the M4 description covers identification with canonical models and compatibility with level changes and isogenies. The Gamma_0(p^m) moduli interpretation and the etaleness and degree of level maps are needed; the reason should list them.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1870,7 +1929,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T2",
    "target": "PerfectoidShimuraVarieties:S1/continuous-hodge-tate-map-away-from-boundary",
-   "reason": "Supplies the relative Hodge-Tate sequence on the pro-etale site and the flag-valued map on a tower with trivialized Tate module, constructed before perfectoid representability. Lemma 3.3.4 uses the map (R^1 g_* O_{A_S}) (x) O^_S -> R^1 g_* Z^_p (x) O^_S = R^1 g_* O^_{A_S} deduced from the primitive comparison [53, Th. 1.3], and its identification with the Hodge-Tate filtration at geometric points [54, Prop. 4.10]. Scope mismatch: T2 does not state the bad-reduction comparison (Proposition 3.3.1), which is Scholze's own and is decomposed here.",
+   "reason": "Supplies the relative Hodge-Tate sequence on the pro-etale site and the flag-valued map on a tower with trivialized Tate module, constructed before perfectoid representability. Lemma 3.3.4 uses the map (R^1 g_* O_{A_S}) (x) O^_S -> R^1 g_* Z^_p (x) O^_S = R^1 g_* O^_{A_S} deduced from the primitive comparison [53, Th. 1.3], and its identification with the Hodge-Tate filtration at geometric points [54, Prop. 4.10]. Scope mismatch: T2 does not state the bad-reduction comparison (Proposition 3.3.1), which is Scholze's own and is decomposed here. Review (REVIEW-EXT-12): Source side confirmed on printed pp. 1004-1006: Lemma 3.3.4 applies [53, Th. 1.3] to g: A_S -> S, passes to S_proet, and identifies the resulting map with the Hodge-Tate filtration at geometric points by [54, Prop. 4.10]. Supplier scope: T2's description covers 'the displayed Hodge-Tate exact sequence and its relative form on the pro-etale site' and 'the universal flag-valued map on a tower where the Tate module is trivialized', built before perfectoid representability. That is what Lemma 3.3.4 consumes. The primitive comparison itself belongs to T1/PadicHodgeTheory P8 (existing gap). T2 has no nodes yet. New stage edge T2 -> S1, acyclic.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1914,7 +1973,7 @@
   {
    "source": "PerfectoidSpaces:P4",
    "target": "PerfectoidShimuraVarieties:S2/hodge-type-perfectoid-image-compactified-tower",
-   "reason": "Supplies Zariski closed embeddings of affinoid perfectoid spaces: Lemma 2.2.2 (universal perfectoid Zariski closed subspace with dense image of rings) for the charts Xbar*_{K^p}(J), and Lemma 2.2.9 (pullback of strongly Zariski closed embeddings) for (ii). Scope mismatch as for S1: no existing P4 node transcribes the torsion-paper lemmas.",
+   "reason": "Supplies Zariski closed embeddings of affinoid perfectoid spaces: Lemma 2.2.2 (universal perfectoid Zariski closed subspace with dense image of rings) for the charts Xbar*_{K^p}(J), and Lemma 2.2.9 (pullback of strongly Zariski closed embeddings) for (ii). Scope mismatch as for S1: no existing P4 node transcribes the torsion-paper lemmas. Review (REVIEW-EXT-12): Source side confirmed on printed p. 1020 (Lemma 2.2.2 for the charts; Lemma 2.2.9 for (ii)). Supplier scope as in link 7: P4 names Zariski closed immersions but has no node for torsion-paper Lemmas 2.2.2 and 2.2.9. Lemma 2.2.2 (existence of the universal perfectoid Zariski closed subspace, with dense image of rings) is the input that makes the Hodge-type tower's structure sheaf perfectoid. New stage edge P4 -> S2, acyclic.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1925,7 +1984,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
    "target": "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
-   "reason": "Supplies perfectoidness of the Siegel minimal tower lim_{K_p} S*_{K^pK_p} ([Sch15, Theorem 3.3.18]) for tame levels in a conjugate of a principal congruence subgroup of level >= 3, the input of Hansen-Johansson Proposition 5.14 before the [Han16] reduction.",
+   "reason": "Supplies perfectoidness of the Siegel minimal tower lim_{K_p} S*_{K^pK_p} ([Sch15, Theorem 3.3.18]) for tame levels in a conjugate of a principal congruence subgroup of level >= 3, the input of Hansen-Johansson Proposition 5.14 before the [Han16] reduction. Review (REVIEW-EXT-12): Source side confirmed (HJ p. 34, '[Sch15, Theorem 3.3.18]'). HJ use it only for perfectoidness of the Siegel minimal tower, not for the charts V_J or (ii). 'Contained in some conjugate of a principal congruence subgroup' is HJ's paraphrase; Scholze requires containment in the level-N principal congruence subgroup itself.",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
@@ -1947,7 +2006,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S2/analytic-separation-and-zariski-closed-pullbacks-for-projective-towers",
    "target": "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
-   "reason": "Supplies analytic separatedness of limits of towers of (open subsets of) projective varieties (Lemma 5.6), used in Proposition 5.14 to verify condition (2) of a good tower's quotient theorem.",
+   "reason": "Supplies analytic separatedness of limits of towers of (open subsets of) projective varieties (Lemma 5.6), used in Proposition 5.14 to verify condition (2) of a good tower's quotient theorem. Review (REVIEW-EXT-12): Source side: HJ p. 34, 'Moreover, X*_{K^p} is analytically separated by Lemma 5.6.' The reason is inaccurate. Analytic separatedness is stated as a property in Proposition 5.14; it is not a condition of a good tower (Definition 5.12(1)-(3)). It is a hypothesis of Theorem 5.8, checked in Proposition 5.13(2) through Lemma 5.6, which is link 52. Keep the link with the reason corrected.",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
@@ -1958,7 +2017,7 @@
   {
    "source": "PerfectoidSpaces:P8",
    "target": "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
-   "reason": "Supplies the perfectoidization of finite maps of towers: Hansen-Johansson Lemma 5.9 (if (X_i) -> (Y_i) is a map of cofiltered systems of locally noetherian adic spaces with finite maps and finite transitions and lim Y_i^diamond is perfectoid, then lim X_i^diamond is perfectoid, preimages of finite-level affinoid perfectoids are affinoid perfectoid, and the map is affinoid), Lemma 5.10 ([BS19, Theorem 1.16(1)]: Spd(S, S+) is affinoid perfectoid when R+ -> S+ is integral over a perfectoid R) and Lemma 5.11; also [Han16, Theorem 1.4] for finite quotients of affinoid perfectoid spaces. Scope mismatch: P8 names Hansen-Johansson Section 5 but has no nodes yet, and PerfectoidQuotients Q2's promoted node covers perfectoidization of semiperfectoid rings, not the integral-algebra statement [BS19, Theorem 1.16(1)] used by Lemma 5.10.",
+   "reason": "Supplies the perfectoidization of finite maps of towers: Hansen-Johansson Lemma 5.9 (if (X_i) -> (Y_i) is a map of cofiltered systems of locally noetherian adic spaces with finite maps and finite transitions and lim Y_i^diamond is perfectoid, then lim X_i^diamond is perfectoid, preimages of finite-level affinoid perfectoids are affinoid perfectoid, and the map is affinoid), Lemma 5.10 ([BS19, Theorem 1.16(1)]: Spd(S, S+) is affinoid perfectoid when R+ -> S+ is integral over a perfectoid R) and Lemma 5.11; also [Han16, Theorem 1.4] for finite quotients of affinoid perfectoid spaces. Scope mismatch: P8 names Hansen-Johansson Section 5 but has no nodes yet, and PerfectoidQuotients Q2's promoted node covers perfectoidization of semiperfectoid rings, not the integral-algebra statement [BS19, Theorem 1.16(1)] used by Lemma 5.10. Review (REVIEW-EXT-12): Source side confirmed: Proposition 5.14 applies Lemma 5.9 twice (pp. 34-35) and [Han16, Theorem 1.4] (p. 34). Lemma 5.9's proof rests on Lemma 5.10 = [BS19, Theorem 1.16(1)] and Lemma 5.11. The drafter's scope caveat is confirmed: P8 has no nodes; its description assumes an invariant affinoid cover (true for [Han16], which Proposition 5.14 uses); [BS19, Thm 1.16(1)] has no supplier node (gap added). Existing stage edge P8 -> S2.",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
@@ -1969,7 +2028,7 @@
   {
    "source": "ShimuraData:D4",
    "target": "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification",
-   "reason": "Supplies the notion of Hodge-type Shimura datum (existence of a morphism into a Siegel datum with injective group map), used as the standing hypothesis of Section 4.1 and of Hansen-Johansson Proposition 5.14. Scope: Scholze's Chapter 4 variant with (G, D), G^der simply connected and Sp_2g target differs from D4's Deligne-style definition; the equivalence is not proved in the source (footnote 15 mentions Zarhin's trick only for GSp versus Sp).",
+   "reason": "Supplies the notion of Hodge-type Shimura datum (existence of a morphism into a Siegel datum with injective group map), used as the standing hypothesis of Section 4.1 and of Hansen-Johansson Proposition 5.14. Scope: Scholze's Chapter 4 variant with (G, D), G^der simply connected and Sp_2g target differs from D4's Deligne-style definition; the equivalence is not proved in the source (footnote 15 mentions Zarhin's trick only for GSp versus Sp). Review (REVIEW-EXT-12): Source side confirmed (printed p. 1018; HJ p. 23; CS17 p. 11). The drafter's caveat is correct: Scholze's (G, D) -> (Sp_2g, D_Sp2g) with G^der simply connected is not D4's Deligne-style Hodge type; footnote 15 covers only GSp versus Sp by Zarhin's trick. Existing stage edge D4 -> S2.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -1984,7 +2043,7 @@
   {
    "source": "ShimuraVarieties:V8",
    "target": "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification",
-   "reason": "Supplies canonical models with their level maps and functoriality under morphisms of Shimura data, including descent of minimal compactifications, which give the compatible finite maps X_K -> Y_{K'} and X*_K -> Y*_{K'} (and S_K -> S~_{K~} (x) E). Scope: the closed-immersion statement [Del71, Prop. 1.15] for suitable K' is needed separately and is not listed in V8's description.",
+   "reason": "Supplies canonical models with their level maps and functoriality under morphisms of Shimura data, including descent of minimal compactifications, which give the compatible finite maps X_K -> Y_{K'} and X*_K -> Y*_{K'} (and S_K -> S~_{K~} (x) E). Scope: the closed-immersion statement [Del71, Prop. 1.15] for suitable K' is needed separately and is not listed in V8's description. Review (REVIEW-EXT-12): Source side confirmed (printed p. 1018; CS17 p. 11). V8's description covers level maps, Hecke correspondences, functoriality and descent of minimal compactifications. The closed embedding at open level ([Del71, Prop. 1.15] = Scholze's [25, Prop. 1.15]) is not in V8 and is unread (gap). Existing stage edge V8 -> S2.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -2120,7 +2179,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S2/hodge-type-perfectoid-image-compactified-tower",
    "target": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
-   "reason": "Supplies the perfectoid open Hodge-type tower S_{K^p} with its Siegel-valued pi_HT (Caraiani-Scholze Theorem 2.1.2 = part of Scholze Theorem IV.1.1, restricted to the complement of the boundary), which Theorem 2.1.3 refines. Scope: Caraiani-Scholze use a Deligne-style Hodge-type datum over E_p and 'sufficiently small' tame level.",
+   "reason": "Supplies the perfectoid open Hodge-type tower S_{K^p} with its Siegel-valued pi_HT (Caraiani-Scholze Theorem 2.1.2 = part of Scholze Theorem IV.1.1, restricted to the complement of the boundary), which Theorem 2.1.3 refines. Scope: Caraiani-Scholze use a Deligne-style Hodge-type datum over E_p and 'sufficiently small' tame level. Review (REVIEW-EXT-12): Source side: CS17 Theorem 2.1.2 is 'part of Theorem IV.1.1 of [Sch15b]' with footnote 8, 'The setup is slightly different, but the proof works verbatim' (p. 11). Its perfectoid open tower comes from node S2/hodge-type-perfectoid-image-compactified-tower, restricted to the good-reduction part. Its Siegel-valued pi_HT and Hecke equivariance (2.1.2(2)-(3)) are Scholze Theorem 4.1.1's main statement and (iv), which is node S3/hodge-type-period-map-to-siegel-flag-variety-on-image-compactification (added link). The transfer to Deligne-style data over E_p with 'sufficiently small' tame level is asserted, not proved (gap added).",
    "sources": [
     {
      "sourceId": "cs17-compact-unitary",
@@ -2131,7 +2190,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T2",
    "target": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
-   "reason": "Supplies the relative Hodge-Tate filtration on the pro-etale site and the Hodge-Tate parabolic reduction P_p with the tensor conditions cutting out Fl_{G,mu} (Caraiani-Scholze Lemmas 2.3.1-2.3.7). The period map on the perfectoid tower is then defined from the canonical section of G_p over S_{K^p}. Scope: T2 has no nodes yet; its description covers exactly these torsors, the Hodge-type flag variety and Hecke/base-change compatibility, so Caraiani-Scholze Sections 2.2-2.3 should be transcribed there (supplier request).",
+   "reason": "Supplies the relative Hodge-Tate filtration on the pro-etale site and the Hodge-Tate parabolic reduction P_p with the tensor conditions cutting out Fl_{G,mu} (Caraiani-Scholze Lemmas 2.3.1-2.3.7). The period map on the perfectoid tower is then defined from the canonical section of G_p over S_{K^p}. Scope: T2 has no nodes yet; its description covers exactly these torsors, the Hodge-type flag variety and Hecke/base-change compatibility, so Caraiani-Scholze Sections 2.2-2.3 should be transcribed there (supplier request). Review (REVIEW-EXT-12): Source side confirmed (CS17 Lemmas 2.3.6-2.3.7 and the construction of pi_HT, pp. 19-21). T2's description covers the Hodge-Tate parabolic reduction and the tensor conditions cutting out the Hodge-type flag variety, but T2 has no nodes. Node S3/hodge-type-period-map-factors-through-G-flag-variety transcribes the same CS17 argument, so this is a supplier request to T2 to own CS17 Sections 2.2-2.3, not an independent input. Existing stage edge T2 -> S3.",
    "sources": [
     {
      "sourceId": "cs17-compact-unitary",
@@ -2142,7 +2201,7 @@
   {
    "source": "HodgeTateAndCanonicalSubgroups:T2",
    "target": "PerfectoidShimuraVarieties:S3/levi-torsor-pullback-identifies-automorphic-vector-bundles",
-   "reason": "Supplies the Levi-torsor comparison M_dR = M_p on (S_K)_proet (Caraiani-Scholze Proposition 2.3.9) and the de Rham torsor P_dR (Lemma 2.3.4); T2's description asks to compare the Hodge-Tate Levi torsor with the de Rham/Hodge torsor. The consumer converts it into the pullback identification of automorphic vector bundles on the perfectoid tower.",
+   "reason": "Supplies the Levi-torsor comparison M_dR = M_p on (S_K)_proet (Caraiani-Scholze Proposition 2.3.9) and the de Rham torsor P_dR (Lemma 2.3.4); T2's description asks to compare the Hodge-Tate Levi torsor with the de Rham/Hodge torsor. The consumer converts it into the pullback identification of automorphic vector bundles on the perfectoid tower. Review (REVIEW-EXT-12): Source side confirmed (CS17 Lemmas 2.3.4-2.3.5, 2.3.8, Proposition 2.3.9, pp. 18-22); T2's description asks to 'compare its Levi torsor with the de Rham/Hodge torsor'. Same supplier request as link 35.",
    "sources": [
     {
      "sourceId": "cs17-compact-unitary",
@@ -2175,7 +2234,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
    "target": "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison",
-   "reason": "Supplies the factorization through Fl_{G,mu} on the Zariski dense open part S^an_{K^p} and the torsor identity M_HT = M_dR there (Caraiani-Scholze Theorem 2.1.3 and Proposition 2.3.9), both extended to compactifications by Zariski closure.",
+   "reason": "Supplies the factorization through Fl_{G,mu} on the Zariski dense open part S^an_{K^p} and the torsor identity M_HT = M_dR there (Caraiani-Scholze Theorem 2.1.3 and Proposition 2.3.9), both extended to compactifications by Zariski closure. Review (REVIEW-EXT-12): Source side confirmed for the factorization (BP 4.4.27, p. 74: 'known to factors through FL_{G,mu} over the Zariski dense open subset S^an_{K^p} by [CS17], thm 2.1.3'). The torsor identity M_HT = M_dR used in Proposition 4.4.29 (p. 75) is CS17 Proposition 2.3.9, i.e. node S3/levi-torsor-pullback-identifies-automorphic-vector-bundles, not this supplier; a link from it was added.",
    "sources": [
     {
      "sourceId": "bp21-higher-coleman",
@@ -2186,7 +2245,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S2/hodge-type-perfectoid-image-compactified-tower",
    "target": "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison",
-   "reason": "Supplies Scholze's perfectoid image-compactified tower Sbar*_{K^p} with its Siegel-valued pi_HT ([Sch15, thm. IV.1.1]), the object of the factorization in (a).",
+   "reason": "Supplies Scholze's perfectoid image-compactified tower Sbar*_{K^p} with its Siegel-valued pi_HT ([Sch15, thm. IV.1.1]), the object of the factorization in (a). Review (REVIEW-EXT-12): Source side confirmed (BP p. 74: 'By [Sch15], thm. IV.1.1 there is a perfectoid space Sbar*_{K^p} ~ lim ... and there is a map pi_HT'). The Siegel-valued pi_HT is node S3/hodge-type-period-map-to-siegel-flag-variety-on-image-compactification (added link). BP omit Scholze's tame-level condition (hypothesis added to the consumer).",
    "sources": [
     {
      "sourceId": "bp21-higher-coleman",
@@ -2223,7 +2282,7 @@
   {
    "source": "ShimuraCompactifications:C3",
    "target": "PerfectoidShimuraVarieties:S3/siegel-toroidal-period-map-explicit-convention",
-   "reason": "Supplies toroidal compactifications S^tor_{K,Sigma} with level-change maps for a cone decomposition Sigma chosen independently of K_p, over which the pro-Kummer-etale tower and the semi-abelian Hodge-Tate sequence live. Scope: perfectoidness of the toroidal tower is imported from [PS16, thm. 0.4] (not read), not from C3.",
+   "reason": "Supplies toroidal compactifications S^tor_{K,Sigma} with level-change maps for a cone decomposition Sigma chosen independently of K_p, over which the pro-Kummer-etale tower and the semi-abelian Hodge-Tate sequence live. Scope: perfectoidness of the toroidal tower is imported from [PS16, thm. 0.4] (not read), not from C3. Review (REVIEW-EXT-12): Source side confirmed (BP pp. 65-66: S^tor_{K,Sigma}, the pro-Kummer-etale K_p-torsor lim S^tor_{K^pK'_p,Sigma} with Sigma fixed, and the semi-abelian A_Sigma). C3 supplies only the level and Hecke maps for a fixed fan. The toroidal compactification itself is C2. The semi-abelian scheme A_Sigma and its Hodge-Tate sequence come from C4/C5. The pro-Kummer-etale site [DLLZ19] is HodgeTateAndCanonicalSubgroups T6:log-sites. [PS16, thm. 0.4] is unread (gap). New stage edge C3 -> S3, acyclic.",
    "sources": [
     {
      "sourceId": "bp21-higher-coleman",
@@ -2234,7 +2293,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S3/siegel-lie-algebra-and-hodge-line-pullback",
    "target": "TorsionCohomologyInfrastructure:TC.1",
-   "reason": "Supplies omega_{K^p} = pi_HT^* omega_Fl with the integral structures omega^+ and pi_HT^* omega^+_Fl bounded against each other by a constant C depending only on g, prime-to-p Hecke equivariance and GSp_2g(Q_p)-equivariance; TC.1 needs this comparison of the chosen bundle lattice with the pullback along pi_HT. Scope: the integral comparison is only up to p^C.",
+   "reason": "Supplies omega_{K^p} = pi_HT^* omega_Fl with the integral structures omega^+ and pi_HT^* omega^+_Fl bounded against each other by a constant C depending only on g, prime-to-p Hecke equivariance and GSp_2g(Q_p)-equivariance; TC.1 needs this comparison of the chosen bundle lattice with the pullback along pi_HT. Scope: the integral comparison is only up to p^C. Review (REVIEW-EXT-12): Source side confirmed (printed pp. 1014-1015). Scope: this supplies the Siegel comparison with the integral bound p^C (C depending only on g). The Hodge-type comparison that TC.1 asks for is the pullback in Theorem 4.1.1(v) (link 45), where no integral bound is restated. Existing stage edge S3 -> TC.1.",
    "sources": [
     {
      "sourceId": "sch15-torsion",
@@ -2256,7 +2315,7 @@
   {
    "source": "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison",
    "target": "IgusaVarietiesAndTorsionConcentration:IG.3",
-   "reason": "Supplies the compactified Hodge-Tate maps on the genuine minimal and perfect toroidal towers with their torsor identity M_HT = M_dR, whose fibres IG.3 compares with Igusa varieties. Scope: toroidal perfectoidness only for perfect cone decompositions; the minimal tower is perfectoid as a diamond limit, not known to be a Scholze-Weinstein tilde-limit.",
+   "reason": "Supplies the compactified Hodge-Tate maps on the genuine minimal and perfect toroidal towers with their torsor identity M_HT = M_dR, whose fibres IG.3 compares with Igusa varieties. Scope: toroidal perfectoidness only for perfect cone decompositions; the minimal tower is perfectoid as a diamond limit, not known to be a Scholze-Weinstein tilde-limit. Review (REVIEW-EXT-12): Source side confirmed (BP pp. 74-75). IG.3 needs compactified period-map fibres on toroidal and minimal towers; the supplier provides pi_HT on Sbar*, S* and perfect-Sigma toroidal towers. The drafter's scope caveats stand, and Proposition 4.4.29 itself is [EH19, Cor. 5.2] with [Lan20] for perfect cone decompositions, both unread (gap). Existing stage edge S3 -> IG.3.",
    "sources": [
     {
      "sourceId": "bp21-higher-coleman",
@@ -2300,7 +2359,7 @@
   {
    "source": "PerfectoidSpaces:P8",
    "target": "PerfectoidShimuraVarieties:S4/property-P-descends-from-adjoint-connected-datum",
-   "reason": "Supplies Hansen-Johansson Lemma 5.9 (perfectoidness transported along finite maps of towers with finite transition maps), which concludes Proposition 5.18. Scope: P8 has no nodes; the lemma rests on [BS19, Theorem 1.16(1)] via Lemma 5.10.",
+   "reason": "Supplies Hansen-Johansson Lemma 5.9 (perfectoidness transported along finite maps of towers with finite transition maps), which concludes Proposition 5.18. Scope: P8 has no nodes; the lemma rests on [BS19, Theorem 1.16(1)] via Lemma 5.10. Review (REVIEW-EXT-12): Source side confirmed (HJ p. 36, Lemma 5.9). P8 has no nodes; Lemma 5.9 rests on [BS19, Thm 1.16(1)] through Lemma 5.10, which no supplier node states (gap). Existing stage edge P8 -> S4.",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
@@ -2310,8 +2369,8 @@
   },
   {
    "source": "PerfectoidSpaces:P8",
-   "target": "PerfectoidShimuraVarieties:S4/good-towers-finite-maps-and-finite-quotients",
-   "reason": "Supplies Theorem 5.8 (finite group quotients of analytically separated perfectoid spaces whose rank one points have closures inside affinoid perfectoids, with X^diamond/G = (X/G)^diamond; proof via G-clean neighbourhoods and [Han16, Theorem 1.4]) and Lemmas 5.9-5.11. Scope mismatch: P8's description says 'under Hansen-Johansson Section 5's invariant affinoid-cover hypothesis', whereas Theorem 5.8 explicitly avoids assuming a G-invariant affinoid cover (only [Han16] for an H_x-stable affinoid is used inside the proof).",
+   "target": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
+   "reason": "Supplies Theorem 5.8 (finite group quotients of analytically separated perfectoid spaces whose rank one points have closures inside affinoid perfectoids, with X^diamond/G = (X/G)^diamond; proof via G-clean neighbourhoods and [Han16, Theorem 1.4]) and Lemmas 5.9-5.11. Scope mismatch: P8's description says 'under Hansen-Johansson Section 5's invariant affinoid-cover hypothesis', whereas Theorem 5.8 explicitly avoids assuming a G-invariant affinoid cover (only [Han16] for an H_x-stable affinoid is used inside the proof). Review (REVIEW-EXT-12): Source side confirmed (HJ pp. 30-34). The drafter's scope caveat is right: Theorem 5.8 avoids a G-invariant affinoid cover and uses [Han16, Thm 1.4] only for an H_x-stable affinoid inside the proof, while P8's description assumes the invariant-cover hypothesis. P8 must state Theorem 5.8 in HJ's form, or this node must stay the owner. Existing stage edge P8 -> S4 (P8 -> S2 after re-parenting).",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
@@ -2321,7 +2380,7 @@
   },
   {
    "source": "PerfectoidShimuraVarieties:S2/analytic-separation-and-zariski-closed-pullbacks-for-projective-towers",
-   "target": "PerfectoidShimuraVarieties:S4/good-towers-finite-maps-and-finite-quotients",
+   "target": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
    "reason": "Supplies analytic separatedness of limits of towers of projective varieties (Lemma 5.6), a hypothesis of Theorem 5.8 checked in Proposition 5.13(2).",
    "sources": [
     {
@@ -2342,7 +2401,7 @@
    ]
   },
   {
-   "source": "PerfectoidShimuraVarieties:S4/good-towers-finite-maps-and-finite-quotients",
+   "source": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
    "target": "PerfectoidShimuraVarieties:S4/hodge-type-adjoint-connected-towers-are-perfectoid",
    "reason": "Supplies Proposition 5.13(1), applied twice to the finite maps of towers of connected Shimura varieties, and Proposition 5.13(2), applied to the finite group Delta acting on the Gamma'''-tower.",
    "sources": [
@@ -2399,7 +2458,7 @@
   {
    "source": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
    "target": "PerfectoidShimuraVarieties:S4/pre-abelian-minimally-compactified-towers-are-perfectoid",
-   "reason": "Supplies Bhatt-Scholze Remark 7.5 (the vanishing locus of an ideal in an affinoid perfectoid space is strongly Zariski closed), invoked in Corollary 5.21 to see that the boundary is strongly Zariski closed. Scope: the supplier covers affinoid perfectoid spaces with a perfectoid Tate ring; Zariski closedness of the infinite-level boundary itself is asserted in Theorem 1.5 but not separately argued.",
+   "reason": "Supplies Bhatt-Scholze Remark 7.5 (the vanishing locus of an ideal in an affinoid perfectoid space is strongly Zariski closed), invoked in Corollary 5.21 to see that the boundary is strongly Zariski closed. Scope: the supplier covers affinoid perfectoid spaces with a perfectoid Tate ring; Zariski closedness of the infinite-level boundary itself is asserted in Theorem 1.5 but not separately argued. Review (REVIEW-EXT-12): Source side confirmed (HJ p. 38, Corollary 5.21: 'the boundary is strongly Zariski closed ... since all Zariski closed sets are strongly Zariski closed by [BS19, Remark 7.5]'). The supplier node states exactly Remark 7.5 (affinoid perfectoid, perfectoid Tate ring) and records its own caveats. Zariski-closedness of the infinite-level boundary, the input to Remark 7.5, is asserted in Theorem 1.5 but not argued in Section 5 (gap). Existing stage edge Q4 -> S4.",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
@@ -2410,13 +2469,697 @@
   {
    "source": "PerfectoidShimuraVarieties:S4/pre-abelian-minimally-compactified-towers-are-perfectoid",
    "target": "IgusaVarietiesAndTorsionConcentration:IG.3",
-   "reason": "Supplies perfectoidness of minimally compactified towers X*_{K^p} = lim X*,diamond_{K^pK_p} for pre-abelian data. Scope: no Hodge-Tate map and no tilde-limit comparison come with it; IG.3's compactified Hodge-Tate fibres need the separate period-map theorems (S3 for Hodge type, S6 for abelian type).",
+   "reason": "Supplies perfectoidness of minimally compactified towers X*_{K^p} = lim X*,diamond_{K^pK_p} for pre-abelian data. Scope: no Hodge-Tate map and no tilde-limit comparison come with it; IG.3's compactified Hodge-Tate fibres need the separate period-map theorems (S3 for Hodge type, S6 for abelian type). Review (REVIEW-EXT-12): Source side confirmed (HJ Theorem 5.20, p. 38). The drafter's scope note is right: no Hodge-Tate map and no ~-limit comparison come with it. IG.3 needs compactified Hodge-Tate fibres; for non-Hodge data these come from S6 (BP 4.4.41-4.4.53, not decomposed). Existing stage edge S4 -> IG.3.",
    "sources": [
     {
      "sourceId": "hj20-perfectoid-shimura-v2",
      "locator": "Section 5.3, Theorem 5.20, p. 38"
     }
    ]
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz-almost-hom-description",
+   "target": "PerfectoidShimuraVarieties:S1/hebbarkeitssatz-on-hasse-loci-under-resolution",
+   "reason": "The Corollary 2.3.5 proof reduces 'as in the proof of Proposition 2.3.2' to I generated by one element, and its target is the general Hebbarkeitssatz description.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 2.3.2, proof of Corollary 2.3.5, printed pp. 962-963"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz-almost-hom-description",
+   "target": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
+   "reason": "Lemma 2.3.11 applies the general Hebbarkeitssatz (Proposition 2.3.2) and base change (Lemma 2.3.4) to the limit triple.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 2.3.3, proof of Lemma 2.3.11, printed pp. 969-970"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hebbarkeitssatz-on-hasse-loci-under-resolution",
+   "target": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
+   "reason": "Lemma 2.3.9 uses Corollary 2.3.5 to identify H^0(X, O+/t)^a with H^0(X \\ Z, O+/t)^a.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 2.3.3, proof of Lemma 2.3.9, printed p. 967"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/integral-canonical-subgroup-via-deformation-theory",
+   "target": "PerfectoidShimuraVarieties:S1/canonical-subgroup-functoriality-and-generic-structure",
+   "reason": "Proposition 3.2.8(i)-(ii) follow from the formula for C_m(R') in Corollary 3.2.6, and (iii)-(iv) use Lemma 3.2.4.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.1, Proposition 3.2.8 with proof, printed pp. 979-980"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/integral-canonical-subgroup-via-deformation-theory",
+   "target": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "reason": "Theorem 3.2.15 uses the canonical subgroups C_m (Definition 3.2.7, Corollary 3.2.6), and Lemma 3.2.4 in part (iii).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, proof of Theorem 3.2.15, printed pp. 986-987"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/canonical-subgroup-functoriality-and-generic-structure",
+   "target": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "reason": "Proposition 3.2.8(iv) gives the Gamma_0(p^m)-structure and 3.2.8(iii) the commutativity of the level-changing squares.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, proof of Theorem 3.2.15(ii), printed p. 986"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hartogs-extension-on-hasse-blowups",
+   "target": "PerfectoidShimuraVarieties:S1/hasse-neighbourhood-blowups-and-frobenius-diagram",
+   "reason": "Lemma 3.2.13: the local ring (R (x)^ Z_p^cycl)<u>/(u Ha~ - p^epsilon) is flat by Lemma 3.2.10.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, proof of Lemma 3.2.13, printed p. 984"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hartogs-extension-on-hasse-blowups",
+   "target": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "reason": "The extension of the Frobenius lifts and open immersions to X* uses Lemma 3.2.10 with f = Ha.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, proof of Theorem 3.2.15, printed pp. 987-988"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hasse-neighbourhood-blowups-and-frobenius-diagram",
+   "target": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "reason": "Theorem 3.2.15(i) lifts the mod-p Frobenius diagram (1) of Lemma 3.2.14 on the formal models X*(epsilon).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, Theorem 3.2.15(i) and proof, printed pp. 985-986"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "target": "PerfectoidShimuraVarieties:S1/anticanonical-tower-and-deep-level-affinoidness",
+   "reason": "The anticanonical pieces are the images of the open immersions X*(p^{-m} epsilon) -> X*_{Gamma_0(p^m)} with cartesian level-changing squares.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, paragraphs after Theorem 3.2.15, printed p. 988"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/anticanonical-tower-and-deep-level-affinoidness",
+   "target": "PerfectoidShimuraVarieties:S1/perfectoid-anticanonical-gamma0-tower-and-its-tilt",
+   "reason": "Corollary 3.2.19 takes the limit of the integral models X*(p^{-m} epsilon), whose transitions are relative Frobenius modulo p^{1-epsilon}.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.3, proof of Corollary 3.2.19, printed pp. 989-990"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "target": "PerfectoidShimuraVarieties:S1/perfectoid-anticanonical-gamma0-tower-and-its-tilt",
+   "reason": "'By Theorem 3.2.15(i), one has a canonical identification X'*(p^{-m}epsilon)/t^{1-epsilon} = X*(p^{-m}epsilon)/p^{1-epsilon}, compatible with transition maps.'",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.3, proof of Corollary 3.2.19, printed p. 990"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/perfectoid-anticanonical-gamma0-tower-and-its-tilt",
+   "target": "PerfectoidShimuraVarieties:S1/gamma0-infinite-level-affinoid-with-strongly-zariski-closed-boundary",
+   "reason": "Corollary 3.2.20 works on the tilt described in Corollary 3.2.19.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.3, proof of Corollary 3.2.20, printed pp. 990-991"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/gamma0-infinite-level-affinoid-with-strongly-zariski-closed-boundary",
+   "target": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "reason": "Theorem 3.3.18(ii) follows from the constructions in (i), Corollary 3.2.20 and Lemma 2.2.9.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.3, proof of Theorem 3.3.18(ii), printed p. 1014"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/continuous-hodge-tate-map-away-from-boundary",
+   "target": "PerfectoidShimuraVarieties:S1/ordinary-locus-is-preimage-of-rational-flags",
+   "reason": "Lemma 3.3.6 describes the preimage under the map |pi_HT| of Lemma 3.3.4.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.1, Lemma 3.3.6 with proof, printed pp. 1006-1007"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/continuous-hodge-tate-map-away-from-boundary",
+   "target": "PerfectoidShimuraVarieties:S1/finitely-many-symplectic-translates-cover-the-tower",
+   "reason": "Lemma 3.3.8 uses the continuity of |pi_HT| on the good-reduction locus.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.1, proof of Lemma 3.3.8, printed p. 1008"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/ordinary-locus-is-preimage-of-rational-flags",
+   "target": "PerfectoidShimuraVarieties:S1/finitely-many-symplectic-translates-cover-the-tower",
+   "reason": "The intersection over U of |pi_HT|^{-1}(U) is |X_{Gamma(p^infty)}(0)|, the good-reduction case of Lemma 3.3.6.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.1, proof of Lemma 3.3.8, printed p. 1008"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/finitely-many-symplectic-translates-cover-the-tower",
+   "target": "PerfectoidShimuraVarieties:S1/perfectoid-minimally-compactified-siegel-tower",
+   "reason": "Corollary 3.3.12: 'use Lemma 3.3.11 and Theorem 3.2.36'.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.2, proof of Corollary 3.3.12, printed p. 1009"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/continuous-hodge-tate-map-away-from-boundary",
+   "target": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+   "reason": "Corollary 3.3.13: 'we argue as in the proof of Lemma 3.3.4'.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.2, proof of Corollary 3.3.13, printed p. 1010"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/ordinary-locus-is-preimage-of-rational-flags",
+   "target": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+   "reason": "Lemma 3.3.14: 'By Lemma 3.3.6, the preimage is contained in the closure ...'.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.2, proof of Lemma 3.3.14, printed p. 1010"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/finitely-many-symplectic-translates-cover-the-tower",
+   "target": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+   "reason": "Lemma 3.3.15: 'The proof is identical to the proof of Lemma 3.3.8'.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.2, proof of Lemma 3.3.15, printed p. 1011"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/perfectoid-minimally-compactified-siegel-tower",
+   "target": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+   "reason": "Corollary 3.3.17: 'By Corollary 3.3.12, it suffices to prove that pi_HT extends ... to X*_{Gamma(p^infty)}(epsilon)_a'.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.2, proof of Corollary 3.3.17, printed pp. 1011-1012"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+   "target": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "reason": "Lemmas 3.3.19-3.3.20 use Lemma 3.3.15 and the proof of Lemma 3.3.14, and the theorem's pi_HT is that of Corollary 3.3.17.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.3, proof of Theorem 3.3.18(i), printed pp. 1013-1014"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+   "target": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "reason": "'The analogue of the conditions in (i) is satisfied for X*_{Gamma(p^infty)}(epsilon)_a by Theorem 3.2.36.'",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.3, proof of Theorem 3.3.18(i), printed p. 1014"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/perfectoid-minimally-compactified-siegel-tower",
+   "target": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "reason": "'We have established existence of X*_{Gamma(p^infty),K^p} and pi_HT' (Corollaries 3.3.12 and 3.3.17).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.3, proof of Theorem 3.3.18, printed p. 1013"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hodge-tate-filtration-of-degenerating-abelian-varieties",
+   "target": "PerfectoidShimuraVarieties:S3/siegel-lie-algebra-and-hodge-line-pullback",
+   "reason": "Theorem 3.3.18(v) uses Proposition 3.3.1 for the analogue of (iv), and (vi) uses it for boundedness near the boundary.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.3, proof of Theorem 3.3.18(v)-(vi), printed pp. 1014-1015"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+   "target": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "reason": "Lemma 2.2.9 (pullback of strongly Zariski closed embeddings), used for Theorem 3.3.18(ii), is proved 'by the proof of [52, Prop. 6.18]'.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 2.2, proof of Lemma 2.2.9, printed pp. 957-958; Section 3.3.3, proof of Theorem 3.3.18(ii), printed p. 1014"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidSpaces:P4",
+   "target": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "reason": "Theorem 3.3.18(ii) uses Lemma 2.2.9 (Zariski closed embeddings of affinoid perfectoid spaces), torsion-paper material that P4 names but no P4 node transcribes (existing gap).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.3.3, proof of Theorem 3.3.18(ii), printed p. 1014"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "ShimuraCompactifications:C5",
+   "target": "PerfectoidShimuraVarieties:S1/anticanonical-tower-and-deep-level-affinoidness",
+   "reason": "Lemma 3.2.17 needs the projective integral minimal compactification X* with ample omega, so that H^i(X*, omega^{(x) p^m (p-1)}) = 0 for i > 0 and m large and Ha^{p^m} lifts globally.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.2, proof of Lemma 3.2.17, printed p. 988"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification",
+   "target": "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
+   "reason": "The chosen embedding iota gives the compatible finite maps X*_{K cap G(A_f)} -> S*_K used to form the map of towers in Proposition 5.14.",
+   "sources": [
+    {
+     "sourceId": "hj20-perfectoid-shimura-v2",
+     "locator": "Section 5.2, proof of Proposition 5.14, p. 34"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification",
+   "target": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
+   "reason": "CS17 use the closed embedding S_K -> S~_{K~} (x)_Q E from [Del71, Prop. 1.15] and the Deligne-style Hodge-type datum.",
+   "sources": [
+    {
+     "sourceId": "cs17-compact-unitary",
+     "locator": "Section 2.1, p. 11; Section 2.3, p. 16"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-to-siegel-flag-variety-on-image-compactification",
+   "target": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
+   "reason": "CS17 Theorem 2.1.2(2)-(3), the G(Q_p)-equivariant Siegel-valued pi_HT with trivial prime-to-p Hecke action, is 'part of Theorem IV.1.1 of [Sch15b]'.",
+   "sources": [
+    {
+     "sourceId": "cs17-compact-unitary",
+     "locator": "Section 2.1, Theorem 2.1.2 and footnote 8, pp. 11-12"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-to-siegel-flag-variety-on-image-compactification",
+   "target": "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison",
+   "reason": "BP 4.4.27 starts from the Siegel-valued map pi_HT: Sbar*_{K^p} -> FL_{G~,mu~} of [Sch15, thm. IV.1.1].",
+   "sources": [
+    {
+     "sourceId": "bp21-higher-coleman",
+     "locator": "Section 4.4.27, p. 74"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S3/levi-torsor-pullback-identifies-automorphic-vector-bundles",
+   "target": "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison",
+   "reason": "The proof of Proposition 4.4.29 uses that M^an_HT and M^an_dR coincide over S^an_{K^p} 'by [CS17], prop. 2.3.9'.",
+   "sources": [
+    {
+     "sourceId": "bp21-higher-coleman",
+     "locator": "Proof of Proposition 4.4.29, p. 75"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+   "target": "PerfectoidShimuraVarieties:S3/siegel-toroidal-period-map-explicit-convention",
+   "reason": "BP 4.4.10 takes the perfectoid Siegel tower S*_{K^p} ~ lim and pi_HT with an affinoid covering of FL whose preimages are good affinoid perfectoid from [Sch15] (cited as 'thm. III.3.17'; in the Annals numbering this is Theorem 3.3.18(i)).",
+   "sources": [
+    {
+     "sourceId": "bp21-higher-coleman",
+     "locator": "Section 4.4.10, p. 66"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
+   "target": "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
+   "reason": "Corollary 5.15 applies Proposition 5.13(1), and Proposition 5.14 concludes with 'a good tower in the sense of Definition 5.12'. REQUIRES re-parenting the source node to PerfectoidShimuraVarieties:S2; with parent S4 this link creates the stage cycle S2 -> S4 -> S2.",
+   "sources": [
+    {
+     "sourceId": "hj20-perfectoid-shimura-v2",
+     "locator": "Section 5.2, Proposition 5.14 statement and proof of Corollary 5.15, pp. 34-35"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "DiamondsAndVStacks:D5",
+   "target": "PerfectoidShimuraVarieties:S4/perfectoidness-from-perfectoid-components-under-profinite-action",
+   "reason": "Lemma 5.1 uses [Sch17, Proposition 11.23(iii)] (spreading out from a connected component) and [Sch17, Lemma 11.27] (a spatial diamond whose components are affinoid perfectoid is affinoid perfectoid). D5's description covers the spatial-diamond results 11.17-11.31. The ECD numbering was not checked against ECD itself.",
+   "sources": [
+    {
+     "sourceId": "hj20-perfectoid-shimura-v2",
+     "locator": "Section 5.1, proof of Lemma 5.1, p. 27"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "DiamondsAndVStacks:D4",
+   "target": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
+   "reason": "Proposition 5.13(2) uses [Sch17, Lemma 11.11]: a qcqs map of spatial diamonds that is bijective on (C, C+)-points is an isomorphism. D4's description includes 'the qcqs geometric-point isomorphism criterion'.",
+   "sources": [
+    {
+     "sourceId": "hj20-perfectoid-shimura-v2",
+     "locator": "Section 5.1, proof of Proposition 5.13(2), p. 33"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidSpaces:P3/almost-purity-theorem",
+   "target": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+   "reason": "Finite etale covers of perfectoid spaces are perfectoid ([52, Th. 7.9(iii)], used silently): D_{m,Gamma_0(p^infty)}, Y_infty and Y*_infty \\ boundary are perfectoid as finite etale pullbacks to X_{Gamma_0(p^infty)}(epsilon)_a.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Section 3.2.5, before Lemma 3.2.25, printed p. 997; after Lemma 3.2.29, printed p. 999"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "target": "PerfectoidShimuraVarieties:S1/tate-normalized-traces-on-anticanonical-tower",
+   "reason": "Theorem 3.2.15(i): the transition maps F~ are of the type of Corollary 3.2.22 with epsilon' = p^{-m} epsilon and n = g(g+1)/2.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Corollary 3.2.23, printed p. 994"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hartogs-extension-on-hasse-blowups",
+   "target": "PerfectoidShimuraVarieties:S1/tate-normalized-traces-on-anticanonical-tower",
+   "reason": "Lemma 3.2.10: R'_{epsilon/p} is p-torsion free, giving injectivity of tau.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Corollary 3.2.22(i), printed p. 993"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hartogs-extension-on-hasse-blowups",
+   "target": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+   "reason": "Lemma 3.2.10 (Hartogs on the Hasse blow-up) gives the extension of sections across the boundary to which Lemma 3.2.24(i) is reduced.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.2.24(i), printed p. 996"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/anticanonical-tower-and-deep-level-affinoidness",
+   "target": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+   "reason": "Lemma 3.2.17: X*_{Gamma_0(p^m)}(epsilon)_a is affinoid for m large, so Y*_{m'} = Spa(S_{m'}, S^+_{m'}).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Lemma 3.2.24 statement and proof of (i), printed pp. 995-996"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/tate-normalized-traces-on-anticanonical-tower",
+   "target": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+   "reason": "Tate's normalized traces (Corollary 3.2.23) give the retractions, injectivity and density in Lemma 3.2.24(ii).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.2.24(ii), printed p. 996"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
+   "target": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+   "reason": "The trace-pairing argument of Lemma 2.3.10(iii) is repeated on affinoid opens.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.2.24(i), printed p. 996"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+   "target": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+   "reason": "Theorem 3.2.15(ii): the isogeny A_{Gamma_0(p^m)}(epsilon)_a -> A^t with kernel the canonical subgroup C_m defines D_m.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Before Lemma 3.2.25, printed p. 997"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/perfectoid-anticanonical-gamma0-tower-and-its-tilt",
+   "target": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+   "reason": "Corollary 3.2.19: A'(epsilon)[p^m]^perf is the tilt of A_{Gamma_0(p^infty)}(epsilon)_a[p^m], and X'*(epsilon) is the formal scheme u Ha = t^epsilon.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.2.26, printed p. 998; proof of Lemma 3.2.27, printed p. 998"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
+   "target": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+   "reason": "Lemma 2.3.9 and Corollary 2.3.12 (Lemma 3.2.27), Lemma 2.3.10 (Corollary 3.2.28), Lemma 2.3.11 (Proposition 3.2.34).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proofs of Lemma 3.2.27 and Corollary 3.2.28, printed p. 999; before Proposition 3.2.34, printed p. 1001"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+   "target": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+   "reason": "Lemma 3.2.24 with Y*_m = X*_{Gamma_1(p^m)}(epsilon)_a: S_infty^+ is the completed colimit (Lemma 3.2.30) and (iii) gives the affinoid perfectoid Y*_infty (Proposition 3.2.33).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.2.30, printed p. 999; Proposition 3.2.33, printed p. 1000"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+   "target": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+   "reason": "Proposition 3.2.34 (perfectoid X*_{Gamma_1(p^infty)}(epsilon)_a with good triple) is the base over which Lemma 3.2.35 and almost purity give Theorem 3.2.36.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Before Lemma 3.2.35 and Theorem 3.2.36, printed pp. 1001-1002"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+   "target": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+   "reason": "Hartogs principle (Lemma 3.2.24) reduces the epsilon = 0 case of Lemma 3.2.35 to the good-reduction locus.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.2.35, printed p. 1001"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
+   "target": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+   "reason": "Lemmas 2.3.10 and 2.3.11 carry goodness to the Gamma(p^m)-covers and the limit.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Before Theorem 3.2.36, printed p. 1002"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hodge-tate-filtration-of-degenerating-abelian-varieties",
+   "target": "PerfectoidShimuraVarieties:S1/continuous-hodge-tate-map-away-from-boundary",
+   "reason": "Proposition 3.3.1 gives K-rationality of the Hodge-Tate filtration at bad-reduction points.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.3.4, printed pp. 1004-1005"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hodge-tate-filtration-of-degenerating-abelian-varieties",
+   "target": "PerfectoidShimuraVarieties:S1/ordinary-locus-is-preimage-of-rational-flags",
+   "reason": "Lemma 3.3.2 (Hasse invariant) and Proposition 3.3.1 (filtration of G^) characterize points over Fl(Q_p).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.3.6, printed p. 1007"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/hodge-tate-filtration-of-degenerating-abelian-varieties",
+   "target": "PerfectoidShimuraVarieties:S1/finitely-many-symplectic-translates-cover-the-tower",
+   "reason": "Proposition 3.3.1 and Lemma 3.3.2 reduce bad reduction to smaller genus in the induction of Lemma 3.3.8 (and Lemma 3.3.15).",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proof of Lemma 3.3.8, printed p. 1008; Lemma 3.3.15, printed p. 1011"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+   "target": "PerfectoidShimuraVarieties:S1/perfectoid-minimally-compactified-siegel-tower",
+   "reason": "Theorem 3.2.36: X*_{Gamma(p^infty)}(epsilon)_a is affinoid perfectoid, used in Corollary 3.3.12.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Definition 3.3.5, printed p. 1006; proof of Corollary 3.3.12, printed p. 1009"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+   "target": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+   "reason": "Goodness part of Theorem 3.2.36 extends open-closed subsets and bounded functions across the boundary.",
+   "sources": [
+    {
+     "sourceId": "sch15-torsion",
+     "locator": "Proofs of Lemma 3.3.14, Lemma 3.3.16 and Corollary 3.3.17, printed pp. 1010-1012"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
  ],
  "coverage": [
@@ -2424,14 +3167,16 @@
    "stageId": "PerfectoidShimuraVarieties:S0",
    "status": "not_read",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): Coverage record correct in status ('not_read'), but 'Not yet decomposed in this packet' is not specific remaining work. Replace remaining with: (1) Deligne's reconstruction of the full tower from the connected tower and the groups A(G), A^0(G) with the closure of Z(Q) in G(A_f), and pi_0 as the quotient by the closure of G(Q)_+ (Boxer-Pilloni 4.4.48, pp. 82-83, and [Del79, Section 2.1]), for the atlas demand to compute effective deck groups and closures of central elements; (2) SW13 Section 2.4 (Definition 2.4.1, Propositions 2.4.2-2.4.5) and Scholze Remark 3.3.3 and Definition 3.3.5 for the point-set and structure-sheaf comparison of inverse limits; (3) HJ Section 5.3 conventions for the diamond limit over Spd C. Any node here must keep the full tower, the connected-component tower and the rigidified tower distinct."
    ]
   },
   {
    "stageId": "PerfectoidShimuraVarieties:S0.general",
    "status": "not_read",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): 'Not yet decomposed in this packet' is not specific. Replace with: construct lim_K S_K^diamond for general data as a diamond. Boxer-Pilloni 4.4.38-4.4.40 construct the toroidal diamond limit S^{tor,diamond}_{K^p,Sigma} and pi^tor_HT for arbitrary data from [DLLZ19, Thm 5.3.1] (read by the drafter per readSections, no node). The period map belongs to S6; S0.general needs only the limit and its comparison with the finite-level canonical models of ShimuraVarieties V8.general."
    ]
   },
   {
@@ -2442,42 +3187,48 @@
     "Faltings-Chai compactification inputs (gap; check ShimuraCompactifications C5 exports).",
     "g = 1 compactified cases and cusp q-disc charts (left to the reader in the source).",
     "Scholze survey [54] Propositions 2.22, 4.10, 4.15 and Fargues-Genestier-Lafforgue imports.",
-    "Transcription of Lemmas 2.1.1-2.1.2 (formal models from affinoid covers) not done: they are used only in Section 4.3, outside S1."
+    "Transcription of Lemmas 2.1.1-2.1.2 (formal models from affinoid covers) not done: they are used only in Section 4.3, outside S1.",
+    "Review (REVIEW-EXT-12): Status 'partial' is right. Add to remaining: (a) the missing internal dependency graph (no S1 node-to-node links were recorded; 43 intra-S1 links and 4 external supplier links are proposed); (b) Lemma 3.2.10's 'standard' flatness (new gap); (c) [55, Def. 2.1.5] in Lemma 3.2.30 and Stacks Tag 07LU (new gaps); (d) torsion-paper Lemmas 2.2.1-2.2.9 as nodes or a P4 export (existing gap); (e) the atlas S1 demand for local perfectoid q-disc charts at elliptic cusps (existing g = 1 gap). The atlas lists HodgeTateAndCanonicalSubgroups T4 as an S1 prerequisite, but no S1 node uses it: Scholze builds integral canonical subgroups himself (Section 3.2.1), apart from Illusie."
    ]
   },
   {
    "stageId": "PerfectoidShimuraVarieties:S2",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): Wrong status. The packet has four S2 nodes (the Scholze Section 4.1 set-up and Theorem 4.1.1, HJ Lemmas 5.5-5.7, HJ Proposition 5.14 and Corollary 5.15), so the record must be 'partial', not 'not_read'. Remaining: (1) the transfer of Theorem 4.1.1 to Deligne-style data over E_p (new gap); (2) [Del71, Prop. 1.15]; (3) the atlas demand to 'prove independence of the symplectic embedding through the tower's universal property': HJ's X*_{K^p} = lim X*^diamond is embedding-free by definition, but the ~-limit for the genuine minimal compactification is not known (BP 4.4.27), and Scholze's Xbar* depends a priori on the embedding (printed p. 1018); (4) the inputs [BS19, 1.16(1)] and [Han16, 1.4] (P8/Q4, new gap) and torsion-paper Lemmas 2.2.2 and 2.2.9 (P4). Recommended: re-parent the good-towers node (HJ Definition 5.12, Proposition 5.13) to S2."
    ]
   },
   {
    "stageId": "PerfectoidShimuraVarieties:S3",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): Wrong status: eight S3 nodes exist, so 'partial', not 'not_read'. Remaining: (1) the Hilbert case. BHW Section 5.3 (p. 1750, Remark 5.15) and T2 require the restriction-of-scalars flag variety Res_{O_F|Z} P^1 and its factors after a splitting extension, and there is no node. (2) Functoriality under general morphisms of Shimura data, beyond CS17's independence of the embedding. (3) The unread BP and CS17 imports (new gaps), including the uncited Siegel identification M_HT = M_dR over S^tor. (4) The integral lattice comparison for Hodge type (TC.1): Theorem 4.1.1(v) gives only the rational pullback."
    ]
   },
   {
    "stageId": "PerfectoidShimuraVarieties:S4",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): Wrong status: seven S4 nodes transcribe HJ Section 4.1 and Sections 5.1-5.3 including Theorem 5.20, so 'partial', not 'not_read'. Remaining: (1) the Zariski-closed boundary of Theorem 1.5 (new gap); (2) the Definition 5.17 inconsistency and the connected-case identification (new gap); (3) the unread [Sch17], [Bor63], [PR94], [KL15], [CGJ19] imports (new gap); (4) the atlas demand for the open tower's perfectoid representative: it is an open subdiamond of X*_{K^p} but not stated in HJ; (5) the sheaf-limit identification is only as diamonds (no ~-limit); (6) the pi_0 description needs the closure of G(Q)_+. Theorem 5.20's 'K^p in G(A_f)' is a misprint for G(A_f^p)."
    ]
   },
   {
    "stageId": "PerfectoidShimuraVarieties:S5",
    "status": "not_read",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): 'Not yet decomposed in this packet' is not specific. The drafter lists BHW Sections 2, 5.1-5.3 and 8 as read, but only Section 3.3 became a node. Remaining: nodes for BHW Section 2 (Definitions 2.1-2.3, Lemma 2.4, Proposition 2.6 with its explicit epsilon <= r/2, r/3 or r/4 bounds), Sections 5.1-5.3 (G* tower, Res_{O_F|Z} P^1, Proposition 5.18, which T4 already cites) and Section 8. Also the comparison with #81's modular curves (Weil-pairing components, tame level) and the geometric, intermediate and arithmetic Hilbert towers of H4."
    ]
   },
   {
    "stageId": "PerfectoidShimuraVarieties:S6",
    "status": "not_read",
    "remaining": [
-    "Not yet decomposed in this packet."
+    "Not yet decomposed in this packet.",
+    "Review (REVIEW-EXT-12): 'Not yet decomposed in this packet' is not specific. The drafter lists BP 4.4.38-4.4.40 and 4.4.41-4.4.53 as read, but none became a node. Remaining: nodes for BP Theorem 4.4.40 (general-data toroidal diamond pi^tor_HT and Levi-torsor pullback, from [DLLZ19, Thm 5.3.1]); Proposition 4.4.42 and Theorem 4.4.43 (the B_1 construction of [Lov17]); Theorem 4.4.45 and Lemmas 4.4.50-4.4.52; Proposition 4.4.53 (abelian-type perfectoid minimal tower with affinoid pi_HT). BP Remark 4.4.47 says the abelian-type perfectoid statement is HJ's, reproved there; keep the S4/S6 separation the atlas demands."
    ]
   }
  ],
@@ -2553,6 +3304,323 @@
     "PerfectoidShimuraVarieties:S1/canonical-subgroup-functoriality-and-generic-structure"
    ],
    "detail": "Verified: Proposition 3.2.9 is proved by Serre's criterion, SGA2 III Exemple 3.4 and SGA2 I Proposition 2.13; Proposition 3.2.8(iv) uses Huber, Continuous valuations [36, Prop. 2.6]. Not verified: these citations (not read). Next action: locate owners in the commutative algebra/adic spaces roadmaps or read the cited results."
+  },
+  {
+   "title": "Flatness of the Hasse blow-up algebra S = (R ⊗^ Z_p^cycl)<u>/(fu - p^epsilon) is asserted as 'standard' (Scholze Lemma 3.2.10, first assertions)",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S1/hartogs-extension-on-hasse-blowups",
+    "PerfectoidShimuraVarieties:S1/hasse-neighbourhood-blowups-and-frobenius-diagram"
+   ],
+   "detail": "Verified: Lemma 3.2.10 (printed p. 981) asserts that S is flat and p-adically complete over Z_p^cycl and that u is not a zero divisor; its proof (p. 982) opens with 'The first assertions are standard' and proves only the extension statement. Lemma 3.2.13's representability and flatness of X*(epsilon) (p. 984, 'By Lemma 3.2.10, the right-hand side is flat') and Cor. 3.2.22's p-torsion-freeness of R'_{epsilon/p} (p. 993) rest on these assertions. Not verified: no proof or reference is given. Next action: supply the argument (e.g. that R-bar normal with f-bar a non-zero-divisor gives S/p^epsilon = (R/p^epsilon)[u]/(f u) with p-torsion-free lift), or locate a reference in the admissible blow-up literature (Bosch-Lutkebohmert / Raynaud) and name its owner stage.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Scholze-Weinstein's category of adic spaces [55, Def. 2.1.5] used in Lemma 3.2.30",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting"
+   ],
+   "detail": "Verified: the proof of Lemma 3.2.30 (printed p. 999) constructs 'a map of adic spaces in the sense of [55, Def. 2.1.5]' into Spa(S_infty, S_infty^+) before S_infty is known to be perfectoid. The reviewer located the definition in Scholze-Weinstein arXiv:1211.6357v2, Section 2.1, pp. 13-14 (adic spaces as sheaves on the site of complete affinoid rings with rational covers), but the packet's SW13 readSections do not include Section 2.1 and no supplier stage is named. Next action: have PerfectoidSpaces P7 (or the S1 node) state Definition 2.1.5 and the properties of Proposition 2.1.6 that the argument needs.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Stacks Project Tag 07LU in Lemma 3.2.21(i)",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S1/tate-normalized-traces-on-anticanonical-tower"
+   ],
+   "detail": "Verified: the proof of Lemma 3.2.21(i) (printed p. 991) deduces that the Koszul complex C_k over R/I^k is perfect from C_k (x)^L R/I = C_1 being perfect, citing [58, Tag 07LU]. Not verified: the cited tag. Minor commutative-algebra import; next action: confirm the statement in the Stacks Project and name a supplier or state it in the node.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Hansen-Johansson Proposition 5.14's Hodge-Tate map rests on [CGH+18, Theorem 3.3.1]",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
+    "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison"
+   ],
+   "detail": "Verified: v2 of HJ still states in Proposition 5.14 (p. 34, page image) a G(Q_p)-equivariant pi_HT: X*_{K^p} -> Fl_{G,mu}, functorial in the tame level, for Hodge-type data. The proof (p. 35) composes X*_{K^p} -> Xbar*_{K^p} with the 'previously known' map on Scholze's image compactification, citing [CGH+18, Theorem 3.3.1], and adds that the [CGH+18] argument also works on X*_{K^p} directly. Not verified: [CGH+18, Theorem 3.3.1] (not obtained). Boxer-Pilloni 4.4.27 give an independent route for the factorization through Fl_{G,mu} on Xbar*_{K^p}. Next action: obtain [CGH+18] (Caraiani-Gulotta-Hsu-Johansson-Mocz-Reinecke-Shih, 'Shimura varieties at level Gamma_1(p^infty) and Galois representations', arXiv:1804.00136 per HJ's bibliography) Section 3.3, or rely on BP 4.4.27 and record that HJ's statement is by citation only.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Transfer of Scholze Theorem 4.1.1 to Deligne-style Hodge-type data over E_p (Caraiani-Scholze Theorem 2.1.2, footnote 8)",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
+    "PerfectoidShimuraVarieties:S3/levi-torsor-pullback-identifies-automorphic-vector-bundles",
+    "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification"
+   ],
+   "detail": "Verified: Scholze Theorem 4.1.1 is proved for (G, D) with G^der simply connected and a closed embedding into Sp_2g, over C, for K^p inside the principal level-N subgroup of Sp_2g (printed pp. 1016-1019). CS17 Theorem 2.1.2 restates it for Deligne-style data (G, X) -> (GSp_2g, H^{+-}) over E_p and 'sufficiently small' K^p, with footnote 8: 'The setup is slightly different, but the proof works verbatim' (p. 11). Not verified: the adaptation (GSp versus Sp_2g and passage to connected components, E_p versus C, and the tame-level condition) is written in no source read. Next action: write the adaptation as a node under S2, or cite Hansen-Johansson Proposition 5.14 plus Lemma 5.9 for the diamond limit and record that the ~-limit is not known for the genuine minimal compactification (BP 4.4.27).",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Unread imports in Caraiani-Scholze Section 2",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
+    "PerfectoidShimuraVarieties:S3/levi-torsor-pullback-identifies-automorphic-vector-bundles",
+    "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification"
+   ],
+   "detail": "Verified (CS17 arXiv v1 pp. 10-22): the proofs invoke [Sch13c, Theorem 8.8] (relative p-adic de Rham comparison, under the local-freeness hypothesis of footnote 9), [Sch13c, Proposition 7.9] and [Sch13c, Lemma 6.3] (Theorem 2.2.2, Proposition 2.2.3, p. 14); [Del82, Proposition 3.1] (G as stabilizer of tensors, p. 16); Kisin [Kis10] and Deligne [Del82] for Lemma 2.3.2 (de Rham tensors defined over E, p. 17); [Bla94] (Hodge tensors under the p-adic comparison: Lemma 2.3.6 p. 20, Lemma 2.3.7 p. 20, Proposition 2.3.9 p. 21); [Mil90, Proposition 3.5, Theorems 4.1 and 4.3] (automorphic vector bundles, Lemma 2.3.5, p. 19); and [Del71, Proposition 1.15] (closed embedding at finite level, p. 11; also Scholze's [25, Prop. 1.15], printed p. 1018). Not verified: none of these was read. Candidate suppliers: HodgeTateAndCanonicalSubgroups T1 (Hodge-tensor compatibility with comparison maps, per its description), PadicHodgeTheory P8 (relative comparison), AutomorphicBundles B2 (Milne), ShimuraVarieties/ShimuraData (Deligne). Next action: have T1 and B2 export these statements, and read [Del71, 1.15].",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Unread imports in Boxer-Pilloni Section 4.4, and the uncited Siegel torsor identification",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S3/siegel-toroidal-period-map-explicit-convention",
+    "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison"
+   ],
+   "detail": "Verified (BP arXiv v1 pp. 63-76): [PS16, thm. 0.4] (Siegel toroidal perfectoid towers for Sigma independent of K_p, p. 66); [DLLZ19] (pro-Kummer-etale site and Hodge-Tate sequence over S^tor, p. 65); [Lan20] (perfect cone decompositions, p. 74); [EH19, Cor. 5.2] (= Proposition 4.4.29, p. 75); [MP19] (Remark 4.4.28); [BS19, thm. 1.16] (genuine minimal tower, p. 74). In the Siegel case the canonical identification M^an_HT = M^an_dR is asserted without proof or citation (4.4.8, p. 65, 'This pro-etale torsor actually identifies canonically with ... M^an_dR'), and its extension over S^tor is asserted 'again by construction' (p. 66). CS17 Proposition 2.3.9 covers only the open part. Not verified: the cited results and the toroidal extension. Next action: read [PS16] Section 0 and [EH19] Section 5; name HodgeTateAndCanonicalSubgroups T6:log-sites as supplier for [DLLZ19].",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Unread imports in Hansen-Johansson Sections 2.3 and 5",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S2/analytic-separation-and-zariski-closed-pullbacks-for-projective-towers",
+    "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
+    "PerfectoidShimuraVarieties:S4/perfectoidness-from-perfectoid-components-under-profinite-action",
+    "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
+    "PerfectoidShimuraVarieties:S4/full-tower-perfectoid-iff-connected-component-tower-perfectoid",
+    "PerfectoidShimuraVarieties:S4/property-P-descends-from-adjoint-connected-datum",
+    "PerfectoidShimuraVarieties:S4/hodge-type-adjoint-connected-towers-are-perfectoid"
+   ],
+   "detail": "Verified (HJ arXiv v2): [KL15, Cor. 3.6.18] (fibre products of perfectoid spaces over an arbitrary nonarchimedean field Spa(K, K+), p. 29; the PerfectoidSpaces P2 fibre-product node covers only a common perfectoid base field, and here K = E_p); [Han16, Theorem 1.4] (Theorem 5.8 p. 31, Proposition 5.14 p. 34); [BS19, Theorem 1.16(1)] (Lemma 5.10, p. 32; no supplier node states it: PerfectoidQuotients Q2's node concerns semiperfectoid rings); [Sch17] Proposition 11.23(iii) and Lemma 11.27 (Lemma 5.1, p. 27), Lemma 11.11 (Proposition 5.13, p. 33), Proposition 13.6 (Theorem 5.3, p. 29); [CGJ19, Proposition 2.1.1] (Theorems 5.3 and 5.8, p. 29); [Bor63, Theorem 5.1] (Proposition 5.16, p. 36); [PR94, Theorem 4.1] (images of arithmetic subgroups are arithmetic, 'used freely', p. 12; needed for Gamma''' in Proposition 5.19); [Del79, Corollaire 2.0.14] (= HJ Proposition 2.13, p. 13). HJ Proposition 2.11 was read and is proved in the source (pp. 11-12). Not verified: the cited results. Next action: route the [Sch17] results to DiamondsAndVStacks D4/D5 (links proposed), [BS19, 1.16(1)] and [Han16, 1.4] to PerfectoidSpaces P8 or PerfectoidQuotients, and read [PR94, 4.1] and [Bor63, 5.1].",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Zariski-closedness of the infinite-level boundary in Hansen-Johansson Theorem 1.5",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S4/pre-abelian-minimally-compactified-towers-are-perfectoid",
+    "PerfectoidShimuraVarieties:S4"
+   ],
+   "detail": "Verified: Theorem 1.5 (p. 4) asserts that the boundary of X*_{K^p} is Zariski-closed. Theorem 5.20 (p. 38) states only perfectoidness. Corollary 5.21 (p. 38) uses [BS19, Remark 7.5] to pass from Zariski closed to strongly Zariski closed, but no read passage proves that the boundary is Zariski closed at infinite level. Not verified: that assertion. Next action: prove it from HJ Lemma 5.7 (pullback of the closed immersion of the finite-level boundary) and a cofiltered limit of Zariski-closed embeddings (as in the proof of Lemma 5.6), with care for Definition 5.4's caveat that Zariski-closedness may not be checkable on one affinoid cover.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Hansen-Johansson Definition 5.17: arithmetic subgroups of G^ad(Q)^+ against towers for G, and the connected-case identification in Proposition 5.18",
+   "neededBy": [
+    "PerfectoidShimuraVarieties:S4/property-P-descends-from-adjoint-connected-datum",
+    "PerfectoidShimuraVarieties:S4/pre-abelian-minimally-compactified-towers-are-perfectoid"
+   ],
+   "detail": "Verified (page image of p. 36): Definition 5.17 takes arithmetic Gamma in G^ad(Q)^+ but forms lim_{K_p in G(Q_p)} X*_{Gamma cap K_p}(G, X^+). Theorem 5.20 (connected case, p. 38) repeats this. The proof of Proposition 5.18 instead takes Gamma in G(Q)^+ and asserts X_{Gamma,infty}(G, X^+) = X_{pi(Gamma),infty}(G^ad, X^+) 'and the result follows'. Not verified: a consistent definition for non-adjoint G and the identification of the p-adic towers {pi(Gamma cap K_p)} and {pi(Gamma) cap K'_p}. The case G = G^ad used in Proposition 5.19 is unaffected. Next action: fix the definition with Gamma in G(Q)_+ and prove the cofinality statement (compare BP Lemma 4.4.52 for the congruence topologies), or record the connected case of Theorem 5.20 as open.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-12",
+  "date": "2026-09-24",
+  "notes": "Independent review REVIEW-EXT-12 of PerfectoidShimuraVarieties.json (41 nodes, 61 links, 9 gaps, 8 coverage records). All six sources were fetched from public copies. Their SHA-256 hashes equal the packet's library copies, so page numbers agree (Annals printed page = PDF page + 944; AIF printed = PDF + 1707; arXiv pages = PDF pages). Every node's statement, hypotheses, proof steps, acceptance, locators and excerpts were checked against the cited passages. Every excerpt occurs after normalising the text layer: primes render as '0', ℓ as '`' and superscripts drop, and one BP excerpt had lost its 'an' superscripts and was corrected. Nodes: 23 verified, 18 corrected (29 field corrections), 0 unverifiable. Links: 34 kept, 27 annotated, 0 removed, 0 re-targeted, 57 added. Gaps 9 -> 19. Main findings. (1) The packet recorded no node-to-node links inside S1, so the Siegel argument had no internal dependency graph; 43 intra-S1 links with printed locators are added, plus 14 other links. (2) The coverage records mark S2, S3 and S4 'not_read' although 19 nodes decompose them, and the summary mentions only S1. These records must become 'partial'. S0, S0.general, S5 and S6 need specific remaining work: BHW Sections 2, 5 and 8 and BP 4.4.38-4.4.53 were read but not decomposed. (3) The good-towers node (HJ Definition 5.12 and Proposition 5.13) is used by Corollary 5.15 in S2. It should be re-parented from S4 to S2; otherwise the needed link creates the stage cycle S2 -> S4 -> S2. (4) HJ v2 Proposition 5.14 still asserts a Hodge-type pi_HT, by citation of [CGH+18, Thm 3.3.1]. (5) Substantive node corrections: the anticanonical D[p] cap C = {0} description holds only on the good-reduction locus, and the pullback direction was reversed (p. 988); calligraphic X_{K_p} is the good-reduction locus (p. 983); codimension 2 is not essential for g = 1 (pp. 1000-1001); Proposition 3.3.1 is a commuting square with an injection, not 'compatibility'; Lemma 3.2.24(i) is reduced to an O-statement (p. 996); the BHW Tate-curve acceptance test contradicted the source (s vanishes where alpha(e_1) generates the canonical subgroup); HJ Section 5.3 conflated the complex numbers with C; HJ Definition 5.17 mixes G^ad and G. Source misprints recorded: Scholze p. 986 'degree g(g+1)/2' for p^{g(g+1)/2}; Theorem 3.2.15(iii) 'level p' for level 1; p. 999 'Y*_m' for Y*_infty; p. 1015 'does not meet the boundary' for 'does not meet U minus the boundary'; HJ Theorem 5.20 'K^p in G(A_f)'; HJ Proposition 5.16's pi_0 formula omits the closure of G(Q)_+. Union of the atlas stageEdges with the packet's link-implied stage edges: acyclic as drafted. With the added links it is acyclic provided the good-towers node is re-parented to S2. No node-level cycle. implementationStatus remains 'unchecked'. Suggested replacement summary: 'Source decomposition of the Siegel perfectoid construction (Scholze 2015, Chapters 2-3), the Hodge-type towers and period maps (Scholze Section 4.1; Caraiani-Scholze Section 2; Boxer-Pilloni 4.4.1-4.4.35; Hansen-Johansson Section 5.2) and pre-abelian perfectoid representability (Hansen-Johansson Sections 4.1 and 5); S0, S0.general, S5 and S6 not yet decomposed.'",
+  "checked": [
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz-almost-hom-description",
+    "verdict": "corrected",
+    "note": "Read §2.3.1 in full, printed pp. 958-962 (Lemma 2.3.1, Prop. 2.3.2 with proof, Remark 2.3.3, Lemma 2.3.4 with proof). Statement, hypotheses, all proof steps (principal case via [52, Lemma 6.4(i)], S_n^(k) comparison killed by f^{1/p^k} hence t^{n/p^k}, Mittag-Leffler zero along n = p^{k+1}, perfectness for injectivity of M -> f^{1/p^infty}R+, induction via the almost exact sequence) and locators match. Excerpts occur (p. 961; p. 952, also p. 951). Acceptance item 2 misquotes Remark 2.3.3: the source says the image I+_{k(x)} is NOT THE ZERO IDEAL, so that its p-power-root closure I+_{k(x)}^{1/p^infty} is almost O_{k(x)}; the image of I+ itself need not be almost everything. Acceptance item 1 (I = R) is a correct derived test, not stated in the source."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/hebbarkeitssatz-on-hasse-loci-under-resolution",
+    "verdict": "corrected",
+    "note": "Read §2.3.2 in full, printed pp. 962-966 (setup, Cor. 2.3.5 with proof, Lemma 2.3.6 with proof, Remark 2.3.7). Statement, hypotheses (resolution; Remark 2.3.7), proof steps (smooth case: flatness of A0^{1/p^infty}, Krull intersection, R^1 lim term M, valuations v_i with v_i(g) <= C; general case via Zariski's main theorem and coherence of R^1 pi_* O_T) and locators match; Lemma 3.2.27 (printed pp. 998-999) confirms the toroidal resolution citing [28]. Acceptance item 2 ('smooth test' A0 = F_p[x,y], f = y, I0 = (x,y)) is vacuous: V(I0) lies in V(f), so Z = V(I0 R) is empty inside X = {|f| >= |t|} and the corollary is trivially true there; replaced by a non-degenerate test, marked as reviewer-suggested."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/good-triples-and-their-stability",
+    "verdict": "corrected",
+    "note": "Read §2.3.3 in full, printed pp. 966-970, and the g = 1 remark after Prop. 3.2.33 (printed pp. 1000-1001). Statement (Def. 2.3.8 with |p| <= |t| < 1, read on the page image of p. 966; Lemmas 2.3.9-2.3.11; Cor. 2.3.12), proof steps and acceptance (Lemma 3.2.27 uses Lemma 2.3.9 with t replaced by t^epsilon; Cor. 3.2.28 uses 2.3.10; Prop. 3.2.34 uses 2.3.11; Thm 3.2.36 'using Lemmas 2.3.10 and 2.3.11'; Cor. 3.3.17 uses the goodness of Thm 3.2.36) match. Hypothesis 2 is wrong in two ways: codimension >= 2 is not 'essential' (the source, printed pp. 1000-1001, says both lemmas still hold in codimension 1 under extra conditions), and the two conditions are joined by 'or' although they attach to different lemmas: Lemma 2.3.9 holds in codimension 1 when V(J) does not meet V(f), and Lemma 2.3.10 when the map is finite etale. Excerpt 3 renders R'_0 as 'R00' (text layer); the passage is at printed p. 968 as located."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/integral-canonical-subgroup-via-deformation-theory",
+    "verdict": "verified",
+    "note": "Read §3.1 (Lemma 3.1.3 and the proof outline, printed pp. 974-975) and §3.2.1 through Def. 3.2.7 (printed pp. 975-979). Exponent (p^m-1)/(p-1), epsilon < 1/2 and ker F^m mod p^{1-epsilon} read on the page images of pp. 974 and 977-978; strong condition Ha^{p^m} | p^epsilon read on the image of p. 979. Thm 3.2.1 = [39, Th. VII.4.2.5(i)], Rem. VII.4.2.6(i) (p. 976); Cor. 3.2.2 thickenings B1 = R/p^{2-epsilon}, B2 fibre product, J1 -> J2 multiplication by p^epsilon, 2 - 2epsilon > 1; Remark 3.2.3 ([38], worse constants); Lemmas 3.2.4-3.2.5; Cor. 3.2.6 existence (determinant Ha^{(p^m-1)/(p-1)}, adjugate) and uniqueness (Lemma 3.2.4 with Omega^1_H killed by p^epsilon); 'works uniformly even for p = 2' (p. 974). All excerpts occur at the cited pages. Acceptance item 1 (ordinary case, C_m = multiplicative part) is a correct consequence not stated in the source."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/canonical-subgroup-functoriality-and-generic-structure",
+    "verdict": "verified",
+    "note": "Read Def. 3.2.7 second paragraph, footnote 9 and Prop. 3.2.8 with proof, printed pp. 979-980. Parts (i)-(iv), the Hasse relation Ha(B) = Ha(A)^{p^{m1}} over R/p^{1-epsilon}, the open-and-closed reduction, [36, Prop. 2.6] specialization, the elementary-divisor count and Lemma 3.2.4 with delta = (1-epsilon)/p^m, epsilon' = epsilon/p^m all match. Acceptance item 1 confirmed on printed p. 986 (Prop. 3.2.8(iv) gives the Gamma_0(p^m)-map, 3.2.8(iii) the commutativity). Excerpt occurs on p. 979."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/hartogs-extension-on-hasse-blowups",
+    "verdict": "verified",
+    "note": "Read Prop. 3.2.9, Lemma 3.2.10 and Remark 3.2.11 with proofs, printed pp. 980-983; Lemma 3.2.10's hypotheses (Rbar = R/p normal, fbar not a zero divisor, 0 <= epsilon <= 1, Y in Spec Rbar of codimension >= 2) read on the page image of p. 981. The application hypothesis (f = Ha not a zero divisor 'as the ordinary locus is dense') is on printed p. 987; boundary codimension g on p. 975. Acceptance uses confirmed: Lemma 3.2.13 (p. 984), Thm 3.2.15 (pp. 987-988), Lemma 3.2.24 (p. 996); Cor. 3.2.22 also uses it (p. 993, p-torsion-freeness), not listed but not required. Note: the source proves only the extension statement; the first assertions (S flat and p-adically complete over Z_p^cycl, u not a zero divisor) are dismissed as 'standard' with no proof, and Lemma 3.2.13's flatness rests on them (new gap)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/hasse-neighbourhood-blowups-and-frobenius-diagram",
+    "verdict": "verified",
+    "note": "Read the setup paragraphs, Def. 3.2.12, Lemmas 3.2.13-3.2.14 with proofs and footnotes 10-12, printed pp. 983-985 (notation paragraph and Def. 3.2.12 checked on the page image of p. 983). Tame level (p. 970), Faltings-Chai compactification and ample omega (p. 971), extension of Ha for g >= 2 by Hartogs and for g = 1 by inspection (p. 983), flatness via Lemma 3.2.10, the representative u(1 + p^{1-epsilon}h)^{-1}, uniqueness from flatness, and the diagram (1) with u' -> u^{(p)} all match. Lemma 3.2.14 is stated for 0 <= epsilon < 1. Excerpts occur (pp. 984 and 983)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/canonical-frobenius-lift-and-anticanonical-open-immersions",
+    "verdict": "corrected",
+    "note": "Read Thm 3.2.15, Remark 3.2.16 and the full proof, printed pp. 985-988, with page images of pp. 985-987. epsilon < 1/2, parts (i)-(iii), the drafter's observation that (iii) prints 'weak canonical subgroup C of level p' where level 1 is meant (the proof says 'on X(epsilon), one still has a weak canonical subgroup of level 1'), all proof steps, the g = 1 remark and the extension argument via Lemma 3.2.10 and finite normal Y match; excerpts occur (pp. 986, 987, 987). Hypothesis 2 misstates the Section 3.2 notation (printed p. 983, page image): X^ad_{K_p} is the adic space of X_{K_p} (x)_{Q(zeta_{p^m})} Q_p^cycl, while calligraphic X_{K_p} is the preimage in it of the good-reduction locus X; X*_{K_p} is the full adic space of the minimal compactification. So the maps X(p^{-m}epsilon) -> X_{Gamma_0(p^m)} land in the good-reduction locus. Source misprint noticed (not affecting the node): printed p. 986 says F~_{X(p^{-1}epsilon)} and F~_{A(p^{-1}epsilon)} are 'finite and locally free of degree g(g+1)/2'; the degree is p^{g(g+1)/2}, as printed on p. 987 (both page images checked)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/anticanonical-tower-and-deep-level-affinoidness",
+    "verdict": "corrected",
+    "note": "Read the paragraphs after Thm 3.2.15 and Lemma 3.2.17 with proof, printed p. 988 (page image). The statement attributes the description 'locus where the universal totally isotropic D in A(epsilon)[p^m] has D[p] cap C = {0}' to X*_{Gamma_0(p^m)}(epsilon)_a in the minimal compactification; the source gives it for the good-reduction part X_{Gamma_0(p^m)}(epsilon)_a in X_{Gamma_0(p^m)}(epsilon) (over the boundary there is no universal abelian scheme), and for X* asserts only open-and-closedness. The abelian schemes A_{Gamma_0(p^m)}(epsilon)_a live over X_{Gamma_0(p^m)}(epsilon)_a. Acceptance item 1 reverses the pullback: the cartesian square of Thm 3.2.15(ii) makes the level-(m+1) piece the pullback of the level-m piece. Lemma 3.2.17 (0 <= epsilon < 1/2, vanishing of H^i(X*, omega^{p^m(p-1)}), global lift of Ha^{p^m}, ample line bundle) matches; the source does not name Serre vanishing but the hypothesis is a fair gloss. Acceptance item 2 confirmed (Lemma 3.2.24 invokes Lemma 3.2.17, printed p. 995)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/perfectoid-anticanonical-gamma0-tower-and-its-tilt",
+    "verdict": "verified",
+    "note": "Read §3.2.3 (choice of t, Def. 3.2.18, Cor. 3.2.19 with proof), printed pp. 988-990 (page images of pp. 988-989), and SW13 §2.4 (Def. 2.4.1, Props. 2.4.2-2.4.5, Conj. 2.4.6, Thm 2.4.7 and the following remark), arXiv v2 pp. 19-21. Statement, hypotheses and proof steps match, including [52, Def. 5.1(ii), Lemma 5.6], [55, Def. 2.4.1, Props. 2.4.2, 2.4.5] and [52, Th. 5.2]. SW13 Def. 2.4.1 also requires a filtered inverse system with qcqs transition maps (implicit in the node). The SW13 remark says ~ is stronger than the notion ~' 'introduced in [Sch12]' (= Perfectoid Spaces, SW13 bibliography); the number 'Definition 7.14' is not in SW13 but agrees with the promoted PerfectoidSpaces packet (P7 node, reviewed). Excerpts occur (Annals p. 990; SW13 p. 21)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/gamma0-infinite-level-affinoid-with-strongly-zariski-closed-boundary",
+    "verdict": "verified",
+    "note": "Read Cor. 3.2.20 with proof, printed pp. 990-991, and §2.2 (Defs 2.2.1, 2.2.6, Lemmas 2.2.2, 2.2.5, 2.2.7, 2.2.8, 2.2.9, Remarks 2.2.3-2.2.4), printed pp. 955-958. Statement, hypotheses and proof steps match; Lemma 2.2.2 is used implicitly (the perfection of a Zariski closed embedding). Acceptance item 1's Bhatt-Scholze Remark 7.5 claim is not in this source; it is supported by Hansen-Johansson p. 38 ('all Zariski closed sets are strongly Zariski closed by [BS19, Remark 7.5]') and the PerfectoidQuotients Q4 node. Acceptance item 2 confirmed (Thm 3.3.18(ii) proof, printed p. 1014). Excerpts occur (pp. 990, 957)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/tate-normalized-traces-on-anticanonical-tower",
+    "verdict": "verified",
+    "note": "Checked Lemma 3.2.21, Corollaries 3.2.22-3.2.23 with proofs, printed pp. 991-995. Page images of pp. 993-995 confirm: Cor 3.2.22 assumes epsilon < 1/2 and (ii) gives p^{n-(2n+1)epsilon}; its proof shows tr_{R'_{epsilon/p}/R_epsilon} lands in p^{n-2n epsilon} R_epsilon with P_i in p^{1-2 epsilon}; Cor 3.2.23 fixes 0 <= epsilon < 1/2, m >= 0, normalizes by 1/p^{(m'-m)g(g+1)/2} and gets p^{-(g^2+g+1)epsilon/p^m}. Proof-step summary of Lemma 3.2.21(ii) compresses the source order (ff base change to Y_i = W_i^p, translation to Y_i = 1, reduction to tr(X_1), translation to Y_i = 0, universal ring Z_p[[a_{i,i_1..i_n}]]) but names only steps that occur. Both excerpts occur (pp. 991, 994). Acceptance item 1 (torus test R = Z_p<Y^{+-1}>, f = 1) is not in the source; it is a correct reviewer-style test. Unnamed minor import: [58, Tag 07LU] in Lemma 3.2.21(i) (gap added); Cor 3.2.22(i) also uses Lemma 3.2.10 (p-torsion-freeness of R'_{epsilon/p}) and Cor 3.2.23 uses Theorem 3.2.15(i): intra-S1 links proposed."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/hartogs-and-perfectoid-criterion-for-finite-covers-at-infinite-level",
+    "verdict": "corrected",
+    "note": "Checked Section 3.2.5 introduction and Lemma 3.2.24 with proof, printed pp. 995-996 (page images of pp. 995-996). Statement, hypotheses (g >= 2 from 'Assume that g >= 2 until further notice', p. 995), acceptance and source locator/excerpt are right. Error in the proof steps: the display to which (i) is reduced is printed with O (structure sheaf of X*_{Gamma_0(p^m)}(epsilon)_a), not O^+, and the source calls it 'a consequence of Lemma 3.2.10', not Lemma 3.2.10 itself (page image of p. 996). The passage from this O-statement to S^+_{m'} = H^0(Y_{m'}, O^+) is not spelled out in the source. Acceptance item 2 (trivial cover) is an unsourced but correct test. Uses node 5 (Lemma 3.2.10), node 8 (Lemma 3.2.17), node 11 (Cor 3.2.23) and node 2 (Lemma 2.3.10(iii) argument): no links recorded; proposed."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid-anticanonical-tower-by-untilting",
+    "verdict": "corrected",
+    "note": "Checked Lemmas 3.2.25-3.2.32, Propositions 3.2.33-3.2.34 and the g = 1 remark, printed pp. 997-1001, plus the Section 3.2.5 introduction p. 995; page image of p. 999. Corrections: (a) the locator says pp. 996-1001 but Lemma 3.2.25 starts on p. 997 and the first excerpt ('Our strategy is to first guess...') is on p. 995 in the introduction; (b) the Lemma 3.2.30 proof step omits Lemma 3.2.24 (S_infty^+ is the p-adic completion of colim S_m^+) and the Scholze-Weinstein category of adic spaces [55, Def. 2.1.5] through which the map to Spa(S_infty, S_infty^+) is constructed; the source prints 'Y*_m \\ boundary -> Spa(S_infty, S_infty^+)', apparently a misprint for Y*_infty \\ boundary, since it then calls both spaces perfectoid and finite etale over X*_{Gamma_0(p^infty)}(epsilon)_a \\ boundary; (c) 'Hasse-locus generic fibre' misdescribes X'*_{Gamma_1(p^m)}(epsilon), which the source defines as the open locus |Ha| >= |t|^epsilon of the adic space attached to X^{ord*}_{Gamma_1(p^m)} (x) F_p((t^{1/(p-1)p^infty})) (p. 998); (d) acceptance item 2 said the Gamma_1-level good triple 'is what later extends pi_HT', but Corollary 3.3.17 and Theorem 3.3.18(vi) use the goodness part of Theorem 3.2.36 (Gamma(p^infty)-level), obtained from this one by Lemmas 2.3.10-2.3.11. The Proposition 3.2.33 proof is only 'Summarizing the discussion' in the source; the refined proof step labels the reconstruction. Also noted, not corrected: the finiteness of X^{ord*}_{Gamma_1(p^m)} -> X^{ord*} and normality of X^{ord*}_{Gamma_1(p^m)} are asserted ('Recall that we are assuming g >= 2; thus, we find...', p. 998) without proof; the source silently uses that finite etale covers of perfectoid spaces are perfectoid (p. 997 'since the map D_m -> X_{Gamma_0(p^m)}(epsilon)_a is finite etale, D_{m,Gamma_0(p^infty)} is a perfectoid space'; p. 999), i.e. [52, Th. 7.9(iii)]: link from PerfectoidSpaces:P3 proposed. Excerpts 2-3 occur on pp. 995, 999."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/full-level-anticanonical-affinoid-perfectoid-with-good-triple",
+    "verdict": "verified",
+    "note": "Checked Lemma 3.2.35 with proof and Theorem 3.2.36, printed pp. 1001-1002, and the summary paragraph p. 1002. g = 1 left to the reader for Lemma 3.2.35 (p. 1001); the boundary-strata description is asserted without proof or reference (p. 1002), matching the existing gap. The proof step 'finite etale pullbacks perfectoid at Gamma_1(p^infty) cap Gamma(p^m) level' is the drafter's reconstruction of 'now easy, using [52, Th. 7.9(iii)], and the following lemma' (p. 1001); consistent with the source. Checked [52, Th. 7.9(iii)] in Perfectoid spaces arXiv:1111.4914v1: 'For any finite etale cover S/R, S is perfectoid'. Acceptance item 2 confirmed: Corollary 3.3.17 (p. 1012) and Theorem 3.3.18(vi) (p. 1015) extend bounded sections 'by the goodness part of Theorem 3.2.36'. Excerpt 2 differs from the text layer only by rendering (X*_{Gamma_1(p^m)}(0)_a, 'etale'); all three excerpts occur on pp. 1001-1002."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/hodge-tate-filtration-of-degenerating-abelian-varieties",
+    "verdict": "corrected",
+    "note": "Checked Proposition 3.3.1, Lemma 3.3.2 with proofs and footnote 14, printed pp. 1003-1004 (page image of p. 1003). Corrections: (a) the statement reduced the commutative diagram of Proposition 3.3.1 to 'compatible'; the source asserts the vertical identification Lie G^ (x) C(1) = Lie A(1) and an injection T_p G^ (x) C -> T_p A (x) C making the square commute, which is what Lemma 3.3.6 uses ('x maps into Fl(Q_p) iff Lie G^ (x) C in T_p G^ (x) C is Q_p-rational', p. 1007); (b) the hypothesis parenthetical '(semistable reduction after the implicit base change over C)' is not in the source; (c) the proof of Lemma 3.3.2(i) is only 'Pulling back to x gives part (i)': lifting x to the proper toroidal compactification and identifying the pulled-back semiabelian scheme with the connected Neron model G are implicit. [54] is confirmed as Scholze, Perfectoid spaces: a survey (references, printed p. 1065). Acceptance item 1 (Tate curve) is an unsourced but consistent test; item 2 confirmed (Lemma 3.3.4 p. 1004; Lemma 3.3.8 p. 1008 'using Proposition 3.3.1 and Lemma 3.3.2, the result reduces by induction'; Lemma 3.3.15 p. 1011)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/continuous-hodge-tate-map-away-from-boundary",
+    "verdict": "verified",
+    "note": "Read Remark 3.3.3 and Lemma 3.3.4 with proof, printed pp. 1004-1006, and Section 3.1 (Fl over Q with adic space over Spa(Q_p, Z_p), p. 971; the g = 1 picture, p. 972). Statement, hypotheses ([53, Th. 1.3], [54, Prop. 4.10], [30, Ch. 2, App. C]), proof steps and acceptance match. Minor: the source writes R^1 g_* Q^_p (x) O^_S, the node Z^_p (x) O^_S; these agree after inverting p. The three excerpts occur on pp. 1004, 1005 and 1004."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/ordinary-locus-is-preimage-of-rational-flags",
+    "verdict": "verified",
+    "note": "Read Definition 3.3.5, Lemma 3.3.6 with proof and Remark 3.3.7, printed pp. 1006-1007, and SW13 Theorem B (arXiv v2 p. 4; restated p. 51). All fields match. The acceptance items agree with the g = 1 discussion on p. 972 and with Remark 3.3.7 (the kernel of alpha_G is T_p(G^mult))."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/finitely-many-symplectic-translates-cover-the-tower",
+    "verdict": "verified",
+    "note": "Read Lemmas 3.3.8-3.3.11 with proofs and the Pluecker-chart paragraph, printed pp. 1007-1009: 0 < epsilon < 1 in Lemma 3.3.8 (p. 1008) and Lemmas 3.3.10-3.3.11 (p. 1009); the element (1, ..., 1, p, ..., p) in Lemma 3.3.9. All fields match. Acceptance item 1 (g = 1 translates by powers of diag(1, p)) is a reviewer-style example, not in the source."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/perfectoid-minimally-compactified-siegel-tower",
+    "verdict": "corrected",
+    "note": "Read Corollary 3.3.12 with proof (p. 1009), Definition 3.3.5 and the paragraph after it (p. 1006), and Theorem 3.1.2(i) with footnote 7 (p. 971). The statement, proof steps and excerpts match; the excerpt 'Spa(R∞ , R∞ + )' is a text-layer rendering of Spa(R_infty, R^+_infty). Hypothesis 3 presents 'overlaps are handled by the rational-subset stability of this notion' as the source's argument. The source only asserts the gluing (p. 1006) and never discusses overlaps; [54, Prop. 2.22(ii)] appears only later, in the proof of Theorem 3.3.18(i)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/hodge-tate-period-map-on-adic-spaces-and-boundary-extension",
+    "verdict": "verified",
+    "note": "Read Corollary 3.3.13, Lemmas 3.3.14-3.3.16 and Corollary 3.3.17 with proofs, printed pp. 1009-1012. All fields match. Acceptance item 1 (cusps map to P^1(Q_p)) is not stated by Scholze. It follows from Lemma 3.3.19, and BHW state it in the proof of Proposition 2.6 (p. 1723). Excerpts occur on pp. 1010, 1012 and 1010."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S1/siegel-main-theorem-flag-chart-affinoid-perfectoid-cover",
+    "verdict": "corrected",
+    "note": "Read Theorem 3.3.18 statement (pp. 1012-1013) and the proof of (i)-(ii) with Lemmas 3.3.19-3.3.20 (pp. 1013-1014). Statement, hypotheses (level-N condition; the element diag(p, ..., p, 1, ..., 1); [54, Prop. 2.22(ii)]) and proof steps match. Acceptance item 1 is wrong for Hansen-Johansson. Proposition 5.14 (HJ p. 34) cites Theorem 3.3.18 only for perfectoidness of the Siegel minimal tower. It then uses the covering by translates of S*(epsilon)_a (footnote 9: X*_{Gamma(p^infty)}(epsilon)_a), not V_J or (ii)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S2/hodge-type-embedding-and-image-compactification",
+    "verdict": "verified",
+    "note": "Read the Chapter 4 opening (p. 1016) and Section 4.1 up to Theorem 4.1.1 with footnotes 15-16 (p. 1018; page image), and CS17 pp. 10-11 and 16. The (G, D) conventions, the Sp_2g target, [25, Prop. 1.15], the definition of the image compactification as a universal finite map and scheme-theoretic image, omega_K and Fl all match. Excerpt 3 splits across a line in the text layer but occurs (p. 1016). Two notes. The hedge 'need not be normal' is not stated by any source; HJ say only 'may not coincide' (p. 34) and BP say 'finite surjective map' (p. 74). The Hilbert G* test applies to the Deligne-style (GSp) variant, not to Scholze's Sp_2g set-up."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S2/hodge-type-perfectoid-image-compactified-tower",
+    "verdict": "verified",
+    "note": "Read Theorem 4.1.1 (pp. 1018-1019, page images) and its proof (pp. 1019-1020). The level condition (level-N subgroup of G', not of G), the base field C, the image compactification, the construction through Y*_{K^p}(J), the ideal I, Lemma 2.2.2 and Lemma 2.2.9 all match. The source asserts the ~-limit but argues only affinoid perfectoidness and density on charts. Excerpts occur on pp. 1019 and 1020."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S2/analytic-separation-and-zariski-closed-pullbacks-for-projective-towers",
+    "verdict": "verified",
+    "note": "Read HJ Section 5.1 pp. 29-30 (Definition 5.4, Lemmas 5.5-5.7 with proofs, and the [KL15, Cor. 3.6.18] paragraph). All fields match. [KL15, Cor. 3.6.18] is invoked for fibre products over Spa(K, K^+) in Definition 5.4(2) and Lemma 5.5(2), not in Lemma 5.7, although the hypothesis groups it with Lemma 5.7. A gap has been added because the PerfectoidSpaces P2 fibre-product node covers only a common perfectoid base field. Excerpts occur on pp. 29-30."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S2/hodge-type-genuine-minimal-compactification-is-a-good-tower",
+    "verdict": "corrected",
+    "note": "Read HJ Section 5.2 in full, pp. 34-35 (page images), and BP 4.4.27 (p. 74). Hypotheses, proof steps, the closure bars in the U_i-V_i covering and Corollary 5.15 match. The statement omitted part of Proposition 5.14: v2 still asserts a G(Q_p)-equivariant pi_HT: X*_{K^p} -> Fl_{G,mu}, functorial in the tame level, obtained by composing with the map on Scholze's compactification and citing [CGH+18, Theorem 3.3.1] (p. 35). The statement, hypotheses and proof steps were extended, and a gap was added. Excerpts occur (pp. 34, 34, 35; BP p. 74)."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/siegel-hodge-tate-map-tame-level-and-hecke-equivariance",
+    "verdict": "verified",
+    "note": "Read Theorem 3.3.18(iii)-(iv) and their proofs, printed pp. 1012-1014. All fields match; the acceptance test is a reviewer-style example. Excerpts occur on p. 1014."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/siegel-lie-algebra-and-hodge-line-pullback",
+    "verdict": "corrected",
+    "note": "Read Theorem 3.3.18(v)-(vi) (p. 1013) and their proofs (pp. 1014-1015, page image of p. 1015). The statement, hypotheses (integral structures, [30, Th. II.1.1] for p != 2 with inverse up to p^{g/(p-1)}, and the alternative induction) and acceptance match; 'fake-Hasse invariants' are in Chapter 1 (p. 951). The final proof step reproduced a slip in the source: the open set |h| <= |p|^{C+1} is empty because it lies in the boundary (it misses U \\ boundary), not because it 'does not meet the boundary'. Excerpts occur on pp. 1014-1015."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/elliptic-hodge-line-as-pullback-of-O1-via-quotient-line",
+    "verdict": "corrected",
+    "note": "Read BHW Section 1.5 and Section 2.1 (pp. 1720-1722, formula (2.1)), Proposition 2.6 (p. 1723), and Section 3.3 (pp. 1730-1733: (3.2), Lemma 3.17, Definition 3.18, Lemma 3.19 with (3.3)-(3.4), Definition 3.20, Propositions 3.21-3.22, Remark 3.23). The statement and proof steps match. Acceptance item 2 is false as written: points where alpha(e_1) generates mu_{p^infty} map to infinity, where s vanishes, and they are not in the anticanonical locus of Proposition 3.21. The 'whole modular curve' hypothesis was clarified. Excerpts occur on pp. 1730-1731."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-to-siegel-flag-variety-on-image-compactification",
+    "verdict": "verified",
+    "note": "Read Theorem 4.1.1 (main statement and (iii)-(v)), footnote 16 and the last sentence of the proof, printed pp. 1018-1020 (page images of pp. 1018-1019). All fields match. The excerpts use text-layer renderings ('G0' for G′, 'F`G' for Fℓ_G) and occur on pp. 1020 and 1018. Acceptance item 2 ('Sections 4.2-4.3 use it for fake Hasse invariants') agrees with p. 952 ('used in the proof of Theorem 4.3.1 ... on which the fake-Hasse invariants are defined'); Sections 4.2-4.3 themselves were not read."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/hodge-type-period-map-factors-through-G-flag-variety",
+    "verdict": "verified",
+    "note": "Read CS17 Section 2 in full, arXiv v1 pp. 10-22. Theorem 2.1.2 (sufficiently small tame level, perfectoid S_{K^p} over E_p, footnote 8), Theorem 2.1.3(1), the parabolics P_mu^std (t -> infinity) and P_mu (t -> 0), Theorem 2.2.2 = [Sch13c, Thm 8.8] with footnote 9, Proposition 2.2.3 = [Sch13c, Prop. 7.9], Corollary 2.2.4, Proposition 2.2.5, [Del82, Prop. 3.1], Lemmas 2.3.1-2.3.7 and the construction of pi_HT (pp. 20-21) all match. The acceptance Hilbert test is supported by BHW Section 5.3 (p. 1750: 'By [7, Theorem 2.1.3], there is a Hodge-Tate period map ... Res_{O_F|Z} P^1'). Excerpts occur on pp. 10, 21, 19 and 14."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/levi-torsor-pullback-identifies-automorphic-vector-bundles",
+    "verdict": "corrected",
+    "note": "Read CS17 Theorem 2.1.3(2), Remarks 2.1.4-2.1.5 (pp. 12-13), Lemmas 2.3.4-2.3.5, 2.3.8 and Proposition 2.3.9 (pp. 18-22), and BP 4.4.24-4.4.26 (pp. 72-73). The statement, hypotheses, proof steps and acceptance match. The third excerpt dropped the 'an' superscripts (G^an_pet,p, S^an_{K^p}) and was corrected."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/siegel-toroidal-period-map-explicit-convention",
+    "verdict": "corrected",
+    "note": "Read BP 4.4.1-4.4.11 (pp. 63-67), including Definitions 4.4.2-4.4.3, Lemmas 4.4.6-4.4.7, 4.4.8 with Remark 4.4.9, 4.4.10 with Remark 4.4.11 and the key properties. The statement, hypotheses and proof steps match. The canonical identification M^an_HT = M^an_dR in the Siegel case (p. 65) and its extension over S^tor ('again by construction', p. 66) are asserted without proof or citation, and a gap was added. BP 4.4.10 cites the Siegel tower as '[Sch15], thm. III.3.17'; in the Annals numbering the statement used is Theorem 3.3.18. Acceptance item 2 conflated omega_A with its determinant and was corrected. Excerpts occur on pp. 66, 65 and 67."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S3/hodge-type-compactified-period-maps-and-toroidal-torsor-comparison",
+    "verdict": "corrected",
+    "note": "Read BP 4.4.27-4.4.35 (pp. 74-76) and HJ p. 35. Parts (a)-(c), the Zariski-density argument, perfect cone decompositions via [Lan20], Remark 4.4.28, Proposition 4.4.29 (= [EH19, Cor. 5.2]) with its Zariski-closure proof and Remark 4.4.30 match. BP apply Scholze Theorem IV.1.1 without its tame-level hypothesis, and a hypothesis recording this was added. The unread inputs listed in hypothesis 3 are now also recorded as a gap. Excerpts occur on pp. 74, 75, 74, 75 and HJ p. 35."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S4/pre-abelian-type-connected-and-adjoint-data",
+    "verdict": "verified",
+    "note": "Read HJ Section 4.1 (p. 23), the proof of Theorem 5.20 (p. 38; page image) and Section 1.3 (p. 4). Definition 4.1, the attached data, Remark 4.2 and the choice of (G_1, X_1) with a central isogeny G_1^der -> G^ad all match. The acceptance items are correct consequences of the definitions. Excerpts occur on pp. 23 and 4."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S4/perfectoidness-from-perfectoid-components-under-profinite-action",
+    "verdict": "verified",
+    "note": "Read HJ Lemma 5.1 with proof, p. 27. All fields match, including [Sch17, Prop. 11.23(iii)] and [Sch17, Lemma 11.27]. Those diamond imports are unread and are now recorded in a gap; a link from DiamondsAndVStacks:D5 is proposed. The excerpt occurs on p. 27."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S2/good-towers-finite-maps-and-finite-quotients",
+    "verdict": "verified",
+    "note": "Read HJ Theorem 5.8 with proof (pp. 30-31), Lemmas 5.9-5.11 (pp. 31-32), Definition 5.12 (p. 33; page image confirms closure(U_j) in V_j) and Proposition 5.13 with proof (pp. 33-34). All fields match. Placement: Corollary 5.15 (node S2/hodge-type-genuine-minimal-compactification-is-a-good-tower) applies Proposition 5.13(1), so this node supplies an S2 node. With parent S4, that link would create the stage cycle S2 -> S4 -> S2. Recommendation: re-parent this node to PerfectoidShimuraVarieties:S2 (it is Section 5.1 preparatory p-adic geometry). Excerpts occur on pp. 32, 33 and 30."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S4/full-tower-perfectoid-iff-connected-component-tower-perfectoid",
+    "verdict": "corrected",
+    "note": "Read HJ Section 5.3 conventions (p. 35) and Proposition 5.16 with proof (p. 36); checked the pi_0 description against BP 4.4.48 (pp. 82-83). The equivalence, proof steps and acceptance match. The statement conflated the complex numbers with the p-adic field C, and was corrected. The pi_0 hypothesis now says explicitly that the profinite set is the quotient by the closure of G(Q)_+, which the printed formula omits. Excerpts occur on pp. 36 and 35."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S4/property-P-descends-from-adjoint-connected-datum",
+    "verdict": "corrected",
+    "note": "Read HJ Definition 5.17 and Proposition 5.18 with proof, p. 36 (page image). The statement and proof steps match the printed text. Definition 5.17 mixes Gamma in G^ad(Q)^+ with towers for G, the source does not argue the connected-case identification, and acceptance item 2 overstated the tautology; hypotheses and acceptance were corrected. The excerpt occurs on p. 36."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S4/hodge-type-adjoint-connected-towers-are-perfectoid",
+    "verdict": "verified",
+    "note": "Read HJ Proposition 5.19 with proof (pp. 36-38; page images of pp. 37-38) and Section 2.3 (Propositions 2.11-2.13, pp. 11-13; Proposition 2.13 is [Del79, Cor. 2.0.14]). All fields match, including the normalizations K^der_{p,0} cap Z_G(Q_p) = {1} and Gamma' in K_{p,0}, and the Delta-quotient step. BP Lemma 4.4.52 (pp. 84-85) supports acceptance item 2 ('f(Γ) is an arithmetic subgroup ... but not necessarily a congruence subgroup!'). Unnamed import: the proof needs pi(Gamma'') arithmetic, which is [PR94, Theorem 4.1], 'used freely' per HJ p. 12. A gap was added. Excerpts occur on pp. 36-37."
+   },
+   {
+    "nodeId": "PerfectoidShimuraVarieties:S4/pre-abelian-minimally-compactified-towers-are-perfectoid",
+    "verdict": "verified",
+    "note": "Read HJ Theorem 1.5 and the following paragraphs (pp. 4-5), Theorem 5.20 with proof and Corollary 5.21 with proof (p. 38; page image confirms 'K^p ⊆ G(A_f)' as printed). All fields match. Note: the Hodge-Tate removal applies to the pre-abelian towers; Proposition 5.14 (Hodge type) still asserts pi_HT via [CGH+18] (see the correction to the S2 good-tower node). The Zariski-closed boundary assertion of Theorem 1.5 remains unproved in the source (gap added). Excerpts occur on pp. 4, 4, 5, 38 and 38."
+   }
+  ],
+  "sourceIssues": [
+   "Scholze, Annals 182, printed p. 986: 'finite and locally free of degree g(g+1)/2' should read p^{g(g+1)/2} (as on p. 987); page images checked by the reviewer.",
+   "Scholze, printed p. 985, Theorem 3.2.15(iii): 'weak canonical subgroup C of level p' means level 1 (proof, p. 986).",
+   "Scholze, printed p. 999, proof of Lemma 3.2.30: 'Y*_m \\ boundary -> Spa(S_infty, S_infty^+)' apparently means Y*_infty.",
+   "Scholze, printed p. 1015, proof of Theorem 3.3.18(vi): 'an open subset of U that does not meet the boundary; thus, it is empty' should say that it does not meet U \\ boundary (it lies in the boundary).",
+   "Hansen-Johansson v2, p. 38, Theorem 5.20: 'K^p ⊆ G(A_f)' should be G(A_f^p) (compare Theorem 1.5).",
+   "Hansen-Johansson v2, p. 36, Definition 5.17 and p. 38, Theorem 5.20 (connected case): arithmetic Gamma in G^ad(Q)^+ used with towers for G; the proof of Proposition 5.18 uses Gamma in G(Q)^+.",
+   "Hansen-Johansson v2, p. 36, Proposition 5.16: pi_0 X*_{K^p}(G, X) = G(Q)_+\\G(A_f)/K^p omits the closure of G(Q)_+ in G(A_f) (cf. Boxer-Pilloni 4.4.48, p. 83)."
+  ]
+ }
 }

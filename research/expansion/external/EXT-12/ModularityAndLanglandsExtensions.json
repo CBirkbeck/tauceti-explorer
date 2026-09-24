@@ -18,6 +18,15 @@
     "Part II overview, p. 57",
     "§7: Theorem 7.1 statement, Lemma 7.2 with proof, Corollary 7.3 with proof, statement of Proposition 7.4, the even-n induction in the proof of Theorem 7.1, Remark 7.5, Theorem 7.6 with proof, Theorem 7.7, pp. 82-91 (proof of Proposition 7.4 and §§4-6 not read)",
     "§8 in full: Theorem 8.1, Proposition 8.2 with proof, Proposition 8.3 with proof, Lemma 8.4, proof of Theorem 8.1, pp. 91-96"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1912.11261v3",
+     "sha256": "6d50b558a6182a8d1515a6715529a33079807bf405c8db775e4ed252f5a2f379",
+     "date": "2026-09-23",
+     "version": "arXiv v3 (27 Sep 2021); hash equals the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -32,6 +41,15 @@
     "§2: standing hypotheses, statement of Theorem 2.1 and the preliminary reduction (6)-(11), pp. 5-6 (Lemmas 2.2-2.9 and Propositions 2.3-2.8, i.e. the patching proof, not read)",
     "§3 Killing ramification in full: Theorem 3.1, Definition 3.2, Lemmas 3.3-3.5, Definition 3.6, Propositions 3.7, 3.9-3.11 with proofs, proof of Theorem 3.1, pp. 20-27 (the proof of Lemma 3.4 was only partly read)",
     "Appendix A (Theorem A.1 with proof), pp. 27-29"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2009.07180v2",
+     "sha256": "0f08214ebe03344c2e2851be76c49213dc4adf7928ff561610b674c423a2a6bf",
+     "date": "2026-09-23",
+     "version": "arXiv v2 (27 Sep 2021); hash equals the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -44,6 +62,15 @@
    "readSections": [
     "§1 Introduction: Theorem A, footnote 1, the strategy of [CT14], Conjecture B, the results of [CT15, CT17, Tho24], and the tensor-product sketch, pp. 1-5",
     "§6 Getting to the end: statements of Proposition 6.1, Corollary 6.2 (with proof), Proposition 6.3 (with proof), Theorem 6.4 (with proof), the paragraph before Theorem 6.5, pp. 45-50 (the proof of Proposition 6.1 was only skimmed; §§2-5 not read)"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2212.03595v2",
+     "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
+     "date": "2026-09-23",
+     "version": "arXiv v2 (19 Feb 2025); hash equals the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -57,6 +84,15 @@
     "§10.1 Theorem 10.1 and its sketched proof, pp. 19-20",
     "§10.2 Artin's conjecture and abelian varieties of GL2-type, Corollary 10.2, pp. 20-21",
     "bibliography entries [7], [10], [14], [19], [21], [28], [31], [33], [44], [45]"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+     "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+     "date": "2026-09-23",
+     "version": "Preprint on Khare's homepage (pdfeTeX, created 31 May 2009), 23 pp.; hash equals the library copy SS_KW1, so page locators agree. Published Invent. Math. 178 (2009) 485-504 (Crossref, doi:10.1007/s00222-009-0205-7)",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -73,6 +109,15 @@
     "§6.1 Statements: Theorems 6.1.1 and 6.1.2, Remarks 6.1.3-6.1.4 and the chapter overview, pp. 1028-1031",
     "§7.1 Compatible systems: definitions, Lemmas 7.1.1-7.1.4 with proofs, statements of Lemmas 7.1.5-7.1.6, Lemmas 7.1.9-7.1.10 with proofs, Theorem 7.1.11, Corollaries 7.1.12-7.1.16 with proofs, pp. 1084-1098 (Lemmas 7.1.6-7.1.8 not read)",
     "§7.2 Proof of the main potential automorphy theorem in full: Lemma 7.2.2, Proposition 7.2.3, Corollary 7.2.4 with proof, proof of Theorem 7.1.11, pp. 1098-1106"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1812.09999v2",
+     "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
+     "date": "2026-09-23",
+     "version": "arXiv v2 (16 Jun 2022), the accepted version, 218 pp. The published Annals 197 (2023) 897-1113 PDF is not open access (no citation_pdf_url on the article page). Numbering agrees; printed pages = arXiv pages + 894 to 896",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -85,6 +130,15 @@
    "readSections": [
     "Contents",
     "Introduction; §0.1 Context; §0.2 opening and §0.2.1 Main Theorem 1; §0.3 On [A24]; §0.4 On the twisted weighted fundamental lemma, pp. 3-8 and 14-15"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/2410.13504v3",
+     "sha256": "7aef44234d64dd4ba0099989d20ad945b4d692287da4d29cff289862b2945b23",
+     "date": "2026-09-23",
+     "version": "arXiv v3 (24 Jul 2026), 229 pp.; hash equals the library copy R02-AGIKMS",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -103,6 +157,15 @@
     "§4.5 Theorem 4.5.1 with proof, pp. 59-60",
     "§5.4 Theorem 5.4.1 with proof, Corollaries 5.4.2-5.4.3, pp. 74-75",
     "bibliography entries [MB89], [Tho12], [AC89], [BLGHT11]"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1010.2561v4",
+     "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+     "date": "2026-09-23",
+     "version": "arXiv v4 (9 Dec 2013); hash equals the packet; Ann. of Math. 179 (2014) 501-609 confirmed by Crossref",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -117,6 +180,15 @@
     "§1 Introduction, pp. 2-4",
     "§2.5 Statement of main results: Theorems 2.5.1, 2.5.2, 2.5.4, Remarks 2.5.3-2.5.7, Example 2.5.8, Corollary 2.5.9, pp. 31-38",
     "§2.6 Review of earlier results, pp. 38-39"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1206.0882v5",
+     "sha256": "48be19203a9dc55ffc6df58f68e391490c8411afb0af6d72aa7edb8c5d6136df",
+     "date": "2026-09-23",
+     "version": "arXiv v5 (22 Jun 2013); hash equals the packet; Mem. AMS 235 no. 1108, doi:10.1090/memo/1108 (Crossref)",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -129,6 +201,15 @@
    "readSections": [
     "Contents, pp. 1-3",
     "Introduction, pp. 4-6"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1409.3731v3",
+     "sha256": "a8458c8eb2147e96514c9fa04be42c1af52f7fd043c8e50f6187ccaee6ad1fbc",
+     "date": "2026-09-23",
+     "version": "arXiv v3 (3 Dec 2014); hash equals the packet",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -141,6 +222,15 @@
    "readSections": [
     "§1 Introduction, Theorems 1.0.3-1.0.4, p. 948",
     "§5.1 Recollections, opening paragraphs, p. 1031"
+   ],
+   "reviewCopies": [
+    {
+     "url": "http://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+     "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16",
+     "date": "2026-09-23",
+     "version": "Annals 182 (2015) 945-1066, free PDF from the article page citation_pdf_url; hash equals the library copy SCH-TORSION",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   }
  ],
@@ -150,10 +240,10 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.0",
    "title": "The common normalisations of Artin maps, local Langlands, Hodge-Tate weights and r_{pi,iota} used by the modularity endpoints",
    "kind": "definition",
-   "statement": "The endpoint sources Newton-Thorne I-II and ACC+ use one set of conventions, which this registry fixes for every ML stage. (a) Local class field theory is normalised cohomologically: Art_K: K^x -> W_K^ab sends uniformisers to geometric Frobenius elements, and Frob_v denotes a geometric Frobenius lift. (b) rec_K is the Harris-Taylor local Langlands correspondence for GL_n(K), a bijection from irreducible admissible C[GL_n(K)]-modules to Frobenius-semisimple Weil-Deligne representations of rank n. rec^T_K is its Tate (arithmetic) normalisation of [CT14, §2.1]; over C, rec^T_K(pi) = rec_K(pi ⊗ |.|^{(1-n)/2}). (c) Hodge-Tate weights are normalised so that the cyclotomic character has Hodge-Tate weight -1. (d) If pi is cuspidal, regular algebraic and polarizable (in the sense of BLGGT14) over a CM or totally real field F, then for every isomorphism iota: Qbar_p -> C there is a continuous semisimple r_{pi,iota}: G_F -> GL_n(Qbar_p) with WD(r_{pi,iota}|G_{F_v})^{F-ss} ≅ rec^T_{F_v}(iota^{-1} pi_v) at every finite place v. (e) For n = 2, 'weight k' means the infinitesimal character of (⊗_tau Sym^{k-2} C^2)^dual. Then r_{pi,iota} has Hodge-Tate weights {0, k-1} at every embedding, and epsilon^{k-1} det r_{pi,iota} has finite order. (f) 'Sym^{n-1} pi exists' means there is a cuspidal automorphic Pi_n of GL_n(A_F) with rec_{F_v}(Pi_n) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v) at every place v. The Galois-side statement 'Sym^{n-1} r_{pi,iota} is automorphic' refers to r_{Pi,iota} under convention (d).",
+   "statement": "The endpoint sources Newton-Thorne I-II and ACC+ use one set of conventions, which this registry fixes for every ML stage. (a) Local class field theory is normalised cohomologically: Art_K: K^x -> W_K^ab sends uniformisers to geometric Frobenius elements, and Frob_v denotes a geometric Frobenius lift. (b) rec_K is the Harris-Taylor local Langlands correspondence for GL_n(K), a bijection from irreducible admissible C[GL_n(K)]-modules to Frobenius-semisimple Weil-Deligne representations of rank n. rec^T_K is its Tate (arithmetic) normalisation of [CT14, §2.1]; over C, rec^T_K(pi) = rec_K(pi ⊗ |.|^{(1-n)/2}). (c) Hodge-Tate weights are normalised so that the cyclotomic character has Hodge-Tate weight -1. (d) If pi is cuspidal, regular algebraic and polarizable (in the sense of BLGGT14) over a CM or totally real field F, then for every isomorphism iota: Qbar_p -> C there is a continuous semisimple r_{pi,iota}: G_F -> GL_n(Qbar_p) with WD(r_{pi,iota}|G_{F_v})^{F-ss} ≅ rec^T_{F_v}(iota^{-1} pi_v) at every finite place v. (e) For n = 2, 'weight k' means the infinitesimal character of (⊗_tau Sym^{k-2} C^2)^dual. Then r_{pi,iota} has Hodge-Tate weights {0, k-1} at every embedding, and epsilon^{k-1} det r_{pi,iota} has finite order. (f) 'Sym^{n-1} pi exists' means there is a cuspidal automorphic Pi_n of GL_n(A_F) with rec_{F_v}(Pi_{n,v}) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v) at every place v (Newton-Thorne Hilbert, Theorem A; the source prints rec_{F_v}(Pi_n)). Newton-Thorne II Theorem A.1 uses the same phrase for an isobaric, usually non-cuspidal, Pi_n; there cuspidality is dropped. The Galois-side statement 'Sym^{n-1} r_{pi,iota} is automorphic' is not defined in the Notation sections read; this registry reads it as r_{Pi,iota} ≅ Sym^{n-1} r_{pi,iota} for a regular algebraic cuspidal Pi under convention (d) (compare BLGGT14 §2.1 and ACC+ §7.1 for the source definitions of automorphy of Galois representations and systems).",
    "hypotheses": [
-    "Conventions (d) and (e) are stated for cuspidal, regular algebraic, polarizable pi over CM or totally real F; Newton-Thorne cite [Car14] for the local-global compatibility at v | p. The registry does not assert Galois representations for non-polarizable or non-regular pi.",
-    "ACC+ §2.3's existence theorem for r_iota(pi), for pi on its quasi-split unitary group over CM F with an imaginary quadratic subfield F_0, is weaker. It proves the Weil-Deligne identification (its condition (c)) only at places above primes l that split in F_0. Its conditions (a)-(b) cover Frobenius polynomials at unramified l and de Rham-ness with Hodge-Tate weights at p. It is not the full local-global compatibility of convention (d).",
+    "Conventions (d) and (e) are stated for cuspidal, regular algebraic, polarizable pi over CM or totally real F. Newton-Thorne attribute the existence of r_{pi,iota} and its compatibility with rec^T at every finite place to the literature with '(see e.g. [Car14])' ([Car14] = Caraiani, Monodromy and local-global compatibility for l = p). The registry does not assert Galois representations for non-polarizable or non-regular pi.",
+    "ACC+ Theorem 2.3.3 (§2.3.1; arXiv v2 pp. 39-40) is weaker. It concerns a xi-cohomological cuspidal pi on ACC+'s quasi-split unitary group G~ (rank 2n) over a CM field F containing an imaginary quadratic field F_0, and gives a 2n-dimensional r_iota(pi). It proves the Weil-Deligne identification (its condition (c)) only at places above primes l that split in F_0. Its conditions (a)-(b) cover Frobenius polynomials at primes l != p unramified in F and for pi, and de Rham-ness with the stated Hodge-Tate numbers at p. It is not the full local-global compatibility of convention (d).",
     "rec_K is Harris-Taylor's correspondence [HT01]. Identifying it with any other construction of the local correspondence needs a separate characterisation theorem."
    ],
    "proofSteps": [
@@ -228,7 +318,7 @@
    "statement": "Khare-Wintenberger I, Corollary 10.2(ii): a continuous, odd, irreducible representation rho: G_Q -> GL_2(C) arises from a newform of weight one. The source deduces from Theorem 10.1(ii) that Langlands' conjecture holds for such rho, and hence Artin's conjecture: L(rho, s) extends to an entire function, by Godement-Jacquet. Together with Deligne-Serre, which attaches such representations to weight-one newforms, this characterises the odd irreducible two-dimensional complex representations of G_Q as those attached to weight-one newforms. The new cases are those with non-solvable projective image, isomorphic to A_5. Solvable projective image was earlier covered by Langlands [31] and Tunnell [45]. The statement concerns G_Q only. It gives no weight-one modularity over other number fields.",
    "hypotheses": [
     "rho is continuous, odd (det rho(c) = -1 for complex conjugation c) and irreducible, with values in GL_2(C). Its image is then finite.",
-    "The source derives this from Theorem 10.1(ii), whose proof is only sketched there. It uses Serre's conjecture in infinitely many residue characteristics (KW I Theorems 1.2 and 9.1, and Theorem 0.1 and Corollary 0.2 of [28]).",
+    "The source derives this from Theorem 10.1(ii), whose proof is only sketched there. It uses Serre's conjecture in infinitely many residue characteristics (KW I Theorems 1.2 and 9.1, and Theorem 0.1 and Corollary 0.2 of [28]). The source says the proof of Theorem 10.1 'is similar to the arguments in Sections 4.7 and 4.8 of [38]' (Serre, Duke Math. J. 54 (1987)) and also uses the argument of [21]; Serre §§4.7-4.8 was not read.",
     "Theorem 10.1(ii) also uses the Sen-Fontaine unramifiedness theorem and the Gross [19] and Coleman-Voloch [7] weight-one arguments, via Khare [21] and Edixhoven [14] §3.4. The source cites these without proof."
    ],
    "proofSteps": [
@@ -332,11 +422,11 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
    "title": "ACC+ Lemmas 7.1.5-7.1.8: decomposed genericity, enormous image and local shape of Hodge-Tate {0,1} crystalline representations, used to verify the residual hypotheses of Theorem 6.1.1",
    "kind": "lemma",
-   "statement": "(7.1.5) For a number field L and r: G_L -> GL_n(k) with k finite of characteristic l, if the normal closure M over Q of the field cut out by ad r contains no primitive l-th root of unity, then r is decomposed generic. (7.1.6) Let F/Q be finite with normal closure F~, m >= 1, l > 2m+3 prime, r: G_F -> GL_2(F-bar_l) with r(G_{F~}) ⊃ SL_2(F_l), and F'/F finite and linearly disjoint from F^{ker r-bar} over F. Then: (1) if l is unramified in F'/Q, ζ_l is not in F^{ker ad Sym^m r} F'; (2) (Sym^m r)(G_{F'(ζ_l)}) is enormous; (3) if ad r(G_{F~'}) ⊃ PSL_2(F_l), then Sym^m r|G_{F'} is decomposed generic; (4) the same if F'/Q is unramified at l and no quotient of im ad r is unramified at all primes above l; (5) if l > [F~:F], Sym^m r is decomposed generic. (7.1.7) Decomposed genericity and absolute irreducibility of r: G_F -> GL_n(F-bar_l) are preserved under restriction to G_{FE} for E/Q Galois and linearly disjoint from the Galois closure of F^{ker r}(ζ_l). (7.1.8) (1) For K/Q_l unramified and r: G_K -> GL_2(Z-bar_l) crystalline with Hodge-Tate numbers {0,1} at every embedding, either r|_{I_l}^ss ≅ 1 ⊕ ε-bar_l^{-1} or r|_{I_l} ≅ ω_{l,2}^{-1} ⊕ ω_{l,2}^{-l}. (2) For K a number field with l unramified and r crystalline with Hodge-Tate numbers {0,1} and image containing SL_2(F_l), the only subextension of K^{ker r-bar}/K unramified at all primes above l is K.",
+   "statement": "(7.1.5) For a number field L and r: G_L -> GL_n(k) with k finite of characteristic l, if the normal closure M over Q of the field cut out by ad r contains no primitive l-th root of unity, then r is decomposed generic. (7.1.6) Let F/Q be finite with normal closure F~, m >= 1, l > 2m+3 prime, r: G_F -> GL_2(F-bar_l) with r(G_{F~}) ⊃ SL_2(F_l), and F'/F finite and linearly disjoint from F^{ker r-bar} over F. Then: (1) if l is unramified in F'/Q, ζ_l is not in F^{ker ad Sym^m r} F'; (2) (Sym^m r)(G_{F'(ζ_l)}) is enormous; (3) if ad r(G_{F~'}) ⊃ PSL_2(F_l), then Sym^m r|G_{F'} is decomposed generic; (4) the same if F'/Q is unramified at l and no quotient of im ad r is unramified at all primes above l; (5) if l > [F~:F], Sym^m r is decomposed generic. (7.1.7) Decomposed genericity and absolute irreducibility of r: G_F -> GL_n(F-bar_l) are preserved under restriction to G_{FE} for E/Q Galois and linearly disjoint from the Galois closure of F^{ker r}(ζ_l). (7.1.8) (1) For K/Q_l unramified and r: G_K -> GL_2(Z_l) crystalline with Hodge-Tate numbers {0,1} at every embedding, either r-bar|_{I_l}^ss ≅ 1 ⊕ ε-bar_l^{-1} or r-bar|_{I_l} ≅ ω_{l,2}^{-1} ⊕ ω_{l,2}^{-l}. (2) For K a number field with l unramified and r: G_K -> GL_2(Z_l) crystalline with Hodge-Tate numbers {0,1} and r-bar(G_K) ⊃ SL_2(F_l), the only subextension of K^{ker r-bar}/K unramified at all primes above l is K.",
    "hypotheses": [
     "Lemma 7.1.6 needs l > 2m+3 and residual image containing SL_2(F_l) over the normal closure.",
-    "Lemma 7.1.8 has coefficients Z-bar_l. The source warns that (1) would be false for the ring of integers of an arbitrary extension of Q_l.",
-    "Lemma 7.1.8(1) is stated for every l, including l = 2. Its proof invokes [Ray74, Prop. 3.2.1, Th. 3.4.3] for a finite flat group scheme over an unramified base. Whether Raynaud's e < p-1 hypothesis holds at l = 2 is not addressed in the text. ACC+ applies the lemma only with l_1, l_2 > 2m_i + 3 >= 5.",
+    "Lemma 7.1.8 has coefficients Z_l (not Z-bar_l). The source warns that (1) would be false for the ring of integers of an arbitrary extension of Q_l. This is why Assumption 7.2.6(1) makes l_2 split completely in each M_i before Lemma 7.1.8(1) is applied to r_{i,lambda_i}.",
+    "Lemma 7.1.8 is stated for every l, including l = 2. The proof of (1) treats l = 2 only by noting '1 = epsilon-bar_l^{-1}', and it invokes [Ray74, Prop. 3.2.1, Thm. 3.4.3] for a finite flat group scheme over the completed maximal unramified extension (e = 1). The text does not address whether Raynaud's e < p - 1 hypothesis holds at l = 2 (it does not: e = 1 = p - 1). The errata register entry PAPER-ALLEN-ETAL-23/E100 (awaiting review, not re-verified here) states that part (2) fails for l = 2. ACC+ applies the lemma only with l_1, l_2 > 2m_i + 3 >= 5 and with l >= 2(m+2) >= 6.",
     "Imports not read: [DDT97, Th. 2.47(b)] (subgroups of PGL_2(F-bar_l)); [Die51] (automorphisms of PSL_2(k)); [Bre00], [Kis06] (crystalline Hodge-Tate {0,1} representations come from l-divisible groups); [Ray74]; Lemma 4.3.2 and Definition 4.3.1 (decomposed generic); Lemma 7.1.4 via [GN22, Lem. 3.2.5]."
    ],
    "proofSteps": [
@@ -344,7 +434,7 @@
     "7.1.6(1)-(2): the projective image is PSL_2(k) or PGL_2(k) ([DDT97, Th. 2.47(b)]). Gal(F'(ζ_l)/F') = (Z/lZ)^x while (ad r)(G_{F'}) does not surject onto it. SL_2(F_l) is perfect, so r(G_{F'(ζ_l)}) ⊃ SL_2(F_l), and Lemma 7.1.4 gives enormous image.",
     "7.1.6(3): pass to F~'(ζ_l); arrange ad r(G_{F'}) = PSL_2(k); by Goursat, Gal(H'/F') = PSL_2(k)^n, with automorphisms in (PGL_2(k) ⋊ Gal(k/F_l))^n ⋊ S_n ([Die51]). Choose A in PSL_2(F_l) with eigenvalue ratio α, α^{±i} ≠ 1 for 1 <= i <= m. Chebotarev gives p with Frob_p = (A,...,A), p split in F' and p ≡ 1 mod l, and the ratios of Sym^m Frobenius eigenvalues avoid p. (4) and (5) reduce to (3) by disjointness arguments.",
     "7.1.7: the Frobenius conjugacy class σ making primes decomposed generic can be chosen as (σ, 1) in Gal(HE/Q) = Gal(H/Q) × Gal(E/Q).",
-    "7.1.8(1): r^dual comes from a height-2 l-divisible group G over O_K ([Bre00], [Kis06]) with G ≠ G^0 ≠ 0 (else Hodge-Tate {1,1} or {0,0}). So there is a finite flat H of order l^2 killed by l with H ≠ H^0 ≠ 0. [Ray74, Prop. 3.2.1, Th. 3.4.3] give four inertia shapes. For l > 2, det r|_{I_l} = ε-bar^{-1} excludes 1 ⊕ 1 and ε-bar^{-1} ⊕ ε-bar^{-1}.",
+    "7.1.8(1): r^dual comes from a height-2 l-divisible group G over O_K ([Bre00], [Kis06]) with G ≠ G^0 ≠ 0 (else Hodge-Tate {1,1} or {0,0}). So there is a finite flat H of order l^2 killed by l over the completed maximal unramified extension, with H ≠ H^0 ≠ 0. [Ray74, Prop. 3.2.1, Thm. 3.4.3] give four inertia shapes: 1 ⊕ epsilon-bar^{-1}, omega_{l,2}^{-1} ⊕ omega_{l,2}^{-l}, 1 ⊕ 1 and epsilon-bar^{-1} ⊕ epsilon-bar^{-1}. For l = 2 the source notes 1 = epsilon-bar^{-1}. For l > 2, det r|_{I_l} = epsilon^{-1} excludes the last two.",
     "7.1.8(2): by (1), det r-bar maps each inertia group above l onto F_l^x, so im r-bar = GL_2(F_l). The normal subgroup generated by inertia images surjects onto F_l^x under det. A normal subgroup of GL_2(F_l) either contains SL_2(F_l) or is central, hence it is all of GL_2(F_l)."
    ],
    "acceptance": [
@@ -388,15 +478,16 @@
    "hypotheses": [
     "E/Q has no CM; L is a finite set of primes of good reduction of E; M is a finite set of positive integers; F^avoid/Q is finite.",
     "The extensions F' are totally real, contain F^suffices and are linearly disjoint from F_2^avoid over Q. Automorphy is not claimed over F^suffices-free fields or over Q.",
-    "The proof imports [BLGGT14] Theorems 2.4.1 and 3.1.2 (in the strengthened form Proposition 7.2.3), Proposition 2.1.2, Lemmas A.2.5 and 2.2.4, and [CHT08, Lem. 4.2.2]. It also imports Serre [Ser81, Th. 20] and [Ser72]. None of these was read."
+    "The proof imports [BLGGT14] Theorems 2.4.1 and 3.1.2 (the latter in the strengthened form Proposition 7.2.3), Proposition 2.1.2, Lemmas A.2.5 and 2.2.4, and [CHT08, Lem. 4.2.2], and also Serre [Ser81, Th. 20] and [Ser72]. Of these, BLGGT14 Theorem 3.1.2 (with proof) and Theorem 2.4.1 (statement) are read in this stage's nodes and Lemma 2.2.4 was read as a statement; Proposition 2.1.2, Lemma A.2.5, [CHT08], [Ser81] and [Ser72] were not read.",
+    "Source gap (not closed in the text; errata register PAPER-ALLEN-ETAL-23/E105, awaiting review, and checked here against arXiv v2 pp. 205-208): Proposition 7.2.3 gives automorphy only over F_1 linearly disjoint from F^avoid F_1^avoid, and it is applied with F^avoid replaced by F^avoid L_3 and F_2^avoid := F_1^avoid L_3. The corollary's hypothesis, disjointness of F' from F_2^avoid alone, does not include disjointness from F^avoid. Either the corollary's hypothesis must be strengthened to disjointness from F^avoid F_2^avoid, or the proposition's weakened."
    ],
    "proofSteps": [
     "Choose a prime l >= max_{m in M} 2(m+2) with: E good ordinary at l; r-bar_{E,l} with image GL_2(F_l); l not in L; l unramified in F^avoid. Ordinarity excludes a density-zero set by [Ser81, Th. 20]; the other conditions exclude finitely many primes by [Ser72]. Qbar^{ker r-bar_{E,l}} contains zeta_l and is linearly disjoint from F^avoid (Lemma 7.1.8(2)).",
     "Choose an imaginary quadratic L unramified at L, at the bad primes of E and at the primes ramified in F^avoid, and split at l. Choose q not in L ∪ {l}, split in L, unramified in F^avoid, of good reduction for E. For even m in M choose a character psi_m: G_L -> Qbar_l^x, crystalline above l with Hodge-Tate numbers 0 and m+1 at the two places above l, and with q | #(psi_m/psi_m^c)(G^nr_{F_{v_q}}). psi_m is unramified above L, above the primes ramified in F^avoid and above the bad primes of E, and satisfies psi_m psi_m^c = epsilon_l^{-(m+1)} ([BLGGT14, Lem. A.2.5]).",
-    "Form L_2 (the compositum of the fields cut out by Ind psi_m, m even), L_1 (its maximal subextension ramified only at l) and L_3 = L_2 Qbar^{ker r-bar_{E,l}}. Show that F^avoid is linearly disjoint from L_3 over Q. Use the unique normal copy of SL_2(F_l) in Gal(M_1/(L_1 ∩ Qbar^{ker r-bar})) and the subgroup H generated by inertia above l.",
+    "Form L_2, the compositum of the fields Q-bar^{ker Ind psi-bar_m} cut out by the residual inductions for m even (the source prints Ind^{G_L}_{G_Q} psi-bar_m there, with the groups interchanged), L_1 (its maximal subextension ramified only at l) and L_3 = L_2 Q-bar^{ker r-bar_{E,l}}. Show that F^avoid is linearly disjoint from L_3 over Q. Use the unique copy of SL_2(F_l) in Gal(M_1/(L_1 ∩ Q-bar^{ker r-bar})), normal in Gal(M_1/Q) with fixed field L_1(zeta_l), and the subgroup H generated by the inertia groups above l, which surjects onto Gal(Q-bar^{ker r-bar_{E,l}}/Q) by Lemma 7.1.8(2).",
     "For odd m set r_m = Sym^m r_{E,l}^dual: G_Q -> GSp_{m+1}(Qbar_l), with multiplier epsilon_l^{-m}, crystalline ordinary at l with Hodge-Tate numbers {0,...,m}. For even m set r_m = Sym^m r_{E,l}^dual ⊗ Ind_{G_L}^{G_Q} psi_m: G_Q -> GSp_{2(m+1)}, with multiplier epsilon_l^{-(2m+1)} and Hodge-Tate numbers {0,...,2m+1}. Sym^m r^dual is orthogonal with multiplier epsilon_l^{-m}. The displayed formula on p. 1102 writes Ind_{G_F}^{G_Q} psi_m, but psi_m is a character of G_L and p. 1101 writes Ind_{G_L}^{G_Q}; the G_F is read as a misprint (checked on the page image).",
     "Apply Proposition 7.2.3 (a variant of [BLGGT14, Th. 3.1.2]: potential ordinary weight-0 automorphy over totally real fields of symplectic mod l_i representations, with avoidance and unramifiedness above L) to F = F_0 = Q, {r-bar_m}, L and F^avoid L_3. This gives F_1^avoid and F^suffices. Set F_2^avoid = F_1^avoid L_3.",
-    "For F' as in the statement, Sym^m SL_2(F_l) ⊂ Sym^m r-bar^dual_{E,l}(G_{LF'(zeta_l)}) acts absolutely irreducibly. For even m the two constituents of r-bar_m|G_{LF'(zeta_l)} are interchanged, by inertia above q. Hence r-bar_m(G_{F'(zeta_l)}) is adequate ([BLGGT14, Prop. 2.1.2]).",
+    "For F' as in the statement, Sym^m SL_2(F_l) ⊂ Sym^m r-bar^dual_{E,l}(G_{LF'(zeta_l)}), so the subgroup generated by elements of l-power order acts absolutely irreducibly. For even m, r-bar_m|G_{LF'(zeta_l)} has two absolutely irreducible constituents; Gal(L_3F'/Q-bar^{ker r-bar_{E,l}}LF') acts on them by different characters (consider inertia above q), and Gal(Q-bar^{ker r-bar_{E,l}}LF'/Q-bar^{ker r-bar_{E,l}}F') interchanges these characters. Hence r-bar_m|G_{F'(zeta_l)} is absolutely irreducible and r-bar_m(G_{F'(zeta_l)}) is adequate ([BLGGT14, Prop. 2.1.2]).",
     "Proposition 7.2.3 and [BLGGT14, Th. 2.4.1] give automorphy of r_m. For even m, [BLGGT14, Lem. 2.2.4] and the argument of [CHT08, Lem. 4.2.2] descend this to automorphy of Sym^m r_{E,l}^dual|G_{F'}."
    ],
    "acceptance": [
@@ -414,8 +505,8 @@
     {
      "sourceId": "accplus",
      "locator": "Corollary 7.2.4, p. 1100",
-     "excerpt": "polarizable automorphic representation π of GLm+1 (AF 0 ) of weight (0)τ,i",
-     "match": "Conclusion."
+     "excerpt": "polarizable automorphic representation π of GLm+1(AF′) of weight (0)τ,i",
+     "match": "Conclusion. (The drafter's 'AF 0' was a text-layer rendering of A_{F′}.)"
     },
     {
      "sourceId": "accplus",
@@ -448,21 +539,23 @@
     "F/F_0 is a finite Galois extension of CM fields; F_0^avoid/F is finite Galois; L_0 is a finite set of rational primes.",
     "Each R_i is a rank-2, strongly irreducible, very weakly compatible system in the sense of ACC+ §7.1, with Hodge-Tate multisets {0,1} at all embeddings. 'Very weakly compatible' requires crystallinity with the given Hodge-Tate numbers only for l outside a Dirichlet density zero set.",
     "S_i ∩ L_0 = ∅ for all i.",
-    "The proof applies ACC+ Theorem 6.1.1 (Fontaine-Laffaille automorphy lifting for n-dimensional representations of CM fields). Its hypotheses include p unramified in F, crystalline at p, rho-bar absolutely irreducible and decomposed generic, rho-bar(G_{F(zeta_p)}) enormous, a scalar rho-bar(sigma) with sigma not in G_{F(zeta_p)}, p > n^2, and a regular algebraic weight bound with rho-bar ≅ r-bar_iota(pi) (checked on the page image of p. 1029)."
+    "The proof applies ACC+ Theorem 6.1.1 (Fontaine-Laffaille automorphy lifting for n-dimensional representations of an imaginary CM or totally real F; statement on arXiv v2 pp. 132-133, page image checked). Its hypotheses: rho unramified almost everywhere; crystalline at v | p with p unramified in F; rho-bar absolutely irreducible and decomposed generic; rho-bar(G_{F(zeta_p)}) enormous; a sigma in G_F - G_{F(zeta_p)} with rho-bar(sigma) scalar; p > n^2; and a cuspidal pi, regular algebraic of weight lambda with lambda_{tau,1} + lambda_{tau c,1} - lambda_{tau,n} - lambda_{tau c,n} < p - 2n, with rho-bar ≅ r-bar_iota(pi), HT_tau(rho) = {lambda_{iota tau,1} + n - 1, ..., lambda_{iota tau,n}}, and pi_v unramified for v | p.",
+    "Source gap (verified here; also errata register PAPER-ALLEN-ETAL-23/E106, awaiting review): Theorem 6.1.1 is applied with n = m_i + 1 at p = l_1 and p = l_2 and needs p > (m_i + 1)^2, while Assumption 7.2.6(6) arranges only l_1, l_2 > 2m_i + 3; for m_i >= 3 this is weaker (m_i = 3 allows l = 11, 13 < 16). Lemma 7.1.8(1) and Theorem 6.1.1(2) also need r_{i,lambda_i} crystalline with Hodge-Tate numbers {0,1} above l_2, which very weak compatibility gives only outside a density-zero set and Assumption 7.2.6 does not list. Both extra conditions exclude a density-zero set, so the choice of l_1, l_2 remains possible.",
+    "Source gap: Step 8 applies Corollary 7.2.4, which is stated for totally real F', to the CM field F'. The passage through the maximal totally real subfield of F' (which contains F^{+,suffices}), its disjointness from F_2^avoid, and quadratic base change to F' is not written in the source (arXiv v2 p. 211)."
    ],
    "proofSteps": [
     "§7.2.5 step 1: choose a non-CM elliptic curve E/Q with good reduction above L_0, distinct primes l_1, l_2, and lambda_i | l_2, satisfying Assumption 7.2.6. The conditions are: l_2 splits completely in each M_i; the image of G_F on E[l_1] contains SL_2(F_{l_1}) and r-bar_{i,lambda_i}(G_F) ⊃ SL_2(F_{l_2}); l_1, l_2 are unramified in F; E has good reduction above l_1, l_2; l_1, l_2 lie under no prime of any S_i; l_1, l_2 > 2m_i + 3. All but the first hold for a density-one set by Lemma 7.1.3; the first holds for a positive-density set. Put L = L_0 ∪ {l_1, l_2}.",
     "Step 2 (determinant twist): det r_{i,lambda} = psi_i epsilon_l^{-1}, with psi_i of finite order and unramified outside S_i. The obstruction ∂psi_i in Br_F[2] is non-trivial only at places in S_i. Choose a soluble Galois totally real F_1^+/Q with these properties: unramified above L; linearly disjoint from the normal closure F_1^avoid of F_0^avoid F^{ker(r-bar_{E,l_1} × ∏ r-bar_{i,lambda_i})}; inertia degrees at p_v divisible by 2[F_v:Q_{p_v}] for v in ∪S_i ([CHT08, Lem. 4.1.2]). Then psi_i|G_{FF_1^+} = phi_i^2, and by Grunwald-Wang ([AT09, Ch. X, Th. 5]) one may take phi_i unramified above L. Set R'_i = R_i|G_{FF_1^+} ⊗ phi_i^{-1}.",
     "Step 3: apply Corollary 7.2.4 to {m_i}, E, L and F_1^avoid F_1^+, obtaining F_2^avoid and F^{+,suffices}. Put F^avoid = F_1^avoid F_2^avoid.",
     "Step 4 (auxiliary moduli): give the space V of the residual r-bar'_{i,lambda_i} a symplectic pairing, preserved up to the multiplier epsilon-bar_{l_2}^{-1}. Let Y_i/FF_1^+ be the moduli space of elliptic curves D with symplectic isomorphisms alpha_1: E[l_1] ≅ D[l_1] and alpha_2: V^dual ≅ D[l_2], and let X_i/F^+F_1^+ be its restriction of scalars. X_i has points at the infinite places. At places w above L_0 ∪ {l_1}, some f >= 1 gives r-bar'_{i,lambda_i}(Frob_w)^{-f} ~ r-bar_{E,l_2}(Frob_w)^f. Then E gives a point of Y_i, with good reduction, over the unramified extension of degree f.",
-    "Step 5 (points above l_2): by Lemma 7.1.8(1), r-bar'_{i,lambda_i}|G_{(F_1^+F)_w} is either (1) induced from the unramified quadratic extension of omega_{l_2,2}^{-1} delta, or (2) an extension of chi^{-1} epsilon-bar^{-1} by chi, with chi unramified and a peu ramifié class in H^1_f. In case (1), take D with good supersingular reduction and f with r-bar_{E,l_1}(Frob_v)^{2f} = (-l_2)^f mod l_1. D gives a point over the unramified extension of degree 2f. In case (2), take an ordinary D over k(w) and use Serre-Tate theory: lifts are parametrised by H^1(G_L, Z_{l_2}(epsilon psi^{-2})) = H^1_f. Lemma 7.2.2 (surjectivity of H^1_f(G_L, Z_l(epsilon chi)) -> H^1_f(G_L, F_l(epsilon chi))) gives a lift D_e with D_e[l_1] ≅ E[l_1] and r-bar_{D_e,l_2} ≅ (r-bar'_{i,lambda_i})^dual.",
+    "Step 5 (points above l_2): since Q_{l_2} ≅ M_{i,lambda_i} (Assumption 7.2.6(1)), Lemma 7.1.8(1) applies, and r-bar'_{i,lambda_i}|G_{(F_1^+F)_w} is either (1) induced from the unramified quadratic extension of omega_{l_2,2}^{-1} delta, or (2) an extension of chi^{-1} epsilon-bar^{-1} by chi, with chi unramified and a peu ramifié class in H^1_f. The source asserts that the direction of the extension and the peu ramifié property 'follow easily from the connected-étale sequence' for the group scheme H of Lemma 7.1.8; this is not written out. In case (1), take D with good supersingular reduction and f with r-bar_{E,l_1}(Frob_v)^{2f} = (-l_2)^f mod l_1. D gives a point over the unramified extension of degree 2f. In case (2), take an ordinary D over k(w) and use Serre-Tate theory: lifts are parametrised by H^1(G_L, Z_{l_2}(epsilon psi^{-2})) = H^1_f. Lemma 7.2.2 (surjectivity of H^1_f(G_L, Z_l(epsilon chi)) -> H^1_f(G_L, F_l(epsilon-bar chi-bar))) gives a lift D_e with D_e[l_1] ≅ E[l_1] and r-bar_{D_e,l_2} ≅ (r-bar'_{i,lambda_i})^dual.",
     "Step 6 (global points): 'for instance, by [BLGGT14, Prop. 3.1.1]' there is a totally real F_2^+/F_1^+F^+ with these properties: Galois over F_0^+; all primes above L unramified in F_2^+/F^+, with each D_i of good reduction there; linearly disjoint over F_1^+F^+ from F^avoid F^{+,suffices} F_1^+; ∏ X_i has an F_2^+-point. That is, there are elliptic curves D_i over F_2 with D_i[l_1] ≅ E[l_1]|G_{F_2} and D_i[l_2] ≅ r-bar'_{i,lambda_i}|^dual_{G_{F_2}}.",
     "Step 7: set F^suffices = F^{+,suffices} F_2^+ F and verify its linear disjointness from F^avoid over F (the field diagram on p. 1106).",
-    "Step 8: for F' as in the statement, Corollary 7.2.4 gives pi_i with Sym^{m_i} r_{E,l_1}^dual|G_{F'} ≅ r_{l_1,ı}(pi_i), unramified above L. Theorem 6.1.1 (residual hypotheses from parts (1), (2), (4) of Lemmas 7.1.6 and 7.1.8) transfers automorphy at l_1 to Sym^{m_i} r_{D_i,l_1}^dual|G_{F'}. Hence it holds at l_2 by compatibility, and Theorem 6.1.1 again transfers it to Sym^{m_i} r'_{i,lambda_i}|G_{F'}. Untwisting by phi_i completes the proof."
+    "Step 8: for F' as in the statement, Corollary 7.2.4 is invoked to give pi_i of weight (0), unramified above L, with Sym^{m_i} r_{E,l_1}^dual|G_{F'} ≅ r_{l_1,ı}(pi_i) (F' is CM here while the corollary is stated for totally real fields; see the gap). Theorem 6.1.1, with the residual conditions supplied by parts (1), (2) and (4) of Lemma 7.1.6 together with Lemma 7.1.8 (which has only two parts), transfers automorphy at l_1 to Sym^{m_i} r_{D_i,l_1}^dual|G_{F'}. Hence it holds at l_2 by compatibility, and Theorem 6.1.1 again transfers it to Sym^{m_i} r'_{i,lambda_i}|G_{F'}. Untwisting by phi_i completes the proof."
    ],
    "acceptance": [
     "The exported statement is automorphy over every CM F' ⊃ F^suffices that is unramified above L and disjoint from F^avoid over F. Automorphy over F, and descent from F' to F, are not claimed and need their own theorem.",
-    "Residual hypotheses must be verifiable for the chosen l_1, l_2 through Lemmas 7.1.3, 7.1.6 and 7.1.8. Check that the hypotheses of Theorem 6.1.1 ('p > n^2', 'decomposed generic', 'enormous') match the recorded Assumption 7.2.6(6), l_1, l_2 > 2m_i + 3.",
+    "Residual hypotheses must be verifiable for the chosen l_1, l_2 through Lemmas 7.1.3, 7.1.6 and 7.1.8. Checked: Assumption 7.2.6(6), l_1, l_2 > 2m_i + 3, gives Lemma 7.1.6 and the weight bound of Theorem 6.1.1(5)(a) (p > 2n), but not p > n^2 = (m_i + 1)^2 when m_i >= 3. A consumer must add l_1, l_2 > (m_i + 1)^2 and crystallinity of r_{i,lambda_i} above l_2 to the choice of primes.",
     "Test case: an elliptic curve E_0 over a CM field F without CM, with R = {H^1(E_0)}. Corollary 7.1.12 gives potential automorphy of all Sym^m, which is Theorem 1.0.1's potential modularity. It does not give modularity of E_0 over F.",
     "The proof applies Theorem 6.1.1 twice, first at l_1 and then at l_2. A consumer must not replace it with a residually modular-only statement."
    ],
@@ -476,14 +569,14 @@
     {
      "sourceId": "accplus",
      "locator": "Theorem 7.1.11, p. 1095",
-     "excerpt": "Symmmi Ri |GF 0 are all automorphic, and each arises from an automorphic representation unramified above L0 .",
-     "match": "Conclusion."
+     "excerpt": "Symmmi Ri|GF′ are all automorphic, and each arises from an automorphic representation unramified above L0.",
+     "match": "Conclusion. (The drafter's 'GF 0' was a text-layer rendering of G_{F′}.)"
     },
     {
      "sourceId": "accplus",
      "locator": "Corollary 7.1.12, p. 1095",
-     "excerpt": "then there exists a finite Galois CM extension F 0 /F such that the weakly compatible system Symmm R|GF 0 is automorphic.",
-     "match": "Single-system corollary."
+     "excerpt": "then there exists a finite Galois CM extension F′/F such that the weakly compatible system Symmm R|GF′ is automorphic.",
+     "match": "Single-system corollary. (The drafter's 'F 0' was a text-layer rendering of F′.)"
     },
     {
      "sourceId": "accplus",
@@ -519,7 +612,7 @@
      "sourceId": "accplus",
      "locator": "§7.2.5, p. 1106",
      "excerpt": "Applying Theorem 6.1.1 (the conditions on the residual representations are satisfied by parts (1), (2) and (4) of Lemmas 7.1.6 and 7.1.8)",
-     "match": "Step 8 use of the automorphy lifting theorem."
+     "match": "Step 8 use of the automorphy lifting theorem. arXiv v2 p. 211 reads 'parts (1), (2) and (4) of Lemma 7.1.6 and Lemma 7.1.8'; Lemma 7.1.8 has only two parts, so the reference is to parts (1), (2), (4) of Lemma 7.1.6 together with Lemma 7.1.8."
     },
     {
      "sourceId": "accplus",
@@ -541,7 +634,7 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
    "title": "Scope of ACC+ Theorem 1.0.1: every elliptic curve over a CM field is potentially modular, with all symmetric powers potentially automorphic; modularity is not claimed",
    "kind": "application",
-   "statement": "ACC+ Theorem 1.0.1, a special case of Corollaries 7.1.13 and 7.1.14. Let E be an elliptic curve over a CM number field F. Then E and all symmetric powers of E are potentially modular, and E satisfies the Sato-Tate conjecture. For non-CM E the potential modularity comes from Corollary 7.1.12, applied to the compatible system of E, over a finite Galois CM extension F'/F. The source states potential modularity, i.e. automorphy after an unspecified finite CM extension. It does not assert modularity of E over F, and it covers only CM base fields.",
+   "statement": "ACC+ Theorem 1.0.1, a special case of Corollaries 7.1.13 and 7.1.14. Let E be an elliptic curve over a CM number field F. Then E and all symmetric powers of E are potentially modular, and E satisfies the Sato-Tate conjecture (as printed; the proved statement, Corollary 7.1.14, is for non-CM E). For non-CM E the potential modularity comes from Corollary 7.1.12, applied to the compatible system of E, over a finite Galois CM extension F'/F. The source states potential modularity, i.e. automorphy after an unspecified finite CM extension. It does not assert modularity of E over F, and it covers only CM base fields.",
    "hypotheses": [
     "F is a CM number field and E/F an elliptic curve.",
     "Corollaries 7.1.13-7.1.14 are applied to the rank-2 system of E, which must be irreducible and very weakly compatible with Hodge-Tate numbers {0,1}. The identification of H^1(E) with such a system (Weil conjectures, crystallinity at almost all l) is not argued in the pages read. Corollary 7.1.14 is stated for non-CM E."
@@ -549,7 +642,7 @@
    "proofSteps": [
     "Theorem 1.0.1 is 'a special case of Corollaries 7.1.13 and 7.1.14' (ACC+ §1, p. 899).",
     "For strongly irreducible R (non-CM E), Corollary 7.1.12 or Theorem 7.1.11 gives automorphy of Sym^m R|G_{F'} over a finite Galois CM extension F'/F.",
-    "For CM E the system is induced (Lemma 7.1.2), and the proof of Corollary 7.1.13 treats that case through automorphic characters."
+    "For CM E the source gives no separate argument. If the CM field K is not contained in F, the system is induced from G_{FK} and the first paragraph of the proof of Corollary 7.1.13 (via Lemma 7.1.2) applies. If K ⊂ F, the system of E over F is a sum of two characters, hence reducible, and lies outside Corollary 7.1.13's irreducibility hypothesis; its (potential) modularity is that of Hecke characters, which the pages read do not spell out."
    ],
    "acceptance": [
     "Any consumer that needs modularity over the given field must supply a separate theorem. Potential modularity does not give it.",
@@ -583,9 +676,9 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.2",
    "title": "BLGGT14 Proposition 3.1.1: a Moret-Bailly point-existence theorem with prescribed local Galois extensions, Galois closure over K_0 and linear disjointness",
    "kind": "theorem",
-   "statement": "Let K^(avoid)/K/K_0 be number fields with K^(avoid)/K and K/K_0 Galois. Let S be a finite set of places of K_0, and S_K the places of K above S. For v in S_K let L'_v/K_v be a finite Galois extension with L'_{σv} = σL'_v for σ in G_{K_0,v|K}. Let T/K_0 be a smooth, geometrically connected variety, and for each v in S_K let Ω_v ⊂ T(L'_v) be a non-empty Gal(L'_v/K_v)-invariant open subset. Then there are a finite Galois extension L/K and a point P in T(L) such that: L/K_0 is Galois; L/K is linearly disjoint from K^(avoid)/K; for v in S_K and w | v a prime of L, L_w/K_v ≅ L'_v/K_v and P ∈ Ω_v ⊂ T(L'_v) ≅ T(L_w).",
+   "statement": "Let K^(avoid)/K/K_0 be number fields with K^(avoid)/K and K/K_0 Galois. Let S be a finite set of places of K_0, and S_K the places of K above S. For v in S_K let L'_v/K_v be a finite Galois extension with L'_{σv} = σL'_v for σ in G_{K_{0,v|K_0}} (the decomposition group of K_0 at the place below v). Let T/K be a smooth, geometrically connected variety, and for each v in S_K let Ω_v ⊂ T(L'_v) be a non-empty Gal(L'_v/K_v)-invariant open subset. Then there are a finite Galois extension L/K and a point P in T(L) such that: L/K_0 is Galois; L/K is linearly disjoint from K^(avoid)/K; for v in S_K and w | v a prime of L, L_w/K_v ≅ L'_v/K_v and P ∈ Ω_v ⊂ T(L'_v) ≅ T(L_w).",
    "hypotheses": [
-    "T is smooth and geometrically connected over K_0, and each Ω_v is non-empty, open and Gal(L'_v/K_v)-invariant.",
+    "T is smooth and geometrically connected over K (not K_0), and each Ω_v is non-empty, open and Gal(L'_v/K_v)-invariant.",
     "The local extensions L'_v are Galois and compatible with the G_{K_0}-action on S_K.",
     "The proof imports Theorem 1.3 of Moret-Bailly, Groupes de Picard et problèmes de Skolem II [MB89], and BLGGT14 Lemma A.2.1 (realising local extensions by a soluble global extension). Neither was read here."
    ],
@@ -595,7 +688,7 @@
     "Apply [MB89, Theorem 1.3]: there are a finite Galois K'/K and P in T(K') with every v in S_K split completely in K', and P ∈ Ω_v ⊂ T(K'_w) for w | v. Take L to be the normal closure of K' over K_0."
    ],
    "acceptance": [
-    "Check that the variety to which a consumer applies this has been shown smooth and geometrically connected over K_0. ACC+ Step 6 (Theorem 7.1.11) and BLGGT Theorem 3.1.2 both need this for their moduli spaces.",
+    "Check that the variety to which a consumer applies this has been shown smooth and geometrically connected over K (the field over which the extension L is built). ACC+ Step 6 (Theorem 7.1.11, varieties over F^+F_1^+) and BLGGT Theorem 3.1.2 (T~ over F(zeta_N)^+) both need this.",
     "Check that real places may be put in S, with the local open sets imposing total reality. The consumers use S to force F_2^+ and F' totally real."
    ],
    "sources": [
@@ -603,7 +696,7 @@
      "sourceId": "blggt14",
      "locator": "Proposition 3.1.1, p. 41",
      "excerpt": "geometrically connected variety and that for each v ∈ S K we are given a non-empty,",
-     "match": "Hypothesis on T (smooth, geometrically connected over K_0; the subscript 0 is displaced in the text layer)."
+     "match": "Hypothesis on T. The page image reads 'T/K is a smooth, geometrically connected variety': T is over K, not K_0."
     },
     {
      "sourceId": "blggt14",
@@ -741,7 +834,7 @@
     "Case potentially diagonalizably automorphic, (r-bar, μ-bar) = residual of (r_{l,ı}(π), r_{l,ı}(χ)): Proposition 3.2.1 gives an ordinary crystalline lift r_2 with the local behaviour of r_{l,ı}(π). Proposition 4.1.1 makes r_2 = r_{l,ı}(π_2) automorphic. π_2 is ı-ordinary, reducing to the first case."
    ],
    "acceptance": [
-    "This is the theorem cited as [BLGGT14, Theorem 4.2.1] by Newton-Thorne I (§8) and II (§3). Check that its l >= 2(d+1) and residual irreducibility over F(ζ_l) are verified there: large image SL_2(F_p) and p > max(2(n+1), (n-1)k) in NT I Proposition 8.3; t > max(5, 4n(n-1)) or k(n+1) in NT II.",
+    "This is the theorem cited as [BLGGT14, Theorem 4.2.1] by Newton-Thorne I (§8), II (§3) and Hilbert (proof of Proposition 6.1). Check that its l >= 2(d+1) and residual irreducibility over F(ζ_l) are verified there: image ⊃ SL_2(F_p) with p > max(2(n+1), (n-1)k) in NT I Proposition 8.3; t > max(10, 8n(n-1), N(pi)) in NT II Proposition 3.9, t > max(5, 4n(n-1), N(pi)) and t > max(5, k(n+1)) in the proof of NT II Theorem 3.1; q, t > 2n + 2 with image ⊃ SL_2 in NT Hilbert Proposition 6.1. The theorem is stated for imaginary CM F; these consumers apply it over Q or totally real fields, so the soluble CM base change and descent (Lemma 2.2.2) must be supplied.",
     "Potential diagonalizability must be established, e.g. Fontaine-Laffaille, or Sym of a potentially diagonalizable two-dimensional representation ([GK14, Lemma 4.4.1]). It is not implied by potential crystallinity alone."
    ],
    "sources": [
@@ -779,7 +872,7 @@
    "kind": "theorem",
    "statement": "Let F/F_0 be a finite Galois extension of CM (resp. totally real) fields and F^(avoid)/F a finite Galois extension. For i = 1, ..., r let (R_i, M_i) be totally odd, polarized weakly compatible systems of l-adic representations of G_F, each R_i regular and irreducible. Then there is a finite CM (resp. totally real) extension F'/F, linearly disjoint from F^(avoid) over F with F'/F_0 Galois, such that each (R_i|G_{F'}, M_i|G_{(F')^+}) is automorphic. Corollary 5.4.3: for such (R, M), L^S(ıR, s) has meromorphic continuation, R is strictly pure, and Λ(ıR, s) = ε(ıR, s) Λ(ıR^dual, 1-s).",
    "hypotheses": [
-    "Weakly compatible systems in the sense of the BLGGT14 introduction: crystalline at unramified places above l, with Hodge-Tate numbers independent of λ.",
+    "Weakly compatible systems in the sense of BLGGT14 §5.1 (p. 62; also the introduction, p. 2): 5-tuples (M, S, {Q_v}, {r_lambda}, {H_tau}) with r_lambda|G_{F_v} de Rham at every v | l and crystalline at v | l outside S, and Hodge-Tate multisets H_tau independent of lambda.",
     "Totally odd and polarized (essentially self-dual), regular, irreducible.",
     "Imports not read: Theorem 4.5.1's input Proposition 3.3.1 (potential ordinary automorphy), Proposition 5.3.2 and Lemma 5.3.1 (residual irreducibility for density-one l), Lemma 1.4.3 (Fontaine-Laffaille implies potentially diagonalizable), Lemma A.1.7, and Lemma A.2.1."
    ],
@@ -824,19 +917,19 @@
   {
    "id": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-2-33-symmetric-power-automorphy-is-constant-on-eigencurve-components",
    "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
-   "title": "Newton-Thorne I Theorem 2.33: automorphy of Sym^{n-1} propagates along irreducible components of the Coleman-Mazur eigencurve (statement; proof only begun)",
+   "title": "Newton-Thorne I Theorem 2.33: automorphy of Sym^{n-1} propagates along irreducible components of the Coleman-Mazur eigencurve (statement and proof outline; Corollary 2.28 not read)",
    "kind": "theorem",
    "statement": "Let (pi_0, chi_0), (pi_0', chi_0') be classical points in RA_0, i.e. refined regular algebraic cuspidal automorphic representations of GL_2(A_Q) on the tame-level-N p-adic eigencurve E_0 of NT I §2.31. Let n >= 2, and let z_0, z_0' be the corresponding points. Suppose one of two sets of conditions holds. First set: (1) chi_0 is numerically non-critical and n-regular; (2) chi_0' is n-regular; (3) the Zariski closures of r_{pi_0,iota}(G_{Q_p}) and r_{pi_0',iota}(G_{Q_p}) contain SL_2; (4) Sym^{n-1} r_{pi_0,iota} is automorphic. Second set: (1ord) chi_0 is ordinary; (2ord) pi_0 and pi_0' are not CM; (3ord) Sym^{n-1} r_{pi_0,iota} is automorphic. If z_0 and z_0' lie on a common irreducible component of E_{0,C_p}, then Sym^{n-1} r_{pi_0',iota} is automorphic.",
    "hypotheses": [
     "p is the eigencurve prime, with a fixed iota: Qbar_p ≅ C. The eigencurve is the cuspidal Coleman-Mazur eigencurve of tame level N.",
     "The condition is n-regularity of the refinement at p (Definition 2.23, not read), together with numerical non-criticality or ordinarity.",
-    "The proof applies Corollary 2.28 on the eigenvariety of a definite unitary group G_2 over an auxiliary soluble CM field F. The introduction says it rests on an infinitesimal R = T theorem, deduced from vanishing of adjoint Bloch-Kato Selmer groups [NT20]. §§2.1-2.32 were not read."
+    "The proof applies Corollary 2.28 on the eigenvariety of a definite unitary group G_2 over an auxiliary soluble CM field F. It also uses Lemma 2.34, [Con99, Theorem 3.4.2], Example 2.10 (non-criticality of all triangulations), Lemma 3.5(2), descent to G_2 by [Lab11, Théorème 5.4] and soluble descent for GL_n. The introduction says Corollary 2.28 rests on an infinitesimal R = T theorem, deduced from vanishing of adjoint Bloch-Kato Selmer groups [NT20]. §§2.1-2.32 were not read."
    ],
    "proofSteps": [
     "Choose an abelian CM F'/Q in which every prime dividing Np splits, with [(F')^+:Q] even and F'/(F')^+ everywhere unramified. Extending E, take z_0, z_0' in E_0(E) on a geometrically irreducible component C ([Con99, Th. 3.4.2]).",
     "On the component W of weight space containing kappa(C), write the determinant of the universal pseudocharacter as epsilon^{-1} chi. By Lemma 2.34, after a finite étale cover W~ -> W, chi|G_{F'} = psi psi^c for a character psi unramified at a place above each v | p.",
     "Choose a soluble Galois CM F ⊃ F' in which the primes dividing Np split, with F/F^+ everywhere unramified and psi|G_F unramified away from p. Take the unitary group G_2 and level U_2 (hyperspecial away from S; pullback of U_1(N)_l at v in S). Build the base-change morphism b: X_{0,ps} × T~ -> X_{2,ps} × T_2 twisting by psi^{-1}.",
-    "[Not read] The remainder of the proof applies Corollary 2.28 to the diagram of rigid spaces."
+    "Let C~ = C ×_W W~, choose E'/E so that its components are geometrically irreducible, and lift z_0, z_0' to z_1, z_1' on one component C~'. For (pi, chi) in Z_0 the base change pi_F is cuspidal (otherwise pi is induced from an imaginary quadratic K ⊂ F, impossible as the primes dividing Np split in F), and pi_F ⊗ iota psi^{-1} descends to G_2 by [Lab11, Théorème 5.4]; so b∘i~ maps the accumulating set Z~_0' into E_2 and hence C~' into E_2. Corollary 2.28 (with Example 2.10 in the non-ordinary case) gives pi'_n on G_n(A_{F^+}) with Sym^{n-1} r_{pi_0',iota}|G_F ≅ r_{pi'_n,iota}. Lemma 3.5(2) makes this irreducible, so the base change of pi'_n is cuspidal, and soluble descent for GL_n gives automorphy of Sym^{n-1} r_{pi_0',iota}."
    ],
    "acceptance": [
     "The two alternative hypothesis sets must stay separate. The ordinary case needs non-CM but not n-regularity.",
@@ -940,7 +1033,8 @@
     "Level one, weight >= 2, n >= 3. The cases n = 1, 2 are classical and are not proved here.",
     "Theorem 7.1 (for n >= 3): given p ≡ 1 (mod 48 n!), a prime q ≠ p, a finite set X_0 of places of K = Q(i) prime to 2pq, and a de Rham omega with omega omega^c = epsilon^3 unramified at X_0. There is then a soluble CM F/K, X_0-split, with a RACSDC iota-ordinary Pi of GL_n(A_F) such that r-bar_{Pi,iota} ≅ omega-bar^{n-1} ⊗ Sym^{n-1} r-bar_{sigma_0,iota}|G_F, with matching Hodge-Tate weights and an unramified-twist-of-Steinberg component at some v | q. Here sigma_0 is the weight-5 CM form of level Gamma_1(4).",
     "Imports not read: Proposition 7.4 (odd n) and its level-raising inputs §§4-6; [AT21, Theorem 5.1] (level raising for GL_{2n} of unitary type) for the even-n induction; [ANT20, Theorem 6.1] (automorphy lifting for residually reducible representations); [Dia89, Corollary 6.9] (level raising for GL_2).",
-    "The unitary-group inputs of §1 come from Labesse [Lab11]: base change (Theorem 1.2, from [Lab11, Corollaire 5.3]) and descent (Theorem 1.4, from [Lab11, Théorème 5.4]) for the definite unitary group, together with Mœglin's L-packets and Kaletha's transfer factors. They do not come from Mok's conditional classification; §1.1 was read, but [Lab11], [Mœg07, Mœg14] and [Kal16] were not."
+    "The unitary-group inputs of §1 come from Labesse [Lab11]: base change (Theorem 1.2, from [Lab11, Corollaire 5.3]) and descent (Theorem 1.4, from [Lab11, Théorème 5.4]) for the definite unitary group, together with Mœglin's L-packets and Kaletha's transfer factors. They do not come from Mok's conditional classification; §1.1 was read, but [Lab11], [Mœg07, Mœg14] and [Kal16] were not.",
+    "Source issues in Proposition 7.4 (the odd-n case of Theorem 7.1), whose proof this packet did not read: the errata register records a confirmed error PAPER-NEWTON-THORNE-21/E21 (the pi_2 fed into Theorem 4.1 on p. 100 of the published version is not conjugate self-dual) and confirmed gaps E19 (base cases n = 1, 3 and n_1 = 1 in §1.17) and E23 (weight of Pi in Theorem 4.1). These were not re-verified here; the odd-n branch must carry them until an owner reads §§4-7."
    ],
    "proofSteps": [
     "Start from sigma_0, the weight-5 newform of level Gamma_1(4), the automorphic induction from K = Q(i) of an unramified Hecke character of infinity type (4,0). r_{sigma_0,iota} ≅ Ind psi with det = delta_{K/Q} epsilon^{-4}.",
@@ -1016,7 +1110,8 @@
    "hypotheses": [
     "Weight k >= 2, non-CM, no supercuspidal local component.",
     "Proposition 8.3 imports: [Wes04, Propositions 3.2, 5.3] (choice of p with H^0(Q_l, ad^0 r-bar(1)) = 0); [DT94, Lemma 11]; [Tho16] Theorem 5.9, Definition 5.6, Propositions 5.10 and 6.5, Lemma 6.8; [Kis09, Proposition 3.2.5]; [KT17, Corollary 2.7, Lemma 2.8]; [Tho12, Lemma 6.10]; [Gee11, Proposition 2.1.5]; [CHT08, §2.4.1]. None was read.",
-    "The final step uses [BLGGT14, Theorem 4.2.1], an automorphy lifting theorem for irreducible residual images (not read)."
+    "The final step uses [BLGGT14, Theorem 4.2.1] (this stage's node blggt-theorem-4-2-1). That theorem is stated for imaginary CM fields; its application over Q needs a soluble CM base change and descent, which the source does not write out.",
+    "Source issues recorded in the errata register (confirmed there, not re-verified here): PAPER-NEWTON-THORNE-21/E24 (Proposition 8.2 needs pi'_l not supercuspidal at l | M), E25 (Proposition 8.3: the ideal I should run over T = S - {p, q_a}, and q_a needs a separate argument) and E3 (g = q_0 + |T| - 1 in condition (e))."
    ],
    "proofSteps": [
     "Proposition 8.2 (induction on the number r of primes dividing the conductor N; base r = 0 is Theorem 7.7). Hypothesis: every ramified l has an n-regular accessible refinement, and pi is non-CM. For a ramified p write N = M p^s. If r_{pi,iota}|G_{Q_p} is reducible, pi is iota-ordinary. On the tame-level-M p-adic eigencurve, avoiding the Zariski-closed set Z of Lemma 2.35, find an ordinary classical pi' on the same component with: level prime to p; n-regular refinements at l | M; Zariski closure ⊃ SL_2. By induction Sym^{n-1} r_{pi'} is automorphic; the ordinary case of Theorem 2.33 gives Sym^{n-1} r_pi. The locally irreducible case is identical, using a non-ordinary numerically non-critical n-regular refinement and Lemma 3.5.",
@@ -1121,7 +1216,8 @@
    "statement": "Let n >= 1 and let pi be a regular algebraic cuspidal automorphic representation of GL_2(A_Q) which is non-CM. Then Sym^{n-1} pi exists as a regular algebraic cuspidal automorphic representation of GL_n(A_Q). Corollary B, using [BCDT01]: for every elliptic curve E/Q without CM and every n >= 2, Λ(Sym^n E, s) is entire. The CM and holomorphic limit of discrete series (weight 1) cases are Appendix A, where Sym^n pi exists but is usually not cuspidal.",
    "hypotheses": [
     "pi regular algebraic, cuspidal, non-CM, over Q.",
-    "Imports not read: [NT19] = Newton-Thorne I's main theorem (Theorem 8.1), the base case |sc(pi)| = 0; [Gee11, Corollary 3.1.7] (automorphic lifts with prescribed local types); [BLGGT14, Theorem 4.2.1] and potential diagonalizability ([GK14, Lemma 4.4.1], [BLGG11, Definition 3.3.5]); [KW09a, Lemma 6.3]; [Gee11, Theorem 4.6.1]."
+    "Imports not read: [NT19] = Newton-Thorne I's main theorem (Theorem 8.1), the base case |sc(pi)| = 0 (its own node is read); [Gee11, Corollary 3.1.7 and Theorem 4.6.1]; potential diagonalizability ([GK14, Lemma 4.4.1], [BLGG11, Definition 3.3.5]); [KW09a, Lemma 6.3]; and the inputs of Lemmas 3.4-3.5: [BM02, Definition A.1.4.1 and A.2.4], [BDJ10, Corollary 2.12], [NT16, §3.1], the Jacquet-Langlands correspondence, Hida theory, [Ger19, Lemma 5.2] and [BLGGT14, p. 524, Remark (6)]. [BLGGT14, Theorem 4.2.1] is read in this packet (node blggt-theorem-4-2-1).",
+    "Lemma 3.5 needs p >= 3. Definition 3.6 also requires pi of weight 2 with 2 not in sc(pi), t not in sc(pi) and (q + 1)/t > 2."
    ],
    "proofSteps": [
     "Notation: sc(pi) is the set of primes p with pi_p supercuspidal. The semisimple conductor is M_pi = ∏_l N((rec_{Q_l} pi_l)^ss) (Definition 3.2). Lemma 3.3: if r-bar_{pi,iota} is reducible or dihedral (p odd), its prime-to-p conductor divides M_pi.",
@@ -1130,7 +1226,7 @@
     "Proposition 3.9: for weight-2 non-CM pi with 2, 3 not in sc(pi), there is a seasoned pi' with sc(pi') = sc(pi) ∪ {q} and existence of Sym^{n-1} equivalent. Proof: Chebotarev choices of t, q, r; [Gee11]; [BLGGT14, Th. 4.2.1] using Fontaine-Laffaille at t and irreducibility of Sym^m of SL_2(F_t) for t > m.",
     "Proposition 3.10: for seasoned pi and p in sc(pi) with p >= 5 there is pi' of weight 2, non-CM, with sc(pi') = sc(pi) - {p}, still seasoned if p ≠ q, and with Sym^{n-1} pi' ⇒ Sym^{n-1} pi. Proof: Theorem 2.1, with iota from Proposition 3.7 and pi' from Lemma 3.5.",
     "Proposition 3.11: for weight 2, non-CM, 2, 3 not in sc(pi), Sym^{n-1} pi exists. Induction: (H_0) is [NT19]; (H_k) ⇒ (H'_{k+1}) by Proposition 3.10; (H'_k) ⇒ (H_k) via Propositions 3.9 and 3.10.",
-    "Proof of Theorem 3.1. Case weight 2, 2 not in sc(pi), pi_3 supercuspidal: choose t and q by Chebotarev; get pi' via [Gee11, Cor. 3.1.7] and [BLGGT14, Th. 4.2.1]; at p = 3 use [KW09a, Lemma 6.3] for a large projective image; apply Lemma 3.4 to get pi'' with 2, 3 not in sc; conclude by Proposition 3.11 and Theorem 2.1. Case 2 in sc(pi): the same with 3 replaced by 2. Case weight k > 2: choose t > max(5, k(n+1)) with pi_t unramified and large image; Lemma 3.4 gives weight-2 potentially Barsotti-Tate pi'; conclude with [BLGGT14, Th. 4.2.1] (Sym^{n-1} of potentially diagonalizable is potentially diagonalizable)."
+    "Proof of Theorem 3.1. Case weight 2, 2 not in sc(pi), pi_3 supercuspidal: choose t > max(5, 4n(n-1), N(pi)) and q by Chebotarev; get pi' via [Gee11, Cor. 3.1.7] and [BLGGT14, Th. 4.2.1]; at p = 3 use [KW09a, Lemma 6.3] for a large projective image (the source writes Proj r-bar_{pi,iota} where pi' is meant; errata register PAPER-NEWTON-THORNE-21-B/E1, confirmed); apply Lemma 3.4 to get pi'' with 2, 3 not in sc; conclude by Proposition 3.11 and Theorem 2.1. Case 2 in sc(pi): the source says to repeat the argument with 3 replaced by 2. Lemma 3.4 at p = 2 gives pi'' with 2 not in sc(pi''), but 3 may lie in sc(pi''), so the conclusion must come from the case just treated (weight 2, 2 not in sc), not from Proposition 3.11 (errata register PAPER-NEWTON-THORNE-21-B/E3, confirmed; checked here on p. 27). Case weight k > 2: choose t > max(5, k(n+1)) with pi_t unramified and large image; Lemma 3.4 gives weight-2 potentially Barsotti-Tate pi'; conclude with [BLGGT14, Th. 4.2.1] (Sym^{n-1} of potentially diagonalizable is potentially diagonalizable)."
    ],
    "acceptance": [
     "This node removes the 'no supercuspidal component' hypothesis of Newton-Thorne I Theorem 8.1, but only over Q.",
@@ -1185,7 +1281,7 @@
    "statement": "Let n >= 1 and let pi be a cuspidal automorphic representation of GL_2(A_Q) with pi_∞ a holomorphic limit of discrete series, or with pi the automorphic induction of a Hecke character of a quadratic field. Then Sym^n pi exists. In these cases Sym^n pi is usually not cuspidal.",
    "hypotheses": [
     "Weight one (pi_∞ holomorphic limit of discrete series), or CM / dihedral automorphic induction.",
-    "Imports not read: Deligne-Serre [DS74] (the Artin representation r_pi with r_pi|W_{Q_p} ≅ rec^T_{Q_p}(pi_p)); Kim [Kim04, Theorem 6.4 and §5] (the A_5 case: Sym^m for m <= 4, and tensor product functorialities GL_2 × GL_2 -> GL_4, GL_2 × GL_3 -> GL_6); character tables of the binary polyhedral groups ([Ste08, Appendix A]); automorphy of Sym^2 and Sym^3 (Gelbart-Jacquet, Kim-Shahidi), which the A_4 and S_4 cases rely on."
+    "Imports not read: Deligne-Serre [DS74], cited for an odd irreducible r_pi: G_Q -> GL_2(C) with r_pi|W_{Q_p} ≅ rec^T_{Q_p}(pi_p) for ALL primes p (compatibility at ramified p goes beyond the Deligne-Serre node of AutomorphicGaloisRepresentations R19.1, which asserts it only at p ∤ N); Kim [Kim04, Theorem 6.4 and §5] (the A_5 case: Sym^m for m <= 4, and tensor product functorialities GL_2 × GL_2 -> GL_4, GL_2 × GL_3 -> GL_6); character tables of the binary polyhedral groups ([Ste08, Appendix A] or [GAP20]); automorphy of Sym^2 and Sym^3, which the A_4 and S_4 cases rely on. Appendix A gives no reference for Sym^2 and Sym^3; the attribution to Gelbart-Jacquet [GJ78] and Kim-Shahidi [KS02, Kim03] is from Newton-Thorne I, introduction, p. 1."
    ],
    "proofSteps": [
     "Weight one: twist to a holomorphic weight-1 eigenform. Deligne-Serre gives an odd irreducible r_pi: G_Q -> GL_2(C) with finite projective image: dihedral, A_4, S_4 or A_5.",
@@ -1231,11 +1327,12 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
    "title": "Newton-Thorne (Hilbert) Theorem A = Theorems 6.4-6.5: all symmetric powers of non-CM regular-weight Hilbert modular forms, by induction n = p + r",
    "kind": "theorem",
-   "statement": "Let F be a totally real field and pi a cuspidal automorphic representation of GL_2(A_F) without CM, with pi_∞ essentially square-integrable (i.e. attached to a cuspidal non-CM Hilbert modular form of weights k_v >= 2). Then for each n >= 2 there is a cuspidal automorphic Pi_n of GL_n(A_F) with rec_{F_v}(Pi_n) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v) at every place v. Theorem 6.4 (Conjecture SP_n): for every non-CM RAESDC pi of GL_2(A_F), Sym^{n-1} pi exists as a RAESDC representation.",
+   "statement": "Let F be a totally real field and pi a cuspidal automorphic representation of GL_2(A_F) without CM, with pi_∞ essentially square-integrable (i.e. attached to a cuspidal non-CM Hilbert modular form of weights k_v >= 2). Then for each n >= 2 there is a cuspidal automorphic Pi_n of GL_n(A_F) with rec_{F_v}(Pi_{n,v}) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v) at every place v (Theorem A = Theorem 6.5(1), deduced from Theorem 6.4 and [Tho24, Theorem 8.1]). Theorem 6.4 (Conjecture SP_n): for every non-CM cuspidal regular algebraic pi of GL_2(A_F), Sym^{n-1} pi exists as a RAESDC representation. Theorem 6.5(2): if E is a CM field and pi is a RAECSDC automorphic representation of GL_2(A_E) that is not automorphically induced from a quadratic extension, then for each n >= 2 there is a cuspidal Pi_n of GL_n(A_E) with rec_{E_w}(Pi_{n,w}) ≅ Sym^{n-1} ∘ rec_{E_w}(pi_w) at every place w (from Theorem 6.4, [CT17, Proposition 7.6] and [CHT08, Lemma 4.1.4]).",
    "hypotheses": [
     "F totally real; pi non-CM; pi_∞ essentially square-integrable. Irregular weights (some k_v = 1) are excluded, except all k_v = 1 as in [NT21b, Appendix A] (footnote 1).",
     "The CM case exists via Eisenstein series and is never cuspidal for n > 2 (footnote 1).",
-    "Imports not read: [Tho24] (Theorem 7.5, Proposition 7.4, Theorem 7.6, Corollary 7.2: level raising, and an automorphy lifting theorem for residually reducible representations); [CT14, CT15, CT17]; the cases n <= 5; Theorem 5.9 (residual automorphy of the twisted tensor product phi_p r-bar ⊗ Sym^{r-1} r-bar); Proposition 6.1's proof (local conditions after soluble base change); the passage from regular algebraic to essentially square-integrable pi ([CT17, Tho24], Theorem 6.5)."
+    "Imports not read: [Tho24] (Theorems 7.5, 7.6, 8.1, Proposition 7.4, Corollary 7.2: level raising, an automorphy lifting theorem for residually reducible representations, and the passage to essentially square-integrable pi); [CT14, CT15, CT17] (including [CT17, Proposition 7.6]); [CHT08, Lemma 4.1.4]; the cases n <= 5; Theorem 5.9 (residual automorphy of phi_p r-bar ⊗ Sym^{r-1} r-bar); and the inputs of Proposition 6.1's proof, which the reviewer read (pp. 46-49): [Dim05, Proposition 3.8], [BLGG12, Theorem 6.1.9], [BLGGT14, Lemma 1.4.1] (should be Lemma 1.4.3(2); errata register PAPER-NEWTON-THORNE-26/E30), [BLGGT14, Theorem 4.2.1] (read, node blggt-theorem-4-2-1), [GK14, Lemma 4.4.1], and the Khare-Wintenberger level raising of Lemma 3.1.",
+    "Source issues in the proof of Theorem 6.4 recorded in the errata register (confirmed there, not re-verified here): PAPER-NEWTON-THORNE-26/E10 (the base cases n <= 5 are not cited), E11 (Proposition 6.3(4) needs pi_1 iota-ordinary) and E12 (SP_0 for r = 1)."
    ],
    "proofSteps": [
     "Strategy of [CT14] (introduction): for n = p + r with p prime and 0 < r < p, the residual congruence (1.1) is Sym^{p+r-1} r-bar ≅^{ss} ((det r-bar)^r ⊗ Sym^{p-r-1} r-bar) ⊕ (phi_p r-bar ⊗ Sym^{r-1} r-bar). The implication (1.2) is SP_r + SP_{p-r} + LR_{p+r} + TP_r ⇒ SP_{p+r}.",
@@ -1246,8 +1343,8 @@
     "Theorem 6.4: induction on n >= 6 (n <= 5 known). Choose p >= 5 with p < n < 2p, write n = p + r, and apply Corollary 6.2, Proposition 6.3 and the induction hypothesis."
    ],
    "acceptance": [
-    "The field is totally real. Do not export to CM or general number fields.",
-    "The statement is local-global at every place (rec_{F_v}(Pi_n) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v)), stronger than equality of Frobenius polynomials at almost all places. Keep this distinction in consumers.",
+    "Theorem A is over totally real fields. Theorem 6.5(2) extends it to CM fields only for RAECSDC pi not automorphically induced from a quadratic extension. Do not export to non-self-dual pi over CM fields (only potential automorphy, ACC+) or to general number fields.",
+    "The statement is local-global at every place (rec_{F_v}(Pi_{n,v}) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v)), stronger than equality of Frobenius polynomials at almost all places. Keep this distinction in consumers.",
     "The earlier state of the art is recorded in the source: SP_n for n <= 9 under mild hypotheses [CT15, CT17]; after [Tho24], SP_n for n <= 9 and even n <= 26. Consumers should not cite those partial results for general n."
    ],
    "sources": [
@@ -1298,7 +1395,7 @@
    "proofSteps": [
     "If R is not strongly irreducible, Lemma 7.1.2 gives R = Ind X with X a pure automorphic system of characters, and the corollary follows.",
     "If R is strongly irreducible, Theorem 7.1.11 gives, for each m > 0, a finite Galois CM F_m/F and cuspidal pi_{ı,m} on GL_{m+1}(A_{F_m}) whose Frobenius roots at w | v not in S match Sym^m R.",
-    "Purity (Deligne-Langlands method): it suffices that |ıγ| <= q_w^{(m+1)/2} for roots γ of Sym^m R at w, for all m. The central character of pi_{ı,m}||det||^{-m/2} is unitary, so pi_{ı,m} is unitary; [JS81b, Cor. 2.5] bounds the Satake parameters by q_w^{1/2}, applicable by [Sha74].",
+    "Purity (Deligne-Langlands method): it suffices that |ıγ| <= q_w^{(m+1)/2} for roots γ of Sym^m R at w, for all m. Since det Sym^m R|G_{F_m} corresponds to chi_{pi_{ı,m}}||det||^{-m/2}, the central character satisfies |chi_{pi_{ı,m}}(x)| = 1, so pi_{ı,m} is unitary; [JS81b, Cor. 2.5] bounds the Satake parameters by q_w^{1/2}, applicable because local components are generic by [Sha74].",
     "Meromorphic continuation, functional equation, holomorphy and non-vanishing on Re(s) >= m/2 + 1: 'the usual Brauer's theorem argument' with [JS77], as in [HSBT10, Th. 4.2].",
     "Sato-Tate: Corollary 7.1.13 plus the corollary to [Ser98, Th. 2], as explained on p. I-26 of [Ser98].",
     "Ramanujan: immediate at Steinberg-type v. Otherwise reduce, by [HLTT16], [Var14] and [TY07, Lem. 1.4(3)], to purity of r_l|G_{F_v} for v ∤ l. By [TY07, Lem. 1.4(2)] and soluble base change reduce to unramified pi_v, and apply Corollary 7.1.13(1), using Lemma 7.1.10."
@@ -1347,19 +1444,19 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.3",
    "title": "Register of the proved symmetric-power and Sato-Tate endpoints with their field, weight, level and CM hypotheses",
    "kind": "comparison",
-   "statement": "A comparison of the endpoint statements recorded in this roadmap, with exactly the hypotheses under which each source proves them: (1) Newton-Thorne I Theorem 7.7 (Theorem A): F = Q, level one, weight >= 2, all n. (2) Newton-Thorne I Theorem 8.1 (Theorem B): F = Q, weight >= 2, non-CM, no supercuspidal local component; Corollary C for semistable E/Q. (3) Newton-Thorne II Theorem 3.1 (Theorem A): F = Q, regular algebraic, non-CM, all n; Corollary B for all non-CM E/Q. (4) Newton-Thorne II Theorem A.1: F = Q, weight one or CM, Sym^n exists but is usually not cuspidal. (5) Newton-Thorne (Hilbert) Theorem A: F totally real, non-CM, pi_∞ essentially square-integrable, with local-global compatibility at every place. (6) ACC+ Theorem 7.1.11 and Corollaries 7.1.12-7.1.15: F CM, rank-2 Hodge-Tate {0,1} systems, potential automorphy of all Sym^m, Sato-Tate for non-CM elliptic curves, and Ramanujan for weight 0. Newton-Thorne I records that potential automorphy had already sufficed for Sato-Tate over Q and totally real fields ([BLGHT11], [BLGG11]), and that automorphy gives effective versions.",
+   "statement": "A comparison of the endpoint statements recorded in this roadmap, with exactly the hypotheses under which each source proves them: (1) Newton-Thorne I Theorem 7.7 (Theorem A): F = Q, level one, weight >= 2, all n. (2) Newton-Thorne I Theorem 8.1 (Theorem B): F = Q, weight >= 2, non-CM, no supercuspidal local component; Corollary C for semistable E/Q. (3) Newton-Thorne II Theorem 3.1 (Theorem A): F = Q, regular algebraic, non-CM, all n; Corollary B for all non-CM E/Q. (4) Newton-Thorne II Theorem A.1: F = Q, weight one or CM, Sym^n exists but is usually not cuspidal. (5) Newton-Thorne (Hilbert) Theorem A (= Theorem 6.5(1)): F totally real, non-CM, pi_∞ essentially square-integrable, with local-global compatibility at every place. (5') Newton-Thorne (Hilbert) Theorem 6.5(2): F CM, pi RAECSDC and not automorphically induced from a quadratic extension; Sym^{n-1} pi exists as a cuspidal representation, with local-global compatibility at every place. (6) ACC+ Theorem 7.1.11 and Corollaries 7.1.12-7.1.15: F CM, rank-2 Hodge-Tate {0,1} systems, potential automorphy of all Sym^m, Sato-Tate for non-CM elliptic curves, and Ramanujan for weight 0. Newton-Thorne I records that potential automorphy had already sufficed for Sato-Tate over Q and totally real fields ([BLGHT11], [BLGG11]), and that automorphy gives effective versions.",
    "hypotheses": [
     "Each row keeps its own field, weight, level and CM hypotheses. No row is to be used outside them.",
-    "Rows (1)-(5) assert automorphy (existence over the given field). Row (6) asserts only potential automorphy of symmetric powers. It gives Sato-Tate and purity through the analytic argument in its node."
+    "Rows (1)-(5') assert automorphy (existence over the given field). Row (6) asserts only potential automorphy of symmetric powers. It gives Sato-Tate and purity through the analytic argument in its node."
    ],
    "proofSteps": [
     "Rows (1)-(4) and (6) are taken from the theorem nodes of this stage, whose proofs are decomposed there. Row (5) is taken from the Newton-Thorne (Hilbert) node.",
     "Newton-Thorne I (introduction, p. 2) states that Sato-Tate was proved from potential automorphy ([BLGHT11], [BLGG11]), and that automorphy makes effective versions possible ([Tho14b]; conditional ones in [Mur85, BK16, RT17])."
    ],
    "acceptance": [
-    "A consumer asking for Sato-Tate over Q for a non-CM elliptic curve may cite either route. It must record the analytic imports ([Ser98], [JS77], Brauer induction) in both cases.",
+    "A consumer asking for Sato-Tate over Q for a non-CM elliptic curve may cite either route and must record the analytic imports ([Ser98] and non-vanishing on Re(s) = 1, [JS77]). The Brauer-induction step ([HSBT10]) is needed only on the potential-automorphy route.",
     "Reject 'all symmetric powers of all weight-one forms are cuspidal'. Row (4) states they usually are not.",
-    "Reject 'symmetric power functoriality over CM fields'. Row (6) is potential only."
+    "Reject 'symmetric power functoriality over CM fields' without qualification. Row (5') proves it only for RAECSDC pi that are not automorphically induced; for other pi over CM fields row (6) gives only potential automorphy."
    ],
    "sources": [
     {
@@ -1399,7 +1496,7 @@
     "AGIKMS §0.1 organises Arthur's main theorems into local classification, local intertwining relations, global seed, global classification and stable multiplicity formula groups. They are proved simultaneously by induction on N for twisted endoscopic groups of GL_N.",
     "§0.3: [A24] justified [Ar3, Proposition 2.1.1] (choosing test functions on twisted GL_N amounts to compatible families on twisted endoscopic groups). It is proved in general by [MW4, I.4.11].",
     "§0.2.1: Main Theorem 1 (Theorem 1.8.1) proves [Ar3, Theorem 2.5.1(b)] (deferred to [A27]) by comparing Arthur's normalising factors with Shahidi's local coefficients (§2, Appendix A). Appendix D proves [Ar3, Lemma 2.5.5]. With Appendix E, this makes [Ar3, Chapter 6] conditional only on the twisted weighted fundamental lemma.",
-    "§0.2: Main Theorems 2 and 3 correspond to [A26] and [A25]. They include the construction of co-tempered A-packets by Aubert duality, used in Step 1 of Arthur's Chapter 7.",
+    "§0.2: Main Theorem 2 (Theorem 1.9.1) is [Ar3, Theorem 2.5.3], deferred to [A26]; Main Theorem 3 corresponds to [A25] ([Ar3, Lemma 7.1.2]) and includes the construction of co-tempered A-packets by Aubert duality, used in Step 1 of Arthur's Chapter 7.",
     "§0.4: stabilisation of the twisted trace formula depends on [MW4, II.4.4], which remains conditional; it reduces to (i) and (ii). A full proof of (i) and (ii) is in progress ([HD])."
    ],
    "acceptance": [
@@ -1492,7 +1589,7 @@
     },
     {
      "sourceId": "mok-unitary",
-     "locator": "Remark 2.5.3, p. 34",
+     "locator": "Remark 2.5.3, p. 35",
      "excerpt": "theorem 2.5.2 implies the multiplicity one result for representations π that belong to a global packet corresponding to a generic parameter",
      "match": "Multiplicity one."
     },
@@ -1534,25 +1631,25 @@
    "sources": [
     {
      "sourceId": "kmsw-inner-forms",
-     "locator": "Introduction, p. 4",
+     "locator": "Introduction, p. 5",
      "excerpt": "under the assumption that the same is known for quasi-split unitary groups",
      "match": "Dependence on the quasi-split case."
     },
     {
      "sourceId": "kmsw-inner-forms",
-     "locator": "Introduction, p. 4",
+     "locator": "Introduction, p. 5",
      "excerpt": "obtain complete results only for tempered parameters",
      "match": "Scope limitation."
     },
     {
      "sourceId": "kmsw-inner-forms",
-     "locator": "Introduction, p. 5",
+     "locator": "Introduction, p. 6",
      "excerpt": "our results in this first paper are unconditional otherwise",
      "match": "Conditionality statement (following the assumption of Mok's main results)."
     },
     {
      "sourceId": "kmsw-inner-forms",
-     "locator": "Introduction, p. 5",
+     "locator": "Introduction, p. 6",
      "excerpt": "At the time of writing Mok’s main results are themselves conditional",
      "match": "Mok conditional."
     }
@@ -1564,11 +1661,11 @@
    "parentStageId": "ModularityAndLanglandsExtensions:ML.4",
    "title": "The symplectic (totally real) branch of Scholze's torsion Galois representations is conditional on Arthur's classification; the CM branch is not",
    "kind": "application",
-   "statement": "Scholze, On torsion in the cohomology of locally symmetric varieties, Theorem 1.0.3. His Conjecture 1.0.2 (Galois representations attached to Hecke eigenclasses in H^i(X_K, F_p)) holds unconditionally if F is CM and contains an imaginary quadratic field. It holds for F totally real or CM 'assuming the work of Arthur'. The totally real case uses G = Res_{F/Q} Sp_2n, a twisted endoscopic group of Res_{F/Q} GL_{2n+1}. It needs Arthur's endoscopic transfer, which Scholze describes as still conditional on the stabilisation of the twisted trace formula, whereas the unitary case has unconditional results of Shin [57]. Combined with the status node of this stage, the totally real (symplectic) branch is therefore conditional at least on the twisted weighted fundamental lemma. Whether any further input of Scholze's §5 uses unproven parts of [Ar3] has not been checked. That branch cannot be marked unconditional because the unitary branch is available.",
+   "statement": "Scholze, On torsion in the cohomology of locally symmetric varieties, Theorem 1.0.3. His Conjecture 1.0.2 (Galois representations attached to Hecke eigenclasses in H^i(X_K, F_p)) holds unconditionally if F is CM and contains an imaginary quadratic field. It holds for F totally real or CM 'assuming the work of Arthur'. The totally real case uses G = Res_{F/Q} Sp_2n, a twisted endoscopic group of Res_{F/Q} GL_{2n+1}. It needs Arthur's endoscopic transfer, which Scholze describes as still conditional on the stabilisation of the twisted trace formula, whereas the unitary case has unconditional results of Shin [57]. Combined with the status node of this stage, the totally real (symplectic) branch is therefore conditional at least on the twisted weighted fundamental lemma. The imported result is Scholze's Theorem 5.1.2 ([3], [47]; p. 1032): a cuspidal pi on G_0 with discrete series pi_k at infinity has a weak endoscopic transfer to an isobaric sum of conjugate self-dual cuspidal Pi_i of GL_{n_i}/F, matching unramified parameters and with regular L-algebraic twists at infinity. Which theorems of [Ar3] underlie Theorem 5.1.2, and whether §§5.2-5.4 use further parts of [Ar3], has not been checked. That branch cannot be marked unconditional because the unitary branch is available.",
    "hypotheses": [
     "F totally real: G = Res_{F/Q} Sp_2n, and Arthur's transfer to GL_{2n+1} is used.",
     "F CM containing an imaginary quadratic field: the unitary group, with Shin's unconditional results.",
-    "Scholze §5 beyond its opening recollections was not read. The precise Arthur theorems invoked there must be listed before this node can be refined."
+    "Scholze §5.1 was read to Theorem 5.1.4 (pp. 1031-1034); §§5.2-5.4 were not. The Arthur theorems behind Theorem 5.1.2 must be listed before this node can be refined."
    ],
    "proofSteps": [
     "Scholze §1 (p. 948): Theorem 1.0.3, with the CM case unconditional and the totally real case 'assuming the work of Arthur, [3]'.",
@@ -1578,7 +1675,7 @@
    "acceptance": [
     "Every consumer that uses torsion Galois representations over totally real fields must record the hypothesis 'twisted weighted fundamental lemma, and the AGIKMS completion of [Ar3]'.",
     "The CM-with-imaginary-quadratic branch must not inherit this condition.",
-    "Next action: read Scholze §§5.1-5.4 to list the exact Arthur results used."
+    "Next action: identify the [Ar3] theorems behind Scholze Theorem 5.1.2 and read §§5.2-5.4 for further uses."
    ],
    "sources": [
     {
@@ -1671,7 +1768,7 @@
   {
    "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
    "target": "ModularityAndLanglandsExtensions:ML.0/galois-automorphic-normalisations-shared-by-newton-thorne-and-accplus",
-   "reason": "ET.6 constructs the characteristic-zero local correspondence for GL_m(E) with full Frobenius-semisimple Weil-Deligne parameters, following Scholze's construction. The registry uses rec_K (conventions (b), (d), (f)), including the statement rec_{F_v}(Pi_n) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v) at ramified places, which needs the monodromy operator. Scope mismatch: the sources fix rec_K as the Harris-Taylor correspondence [HT01]. ET.6's correspondence must be identified with it by a characterisation theorem (L- and epsilon-factors of pairs, or character identities), recorded as a gap.",
+   "reason": "ET.6 constructs the characteristic-zero local correspondence for GL_m(E) with full Frobenius-semisimple Weil-Deligne parameters, following Scholze's construction. The registry uses rec_K (conventions (b), (d), (f)), including the statement rec_{F_v}(Pi_n) ≅ Sym^{n-1} ∘ rec_{F_v}(pi_v) at ramified places, which needs the monodromy operator. Scope mismatch: the sources fix rec_K as the Harris-Taylor correspondence [HT01]. ET.6's correspondence must be identified with it by a characterisation theorem (L- and epsilon-factors of pairs, or character identities), recorded as a gap. Review (REVIEW-EXT-12): Keep with the drafter's scope note: ET.6 builds a Scholze-style correspondence with monodromy; the sources use Harris-Taylor rec_K, so the identification remains a gap (existing gap on HT01 versus ET.6). New stage edge ET.6 -> ML.0; acyclic.",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1686,7 +1783,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.0/galois-automorphic-normalisations-shared-by-newton-thorne-and-accplus",
    "target": "ModularityAndLanglandsExtensions:ML.3/source-scoped-register-of-symmetric-power-and-sato-tate-endpoints",
-   "reason": "The register compares endpoint statements across Newton-Thorne I, II, Hilbert and ACC+. It is meaningful only because the four sources share the normalisations of rec_K, rec^T_K, Hodge-Tate weights and r_{pi,iota} fixed in the registry. Each row's 'Sym^{n-1} pi exists' is read through convention (f).",
+   "reason": "The register compares endpoint statements across Newton-Thorne I, II, Hilbert and ACC+. It is meaningful only because the four sources share the normalisations of rec_K, rec^T_K, Hodge-Tate weights and r_{pi,iota} fixed in the registry. Each row's 'Sym^{n-1} pi exists' is read through convention (f). Review (REVIEW-EXT-12): A definitional dependency, not shared vocabulary: every register row is read through conventions (b), (d), (f). Row (4) (NT II Theorem A.1) uses 'exists' for a non-cuspidal isobaric Sym^n pi, so convention (f)'s cuspidality does not apply to it. New stage edge ML.0 -> ML.3; acyclic.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-II",
@@ -1723,7 +1820,7 @@
   {
    "source": "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
    "target": "ModularityAndLanglandsExtensions:ML.1/odd-two-dimensional-artin-representations-of-GQ-are-modular",
-   "reason": "The supplier node gives the Deligne-Serre construction: a weight-one newform yields an odd irreducible rho: G_Q -> GL_2(C) with finite image and matching Frobenius traces. KW §10.2 presents Corollary 10.2(ii) as 'a converse to the theorem of Deligne and Serre'. The consumer's characterisation of odd irreducible two-dimensional Artin representations as exactly those from weight-one newforms uses the supplier for the forward direction. The proof of Corollary 10.2(ii) itself does not use it.",
+   "reason": "The supplier node gives the Deligne-Serre construction: a weight-one newform yields an odd irreducible rho: G_Q -> GL_2(C) with finite image and matching Frobenius traces. KW §10.2 presents Corollary 10.2(ii) as 'a converse to the theorem of Deligne and Serre'. The consumer's characterisation of odd irreducible two-dimensional Artin representations as exactly those from weight-one newforms uses the supplier for the forward direction. The proof of Corollary 10.2(ii) itself does not use it. Review (REVIEW-EXT-12): Statement-level only: the consumer's characterisation sentence uses Deligne-Serre; the proof of Corollary 10.2(ii) does not. New stage edge R19.1 -> ML.1; acyclic.",
    "sources": [
     {
      "sourceId": "khare-wintenberger-I",
@@ -1745,7 +1842,7 @@
   {
    "source": "PotentialAutomorphyInfrastructure:PA.5",
    "target": "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields",
-   "reason": "PA.5 supplies the compatible-system transport lemmas: restriction to field extensions, twisting by characters, duals and symmetric powers, with Frobenius polynomials, Hodge-Tate multisets and lattices tracked. The proof of Theorem 7.1.11 performs exactly these operations. It forms R'_i = R_i|G_{FF_1^+} ⊗ phi_i^{-1}, passes to duals r'^dual, and uses Sym^{m_i} of the l_1- and l_2-adic members, moving between members of one system ('for some ı: Qbar_{l_2} ≅ C'). Scope note: PA.5 does not define 'very weakly compatible system' as in ACC+ §7.1. That definition is needed and is recorded as a gap.",
+   "reason": "PA.5 supplies the compatible-system transport lemmas: restriction to field extensions, twisting by characters, duals and symmetric powers, with Frobenius polynomials, Hodge-Tate multisets and lattices tracked. The proof of Theorem 7.1.11 performs exactly these operations. It forms R'_i = R_i|G_{FF_1^+} ⊗ phi_i^{-1}, passes to duals r'^dual, and uses Sym^{m_i} of the l_1- and l_2-adic members, moving between members of one system ('for some ı: Qbar_{l_2} ≅ C'). Scope note: PA.5 does not define 'very weakly compatible system' as in ACC+ §7.1. That definition is needed and is recorded as a gap. Review (REVIEW-EXT-12): PA.5's description covers restriction, twisting, duals and symmetric powers of compatible systems, which §7.2.5 uses. It does not define ACC+'s very weakly compatible systems (existing gap). Locator: arXiv v2 pp. 208-212 for the published pp. 1103-1106.",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1760,7 +1857,7 @@
   {
    "source": "PotentialModularityAndCompatibleSystems:R23.1",
    "target": "ModularityAndLanglandsExtensions:ML.2/blggt-proposition-3-1-1-moret-bailly-points-with-galois-and-disjointness-control",
-   "reason": "BLGGT14 Proposition 3.1.1's proof ends with 'Theorem 1.3 of [MB89]', i.e. Moret-Bailly, Groupes de Picard et problèmes de Skolem II. That theorem gives a finite Galois K'/K and a point of a smooth geometrically connected T in which the places of S split completely, with prescribed local open conditions. R23.1 owns exactly this rational-point existence theorem with local open sets and splitting (its description). Scope caveat: R23.1 is written for 'the smooth geometrically irreducible varieties used here' (Hilbert-Blumenthal moduli). The consumer needs the general statement for arbitrary smooth geometrically connected T, which R23.1's 'General arithmetic-point' paragraph also claims.",
+   "reason": "BLGGT14 Proposition 3.1.1's proof ends with 'Theorem 1.3 of [MB89]', i.e. Moret-Bailly, Groupes de Picard et problèmes de Skolem II. That theorem gives a finite Galois K'/K and a point of a smooth geometrically connected T in which the places of S split completely, with prescribed local open conditions. R23.1 owns exactly this rational-point existence theorem with local open sets and splitting (its description). Scope caveat: R23.1 is written for 'the smooth geometrically irreducible varieties used here' (Hilbert-Blumenthal moduli). The consumer needs the general statement for arbitrary smooth geometrically connected T, which R23.1's 'General arithmetic-point' paragraph also claims. Review (REVIEW-EXT-12): Keep. R23.1's own atlas description is limited to 'the smooth geometrically irreducible varieties used here'; the general statement for an arbitrary smooth geometrically irreducible variety over a number field is in the roadmap README paragraph 'General arithmetic-point and system interfaces' (carried in the R24.5:operations description). The consumer's variety T lies over K, not K_0 (node corrected). [MB89, Theorem 1.3] itself was not read. New stage edge R23.1 -> ML.2; acyclic.",
    "sources": [
     {
      "sourceId": "blggt14",
@@ -1804,7 +1901,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-3-1-2-dwork-family-potential-ordinary-automorphy",
    "target": "ModularityAndLanglandsExtensions:ML.2/accplus-corollary-7-2-4-symmetric-powers-of-a-rational-elliptic-curve-over-totally-real-fields",
-   "reason": "ACC+ Proposition 7.2.3 is 'a slight strengthening of [BLGGT14, Th. 3.1.2]' (F^suffices unramified above L, plus an extra avoidance field F_1^avoid). Its proof is BLGGT14's proof with the indicated extra choices. Corollary 7.2.4 applies it to the symplectic r_m (Sym^m r_{E,l}^dual, or its tensor with Ind psi_m for even m) to obtain residual ordinary automorphy over totally real fields.",
+   "reason": "ACC+ Proposition 7.2.3 is 'a slight strengthening of [BLGGT14, Th. 3.1.2]' (F^suffices unramified above L, plus an extra avoidance field F_1^avoid). Its proof is BLGGT14's proof with the indicated extra choices. Corollary 7.2.4 applies it to the symplectic r_m (Sym^m r_{E,l}^dual, or its tensor with Ind psi_m for even m) to obtain residual ordinary automorphy over totally real fields. Review (REVIEW-EXT-12): What Corollary 7.2.4 uses is Proposition 7.2.3, the variant whose proof is BLGGT14's with the extra choices listed in its parenthetical proof (arXiv v2 p. 205); the supplier node records the variant only in its statement. Note the disjointness mismatch between Proposition 7.2.3 and Corollary 7.2.4 (gap added).",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1848,7 +1945,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-4-2-1-potentially-diagonalizable-automorphy-lifting",
    "target": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-8-1-symmetric-powers-when-no-local-component-is-supercuspidal",
-   "reason": "The final step of Newton-Thorne I Theorem 8.1 applies [BLGGT14, Theorem 4.2.1] to Sym^{n-1} r_{pi,iota}. Residual irreducibility comes from image ⊃ SL_2(F_p) with p > max(2(n+1), (n-1)k), and residual automorphy from pi' of Proposition 8.3 via Proposition 8.2.",
+   "reason": "The final step of Newton-Thorne I Theorem 8.1 applies [BLGGT14, Theorem 4.2.1] to Sym^{n-1} r_{pi,iota}. Residual irreducibility comes from image ⊃ SL_2(F_p) with p > max(2(n+1), (n-1)k), and residual automorphy from pi' of Proposition 8.3 via Proposition 8.2. Review (REVIEW-EXT-12): Verified at NT I p. 96. Theorem 4.2.1 is stated for imaginary CM F; the application over Q needs a soluble CM base change and descent, which NT I does not write out.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-I",
@@ -1859,7 +1956,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-4-2-1-potentially-diagonalizable-automorphy-lifting",
    "target": "ModularityAndLanglandsExtensions:ML.3/nt2-theorem-3-1-all-non-cm-regular-algebraic-forms-over-Q",
-   "reason": "Newton-Thorne II uses [BLGGT14, Theorem 4.2.1] in Proposition 3.9 and in each case of the proof of Theorem 3.1. It transfers the existence of Sym^{n-1} between congruent pi, pi' when Sym^{n-1} of the residual representation is irreducible (t > m), with potential diagonalizability from Fontaine-Laffaille or [GK14, Lemma 4.4.1].",
+   "reason": "Newton-Thorne II uses [BLGGT14, Theorem 4.2.1] in Proposition 3.9 and in each case of the proof of Theorem 3.1. It transfers the existence of Sym^{n-1} between congruent pi, pi' when Sym^{n-1} of the residual representation is irreducible (t > m), with potential diagonalizability from Fontaine-Laffaille or [GK14, Lemma 4.4.1]. Review (REVIEW-EXT-12): Verified at NT II pp. 25 and 27 (Proposition 3.9; each case of Theorem 3.1). Same imaginary-CM caveat as the NT I link.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-II",
@@ -1870,7 +1967,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.2/accplus-lemmas-7-1-5-to-7-1-8-residual-image-and-local-shape-conditions",
    "target": "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields",
-   "reason": "The proof of Theorem 7.1.11 verifies the residual hypotheses of Theorem 6.1.1 by 'parts (1), (2) and (4) of Lemmas 7.1.6 and 7.1.8'. Step 5 uses Lemma 7.1.8(1) to split the local shape of r-bar'_{i,λ_i} above l_2 into the induced and ordinary cases. Step 1 uses Lemma 7.1.3.",
+   "reason": "The proof of Theorem 7.1.11 verifies the residual hypotheses of Theorem 6.1.1 by 'parts (1), (2) and (4) of Lemmas 7.1.6 and 7.1.8'. Step 5 uses Lemma 7.1.8(1) to split the local shape of r-bar'_{i,λ_i} above l_2 into the induced and ordinary cases. Step 1 uses Lemma 7.1.3. Review (REVIEW-EXT-12): Keep with corrected reading: ACC+ (arXiv v2 pp. 211-212) cites parts (1), (2), (4) of Lemma 7.1.6 together with Lemma 7.1.8; Step 5 uses Lemma 7.1.8(1) (p. 210). Lemma 7.1.3, used in Step 1, is not part of the supplier node.",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1892,7 +1989,7 @@
   {
    "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
    "target": "ModularityAndLanglandsExtensions:ML.2/accplus-lemmas-7-1-5-to-7-1-8-residual-image-and-local-shape-conditions",
-   "reason": "R07.1 owns Raynaud's results for finite flat group schemes over mixed-characteristic DVRs with e < p-1, including the (p,...,p)-type classification. The proof of Lemma 7.1.8(1) invokes [Ray74, Prop. 3.2.1, Th. 3.4.3] to list the possible inertia shapes of a finite flat H of order l^2 killed by l over an unramified base. Scope caveat: e = 1 < l-1 holds only for l >= 3, while the lemma is stated for all l. The consumer's applications have l >= 5.",
+   "reason": "R07.1 owns Raynaud's results for finite flat group schemes over mixed-characteristic DVRs with e < p-1, including the (p,...,p)-type classification. The proof of Lemma 7.1.8(1) invokes [Ray74, Prop. 3.2.1, Th. 3.4.3] to list the possible inertia shapes of a finite flat H of order l^2 killed by l over an unramified base. Scope caveat: e = 1 < l-1 holds only for l >= 3, while the lemma is stated for all l. The consumer's applications have l >= 5. Review (REVIEW-EXT-12): Keep. R07.1 covers Raynaud's Theorems 3.4.1/3.4.3 with e < p - 1 and explicitly excludes p = 2; Lemma 7.1.8's proof also cites [Ray74, Prop. 3.2.1]. Applications in ACC+ have l >= 5. New stage edge R07.1 -> ML.2; acyclic.",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1914,7 +2011,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.2/accplus-corollary-7-2-4-symmetric-powers-of-a-rational-elliptic-curve-over-totally-real-fields",
    "target": "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields",
-   "reason": "Corollary 7.2.4 is applied in Step 3 of the proof of Theorem 7.1.11 to {m_i}, E, L and F_1^avoid F_1^+, producing F_2^avoid and F^{+,suffices}. It is applied again in Step 8 to give the automorphic pi_i with Sym^{m_i} r_{E,l_1}^dual|G_{F'} ≅ r_{l_1,ı}(pi_i), the starting point of the two lifting steps.",
+   "reason": "Corollary 7.2.4 is applied in Step 3 of the proof of Theorem 7.1.11 to {m_i}, E, L and F_1^avoid F_1^+, producing F_2^avoid and F^{+,suffices}. It is applied again in Step 8 to give the automorphic pi_i with Sym^{m_i} r_{E,l_1}^dual|G_{F'} ≅ r_{l_1,ı}(pi_i), the starting point of the two lifting steps. Review (REVIEW-EXT-12): Verified (arXiv v2 pp. 209 and 211). In Step 8 the corollary, stated for totally real fields, is applied to the CM field F' (gap added).",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1925,7 +2022,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields",
    "target": "ModularityAndLanglandsExtensions:ML.2/elliptic-curves-over-cm-fields-are-potentially-modular-only",
-   "reason": "Theorem 1.0.1's potential modularity of a non-CM elliptic curve over a CM field is Corollary 7.1.12 (a special case of Theorem 7.1.11) applied to its compatible system, with m = 1 and all m for symmetric powers.",
+   "reason": "Theorem 1.0.1's potential modularity of a non-CM elliptic curve over a CM field is Corollary 7.1.12 (a special case of Theorem 7.1.11) applied to its compatible system, with m = 1 and all m for symmetric powers. Review (REVIEW-EXT-12): The source derives Theorem 1.0.1 from Corollaries 7.1.13-7.1.14 (arXiv v2 p. 3), whose proof applies Theorem 7.1.11 for each m; Corollary 7.1.12 is the same special case. Keep.",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1947,7 +2044,7 @@
   {
    "source": "AnalyticNumberTheory:AN.4",
    "target": "ModularityAndLanglandsExtensions:ML.3/accplus-sato-tate-purity-and-symmetric-power-l-functions-over-cm-fields",
-   "reason": "AN.4 connects Hecke characters and completed L-functions, and separates meromorphic continuation via induction from Artin holomorphy. The consumer's 'usual Brauer's theorem argument' writes L^S(Sym^m R, s) as a product of integral powers of L-functions of automorphic representations over intermediate fields, via Brauer induction on Gal(F_m/F). Scope mismatch: the argument also needs Godement-Jacquet analytic properties of cuspidal GL_{m+1} L-functions, and non-vanishing on the edge of convergence [JS77]. AN.4's description does not cover these (gap).",
+   "reason": "AN.4 connects Hecke characters and completed L-functions, and separates meromorphic continuation via induction from Artin holomorphy. The consumer's 'usual Brauer's theorem argument' writes L^S(Sym^m R, s) as a product of integral powers of L-functions of automorphic representations over intermediate fields, via Brauer induction on Gal(F_m/F). Scope mismatch: the argument also needs Godement-Jacquet analytic properties of cuspidal GL_{m+1} L-functions, and non-vanishing on the edge of convergence [JS77]. AN.4's description does not cover these (gap). Review (REVIEW-EXT-12): Keep the existing atlas edge with the drafter's scope note: AN.4 does not cover Godement-Jacquet L-functions of cuspidal GL_{m+1} representations or the [JS77] non-vanishing (existing gap).",
    "sources": [
     {
      "sourceId": "accplus",
@@ -1958,7 +2055,7 @@
   {
    "source": "PadicFamilies:L2",
    "target": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-3-1-level-one-ping-pong-on-the-2-adic-eigencurve",
-   "reason": "PadicFamilies L2 constructs the eigencurve with its weight map, and proves classicality in the precise small-slope range. The ping-pong proof uses exactly these properties of the tame-level-1, 2-adic cuspidal eigencurve E_0. Lemma 3.7 applies Coleman's classicality criterion (slope (k'-2)/2 > 2i = s(z') forces z' classical), uses the weight map kappa onto W_0^+, and uses that every irreducible component has Zariski-open image in weight space. Scope caveat: Newton-Thorne use the cuspidal Coleman-Mazur eigencurve of their §2.31, with refinements and the twin involution tau (Lemma 2.32). L2 builds it from distribution-valued modular symbols. The identification of the two eigencurves, and the Buzzard-Kilford boundary theorem (Theorem 3.2), are not in L2's description (gap).",
+   "reason": "PadicFamilies L2 constructs the eigencurve with its weight map, and proves classicality in the precise small-slope range. The ping-pong proof uses exactly these properties of the tame-level-1, 2-adic cuspidal eigencurve E_0. Lemma 3.7 applies Coleman's classicality criterion (slope (k'-2)/2 > 2i = s(z') forces z' classical), uses the weight map kappa onto W_0^+, and uses that every irreducible component has Zariski-open image in weight space. Scope caveat: Newton-Thorne use the cuspidal Coleman-Mazur eigencurve of their §2.31, with refinements and the twin involution tau (Lemma 2.32). L2 builds it from distribution-valued modular symbols. The identification of the two eigencurves, and the Buzzard-Kilford boundary theorem (Theorem 3.2), are not in L2's description (gap). Review (REVIEW-EXT-12): Keep with the drafter's caveat: NT use the cuspidal Coleman-Mazur eigencurve of their §2.31 and the Buzzard-Kilford theorem; L2's modular-symbol eigencurve and its classicality theorem are the nearest supplier, but the identification is not in L2's description (existing gap). New stage edge PadicFamilies:L2 -> ML.3; acyclic.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-I",
@@ -2046,7 +2143,7 @@
   {
    "source": "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
    "target": "ModularityAndLanglandsExtensions:ML.3/nt2-appendix-a-cm-and-weight-one-symmetric-powers",
-   "reason": "Theorem A.1's weight-one case starts from the Deligne-Serre representation r_pi: G_Q -> GL_2(C), odd, irreducible, with finite projective image. The case analysis (dihedral, A_4, S_4, A_5) is on that image. The supplier node gives exactly this construction.",
+   "reason": "Theorem A.1's weight-one case starts from the Deligne-Serre representation r_pi: G_Q -> GL_2(C), odd, irreducible, with finite projective image. The case analysis (dihedral, A_4, S_4, A_5) is on that image. The supplier node gives exactly this construction. Review (REVIEW-EXT-12): Keep with a scope caveat: NT II Appendix A uses r_pi|W_{Q_p} ≅ rec^T_{Q_p}(pi_p) at every prime p (p. 28), but the supplier node asserts the Deligne-Serre properties only at p ∤ N. The ramified-prime compatibility needed for 'Sym^n pi exists' at every place has no supplier (gap added). New stage edge R19.1 -> ML.3; acyclic.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-II",
@@ -2090,7 +2187,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.3/nt-hilbert-symmetric-powers-for-regular-weight-hilbert-modular-forms",
    "target": "ModularityAndLanglandsExtensions:ML.3/source-scoped-register-of-symmetric-power-and-sato-tate-endpoints",
-   "reason": "Row (5) of the register is Newton-Thorne (Hilbert) Theorem A.",
+   "reason": "Row (5) of the register is Newton-Thorne (Hilbert) Theorem A. Review (REVIEW-EXT-12): Register row (5); after correction the supplier also provides row (5'), NT Hilbert Theorem 6.5(2) (p. 50). Locator should add 'Theorem 6.5, p. 50'.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-hilbert",
@@ -2127,7 +2224,7 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.4/mok-endoscopic-classification-for-quasi-split-unitary-groups",
    "target": "ModularityAndLanglandsExtensions:ML.4/kmsw-inner-forms-of-unitary-groups-tempered-classification",
-   "reason": "KMSW 'take on faith the main results of [Mok]' (their §1.5) and classify inner forms assuming the quasi-split classification; the supplier node's Theorems 2.5.1-2.5.2 are exactly that input.",
+   "reason": "KMSW 'take on faith the main results of [Mok]' (their §1.5) and classify inner forms assuming the quasi-split classification; the supplier node's Theorems 2.5.1-2.5.2 are exactly that input. Review (REVIEW-EXT-12): Verified, but the KMSW locator must read 'Introduction, pp. 5-6' (printed page = PDF page in arXiv v3); §1.5 is 'Results on quasi-split unitary groups' (contents p. 2).",
    "sources": [
     {
      "sourceId": "kmsw-inner-forms",
@@ -2138,7 +2235,7 @@
   {
    "source": "AutomorphicSpectralTheory:AS.6",
    "target": "ModularityAndLanglandsExtensions:ML.4/endoscopic-classification-for-quasi-split-classical-groups-conditional-on-twisted-weighted-fundamental-lemma",
-   "reason": "AS.6 constructs the coarse, fine and invariant trace formula. Arthur's classification is built on the stabilisation of the (twisted) trace formula, whose starting point is that invariant trace formula. Scope mismatch recorded as a gap: AS.6 explicitly does not supply the stable or twisted trace formula. The stabilisation of the twisted trace formula [MW4, MW5] has no atlas owner. The consumer needs that stabilisation, not merely the invariant formula.",
+   "reason": "AS.6 constructs the coarse, fine and invariant trace formula. Arthur's classification is built on the stabilisation of the (twisted) trace formula, whose starting point is that invariant trace formula. Scope mismatch recorded as a gap: AS.6 explicitly does not supply the stable or twisted trace formula. The stabilisation of the twisted trace formula [MW4, MW5] has no atlas owner. The consumer needs that stabilisation, not merely the invariant formula. Review (REVIEW-EXT-12): Keep the existing atlas edge with the drafter's scope mismatch: AS.6 supplies only the invariant trace formula; the stabilisation of the twisted trace formula has no owner (existing gap).",
    "sources": [
     {
      "sourceId": "agikms",
@@ -2149,7 +2246,7 @@
   {
    "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
    "target": "ModularityAndLanglandsExtensions:ML.4/endoscopic-classification-for-quasi-split-classical-groups-conditional-on-twisted-weighted-fundamental-lemma",
-   "reason": "ET.3 supplies the unweighted fundamental lemma (standard and non-standard Lie algebra versions) and local smooth transfer. AGIKMS records these as theorems, and the stabilisation used by Arthur and Mok needs them. Scope mismatch: ET.3 states that it does not claim the weighted (or twisted weighted) fundamental lemma. That lemma is the remaining hypothesis of the consumer and stays an explicit hypothesis, not an ET.3 output.",
+   "reason": "ET.3 supplies the unweighted fundamental lemma (standard and non-standard Lie algebra versions) and local smooth transfer. AGIKMS records these as theorems, and the stabilisation used by Arthur and Mok needs them. Scope mismatch: ET.3 states that it does not claim the weighted (or twisted weighted) fundamental lemma. That lemma is the remaining hypothesis of the consumer and stays an explicit hypothesis, not an ET.3 output. Review (REVIEW-EXT-12): Keep with the drafter's scope note: ET.3 supplies the unweighted (standard and non-standard) fundamental lemma, which AGIKMS §0.4 records as a theorem and which the stabilisation uses; it does not supply the weighted or twisted weighted lemma. New stage edge ET.3 -> ML.4; acyclic.",
    "sources": [
     {
      "sourceId": "agikms",
@@ -2175,13 +2272,37 @@
   {
    "source": "ModularityAndLanglandsExtensions:ML.3/nt-hilbert-symmetric-powers-for-regular-weight-hilbert-modular-forms",
    "target": "ModularityAndLanglandsExtensions:ML.5/clozel-thorne-conditional-implication-for-symmetric-powers",
-   "reason": "The conditional implication node takes its statements of SP_n, TP_r, LR_n and of the known cases (n <= 9, even n <= 26) from the introduction of Newton-Thorne (Hilbert). It records that this paper's Theorem A (supplier node) makes the conjectural TP_r input unnecessary for symmetric powers.",
+   "reason": "The conditional implication node takes its statements of SP_n, TP_r, LR_n and of the known cases (n <= 9, even n <= 26) from the introduction of Newton-Thorne (Hilbert). It records that this paper's Theorem A (supplier node) makes the conjectural TP_r input unnecessary for symmetric powers. Review (REVIEW-EXT-12): Statement-level: the conditional-framework node records that the Hilbert theorem makes TP_r unnecessary. It is not a proof dependency.",
    "sources": [
     {
      "sourceId": "newton-thorne-sym-hilbert",
      "locator": "Introduction, pp. 3-4"
     }
    ]
+  },
+  {
+   "source": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-4-2-1-potentially-diagonalizable-automorphy-lifting",
+   "target": "ModularityAndLanglandsExtensions:ML.3/nt-hilbert-symmetric-powers-for-regular-weight-hilbert-modular-forms",
+   "reason": "The proof of NT Hilbert Proposition 6.1 applies [BLGGT14, Theorem 4.2.1] twice to pass from pi to pi_a and to pi_0, and again with level raising to reach pi_2 (arXiv v2 p. 48), using q, t > 2n + 2 and images containing SL_2 for residual irreducibility. Stage edge ML.2 -> ML.3 already exists. Locator: newton-thorne-sym-hilbert, 'Proof of Proposition 6.1, p. 48'.",
+   "sources": [
+    {
+     "sourceId": "newton-thorne-sym-hilbert",
+     "locator": "Proof of Proposition 6.1, p. 48 (arXiv v2)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "source": "ModularityAndLanglandsExtensions:ML.2/accplus-lemmas-7-1-5-to-7-1-8-residual-image-and-local-shape-conditions",
+   "target": "ModularityAndLanglandsExtensions:ML.3/accplus-sato-tate-purity-and-symmetric-power-l-functions-over-cm-fields",
+   "reason": "Corollary 7.1.15 (Ramanujan) uses Lemma 7.1.10 (arXiv v2 p. 203), whose proof (pp. 199-200) uses Lemma 7.1.6(5) in the strongly irreducible case and Lemma 7.1.5 in the induced and Artin-up-to-twist cases. Lemma 7.1.10 itself is not a node. Stage edge ML.2 -> ML.3 already exists. Locator: accplus, 'Proof of Lemma 7.1.10 and of Corollary 7.1.15, pp. 1094-1097'.",
+   "sources": [
+    {
+     "sourceId": "accplus",
+     "locator": "Proof of Lemma 7.1.10 and of Corollary 7.1.15, pp. 1094-1097 (arXiv v2 pp. 199-203)"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
  ],
  "coverage": [
@@ -2191,7 +2312,8 @@
    "remaining": [
     "Only the conventions of Newton-Thorne I-II and ACC+ §1.2 are registered. Other endpoint sources (Arthur/Mok parameters, Deligne-Serre, KW) must be added, with their normalisations compared.",
     "The known/conditional/conjectural status of each endpoint is recorded in the individual nodes, not yet as one exported table.",
-    "The identification of Harris-Taylor's rec_K with the ET.6 construction is not sourced (gap)."
+    "The identification of Harris-Taylor's rec_K with the ET.6 construction is not sourced (gap).",
+    "Review (REVIEW-EXT-12): Record kept partial. Conventions (a)-(e) verified across NT I pp. 6-7, NT II pp. 3-5 and ACC+ §1.2 (arXiv v2 pp. 10-11); convention (f) corrected to Pi_{n,v}. NT Hilbert's own §1.2 notation was not read by drafter or reviewer, so its agreement with (a)-(e) is assumed from Theorem A only. Remaining list is specific and adequate."
    ]
   },
   {
@@ -2200,7 +2322,8 @@
    "remaining": [
     "Corollary 10.2's deductions are only sketched in KW I; Ribet 1992 Theorem 4.4 not read.",
     "Modularity over totally real and CM fields (weight one over totally real fields; elliptic curves over real and imaginary quadratic fields) not read; sources not selected.",
-    "The Deligne-Serre direction is imported from AutomorphicGaloisRepresentations R19.1 and not re-read here."
+    "The Deligne-Serre direction is imported from AutomorphicGaloisRepresentations R19.1 and not re-read here.",
+    "Review (REVIEW-EXT-12): Record kept partial and accurate. Add to 'remaining': Serre (1987) §§4.7-4.8, the model for the proof of KW I Theorem 10.1 (gap added)."
    ]
   },
   {
@@ -2209,7 +2332,8 @@
    "remaining": [
     "ACC+ Theorem 6.1.1 and 6.1.2 proofs (§§6.5-6.6) have no atlas owner. Lemmas 7.1.5-7.1.8 are now read, but their imports [DDT97], [Die51], [Bre00], [Kis06], [Ray74] and Definition 4.3.1 are not.",
     "BLGGT14 (public arXiv v4) read only for Proposition 3.1.1, Theorems 3.1.2, 4.2.1, 4.5.1 and 5.4.1 (with proofs) and Theorem 2.4.1 (statement). Propositions 3.2.1, 3.3.1 and 4.1.1, Appendix A, BLGHT11 §§4-6 and Thorne's [Tho12, Theorem 9.1] were not read. No atlas stage owns these polarized lifting and potential automorphy theorems (supplier request).",
-    "Potential automorphy over totally real fields for polarized systems (BLGGT14 main theorems), and descent from F' to F, not read. The stage text's 'descent to the original field' has no source here."
+    "Potential automorphy over totally real fields for polarized systems (BLGGT14 main theorems), and descent from F' to F, not read. The stage text's 'descent to the original field' has no source here.",
+    "Review (REVIEW-EXT-12): Record kept partial. Add to 'remaining': the three proof gaps in ACC+ §7.2 found in review (p > n^2 and crystallinity above l_2 in Assumption 7.2.6; Corollary 7.2.4 applied over a CM field; the disjointness mismatch between Proposition 7.2.3 and Corollary 7.2.4) and the Step 5 connected-étale assertion. The existing gap title 'ACC+ Theorem 6.1.1 ... Lemmas 7.1.6-7.1.8 not read' is out of date: those lemmas are now node accplus-lemmas-7-1-5-to-7-1-8. BLGGT14 Theorem 4.2.1 was read (node), so the existing gap on Newton-Thorne imports should drop it and its 'obtain BLGGT14' action."
    ]
   },
   {
@@ -2218,7 +2342,8 @@
    "remaining": [
     "Newton-Thorne I §§1-2 and 4-6, Newton-Thorne II §2, and Newton-Thorne (Hilbert) §§2-5 not read. Imported lifting and level-raising theorems (ANT20, AT21, BLGGT14, Tho24, NT20) not read.",
     "Analytic inputs to Sato-Tate (Serre's criterion, Jacquet-Shalika non-vanishing, HSBT10 Brauer argument) not read.",
-    "Sato-Tate over Q and totally real fields via BLGHT11/BLGG11 not read."
+    "Sato-Tate over Q and totally real fields via BLGHT11/BLGG11 not read.",
+    "Review (REVIEW-EXT-12): Record kept partial. Add: NT Hilbert Theorem 6.5(2) (symmetric powers over CM fields for RAECSDC pi) and its imports; the reviewer read the proof of Proposition 6.1 and Theorem 6.5, so 'NT Hilbert §§2-5' remains but the Proposition 6.1 item can be replaced by its named imports (gap added). The rest of NT I Theorem 2.33's proof (p. 51) is read; Corollary 2.28, Lemmas 2.34-2.35 and Example 2.10 remain. Add the confirmed source issues in NT I §§7-8, NT II §3 and NT Hilbert §6 (gap added), and the weight-one ramified local-global compatibility used in NT II Appendix A (gap added)."
    ]
   },
   {
@@ -2227,7 +2352,8 @@
    "remaining": [
     "Arthur's book and Mœglin-Waldspurger's stabilisation not read; Mok (arXiv v5) read only for §§1, 2.5-2.6 statements; KMSW (arXiv v3) read only for its introduction; AGIKMS read only for its introduction.",
     "Scholze torsion §§5.1-5.4 not read, so the exact Arthur results used by the symplectic branch are not listed.",
-    "No owner for the twisted-trace-formula stabilisation or the twisted weighted fundamental lemma (gap)."
+    "No owner for the twisted-trace-formula stabilisation or the twisted weighted fundamental lemma (gap).",
+    "Review (REVIEW-EXT-12): Record kept partial. Update: Scholze §5.1 was read through Theorem 5.1.4 (pp. 1031-1034); the imported result is Theorem 5.1.2; §§5.2-5.4 remain. KMSW readSections should read 'Contents, pp. 2-4; Introduction, pp. 5-7' (printed page = PDF page)."
    ]
   },
   {
@@ -2236,7 +2362,8 @@
    "remaining": [
     "Only the conditional symmetric-power framework (CT14 implication, TP_r, LR_n) is registered, from the Newton-Thorne (Hilbert) introduction.",
     "Cyclic base change, automorphic induction, Gelbart-Jacquet, Kim-Shahidi, Kim and Ramakrishnan transfers not read; sources absent from the library.",
-    "General and categorical Langlands frontier statements not registered."
+    "General and categorical Langlands frontier statements not registered.",
+    "Review (REVIEW-EXT-12): Record kept partial and accurate. The stage description's 'selected tensor/symmetric-power transfers' should also list NT Hilbert Theorem 6.5(2) (CM case) once registered."
    ]
   }
  ],
@@ -2372,6 +2499,237 @@
     "ModularityAndLanglandsExtensions:ML.3/nt2-appendix-a-cm-and-weight-one-symmetric-powers"
    ],
    "detail": "The proofs read rely on soluble base change and descent ([AC89]; used in ACC+ Lemma 7.1.9 and in Newton-Thorne's 'soluble descent'), automorphic induction, and Sym^2, Sym^3, Sym^4 and GL_2 × GL_2, GL_2 × GL_3 tensor functoriality ([Kim04]). Arthur-Clozel is a book request (catalogue #331); the others are absent from CATALOGUE.json. Next action: acquire AC89 and Kim04 (JAMS 16) and record the exact hypotheses (cyclic of prime degree, soluble towers, CM-field conditions) before registering these transfers in ML.5."
+  },
+  {
+   "title": "ACC+ Theorem 7.1.11: Assumption 7.2.6 omits p > n^2 and crystallinity above l_2",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields",
+    "ModularityAndLanglandsExtensions:ML.3/accplus-sato-tate-purity-and-symmetric-power-l-functions-over-cm-fields",
+    "ModularityAndLanglandsExtensions:ML.2/elliptic-curves-over-cm-fields-are-potentially-modular-only"
+   ],
+   "detail": "Verified in arXiv v2: Theorem 6.1.1(4) (p. 133, page image) requires p > n^2, and the proof applies it at p = l_1 and p = l_2 with n = m_i + 1 (pp. 211-212). Assumption 7.2.6 (p. 208) gives only l_1, l_2 > 2m_i + 3, which does not imply l > (m_i + 1)^2 when m_i >= 3. Step 5 applies Lemma 7.1.8(1) to r_{i,lambda_i} above l_2, which needs r_{i,lambda_i} crystalline with Hodge-Tate numbers {0,1} there; very weak compatibility gives this only outside a density-zero set, and Assumption 7.2.6 does not require it. Both conditions hold for a density-one set of primes, so the choice remains possible. Recorded in the errata register as PAPER-ALLEN-ETAL-23/E106 (awaiting review); this review confirms it at the arXiv v2 locators. The published text could not be checked (not open access). Next action: the ML.2 owner states the strengthened Assumption 7.2.6 explicitly.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "ACC+ Step 8: Corollary 7.2.4 (totally real F') is applied to the CM field F'",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields"
+   ],
+   "detail": "arXiv v2 p. 211: 'By Corollary 7.2.4, there are regular algebraic, cuspidal, polarizable automorphic representations pi_i of GL_{1+m_i}(A_{F'})' for F' a CM extension containing F^suffices. Corollary 7.2.4 is stated only for totally real F'/F^suffices. The passage via the maximal totally real subfield F'^+ (which contains F^{+,suffices}), its linear disjointness from F_2^avoid over Q, and quadratic (cyclic) base change from F'^+ to F' with cuspidality preserved, is not written out. Next action: write the step with [AC89] base change as the named import.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "ACC+ Corollary 7.2.4: linear-disjointness hypothesis weaker than what Proposition 7.2.3 requires",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.2/accplus-corollary-7-2-4-symmetric-powers-of-a-rational-elliptic-curve-over-totally-real-fields",
+    "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields"
+   ],
+   "detail": "arXiv v2 pp. 205-208. Proposition 7.2.3 concludes only for F_1 linearly disjoint from F^avoid F_1^avoid; the corollary applies it with F^avoid L_3 in place of F^avoid and sets F_2^avoid = F_1^avoid L_3, but assumes F' disjoint from F_2^avoid only, which omits F^avoid. Recorded in the errata register as PAPER-ALLEN-ETAL-23/E105 (awaiting review); confirmed here from the text. Theorem 7.1.11's use (with F^avoid replaced by F_1^avoid F_1^+) needs one of the two repairs named there.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "ACC+ §7.2.5 Step 5: assertions about the local shape above l_2 not proved in the text",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields"
+   ],
+   "detail": "arXiv v2 p. 210: 'While the statement of Lemma 7.1.8 does not prescribe the direction of the extension in the second possibility, nor specify that it is peu ramifié, these follow easily from the connected–étale sequence for the finite flat group scheme H considered in the proof of Lemma 7.1.8.' This is asserted, not proved. Serre-Tate theory (lifts of an ordinary D parametrised by H^1(G_L, Z_{l_2}(epsilon psi^{-2}))) is also an unread import. Next action: write out the connected-étale argument and name a source for the Serre-Tate parametrisation.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Local-global compatibility of weight-one Deligne-Serre representations at ramified primes",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.3/nt2-appendix-a-cm-and-weight-one-symmetric-powers"
+   ],
+   "detail": "NT II Appendix A (p. 28) uses r_pi|W_{Q_p} ≅ rec^T_{Q_p}(pi_p) for all primes p, attributed to [DS74]; the existence of Sym^n pi at every place needs it. The supplier node AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation asserts the Deligne-Serre properties only at p ∤ N ('behaviour at ramified primes is not asserted here'). No source for the ramified case was read. Next action: find the source proving compatibility at ramified primes for weight one and assign an owner (R19.1 or GL2AutomorphicRepresentationsAndTransfer).",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Newton-Thorne (Hilbert) Theorem 6.5 and Proposition 6.1 imports",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.3/nt-hilbert-symmetric-powers-for-regular-weight-hilbert-modular-forms",
+    "ModularityAndLanglandsExtensions:ML.3/source-scoped-register-of-symmetric-power-and-sato-tate-endpoints"
+   ],
+   "detail": "Theorem 6.5(1) (Theorem A) uses [Tho24, Theorem 8.1]; Theorem 6.5(2) (CM fields, RAECSDC pi) uses [CT17, Proposition 7.6] and [CHT08, Lemma 4.1.4] (p. 50). The proof of Proposition 6.1 (pp. 46-49, read by the reviewer) uses [Dim05, Proposition 3.8], [BLGG12, Theorem 6.1.9], [BLGGT14, Lemma 1.4.1] (intended Lemma 1.4.3(2), errata register PAPER-NEWTON-THORNE-26/E30), [GK14, Lemma 4.4.1], [Tho24, Theorems 7.5-7.6] and the Khare-Wintenberger level raising of its Lemma 3.1. None of these was read. Next action: read Tho24 §§7-8 and CT17 §7.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "KW I Theorem 10.1: the model argument of Serre (1987) §§4.7-4.8 not read",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.1/odd-two-dimensional-artin-representations-of-GQ-are-modular",
+    "ModularityAndLanglandsExtensions:ML.1/gl2-type-abelian-varieties-over-Q-are-modular"
+   ],
+   "detail": "KW I p. 20: 'The proof is similar to the arguments in Sections 4.7 and 4.8 of [38], but we also use the argument of [21].' [38] = Serre, Sur les représentations modulaires de degré 2 de Gal(Q-bar/Q), Duke Math. J. 54 (1987). The existing gap on KW I Corollary 10.2 names only Ribet [33]. Next action: read Serre §§4.7-4.8 (library copy used by EXT-10) for the passage from residual modularity at infinitely many lambda to a single newform.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Newton-Thorne II Lemmas 3.4-3.5: level-lowering and type inputs not read",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.3/nt2-theorem-3-1-all-non-cm-regular-algebraic-forms-over-Q"
+   ],
+   "detail": "NT II pp. 20-23. Lemma 3.4 uses types in the sense of [BM02, Definition A.1.4.1] and [BM02, A.2.4], [BDJ10, Corollary 2.12], the locally symmetric spaces of [NT16, §3.1], the Jacquet-Langlands correspondence, Hida theory and [Ger19, Lemma 5.2]. Lemma 3.5 uses [Gee11, Corollary 3.1.7] and [BLGGT14, §1.3 and p. 524, Remark (6)]. None was read.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Scholze torsion: the Arthur theorems behind Theorem 5.1.2 not identified",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.4/symplectic-torsion-branch-depends-on-arthur-classification"
+   ],
+   "detail": "Scholze p. 1032 states Theorem 5.1.2 with the attribution '([3], [47])' (Arthur's book; Mok): weak transfer of a cuspidal pi on Sp_2n (resp. quasi-split U) with discrete series pi_k at infinity to an isobaric sum of conjugate self-dual cuspidal representations of GL_{n_i}, matching unramified parameters, with regular L-algebraic twists at infinity (Remark 5.1.3). Scholze does not name the specific theorems of [Ar3] behind it, and §§5.2-5.4 were not read. Next action: read Scholze §§5.2-5.4 and match Theorem 5.1.2 to [Ar3] once Arthur's book is available.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Confirmed source issues in the Newton-Thorne proofs this packet summarises",
+   "neededBy": [
+    "ModularityAndLanglandsExtensions:ML.3/nt-theorem-7-6-one-level-one-form-with-automorphic-symmetric-power",
+    "ModularityAndLanglandsExtensions:ML.3/nt-theorem-8-1-symmetric-powers-when-no-local-component-is-supercuspidal",
+    "ModularityAndLanglandsExtensions:ML.3/nt2-theorem-3-1-all-non-cm-regular-algebraic-forms-over-Q",
+    "ModularityAndLanglandsExtensions:ML.3/nt-hilbert-symmetric-powers-for-regular-weight-hilbert-modular-forms"
+   ],
+   "detail": "The errata register (data/source-issues.json) records confirmed issues on passages used here, not re-verified in this review except NT II E3: NT I PAPER-NEWTON-THORNE-21/E21 (error in the proof of Proposition 7.4: the pi_2 fed to Theorem 4.1 is not conjugate self-dual), E19 and E23 (gaps in Proposition 7.4 and Theorem 4.1), E24 and E25 (gaps in Propositions 8.2 and 8.3), E1 and E3 (misprints in Lemma 3.3 and Proposition 8.3); NT II PAPER-NEWTON-THORNE-21-B/E1 (misprint) and E3 (gap in the 2 ∈ sc(pi) case of Theorem 3.1; checked here on p. 27); NT Hilbert PAPER-NEWTON-THORNE-26/E6 (Theorem A must read Pi_{n,v}), E10-E12 (gaps in the proof of Theorem 6.4). The affected nodes now cite these. Next action: the ML.3 owner confirms that each has a repair before any node counts as decomposed.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-12",
+  "date": "2026-09-24",
+  "notes": "All 27 nodes and 46 links were checked against public copies of all ten sources; nine hash-identical to the packet or the library copies, and ACC+ read in its accepted arXiv v2 because the published Annals PDF is not open access. Nodes: 6 verified, 21 corrected, 0 unverifiable. Main corrections: ACC+ Lemma 7.1.8 has Z_l coefficients, not Z-bar_l; BLGGT14 Proposition 3.1.1 has T over K, not K_0; the ACC+ Theorem 7.1.11 proof omits p > (m_i+1)^2 and crystallinity above l_2 from Assumption 7.2.6 and applies a totally real corollary over a CM field; Corollary 7.2.4's disjointness hypothesis is too weak for Proposition 7.2.3; Newton-Thorne (Hilbert) Theorem 6.5(2) proves symmetric powers over CM fields for RAECSDC pi, so the register's blanket rejection was wrong; the rest of NT I Theorem 2.33's proof and NT Hilbert Proposition 6.1's proof were read; several text-layer excerpt artefacts ('F 0' for F′) and locators (Mok, KMSW) fixed; imports lists that called read BLGGT theorems 'not read' fixed. Links (46 existing): 26 kept, 20 annotated, 0 removed, 0 re-targeted; 2 added. Gaps 16 -> 26. Cycles: none at stage or node level (union of atlas stageEdges, stage-edges.json, stage requires and the implied edges, including the added links). Every parentStageId and coverage stageId belongs to the roadmap; implementationStatus stays 'unchecked'; no private paths. Existing gaps needing edits: the Newton-Thorne imports gap must drop BLGGT14 Theorem 4.2.1; the ACC+ Theorem 6.1.1 gap title must drop 'Lemmas 7.1.6-7.1.8 not read'; the KW I gap should add Serre §§4.7-4.8. Packet source entries: add the ACC+ arXiv v2 hash as the public copy; KMSW readSections pages +1.",
+  "checked": [
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.0/galois-automorphic-normalisations-shared-by-newton-thorne-and-accplus",
+    "verdict": "corrected",
+    "note": "All excerpts occur in NT II p. 4-5 (the Art_K excerpt with a different text-layer order), ACC+ arXiv v2 pp. 10-11 and NT Hilbert p. 1. Conventions (a)-(e) agree across NT I p. 6-7, NT II pp. 3-5 and ACC+ §1.2. Corrected the [Car14] attribution, the ACC+ theorem number, and convention (f). ACC+ was checked in arXiv:1812.09999v2 (16 June 2022, the accepted version; the published Annals copy is not open access). Theorem, lemma and display numbering agree; the drafter's printed-page locators are consistent with arXiv page + 894 to 896 but cannot be checked exactly, and excerpt wording that differs only by 'Th.' versus the arXiv 'Thm.' or by punctuation could not be checked against print."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.1/odd-two-dimensional-artin-representations-of-GQ-are-modular",
+    "verdict": "corrected",
+    "note": "Read KW I pp. 19-21 in the preprint from Khare's homepage (SHA-256 equal to the library copy). Statement, deduction and all six excerpts verified at the stated pages. Added the unread import Serre [38] §§4.7-4.8."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.1/gl2-type-abelian-varieties-over-Q-are-modular",
+    "verdict": "verified",
+    "note": "KW I p. 21: Corollary 10.2(i), the GL_2-type definition (primitive, in Ribet's terminology), N = M^n, and the appeal to Faltings and Ribet [33, Theorem 4.4] match. Bibliography [33] checked."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/accplus-lemmas-7-1-5-to-7-1-8-residual-image-and-local-shape-conditions",
+    "verdict": "corrected",
+    "note": "Lemmas 7.1.4-7.1.8 read in arXiv v2 pp. 194-197, with page images of pp. 195 and 197. Statements of 7.1.5-7.1.7 and the proofs match. Coefficients of 7.1.8 are Z_l, not Z-bar_l. The register also records E97 (Lemma 7.1.4 GL_2 for GL_n) and E98 (Lemma 7.1.5 proof needs p != l and r-bar unramified above p), both awaiting review; the E98 point is consistent with the text read. ACC+ was checked in arXiv:1812.09999v2 (16 June 2022, the accepted version; the published Annals copy is not open access). Theorem, lemma and display numbering agree; the drafter's printed-page locators are consistent with arXiv page + 894 to 896 but cannot be checked exactly, and excerpt wording that differs only by 'Th.' versus the arXiv 'Thm.' or by punctuation could not be checked against print."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/accplus-corollary-7-2-4-symmetric-powers-of-a-rational-elliptic-curve-over-totally-real-fields",
+    "verdict": "corrected",
+    "note": "Corollary 7.2.4 and its proof read in arXiv v2 pp. 204-208, with page images of pp. 205-207. Statement verified. The Ind_{G_F} misprint is confirmed on the page image of p. 207; a second misprint (Ind^{G_L}_{G_Q} psi-bar_m) is on p. 206. ACC+ was checked in arXiv:1812.09999v2 (16 June 2022, the accepted version; the published Annals copy is not open access). Theorem, lemma and display numbering agree; the drafter's printed-page locators are consistent with arXiv page + 894 to 896 but cannot be checked exactly, and excerpt wording that differs only by 'Th.' versus the arXiv 'Thm.' or by punctuation could not be checked against print."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/accplus-theorem-7-1-11-potential-automorphy-of-symmetric-powers-over-cm-fields",
+    "verdict": "corrected",
+    "note": "Theorem 7.1.11, Corollary 7.1.12 and all of §7.2.5 read in arXiv v2 pp. 200-212, with page image of Theorem 6.1.1 (p. 133). Statement verified. Recorded two source gaps in the proof (p > n^2 and crystallinity at l_2 missing from Assumption 7.2.6; Corollary 7.2.4 used over a CM field) and one unproved assertion in Step 5. ACC+ was checked in arXiv:1812.09999v2 (16 June 2022, the accepted version; the published Annals copy is not open access). Theorem, lemma and display numbering agree; the drafter's printed-page locators are consistent with arXiv page + 894 to 896 but cannot be checked exactly, and excerpt wording that differs only by 'Th.' versus the arXiv 'Thm.' or by punctuation could not be checked against print."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/elliptic-curves-over-cm-fields-are-potentially-modular-only",
+    "verdict": "corrected",
+    "note": "Theorem 1.0.1 and its attribution read in arXiv v2 p. 3; Corollaries 7.1.13-7.1.14 read pp. 201-202. ACC+ was checked in arXiv:1812.09999v2 (16 June 2022, the accepted version; the published Annals copy is not open access). Theorem, lemma and display numbering agree; the drafter's printed-page locators are consistent with arXiv page + 894 to 896 but cannot be checked exactly, and excerpt wording that differs only by 'Th.' versus the arXiv 'Thm.' or by punctuation could not be checked against print."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/blggt-proposition-3-1-1-moret-bailly-points-with-galois-and-disjointness-control",
+    "verdict": "corrected",
+    "note": "BLGGT14 arXiv v4 p. 41 read with page image. Proof steps verified. The base field of T was wrong (K_0 for K)."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-2-4-1-ordinary-automorphy-lifting",
+    "verdict": "verified",
+    "note": "BLGGT14 p. 39 read with page image: residual bars in (1) and (4) confirmed; level prime to l / potentially prime to l conclusion and the attribution to [Tho12, Theorem 9.1] and [Ger09, Theorem 5.3.2] match."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-3-1-2-dwork-family-potential-ordinary-automorphy",
+    "verdict": "verified",
+    "note": "BLGGT14 pp. 41-44 read (page image of the statement on p. 42). Statement, proof steps and imports match. The two p. 44 excerpts occur with a different text-layer order (eT for Te; subscripts displaced). ACC+ Proposition 7.2.3 excerpt verified in arXiv v2 p. 204."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-4-2-1-potentially-diagonalizable-automorphy-lifting",
+    "verdict": "corrected",
+    "note": "BLGGT14 pp. 53-54 read: statement, remark on the Fontaine-Laffaille case and the proof match. Acceptance widened to all consumers and their bounds."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.2/blggt-theorem-5-4-1-potential-automorphy-of-polarized-compatible-systems",
+    "verdict": "corrected",
+    "note": "BLGGT14 pp. 59-60 and 74-75 read: Theorem 5.4.1, its proof, Theorem 4.5.1 with proof and Corollaries 5.4.2-5.4.3 match. Definition locator corrected."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-2-33-symmetric-power-automorphy-is-constant-on-eigencurve-components",
+    "verdict": "corrected",
+    "note": "NT I pp. 49-51 read. Statement and all four excerpts verified. The drafter stopped after the set-up; the rest of the proof is on p. 51 and is now summarised."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-3-1-level-one-ping-pong-on-the-2-adic-eigencurve",
+    "verdict": "verified",
+    "note": "NT I pp. 49 (twin map), 53-57 read. Theorem 3.1, Theorem 3.2, Lemmas 3.3-3.7 and the proof match; i' = 2^m - 1 follows from k' = 2i + 2^{m+1} - 1. The printed Lemma 3.3 says z ∈ X_{i'} where z' is meant (errata register PAPER-NEWTON-THORNE-21/E1, confirmed); the node already states the corrected form."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-7-6-one-level-one-form-with-automorphic-symmetric-power",
+    "verdict": "corrected",
+    "note": "NT I pp. 10-11, 82-91 read: Theorem 7.1 (statement), Lemma 7.2, Corollary 7.3, the even-n induction, Remark 7.5, Theorems 7.6-7.7 match. NT I cites neither Mok nor Arthur (text search), confirming hypothesis 4. Added the recorded source issues of Proposition 7.4."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt-theorem-8-1-symmetric-powers-when-no-local-component-is-supercuspidal",
+    "verdict": "corrected",
+    "note": "NT I pp. 91-96 read: Theorem 8.1, Propositions 8.2-8.3, Lemma 8.4 and the proof of Theorem 8.1 match the node."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt2-theorem-2-1-functoriality-lifting-for-symmetric-powers",
+    "verdict": "verified",
+    "note": "NT II pp. 1-6 read: standing hypotheses, Theorem 2.1, reductions (6)-(11) and the local quotients at v | p (Kis09a Cor. 2.3.13) match; the introduction (p. 3) describes the P -> R strategy as stated."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt2-theorem-3-1-all-non-cm-regular-algebraic-forms-over-Q",
+    "verdict": "corrected",
+    "note": "NT II pp. 20-27 read. Theorem 3.1 (numbered Sym^{n-1}), Definition 3.2, Lemmas 3.3-3.5, Definition 3.6, Propositions 3.7-3.11 and the proof of Theorem 3.1 match the node apart from the corrections."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt2-appendix-a-cm-and-weight-one-symmetric-powers",
+    "verdict": "corrected",
+    "note": "NT II pp. 27-29 read: Theorem A.1 and its proof match. Import attribution corrected."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/nt-hilbert-symmetric-powers-for-regular-weight-hilbert-modular-forms",
+    "verdict": "corrected",
+    "note": "NT Hilbert pp. 1-5 and 45-50 read in full, including the proof of Proposition 6.1 and Theorem 6.5. Proof steps verified; Theorem 6.5(2) added."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/accplus-sato-tate-purity-and-symmetric-power-l-functions-over-cm-fields",
+    "verdict": "corrected",
+    "note": "Corollaries 7.1.13-7.1.15 read with proofs in arXiv v2 pp. 201-203. The statement matches (the source prints L^s for L^S in the non-vanishing clause; errata register E101). The first excerpt ends with a full stop in arXiv v2; the three excerpts with 'Th.' read 'Thm.' there. ACC+ was checked in arXiv:1812.09999v2 (16 June 2022, the accepted version; the published Annals copy is not open access). Theorem, lemma and display numbering agree; the drafter's printed-page locators are consistent with arXiv page + 894 to 896 but cannot be checked exactly, and excerpt wording that differs only by 'Th.' versus the arXiv 'Thm.' or by punctuation could not be checked against print."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.3/source-scoped-register-of-symmetric-power-and-sato-tate-endpoints",
+    "verdict": "corrected",
+    "note": "Excerpts verified in NT I p. 2 and NT Hilbert p. 4. Rows checked against their nodes; row (5') added."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.4/endoscopic-classification-for-quasi-split-classical-groups-conditional-on-twisted-weighted-fundamental-lemma",
+    "verdict": "corrected",
+    "note": "AGIKMS arXiv v3 pp. 1, 3-8, 14-15 read (printed page = PDF page; SHA-256 equals the library copy). Statement, hypotheses and all seven excerpts verified."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.4/mok-endoscopic-classification-for-quasi-split-unitary-groups",
+    "verdict": "corrected",
+    "note": "Mok arXiv v5 pp. 2-5 and 31-39 read. Theorems 2.5.1, 2.5.2, 2.5.4, Remarks 2.5.3, 2.5.6-2.5.7, Corollary 2.5.9 and §2.6 match. One locator corrected."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.4/kmsw-inner-forms-of-unitary-groups-tempered-classification",
+    "verdict": "corrected",
+    "note": "KMSW arXiv v3 pp. 2-7 read. Statement and hypotheses verified; locators were one page early."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.4/symplectic-torsion-branch-depends-on-arthur-classification",
+    "verdict": "corrected",
+    "note": "Scholze read in the free Annals PDF (SHA-256 equals the library copy): Theorem 1.0.3 (p. 948) and §5.1 through Theorem 5.1.4 (pp. 1031-1034). Excerpts verified."
+   },
+   {
+    "nodeId": "ModularityAndLanglandsExtensions:ML.5/clozel-thorne-conditional-implication-for-symmetric-powers",
+    "verdict": "verified",
+    "note": "NT Hilbert pp. 2-4 read: SP_n (Conjecture B), TP_r, LR_n, implication (1.2), the [CT15, CT17, Tho24] history and the scope sentence match."
+   }
+  ]
+ }
 }

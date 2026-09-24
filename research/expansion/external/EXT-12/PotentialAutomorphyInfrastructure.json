@@ -21,6 +21,15 @@
     "§6.5 in full (§6.5.1, Lemma 6.5.2, Propositions 6.5.3, 6.5.11, Theorem 6.5.4 with proof, Corollary 6.5.5, Lemmas 6.5.8, 6.5.9, §6.5.12 Proposition 6.5.13 and proof of Theorem 6.1.1), printed pp. 1061–1074",
     "§6.6 in full (§6.6.1, Theorem 6.6.2 with proof, Lemmas 6.6.5, 6.6.8, Corollary 6.6.6, Propositions 6.6.7, 6.6.9, §6.6.10), printed pp. 1074–1084",
     "Page images checked: PDF pp. 52, 146, 147, 151, 155, 165, 168–172, 174, 185"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1812.09999v2",
+     "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
+     "date": "2026-09-23",
+     "version": "arXiv v2, 16 Jun 2022, 'accepted version' (218 pp.). Packet cites Annals 197(3) (2023), DOI 10.4007/annals.2023.197.3.2 (Crossref confirms volume/issue; pages not in Crossref); the Annals copy is not public (under 5 years old).",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   },
   {
@@ -35,6 +44,15 @@
     "§9.3 Conjecture B with Remarks 9.3–9.5 and Lemma 9.6, PDF pp. 118–120",
     "§9.4.1–9.4.2 (Lemmas 9.9–9.14, Theorem 9.16 with proof, Remarks 9.17–9.18, application to Taylor–Wiles primes), PDF pp. 124–128",
     "§9.5 Theorem 9.19 with proof and §10 proof of Theorem 1.1, PDF pp. 128–133"
+   ],
+   "reviewCopies": [
+    {
+     "url": "https://arxiv.org/pdf/1207.4224v2",
+     "sha256": "67896c853258801967270f8927e5bb33c0315989d3a4188d53435a9305993ebb",
+     "date": "2026-09-23",
+     "version": "arXiv v2, 16 Jul 2017, 'accepted version' (101 pp.). Published Invent. Math. 211 (2018), no. 1, 297-433 (Crossref), DOI 10.1007/s00222-017-0749-x; the packet's source entry lacks volume and pages.",
+     "by": "independent-review-REVIEW-EXT-12"
+    }
    ]
   }
  ],
@@ -347,50 +365,50 @@
    "parentStageId": "PotentialAutomorphyInfrastructure:PA.3",
    "title": "What ACC+ proves unconditionally versus what Calegari–Geraghty assumed: derived Ihara avoidance replaces the integral degree-vanishing part of Conjecture B",
    "kind": "comparison",
-   "statement": "Calegari–Geraghty (CG, Invent. Math. 2018) prove their GL_n modularity lifting (Theorem 5.16, Theorem 9.19) assuming Conjecture B for the relevant Taylor–Wiles sets: existence of Hecke-algebra-valued Galois representations r_m; (1) Fontaine–Laffaille at v | p with weights [0,…,n−1]; (2) the Taylor–Wiles local type at v ∈ Q; (3) the inertial characteristic polynomial at v ∈ R; (4)(a) vanishing of H^i(Y_1(Q), O/ϖ^m)_m unless i ∈ [q₀, q₀ + l₀] and (4)(b) vanishing of the localized boundary cohomology; (5) an isomorphism between level Y and Y₀(Q) cohomology via lim Q_x(V_x)^{k!}. CG use (4) to realize the localized cohomology by perfect complexes D_N concentrated in degrees q₀,…,q₀ + l₀ and then combine their two-system patching Proposition 6.6 with Taylor’s argument to get near-faithfulness of H^{q₀}(Y, K/O)^∨_m over R_S (Theorem 9.19). ACC+ proves unconditional versions of the inputs they need in the CM case — existence of ρ_m modulo a nilpotent ideal (Theorem 2.3.7, from Scholze), the analogue of (1) (Theorem 4.5.1, FL) and of the ordinary condition (Theorem 5.5.1), (3) (Theorem 3.1.1), and the Taylor–Wiles level comparison (Lemma 6.5.9, via [KT17, Lem. 5.4]) — but not (4)(a): ACC+ states that the vanishing conjecture is not resolved. Instead the patched complexes are allowed arbitrary integral amplitude, and ACC+ Proposition 6.3.8 transports support between the two systems using only (i) the dimension/component shape of the local rings and (ii) concentration of rational cohomology in [q₀, q₀ + l₀] after localizing at a characteristic-0 prime (Theorem 2.4.10, from Franke’s theorem). The output differs as well: ACC+ obtains full support (FL) or support at a characteristic-zero point (ordinary), not CG’s near-faithfulness of a single degree over R_S.",
+   "statement": "Calegari–Geraghty (CG, Invent. Math. 2018) prove their GL_n modularity lifting (Theorem 5.16, Theorem 9.19) assuming Conjecture B for the relevant Taylor–Wiles sets: existence of Hecke-algebra-valued Galois representations r_m; (1) Fontaine–Laffaille at v | p with weights [0,…,n−1]; (2) the Taylor–Wiles local type at v ∈ Q; (3) the inertial characteristic polynomial at v ∈ R; (4)(a) vanishing of H^i(Y_1(Q), O/ϖ^m)_m unless i ∈ [q₀, q₀ + l₀] and (4)(b) vanishing of the localized boundary cohomology; (5) an isomorphism between level Y and Y₀(Q) cohomology via lim Q_x(V_x)^{k!}. CG use (4) to realize the localized cohomology by perfect complexes D_N concentrated in degrees q₀,…,q₀ + l₀ and then combine their two-system patching Proposition 6.6 with Taylor’s argument to get near-faithfulness of H^{q₀}(Y, K/O)^∨_m over R_S (Theorem 9.19). ACC+ proves unconditional versions of the inputs they need in the CM case — existence of ρ_m, but only modulo a nilpotent ideal J with J^δ = 0 (Theorem 2.3.7, from Scholze), whereas Conjecture B asks for r_m with coefficients in the Hecke algebra itself; the analogue of (1) (Theorem 4.5.1, FL) and of the ordinary condition (Theorem 5.5.1); (2), the Taylor–Wiles type at v ∈ Q (Proposition 6.5.11, via Theorem 3.1.1 at v ∈ Q and [BC09, Prop. 1.5.1]); (3) (Theorem 3.1.1); and the Taylor–Wiles level comparison (Lemma 6.5.9, via [KT17, Lem. 5.4]) — but not (4)(a) or (4)(b): ACC+ states that the vanishing conjecture is not resolved. Instead the patched complexes are allowed arbitrary integral amplitude, and ACC+ Proposition 6.3.8 transports support between the two systems using only (i) the dimension/component shape of the local rings and (ii) concentration of rational cohomology in [q₀, q₀ + l₀] after localizing at a characteristic-0 prime (Theorem 2.4.10, from Franke’s theorem). The output differs as well: ACC+ obtains full support (FL) or support at a characteristic-zero point (ordinary), not CG’s near-faithfulness of a single degree over R_S.",
    "hypotheses": [
-    "CG’s Conjecture B is stated for GL_n over an arbitrary number field (CG §9.3); ACC+ works over CM fields with the splitting hypotheses of §6.5.1/§6.6.1.",
+    "CG’s Conjecture B is stated for GL_n over an arbitrary number field (CG §9.3 in the Inventiones numbering read by the drafter; §9.1 in arXiv 1207.4224v2); ACC+ works over CM fields with the splitting hypotheses of §6.5.1/§6.6.1.",
     "CG’s Theorem 9.19 uses patched complexes whose cohomology is concentrated in l₀ + 1 consecutive degrees integrally; ACC+’s Proposition 6.3.8 uses the derived length identity (Lemma 6.3.4) and CG Lemma 6.2 only after localizing at a characteristic-0 prime of S_∞.",
-    "The CG two-system patching Proposition 6.6 has an omitted proof (\"we omit the details\"), recorded in DeformationAndDerivedPatchingAlgebra R03.6; ACC+ §6.4.17 gives the mod-ϖ comparison of the two ultrapatched systems with proof."
+    "The CG two-system patching Proposition 6.6 has an omitted proof (\"we omit the details\", arXiv v2 p. 70), recorded in DeformationAndDerivedPatchingAlgebra R03.6; ACC+ Proposition 6.4.17 gives the mod-ϖ comparison of the two ultrapatched systems with proof."
    ],
    "proofSteps": [
     "Read CG §9.3 Conjecture B (items (1)–(5)) and Remark 9.5 (the real difficulty lies in nonvanishing in the required range and local–global compatibility at p).",
-    "Read CG §9.5 Theorem 9.19 and its proof: D_N concentrated in degrees q₀,…,q₀ + l₀ \"By Conjecture B and the results of Sect. 7.1\", then Proposition 6.6, Theorem 6.4 and [11, Lemma 2.2] give near-faithfulness.",
+    "Read CG §9.5 (arXiv v2 §9.3) Theorem 9.19 and its proof: D_N concentrated in degrees q₀,…,q₀ + l₀ \"By Conjecture B and the results of Sect. 7.1\" (arXiv: \"Section 7.1\"), then Proposition 6.6, Theorem 6.4 (for R²_∞, whose Spec is irreducible by Lemma 8.2) and Taylor's lemma ([Tay08, Lemma 2.2] in arXiv v2 p. 96) give near-faithfulness of H^{l₀}(P¹_∞) over R¹_∞, and conclusion (iv) of Proposition 6.3 then gives Theorem 9.19.",
     "Read ACC+ introduction (printed p. 898) and §6.1 (printed pp. 1030–1031): the first CG conjecture (local–global compatibility) is proved in many cases; the vanishing conjecture is not; derived Ihara avoidance uses only rational concentration, following the localization idea of [KT17].",
     "Map each CG input to its ACC+ replacement (list in the statement); the only CG input without an ACC+ proof, integral vanishing (4)(a)/(4)(b), is circumvented rather than proved."
    ],
    "acceptance": [
-    "A reviewer can follow the table: CG Conj. B(1) ↔ ACC+ Thm 4.5.1 (PA.1); ordinary analogue ↔ Thm 5.5.1 (PA.2); B(3) ↔ Thm 3.1.1 (§3, imported); B(5) ↔ Lemma 6.5.9 (PA.4); B(4)(a),(b) ↔ none (circumvented by Prop. 6.3.8 + Thm 2.4.10).",
+    "A reviewer can follow the table: CG Conj. B existence of r_m ↔ ACC+ Thm 2.3.7 (modulo a nilpotent ideal only); B(1) ↔ Thm 4.5.1 (PA.1); ordinary analogue ↔ Thm 5.5.1 (PA.2); B(2) ↔ Prop. 6.5.11 (Thm 3.1.1 at v ∈ Q and [BC09, Prop. 1.5.1]; PA.4); B(3) ↔ Thm 3.1.1 (§3, imported); B(5) ↔ Lemma 6.5.9 (PA.4); B(4)(a),(b) ↔ none (circumvented by Prop. 6.3.8 + Thm 2.4.10).",
     "No node of this roadmap may assume mod-p vanishing of localized cohomology outside [q₀, q₀ + l₀]."
    ],
    "sources": [
     {
      "sourceId": "calegari-geraghty-2018",
-     "locator": "§9.3, Conjecture B(4)(a), PDF p. 118",
-     "excerpt": "The localizations Hψ (Y1 (Q), O/ )m vanish unless i ∈ [q0 , . . . , q0 +",
-     "match": "Integral degree-vanishing part of Conjecture B (text layer drops the exponent m in O/ϖ^m)."
+     "locator": "§9.3 (arXiv v2 §9.1), Conjecture B(4)(a), PDF p. 118 (arXiv v2 p. 86)",
+     "excerpt": "vanish unless i ∈ [q0, . . . , q0 + l0].",
+     "match": "Integral (mod ϖ^m) degree-vanishing part of Conjecture B."
     },
     {
      "sourceId": "calegari-geraghty-2018",
-     "locator": "§1, PDF p. 4",
+     "locator": "§1, PDF p. 4 (arXiv v2 p. 4)",
      "excerpt": "Conjecture B amounts to assuming both the existence of Galois representations together with the vanishing of cohomology (localized at an appropriate m) outside a given range.",
      "match": "CG’s own summary of what is conditional."
     },
     {
      "sourceId": "calegari-geraghty-2018",
-     "locator": "§9.5, proof set-up for Theorem 9.19, PDF p. 129",
+     "locator": "§9.5 (arXiv v2 §9.3), proof set-up for Theorem 9.19, PDF p. 129 (arXiv v2 p. 94, which reads 'Section 7.1')",
      "excerpt": "By Conjecture B and the results of Sect. 7.1, there exists a perfect complex",
      "match": "The integral concentration of the complexes D_N comes from Conjecture B."
     },
     {
      "sourceId": "accplus-annals-2023",
-     "locator": "Introduction, printed p. 898",
+     "locator": "Introduction, printed pp. 898–899 (arXiv v2 pp. 2–3)",
      "excerpt": "On the other hand, we do not resolve the second conjecture concerning the vanishing of mod-p cohomology in this paper.",
      "match": "ACC+ does not prove the vanishing conjecture."
     },
     {
      "sourceId": "accplus-annals-2023",
-     "locator": "§6.1, printed p. 1031",
+     "locator": "§6.1, printed p. 1031 (arXiv v2 p. 135)",
      "excerpt": "Here we show that the “Ihara avoidance” technique is robust enough to give a general automorphy lifting result using only the assumption that the rational cohomology is concentrated in the expected range.",
      "match": "The replacement input is rational concentration."
     }
@@ -781,7 +799,7 @@
   {
    "source": "AutomorphicSpectralTheory:AS.5",
    "target": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
-   "reason": "(a) Output supplied: the Hecke-equivariant comparison of the cohomology of X_K with coefficients in an algebraic local system with relative Lie algebra cohomology of spaces of automorphic forms (Franke [Fra98, Th. 18]); AS.5 is described as the automorphic comparison \"with algebraic coefficient systems and Hecke equivariance\" not replacing ordinary cohomology by cusp or L² cohomology. (b) Use: first step of the proof of Theorem 2.4.10. (c) Scope mismatch: the finer Franke–Schwermer decomposition along associate classes and the description of each summand by parabolic induction of cuspidal data ([FS98, §2.2, Prop. 3.3]) are not named in AS.5’s description; Franke’s paper (in the supplied library) and [FS98] were not read in this packet. New stage edge AS.5 → PA.0 (acyclic).",
+   "reason": "(a) Output supplied: the Hecke-equivariant comparison of the cohomology of X_K with coefficients in an algebraic local system with relative Lie algebra cohomology of spaces of automorphic forms (Franke [Fra98, Th. 18]); AS.5 is described as the automorphic comparison \"with algebraic coefficient systems and Hecke equivariance\" not replacing ordinary cohomology by cusp or L² cohomology. (b) Use: first step of the proof of Theorem 2.4.10. (c) Scope mismatch: the finer Franke–Schwermer decomposition along associate classes and the description of each summand by parabolic induction of cuspidal data ([FS98, §2.2, Prop. 3.3]) are not named in AS.5’s description; Franke’s paper (in the supplied library) and [FS98] were not read in this packet. New stage edge AS.5 → PA.0 (acyclic). Review (REVIEW-EXT-12): AS.5's description (automorphic comparison of relative Lie algebra cohomology with algebraic coefficients and Hecke equivariance, not replacing ordinary by cusp cohomology) fits Franke's theorem; the Franke-Schwermer decomposition by associate classes is outside its stated scope, as the reason says. New stage edge AS.5 -> PA.0, acyclic.",
    "sources": [
     {
      "sourceId": "accplus-annals-2023",
@@ -825,7 +843,7 @@
   {
    "source": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
    "target": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
-   "reason": "(a) Output supplied: the ultrapatched data of ACC+ §6.4.2 for the ordinary complexes A(μ,χ,Q)_{n_Q} ⊗ O(ν + w₀^G μ)⁻¹ over Λ. (b) Use: listed on printed pp. 1080–1081 as \"the necessary input for Section 6.3.5\". (c) Scope: the P8 node allows Λ a power series ring over O; that Λ = ⊗̂ Λ_v is such a ring (after enlarging E) is not stated in the source and is recorded as a gap.",
+   "reason": "(a) Output supplied: the ultrapatched data of ACC+ §6.4.2 for the ordinary complexes A(μ,χ,Q)_{n_Q} ⊗ O(ν + w₀^G μ)⁻¹ over Λ. (b) Use: listed on printed pp. 1080–1081 as \"the necessary input for Section 6.3.5\". (c) Scope: the P8 node allows Λ a power series ring over O; that Λ = ⊗̂ Λ_v is such a ring (after enlarging E) is not stated in the source and is recorded as a gap. Review (REVIEW-EXT-12): Section 6.3.5 and set-up 6.4.1 both require Lambda to be isomorphic to a power series ring over O (arXiv pp. 154, 157); for Lambda = tensor of Lambda_{1,v}/wp_{0,v} this needs E to contain the relevant p-power roots of unity of F_v, not stated in the source (the packet's gap).",
    "sources": [
     {
      "sourceId": "accplus-annals-2023",
@@ -950,7 +968,7 @@
   {
    "source": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-and-component-support-conclusions",
    "target": "PotentialAutomorphyInfrastructure:PA.3/unconditional-derived-ihara-avoidance-versus-calegari-geraghty-conjecture-b",
-   "reason": "(a) Output supplied: the record of CG Theorem 6.4 (near-faithfulness conclusions) and CG Proposition 6.6 (two-system patching with omitted proof). (b) Use: the comparison node contrasts CG Theorem 9.19 (which invokes Proposition 6.6 and Theorem 6.4) with ACC+ Proposition 6.3.8. (c) Scope: exact for the CG side. New stage edge R03.6 → PA.3 (R03.6 → P9 → PA.3 already exists; no cycle).",
+   "reason": "(a) Output supplied: the record of CG Theorem 6.4 (near-faithfulness conclusions) and CG Proposition 6.6 (two-system patching with omitted proof). (b) Use: the comparison node contrasts CG Theorem 9.19 (which invokes Proposition 6.6 and Theorem 6.4) with ACC+ Proposition 6.3.8. (c) Scope: exact for the CG side. New stage edge R03.6 → PA.3 (R03.6 → P9 → PA.3 already exists; no cycle). Review (REVIEW-EXT-12): The R03.6 node states the content of CG Theorem 6.4 ('in the situation of Theorem 6.3') and records Proposition 6.6's omitted proof in its hypotheses; the link reason's 'Theorem 6.4' is therefore correct. Shortcut edge R03.6 -> PA.3 (R03.6 -> P9 -> PA.3 exists).",
    "sources": [
     {
      "sourceId": "calegari-geraghty-2018",
@@ -972,7 +990,7 @@
   {
    "source": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
    "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
-   "reason": "(a) Output supplied: Chebotarev density (Dirichlet density #C/#G of primes with Frobenius in a conjugacy class, and infinitude of each Frobenius class). (b) Use: Lemma 6.2.32 reduces to finding σ in G_{F(ζ_{p^N})} with prescribed eigenvalue and cocycle conditions and then takes places whose Frobenius lies in the conjugacy class of σ in a finite Galois extension, intersected with the density-one set of degree-one places. (c) Scope: the density-one statement for places of degree one over Q is not named in the Chebotarev layer description; recorded as a gap.",
+   "reason": "(a) Output supplied: Chebotarev density (Dirichlet density #C/#G of primes with Frobenius in a conjugacy class, and infinitude of each Frobenius class). (b) Use: Lemma 6.2.32 reduces to finding σ in G_{F(ζ_{p^N})} with prescribed eigenvalue and cocycle conditions and then takes places whose Frobenius lies in the conjugacy class of σ in a finite Galois extension, intersected with the density-one set of degree-one places. (c) Scope: the density-one statement for places of degree one over Q is not named in the Chebotarev layer description; recorded as a gap. Review (REVIEW-EXT-12): Layer 10 supplies Dirichlet-density Chebotarev and infinitude of Frobenius classes; 'places of degree one over Q have density one' (arXiv p. 150) is not in its description; the packet's gap stands.",
    "sources": [
     {
      "sourceId": "accplus-annals-2023",
@@ -994,7 +1012,7 @@
   {
    "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
    "target": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
-   "reason": "(a) Output supplied: the Kummer isomorphism K^×/(K^×)^n ≅ H¹(G_K, μ_n). (b) Use: a nonzero class in H¹(F_S/F, k(1)) restricted to F(ζ_p) corresponds to a Kummer extension F(ζ_p, y), y^p ∈ F(ζ_p) (printed p. 1046). (c) Scope: the source additionally uses descent from F(ζ_p) (p ∤ [F(ζ_p):F]) and non-abelianness over F; those steps are part of this node.",
+   "reason": "(a) Output supplied: the Kummer isomorphism K^×/(K^×)^n ≅ H¹(G_K, μ_n). (b) Use: a nonzero class in H¹(F_S/F, k(1)) restricted to F(ζ_p) corresponds to a Kummer extension F(ζ_p, y), y^p ∈ F(ζ_p) (printed p. 1046). (c) Scope: the source additionally uses descent from F(ζ_p) (p ∤ [F(ζ_p):F]) and non-abelianness over F; those steps are part of this node. Review (REVIEW-EXT-12): Layer 9 supplies the Kummer isomorphism; the passage from H^1(F_S/F, k(1)) to a Kummer class over F(zeta_p) and the non-abelian argument are in the ACC+ proof itself (arXiv p. 151), as the reason says.",
    "sources": [
     {
      "sourceId": "accplus-annals-2023",
@@ -1177,6 +1195,18 @@
      "locator": "Proof of Corollary 6.5.5, printed p. 1064"
     }
    ]
+  },
+  {
+   "source": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-local-condition-datum-and-augmented-problem",
+   "target": "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level",
+   "reason": "The proof of Prop 6.5.11 (arXiv p. 172; Annals ~p. 1068) checks O[Delta_v]-linearity against 'the O[Delta_v]-algebra structure on R_{S_chi,Q}' defined in Section 6.2.18, which this node supplies. Both nodes are in PA.4.",
+   "sources": [
+    {
+     "sourceId": "accplus-annals-2023",
+     "locator": "Proof of Proposition 6.5.11 (arXiv v2 p. 172) and Section 6.2.18"
+    }
+   ],
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
  ],
  "coverage": [
@@ -1186,7 +1216,8 @@
    "remaining": [
     "Only ACC+ Theorem 2.4.10 is decomposed; its imports Franke [Fra98, Th. 18] (in the supplied library, unread), Franke–Schwermer [FS98, §2.2, Prop. 3.3] (absent), Borel–Wallach [BW00, II Prop. 3.1] (library djvu, unread) and Clozel [Clo90, Lem. 3.14] (absent) remain open.",
     "Decompose §2.1 (Lemmas 2.1.4, 2.1.7; Hecke algebra of a monoid, Lemmas 2.1.10–2.1.14) and §2.2 (coefficient lattices V_λ, Hecke algebras T^S(K, V), T^S(K/K′, V), Lemma 2.2.4 nilpotence bound, §2.2.5 Hecke operators, Propositions 2.2.9–2.2.24) against ArithmeticLocallySymmetricSpaces ALS.1–ALS.4 and IntegralHeckeAndGaloisDeterminants IHG.2.",
-    "Read and decompose §2.4 boundary cohomology (Theorems 2.4.2, 2.4.4, 2.4.8, 2.4.11) and §4.2 (Theorem 4.2.1, Lemmas 4.2.2–4.2.3: direct summand of boundary cohomology under genericity)."
+    "Read and decompose §2.4 boundary cohomology (Theorems 2.4.2, 2.4.4, 2.4.8, 2.4.11) and §4.2 (Theorem 4.2.1, Lemmas 4.2.2–4.2.3: direct summand of boundary cohomology under genericity).",
+    "Review (REVIEW-EXT-12): partial is accurate. Add [NT16, Thm 4.2] to remaining (gap added)."
    ]
   },
   {
@@ -1194,7 +1225,8 @@
    "status": "not_read",
    "remaining": [
     "Read ACC+ §4.1 (statements, Fontaine–Laffaille category MF_O and twisting), §4.3 (Definition 4.3.1, Lemma 4.3.2, Theorem 4.3.3, Proposition 4.3.4, Definition 4.3.5, Lemma 4.3.6), §4.4 (Propositions 4.4.1, 4.4.6, Remark 4.4.7, Corollary 4.4.8) and §4.5 (Theorem 4.5.1, Lemma 4.5.2), printed pp. 964–989.",
-    "Check suppliers FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3 (EXT-07 nodes) and IgusaVarietiesAndTorsionConcentration IG.7 against the exact uses."
+    "Check suppliers FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3 (EXT-07 nodes) and IgusaVarietiesAndTorsionConcentration IG.7 against the exact uses.",
+    "Review (REVIEW-EXT-12): not_read is accurate; Theorem 4.5.1 is consumed by Props 6.5.3 and 6.5.11 (FL condition at v | p)."
    ]
   },
   {
@@ -1202,7 +1234,8 @@
    "status": "not_read",
    "remaining": [
     "Read ACC+ §5.1 statements, §5.2 Hida theory (ordinary parts of smooth representations, Lemmas 5.2.4–5.2.9; completed cohomology, Lemma 5.2.14, Proposition 5.2.15, Corollaries 5.2.16, 5.2.18, Proposition 5.2.17; results for G̃, Proposition 5.2.28), §5.3 (Proposition 5.3.1, Lemmas 5.3.3–5.3.7, Proposition 5.3.8), §5.4 (Theorems 5.4.1, 5.4.3, Lemmas 5.4.8, 5.4.14–5.4.16, Propositions 5.4.13, 5.4.18) and §5.5 (Theorem 5.5.1), printed pp. 989–1028.",
-    "Check PadicFamilies L0a (no nodes yet) and IgusaVarietiesAndTorsionConcentration IG.7 against the exact uses."
+    "Check PadicFamilies L0a (no nodes yet) and IgusaVarietiesAndTorsionConcentration IG.7 against the exact uses.",
+    "Review (REVIEW-EXT-12): not_read is accurate; Theorem 5.5.1, Prop 5.2.17 and Cor 5.2.16 are consumed by Prop 6.6.7, Lemma 6.6.5 and (6.6.3)."
    ]
   },
   {
@@ -1212,7 +1245,8 @@
     "Imports of Propositions 6.5.3/6.6.7: ACC+ Theorem 3.1.1 (§3, local–global compatibility at l ≠ p for Hecke-algebra-valued representations; proof printed pp. 955–964 unread), Theorem 2.3.7 ([Sch15, Cor. 5.4.4], unread), Theorems 4.5.1 and 5.5.1 (PA.1/PA.2, not yet decomposed).",
     "Local-ring imports of Lemmas 6.2.26–6.2.27: [Tay08, Prop. 3.1], [BLGHT11, Lem. 3.3], [CHT08, §2.4.1], [Tho15, Prop. 3.14] (all absent from the library), Proposition 6.2.21 (proof left to the reader).",
     "Ordinary-case complexes B(μ,χ), A(μ,χ) and Corollary 6.6.6 (§6.6.1, depending on §5.2) are used in the ordinary implication but not yet decomposed.",
-    "Reviewer confirmation of the implicit steps flagged in the nodes (power-series inheritance of component properties, dim R_∞/ϖ, passage of full support to R_∞/a_∞ and to H*(X_K, V_λ(1))_m, the undefined shift d)."
+    "Reviewer confirmation of the implicit steps flagged in the nodes (power-series inheritance of component properties, dim R_∞/ϖ, passage of full support to R_∞/a_∞ and to H*(X_K, V_λ(1))_m, the undefined shift d).",
+    "Review (REVIEW-EXT-12): partial is accurate. The 'reviewer confirmation' item can be closed for (a)-(d), which the reviewer checked. For (e), the printed [q0, q0+l0] is exact if d = dim_R X_K = 2q0 + l0; the paper's only defined d (Section 4.3, n^2[F+:Q]) gives [q0+1, q0+l0+1]. Either way the interval has length l0, which is all Assumption 6.3.6(3) needs. Replace (e) with this statement."
    ]
   },
   {
@@ -1222,14 +1256,16 @@
     "Ordinary arithmetic set-up of §6.6.1: A₁(μ,χ,c), (6.6.3)–(6.6.4), limit via [KT17, Lem. 2.13], B₁(μ,χ), Lemma 6.6.5, Corollary 6.6.6, A₁(μ,χ,Q), Lemma 6.6.8 (proof omitted in the source), Proposition 6.6.9, and the assembly of Theorem 6.6.2 (requires PA.2 reading of §5.2).",
     "Imports: [KT17] Lemmas 2.3, 2.5, 2.13, 5.3, 5.4 (Khare–Thorne 2017, absent from library); [BC09, Prop. 1.5.1] (absent); Lemma 6.2.19 ([DDT97, Lem. 2.44], left to the reader); ACC+ Theorem 3.1.1 at Taylor–Wiles places.",
     "Density one of degree-one places (used in Lemma 6.2.32) is not named in the Chebotarev roadmap layer.",
-    "Out of scope here: soluble base change (§6.5.12, Proposition 6.5.13 from [AC89]) and the deductions of Theorems 6.1.1–6.1.2, owned downstream by ModularityAndLanglandsExtensions."
+    "Out of scope here: soluble base change (§6.5.12, Proposition 6.5.13 from [AC89]) and the deductions of Theorems 6.1.1–6.1.2, owned downstream by ModularityAndLanglandsExtensions.",
+    "Review (REVIEW-EXT-12): partial is accurate. Record in remaining that the Lemma 6.5.9 misprint ('T^{S cup Q}(K_0(Q), ...)' for the level-K algebra) is in both versions."
    ]
   },
   {
    "stageId": "PotentialAutomorphyInfrastructure:PA.5",
    "status": "not_read",
    "remaining": [
-    "Read ACC+ §7.1 (very weakly / extremely weakly compatible systems, Lemmas 7.1.1–7.1.10, Theorem 7.1.11, Corollaries 7.1.12–7.1.16), printed pp. 1084–1098, and check PotentialModularityAndCompatibleSystems R24.5:operations (atlas description only) against the uses."
+    "Read ACC+ §7.1 (very weakly / extremely weakly compatible systems, Lemmas 7.1.1–7.1.10, Theorem 7.1.11, Corollaries 7.1.12–7.1.16), printed pp. 1084–1098, and check PotentialModularityAndCompatibleSystems R24.5:operations (atlas description only) against the uses.",
+    "Review (REVIEW-EXT-12): not_read is accurate."
    ]
   }
  ],
@@ -1302,6 +1338,116 @@
     "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level"
    ],
    "detail": "Theorem 2.3.7 gives ρ_m valued in T^S(K, λ)_m/I with I^N = 0, N depending only on n and [F:Q], under S = S^c and the splitting condition. Its proof \"follows from [Sch15, Cor. 5.4.4]\". Scholze, Annals 182 (2015), is in the supplied library (catalogue SCH-TORSION) but Corollary 5.4.4 was not read. Candidate owner: TorsionCohomologyInfrastructure TC.4 (reusable output) with IntegralHeckeAndGaloisDeterminants IHG.5; not verified against their scope. Next action: read Scholze §5.4."
+  },
+  {
+   "title": "Newton-Thorne [NT16, Thm 4.2] imported in the proof of Theorem 2.4.10",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals"
+   ],
+   "detail": "The formula r_iota(M) = sum_i r_iota(pi_i) (x) eps^{-(n_{i+1}+...+n_r)} for the Galois representation attached to a Franke summand is justified 'cf. the proof of [NT16, Thm. 4.2]' (ACC+ arXiv p. 54-55, printed 950-951). Not read. Next action: obtain Newton-Thorne, 'Torsion Galois representations over CM fields and Hecke algebras in the derived category' (Forum Math. Sigma 2016) and read Theorem 4.2; decide whether AG2.7 or IntegralHeckeAndGaloisDeterminants owns it.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Scholze's Theorem 2.3.7 is also consumed by the auxiliary-level construction",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals"
+   ],
+   "detail": "Extend the neededBy of the existing gap 'Scholze's torsion Galois representations (ACC+ Theorem 2.3.7 from [Sch15, Cor. 5.4.4]) are imported': the proof of Lemma 6.5.8 (arXiv p. 170, printed 1066) uses 'the existence of rho_m and its local-global compatibility at the places v in Q' to show that H*(X_K, V_lambda(chi^-1))[m^Q] is killed by a power of m.",
+   "addedBy": "independent-review-REVIEW-EXT-12"
+  },
+  {
+   "title": "Source versions: ACC+ and Calegari-Geraghty were checked in arXiv; Annals/Inventiones page images unavailable to the reviewer",
+   "neededBy": [
+    "PotentialAutomorphyInfrastructure:PA.3/unconditional-derived-ihara-avoidance-versus-calegari-geraghty-conjecture-b",
+    "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+    "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-presentation-with-g-variables",
+    "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings"
+   ],
+   "detail": "ACC+ arXiv 1812.09999v2 (accepted version) has the Annals pagination through Section 6.5 (arXiv page = printed page - 896) and about one page more in Section 6.6. Its Section 6.2 numbering from the Presentations subsection on is one less than the Annals numbering used by the packet and by the atlas G7 description. Calegari-Geraghty arXiv 1207.4224v2 has the same theorem numbers but different subsection numbers in Section 9. Excerpts were confirmed in arXiv except where the corrections say otherwise; the Annals-only wording (e.g. 'Lemma 6.2.32' in excerpts) was not re-seen. Next action: whoever holds the library copies should confirm the three excerpts whose arXiv wording differs (the Inventiones 'Sect. 7.1', the Annals numbering in the Proposition 6.2.33 excerpt, and the Annals page of the Section 6.6 misprint).",
+   "addedBy": "independent-review-REVIEW-EXT-12"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REVIEW-EXT-12",
+  "date": "2026-09-24",
+  "notes": "All 15 nodes and 37 links were checked against ACC+ arXiv 1812.09999v2 and Calegari-Geraghty arXiv 1207.4224v2, both the authors' accepted versions. The packet is careful: every statement, hypothesis list, dimension count and excerpt in the ACC+ nodes was confirmed, and its three recorded misprints (g = qn - n[F+:Q], the 'Proposition 6.2.32' slip, '/(lambda)') occur in arXiv v2 as well. The cross-reference slip is explained: arXiv v2 numbers the Section 6.2 items from Presentations on one lower than the Annals. One node was corrected: the CG comparison node omitted Conjecture B(2) and its ACC+ replacement (Prop 6.5.11), did not say that ACC+ gets r_m only modulo a nilpotent ideal, carried a debris excerpt and an unmatched citation label. One link was added (Taylor-Wiles datum -> auxiliary-level Galois representation), and three gaps were added: [NT16], the Scholze gap's extra consumer, and a source-version record. The reviewer checked the packet's 'implicit steps' gap: (a)-(d) are correct, and (e) is sharpened (with d = dim_R X_K the printed degree interval is exact). No stage cycle; all endpoints exist; all six stages covered. Status stays partial; implementationStatus stays unchecked.",
+  "checked": [
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.0/rational-cohomology-concentration-at-absolutely-irreducible-ideals",
+    "verdict": "verified",
+    "note": "arXiv v2 pp. 52-55 (= printed 948-951; arXiv pages equal Annals PDF pages through Section 6.5). Statement (1)-(2), q0/l0, proof via Franke/Franke-Schwermer, Thm 2.3.2, BW00 II.3.1, Clo90 Lem 3.14 and the Kunneth count, and all three excerpts confirmed. Theorem 2.3.5/Definition 2.3.6 (p. 41-42) confirmed for hypothesis 1; the splitting condition there is a disjunction (no l-adic places in S and l unramified, or l split in an imaginary quadratic subfield). Unrecorded import: the formula for r_iota(M) is taken 'cf. the proof of [NT16, Thm. 4.2]' (p. 54); gap added."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.3/congruent-deformation-problems-and-twisted-coefficients",
+    "verdict": "verified",
+    "note": "Section 6.5.1 (arXiv pp. 166-167), Lemma 6.5.2, Sections 6.2.13-6.2.15, the proof of Theorem 6.5.4 (p. 172) and Section 6.6.1 (pp. 179-181) confirmed, including all 17 FL conditions and the ordinary list. The ordinary conditions (6), (9)-(14) are word-for-word FL (6), (12)-(17); FL (7) p unramified in F, (8) weight bound, (9) degree condition, (11) pi_v unramified at p and p > n^2 are not assumed in the ordinary case, which the node's phrasing leaves implicit. Characters are on k(v)^x in 6.5.1/6.6.2 and on O_{F_v}^x in 6.2.15 and the proof of 6.5.4; these agree for characters trivial mod varpi."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.3/dimension-and-component-hypotheses-for-patched-local-rings",
+    "verdict": "verified",
+    "note": "arXiv Lemmas 6.2.25 (FL) and 6.2.26 (ordinary) = Annals 6.2.26-6.2.27, pp. 146-148, with proof of the ordinary lemma; Props 6.2.10, 6.2.12 (with proof), 6.2.14, 6.2.16-6.2.17, 6.2.21 and Lemmas 6.2.9, 6.2.11 confirmed. The '/(lambda)' misprint (p. 147) and the 'g = qn - n[F+:Q]' misprint (arXiv pp. 174, 186) are present in arXiv v2 too. Dimension arithmetic re-done independently: dim R_inf = 1 + g + n^2|S| + n(n-1)[F+:Q] = dim S_inf - l0 in the FL case; in the ordinary case dim S_inf = n^2|S| + nq + 2n[F+:Q] and dim R_inf = n^2|S| + nq + n[F+:Q] + 1 = dim S_inf - l0, small components of dimension <= dim R_inf - 2."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.3/hecke-valued-galois-representation-of-type-S-chi",
+    "verdict": "verified",
+    "note": "Prop 6.5.3 with proof (arXiv pp. 167-168), Prop 6.6.7 with proof (p. 183), Theorem 2.3.7 (p. 42) and Theorem 3.1.1 (p. 58) statements confirmed. The node rightly flags that surjectivity of f_{S_chi} is not argued in the printed proof."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-fontaine-laffaille-patched-data",
+    "verdict": "verified",
+    "note": "Proof of Theorem 6.5.4 (arXiv pp. 172-175) and Section 6.3.5/Assumption 6.3.6/Prop 6.3.8/Cor 6.3.9 (pp. 154-157) confirmed; excerpts occur. The implicit steps (a)-(d) of the packet's gap are correct (checked: minimal primes of A[[X]] are P[[X]]; complete local domains are catenary, so every component of R_inf/varpi through an equidimensional R_inf has dimension dim R_inf - 1; top-degree Tor argument as in Cor 6.3.9; supports of H*(C_0) and H*(X_K,V_lambda(1))_m agree by universal coefficients). On (e): the only 'd' defined in the paper is d = n^2[F+:Q] (Section 4.3, arXiv p. 77), which gives degrees [q0+1, q0+l0+1]; with d = dim_R X_K = n^2[F+:Q] - 1 = 2q0 + l0 (Section 2.2, p. 21) the printed [q0, q0+l0] is exact. Either reading has length l0, so the conclusion stands."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.3/generic-support-implication-ordinary-patched-data",
+    "verdict": "verified",
+    "note": "Proof of Theorem 6.6.2 (arXiv pp. 185-186), the remark after Theorem 6.6.2 (p. 180), Lemma 6.6.5, Cor 6.6.6 and Prop 6.6.9 confirmed; excerpts occur. Distinctness of the diagonal inertial characters follows from strict monotonicity of the exponents lambda_{tau,n-i+1}+i-1; the source only asserts it."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.3/unconditional-derived-ihara-avoidance-versus-calegari-geraghty-conjecture-b",
+    "verdict": "corrected",
+    "note": "CG read in arXiv 1207.4224v2 (accepted version; theorem/lemma numbers identical, but Conjecture B is in Section 9.1, the Section 9.2 lemmas and Theorem 9.19 in Section 9.3, where the packet has Sections 9.3, 9.4, 9.5). Corrections: the input map omitted Conjecture B(2) (Taylor-Wiles type at v in Q), whose ACC+ replacement is Prop 6.5.11 (Theorem 3.1.1 at v in Q plus [BC09, Prop 1.5.1]); Conjecture B asks for r_m over T itself, ACC+ gets it only modulo a nilpotent ideal; the Conjecture B(4)(a) excerpt contained text-layer debris; 'ACC+ Section 6.4.17' is Proposition 6.4.17; the lemma CG cite for near-faithfulness is [Tay08, Lemma 2.2] in arXiv v2 (the packet's '[11, Lemma 2.2]' could not be matched)."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-local-condition-datum-and-augmented-problem",
+    "verdict": "verified",
+    "note": "Section 6.2.18, Lemma 6.2.19 and the Taylor-Wiles datum paragraph (Annals Section 6.2.28 = arXiv 6.2.27, p. 149) confirmed with all five excerpts. The diagonalisation outline is correctly labelled as a reviewer outline of the omitted [DDT97, Lem 2.44] argument."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/existence-of-taylor-wiles-data-killing-dual-selmer",
+    "verdict": "verified",
+    "note": "arXiv Lemma 6.2.31 (= Annals 6.2.32) with proof, pp. 149-151; statement, both cases of the proof and all excerpts confirmed. arXiv v2 numbering in Section 6.2 is one less than the Annals numbering the packet uses from the Presentations subsection on (arXiv Prop 6.2.24, Lemmas 6.2.25-6.2.26, subsection 6.2.27, Def 6.2.28, Lemma 6.2.29, Rem 6.2.30, Lemma 6.2.31, Prop 6.2.32 = Annals 6.2.25, 6.2.26-6.2.27, 6.2.28, 6.2.29, 6.2.30, 6.2.31, 6.2.32, 6.2.33)."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-presentation-with-g-variables",
+    "verdict": "verified",
+    "note": "arXiv Prop 6.2.32 (= Annals 6.2.33), p. 151, and Prop 6.2.24 (= Annals 6.2.25) with proof, pp. 144-146. The cross-reference slip is confirmed and explained: arXiv v2 p. 173 cites 'Proposition 6.2.31' and the Annals 'Proposition 6.2.32', in each case the number of the existence Lemma, while the surjection is part (3) of the next Proposition."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/auxiliary-level-subgroups-hecke-algebras-and-maximal-ideals",
+    "verdict": "verified",
+    "note": "Section 6.5.1 auxiliary levels, (6.5.6), (6.5.7) and Lemma 6.5.8 with proof (arXiv pp. 168-170) confirmed. Lemma 6.5.8's proof uses the Hecke-valued rho_m of Theorem 2.3.7; the Scholze gap's neededBy should include this node (added)."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/taylor-wiles-level-change-isomorphisms-of-localized-complexes",
+    "verdict": "verified",
+    "note": "Lemma 6.5.9 with proof and (6.5.10) (arXiv pp. 170-171) confirmed. The printed 'm is the unique maximal ideal of T^{S cup Q}(K_0(Q), ...) lying above m^Q' is also in arXiv v2 and looks like a misprint for the level-K algebra; the node records it 'as printed'."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/delta-Q-equivariant-galois-representation-at-auxiliary-level",
+    "verdict": "verified",
+    "note": "Prop 6.5.11 with proof (arXiv pp. 171-172) and Prop 6.6.9 with proof (pp. 184-185) confirmed. The proof cites Section 6.2.18 for the O[Delta_v]-algebra structure, so a direct link from the Taylor-Wiles datum node is added."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/arithmetic-tower-satisfies-ultrapatching-set-up-fontaine-laffaille",
+    "verdict": "verified",
+    "note": "Set-up 6.4.1 (arXiv pp. 157-158), Definition 6.4.3 (rank formula), Lemma 2.1.7 (p. 16, perfectness via a finite triangulation) and the proof of Theorem 6.5.4 (pp. 172-174) confirmed item by item."
+   },
+   {
+    "nodeId": "PotentialAutomorphyInfrastructure:PA.4/full-support-and-automorphy-of-type-S1-lifts-fontaine-laffaille",
+    "verdict": "verified",
+    "note": "Theorem 6.5.4 and Corollary 6.5.5 with proof (arXiv p. 168) confirmed; excerpts occur."
+   }
+  ]
+ }
 }
