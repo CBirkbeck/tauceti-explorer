@@ -1,0 +1,205 @@
+{
+  "redteam": "RT-AREA-langlands-2",
+  "findings": [
+    {
+      "finding": "RT-AREA-langlands-2/1",
+      "verdict": "confirmed",
+      "reason": "I reproduced the graph computation on data/atlas.json with the accepted proposals applied through scripts/restructure.py: the ClassicalSerreModularity ancestors of R33.2 are {R33.1} before the restructurings and {R26.1-R26.6, R27.1, R33.1} after, by R26.6 -> R27.1 -> R33.2, and likewise for R33.3-R33.5. R27.1's requires do contain ClassicalSerreModularity:R26.6, the three RS-06 links R27.1 -> R33.2/R33.3/R33.6 are present and absent from the raw atlas, and scripts/restructure.py only appends links (apply_restructurings never touches a stage's requires), so the prefix scoping RS-06's keeps describe is indeed not representable. The RS-06 keeps for R27.1 and R33.2 and the README sentence are quoted verbatim. The fix is right and its acceptance test holds: deleting the single edge R26.6 -> R27.1 from the graph leaves no R26.x stage among the ancestors of R33.1-R33.5, while R33.6 keeps them through R27.4 and R27.6, exactly as the fix allows; RS-06 already carries R26.6 -> R27.3 for the W1 initial case."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/2",
+      "verdict": "confirmed",
+      "reason": "The three node quotations (the standing parity hypothesis 0.3, the Ribet irreducibility remark, R19.5's discrete-series assumption) are verbatim in data/decompositions/AutomorphicGaloisRepresentations.json, whose sources are only Deligne-Serre, Deligne 355, Carayol, Saito, Chenevier and Dieulefait-Pacetti -- no Taylor, no Blasius-Rogawski. KW II p. 4 reads, in the author preprint I re-downloaded (sha256 53f45f8b...), 'Consider a totally real number field F. ... p-adic representations rho_pi of G_F are associated to cuspidal automorphic representations pi of GL2(A_F) that are discrete series at infinity of weight (k, ..., k), k >= 2. ... We say that rho : G_F -> GL2(O) ... is modular if it is isomorphic to (an integral model of) such a rho_pi', with no parity or discrete-series restriction; p. 93 carries 'The cuspidal automorphic representation pi gives rise to a compatible [system]'. The bibliography entry 'Invent. Math., 98(2):265-280, 1989' is Taylor's construction paper. A python search of all 1968 atlas stage descriptions finds no 'Taylor 1989', 'Blasius' or no-discrete-series case, and AUDIT-31's R19.2 note 'there are no Hilbert modular forms, Shimura curves or Jacquet-Langlands' is verbatim. Note for the fixer: the text layer of this PDF drops sentences carrying bracketed reference numbers, so the reference keys [61], [62], [6] and [39] in the evidence come from the red team's reading, not mine; the mathematical content at each locator checks out."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/3",
+      "verdict": "confirmed",
+      "reason": "R23.3's requires are exactly [GL2AutomorphicRepresentationsAndTransfer:R17.5, PotentialModularityAndCompatibleSystems:R23.2], and its ancestor closure over the atlas with every accepted restructuring and link map contains no GL2ModularityLifting, OrdinaryAutomorphicFormsAndModularityLifting, PadicFamilies or SerreWeightAndLevelOptimisation stage and no R19 stage (only AutomorphicGaloisRepresentationsPartII AG2.0/AG2.1a, a different roadmap). In the KW II preprint the proof of Theorem 6.1 runs from p. 53 to p. 57 and needs each input the finding names: p. 54 'After this the theorem follows from Theorem 8.2 below' for the solvable branch, p. 55 'is defined over F and a modularity lifting theorem gives the automorphy of the Tate module', p. 57 'rho-bar|G_F also comes from a cuspidal automorphic representation pi of GL2(A_F) that is unramified at places above p and of parallel weight k(rho-bar)' for the Hida-theory step. AUDIT-34 records R23.3 'not built'. Each proposed edge (R19.2, R22.6, R21.6, L5, R20.3 -> R23.3) is acyclic in the same graph, as the fix claims. The citation-bearing sentence naming Gross and Coleman-Voloch is dropped by this PDF's text layer; the solvable-case sentence around it reads as the finding says."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/4",
+      "verdict": "confirmed",
+      "reason": "The atlas facts are exact: the GL2AutomorphicRepresentationsAndTransfer ancestors of R19.2, R19.4, R19.5 and R19.6 are R16.1-R16.6 and R17.1-R17.3 only, so R17.4 is upstream of no R19 stage; a search of all atlas stage texts for 'cubic base change', 'non-Galois cubic', 'Piatetski' and 'JPSS' returns nothing; the AGR node's proof step 'Theorem (A) is deduced from Theorem (B) by base change arguments for GL(2)' and R19.5's 'one may arrange by a quadratic base change, as in Carayol' are verbatim; R17.4's text is as quoted; and the proposed edge R17.4 -> R19.2 is acyclic. The mathematics is right: the extraordinary supercuspidals of GL2 over a 2-adic field have projective image A4 or S4, so a non-Galois cubic lifting (Jacquet-Piatetski-Shapiro-Shalika) is what resolves them, which is why Carayol's section 12 needs it. Limit of this check: the Numdam scan of Carayol (sha256 d4a5fb6b..., which reproduces) is page images with no text layer in this environment, so the French quotations from 0.9 and 12.2.1-12.2.2 are the red team's reading, not mine."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/5",
+      "verdict": "confirmed",
+      "reason": "The node text is verbatim as quoted, and the statement it makes is false: over an ordinary point of characteristic p the fibre has two subgroups of order p, the infinitesimal ker F and an etale one. I recomputed the red team's counterexample independently: for y^2 = x^3 + 3x + 2 over F_5, 4a^3 + 27b^2 = 216 = 1 mod 5 so the discriminant is nonzero, the affine points are (1, +-1) and (2, +-1), so #E(F_5) = 5, a_5 = 1, E is ordinary and E(F_5) = Z/5 is an etale subgroup scheme of order 5 distinct from ker F. The node builds a hypothesis and an acceptance test on the false sentence, and the fix -- supersingular versus ordinary, and Deligne's own two-component decomposition giving T_p = F + I_p^* V -- is the right repair. Limit: the Numdam scan of Bourbaki 355 (sha256 19509c19..., which reproduces) is page images here, so I could not read p. 157 or (4.7) myself; the attribution of the slip to Deligne rests on the node's own quotation of that sentence and on the red team's reading, which agree. That affects only the proposed sourceIssue: whether the slip is Deligne's or the node's, the node's statement, hypothesis and acceptance item must be corrected."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/6",
+      "verdict": "confirmed",
+      "reason": "Read in Chenevier's LaTeX source (arXiv:0809.0415v2 e-print). Theorem B in the introduction does carry 'Let A be a henselian local ring with algebraically closed residue field k', and the node's hypothesis is quoted verbatim from the decomposition, as is the open gap. Theorem 2.22 (label structurethm) assumes only 'Det is Cayley-Hamilton and A is henselian', and part (i) needs 'Det-bar is split and absolutely irreducible'; Definition 2.19 is verbatim 'We say that Det is split if it is the determinant of a representation R -> M_d(k). Equivalently, Det is split if and only if R/ker(Det) is a finite product of matrix algebras over k.' The added lemma is correct: if D-bar is absolutely irreducible then R-bar/ker(D-bar) is a central simple k-algebra of degree d, and over a finite field Wedderburn's theorem makes the Brauer group trivial, so it is M_d(k) and D-bar is split. A complete local noetherian Hecke algebra is henselian, so 2.22(i) applies directly and the planned descent step is unnecessary."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/7",
+      "verdict": "confirmed",
+      "reason": "KW I p. 9 states Theorem 5.1(3) as quoted and p. 10's Remarks read 'The computation of the weights of the residual representations in Theorem 5.1 (3) and (4) is done by Savitt in Corollary 6.15 (1) and (2)'; p. 15 reads 'By choice of i, the estimates (3) and (4) of Section 7, and Theorem 5.1 (3), we deduce ... k(rho-bar'_P) <= p + 1'; KW II p. 94 reads '(3), computation of k(rho-bar_q): This follows from the almost strict compati-[bility ...]'. In Khare's arXiv source the lemma is verbatim ('The following lemma is crucial for us and is due to Breuil and Mezard, [BM], Proposition 6.1.1, and Savitt, [Savitt1], Theorem 6.11' with the quoted statement), and its bibliography gives [Savitt1] as David Savitt, 'On a Conjecture of Conrad, Diamond, and Taylor', Duke Math. J. -- the Conrad-Diamond-Taylor paper the finding names. A search of all atlas stage texts for 'Savitt', 'Conrad-Diamond-Taylor', 'Breuil module' and 'strongly divisible' finds nothing, Breuil-Mezard occurs only in PadicLocalLanglandsForGL2Qp R30.5, the CSM decomposition records the Savitt gap as quoted, and the pinned declaration index has no 'breuil' or 'kisinModule' entry (I also grepped both pinned source trees). R07.5 is already an ancestor of R24.3, R26.1 and R27.2, so the fix needs no new edge."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/8",
+      "verdict": "confirmed",
+      "reason": "ML.1's text and its single input ML.0 are verbatim, and its ancestor closure over the atlas with all accepted restructurings and link maps is exactly {LI.0-LI.4, ML.0}: no AutomorphicGaloisRepresentations and no ClassicalSerreModularity stage. R19.1's weight-one Artin clause and R17.5's solvable Artin clause are verbatim, and AUDIT-31 records the R19.1/ML.1 overlap in data/library-coverage.json in the words quoted. KW I p. 21 gives Corollary 10.2(ii) verbatim. RS-21, which links R17.5 -> ML.1, is not in data/restructure and has no review, and no accepted proposal touches ML.1. All three proposed edges are acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/9",
+      "verdict": "confirmed",
+      "reason": "Both stage texts are verbatim; RS-06 narrows R14.6 with the keeps quoted, including the special-fibre Eichler-Shimura relation, and its only link out of R14.6 is to HeegnerPointEulerSystems HE.2; the ModularCurvesPartII ancestors of R19.1 are R12.1-R12.6, R13.1-R13.5 and R14.1-R14.3, so R14.6 is not among them; and data/library-coverage.json records the duplicate in the words quoted. R14.6 -> R19.1 is acyclic, and the alternative fix is available too, since R14.2 and R14.3 are already ancestors of R19.1."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/10",
+      "verdict": "confirmed",
+      "reason": "All three stage texts are verbatim. R24.5:operations has the single consumer PotentialAutomorphyInfrastructure:PA.5 and is not an ancestor of R19.3; the only WeightsInEtaleCohomology ancestor of R19.3 is R34.5; R34.6 has no descendants at all; RS-17 narrows R34.6 as quoted; data/library-coverage.json records both duplicates in the words quoted; and REV-RS-12~2's verdict is needs_changes, with RS-12 absent from data/restructure. All three proposed edges are acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/11",
+      "verdict": "confirmed",
+      "reason": "Read both sources. KW I p. 12, section 7 'Estimates on primes', states inequality (1) as P/p <= (2m+1)/(m+1) - (m/(m+1))(1/p) with l^r = 2m+1, then 'We check this by hand for p <= [31]' and 'for p > 31, P/p <= 3/2 - (1/30) = 1.46...'; its closing Remark is about the smallest non-Fermat prime > p. Khare's arXiv source, section 4 'Chebyshev's estimates on primes', has the same inequality after 'A computation shows that this is ensured by requiring that', then 'We consider p_n >= 31' and 'use a in the Chebyshev estimate to be 44/30 = 3/2 - 1/30', with B/A = 6/5 for x > 30. So it is one lemma with one threshold and one constant, and RS-06 does give R26.3 and R27.2 separate ownership in the keeps quoted. At the pins Mathlib has only Nat.exists_prime_lt_and_le_two_mul (Mathlib/NumberTheory/Bertrand.lean:222) and Chebyshev.theta_le_log4_mul_x (Mathlib/NumberTheory/Chebyshev.lean:194), neither of which gives a ratio below 3/2. R26.3 -> R27.2 is acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/12",
+      "verdict": "confirmed",
+      "reason": "Verified at the source, and the sequencing claim is exactly right. KW II section 10.2 (p. 92) reads 'Thus we need only prove 4.1(1) and 4.1 (2)(i), and the latter only when k = p. ... We are assuming that rho-bar is modular, and thus the assumptions (alpha) and (beta) are fulfilled ... by the weight part of [Serre's conjecture] ... At this point we are done by invoking Theorem 9.7.' Theorem 9.7 is stated on p. 89 under the section 8.2 assumptions and its proof ends on p. 90 'At this point we are done by Propositions 9.2 and 9.3, and solvable base change results of Langlands', with no appeal to Theorem 6.1 or Theorem 10.1. Theorem 10.1 is introduced on p. 90 as 'the following corollary of Theorem 8.2, Theorem 6.1 and Propositions 9.2 and 9.3' and is used in section 10.3.1 for Theorem 5.1 ('The finiteness of R-bar_S as an O-module follows from Theorem 10.1'), not for Theorem 4.1. KW I p. 7 confirms Theorem 4.1 assumes 'We assume that rho-bar is modular'. The R22.5 and R24.4 stage texts and the RS-08 keeps for R22.5 ('the KW I Theorem 4.1 formulation is assembled in R24') are verbatim, and R20.3 and R20.6 are already ancestors of R22.1, as the fix assumes."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/13",
+      "verdict": "confirmed",
+      "reason": "KW II p. 69 opens section 8 exactly as quoted, including 'Theorem 8.4 produces modular lifts, up to allowable base change, with some prescribed local conditions' and 'A crucial input for this is Theorem 8.2 which produces minimal lifts (after allowable base change)', and the proof of Theorem 9.7 on p. 90 does begin 'after another allowable base change as in Theorem 8.4, we may assume that there is a cuspidal automorphic representation pi''. R22.1's text and the GL2ModularityLifting README's 'The source organisation is KW II' are verbatim. My own search of the 1968 atlas stage descriptions for 'prescribed local propert', 'allowable base change', 'Theorem 8.2' and 'Theorem 8.4' finds no stage planning KW II section 8: the four stages that mention a 'Theorem 8.2' or '8.4' at all are AutomorphicCongruences L2/L2s (Fouquet-Wan 8.2.1), DirichletPadicLFunctions L4 (RJW) and FiniteFlatGroups R07.3 (Fontaine-Laffaille), all different results. AUDIT-32 records R22.1 'not built'. Every import the fix names (R17.3, R17.4, R18.3, R19.5, R20.3, R20.6) is already an ancestor of R22.1, so no new edge is needed, as the fix says."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/14",
+      "verdict": "confirmed",
+      "reason": "Both sources check out. KW II p. 67, section 7.6.1, states Lemma 7.7 verbatim -- F totally real unramified at p, pi cuspidal discrete series of parallel weight k >= 2 at the infinite places, residually absolutely irreducible -- with no discrete-series hypothesis at a finite place. Kisin's Corollary in the introduction to JAMS 21 (2008), read on p. 514 of the published PDF, is likewise stated for any Hilbert modular eigenform of weight k with k_i >= 2 of the same parity and rho-bar_pi absolutely irreducible, and the following paragraph reads '... pi is a discrete series at some finite place w, [the corollary follows from work of Carayol who] constructed the representations rho_pi in the cohomology of Shimura curves, together with [a result of Saito. When [F:Q] is even, Taylor constructed] rho_pi by interpolating representations rho_pi' where pi' is special at some w not dividing p, and so the corollary follows from the theorem (or more precisely Theorem (2.7.6) below) and the cases established by Carayol' (the bracketed fragments are dropped by this PDF's text layer; the distinctive phrases are verbatim). Theorem (2.7.6) is on p. 534. The integrated R19.5 node does assume Carayol's parity hypothesis, R19.5's requires are only R19.4, R18.5 and R06.5, the packet's sources contain no Kisin, and R08.3 -> R19.5 is acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/15",
+      "verdict": "confirmed",
+      "reason": "R04.5's text and its requires [R04.4, R02.6] are verbatim; R01.4's text and its consumers are as quoted (R01.4 does reach G7, R26.4, R26.5, R27.1, R27.2, R33.2, R33.3, R29.1, R29.2, R25.2, R25.3, but not R04.5), and the only ArithmeticGaloisRepresentations ancestors of R04.5 are R01.1 and R01.2. KW II p. 40 gives Lemma 4.3(5) 'The only [G-]submodules of Ad are ...' and p. 51 'We know from Lemma 4.3 (5) that the only non-zero, irreducible G-submodule V of Ad is Z'. At the pins neither library has the classification: I grepped the declaration index and both source trees, and every 'dickson' match is Polynomial.dickson, the Dickson polynomials. AUDIT-32 records for R04.5 that 'the residual-image and dual-Selmer inputs do not exist at all, so no prime can be chosen'. R01.4 -> R04.5 is acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/16",
+      "verdict": "confirmed",
+      "reason": "The substance is right and the fix stands, with one correction to the reasoning. R08.1's text, R08.2's text, D7's 'Local Tate duality for finite modules remains upstream ClassFieldTheory' and ClassFieldTheory Layer 5 item 8 (README line 111-112, 'Local Tate duality for the named evaluation pairing, finiteness of H^0, H^1, H^2, and the local Euler-characteristic formula, in cardinality and F_p-rank form') are all verbatim, as is KW II p. 26's 'It follows using Euler characteristic and duality' in the proof of Lemma 3.7. At the pins neither library has local Tate duality: tateDualityPairing_perfect_mixed, finite_H and eulerCharacteristic_finrank_fp are Tau Ceti Layer 5/7 targets, not declarations. PAPER-BOCKLE-IYENGAR-PASKUNAS-23 item 006 does name both R08.1 and Layer 5 as planners, in its note. Correction: the sentence 'No LocalGaloisDeformationRings stage has the owner ... as an ancestor' is exactly true for the two graphs the finding names -- the raw atlas and the atlas with all accepted restructuring links -- but once the accepted link map data/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json (Layer 5 -> ArithmeticGaloisDuality:D7) is also applied, R08.3, R08.4, R08.5, R08.6, L7 and L8 do acquire Layer 5 as an ancestor. That path is Layer 5 -> VectorBundlesAndIsocrystals:VB0 -> FiniteFlatGroups:R07.4 -> R08.3, an isocrystal route, not a duality supply, and it does not pass through D7 at all. R08.1 and R08.2, where the tangent, dimension and smoothness calculations sit and where the finding locates the defect, have no Layer 5 ancestor in any of the three graphs. Layer 5 -> R08.1 is acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/17",
+      "verdict": "confirmed",
+      "reason": "KW II p. 22 states Lemma 3.5 with the crystalline-weight cases and 'The second part is a result of [Berger-Li-Zhu]', and p. 31, section 3.2.7, is headed by the weight-(p+1) crystalline case with the formally smooth ring 'of relative dimension 3 + [F_v : Q_p]'. The three stage texts, the RS-06 owner record 'The ordinary crystalline-to-ordinary/BLZ criterion and its Skinner-Wiles p=3 branch' -> R21.5 and the RS-08 owner record 'Small-prime Skinner-Wiles/BLZ ordinary lifting input' -> R21.5 are verbatim. The cycle is real: with the accepted links the path R08.5 -> R08.6 -> R02.5 -> R02.6 -> R04.5 -> R21.5 exists (R08.6 -> R02.5, R02.6 -> R04.5 and R04.5 -> R21.5 come from RS-08), so R21.5 is a descendant of R08.5 and cannot supply it. R06.4 is not an ancestor of R08.5, is already an ancestor of R21.5, and R06.4 -> R08.5 is acyclic, so the proposed single owner works."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/18",
+      "verdict": "confirmed",
+      "reason": "Both stage texts are verbatim, the atlas edge R08.3 -> L7 exists, and REV-RS-08's first question for the orchestrator states the overlap and records 'This correction was not made', leaving options X and Y open; RS-23 is not in data/restructure. AUDIT-33 flags the same pair, recording that 'R08.3 constructs Kisin's potentially semistable deformation rings for rank two; L7 states the same construction for arbitrary rank n and arbitrary K/Q_p, and says so explicitly'. In Kisin's JAMS 21 (2008) the construction is stated in every rank over every finite K/Q_p: Theorem (2.7.6) on p. 534 quantifies over a finite E-algebra B with no rank restriction, and Theorems (3.3.4) and (3.3.8) on pp. 540-541 give dimensions in terms of d^2. The fix's division of labour is the one REV-RS-08's option X already leans to."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/19",
+      "verdict": "confirmed",
+      "reason": "KW II section 7.4 (pp. 63-66) proves Lemma 7.4 and Corollary 7.5 for the definite quaternionic modules over O[Delta_Q], and section 7.5 (p. 66) adds the p = 2 twists of Proposition 7.6; I located the free-module statements on those pages. The R18.3 and R22.2 stage texts are verbatim, the RS-08 report's keeps sentence for R22.2 appears in research/blueprint/restructure/RS-08.md as quoted, AUDIT-32 lists R18.3 among R22.2's duplicates in the words quoted, no accepted proposal touches either layer, and the only proposal that keeps R18.3 is RS-23, which is not accepted. R18.3 is already an ancestor of R22.2 (through R18.6 -> R22.1), so the fix needs no new edge."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/20",
+      "verdict": "confirmed",
+      "reason": "KW I p. 18 states Hypothesis (H) exactly as quoted, with the Remark that Breuil and Kisin let one replace the condition at p by rho being potentially Barsotti-Tate. The R22.6 and R27.5 stage texts, the RS-08 keeps for R22.6 and the RS-06 keeps for R27.5 (with suppliedBy R22.6 and R24.4) are all verbatim, and the integrated node ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1 exists, so two accepted proposals do assign the same derivation to two layers. The fix names one owner and leaves R27.5 Theorem 9.1's weight-four and even-conductor reduction, which is what KW I section 9 actually adds there."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/21",
+      "verdict": "confirmed",
+      "reason": "Both stage texts are verbatim, both stages list ClassicalSerreModularity:R33.1 among their consumers, AUDIT-32 records R24.6 among R32.6's duplicates with the note 'Owns changing residual characteristic -- the same coefficient-prime transfer in the compatible-systems roadmap', and the ancestor closure of R24.6 over the atlas with all accepted restructurings and link maps reaches GL2ModularityLifting R22.1-R22.6 only, with no R32 stage, so R24.6 has no de Rham lifting supplier. R32.6 -> R24.6 is acyclic if the alternative fix is preferred."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/22",
+      "verdict": "confirmed",
+      "reason": "There is no stage edge L7 -> P9 in any graph. In the raw atlas L7's consumers are G7 and L8, L8's is G8, and G7 and G8 have none; with the accepted restructuring links L7 also reaches R08.4 and R08.5, L8 reaches R21.3 and R21.4, and G8 reaches G7 -- in neither graph is there a PotentialAutomorphyInfrastructure consumer. The L7, P9 and PA.3 stage texts are verbatim, PA.3's requires are exactly [P9, PA.0] and its only descendant is PA.4, the PotentialAutomorphyInfrastructure README carries the source-to-owner row quoted, and data/atlas.json does declare both roadmap edges with stageCount 0. All three proposed edges are acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/23",
+      "verdict": "confirmed",
+      "reason": "R23.2's and H6's stage texts are verbatim, including H6's closing sentence 'This owns source R10.4 and the corresponding moduli portion of R23.2', and R23.2 does still say 'using R10's actual moduli scheme' although no stage id containing R10 exists in data/atlas.json. No accepted proposal touches R23.2 or H6; RS-23, the only one that keeps H6, is not in data/restructure and has no review."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/24",
+      "verdict": "confirmed",
+      "reason": "The R23.5, R17.4 and R17.6 stage texts are verbatim, so R17.4 and R17.6 do own cyclic and solvable base change and descent together with the consequences potential modularity uses, and R23.5 re-plans them. RS-21, which records R17.4 as the owner of 'GL2 cyclic and solvable automorphic base change/descent', is not accepted. The fix's premise checks out: R17.4, R17.5 and R17.6 are already ancestors of R23.5, so the explicit edge R17.6 -> R23.5 creates no cycle."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/25",
+      "verdict": "confirmed",
+      "reason": "R23.1's two quoted sentences are verbatim. Qian's Proposition 4.2, read in the arXiv LaTeX source, does take S = S_1 + S_2 + S_3 with Omega_v in T(F_v) for v in S_1, Omega_v in T(F_v^nr) Gal(F_v^nr/F_v)-invariant for v in S_2 and Omega_v in T(F-bar_v) Gal-invariant for v in S_3, and concludes that every place of S_2 is unramified in F'. The three routed items exist as described: PAPER-QIAN-23/079 and PAPER-KISIN-17/moret-bailly-global-points-unramified-at-p are planned at R23.1, and PAPER-CALEGARI-GERAGHTY-18/moret-bailly-blght-prop-6-2 is planned at R23.1 with its review note asking for the S_2 clause. KW II Theorem 6.1, which begins on p. 53 and continues on p. 54, asks only that F be unramified at p, 'and even split above p if rho-bar|D_p is irreducible'. The restatement the fix proposes is the Harris-Shepherd-Barron-Taylor form the routed papers use."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/26",
+      "verdict": "confirmed",
+      "reason": "KW II p. 57 reads 'one can impose that closures of F contain locally given extensions F_{l_i}, l_i different from 2, p, by successive applications of Grunwald-Wang theorem', and p. 91, in the proof of Theorem 10.1, 'choosing F as in part (c) of Theorem 6.1, such that a completion of F at l_i contains F_{l_i}'. In Qian's source, Lemma 4.1.2 of [CHT] is applied twice, once to F_0/Q with the prescribed local behaviour E_q/Q_q and R/R at infinity, yielding 'a finite totally real Galois extension L_2/Q that is linearly disjoint with F_0 over Q and that for any w a place of L_2 over a q in S_1, (L_2)_w is isomorphic to E_q', and once to F_0F_2(mu_{2^r})/Q. content/tau-ceti/ClassFieldTheory/README.md line 217 does list 'the Grunwald-Wang theorem and the realization of prescribed local abelian extensions by global ones' as outside that roadmap. The extraction items PAPER-QIAN-23/116 and PAPER-BOXER-CALEGARI-GEE-PILLONI-21/188 are both status 'missing'. Only one atlas stage mentions Grunwald-Wang, the Tau Ceti ClassFieldTheory Layer 12 exclusion itself, and the pinned index and both source trees have no 'grunwald' match. The proposed prerequisite Layer 12 -> R23.1 is acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/27",
+      "verdict": "confirmed",
+      "reason": "The finding is right where it matters, with one correction to its scope. R23.1's sentence is verbatim, KW II p. 57 reads 'When we apply Moret-Bailly theorem, we furthermore impose that F is split at a chosen finite set of primes that are unramified in L, and whose Frobenii generate the Galois group of the Galois closure of L/Q', and Tau Ceti f790474 has NumberField.Chebotarev.frobeniusPrimeSet at TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean:93 with no density theorem in the pinned index. Over the graph the finding names -- the atlas with the accepted restructuring links -- none of R23.1, R23.5, R24.1 and R24.5 has a Chebotarev ancestor, which I reproduced. Correction: once the accepted link map CH-L12 (Chebotarev Layer 10 -> GlobalGaloisDeformations:R04.5), which the red team's own 'checked' list records as accepted, is applied as well, R23.5, R24.1 and R24.5 do acquire it, through R04.5 -> R04.6 -> R24.1 and R04.5 -> R21.4 -> R22.6 -> R23.4 -> R23.5. R23.1, the finding's locus and the layer that applies Moret-Bailly, has no Chebotarev ancestor in any of the three graphs, so the fix -- add Chebotarev Layer 10 as a prerequisite of R23.1, which is acyclic -- is exactly the edge still missing."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/28",
+      "verdict": "confirmed",
+      "reason": "BCGP Proposition 9.1.11 is verbatim in the arXiv v3 source, including the hypotheses on p, q > 2 splitting completely in F_1 and det r-bar = epsilon-bar^{-1}, and its proof reads 'In the case F_1 = F, this is a straightforward consequence of [Sno09, Thm. 8.2.1]. ... To prove the general case, one simply replaces the scheme X to which Snowden applies the theorem of Moret-Bailly with the restriction of scalars Res_{F_1/F} X_{F_1}.' The extraction item PAPER-BOXER-CALEGARI-GEE-PILLONI-21/123 has status 'missing' and its roadmap's source route to PotentialModularityAndCompatibleSystems names R23.1, R23.2, R23.3 and R23.5. KW II Theorem 6.1 does begin 'Let rho-bar a G_Q representation of S-type', so R23.3's base field is Q as the finding says."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/29",
+      "verdict": "confirmed",
+      "reason": "R24.1's text is verbatim and KW II section 10.1 (p. 90) does restrict the local rings: 'For each v in S we consider deformation rings R-bar_v and assume them to be of one of the types considered in Theorem 3.1.' The route in PAPER-CALEGARI-GERAGHTY-18.result.json reads 'Finiteness of the local-condition deformation ring R_phi over O in Theorem 4.8 comes from Thorne's generalisation (Theorem 10.2 of Thorne 2012) of KW II's finiteness theorem, which R24.1 plans. Review: accepted.', while its item R-finite-over-O has status 'missing' with the note the finding quotes. So an accepted route sends a statement to a layer that does not plan it, and either repair closes the gap."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/30",
+      "verdict": "confirmed",
+      "reason": "KW II p. 93 does say the system would be strictly compatible once the residual-irreducibility hypothesis is removed ('... strictly compatible system, which would follow from the statement of the [corollary of the introduction of [39] without the hypothesis of irreducibility] of the residual representation ... [When] we will get a strictly compatible system'). I read Skinner's paper itself, which is open access (Doc. Math. 14 (2009) 241-258): its Theorem 1 states that for pi cuspidal over a totally real F with discrete-series infinity type (k, w), k_i >= 2 and k_i congruent to w mod 2, rho_pi|D_v is potentially semistable of Hodge-Tate type (k, w) and satisfies WD(rho_pi|D_v) = iota Rec_v(pi_v |.|^{-1/2}) at every v | p -- with no residual hypothesis; its introduction says explicitly that Kisin's route needs rho_pi residually irreducible and that this paper proves Theorem 1 by a different argument. The R24.5 and R24.6 stage texts and the R19.5 node's parity assumption are verbatim, and no atlas stage names Skinner 2009 or Blasius-Rogawski. R19.5 is already an ancestor of R24.5, so the fix needs no new edge."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/31",
+      "verdict": "confirmed",
+      "reason": "R21.5's stage text, P7's 'The sole owner of etale (phi,Gamma)-modules and their Galois equivalence is PhiGammaModulesAndIwasawaCohomology PG.0-PG.3 ... PG.6 constructs Wach modules' and PG.6's Wach-module text are verbatim, and the BLZ abstract reads 'We construct explicitly some analytic families of etale (phi,Gamma)-modules, which give rise to analytic families of 2-dimensional crystalline representations.' R21.5's ancestor closure, with all accepted restructurings and link maps, contains no PhiGammaModulesAndIwasawaCohomology stage, and PG.6 -> R21.5 is acyclic. Fix it together with finding 17 as the red team says: 17 moves the criterion's ownership to R06.4, and this one supplies whichever layer keeps the BLZ calculation."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/32",
+      "verdict": "confirmed",
+      "reason": "The atlas facts hold. R21.5's text is verbatim; the only three stages that mention Washington are IntegralIwasawaTheory L4 ('Prove the Ferrero-Washington theorem for cyclotomic Z_p-extensions of abelian number fields'), EulerSystemsCyclotomicMainConjecture L4 (the same Ferrero-Washington input) and IntegralIwasawaTheory L2, which quotes Washington's book appendix -- none of them the 1978 non-p-part theorem; and the pinned declaration index has no 'washington' entry. The bibliographic identification is independently confirmed: L. Washington, 'The non-p-part of the class number in a cyclotomic Z_p-extension', Invent. Math. 49 (1978), is the theorem bounding the p-part of the class number along the cyclotomic Z_l-extension of an abelian field for l different from p, which is what a residually reducible R = T argument needs. L4 -> R21.5 is acyclic. Limit: the Numdam copy of Skinner-Wiles is page images with no text layer in this environment and Springer is unreachable from here, so the two quotations from pp. 75-76 are the red team's reading, not mine."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/33",
+      "verdict": "confirmed",
+      "reason": "The graph claim is exact: the ancestor closures of R21.4, R21.5 and R21.6, with all accepted restructurings and link maps, contain GL2AutomorphicRepresentationsAndTransfer R16.1-R16.6 and R17.1-R17.3 and not R17.4, whose text does own cyclic base change and descent and its iteration to solvable extensions. R17.4 -> R21.5 is acyclic. Same limit as finding 32: the Skinner-Wiles page is a scan here, so the p. 74 quotation about base change for Hilbert modular forms is the red team's reading; that Skinner-Wiles descends modularity along a solvable totally real extension by base change is not in doubt, and the missing supplier is an atlas fact I checked myself."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/34",
+      "verdict": "confirmed",
+      "reason": "In the BCGP source the proof of Proposition 10.1.3 reads 'The representation varrho-bar locally has the structure of a representation associated to an ordinary Hilbert modular form of parallel weight two and trivial nebentypus. Suppose that varrho-bar is modular. It follows from [BLGG13, Thm. A] that varrho-bar does indeed arise from a Hilbert modular form of this kind', and the bibliography gives [BLGG13] as Barnet-Lamb, Gee and Geraghty, 'Congruences between Hilbert modular forms: constructing ordinary lifts, II', Math. Res. Lett. 20 (2013), no. 1, 67-72. The extraction item PAPER-BOXER-CALEGARI-GEE-PILLONI-21/198 has status 'missing' and its roadmap's source route names OrdinaryAutomorphicFormsAndModularityLifting:R21.2. R21.2's and R21.4's texts are verbatim, and no atlas stage mentions Barnet-Lamb or the construction of ordinary lifts."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/35",
+      "verdict": "confirmed",
+      "reason": "L5w's text is verbatim, including 'Generic deformation/patching is imported from its canonical owners' and the Fujiwara sentence. Its ancestor closure over the atlas with all accepted restructurings and link maps contains no GlobalGaloisDeformations, LocalGaloisDeformationRings, GL2ModularityLifting or OrdinaryAutomorphicFormsAndModularityLifting stage; the only deformation-theoretic ancestors are DeformationAndDerivedPatchingAlgebra P7 and R03.1-R03.3, which are the abstract layers. RS-08's owner record does give 'Ordinary arithmetic R=T and modularity lifting on its exact overlap' to R21.4, and RS-11, which keeps L5w, is not accepted. Both proposed edges are acyclic."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/36",
+      "verdict": "confirmed",
+      "reason": "I decrypted and read the published Annals PDF myself (it is RC4-encrypted with no ToUnicode maps, so I decoded it with the standard security handler and the TeX text encodings; sha256 154c0c2a... reproduces). Its section headings are 1.1 Notation and terminology, 1.2 Acknowledgements, 3.1 Minimal lifts, 3.2 Flatness of minimal deformation ring, 5 Low levels and weights, and 6.2 Killing ramification, which opens 'The process of killing ramification is the following' on p. 250; Theorem 6.2 is the induction on ramified primes, and section 5 contains Theorems 5.2, 5.4, Corollary 5.5 and Theorem 5.6 but no subsection 5.2. The only '5.2' used as a section number is p. 231's 'This argument for producing minimal liftings has been suggested in Remark in section [5.2 of [27]]', a citation of Khare-Ramakrishna. R26.1's and R24.3's stage texts carry the wrong number verbatim, and the CSM decomposition already records the gap."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/37",
+      "verdict": "confirmed",
+      "reason": "In KW II section 4 the roles are as the finding says: Proposition 4.5 on p. 42 is the dimension statement, Lemma 4.6 on p. 43 is the relation bound ('We have the inequality'), Lemma 4.4 on p. 41 gives the generator count, and Corollary 4.7 on p. 45 is the conditional characteristic-zero point, which is what R24.2's text plans ('Combine finiteness with the global presentation lower bound and local nonemptiness to obtain a point over a finite extension of the coefficient field'). R04.3's stage text and the RS-08 keeps for R04.3 both cite 'KW II Proposition 4.5 and Corollary 4.7' verbatim, so the citation does invite R04.3 to re-plan Corollary 4.7."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/38",
+      "verdict": "confirmed",
+      "reason": "R21.6's clause and PadicFamilies L0's text are verbatim, and RS-08's owner record is exactly {target: 'Ordinary rational cuspidal Hida families and control', owner: 'PadicFamilies:L0', formerly: ['OrdinaryAutomorphicFormsAndModularityLifting:R21.2']}. RS-08 narrows R21.1, R21.2, R21.3 and R21.4 and leaves R21.6 untouched, and no other accepted proposal touches R21.6. R21.6's consumers are the Serre-modularity and lifting layers the finding names, none of which does p-adic L-function work."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/39",
+      "verdict": "confirmed",
+      "reason": "Read Dieulefait-Pacetti's arXiv source. Theorem 1.9 is the lift-existence theorem with cases (1)-(4) as the node states them, and its proof reads 'The first three cases are due to Khare-Wintenberger ([KW, Theorem 5.1], its proof given in [MR2551764]). Partial results of the last case are also proven in Khare-Wintenberger's article (same Theorem), the more general case is due to Gee and Snowden ([MR2785764]; [Snowden, Theorem 7.2.1])' -- exactly the node's hypothesis and exactly R24.3's scope. The node's prerequisites really are null, its proof steps really do prove only the good-dihedral Lemma 2.1 ('This result is taken from [KW, Lemma 6.3]'), and RS-06 does add the link R24.3 -> R33.2. Lemma 1.15, which the fix keeps with Lemma 2.1, is the positive-density choice of the good-dihedral prime q, cited to [KW, Lemma 8.2]."
+    },
+    {
+      "finding": "RT-AREA-langlands-2/40",
+      "verdict": "confirmed",
+      "reason": "The item's statement and note are verbatim and it is planned at R24.5, whose text is about constructing two-dimensional compatible systems by potential modularity, solvable base change and descent, and character induction -- not GL_n base change from unitary groups and not Arthur-Clozel solvable descent for GL_n. ET.7a's text does plan 'the base-change steps from the Arthur-Clozel and Moeglin-Waldspurger proofs' for GL_m. The re-route is the right correction, and the finding is right to leave part (b) conditional on whether ET.7a or PA.5 states the Galois-side descent."
+    }
+  ]
+}
