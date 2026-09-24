@@ -1,0 +1,224 @@
+{
+  "redteam": "RT-AUDIT-09",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "AUDIT-09",
+  "summary": "Red team of the accepted library audit AUDIT-09. It covers five roadmaps (ComplexMultiplicationAndExplicitReciprocity, EffectiveDiophantineMethods, FaltingsFinitenessAndIsogenyTheorems, HeightsRationalPointsAndObstructions, InverseGaloisAndArithmeticFundamentalGroups), with 34 layers, 136 targets (105 absent, 30 partial, 1 mathlib), 290 cited declarations and the duplicates lists. 23 findings: none high, 8 medium, 15 low. No target's status changes and every layer verdict holds. All 290 citations exist at the cited file and line. The medium findings: CM.5's note says Tau Ceti has the endomorphism ring of a Weierstrass curve, but Isogeny.Hom W W is only a monoid with zero plus an additive group with right distributivity, not a ring. IG.6 misses Tau Ceti's proof that inertia generates the Galois group of a number field, the input Mathlib's Morse-polynomial TODO asks for. IG.5 misstates the nearest notion to regularity, since IsIntegrallyClosedIn with Tau Ceti's constant-field theory is available. Five duplicate omissions: PolynomialGaloisGroups Layer 6 (certified C_n and D_n labels over ℚ) for IG.4 and IG.6; the new MordellLawrenceVenkatesh roadmap's LV.8 (Hurwitz spaces, Kodaira–Parshin) for IG.5 and RP.4; LV.11 (Faltings's theorem) for RP.4; LV.3 (Strassmann) for ED.4; LV.1 (Faltings's finiteness lemma) for R28.5. The low findings are further uncited declarations (comp_eq_zero_iff, Scheme.Hom.image, K(S,n) finiteness, structure constants, the profinite fibre-functor equivalence), two fit labels, the misdescribed hypotheses of fg_point, a false parenthetical, one wrong duplicate (R11.6) and further missed duplicates.",
+  "checked": [
+    "Every cited declaration: all 290 citations (245 distinct declarations) were resolved against a fresh declaration index of the pinned trees (Mathlib 082e2d3: 246,008 declarations; Tau Ceti f790474: 70,802), built with research/blueprint/index_declarations.py. All exist at the cited file within three lines of the cited line. The two the index misses because of namespace reconstruction, fermatLastTheoremFour (Mathlib/NumberTheory/FLT/Four.lean:267) and TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality (CartierDuality/FiniteLocallyFree.lean:232), were opened by hand. Three checkers then opened every declaration at its line with the section's variable lines and docstrings and compared it with its target, note and fit label; for the CM, R28, ED and RP layers the cited Tau Ceti files were also checked for sorry (only docstring hits).",
+    "Every layer: all 34 stage descriptions were read in data/atlas.json (the per-roadmap extracts in research/blueprint/atlas/roadmaps/ match). Each target list was compared with its stage's constructions and acceptance items (no omitted target whose library status matters was found), and each verdict with its targets: IG.0 is partly built, 3 layers are process and the rest are not built, all consistent. Both roadmap summaries and all 61 review corrections were re-read, and the corrected citations were re-verified at the pins.",
+    "Every absent target was searched by concept and synonym in the index (grep -i -P) and in both source trees (grep -rn -i). The searches covered the terms of each target: for CM, orders/conductor/Pic, CM types/reflex, the j-function and class polynomials, the uniformisation, Hecke characters, the Tate module, supersingularity, class fields and Chebotarev; for R28, polarisations, Néron models, p-divisible groups, Faltings height, Zarhin, Shafarevich, Jordan–Zassenhaus and Poincaré reducibility; for ED, Sturm/isolating intervals, LLL/HNF/PSLQ, Baker/Matveev, the p-adic logarithm, S-units/Thue, Sha/torsors, Chabauty/Coleman/Strassmann and reduction maps; for RP, Northcott/Weil/local heights, Pic, the Hilbert symbol/Hasse–Minkowski, Brauer groups and adelic points, Riemann–Hurwitz, Parshin, Faltings, Mordell–Lang and Bogomolov; for IG, Galois categories and fibre functors, finite étale, Ẑ, tame and wild ramification, Hilbert irreducibility, Dedekind's cycle types, Riemann existence/Belyi/dessins, Hurwitz/braid actions, rigidity and structure constants, embedding problems, Shafarevich and Scholz–Reichardt, regular extensions, Artin–Schreier and Selmer polynomials. Only the findings above change a note; every other absent target is confirmed absent.",
+    "Every duplicates entry (39 for CM and R28, 36 for ED and RP, 29 for IG) was checked: each named layer exists in data/atlas.json and its description was read; all but R11.6 plan the stated targets. Missed duplicates were searched by keyword over all 1968 atlas stage descriptions and the six new roadmaps in research/blueprint/roadmaps/*.json. The candidates rejected as consumers or out of scope are listed in the report.",
+    "The reviewed decomposition data/decompositions/FaltingsFinitenessAndIsogenyTheorems.json (32 nodes, all implementationStatus unchecked): the only library name any node gives, NumberField.finite_of_discr_bdd, agrees with the audit.",
+    "data/library-coverage.json (the merged reviewed coverage) was read only for comparison; the findings are stated against the audit file, which the fixer edits."
+  ],
+  "findings": [
+    {
+      "id": "RT-AUDIT-09/1",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — ComplexMultiplicationAndExplicitReciprocity:CM.5, target 'Endomorphism-ring verification as a separate certificate'",
+      "claim": "The note says 'The endomorphism ring of a Weierstrass curve exists in Tau Ceti'. It does not: Tau Ceti's Isogeny.Hom W W is a monoid with zero under composition and, separately, an additive group. Only right distributivity (g + g')∘f = g∘f + g'∘f is proved; there is no comp_add, no Ring or Semiring instance, and the source says the ring structure is not built. The only declaration cited, instNontrivialEnd, says End has two distinct elements. So a design reading the note would treat End(E) as an available ring, whereas the ring structure (left distributivity via the point map toPointHom) is itself work to plan.",
+      "evidence": "Tau Ceti f790474, TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean:30–31: 'Addition is not defined here, so `Hom W W` is a monoid with zero rather than a ring.'; :322–325: 'The endomorphisms of `W` form a monoid with zero under composition … The additive structure that would make it a ring is not built here. -/ noncomputable instance : MonoidWithZero (Hom W₁ W₁)'; TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean:204 'noncomputable instance : AddCommGroup (Hom W₁ W₂)' and :282 'theorem add_comp … : (g + g').comp f = g.comp f + g'.comp f'. grep over TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/ finds no comp_add and no Ring/Semiring instance on Hom. The point map needed for left distributivity is named only as a future target (Isogeny/IntermediateRing/Basic.lean:76–80). The cited instNontrivialEnd (TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean:350) has docstring 'The carrier has more than one element'.",
+      "fix": "Replace the note by: 'Tau Ceti's `Isogeny.Hom W W` is a monoid with zero under composition (no zero divisors) and an additive group, with only `(g+g')∘f = g∘f + g'∘f` proved; left distributivity, hence a ring End(E), is not proved (the point map `toPointHom` is not built). End(E) is neither a ring nor identified with an order, and no algorithm or certificate computes it.' Add {name: TauCeti.Isogeny.Hom.add_comp, library: tauceti, file: TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean, line: 282, fit: related}. Status stays absent."
+    },
+    {
+      "id": "RT-AUDIT-09/2",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.6, target 'Exported checked polynomials, field extensions, cover maps and Galois-group…'",
+      "claim": "The note says of Mathlib's Morse-polynomial criterion that 'its number-field specialization and X^n − X − 1 are TODOs'. Tau Ceti already proves the number-field input that Mathlib's TODO asks for: the inertia subgroups of a number field Galois over ℚ generate its Galois group (by Minkowski). Its module docstring says it is exactly that missing input, but the audit does not cite it. Only the one-step composition with the Morse criterion is unstated. Gal(X^n − X − 1) is still absent; Mathlib proves only its irreducibility.",
+      "evidence": "TauCeti/NumberTheory/NumberField/Inertia.lean:234 '@[simp] theorem iSup_inertia_eq_top : ⨆ P : MaximalSpectrum (𝓞 K), P.asIdeal.inertia G = ⊤', with section variables (200–201) '{K} [Field K] [NumberField K] (G) [Group G] [Finite G] [MulSemiringAction G K] [IsGaloisGroup G ℚ K]'; module doc lines 40–42: 'This is the missing input flagged as a TODO of `Mathlib/RingTheory/Polynomial/Morse.lean`, whose `Polynomial.Splits.surjective_toPermHom_of_iSup_inertia_eq_top` takes generation by inertia subgroups as a hypothesis.' Mathlib/RingTheory/Polynomial/Morse.lean TODO: 'Specialize to the case of number fields where generation by inertia subgroups is a consequence of Minkowski's theorem.' Mathlib/RingTheory/Polynomial/Selmer.lean:69 'theorem X_pow_sub_X_sub_one_irreducible_rat (hn1 : n ≠ 1) : Irreducible (X ^ n - X - 1 : ℚ[X])'.",
+      "fix": "Add {name: NumberField.iSup_inertia_eq_top, library: tauceti, file: TauCeti/NumberTheory/NumberField/Inertia.lean, line: 234, fit: related} and {name: Polynomial.X_pow_sub_X_sub_one_irreducible_rat, library: mathlib, file: Mathlib/RingTheory/Polynomial/Selmer.lean, line: 69, fit: related}. Replace the parenthetical by: '… Tau Ceti proves the number-field input (the inertia subgroups of a number field Galois over ℚ generate its Galois group), so only the composition with the Morse criterion is unstated; Gal(X^n − X − 1) = S_n is absent, Mathlib proving only irreducibility of X^n − X − 1.'"
+    },
+    {
+      "id": "RT-AUDIT-09/3",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.5, target 'Hurwitz moduli spaces with braid/Nielsen-class components, descent and…'",
+      "claim": "The note says 'regularity of a field extension is not defined; the nearest notion is Mathlib's scheme-theoretic geometric integrality of a morphism'. That misstates the nearest notion. The field-level content of regularity is in the libraries. 'k algebraically closed in F' is Mathlib's IsIntegrallyClosedIn k F, and Tau Ceti proves its equivalence with algebraicClosure k F = ⊥ and the linear disjointness of F from finite separable constant extensions. In characteristic 0, the setting over ℚ(t) of IG.2 and IG.5, that is exactly regularity. The atlas already uses this predicate as the regular-extension hypothesis for Belyi pairs.",
+      "evidence": "TauCeti/FieldTheory/FunctionField/ConstantField.lean:95 'theorem algebraicClosure_eq_bot_iff_isIntegrallyClosedIn : algebraicClosure k F = ⊥ ↔ IsIntegrallyClosedIn k F' (variables line 56: {k F} [Field k] [Field F] [Algebra k F]); TauCeti/FieldTheory/FunctionField/GeometricDegree.lean:251 'theorem finrank_constantCompositum_eq_finrank_of_isSeparable (hex : IsIntegrallyClosedIn k F) [FiniteDimensional k k'] [Algebra.IsSeparable k k'] : Module.finrank F (constantCompositum F k' F') = Module.finrank k k''. Stage tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization: 'an algebraic Belyi pair is a function field F/k … with exact constants IsIntegrallyClosedIn k F'.",
+      "fix": "Add {TauCeti.algebraicClosure_eq_bot_iff_isIntegrallyClosedIn, tauceti, TauCeti/FieldTheory/FunctionField/ConstantField.lean, 95, related} and {TauCeti.finrank_constantCompositum_eq_finrank_of_isSeparable, tauceti, TauCeti/FieldTheory/FunctionField/GeometricDegree.lean, 251, related}. Replace the clause by: 'regularity is not a named predicate, but its field-level content is available: k algebraically closed in F is Mathlib's IsIntegrallyClosedIn k F, which Tau Ceti identifies with algebraicClosure k F = ⊥ and shows forces linear disjointness from finite separable constant extensions (in characteristic 0, regularity); scheme-theoretically Mathlib has geometric integrality of a morphism.' Status unchanged."
+    },
+    {
+      "id": "RT-AUDIT-09/4",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.4, target 'Cyclic and dihedral realizations over ℚ'; IG.6, target 'A theorem-indexed list of solved group families…'",
+      "claim": "Both layers' duplicate lists miss the PolynomialGaloisGroups layer that plans certified Galois-group labels over ℚ for explicit polynomials of degree ≤ 5. That layer includes cyclic (C₃, C₄, C₅) and dihedral (D₄, D₅) realizations, with worked quintics as acceptance.",
+      "evidence": "Stage tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates: the label table ('3T1 C₃', '4T1 C₄', '4T3 D₄', '5T1 C₅', '5T2 D₅', …), 'cert.check f = true → HasGaloisLabel (f over ℚ) cert.label' with certificate routes 'cyclic | … | 5T1' and 'dihedral | … | 5T2', 'x⁵ + x⁴ − 4x³ − 3x² + 3x + 1, which defines ℚ(ζ₁₁)⁺ and has label 5T1, and x⁵ − 5x − 12, which has label 5T2', and 'Acceptance instances: the five worked quintics below, each with its certificate written out.' Neither IG.4's nor IG.6's duplicates names it.",
+      "fix": "Add to IG.4 duplicates {\"layer\": \"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates\", \"note\": \"Layer 6 certifies Galois labels over ℚ for explicit polynomials of degree ≤ 5, including C₃, C₄, C₅, D₄ and D₅ (x⁵ + x⁴ − 4x³ − 3x² + 3x + 1 for C₅, x⁵ − 5x − 12 for D₅): IG.4's cyclic and dihedral realizations over ℚ in low degree.\"}. Add the same layer to IG.6 with note 'its HasGaloisLabel-over-ℚ certificates are checked polynomials with Galois-group identifications for every transitive group of degree ≤ 5, part of IG.6's exports and list of solved families.'"
+    },
+    {
+      "id": "RT-AUDIT-09/5",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.5 (Hurwitz moduli, descent); HeightsRationalPointsAndObstructions:RP.4, target 'Parshin's covering construction from a rational point on a curve'",
+      "claim": "The new roadmap MordellLawrenceVenkatesh (a draft in research/blueprint/roadmaps/) plans, at LV.8, a complex Hurwitz space of singly ramified G-covers, algebraized by Riemann existence and descended with the G_K-action on classes of surjections of π₁^geom. That is a case of IG.5's Hurwitz moduli with Nielsen-class components and descent. The same stage builds the Kodaira–Parshin family, which is RP.4's first target (covers of Y branched only at y ∈ Y(K), with a good model). LV.8's requires list contains IG.0, IG.1 and IG.3 but not IG.5, and neither IG.5's nor RP.4's duplicates list LV.8.",
+      "evidence": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json, stage LV.8 'Hurwitz spaces of singly ramified covers and the Kodaira–Parshin family': '*Complex Hurwitz space* (LV §7.3) as a covering of the configuration space, algebraized by Riemann existence and normalization …', '*Descent* (LV Lemma 7.4) and *LV Proposition 7.1*: π:Y′→Y finite étale with π⁻¹(y) the conjugacy classes of surjections π₁^geom(Y∖y)→G nontrivial at y, G_K-equivariantly for y∈Y(K)', '*The Kodaira–Parshin family* (LV Definitions 7.2, 7.3) … with a good model'. RP.4 (data/atlas.json): 'Construct the Parshin covering reduction from a rational point on a genus-at-least-two curve to bounded-ramification auxiliary curves'.",
+      "fix": "Add to IG.5 duplicates {\"layer\": \"MordellLawrenceVenkatesh:LV.8\", \"note\": \"LV.8 constructs a complex Hurwitz space of G-covers singly ramified over a moving point, algebraized by Riemann existence, and descends it with the G_K-action on classes of surjections of π₁^geom: a case of IG.5's Hurwitz moduli with Nielsen-class components and descent, built without importing IG.5.\"}. Add to RP.4 duplicates {\"layer\": \"MordellLawrenceVenkatesh:LV.8\", \"note\": \"LV.8 constructs the Kodaira–Parshin family, a finite étale Y′→Y whose fibre over y ∈ Y(K) classifies covers branched only at y, descended to K with a good model: RP.4's Parshin construction in family form.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/6",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — HeightsRationalPointsAndObstructions:RP.4, target 'Faltings' theorem (the Mordell conjecture) via Shafarevich finiteness'",
+      "claim": "RP.4's duplicates list R28.5 and DT.2 but miss MordellLawrenceVenkatesh:LV.11. That stage proves the same theorem by the Lawrence–Venkatesh route, and its acceptance fixes its final statement as RP.4's, so the same theorem is planned twice.",
+      "evidence": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json, stage LV.11 'Faltings's theorem after Lawrence and Venkatesh': '*Faltings's theorem*: a smooth projective geometrically connected curve of genus g≥2 over a number field has finitely many rational points'; acceptance: 'the final statement is the one stated by HeightsRationalPointsAndObstructions RP.4'. The same roadmap's non-goals: 'Faltings's height-theoretic route (… R28.5 and HeightsRationalPointsAndObstructions RP.4) is not used'.",
+      "fix": "Add to RP.4 duplicates {\"layer\": \"MordellLawrenceVenkatesh:LV.11\", \"note\": \"LV.11 proves Faltings's theorem (finiteness of Y(K) for a smooth projective geometrically connected curve of genus ≥ 2 over a number field) by the Lawrence–Venkatesh period-map route; its acceptance fixes its final statement as RP.4's, so the theorem is planned twice.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/7",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — EffectiveDiophantineMethods:ED.4, target 'Zero bounds for p-adic power series on residue discs'",
+      "claim": "Strassmann's theorem is planned by MordellLawrenceVenkatesh:LV.3. ED.4's duplicates (PadicAnalysis L1, NC.4, ColemanIntegration L0) do not name it, and none of them plans a zero bound.",
+      "evidence": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json, stage LV.3: '*Strassmann's theorem* and *finiteness of preimages*: on a curve, Φ_v meets a closed subset not containing its image … in finitely many points', acceptance 'Strassmann's bound for 1+pX+X²+pX⁵ over Q_p is 2, attained for p=5'.",
+      "fix": "Add to ED.4 duplicates {\"layer\": \"MordellLawrenceVenkatesh:LV.3\", \"note\": \"LV.3 proves Strassmann's theorem for p-adic power series on residue disks, the zero bound of ED.4's target; one proof should serve both.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/8",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — FaltingsFinitenessAndIsogenyTheorems:R28.5, target 'The finite Frobenius-data or moduli-boundedness argument…'",
+      "claim": "MordellLawrenceVenkatesh:LV.1 plans Faltings's finiteness lemma (Brauer–Nesbitt with the Faltings–Deligne finite test set). That is the finite-Frobenius-data core of Faltings' Satz 5, which R28.5 must supply. R28.5's duplicates do not name it, so the same argument would be planned twice.",
+      "evidence": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json:48 (LV.1): '*Faltings's finiteness lemma* (LV Lemma 2.3…): … there are finitely many isomorphism classes of semisimple continuous ρ: G_K → GL_d(Q_p) unramified, pure of weight w and with integral Frobenius polynomials outside T; with characteristic-zero Brauer–Nesbitt, the Faltings–Deligne finite test set and finiteness of integer Weil polynomials.' R28.5 (data/atlas.json): 'Supply the finite Frobenius-data or moduli boundedness argument'. Decomposition node R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S (data/decompositions/FaltingsFinitenessAndIsogenyTheorems.json): 'Construct finitely many places v_1, ..., v_r such that two abelian varieties are already isogenous when they have the same local L-factor at these places.'",
+      "fix": "Add to R28.5 duplicates {\"layer\": \"MordellLawrenceVenkatesh:LV.1\", \"note\": \"LV.1 proves Faltings's finiteness lemma for semisimple ℓ-adic representations with bounded ramification (Brauer–Nesbitt and the Faltings–Deligne finite test set), the finite-Frobenius-data step of R28.5's Satz 5; one proof should serve both.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/9",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — ComplexMultiplicationAndExplicitReciprocity:CM.1, target 'Action of an invertible prime ideal as an isogeny of degree N(𝔭)…'",
+      "claim": "The note's 'End without zero divisors' is supported only by TauCeti.Isogeny.Hom.instNontrivialEnd, which proves that End has two distinct elements. The zero-divisor fact is a different declaration. The note also omits that End(E) is not a ring (finding 1).",
+      "evidence": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean:350 'instance instNontrivialEnd : Nontrivial (Hom W₁ W₁)', docstring 'The carrier has more than one element'; :258 'theorem comp_eq_zero_iff … g.comp f = 0 ↔ g = 0 ∨ f = 0'; :336 'NoZeroDivisors (Hom W₁ W₁)'.",
+      "fix": "Replace the instNontrivialEnd entry by {TauCeti.Isogeny.Hom.comp_eq_zero_iff, tauceti, TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean, 258, related}. Append to the note: 'End(E) is a monoid with zero and an additive group but not yet a ring (only Hom.add_comp).'"
+    },
+    {
+      "id": "RT-AUDIT-09/10",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — HeightsRationalPointsAndObstructions:RP.1, target 'An elliptic 2-descent with local conditions and global image…'",
+      "claim": "pow_rank_le_card_of_range_μ_le and card_range_μ are labelled fit 'exact', but the target is marked partial. These are general 2-descent lemmas for an arbitrary finite S containing the descent image, not the worked 2-descent the target asks for, and not the Selmer bound itself, since selmerGroup₂ is not proved finite. The same two declarations are labelled 'special case' in ED.3.",
+      "evidence": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean:142 'theorem pow_rank_le_card_of_range_μ_le [AddGroup.FG W.Point] {S : Subgroup W.M} [Finite S] (h : (μ (W := W)).range ≤ S) : 2 ^ finrank ℤ W.Point * Nat.card (nsmulAddMonoidHom (α := W.Point) 2).ker ≤ Nat.card S'; lines 138–140: 'It applies in particular to `S = W.selmerGroup₂ R Loc` … once that group is known to be finite'; line 25: 'Nothing here establishes that the Selmer group is finite'.",
+      "fix": "Change both fits in RP.1's 2-descent target from 'exact' to 'special case', matching ED.3. Status stays partial."
+    },
+    {
+      "id": "RT-AUDIT-09/11",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — HeightsRationalPointsAndObstructions:RP.1, target 'Finite generation of A(K) from finite descent plus a height argument'",
+      "claim": "The note says Tau Ceti has 'a version over a Dedekind base with finite class groups and finitely generated units'. That misstates fg_point. Its finiteness hypotheses are on the integral closures of R in K[X]/(p) for the factors p of f, not on R. It also needs admissible absolute values with Northcott on K and the normal form y² = f(x). The source says hypotheses on R do not suffice.",
+      "evidence": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean:66 'variable [AdmissibleAbsValues F] [Northcott (logHeight₁ (K := F))]'; :90–94 'theorem fg_point (R) … [W.IsCharNeTwoNF] [(p : W.f.Factors) → Finite (ClassGroup (W.ringOfIntegersFactor R p))] [(p : W.f.Factors) → Monoid.FG (W.ringOfIntegersFactor R p)ˣ] : AddGroup.FG W.Point'; :86 'The per-factor hypotheses cannot be replaced by the corresponding hypotheses on `R` itself'.",
+      "fix": "Replace the clause by: '… with a general version (fg_point) for y² = f(x) over a field with admissible absolute values satisfying Northcott that is the fraction field of a Dedekind domain R, assuming that for each irreducible factor p of f the integral closure of R in K[X]/(p) has finite class group and finitely generated units (hypotheses on R itself do not suffice).'"
+    },
+    {
+      "id": "RT-AUDIT-09/12",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — FaltingsFinitenessAndIsogenyTheorems:R28.3, target 'The ℓ-divisible group formed by the tail of the tower of closure group schemes'",
+      "claim": "The note says no scheme-theoretic closure exists. But Mathlib has the scheme-theoretic image of any morphism, and Tau Ceti has flat finitely presented models over a DVR (TauCeti.Model, already cited in R28.5). What is missing is Néron models, ℓ-divisible groups, and any result that the closure of a generic finite subgroup scheme is finite flat.",
+      "evidence": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean:660–661 '/-- The scheme-theoretic image of a morphism. -/ abbrev Hom.image : Scheme.{u} := f.ker.subscheme', with Hom.toImage_imageι and IsDominant f.toImage for quasi-compact f; TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean:44 'structure Model (R K …) (C : Scheme) …'.",
+      "fix": "Add {AlgebraicGeometry.Scheme.Hom.image, mathlib, Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean, 661, related}. Note: 'No ℓ-divisible groups, Néron models or flat-closure theorem exist; Mathlib's Scheme.Hom.image gives the scheme-theoretic closure of a generic subgroup scheme in any model (for example a TauCeti.Model over a DVR), but nothing shows it is a finite flat subgroup scheme.' Status stays absent."
+    },
+    {
+      "id": "RT-AUDIT-09/13",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — FaltingsFinitenessAndIsogenyTheorems:R28.5, target 'Shafarevich finiteness: finitely many abelian varieties … good reduction outside S'",
+      "claim": "The note says Hermite's theorem 'is the only finiteness theorem of this shape'. Tau Ceti also proves finiteness of the Selmer group K(S,n) of a number field: the n-th-power classes unramified outside S. That is the Kummer case of restricted-ramification finiteness, and Tau Ceti's weak Mordell–Weil uses it.",
+      "evidence": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/NumberField.lean:42–45 '/-- The Selmer group `K(S, n)` of a number field is finite for `S` finite and `n` with `NeZero n`. -/ theorem finite_selmerGroup_of_numberField [NeZero n] (hS : S.Finite) : Finite (selmerGroup (R := 𝓞 F) (K := F) (S := S) (n := n))'.",
+      "fix": "Add {IsDedekindDomain.finite_selmerGroup_of_numberField, tauceti, TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/NumberField.lean, 44, related}. Replace 'is the only finiteness theorem of this shape' by 'and the finiteness of K(S,n) (Tau Ceti) are the only finiteness theorems of this shape'."
+    },
+    {
+      "id": "RT-AUDIT-09/14",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.3, target 'The rational rigidity criterion: rigid, rational conjugacy-class triples…'",
+      "claim": "The note lists 'the count of triples with product one' as absent. Tau Ceti's structureConstant is that count up to a class size: #{(x,y,z) ∈ Cᵢ×Cⱼ×Cₖ : xyz = 1} = |Cₖ| · structureConstant Cᵢ Cⱼ Cₖ⁻¹. What is absent is its expression through characters (Frobenius's formula), the count of generating triples, rigidity, and rationality of classes.",
+      "evidence": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean:62–64 '/-- The number of factorizations `x * y = g`, for `x ∈ Cᵢ`, `y ∈ Cⱼ`, and any representative `g` of `Cₖ`. This is independent of the representative by simultaneous conjugation. -/ def structureConstant (Cᵢ Cⱼ Cₖ : ConjClasses G) : ℕ'.",
+      "fix": "Add {TauCeti.structureConstant, tauceti, TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean, 64, related}. Note: 'Tau Ceti has class-sum structure constants (structureConstant Cᵢ Cⱼ Cₖ counts xy = g with x ∈ Cᵢ, y ∈ Cⱼ for fixed g ∈ Cₖ, so product-one triples in given classes are a class size times a structure constant) and the Galois action on character values; the character formula for that count, the count of generating triples, rigidity, rationality of classes and the criterion are absent.'"
+    },
+    {
+      "id": "RT-AUDIT-09/15",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.0, target 'The fundamental group of 𝔾_m over an algebraically closed…'",
+      "claim": "The note says 'there is no étale π₁ of 𝔾_m and no Ẑ or Ẑ(1)'. Ẑ exists as Mathlib's profinite completion of ℤ, a construction the audit itself cites under IG.6. Tau Ceti identifies the fibre-functor automorphism group of finite covers of a nice space with the profinite completion of its π₁. With π₁(S¹) ≅ ℤ that is the closest (topological) analogue, and it is not cited. Only Ẑ(1) and the étale π₁ are absent.",
+      "evidence": "Mathlib/Topology/Algebra/Category/ProfiniteGrp/Completion.lean:73 'def completion : ProfiniteGrp.{u} := limit (diagram G)' (ProfiniteGrp.ProfiniteCompletion.completion); TauCeti/AlgebraicTopology/UniversalCover/Classification/ProfiniteFiberFunctor.lean:92–95 '/-- The profinite completion of `π₁(X, x₀)` is the automorphism group of the finite-cover fibre functor. -/ def profiniteCompletionAutFiberFunctorMulEquiv : ProfiniteGrp.ProfiniteCompletion.completion (GrpCat.of (FundamentalGroup X x₀)) ≃* Aut (fiberFunctor x₀)'.",
+      "fix": "Add {TauCeti.FiniteCoveringSpace.profiniteCompletionAutFiberFunctorMulEquiv, tauceti, TauCeti/AlgebraicTopology/UniversalCover/Classification/ProfiniteFiberFunctor.lean, 94, related}. Note: '… there is no étale π₁ of 𝔾_m and no Ẑ(1); Ẑ exists only as Mathlib's profinite completion of ℤ, and Tau Ceti's identification of finite-cover fibre-functor automorphisms with the profinite completion of π₁ gives, with π₁(S¹) ≅ ℤ, the topological analogue (not composed).'"
+    },
+    {
+      "id": "RT-AUDIT-09/16",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — ComplexMultiplicationAndExplicitReciprocity:CM.0, target 'The reflex field and reflex (type) norm of a CM type…'",
+      "claim": "The parenthetical '`reflex` occurs only in category-theoretic names' is false. The absence claim it supports is correct.",
+      "evidence": "Mathlib/LinearAlgebra/Dual/Defs.lean:212 'class IsReflexive : Prop' (Module.IsReflexive); Reflexive-relation lemmas under Mathlib/Logic.",
+      "fix": "Note: '… no reflex field or reflex norm is defined in either library (`reflex` occurs only in unrelated names such as Module.IsReflexive and reflexive relations).'"
+    },
+    {
+      "id": "RT-AUDIT-09/17",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — FaltingsFinitenessAndIsogenyTheorems:R28.2, target 'p-divisible groups and the integral differential calculations behind the estimate'; its duplicates entry 'NeronModelsAndSemistableAbelianVarieties:R11.6'",
+      "claim": "Two layers that plan this target are missing from R28.2's duplicates: HodgeTateAndCanonicalSubgroups:T0 (p-divisible groups and integral differentials) and Tau Ceti ModularCurves 7E (E[p^∞] over any base). Conversely, the listed R11.6 plans none of R28.2's four targets. It is a supplier and is already a stated dependency of R28.1.",
+      "evidence": "HodgeTateAndCanonicalSubgroups:T0, title 'p-divisible groups and integral differentials': 'Extend that same API to the generic-fibre Tate modules and the integral differential calculations here; do not define a second p-divisible group. Construct the relevant Hodge ideal…'. tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups, PD-1: 'Construct E[p^∞] = (E[pⁿ])_{n≥0}: each E[pⁿ] finite locally free of rank p^{2n} … over an arbitrary scheme'. NeronModelsAndSemistableAbelianVarieties:R11.6: 'Supply the semistable and good-reduction facts used by R25 and the isogeny-height analysis of R28'; R28.1's dependencies list '[NeronModelsAndSemistableAbelianVarieties R11.6]'.",
+      "fix": "Add {\"layer\": \"HodgeTateAndCanonicalSubgroups:T0\", \"note\": \"T0 builds the integral-differential (Lie/conormal, Hodge ideal) API on p-divisible groups of abelian schemes that R28.2's estimate uses.\"} and {\"layer\": \"tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups\", \"note\": \"7E constructs E[p^∞] of an elliptic curve over any base, the elliptic case of R28.2's p-divisible groups.\"}. Remove the R11.6 entry (a supplier, not a duplicate)."
+    },
+    {
+      "id": "RT-AUDIT-09/18",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — ComplexMultiplicationAndExplicitReciprocity:CM.5, target 'Isogeny graphs of CM elliptic curves at good primes, with ordinary and supersingular reduction kept distinct'",
+      "claim": "Tau Ceti ModularCurves 7E defines its own ordinary/supersingular predicate for elliptic curves and plans the ordinary/supersingular structure of E[p^∞]. It is not in the duplicates, which list EllipticCurves Layer 3.",
+      "evidence": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups, PD-2: 'E₀/k is ordinary if E₀[p]⁰ has rank p, supersingular if E₀[p] is connected (Suggested.lean, EllipticCurve.IsSupersingular)'; PD-4 and PD-5 give the supersingular Frobenius kernel and the ordinary/supersingular p-divisible-group structure.",
+      "fix": "Add {\"layer\": \"tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups\", \"note\": \"7E defines EllipticCurve.IsSupersingular via connectedness of E[p] and the ordinary/supersingular structure of E[p^∞], the dichotomy CM.5 keeps distinct; it and EllipticCurves Layer 3 must agree on one predicate.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/19",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — ComplexMultiplicationAndExplicitReciprocity:CM.4, target 'Infinity type and finite conductor of such a character'",
+      "claim": "Two layers that plan infinity types and conductors of algebraic Hecke characters are missing from CM.4's duplicates.",
+      "evidence": "AutomorphicPadicLFunctions:L0: 'Develop locally algebraic Hecke characters, their algebraic and p-adic avatars through chosen embeddings, conductors, infinity types and local factors.' AutomorphicFormsOnReductiveGroups:AF.5: 'Prove the GL_1 dictionary with Hecke characters including infinity type, conductor and unitary twist.'",
+      "fix": "Add {\"layer\": \"AutomorphicPadicLFunctions:L0\", \"note\": \"L0 develops locally algebraic Hecke characters with conductors and infinity types, CM.4's infinity-type and conductor target.\"} and {\"layer\": \"AutomorphicFormsOnReductiveGroups:AF.5\", \"note\": \"AF.5 proves the GL_1 dictionary for Hecke characters with infinity type and conductor.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/20",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — FaltingsFinitenessAndIsogenyTheorems:R28.4, target 'Semisimplicity of the Galois representation V_ℓ(A)'; ComplexMultiplicationAndExplicitReciprocity:CM.4, target 'Comparison … with the ℓ-adic Tate module'",
+      "claim": "The layers that construct the Tate module and its Galois action are missing. R28.4 lists only R01.6, and CM.4 lists only V5.",
+      "evidence": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68: 'The Tate module. For ℓ prime, ℓ ≠ char K: … T_ℓ E = lim E[ℓⁿ] a free ℤ_ℓ-module of rank 2 …, and the continuous Galois representation into Module.Aut ℤ_ℓ (T_ℓ E)'. AbelianSchemesAndArithmeticModuli:A4: 'For ℓ invertible on the base construct the étale Tate module and its functorial local system.'",
+      "fix": "Add both layers to the duplicates of R28.4 and of CM.4, with note: 'constructs T_ℓ (of elliptic curves / of abelian schemes) with its Galois action, the object whose semisimplicity (R28.4) and CM components (CM.4) are studied.'"
+    },
+    {
+      "id": "RT-AUDIT-09/21",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — EffectiveDiophantineMethods:ED.5, target 'Finite reduction maps from the Jacobian subgroup to J(𝔽_p)'",
+      "claim": "ED.5's duplicates list is empty. Its note says 'no reduction homomorphism on points of a curve or Jacobian exists', but the genus-one case (the reduction map on points) is planned by Tau Ceti EllipticCurves Layer 4.",
+      "evidence": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv: 'the reduction map on points — via the projective-coordinate representation, so that every K-point reduces honestly … the subgroups E₀(K) … and E₁(K) (kernel of reduction), the exact sequence 0 → E₁(K) → E₀(K) → Ẽ_ns(k) → 0'. TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean:23 confirms that no reduction map on points is built yet.",
+      "fix": "Add to ED.5 duplicates {\"layer\": \"tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv\", \"note\": \"Layer 4 constructs the reduction map on points E(K) → Ẽ(k) over a DVR with E₀, E₁ and 0 → E₁ → E₀ → Ẽ_ns(k) → 0, the genus-one case of ED.5's reduction maps.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/22",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — EffectiveDiophantineMethods:ED.2, target 'p-adic logarithms and explicit p-adic lower bounds for linear forms (Yu)'",
+      "claim": "The p-adic logarithm itself is constructed by two stages that ED.2 does not list. Its listed duplicate DT.3 only uses 'chosen … p-adic logarithms'.",
+      "evidence": "DirichletPadicLFunctions:L3: 'Fix log_p(p)=0 and the logarithm on all algebraic extensions compatibly'. ColemanIntegration:L0: 'Construct the logarithm with log_p(p)=0 on the necessary annuli and record how another branch changes it'.",
+      "fix": "Add {\"layer\": \"DirichletPadicLFunctions:L3\", \"note\": \"L3 fixes the Iwasawa branch log_p(p)=0 on all algebraic extensions, the p-adic logarithm of ED.2's target.\"} and {\"layer\": \"ColemanIntegration:L0\", \"note\": \"L0 constructs the p-adic logarithm with log_p(p)=0 on annuli, the same p-adic logarithm.\"}"
+    },
+    {
+      "id": "RT-AUDIT-09/23",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-09.result.json — InverseGaloisAndArithmeticFundamentalGroups:IG.3, target 'A rigid realization, an example where the field of moduli…'",
+      "claim": "The passport clause of IG.3's acceptance ('a passport alone does not determine a Belyi pair') is planned by BelyiMaps Layer 1, which the duplicates omit. The counterexample is in Layer 3.5, and that layer is listed only for 'character theory'.",
+      "evidence": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics §1.2: '⚠ Nearby false statement: a passport does not determine the isomorphism class; the smallest counterexamples have several classes in one passport, and Layer 3.5 exhibits one.' Layer 3.5: 'The smallest lives in degree 5: monodromy C₅, ordered cycle partitions ([5],[5],[5]), of size 3.'",
+      "fix": "Add {\"layer\": \"tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics\", \"note\": \"Layer 1 defines passports of connected triples and passport classes and states that a passport does not determine the isomorphism class, IG.3's passport acceptance clause (the degree-5 C₅ counterexample is Layer 3.5).\"}. Append to the existing Layer 3 entry: 'and 3.5 exhibits a passport with three classes'."
+    }
+  ]
+}
