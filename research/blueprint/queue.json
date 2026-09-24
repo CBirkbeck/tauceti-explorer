@@ -3038,8 +3038,8 @@
    ],
    "avoidAccountOf": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1185"
+   "state": "pending",
+   "note": "released on GitHub issue #1185"
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
@@ -5205,8 +5205,8 @@
    ],
    "avoidAccountOf": "PAPER-LIU-ZHU-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1303"
+   "state": "pending",
+   "note": "released on GitHub issue #1303"
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17",
@@ -5789,8 +5789,8 @@
    ],
    "avoidAccountOf": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1333"
+   "state": "pending",
+   "note": "released on GitHub issue #1333"
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17",
@@ -6214,8 +6214,8 @@
    ],
    "avoidAccountOf": "PAPER-FENG-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1355"
+   "state": "pending",
+   "note": "released on GitHub issue #1355"
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
@@ -23133,14 +23133,14 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-HabiroCyclotomicCompletions",
     "BP-HabiroNahmSeries",
     "BP-K3BlochGroups"
    ],
-   "note": "claimed on GitHub issue #1024"
+   "note": "released on GitHub issue #1024"
   },
   {
    "id": "REV-ArithmeticQuantumTopology",
@@ -26509,8 +26509,8 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-28.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1625"
+   "state": "pending",
+   "note": "released on GitHub issue #1625"
   },
   {
    "id": "REV-RT-RS-28",
@@ -29257,7 +29257,8 @@
     "RT-AREA-iwasawa-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-iwasawa-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1494"
   },
   {
    "id": "RT-AREA-iwasawa-2",
