@@ -25840,8 +25840,9 @@
     "REV-PAPER-BENNETT-SIKSEK-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1733"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1733",
+   "finishedAt": "2026-09-24T01:41:35Z"
   },
   {
    "id": "REV-RT-PAPER-BENNETT-SIKSEK-20",
@@ -27157,7 +27158,8 @@
     "REV-AUDIT-08"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1565"
   },
   {
    "id": "RT-AUDIT-09",
@@ -29392,7 +29394,8 @@
     "RT-AREA-modeltheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-modeltheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1506"
   },
   {
    "id": "RT-AREA-algebraicgeometry",
