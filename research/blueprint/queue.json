@@ -12334,8 +12334,9 @@
    "waitForLogs": [
     "{WORKERS}/EXT-12/run.log"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #75"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #75",
+   "finishedAt": "2026-09-24T00:32:05Z"
   },
   {
    "id": "REVIEW-EXT-13-EXT-07B",
@@ -26033,7 +26034,8 @@
     "REV-PAPER-HARPAZ-WITTENBERG-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1894"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -27821,8 +27823,9 @@
     "REV-AUDIT-22"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1594"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1594",
+   "finishedAt": "2026-09-24T00:32:08Z"
   },
   {
    "id": "REV-RT-AUDIT-22",
