@@ -28440,8 +28440,9 @@
     "REV-AUDIT-30"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-30.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1611"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1611",
+   "finishedAt": "2026-09-24T05:35:07Z"
   },
   {
    "id": "REV-RT-AUDIT-30",
@@ -30350,7 +30351,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-analysis.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1539"
   },
   {
    "id": "REV-RT-AREA-analysis",
