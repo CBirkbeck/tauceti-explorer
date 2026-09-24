@@ -1,0 +1,175 @@
+{
+  "redteam": "RT-PAPER-COUVEIGNES-20",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-COUVEIGNES-20",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "summary": "No new actionable error, omission or duplicate owner found in the accepted 49-item Couveignes extraction. All 12 library-positive items and the four routes were challenged against pinned statements, the published proof and existing owners. The existing p. 493 tensor-product erratum and review corrections are already incorporated. This is a scoped clean red-team result, not a formalization or a claim that downstream source proofs are complete.",
+  "checked": [
+    "Published source and accepted revision: Read Couveignes, Enumerating number fields, Annals 192 (2020), all printed pages 487–497, including both theorem statements, both propositions, all four proof sections and references. Read the accepted extraction JSON and report, REV-PAPER-COUVEIGNES-20, and the existing erratum E1. Audit the post-review statuses, including the appended corrections, not the superseded draft totals.",
+    "Discriminant, measure and short integers: Checked signed discriminant versus absolute root discriminant, multiplicity two at complex places, the 2^s conversion from standard product measure to the canonical weighted metric, the sup-gauge unit ball, and both uses of Minkowski second. The first floor(n/2)+1 independent integers have gauge at most delta; products span K and yield n independent integers with gauge at most delta^2. This produces a Q-basis of integral elements, not a Z-basis of O_K.",
+    "Interpolation hypotheses and proof dependencies: Checked the double-point length n(r+1), the first-jet matrix, fixed-degree homogenization and the d>=5 characteristic-zero Alexander–Hirschowitz interface. Independently read Brambilla–Ottaviani v2 Theorem 1.1 and its complete exception list, Lemma 6.1, Lemma 6.3, Theorem 6.4 hypotheses and initial proof steps, and the concluding induction/base-case discussion on p. 19. The proposed brief retains residual/trace, curvilinear, semicontinuity, cubic and quartic obligations. It does not treat a source instruction to use a computer as a rank certificate.",
+    "Integral parameter specialization: Checked the invertible embedding-matrix parameterization, nonzero maximal-minor polynomial, total/per-variable degree bounds, integer grid 0..d*n*(r+1), and algebraic-integer evaluation height. Full jets imply surjectivity of value evaluation over Q/R/C; no unjustified surjectivity onto the ring of integers is claimed.",
+    "Relation lattice and covolume: Checked saturation and rank ell=M-n, intrinsic Euclidean spans, primitive-orthogonal equality, finite-index transpose image, direction of the covolume inequality, and determinant division by |disc K|. The comparison uses an actual integral basis at the dual-image step and does not promote the earlier short independent family into one. Checked Hadamard and the Euclidean cube/ball lower bound used in the second Minkowski application.",
+    "Truncation and Jacobian minor: Checked the ordered-product argument retaining q=ell+1-n relations and discarding exactly n-1. Joint gradient surjectivity and codimension <=n-1 force one full-rank gradient block. The same chosen minor is an element of K and remains nonzero under every embedding; K need not be Galois. The available count q>=r follows from M>=n(r+1).",
+    "Etale component and explicit model: Checked that the selected r equations of degree <=d define the model only after inverting the Jacobian determinant, and that Spec K is a field component. Checked Proposition 2 coefficient height ell^(ell/(2n))*sqrt(M)*[n^2*d*(r+1)]^d*delta^(2d), and the distinction between existing abstract standard-smooth/finite-etale APIs and the concrete localized presentation/component bridge.",
+    "Asymptotics and count: Checked least-r central-binomial choice, eventual d=r>=5, M<=4*n*(r+1), and common absolute-constant absorption in Theorems 1 and 2. Checked the coefficient box exponent r*M, floor handling, isolated-point Bezout d^r despite positive-dimensional components elsewhere, and the surjective model-component cover of unweighted Q-isomorphism classes. No injective assignment of a unique model, asymptotic equivalent or runtime theorem is asserted.",
+    "All library-positive items: Read actual statements for all 12 library-status items at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, including the two review corrections (house and per-variable grid), the anonymous lattice/finiteness/Etale instances and their hypotheses. Read Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 HermiteCount/Basic.lean around the cited fixed-ambient counting theorem. Sixteen source files, including near misses, were byte-matched against public pinned URLs.",
+    "Missing-status challenge: Searched both complete pinned source trees for successive minima, Alexander–Hirschowitz/differential Horace/Hermite interpolation, primitive orthogonal covolume, span/product dimension and determinant-bound terms; inspected GramMatrix, NormDet, GramSchmidtOrtho and Polynomial/Homogenize near misses. The existing univariate-to-bivariate homogenization is not the required arbitrary-variable fixed-degree section comparison. Gram determinant identities do not supply the asserted determinant upper bound by themselves. Missing means no exact supplier located, not a proof of global nonexistence.",
+    "Existing owners and library audit: Read GN.0/GN.1, SF.0/SF.5, ST.0/ST.3 and R09.1/R09.2 stage descriptions and corresponding document sections; the whole EffectiveBounds README and IntegralLattices conventions/duality/overlattice sections. Read the relevant reviewed library-coverage targets, including built rational duality versus intrinsic real orthogonal-lattice covolume and existing fixed-ambient Hermite counting versus Couveignes degree-sensitive bounds.",
+    "Duplication and route closure: Screened all captured atlas roadmap/stage extracts, all six new-roadmap definitions, reserved node IDs, relevant EffectiveBounds/IntegralLattices link packets and the integrated ArithmeticStatistics decomposition. No existing GenericDoublePointInterpolation or EffectiveBoundsCompactModels definition was found. Checked four routes, parent-first Part II prerequisite, reusable lattice/geometry imports, ST.0 count carrier and ST.3 consumer direction. Exactly all 35 missing items occur in routes, each once; all 49 item IDs are unique. The two planned items import GN.1 and ST.0.",
+    "Existing source correction and limits: Couveignes p. 493 tensoring the relation lattice over Q is already recorded as erratum E1 and corrected to tensoring over Z; it is not a new finding. Read the Fulton Chapter 13 publisher opening supporting isolated components in improper intersections. Full proofs in the Siegel/Martinet books and Fulton chapter were not independently acquired here. No new full proof audit of every Brambilla–Ottaviani induction case or exact base-case certificate is claimed. Those boundaries are already explicit downstream obligations, not falsely completed work."
+  ],
+  "findings": [],
+  "sourceSnapshot": "a28cd83edb7929dfdee8d03a3b85a95c98d6eb2b",
+  "sources": [
+    {
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "readDate": "2026-09-24",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104"
+    },
+    {
+      "url": "https://arxiv.org/pdf/math/0701409v2",
+      "readDate": "2026-09-24",
+      "sha256": "7d3dd9e6268431f4be53740bbf57ebf46d9a76b13c3472d6911d7f6deb530aa7"
+    },
+    {
+      "url": "https://link.springer.com/chapter/10.1007/978-1-4612-1700-8_13",
+      "readDate": "2026-09-24",
+      "scope": "Publisher chapter opening only."
+    }
+  ],
+  "pinnedSources": [
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+      "sha256": "28a3ca4c2ee659c30a263598c5216253a7a81aef01ca2630b3811ba74c00a99e"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Algebra/MvPolynomial/SchwartzZippel.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/SchwartzZippel.lean",
+      "sha256": "c8430c74c8f84ea5c97d8171bec22c5424ddba5d2bf2b7b16752e414db2a4993"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Algebra/Polynomial/Homogenize.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Homogenize.lean",
+      "sha256": "f2ee61f9a91769032bdb5efe9c6eee179a12074b43f0ec9072531c5348849af4"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/GramMatrix.lean",
+      "sha256": "826ba2ae90ed32f889a027a40adfeb80f615c5ef55d9cb795ff5ebf8a1fd223a"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean",
+      "sha256": "704d995e01130543c48f9e21319a99c593b92ab190fde62135c181e77deff7fa"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Analysis/InnerProductSpace/NormDet.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/InnerProductSpace/NormDet.lean",
+      "sha256": "02b6b5b5f990aefecdbeaa183c768fe4b920ba058fc7b904350c2527e479ddb6"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/Combinatorics/Nullstellensatz.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Combinatorics/Nullstellensatz.lean",
+      "sha256": "76566eae66b2a88eecd3028ae41c48839d6bbc6affc9720b2d6290d3823b605d"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "sha256": "79467a7873a64a9cb6f47296f8ad6373559f0990c6d860a9384f93cf903f5109"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+      "sha256": "c95d115cbe0b83a18a8392cb3a80570eff1f62a54cc50b183307b1d53cc3050d"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+      "sha256": "ed40f42b080043e78bbe0d1017f305093f5bd4c825e0c9f76649c6cd0fbc65ce"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/NumberTheory/NumberField/House.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/House.lean",
+      "sha256": "6ab06070828026afb24c4d1816e59c4441ca6a3e6a3bb21e8aff0f81de573be6"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/RingTheory/Etale/Field.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Field.lean",
+      "sha256": "fe2660dd57ebc463fbf7f45a32424810e3fbd2577f6f3c99f056a63d72446e90"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPolynomial/Basic.lean",
+      "sha256": "d689a79e455a430135760db90b06299fb4bcf1792ae658d7268e07caa1d22a65"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+      "sha256": "68620e279b696f4f386f93be2a7ba9baca7f9f47750c1cb57b20d3ee5c33c964"
+    },
+    {
+      "library": "mathlib",
+      "file": "Mathlib/RingTheory/Smooth/StandardSmoothCotangent.lean",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/StandardSmoothCotangent.lean",
+      "sha256": "484477028ef466c9e2a713afa87f5280a90e6415f58a24c14906723dc5ab5708"
+    },
+    {
+      "library": "tauceti",
+      "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+      "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+      "sha256": "6e577f339722938344796510cf5f503d704f399ad0aaaa6de11e1e7fb21b0692"
+    }
+  ],
+  "validation": {
+    "redteamChecker": "pass",
+    "intake": "2 files, 0 problems",
+    "itemCount": 49,
+    "statuses": {
+      "library": 12,
+      "missing": 35,
+      "planned": 2
+    },
+    "missingItemsRoutedExactlyOnce": true,
+    "leanCompiled": false,
+    "publicationBase": "38a6a43c8378742bbd4763a90693991d841744c7",
+    "unchangedInputBlobs": 239,
+    "unchangedDeliverableGuards": 2,
+    "claimComment": 5805854908,
+    "claimConfirmation": 5805856046,
+    "publicPinnedByteMatches": 16
+  }
+}
