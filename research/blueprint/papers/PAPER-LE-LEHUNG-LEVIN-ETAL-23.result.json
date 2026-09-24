@@ -1145,6 +1145,28 @@
             ]
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-7e92bd",
+        "date": "2026-09-24",
+        "main": "Published PDF24–25,29–54,171–175,184–185 freshly read; PDF40 rendered. Selected arXiv v2 PDF29 compared. The original full212-page reading remains attributed and is not a new full reread.",
+        "sources": [
+          {
+            "title": "Haines–He, Vertexwise criteria for admissibility of alcoves",
+            "url": "https://www.math.umd.edu/~tjh/VertexAdm13.pdf",
+            "sha256": "0aac37e2754cb7ae81545f06a483727cc91c8234416f736d2c43e201260db67f",
+            "retrieved": "2026-09-24",
+            "readSections": "PDF1–3 via web; PDF4–11 as text: conventions, acute cones, parabolic Bruhat comparison, strong admissibility, Corollary4.4 and additivity Theorem1.4. Haines–Ngô citations remain external inputs."
+          },
+          {
+            "title": "Le–Le Hung–Levin, Weight elimination in Serre-type conjectures",
+            "url": "https://math.rice.edu/~bl70/WEpaper.pdf",
+            "retrieved": "2026-09-24",
+            "readSections": "Published PDF53–56: Wang/upper-arrow comparison, Proposition4.1.3 and complete proof, Lemma4.1.9. Previous selected readings retained.",
+            "sha256": "dbf6f1d12f7ea47e2f4185e5d4e17b4ee3dfbd789022ee9168da2a265fec5a15"
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -1167,7 +1189,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction: 745 items (132 library, 45 planned, 568 missing), 24 routes and 91 unreviewed source findings. This continuation decomposes the Z100/Z101 homological regularity suppliers into depth, maximal Cohen–Macaulay freeness, syzygies, well-ordered extensions, minimal resolutions, Koszul comparison and determinantal depth bounds. It adds 36 items, including 12 library imports, and preserves all inherited statements and findings. Recursive source/declaration closure, the rest of the regularity frontier and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted. The 24 September homological assembly continuation imports the principal-cut and scalar-length facts already in Mathlib, gives the shared finite Koszul and fixed-size determinantal contracts, and supplies the finite-separable regularity step; the extraction remains partial.",
+  "summary": "Partial extraction: 768 items (145 library, 48 planned, 575 missing), 25 routes and 93 unreviewed source findings. This continuation supplies 46 Section2 theorem proof outlines, propagates E84 and E79–E81 into the affected statements/APIs, and supplies an explicit auxiliary-type polynomial proving the V15 assembly. It preserves all inherited IDs and the homological continuation. E92 records the p=2,3 height-reduction proof boundary; E93 corrects its norm sign. Recursive external-source/declaration closure, remaining main-paper proofs, regularity suppliers and AppendixB certificates remain open. No formal implementation or independent review is asserted.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -1632,7 +1654,16 @@
       "locator": "Lemma2.1.4, PDF31",
       "statement": "For w1,w2 in Wplus, w2^-1 w0 w1 is a reduced product.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Identify length with the number of affine root walls separating alcoves. Applying w₂ identifies the distance for w₂⁻¹w₀w₁ with the distance from w₂(A₀) to w₀w₁(A₀).",
+        "For w₁,w₂ dominant, concatenate minimal galleries from w₀w₁(A₀) to w₀(A₀), then to A₀, then to w₂(A₀). In each positive-root direction the successive strips are ordered, so no separating wall is crossed twice.",
+        "The concatenated gallery is minimal and has length ℓ(w₁)+ℓ(w₀)+ℓ(w₂), proving the reduced factorization. This is the geometric argument of [56, Lemma 4.1.9], published PDF56 of Weight elimination."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N03"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N08",
@@ -1641,7 +1672,18 @@
       "locator": "Proposition2.1.5, PDF31",
       "statement": "Every regular affine element is w2^-1 w0 t_nu w1 for w1,w2 in W1plus and dominant nu; the data are unique up to the central X0 action described in the proof.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Choose the finite Weyl element w₂ carrying the regular alcove w(A₀) into the antidominant chamber, and its restricted lift w̃₂=t_{η₂}w₂. For each simple root the translated alcove has pairing <1; regularity excludes the intervening critical strip, hence its pairing is <0.",
+        "Thus w₀w̃₂w is dominant. Subtract its integral simple-root strip indices to write it t_νw̃₁ with ν dominant and w̃₁ restricted. This gives w=w̃₂⁻¹w₀t_νw̃₁.",
+        "The chamber determines the finite part of w̃₂; the strip indices determine the remaining translations modulo X⁰(T). Comparing the two factorizations therefore gives exactly the central equivalence in Proposition 2.1.5, not absolute uniqueness of the factors."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N06"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N09",
@@ -1650,7 +1692,17 @@
       "locator": "Proposition2.1.5, PDF31",
       "statement": "For any w1,w2 in Wplus, w2^-1 w0 w1 is regular.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Apply w₂ to the alcoves used to test regularity of w₂⁻¹w₀w₁. The alcoves w₂(A₀) and w₀w₁(A₀) are in opposed dominant and antidominant chambers.",
+        "For each root the two endpoint strips are separated by the critical strip. Pulling the separating walls back by w₂ shows that the resulting alcove meets none of the critical strips in the definition of regularity."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N06"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
@@ -1659,7 +1711,15 @@
       "locator": "Proposition 2.1.6, (1)⇔(2), PDF31",
       "statement": "Suppose that w̃1 and w̃2 are elements in W̃^+. Let λ ∈ X*(T) be a dominant weight. Then w̃1 ↑ t_λ w̃_h^{-1} w̃2 if and only if w̃2 ↑ w̃_h t_{−λ} w̃1. (Conditions (1) and (2) of Proposition 2.1.6.)",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Use that the upper-arrow order is preserved by integral translation and reversed by the longest finite Weyl element; these are [56, Proposition 4.1.2], via Jantzen II.6.5(4).",
+        "Apply this reversing affine transformation to both sides of w̃₁ ↑ t_λw̃_h⁻¹w̃₂ and simplify w̃_h=w₀t_{−η}. The result is w̃₂ ↑ w̃_h t_{−λ}w̃₁; applying the inverse transformation proves the converse."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N03"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N75",
@@ -1678,7 +1738,18 @@
           "where": "Proof of Proposition 2.1.6 (4)⇒(1), PDF32",
           "how": "The step from (4) to (1) goes through the (3)-type bound w̃2^{-1}w0w̃1 ≤ t_{(w0w2)^{-1}(λ+η)}."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Normalize the second factor to be restricted as in N76. Convert upper-arrow to Bruhat order by Wang’s theorem and prepend the reduced factor w̃₂⁻¹w₀; this gives the bound indexed by (w₀w₂)⁻¹.",
+        "Apply N10 to exchange the two factors and repeat the calculation, obtaining the bound indexed by w₁⁻¹. Both translations contain λ+η; use the correction E6.",
+        "Conversely, either translation bound implies membership in Adm(λ+η). N76 returns the upper-arrow condition. This proof uses N76 only in this reverse direction and does not use N75 in the proof of N76."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76",
@@ -1701,7 +1772,19 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
           "how": "The proof of Lemma 9.1.10 (PDF186) gets (w_h w)^{-1}w0w1 ∈ Adm(η) from Proposition 2.1.6 with λ = 0."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Translate the two dominant factors compatibly to reduce to w̃₂ restricted, compensating in w̃₁ by the opposite w₀-translate. This preserves their product and the upper-arrow condition.",
+        "For the forward direction, Wang’s theorem equates upper-arrow and Bruhat order on dominant alcoves. Prepending w̃₂⁻¹w₀ is reduced by N07, giving w̃₂⁻¹w₀w̃₁ ≤ t_{(w₀w₂)⁻¹(λ+η)}, hence membership in Adm(λ+η).",
+        "For the converse, the alcove of x=w̃₂⁻¹w₀w̃₁ lies in the chamber/acute cone with direction (w₀w₂)⁻¹. Haines–He Corollary 4.4 bounds an admissible alcove in that cone by t_{(w₀w₂)⁻¹(λ+η)}. Transport their antidominant base-alcove convention to the convention here before using the bound.",
+        "Write this translation as w̃₂⁻¹w₀(t_λw̃_h⁻¹w̃₂). Both displayed products have the same reduced prefix by N07. Cancel its simple reflections using the Bruhat lifting property, then use Wang’s theorem again. The Haines–He proof is read through Proposition 4.1 and Corollary 4.4; its acute-cone suppliers from Haines–Ngô remain named external inputs."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N11",
@@ -1786,7 +1869,19 @@
       "locator": "Corollary2.1.7, PDF32–33",
       "statement": "For dominant lambda, (w1,w2) maps to w2^-1 w0 w1 and gives a bijection AP(lambda+eta) -> Admreg(lambda+eta).",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The central diagonal action does not change w̃₂⁻¹w₀w̃₁. N09 gives regularity and N76 gives admissibility, so the displayed map is well defined.",
+        "Factor a regular admissible element by N08. Absorb the dominant translation t_ν into the second factor using w₀t_ν=t_{w₀ν}w₀. The resulting first factor is restricted, the second dominant; N76 supplies the admissible-pair inequality.",
+        "The uniqueness modulo central translations in N08 identifies any two pairs with this image. This proves injectivity on the stated quotient, and the preceding factorization proves surjectivity."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N13",
@@ -1795,7 +1890,18 @@
       "locator": "Remark2.1.8, PDF33",
       "statement": "The same bijection holds for pairs in Wplus times W1plus modulo X0 with the same upper-arrow relation; the formula for the affine element is unchanged.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Repeat the regular factorization with the second factor restricted, moving the dominant translation into the first factor rather than the second.",
+        "N10 exchanges the two upper-arrow forms; N76 still identifies the same product with admissibility. Central uniqueness is again N08. Thus the quotient with the restriction on the other factor has the same target and the same product formula."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N14",
@@ -2074,7 +2180,7 @@
         {
           "name": "PolyGeneric.Pm_iff_deep",
           "role": "compatibility",
-          "statement": "For G = GL_n^J and λ−η ∈ C₀, λ is P_m-generic iff λ−η is m-deep, with P_m = ∏_{i=1}^n ∏_{j=1}^m (X_i − X_{i+1} − j) and X_{n+1} = X₁ (Remark 2.1.11(2))."
+          "statement": "For integral λ with λ−η∈C₀ in GL_n^J, P_m-genericity implies m-depth for all n≥1,m≥0; it is equivalent to m-depth when n≥2 or m<p. For n=1 the converse fails at m≥p, since P_m=(−1)^m m! (E84; N80)."
         }
       ],
       "tests": [
@@ -2092,6 +2198,11 @@
           "name": "PolyGeneric.not_weyl_invariant",
           "kind": "non-example",
           "statement": "For P = X₁ − X₂ − 1, (1,0) is not P-generic but (0,1) is, for p ≠ 2; P-genericity is not W-invariant (Remark 2.1.11(1))."
+        },
+        {
+          "name": "PolyGeneric.GL1_factorial_boundary",
+          "kind": "non-example",
+          "statement": "For GL₁, p=2 and m=2, all λ are 2-deep because there are no roots, but P₂(λ)=2 vanishes modulo 2. For m=1 it is −1 and every λ is P₁-generic."
         }
       ]
     },
@@ -2102,7 +2213,16 @@
       "locator": "Proposition2.1.12(1), PDF34",
       "statement": "For nu a weight and every finite Weyl s, t_nu is m-generic (respectively m-small) iff t_(s nu) is; depth is invariant under the p-dot action and smallness under the ordinary Weyl action.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "A finite Weyl element permutes all coroots, so max_α⟨ν,α∨⟩ is unchanged. This proves the smallness assertion.",
+        "For genericity, use m<|⟨ν,α∨⟩+pk| for every root and integer k. The finite Weyl action permutes roots and the p-dot action on ν−η changes the root pairings by root permutations and multiples of p. Relabel α,k to obtain the equivalences."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N16"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N19",
@@ -2111,7 +2231,16 @@
       "locator": "Proposition2.1.12(2), PDF34",
       "statement": "If w is m-small and z is m'-small then wz is (m+m')-small, in either affine group.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "In right-translation notation, (a t_ν)(b t_μ)=ab t_{b⁻¹ν+μ}. Each coroot pairing of b⁻¹ν is bounded in absolute value by m and that of μ by m′.",
+        "Apply the triangle inequality, then maximize over roots. The group law is the same for the dual affine group, so this argument applies there as well."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N20",
@@ -2120,7 +2249,17 @@
       "locator": "Proposition2.1.12(3), PDF34",
       "statement": "w is m-small iff w^-1 is m-small iff w^* is m-small.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For w=a t_ν, its inverse has right translation −aν; the corrected opposition map has right translation aν (after the appropriate finite factor is moved left).",
+        "Finite Weyl transformations and negation permute the full root set, so the three root-height maxima agree. This uses the antimultiplicative opposition convention of E1, not the printed group-isomorphism assertion."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N21",
@@ -2129,7 +2268,17 @@
       "locator": "Proposition2.1.12(4), PDF34",
       "statement": "If z is m'-generic and w is m-small with m<=m', then zw is (m'-m)-generic.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Write z=a t_ν and w=b t_μ. The translation of zw is b⁻¹ν+μ. The first summand has the same distance >m′ from every affine p-wall as ν, by N18.",
+        "The root pairing of μ has absolute value ≤m. The reverse triangle inequality gives distance >m′−m from each wall. Since m≤m′, this is the nonnegative-depth criterion of N15."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N22",
@@ -2379,7 +2528,19 @@
       "locator": "Lemma2.2.1, PDF35–37",
       "statement": "If dominant mu is not m-deep, h is an integer bounding <mu,alpha^vee> for every root, and sigma is a Jordan–Hölder factor of W(mu), then sigma is not (m+floor(h/(p-1)))-deep. Proof uses linkage, Steinberg tensor product, tensor-weight translation, convexity and a terminating height reduction; none may be replaced by an assumed constituent classification.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Use the linkage principle and Steinberg tensor product theorem to replace a dominant highest weight whose module contains σ by a smaller dominant highest weight with the same property. For a nonrestricted weight μ₀+pμ₁, restriction to G replaces the Frobenius factor by its π-twist; tensor weights lie in the appropriate Weyl polytope. N26 makes the resulting weight dominant without leaving that polytope.",
+        "The positive height paired with (η−w₀η)∨ strictly decreases at each nonterminal reduction. Hence the process terminates at a p-restricted λ with F(λ)=σ. Record the accumulated dominant translation γ and a perturbation in Conv(Wγ); do not merely assume an arbitrary constituent classification.",
+        "The linkage inequalities imply (p−1)h_γ≤h_μ≤h, so all root pairings of the accumulated perturbation have absolute value ≤floor(h/(p−1)). The other accumulated transformations are p-dot transformations and preserve depth.",
+        "A weight at distance ≤m from some p-wall cannot be moved to distance >m+floor(h/(p−1)) by such a perturbation. This proves the contrapositive depth estimate. The exact external representation-theoretic suppliers are Jantzen II.6.13 (linkage), II.3.17 (Steinberg), II.5.8 (tensor weights) and II.5.5 (virtual Weyl characters), as in PDF35–37; recursive proofs of these suppliers are not asserted here."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N26"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N26",
@@ -2388,7 +2549,16 @@
       "locator": "Lemma2.2.2, PDF36",
       "statement": "If lambda is dominant, nu is in Conv(W kappa), and w(lambda+nu) is dominant, then w(lambda+nu)-lambda lies in Conv(W kappa). The proof moves across root walls and keeps each corrected nu on a segment between two Weyl conjugates.",
       "status": "missing",
-      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: RootSystemsPartIIDominanceAndDemazure. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Choose a simple root α with ⟨λ+ν,α∨⟩<0. Reflect λ+ν and replace ν by ν′=s_α(λ+ν)−λ=ν−⟨λ+ν,α∨⟩α.",
+        "Dominance of λ implies 0<−⟨λ+ν,α∨⟩≤−⟨ν,α∨⟩. Thus ν′ lies on the segment from ν to s_αν, which is contained in the Weyl-invariant convex polytope Conv(Wκ).",
+        "Move across simple walls until reaching the dominant representative of the finite orbit of λ+ν. This terminates by the standard chamber algorithm. The resulting translated vector remains in Conv(Wκ)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N27",
@@ -2610,7 +2780,17 @@
       "locator": "Lemma2.2.3, PDF38",
       "statement": "The lift in(2.7) reduces modulo(p-pi) to the central character of F_(w1,omega).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Restrict the highest-weight character defining F_(w̃₁,ω) to Z. Finite Weyl elements act trivially on the central character lattice.",
+        "The p-dot and π terms differ by an element of (p−π)X*(Z); reducing the lift represented by t_{ω−η}w̃₁ gives precisely the character of the finite centre. Keep the −η shift, as in equation (2.7)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N29"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
@@ -2619,7 +2799,18 @@
       "locator": "Lemma2.2.4, PDF38, corrected E2",
       "statement": "For a0-deep Serre weight sigma, (w1,omega) maps to the class of t_(omega-eta)w1 and bijects its lowest-alcove presentations with algebraic lifts of its finite central character. The printed formula omits -eta; retaining it would change the target character.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "All lowest-alcove presentations of a 0-deep weight form the Ω orbit (w̃₁π(δ)⁻¹, δ·(ω−η)+η). The affine action is the p-dot action.",
+        "Under Ω≃X*(Z), acting by δ with central class ζ_δ changes the lift of t_{ω−η}w̃₁ by (p−π)ζ_δ. Thus the image is exactly the set of lifts of the fixed finite central character.",
+        "The operator p−π is injective: π has finite order, so p^d−1 annihilates a hypothetical kernel element in the torsionfree lattice. Consequently each lift occurs once. This proves the corrected E2 formula rather than the unshifted printed one."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N30"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N32",
@@ -2771,7 +2962,17 @@
       "locator": "§2.3 after Definition2.3.1, PDF39",
       "statement": "A1-generic Deligne–Lusztig representation is irreducible; a0-deep lowest-alcove pair is good. Inputs are[19] Theorem6.8 and[56] Lemma2.2.3.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For a 0-deep lowest-alcove pair, apply the good-pair criterion of [56, Lemma 2.2.3]. Its hypotheses include avoidance of the affine p-walls; a boundary presentation is not enough.",
+        "For a 1-generic pair, the associated torus character is in general position. Deligne–Lusztig Theorem 6.8 [19], with the paper’s sign normalization of R_s(μ), then gives an irreducible representation.",
+        "These are two separately named imported implications in the bundled source item. Their independent source proof/declaration closure remains in closure-external-inputs; the outline is not a replacement proof of Deligne–Lusztig theory."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N33"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N35",
@@ -2846,7 +3047,17 @@
       "locator": "Lemma2.3.2, PDF39",
       "statement": "For1-generic R, (s,mu-eta) maps to t_mu s modulo Wa and bijects its lowest-alcove presentations with algebraic lifts of its reduced finite central character.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Use [56, Proposition 2.2.15] to describe equivalent generic lowest-alcove presentations: the change by (ν,w) sends (s,μ) to (wsπ(w)⁻¹,w(μ+pν−sπν)).",
+        "On X*(Z), the change in the class of t_μs is (p−π)ν. The Ω parametrization therefore identifies its orbit with the lifts of the fixed central character.",
+        "As in the torsionfree-lattice argument for N31, p−π is injective, so distinct presentation changes give distinct lifts. The 1-generic hypothesis is used for the presentation classification."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N33"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N37",
@@ -2855,7 +3066,17 @@
       "locator": "Lemma2.3.3, PDF40",
       "statement": "Every R has R=R_s(mu) with mu dominant and h_mu<=p+2; consequently mu-eta is(-3)-deep in C0. For products of GLn the stronger(-1)-depth is available as Remark2.3.5 records, but needs its own justification.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted. Apply E93 to the triangle inequality. The full source statement is retained as an unproved p=2,3 boundary (E92); the proof above establishes its p≥5 range and records precisely what the displayed recurrence leaves open.",
+      "proofSteps": [
+        "Preserve R_s(μ) while replacing μ by μ+pν−sπν. The affine-alcove covering supplies ν with h_{μ+pν}≤p, and the triangle inequality gives h_ν≤floor(h_μ/p)+1. Here the norm is h_{μ+pν}, correcting the printed h_{μ−pν} (E93).",
+        "Thus the new height is bounded by p+floor(h_μ/p)+1. For p≥5 this is strictly smaller than h_μ whenever h_μ>p+2, so induction terminates at the asserted bound. A final finite Weyl conjugation makes μ dominant without changing height.",
+        "The printed estimate also permits stationary heights (p,H)=(2,5),(2,6),(3,6). It therefore proves only eventual height ≤6 for p=2 or 3, not the asserted p+2 bound. A supplementary small-prime argument is required (E92). The GL_n (−1)-depth refinement in Remark2.3.5 also needs its own supplier; neither follows from this recurrence."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N32"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N38",
@@ -2864,7 +3085,18 @@
       "locator": "Lemma2.3.4, PDF40",
       "statement": "For dominant lambda with h_(lambda+eta)<p-3, if JH(Rbar tensor W(lambda)) contains an m-deep weight, then R admits(s,mu) with mu-eta(m-h_(lambda+2eta))-deep in C0. In the GLn-product refinement one may replace p-3 by p-1.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Argue contrapositively using the bounded dominant presentation from N37. Jantzen’s Deligne–Lusztig character formula [39, Appendix A.3.4] puts each constituent of R̄⊗W(λ) inside a Weyl module W(ν) after tensor-weight translation and dominant adjustment.",
+        "If μ−η is not (m−h_{λ+2η})-deep, the resulting ν is not (m−h_η)-deep. The restricted-alcove bound gives h_ν≤p h_η+h_λ+2.",
+        "The hypothesis h_{λ+η}<p−3 implies floor((p h_η+h_λ+2)/(p−1))≤h_η. Apply N25 to conclude that the constituent is not m-deep.",
+        "The stated hypothesis already excludes p≤3, so the termination edge in N37 does not obstruct this use. For the GL_n refinement replace N37’s (−3)-depth by the separately required (−1)-depth result before replacing p−3 by p−1."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N37"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N39",
@@ -2873,7 +3105,17 @@
       "locator": "Proposition2.3.6, PDF41",
       "statement": "For a2h_eta-generic presentation(s,mu-eta) of R and lambda in X1, F(lambda) belongs to JH(Rbar) iff some z=w t_nu in Wplus satisfies z dot(mu-s pi(nu)-eta) upward wh dot lambda and z dot C0 upward wh dot C0.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Start with Jantzen’s reduction formula for R_s(μ), as used in [56, Proposition 4.1.3]. Its nonzero constituent criterion is expressed by an affine dominant element z and the upper-arrow comparison of the corresponding highest weights.",
+        "The 2h_η depth assumption bounds the possible correction translations in that formula. The argument of [56, proof of Proposition 4.1.3, published PDF54–55] compares the maximum coroot pairing M on both sides to obtain the required bound; the geometric bound h_η replaces the GL_n bound n−1.",
+        "After this bound, the criterion is exactly the two upper-arrow conditions in N39. This is an explicit import of Jantzen’s formula and its generic-range reduction; extending the read GL_n proof to the full root-datum scope remains a supplier audit obligation, not an automatic change of the number 2n."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N33"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
@@ -2882,7 +3124,20 @@
       "locator": "Proposition2.3.7, PDF41–42",
       "statement": "For dominant lambda, m>=max(2h_eta,h_(lambda+eta)), and a chosen m-generic presentation of R, (w1,w2) maps to F_(w1,wtilde(R)w2^-1(0)) and bijects AP(lambda+eta) with JH(Rbar tensor W(lambda)). These are sets of constituents; this does not assert multiplicity one.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For an admissible pair, the upper-arrow bounds control every root pairing of w̃₂⁻¹(0) by h_{λ+η}. Thus ω=w̃(R)w̃₂⁻¹(0) is an allowed lowest-alcove parameter. The central-coset calculation gives the λ-compatible lift, and N31 identifies presentations with that lift, establishing injectivity on the central quotient.",
+        "For surjectivity, the translation principle expresses a constituent of R̄⊗W(λ) as one of R̄ with a weight shift in Conv(Wλ). Apply N39, then choose the dominant representative in the relevant finite-Weyl coset. The resulting pair satisfies w̃₁ ↑ t_λw̃_h⁻¹w̃₂.",
+        "Conversely, convert this inequality to Bruhat order and use the reduced factorization from N07 (through N12) to extract subwords x≤t_{−w₀λ} and y≤w̃_h w̃₁. Admissibility implies permissibility, so x(0) lies in Conv(W(−w₀λ)). Reverse the tensor-weight translation to obtain an actual constituent.",
+        "The proof is a bijection of sets of simple constituents. It does not compare their multiplicities. The translation principle, Jantzen criterion and admissible-to-permissible inclusion [52] are explicit external inputs requiring shared-owner closure."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N39"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N41",
@@ -2891,7 +3146,16 @@
       "locator": "Proposition 2.3.7, 'Moreover' clause (depth), PDF41",
       "statement": "Let λ ∈ X*(T) be a dominant weight and let m ≥ max{2h_η, h_{λ+η}} be an integer. Let R be a Deligne–Lusztig representation together with an m-generic lowest alcove presentation, with corresponding element w̃(R) ∈ W̃ (cf. Definition 2.3.1). Then the Jordan–Hölder factors F_{(w̃1, w̃(R)w̃2^{-1}(0))}, (w̃1,w̃2) ∈ AP(λ+η), of R̄ ⊗ W(λ) (by (2.8), N40, these are all of JH(R̄ ⊗ W(λ))) are (m − h_{λ+η})-deep.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For a pair in AP(λ+η), the upper-arrow inequalities bound h_{w̃₂⁻¹(0)} by h_{λ+η}. Multiplication by this bounded translation changes the generic parameter of R by at most that root height.",
+        "Apply N21 to get (m−h_{λ+η})-depth of its displayed lowest-alcove parameter. N40 says that all constituents occur in this list, completing the assertion for JH(R̄⊗W(λ))."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N72",
@@ -2914,7 +3178,17 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M30",
           "how": "The proof of Theorem 4.6.2 (PDF96) takes (w1, (t_{μ+η}s)w2^{-1}(0)) as the representative of the compatible lowest alcove presentation of each σ ∈ JH(R̄ ⊗ W(λ−η))."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Compute the central class of the displayed constituent as w̃₁ t_{w̃(R)w̃₂⁻¹(0)−η}W_a = w̃₁ w̃(R)w̃₂⁻¹ t_{−η}W_a.",
+        "The upper-arrow condition gives w̃₁≡t_{λ+η}w₀w̃₂ modulo W_a. Since the quotient W̃/W_a is abelian and finite Weyl elements vanish in it, the class simplifies to t_λw̃(R)W_a.",
+        "This is precisely λ-compatibility. N40 supplies occurrence; the calculation itself uses neither multiplicity one nor the erroneous unshifted lift of E2."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N42",
@@ -2923,7 +3197,18 @@
       "locator": "Proposition2.3.8, PDF42",
       "statement": "For dominant lambda, lambda-compatible lowest-alcove presentations(w1,omega) of sigma and(s,mu-eta) of R, and R max(2h_eta,h_(lambda+eta))-generic, sigma lies in JH(Rbar tensor W(lambda)) iff t_omega W_le_(w0 w1) is contained in t_mu s Adm(lambda+eta).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Choose the unique dominant representative w̃₂ in the finite-Weyl coset of t_{−ω}w̃(R). λ-compatibility ensures the same W_a-coset as required by the admissible-pair criterion.",
+        "N40 and N76 identify occurrence with w̃₂⁻¹w₀w̃₁∈Adm(λ+η). The lower Bruhat interval ending at w₀w̃₁ is left W-stable; reduced-prefix multiplication therefore converts this criterion to the stated containment of translated intervals.",
+        "The converse follows by evaluating containment at the extremal element and removing the same finite-Weyl factor. Retain the entire interval condition: checking an unrelated single vertex would not establish it."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N43",
@@ -2985,7 +3270,18 @@
       "locator": "Lemma2.3.9, PDF42–43",
       "statement": "If F_(w',omega') is outer in Rbar and(w,omega) is a compatible presentation of any constituent in Rbar, then w upward t_(barw' barw(R)^-1(omega'-omega)) w'. Here the action on the difference uses the finite Weyl part; representatives may be chosen arbitrarily within the compatible classes.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For the outer weight write ω′=w̃(R)(w̃_h w̃′)⁻¹(0). For the other weight, N40 and N72 give ω=w̃(R)w̃₂⁻¹(0) with w̃ ↑ w̃_h⁻¹w̃₂.",
+        "Apply the inverse finite part of w̃(R) to ω′−ω and compare the resulting translated finite-Weyl cosets. Taking their dominant representatives gives the upper-arrow relation between w̃₂ and the translated w̃_h w̃′.",
+        "Reverse by w̃_h and use translation invariance of upper-arrow to obtain the displayed bound for w̃. The difference ω′−ω is acted on by the finite Weyl part, not by the affine translation of w̃(R)."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N72"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45",
@@ -3070,7 +3366,19 @@
       "locator": "Proposition 2.3.12, (1)⇔(2), PDF43–44",
       "statement": "Suppose that (w̃,ω) and (w̃′,ω′) are (representatives for) compatible lowest alcove presentations of Serre weights and ω−η is 3h_η-deep. Then F_{(w̃,ω)} covers F_{(w̃′,ω′)} if and only if w̃′ ↑ t_{W(ω−ω′)} w̃, i.e. w̃′ ↑ t_{s(ω−ω′)} w̃ for every s ∈ W. (Conditions (1) and (2) of Proposition 2.3.12; the parenthetical length clause of (2) is N73.)",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Assume covering. Realize F_(w̃,ω) as an outer constituent of the family of Deligne–Lusztig types whose affine parameter x satisfies x((w̃_h w̃)⁻¹(0))=ω. The fixed offset has root height ≤h_η, so 3h_η-depth makes these types at least 2h_η-generic.",
+        "The possible finite parts of x run through W. Covering places F_(w̃′,ω′) in every one of these types. Apply N44 to each finite part, obtaining w̃′ ↑ t_{s(ω−ω′)}w̃ for every s∈W.",
+        "Conversely, these inequalities give the containment of translated lower Bruhat intervals: use Jantzen II.6.5(5) to compare the dominant representatives and Wang’s theorem to pass to Bruhat order. The calculation is the (2)⇒(3) argument in PDF44.",
+        "For any Deligne–Lusztig representation containing the first weight, N42 puts its interval in the type’s admissible interval. The preceding containment puts the second interval there too; N42 then proves occurrence of the second weight. This is the universal covering condition. No dependence on the separately stated N47 is needed in this proof."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N73",
@@ -3089,7 +3397,17 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N74",
           "how": "Gives antisymmetry of the covering order."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Choose s∈W with s(ω′−ω) dominant. The assumed family of upper-arrow inequalities gives t_{s(ω′−ω)}w̃′ ↑ w̃; Wang’s theorem gives the corresponding Bruhat inequality.",
+        "The translated dominant factorization is reduced, so ℓ(w̃′)≤ℓ(t_{s(ω′−ω)})+ℓ(w̃′)≤ℓ(w̃).",
+        "Equality forces the translation to have length zero, hence ω′−ω central; equality in Bruhat order then identifies the affine elements up to the central presentation action. Compatibility and N31 give equivalent presentations. Conversely an equivalent presentation differs by a central length-zero translation, so lengths agree."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N47",
@@ -3098,7 +3416,16 @@
       "locator": "Proposition2.3.12(1),(3), PDF43–45",
       "statement": "Under N46's hypotheses, covering is equivalent to t_omega' W_le_(w0 w') being contained in t_omega W_le_(w0 w).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The (2)⇒(3) calculation in N46 gives the interval inclusion from covering. It uses all finite-Weyl upper-arrow inequalities, not just one of them.",
+        "Conversely, for every sufficiently generic Deligne–Lusztig representation containing F_(w̃,ω), N42 puts the larger interval inside the type’s translated admissible set. Its subinterval then gives occurrence of F_(w̃′,ω′), again by N42. This is covering."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N48",
@@ -3107,7 +3434,17 @@
       "locator": "Proposition 2.3.12, (1)⇔(4), PDF43–45",
       "statement": "Suppose that (w̃,ω) and (w̃′,ω′) are (representatives for) compatible lowest alcove presentations of Serre weights and ω−η is 3h_η-deep. Then F_{(w̃,ω)} covers F_{(w̃′,ω′)} if and only if F_{(w̃′,ω′)} is a Jordan–Hölder factor of ⊕_{w̃1 ∈ W̃^+, w̃1 ↑ w̃} L(π^{-1}(w̃1)·(ω−η))|_G, where G = G0(F_p). (Conditions (1) and (4) of Proposition 2.3.12.)",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Write each dominant affine w̃₁ occurring in the direct sum as t_νw̃₁′ with restricted w̃₁′. Steinberg tensor product and the translation principle [60, Proposition 4.2.4(1)] reduce its restricted algebraic module to Serre constituents indexed by weights ν′ of L(ν).",
+        "The weights ν′ lie in Conv(Wν). Dominant adjustment as in N26 and Jantzen’s upper-arrow properties show that each such constituent satisfies the covering inequalities of N46.",
+        "Conversely, if the inequalities of N46 hold, choose the dominant Weyl representative ν of ω′−ω. The corresponding highest-weight term in the algebraic module occurs, producing the desired constituent in the stated sum. The 3h_η-depth hypothesis is retained throughout the translation step; no unrestricted semisimplicity claim is made."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N74",
@@ -3126,7 +3463,17 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45",
           "how": "The API entry SerreWeight.Covers.partialOrder is this remark and should cite N74."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Reflexivity and transitivity follow from the universal occurrence implication defining covering.",
+        "If two 3h_η-deep weights cover each other, N46 applies in both directions. N73 gives opposite length inequalities, hence equality and equivalent compatible presentations. They therefore represent the same Serre weight, proving antisymmetry."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N73"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N49",
@@ -3439,7 +3786,18 @@
       "locator": "Lemma2.4.4, first part, PDF48",
       "statement": "For1-generic tau over E, (s,mu) maps to t_(mu+eta)s modulo Wa and bijects lowest-alcove presentations with zeta in X*(Z) satisfying zeta composed with omega1=det tau.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The injectivity of the tame-parameter/Deligne–Lusztig correspondence identifies equivalence of generic type presentations with equivalence of the corresponding Weyl data.",
+        "The same Ω-orbit calculation as N36 classifies the central classes of t_{μ+η}s. Evaluation of this class on the fundamental tame character is det τ, so the orbit is exactly the stated set of determinant lifts.",
+        "Injectivity follows from injectivity of p−π on the central lattice. This is the characteristic-zero convention of N51."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N51"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N54",
@@ -3448,7 +3806,18 @@
       "locator": "Lemma2.4.4, second part, PDF48, corrected E3",
       "statement": "For1-generic bartau, the map(s,mu)->t_mu s modulo Wa bijects lowest-alcove presentations with zeta such that(zeta+eta restricted to Z) composed with baromega1=det bartau. The printed minus sign contradicts the definition of tau(s,mu+eta).",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Reduce the characteristic-zero parameter by the Teichmüller correspondence of N49. The determinant character reduces to the evaluation of the same μ+η central exponent.",
+        "The residual compatibility class is represented by t_μs, one η less than the characteristic-zero class. Therefore its class ζ satisfies (ζ+η|_Z)∘ω̄₁=det τ̄. Use the plus sign of E3.",
+        "The generic presentation orbit and injectivity of p−π give the bijection, as for N53. A minus sign here would fail already for a diagonal parameter."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N53"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N55",
@@ -3457,7 +3826,16 @@
       "locator": "Proposition2.4.5, PDF48",
       "statement": "For z=t_nu w, omega a weight and kappa=pi^-1(z) dot(omega-eta), tau(1,kappa) is isomorphic to tau(pi^-1(w)^-1 w, omega+pi^-1(w)^-1(nu-eta)).",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Apply the conjugacy formula for tame parameters in [33, equation (10.1.11)] with change of presentation (π⁻¹ν,π⁻¹w) to the parameter on the right.",
+        "The Weyl part becomes 1. The exponent becomes π⁻¹w(ω)+pπ⁻¹ν−η, which is exactly π⁻¹(t_νw)·(ω−η)=κ by the p-dot convention.",
+        "Conjugate presentation data give isomorphic inertial parameters by N49. The η subtraction and the Frobenius permutation π must be kept in this computation."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N49"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N56",
@@ -3619,7 +3997,17 @@
       "locator": "Theorem2.5.4(1), PDF50",
       "statement": "For any WD inertial type tau of GLn(K) there exists smooth irreducible sigma(tau) of GLn(OK) over sufficiently large E such that its occurrence in an irreducible admissible pi implies rec_K(pi) restricted to inertia <=tau. No uniqueness of sigma(tau) is asserted.",
       "status": "missing",
-      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Decompose the inertial representation into its supercuspidal inertial blocks and attach the partition specifying nilpotent monodromy in each block.",
+        "Import Schneider–Zink Theorem 3.7 [74] to choose the corresponding irreducible compact type. Its partition-order occurrence criterion implies equality of inertial semisimplifications and the required dominance inequality in every block.",
+        "Assemble the blocks to obtain σ(τ). This is an existence result for a compatible choice, not uniqueness of all representations satisfying the implication. The detailed type-theoretic supplier proof remains an external input."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N59",
@@ -3628,7 +4016,15 @@
       "locator": "Theorem2.5.4(2), PDF50",
       "statement": "For the sigma(tau) supplied in N58, rec_K(pi) restricted to inertia=tau implies multiplicity one of sigma(tau) in pi restricted to GLn(OK).",
       "status": "missing",
-      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Use the same Schneider–Zink type selected in N58. When rec_K(π)|_I=τ, the block partitions agree exactly.",
+        "The equality case of [74, Theorem 3.7] gives multiplicity one for this type. Assemble the block multiplicities; do not infer multiplicity one solely from the one-way occurrence implication in N58."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60",
@@ -3637,7 +4033,16 @@
       "locator": "Theorem2.5.4(3), PDF50",
       "statement": "For the same sigma(tau), if pi is generic and rec_K(pi) restricted to inertia<=tau, then sigma(tau) occurs; its multiplicity is one if additionally tau is maximal in the monodromy order.",
       "status": "missing",
-      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "For generic π, import the converse type-occurrence criterion [68, Theorem 1.2] together with the choices of [74, Theorem 3.7]. The blockwise monodromy inequalities then force σ(τ) to occur.",
+        "When τ is maximal, the maximal-partition multiplicity assertion in this criterion gives multiplicity one. The genericity and maximality hypotheses are separate; neither follows from N58."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
@@ -3646,7 +4051,20 @@
       "locator": "Proposition2.5.5, PDF50–51",
       "statement": "For G=GLn and(s,mu), one can choose the sigma(tau) of N58 as tau=(tau(s,mu),N_tau) varies so that their set is exactly the irreducible constituents of R_s(mu), inflated to GLn(Op). The proof uses cuspidal types, Bernstein covers and parabolic induction; it does not assert an arbitrary previously chosen sigma has this property.",
       "status": "missing",
-      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SmoothRepresentationsPartII. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Reduce a product of local fields to one factor and first treat a cuspidal tame parameter. The character sum defining the tame torus parameter identifies its finite-field torus character θ; the representation is the cuspidal Deligne–Lusztig representation attached to θ.",
+        "Use [25, Theorem 2.4.1(i)] for the corresponding depth-zero cuspidal compact type and its occurrence. The finite-field norm/character-sum identity matches its inertial parameter with N49.",
+        "For a general parameter, decompose into the relevant Levi blocks. The Bernstein-cover constructions [8,9] and compatibility of Deligne–Lusztig induction with parabolic induction [21, Proposition 11.5] produce the compact types for the possible monodromy partitions.",
+        "Use the choice described in [76, §6] to identify their set with all irreducible constituents of R_s(μ). This proves the existence of simultaneous choices; it does not replace them by arbitrary previously chosen σ(τ). The named type-theoretic suppliers remain explicit imports."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N62",
@@ -3731,7 +4149,18 @@
       "locator": "Proposition2.6.2, PDF52",
       "statement": "For m>=2h_eta and a chosen m-generic presentation of bartau, pairs(w,w2) in W1plus times Wplus modulo diagonal X0 with w2 upward w map bijectively to W?(bartau) by F_(w,wtilde(bartau)w2^-1(0)).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Apply N40 with λ=0 to the Deligne–Lusztig representation of the Teichmüller lift. Apply the Herzig operator of N62 to its regular constituents.",
+        "Rewrite the resulting restricted alcove representative using w̃_h. The admissible-pair inequality becomes w̃₂ ↑ w̃, and the parameter is w̃(τ̄)w̃₂⁻¹(0).",
+        "The central quotient action is unchanged; N31 and the bijectivity of the Herzig operator identify both injectivity and surjectivity of the displayed parametrization."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N62"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N64",
@@ -3740,7 +4169,17 @@
       "locator": "Proposition2.6.2, PDF52",
       "statement": "With N63's hypotheses all the displayed weights are(m-h_eta)-deep and their presentations are compatible with the F-valued presentation of bartau.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The inequality w̃₂ ↑ w̃ with w̃ restricted bounds all root pairings of w̃₂⁻¹(0) by h_η. Apply N21 to the m-generic parameter of τ̄ to obtain (m−h_η)-depth.",
+        "Compute the central coset of the Serre presentation using t_{ω−η}w̃. Substitute ω=w̃(τ̄)w̃₂⁻¹(0) and the coset equality from w̃₂ ↑ w̃. The result is the residual central class t_μs of N51, rather than the characteristic-zero class t_{μ+η}s."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N65",
@@ -3886,7 +4325,18 @@
       "locator": "Proposition2.6.4, PDF53, corrected E4",
       "statement": "For dominant lambda and lambda-compatible2h_eta-generic rhobar and max(2h_eta,h_(lambda+eta))-generic tau presentations, a compatible(w,omega) represents a weight in W?(rhobar) intersect JH(sigma(tau)bar tensor W(lambda)) iff there are w1,w2 in Wplus with w1 upward w upward t_lambda wh^-1 w2 and omega=wtilde(rhobar)w1^-1(0)=wtilde(tau)w2^-1(0). The tensor factor is omitted in the printed first assertion.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "N63 characterizes membership in W?(ρ̄) by a pair (w,w₁) with w₁ ↑ w and parameter w̃(ρ̄)w₁⁻¹(0). N40 characterizes membership in the tensor type by (w,w₂) with w ↑ t_λw̃_h⁻¹w₂.",
+        "Use N31 and the λ-compatible central lift to choose the same restricted lowest-alcove representative for the two presentations. Equality of the remaining parameter is exactly the displayed equality for ω.",
+        "Conversely, each of these two sets of data supplies membership by its parametrization. The tensor factor W(λ) is retained on both sides, as required by the source correction."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N68",
@@ -3895,7 +4345,16 @@
       "locator": "Proposition2.6.4, last assertion, PDF53",
       "statement": "In N67's setup, equality of the two expressions for omega holds iff wtilde(rhobar,tau)=w2^-1 s w1 for some finite Weyl s.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Equality w̃(ρ̄)w₁⁻¹(0)=w̃(τ)w₂⁻¹(0) is equivalent to w₂ w̃(τ)⁻¹w̃(ρ̄)w₁⁻¹ fixing 0.",
+        "The stabilizer of 0 for X*(T)⋊W is the finite Weyl group W. Calling this element s gives w̃(ρ̄,τ)=w₂⁻¹s w₁, and substituting this factorization proves the converse."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N69",
@@ -3904,7 +4363,20 @@
       "locator": "Corollary2.6.5, PDF53",
       "statement": "Under N67's hypotheses, if wtilde(rhobar,tau)=t_(s^-1(lambda+eta)) for finite Weyl s, then W?(rhobar) intersect JH(sigma(tau)bar tensor W(lambda)) consists of exactly the obvious weight corresponding to s. In the proof the forced equality is w=w1, not the printed w=w2 (E5).",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "N70 supplies at least one obvious common weight because the specified extremal translation is admissible.",
+        "For any common weight, use N67 and N68 to write its relative position as w₂⁻¹s′w₁ with the intervening upper-arrow inequalities.",
+        "Compare with the fixed extremal translation through the reduced factorizations of N07. The inequalities put t_{s⁻¹(λ+η)} below t_{w⁻¹(λ+η)}, where w is the finite part of the restricted representative. Both translations are extremal for the same regular weight λ+η, so equality forces that finite part to equal s. Equality in the reduced subword comparison also forces w̃=w̃₁. Hence the common weight is the obvious weight determined by s. The forced equality is w̃=w̃₁, as corrected in E5, not w̃=w̃₂."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N68",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N70"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N70",
@@ -3913,7 +4385,21 @@
       "locator": "Proposition2.6.6, PDF53–54",
       "statement": "Under N67's genericity and compatibility hypotheses, if wtilde(rhobar,tau) belongs to Adm(lambda+eta), then Wobv(rhobar) intersect JH(sigma(tau)bar tensor W(lambda)) is nonempty.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Choose a translation t_{w⁻¹(λ+η)} above the admissible relative position. Its factorization (t_{−w₀λ}w̃_h w)⁻¹w₀w is reduced by N07.",
+        "The subword property gives a factorization w₂⁻¹w′w₁ with w₁≤w and w₂≤t_{−w₀λ}w̃_h w. Choose dominant representatives using [56, Lemma 4.3.4]; Wang’s theorem and upper-arrow reversal give w₁ ↑ t_λw̃_h⁻¹w₂.",
+        "Subtract the dominant integral strip translation from w₁ to make it restricted. Adjust w₂ inside its finite-Weyl coset as in [56, proof of Proposition 4.4.1], preserving the relative factorization and the upper-arrow inequality.",
+        "The equal-parameter identity w̃(ρ̄)w₁⁻¹(0)=w̃(τ)w₂⁻¹(0) now exhibits an obvious weight of ρ̄ which is a tensor constituent by N40. This proves existence without invoking the single-weight assertion N69."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N71",
@@ -3922,7 +4408,19 @@
       "locator": "Lemma2.6.7, PDF54",
       "statement": "For a3h_eta-generic chosen bartau presentation, take the eta-compatible Deligne–Lusztig representation R with wtilde(R)=wtilde(bartau)t_(-eta-w0 eta). Then W?(bartau) is contained in JH(Rbar tensor W(eta)); -eta-w0 eta is central.",
       "status": "missing",
-      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: ModularRepresentationsOfFiniteReductiveGroups. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Set c=−η−w₀η∈X⁰(T) and w̃(R)=w̃(τ̄)t_c. For a predicted weight N63 gives ω=w̃(τ̄)w₂⁻¹(0) with w₂ ↑ w.",
+        "Because c is central, ω=w̃(R)(t_cw₂)⁻¹(0). To apply N40 with λ=η it remains to prove w ↑ t_ηw̃_h⁻¹t_cw₂=t_{−w₀η}w̃_h⁻¹w₂.",
+        "Reverse w₂ ↑ w by w̃_h⁻¹, then use Jantzen II.6.5(5) for the dominant alcove w̃_h⁻¹w to obtain w ↑ t_{−w₀η}w̃_h⁻¹w. Transitivity proves the required inequality.",
+        "Central translation preserves numerical genericity; 3h_η suffices for the hypotheses of N40 with λ=η. Thus every predicted weight lies in this one auxiliary tensor type."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U01",
@@ -11493,7 +11991,7 @@
       "kind": "construction",
       "name": "Shifted polynomial genericity",
       "locator": "Equation8.1 PDF174",
-      "statement": "For an integral polynomial f and dominant omega, define f^omega as the finite product over lattice points nu in Conv(omega) of f(X-nu). Build P_{P,Lambda,e} from the shifted product of P_{eta,e}P_{7n-3}; distinguish this polynomial from the original local-model P_{lambda,e}.",
+      "statement": "For f∈Z[X₁,…,X_n] and dominant ω, define f^ω(X)=∏_{ν∈Conv(Wω)∩Z^n}f(X−ν), as in (8.1). The printed P_{P,Λ,e} is the product of (P_{η,e}P_{7n−3})^{(λ+η−w₀η)_j} over λ∈Λ,j∈J. Keep this historical notation distinct from the following sufficient corrected polynomial. Put f=P_{η,e}P_{7n−3}, ω_{λ,j}=(λ+η−w₀η)_j, and M_Λ=max_{λ,j}(6n−2+h_{(λ+η)_j}). Define H_{Λ,e}(X)=P_{M_Λ}(X)·∏_{λ∈Λ,j∈J}P_{(λ+η)_j,e}(X)·∏_{λ∈Λ,j∈J}∏_{ν∈Conv(Wω_{λ,j})∩Z^n}f(X+ν). Here Λ is finite, dominant and contains 0. The positive shifts apply E80, the local-model factors apply E79, and P_{M_Λ} explicitly guarantees its subsystem depth condition. All products are finite nonzero integral polynomials, independent of p for fixed n,e,Λ,J.",
       "status": "missing",
       "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
       "uses": [
@@ -11523,7 +12021,7 @@
         {
           "name": "ShiftPoly.P",
           "role": "constructor",
-          "statement": "P̃_{η,e} := P_{η,e}·P_{7n−3}, and P_{P,Λ,e} := ∏_{λ∈Λ} ∏_{j∈J} P̃_{η,e}^{(λ+η−w₀(η))_j}."
+          "statement": "The printed P_{P,Λ,e} remains the product of negative shifts in (8.1). Use H_{Λ,e} as defined in B27 for the corrected theorem: it includes positive shifts of P_{η,e}P_{7n−3}, each required local-model factor P_{(λ+η)_j,e}, and the explicit depth factor P_{M_Λ}. Do not identify H with the printed polynomial."
         },
         {
           "name": "ShiftPoly.generic_iff",
@@ -11533,7 +12031,22 @@
         {
           "name": "ShiftPoly.used",
           "role": "relation",
-          "statement": "If μ is P_{P,Λ,e}-generic, then (λ+η, τ) ∈ S_{P,Λ,t} for every λ ∈ Λ (Lemma 8.4.11)."
+          "statement": "If μ is H_{Λ,e}-generic in every embedding, then (λ+η,τ)∈S_{P,Λ,t} for every λ∈Λ, by corrected B28. The original P_{P,Λ,e} alone is not asserted sufficient (E79–E80)."
+        },
+        {
+          "name": "ShiftPoly.positive_shift",
+          "role": "compatibility",
+          "statement": "∏_{ν∈Conv(Wω)∩Z^n}f(X+ν)=f^{−w₀ω}(X), since negation identifies the two lattice-point sets. This is generally different from f^ω."
+        },
+        {
+          "name": "ShiftPoly.corrected_nonzero",
+          "role": "structure",
+          "statement": "H_{Λ,e}≠0: every substitution X↦X+ν is a polynomial-ring automorphism, each local-model polynomial is nonzero, P_m is nonzero over Z including n=1, and the product has finitely many factors in an integral domain."
+        },
+        {
+          "name": "ShiftPoly.transfer",
+          "role": "relation",
+          "statement": "If μ is H_{Λ,e}-generic and μ′−μ∈Conv(Wω_{λ,j})∩Z^n, then μ′ is f-generic; this is the positive-shift factor evaluated at μ."
         }
       ],
       "tests": [
@@ -11551,6 +12064,21 @@
           "name": "ShiftPoly.not_Plambda",
           "kind": "non-example",
           "statement": "P_{P,Λ,e} is not the local-model polynomial P_{λ,e}; the shift over Conv(λ+η−w₀(η)) is essential for Lemma 8.4.11."
+        },
+        {
+          "name": "ShiftPoly.sign_control",
+          "kind": "non-example",
+          "statement": "For n=1, ω=1 and f=X, f^ω=X−1 while the positive-shift product is X+1. At μ=1 modulo 5 the former vanishes and the latter is a unit; the signs cannot be interchanged."
+        },
+        {
+          "name": "ShiftPoly.central_pullback",
+          "kind": "computation",
+          "statement": "For f=X₁−2X₂+3 and c=(−1,−1), f(X+c)=X₁−2X₂+4. Its evaluation at μ equals f(μ+c), with no bound involving the size of μ."
+        },
+        {
+          "name": "ShiftPoly.extra_local_factor",
+          "kind": "compatibility",
+          "statement": "H-genericity implies P_{(λ+η)_j,e}-genericity separately for every λ,j, by the unit-factor criterion. This remains required even when the shifted P_{η,e} factors are units."
         }
       ]
     },
@@ -11559,18 +12087,38 @@
       "kind": "theorem",
       "name": "Polynomial genericity places types in the good subsystem",
       "locator": "Lemma 8.4.11, PDF 174",
-      "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0, and let P_{P,Λ,e} := ∏_{λ∈Λ} ∏_{j∈J} P̃_{η,e}^{(λ+η−w_0(η))_j}, where P̃_{η,e} = P_{η,e}·P_{7n−3} and f^ω is the shifted product (8.1). Let τ be a tame inertial type for K with a lowest alcove presentation (s, μ−η) such that μ is P_{P,Λ,e}-generic. Then (λ+η, τ) ∈ S_{P,Λ,t} for any λ ∈ Λ. Here S_{P,Λ,t} ⊂ S_{Λ,t} is the set of types (λ+η, τ) such that JH(σ̄(λ,τ)) consists only of generic Serre weights (PDF 173).",
+      "statement": "Let Λ be a finite set of dominant weights containing 0, and let H_{Λ,e} be the corrected sufficient polynomial of B27. Let τ have a lowest-alcove presentation (s,μ−η) whose parameter μ is H_{Λ,e}-generic in every embedding. Then (λ+η,τ)∈S_{P,Λ,t} for every λ∈Λ. This is Lemma 8.4.11 with E79–E81 applied: H includes the local-model factors and explicit depth needed for S_{Λ,t}, uses positive parameter shifts, and covering is propagated through the tensor type.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The factors P_{(λ+η)_j,e} and P_{M_Λ} give local-model polynomial genericity and (6n−2+h_{λ+η})-depth. Thus (λ+η,τ) belongs to S_{Λ,t}, the membership obligation missing from the printed proof (E79). Only the valid forward implication of N80 is used, including for GL₁.",
+        "Fix σ∈JH(σ̄(λ,τ)). The Deligne–Lusztig tensor-character identity decomposes σ(τ)⊗V(λ) into Deligne–Lusztig representations with parameters shifted by weights of V(λ). The depth bound keeps these summands in the generic range. Consequently, if σ covers σ′, then σ′ is also a constituent of this tensor type: choose a summand containing σ and use the definition of covering. This is the E81 correction; it is not a claim that σ′ is already in σ̄(τ).",
+        "For any such σ′ also in a 2n-generic σ̄(τ′), choose a compatible tame residual parameter ρ̄ with σ′∈W?(ρ̄), using the obvious-weight construction and its depth bound. N67 and N76 give w̃(ρ̄,τ)∈Adm(λ+η) and w̃(ρ̄,τ′)∈Adm(η). More explicitly, N68 writes the relative position as w₂⁻¹s w₁; its reduced-product comparison with w₂⁻¹w₀w₁ and N76 place it in the required lower admissible set.",
+        "Invert the second admissible set and multiply: Adm(η)⁻¹=Adm(−w₀η), and Haines–He Theorem 1.4 gives w̃(τ)⁻¹w̃(τ′)∈Adm(λ+η−w₀η). Admissibility implies permissibility, so μ′−μ belongs componentwise to Conv(W(λ+η−w₀η)).",
+        "The positive-shift factors of H therefore make μ′ generic for f=P_{η,e}P_{7n−3}. Thus (η,τ′) belongs to S_{0,t}; none of the covered weights can occur in a bad type. A generic Deligne–Lusztig tensor summand containing σ supplies such a type for σ itself (covering is reflexive), proving the existence clause as well as the exclusion clause of B22.",
+        "All constituents are consequently generic, which is exactly the defining extra condition for S_{P,Λ,t}. The Deligne–Lusztig tensor identity, the admissible-to-permissible theorem and the type correspondence are explicit supplier boundaries; no recursive closure of those theories is claimed by this assembly."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N67",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N76",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N80"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B43",
       "kind": "theorem",
       "name": "Polynomial-generic geometric Breuil–Mézard",
       "locator": "Corollary 8.4.12, PDF 175; stated in the introduction as Theorem 1.5.9 (PDF 18)",
-      "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0. Then there exist effective cycles Z_σ ∈ Z[X_{n,red}] for each Serre weight σ such that Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ for any λ ∈ Λ and tame inertial type τ with a lowest alcove presentation (s, μ−η) with μ P_{P,Λ,e}-generic.",
+      "statement": "Let Λ ⊂ X_*(T^∨) be a finite set of dominant weights containing 0. Then there exist effective cycles Z_σ ∈ Z[X_{n,red}] for each Serre weight σ such that Z_{λ,τ} = Σ_σ [σ̄(λ,τ):σ] Z_σ for any λ ∈ Λ and tame inertial type τ with a lowest alcove presentation (s, μ−η) with μ H_{Λ,e}-generic for the corrected sufficient polynomial B27 (E79–E81).",
       "status": "missing",
-      "note": "Split from B28. Proof: 'This follows from Lemma 8.4.11 and Theorem 8.4.10.' Lemma 8.4.11 (B28) puts every such (λ+η, τ) in S_{P,Λ,t}. The equations and effectivity come from Theorem 8.3.5(2) ('Conjecture 8.1.1 holds for S_P', with S_{P,Λ,t} ⊆ S_P by Lemma 8.4.8) through the proof of Theorem 8.4.10; the printed statement of Theorem 8.4.10(2) does not contain them (see sourceIssues). Remark 8.4.13 (PDF 175): a non-generic σ lies in no JH(σ̄(λ,τ)) with (λ+η,τ) ∈ S_{P,Λ,t}, so only generic σ occur, and the remaining Z_σ may be any effective cycles, e.g. 0. No uniqueness is claimed (Remark 1.5.10(1)); Proposition 8.6.5 (B37) is the uniqueness statement for very generic weights. The introduction states the result as Theorem 1.5.9 (PDF 18–19), for regular dominant weights and 'sufficiently generic' τ. The hypothesis inherits the problems with P_{P,Λ,e} recorded against Lemma 8.4.11.",
+      "note": "Split from B28. Proof: 'This follows from Lemma 8.4.11 and Theorem 8.4.10.' Lemma 8.4.11 (B28) puts every such (λ+η, τ) in S_{P,Λ,t}. The equations and effectivity come from Theorem 8.3.5(2) ('Conjecture 8.1.1 holds for S_P', with S_{P,Λ,t} ⊆ S_P by Lemma 8.4.8) through the proof of Theorem 8.4.10; the printed statement of Theorem 8.4.10(2) does not contain them (see sourceIssues). Remark 8.4.13 (PDF 175): a non-generic σ lies in no JH(σ̄(λ,τ)) with (λ+η,τ) ∈ S_{P,Λ,t}, so only generic σ occur, and the remaining Z_σ may be any effective cycles, e.g. 0. No uniqueness is claimed (Remark 1.5.10(1)); Proposition 8.6.5 (B37) is the uniqueness statement for very generic weights. The introduction states the result as Theorem 1.5.9 (PDF 18–19), for regular dominant weights and 'sufficiently generic' τ. The hypothesis inherits the problems with P_{P,Λ,e} recorded against Lemma 8.4.11. Current correction: the displayed statement now uses H_{Λ,e}; the historical warning about the printed P above is not a claim that the uncorrected hypothesis is sufficient.",
       "uses": [
         {
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
@@ -11584,7 +12132,18 @@
           "where": "Theorem 1.5.9, PDF 18–19",
           "how": "The introduction's statement of this corollary."
         }
-      ]
+      ],
+      "proofSteps": [
+        "Corrected B28 places every type under consideration in S_{P,Λ,t}. Apply the global cycle equation and effectivity supplied by Theorem 8.3.5 through the proof of Theorem 8.4.10, as recorded in E82; the abbreviated printed statement alone is insufficient.",
+        "For generic σ use these cycles. For every nongeneric σ set Z_σ=0; B51 says its multiplicity in all the relevant tensor types is zero, so this extension preserves every equation.",
+        "This gives an effective family for all Serre weights. It makes no uniqueness assertion for cycles whose coefficients are always zero."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B51"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B29",
@@ -11600,16 +12159,27 @@
       "kind": "theorem",
       "name": "Admissibility transports polynomial genericity",
       "locator": "Lemma8.5.1 PDF175",
-      "statement": "For finite dominant Lambda and residual inertia with shifted P_{P,Lambda,e}^eta-generic parameter, any tame tau with relative shape in Adm(lambda+eta) for some lambda in Lambda belongs to the good type subsystem.",
+      "statement": "Let Λ be finite dominant and contain 0 (replace it by Λ∪{0} if necessary). Set Q_{Λ,e}(X)=∏_{λ∈Λ,j∈J}(H_{Λ,e})^{(λ+η)_j}(X), using B27’s negative-shift operation and corrected H. Suppose a residual tame type ρ̄ has a chosen lowest-alcove parameter μ that is Q_{Λ,e}-generic in every embedding. If a tame characteristic-zero type τ has a chosen λ-compatible lowest-alcove presentation with w̃(ρ̄,τ)∈Adm(λ+η) for λ∈Λ, then (λ+η,τ)∈S_{P,Λ,t}. This explicit sufficient enlargement of Lemma 8.5.1 propagates E79–E80; it is not identified with the printed P_{P,Λ,e}^η.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Write w̃(ρ̄)=t_μs and w̃(τ)=t_{μ′}s′. Admissibility of w̃(τ)⁻¹w̃(ρ̄) and admissible-to-permissible imply s′⁻¹(μ−μ′)∈Conv(W(λ+η)). Weyl invariance removes s′⁻¹.",
+        "Thus μ′=μ−ν for an integral point ν in this Weyl polytope, componentwise. The corresponding negative-shift factor of Q makes μ′ H_{Λ,e}-generic.",
+        "Apply corrected B28. This direct factorwise argument avoids assuming an unstated symmetry of the local-model polynomial."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N66"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B31",
       "kind": "theorem",
       "name": "Generic small-weight versal BM for all tame WD types",
       "locator": "Corollary8.5.2 PDF176; stated in the introduction as Theorems 1.2.3 and 1.5.3 (PDF 6, 16)",
-      "statement": "For finite dominant Lambda containing zero, let h=max_{lambda in Lambda,alpha} <lambda,alpha^vee> and m=max{2h+2h_eta,6n-2}. If rho_ss inertia has parameters generic for P_{P,Lambda,e}^eta P_m, cycles on the chosen algebraic versal ring satisfy Z(R^{lambda+eta,tau}_{rho,F})=sum_sigma [r(tau) tensor V(lambda):sigma]Z_sigma(rho) for every lambda in Lambda and every tame Weil–Deligne type. The virtual type r(tau) may have signed coefficients. Genuine noncrystalline semistable types have zero relevant rings in this range; this is not a geometric domain theorem for wild rho.",
+      "statement": "For finite dominant Lambda containing zero, let h=max_{lambda in Lambda,alpha} <lambda,alpha^vee> and m=max{2h+2h_eta,6n-2}. If rho_ss inertia has parameters generic for Q_{Λ,e} P_m, with the sufficient corrected Q_{Λ,e} of B30 replacing the printed P_{P,Λ,e}^η (E79–E80), cycles on the chosen algebraic versal ring satisfy Z(R^{lambda+eta,tau}_{rho,F})=sum_sigma [r(tau) tensor V(lambda):sigma]Z_sigma(rho) for every lambda in Lambda and every tame Weil–Deligne type. The virtual type r(tau) may have signed coefficients. Genuine noncrystalline semistable types have zero relevant rings in this range; this is not a geometric domain theorem for wild rho.",
       "status": "missing",
       "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
     },
@@ -12307,7 +12877,7 @@
         {
           "name": "GenericityPoly.allGeneric",
           "role": "relation",
-          "statement": "Remark 9.1.7(2) (V15): P can be enlarged so that W?(r̄_p) contains only generic Serre weights."
+          "statement": "One sufficient enlargement is P_new(X)=P(X)·P_{3h_η}(X)·H_{{0,η},e}(X−(n−1)(1,…,1)), with the corrected H of B27, and the finite product over local coefficient data if needed. N71 and corrected B28 show that all predicted weights are generic in Definition 8.4.6 (V15)."
         }
       ],
       "tests": [
@@ -12325,6 +12895,11 @@
           "name": "GenericityPoly.small_p",
           "kind": "degenerate",
           "statement": "For n ≥ 2 and p | 2n, no tame inertial L-parameter is n-generic (Remark 6.2.5; E88 notes the exception n = 1). Since P_{6n−2} | P, a P-generic μ is (6n−2)-deep. So no input is P-generic and Theorem 9.1.6 is vacuous."
+        },
+        {
+          "name": "GenericityPoly.auxiliary_parameter",
+          "kind": "computation",
+          "statement": "For GL₃, η=(2,1,0), c=−η−w₀η=(−2,−2,−2). If w̃(ρ̄)=t_μs then w̃(R)=t_{μ+c}s for every permutation s. The required factor is H(X+c), whose evaluation at μ equals H(μ+c). This checks the central translation and sign."
         }
       ]
     },
@@ -12335,7 +12910,7 @@
       "locator": "Remark 9.1.7(2), PDF184",
       "statement": "Remark 9.1.7(2). There exists P such that the P-genericity hypothesis of Theorem 9.1.6 implies that W?(r̄_p) contains only generic Serre weights. So W_gen(r̄) in Theorem 9.1.6 could be replaced by W(r̄), giving W(r̄) = W^BM_gen(r̄_p).",
       "status": "missing",
-      "note": "Split from V08 (api GenericityPoly.allGeneric). No proof is printed. By Definition 8.4.6, σ is generic if σ ∈ JH(σ̄(τ)) for some (η,τ) ∈ S_{0,t} and σ covers no weight of JH(σ̄(τ′)) for (η,τ′) ∈ Ŝ_{0,t} \\ S_{0,t}. Every σ ∈ W?(r̄_p|_I) has a lowest alcove presentation at bounded distance from that of r̄_p (Proposition 2.6.2), and so do the types τ, τ′ involved. A finite product of shifted polynomials f^ω as in (8.1) therefore puts those types in S_{0,t}, as in Lemma 8.4.11 and Remark 8.4.13 (B51). The second sentence then follows from Theorem 9.1.6: W(r̄) = W?(r̄_p|_I) consists of generic weights, so W_gen(r̄) = W(r̄). The paper does not cite the remark again; it is a candidate to fold into V08 or V07.",
+      "note": "Source-level assembly supplied in this continuation using N71 and corrected B28. It uses the full Definition 8.4.6 condition, not depth alone. Existing E79–E81 are applied to the polynomial factors and tensor-covering step. Recursive closure of B28’s external representation-theoretic suppliers remains open; this is not an independent review.",
       "uses": [
         {
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
@@ -12343,11 +12918,24 @@
         }
       ],
       "proofSteps": [
-        "Remark9.1.7(2), PDF184, asserts that an enlarged polynomial makes all predicted weights generic. The remark does not print the construction; the following separates the available depth estimate from the remaining genericity argument.",
-        "Proposition2.6.2, PDF52, already supplies the precise uniform depth bound: if the lowest alcove presentation of τ is m-generic with m≥2h_η, its predicted Jordan–Hölder weights are (m−h_η)-deep. Its proof bounds the root pairings of the fixed offsets w̃_2^−1(0) by h_η. Do not define a constant depending only on n as the norm of w̃(τ)w̃_2^−1(0): that expression includes the varying translation of τ.",
-        "The unqualified genericity needed here is Definition8.4.6, PDF172: occurrence in a type belonging to S_{0,t}, and no covered weight occurring in any type from its complement in Ŝ_{0,t}. Depth alone does not establish this definition. The inherited note proposes a finite shifted-polynomial argument through Lemma8.4.11 and Remark8.4.13. Its exact index set, polynomial and exclusion proof remain the named gap V15-genericity-polynomial; no completed proof is asserted by replacing them with a depth condition.",
-        "Once that polynomial construction is supplied, V07 gives W(r̄)=W?(r̄_p|I); every such weight is then generic in Definition8.4.6, so W_gen(r̄)=W(r̄). Substitute this in the second equality of Theorem9.1.6. This last implication is conditional on the still-open polynomial construction."
-      ]
+        "For each local factor put Λ={0,η} and c=−η−w₀η=−(n−1)(1,…,1)∈X⁰(T). Form H=H_{Λ,e} from corrected B27. It is a nonzero integral polynomial depending only on the fixed rank and coefficient data. Take P_new(X)=P_old(X)·P_{3h_η}(X)·H(X+c), multiplying over the finitely many local choices of e if necessary. P_old is a polynomial for V07/V08.",
+        "If μ is P_new-generic, it is P_old-generic and its lowest-alcove presentation is 3h_η-generic by the forward implication of N80. This remains valid in rank one; equivalence is not needed.",
+        "For w̃(ρ̄)=t_μs, the auxiliary representation R of N71 has w̃(R)=w̃(ρ̄)t_c=t_{μ+c}s, since c is central. Central translation preserves lowest-alcove depth. By construction μ+c is H-generic. The generic tame-type correspondence N61 identifies R with σ(τ_c) for the zero-monodromy tame type of that presentation.",
+        "Apply corrected B28 with λ=η: every constituent of R̄⊗W(η) is generic in Definition 8.4.6, including its covered-weight exclusion clause. N71 puts W?(ρ̄) inside precisely this set. Thus every predicted weight is generic; no bound involving the varying affine translation w̃(ρ̄)(0) has been used.",
+        "V07 now gives W(r̄)=W?(r̄_p|_I), so W_gen(r̄)=W(r̄). Substitute in the generic Breuil–Mézard equality of V07 to obtain the stronger conclusion. This closes the V15 assembly gap relative to the explicit B28/N71 suppliers, not those suppliers’ entire recursive formalization."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N71",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V16",
@@ -21899,7 +22487,7 @@
       "kind": "theorem",
       "name": "Lowest-alcove depth is P_m-genericity",
       "locator": "Remark 2.1.11(2), PDF34",
-      "statement": "Suppose that G = GL_n^J. Let P_m(X_1,…,X_n) = ∏_{i=1}^n ∏_{j=1}^m (X_i − X_{i+1} − j), where X_{n+1} is understood to be X_1. Then, for λ with λ − η ∈ C_0, λ − η is m-deep if and only if λ is P_m-generic (Definition 2.1.10(4), in every embedding).",
+      "statement": "Let G=GL_n^J, n≥1, and m≥0 be an integer. Define P_m(X)=∏_{i=1}^n∏_{j=1}^m(X_i−X_{i+1}−j), with X_{n+1}=X_1. For an integral λ with λ−η∈C₀, P_m-genericity always implies m-depth. The converse holds if n≥2 or m<p. For n=1 every λ is m-deep, while P_m=(−1)^m m! is nonzero modulo p exactly when m<p. This is Remark 2.1.11(2) with the already-recorded correction E84.",
       "status": "missing",
       "note": "Added: numbered result without an item. Attached to N17 (polynomial genericity, Definition 2.1.10(4)); N17's api entry PolyGeneric.Pm_iff_deep already names it, so keep one owner. No proof is printed. Check from the page: with 0<⟨λ,α^∨⟩<p for α>0, the factors i<n say λ_i−λ_{i+1} is not in {1,…,m} mod p and the factor i=n says λ_1−λ_n is not in {p−1,…,p−m}; for n≥2 this is exactly m<λ_i−λ_{i+1} and λ_1−λ_n<p−m, i.e. m-deep in C_0 (non-simple roots follow by summing), for every m≥0. For n=1 the converse fails when m≥p (sourceIssue). Every later use is the direction P_m-generic ⇒ m-deep. Part (1) of the remark (depth kept by the p-dot action, smallness by the W-action, P-genericity typically not kept) is already carried by N17 and N18 and is never cited by label. In the text layer the citations appear as 'Remark 2.1.11(2.1.11)', which is hyperlink mangling of part (2).",
       "uses": [
@@ -21919,7 +22507,18 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
           "how": "Lemma 9.1.10 proof, PDF185: P_{6n−2} | P gives the (6n−2)-genericity for Proposition 6.2.3."
         }
-      ]
+      ],
+      "proofSteps": [
+        "For n≥2 write d_i=λ_i−λ_{i+1} for i<n and d_n=p−(λ_1−λ_n). The lowest-alcove hypothesis says every d_i is a positive integer and their sum is p.",
+        "If m<p, nonvanishing of the factors for i<n excludes d_i=1,…,m; the wraparound factors exclude d_n=1,…,m. Thus each cyclic gap is ≥m+1. Every positive-root pairing and its complement modulo p is a sum of nonempty collections of these gaps, so this is precisely m-depth.",
+        "For n≥2 and m≥p, no positive-root pairing in (0,p) can be m-deep, and a polynomial factor vanishes at every integral parameter. Both sides are false.",
+        "For n=1 there are no roots, so depth is vacuous. The product is (−1)^m m!, which vanishes modulo p exactly when m≥p. This proves both the exception and the unrestricted forward implication."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N17"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. External inputs named in the steps remain subject to the shared-owner/source closure audit."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N82",
@@ -22093,7 +22692,15 @@
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B31",
           "how": "Corollary 8.5.2 proof, PDF176: Z_σ(ρ̄) := 0 for non-generic σ, and (8.2) for (λ+η,τ) ∈ S_{P,Λ,t} with N_τ = 0 follows from Theorem 8.4.10(2) and Proposition 8.2.1."
         }
-      ]
+      ],
+      "proofSteps": [
+        "By the defining condition of S_{P,Λ,t}, every constituent of the type is generic. Taking the contrapositive proves the first assertion.",
+        "The coefficient of Z_σ in every equation is the Jordan–Hölder multiplicity of σ. It vanishes for nongeneric σ, so those cycles are unconstrained and can be chosen to be zero."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22"
+      ],
+      "proofProvenance": "Codex — codex-7e92bd, 24 September 2026; source-level proof outline, not a Lean proof or independent review. Existing E79–E81 are applied, not independently reviewed."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L120",
@@ -25724,6 +26331,34 @@
       "searched": [
         "23 September 2026: the published PDF and arXiv:2007.05398v2 were compared at this locator; no erratum to the paper is known (Crossref lists no update relation for doi:10.1007/s00222-022-01163-4)."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E92",
+      "kind": "gap",
+      "locator": "Lemma 2.3.3, termination sentence, published PDF40; arXiv v2 PDF29",
+      "printed": "Repeatedly replacing μ … we eventually have that h_μ ≤ p + 2.",
+      "correction": "The displayed integer recurrence H_new≤p+floor(H/p)+1 proves strict descent above p+2 for p≥5. For p=2 it only guarantees eventual height ≤6, allowing stationary heights 5 and6; for p=3 it also allows stationary height6>p+2. Supply a sharper or tie-breaking argument for these small primes, or restrict this proof to p≥5. This observation does not refute the lemma at p=2 or3.",
+      "reason": "The upper-bound recurrence has stationary states (p,H,H_new)=(2,5,5),(2,6,6),(3,6,6) above the target p+2. For p≥5 and H≥p+3, p+floor(H/p)+1<H, as follows first at H=p+3 and then by monotonicity of H−floor(H/p). Section1.8 permits every prime. Lemma2.3.4 uses h_{λ+η}<p−3, which excludes p≤3, so its application of the bounded-presentation result is unaffected. The separate GL_n refinement needs its own argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "24 September 2026: published author-hosted Springer PDF40, rendered and checked; arXiv:2007.05398v2 PDF29 text compared. Both retain the displayed height estimate and termination assertion.",
+        "24 September 2026: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; https://link.springer.com/article/10.1007/s00222-022-01163-4 and https://math.rice.edu/~bl70/ show no linked correction to this paper. An exact-title correction search found no relevant erratum. This is a bounded search, not proof that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E93",
+      "kind": "misprint",
+      "locator": "Lemma 2.3.3, triangle-inequality display, published PDF40 (rendered); arXiv v2 PDF29",
+      "printed": "h_{pν} ≤ h_μ + h_{μ−pν} ≤ h_μ + p",
+      "correction": "Use h_{pν}≤h_μ+h_{μ+pν}≤h_μ+p. The chosen ν bounds μ+pν, and pν=(μ+pν)−μ.",
+      "reason": "The root-height norm is invariant under negation, so the corrected triangle inequality is immediate. The printed final bound need not hold: in GL₂ with μ=(5,0), p=2 and ν=(−2,0), h_{μ+pν}=1≤2 but h_{μ−pν}=9>2. The intended bound on h_ν and its uses are unchanged after the sign is corrected; E92 is the separate termination issue.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "24 September 2026: published author-hosted Springer PDF40, rendered and checked; arXiv:2007.05398v2 PDF29 text compared. Both retain the displayed height estimate and termination assertion.",
+        "24 September 2026: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; https://link.springer.com/article/10.1007/s00222-022-01163-4 and https://math.rice.edu/~bl70/ show no linked correction to this paper. An exact-title correction search found no relevant erratum. This is a bounded search, not proof that no correction exists."
+      ]
     }
   ],
   "gaps": [
@@ -26206,7 +26841,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M43",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M44"
       ],
-      "detail": "Expand the proof-only input leaves (Lemmas 4.3.7–4.3.8 now have items M43–M44; still: family coefficient estimates, explicit dense triangular chart and globalization) and attach dependency edges. Retain general conjectures as conjectural interfaces, never as proved results."
+      "detail": "Expand the proof-only input leaves (Lemmas 4.3.7–4.3.8 now have items M43–M44; still: family coefficient estimates, explicit dense triangular chart and globalization) and attach dependency edges. Retain general conjectures as conjectural interfaces, never as proved results. Update 24 September, codex-7e92bd: all46 N theorem-like items now have source-level proofSteps; B28/B30/B43/B51 and V15 also have explicit corrected assemblies. These fields do not certify recursive closure: the exact Section2 external boundaries are now section2-source-suppliers. Historical no-outline counts above are superseded by the current handoff."
     },
     {
       "id": "approximation-and-tensor-adapter-closure",
@@ -26300,11 +26935,22 @@
       "detail": "EGH7.2.1 cites White6.1/6.3; arXiv v8 withdraws White due to an error in the main proof, and the earlier IHES copy differs in numbering. For the LLHLM branch, the read Labesse5.3 applies: LLHLM9.1 (published PDF180–181) assumes [F+:Q]>1 and compactness at infinity. A59–A62 and A77–A81 now give the needed transfer, normalized Speh realization and residual-irreducibility argument; A66–A76 separately expose genericity and the coefficient/Hecke dictionary. Thus exact constituent twists are no longer an open interface. Remaining analytic and Galois suppliers are named in global-descent-supplier-atoms. The specific faulty step in White and the full EGH generality outside LLHLM’s setting have not been audited. This is a bounded source-reliability record, not a confirmed error in EGH/LLHLM and not a requirement to prove the stronger external setting before using the valid LLHLM branch. Continuation codex-7e92bd now supplies A73’s explicit F-split model, realized semisimplification, A50 bridge and full local-genericity assembly. A104–A107 name the Fourier/Haar/globalization/Flath imports; the previously missing assembly is no longer an unexplained premise. This does not claim all original generic supplier proofs are closed. No unchecked White transfer is used."
     },
     {
-      "id": "V15-genericity-polynomial",
+      "id": "section2-source-suppliers",
       "neededBy": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V15"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28"
       ],
-      "detail": "Concurrent PR2578 added a proposed V15 proof. Fresh reading of published PDF33,52,172,184 shows two extraction-level problems: its asserted n-only constant includes the varying translation w̃(τ), and m-depth is substituted for unqualified genericity of Definition8.4.6. Use the exact (m−h_η) bound of Proposition2.6.2 for depth, then separately supply the finite shifted-polynomial construction placing relevant types in S_{0,t} and excluding covered weights from the complementary types. Lemma8.4.11/Remark8.4.13 are the inherited leads. The source statement is retained; this is not a claimed LLHLM erratum. V16’s concurrent proof is preserved unchanged and its external CorollaryA.7 remains an import boundary."
+      "detail": "The 46 Section2 theorem items now have explicit proofSteps and internal edges, but this is not recursive closure. Read and atomize the exact Jantzen linkage/Steinberg/translation suppliers; Deligne–Lusztig Theorem6.8 and its tensor-character identity; the full-root-datum adaptation behind N39; Schneider–Zink3.7, Pyvovarov1.2 and the depth-zero/covers inputs of N61; Haines–Ngô acute-cone inputs and admissible-to-permissible. Reconcile these with their existing shared owners before adding nodes. N37 has the bounded p=2,3 termination gap E92 and the separately missing GL_n (−1)-depth refinement. B28 now has the positive-shift, local-model and tensor-covering corrections E79–E81. V15’s explicit auxiliary-type assembly is no longer an unspecified polynomial gap; its remaining obligations are these named supplier inputs."
     }
   ],
   "sourceData": {
@@ -30366,6 +31012,134 @@
       "publicationBase": "aa8623ba4aadb4ae82e1f429386a30d48eca6fa6",
       "checks": "PASS: check_paper.py; intake check-files (3 files,0 problems); exact three-file archive scope; no extra files;745 inherited IDs and91 source issues preserved; sourceData unchanged;744-edge internal DAG;575 missing items each routed once; external stage prerequisites resolve. Twelve pinned files byte-verified;18 input/deliverable blobs unchanged at publication base.",
       "concurrency": "Claim5805031698 confirmed by5805033265. PR2578 merged while that claim was active, releasing the issue; refresh preserves its V16 proof. V15 is corrected after source rereading and carries an explicit remaining gap. No independent review is claimed."
+    },
+    "codex7e92bdSection2": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "date": "2026-09-24",
+      "status": "partial",
+      "items": 768,
+      "sourceIssues": 93,
+      "newSourceIssues": [
+        "E92",
+        "E93"
+      ],
+      "newItems": 0,
+      "NProofOutlines": 46,
+      "genericityAssembly": "Explicit H_{Λ,e}, Q_{Λ,e} and auxiliary central shift c=−η−w₀η; applies existing E79–E81 and E84. V15 assembly gap discharged relative to named suppliers.",
+      "scope": "No library/planned/missing status or owner is changed. All768 inherited IDs,25 routes,91 inherited findings and sourceData are preserved. No independent review.",
+      "lean": "No Lean deliverable required, produced or compiled.",
+      "diagnostics": {
+        "lowest_alcove_Pm_cases": 2799,
+        "GL1_converse_failures": 10,
+        "affine_group_cases": 26568,
+        "noncommuting_controls": 23210,
+        "central_auxiliary_cases": 180,
+        "genericity_loss_cases": 2928,
+        "shift_sign_control": {
+          "polytope_points": 27,
+          "negative_product_mod11": 0,
+          "positive_product_mod11": 9
+        },
+        "height_recurrence_stalls": [
+          [
+            2,
+            5,
+            5
+          ],
+          [
+            2,
+            6,
+            6
+          ],
+          [
+            3,
+            6,
+            6
+          ]
+        ],
+        "height_strict_descent_checks": 109815,
+        "height_sign_control": {
+          "chosen_height": 1,
+          "printed_uncontrolled_height": 9
+        }
+      },
+      "changedItems": [
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N75",
+        "N76",
+        "N12",
+        "N13",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N25",
+        "N26",
+        "N30",
+        "N31",
+        "N34",
+        "N36",
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N72",
+        "N42",
+        "N44",
+        "N46",
+        "N73",
+        "N47",
+        "N48",
+        "N74",
+        "N53",
+        "N54",
+        "N55",
+        "N58",
+        "N59",
+        "N60",
+        "N61",
+        "N63",
+        "N64",
+        "N67",
+        "N68",
+        "N69",
+        "N70",
+        "N71",
+        "B27",
+        "B28",
+        "B43",
+        "B30",
+        "B31",
+        "V08",
+        "V15",
+        "N80",
+        "B51"
+      ],
+      "internalEdges": 889,
+      "remainingNoOutlineCensus": {
+        "U": 26,
+        "M": 32,
+        "K": 29,
+        "G": 43,
+        "B": 28,
+        "Z": 1,
+        "L": 136,
+        "P": 1
+      },
+      "counts": {
+        "missing": 575,
+        "planned": 48,
+        "library": 145
+      },
+      "concurrency": "Claim5805214070 confirmed5805215470 was released when another worker’s earlier PR2585 merged. Queue priority was rechecked; renewed claim5805304360 was confirmed5805305771. Fresh main files preserve all23 additions and V15 supplier-gap correction from PR2585.",
+      "publicationBase": "c961a097c7f7fb416cae20ea12b244a43a3821d7",
+      "checks": "PASS: check_paper.py; intake check-files (3 files, 0 problems); 768 unique inherited IDs and statuses preserved; 25 unchanged routes, all575 missing items routed exactly once; acyclic889-edge internal graph; all91 inherited source findings and sourceData preserved; exact finite diagnostics; 3 deliverable and8 control blobs unchanged at publication. No Lean file compiled."
     }
   },
   "definitionApiGroups": [
