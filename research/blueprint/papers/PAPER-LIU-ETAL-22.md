@@ -273,3 +273,32 @@ Caraiani–Scholze (2017) and Beuzart-Plessis–Liu–Zhang–Zhu are already in
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-LIU-ETAL-22.result.json`: ok.
 - `python3 research/blueprint/intake.py check-files` on the three files: 0 problems.
 - Lean: none.
+
+## Review (REV-PAPER-LIU-ETAL-22, 24 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1281](https://github.com/CBirkbeck/tauceti-explorer/issues/1281). **Verdict: accept.** All
+twenty-one routes accepted; all 126 findings confirmed.
+
+- **The source is verified.** The published text re-fetched from the NSF public-access mirror hashes
+  to `dd821abd…9d97`; 269 pages, printed page = PDF page + 106, pp. 107–375.
+- **All 126 findings located and confirmed** — 99 by automatic prose match at the recorded page, the
+  other 27 (displayed formulas) by hand. **Not one locator was wrong.**
+- **Eight of the twenty-nine substantive findings were examined in depth, five re-derived
+  independently:** E2 (the matrix `[[λ,1],[0,λ]]` cannot be diagonalised by a change of basis, so the
+  "obvious" first part of Proposition 2.6.7 does not follow), E4 (`𝒫(ξ)` invertible is unsatisfiable
+  for `𝒫 = 0`), E8 (`H¹_cont(Ẑ, M) ≅ M` for a trivial action, so the asserted vanishing means the
+  module vanishes), E10 (at `N = 2` the kernel is all of `H⁰ ≅ 𝟙 ⊕ St`, not irreducible), E13
+  (rationally isomorphic lattices need not be integrally isomorphic). For E1, E3 and E9 the verdicts
+  say which part rests on the extraction's page-image re-derivation rather than mine.
+- **Corrected in place:** two Part II titles that were not exact prefix extensions of their parents'
+  atlas titles — "Lefschetz pencils **and** vanishing cycles…" → "Lefschetz pencils, **nearby cycles
+  and** vanishing cycles…", and "**Selmer and Iwasawa cohomology**…" → "**Selmer groups, continuous
+  integral cohomology, and Iwasawa cohomology**…". Neither is co-proposed elsewhere; the second one's
+  `coalescence` identity, which came from this paper's own earlier checkpoint (PR #2181), was updated
+  with it, and the corrected form now matches PAPER-DISEGNI-LIU-24 for the same parent. Three item
+  ids repeated inside one route's array were de-duplicated.
+- **Items and routes:** 739 items (12 library, 32 planned, 695 missing), each missing item routed
+  exactly once; every stage id and all 27 planned targets present.
+
+Full report: `research/blueprint/reviews/REV-PAPER-LIU-ETAL-22.md`.
