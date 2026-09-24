@@ -27142,8 +27142,9 @@
     "REV-AUDIT-07"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1563"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1563",
+   "finishedAt": "2026-09-24T07:07:48Z"
   },
   {
    "id": "RT-AUDIT-08",
@@ -29939,7 +29940,8 @@
     "RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-ktheory-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1520"
   },
   {
    "id": "RT-AREA-ktheory-2",
