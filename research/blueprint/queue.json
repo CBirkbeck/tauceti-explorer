@@ -26291,8 +26291,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1748"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1748",
+   "finishedAt": "2026-09-24T01:17:15Z"
   },
   {
    "id": "RT-RS-07",
@@ -26618,8 +26619,9 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-31.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1631"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1631",
+   "finishedAt": "2026-09-24T01:17:17Z"
   },
   {
    "id": "REV-RT-RS-31",
@@ -26693,7 +26695,8 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-32.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1632"
   },
   {
    "id": "RT-AUDIT-01",
@@ -27617,8 +27620,9 @@
     "REV-AUDIT-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1583"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1583",
+   "finishedAt": "2026-09-24T01:17:19Z"
   },
   {
    "id": "RT-AUDIT-18",
@@ -29989,8 +29993,8 @@
     "RT-AREA-representations-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1530"
+   "state": "pending",
+   "note": "released on GitHub issue #1530"
   },
   {
    "id": "RT-AREA-representations-2",
