@@ -19059,9 +19059,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #761"
+   "note": "deliverables arrived from an external worker on issue #761",
+   "finishedAt": "2026-09-24T13:11:19Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1",
