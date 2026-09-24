@@ -4292,8 +4292,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -25755,8 +25755,9 @@
     "REV-PAPER-BURUNGALE-TIAN-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1893"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1893",
+   "finishedAt": "2026-09-24T02:37:18Z"
   },
   {
    "id": "REV-RT-PAPER-BURUNGALE-TIAN-26",
@@ -25799,8 +25800,9 @@
     "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1731"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1731",
+   "finishedAt": "2026-09-24T02:37:19Z"
   },
   {
    "id": "REV-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
