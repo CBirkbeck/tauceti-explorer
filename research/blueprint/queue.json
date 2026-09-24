@@ -22647,7 +22647,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #520"
   },
   {
    "id": "BP-NoncommutativeAndEquivariantIwasawa",
@@ -23127,14 +23128,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-InverseGaloisAndArithmeticFundamentalGroups",
     "BP-SchemeAndStackFoundations",
     "BP-TropicalAndBerkovichArithmetic"
    ],
-   "note": "claimed on GitHub issue #1023"
+   "note": "released on GitHub issue #1023"
   },
   {
    "id": "REV-ArithmeticDynamics",
