@@ -1,0 +1,235 @@
+{
+  "redteam": "RT-AREA-algebraicgeometry",
+  "findings": [
+    {
+      "finding": "RT-AREA-algebraicgeometry/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I reproduced the graph fact: there is no stage edge in either direction between any SchemeAndStackFoundations stage and any AlgebraicModuliForArithmeticGeometry stage, in the raw atlas or with every accepted restructuring and link map applied. SF.1's requires are LI.3, SF.0 and two Tau Ceti layers; R09.3's is R09.2 and R09.4's is R09.3, so neither side reaches the other. RS-25 and RS-02 are both in data/restructure and neither mentions the other roadmap, so nothing settles the overlap. Two carriers for algebraic spaces and stacks is exactly what PROTOCOL section 15 forbids."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage mentions Artin approximation, Popescu's theorem or Neron desingularization - I searched all 1968 stage descriptions - and A0-extension's input list omits approximation while R09.6's text does not mention it. The two extractions the finding names do record it as planned: PAPER-KISIN-17 and PAPER-KISIN-PAPPAS-ZHOU-26 each carry an item P10 'Formal moduli and Artin approximation' with status 'planned'. So the chosen route to Artin's criterion has a missing input and two routes assert otherwise."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. C0's requires are empty, so no stage edge supplies analytification, and the atlas records the pull request the layer leans on only as an external contract with no encoded stage dependency and no consumers. Neither pinned library has complex analytic spaces. The consequence is as stated: the whole C0-C6 chain, and the stages that consume the same carrier, rest on an object the atlas does not plan."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage states the degeneration of the Hodge-de Rham spectral sequence or its relative form, which I checked over all stage descriptions, and the seven stages that mention Kaehler geometry do so in passing. PAPER-QIAN-23/130 is status 'missing' with the note 'No atlas stage plans the relative statement', and its route sends it to C2, C3 and C5, while the other accepted route places the same mathematics elsewhere. So one theory has no owner and two homes."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The dependency is real: chi(L) is an Euler characteristic only once H^0 and H^1 are finite-dimensional and H^2 vanishes, and both are Layer B targets, as is the additivity along 0 -> L(-x) -> L -> L tensor kappa(x) -> 0 that the agreement proof uses. So Layer A's degree and Pic^0 outputs depend on Layer B although the build order puts A first, and Layer B's Riemann-Roch would then be a tautology on one side."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked the pin: Mathlib 082e2d3 has no projective morphisms and no ampleness, only ProjectiveSpectrum (Proj of a graded ring); grepping AlgebraicGeometry for a projective-morphism class returns nothing. The two stages that do plan the notion, StableReduction Layer 2 and R09.1, have no edge to AlgebraicCurves Layer 12, so 12B's closing step has neither a library citation nor a planned supplier."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage mentions F. K. Schmidt's theorem, which I checked over all stage descriptions, and AlgebraicCurves Layer 5 mentions it only in a parenthesis while its own scope stops before the zeta function. Both standard proofs lie beyond that line, so the theorem has no owner on either side of the boundary the document draws."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. 'Neron-Severi' occurs in exactly one atlas stage, NC.5, which consumes it, and 'Picard number' in none, so neither the group nor the rank has an owner while a named consumer asks for both. A2 plans the polarisation homomorphism and the Rosati involution but not the quotient by Pic^0."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. C4's only in-edge is C2, and the object it builds - the smooth projective completion of a smooth affine complex curve - is exactly AlgebraicCurves 12B's normalization of the projective line in the function field, whose uniqueness is 12C's anti-equivalence. The accepted link map carries neither a link nor an overlap entry for C4, and no accepted proposal covers ComplexComparisonPartII, so the duplication stands unrecorded."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. R09.3's only prerequisite is R09.2, so it has no edge from any of the stages that own the descent classes it re-plans, and RS-25 assigned those owners only against SF.0 and SF.1. The comparison R09.3 proposes to make with the finite-quotient construction is itself evidence that the same objects are being built twice."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Weil restriction is planned in the four places the finding names, with no edge between them, and the fourth is the sharpest: PAPER-LAWRENCE-SAWIN-25 item 82 is status 'missing' with the note 'Neither library has Weil restriction ... and no layer of the atlas plans it', which is wrong given R09.3 and RG2.0a. RS-02 and RS-31 are both accepted and each settled only its own family."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. R09.1's requires are empty, so it has no edge from ModularCurves 0G or from StableReduction Layer 2, and both of those already plan the constructions it re-plans; a projective bundle is the relative Proj of a symmetric algebra, which is precisely Layer 2's case. RS-25 named Layer 2 the owner only against SF.0."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. R09.7a's requires are R09.1 and R09.3, with no edge from StableReduction Layer 4, and Layer 4 plans the blowup package for an arbitrary quasi-coherent finite-type ideal, which contains R09.7a's case; flat base change contains smooth base change. The finding is right to keep the resolution-specific material as genuinely new."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. A0-extension's requires are R09.3 and R09.4 only, so it imports neither of the Tau Ceti suppliers, and those suppliers are not limited to curves: JacobianChallenge Layer C plans proper-flat pushforward with cohomology and base change, and StableReduction Layer 2 plans the same over locally Noetherian bases in any relative dimension. So the premise 'beyond curves' is wrong and the Noetherian case is re-planned."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I reproduced the count exactly. SF.5's requires are SF.4 together with R11.1, R11.3 and StableReduction Layers 4, 7, 8 and 9; over the atlas with the accepted restructurings SF.5 has 57 ancestors, and deleting the SF.4 edge and the five RS-25 links leaves exactly one, StableReduction Layer 4 - which is the finding's '56 of 57'. None of SF.4's material is used by Chow groups, Chern classes or Grothendieck-Riemann-Roch, and the inputs those do need are absent."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. There is no edge between SF.4 and AdicCoefficientsAndComparisons L5 in any graph, both plan de Jong's theorems, no accepted proposal assigns an owner, and AUDIT-01 records L5 as a duplicate of SF.4 while leaving both plans standing. The route that sends the alteration items to SF.4 is a second, independent reason the pair needs settling."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans the moduli stack of stable pointed curves - I searched every stage description - and R09.4's algebraicity targets are generalised elliptic curves and polarised abelian schemes. Both stages that plan de Jong's theorem need the stack, so the gap is load-bearing rather than cosmetic."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No stage plans coherent duality beyond curves, and the paper routes do send one theory to three different owners, which is exactly the situation PROTOCOL section 15 is meant to prevent. The two curve-level suppliers stop where the finding says they do."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the graph bears it out: no JacobianChallenge stage has an edge into any StableReduction stage, and the only in-edge anywhere in StableReduction is EllipticCurves Layer 4 into Layer 5. So the contracts the document records are not in the atlas, and Layer 2's own first bullet re-plans what Layer C plans."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed. StableReduction Layer 6 has no incoming edge at all, so neither JacobianChallenge Layer E nor A3 supplies it, and Layer E plans only the isogeny statement, not the degree and etaleness the contract needs."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Layer 5's only in-edge is the EllipticCurves link the finding names, and its stage text plans no Kodaira classification and no comparison with Tate's algorithm, so the comparison the document promises has no owner; the finding is right that R11.2's algorithmic comparison is about Neron data, not the minimal regular model."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three Stacks results the conclusion rests on are stated by no atlas layer and are in neither library, and Layer 6's own bullets name only the numerical-type bounds and the specialisation injection, which do not give the multiplicity-one and nodality conclusion."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Layer 7 has no incoming edge, so none of R11.1, R11.3, R11.4 or JacobianChallenge Layer D supplies it, while the criterion it owns is a theorem about Neron models. The base-ring mismatch the finding adds is a real second point."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. TB.2's StableReduction suppliers are Layers 7, 8 and 9, which are RS-25 forwardings, and those layers work over discrete valuation rings, while semistable vertex sets need the rank-one valuation ring of a complete algebraically closed non-archimedean field. No stage plans that statement and neither library has any semistable reduction."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. TB.2's requires contain no StableReduction Layer 1, so the dual graph and the genus formula it needs come from nowhere, while RS-25 makes Layer 1 their owner. Only the metric structure and the retraction are new to TB.2, as the finding says."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GZ.2's requires are R35.1, C2, GZ.1 and R11.4 - no StableReduction layer at all - while the accepted RS-18 and RS-25 give the regular models, the intersection theory, the semistable reduction and the dual graph to StableReduction. Nothing narrows GZ.2, so the material is planned twice."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked it directly: no stage edge leaves any of HodgeStructures' four stages in the effective atlas. The consumers the finding lists do name the roadmap in their texts, so the missing edges are edges the documents already assert."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The manifold-gluing theorem the layer applies belongs to an open pull request that the atlas records only as an external with no encoded stage dependency and no consumers, its declared integration owner plans something else entirely, and neither library has such a theorem. So Layer 3 item 2 and everything RS-32 routes through it rest on an untracked supplier."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The comparison the layer needs is for constant sheaves, and what the cited work supplies is the finite-coefficient local-system statement; the constant-coefficient comparison is planned by no layer, and the Tau Ceti topology roadmap owns singular cohomology without any comparison to sheaf cohomology. The gap is exactly at the step after the Poincare lemma."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed. All three inputs are absent: C2 states the relative comparison only for projective morphisms, C3 exports only the absolute statement, C5 plans only the absolute Poincare lemma, and no atlas stage mentions Ehresmann's theorem, which I checked. So the relative Gauss-Manin target has no route."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and the graph shows it: MC.2's in-edges are MC.1, SF.6 and SF.2, SF.6's only in-edge is SF.5, and C5 does not reach MC.2 by any path. Both consumer texts say they consume the comparison, so AUDIT-01's duplicate classification is the wrong one and an edge is what is missing."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. No atlas stage plans Serre's theorems A and B, which I checked over every stage description, and the twisting sheaves and the coherence of higher direct images are likewise unowned, while C1, C2 and C3 all compare with 'the algebraic calculation'. Without the algebraic half the comparison has only one side."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. C4's only in-edge is C2, and R09.3 is the algebraic-spaces-and-descent stage, which plans neither projective closure nor normalization, so the citation names the wrong supplier; the actual suppliers the finding identifies have no edge to C4 either."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-32 is accepted and does retitle ShimuraCompactifications as a Part II of AnalyticToricGeometry with C0 keeping the toric charts over the required base rings, while the extraction proposes a second Part II of the same parent constructing split toric schemes over a non-archimedean field. Two siblings with one designation and overlapping content is a coordinator decision, as the fix says."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The stated targets go beyond the named sources in each of the four ways the finding lists - nonreduced schemes, the relative pushforward comparison, the proper non-projective case and algebraicity of morphisms through graphs - and the source that does contain them is not in the roadmap's anchors. PROTOCOL section 0's coverage rule is what this breaches."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I read the pinned theorem: Mathlib/AlgebraicGeometry/Group/Abelian.lean states 'A proper geometrically integral group scheme over a field is commutative'. The inventory's unqualified form is false, and the finding's counterexample is right - the constant group scheme of the symmetric group on three letters is finite, hence proper, and not commutative. Layer E's own use is unaffected."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The external the stage requires is attributed to a roadmap that plans no vector bundles: AlgebraicCurves works with places, divisors and differentials and hands the one locally free object it names to JacobianChallenge Layer C. RS-18 left the prerequisite unchanged, so the dangling dependency is still recorded."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three stages plan the same analytification-through-etale-presentations step, only one of them has the analytic input, the two edges the finding names are absent, AUDIT-01 records both pairs as duplicates, and no accepted proposal resolves them."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-05 is accepted and narrows DiamondsAndVStacks D0 while expressly keeping ordinary stackification and groupoid quotients there, and R09.4 plans the same generic construction with no edge from D0. Two owners for one construction."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-06 is accepted and names the ModularCurves layer the owner of the Katz-Mazur finite-quotient and coarse-curve constructions in their base-change range, and R09.5 plans the general case without importing or mentioning it, so no compatibility between the two is required anywhere."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The attribution is misplaced in the way the finding describes: the cited theorem is stated without proof and refers to Deligne, where the appeal to Borel actually occurs, while the separate invocation of Borel's theorem in that book is in the Siegel-case argument. Low severity is right, since only a parenthesis changes."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The two contracts do point both ways between JacobianChallenge Layer B and StableReduction Layer 2, which at stage level is a two-stage cycle that an acyclic atlas cannot record, and Layer 2's own text contradicts the contract by comparing its construction with the Jacobian roadmap's dualizing sheaf rather than supplying it."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The cited tag does not contain the 'cheap' construction the layer attributes to it: it takes the relative dualizing complex from the general theory and identifies it with the shriek functor, so the shortcut has no source and the trace and duality properties would still need their own proof."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and I checked the pin. The filtration API has landed and is in Mathlib 082e2d3: CategoryTheory/Filtration/Basic.lean defines Filtration as a functor into MonoOver X, FilteredObject, and IsStrictHom at line 144 as the condition that each compatibility square is a pullback. That is not Deligne strictness, and the finding's counterexample is right: the zero map out of a properly filtered object is Deligne-strict but fails the pullback condition. So both the 'if it lands' hedge and the 'no such API' claim are out of date, and the mismatch needs recording."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed. A Tate twist shifts p and q by the same amount, so it preserves p - q, and the gloss therefore misses every other odd difference; the finding's examples are correct, since a structure with types (3,0) and (0,3) has the Weil operator acting by i^{p-q} = -i and +i on the two pieces, which is exactly what a complex structure records. The first half of the sentence is right, which is why this is low."
+    },
+    {
+      "finding": "RT-AREA-algebraicgeometry/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The item is status 'planned' at the three HodgeStructures stages with the note that the roadmap owns the whole item, while the roadmap's own document sends variations, Griffiths transversality, period maps and period domains to a successor that is not in the atlas. So part of a 'planned' item has no plan."
+    }
+  ]
+}
