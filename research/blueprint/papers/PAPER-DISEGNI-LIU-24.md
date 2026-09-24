@@ -72,3 +72,31 @@ Links and reasons are in the JSON; the DOIs printed in the paper's bibliography 
 - All cited stages (AutomorphicPadicLFunctions L4–L5, MetaplecticAutomorphicForms MP.2–MP.3, RD.4, CR.4–CR.6, R06.1–R06.2, D7, R02.2, SelmerIwasawaCohomology L2/L4, ShimuraVarieties V6, PadicMeasuresIwasawaAlgebras L0a/L1/L3, EDC.3, CP.4, AdicCoefficientsAndComparisons L5) and both parents were checked against `data/atlas.json`, every accepted restructure in `data/restructure/` and `data/roadmap-retirements.json`: none is restructured or retired. Library verdicts come from `data/library-coverage.json`.
 - The two new Part II ids were checked against the routes of every existing extraction: nothing in the atlas or in the pending candidates plans p-adic heights or a p-adic arithmetic inner product formula.
 - No Lean was written, as none is a deliverable of this job.
+
+## Review (REV-PAPER-DISEGNI-LIU-24, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1229](https://github.com/CBirkbeck/tauceti-explorer/issues/1229). **Verdict: accept.** All seven
+routes accepted; nothing needed correcting in place.
+
+- **A provenance limitation.** Springer's PDF endpoint returns a JavaScript challenge page to every
+  request made here, so the recorded SHA-256 could not be re-verified. The published *text* was read
+  through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks,
+  pp. 220–371), and every finding checked at its recorded page. Crossref records no correction.
+- **All 7 mistakes confirmed**, each a misprint affecting nothing and most settled by their own
+  neighbourhood: **E2** (Definition 3.21 says "Panchishkin" while Lemma 3.22 on the same page and
+  Lemma 4.14 on p. 281 both say "Panchishkin unramified", the latter citing this very definition);
+  **E4** (the lemma fixes `a` and the proof says "the choice of x"; `ν^q(y^q)` with `y^q` undefined
+  and `ν^q(b^q)` correct two words later); **E5** (the source of `κ_{c′}` carries `L(d−1)`, and the
+  next sentence applies `κ_{c′}(1)` to the `L(d)` of (A.2)); **E6** (Proposition B.11 concludes over
+  `Ū`, and the subscript `t` collides with the `t := t₁t₂` of the same sentence); **E7** ("the
+  corresponding edges maps", followed four words later by "the corresponding edge maps").
+- **One substantive item sits inside E7:** Lemma A.4 is stated over `Z_{p•}` while Definition A.3 and
+  Lemma A.5 are over `W_•` and the lemma is applied on p. 363 to an object of `D⁺_{G_K}(X_ét, W_•)`,
+  so its hypothesis as printed is narrower than its use; the proof does work verbatim over `W_•`.
+- **Items and routes:** 62 items (no library, 14 planned, 53 missing), each missing item routed once;
+  all ten stage ids and fourteen planned targets present. The two Part IIs divide the paper correctly
+  — the inner product formula extends Gross–Zagier, the bi-extensions and height decomposition extend
+  the Selmer-complex roadmap — with both titles exact prefix extensions and both ids free.
+
+Full report: `research/blueprint/reviews/REV-PAPER-DISEGNI-LIU-24.md`.
