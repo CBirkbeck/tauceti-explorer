@@ -17546,8 +17546,9 @@
    ],
    "avoidAccountOf": "BP-FaltingsFinitenessAndIsogenyTheorems",
    "prompt": "research/blueprint/prompts/REV-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #406"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #406",
+   "finishedAt": "2026-09-24T15:55:27Z"
   },
   {
    "id": "BP-FarguesFontaineDiamonds",
@@ -26558,7 +26559,8 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-28.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1624"
   },
   {
    "id": "RT-RS-29",
