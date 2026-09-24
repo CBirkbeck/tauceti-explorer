@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5059 new mistakes confirmed · 957 awaiting review · 326 already corrected in print · 78 rejected on review · 5 extractions and packets not yet checked.
+5059 new mistakes confirmed · 957 awaiting review · 326 already corrected in print · 78 rejected on review · 6 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -13862,4 +13862,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `ClassicalArithmeticCompletion`, `CohomologyComparisons`, `FaltingsFinitenessAndIsogenyTheorems`, `KatoEulerSystems`, `PerfectoidSpaces`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `ClassicalArithmeticCompletion`, `CohomologyComparisons`, `FaltingsFinitenessAndIsogenyTheorems`, `KatoEulerSystems`, `PerfectoidSpaces`, `VStackSheavesAndLisseCategories`.
