@@ -21331,8 +21331,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SerreWeightAndLevelOptimisation.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #989"
   },
   {
    "id": "REV-SerreWeightAndLevelOptimisation",
@@ -29643,7 +29644,8 @@
     "RT-AREA-algebraicgeometry"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-algebraicgeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1508"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -30660,8 +30662,9 @@
     "RT-AREA-topology"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-topology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1546"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1546",
+   "finishedAt": "2026-09-24T10:54:07Z"
   },
   {
    "id": "RT-AREA-diffgeom",
