@@ -1,3 +1,562 @@
+# LLHLM23 continuation: proof steps for §§4–5
+
+Claude Code — cc-39fac3, issue #1254, 24 September 2026. Claim 5805537570, confirmed by the bot. **Partial checkpoint: 768 items (145 library, 48 planned, 575 missing), 25 routes, 109 unreviewed source findings.** All inherited item IDs, statuses, routes, source data and the 93 earlier findings are preserved. This is source-level planning, not independent review or formal implementation.
+
+## What this continuation adds
+
+- **§4 (M items).** All 32 theorem items that had neither `proofSteps` nor `proofOutline` now have source-level proof steps. They cover the generic differential strata, the Schubert and monodromy local models, and the intrinsic components and their fixed points. The steps were read from published PDF pages 78–100.
+- **§5 (K items).** All 29 such items now have proof steps. They cover Kisin modules with descent data, the Kisin variety and earlier conventions, generic triviality of Kisin fibres, and §5.5. The steps were read from published PDF pages 100–126.
+- **Unproved items.** Where the paper gives no proof, the steps say so and name the citation or the definitions that make it immediate: M10, M15, M17, M39, M41, M48, M49, M50, K11, K12, K24, K35, K36, K49 and K54. Where it proves by citation or relabelling (K07, K08), the steps give the reference.
+- **Dependencies.** 264 internal prerequisite edges come from these steps. The item graph has 1,153 edges and is acyclic. Two proposed edges, K36→K46 and K36→K47, were left out because they would close a cycle; K46 and K47 already rest on K36.
+- **Queue.** The remaining theorem-like items with neither `proofSteps` nor `proofOutline` are now U26, G43, B28, Z1, L136 and P1. This is a field census, not a closure certificate.
+
+## New source findings (E94–E109)
+
+- **E94 (error, affects a stated result).** Corollary 4.2.6, statement, published PDF84 (checked on the page image); compare its proof on PDF84.
+  - **Correction:** Read 'the d-dimensional irreducible components' (d = dim(B\GL_n)_F), which is what the proof establishes ('S°_F(z̃) ∩ Fl^{∇a} has maximal dimension d if and only if z̃ = w̃^* where w̃ is regular'); alternatively assume λ regular.
+  - **Reason:** Take GL_3 and λ = (1,0,0), which is dominant with h_λ = 1. Every element of Adm(λ) has length ≤ ℓ(t_λ) = 2. A regular element has the form w̃2^{-1}w0t_νw̃1, a reduced product (Proposition 2.1.5, Lemma 2.1.4), so its length is ≥ ℓ(w0) = 3. Hence Adm^reg(λ) = ∅. Yet M^nv(≤λ,∇_a)_F contains the nonempty affine spaces S°_F(w̃^*) ∩ Fl^{∇a} of Theorem 4.2.4 (e.g. w̃ = t_λ), so it has top-dimensional components, all of dimension < d. For regular λ, t_λ ∈ Adm^reg(λ), so the two readings agree. The only later use, Theorem 4.3.10, assumes λ regular.
+- **E101 (error, affects a stated result).** Lemma 5.4.5, PDF118 (statement), as applied in the proof of Proposition 5.4.3, PDF119 (both page images checked).
+  - **Correction:** Assume instead (A^{(j)})^{−1}(Y_j − Ad(A^{(j)}z̃_j)φ(Y_{j−1}))A^{(j)} ∈ v^{−h}Mat_n(J[[v]]), i.e. Ad(A^{(j)})^{−1}(Y_j) − Ad(z̃_j)(φ(Y_{j−1})) ∈ v^{−h}Mat_n(J[[v]]). This is the Lie analogue of v^h(A_2^{(j)})^{−1}I^{(j)}A_1^{(j)} ∈ Mat_n(R[[v]]) in Lemma 5.4.4, and with it the argument of Lemma 5.4.4 goes through (for n ≥ 2). The use in Proposition 5.4.3 survives: there a_j = (A_2^{(j)}−A_1^{(j)})(A_1^{(j)})^{−1}, so (A_1^{(j)})^{−1}a_jA_1^{(j)} = (A_1^{(j)})^{−1}(A_2^{(j)}−A_1^{(j)}) ∈ v^{−h}Mat_n(J[[v]]) by the height condition on A_1.
+  - **Reason:** Counterexample: f = 1, n = 2, p = 11, h = 2, s = 1, μ = (3,0), so μ+η = (4,0) and 3 < 4 < p−3, and μ is 3-deep in C_0. Take R = J = F, A = diag(1, v^2) ∈ L^{[0,2]}GL_2(F) and Y = E_21 (constant). Then Ad(z̃)φ(Y) = v^{−4}E_21 and Ad(A)(v^{−4}E_21) = v^{−2}E_21, so Y − Ad(Az̃)φ(Y) = (1 − v^{−2})E_21 ∈ v^{−2}Mat_2(F[[v]]). But Y is not upper triangular mod v, so Y ∉ Lie I_F(J). The 'same argument' as Lemma 5.4.4 bounds Ad(z̃_j)φ(Y_{j−1}) = Ad(A^{(j)})^{−1}(Y_j − b_j), and conjugating by (A^{(j)})^{−1} can lose a further v^h. So it needs the hypothesis on Ad(A^{(j)})^{−1}(b_j), not on b_j.
+- **E102 (gap, affects a stated result).** Lemma 5.1.10(a),(b),(d) and its proof, PDF105; Lemma 5.4.4, inequality (5.11), PDF118; Proposition 5.4.3, PDF117 (page images checked).
+  - **Correction:** Assume n ≥ 2 in §5. Then an m-deep μ in C_0 forces p ≥ 2m+2, so m+1 < p, and (h+1)-depth gives p ≥ 2h+4 > h+1. For n = 1, one needs p > m in Lemma 5.1.10 and p > h+1 in Lemma 5.4.4 and Proposition 5.4.3.
+  - **Reason:** GL_1 has no roots, so m-genericity and (h+1)-depth in C_0 are vacuous (Definition 2.1.10), and nothing in the paper excludes n = 1 (§8 even says 'n > 0'). (i) I = 1+v ∈ I_1(F) has φ(I) = 1+v^p ≢ 1 mod v^{m+1} for m ≥ p, contradicting Lemma 5.1.10(a), (b) with k = 1, and (d) with Y = v. (ii) (5.11) bounds the diagonal entries (exponent 0) by the maximum over roots, which is empty for n = 1. With A_1 = 1 and A_2 = v^{p−1} (both in L^{[0,h]}GL_1 when h ≥ p−1) and I^{(j)} = v^{−1} for all j, A_2z̃_j = I^{(j)}A_1z̃_jφ(I^{(j−1)})^{−1} holds but I ∉ I_F(R), contradicting Lemma 5.4.4. (iii) For K = Q_p, τ trivial and h ≥ p−1, the rank-one Breuil–Kisin modules with Frobenius 1 and v^{p−1} are not isomorphic, but their étale φ-modules are (e ↦ ve). So ε_τ is not a monomorphism, contradicting Proposition 5.4.3. This is the same pattern as E84 and E88.
+- **E103 (gap, affects the proof).** Proposition 5.5.9, last sentence of the proof, PDF125 (page image checked); relied on in the proof of Corollary 5.5.10, PDF125.
+  - **Correction:** Before invoking Proposition 5.5.7, show that ρ̄^ss has a lowest alcove presentation with w̃^*(ρ̄^ss)(w̃^*(τ))^{−1} ∈ Gr^{[0,h],J}_{G,F}, equivalently that some semisimple Breuil–Kisin module in Y^{[0,h],τ}(F′) realises ρ̄^ss. The paper obtains such a module in Corollary 5.5.8 only by appeal to [56, Theorem 3.2.20]. Then Proposition 5.5.7 gives a semisimple M″ with T^*_dd(M″) ≅ ρ̄^ss, and Proposition 5.4.3 (ε_τ a monomorphism) gives M′ ≅ M″.
+  - **Reason:** Proposition 5.5.7 (PDF123) says only this: for semisimple ρ̄, a semisimple M with T^*_dd(M) ≅ ρ̄ exists iff ρ̄ has such a presentation. It says nothing about an arbitrary M′ with T^*_dd(M′) semisimple. The proof of 5.5.9 produces M′ abstractly, as the point x = 0 of a closed locus, and never checks the criterion for ρ̄^ss. The proof of Corollary 5.5.10 ('By Proposition 5.5.7, M is semisimple of shape …') depends on this step.
+- **Misprints that affect nothing (12):** E95, Proof of Theorem 4.2.4; E96, Proof of Theorem 4.2.4; E97, Proof of Proposition 4.7.3; E98, Proof of Theorem 4.6.2; E99, §4.7; E100, Proof of Proposition 4.7.2; E104, Proposition 5.2.7 proof; E105, Proposition 5.5.2 proof; E106, Remark 5.2.5; E107, Definition 5.5.4; E108, §5.4.2; E109, Proposition 5.4.3 proof.
+
+Every new finding was checked on a rendered page image of the published PDF (SHA-256 e5647879…). The bounded correction search of E92–E93 applies. All 109 findings await independent review.
+
+## Proof steps added
+
+### M03: Generic differential stratum is a smooth flag variety
+
+Proposition4.1.1, PDF81–82.
+
+1. The paper's proof is one line: 'This is Proposition 3.3.4 base changed to E and taking the fiber over a ∈ A^n(E).' That is, apply Proposition 3.3.4 (U19) to the O-point (−p, a) of X × A^n and pass to E. The text after (4.1) (M02) identifies Gr^{∇a}_{G,O} with the fibre of the universal Gr^∇_{G,X} over (−p, a).
+2. The hypotheses of U19 hold. −p is a unit in E, so the E-point lies over X^0. U19 holds after inverting h_λ!, which is automatic in characteristic 0. Hence S°_E(λ) ∩ Gr^{∇a}_{G,O} ≅ (P_λ\GL_n)_E.
+3. The 'in particular' clause comes from (P_λ\GL_n)_E being a smooth, projective, geometrically irreducible variety. Being proper, its image in S_E(λ) is closed.
+
+### M07: Flat union and naive model have the same generic fibre
+
+Proposition4.1.6, PDF82–83.
+
+1. E has characteristic 0, so every factorial is invertible. By Remark 4.1.4 (M05), M^nv(≤λ,∇_a)_E is the fibre of the universal M^nv_X(≤λ,∇) at (−p, a), a point over X^0 × A^n.
+2. Corollary 3.3.5 (U20) splits the reduced fibre as ⊔_{λ′≤λ dominant} (P_{λ′}\GL_n)_E. Proposition 3.3.8 (U23) makes M^nv smooth there, so reduction is unnecessary: M^nv(≤λ,∇_a)_E ≅ ⊔_{λ′≤λ}(P_{λ′}\GL_n)_E.
+3. The λ′-piece is S°_E(λ′) ∩ Gr^{∇a}, which is closed in S_E(λ′) (Proposition 4.1.1, M03). By Definition 4.1.2 (M04) it is therefore the generic fibre of M(λ′,∇_a).
+4. So the generic fibre of M(≤λ,∇_a) = ∪_{λ′≤λ} M(λ′,∇_a) ((4.2), M06) is all of M^nv(≤λ,∇_a)_E. The inclusion M(≤λ,∇_a) ⊂ M^nv(≤λ,∇_a) (Proposition 4.1.5) is thus an equality on generic fibres.
+
+### M09: Differential affine-cell dimension
+
+Theorem4.2.4, PDF83–87.
+
+1. Coordinates. By Proposition 4.2.13 (M15), w̃^*N_{w̃^*} ≅ S°_F(w̃^*). By Corollary 4.2.12 (M41), the −α-entry of N_{w̃^*} is v^{δ_{α>0}}f_α with f_α = Σ_{i=0}^{d_{α,w̃}} c_{α,i}v^i. Take w ∈ W with w^{-1}w̃ ∈ W̃^+. Corollaries 4.2.15–4.2.16 (M16, M17) give −Supp(N_{w̃^*}) ⊂ w(Φ^+). Let ≤_C be the order on w(Φ^+) given by the simple roots w(Δ). Then (N^{-1})_{−α} = −v^{δ_{α>0}}f_α + G_α(<_C α).
+2. Entry-by-entry computation, (4.4)–(4.6), of L^∇_a(N) = v(dN/dv)N^{-1} + N Diag(ā)N^{-1} gives L^∇_a(N)_{−α} = v^{δ_{α>0}} Σ_i (i+δ_{α>0}+⟨ā,α^∨⟩)c_{α,i}v^i + F_α(<_C α). The remainder F_α involves only f_{α′} with α′ <_C α and is divisible by v^{δ_{α>0}}.
+3. Leibniz rule. The condition (4.1) on w̃^*N is equivalent to vL^∇_a(N) ∈ (w̃^*)^{-1} Lie I_F w̃^*, because the term contributed by w̃^* is a constant diagonal matrix in Lie I_F. By Lemma 4.2.8 (M38), in Lie-algebra form, this means v^{⌊⟨w̃(x),α^∨⟩⌋} = v^{d_{α,w̃}+δ_{α>0}} divides L^∇_a(N)_{−α} for every −α ∈ Supp(N_{w̃^*}). So all coefficients of (4.6) below the top degree vanish.
+4. w̃ is h-small, so d_{α,w̃} ≤ h (Remark 4.2.11, M48). Since ā is h-generic (Definition 4.2.2, M08), i+δ_{α>0}+⟨ā,α^∨⟩ ≠ 0 in F for i < d_{α,w̃}. The conditions therefore determine every c_{α,i} with i < d_{α,w̃}, recursively along <_C, in terms of the coefficients of f_{α′} for α′ <_C α. They leave c_{α,d_{α,w̃}} free.
+5. Hence N^{∇a}_{w̃^*} is an affine space with coordinates c_{α,d_{α,w̃}}, −α ∈ Supp(N_{w̃^*}), and w̃^*N^{∇a}_{w̃^*} ≅ S°_F(w̃^*) ∩ Fl^{∇a}. Its dimension is #Supp(N_{w̃^*}) = #Φ^+ − #{α ∈ Φ^+ : w̃(A_0) ⊂ H_α^{(0,1)}} (Corollary 4.2.15, M16), and #Φ^+ = d = dim B\GL_n.
+
+### M10: Smallness of admissible elements
+
+Lemma4.2.5, PDF83.
+
+1. The paper gives no argument of its own. The proof reads in full: 'This follows directly from [56, Lemmas 2.1.4 and 2.1.5].'
+2. [56] is D. Le, B. V. Le Hung, B. Levin, 'Weight elimination in Serre-type conjectures', Duke Math. J. 168(13) (2019) 2433–2506. Both assertions, w̃^* ∈ Adm^∨(λ) and h_λ-smallness of w̃^*, are taken from there.
+
+### M11: Top components of the naive special fibre
+
+Corollary4.2.6, PDF84.
+
+1. By [69, Theorem 9.3] (Pappas–Zhu, Invent. Math. 194 (2013); it rests on Zhu's proof of the coherence conjecture [85], Ann. Math. 180 (2014)), M(≤λ)_F is the reduced union of the cells S°_F(z̃), z̃ ∈ Adm^∨(λ). Since M^nv(≤λ,∇_a) = M(≤λ) ∩ Gr^{∇a} (Definition 4.1.3, M05), (M^nv(≤λ,∇_a)_F)_red is the union of the S°_F(z̃) ∩ Fl^{∇a}.
+2. By [56, Lemma 2.1.4], every z̃ ∈ Adm^∨(λ) is w̃^* for some w̃ ∈ Adm(λ). Lemma 4.2.5 (M10) makes w̃^* h_λ-small, so w̃ is h_λ-small too (Proposition 2.1.12(3), N20; left implicit). As ā is h_λ-generic, Theorem 4.2.4 (M09) applies with h = h_λ.
+3. Thus each S°_F(w̃^*) ∩ Fl^{∇a} is an affine space of dimension d − #{α ∈ Φ^+ : w̃(A_0) ⊂ H_α^{(0,1)}}. The dimension is ≤ d, with equality iff w̃ is regular (Definition 2.1.3, N06). So the d-dimensional irreducible components are exactly the closures of the pieces with w̃ ∈ Adm^reg(λ).
+4. Injectivity. Suppose two such closures coincide. The two pieces are then nonempty and open in the same irreducible scheme, so they meet. Hence S°_F(z̃) and S°_F(z̃′) meet, which forces z̃ = z̃′.
+
+### M14: Affine root subgroups of the cell subgroup
+
+Proposition 4.2.10, PDF85.
+
+1. The paper's proof: 'This follows from the definition of N_z̃ and Lemma 4.2.8.' By Definition 4.2.9 (M13), U_{−α,m} ⊂ N_z̃ = z̃^{-1}L^{--}G_F z̃ ∩ I_F iff U_{−α,m} lies in both z̃^{-1}L^{--}G_F z̃ and I_F.
+2. By the second part of Lemma 4.2.8 (M39), U_{−α,m} ⊂ z̃^{-1}L^{--}G_F z̃ iff m < ⟨w̃(x),α^∨⟩.
+3. Membership in I_F is the first part of Lemma 4.2.8 (M38) at w̃ = e: U_{−α,m} ⊂ I_F iff ⟨x,α^∨⟩ < m. This is the Iwahori condition m ≥ δ_{α>0} = ⌈⟨x,α^∨⟩⌉ on the −α-entry. The two conditions together are (4.3).
+
+### M41: Polynomial coordinates for the cell subgroup
+
+Corollary 4.2.12, PDF85 (d_{α,w̃} defined after Proposition 4.2.10, PDF85).
+
+1. The paper prints no proof. It calls the result an 'elementary corollary', stated right after Proposition 4.2.10 and Remark 4.2.11.
+2. It is read off from Proposition 4.2.10 (M14) and Definition 4.2.9 (M13). The −α-entry of N_{w̃^*}(R) carries exactly the monomials v^m with ⟨x,α^∨⟩ < m < ⟨w̃(x),α^∨⟩. As x ∈ A_0 makes both pairings non-integral, this means δ_{α>0} ≤ m ≤ ⌊⟨w̃(x),α^∨⟩⌋. So the entry is v^{δ_{α>0}}f with deg f ≤ d_{α,w̃}, and f = 0 when d_{α,w̃} < 0.
+
+### M15: Unipotent subgroup parametrizes the Schubert cell
+
+Proposition4.2.13, PDF85.
+
+1. The paper gives no proof and no reference. It introduces the result as 'the following standard description of the affine Schubert cell over F'.
+2. The only paper-internal inputs are the definition N_z̃ = z̃^{-1}L^{--}G_F z̃ ∩ I_F (Definition 4.2.9, M13) and the root-subgroup description in Proposition 4.2.10 and Corollary 4.2.12 (M14, M41). The last step of the proof of Theorem 4.2.4 (M09) uses Proposition 4.2.13.
+
+### M16: Support criterion and count
+
+Corollary4.2.15, PDF85–86.
+
+1. (1)⇔(2) 'follows from Proposition 4.2.10' (M14): −α ∈ Supp(N_{w̃^*}) (Definition 4.2.14, M40) iff some integer m satisfies ⟨x,α^∨⟩ < m < ⟨w̃(x),α^∨⟩. Both pairings are non-integral, so this is ⌊⟨w̃(x),α^∨⟩⌋ ≥ ⌈⟨x,α^∨⟩⌉.
+2. The paper calls (2)⇔(3) 'clear'. It uses ⌈⟨x,α^∨⟩⌉ = δ_{α>0}, and x lies in the 0-th α-strip for α > 0 and in the (−1)-st for α < 0.
+3. Inclusion. If −α ∈ Supp, then by (3) ⟨w^{-1}w̃(x), w^{-1}(α)^∨⟩ = ⟨w̃(x),α^∨⟩ > 0. Since w^{-1}w̃ ∈ W̃^+ puts x in the dominant chamber, w^{-1}(α) ∈ Φ^+, i.e. α ∈ w(Φ^+).
+4. Count. For α ∈ Φ^+, (3) shows that exactly one of ±α lies in Supp(N_{w̃^*}) unless w̃(A_0) ⊂ H_α^{(0,1)}, in which case neither does. Hence #Supp(N_{w̃^*}) = #Φ^+ − #{α ∈ Φ^+ : w̃(A_0) ⊂ H_α^{(0,1)}}.
+
+### M17: Triangular cell subgroup
+
+Corollary4.2.16, PDF86.
+
+1. The paper prints no proof. It states the result as a corollary right after Corollary 4.2.15.
+2. The immediate inputs are these. −Supp(N_{w̃^*}) ⊂ w(Φ^+) (Corollary 4.2.15, M16), so every root subgroup of N_{w̃^*} sits at a root of w(Φ^-), the roots of wN̄w^{-1}. Its entries are polynomials in v (Corollary 4.2.12, M41), and N_{w̃^*} ⊂ I_F (Definition 4.2.9, M13).
+
+### M19: Translate differential models to the common flag
+
+Proposition4.3.1, PDF88.
+
+1. Let R be a Noetherian F-algebra and A ∈ LGL_n(R). Embed z̃ = s^{-1}t_μ as the permutation matrix of s^{-1} times v^μ. Since v(d/dv)(v^μ) = Diag(μ)v^μ, (v(d/dv)(Az̃))z̃^{-1}A^{-1} = v(dA/dv)A^{-1} + A Diag(s^{-1}(μ))A^{-1}.
+2. Over F, Diag(s^{-1}(μ)) = Diag(ā) because a ≡ s^{-1}(μ) mod p, and L^+M_O(R) = Lie I_F(R) (PDF83). So I_F·Az̃ satisfies the ∇_0-condition (4.7) (M18) iff I_F·A satisfies (4.1) (M02) over F, i.e. Fl^{∇0}z̃^{-1} = Fl^{∇a}.
+3. Right translation by z̃ is an automorphism of Fl. Intersecting with M(≤λ)_F z̃ (resp. S°_F(w̃^*)z̃), and using M^nv(≤λ,∇_a)_F = M(≤λ)_F ∩ Fl^{∇a} (Definition 4.1.3, M05, base-changed to F), gives both displayed equalities. M(≤λ)_F z̃ ∩ Fl^{∇0} is closed in Fl^{∇0}, so r_z̃ is a closed immersion.
+
+### M21: Dimension of a translated differential cell
+
+Proposition4.3.4, PDF89.
+
+1. Proposition 4.3.1 (M19) with z̃ = s̃^* = s^{-1}t_μ, and any a ∈ Z^n with a ≡ s^{-1}(μ) mod p, gives S°_F(w̃1,w̃2,s̃)^{∇0} ≅ S°_F(z̃′) ∩ Fl^{∇a} with z̃′ = (w̃2^{-1}w0w̃1)^* (Definition 4.3.2, M20).
+2. s̃ = t_μ s is m-generic, so t_μ is m-generic, and hence so is t_{s^{-1}(μ)} (Proposition 2.1.12(1), N18). By Remark 4.2.3 (M08), s^{-1}(μ) mod p is m-generic in the sense of Definition 4.2.2.
+3. Theorem 4.2.4 (M09) applies with h = m, since w̃2^{-1}w0w̃1 is m-small. It gives an affine space of dimension d − #{α ∈ Φ^+ : w̃2^{-1}w0w̃1(A_0) ⊂ H_α^{(0,1)}}. The subtracted count is 0 because w̃2^{-1}w0w̃1 is regular (converse part of Proposition 2.1.5, N09; cf. Remark 4.3.3(1)). The paper leaves this regularity step implicit.
+4. The closure S^{∇0}_F(w̃1,w̃2,s̃) of an irreducible d-dimensional variety is irreducible of dimension d. The paper records this in the sentence after the proof.
+
+### M22: Closed immersion removing the second dominant factor
+
+Proposition 4.3.5, first assertion, PDF89.
+
+1. Put z̃1 = w̃1^* and z̃2 = w̃2^*. By Lemma 2.1.4 (N07), w̃2^{-1}w0w̃1 is reduced. The star operation preserves reduced expressions (proof of [56, Lemma 2.1.3]) and reverses products (N14, E1). So z̃1w0z̃2^{-1} = (w̃2^{-1}w0w̃1)^* is reduced in W̃^∨.
+2. By [45, Proposition 2.8] (Iwahori–Matsumoto, Publ. Math. IHÉS 25 (1965)), I_F z̃1w0 I_F z̃2^{-1} I_F = I_F z̃1w0z̃2^{-1} I_F. In particular S°_F(z̃1w0)z̃2^{-1} ⊂ S°_F(z̃1w0z̃2^{-1}).
+3. Right-translate by s̃^*. Since (s̃w̃2^{-1})^* = z̃2^{-1}s̃^*, this says S°_F(w̃1,e,s̃w̃2^{-1}) ⊂ S°_F(w̃1,w̃2,s̃) (Definition 4.3.2, M20). Intersecting with Fl^{∇0} gives the inclusion.
+
+### M42: Removing the second dominant factor under genericity
+
+Proposition 4.3.5, second assertion, PDF89–90.
+
+1. By Proposition 2.1.12(2)–(3) (N19, N20), w̃2^{-1}w0w̃1 is (m1+m2)-small, and w0w̃1 = e^{-1}w0w̃1 is m1-small.
+2. By Proposition 2.1.12(3)–(4) (N20, N21), s̃w̃2^{-1} is m1-generic when s̃ is (m1+m2)-generic.
+3. By Proposition 4.3.4 (M21), S°_F(w̃1,e,s̃w̃2^{-1})^{∇0} (with m = m1) and S°_F(w̃1,w̃2,s̃)^{∇0} (with m = m1+m2) are both affine spaces of dimension d.
+4. So the closed immersion of M22 between them is an equality ('inclusion implies equality'). Taking closures in Fl^{∇0} gives S^{∇0}_F(w̃1,e,s̃w̃2^{-1}) = S^{∇0}_F(w̃1,w̃2,s̃).
+
+### M23: Finite Weyl invariance of differential closures
+
+Proposition4.3.6, PDF90–91.
+
+1. Induction on ℓ(w) reduces to a simple reflection w = s_α, α ∈ Δ. Each s̃w^{-1} stays (n−1)-generic by Proposition 2.1.12(1) (N18); the paper leaves this implicit.
+2. S^{∇0}_F(w̃1,e,s̃) is closed in the closure of S°_F(w̃1,e,s̃), which by Lemma 4.3.7 (M43) equals the closure of S°_F(w̃1,e,s̃s_α). Hence S^{∇0}_F(w̃1,e,s̃) ∩ S°_F(w̃1,e,s̃s_α) is open in S^{∇0}_F(w̃1,e,s̃).
+3. S^{∇0}_F(w̃1,e,s̃) is irreducible by Proposition 4.3.4 (M21), because w̃1 ∈ W̃_1^+ is (n−1)-small and s̃ is (n−1)-generic. So the intersection, if nonempty, is dense. It lies in S°_F(w̃1,e,s̃s_α)^{∇0}, so S^{∇0}_F(w̃1,e,s̃) ⊆ S^{∇0}_F(w̃1,e,s̃s_α).
+4. The intersection is nonempty: Lemma 4.3.8 (M44) puts w̃1^*w0s_αs̃^* in S^{∇0}_F(w̃1,e,s̃), and this point lies in S°_F(w̃1,e,s̃s_α) = S°_F(w̃1^*w0)s_αs̃^*.
+5. By symmetry (the same argument for s̃s_α, which is also (n−1)-generic) the reverse inclusion holds, hence equality.
+
+### M25: Identify translated closures intrinsically
+
+Theorem4.3.9, PDF92.
+
+1. w̃2^{-1} is m-small (Proposition 2.1.12(3), N20). Hence s̃w̃2^{-1} is (n−1)-generic (Proposition 2.1.12(4), N21), and so is t_{s̃w̃2^{-1}(0)} (Proposition 2.1.12(1), N18).
+2. So C_(w̃1, s̃w̃2^{-1}(0)) is defined by (4.9) (M24). Choosing s̃w̃2^{-1} as the element sending 0 to s̃w̃2^{-1}(0) gives C_(w̃1, s̃w̃2^{-1}(0)) = S^{∇0}_F(w̃1,e,s̃w̃2^{-1}); independence of the choice is Proposition 4.3.6 (M23). The printed proof writes S^{∇0}_F(w̃1,e,w̃2^{-1}s̃) at this point (E14).
+3. Apply Proposition 4.3.5 (M42) with m1 = n−1 and m2 = m; s̃ is (m+n−1)-generic. Here w̃1 ∈ W̃_1^+ is (n−1)-small, as noted in the proof of Proposition 4.3.6. This gives S^{∇0}_F(w̃1,w̃2,s̃) = S^{∇0}_F(w̃1,e,s̃w̃2^{-1}), and step 2 finishes the proof.
+
+### M26: Admissible pairs label translated top components
+
+Theorem4.3.10, PDF92.
+
+1. λ regular dominant makes λ−η dominant. Corollary 2.1.7 (N12), applied to λ−η, gives the bijection AP(λ) → Adm^reg(λ), (w̃1,w̃2) ↦ w̃ = w̃2^{-1}w0w̃1.
+2. s̃ = t_μ s is (h_λ+n−1)-generic, so t_{s^{-1}(μ)} is h_λ-generic (Proposition 2.1.12(1), N18), and ā ≡ s^{-1}(μ) is h_λ-generic (Remark 4.2.3, M08). Corollary 4.2.6 (M11) then bijects Adm^reg(λ) with Irr_d(M^nv(≤λ,∇_a)_F) by w̃ ↦ closure of S°_F(w̃^*) ∩ Fl^{∇a}, where w̃^* = w̃1^*w0(w̃2^*)^{-1} (N14, E1).
+3. Proposition 4.3.1 (M19) with z̃ = s̃^* = s^{-1}t_μ makes right translation by s̃^* a closed immersion into Fl^{∇0}. It maps S°_F(w̃^*) ∩ Fl^{∇a} onto S°_F(w̃1,w̃2,s̃)^{∇0}, hence its closure onto S^{∇0}_F(w̃1,w̃2,s̃) (Definition 4.3.2, M20).
+4. Theorem 4.3.9 (M25) with m = h_λ gives S^{∇0}_F(w̃1,w̃2,s̃) = C_(w̃1, s̃w̃2^{-1}(0)). The smallness hypothesis is supplied only by the parenthetical '(note that w̃2 is h_λ-small)'.
+
+### M30: Representation-theoretic component labelling with repaired bound
+
+Theorem4.6.2, PDF95–96.
+
+1. Proposition 2.3.7 (N40, with λ−η in place of λ) gives a bijection AP(λ) → JH(R̄ ⊗ W(λ−η)). The weight σ attached to (w̃1,w̃2) has representative presentation (w̃1, ω) = (w̃1, (t_{μ+η}s)w̃2^{-1}(0)). This presentation is (λ−η)-compatible with R's (N72), hence compatible with ζ (N35), and σ is (m − h_λ)-deep (N41).
+2. By Definition 4.6.1 (M29) and (4.11) (M28), C^ζ_σ = ∏_{j∈J} C_(w̃_{1,j},ω_j). This is (4.12).
+3. The d_J-dimensional components of (M^nv_J(≤λ,∇_a))_F(s^{-1}t_{μ+η}) factor as products of the d-dimensional components of (M^nv(≤λ_j,∇_{a_j}))_F(s_j^{-1}t_{μ_j+η_j}). The paper asserts this product structure with the products of §4.5 (M28).
+4. Theorem 4.3.10 (M26) for each j, with s̃_j = t_{μ_j+η_j}s_j and a_j ≡ s_j^{-1}(μ_j+η_j) mod ϖ, bijects AP(λ_j) with these components via (w̃1,w̃2) ↦ C_(w̃1, s̃_jw̃2^{-1}(0)). These are exactly the factors in (4.12).
+
+### M31: Fixed points detected by the negative-loop chart
+
+Lemma4.7.1, PDF97.
+
+1. Specialise the contracting G_m-action of Lemma 3.4.7 (U28) along Z[v] → F, v ↦ 0. Under this map U(z̃) specialises to L^{--}G_F z̃. This yields a one-parameter subgroup G_m ⊂ T^{∨,ext} that contracts L^{--}G_F z̃ onto its unique fixed point z̃.
+2. (1)⇒(2) holds because z̃ ∈ L^{--}G_F z̃.
+3. (2)⇒(1): for y ∈ Y ∩ L^{--}G_F z̃, z̃ is the limit of the G_m-orbit of y. Since Y is closed and T^{∨,ext}-stable, z̃ ∈ Y.
+4. (2)⇔(3): Y ∩ L^{--}G_F z̃ is open in Y, since L^{--}G_F z̃ is an open chart (cf. Corollary 3.2.10, U14). As Y is irreducible, this open set is empty or dense, and a dense open set meets the dense open Y°.
+
+### M32: Obvious fixed points of an intrinsic component
+
+Proposition4.7.2, PDF97.
+
+1. C_(w̃1,ω) = ∏_j C_(w̃_{1,j},ω_j) ((4.11), M28), and T^{∨,J}-fixed points are componentwise, so it suffices to treat one factor.
+2. Since t_{ω_j}ww0(0) = ω_j, (4.9) (M24) gives C_(w̃_{1,j},ω_j) = S^{∇0}_F(w̃_{1,j},e,t_{ω_j}ww0); independence of the choice is Proposition 4.3.6 (M23). The paper cites Theorem 4.3.9 for this identity (see findings).
+3. S°_F(w̃_{1,j},e,t_{ω_j}ww0) = S°_F(w̃_{1,j}^*w0)(t_{ω_j}ww0)^* contains w̃_{1,j}^*w0(t_{ω_j}ww0)^* = w̃_{1,j}^*w^{-1}t_{ω_j} = (t_{ω_j}ww̃_{1,j})^*, because * reverses products (N14, E1). This point lies in W̃^∨ ⊂ Fl^{∇0} (checked from (4.7) at the start of §4.7), hence in S^{∇0}_F. The paper says only 'easily seen to contain'.
+
+### M33: Polynomial-generic fixed-point saturation
+
+Proposition4.7.3, PDF97–98.
+
+1. Fix j and write w̃1, ω for w̃_{1,j}, ω_j. Proposition 4.3.1 (M19) with s̃ = t_ω shows that Y := C_(w̃1,ω)t_{−ω} is the closure of Y° := S°_F(w̃1^*w0) ∩ Fl^{∇ω}. Upper bound: by the 'standard description' via Bruhat order, the T^∨-fixed points of the closure of S°_F(w̃1^*w0) are the z̃ ≤ w̃1^*w0. As * is order-preserving (N14), these are the w̃^* with w̃ ≤ w0w̃1.
+2. Lower bound. Fix w̃ ≤ w0w̃1 and put z̃ = w̃^*. Over Z (base change v ↦ 0), let 𝒴° ⊂ S°_Z(w̃1^*w0) × A^1 × A^n be cut out by b v(dg/dv)g^{-1} + g Diag(a)g^{-1} ∈ v^{-1}L^+M, with projection π: 𝒴° → A^{n+1}. Then Y° is the fibre of 𝒴° over (1, ω mod p).
+3. Let V be the open set where b(i+δ_{α>0})+⟨a,α^∨⟩ is invertible for all α and 0 ≤ i < d_{α,w0w̃1}. On V, the proof of Theorem 4.2.4 (M09) gives 𝒴°|_V ≅ A^d × V. The scaling G_m-action preserves 𝒴°. Over (0,a) ∈ V(k), the reduced fibre is open dense in an irreducible component of the affine Springer fibre of va ∈ gl_n((v)) studied in [1].
+4. By [1, Theorem 3.1] (Boixeda Alvarez, arXiv:1910.04780; Z01) and the previous observation, 𝒵 := 𝒴° ∩ (U_Z(z̃) × A^{n+1}) is nonempty, where U_Z(z̃) = L^{--}G_Z z̃. Since 𝒵 is open, π(𝒵) ∩ V is a nonempty open G_m-stable set. So some nonzero homogeneous P ∈ Z[b,a_1,…,a_n] vanishes off it; set P_{w̃1,z̃}(a) := P(1,a) ≠ 0.
+5. If P_{w̃1,z̃}(ω) ≢ 0 mod p, the fibre of 𝒵 over (1, ω) is nonempty. That fibre is Y° ∩ L^{--}G_F z̃, so Lemma 4.7.1 (M31) gives z̃ ∈ Y. The product P_{w̃1} := ∏_{z̃^* ≤ w0w̃1} P_{w̃1,z̃} works for every z̃ at once.
+
+### M34: Intrinsic component is unibranch at fixed points
+
+Proposition4.7.5, PDF99.
+
+1. Let z̃ ∈ C_(w̃1,ω) be a T^{∨,J}-fixed point. Then C_(w̃1,ω) ∩ L^{--}G_F z̃ is an open neighbourhood of z̃ in the irreducible variety C_(w̃1,ω) (componentwise over J; M24, M28).
+2. The specialised contracting G_m-action of Lemma 3.4.7 (U28), used as in Lemma 4.7.1 (M31), acts on this neighbourhood and contracts it onto its unique fixed point z̃. Lemma 3.4.8 (U29) then shows that C_(w̃1,ω) is unibranch at z̃.
+
+### M35: Obvious weight gives a fixed point
+
+Theorem4.7.6(1), PDF99.
+
+1. σ ∈ W_obv(ρ̄) ⊂ W^?(ρ̄). Proposition 2.6.2 (N63, N64) with m = 2(n−1) = 2h_η gives a pair (w̃1,w̃2) as in (2.14) with σ = F_(w̃1, w̃(ρ̄)w̃2^{-1}(0)). This presentation is compatible with ρ̄'s, hence with ζ. For an obvious weight, w̃2 = w̃1 (Definition 2.6.3, N65).
+2. By Definition 4.6.1 (M29), which does not depend on the representative (N31), C^ζ_σ = C_(w̃1, w̃(ρ̄)w̃2^{-1}(0)). Write w̃(ρ̄)w̃2^{-1} = t_ωw with w ∈ W^J. Then ω = w̃(ρ̄)w̃2^{-1}(0) and w̃(ρ̄) = t_ωww̃2.
+3. Hence w̃^*(ρ̄) = (t_ωww̃1)^*, which lies in C_(w̃1,ω) by Proposition 4.7.2 (M32).
+
+### M36: Fixed point implies a predicted weight
+
+Theorem4.7.6(2), PDF99.
+
+1. C^ζ_σ = C_(w̃1,ω) lies in the closure of S°_F(w̃1^*w0)t_ω. So its T^{∨,J}-fixed points lie in {w̃^*t_ω : w̃ ≤ w0w̃1}. This is the Bruhat upper bound from the proof of Proposition 4.7.3 (M33); no polynomial condition is needed.
+2. The paper rewrites this set, without proof, as {(t_ωww̃2)^* : w ∈ W^J, w̃2 ∈ W̃^{+,J}, w̃2 ≤ w̃1}. Since * is injective (N14), w̃^*(ρ̄) ∈ C^ζ_σ forces w̃(ρ̄) = t_ωw′w̃2 for some w′ and some w̃2 ≤ w̃1.
+3. Then w̃(ρ̄)w̃2^{-1}(0) = t_ωw′(0) = ω. Proposition 2.6.2 (N63, N64) applies: m = 2(n−1) = 2h_η, and compatibility comes from the common ζ. It gives σ = F_(w̃1,ω) ∈ W^?(ρ̄).
+
+### M37: Predicted weight gives a fixed point under polynomial genericity
+
+Theorem4.7.6(3), PDF99.
+
+1. σ ∈ W^?(ρ̄). Proposition 2.6.2 (N63, N64) with m = 2(n−1) = 2h_η gives (w̃1,w̃2) with w̃2 ↑ w̃1 as in (2.14), and a ζ-compatible presentation (w̃1, w̃(ρ̄)w̃2^{-1}(0)) of σ. So C^ζ_σ = C_(w̃1, w̃(ρ̄)w̃2^{-1}(0)) (Definition 4.6.1, M29).
+2. Write w̃(ρ̄)w̃2^{-1} = t_ωw, so that w̃^*(ρ̄) = (t_ωww̃2)^*. Here w̃2 ↑ w̃1 gives w̃2 ≤ w̃1, so this point belongs to the paper's rewriting {(t_ωw′w̃2′)^* : w̃2′ ≤ w̃1} of {w̃^*t_ω : w̃ ≤ w0w̃1}.
+3. If P_{w̃_{1,j}}(ω_j) ≢ 0 mod p for all j, Proposition 4.7.3 (M33) says every such point is a T^{∨,J}-fixed point of C_(w̃1,ω). Hence w̃^*(ρ̄) ∈ C^ζ_σ.
+
+### M38: Affine root subgroups in a conjugated Iwahori
+
+Lemma 4.2.8, first assertion, PDF84 (proof PDF85).
+
+1. Write w̃^{-1} = st_ν. Apply Lemma 4.2.7 (M12) to w̃^{-1}, whose star is z̃^{-1} (N14, E1): z̃U_{−α,m}z̃^{-1} = U_{−s(α), m+⟨ν,α^∨⟩}. So U_{−α,m} ⊂ z̃^{-1}I_F z̃ iff U_{−s(α), m+⟨ν,α^∨⟩} ⊂ I_F.
+2. U_{−β,k} ⊂ I_F iff k ≥ δ_{β>0} = ⌈⟨x,β^∨⟩⌉, i.e. k > ⟨x,β^∨⟩. With β = s(α) this reads m + ⟨ν,α^∨⟩ > ⟨x,s(α)^∨⟩.
+3. Equivalently m > ⟨s^{-1}(x) − ν, α^∨⟩ = ⟨w̃(x),α^∨⟩, because w̃ = t_{−ν}s^{-1}.
+
+### M39: Affine root subgroups in a conjugated negative loop group
+
+Lemma 4.2.8, second assertion ('Similarly'), PDF84–85.
+
+1. The paper proves only the first part of Lemma 4.2.8 and says 'The proof of the second part is similar'.
+2. The parallel argument runs as follows. Lemma 4.2.7 (M12), applied to w̃^{-1} = st_ν, turns U_{−α,m} ⊂ z̃^{-1}L^{--}G_F z̃ into U_{−s(α), m+⟨ν,α^∨⟩} ⊂ L^{--}G_F.
+3. By the criterion on PDF84 (U_{γ,k} ⊂ L^{--}G_F iff k ≤ −δ_{γ>0}) with γ = −s(α), this is m + ⟨ν,α^∨⟩ ≤ −δ_{s(α)<0} = ⌊⟨x,s(α)^∨⟩⌋. Since ⟨x,s(α)^∨⟩ ∉ Z, it is equivalent to m < ⟨s^{-1}(x) − ν, α^∨⟩ = ⟨w̃(x),α^∨⟩.
+
+### M43: Finite Weyl invariance of ambient Schubert closures
+
+Lemma 4.3.7, PDF90.
+
+1. Translating by (s̃^*)^{-1} reduces to s̃ = e. Indeed S°_F(w̃1,e,s̃w^{-1}) = S°_F(w̃1^*w0)ws̃^*, since (w^{-1})^* = w for w ∈ W (N14). So it suffices that the closure of S°_F(w̃1^*w0) = I_F\I_F w̃1^*w0 I_F is stable under right multiplication by W^∨.
+2. For every w′ ∈ W^∨, w̃1^*w′ is reduced, 'as follows from a gallery argument and the fact that the ∗-involution is length preserving'. Hence [45, Proposition 2.8] gives I_F w̃1^* I_F w′ I_F = I_F w̃1^*w′ I_F, and the closure of S°_F(w̃1^*w0) contains I_F\I_F w̃1^* I_F w′ I_F.
+3. By the Bruhat decomposition L^+GL_n = ∪_{w′∈W^∨} I_F w′ I_F, that closure is the closure of I_F\I_F w̃1^* L^+GL_n. This set is evidently stable under right multiplication by W^∨ ⊂ L^+GL_n.
+
+### M44: Adjacent fixed point in the differential closure
+
+Lemma 4.3.8, PDF90–91.
+
+1. Put z̃ = w̃1^*w0 and z̃′ = z̃s_α. By Lemma 2.1.4 (N07), with w0 the longest element, z̃′ ≤ z̃ and ℓ(z̃′) = ℓ(z̃) − 1. Let L_α be the minimal standard Levi containing U_{±α,0}. Then X_α := I_F\I_F z̃′L_α ≅ P^1_F contains z̃ and lies in the closure of S°_F(z̃) ([67, Proposition 8.8], Pappas–Rapoport, Adv. Math. 219 (2008)).
+2. For A ∈ L_α, the condition (4.7) on z̃′As̃^* becomes (4.8): v(d/dv)(z̃′)(z̃′)^{-1} + z̃′A Diag(s^{-1}(μ))A^{-1}(z̃′)^{-1} ∈ v^{-1}Lie I_F. This uses dA/dv = 0 and v(d/dv)(s̃^*)(s̃^*)^{-1} = Diag(s^{-1}(μ)) for s̃^* = s^{-1}t_μ. The first term is a constant diagonal matrix, so it suffices that v Lie L_α ⊂ (z̃′)^{-1}Lie I_F z̃′.
+3. Since α ∈ Δ and w̃1 ∈ W̃_1^+, 0 < ⟨w̃1(x), −w0(α)^∨⟩ < 1. Hence −1 < ⟨z̃^*(x),α^∨⟩ < 0 and |⟨(z̃′)^*(x), ±α^∨⟩| < 1. Lemma 4.2.8 (M38), with m = 1, gives v Lie L_α ⊂ (z̃′)^{-1}Lie I_F z̃′.
+4. So X_αs̃^* ⊂ Fl^{∇0}. Its dense open part X_αs̃^* ∩ S°_F(z̃)s̃^* lies in S°_F(w̃1,e,s̃)^{∇0}. Hence X_αs̃^* ⊂ S^{∇0}_F(w̃1,e,s̃), and in particular z̃′s̃^* = w̃1^*w0s_αs̃^* lies there. The paper leaves the density step inside 'This will imply'.
+
+### M48: Smallness bounds the cell coordinate degrees
+
+Remark 4.2.11, PDF85.
+
+1. The paper prints no proof; the result is stated as a remark.
+2. It is immediate from Definition 2.1.10(3) (N16). Write w̃ = st_ν with h_ν ≤ m. Then ⟨w̃(x),α^∨⟩ = ⟨ν,s^{-1}(α)^∨⟩ + ⟨x,s^{-1}(α)^∨⟩, an integer ≤ m plus a number in (−1,1). So ⌊⟨w̃(x),α^∨⟩⌋ ≤ m, while ⌈⟨x,α^∨⟩⌉ = δ_{α>0} ≥ 0.
+
+### M49: Equidimensionality of the naive special fibre (claimed without proof)
+
+Remark 4.6.3(1), PDF95.
+
+1. The paper gives no proof. Remark 4.6.3(1) says only that one can show it 'using arguments similar to that of the proof of Theorem 4.3.9', and that 'As we will not need this information, we will not pursue this here'.
+2. The available inputs are Theorem 4.2.4 and Corollary 4.2.6 (M09, M11). Each piece S°_F(w̃^*) ∩ Fl^{∇a}, w̃ ∈ Adm(λ), is an affine space of dimension ≤ d, with d-dimensional pieces exactly for regular w̃. Equidimensionality additionally needs every lower-dimensional piece to lie in the closure of a d-dimensional one, and the paper does not supply that.
+
+### M50: Covering read off from torus-fixed points of components
+
+Remark 4.7.4(2), PDF98.
+
+1. The paper gives no argument beyond the citation: 'Proposition 2.3.12 shows that σ covers σ′ if and only if all the T^{∨,J}-fixed points of C^ζ_{σ′} lie in C^ζ_σ'.
+2. Implicit chain, part 1. Under the polynomial condition, Proposition 4.7.3 (M33) gives the fixed points of C^ζ_σ = C_(w̃,ω) (Definition 4.6.1, M29) as {w̃′^*t_ω : w̃′ ≤ w0w̃} = (t_ωW̃_{≤w0w̃})^*. Here * is an order-preserving anti-isomorphism (N14, E1). The same holds for σ′.
+3. Implicit chain, part 2. So 'all fixed points of C^ζ_{σ′} lie in C^ζ_σ' means t_{ω′}W̃_{≤w0w̃′} ⊂ t_ωW̃_{≤w0w̃}. Proposition 2.3.12(1)⇔(3) (N47) identifies this with 'σ covers σ′' (Definition 2.3.10, N45).
+
+### K07: Compatibility with earlier embedding conventions
+
+Remark5.1.7, PDF103–104.
+
+1. Put s_{−,j} := s_{f−j} and μ_{−,j} := μ_{f−j}. The pair (s_−, μ_−) is the lowest alcove presentation of τ in the sense of [56, Definition 2.2.5(4)] and [60, Definition 2.2.2(4)] (PDF103).
+2. Items (1)–(4) state that the following agree with the objects of [56, §3.2, (3.1), (3.2), (3.4)] built from (s_−, μ_−): s_τ (Example 2.4.1, N50), s′_{or,j′} (5.3), α′_{j+kf} and a′^{(j′)} ((5.1)–(5.2), K06), and the characters χ_i of (2.12). The paper gives no computation; these are definition chases.
+3. Item (5) comes from the star operation of [56, Definition 2.1.2] and [60, Definition 3.1.1]. We have (s_−)^*_j = s_{−,f−1−j}^{−1} = s_{j+1}^{−1} and (μ_−+η)^*_j = μ_{−,f−1−j}+η_{f−1−j} = μ_{j+1}+η_{j+1}. Hence (s_−)^*_j t_{(μ_−+η)^*_j} = s_{j+1}^{−1} t_{μ_{j+1}+η_{j+1}}.
+4. The partial Frobenius φ^{(j′)}_M here (target-indexed, Definition 5.1.1, K03) is φ^{(j′−1)}_M in [56, §3.2] and [60]. From items (1)–(5) the paper 'easily deduces' that A^{(j′)}_{M,β} of (5.4) equals the matrix A^{(j′−1)} of [56, §3.2] (the discussion after Definition 3.2.8) for the same β and the presentation (s_−, μ_−).
+
+### K08: Change of eigenbasis is twisted Frobenius conjugation
+
+Proposition5.1.8, PDF104–105.
+
+1. The paper cites [56, Proposition 3.2.9] and gives no independent argument (PDF105).
+2. By Remark 5.1.7 (K07), I^{(j′)} := Ad((s′_{or,j′})^{−1}(u′)^{−a′^{(j′)}})(D^{(j′)}) is the matrix I^{(j′)} of [56, Proposition 3.2.9] for the presentation (s_−, μ_−). The proof cites that presentation as '[56, Definition 2.2.1(iv)]', while Remark 5.1.7 cites Definition 2.2.5(4).
+3. Remark 5.1.7(5) and its conclusion give (s_−)^*_j t_{(μ_−+η)^*_j} = s_j^{−1}t_{μ_j+η_j} after the shift, and A^{(j′)} here equals A^{(j′−1)} in [56]. So the proposition is [56, Proposition 3.2.9] with j′ replaced by j′−1. This covers membership I^{(j′)} ∈ I(R), dependence only on j′ mod f, the formula A^{(j′)}_{β2} = I^{(j′)}A^{(j′)}_{β1}Ad(s_j^{−1}v^{μ_j+η_j})(φ(I^{(j′−1)}))^{−1}, and the converse for f-periodic tuples in I(R)^{J′}.
+
+### K10: Frobenius contraction on I1
+
+Lemma5.1.10(a), PDF105.
+
+1. Ad(s_j^{−1}) permutes matrix entries and fixes 1. So it suffices to prove Ad(v^{μ_j+η_j})(φ(I)) ≡ 1 mod v^{m+1}.
+2. The m-genericity of (s, μ) (Definition 2.1.10, N15/N16; Definition 2.4.3, N52) gives m < ⟨μ_j+η_j, α^∨⟩ < p − m for every α ∈ Φ^+. The paper deduces m + 1 < p, which needs a root to exist, i.e. n ≥ 2 (see findings).
+3. Ad(v^{μ_j+η_j}) does not change the diagonal entries of φ(I). These are ≡ 1 mod v^p because I ∈ I_1(R) (K02) and φ(v) = v^p.
+4. For α ∈ Φ^+, the α-entry is multiplied by v^{⟨μ_j+η_j,α^∨⟩}, whose exponent is ≥ m+1. The −α-entry of I is divisible by v, so that entry of φ(I) is divisible by v^p. After conjugation it is divisible by v^{p−⟨μ_j+η_j,α^∨⟩}, whose exponent is also ≥ m+1.
+
+### K11: Higher congruence contraction for group elements
+
+Lemma 5.1.10(b), PDF105.
+
+1. The paper prints no proof: 'We provide a proof of item (a) and leave the rest to the reader' (PDF105). The steps below are the entrywise estimate of (a) (K10), which that sentence points to.
+2. If I ≡ 1 mod v^k, then φ(I) − 1 ∈ v^{kp}Mat_n(R[[v]]), since φ(v) = v^p and φ is trivial on R.
+3. Depth gives ⟨μ_j+η_j, α^∨⟩ ≤ p − m − 1 for α ∈ Φ^+ (Definition 2.1.10, N15). So Ad(v^{μ_j+η_j}) lowers the v-adic valuation of a −α-entry by at most p − m − 1 and does not lower diagonal or α-entries. Ad(s_j^{−1}) only permutes entries.
+4. Hence Ad(s_j^{−1}v^{μ_j+η_j})(φ(I)) − 1 ∈ v^{kp−(p−m−1)} = v^{(k−1)p+m+1}. Part (b) is part (d) (K49) applied to Y = I − 1. The printed 'm ≥ 1' should read 'k ≥ 1' (E62).
+
+### K49: Higher congruence contraction for matrices
+
+Lemma 5.1.10(d), PDF105.
+
+1. The paper prints no proof ('leave the rest to the reader', PDF105). The steps below are the entrywise estimate of (a) (K10).
+2. If Y ∈ v^kMat_n(R[[v]]), then φ(Y) ∈ v^{kp}Mat_n(R[[v]]).
+3. By m-depth (N15), 0 < ⟨μ_j+η_j, α^∨⟩ ≤ p−m−1 for α ∈ Φ^+. So Ad(v^{μ_j+η_j}) multiplies α-entries by a nonnegative power of v, leaves diagonal entries alone, and multiplies −α-entries by v^{−⟨μ_j+η_j,α^∨⟩}, a loss of at most p−m−1. Ad(s_j^{−1}) permutes entries.
+4. Hence Ad(s_j^{−1}v^{μ_j+η_j})(φ(Y)) ∈ v^{kp−(p−m−1)}Mat_n = v^{(k−1)p+m+1}Mat_n(R[[v]]). It is used with k ≥ 1 in Lemma 5.2.2 (existence, PDF108–109) and Proposition 5.2.7 (PDF112).
+
+### K12: Lie I1 Frobenius contraction, corrected
+
+Lemma5.1.10(c), PDF105.
+
+1. The printed (c) has no proof ('leave the rest to the reader', PDF105) and is false as printed: Y = 1 is a counterexample (E16). The corrected statement assumes Y strictly upper triangular mod v and applies Ad(s_j^{−1}v^{μ_j+η_j}) to φ(Y).
+2. Proof of the corrected form, along the lines of (a) (K10): in Y the diagonal and −α-entries are divisible by v, so in φ(Y) they are divisible by v^p.
+3. Use m < ⟨μ_j+η_j,α^∨⟩ < p−m (N15), so p ≥ m+2 when n ≥ 2. Diagonal entries of the conjugate stay divisible by v^p ⊂ v^{m+1}. α-entries gain v^{⟨μ_j+η_j,α^∨⟩} ⊂ v^{m+1}. −α-entries end up divisible by v^{p−⟨μ_j+η_j,α^∨⟩} ⊂ v^{m+1}. Ad(s_j^{−1}) permutes entries.
+4. This linearisation of (a) is what the proof of Proposition 5.2.7 uses (PDF112). There Y_{j−1} ∈ Lie I_1(J) (strictly upper triangular mod v, E18) and m = h+1 give Ad(s_j^{−1}v^{μ_j+η_j})(φ(Y_{j−1})) ≡ 0 mod v^{h+2}.
+
+### K15: Quotient presentation of the Kisin stack
+
+Proposition5.2.1, PDF107.
+
+1. Let Y^{[0,h],τ,β} be the groupoid of pairs (M, β) with β an eigenbasis. It maps to (LG_O)^J by (M, β) ↦ (A^{(j)}_{M,β})_j. By the height translation after Remark 5.1.7 (PDF104, K06; K13), M ∈ Y^{[0,h],τ} iff (A^{(j)}_{M,β}) ∈ (L^{[0,h]}G_O)^J.
+2. Let R be p-adically complete Noetherian. By Proposition 5.1.8 (K08), the eigenbases of a given M form a torsor under I(R)^J = L^+G_O(R)^J (K02), and changing the eigenbasis acts on the matrices by the (s, μ)-twisted φ-conjugation (K14).
+3. Hence [(L^{[0,h]}G_O)^J /_{φ,(s,μ)} (L^+G_O)^J]^{∧p} is the substack of Y^{[0,h],τ} whose objects fpqc-locally admit an eigenbasis.
+4. Every object admits one. Zariski locally on R, choose a basis of M/u′M made of Γ′-eigenvectors and compatible with ι_M mod u′ (K04). It lifts to an eigenbasis of M because Γ′ has order prime to p.
+
+### K16: Residual straightening of I1 conjugation
+
+Lemma5.2.2, PDF107–109.
+
+1. Throughout, (5.6) is used: Ad(z̃_j)(φ(I^{(j−1)})^{−1}) ≡ 1 mod v^{h+2} for I^{(j−1)} ∈ I_1(R). This is Lemma 5.1.10(a) (K10) with m = h+1, since μ is (h+1)-deep in C_0.
+2. The map F from (1) to (2) sends a tuple to X_j := A_2^{(j)}(A_1^{(j)})^{−1}, which equals I^{(j)}(1 + v^{h+2}A_1^{(j)}Y_j(A_1^{(j)})^{−1}) with Y_j integral by (5.6). By the height condition (v^h(A_1^{(j)})^{−1} integral, K13) this lies in I_1(R).
+3. The map G from (2) to (1) solves the fixed-point equation I^{(j)} = X_jA_1^{(j)}Ad(z̃_j)(φ(I^{(j−1)}))(A_1^{(j)})^{−1} by the iteration J_0 = 1, J_{i+1}^{(j)} = X_jA_1^{(j)}Ad(z̃_j)(φ(J_i^{(j−1)}))(A_1^{(j)})^{−1}. By Lemma 5.1.10 and the height condition, J_2 − J_1 ∈ v^2Mat_n. By induction using Lemma 5.1.10(d) (K49), J_i − J_{i−1} ∈ v^{p(i−2)}Mat_n for i ≥ 3. So the sequence converges v-adically in I_1(R), and F∘G = id.
+4. Injectivity: if F(I) = F(J), then (J^{(j)})^{−1}I^{(j)} solves (1) for the pair (A_1, A_1) with X = 1. This reduces to I^{(j)} = A_1^{(j)}Ad(z̃_j)(φ(I^{(j−1)}))(A_1^{(j)})^{−1}; the printed inverse on φ(I^{(j−1)}) is a misprint, E17. Then I ≡ 1 mod v^2. If I ≡ 1 mod v^δ with δ ≥ 2, Lemma 5.1.10(b) (K11) and the height condition give I ≡ 1 mod v^{p(δ−1)+2}. Since p(δ−1)+2 > δ, I = 1.
+
+### K17: Residual Kisin stack as a torus quotient
+
+Corollary5.2.3, PDF109.
+
+1. Proposition 5.2.1 (K15) over F identifies Y^{[0,h],τ}_F with the quotient of (L^{[0,h]}G_F)^J by the (s, μ)-twisted φ-conjugation of I_F^J. This quotient is formed by taking partial Frobenius matrices with respect to an eigenbasis.
+2. I = T^∨ ⋉ I_1 (K02). Lemma 5.2.2 (K16) says that, for μ (h+1)-deep, the twisted φ-conjugation by I_1^J has the same orbits and morphisms as left translation. So the I_1^J-quotient is (Gr̃^{[0,h]}_{G,F})^J = (I_{1,F}\L^{[0,h]}G_F)^J (K13).
+3. φ acts trivially on the constant torus T^∨. So the remaining T^{∨,J}_F-action is the (s, μ)-twisted conjugation (K14), which gives π_(s,μ).
+4. The inclusion into [(Fl̃^{[0,h]})^J/_{(s,μ)}T^{∨,J}_F] comes from Gr̃^{[0,h]}_{G,F} ⊂ Fl̃^{[0,h]} (§5.2, PDF106–107). The paper's proof reads in full: 'This follows immediately from Proposition 5.2.1, Lemma 5.2.2, the fact that φ acts trivially on T^∨ and that I = T^∨ ⋉ I_1.'
+
+### K19: Existence and uniqueness of gauge bases
+
+Proposition5.2.7, PDF110–112.
+
+1. It suffices to treat R a Noetherian O/ϖ^a-algebra and to induct on a. The case a = 1 is Remark 5.2.5 (K18), which applies Lemma 5.2.2 (K16); the remark misnames it 'Proposition 5.2.2'. Lift a z̃-gauge basis β̄ of M/ϖ^{a−1}M to an eigenbasis β. By Proposition 5.1.8 (K08), the other lifts are given by f-periodic tuples X_j = 1 + Y_j with Y_j ∈ Lie I(J), where J = ϖ^{a−1}R.
+2. Write Ā^{(j)} = D̄_jŪ_jz̃_j. Using formal smoothness of T^∨ and L^{−−}G_O, lift to Ã^{(j)} = (1+a_j)D̃_jŨ_jz̃_j with a_j ∈ Lie LG_O(J). Twisted φ-conjugation by 1+Y_j turns a_j into a′_j = Y_j + a_j − Ad(A_F^{(j)}s_j^{−1}v^{μ_j+η_j})(φ(Y_{j−1})). The gauge condition is system (5.7): a′_j ∈ Lie L^{−−}G_O(J) ⊕ Lie T^∨(J).
+3. The solution set of (5.7) is stable under translation by Lie T^∨(J)^J, because T^∨_O·L^{−−}G_O is a subgroup. So it suffices to show that (5.7) has a unique solution in Lie I_1(J)^J. Lemma 3.2.3 (U07) gives the splitting Lie LG_O(J) = Lie L^{−−}G_O(J) ⊕ Lie T^∨(J) ⊕ Lie I_1(J).
+4. Let Ψ(Y)_j = Y_j − Ad(A_F^{(j)}s_j^{−1}v^{μ_j+η_j})(φ(Y_{j−1})). The corrected Lemma 5.1.10(c) (K12) and the height condition show that Ψ maps Lie I_1(J)^J into itself. Lemma 5.1.10(d) (K49) shows that the second term raises the v-adic order by one. So Ψ = id − (topologically nilpotent) is an automorphism.
+5. The unique solution in Lie I_1(J)^J is Ψ^{−1} of the projection of (−a_j)_j onto Lie I_1(J)^J. Together with step 3, the gauge basis exists and is unique up to T^{∨,J}(R).
+
+### K20: Local model diagram for bounded-height Kisin modules
+
+Theorem5.3.1, PDF113.
+
+1. Left side: M ∈ Y^{[0,h],τ}(z̃) admits eigenbases Zariski locally (proof of Proposition 5.2.1, K15). Proposition 5.2.7 (K19) then gives a z̃-gauge basis, unique up to T^{∨,J}(R). Its partial Frobenius matrices lie in Ũ^{[0,h]}(z̃) = T^{∨,J}_O·U^{[0,h]}(z̃) (Definitions 5.2.4 and 5.2.6, K18).
+2. Rescaling a gauge basis by a constant tuple in T^{∨,J} acts by the (s, μ)-twisted conjugation: this is Proposition 5.1.8 (K08) with constant diagonal D, and φ fixes constants (K14). Hence Y^{[0,h],τ}(z̃) = [Ũ^{[0,h]}(z̃)/_{(s,μ)}T^{∨,J}_O]^{∧p}, and the left arrow is a T^{∨,J}-torsor.
+3. Right side: the T^{∨,J}_O left-translation action on Ũ^{[0,h]}(z̃) is free with quotient U^{[0,h]}(z̃), by Lemma 3.2.2 (U05): L^+G × L^{−−}G → LG is a monomorphism and T^∨ ⊂ L^+G.
+4. U^{[0,h]}(z̃) → Gr^{[0,h],J}_{G,O} is an open immersion by Lemma 3.2.7 (U11), because Gr^{[0,h]}_{G,O} is of finite type over O (PDF109). The left vertical arrow is open by Definition 5.2.4(2). The paper's proof cites exactly Proposition 5.2.7, Zariski-local eigenbases, Lemmas 3.2.2 and 3.2.7, and the finite-type property.
+
+### K22: Pappas–Zhu local model diagram with Hodge bound
+
+Theorem5.3.3, PDF115.
+
+1. U(z̃, ≤λ) and Ũ(z̃, ≤λ) are defined by (5.9), and Y^{≤λ,τ}(z̃) := Y^{≤λ,τ} ∩ Y^{[0,h],τ}(z̃). It suffices to show that Y^{≤λ,τ} and M_J(≤λ)^{∧p} have the same pullback to Ũ^{[0,h]}(z̃)^{∧p} along diagram (5.8) (Theorem 5.3.1, K20).
+2. Both pullbacks are reduced and O-flat. Y^{≤λ,τ} is O-flat with reduced versal rings ([17, Theorem 5.3], characterised as in [17, Theorem 5.13]; K21). M_J(≤λ) is the Zariski closure of the reduced S_E(λ) (M01). The torsor arrows of (5.8) are smooth.
+3. So it suffices to compare O′-points, with O′ the integers of a finite extension E′/E. The paper gives no reference for this reduction.
+4. An O′-point M lies in Y^{≤λ,τ} iff A^{(j)}_{M,β}, viewed in GL_n(E′((v+p))), has elementary divisors bounded by (v+p)^{λ_j} (§5.3, PDF114, via [17, Lemma 5.10]). This is the condition cut out by S_E(λ) ⊂ M_J(≤λ). It is unchanged by left and right multiplication by GL_n(E′[[v+p]]), so a gauge matrix and its image in Gr_{G,O} satisfy it together.
+
+### K23: Nonempty Kisin charts are admissible
+
+Corollary5.3.4, PDF115.
+
+1. By Theorem 5.3.3 (K22), whose diagonal arrows are surjective torsors, Y^{≤λ,τ}(z̃) ≠ ∅ iff U(z̃, ≤λ)^{∧p} ≠ ∅. That holds iff the special fibre U(z̃, ≤λ)_F ≠ ∅.
+2. By [69, Theorem 9.3] (Pappas–Zhu, Invent. Math. 194 (2013)), M_J(≤λ)_F is the union of the affine Schubert cells S°_F(s̃) for s̃ ∈ Adm^∨(λ) (M01). So its T^∨-fixed points are exactly Adm^∨(λ).
+3. Since U(z̃_j) = L^{−−}G z̃_j, Lemma 4.7.1 (M31) says that U(z̃) meets a T^∨-stable closed irreducible subvariety iff z̃ lies in it. Applied to M_J(≤λ)_F, U(z̃, ≤λ)_F ≠ ∅ iff z̃ ∈ Adm^∨(λ).
+
+### K24: Hodge-bound membership detected by shape
+
+Corollary5.3.5, PDF115.
+
+1. The paper prints no proof: the corollary is the last item of §5.3 on PDF115, and §5.4 starts on PDF116.
+2. The route the preceding results give: M ∈ Y^{[0,h],τ}(F′) has a shape z̃ (Definition 5.1.9, K09), so it admits a z̃-gauge (Remark 5.2.5, K18) and lies in the chart of Theorem 5.3.3 (K22).
+3. Over F, Theorem 5.3.3 says that M ∈ Y^{≤λ,τ}(F′) iff the image in Gr_{G,F} = Fl of its partial Frobenius matrices lies in M_J(≤λ)_F. Those matrices lie in I(F′)z̃_jI(F′), so the image lies in the Schubert cell S°_F(z̃).
+4. M_J(≤λ)_F is the union of the cells S°_F(s̃), s̃ ∈ Adm^∨(λ) ([69, Theorem 9.3], as in Corollary 5.3.4, K23). So it contains the cell of z̃ iff z̃ ∈ Adm^∨(λ).
+
+### K27: Properness of the lattice-forgetting map
+
+Proposition5.4.1, PDF116.
+
+1. ε_τ is the composite of two maps (§5.4.1, K26): M ↦ M ⊗_{S_{L′,R}} (O_{E,L′} ⊗̂ R), from Y^{[0,h],τ} to Φ-Mod^{ét,n}_{dd,L′}, followed by taking Δ-invariants into Φ-Mod^{ét,n}_K.
+2. The first map is representable by algebraic spaces, proper and of finite presentation by [15, Corollary 3.1.7(3) and Proposition 3.3.5] (Caraiani–Emerton–Gee–Savitt, arXiv:1908.07019).
+3. Taking Δ-invariants is an equivalence of stacks with quasi-inverse M ↦ M ⊗_{O_{E,K}} O_{E,L′}. The paper gives this without proof or reference (Galois descent along O_{E,L′}/O_{E,K}).
+4. So the composite ε_τ has the three properties.
+
+### K28: Etale Frobenius matrix attached to an eigenbasis
+
+Proposition5.4.2, PDF117.
+
+1. The statement is [60, Proposition 3.2.1], whose proof is generalised in the proof of [56, Corollary 3.2.17]. The paper reproduces that proof, relabelled by Remark 5.1.7 (K07).
+2. On M′ := (M ⊗ O_{E,L′})^{Γ′=1}, put β′^{(j′)} := β^{(j′)}(u′)^{a′^{(j′)}}. This is a Γ′-invariant basis of M′^{(j′)}, because Γ′ acts on u′ in embedding j′ through ω_{f′}^{p^{f′−j′}} and on the eigenbasis by the χ_i^{−1} (K05, (5.2)).
+3. Using (5.4) (K06) and pa′^{(j′−1)} − a′^{(j′)} = (p^{f′}−1)α′_{f′−j′}, with v = (u′)^{e′}, the matrix of φ^{(j′)}_{M′} in β′ is s′_{or,j′}A^{(j′)}_{M,β}(s′_{or,j′})^{−1}v^{α′_{f′−j′}}.
+4. Put β̃^{(j′)} := β′^{(j′)}s′_{or,j′}. By (5.1) and (5.3), the matrix becomes A^{(j′)}_{M,β}(s′_{or,j′})^{−1}s′_{or,j′−1}v^{(s′_{or,j′−1})^{−1}(α′_{f′−j′})} = A^{(j′)}_{M,β}s_j^{−1}v^{μ_j+η_j}.
+5. Since (σ^f)^*(β̃^{(j′)}) = β̃^{(j′−f)}, the basis descends to a basis f of ε_τ(M) = (M′)^{σ^f=1} (K26) with the stated matrices.
+
+### K29: Generic triviality of Kisin fibres as a closed immersion
+
+Proposition5.4.3, PDF117–119.
+
+1. One must show that ε_τ is fully faithful on Y^{[0,h],τ}(R) for R p-adically complete Noetherian. It suffices to take R a Noetherian O/ϖ^a-algebra (Remark 5.1.4(2), K04). Fix (s, μ) with μ (h+1)-deep in C_0.
+2. The claim is local in R, so M_1 and M_2 may be assumed to have eigenbases β_i (proof of Proposition 5.2.1, K15). Via the bases f_i of Proposition 5.4.2 (K28), isomorphisms ε_τ(M_1) ≅ ε_τ(M_2) correspond to tuples I ∈ LG_O(R)^J satisfying (5.12). By Proposition 5.1.8 (K08), isomorphisms M_1 ≅ M_2 correspond to solutions in I(R)^J (printed I_F(R)). So every solution of (5.12) must lie in I(R)^J. Induct on a.
+3. The case a = 1 is Lemma 5.4.4 (K30).
+4. Induction step: using the claim mod ϖ^{a−1}, assume A_1 ≡ A_2 and β_1 ≡ β_2 mod ϖ^{a−1}. Put J = ϖ^{a−1}R, A_2^{(j)} = (1+a_j)A_1^{(j)} and I^{(j)} = 1+Y_j. Then (5.12) becomes Y_j = a_j + Ad(A_F^{(j)}s_j^{−1}v^{μ_j+η_j})(φ(Y_{j−1})) with a_j ∈ v^{−h}Mat_n(J[[v]]). Lemma 5.4.5 (K31) gives Y_j ∈ Lie I(J), so I ∈ I(R). This step needs the corrected Lemma 5.4.5, whose hypothesis holds because (A_1^{(j)})^{−1}a_jA_1^{(j)} = (A_1^{(j)})^{−1}(A_2^{(j)}−A_1^{(j)}) ∈ v^{−h}Mat_n(J[[v]]) (see findings).
+5. ε_τ is representable by algebraic spaces and proper (Proposition 5.4.1, K27), so the monomorphism is a closed immersion. The paper gives no reference; for schemes, a proper monomorphism is a closed immersion by the Stacks Project, Tag 04XV (Lemma 41.7.2).
+
+### K30: Pole elimination for etale isomorphisms
+
+Lemma5.4.4, PDF118.
+
+1. The proof 'essentially repeats' [59, Theorem 3.2] for a general F-algebra R. Choose k_j with I^{(j),+} := v^{k_j}I^{(j)} ∈ Mat_n(R[[v]]) and I^{(j),+} ≢ 0 mod v.
+2. Rewriting the equation and multiplying by v^h gives v^{h+k_j−pk_{j−1}}Ad(z̃_j)(φ(I^{(j−1),+})) = v^h(A_2^{(j)})^{−1}I^{(j),+}A_1^{(j)}. The right side is integral by the height condition (K13).
+3. An entry of φ(I^{(j−1),+}) with nonzero constant term is multiplied by at most v^{max_α⟨μ_j+η_j,α^∨⟩}, and (h+1)-depth bounds that exponent by p−h−2 (N15). This gives (5.11): k_j > p(k_{j−1}−1)+1. Going around the cycle J then forces all k_j ≤ 0, so I^{(j)} ∈ Mat_n(R[[v]]). Exchanging A_1 and A_2 gives I^{(j)} ∈ GL_n(R[[v]]).
+4. Let α be a negative root with (I^{(j−1)})_α ≢ 0 mod v. Then the corresponding entry of Ad(z̃_j)(φ(I^{(j−1)})) has a pole of order −⟨μ_j+η_j,α^∨⟩ > h. This contradicts v^hAd(z̃_j)(φ(I^{(j−1)})) = v^h(A_2^{(j)})^{−1}I^{(j)}A_1^{(j)} ∈ Mat_n(R[[v]]). So I^{(j)} is upper triangular mod v, i.e. I^{(j)} ∈ I_F(R).
+
+### K31: Pole elimination for infinitesimal isomorphisms
+
+Lemma5.4.5, PDF118.
+
+1. The paper gives no separate proof: 'The same argument also proves the following' (PDF118), meaning the argument of Lemma 5.4.4 (K30), linearised.
+2. That argument isolates Ad(z̃_j)(φ(Y_{j−1})). If some Y_{j−1} has pole order K ≥ 1, then (h+1)-depth (N15) gives an entry of Ad(z̃_j)(φ(Y_{j−1})) of pole order > pK − p + h + 1. Compared with a pole order ≤ h + K on the other side, this gives the analogue of (5.11) and forces K ≤ 0. So Y_j ∈ Mat_n(J[[v]]).
+3. A nonzero constant α-entry of Y_{j−1}, for α a negative root, gives a pole of order −⟨μ_j+η_j,α^∨⟩ > h+1 in Ad(z̃_j)(φ(Y_{j−1})), which is too large. So Y_j is upper triangular mod v, i.e. Y_j ∈ Lie I_F(J).
+4. Both steps need Ad(A^{(j)})^{−1}(Y_j) − Ad(z̃_j)(φ(Y_{j−1})) ∈ v^{−h}Mat_n(J[[v]]), the analogue of v^h(A_2)^{−1}IA_1 ∈ Mat_n in Lemma 5.4.4. The printed hypothesis on Y_j − Ad(A^{(j)}z̃_j)(φ(Y_{j−1})) is weaker, and the lemma is false as printed (see findings). Its use in Proposition 5.4.3 satisfies the corrected hypothesis.
+
+### K33: Bounded flag quotient embeds in the etale stack
+
+Proposition5.4.6, PDF120.
+
+1. Construction (§5.4.2, K32): ι′_z̃ sends (A^{(j)}z̃_j) to the free étale φ-module with partial Frobenius A^{(j)}z̃_j, and it factors through φ-conjugation by I_F. Right translation by z̃ = σ^{−1}t_{ν+η} intertwines the (σ, ν)-twisted φ-conjugation with the plain φ-conjugation. Lemma 5.2.2 (K16) therefore lets ι′_z̃ descend to ι_z̃ on Fl̃^{[a,b]}_{J,z̃}, and further to the quotient by the shifted T^{∨,J}_F-conjugation.
+2. Proof: twisting by the central element v^{−a} reduces to A_i^{(j)} ∈ L^{[0,b−a]}GL_n(R) (K13).
+3. Two such points that are φ-conjugate by I ∈ GL_n(R((v)))^J have I^{(j)} ∈ I_F(R), by Lemma 5.4.4 (K30) with h = b−a, since ν is (b−a+1)-deep.
+4. Implicit final step: writing I = D·I_1 (K02), the I_1-part acts as left translation (Lemma 5.2.2) and the constant D acts as the shifted T^{∨,J}-conjugation. So isomorphisms of images come from the quotient groupoid, and ι_z̃ is a monomorphism.
+
+### K34: Compatibility diagram for different local models
+
+Proposition5.4.7, PDF120–121.
+
+1. The paper gives no proof beyond: 'The following Proposition, obtained by combining Propositions 5.4.6, 5.4.3 and Corollary 5.2.3' (PDF120).
+2. Middle column: π_(s,μ) is the isomorphism of Corollary 5.2.3 (K17), since μ is (h+1)-deep. Right translation by w̃^*(τ) maps Gr̃^{[0,h],J}_{G,F} into Fl̃^{[a,b]}_{J,z̃}, by the displayed hypothesis. It turns the (s, μ)-twisted T^{∨,J}-conjugation into the shifted T^{∨,J}-conjugation (K32), which gives the diagonal arrow into the quotient.
+3. Bottom-right square: by Proposition 5.4.2 (K28), ε_τ(M) has partial Frobenius matrices A^{(j)}_{M,β}s_j^{−1}v^{μ_j+η_j} = A^{(j)}_{M,β}w̃^*(τ)_j, so ε_τ agrees with ι_z̃ ∘ r_{w̃^*(τ)} ∘ π_(s,μ)^{−1}. ι_z̃ comes from Proposition 5.4.6 (K33), and ε_τ is a monomorphism by Proposition 5.4.3 (K29).
+4. Left square: M̃_J(≤λ)_F → Y^{≤λ,τ}_F is the special fibre of the Hodge-bounded local model (Theorem 5.3.3, K22). Over F it glues as in Warning 5.3.2.
+
+### K35: Fields-of-norms anti-equivalence
+
+§5.5, PDF121.
+
+1. No proof: the anti-equivalence V^*_K is quoted from the theory of fields of norms, citing [31] (Fontaine, 'Représentations p-adiques des corps locaux', Grothendieck Festschrift II, 1990, 249–309). It is stated for R a complete Noetherian local O-algebra with finite residue field. The paper gives no reference for the coefficient-family version beyond [31].
+2. Its formula is V^*_K(M) = Hom_R((M ⊗_{O_{E,K}⊗̂R} (O_{E^{un},K}⊗̂R))^{φ=id}, R) (PDF121).
+3. T^*_dd := V^*_K ∘ ε_τ, from Y^{[0,h],τ}(R) to Rep^n_R(G_{K∞}), is a definition using ε_τ (K26).
+4. The paper warns that the formula for V^*_K in [59, §2.3] was inaccurate (recorded as E27).
+
+### K36: Restriction of tame representations and semisimplification
+
+§5.5, PDF121–122.
+
+1. No proof is given. The paper asserts that G_{K∞} surjects onto the tame quotient of G_K, recalling only that 'K∞/K is totally wildly ramified' (PDF121). Hence restriction Rep^n_F(G_K) → Rep^n_F(G_{K∞}) is fully faithful on tame representations.
+2. The essential image is asserted, without proof, to consist exactly of the G_{K∞}-representations trivial on G_{K∞} ∩ G_{K^t} (PDF121–122).
+3. 'Semisimple representations of G_{K∞} are necessarily tame and hence extend uniquely to G_K' is asserted without proof. The standard reason: G_{K∞} ∩ G_{K^t} is a normal pro-p subgroup of G_{K∞}, so it acts trivially on irreducible F-representations.
+4. The following gloss 'If ρ̄ is tame, i.e. if ρ̄ = ρ̄^ss' (PDF122) is false in general (E19). K45–K48 supply the generic replacement.
+
+### K38: Semisimple representations from torus-fixed Frobenius matrices
+
+Proposition5.5.2, PDF122.
+
+1. Write z̃′ = s^{−1}t_{μ+η}. Then μ is 1-deep in C_0 'by the hypotheses in Proposition 5.4.7' (K34): z̃′ ∈ Fl̃^{[a,b]}_{J,z̃} with ν (b−a+1)-deep.
+2. For every D ∈ T^{∨,J}(F), the tame G_K-representation V^*_K(ι_z̃(Dz̃′)) restricts on I_K to τ̄(s, μ+η). This is 'a direct computation as in [56, Proposition 3.1.2]', with conventions translated by Remark 5.1.7 (K07). So it has lowest alcove presentation (s, μ), which gives the 'if' direction. Restriction to G_{K∞} loses nothing for tame representations (K36).
+3. 'Only if': the choices of D must account for all extensions of τ̄(s, μ+η) from I_K to G_K. The paper counts isomorphism classes over F. The criterion ι_z̃(Dz̃′) ≅ ι_z̃(D′z̃′) iff Dz̃′ and D′z̃′ are T^{∨,J}(F)-conjugate by shifted conjugation is attributed to Proposition 5.4.7; it is the monomorphism ι_z̃ of Proposition 5.4.6 (K33, K32).
+
+### K41: Semisimple Kisin modules and admissible type position
+
+Proposition5.5.7, PDF123.
+
+1. Use the diagram (5.13) of Proposition 5.4.7 (K34) with a = 0, b = h and z̃ = w̃^*(τ) (Remark 5.4.8, K54). This is allowed because μ is (h+1)-deep in C_0.
+2. Forward: let M be semisimple of shape z̃ ∈ Gr^{[0,h],J}_{G,F} (Definition 5.5.5, K40). Then ε_τ(M) ≅ ι_{w̃^*(τ)}(Dz̃w̃^*(τ)) for some D ∈ T^{∨,J}(F). By Proposition 5.5.2 (K38), ρ̄ = T^*_dd(M) has a lowest alcove presentation (w, ν) with w̃^*(ρ̄) = z̃w̃^*(τ).
+3. Converse: if z̃ = w̃^*(ρ̄)w̃^*(τ)^{−1} ∈ Gr^{[0,h],J}_{G,F}, then w̃^*(ρ̄) ∈ Fl̃^{[0,h]}_{J,w̃^*(τ)}. Proposition 5.5.2 gives D with ι_{w̃^*(τ)}(Dw̃^*(ρ̄)) corresponding to ρ̄|_{G_{K∞}}. Then π_(s,μ)(Dz̃) (Corollary 5.2.3, K17) is the required semisimple M, because (5.13) commutes. It has shape z̃ by definition (K40).
+4. The final equivalence M ∈ Y^{≤λ,τ}(F) ⇔ w̃(τ)^{−1}w̃(ρ̄) ∈ Adm(λ) 'follows from Corollary 5.3.5' (K24): the shape z̃ = (w̃(τ)^{−1}w̃(ρ̄))^* lies in Adm^∨(λ). The last identity uses that (−)^* reverses products (N14).
+
+### K42: A nonzero tame deformation ring forces admissibility
+
+Corollary5.5.8, PDF123–124.
+
+1. The paper says: 'By the same argument as in case (2) of [56, Theorem 3.2.20]', there is a semisimple M ∈ Y^{≤λ,τ}(F) with ρ̄|_{G_{K∞}} ≅ T^*_dd(M). This is by citation only; the argument is not reproduced.
+2. Proposition 5.5.7 (K41) then gives a lowest alcove presentation of ρ̄ with w̃(ρ̄, τ) = w̃(τ)^{−1}w̃(ρ̄) ∈ Adm(λ).
+3. That w̃(τ)^{−1}w̃(ρ̄) ∈ Adm(λ) makes this presentation λ-compatible 'see §2.4' (N51).
+
+### K43: Semisimplification preserves a Kisin height and Hodge bound
+
+Proposition5.5.9, PDF124–125.
+
+1. Let ρ̄ = T^*_dd(M) and let 𝓜 = M[1/u′] ∈ Φ-Mod^{ét,n}_{dd,L′}(F′) (K25). Choose a decreasing filtration (ρ̄_i) with semisimple graded pieces. The anti-equivalence V^*_dd ([59, p. 24]) gives an increasing φ- and Δ-stable filtration 𝓜_i with V^*_dd(𝓜_i/𝓜_{i−1}) ≅ gr^i(ρ̄).
+2. M_i := M ∩ 𝓜_i are Kisin lattices with descent datum. Choose inductively a descent-compatible eigenbasis α adapted to (𝓜_i). The partial Frobenius matrices C^{(j)} then lie in a parabolic P(F′((u′))) with Levi L ⊃ T. Pick a dominant cocharacter ν with centralizer L.
+3. Define the family 𝓜_x over A^1_{F′} with Frobenius ν(x)C^{(j)}ν(x)^{−1}. For x ∈ F̄^×, scaling the basis by ν(x) shows M_x ≅ M, a point of Y^{≤λ,τ}(F̄). At x = 0, C_0^{(j)} ∈ L(F′((u′))) and V^*_dd(𝓜_0) = ρ̄^ss.
+4. Y^{≤λ,τ} → Φ-Mod^{ét,n}_{dd,L′} is representable and proper (Proposition 5.4.1, K27), and even a closed immersion (Proposition 5.4.3, K29). So the locus of x where 𝓜_x comes from Y^{≤λ,τ} is closed. It contains the dense set F̄^×, hence x = 0. This gives M′ ∈ Y^{≤λ,τ}(F′) inside 𝓜_0 with T^*_dd(M′) ≅ ρ̄^ss. The Y^{[0,h],τ} case is the same.
+5. 'Proposition 5.5.7 implies furthermore that M′ is semisimple' (K41). This needs a further input that the proof does not supply (see findings).
+
+### K44: Residual genericity loses at most the height
+
+Corollary5.5.10, PDF125.
+
+1. By Proposition 5.5.9 (K43), one may assume T^*_dd(M) semisimple, with M semisimple as asserted there.
+2. Choose (s, μ) with μ m-deep in C_0. By Proposition 5.5.7 (K41), M is semisimple of shape z̃ = ((s_j^{−1}t_{ν_j−μ_j}w_j)^*)_j, where T^*_dd(M)|_{I_K} ≅ τ̄(w, ν+η).
+3. By the height condition, z̃ ∈ Gr^{[0,h],J}_{G,F} is h-small (Definition 2.1.10(3), N16). So |⟨ν−μ, α^∨⟩| ≤ h for all α ∈ Φ.
+4. Since μ is m-deep in C_0, ν is at least (m−h)-deep in C_0 (cf. Proposition 2.1.12(4), N21). So (w, ν) is an (m−h)-generic lowest alcove presentation of T^*_dd(M)^ss.
+
+### K54: Standard parameters for the étale comparison diagram
+
+Remark 5.4.8, PDF121.
+
+1. This is a remark; the paper gives no proof. It names the choice a = 0, b = h, z̃ = s^{−1}t_{μ+η} = w̃^*(τ) for Proposition 5.4.7 (K34).
+2. That the hypotheses of Proposition 5.4.7 hold is immediate from the definitions. ν = μ is (b−a+1) = (h+1)-deep by the assumption on τ (N15). (Gr̃^{[0,h],J}_{G,F})w̃^*(τ) = Fl̃^{[0,h]}_{J,w̃^*(τ)} by the definition of Fl̃^{[a,b]}_{J,z̃} as ∏_j I_{1,F}\(L^{[a,b]}GL_n)_F z̃_j (K32; 'Clearly Fl̃^{[a,b]}_{J,z̃} = Fl̃^{[a,b]}_J z̃', PDF120). This uses I_{1,F}\L^{[0,h]}G_F = Gr̃^{[0,h]}_{G,F}.
+
+---
+
+*The report of the preceding continuation follows unchanged.*
+
 # LLHLM23 continuation: affine-Weyl proofs and corrected genericity
 
 Codex — codex-7e92bd, issue #1254, 24 September 2026. **Partial: 768 items (145 library, 48 planned, 575 missing), 25 routes, 93 unreviewed findings.** All inherited item IDs, statuses, routes, source data and91 earlier findings are preserved. This is source-level planning, not independent review or formal implementation.

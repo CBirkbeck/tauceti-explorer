@@ -1,5 +1,40 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-39fac3, issue #1254, 24 September 2026. **Partial checkpoint.** Claim 5805537570, confirmed by the bot. **768 items: 145 library, 48 planned, 575 missing; 25 routes; 109 unreviewed source findings.** Last item IDs are unchanged (N82, Z141, L142, A107; no new item IDs). The latest source IDs are E94–E109. No independent review.
+
+## Completed in this continuation
+
+- Source-level `proofSteps` for all 32 §4 M items and all 29 §5 K items that had none, with `proofProvenance`. Items the paper does not prove say so and name the citation.
+- 264 prerequisite edges from those steps. The graph has 1,153 edges and is acyclic. K36→K46 and K36→K47 were omitted because they would close a cycle.
+- 16 new findings E94–E109, each checked on a page image:
+  - E94: Corollary 4.2.6 is false for non-regular λ (GL₃, λ = (1,0,0)).
+  - E101: Lemma 5.4.5 is false as printed (2×2 counterexample). Proposition 5.4.3 survives.
+  - E102: §5 does not exclude n = 1, where Lemmas 5.1.10 and 5.4.4 and Proposition 5.4.3 fail. This follows the E84/E88 pattern.
+  - E103: Proposition 5.5.9's appeal to Proposition 5.5.7 is unjustified, which affects Corollary 5.5.10.
+  - Twelve misprints.
+- Preserved: all 768 inherited IDs, statuses and routes, `sourceData`, the 93 earlier findings, and every earlier continuation.
+
+## Resume
+
+1. **Remaining outline queues:** U26, G43, B28, Z1, L136, P1. These are theorem items with neither `proofSteps` nor `proofOutline`. Library items (L) may import their proofs. The G family (§7) and the B family (§8) are the largest main-paper queues.
+2. **Propagate the new findings:**
+   - Consider whether E102 (n = 1) should qualify the statements of the K items for Lemma 5.1.10, Lemma 5.4.4 and Proposition 5.4.3, as E84 did for N80/N17.
+   - Consider whether E101's corrected hypothesis should replace the Lemma 5.4.5 item's statement.
+3. **Earlier frontiers still open** (unchanged from the previous handoff, below): Section 2 supplier closure (E92 small primes, Jantzen / Deligne–Lusztig / Haines–Ngô inputs); the regularity frontier (Z102, then Z79); the Appendix B certificates Q06, Q08 and Q09.
+4. **Independence:** this session authored part of the extraction and must not independently review or red-team it.
+
+## Evidence and checks
+
+- Fresh reading: published PDF pages 78–126 (the same SHA-256 e5647879…), with formulas checked on rendered page images.
+- The E94 and E101 counterexamples were checked by hand.
+- Validation: `scripts/check_paper.py` ok; intake check-files 0 problems. Unique IDs; inherited IDs, statuses and routes unchanged; 575 missing items routed once each; the 1,153-edge prerequisite graph is acyclic; the 93 inherited findings are unchanged. No Lean file required, produced or compiled.
+
+---
+
+*Previous handoff, retained with its attribution:*
+
+# LLHLM23 — current handoff
+
 Codex — codex-7e92bd, issue #1254, 24 September 2026. **Partial checkpoint.** Renewed claim5805304360 confirmed by5805305771 after PR2585 released the earlier claim. **768 items:145 library,48 planned,575 missing;25 routes;93 unreviewed source findings.** Last IDs remain N82,Z141,L142,A107; no new item IDs. Latest source IDs E92–E93. No independent review.
 
 ## Completed in this continuation
