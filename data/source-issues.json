@@ -124806,6 +124806,973 @@
    "reviewReason": null
   },
   {
+   "id": "ClassicalArithmeticCompletion/E201",
+   "kind": "misprint",
+   "locator": "§9, proof of Theorem 5, p. 182 (publisher's PDF of the proceedings)",
+   "printed": "The left hand side can be written as ∏v|b ⟨a, b⟩v ∏v|b ⟨a, b⟩v ∏v|n∞ ⟨a, b⟩v ∏v∈V1 ⟨a, b⟩v.",
+   "correction": "The first product runs over v | a: ∏_{v|a} ⟨a, b⟩_v ∏_{v|b} ⟨a, b⟩_v ∏_{v|n∞} ⟨a, b⟩_v ∏_{v∈V₁} ⟨a, b⟩_v.",
+   "reason": "V₀ = {v : v | a b n ∞}, so the places dividing a must appear; the next lines of the proof evaluate ⟨a, b⟩_v 'if v | a' and 'if v | b', one for each of the first two products.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org, Cyclotomic Fields and Related Topics), which posts the article without an errata list",
+    "a web search for errata to Shastri's article"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 175–183; the publisher's free PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E202",
+   "kind": "misprint",
+   "locator": "§10, p. 183",
+   "printed": "From this it follows that (a/b)·(b/a) = (−1)^((a−1)/2) (−1)^((b−1)/2), for a, b ∈ {5, −1}.",
+   "correction": "(a/b)·(b/a) = (−1)^(((a−1)/2)·((b−1)/2)): the two exponents are multiplied, not the two signs.",
+   "reason": "For a = 5, b = −1 the text itself computes ⟨5, −1⟩₂ = 1, while the printed right side is (−1)^2 (−1)^(−1) = −1; for a = b = −1, ⟨−1, −1⟩₂ = −1 while the printed right side is +1. The product of exponents gives 1 and −1, as required, and is the law of quadratic reciprocity the section derives.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org)",
+    "a web search for errata to Shastri's article"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 175–183; the publisher's free PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E203",
+   "kind": "error",
+   "locator": "Theorem 4.4 (The Law of Biquadratic Reciprocity), p. 45, arXiv v3",
+   "printed": "Let π, λ ∈ D be relatively prime primary elements. Then χπ(λ)χλ(π) = (−1)^((Nλ−1)/4 · (Nπ−1)/4).",
+   "correction": "χπ(λ) = χλ(π) · (−1)^(((Nλ−1)/4)·((Nπ−1)/4)), that is χπ(λ) χλ(π)^(−1) = (−1)^(((Nλ−1)/4)·((Nπ−1)/4)); the product of the two characters is not a sign in general.",
+   "reason": "In ℤ[i] take the primary primes π = −1 + 2i (norm 5) and λ = −3 (norm 9). Modulo π, i ≡ 3 and −3 ≡ 2 ≡ 3^3 = i^3, so χπ(λ) = −i; modulo 3, π^2 = −3 − 4i ≡ −i, so χλ(π) = −i. The product is (−i)^2 = −1, while the printed right side is (−1)^(2·1) = 1; the quotient is 1, as the corrected law requires.",
+   "affects": "a stated result",
+   "known": "none found; arXiv versions v1–v3 carry the same statement as far as the listing shows",
+   "searched": [
+    "the arXiv abstract page and version history of 2407.03559",
+    "a web search for errata or comments on the paper"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Matias Carl Relyea, On finite fields and higher reciprocity, arXiv:2407.03559v3 (3 August 2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E204",
+   "kind": "gap",
+   "locator": "§4.1, Definition 22 and Theorem 4.4, p. 45, arXiv v3",
+   "printed": "Definition 22. If π is irreducible and Nπ ≠ 2, for π ∤ α the biquadratic character of α is defined as χπ(α) = i^j ... Theorem 4.4 ... Let π, λ ∈ D be relatively prime primary elements.",
+   "correction": "Primary in ℤ[i] must be defined (α ≡ 1 modulo (1 + i)^3), and χλ must be extended multiplicatively to primary elements λ that are not irreducible (or the theorem restricted to primary primes).",
+   "reason": "Section 4 never defines primary for ℤ[i] (the definition in §3 is the Eisenstein one, π ≡ 2 mod 3), and χλ is defined only for irreducible λ, while the theorem quantifies over primary elements; the statement is not determined by the text.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the arXiv abstract page and version history of 2407.03559"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Matias Carl Relyea, On finite fields and higher reciprocity, arXiv:2407.03559v3 (3 August 2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E205",
+   "kind": "misprint",
+   "locator": "§7, Lemma 7.3, p. 375 (published version)",
+   "printed": "Lemma 7.3. Let N the conductor of a quadratic character, and let P(N) be the largest prime factor of N.",
+   "correction": "Let N be the conductor of a quadratic character, ...",
+   "reason": "A missing verb; the intended hypothesis is clear, and the shape N = 2^κ N₁ used in the proof is the two-adic-conductor-bound node with the two lemmas beside it.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the Annals article page (annals.math.princeton.edu/2020/191-2/p02), which lists no erratum",
+    "the PAPER-BENNETT-SIKSEK-20 extraction and its review, which record no source issue for Lemma 7.3"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), no. 2, 355–392, publisher PDF (freely served), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E301",
+   "kind": "misprint",
+   "locator": "Chapter 8, Section 8.4, Example after Theorem 8.17, printed p. 173 (dio19-8.pdf, 2019 edition)",
+   "printed": "Substituting h = 0, 1, 2 one obtains c₁ = 1, c₂ = 0, c₂ = −12 and u_h = 2^h + 3^h − 5^h.",
+   "correction": "Read 'c₁ = 1, c₂ = 1, c₃ = −1'.",
+   "reason": "The printed numbers 1, 0, −12 are the initial values u₀, u₁, u₂. Solving c₁ + c₂ + c₃ = 1, 2c₁ + 3c₂ + 5c₃ = 0, 4c₁ + 9c₂ + 25c₃ = −12 gives (1, 1, −1), which matches the displayed conclusion u_h = 2^h + 3^h − 5^h (check: u₃ = 8 + 27 − 125 = −90 = 10·(−12) − 31·0 + 30·1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page https://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (chapter files only, no errata list)",
+    "The sourceIssues of research/blueprint/packets/DiophantineApproximationAndTranscendence.json, which record E208 to E213 for Chapter 8 but not this example"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (Leiden/Mastermath lecture notes), Chapter 8, 2019 edition, chapter file dio19-8.pdf from the author's Leiden course page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E302",
+   "kind": "misprint",
+   "locator": "Chapter 8, proof of Theorem 8.17, printed p. 172",
+   "printed": "One proves easily by induction on h that there is a constant C > 0 such that |u_h| ⩽ C^h for all h ⩾ 0.",
+   "correction": "Read '|u_h| ⩽ C^{h+1}' (or '|u_h| ⩽ C·C^h'); the entire-function conclusion is unchanged.",
+   "reason": "At h = 0 the printed bound says |u₀| ⩽ 1, which fails for u₀ = 5 (any recurrence with that initial value); a bound of the form C^{h+1} holds by the same induction and still gives convergence of ∑ u_h z^h/h! everywhere.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Evertse's course page https://pub.math.leidenuniv.nl/~evertsejh/dio.shtml (no errata list)",
+    "The sourceIssues of the DiophantineApproximationAndTranscendence packet (not recorded there)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Jan-Hendrik Evertse, Diophantine Approximation (Leiden/Mastermath lecture notes), Chapter 8, 2019 edition, chapter file dio19-8.pdf from the author's Leiden course page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E303",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.1.1, p. 536 of the posted PDF (printed book p. 465)",
+   "printed": "Since (j+n−1 choose j−1) is a polynomial in n of degree j we get V₄ ⊆ V₃.",
+   "correction": "Read 'of degree j − 1'.",
+   "reason": "C(j + n − 1, j − 1) = (n + 1)(n + 2)⋯(n + j − 1)/(j − 1)! has degree j − 1 in n; the inclusion V₄ ⊆ V₃ needs degree < d_i for j ≤ d_i, which degree j would not give when j = d_i.",
+   "affects": "nothing",
+   "known": "Stanley's errata for EC1, 2nd ed. (version 17 August 2025): 'page 465, line 7–. Change “degree j” to “degree j −1”.'",
+   "searched": [
+    "https://math.mit.edu/~rstan/ec/errata_2ed.pdf (version 17 August 2025)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, second edition, The author's freely posted PDF of the second edition",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E304",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.1.1, p. 536 of the posted PDF (printed book p. 465)",
+   "printed": "Now for j ≥ 0 we have 1/(1 − γx)^j = ∑_{n≥0}(−γ)^n(−j choose n)x^n = ∑_{n≥0} x^nγ^n(j+n−1 choose j−1).",
+   "correction": "Read 'for j ≥ 1'.",
+   "reason": "For j = 0 the left side is 1 while the right-hand sum is 0 with the standard convention C(n − 1, −1) = 0; the proof only uses 1 ≤ j ≤ d_i.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "https://math.mit.edu/~rstan/ec/errata_2ed.pdf (version 17 August 2025): the entries for printed pages 463 to 471 do not mention it"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, second edition, The author's freely posted PDF of the second edition",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E305",
+   "kind": "misprint",
+   "locator": "Appendix, restatement of Proposition 2.2, p. 8",
+   "printed": "S(n + 1) = aS(n) + bS(n − 1), [S(0) = 1, S(1) = 1]",
+   "correction": "Read '[S(0) = 0, S(1) = 1]', as in the statement of Proposition 2.2 on p. 3.",
+   "reason": "With S(0) = S(1) = 1 and a = b = 1 the sequence is 1, 1, 2, 3, 5, 8, …, and gcd(S(2), S(4)) = gcd(2, 5) = 1 ≠ S(2) = 2; the proof (Propositions A2, A3 and (16)) is for S(0) = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The OEIS entry A238600 and its attached files (a238600.pdf and a238600_1.pdf)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Peter Bala, Divisibility sequences from strong divisibility sequences, Note of March 2014 attached to OEIS A238600 (10 pages), read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E306",
+   "kind": "misprint",
+   "locator": "Section 2.2, Near-uniqueness for non-negative numbers, the geometric-series display",
+   "printed": "= a_{−1}b^{−1} + (b−1)b^{2}/(1−b^{−1})",
+   "correction": "Read '(b − 1)b^{−2}/(1 − b^{−1})', which equals b^{−1}.",
+   "reason": "∑_{i≥2}(b − 1)b^{−i} = (b − 1)b^{−2}/(1 − b^{−1}) = b^{−1}; with b² the next equality (a_{−1} + 1)b^{−1} would be false.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The PlanetMath entry page (no corrections or discussion listed)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "PlanetMath entry by stevecheng (owner and author, numerical id 8), existence and uniqueness of decimal expansion, Entry created 2013-03-22, page generated by LaTeXML on 2018-02-09, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E307",
+   "kind": "misprint",
+   "locator": "Chapter Five, Topic: Linear Recurrences, Exercise 6, printed p. 480",
+   "printed": "Prove that each function f_{r_i}(n) = r_k^n satisfies the recurrence (without initial conditions).",
+   "correction": "Read 'f_{r_i}(n) = r_i^n'.",
+   "reason": "The function attached to the root r_i is n ↦ r_iⁿ (as on p. 478); with r_k the exercise would state the same function k times.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The book's page on the University of Vermont mirror (https://jheffero.w3.uvm.edu/linearalgebra/), which asks for bug reports and lists no errata",
+    "The primary page joshua.smcvt.edu/linearalgebra did not answer when read"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Jim Hefferon, Linear Algebra, fourth edition, Fourth edition, the author's free PDF (GNU FDL / CC BY-SA), file dated 8 May 2020, from the University of Vermont mirror of the book's page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E308",
+   "kind": "misprint",
+   "locator": "Chapter Five, Topic: Linear Recurrences, printed p. 478",
+   "printed": "(1 + √5/2)c₁ + (1 − √5/2)c₂ = 1",
+   "correction": "Read '((1 + √5)/2)c₁ + ((1 − √5)/2)c₂ = 1'; on the same page, 'for some scalars c₁, …, c_n' should read c₁, …, c_k.",
+   "reason": "The coefficients are the roots r₁ = (1 + √5)/2, r₂ = (1 − √5)/2 displayed just before. (The printed system happens to have the same solution, since c₂ = −c₁ makes both systems read √5·c₁ = 1.)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The book's page on the University of Vermont mirror (no errata list)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Jim Hefferon, Linear Algebra, fourth edition, Fourth edition, the author's free PDF (GNU FDL / CC BY-SA), file dated 8 May 2020, from the University of Vermont mirror of the book's page, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E401",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.1.5, step 1, printed p. 17 (the author's PDF read)",
+   "printed": "Using the division algorithm, write ai1 = a11q + r, with 0 ≤r < a11.",
+   "correction": "0 ≤ r < |a11|.",
+   "reason": "Step 1 moves an entry of least absolute value to the corner without making it positive (the sign is fixed only at the end of step 2), so a11 may be negative, and then no r satisfies 0 ≤ r < a11.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's page https://wstein.org/books/ant/ (no errata listed)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "William Stein, Algebraic Number Theory, a Computational Approach, The author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E402",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 2.1.2, printed p. 19",
+   "printed": "By Proposition 2.1.5 there are isomorphisms Q : Zm →Zm and P : Zn →Zn such that A′ = PAQ has diagonal entries n1, n2, . . . , ns, 0, . . . , 0, where n1 > 1 and n1 | n2 | . . . | ns.",
+   "correction": "Proposition 2.1.5 gives n1 ≥ 1; the diagonal entries equal to 1 have to be discarded (their summands Z/1Z are zero) before n1 > 1 holds.",
+   "reason": "For G = Z/6 presented by the 2 × 2 matrix diag(2, 3), the Smith form is diag(1, 6), so n1 = 1.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's page https://wstein.org/books/ant/ (no errata listed)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "William Stein, Algebraic Number Theory, a Computational Approach, The author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E403",
+   "kind": "error",
+   "locator": "Chapter 7, Exercise 7.5, printed p. 120 (author's PDF)",
+   "printed": "• aij = 0, for i > j, • aii ≥0, • aij < aii for all j < i (unless aii = 0, in which case all aij = 0).",
+   "correction": "The third condition should constrain the entries above each pivot: 0 ≤ aji < aii for all j < i. As printed, for j < i the entry aij lies below the diagonal and is already 0, so the condition is vacuous, and nonnegativity of the entries above the pivots is missing; pivots of a rank-deficient matrix also need not lie on the diagonal.",
+   "reason": "With the printed conditions both upper triangular matrices with rows (1, 2), (0, 1) and (1, 0), (0, 1) would be in Hermite form, and they have the same row lattice ℤ², contradicting the uniqueness the exercise presupposes; the exercise's own example (rows (1, 2, 3), (0, 3, 6), (0, 0, 0)) is consistent only with the corrected reading (2 < 3 above the pivot 3).",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "https://wstein.org/books/modform/ (directory listing: README and the book files, no errata file)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "William Stein (with an appendix by Paul E. Gunnells), Modular Forms, a Computational Approach, Graduate Studies in Mathematics 79; the author's freely posted PDF, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E404",
+   "kind": "misprint",
+   "locator": "Definition 1, p. 1 (Spring 2014 lecture 4)",
+   "printed": "Definition 1 A non-singular matrix B = [b1, . . . , bn] ∈Rm×n is in Hermite normal form ( HNF) iff • There exists 1 ≤i1 < . . . < ih ≤m such that bi,j̸ = 0 ⇒(j < h) ∧(i ≥ij) (strictly decreasing column height). • For all k > j, 0 ≤bij,k < bij,j,",
+   "correction": "b_{i,j} ≠ 0 ⇒ (j ≤ h) ∧ (i ≥ i_j), and 0 ≤ b_{i_j,k} < b_{i_j,j} for all k < j; 'non-singular' should read 'full column rank on its first h columns', since zero columns are allowed.",
+   "reason": "With j < h the h-th column would have to vanish, contradicting h being the number of nonzero columns; in a lower-triangular form the entries b_{i_j,k} with k > j are zero (column k starts below row i_j), so the reduction must be over k < j, as the gloss 'all elements at rows i_j are reduced' and the lecture's own algorithm indicate.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the course page https://cseweb.ucsd.edu/classes/sp14/cse206A-a/ (no errata listed; other offerings of the course not compared)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Daniele Micciancio, CSE 206A: Lattice Algorithms and Applications, lecture 4 (Basic algorithms), UCSD course notes, Spring 2014, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E405",
+   "kind": "error",
+   "locator": "Definition and proof of the Theorem, p. 1",
+   "printed": "Let ρ1, . . . , ρµ1 be the roots with largest ord. Since σµ1 = ρ1 . . . ρµ1 + (other products) where the other products of µ1 factors have strictly smaller ords.",
+   "correction": "The roots with the smallest ord ν1 must be chosen, and the other products have strictly larger ords; then ord σ_{µ1} = µ1ν1 by the ultrametric equality. Also: N(i_j) = ord c_{i_j} (printed ord c_{i+j}); c_{n−i} = ±σ_i (printed c_i = ±σ_i); the segment has slope −ν_{j+1} (printed −νj + 1); and ord σ_M (printed ord M).",
+   "reason": "With ν1 < ⋯ < νm the smallest ord, the product of the µ1 roots of largest ord would have the largest ord among products of µ1 roots, so it does not dominate σ_{µ1}; the next line's conclusion ord σ_{µ1} = µ1ν1 uses the roots of ord ν1. For f = (x − 1)(x − p) over ℚ_p: σ_1 = 1 + p has ord 0 = ν1, the smaller ord.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the author's number theory page https://www-users.cse.umn.edu/~garrett/m/number_theory/ (only this version found)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Paul Garrett, Newton polygons, Note dated 19 February 2005, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E406",
+   "kind": "gap",
+   "locator": "Definition 2.28, p. 5 (ePrint 2024/2089, July 2025 version)",
+   "printed": "2. 0 ≤hij,k < hij,j for all 0 ≤k < j ≤n (the top non-zero element of each column is the greatest element in its row)",
+   "correction": "State h_{i_j,j} > 0 for every column j (including j = 1), with k ranging over the columns 1 ≤ k < j.",
+   "reason": "Columns are indexed from 1, so for j = 1 the range 0 ≤ k < 1 contains only the non-column k = 0 and the definition imposes no sign on the first pivot; the text after the definition asserts that pivots are strictly positive, which does not follow for j = 1. The matrices diag(1, 1) and diag(−1, 1) would both qualify and generate the same lattice.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the ePrint page https://eprint.iacr.org/2024/2089 (no correction noted)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Leon Damer, Computing the Hermite Normal Form: A Survey, IACR ePrint 2024/2089, version of July 2025, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E407",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 1, display (1), p. 2",
+   "printed": "vr(PQ) ≥min h,i,j {v(Pi+h) + v(bj) + r(i + j) + (v(dh(Qj)) −v(Qj))}",
+   "correction": "v(Q_j) in place of v(b_j).",
+   "reason": "No b_j is defined; Q = Σ Q_j T^j, and the next line of the display has v(Q_j).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the course page https://kskedlaya.org/18.787/ and the book p-adic Differential Equations (not freely available, not compared)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Kiran S. Kedlaya, p-adic differential equations (18.787, MIT, fall 2007): Newton polygons, Course notes, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E408",
+   "kind": "misprint",
+   "locator": "Section 4, Theorem 4.0.1, printed p. 175",
+   "printed": "and an R-module basis m1, . . . , mt of M, such that d1e1, . . . , dtet is an R-basis of N (or diei = 0).",
+   "correction": "d1m1, …, dtmt (the nonzero ones) form an R-basis of N.",
+   "reason": "No e_i is defined in the theorem; the proof constructs n_i = x_i m_i as the basis of N.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the notes page https://www-users.cse.umn.edu/~garrett/m/algebra/ (the 2023–24 chapter and the earlier whole-book PDF)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Paul Garrett, Abstract Algebra, Chapter 11: Finitely-generated modules, Course notes 2023–24, CC BY 3.0, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E409",
+   "kind": "error",
+   "locator": "Section 1, Theorem 1.0.1, printed p. 140",
+   "printed": "Then there are uniquely determined ideals I1 ⊃I2 ⊃. . . ⊃It such that M ≈R/I1 ⊕R/I2 ⊕. . . ⊕R/It",
+   "correction": "Require I1 ≠ R (all the ideals proper); then the chain is unique.",
+   "reason": "Summands R/R = 0 can be added freely: Z/2Z ≈ Z/Z ⊕ Z/2Z gives the two chains (2) and Z ⊃ (2).",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the notes page https://www-users.cse.umn.edu/~garrett/m/algebra/"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Paul Garrett, Abstract Algebra, Chapter 10: Modules over PIDs, Course notes 2023–24, CC BY 3.0, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E410",
+   "kind": "misprint",
+   "locator": "Section 2, Perron's criterion, printed p. 49 (draft of 10 January 2010)",
+   "printed": "Suppose that u(x) = xn + · · · + a1x + a0 is a polynomial over Z for which a0̸ = 0 and |an−1| > 1 + |an−2| + · · · + |a1| + |a0| . Then f is irreducible.",
+   "correction": "Then u is irreducible (and n ≥ 2 is assumed).",
+   "reason": "The polynomial is named u; f is not defined in the statement.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's page https://www.math.utoronto.ca/barbeau/ (draft chapters only)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Edward J. Barbeau, Polynomials, Chapter Six: Irreducibility and factorization (draft), Author's draft chapter dated 10 January 2010, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E501",
+   "kind": "error",
+   "locator": "§1, arXiv v1 p. 1 (published version p. 623), the paragraph defining the Markoff graph",
+   "printed": "Markoff proved that the graph obtained from integer solutions is a tree [8]. In particular, it is connected",
+   "correction": "Markoff's tree theorem is about the positive solutions M (equivalently, the nonzero integer solutions up to the sign changes of two coordinates). The graph on all nonzero integer solutions is a disjoint union of four trees, one for each sign pattern with product +1, and is not connected.",
+   "reason": "The moves R_i preserve the sign pattern of a nonzero integer solution: for (−a, −b, c), R₃ gives 3(−a)(−b) − c = 3ab − c and R₁ gives 3(−b)c + a = −(3bc − a). So (1, 1, 1) and (−1, −1, 1) lie in different components.",
+   "affects": "nothing",
+   "known": "none found; the paper extraction (item 10) and its review already restrict to positive triples without recording the discrepancy",
+   "searched": [
+    "arXiv listing of 2502.15960 (only v1)",
+    "the published version's first page as quoted in PAPER-MARTIN-25.result.json",
+    "PAPER-MARTIN-25.review.json"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Daniel E. Martin, A new proof of Chen's theorem for Markoff graphs, arXiv:2502.15960v1 (21 February 2025), the public version of Invent. Math. 241 (2025) 623–626; locators give the arXiv page and the published page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E502",
+   "kind": "gap",
+   "locator": "§2, p. 319",
+   "printed": "If m ≡ 1, 2, 5 or 6 (mod 8), we alter the proof in §1 in the following ways. … The proof will proceed exactly as in §1",
+   "correction": "The case m ≡ 1, 2, 5, 6 (mod 8) needs: the computation (−m/q) = 1 from the new conditions (for m even using (2/q) = (−2/q) for q ≡ 1 mod 4); the identity qv = (qx + by)² + my² with v = qx² + 2bxy + hy²; the congruence R² + v ≡ 0 modulo each odd p ∣ m and, for m even, modulo 2 (this is where 't odd' is used, for either parity of b); and the prime analysis giving y² ≡ q (mod p) for p ∣ m. These are supplied in the proof steps of three-squares-auxiliary-prime and three-squares-lattice-point.",
+   "reason": "The source says only that the proof proceeds exactly as in §1, but §1's congruence argument uses m odd and the factor 2q, neither of which is available here; the details were checked by hand and work as stated.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the AMS page of the article (no erratum listed)",
+    "subsequent expositions: Z.-W. Sun's talk notes (which use Dirichlet's proof instead) and Pollack's Dirichlet-proof paper (cited there)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "N. C. Ankeny, Sums of three squares, Proceedings of the American Mathematical Society 8 (1957), 316–319, publisher scan (free on the AMS site)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E503",
+   "kind": "misprint",
+   "locator": "§2, p. 319, the display defining R, S, T",
+   "printed": "R = tqX + tby + mz,",
+   "correction": "R = tqx + tby + mz (lower-case x, the same variable as in S = q^{1/2}x + bq^{−1/2}y).",
+   "reason": "No variable X occurs elsewhere; the transformation must be triangular in (x, y, z) for the determinant computation of §1.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the AMS page of the article"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "N. C. Ankeny, Sums of three squares, Proceedings of the American Mathematical Society 8 (1957), 316–319, publisher scan (free on the AMS site)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E504",
+   "kind": "misprint",
+   "locator": "§1, Example 13(ii), p. 6",
+   "printed": "g(S) = (1/a)(a + 2a + · · · + (b − 1)a) − (a−1)/2 = (a−1)(b−1)/2",
+   "correction": "g(S) = (1/a)(b + 2b + · · · + (a − 1)b) − (a − 1)/2 = (a − 1)(b − 1)/2, summing the Apéry set {0, b, 2b, …, (a − 1)b} just computed.",
+   "reason": "As printed the middle expression equals b(b − 1)/2 − (a − 1)/2, which is not (a − 1)(b − 1)/2 (for a = 3, b = 5 it gives 9, while g(⟨3, 5⟩) = 4).",
+   "affects": "nothing",
+   "known": "none found (arXiv v1 is the only version)",
+   "searched": [
+    "arXiv listing of 1411.6093"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Abdallah Assi and Pedro A. García-Sánchez, Numerical semigroups and applications, arXiv:1411.6093v1 (22 November 2014)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E505",
+   "kind": "misprint",
+   "locator": "§1, p. 1",
+   "printed": "R₃(x₁, x₂, x₃) = (x₁, x₂, 3x₁x₂ − x₃) and R₂, R₃ are defined similarly.",
+   "correction": "R₁ and R₂ are defined similarly.",
+   "reason": "R₃ has just been defined; the remaining moves are R₁ and R₂.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of 1607.01530 (v1 read)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Jean Bourgain, Alexander Gamburd and Peter Sarnak, Markoff surfaces and strong approximation: 1, arXiv:1607.01530v1 (6 July 2016)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E506",
+   "kind": "misprint",
+   "locator": "§1.4.2, p. 3",
+   "printed": "Depending on the fraction m/n , the greedy algorithm may give m terms in the resulting Egyptian fraction, or fewer than x terms.",
+   "correction": "… may give m terms …, or fewer than m terms (at most m terms in all).",
+   "reason": "The numerator strictly decreases at each greedy step (§1.4.1), so the number of terms is at most m; x is not defined.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the Ohio State mathematics department page hosting the notes"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Ji Hoon Chun, Egyptian fractions, Sylvester's sequence, and the Erdős–Straus conjecture, Ohio State University notes, 1 August 2011",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E601",
+   "kind": "error",
+   "locator": "Section 8.2.1, Pell's equation, printed p. 93 (the author's PDF read)",
+   "printed": "Dirichlet’s unit theorem implies that for any d the solutions to Pell’s equation with x, y not both negative forms an infinite cyclic group,",
+   "correction": "The solutions with x > 0 (equivalently x + y√d > 0) form an infinite cyclic group; the set with x, y not both negative is not closed under multiplication.",
+   "reason": "(−1, 0) has x, y not both negative, but (−1, 0)·(x_1, y_1) = (−x_1, −y_1) for the fundamental solution with x_1, y_1 > 0 has both negative. The solutions with x > 0 are the positive elements of the group ±ε^ℤ, a cyclic group generated by the fundamental solution.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the author's page https://wstein.org/books/ant/ (no errata listed)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "William Stein, Algebraic Number Theory, a Computational Approach, The author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E602",
+   "kind": "misprint",
+   "locator": "Example 7.3.2, Section 7.3, printed p. 84",
+   "printed": "BK = √4 · (4/π)^1 · (2!/2^2) = 8/π < 3.",
+   "correction": "B_K = √4 · (4/π) · (2!/2²) = 4/π < 2.",
+   "reason": "√4 · (4/π) · (2/4) = 2 · (4/π) · (1/2) = 4/π ≈ 1.27. The conclusion that Cl(ℚ(i)) is trivial is unaffected (with the correct bound no prime is needed at all).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's page https://wstein.org/books/ant/ (no errata listed)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "William Stein, Algebraic Number Theory, a Computational Approach, The author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E701",
+   "kind": "misprint",
+   "locator": "Section 4, opening paragraph, p. 12 (arXiv:1408.0195v3)",
+   "printed": "whose minimal polynomials are x2−ax+1 for a ∈ N, n ≥ 3.",
+   "correction": "whose minimal polynomials are x² − ax + 1 for a ∈ ℕ, a ≥ 3.",
+   "reason": "There is no n in the passage; a = 2 gives (x − 1)² and a ≤ 1 gives roots of unity, so the reciprocal Pisot numbers are exactly the roots > 1 of x² − ax + 1 with a ≥ 3 (CA.6/reciprocal-pisot-numbers).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.0195 versions v1-v3 (v3 read)",
+    "the author's paper list at webhomes.maths.ed.ac.uk/~chris (Salem survey entry, no erratum)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Chris Smyth, Seventy years of Salem numbers, arXiv:1408.0195v3 (1 April 2015), survey article published in Bull. London Math. Soc. 47 (2015), 379-395; page numbers cited are the arXiv pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E702",
+   "kind": "gap",
+   "locator": "Lemma 1 and its proof, p. 2 (arXiv:1408.0195v3)",
+   "printed": "Then τ is a Salem number (as deﬁned above).",
+   "correction": "The definition 'above' requires degree at least 4, which the proof does not address; it follows since a conjugate on the circle is not ±1, hence non-real, and together with its complex conjugate, τ and τ⁻¹ gives four distinct conjugates.",
+   "reason": "The proof establishes the pairing and the location of the conjugates only.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.0195 versions v1-v3",
+    "the author's paper list (no erratum)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Chris Smyth, Seventy years of Salem numbers, arXiv:1408.0195v3 (1 April 2015), survey article published in Bull. London Math. Soc. 47 (2015), 379-395; page numbers cited are the arXiv pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E703",
+   "kind": "error",
+   "locator": "Proof of Lemma 4.6, printed p. 16",
+   "printed": "where the last inequality holds because y ≥ 10.",
+   "correction": "The inequality 9y log y/(5 log(3y log y)) > y is equivalent to y⁴ > 243 (log y)⁵, which fails for 10 ≤ y ≤ 12.9 and holds for y ≥ 13; it holds because y ≥ 13, the lemma's hypothesis.",
+   "reason": "At y = 10 the left side is 9.79 < 10; at y = 12 it is 11.94 < 12; at y = 13 it is 13.03 > 13, and y⁴/(log y)⁵ increases for log y > 5/4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository (only this version is served)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E704",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.8, display (17), printed p. 17",
+   "printed": "Consider the equations in (F0, . . . , FN) ∈ ZN given by Σ_{j=0}^N (j choose j−i) Fk α^{j−i} = 0",
+   "correction": "(F₀, …, F_N) ∈ ℤ^{N+1} and Σ_j C(j, j − i) F_j α^{j−i} = 0.",
+   "reason": "There are N + 1 unknowns F₀, …, F_N, and the summation index is j; F_k does not depend on j.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E705",
+   "kind": "gap",
+   "locator": "Theorem 4.1 (printed p. 15) and the first line of its proof (printed p. 18)",
+   "printed": "Proof of Theorem 4.1. Let α be a non-zero algebraic integer that is not a root of unity and of degree d.",
+   "correction": "Add the reduction: if α is not an algebraic integer, the leading coefficient a₀ ≥ 2 of its primitive minimal polynomial gives M(α) ≥ a₀ ≥ 2, which exceeds the bound.",
+   "reason": "The theorem is stated for algebraic numbers, the proof treats algebraic integers only.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E706",
+   "kind": "gap",
+   "locator": "Proof of Theorem 4.1, printed p. 18",
+   "printed": "Suppose deg(αn) = d holds for all positive integers n, otherwise we ﬁnish the proof by an inductive argument using Lemma 4.7.",
+   "correction": "The induction on d needs the bound (log log d/log d)³ to be non-increasing on the degrees reached: it is for d ≥ 21 (log log x/log x decreases for x ≥ e^e), degrees 2 ≤ d′ ≤ 20 are covered by Theorem 2.17 (1/(4e·400) > (1/11700)e⁻³), and degree 1 gives M(β) ≥ 2.",
+   "reason": "Lemma 4.7 produces β of smaller degree d′ with M(β) ≤ M(α); the inequality for β implies the one for α only when the bound at d′ is at least the bound at d.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E707",
+   "kind": "gap",
+   "locator": "Lemma 4.7 and its proof, printed pp. 16-17",
+   "printed": "Let α be an algebraic number of degree d and suppose there exists a positive integer n such that deg(αn) < d.",
+   "correction": "State the lemma for algebraic integers: the proof computes M(β) as (∏_σ max(1, |σ(β)|))^{1/[ℚ(α):ℚ(β)]}, valid only when the leading coefficient is 1; and β = f(0) = (−1)^r ζᵐ α^r (the sign is omitted, harmless as only |σ(β)| is used).",
+   "reason": "For a non-integral α the Mahler measure contains the leading coefficient of the primitive minimal polynomial, which the computation ignores; Theorem 4.1 applies the lemma to algebraic integers only.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E708",
+   "kind": "misprint",
+   "locator": "Lemma 2.20, printed p. 9",
+   "printed": "Then S0, . . . , Sd are elements of Q[Σ1, . . . , Σn].",
+   "correction": "elements of ℚ[Σ₁, …, Σ_d].",
+   "reason": "n is the free exponent of the preceding sentence; Newton's identities express S₀, …, S_d through the first d power sums, as the proof of Theorem 2.17 uses (n ∈ {1, …, d}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E709",
+   "kind": "gap",
+   "locator": "Proof of Lemma 2.3, p. 5 (arXiv:1912.12545v1)",
+   "printed": "Since we assume the polynomial P2 ∈ Z[X] to be irreducible, α2 has to be among the roots σ(α)4 of P4",
+   "correction": "The hypothesis is that P₂ is not a perfect square; add that for irreducible P, P₂ = (minpoly α²)^{[ℚ(α):ℚ(α²)]} with exponent 1 or 2, so 'not a square' means P₂ irreducible.",
+   "reason": "The lemma's statement assumes 'P₂ is not a perfect square', the proof uses irreducibility of P₂.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1912.12545 (only v1 exists)",
+    "MathSciNet-style searches for a published version: none located"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Vesselin Dimitrov, A proof of the Schinzel-Zassenhaus conjecture on polynomials, arXiv:1912.12545v1 (28 December 2019), the only arXiv version; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E710",
+   "kind": "gap",
+   "locator": "Proof of Theorem 1, pp. 15-16 (arXiv:1912.12545v1)",
+   "printed": "Upon passing in this way from P to Q, Theorem 1 now follows by induction on the degree n.",
+   "correction": "Treat n/2 = 1 separately (Theorem 1 assumes degree > 1): then Q = X − b with b ∈ ℤ, |b| ≥ 2 as α² is nonzero and not a root of unity, so max|αᵢ| = √|b| ≥ √2 ≥ 2^{1/8}.",
+   "reason": "The induction hypothesis is Theorem 1 itself, which does not cover degree 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1912.12545 (only v1 exists)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Vesselin Dimitrov, A proof of the Schinzel-Zassenhaus conjecture on polynomials, arXiv:1912.12545v1 (28 December 2019), the only arXiv version; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E711",
+   "kind": "misprint",
+   "locator": "Section 6, Theorem 12, p. 2",
+   "printed": "which is the only real root of x3 −x + 1.",
+   "correction": "the only real root of x³ − x − 1.",
+   "reason": "The real root of x³ − x + 1 is −1.3247…, negative; θ₀ = 1.3247… satisfies θ₀³ = θ₀ + 1 (Smyth's survey, (15)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Euler Circle paper archive (single version served)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Varun Srivastava and Sanjay Gollapudi, Pisot numbers (Euler Circle student paper), Euler Circle expository paper dated 9 December 2018, 4 pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E712",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 8, p. 2",
+   "printed": "We ﬁnd that θ(1)n +· · ·+θ(s)n ≤λn +. . . λn = (s−1)λn.",
+   "correction": "|θ(2)ⁿ + ⋯ + θ(s)ⁿ| ≤ λⁿ + ⋯ + λⁿ = (s − 1)λⁿ.",
+   "reason": "The sum including θ(1)ⁿ = θⁿ is unbounded; the (s − 1) terms bounded by λⁿ are those with j ≥ 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Euler Circle paper archive"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Varun Srivastava and Sanjay Gollapudi, Pisot numbers (Euler Circle student paper), Euler Circle expository paper dated 9 December 2018, 4 pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E713",
+   "kind": "misprint",
+   "locator": "Section 5, first paragraph, p. 2",
+   "printed": "The converse statement to theorem 7 (above) … It asks that if θ is an integer greater than 1",
+   "correction": "The converse of Theorems 8 and 9; 'if θ is a real number greater than 1'.",
+   "reason": "Proposition 7 is about powers, not about θⁿ modulo 1; for an integer θ the question is trivial.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Euler Circle paper archive"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Varun Srivastava and Sanjay Gollapudi, Pisot numbers (Euler Circle student paper), Euler Circle expository paper dated 9 December 2018, 4 pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E714",
+   "kind": "misprint",
+   "locator": "Section 4, p. 13 (arXiv:1408.0195v3)",
+   "printed": "since the proof of Lemma 3(ii) depends on a Salem number having a nonreal conjugate.",
+   "correction": "the proof of Proposition 3(ii).",
+   "reason": "There is no Lemma 3; the non-real conjugate is used in the proof of Proposition 3(ii), p. 3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.0195 versions v1-v3",
+    "the author's paper list"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Chris Smyth, Seventy years of Salem numbers, arXiv:1408.0195v3 (1 April 2015), survey article published in Bull. London Math. Soc. 47 (2015), 379-395; page numbers cited are the arXiv pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E715",
+   "kind": "gap",
+   "locator": "Proof of Proposition 4, pp. 4-5 (arXiv:1408.0195v3)",
+   "printed": "we know that for every ε′ > 0 there are lattice points in the 'slice' {(x1, . . . , xn) ∈ Rn : |xi| < ε′ (i = 2, . . . , d)}.",
+   "correction": "Nonzero lattice points in the slice of ℝ^d (Minkowski's theorem applied to a large box in the slice); the resulting λ(τ) is nonzero and can be made positive by a sign change, as the statement λ > 0 requires.",
+   "reason": "ℝⁿ should be ℝ^d; the zero lattice point lies in every slice, so nonzeroness must be asserted and it is what makes λ(τ) ≠ 0; the sign of λ(τ) is not discussed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.0195 versions v1-v3",
+    "the author's paper list"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Chris Smyth, Seventy years of Salem numbers, arXiv:1408.0195v3 (1 April 2015), survey article published in Bull. London Math. Soc. 47 (2015), 379-395; page numbers cited are the arXiv pages; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E716",
+   "kind": "error",
+   "locator": "Lemma 4.6, printed p. 16",
+   "printed": "Let α be an algebraic number of degree d, not a root of unity, and suppose deg(αn) = d for all integers n ≥ 1.",
+   "correction": "Add the hypothesis α ≠ 0.",
+   "reason": "α = 0 has degree 1 = deg(0ⁿ) and is not a root of unity; with F = X^{13} every F(α^p) = 0, so no prime works. The proof uses Lemma 2.21, whose conclusion is 'α = 0 or a root of unity'. Theorem 4.1 assumes α ≠ 0, so it is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Leiden University mathematics thesis repository"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "O. B. Berrevoets, On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse), Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E801",
+   "kind": "error",
+   "locator": "Definition 5.1 and Remark 5.2 (printed p. 9), version of 18 October 2016",
+   "printed": "Then we say that L and K linearly disjoint over F if L ∩ K = F. Remark 5.2. It is easy to show that L and K linearly disjoint over F if and only if [L : F][K : F] = [LK : F]",
+   "correction": "Define L and K to be linearly disjoint over F when [LK : F] = [L : F][K : F] (equivalently L ⊗_F K → LK is injective). The condition L ∩ K = F is equivalent to this when L/F or K/F is Galois, and not in general.",
+   "reason": "For F = ℚ, L = ℚ(∛2) and K = ℚ(ω∛2) with ω a primitive cube root of unity, L ∩ K = ℚ (two distinct cubic fields) but LK is the splitting field of X³ − 2, of degree 6, not 9. So Remark 5.2, and Lemma 5.3 which rests on it, are false with the definition as printed.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the author's Exeter staff page (the version of 18 October 2016 is the one posted)",
+    "a web search for later versions or errata of the notes"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Henri Johnston, Notes on Galois Modules, Course notes accompanying the Cambridge Part III course Galois Modules (Lent 2011), version of 18 October 2016, 31 pages; the author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E802",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.5 (printed p. 4)",
+   "printed": "By Lemma 3.4 there exists a nonzero r ∈ R such that r · N ⊆ F′, so we may set F′′ = r^{−1} · F′.",
+   "correction": "r · M ⊆ F′ (Lemma 3.4 applied to the lattices M and F′); and the citation for \"M contains a K-basis\" is Remark 3.2(i).",
+   "reason": "No lattice N occurs in Lemma 3.5; the argument needs F′′ = r⁻¹F′ ⊇ M, which is r·M ⊆ F′.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's Exeter staff page (single posted version, 18 October 2016)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Henri Johnston, Notes on Galois Modules, Course notes accompanying the Cambridge Part III course Galois Modules (Lent 2011), version of 18 October 2016, 31 pages; the author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E803",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 10.7 (printed p. 20)",
+   "printed": "We therefore have ⊕_{P|p} O_{L_P} ≅ O_{L_P} ⊗_{O_{K_p}[G_P]} O_{K_p}[G] as O_{K_p}[G]-modules. ... (Note that we have been sloppy about left vs. right modules here.)",
+   "correction": "For the left O_{K_p}[G]-module structure the induced module is O_{K_p}[G] ⊗_{O_{K_p}[G_P]} O_{L_P}, with the direct sum over left cosets gG_P; the conclusion is unchanged.",
+   "reason": "The group ring acts on O_L on the left (Definition 1.1), and the displayed tensor product is the right-module induction; the author flags the imprecision.",
+   "affects": "nothing",
+   "known": "The source itself notes the imprecision in the parenthetical remark.",
+   "searched": [
+    "the author's Exeter staff page",
+    "the remark in the source itself"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+   "citation": "Henri Johnston, Notes on Galois Modules, Course notes accompanying the Cambridge Part III course Galois Modules (Lent 2011), version of 18 October 2016, 31 pages; the author's freely posted PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DeformationAndDerivedPatchingAlgebra/E1",
    "kind": "misprint",
    "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
@@ -142608,7 +143575,6 @@
  "older": [],
  "unchecked": [
   "BunGAndNewtonStrata",
-  "ClassicalArithmeticCompletion",
   "CohomologyComparisons",
   "EnhancedDerivedSheaves",
   "EnhancedDerivedSheaves",
