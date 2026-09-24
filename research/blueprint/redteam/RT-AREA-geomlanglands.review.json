@@ -1,0 +1,200 @@
+{
+  "redteam": "RT-AREA-geomlanglands",
+  "findings": [
+    {
+      "finding": "RT-AREA-geomlanglands/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GS2:Satake-closure requires GS3:fusion and says 'This return is after GS3's geometric fusion construction'. But FS proves closure under convolution and dualizability first: VI.8.1(iii) on p. 225 ('part (iii) easily follows from (i), (ii) …') and VI.8.2 on p. 226, whose proof cites IV.2.24, VI.6.2 and VI.7.12 and no fusion. The fusion construction on pp. 226–229 then uses the monoidal Satake category and 'By Proposition VI.8.2, all A are dualizable'. The decomposition's gap already records the reverse order, and no restructuring resolves it. The fix, reversing the edge, is right and acyclic once the old edge is removed. Addition: VI.8.1(ii)'s proof (p. 225) uses the two-leg convolution Hecke stack over (Div¹_𝒴)², which after the reversal must be owned by GS2 (retitle GS2:correspondences or state VI.8.1(i)–(ii) in Satake-closure), not by GS3:fusion. Update the stage title 'Closure after fusion', the two decomposition acceptance items that assume the old order, and close the gap."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ES7:GLn-comparison imports 'HS2–HS3's identification of the minuscule Hecke fibres with these moduli', but HS2 is an ancestor of ET.6a and ET.6a is not an ancestor of HS3. So neither HS2 nor HS3 can compare ET.6a's Lubin–Tate/Drinfeld towers with Hecke fibres, and no stage, node, accepted RS or accepted route owns SW20 24.2.5/24.3.5. FS p. 338 (IX.7.3) uses exactly this ('the description of these as the Lubin–Tate tower and Drinfeld tower in special cases, see [SW13]'). Option (a), ET.6a owns the comparison, is right: ET.6a already requires HS2, and 24.2.5 is credited to [SW13], ET.6a's own source. Refinements: cover the whole tower at all levels K compatibly with the GL_n(E), D^× and Weil actions; the Drinfeld side needs 24.3.5 (EL datum with B = D) or ET.6a's infinite-level duality; the O_E-version depends on finding 22. Reword ET.6a's 'to HS3's Hecke-fibre comparison' and ES7's 'HS2–HS3's identification'."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/3",
+      "verdict": "rejected",
+      "reason": "Rejected. The FS quotes (Haboush p. 287, Kempf p. 286, BMR05 §6) and the library claims are accurate. But the claim that no layer plans the needed geometric invariant theory is false. Routes accepted at paper and route level already plan it. PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 route 2 → LP2/LP3, item /4: X⫽G, Seshadri's unique closed orbit per fibre, strong reductivity ⟺ G-complete reducibility (Richardson with BMR05 Thm 3.1), cocharacter limits; item /6: invariants over a DVR commuting with flat base change. PAPER-LAFFORGUE-18 route 3 → LP2/LP3, items /35 (Richardson 11.9, Hilbert finite generation, Hilbert–Mumford) and /42 (BMR05 §6 for non-connected groups). PAPER-FINTZEN-21 route 4 (accepted) owns the rational destabilizing-cocharacter theorem (Kempf 4.3). Seshadri's GIT is also planned in LocalGaloisDeformationRingsPartII (BOCKLE-IYENGAR-PASKUNAS-23 route 6; PASKUNAS-QUAST-26 route 1). A new RG2.6 GIT stage would add another owner. The real problem is where these items land (aggregate LP2/LP3 rather than the unconditional substage), which finding 23's fix covers. At most, name Haboush/Seshadri geometric reductivity as the proof input of the routed BHKT-19/4 and /6 items (low)."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. FS p. 280: the centraliser 'is a smooth group, whose identity component is reductive by [PY02, Theorem 2.1]', reducing to Lemma VIII.1.4, whose proof uses finiteness of unipotent classes ([Lus76], [FG12, Cor. 2.6]). LP1's flatness node relies on PY02 only as a hypothesis, with no link, while the only general fixed-point node is in LP3, which requires LP1, so LP3 → LP1 would cycle. No stage, accepted route or upstream ReductiveGroups layer (0–9) plans Prasad–Yu reductivity or finiteness of unipotent classes; the Edixhoven/PY06 hits elsewhere are different results. The fix is right: put PY02 Thm 2.1 plus Lus76/FG12 in a stage upstream of LP1 that depends only on RG2.5 and upstream ReductiveGroups layers 6–7, with edges to LP1 and LP3 (acyclic, checked). LP3 keeps the π₀ argument. Coordinate with the Edixhoven fixed-point smoothness already routed to ReductiveGroupsPartII (KISIN-PAPPAS-18 route 1), but do not place PY02 in RG2.3, which would put LP1 behind buildings."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The reviewed LP node LP2:excursion-presentation/map-to-a-bernstein-center (FS VIII.4.1–VIII.4.2) constructs the excursion operators, their independence of the representation and their relations. ES0 plans the same list. FS p. 291 (VIII.4.1 and its proof) matches both, and no accepted restructuring or route assigns an owner. Keeping the LP node as owner and narrowing ES0 is right; the edge LP2:excursion-presentation → ES0 exists. Corrections: (a) LP2:excursion-presentation's stage text must name both VIII.3.7 (§VIII.3.3, not §VIII.4) and VIII.4.1–VIII.4.2, rather than being rewritten to VIII.3.7 alone; (b) the owner must state it for a stable ∞-category with target π₀End(id_C), as FS use it (p. 328); the node currently says 'a category C'. Otherwise ES0 must keep the lift to the enhanced category."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LP4 claims 'the finite-free-group colimit theorem and its universal property for exact monoidal functors', while ES2/ES3 plan FS X.1.1–X.1.3 and X.3 in detail. The reviewed LP packet never decomposed Chapter X; its gap says Chapter X was not read. FS p. 341 (X.1.1, X.1.2) and pp. 348–350 (X.3.1–X.3.4, X.0.2) are as quoted. The finding offers two conflicting fixes; apply only the primary. ES2 owns X.1.1–X.1.3 (including X.1.2); ES3 owns X.3.1–X.3.4 and X.0.1–X.0.2; LP4 drops 'and its universal property for exact monoidal functors'; correct the ES README sentence. Both directions are acyclic. Also, LP4's remaining 'finite-free-group colimit theorem' duplicates LP2:integral-invariants/integral-invariant-theorem (VIII.3.6/VIII.5.1): delete it, or cite that node via LP2:integral-invariants → LP4 (acyclic). ES3's 'generation statement' reads as X.3.3–X.3.4, which differs from VIII.5.1; rewording it is harmless."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ES7:parabolic, ES6:functoriality, ES6:duality and ES4 each use the IX.5.2 map owned by ES1:spectral-center (FS p. 334, Def. IX.7.1: Ψ_G is Z^spec → Z^geom → Z(G(E))), and ES4 names VS5 and HS3, but none of these is in their requires (computed closures). All six proposed edges are right and acyclic: ES1:spectral-center's descendants are only {ES1, SR.6}, and VS5 and HS3 have no ES ancestors. One more edge is needed: ES2 says 'Agreement with the spectral center uses ES1:spectral-center … Prove agreement of the degree-zero action with ES1' but requires only ES1:finite-ramification. Add ES1:spectral-center → ES2 (acyclic)."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a correction. ES5 applies Schur's lemma to irreducible smooth L-representations 'in every characteristic ≠ p'. Its inputs SR.0 (admissibility defined), SR.3 and SR.3a (complex-only) do not supply admissibility of irreducibles in characteristic ℓ. The accepted CALEGARI-GERAGHTY-18 route 15 adds mod-ℓ material for GL_n only, and SR.6 cannot feed ES5 without a cycle. Vignéras (1996, II.2.8) extended Jacquet–Bernstein admissibility to characteristic ℓ ≠ p (see Ghate–Le–Sheth arXiv:2210.07281v4, introduction). Correction: Q̄_ℓ is not countable. Any characteristic-0 algebraically closed Z_ℓ[√q]-field is uncountable, so Dixmier's argument applies there; the gap is only for countable fields of characteristic ℓ, such as F̄_ℓ. Fix: add SR.3b after SR.2 (Vignéras II.2.8 for ℓ ≠ p, admissibility then End_G(π) = L, plus Dixmier for uncountable L) with SR.3b → ES5 (acyclic). The characteristic-0 'over an arbitrary field' part is not needed."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with fix corrections. ES0:classical-center points to SR.0 for 'the center of the smooth category', but SR.0 and SR.0:abelian-category contain no centre; SR.3 builds the Bernstein centre only for complex coefficients; RS-21 has no review. FS p. 318 (Def. IX.0.2(i): Z(G(E),Λ) = π₀End(id) = lim_{K pro-p} Z(Λ[K\\G(E)/K])) and p. 335 (ℓ-adic separatedness in the proof of IX.7.2) use it. Owning it in SR.1 is right. Corrections: (a) the proposed SR.1 → ES0 and SR.1 → ES7:parabolic are already implied transitively, so the real fix is the text; (b) SR.1 should not define it 'as π₀End(id) of SR.0:derived-extension', since SR.1 does not import that and ES0 already plans the enhanced degree-zero centre and its comparison. SR.1 owns the Λ-linear centre of the abelian category (Mathlib CatCenter on the SR.0 category), the identification with lim_K Z(e_K H e_K) over pro-p K, and ℓ-adic separatedness for Λ = Z_ℓ[√q]. Coordinate with RS-21 if it is accepted."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with fix changes. BG1 and BG2:uniformization use z-extensions and surjections from induced tori (FS p. 90: 'one uses a z-extension G̃→G … B(G̃)→B(G) is surjective'; p. 93). But BG1 requires only BG0, RG2.1, RG2.5 and VB0, no RG2 stage mentions z-extensions, and the only definer, ET.0, is not an ancestor of any BG stage. Neither library has them. The accepted GLEASON-LIM-XU-26 route 13 (item D13 → ReductiveGroupsArithmeticPartII) does not give BG an owner: that Part II is not in the atlas, and accepted routes (KISIN-MADAPUSIPERA-SHIN-22 route 2, KISIN-17 route 8) make it import BG0–BG1 and ET.0, so it sits downstream of its consumers. The z-embedding half is weak: ES6:functoriality owns z-embeddings and is upstream of ES7:parabolic, so only its citation is missing. Fix: a new root stage RG2.6 (existence of z-extensions with induced-torus kernel and simply connected derived group, surjection of an induced torus onto any torus, functoriality of π₁), with edges to BG1, BG2:uniformization and ET.0 (acyclic); narrow ET.0 to import it; record that D13 should import RG2.6; in ES6 name Kaletha, 'Rigid inner forms vs isocrystals', JEMS 2018 (arXiv 1502.00650). Keep BG1's surjectivity B(G̃)→B(G) (Kottwitz arXiv 1401.5728, Prop. 10.4)."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ES7:parabolic goes from the basic case straight to the unstable sequence b_N and the canonical parabolic, and 'quasi-split' appears in no atlas stage. FS pp. 334–335 (proof of IX.7.2) first reduces to G quasi-split via a z-embedding G ↪ G′ ([Kal18, §5], Fact 5.5) and the existence, when Z(G) is connected, of a basic b₀ with G_{b₀} quasi-split. The b_N argument needs this. The fix is right, with precisions. BG1 derives the surjectivity from Kottwitz (arXiv 1401.5728) Prop. 10.4 applied to Z(G) → G → G_ad, with B(G_ad)_bas ≅ H¹(E,G_ad), stated as existence of a basic b₀ with G_{b₀} quasi-split. ES7:parabolic imports the z-embedding results from ES6:functoriality, already upstream. G′_{b′}(E) = Z′(E)·G_b(E) follows from Fact 5.5. The basic-case Bun_G ≅ Bun_{G_b} (FS III.4.3) is within BG's source range."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ES7:function-field-automorphic 'Define[s] restricted products from curve places, integral orders, the diagonal embedding, degree/central quotients and compatible Haar measures', all of which except the integral orders of D are planned upstream. FA.2 plans restricted products, self-dual Haar measures and the idele degree map. FA.6 plans G(K)\\G(A_K) and central quotients for general reductive G. AA.0 plans restricted Haar measures. The coverage record already lists them as duplicates, and Mathlib has the restricted-product topology (RestrictedProduct/TopologicalSpace.lean:147, :621). The narrowed D-specific content is correct. FA.2 → ES7:function-field-automorphic is already implied via FA.6 (documentation only); AA.0 → ES7:function-field-automorphic is new and acyclic."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. HS1 plans 'preservation of D_lis, compact objects and ULA objects', and its ULA and Bernstein–Zelevinsky clauses use VS5's content ('ULA is equivalent to perfection of K-invariants on every stratum'; RS-05 keeps 'ULA=perfect compact-open invariants'; VS5 coverage lists VII.7.6 and VII.7.9–VII.7.10 as VS5 work). But there is no path between VS5 and HS1 in either direction. FS p. 322 (IX.2.2: D_BZ(T_V(A)) ≅ T_{sw*V∨}(D_BZ(A))) and p. 323 ('… is perfect, by Proposition VII.7.9') use it. The fix is correct: VS5 → HS1 is acyclic, since VS5 needs only VS1, VS2 and VS4, all already upstream of HS1. Also add VS5 to HS1's Inputs sentence in the README."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GS0:loop-geometry plans properness of bounded Schubert diamonds over Div^d_𝒴, citing SW20 20.3.6/20.5.4 as 'NOT read'. GS0:Witt-geometry plans 'the integral family and bounded properness using Berkeley §§19.2–19.3, §§20.3–20.5', and HS0 already imports Witt-geometry for it. FS VI.2.3 (p. 197) and VI.2.7 (p. 201) cite SW20 20.3.6/20.5.4, whose proof uses Theorem 20.3.4 = BS17 Cor. 9.6 (Witt-vector affine Grassmannian), which only Witt-geometry has. The direction is right, with a caveat: SW20 20.3.6 proves closedness together with properness, and for general G closedness comes from quasicompactness via a z-extension. So loop-geometry can keep integral closedness only with an explicit proof avoiding the special fibre; otherwise closedness moves too, and Witt-geometry → GS0:Schubert-smoothness must be added (acyclic, checked), since VI.2.4/VI.2.8 are stated over Div_𝒴. GS1 and HS0 already require Witt-geometry."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GS0:Witt-geometry plans Keel's positive-characteristic ampleness criterion (node ampleness-via-keel, Kee99 1.7–1.9) as 'a sub-obligation here'. But the accepted PAPER-BHATT-SCHOLZE-17 route 3 assigns 'general positivity, finite Frobenius power descent and Keel's criterion' to SF.3–SF.5, with 'GS0:Witt-geometry consumes semiampleness', and Kee99 1.7/1.8 are routed twice (routes 3 and 14). No SF stage is an ancestor of Witt-geometry, and the SF.3–SF.5 texts never mention ampleness or Keel. The fix is correct: SF.5 → Witt-geometry is acyclic. SF.0 → Witt-geometry is redundant but harmless. If Stein factorization goes to SF, its item G819 must also leave route 14."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed, but 'no stage plans Prasad–Yu' is wrong, so the fix is corrected. FS p. 238 uses VI.11.4 = [PY06] 'at least if ℓ ≠ 2 or Ĝ is simply connected', with a reduction via G_ad, and the GS4 coverage says it was not read. PAPER-KISIN-PAPPAS-ZHOU-26 (accepted, route 1 → RG2.0a/RG2.2/RG2.3) already carries prasad-yu-closed-immersion ([PrY06, Cor. 1.3]), but only in its residue-characteristic > 2 form, and the edge RG2.3 → GS4:integral-dual-group exists. PY06 (arXiv math/0405381) Cor. 1.3 has two alternatives: char κ ≠ 2, or no normal subgroup SO_{2n+1}. FS also needs ℓ = 2, via the second alternative after reducing to simply connected Ĝ. That half and the reduction are unplanned, and GS4 does not name the import. Fix: no new GS4 node or edge. Widen the accepted KPZ26 item to the full Cor. 1.3 (either alternative, any finite-type affine target), name it as GS4's import over RG2.3, add FS's G_ad reduction to GS4, and plan PY02 2.1 (finding 4) in the same RG2 stage."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed; the owner should follow the accepted route. GS4 plans the Barr–Beck/coend reconstruction of the dual group ('reconstruct its affine group scheme'), and MC.6 plans neutral Tannakian reconstruction, with no edge between them. The accepted PAPER-ZHU-17 routes 8 and 11 say 'The neutral reconstruction theorem already has this common owner [MC.6]. Extract its abstract early supplier independently of later motivic period applications; GS imports it'. But MC.6 sits after MC.5, so that early supplier does not exist yet. FS VI.10.2 (pp. 232–233, relative form) and DM82 2.20/2.22/2.23 (pp. 236–237) are used, and no stage names DM82. Caveat: VI.10.2 with A = Vect_k is not literally the neutral theorem, since the neutral case also needs the representability lemma. Fix: rather than a new ReductiveGroups owner (which would override accepted route 11), split an early abstract MC.6 substage with no MC.5 input stating VI.10.2, the neutral representability lemma and DM82 2.20, 2.22, with edges to GS4:integral-dual-group and GS4:rational-reductivity (acyclic). For DM82 2.23 add tauceti ReductiveGroups layer 6 → GS4:rational-reductivity (acyclic)."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GS1 asks for 'EDC.4–EDC.5 early scheme perversity/recollement' and to 'Transport through perfection', but perversity is EDC.5 (EDC.4 is Lefschetz/blowups). The ECD §27 comparisons it needs (L1's small v-sheaf, L3's 27.1–27.3) do not reach GS1; they reach GS2:correspondences only through VS3. FS pp. 218–219 use [Sch17a, §27] and Prop. 27.2 in VI.7.4, with torsion coefficients (p. 207). Chapter VI has no D_lis or solid categories, and the GS2/GS3 texts name no VS3 input. The fix is correct: add L1 → GS1 and L3 → GS1 and drop both VS3 edges (acyclic, checked). Dropping them removes VS3 ancestry only from GS2–GS4; HS1 requires VS3 directly. Optional: L1 → GS0:loop-geometry, since VI.1.10 (p. 194) uses G^♢ 'as in [Sch17a, §27, before Prop. 27.5]'. Replace 'EDC.4–EDC.5' with EDC.5 where perversity is meant."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GS4 exports 'the enhanced perfect-complex closure actually used by Hecke functors', but the highest-weight reduction behind it is LP3's ('Weyl and dual-Weyl modules, good filtrations'), and LP3 reaches neither HS1 nor GS4:integral-dual-group. The HS1 node HS1/satake-kernel-and-solid-monoidal-functor already records the implicit use of highest weight theory with no supplier. FS p. 321 and pp. 322–323 (IX.2.1: 'By highest weight theory, one can reduce to … exterior tensor product'; IX.2.3: finitely many weights) confirm this. The fix is correct: HS1 owns the closure (FS proves it in IX.2, and the node is in HS1), with LP3 → HS1 (acyclic); drop GS4's export or make GS4 the owner, but not both. LP3 must export the split-Ĝ statements for all ℓ ≠ p without the VIII.5 restrictions. LP4 → HS1 is optional (LP4's Perf-generation matches the 'free stable ∞-category' clause) and acyclic."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with corrections. HS2 plans representability and boundedness but no stage constructs the tower of partially proper smooth rigid-analytic spaces (SW20 Lecture 24) that FS IX.3.1 (p. 324) is about, with Huber's RΓ_c. The HS2/hecke-fibre-description node takes the tower as given, and HS2's coverage says 'Lecture 24 … was NOT read'. SW20 pp. 225–226 construct it from 23.3.3, 19.4.2 and 10.4.2. The Bialynicki-Birula map appears nowhere in the atlas; the GLX26 period-map items D36/T37 are missing. The fix is right, with three corrections: SW20 10.4.2 is ECD Lemma 15.6, owned by D6, which is upstream of HS2; the minuscule flag identification should come from the minuscule case of GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness; and [Rap18] non-emptiness is not needed for the rigid structure, so drop it or record it as a request. For HS3, no stage owns the Huber-versus-diamond RΓ_c comparison (H3 covers Huber's proper support only for curves), so it must be recorded as a request or owned explicitly."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The node HS0/demazure-generators-of-ULA-kernels states generation of D^{ULA}(Hck,Z_ℓ) and preservation of D_lis, using VII.4.3 ('NOT read'). But HS0 requires only BG2:uniformization, three GS0 stages, two RF2 stages and RF4:G-torsors, and GS1, VS2 and VS3 are not ancestors of HS0 (they are ancestors of HS1). FS p. 322 uses it in HS1's argument ('Using Proposition VII.4.3 …'), and the node's only outgoing link goes to an HS1 node. Re-parenting to HS1 is correct and needs no new edge. There is no 'VS2 node for VII.4.3' (it is a recorded unread gap), so that input is a stage-level VS2 import until such a node exists. An equally valid alternative splits the node: keep the geometric half (Demazure correspondence proper and cohomologically smooth, from GS0:loop-geometry) in HS0, and move generation and D_lis-preservation to HS1."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a caveat. HS2's only definition node defines local shtukas as 'a G-torsor on S ×̇ Spa Z_p … b ∈ G(L), L = W(k)[1/p]', i.e. for E = Q_p, while the HS2 stage text and its consumers (ES7:equal-characteristic; the accepted RS-22 'Own the local-field/Fargues–Fontaine constructions in both characteristics') need general E. HS2's coverage lists four remaining items, none about general E. FS pp. 325–326 ('We start with a general E now. As in [SW20, Lecture XXIII] …') confirm this. The fix is right, with a caveat: neither source writes a general-E definition (SW20 Lecture 23 is Q_p-only). The new node should rest on HS2's own Hecke-fibre definition over HS0, or on the O_E-analogue (S ×̇ Spa F_q[[t]] in equal characteristic) with a note that it goes beyond the source. Keep 23.1.1 as the E = Q_p integral-model case, and add the coverage item."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LP2:integral-invariants owns 'the invariant algebra and the affine coarse quotient … relation to closed semisimple geometric orbits' but requires LP2:excursion-presentation and LP3, while its consumers come earlier. LP2:excursion-presentation's node says 'the geometric points of Exc(W,Ĝ) and of Z^1(W,Ĝ)⫽Ĝ agree', and LP2:semisimple-characters uses L-valued points of Z^1⫽Ĝ. Adding integral-invariants → excursion-presentation would cycle. FS p. 285 (VIII.3.1) states the bijection with closed orbits with no ℓ-hypothesis. A third consumer the finding missed: SR.6 (requiring only excursion-presentation) proves 'the induced coarse-quotient map is finite', which its coverage records as a duplicate of integral-invariants. Fix: move the unconditional part into LP2:excursion-presentation (no new edge). Take its GIT inputs from the field-level items already routed to aggregate LP2/LP3 (BHKT-19/4, LAFFORGUE-18/35 and /42), not from finding 3's proposed RG2.6. The DVR and base-change item BHKT-19/6 can stay with LP3/integral-invariants."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LP3 ('Weyl and dual-Weyl modules, good filtrations …') and PotentialAutomorphyInfrastructure:PA.1 ('Weyl/dual Weyl modules, their highest-weight filtrations') plan the same theory, with no path between them; the LP3 coverage lists PA.1 as a duplicate, and accepted RS-02/RS-31 do not resolve it. Neither library has good filtrations. But there is a third, already accepted owner: PAPER-KISIN-PAPPAS-18 route 5 and PAPER-KISIN-PAPPAS-ZHOU-26 route 3 create the Part II ReductiveGroupsIntegralRepresentationsPartII (parent upstream ReductiveGroups): 'Construct Weyl modules V(ν)=Ind_B^G(−w₀ν)^* … via a compatible integral construction'. Fix: use that Part II (its DESIGN job) as the single owner rather than a new RG2.6 or another Part II. Add to its brief induced and dual modules over Z and fields, Kempf vanishing, Donkin–Mathieu and the Koppinen/Donkin good filtration of O(G), with edges to LP3 and PA.1 (acyclic: its prerequisites are only upstream ReductiveGroups and RootSystems)."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The reconstruction of semisimple Ĝ-valued parameters from pseudo-characters is planned in both LP2:semisimple-characters and GlobalShtukas GS.5, and GS.5 requires only GS.4. The accepted LAFFORGUE-18 route 3 already decided a single owner: 'Plan it once here … for a profinite group and a possibly disconnected reductive H, and let both LP2:semisimple-characters and GS.5 import it', with item LAFFORGUE-18/34 ('the two should cite one another rather than be proved twice'). But a source route creates no edge, so the atlas does not reflect it. FS p. 290 is as quoted. The finding's remark that RS-22 'does not touch LP' is inaccurate: RS-22's GS.5 keep mentions LP2's local Weil character theorem. Fix: add LP2:semisimple-characters → GS.5 (acyclic, also with finding 27's SF.1 → LP1) and state the reconstruction for a profinite or condensed Γ (Richardson in characteristic 0, BMR05 in characteristic ℓ; LAFFORGUE-18/42). excursion-presentation → GS.5 is optional. Per RS-22, GS.5 keeps its shtuka-operator relations and global content."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LP1 builds 'the affine scheme Z^1(W_E/P, Ĝ) over Z_ℓ' and SR.6 constructs 'its integral finite-wild cocycle schemes and compare[s] with LP.1's Z_ℓ models'. That is the same scheme built twice and compared; LP1's coverage says 'different integral models of the same scheme'. FS p. 280: 'X is actually naturally defined over Z[1/p] (as Ĝ is, and the discretization W … is independent of ℓ)'. RS-21 is unreviewed, and SR.6 already requires LP1. The fix is right as proposed: build the scheme over Z[1/p] with RG2.5's pinned dual group over Z, with the Z_ℓ models as base changes. FS's fibrewise argument works over Spec Z[1/p], and no new edge is needed."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed, narrowed. LP1 plans 'derived affine schemes, fpqc quotient stacks, quasi-coherent modules, perfect complexes and their pullback/descent'. The accepted RS-25 makes SF.1 the owner of 'Effective fpqc/fppf descent … algebraic-space/stack interfaces', and the accepted VANHOFTEN-24 route 1 agrees. SF.1 → LP1 is acyclic. The S.1 part of the finding does not hold: RS-18's S.1 owner entry covers only the scheme-specific locally-perfect-complex subcategory, and derived and stacky Perf is not S.1's target; only LP1 and LP4 plan QCoh/Perf on algebraic quotient stacks. Fix: add SF.1 → LP1 and drop generic fpqc descent and the quotient-stack interface from LP1. Moving derived QCoh/Perf to E5 is not needed to remove any duplication, so leave it out of the fix job."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. VS3 requires AdicCoefficientsAndComparisons L0, L1, L3–L6, but its source, FS VII.6 (pp. 268–271), cites none of ECD §27. A whitespace-normalised scan of FS finds §27 cited only on p. 194 (VI.1.10, G^♢ 'before Prop. 27.5'), p. 218 (VI.7.4, 'translate all computations to schemes') and p. 219 (Prop. 27.2), all in Chapter VI. None of L0/L1/L3–L6 reaches GS0:loop-geometry, GS0:Witt-geometry or GS1; they reach GS2/GS3 only through VS3. The actual consumers are VI.1.10 (L1's mixed-characteristic half) and VI.7.4–VI.7.5 (L3). FS never uses 27.5–27.7 (L4–L6). The fix is right: L1 → GS0:loop-geometry and L3 → GS1 (both acyclic), dropping the unjustified VS3 dependencies on L4–L6 (they keep EDC.6/EDC.7). L1 → GS0:Witt-geometry would be more precise but is covered transitively."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with corrections. VS5's text never mentions D_lis, and its three nodes (V.5.1, V.6.1–V.6.2, V.7.1) concern D_ét. The coverage lists VII.7.6–VII.7.10 as 'located but not read'. FS p. 275 ('we have not defined a notion of universal local acyclicity for lisse-étale sheaves … Definition VII.7.8') and its consumers (p. 323, IX.2.2's proof, 'perfect, by Proposition VII.7.9'; p. 329, IX.5.3's D_BZ on D_lis) need the lisse statements. HS1 does not require VS5, and there is no path in either direction. Corrections to the fix: VII.7.2 (the left adjoint to i^b_*) feeds VII.7.3–VII.7.4, which are VS4 scope, so it belongs in VS4 (VS4 → VS5 exists); FS omits the lisse analogue of V.6.2 ('we omit it here', p. 275), so add no lisse reflexivity node; the coefficients are VII.6's discrete ℤ_ℓ-algebras, including ℚ_ℓ. VS5 → HS1 is acyclic and needed."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed; take the red team's alternative, not the edges. VS2 plans the four operations and f_♯ 'in the FS VII.2–VII.3 range', but VII.2.9–VII.2.10 need a solid analogue of IV.5.3 (p. 256: 'We also need a solid analogue of Theorem IV.5.3'; p. 257: '…reducing us to Theorem IV.5.3'), and VII.2.7–VII.2.8 need Div¹ → [*/W_E] from IV.7's set-up and RF2. VS2 reaches neither VS0 nor VS1, and no VS node covers VII.2.7–VII.2.10. Adding VS1 → VS2 would be acyclic but would put 35 new ancestors (F0–F4, the bundle classification, RF0–RF3, S4–S5) ahead of the generic solid core. That core is RS-05's accepted owner of 'Qualified solidification and derived solid modules' and feeds HabiroRings:HR.2. Fix: keep VII.2.1–VII.2.6 and VII.3 in VS2 and narrow its text; put Def. VII.2.9 and Thm VII.2.10 in VS4 (first consumer VII.7.2; VS4 reaches VS0 and feeds VS5); put VII.2.7–VII.2.8 in VS4 or HS1, both of which already reach VS1 and RF2."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with fix corrections. FS p. 166 (proof of IV.7.3, Drinfeld's lemma) uses '[SW20, Lemma 16.3.2], all such finite étale covers come via pullback from finite étale covers of Div¹', and SW20 16.3.2 (p. 144) rests on Theorem 13.5.7 ([FF18, Théorème 8.6.1]: the curve X_FF is simply connected). No stage, decomposition, route, restructuring or link mentions simple connectedness of the curve, π₁(X_C), FF18 8.6.1 or SW20 16.3.2. The diamond halves of 16.3.2 are planned in F2 and F3, and VB2:classification already reaches VS1. Fix: add FF18 Théorème 8.6.1 to VB2:classification in the E-generality FS needs, equal characteristic included; add Lemma 16.3.2 to VS1, assembled from F2, F3 and that theorem; drop Props 16.3.3 and 16.3.6, which serve the product-π₁ statement FS disclaim. VB2:classification → VS1 is already implied, so optional. Drop the ClassFieldTheory Layer 9 → VS1 link from this fix job. The accepted CFT link packet (CFT-L96, Layer 9 → HS1) screened VS1 and declined it, and VS1 already has UPSTREAM:ClassFieldTheory as an ancestor."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. IG.0 ('Build the Newton map into B(G_Qp,μ^(-1)) … J_b(Q_p)') and ET.5 (endoscopy of J_b via its Levi data) use B(G), B(G,μ) and J_b with no owner upstream of them: IG.0 requires A4, R07.2 and M0–M3 and has no BG or VB ancestor, and ET.5 has no BG ancestor. BG0, their natural owner, is gated behind RF0–RF3, A4 and VB1. The coverage record for BG1 lists IG.0 as a duplicate. No accepted restructuring splits BG0 (RS-20 is needs_changes, RS-15 keeps BG0 whole). The edges BG0 → IG.0, BG1 → IG.0 and BG0 → ET.5 are acyclic. The split plus links is right. Adding B(G,{μ}) to BG1 is not new work, since three accepted routes (KISIN-17/B02 route 4, VANHOFTEN-24/B02 route 4, GLEASON-LIM-XU-26/D07 route 2) already route it there. BG1 contains 'the comparison with the torsor kernel', which is analytic, so BG1 must be split too; otherwise BG1 → IG.0 drags the analytic stack into IG.0."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed (low). ES7:function-field-automorphic says LRS's remarks concern 'an unproved general global Jacquet–Langlands correspondence' and says not to assert multiplicity one 'for every division-algebra constituent'. Badulescu–Roche (arXiv 1302.5289v2, abstract) prove 'a full global Jacquet–Langlands correspondence between GL(n) and division algebras over global fields of non zero characteristic … As a consequence we get multiplicity one and strong multiplicity one theorems for the multiplicative group of D'. So 'unproved' is out of date and multiplicity one for D^× is a theorem. The instruction not to use LRS's remarks as proofs is still valid. The fix is correct; the preferred version keeps the LRS route and says multiplicity one is left unused by choice, citing Badulescu–Roche."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. ES1:spectral-center's first sentence restates IX.5.1 (per-object finite ramification) under the IX.5.2 label. ES1:finite-ramification, a prerequisite, already proves IX.5.1's single wild subgroup P on each compact A. The composite to Z(G_b(E)) is constructed twice, in ES1:spectral-center ('then to the relevant Bernstein center through the stratum and smooth-representation comparison') and in ES7:parabolic ('Construct Ψ_G and Ψ_G^b from ES1:spectral-center … (IX.7.1)'). FS pp. 327–329 (IX.5.1, IX.5.2) and p. 334 (IX.7.1) separate them. The fix is right. Either owner of IX.7.1 is acyclic once finding 7 adds ES1:spectral-center → ES7:parabolic. Prefer ES7:parabolic, matching FS, and have ES1:spectral-center stop at Z^geom_Hecke (IX.5.2)."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/35",
+      "verdict": "rejected",
+      "reason": "Rejected. Mathlib 082e2d3 has the 1-categorical centre: `CatCenter C := End (𝟭 C)` (CategoryTheory/Center/Basic.lean:31), its commutativity (:58) and `toCatCenter` for R-linear categories (Center/Linear.lean:36). But this is already recorded: data/library-coverage.json, ES0 target 1, marks it 'partial' ('CategoryTheory.CatCenter C is End (𝟭 C), commutative … Linear.toCatCenter … Missing: the enhanced (∞-categorical/condensed) version'). ES0 already plans only the enhanced version ('Define the algebra of natural endomorphisms of the identity … on the chosen enhanced category'), as FS use it (π₀End(id) of stable ∞-categories, pp. 318, 328). The finding's key inference is wrong: ES0 does not 'need only the comparison π₀End(id_C) → CatCenter(hC)'. That map is in general neither injective nor surjective, so it would give the enhanced centre neither its commutativity nor its scalar structure. No change is needed."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed (low), fix narrowed. ES7:equal-characteristic 'construct[s] D-elliptic sheaves and level moduli over a function-field curve' without any DM stage, while DrinfeldModulesAndTModules:DM.7 constructs the elliptic-sheaf chain formalism ('the vector-bundle chain and Frobenius modification … with the distinguished pole infinity, characteristic leg and periodicity'). The coverage record lists DM.7 as a duplicate, and RS-22 keeps DM.7 only for GS.2. DM.7's ancestors lie in FoundationsAndLibraryIntegration, SchemeAndStackFoundations, DrinfeldModules and FunctionFieldArithmetic, so DM.7 → ES7:equal-characteristic is acyclic. Fix: make DM.7's chain formalism parametric in the coefficient sheaf of O_X-orders 𝒜 and the cokernel rank, and let ES7 instantiate 𝒜 = 𝒟 via that edge. Do not require a comparison proof with DM.7/DM.3 at D = M_d; the LRS/Hausberger route uses a global division algebra and never consumes the split case. Keep the Morita comparison at most as an optional test."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The FS v4 p. 331 image (Prop. IX.6.2) shows 'Z^geom(G1,Λ) ⊗_Λ Z^geom(G1,Λ)' where the second factor should be Z^geom(G2,Λ). The decomposition's review note saw it, but it was never recorded: no decomposition has a sourceIssues key, and there is no IX.6.2 entry in research/errata/REGISTER.md, research/blueprint/errata/ or data/source-issues.json. PROTOCOL §18 requires such mistakes to be recorded. Fix: record it the §18 errata-job way, in research/blueprint/errata/HeckeStacksAndLocalShtukas.json with its .md, as kind misprint, affects nothing, and 'known' only after a search. The same proposition has a second misprint the red team missed: 'A1, A2 ∈ D_lis(Bun_G, L)' should be A_i ∈ D_lis(Bun_{G_i}, L), since A1 ⊠ A2 lives on Bun_{G1} × Bun_{G2}. Record it as E2."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed (low). The BG README's source range is 'FS III.1–III.5, IV.1.18–IV.1.22 and V.3', and no stage mentions IV.1.23 or π₀(Bun_G). FS pp. 113–114, Cor. IV.1.23: 'The Kottwitz map induces a bijection κ : π₀(Bun_G) → π₁(G)_Γ', proved from III.2.7's continuity, the basic-class bijection, Lemma IV.1.24, IV.1.19 and IV.1.22. The accepted VS decomposition treats IV.1.23 as 'stage content of BunGAndNewtonStrata', but BG does not list it. The fix is correct: BG3 plans it, with BG2:smooth-Artin → BG3 (acyclic, checked). Also extend BG's source range to IV.1.24."
+    },
+    {
+      "finding": "RT-AREA-geomlanglands/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed (low), fix narrowed. IG.0 says 'do not import a Bun_G closure conjecture', and BG1's completion contract speaks of 'a full closure-order theorem' as beyond scope. But FS p. 97 records 'a proof for general G has been given by Viehmann [Vie21]', and p. 22: 'By a recent result of Viehmann [Vie21], the map |Bun_G| → B(G) is a homeomorphism' (arXiv 2101.07510). So IG.0 is factually wrong by the source's own account; BG1 is only a scope limit and is not wrong. No atlas stage uses the homeomorphism. Fix: reword IG.0 to 'do not import Viehmann's closure theorem [Vie21]; only continuity and semicontinuity are used'; add a one-line note to BG1 citing Viehmann as a known theorem out of scope; do not plan the homeomorphism as a new BG target, since nothing consumes it."
+    }
+  ]
+}
