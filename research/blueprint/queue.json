@@ -26873,7 +26873,8 @@
     "REV-AUDIT-03"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-03.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1556"
   },
   {
    "id": "REV-RT-AUDIT-03",
@@ -27636,8 +27637,9 @@
     "REV-AUDIT-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1581"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1581",
+   "finishedAt": "2026-09-24T04:06:55Z"
   },
   {
    "id": "RT-AUDIT-17",
@@ -28624,8 +28626,9 @@
     "RT-AREA-finitefields"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-finitefields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1474"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1474",
+   "finishedAt": "2026-09-24T04:06:58Z"
   },
   {
    "id": "RT-AREA-analytic",
@@ -28735,7 +28738,8 @@
     "RT-AREA-algebraicnt-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-algebraicnt-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1478"
   },
   {
    "id": "RT-AREA-algebraicnt-2",
