@@ -27434,8 +27434,9 @@
     "REV-AUDIT-13"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-13.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1576"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1576",
+   "finishedAt": "2026-09-24T04:12:15Z"
   },
   {
    "id": "REV-RT-AUDIT-13",
@@ -30494,7 +30495,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-topology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1547"
   },
   {
    "id": "REV-RT-AREA-topology",
