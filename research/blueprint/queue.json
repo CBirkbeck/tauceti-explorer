@@ -3038,8 +3038,8 @@
    ],
    "avoidAccountOf": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1185"
+   "state": "external",
+   "note": "claimed on GitHub issue #1185"
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
