@@ -66,16 +66,17 @@ WHAT TO DO, for each citation in your batch
 1. Read the roadmap at that line and write down the mathematical statement the citation supports -- what the stage needs from that book.
 2. Search for a free source that contains that statement with a proof. Start with what the register already knows is free (Milne's notes, the Stacks Project, NSW, Kirillov, Etingof, Knapp, Kedlaya, Vakil, Conrad, Poonen, Wedhorn, Fulton's Algebraic Curves), then the author's own page, arXiv and open archives.
 3. Open it. Find the statement. Compare hypotheses and generality against what the roadmap needs, exactly as you would for a source route.
-4. If it matches: edit the roadmap document to cite the free source with the locator you read, keeping the sentence's mathematical content identical. Do NOT edit ACCESS.json or REPORT.md -- every job would collide in the same file. Record the work you cited in your output instead, and the orchestrator merges it (scripts/merge_source_results.py).
+4. If it matches: write the replacement line in your result. You do NOT edit the roadmap document, ACCESS.json or REPORT.md -- swarm submissions may not touch content/, and fifty jobs writing one register would collide. Give the line exactly as it stands now and exactly as it should read, changing only the citation: the same sentence, the same claim, a different reference. scripts/merge_source_results.py applies it once your review accepts it, and refuses any line that has moved since.
 5. If nothing free matches: leave the citation alone and record what you searched, what you found and why it fell short. This is a real result, not a failure -- it is what decides which books are worth buying.
 
 FINISH
 - Write {OUTPUT}: a JSON object with
   "roadmap": "{ROADMAP}",
+  "edits": [{{"file": <path>, "line": <int>, "old": <the line exactly as it is now>, "new": <the line exactly as it should read>}}] for every citation you are replacing,
   "citations": [{{"book": <id>, "file": <path>, "line": <int>, "statement": <what the pin needs>, "outcome": "replaced" | "kept", "source": <work id you cited, or null>, "locator": <what you read>, "url": <string or null>, "evidence": <what you checked>, "reason": <why kept, if kept>}}] covering every citation in the batch exactly once,
   "register": [{{"id": <SHORT-ID>, "title": <author, title>, "kind": "notes" | "book" | "article", "access": "free", "urls": [...], "match": [<regex matching how you cited it>], "note": <where it is posted and by whom>}}] for every free source you cited that ACCESS.json does not already list.
 - Run `python3 scripts/sources.py --check` and `python3 -m unittest discover -s tests -p 'test_*.py'`. Both must pass.
-- Commit only: the roadmap documents you edited and {OUTPUT}.
+- Commit only {OUTPUT}. Nothing else: a submission that touches another path is refused.
 - Print a summary under 200 words: citations replaced, citations kept with the reason, and any book that is now cited by nothing.
 """
 
@@ -85,13 +86,14 @@ WHY: a citation moved to a source that does not contain the statement is worse t
 
 WHAT TO CHECK, for every citation the worker marked "replaced" in {TARGET}
 1. Open the free source at the locator given and read the statement. Does it prove what the roadmap pins to it, with the same hypotheses and the same generality? A near-miss is a failure.
-2. Is the source legitimately free -- the author's page, a publisher's open-access page, an institutional repository, arXiv, an open archive? A scan site or a copyrighted book on an unrelated course page is a failure, and `python3 scripts/sources.py --check` must pass.
-3. Did the mathematics change? Diff the roadmap document against the previous commit: statements, stages, layers and scope must be untouched.
-4. For every citation marked "kept", spend a few minutes searching yourself before accepting it. Record whether you agree the book is needed.
+2. Apply nothing yourself. Check the proposed replacement line reads as the same mathematics with a different reference, and that its `old` still matches the document at that line.
+3. Is the source legitimately free -- the author's page, a publisher's open-access page, an institutional repository, arXiv, an open archive? A scan site or a copyrighted book on an unrelated course page is a failure, and `python3 scripts/sources.py --check` must pass.
+4. Did the mathematics change? Compare each edit's `old` and `new`: statements, stages, layers and scope must be untouched.
+5. For every citation marked "kept", spend a few minutes searching yourself before accepting it. Record whether you agree the book is needed.
 
 """ + COMMON + """
 FINISH
-- Write {OUTPUT}: your verdict per citation (`accepted` or `rejected` with the reason), whether the register is consistent with the roadmap, and an overall verdict.
+- Write {OUTPUT}, whose FIRST line is exactly `Verdict: accepted` or `Verdict: rejected` -- the merge step reads that line and merges nothing without it. Then your verdict per citation (`accepted` or `rejected` with the reason), what you opened to check each one, and whether the register additions in the result match what the roadmap now cites.
 - Run `python3 scripts/sources.py --check` and the unit tests.
 - Print a summary under 200 words. Reject the job if any replaced citation does not hold up; name it precisely so it can be fixed.
 """
@@ -164,14 +166,14 @@ def queue(baseline: str, workers: str) -> None:
     for order, path in enumerate(sorted(OUT.glob("SRC-*.json"))):
         batch = json.loads(path.read_text())
         job_id = batch["id"]
-        output = f"research/blueprint/sources/results/{job_id}.json"
-        # Everything the worker may touch has to be declared, or the intake refuses the
-        # pull request: the result, and the documents the citations sit in.
-        edited = sorted({site["file"] for book in batch["books"] for site in book["citations"]})
+        # The one file the worker may submit. Swarm submissions are confined to
+        # research/blueprint/<dir>/<file>, so the roadmap documents are edited here, from
+        # the edits the result proposes, once the review accepts them.
+        output = f"research/blueprint/sources/{job_id}.result.json"
         text = JOB_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=batch["roadmap"], TITLE=batch["title"],
                                    COUNT=batch["citationCount"], BATCH=str(path.relative_to(REPO)), OUTPUT=output)
         jobs.append(({"id": job_id, "kind": "sources", "priority": 2, "order": 900 - batch["citationCount"],
-                      "name": batch["roadmap"], "roadmapIds": batch["roadmapIds"], "outputs": [output] + edited,
+                      "name": batch["roadmap"], "roadmapIds": batch["roadmapIds"], "outputs": [output],
                       "after": [], "state": "pending", "timeout": 6 * 3600}, text))
         review_id = f"REV-{job_id}"
         review_output = f"research/blueprint/reviews/{review_id}.md"
