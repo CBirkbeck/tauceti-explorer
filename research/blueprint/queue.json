@@ -22578,13 +22578,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivesAndAlgebraicCycles.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-MotivicEtaleKTheory--M.1",
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1014"
+   "note": "released on GitHub issue #1014"
   },
   {
    "id": "REV-MotivesAndAlgebraicCycles",
@@ -23196,12 +23196,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-KTheoryLowDegrees--U.1",
     "BP-KTheoryLowDegrees--Z.3"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1025"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion",
