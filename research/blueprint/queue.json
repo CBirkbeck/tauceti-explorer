@@ -30179,7 +30179,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-homological.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1537"
   },
   {
    "id": "REV-RT-AREA-homological",
@@ -30302,8 +30303,9 @@
     "RT-AREA-pde"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-pde.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1540"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1540",
+   "finishedAt": "2026-09-24T02:11:18Z"
   },
   {
    "id": "RT-AREA-probability",
