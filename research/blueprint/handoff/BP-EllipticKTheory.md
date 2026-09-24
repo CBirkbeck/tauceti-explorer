@@ -80,10 +80,13 @@ There is **no integrated decomposition** for this roadmap.
 1. **Arithmetic-surface theory is not in the source read** (E.6) — existence of a
    regular proper model, minimal models, resolution, special fibres. Read Liu
    chs. 8–10 or Silverman's *Advanced Topics* ch. IV.
-2. **Bloch's construction has no obtainable source** (E.7) — the CRM monograph is
-   not freely available. The node states the construction as the stage text does,
-   with its attribution, and decomposes only what follows from Weil reciprocity
-   and Riemann–Roch.
+2. **Bloch's monograph is in the reference library but its scan has no text
+   layer** (E.7). It is supplied (the `EllipticRegulators` stage texts record it),
+   but it yields no text here and there is no renderer. The node states the
+   construction as the stage text does, with its attribution, and decomposes only
+   what follows from Weil reciprocity and Riemann–Roch. Brunault's thesis
+   (arXiv:math/0602186), used by this session's companion packet, proves the same
+   construction and *can* be read.
 3. **The proofs of the finite-field computations were not read** (E.5) — they go
    through the motivic spectral sequence of VI.4.
 4. **The blow-up formula is imported without a source here** (E.6).
