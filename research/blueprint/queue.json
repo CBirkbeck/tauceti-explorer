@@ -4290,8 +4290,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4773,8 +4773,9 @@
    ],
    "avoidAccountOf": "PAPER-LIU-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1281"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1281",
+   "finishedAt": "2026-09-24T00:09:00Z"
   },
   {
    "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
