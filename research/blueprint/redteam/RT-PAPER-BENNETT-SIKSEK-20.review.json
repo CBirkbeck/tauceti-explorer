@@ -1,0 +1,30 @@
+{
+  "redteam": "RT-PAPER-BENNETT-SIKSEK-20",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "status": "complete",
+  "summary": "Verified both findings: reject /1 because the source typo is already recorded as legacy erratum E19; confirm /2 as a stale count only. No mathematical statement or routing change is required.",
+  "findings": [
+    {
+      "finding": "RT-PAPER-BENNETT-SIKSEK-20/1",
+      "verdict": "rejected",
+      "reason": "The repeated word is real: independently downloaded the publisher PDF, reproduced SHA-256 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf, and read both the text and rendered image of printed p.364 (PDF page 10), proof of Lemma 4.1. But the alleged unrecorded omission is false. research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json already contains the same misprint, correction and affects=nothing as E19, with a confirmed review. E19 was already present in the original errata commit 23a554b22392ddd048985a6eb8624db30d42041b of 22 September, before this red-team job and before this session reviewed that errata file. PROTOCOL section 18 expressly gives legacy extractions separate errata files and leaves the earlier extraction unchanged. The extraction lacks sourceIssues; it does not assert an empty checked list. Adding the proposed duplicate entry is not warranted. Retain E19 and reference it if clarifying the red-team report. The PDF contains 38 pages, not the 39 reported in the finding; its page-10 locator and reproduced hash are nevertheless correct."
+    },
+    {
+      "finding": "RT-PAPER-BENNETT-SIKSEK-20/2",
+      "verdict": "confirmed",
+      "reason": "Independently parsed the accepted extraction at c0b31581c16016c179671ea2fb3b765d85e21f5f. There are 152 unique item IDs: 129 missing, 12 planned and 11 library. The twelve routes contain 129 slots and 129 distinct IDs, exactly equal to the missing-item set. No missing item is omitted or repeated and no other-status item is routed. verification.routeAudit still says All 130 missing items routed once. Its count is a stale low-severity self-report, despite the corrected counts in the summary and original review. Change 130 to 129 in that sentence only; do not alter the items or routes."
+    }
+  ],
+  "sourceSnapshot": "c0b31581c16016c179671ea2fb3b765d85e21f5f",
+  "validation": {
+    "redteamChecker": "pass",
+    "exactFindingCoverage": "2 distinct IDs, both supplied findings, no extras",
+    "intake": "2 files, 0 problems",
+    "leanCompiled": false,
+    "publicationBase": "c32d613232d8ba5593d05ad592a45ce769f844fe",
+    "unchangedInputBlobs": 12,
+    "claimComment": 5805989593,
+    "claimConfirmation": 5805991169
+  }
+}
