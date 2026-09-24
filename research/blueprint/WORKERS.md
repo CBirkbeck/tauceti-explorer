@@ -105,7 +105,10 @@ roadmap that owns it (PROTOCOL.md section 15).
       errors, omissions and duplication (PROTOCOL.md section 17). Never
       red-team work you did or reviewed.
    7. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
-   8. `kind:link` and `kind:design`.
+   8. `kind:sources`: move one roadmap's citations off books a reader cannot
+      obtain and onto sources anyone can read, without changing the mathematics.
+      Your deliverable is the result file; the orchestrator applies the edits.
+   9. `kind:link` and `kind:design`.
 3. Read the whole issue: its "What this issue delivers" section, and the full
    instructions inside it.
 
