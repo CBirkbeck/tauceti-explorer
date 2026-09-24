@@ -1,0 +1,61 @@
+{
+  "redteam": "RT-AUDIT-16",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "AUDIT-16",
+  "summary": "Rechecked all 203 targets in 42 layers and all 460 citation occurrences at the pinned libraries. Three high-severity statement errors: the Construction A odd-modulus obstruction omits nonempty coordinates; finite-graph compatibility omits a positive host size; the fixed-character oldspace sum omits proper lower levels. Correcting these hypotheses preserves the existing library classifications. No additional finding established.",
+  "checked": [
+    "Independence: AUDIT-16 was completed by claude2/2 and REV-AUDIT-16 by claude6/2; neither was this Codex session. Read the bot-confirmed issue instructions, accepted result, review and four complete source roadmaps at explorer snapshot 484485ee359918e196c3bc0a09cd82dc38adf47a.",
+    "All 42 audited layers and all 203 targets were checked: ModularForms 16/99, AdditiveCombinatorics 6/24, AlgebraicCodingTheory 7/32, DenseGraphLimits 13/48. Their target classifications are 91 absent, 54 partial, 50 tauceti, 4 both and 4 mathlib. The four built layers and every partly-built/not-built classification were checked against their detailed targets, including hypotheses supplied by the notes.",
+    "Opened and read the actual statements and active variable/namespace context of all 460 citation occurrences (429 distinct library/file/name declarations in 267 files), including citations attached to absent targets. The 267 cited files byte-match Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Public declarations omitted from the declaration index were read directly. Also checked secondary declarations named in explanatory notes. No Lean build was run.",
+    "ModularForms: checked diamond operators and character decomposition; level-one and full-index valence/order/Sturm statements; convolution and GL_n/Gamma0 Hecke rings; classical composite versus single-double-coset operators; character and bad-prime coefficient conditions; Petersson pairing and old/new spaces; good versus full eigenforms; fixed-level multiplicity one; Atkin-Lehner and Fricke normalizations; width-dependent L-series, Mellin continuation and functional-equation scope; modular symbols, coefficient fields, twists, modular curves, analytic versus function-field Riemann-Roch, dimension formulas and trace-formula ingredients. Every missing/partial target was searched in the index and both source trees, including alternate spellings and concept names.",
+    "AdditiveCombinatorics: checked elementary energy/sumset/Fourier and Pluennecke-Ruzsa APIs; small-doubling versus general Freiman; Roth/corners versus higher Szemeredi; graph versus arithmetic regularity; recurrence and correspondence distinctions; Gowers/nilsequence/transference/prime-pattern absences. Searched both libraries under concept aliases. Read the integrated partial decomposition summary, all nine statements and acceptance blocks, and its seven explicit gaps; it does not establish the missing library targets.",
+    "AlgebraicCodingTheory: checked code aliases, generator/parity-check matrices, Hamming data, generic orthogonal complements and character duality, missing code enumerator/MacWilliams/Type-II APIs, named-code absences, Construction A versus existing integral-lattice gluing, coordinate discriminant modules, and A2/D4 normalization. Searched code-operation and named-code aliases. Exhaustive finite calculations from the roadmap generators verified the four named code cardinalities, weight distributions and minimum nonzero weights, and the stated hexacode conjugacy permutation; these are mathematical diagnostics, not Lean proofs.",
+    "DenseGraphLimits: checked arbitrary-carrier graphons and coupling cut distance, finite-host hypotheses, counting and weak regularity, total boundedness versus completeness, AEEqFun transport, standard-Borel representation versus mod-null equivalence, forward versus inverse separation, extremal examples, labeled-graph gluing and reflection positivity, representability absences, finite/joint sampling, exchangeable/dissociated laws, and concentration versus sampling convergence. Searched both source trees for aliases and closest candidates; read measure-product curry, conditional-expectation, de Finetti/Prokhorov and mod-null-equivalence ingredients without treating them as missing assembled results.",
+    "All 49 duplicate occurrences (42 distinct endpoints) resolve to current, non-retired atlas stages; read their full descriptions and compared the claimed overlaps. Distinguished analytic/algebraic comparisons, generic suppliers and specializations from duplicate implementations. Read the associated AlgebraicCodingTheory link map. No additional duplication finding established.",
+    "Checked that all four roadmap stage sets equal the 42 audited layer IDs. Reconstructed the reviewed library-coverage projection, including its intentional twelve-entry evidence cap: all target texts, statuses, notes, duplicate lists and exported evidence match. Counterexamples in the three findings are explicit; none relies on a failed name search."
+  ],
+  "findings": [
+    {
+      "id": "RT-AUDIT-16/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-16.result.json: tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses, target 3 (unimodularity/evenness)",
+      "claim": "The target drops the nonempty-coordinate hypothesis from the odd-modulus obstruction to evenness: it says \"odd m never even\" although empty coordinate types are explicitly allowed by the standing convention. It also leaves implicit that the lift-independent quadratic residue form q_m in this target is defined for even m.",
+      "evidence": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/content/tau-ceti/AlgebraicCodingTheory/README.md#L347-L351 states: \"If m is odd and ι is nonempty\". The statement is at lines 350–351. Lines 39–44 allow arbitrary finite coordinate types, and lines 347–349 define q_m only when m is even. Counterexample: m=3 and ι=∅. There is one word and one additive code C={0}; P_3(C)={0}, every norm is 0, so the lattice is even. For nonempty ι the intended argument works: 3 e_i belongs to P_3(C) and B_3(3e_i,3e_i)=3. For odd m, changing a lift of the zero residue from 0 to m changes lift^2/(2m) by m/2, which is nonintegral.",
+      "fix": "Restore the roadmap hypotheses in the audit target: define q_m and the q_m|C=0 evenness criterion for even m; for odd m assert non-evenness only when ι is nonempty, and record the zero-dimensional exception. Keep the library status absent and reuse notes unchanged. Do not alter the source roadmap, which already has these hypotheses."
+    },
+    {
+      "id": "RT-AUDIT-16/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-16.result.json: tauceti:TauCetiRoadmap/DenseGraphLimits#layer-1--core-objects-and-their-basic-api, target 2 (finite-graph compatibility)",
+      "claim": "The built target displays t(F,W_G)=hom(F,G)/|V(G)|^{|V(F)|} without the positive-host-size hypothesis required by the cited theorem. The graphon constructor itself is total at host size zero, so that case cannot silently be excluded by typing.",
+      "evidence": "https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Combinatorics/DenseGraphLimits/StepGraphon/FiniteGraph/Basic.lean#L201-L207 explicitly requires (hm : 0 < m). The docstring at lines 202–203 explains the counterexample: m=0 and a nonempty edgeless pattern give graphon density 1 but finite homomorphism density 0/0=0. The constructor at line 89 has no positivity argument. https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/content/tau-ceti/DenseGraphLimits/README.md#L613 retains 0 < m in Suggested signatures and the Reviewer checklist at line 819.",
+      "fix": "Add |V(G)|>0 to the audit target or its note, keeping the correct library status and citation. Record the empty-host exception; no new theorem or roadmap change is needed."
+    },
+    {
+      "id": "RT-AUDIT-16/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-16.result.json: tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms, target 5 (fixed-character oldspace indexing); inherited from content/tau-ceti/ModularForms/README.md:509",
+      "claim": "The formula advertised as exact indexing sums over all M dividing N and therefore includes M=N, d=1, chi_M=chi. That summand is the whole S_k(N,chi), so the displayed oldspace is always the whole character space. The proper-level condition M != N is missing.",
+      "evidence": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/content/tau-ceti/ModularForms/README.md#L503-L514 calls for proper divisors in the preceding bullet but omits that condition in the displayed fixed-character formula, which the audit repeats. The actual definition https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/ModularForms/Newforms/Basic.lean#L99-L107 requires d*M | N AND M != N; cuspFormsOld_one at lines 146–150 states cuspFormsOld 1 k = bottom. At N=1, k=12 and trivial character, the faulty sum includes V_1 S_12(1)=S_12(1), which is nonzero: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean#L159-L167 gives dimension one. This directly contradicts the level-one oldspace theorem.",
+      "fix": "Add M != N (equivalently M < N for positive N) to the fixed-character oldspace sum in the audit target, alongside M | N and cond(chi) | M, retaining d | N/M. Keep the partial status: the conductor-indexed refinement is still not proved. Record the same correction as a maintainer patch to the existing upstream ModularForms Layer 3 formula under PROTOCOL section 15, without replanning that roadmap or creating a second oldspace definition."
+    }
+  ],
+  "agent": "Codex / codex-7e92bd",
+  "date": "2026-09-24",
+  "inputCommit": "484485ee359918e196c3bc0a09cd82dc38adf47a",
+  "validation": {
+    "status": "pass",
+    "leanCompiled": false,
+    "redteamChecker": "pass",
+    "scopeConsistency": "42 layers, 203 targets, 460 citation occurrences; reviewed coverage matches",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "f9236b81ec7f9a2347e8f1847216959995efff21",
+    "unchangedInputBlobs": 19,
+    "claimComment": 5806910061,
+    "claimConfirmation": 5806911834
+  }
+}
