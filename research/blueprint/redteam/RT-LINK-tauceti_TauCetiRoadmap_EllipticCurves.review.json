@@ -1,0 +1,15 @@
+{
+ "redteam": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+ "findings": [
+  {
+   "finding": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/1",
+   "verdict": "confirmed",
+   "reason": "Checked in data/atlas.json and the link map at main. TropicalAndBerkovichArithmetic:TB.7's 'Construction and export' reads 'Construct Tate uniformization and the Schottky/Mumford-curve quotient in its totally degenerate range; record descent and the period lattice', and its acceptance compares 'the q-period, skeleton length and logarithm branch' for a Tate elliptic curve. EllipticCurves Layer 4's analytic strand constructs the Tate curve E_q over a complete rank-one valued field and its uniformisation 'pinned as the point-level, Galois-equivariant statement … no rigid-space quotient is in scope: for each finite extension L/K … a group isomorphism L^× / q^ℤ ≅ E_q(L)'. So both layers construct the Tate curve and its uniformization, at different levels (points versus the analytic quotient). The link map records none of this. None of its ten overlaps names TB.7; its only link to that roadmap is Layer 4 → TB.6 (links[66]); no other link packet mentions the pair; and its examined note for TropicalAndBerkovichArithmetic says 'The Tate elliptic curve appears only in TB.2, TB.5 and TB.7 acceptance tests. No stage uses or develops an Elliptic curves object', which is false for TB.7. Medium severity fits: without a recorded overlap the two constructions can be built twice without the comparison that relates them. The fix is right as stated: record a keep overlap between Layer 4 and TB.7 that keeps TB.7's analytic quotient, Schottky/Mumford, descent and integration work, asks for the comparison of E_q, the q-parameter and the point uniformization in their common scope, and does not add a dependency edge until a supplier contract is fixed; and correct the Tropical examined note."
+  },
+  {
+   "finding": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/2",
+   "verdict": "confirmed",
+   "reason": "Checked at main. The examined notes for EffectiveDiophantineMethods and FiniteFlatGroupsAndIntegralPadicHodgeTheory end 'No stage uses or develops an Elliptic curves object', and the EffectiveDiophantineMethods note calls the elliptic rank computation 'an acceptance test only'. Yet the final links include Layer 7 → ED.3 and Layer 6 → ED.3 (links[73], [74]) and Layer 2 → R07.5 and Layer 4 → R07.5 (links[63], [64]). The RankZeroOneBSD note says 'BSD.6a and BSD.7a … are not linked separately', yet links[69] and [77] target BSD.6a. All six links carry addedBy REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves. Each of these examined entries has a reviewNote saying the review 'added the evidenced handoffs recorded in review.added' and that the original screen is inherited. That explains the discrepancy, but it does not correct the notes' own statements, which a reader of the note alone would take as current. Low severity is right: presentation and provenance only, with no effect on the links. The fix (rewrite the three notes to state the final decisions, keep the links, and add no BSD.7a edge on the strength of the old note) is right."
+  }
+ ]
+}
