@@ -291,7 +291,7 @@
     },
     {
       "id": "BRAUER-ALGEBRAS-WHICH-ARE-CONNECTED",
-      "kind": "book",
+      "kind": "article",
       "title": "R. Brauer, On algebras which are connected with the semisimple continuous groups",
       "match": [
         "\\*On\\ algebras\\ which\\ are\\ connected\\ with\\ the\\ semisimple\\ continuous\\ groups\\*"
@@ -360,7 +360,7 @@
     },
     {
       "id": "BUZZARD-EIGENVALUES-HECKE-OPERATOR-T",
-      "kind": "book",
+      "kind": "article",
       "title": "K. Buzzard, On the eigenvalues of the Hecke operator T₂",
       "match": [
         "\\*On\\ the\\ eigenvalues\\ of\\ the\\ Hecke\\ operator\\ T₂\\*"
@@ -382,7 +382,7 @@
     },
     {
       "id": "BUZZARD-FORMALIZING-FERMAT",
-      "kind": "book",
+      "kind": "article",
       "title": "K. Buzzard, Formalizing Fermat",
       "match": [
         "\\*Formalizing\\ Fermat\\*"
@@ -418,7 +418,10 @@
       "title": "Cassels–Fröhlich, Algebraic Number Theory",
       "access": "restricted",
       "match": [
-        "Cassels[-–—]Fr[öo]hlich"
+        "Cassels[-–—]Fr[öo]hlich",
+        "Neukirch ANT",
+        "Neukirch, \\*Algebraic Number Theory",
+        "\\*Algebraic\\ Number\\ Theory\\*"
       ],
       "substitute": "MILNE-NOTES",
       "note": "Tate's article is covered by Milne's CFT notes.",
@@ -437,7 +440,7 @@
     },
     {
       "id": "CERF-SUR-LES-DIFF-OMORPHISMES",
-      "kind": "book",
+      "kind": "article",
       "title": "J. Cerf, Sur les difféomorphismes de la sphère de dimension trois (Γ₄ = 0)",
       "match": [
         "\\*Sur\\ les\\ difféomorphismes\\ de\\ la\\ sphère\\ de\\ dimension\\ trois\\ \\(Γ₄\\ =\\ 0\\)\\*"
@@ -531,7 +534,7 @@
     },
     {
       "id": "CREMONA-ALGORITHMS-MODULAR-ELLIPTIC-CURVES",
-      "kind": "book",
+      "kind": "article",
       "title": "J. E. Cremona, Algorithms for Modular Elliptic Curves",
       "match": [
         "\\*Algorithms\\ for\\ Modular\\ Elliptic\\ Curves\\*"
@@ -586,7 +589,7 @@
     },
     {
       "id": "DELIGNE-LES-SCH-MAS-DE",
-      "kind": "book",
+      "kind": "article",
       "title": "P. Deligne and M. Rapoport, Les schémas de modules de courbes elliptiques",
       "match": [
         "\\*Les\\ schémas\\ de\\ modules\\ de\\ courbes\\ elliptiques\\*"
@@ -675,7 +678,7 @@
     },
     {
       "id": "DIXON-HIGH-SPEED-COMPUTATION-GROUP",
-      "kind": "book",
+      "kind": "article",
       "title": "J. D. Dixon, High speed computation of group characters",
       "match": [
         "\\*High\\ speed\\ computation\\ of\\ group\\ characters\\*"
@@ -795,7 +798,7 @@
     },
     {
       "id": "EVENS-GENERALIZATION-TRANSFER-MAP-COHOMOLOGY",
-      "kind": "book",
+      "kind": "article",
       "title": "L. Evens, A generalization of the transfer map in the cohomology of groups",
       "match": [
         "\\*A\\ generalization\\ of\\ the\\ transfer\\ map\\ in\\ the\\ cohomology\\ of\\ groups\\*"
@@ -919,7 +922,7 @@
     },
     {
       "id": "GABRIEL-UNZERLEGBARE-DARSTELLUNGEN-I",
-      "kind": "book",
+      "kind": "article",
       "title": "P. Gabriel, Unzerlegbare Darstellungen I",
       "match": [
         "\\*Unzerlegbare\\ Darstellungen\\ I\\*"
@@ -1021,7 +1024,7 @@
     },
     {
       "id": "GUILLOT-COMPUTATION-STIEFEL-WHITNEY-CLASSES",
-      "kind": "book",
+      "kind": "article",
       "title": "P. Guillot, The computation of Stiefel-Whitney classes",
       "match": [
         "\\*The\\ computation\\ of\\ Stiefel\\-Whitney\\ classes\\*"
@@ -1087,7 +1090,7 @@
     },
     {
       "id": "HASSE-ZUR-THEORIE-DER-ABSTRAKTEN",
-      "kind": "book",
+      "kind": "article",
       "title": "H. Hasse, Zur Theorie der abstrakten elliptischen Funktionenkörper",
       "match": [
         "\\*Zur\\ Theorie\\ der\\ abstrakten\\ elliptischen\\ Funktionenkörper\\*"
@@ -1098,7 +1101,7 @@
     },
     {
       "id": "HATCHER-PROOF-SMALE-CONJECTURE-DIFF",
-      "kind": "book",
+      "kind": "article",
       "title": "A. Hatcher, A proof of the Smale conjecture, `Diff(S³) ≃ O(4)`",
       "match": [
         "\\*A\\ proof\\ of\\ the\\ Smale\\ conjecture,\\ `Diff\\(S³\\)\\ ≃\\ O\\(4\\)`\\*"
@@ -1426,7 +1429,7 @@
     },
     {
       "id": "KAUFFMAN-STATE-MODELS-JONES-POLYNOMIAL",
-      "kind": "book",
+      "kind": "article",
       "title": "L. Kauffman, State models and the Jones polynomial",
       "match": [
         "\\*State\\ models\\ and\\ the\\ Jones\\ polynomial\\*"
@@ -1605,30 +1608,8 @@
       "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "LANG-ALGEBRAIC-NUMBER-THEORY",
-      "kind": "book",
-      "title": "S. Lang, Algebraic Number Theory",
-      "match": [
-        "\\*Algebraic\\ Number\\ Theory\\*"
-      ],
-      "access": "restricted",
-      "substitute": "MILNE-NOTES",
-      "note": "Milne's ANT and CFT notes cover the cited chapters."
-    },
-    {
-      "id": "LANG-COMPLEX-ANALYSIS",
-      "kind": "book",
-      "title": "S. Lang, Complex Analysis",
-      "match": [
-        "\\*Complex\\ Analysis\\*"
-      ],
-      "access": "restricted",
-      "substitute": "BECK-COMPLEX",
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
-    },
-    {
       "id": "LANGLANDS-NOTION-AUTOMORPHIC-REPRESENTATION",
-      "kind": "book",
+      "kind": "article",
       "title": "Langlands, On the notion of an automorphic representation",
       "match": [
         "\\*On\\ the\\ notion\\ of\\ an\\ automorphic\\ representation\\*"
@@ -1639,7 +1620,7 @@
     },
     {
       "id": "LAZARD-SUR-LES-GROUPES-DE",
-      "kind": "book",
+      "kind": "article",
       "title": "M. Lazard, Sur les groupes de Lie formels à un paramètre",
       "match": [
         "\\*Sur\\ les\\ groupes\\ de\\ Lie\\ formels\\ à\\ un\\ paramètre\\*"
@@ -1768,7 +1749,7 @@
     },
     {
       "id": "MACKEY-INDUCED-REPRESENTATIONS-GROUPS",
-      "kind": "book",
+      "kind": "article",
       "title": "G. W. Mackey, On induced representations of groups",
       "match": [
         "\\*On\\ induced\\ representations\\ of\\ groups\\*"
@@ -1818,17 +1799,6 @@
       "title": "May, Simplicial Objects in Algebraic Topology",
       "match": [
         "\\*Simplicial\\ Objects\\ in\\ Algebraic\\ Topology\\*"
-      ],
-      "access": "restricted",
-      "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
-    },
-    {
-      "id": "MAZUR-ARITHMETIC-MODULI-ELLIPTIC-CURVES",
-      "kind": "book",
-      "title": "B. Mazur, Arithmetic Moduli of Elliptic Curves",
-      "match": [
-        "\\*Arithmetic\\ Moduli\\ of\\ Elliptic\\ Curves\\*"
       ],
       "access": "restricted",
       "substitute": null,
@@ -2047,19 +2017,6 @@
       "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "NEUKIRCH-ALGEBRAIC-NUMBER-THEORY",
-      "kind": "book",
-      "title": "J. Neukirch, Algebraic Number Theory",
-      "match": [
-        "Neukirch ANT",
-        "Neukirch, \\*Algebraic Number Theory",
-        "\\*Algebraic\\ Number\\ Theory\\*"
-      ],
-      "access": "restricted",
-      "substitute": "MILNE-NOTES",
-      "note": "Milne's ANT notes cover the cited Minkowski theory, ramification and Euler products."
-    },
-    {
       "id": "NIKULIN",
       "kind": "article",
       "access": "restricted",
@@ -2145,7 +2102,7 @@
     },
     {
       "id": "PALAIS-EXTENDING-DIFFEOMORPHISMS",
-      "kind": "book",
+      "kind": "article",
       "title": "Palais, Extending diffeomorphisms",
       "match": [
         "\\*Extending\\ diffeomorphisms\\*"
@@ -2171,17 +2128,6 @@
       "title": "A. Pazy, Semigroups of Linear Operators and Applications to PDE",
       "match": [
         "\\*Semigroups\\ of\\ Linear\\ Operators\\ and\\ Applications\\ to\\ PDE\\*"
-      ],
-      "access": "restricted",
-      "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
-    },
-    {
-      "id": "PETERSEN-RIEMANNIAN-GEOMETRY",
-      "kind": "book",
-      "title": "P. Petersen, Riemannian Geometry",
-      "match": [
-        "\\*Riemannian\\ Geometry\\*"
       ],
       "access": "restricted",
       "substitute": null,
@@ -2506,7 +2452,7 @@
     },
     {
       "id": "SERRE-HOMOLOGIE-SINGULI-RE-DES",
-      "kind": "book",
+      "kind": "article",
       "title": "Jean-Pierre Serre, Homologie singulière des espaces fibrés. Applications",
       "match": [
         "\\*Homologie\\ singulière\\ des\\ espaces\\ fibrés\\.\\ Applications\\*"
@@ -2655,17 +2601,6 @@
       "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "SPRINGER-LINEAR-ALGEBRAIC-GROUPS",
-      "kind": "book",
-      "title": "T. A. Springer, Linear Algebraic Groups",
-      "match": [
-        "\\*Linear\\ Algebraic\\ Groups\\*"
-      ],
-      "access": "restricted",
-      "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
-    },
-    {
       "id": "STABLE-PERIODIC-ARTICLES",
       "kind": "article",
       "access": "restricted",
@@ -2739,7 +2674,7 @@
     },
     {
       "id": "STURM-CONGRUENCE-MODULAR-FORMS",
-      "kind": "book",
+      "kind": "article",
       "title": "J. Sturm, On the congruence of modular forms",
       "match": [
         "\\*On\\ the\\ congruence\\ of\\ modular\\ forms\\*"
@@ -2801,7 +2736,7 @@
     },
     {
       "id": "TATE-ALGORITHM-DETERMINING-TYPE-SINGULAR",
-      "kind": "book",
+      "kind": "article",
       "title": "J. Tate, Algorithm for determining the type of a singular fibre in an elliptic pencil",
       "match": [
         "\\*Algorithm\\ for\\ determining\\ the\\ type\\ of\\ a\\ singular\\ fibre\\ in\\ an\\ elliptic\\ pencil\\*"
@@ -2861,7 +2796,7 @@
     },
     {
       "id": "VLU-ISOG-NIES-ENTRE-COURBES",
-      "kind": "book",
+      "kind": "article",
       "title": "J. Vélu, Isogénies entre courbes elliptiques",
       "match": [
         "\\*Isogénies\\ entre\\ courbes\\ elliptiques\\*"
