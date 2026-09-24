@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-RS-31",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-31",
+  "summary": "No new substantiated finding in the accepted restructuring, including its review corrections. All seven member stages and the external D1 narrowing preserve their targets; seven owners and 37 links resolve, original consumer edges survive, and no proposed edge creates a cycle. This is structural assurance, not complete source-proof closure or a whole-library absence certificate.",
+  "checked": [
+    "Read the full RS-31 family, proposal, report and REV-RS-31; independent of both author and reviewer. Baseline ec19e9e415faad54e28ab4133babc44b382212c0, accessed 2026-09-24.",
+    "Read the complete ReductiveGroupsPartII and upstream ReductiveGroups documents, their seven and ten stage descriptions, and all ShimuraData stages; checked exact extension title, first-prerequisite instruction and immutable upstream targets.",
+    "Tracked every target of RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4, RG2.5 and ShimuraData:D1 through keep/narrow/supplier decisions, including examples, sign conventions and local hypotheses.",
+    "Checked every one of seven ownership rows against its actual owner: unvalued relative roots, abstract Bruhat, group root/Galois data, arbitrary-datum pinned integral groups, points dictionary, reductivity and Deligne torus.",
+    "Read all 15 original external consumer stages and D1/D2; reconstructed 21 original external edges and checked 24 direct-consumer supplier handoffs. Original edges remain; imported algebraic data does not replace retained local or Hodge theorems.",
+    "Validated 37 unique proposed links: four existing, 33 new. In the conservative union of 4213 existing edges and all proposal edges, no new edge has a return path. Two reversed dependency controls produce cycles. No assertion that the legacy baseline is globally acyclic.",
+    "Read LocalFieldsRamification Layers 0 and 2, AutomorphicBundles:B0, AlgebraicModuliForArithmeticGeometry:R09.1, AbelianSchemesAndArithmeticModuli:A6 and ModularCurves:0G; inspected the LieGroups associated-bundle overlap, relevant blueprint/decomposition references and reserved IDs. Separated affine Weil restriction from subgroup parameter spaces, nonaffine restriction, associated bundles and downstream Satake/Hecke comparisons.",
+    "Read all eight cited declarations/structures with ambient assumptions in five files at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Fresh remote bytes match each read copy and all five reported SHA-256 hashes.",
+    "Read Stacks 05Y8 and 05YF, including the representability proof; algebraic-space representability alone does not discharge the retained affine representing-algebra construction.",
+    "Checked reviewed library coverage (no member/anchor records; AUDIT-41 pending), using the unreviewed audit only as leads. Searched both full pinned source trees for relevant concepts without asserting exhaustive absence. Ran the restructuring checker, red-team checker and intake file check."
+  ],
+  "findings": []
+}
