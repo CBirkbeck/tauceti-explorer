@@ -27013,7 +27013,8 @@
     "REV-AUDIT-05"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1559"
   },
   {
    "id": "RT-AUDIT-06",
