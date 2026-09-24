@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AUDIT-22",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-22/1",
+      "verdict": "rejected",
+      "reason": "Rejected after rereading all five cited declarations in four files at the actual Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 pins. The reusable inputs are real, but all three audit targets already have library=partial, explicit declaration names, and notes identifying the reuse boundary. None of their complete target statements is supplied by the cited result alone: the PID decomposition needs the topological pro-p-to-Z_p-module bridge and uniqueness; the A-infinity target also requires the arity-complete Hochschild-brace formulation, whereas the theorem compares already supplied operations and suspended Taylor data; and the numerical target needs K0(Perf), its Euler pairing, and the Serre-duality identification. The finding abbreviates away these requirements. The audit format separates layer verdicts from target status and declaration evidence; not built does not assert that no reusable input exists. The two zero-citation control layers confirm only that the verdict is a coarse summary. An extra layer reuse note would repeat existing evidence, while adding a verdict changes the four-value consumer contract. In particular, the current coverage exporter preserves partial targets and their notes, but exports declaration evidence only for fully present targets and would ignore an extra reuse field. A change to that presentation would need a separately specified consumer change, not a correction of this audit. No correction warranted for RT-AUDIT-22/1."
+    }
+  ]
+}
