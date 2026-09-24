@@ -1,0 +1,41 @@
+{
+  "redteam": "RT-AUDIT-24",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-24/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed (high) as a missing hypothesis on the standalone audit target. I read RJW arXiv:2309.15692v2 §9 and the proof of Lemma 10.3: the source assumes an odd prime and its product identity uses that assumption. The audit target and its note do not retain it; the separate odd-prime unit-splitting target does not qualify this formula. For p=2,n=1, K_1=Q_2 and K_2=Q_2(i); -1 is not a square in Q_2 because a putative root would be a unit and all odd squares are 1 modulo 8. On the basis (1,i), multiplication by i-1 is [[-1,-1],[1,-1]], with determinant 2, whereas zeta_2-1=-2. I read Algebra.norm, norm_apply and norm_eq_matrix_det at Mathlib 082e2d3; this is its determinant convention. For the degree-p step (n>=1), the constant term of (X+1)^p-zeta_{p^n} gives N(zeta_{p^{n+1}}-1)=(-1)^(p+1)(zeta_{p^n}-1). Minimal fix: explicitly state p odd and n>=1 in this target and note, preserving the intended RJW branch. A prime-uniform alternative is the signed formula or the 1-zeta convention. The cited sub_one_norm_isPrimePow additionally assumes irreducibility over the base and root order not equal to 2; it does not supply a prime-uniform relative-tower formula. Keep the partial classification and continuity obligation. Preserve unrelated dyadic branches and smoothed unit ratios (whose signs cancel). This is an audit correction, not an erratum to the source or a failure of its intended odd-prime application. Regenerate the coverage mirror through normal fix intake."
+    },
+    {
+      "finding": "RT-AUDIT-24/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed (medium), with the correction limited to the owner description. At the reviewed explorer snapshot, ArithmeticGaloisDuality:R02.5 explicitly imports the local-condition/mapping-fibre construction from SelmerIwasawaCohomology:L2; its requires array includes that supplier. L2 constructs local conditions, the global-to-local kernel and the Selmer mapping fibre with the H^0 hypotheses for its H^1 comparison. R02.5 owns the deformation-facing comparison and auxiliary-prime dimension calculation, and ES.0 imports both stages. Thus the audit duplicate note assigning generic Selmer-group ownership to R02.5 is inaccurate. Rewrite it to distinguish L2's imported carrier from R02.5's comparison/dimension work; retain the genuine dimension/core-rank overlap and the separate L2 supplier entry. Do not delete the stage edge, create another Selmer carrier, or change library statuses. The relevant coverage duplicate array matches the audit and should be regenerated after the audit fix. This verifies current ownership, without asserting when the incorrect description first arose."
+    }
+  ],
+  "reviewer": "Codex / codex-7e92bd",
+  "date": "2026-09-24",
+  "snapshot": "a39dad4a51f84683dc11e86189824bb8a0c265c9",
+  "scope": "Independent verification of both submitted findings; not a fresh audit of all 142 targets.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/2309.15692v2#S9",
+      "locator": "§9 standing hypotheses and compatible-root notation",
+      "read": "2026-09-24"
+    },
+    {
+      "url": "https://arxiv.org/html/2309.15692v2#S10.SS2",
+      "locator": "Lemma 10.3 statement and proof",
+      "read": "2026-09-24"
+    }
+  ],
+  "validation": {
+    "leanCompiled": false,
+    "pinnedSourceFilesByteMatched": 2,
+    "redteamChecker": "pass",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "ec8fd3cee1dfad8cd48ac687cce1788750b9cf57",
+    "unchangedInputBlobs": 18,
+    "claimComment": 5806229562,
+    "claimConfirmation": 5806230914
+  }
+}
