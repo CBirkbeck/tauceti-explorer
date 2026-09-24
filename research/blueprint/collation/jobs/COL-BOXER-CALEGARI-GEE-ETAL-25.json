@@ -1,0 +1,40 @@
+{
+ "id": "COL-BOXER-CALEGARI-GEE-ETAL-25",
+ "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+ "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+ "copy": "https://doi.org/10.1017/fmp.2024.29",
+ "readFrom": "preprint",
+ "files": [
+  "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json"
+ ],
+ "findings": [
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E7",
+   "locator": "§4.2, Lemma 4.2.4 and its proof, p. 37",
+   "printed": "Moreover, Ψ is defined over M, and we have Ψc(Ψ) = |·|^{N−n}. […] There are c-linear isomorphisms V_{c(λ)} ≅ V_λ^∨(1 − N) and E_{c(λ)} ≅ E_λ^∨(1 − n), so the final part is again a consequence of Schur's lemma.",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E23",
+   "locator": "Definition 4.4.1 and Proposition 4.4.2, pp. 41–42",
+   "printed": "2. For each i = 1, 2, an isomorphism η_i : ∧^n W̄_{λ_i} → ∧^n Ū_{λ_i,T_{0,F}} … Then F({Ū_{λ_i}}) is represented by a finite étale T_{0,F}-scheme T({Ū_{λ_i}}). … Proposition 4.4.2. T({Ū_{λ_i}}) is a geometrically irreducible smooth F-scheme.",
+   "kind": "gap",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E28",
+   "locator": "Lemma 5.2.6, hypothesis 2 (p. 48), and Proposition 6.2.3(13) (p. 55)",
+   "printed": "'r̄_B ≅ Ind_{G_L}^{G_F} ψ and r̄_B|_{G_{F(ζ_p)}} irreducible'; 'The representation r̄_{CM,𝔯}|_{G_{F(ζ_r)}} is irreducible.'",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E30",
+   "locator": "Proposition 6.2.3, hypotheses (7)–(17) and proof, pp. 55–56",
+   "printed": "7. Distinct primes p, r, not dividing any place of S, and places 𝔭, 𝔯 of M lying above them.",
+   "kind": "gap",
+   "known": "new"
+  }
+ ]
+}

@@ -44678,6 +44678,171 @@
    "state": "pending",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-SRC-StandardDistributions.md"
+  },
+  {
+   "id": "COL-ATOBE-KONDO-YASUDA-22",
+   "kind": "collation",
+   "priority": 2,
+   "order": 897,
+   "name": "PAPER-ATOBE-KONDO-YASUDA-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 18000,
+   "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md"
+  },
+  {
+   "id": "REV-COL-ATOBE-KONDO-YASUDA-22",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "PAPER-ATOBE-KONDO-YASUDA-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-COL-ATOBE-KONDO-YASUDA-22.md"
+   ],
+   "after": [
+    "COL-ATOBE-KONDO-YASUDA-22"
+   ],
+   "avoidAccountOf": "COL-ATOBE-KONDO-YASUDA-22",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-COL-ATOBE-KONDO-YASUDA-22.md"
+  },
+  {
+   "id": "COL-BINYAMINI-22",
+   "kind": "collation",
+   "priority": 2,
+   "order": 888,
+   "name": "PAPER-BINYAMINI-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BINYAMINI-22.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 18000,
+   "prompt": "research/blueprint/prompts/COL-BINYAMINI-22.md"
+  },
+  {
+   "id": "REV-COL-BINYAMINI-22",
+   "kind": "review",
+   "priority": 3,
+   "order": 888,
+   "name": "PAPER-BINYAMINI-22",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-COL-BINYAMINI-22.md"
+   ],
+   "after": [
+    "COL-BINYAMINI-22"
+   ],
+   "avoidAccountOf": "COL-BINYAMINI-22",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-COL-BINYAMINI-22.md"
+  },
+  {
+   "id": "COL-BOXER-CALEGARI-GEE-ETAL-25",
+   "kind": "collation",
+   "priority": 2,
+   "order": 896,
+   "name": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 18000,
+   "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md"
+  },
+  {
+   "id": "REV-COL-BOXER-CALEGARI-GEE-ETAL-25",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-COL-BOXER-CALEGARI-GEE-ETAL-25.md"
+   ],
+   "after": [
+    "COL-BOXER-CALEGARI-GEE-ETAL-25"
+   ],
+   "avoidAccountOf": "COL-BOXER-CALEGARI-GEE-ETAL-25",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-COL-BOXER-CALEGARI-GEE-ETAL-25.md"
+  },
+  {
+   "id": "COL-GAN-HARRIS-SAWIN-ETAL-24",
+   "kind": "collation",
+   "priority": 2,
+   "order": 895,
+   "name": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 18000,
+   "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md"
+  },
+  {
+   "id": "REV-COL-GAN-HARRIS-SAWIN-ETAL-24",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-COL-GAN-HARRIS-SAWIN-ETAL-24.md"
+   ],
+   "after": [
+    "COL-GAN-HARRIS-SAWIN-ETAL-24"
+   ],
+   "avoidAccountOf": "COL-GAN-HARRIS-SAWIN-ETAL-24",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-COL-GAN-HARRIS-SAWIN-ETAL-24.md"
+  },
+  {
+   "id": "COL-LEMKEOLIVER-WANG-WOOD-25",
+   "kind": "collation",
+   "priority": 2,
+   "order": 897,
+   "name": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 18000,
+   "prompt": "research/blueprint/prompts/COL-LEMKEOLIVER-WANG-WOOD-25.md"
+  },
+  {
+   "id": "REV-COL-LEMKEOLIVER-WANG-WOOD-25",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-COL-LEMKEOLIVER-WANG-WOOD-25.md"
+   ],
+   "after": [
+    "COL-LEMKEOLIVER-WANG-WOOD-25"
+   ],
+   "avoidAccountOf": "COL-LEMKEOLIVER-WANG-WOOD-25",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-COL-LEMKEOLIVER-WANG-WOOD-25.md"
   }
  ]
 }

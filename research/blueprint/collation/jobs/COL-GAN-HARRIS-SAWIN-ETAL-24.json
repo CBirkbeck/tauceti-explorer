@@ -1,0 +1,47 @@
+{
+ "id": "COL-GAN-HARRIS-SAWIN-ETAL-24",
+ "paper": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+ "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+ "copy": "https://doi.org/10.1017/fmp.2024.10",
+ "readFrom": "preprint",
+ "files": [
+  "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json"
+ ],
+ "findings": [
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E2",
+   "locator": "§7.2, Theorem 7.12, p. 23 (Theorem 1.5, p. 4); §10.4, Lemma 10.7 and Proposition 10.10, pp. 32–35",
+   "printed": "Theorem 7.12. Let F = k((t)) and let σ be an irreducible representation of G(F), with G unramified reductive over F. … Then σ is an irreducible constituent of an unramified principal series representation of G(F). / Lemma 10.7. If π satisfies case (b) of Lemma 10.6, then π is pure and ramified. / Proposition 10.10. Assume the residue field of F has more than 2 elements. Then every supercuspidal representation of GL(n,F) is ramified.",
+   "kind": "gap",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E12",
+   "locator": "§11, Corollary 11.8, p. 37",
+   "printed": "Let σ be a supercuspidal representation of G(F♯). Suppose the semisimple Fargues-Scholze parameter L^{ss}(σ) attached to σ is pure. Then L^{ss}(σ) is ramified. More generally, let σ be any pure irreducible representation of G(F♯) with unramified Fargues-Scholze parameter.",
+   "kind": "gap",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E15",
+   "locator": "Definition 2.5 pp.7–8 and Definition 3.3(b) p.8; published 2024 version",
+   "printed": "some (equivalently, for all) faithful representations / some (equivalently every) faithful representation",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E17",
+   "locator": "Lemma 4.7 p.14; published 2024 version",
+   "printed": "For L a rank 1 local system on G_m,k ... tr(Frob_z,L)=tr(Frob_1,L) tr(m_z^{-1},L).",
+   "kind": "error",
+   "known": "new"
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E22",
+   "locator": "Proposition 10.5 p.30; interpretation of Corollary 10.11 p.35; published 2024 version",
+   "printed": "Then no pure supercuspidal representation of G(F) is incorrigible.",
+   "kind": "error",
+   "known": "new"
+  }
+ ]
+}

@@ -240,7 +240,7 @@
     "Proof of Corollary 2.20, p. 12, arXiv v1 (final journal text not obtained)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -269,8 +269,13 @@
     "§1.1.2, first derivative after equation (1.1.1), arXiv:2001.00045v4; same display in the public author manuscript"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1007/s00222-022-01133-w",
+    "isOA": true,
+    "copy": "https://doi.org/10.1007/s00222-022-01133-w",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-BOXER-PILLONI-26",
@@ -297,9 +302,7 @@
     "§4.5, Corollaries 4.5.4 and 4.5.5, p. 52"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-025-01393-2",
-    "isOA": true,
-    "copy": "https://hal.science/hal-05409187v1/file/higherhidaSiegel.pdf"
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -325,7 +328,9 @@
     "Appendix A.2, Lemma A.11(2) and item (ii) of its proof, pp. 47–48; Example A.16, p. 50 (arXiv v5)",
     "Appendix A.2, Example A.17, p. 50 (arXiv v5)"
    ],
-   "openAlex": {}
+   "openAlex": {
+    "error": "HTTP Error 503: Service Unavailable"
+   }
   },
   {
    "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -351,7 +356,7 @@
     "v1 p.1, Theorem 0.1, and p.16, (28); published Theorem 0.1 and Proposition 3.23"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -379,8 +384,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.1017/fmp.2021.20",
     "isOA": true,
-    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/div-class-title-point-counting-for-foliations-over-number-fields-div.pdf"
-   }
+    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/div-class-title-point-counting-for-foliations-over-number-fields-div.pdf",
+    "accepted": null
+   },
+   "readable": true,
+   "copyNote": "readable"
   },
   {
    "paper": "PAPER-FARB-KISIN-WOLFSON-24",
@@ -405,9 +413,7 @@
     "§3.3.1, p30 (arXiv v2)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.48550/arxiv.2110.05534",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/2110.05534"
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -431,7 +437,9 @@
     "§8.4, Proposition 8.9(2), p. 861; used in the proof of Proposition 8.25, §8.9, pp. 876–877",
     "§8.4, Proposition 8.9 (1) and (2), p. 861; also the statements of Theorem 8.10 (p. 861) and Theorem 8.11 (p. 862). arXiv:1907.08691v1 has the same text (Prop. 8.9, Thms 8.10–8.11, pp. 44–46, citing [Yam16])."
    ],
-   "openAlex": {}
+   "openAlex": {
+    "error": "HTTP Error 503: Service Unavailable"
+   }
   },
   {
    "paper": "PAPER-WEI-26",
@@ -455,7 +463,7 @@
     "Published Remark 7.2.5, p.889; same issue in arXiv:2207.01165v2."
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -499,9 +507,7 @@
     "arXiv v4 §8 after Remark8.17,p57"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-022-01134-9",
-    "isOA": false,
-    "copy": null
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -526,8 +532,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.1215/00127094-2019-0075",
     "isOA": false,
-    "copy": null
-   }
+    "copy": "https://doi.org/10.1215/00127094-2019-0075",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-XU-ZHU-22",
@@ -547,8 +556,13 @@
     "§2.4, Corollary 2.4.3 and §2.4.1(iii), p. 16; used in Proposition 3.4.3(ii), p. 31"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1007/s00222-021-01079-5",
+    "isOA": true,
+    "copy": "https://doi.org/10.1007/s00222-021-01079-5",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-ALLEN-ETAL-23",
@@ -567,9 +581,7 @@
     "§7.1, Lemma 7.1.8(2) and its proof, pp. 1091–1092 (also in arXiv v2)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.4007/annals.2023.197.3.2",
-    "isOA": true,
-    "copy": "https://doi.org/10.17863/cam.86054"
+    "error": "HTTP Error 503: Service Unavailable"
    }
   },
   {
@@ -589,8 +601,13 @@
     "Remark 2.2(b), p. 14 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1007/s00222-023-01193-6",
+    "isOA": true,
+    "copy": "https://doi.org/10.1007/s00222-023-01193-6",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-JANNSEN-16",
@@ -609,9 +626,7 @@
     "Isolated statement of Theorem 3.17, p. 35"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.4007/annals.2016.183.1.1",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/0910.2803"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -633,7 +648,8 @@
    "openAlex": {
     "doi": "https://doi.org/10.48550/arxiv.1907.05002",
     "isOA": true,
-    "copy": "https://arxiv.org/pdf/1907.05002"
+    "copy": null,
+    "accepted": null
    }
   },
   {
@@ -655,8 +671,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.4007/annals.2017.186.3.2",
     "isOA": false,
-    "copy": null
-   }
+    "copy": "https://doi.org/10.4007/annals.2017.186.3.2",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-CARAIANI-SCHOLZE-17",
@@ -674,8 +693,13 @@
     "Corollary 5.5.2 (first assertion) and its proof, p. 743 (added in the published version; arXiv v1 has only Remark 5.5.2, the converse direction)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.4007/annals.2017.186.3.1",
+    "isOA": true,
+    "copy": "https://doi.org/10.4007/annals.2017.186.3.1",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
@@ -695,8 +719,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.1017/fmp.2024.10",
     "isOA": true,
-    "copy": "https://doi.org/10.1017/fmp.2024.10"
-   }
+    "copy": "https://doi.org/10.1017/fmp.2024.10",
+    "accepted": null
+   },
+   "readable": true,
+   "copyNote": "readable"
   },
   {
    "paper": "PAPER-HE-18",
@@ -733,8 +760,13 @@
     "Appendix B.4, proof of Proposition B.5, equation (68) and the case p | 4ω with l odd, pp. 268–269; the statement of Proposition B.5 for p > 2, n > l, p | ω, p. 268 (arXiv v3: Proposition 172)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.4007/annals.2019.189.1.4",
+    "isOA": true,
+    "copy": "https://doi.org/10.4007/annals.2019.189.1.4",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
@@ -751,8 +783,13 @@
     "CorollaryH and Corollary6.23, arXivv2 pp6,47; published pp3715,3776"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1215/00127094-2022-0037",
+    "isOA": true,
+    "copy": "https://doi.org/10.1215/00127094-2022-0037",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
@@ -771,8 +808,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.1017/fmp.2024.29",
     "isOA": true,
-    "copy": "https://doi.org/10.1017/fmp.2024.29"
-   }
+    "copy": "https://doi.org/10.1017/fmp.2024.29",
+    "accepted": null
+   },
+   "readable": true,
+   "copyNote": "readable"
   },
   {
    "paper": "PAPER-COLMEZ-NIZIOL-25",
@@ -789,7 +829,7 @@
     "Corollary 3.20(b), p. 18"
    ],
    "openAlex": {
-    "error": "HTTP Error 400: Bad Request"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -809,7 +849,8 @@
    "openAlex": {
     "doi": "https://doi.org/10.48550/arxiv.1509.00606",
     "isOA": true,
-    "copy": "https://arxiv.org/pdf/1509.00606"
+    "copy": null,
+    "accepted": null
    }
   },
   {
@@ -827,8 +868,13 @@
     "Proposition B.12, p.50 (arXiv v3)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1007/s00222-022-01114-z",
+    "isOA": true,
+    "copy": "https://doi.org/10.1007/s00222-022-01114-z",
+    "accepted": "https://doi.org/10.1007/s00222-022-01114-z"
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-HOWE-KLEVDAL-26",
@@ -860,9 +906,7 @@
     "Theorem G, Introduction p. 7 (and footnote 1), and the sentence before Conjecture A, p. 60",
     "Proposition 13.6, p. 62, with 13.1, p. 58 (K∞ ⊆ PGL_2(F ⊗ R) maximal compact); used in Propositions 13.7, 13.10, Lemma 15.3 and Theorem F"
    ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   "openAlex": {}
   },
   {
    "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
@@ -878,8 +922,13 @@
     "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1017/fmp.2022.17",
+    "isOA": true,
+    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
+    "accepted": null
+   },
+   "readable": true,
+   "copyNote": "readable"
   },
   {
    "paper": "PAPER-CASTELLA-ETAL-22",
@@ -909,9 +958,7 @@
     "§3.2.1, p. 51, the sentence before Proposition 3.26",
     "Lemma 3.2 (1) and its proof, pp. 34–35"
    ],
-   "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+   "openAlex": {}
   },
   {
    "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -927,8 +974,13 @@
     "§5.1, Lemma 5.1 (a), (c), (d) and the proof of (b), pp. 548–549"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1007/s00222-020-00957-8",
+    "isOA": true,
+    "copy": "https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-HARPAZ-WITTENBERG-23",
@@ -944,8 +996,13 @@
     "Proposition 7.3, p.26, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1215/00127094-2022-0004",
+    "isOA": true,
+    "copy": "https://doi.org/10.1215/00127094-2022-0004",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-KINGS-SPRANG-25",
@@ -961,7 +1018,7 @@
     "Corollary 4.15, p. 54; Remark 4.16, p. 54"
    ],
    "openAlex": {
-    "error": "HTTP Error 400: Bad Request"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -980,8 +1037,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.1017/s2050508625000009",
     "isOA": true,
-    "copy": "https://doi.org/10.1017/s2050508625000009"
-   }
+    "copy": "https://doi.org/10.1017/s2050508625000009",
+    "accepted": null
+   },
+   "readable": true,
+   "copyNote": "readable"
   },
   {
    "paper": "PAPER-SKINNER-20",
@@ -997,7 +1057,7 @@
     "§2.6, Corollary 2.6.2 and the sentence before it, published p. 344 (page image checked); arXiv v1 p. 14"
    ],
    "openAlex": {
-    "error": "HTTP Error 400: Bad Request"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1013,9 +1073,7 @@
     "Appendix B.10, the functoriality statement and its proof, and the Claim's proof, pp. 85–86"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.48550/arxiv.2303.13436",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/2303.13436"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1063,9 +1121,7 @@
     "Théorème 5.24 (ii), p. 59 (and Théorème 5.15, p. 55)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2023.15",
-    "isOA": true,
-    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/div-class-title-factorisation-de-la-cohomologie-etale-span-class-italic-p-span-adique-de-la-tour-de-drinfeld-div.pdf"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1081,9 +1137,7 @@
     "§8.3, Theorem 8.2(i), p. 25, and §8.5, Theorem 8.5(iii), p. 27 (arXiv v1); checked on the page images"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-022-01165-2",
-    "isOA": false,
-    "copy": null
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1099,9 +1153,7 @@
     "Proposition5.7,(5.18)–(5.19),pp840–841;use(5.26); published57-page version, rendered page inspected unless stated otherwise"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1112/s0010437x15007253",
-    "isOA": true,
-    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2955973870753861AB1D727CF6AACA34/S0010437X15007253a.pdf/div-class-title-connected-components-of-affine-deligne-lusztig-varieties-in-mixed-characteristic-div.pdf"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1119,8 +1171,11 @@
    "openAlex": {
     "doi": "https://doi.org/10.1007/s00222-024-01238-4",
     "isOA": false,
-    "copy": null
-   }
+    "copy": "https://doi.org/10.1007/s00222-024-01238-4",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-KALETHA-16",
@@ -1135,9 +1190,7 @@
     "§3.4,printed577;arXivv5 andauthor ri4 PDF16"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.4007/annals.2016.184.2.6",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/1304.3292"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1169,9 +1222,7 @@
     "Author April 2025 Table 3, p. 13; same first row in arXiv v3 p. 11"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-025-01388-z",
-    "isOA": false,
-    "copy": null
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1185,7 +1236,9 @@
    "locators": [
     "Theorem 44, pp.34–35 (arXiv v2)"
    ],
-   "openAlex": {}
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
   },
   {
    "paper": "PAPER-BHATT-MATHEW-21",
@@ -1199,9 +1252,7 @@
     "Theorem 1.19 of the introduction (= Theorem 7.3), and Remark 7.4(2) (arXiv v4, the version read)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1215/00127094-2020-0088",
-    "isOA": false,
-    "copy": null
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1216,7 +1267,7 @@
     "Theorem 2.1 and footnote 3, p.4, in arXiv 2506.03465v2 (11 October 2025), the version read; the passage is the same in v1 (4 June 2025)"
    ],
    "openAlex": {
-    "error": "HTTP Error 400: Bad Request"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1231,9 +1282,7 @@
     "Proposition 1.3.1, parts (i) and (ii), p. 27"
    ],
    "openAlex": {
-    "doi": null,
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/2009.07225"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1263,8 +1312,13 @@
     "§8, Theorem 8.1 and the first step of its proof, p. 296"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1007/s00222-022-01127-8",
+    "isOA": true,
+    "copy": "https://link.springer.com/content/pdf/10.1007/s00222-022-01127-8.pdf",
+    "accepted": "https://arxiv.org/pdf/2007.15078"
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-FENG-YUN-ZHANG-24",
@@ -1278,9 +1332,7 @@
     "Lemma 10.5 and its proof (arXiv v4 p. 61), published version not re-read (see searched)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1007/s00222-023-01228-y",
-    "isOA": true,
-    "copy": "https://link.springer.com/content/pdf/10.1007/s00222-023-01228-y.pdf"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1295,9 +1347,7 @@
     "§9, Theorem 9.1(ii), p. 27"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.48550/arxiv.2209.07346",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/2209.07346"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1312,9 +1362,7 @@
     "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1090/jams/943",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/1802.09605"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1344,7 +1392,7 @@
     "Proposition 4.27(2) and its proof, p.64"
    ],
    "openAlex": {
-    "error": "HTTP Error 400: Bad Request"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1359,8 +1407,13 @@
     "§6.4, display before Definition 6.4.3 (p.38); proof of Lemma 6.4.5 (p.40); Lemmas 6.4.6–6.4.7 (pp.40–42); proof of Theorem 6.4.9 (p.42)"
    ],
    "openAlex": {
-    "error": "HTTP Error 429: Too Many Requests"
-   }
+    "doi": "https://doi.org/10.1090/jams/988",
+    "isOA": false,
+    "copy": "https://doi.org/10.1090/jams/988",
+    "accepted": null
+   },
+   "readable": false,
+   "copyNote": "publisher serves a challenge page to scripts"
   },
   {
    "paper": "PAPER-LIU-ZHU-17",
@@ -1404,9 +1457,7 @@
     "§5, Corollary 5.4, p. 80"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1007/s10240-021-00127-3",
-    "isOA": true,
-    "copy": "https://link.springer.com/content/pdf/10.1007/s10240-021-00127-3.pdf"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1421,9 +1472,7 @@
     "§11, Proposition 11.5 and its proof, pp. 55–56 (published version; arXiv v2, Proposition 11.5, p. 62)"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2026.10030",
-    "isOA": true,
-    "copy": "https://doi.org/10.1017/fmp.2026.10030"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1438,9 +1487,7 @@
     "Published2024 §4.3.12–Proposition4.3.13 p47"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.1017/fmp.2024.22",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/2010.10496"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   },
   {
@@ -1455,9 +1502,7 @@
     "Lemma3.2, p.15, final specialization, arXiv v4"
    ],
    "openAlex": {
-    "doi": "https://doi.org/10.48550/arxiv.2209.11086",
-    "isOA": true,
-    "copy": "https://arxiv.org/pdf/2209.11086"
+    "error": "HTTP Error 429: Too Many Requests"
    }
   }
  ]
