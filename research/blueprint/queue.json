@@ -30298,7 +30298,8 @@
     "RT-AREA-pde"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-pde.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1540"
   },
   {
    "id": "RT-AREA-probability",
