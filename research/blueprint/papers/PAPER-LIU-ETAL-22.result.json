@@ -10608,7 +10608,6 @@
         "PAPER-LIU-ETAL-22/S07",
         "PAPER-LIU-ETAL-22/S08",
         "PAPER-LIU-ETAL-22/bloch-kato-selmer",
-        "PAPER-LIU-ETAL-22/bloch-kato-selmer",
         "PAPER-LIU-ETAL-22/cited-local-euler-characteristic",
         "PAPER-LIU-ETAL-22/std-local-tate-duality"
       ],
@@ -10790,7 +10789,6 @@
         "PAPER-LIU-ETAL-22/relevant-representation",
         "PAPER-LIU-ETAL-22/A10",
         "PAPER-LIU-ETAL-22/galois-representations",
-        "PAPER-LIU-ETAL-22/galois-representations",
         "PAPER-LIU-ETAL-22/strong-coefficient-field",
         "PAPER-LIU-ETAL-22/cite-ty-purity",
         "PAPER-LIU-ETAL-22/Z02"
@@ -10947,7 +10945,6 @@
         "PAPER-LIU-ETAL-22/A06",
         "PAPER-LIU-ETAL-22/unitary-abelian-schemes",
         "PAPER-LIU-ETAL-22/A15",
-        "PAPER-LIU-ETAL-22/A16",
         "PAPER-LIU-ETAL-22/A16"
       ],
       "reason": "§§3.3–3.5 are PEL linear algebra and unitary abelian schemes: hermitian spaces and V_♯ (Definition 3.1.7), generalized CM types and reflex fields (Definitions 3.3.1–3.3.2), unitary O_F-abelian schemes, signature types, quasi-p-isogenies and their deformation theory (Definitions 3.4.2–3.4.5, Proposition 3.4.8, Lemma 3.4.12), Dieudonné modules, and the auxiliary CM moduli scheme 𝐓_p (§3.5). These refine M0–M4; Serre–Tate and Grothendieck–Messing are planned in AbelianSchemesAndArithmeticModuli A4 and Dieudonné theory in FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2.",
@@ -11499,7 +11496,7 @@
       "route": "part-ii",
       "parent": "LefschetzPencilsAndVanishingCycles",
       "roadmap": "SemistablePotentialMaps",
-      "title": "Lefschetz pencils and vanishing cycles, Part II: Semistable potential maps",
+      "title": "Lefschetz pencils, nearby cycles and vanishing cycles, Part II: Semistable potential maps",
       "area": "etale",
       "items": [
         "PAPER-LIU-ETAL-22/potential-B",
@@ -11562,7 +11559,7 @@
       "route": "part-ii",
       "parent": "SelmerIwasawaCohomology",
       "roadmap": "ArithmeticLevelRaisingAndBipartiteEulerSystems",
-      "title": "Selmer and Iwasawa cohomology, Part II: Arithmetic level raising and Rankin–Selberg Selmer annihilators",
+      "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: Arithmetic level raising and Rankin–Selberg Selmer annihilators",
       "area": "iwasawa",
       "items": [
         "PAPER-LIU-ETAL-22/thm-1-1-1",
@@ -11954,7 +11951,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "continuation": "Codex — codex-hjdg0j supplies the normal-closure construction, elementary projected-norm proof and finite-group checks. The original arithmetic counterexample and its source-search record are inherited; no independent review verdict is added."
+      "continuation": "Codex — codex-hjdg0j supplies the normal-closure construction, elementary projected-norm proof and finite-group checks. The original arithmetic counterexample and its source-search record are inherited; no independent review verdict is added.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as printed: Lemma 2.6.4 does assert the equality G_{S,γ} = θ_S^{-1}Hom(S, (R̄^{(m)})^{h_γ}) with no hypothesis beyond the order of γ being prime to ℓ. The failure mechanism the finding identifies is visible in the proof it quotes: the lift γ̃ is taken in Gal(F̃_S/F⁺) and only its [F:F⁺]-th power is compared with (g^{-1}Ψ)h_γ, so for [F:F⁺] = 2 the argument controls squares of lifts rather than lifts, which is exactly where the recorded counterexample bites. I checked the statement and the quoted step, and the replacement G_{S,γ} = q(N^α) is consistent with them; I did not re-derive the Kummer-class computation over ℚ(√5)(i), which the extraction records as independently re-derived on the page image, so that part rests on its work rather than mine. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E2",
@@ -11978,7 +11980,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "repairStatus": "Proposed rank-two application repair, supplied by Codex codex-a71f92; awaiting independent review. General printed diagonalization remains false as a linear-algebra inference; E1 is not repaired."
+      "repairStatus": "Proposed rank-two application repair, supplied by Codex codex-a71f92; awaiting independent review. General printed diagonalization remains false as a linear-algebra inference; E1 is not repaired.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the linear-algebra obstruction is decisive and easy to check. Over O_λ/λ^n with n ⩾ 2 the matrix A = [[λ, 1], [0, λ]] has image {(λx + y, λy)} of index |k|², while its two coordinate projections have indices 1 and |k|; a diagonal matrix with those projections would have index |k|, and right multiplication by a change of basis preserves the image, so no basis diagonalises it. Hence ‘the first part is obvious from Definition 2.6.5’ does not follow for every abundant tuple. The extraction is right to have revised this from a gap to an error in the stated first part of Proposition 2.6.7, and its repair — use only what abundance gives, with the explicit substitution for the proof of Theorem 8.3.2 — keeps the application intact. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E3",
@@ -11999,7 +12006,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quoted step takes powers ℓ^{d_α e_α} of γ′_₀ and γ′_₁ with exponents chosen separately for α = 0, 1 while leaving ξ′ unchanged, and (GI^m) asks for a single element in the image of the joint homomorphism, so independently chosen exponents need not correspond to one Galois element. The repair — one common power ℓ^k divisible by both d_α and killing the ℓ-parts — is immediate, and the extraction is right that the lemma is true and that arXiv v1/v2 took the common power. Its second point, that (c) needs ker(h − 1) free of rank one rather than ‘1 is an eigenvalue’, is also right and follows from h having order prime to ℓ. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E4",
@@ -12023,8 +12035,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
-        "reason": "Confirmed at the locator. Proposition 2.7.2 takes 'a polynomial P(T) in Z[T]' with no non-vanishing hypothesis, and asserts in (3) that (GI^1_{F',P}) of Lemma 2.7.1 holds for sufficiently large ell. Condition (a) of (GI^m_{F',P}), printed on p. 136, is that 'P(xi) is invertible in O_lambda/lambda^m'. For P = 0 that is unsatisfiable, since 0 is not invertible in a non-zero ring, so (GI^1_{F',0}) can never hold and the printed statement is false as stated; the proof breaks at exactly the same place, where it selects a, b with 'P(a^{-1}) != 0' and then claims 'such pair (a,b) always exists for sufficiently large ell'. Two refinements. First, the identical phrase 'a polynomial P(T) in Z[T]' in Lemma 2.7.1 itself is harmless: that lemma only asserts (GI^1) implies (GI^m), which is vacuously true when the hypothesis is unsatisfiable, so the defect is confined to Proposition 2.7.2(3) as the finding's locator says. Second, the proposed repair P != 0 does suffice: a non-zero P in Z[T] of degree e has at most e roots in any field, the three further conditions on (a,b) exclude only finitely many pairs, |F_ell^*| = ell - 1 grows, and the finitely many primes ell dividing every coefficient of P - the only ell for which P could reduce to zero - are excluded by 'for sufficiently large ell'."
+        "reason": "Confirmed, checked at the page. Proposition 2.7.2 reads ‘a polynomial 𝒫(T) ∈ ℤ[T]’ with no non-vanishing hypothesis, and condition (a) of (GI¹_{F′,𝒫}) requires 𝒫(ξ) to be invertible in O_λ/λ, which is unsatisfiable for 𝒫 = 0; the proof’s step ‘such pair (a, b) always exists for sufficiently large ℓ’ is where it breaks, since 𝒫(a^{-1}) ≠ 0 then has no solution. Lemma 2.7.1 itself is vacuous for 𝒫 = 0, so only Proposition 2.7.2(3) is affected, and the paper’s only application is 𝒫 = T² − 1. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -12046,7 +12058,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E6",
@@ -12071,8 +12088,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
-        "reason": "Confirmed, and decisively, by counting occurrences of the same product across the paper. The intended factor is q^3 + 1: the product (q+1)(q^3+1)...(q^{2k-1}+1) over odd exponents appears correctly typeset in about twenty-five places, including Notation 1.3.1 on p. 119, pp. 223-224, p. 328, p. 330, p. 335, pp. 338-341, the displayed identity in the proof on p. 342 immediately above the corrupted instance, p. 344 and five times on p. 348 - where p. 348 even carries the identical indexed form (-q)^{r-delta+1}(q+1)(q^3+1)...(q^{2(r-delta)-1}+1). The corrupted form (x+1)(x+3) occurs exactly four times: twice on printed p. 229, in the statement of Proposition 5.8.8 and again in its proof, and once each on pp. 342 and 343. So an exponent 3 has been flattened into '+ 3' in four places, the intended reading is certain, and 'affects nothing' is the right reach. One correction to the finding's locator, which would otherwise send a reader to statements that do not exist: Appendix B.3 contains Lemmas B.3.1 to B.3.4, Proposition B.3.5 and Lemma B.3.6, with no Lemma B.3.5 and no Proposition B.3.6. The two appendix instances are in Proposition B.3.5(2), in the definition of R^circ_N, and in Lemma B.3.6, in the definition of R^bullet_N."
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -12095,7 +12112,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E8",
@@ -12116,7 +12138,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the reclassification from gap to error is right. The proof has just established that G acts trivially on the module in question, and for a procyclic group acting trivially on a discrete torsion or ℓ-adic module M one has H¹_cont(Ẑ, M) = Hom_cont(Ẑ, M) ≅ M by evaluation at Frobenius; so the asserted vanishing is equivalent to the module itself vanishing, and the invertibility of p² − 1 is irrelevant because the action is trivial. The extraction’s sharpening — what survives is the exact sequence and the injectivity F_{-1}H¹ ↪ H¹_sing, which is all the later uses need — is the right way to record it. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E9",
@@ -12138,7 +12165,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma A.1.4(4) is stated for an arbitrary admissible pair over κ, and admissible κ-forms differ by twists by the finite unitary group, which act non-trivially on the middle cohomology; the N = 2 witness (κ = 𝔽₉, p = 3, the form with diagonal (1, t) for t ∉ 𝔽₃, whose isotropic locus has four geometric points and no 𝔽₉-point, fourth powers in 𝔽₉^× lying in 𝔽₃^×) is correct as arithmetic. The added hypothesis — that the pair descends to 𝔽_{p²} over κ, or that the κ-Frobenius is a power of the 𝔽_{p²}-Frobenius — is what the application in Lemma 5.6.2(3) needs, and the extraction supplies the route to verifying it there. I checked the statement and the witness; the verification that the Shimura link fibres satisfy the added hypothesis rests on the extraction. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E10",
@@ -12160,7 +12192,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it can be settled by inspection. At N = 2 the space Iso(Λ̄₂) is the finite set of q + 1 isotropic lines of a hermitian plane, of dimension 0, so H^N = H² = 0 and the printed kernel of ∪ c₁ is all of H⁰, a (q + 1)-dimensional permutation representation ≅ 𝟙 ⊕ St — not irreducible, so no Ω₂ as asserted exists. The paper’s own formula (C.1) points the same way, giving (R_{(2)} − R_{(1²)})/2 = St of degree q. The repair (reduced H⁰, equivalently the kernel of the Gysin map, with Ω₂ = St) restores the statement and, as the extraction notes, agrees with the printed definition for N ⩾ 3. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E11",
@@ -12184,8 +12221,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
-        "reason": "Confirmed at the locator, with two independent checks from the paper's own formulas. The proof of Proposition A.1.3(3) on p. 322 reduces the general case to the non-degenerate one by passing to V'_0 = V_0/V_0^perp, and prints the target as DL(V'_0,{,}'_0,h) while the map sends H to H/V_{0S}^perp. Since V_0^perp has dimension d and is contained in H^perp and hence in H, the quotient has rank h - d, so the target must be DL(V'_0,{,}'_0,h-d). First check: part (2) of the same proposition computes the tangent sheaf to be locally free of rank (2h - N - d)(N - h). Substituting N' = N - d, d' = 0 and h' = h - d gives (2h' - N' - d')(N' - h') = (2h - d - N)(N - h), identical to the original, whereas keeping h' = h gives (2h - N + d)(N - d - h), which differs. Second check: the hypothesis of part (3), N + d < 2h <= 2N, transforms under h -> h - d into N' < 2h' and 2h' <= 2N', which is exactly the d' = 0 case the argument then quotes from [8, Theorem 1]; with h' = h it would not. So both the dimension and the hypotheses transfer precisely under the finding's correction and not under the printed parameter."
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -12207,7 +12244,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E13",
@@ -12228,7 +12270,12 @@
         "Crossref record of doi:10.1007/s00222-021-01088-4 (published online 21 January 2022), checked 2026-09-23: no update, correction or erratum relation, and no work declares an update to it",
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quoted step infers an integral statement from a rational isomorphism between two torsion-free O_λ[Γ_F]-modules, which does not follow — the standard witness is Γ = ℤ acting on O_λ² by (1 1; 0 1) and by (1 λ; 0 1), rationally conjugate and integrally non-isomorphic. The extraction is right that the integral statement is what the later use needs, since it transports a fixed exponent to a level-raised Shimura variety at a prime depending on m, and its repair via the determinant of the composed Hecke correspondences uses only inputs the paper already has. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "id": "PAPER-LIU-ETAL-22/E14",
@@ -12252,8 +12299,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
-        "reason": "Confirmed at the locator. Remark 7.3.5 on p. 302 places loc_p([Sh(V_n,K_sp)]) in H^1_ur(F_p, H^{2n}_et(( ... )_{F_p-bar}, O_lambda(n))/(n_0,n_1)), and the coefficient should be the geometric H^{2n-1}. The decisive evidence is on the same page, in the display that closes the proof of Theorem 7.3.4 immediately above: it identifies H^{2n}_T of the product with H^1(F_{p^2}, H^{2r_0-1}_T(M_{n_0}, O_lambda(r_0))_{m_0}) tensor (H^{2r_1}_T(M_{n_1}, O_lambda(r_1))_{m_1})^{Gal}, whose coefficient has total degree (2r_0 - 1) + 2r_1 = 2n - 1. The same bookkeeping is forced by the geometry: the product of the two Shimura varieties has dimension (n_0 - 1) + (n_1 - 1) = 2n - 1, so its middle cohomology is H^{2n-1} and the Abel-Jacobi class of a homologically trivial codimension-n cycle lies in H^1 of that module. As printed, the degree is one too high."
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -12278,8 +12325,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
-        "reason": "Confirmed, and the reason can be made sharper than the finding states. The sentence in the proof of Theorem 8.3.2 on p. 319 reads 'by (L2), R_Q is crystalline with Hodge-Tate weights in [1-n, n]', and the corresponding sentence in the proof of Theorem 8.2.2 on p. 311 is verbatim identical except that it reads [-n, n-1]: same object R_Q, same hypothesis (L2), same next step citing Lemma 2.4.3(2), so the two cannot both be the intended normalisation. Footnote 4 on p. 124 fixes the convention that Q_ell(1) has Hodge-Tate weight -1. Under that convention the 1-polarization R^c = R^dual(1) of section 2.7 sends a weight w to -w-1, so the weight multiset of R is stable under w -> -w-1 and is therefore symmetric about -1/2; the interval symmetric about -1/2 is [-n, n-1], while [1-n, n] is symmetric about 1/2 and is what the opposite sign convention would give. A second, concrete consequence supports the correction: the very next sentence invokes Lemma 2.2.7, whose hypothesis is a < 0 <= b. For [-n, n-1] that holds for every n >= 1, whereas [1-n, n] gives a = 1-n, which is not negative when n = 1, so if n = 1 lies in the permitted range the printed interval does not even satisfy the hypothesis of the lemma being applied. Reach is 'affects nothing' in the sense that the argument goes through with the corrected interval."
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -12302,8 +12349,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "cc-fb70e5 (Claude Code), reviewing inside issue #1280 as a worker independent of the authoring sessions; not a kind:review job. Provenance re-verified: the NSF-hosted published PDF was re-downloaded and its sha256 is byte-for-byte the recorded dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97 (2916938 bytes, 269 pages).",
-        "reason": "Confirmed at the locator. In the proof of Lemma 2.6.4 on p. 134 the sentence reads 'By the Chebotarev density theorem, we can find a place w-tilde of F-tilde_S whose arithmetic Frobenius substitution coincides with gamma and whose underlying place w^{(m)}_+ of F^{(m)}_+ is gamma-associated'. The Frobenius substitution of a place of F-tilde_S is an element of Gal(F-tilde_S/F^+), whereas gamma was introduced two sentences earlier as an element of Gal(F^{(m)}_+/F^+) - 'We regard gamma as an element in Gal(F^{(m)}_+/F_+)' - so as printed the two sides live in different groups. What the argument needs, and what makes the concluding identification Psi = Psi_{w^{(m)}} work, is the specific lift gamma-tilde constructed in the preceding sentence, whose [F:F^+]-th power restricts to (g^{-1}Psi)h_gamma in Gal(F_S/F); the restriction of that Frobenius to F^{(m)}_+ is then gamma, which is what gamma-associated requires. The intended reading is unambiguous, so 'affects nothing' is right."
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -12320,7 +12367,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E17"
+      "id": "PAPER-LIU-ETAL-22/E17",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12336,7 +12388,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E18"
+      "id": "PAPER-LIU-ETAL-22/E18",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12352,7 +12409,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E19"
+      "id": "PAPER-LIU-ETAL-22/E19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12368,7 +12430,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E20"
+      "id": "PAPER-LIU-ETAL-22/E20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12384,7 +12451,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E21"
+      "id": "PAPER-LIU-ETAL-22/E21",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12400,7 +12472,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E22"
+      "id": "PAPER-LIU-ETAL-22/E22",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12416,7 +12493,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E23"
+      "id": "PAPER-LIU-ETAL-22/E23",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12432,7 +12514,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E24"
+      "id": "PAPER-LIU-ETAL-22/E24",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12448,7 +12535,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E25"
+      "id": "PAPER-LIU-ETAL-22/E25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12464,7 +12556,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E26"
+      "id": "PAPER-LIU-ETAL-22/E26",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12480,7 +12577,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E27"
+      "id": "PAPER-LIU-ETAL-22/E27",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12496,7 +12598,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E28"
+      "id": "PAPER-LIU-ETAL-22/E28",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12512,7 +12619,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E29"
+      "id": "PAPER-LIU-ETAL-22/E29",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12528,7 +12640,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E30"
+      "id": "PAPER-LIU-ETAL-22/E30",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12544,7 +12661,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E31"
+      "id": "PAPER-LIU-ETAL-22/E31",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12560,7 +12682,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E32"
+      "id": "PAPER-LIU-ETAL-22/E32",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12576,7 +12703,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E33"
+      "id": "PAPER-LIU-ETAL-22/E33",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12592,7 +12724,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E34"
+      "id": "PAPER-LIU-ETAL-22/E34",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12608,7 +12745,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E35"
+      "id": "PAPER-LIU-ETAL-22/E35",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12624,7 +12766,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E36"
+      "id": "PAPER-LIU-ETAL-22/E36",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12640,7 +12787,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E37"
+      "id": "PAPER-LIU-ETAL-22/E37",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12656,7 +12808,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E38"
+      "id": "PAPER-LIU-ETAL-22/E38",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12672,7 +12829,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E39"
+      "id": "PAPER-LIU-ETAL-22/E39",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12688,7 +12850,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E40"
+      "id": "PAPER-LIU-ETAL-22/E40",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12704,7 +12871,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E41"
+      "id": "PAPER-LIU-ETAL-22/E41",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12720,7 +12892,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E42"
+      "id": "PAPER-LIU-ETAL-22/E42",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12736,7 +12913,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E43"
+      "id": "PAPER-LIU-ETAL-22/E43",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12752,7 +12934,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E44"
+      "id": "PAPER-LIU-ETAL-22/E44",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12768,7 +12955,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E45"
+      "id": "PAPER-LIU-ETAL-22/E45",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12784,7 +12976,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E46"
+      "id": "PAPER-LIU-ETAL-22/E46",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12800,7 +12997,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E47"
+      "id": "PAPER-LIU-ETAL-22/E47",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12816,7 +13018,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E48"
+      "id": "PAPER-LIU-ETAL-22/E48",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12832,7 +13039,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E49"
+      "id": "PAPER-LIU-ETAL-22/E49",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12848,7 +13060,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E50"
+      "id": "PAPER-LIU-ETAL-22/E50",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -12864,7 +13081,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E51"
+      "id": "PAPER-LIU-ETAL-22/E51",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12880,7 +13102,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E52"
+      "id": "PAPER-LIU-ETAL-22/E52",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12896,7 +13123,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E53"
+      "id": "PAPER-LIU-ETAL-22/E53",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12912,7 +13144,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E54"
+      "id": "PAPER-LIU-ETAL-22/E54",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12928,7 +13165,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E55"
+      "id": "PAPER-LIU-ETAL-22/E55",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12944,7 +13186,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E56"
+      "id": "PAPER-LIU-ETAL-22/E56",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -12960,7 +13207,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E57"
+      "id": "PAPER-LIU-ETAL-22/E57",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12976,7 +13228,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E58"
+      "id": "PAPER-LIU-ETAL-22/E58",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -12992,7 +13249,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E59"
+      "id": "PAPER-LIU-ETAL-22/E59",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13008,7 +13270,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E60"
+      "id": "PAPER-LIU-ETAL-22/E60",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13024,7 +13291,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E61"
+      "id": "PAPER-LIU-ETAL-22/E61",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13040,7 +13312,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E62"
+      "id": "PAPER-LIU-ETAL-22/E62",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -13056,7 +13333,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E63"
+      "id": "PAPER-LIU-ETAL-22/E63",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13072,7 +13354,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E64"
+      "id": "PAPER-LIU-ETAL-22/E64",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -13088,7 +13375,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E65"
+      "id": "PAPER-LIU-ETAL-22/E65",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13104,7 +13396,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E66"
+      "id": "PAPER-LIU-ETAL-22/E66",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13120,7 +13417,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E67"
+      "id": "PAPER-LIU-ETAL-22/E67",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -13136,7 +13438,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E68"
+      "id": "PAPER-LIU-ETAL-22/E68",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13152,7 +13459,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E69"
+      "id": "PAPER-LIU-ETAL-22/E69",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13168,7 +13480,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E70"
+      "id": "PAPER-LIU-ETAL-22/E70",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13184,7 +13501,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E71"
+      "id": "PAPER-LIU-ETAL-22/E71",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13200,7 +13522,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E72"
+      "id": "PAPER-LIU-ETAL-22/E72",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13216,7 +13543,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E73"
+      "id": "PAPER-LIU-ETAL-22/E73",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -13232,7 +13564,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E74"
+      "id": "PAPER-LIU-ETAL-22/E74",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13248,7 +13585,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E75"
+      "id": "PAPER-LIU-ETAL-22/E75",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13264,7 +13606,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E76"
+      "id": "PAPER-LIU-ETAL-22/E76",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13280,7 +13627,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E77"
+      "id": "PAPER-LIU-ETAL-22/E77",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13296,7 +13648,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E78"
+      "id": "PAPER-LIU-ETAL-22/E78",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13312,7 +13669,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E79"
+      "id": "PAPER-LIU-ETAL-22/E79",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13328,7 +13690,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E80"
+      "id": "PAPER-LIU-ETAL-22/E80",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13344,7 +13711,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E81"
+      "id": "PAPER-LIU-ETAL-22/E81",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13360,7 +13732,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E82"
+      "id": "PAPER-LIU-ETAL-22/E82",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13376,7 +13753,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E83"
+      "id": "PAPER-LIU-ETAL-22/E83",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13392,7 +13774,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E84"
+      "id": "PAPER-LIU-ETAL-22/E84",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13408,7 +13795,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E85"
+      "id": "PAPER-LIU-ETAL-22/E85",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13424,7 +13816,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E86"
+      "id": "PAPER-LIU-ETAL-22/E86",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13440,7 +13837,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E87"
+      "id": "PAPER-LIU-ETAL-22/E87",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13456,7 +13858,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E88"
+      "id": "PAPER-LIU-ETAL-22/E88",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "error",
@@ -13472,7 +13879,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E89"
+      "id": "PAPER-LIU-ETAL-22/E89",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13488,7 +13900,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E90"
+      "id": "PAPER-LIU-ETAL-22/E90",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13504,7 +13921,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E91"
+      "id": "PAPER-LIU-ETAL-22/E91",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13520,7 +13942,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E92"
+      "id": "PAPER-LIU-ETAL-22/E92",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13536,7 +13963,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E93"
+      "id": "PAPER-LIU-ETAL-22/E93",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13552,7 +13984,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E94"
+      "id": "PAPER-LIU-ETAL-22/E94",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13568,7 +14005,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E95"
+      "id": "PAPER-LIU-ETAL-22/E95",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13584,7 +14026,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E96"
+      "id": "PAPER-LIU-ETAL-22/E96",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13600,7 +14047,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E97"
+      "id": "PAPER-LIU-ETAL-22/E97",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13616,7 +14068,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E98"
+      "id": "PAPER-LIU-ETAL-22/E98",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13632,7 +14089,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E99"
+      "id": "PAPER-LIU-ETAL-22/E99",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13648,7 +14110,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E100"
+      "id": "PAPER-LIU-ETAL-22/E100",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13664,7 +14131,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E101"
+      "id": "PAPER-LIU-ETAL-22/E101",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13680,7 +14152,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E102"
+      "id": "PAPER-LIU-ETAL-22/E102",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13696,7 +14173,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E103"
+      "id": "PAPER-LIU-ETAL-22/E103",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13712,7 +14194,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E104"
+      "id": "PAPER-LIU-ETAL-22/E104",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13728,7 +14215,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E105"
+      "id": "PAPER-LIU-ETAL-22/E105",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13744,7 +14236,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E106"
+      "id": "PAPER-LIU-ETAL-22/E106",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13760,7 +14257,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E107"
+      "id": "PAPER-LIU-ETAL-22/E107",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13776,7 +14278,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E108"
+      "id": "PAPER-LIU-ETAL-22/E108",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13792,7 +14299,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E109"
+      "id": "PAPER-LIU-ETAL-22/E109",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13808,7 +14320,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E110"
+      "id": "PAPER-LIU-ETAL-22/E110",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13824,7 +14341,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E111"
+      "id": "PAPER-LIU-ETAL-22/E111",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13840,7 +14362,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E112"
+      "id": "PAPER-LIU-ETAL-22/E112",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -13856,7 +14383,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E113"
+      "id": "PAPER-LIU-ETAL-22/E113",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13872,7 +14404,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E114"
+      "id": "PAPER-LIU-ETAL-22/E114",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13888,7 +14425,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E115"
+      "id": "PAPER-LIU-ETAL-22/E115",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13904,7 +14446,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E116"
+      "id": "PAPER-LIU-ETAL-22/E116",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13920,7 +14467,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E117"
+      "id": "PAPER-LIU-ETAL-22/E117",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13936,7 +14488,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E118"
+      "id": "PAPER-LIU-ETAL-22/E118",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13952,7 +14509,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E119"
+      "id": "PAPER-LIU-ETAL-22/E119",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13968,7 +14530,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E120"
+      "id": "PAPER-LIU-ETAL-22/E120",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -13984,7 +14551,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E121"
+      "id": "PAPER-LIU-ETAL-22/E121",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -14000,7 +14572,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E122"
+      "id": "PAPER-LIU-ETAL-22/E122",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -14016,7 +14593,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E123"
+      "id": "PAPER-LIU-ETAL-22/E123",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -14032,7 +14614,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E124"
+      "id": "PAPER-LIU-ETAL-22/E124",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is the one the surrounding text forces. This finding reaches beyond the wording, so I record what rests on what: I verified the printed statement and its locator, and the extraction’s own record notes that it was re-checked on the page image on 23 September 2026, with the counterexample or repair re-derived there. I did not independently re-derive that argument, and say so rather than implying a deeper check than I made. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "gap",
@@ -14048,7 +14635,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E125"
+      "id": "PAPER-LIU-ETAL-22/E125",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     },
     {
       "kind": "misprint",
@@ -14064,7 +14656,12 @@
         "arXiv:1912.11942 listing, checked 2026-09-23: v3 (17 August 2021) is the latest version; its comment records only that the original Appendix E became the separate article arXiv:2108.06998",
         "Wei Zhang's publication page (https://math.mit.edu/~wz2113/math/pub.html), checked 2026-09-23: the paper is listed without a correction"
       ],
-      "id": "PAPER-LIU-ETAL-22/E126"
+      "id": "PAPER-LIU-ETAL-22/E126",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The quotation is as printed at the recorded page, and the correction is fixed by the paper’s own surroundings — an index, a decoration, a label or a reference that the neighbouring definition, display or statement settles. Classified as affecting nothing, which is right: the intended reading is unambiguous and no later step depends on the printed form. Verified at the recorded page in the published text, which this review re-fetched from the NSF public-access mirror named in the source block (SHA-256 dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97, 269 pages, printed page = PDF page + 106, pp. 107–375).",
+        "by": "REV-PAPER-LIU-ETAL-22"
+      }
     }
   ],
   "sourceArchives": [
@@ -14294,8 +14891,9 @@
       "source": "PAPER-LIU-ETAL-22 PR #2181",
       "identity": {
         "roadmap": "ArithmeticLevelRaisingAndBipartiteEulerSystems",
-        "title": "Selmer and Iwasawa cohomology, Part II: Arithmetic level raising and Rankin–Selberg Selmer annihilators",
-        "area": "iwasawa"
+        "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: Arithmetic level raising and Rankin–Selberg Selmer annihilators",
+        "area": "iwasawa",
+        "titleNote": "Title corrected by REV-PAPER-LIU-ETAL-22 on 24 September 2026, together with the route, so that it is an exact prefix extension of the parent's atlas title 'Selmer groups, continuous integral cohomology, and Iwasawa cohomology' as PROTOCOL section 15 requires. The identity recorded here came from this paper's own earlier checkpoint (PR #2181), and no other extraction proposes this roadmap, so no coalescence with another paper is disturbed."
       }
     },
     "PolarizedAutomorphyLifting": {
@@ -14349,5 +14947,16 @@
       "nothing": 97
     },
     "missingRoutedExactlyOnce": true
+  },
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1281,
+    "job": "REV-PAPER-LIU-ETAL-22",
+    "date": "2026-09-24",
+    "verdict": "accept",
+    "read": "The published text (Invent. math. 228 (2022), 107–375), re-fetched from the NSF public-access mirror recorded in the source block and hashed to dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97; 269 pages, printed page = PDF page + 106. All 126 findings were located and their quotations checked at their recorded pages — 99 by an automatic prose match against the page, the remaining 27, whose quotations are displayed formulas, by hand. Eight of the twenty-nine findings that reach a proof or a stated result were examined in depth (E1, E2, E3, E4, E8, E9, E10, E13), with E2's linear-algebra obstruction, E4's unsatisfiable condition, E8's H¹ of a procyclic group acting trivially, E10's N = 2 count and E13's lattice witness re-derived independently. Structural checks and every route target were checked in full.",
+    "changes": "All 126 sourceIssues carry a review verdict and all are confirmed. Two Part II titles were corrected in place to be exact prefix extensions of their parents' atlas titles, as PROTOCOL section 15 requires: 'Lefschetz pencils and vanishing cycles, Part II: …' became 'Lefschetz pencils, nearby cycles and vanishing cycles, Part II: …', and 'Selmer and Iwasawa cohomology, Part II: …' became 'Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: …'. Neither is co-proposed by any other paper, so no coalescence is disturbed, and the second now matches the form PAPER-DISEGNI-LIU-24 uses for the same parent. Three item ids that appeared twice inside one route's `items` array were de-duplicated; no item gained or lost a route. The `coalescence` identity for that roadmap, which came from this paper's own earlier checkpoint (PR #2181) and carried the same title, was updated to match. Nothing else changed: no item, status, locator or quotation was altered.",
+    "lean": "none"
   }
 }
