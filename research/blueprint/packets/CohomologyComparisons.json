@@ -1,0 +1,1509 @@
+{
+ "roadmapId": "CohomologyComparisons",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "status": "partial",
+ "scope": [
+  "CohomologyComparisons:CP.0",
+  "CohomologyComparisons:CP.1",
+  "CohomologyComparisons:CP.2",
+  "CohomologyComparisons:CP.3",
+  "CohomologyComparisons:CP.4",
+  "CohomologyComparisons:CP.5",
+  "CohomologyComparisons:CP.6"
+ ],
+ "summary": "Cohomology comparisons, refined to declaration granularity from the reviewed integrated decomposition of Bhatt, Morrow and Scholze's Integral p-adic Hodge theory. All 20 node identifiers are kept with their verified locators, and each is given prerequisites resolved to the pinned libraries or to a named supplier stage, planets, and a coverage record per layer; the single definition is given an API outline with unit tests. Fourteen of the twenty nodes are in CP.5 and are the structure theory of finitely presented A_inf-modules together with the torsion inequalities and lattice-recovery theorems it yields; CP.1, CP.4 and CP.6 have no decomposed source and are left not read rather than invented. The recorded source hash is of a supplied text extraction that is not public, so it could not be reproduced; instead the printed-page half of seven locators was checked against arXiv:1602.03148v3 downloaded in this session, and all seven land on the recorded page. Six requests are filed, to the owners of A_inf-cohomology, of crystalline base change and of Breuil-Kisin theory. Thirteen gaps are carried or added. One structural proposal: CP.5 is three times the size of any other layer and its reusable half belongs with the A_inf linear algebra.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:WittVector",
+    "module": "Mathlib/RingTheory/WittVector/Defs.lean",
+    "provides": "Witt vectors. A_inf is the Witt vectors of the tilt, so this is the carrier of every module in this roadmap."
+   },
+   {
+    "ref": "mathlib:TruncatedWittVector",
+    "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+    "provides": "Truncated Witt vectors. The coherence lemma of CP.0 and the length inequalities of CP.5 are statements about finitely presented modules over these."
+   },
+   {
+    "ref": "mathlib:PreTilt",
+    "module": "Mathlib/RingTheory/Perfection.lean",
+    "provides": "The tilt as an inverse limit along Frobenius. A_inf is the Witt vectors of this ring, and the pinned library supplies it."
+   },
+   {
+    "ref": "mathlib:WittVector.fontaineTheta",
+    "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+    "provides": "Fontaine's theta as a ring homomorphism. It is one of the four entries of the specialization dictionary this packet's single definition assembles, and it is already pinned, so the definition cites it rather than rebuilding it."
+   },
+   {
+    "ref": "mathlib:BDeRhamPlus",
+    "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+    "provides": "The ring B_dR^+. The lattice-recovery statements of CP.3 and CP.5 are about a lattice inside a B_dR^+-cohomology, and the pinned library already has the ring."
+   },
+   {
+    "ref": "mathlib:BDeRham",
+    "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+    "provides": "The field B_dR, in which the rational comparisons are stated."
+   },
+   {
+    "ref": "mathlib:PadicInt",
+    "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+    "provides": "The p-adic integers, the coefficients of the etale cohomology groups being compared."
+   },
+   {
+    "ref": "mathlib:frobenius",
+    "module": "Mathlib/Algebra/CharP/Lemmas.lean",
+    "provides": "The Frobenius endomorphism, which the residue specialization uses and which every crystalline statement is equivariant for."
+   },
+   {
+    "ref": "mathlib:Valuation",
+    "module": "Mathlib/RingTheory/Valuation/Basic.lean",
+    "provides": "Valuations, in which the discretely valued base of the last three statements is described."
+   },
+   {
+    "ref": "mathlib:Module.Finite",
+    "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+    "provides": "Finitely generated modules. Finite presentation over A_inf is the standing hypothesis of the whole structure theory of CP.5."
+   },
+   {
+    "ref": "mathlib:Module.Free",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules, the conclusion of the freeness criteria and the shape of the lattices being recovered."
+   },
+   {
+    "ref": "mathlib:Module.Projective",
+    "module": "Mathlib/Algebra/Module/Projective.lean",
+    "provides": "Projective modules, used in the perfectness and Tor-dimension bounds."
+   },
+   {
+    "ref": "mathlib:Module.Flat",
+    "module": "Mathlib/RingTheory/Flat/Basic.lean",
+    "provides": "Flatness, the hypothesis under which the base changes of CP.2 are taken."
+   },
+   {
+    "ref": "mathlib:Module.length",
+    "module": "Mathlib/RingTheory/Length.lean",
+    "provides": "The length of a module. Every torsion inequality in this roadmap is an inequality of lengths, so this is the quantity the whole of CP.5 is about."
+   },
+   {
+    "ref": "mathlib:Module.rank",
+    "module": "Mathlib/LinearAlgebra/Dimension/Basic.lean",
+    "provides": "The rank of a module, the quantity the specialization comparison keeps equal while the lengths only increase."
+   },
+   {
+    "ref": "mathlib:Module.finrank",
+    "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+    "provides": "Finite rank, in which the mod p dimension bound of the application is stated."
+   },
+   {
+    "ref": "mathlib:IsArtinian",
+    "module": "Mathlib/RingTheory/Artinian/Defs.lean",
+    "provides": "Artinian modules, the setting in which lengths are finite and the monotonicity lemma has content."
+   },
+   {
+    "ref": "mathlib:IsNoetherianRing",
+    "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
+    "provides": "Noetherian rings. A_inf is not noetherian, which is precisely why the coherence lemma of CP.0 is needed and why finite presentation rather than finite generation is the standing hypothesis; this citation records the contrast."
+   },
+   {
+    "ref": "mathlib:IsLocalRing",
+    "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
+    "provides": "Local rings, the setting of the freeness criteria."
+   },
+   {
+    "ref": "mathlib:DerivedCategory",
+    "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+    "provides": "The derived category. The distinction between derived and degreewise specialization, which one node of CP.5 is entirely about, is a statement in it."
+   },
+   {
+    "ref": "mathlib:HomologicalComplex",
+    "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+    "provides": "Complexes, the objects the comparison diagram of CP.1 relates."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Abelian",
+    "module": "Mathlib/CategoryTheory/Abelian/Basic.lean",
+    "provides": "Abelian categories, in which those complexes live."
+   },
+   {
+    "ref": "mathlib:TensorProduct",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+    "provides": "Tensor products, the form every base change in this roadmap takes."
+   },
+   {
+    "ref": "mathlib:IsAdicComplete",
+    "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+    "provides": "Adic completeness, a standing hypothesis on the rings involved."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme",
+    "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+    "provides": "Schemes, over which the cohomology theories being compared are taken."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "bms1-2019",
+   "title": "Integral p-adic Hodge theory",
+   "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+   "edition": "arXiv:1602.03148v3 (2019); supplied text extraction (extracted line numbers refer to that file)",
+   "url": "https://arxiv.org/abs/1602.03148",
+   "sha256": "04b1f8357a38045fed39ab060d3cb01142bcdbcc15fca985bc80216b99fba774",
+   "readSections": [
+    "Theorem 1.1 and inequality (1), pp.2–3; lines 135–175 (statements only)",
+    "§2 introduction (pointer to the §2.1–2.2 counterexamples), p.13; lines 766–776 (§2.1–2.2 themselves unread)",
+    "Example 3.16 (ε, ξ, ξ̃_r), p.25; lines 1519–1548",
+    "Lemma 3.23 statement, p.27; lines 1695–1706",
+    "§3.3 coherence block: Proposition 3.24, Lemmas 3.25–3.28 and Corollary 3.29, all with proofs, pp.28–30; lines 1763–1871",
+    "Theorem 4.4 statement, Remark 4.5 and the proof of Theorem 4.4, pp.33–34; lines 2017–2060",
+    "§4.2 setup, Lemma 4.6 statement and first proof paragraph, pp.34–35; lines 2060–2082",
+    "Lemma 4.9, Lemma 4.10, Remark 4.11, Corollary 4.12, Proposition 4.13, all with proofs, pp.35–37; lines 2165–2281",
+    "Lemma 4.14, Corollary 4.15, Lemma 4.16, Corollary 4.17, Lemma 4.18, Lemma 4.19, Corollary 4.20, Remark 4.21, all with proofs, pp.37–40; lines 2282–2473",
+    "Definition 4.22 and Example 4.23 (start), Lemma 4.26 statement, Lemma 4.27 statement, Theorem 4.28 statement, Remark 4.29 with its full-faithfulness argument, Proposition 4.34 statement, pp.40–44; lines 2479–2498, 2542–2550, 2582–2590, 2610–2661, 2719–2740",
+    "Theorem 5.1 statement and the following paragraph p.45 (lines 2753–2771); Theorem 5.7 statement and proof p.47 (lines 2945–2952); Theorem 12.1 statement p.96 (lines 6048–6066); Theorem 13.1 statement and strategy paragraph p.104 (lines 6629–6671); Remark 13.20 p.114 (lines 7393–7400); Proposition 13.21 with proof and Remark 13.22 p.116 (lines 7524–7561)",
+    "Theorem 14.1 statement and Remark 14.2 p.118 (lines 7587–7612); Theorem 14.3 with proof and Remark 14.4 pp.119–120 (lines 7735–7780); Theorem 14.5 with proof pp.120–121 (lines 7782–7849); Theorem 14.6 with proof and Remark 14.7 pp.121–122 (lines 7852–7918)",
+    "Independent review REVIEW-COHCMP (2026-09-16), additional reading: introduction pp.3–4, Remarks 1.2–1.3, footnote 2 and the recollection of A_crys, B_crys = A_crys[1/μ] and B_dR^+ (lines 180–280), including the convention that S → W(k) sends T to 0 and is the Frobenius on W(k) (line 225)",
+    "Review: Theorem 2.1 statement p.13 (lines 783–789); Theorem 2.10 and Remark 2.11 statements p.16 (lines 1008–1016); the constructions and proofs of §§2.1–2.2 were not read",
+    "Review: Proposition 3.17 and Corollary 3.18 with proofs pp.25–26 (lines 1552–1611); §3.3 opening and Definition 3.22 p.27 (lines 1672–1693); proof of Lemma 3.23 pp.27–28 (lines 1721–1761)",
+    "Review: proof of Theorem 4.4 pp.33–34 (lines 2046–2058); proof of Lemma 4.6 with Lemmas 4.7–4.8 pp.34–35 (lines 2073–2160)",
+    "Review: Examples 4.23–4.24, Remark 4.25, Lemma 4.26 with proof and Lemma 4.27 with proof pp.40–42 (lines 2489–2609); §4.4 Lemma 4.30 to Corollary 4.33 and the proof of Proposition 4.34 pp.43–44 (lines 2661–2742); Remark 5.2 p.45 (lines 2775–2797); sketch of the proof of Theorem 5.1 pp.47–48 (lines 2953–2968)",
+    "Review: §13.3 Definition 13.18, Theorem 13.19 with proof, proof of Theorem 13.1 pp.114–115 (lines 7346–7490); §13.4 opening and Proposition 13.23 with proof pp.116–117 (lines 7510–7580); proof of Theorem 14.1 pp.118–119 (lines 7613–7730)",
+    "Review: pages 4, 13, 16, 27, 115–117 and 121–122 of the arXiv v3 PDF (SHA-256 285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a) were viewed to resolve symbols lost in the text extraction (Remark 13.22 reads k = F̄_p; Theorem 2.1(i) concerns X_{Q̄_2}; the Breuil–Kisin ring is written 𝔖 = W(k)[[T]])",
+    "BP-CohomologyComparisons, 24 September 2026: the recorded SHA-256 is of a supplied text extraction, as the edition field says, and that file is not public; it could not be reproduced here. What was checked instead is the printed-page half of every locator, against arXiv:1602.03148v3 downloaded in this session. Seven locators were tested and all seven land on the recorded page: Theorem 1.1 (p. 2), Example 3.16 (p. 25), Lemma 3.23 (p. 27), Theorem 4.4 (p. 33), Theorem 12.1 (p. 96), Theorem 13.1 (p. 104) and Theorem 14.1 (p. 118). The line numbers of the extraction were not checked, since the file they refer to is not available."
+   ],
+   "accessed": "2026-09-16"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+   "parentStageId": "CohomologyComparisons:CP.0",
+   "realises": [
+    "CohomologyComparisons:CP.0"
+   ],
+   "title": "Specializations of A_inf used by the integral comparison",
+   "kind": "definition",
+   "statement": "For a perfectoid field K with ring of integers O, residue field k and tilt O♭ ⊂ K♭, put A_inf = W(O♭) and fix x ∈ A_inf, the Teichmüller lift of a nonzero noninvertible element of O♭ (x is a non-zero-divisor and x ↦ 0 in W(k)). The specialization maps used by the torsion and lattice statements are: (a) Witt reduction A_inf → W(k), which factors as A_inf → W̃ := colim_n A_inf/(x^{1/p^n}) → W(k), the second map being the p-adic completion of the p-torsion-free ring W̃; its kernel Q := ker(W̃ → W(k)) is an A_inf[1/p]-module. (b) The generic-tilt specialization A_inf → W(K♭), which is flat: A_inf,(p) is a discrete valuation ring (valuation = index of the first nonzero Teichmüller coefficient) and W(K♭) is its p-adic completion. (c) θ: A_inf → O, whose kernel is generated by ξ = 1 + [ε^{1/p}] + ... + [ε^{1/p}]^{p−1} when O contains a compatible system ζ_{p^r} (r ≥ 1) of p-power roots of unity with ζ_p primitive in the sense 1 + ζ_p + ... + ζ_p^{p−1} = 0, where ε := (1, ζ_p, ζ_{p^2}, ...) ∈ O♭; put μ := [ε] − 1 and ξ̃ := φ(ξ). Then θ(ξ) = θ(μ) = 0, and when K has characteristic 0 and contains all p-power roots of unity (§3.3) ξ = μ/φ^{−1}(μ), ξ_r = μ/φ^{−r}(μ) and ξ̃_r = φ^r(μ)/μ generate ker θ, ker θ_r and ker θ̃_r. (d) The crystalline maps A_inf → A_crys → B_crys^+ = A_crys[1/p] → B_dR^+ → B_dR, where (Definition 3.22, §3.3 setting) A_crys is the p-adic completion of the A_inf-subalgebra of A_inf[1/p] generated by all ξ^m/m!, B_crys := A_crys[1/μ] = B_crys^+[1/μ] (a Q_p-algebra because μ^{p−1} ≡ ξ^p mod p, so μ^{p−1} ∈ pA_crys), B_dR^+ is the ξ-adic completion of B_crys^+ (a complete discrete valuation ring with residue field K) and B_dR = B_dR^+[1/ξ]; in particular μ is invertible in B_crys by definition, so A_inf → B_crys factors through A_inf[1/μ]. The canonical map from A_inf[1/p] to its μ-adic completion factors through B_crys^+. (e) μ-inversion A_inf → A_inf[1/μ]; for K = C the specialization to W(C♭) factors through A_inf[1/μ] — presupposed, not proved, by the statement of Lemma 4.26 and used through Corollary 4.15 in Theorem 14.5(ii).",
+   "hypotheses": [
+    "K perfectoid field; O = O_K; O♭ its tilt; k its residue field.",
+    "x ∈ A_inf is the Teichmüller lift of a nonzero noninvertible element of O♭ (§4.2 convention).",
+    "For (c): O contains a compatible system of p-power roots of unity with ζ_p primitive (Example 3.16, which also allows characteristic p with all ζ_{p^r} = 1). For the statements involving μ in (c)–(e): K has characteristic 0 and contains all p-power roots of unity (standing assumption of §3.3, restated before Lemma 4.18; in §14, K = C is algebraically closed)."
+   ],
+   "proofSteps": [
+    "(a) The identification of W(k) with the p-adic completion of W̃ and the fact that Q is an A_inf[1/p]-module are stated in the proof of Lemma 4.9(iii) and reused in Lemma 4.16; the visible reason is that the kernel of the completion map of a p-torsion-free module is p-divisible and p-torsion-free (reconstructed detail).",
+    "(b) The proof of Lemma 4.10 shows that A_inf,(p) is a discrete valuation ring; the remark after Corollary 4.17 records that flatness of A_inf → W(K♭) 'follows from the flatness of Ainf → W(K♭), see proof of Lemma 4.10' (the completion step A_inf,(p) → W(K♭) is implicit in the source).",
+    "(c) Example 3.16 defines ε and ξ, proves θ(ξ) = 0 and θ_r(ξ) = V(1) for all r (ghost-map computation over Z_p^cycl, with Remark 3.11 and Lemma 3.12), and deduces that ξ̃_r = φ(ξ)···φ^r(ξ) generates ker θ̃_r; the §3.3 opening records ξ = μ/φ^{−1}(μ), ξ_r and ξ̃_r = φ^r(μ)/μ as in Proposition 3.17(iii); θ(μ) = 0 because μ = ξ·φ^{−1}(μ) (equivalently, μ generates ker θ_∞ by Lemma 3.23); Definition 4.22 fixes ξ̃ = φ(ξ).",
+    "(d) Definition 3.22 defines A_crys, B_crys^+, B_crys = A_crys[1/μ], B_dR^+ and B_dR (the introduction, p.4, repeats B_crys = A_crys[1/μ]); the proof of Lemma 4.19 constructs A_crys → A_inf[1/p]/μ^n for all n by bounding the images of ξ^m/m!, using that the cokernel of A_inf/μ^n → A_inf/ξ^n ⊕ A_inf/φ^{-1}(μ)^n is bounded p-torsion and that ξ ≡ φ^{-1}(μ)^{p−1} mod p.",
+    "(e) That μ becomes a unit in W(C♭) is presupposed without comment in the statement and proof of Lemma 4.26 and in the proof of Theorem 14.5(ii); reconstructed reason: μ ≡ [ε − 1] modulo p, ε − 1 is a nonzero element of the field C♭, and W(C♭) is p-adically complete with residue field C♭. Recorded as a gap for a source-level check."
+   ],
+   "acceptance": [
+    "x ↦ 0 in W(k) and x is a non-zero-divisor of A_inf (both used in Lemma 4.9(iii) and Lemma 4.16).",
+    "θ(ξ) = 0 and θ(μ) = 0 for the Example 3.16 normalization; ξ̃_r generates ker θ̃_r.",
+    "A_inf,(p) is a DVR with residue field K♭ and uniformizer p (Lemma 4.10), so A_inf → W(K♭) is flat.",
+    "B_crys = A_crys[1/μ] is a Q_p-algebra (μ^{p−1} ∈ pA_crys, Definition 3.22(ii)), so A_inf[1/μ] → B_crys exists."
+   ],
+   "prerequisites": [
+    "AInfCohomology:AI.0",
+    "AInfCohomology:AI.0:period-comparison",
+    "mathlib:WittVector",
+    "mathlib:PreTilt",
+    "mathlib:WittVector.fontaineTheta",
+    "mathlib:BDeRhamPlus"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "§4.2 opening, p.34; extracted lines 2060–2063",
+     "excerpt": "fix an element x ∈ Ainf = W (O♭ ) which is the Teichmüller lift of a nonzero noninvertible element of O♭",
+     "match": "Fixes the element x whose torsion governs the adjacent-degree obstruction."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.9(iii) proof, p.36; lines 2203–2212",
+     "excerpt": "The last map in this sequence is the p-adic completion map and W̃ is p-torsion-free. Thus, Q is an Ainf [1/p]-module",
+     "match": "Defines W̃ and Q and records the property of Q used in Lemma 4.16."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.10 proof, p.36; lines 2234–2240",
+     "excerpt": "But Ainf,(p) is a discrete valuation ring",
+     "match": "DVR structure behind flatness of A_inf → W(K♭)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark after Corollary 4.17, p.39; lines 2371–2372",
+     "excerpt": "follows from the flatness of Ainf → W (K ♭ ), see proof of Lemma 4.10",
+     "match": "Flatness of the generic-tilt specialization used in Lemma 4.14 and Corollary 4.17."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Example 3.16, p.25; lines 1519–1548",
+     "excerpt": "Define ε := (1, ζp , ζp2 , . . . ) ∈ S ♭",
+     "match": "Normalization of ε, ξ and ξ̃_r used throughout §4 and §14."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.19 proof, pp.39–40; lines 2414–2435",
+     "excerpt": "We first show that the canonical map R → R̂ factors through Bcrys+",
+     "match": "The crystalline period map out of A_inf[1/p] used by the μ-inverted freeness criterion."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "§3.3 opening and Definition 3.22, p.27; lines 1672–1693",
+     "excerpt": "Let B+crys = Acrys [1/p], and Bcrys = Acrys [1/µ] = B+crys [1/µ], noting that µ^{p−1} ≡ ξ^p mod p ∈ Ainf , and thus µ^{p−1} ∈ pAcrys .",
+     "match": "Defines A_crys, B_crys^+, B_crys and B_dR^+ (reviewer reading); μ is invertible in B_crys by definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "AinfSpecialization",
+     "role": "data",
+     "statement": "The dictionary of specializations of A_inf used by the integral comparison: the residue specialization to the Witt vectors of the residue field, the theta specialization, the tilt specialization and the crystalline one."
+    },
+    {
+     "name": "AinfSpecialization.theta",
+     "role": "data",
+     "statement": "The theta specialization, which the pinned library already has as WittVector.fontaineTheta."
+    },
+    {
+     "name": "AinfSpecialization.residue",
+     "role": "data",
+     "statement": "The specialization along the residue section, sending the chosen element to zero and acting as Frobenius on the Witt vectors of the residue field."
+    },
+    {
+     "name": "AinfSpecialization.mu_unit",
+     "role": "structure",
+     "statement": "The normalisation fact that mu is a unit after inverting the relevant element, which the source uses implicitly and which the decomposition records as a gap."
+    },
+    {
+     "name": "AinfSpecialization.compatible",
+     "role": "compatibility",
+     "statement": "The compatibilities among the specializations that every later statement is phrased against."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CohomologyComparisons:CP.5/witt-versus-tilt-specialization-inequality",
+     "how": "the two specializations compared there are two entries of this dictionary"
+    },
+    {
+     "where": "CohomologyComparisons:CP.2/rational-crystalline-base-change-along-residue-section",
+     "how": "the base change is along the residue specialization"
+    },
+    {
+     "where": "CohomologyComparisons:CP.5/lattice-recovery-over-C",
+     "how": "the recovery statement is phrased through the theta specialization and the B_dR^+ lattice"
+    }
+   ],
+   "tests": [
+    {
+     "name": "theta_is_pinned",
+     "statement": "The theta specialization is the pinned WittVector.fontaineTheta; a redefinition that does not agree with it on Teichmueller lifts is wrong."
+    },
+    {
+     "name": "residue_convention",
+     "statement": "The residue specialization sends the chosen element to zero and is the Frobenius on the Witt vectors of the residue field; the independent review of the decomposition recorded exactly this convention from the source, and the opposite convention changes every later Frobenius-equivariance statement."
+    },
+    {
+     "name": "mu_unit",
+     "statement": "mu is a unit in the Witt vectors of the tilt of an algebraically closed complete field; without it the inverted-mu criteria are vacuous."
+    },
+    {
+     "name": "all_four",
+     "statement": "The dictionary has four entries and the statements of the later layers name which one they use; a single unnamed specialization is not enough to state them."
+    }
+   ],
+   "planet": {
+    "name": "The A_inf specialization dictionary"
+   }
+  },
+  {
+   "id": "CohomologyComparisons:CP.0/coherence-of-witt-vectors-of-perfectoid-integers",
+   "parentStageId": "CohomologyComparisons:CP.0",
+   "realises": [
+    "CohomologyComparisons:CP.0"
+   ],
+   "title": "Coherence of W_r(O) and finite presentation over A_inf/p^n",
+   "kind": "lemma",
+   "statement": "Let K be a perfectoid field with ring of integers O and maximal ideal m. (i) For every r ≥ 1 the ring W_r(O) is coherent (Proposition 3.24); in particular W_n(O♭) = A_inf/p^n is coherent for every n, whereas A_inf itself is not coherent in general. (ii) For a ring R and a finitely generated ideal I, an R/I-module is finitely presented over R/I iff it is finitely presented over R, and R/I is coherent if R is (Lemma 3.25). (iii) A square-zero extension S → R with R coherent and kernel finitely presented over R is coherent (Lemma 3.26). (iv) If f ∈ R is a non-zero-divisor and (R,f) has the Artin–Rees property, R is coherent as soon as R[1/f] and R/f are (Lemma 3.27); for an injective map R → S of f-torsion-free rings whose cokernel is killed by a power of f, (R,f) has the Artin–Rees property iff (S,f) does (Lemma 3.28). (v) A finitely presented W_r(O)-module has no nonzero element killed by W_r(m) (Corollary 3.29).",
+   "hypotheses": [
+    "K perfectoid field, O = O_K, m its maximal ideal, k its residue field.",
+    "For W_n(O♭) the characteristic-p case of (i) applies: O♭ is a perfect valuation ring."
+   ],
+   "proofSteps": [
+    "Characteristic p case of (i): O is a perfect valuation ring of characteristic p, hence coherent; W_r(O) → O is a successive square-zero extension by copies of O, so Lemma 3.26 applies. This is the case used for W_n(O♭) in Lemma 4.9 and Lemma 4.14.",
+    "Characteristic 0 case of (i): the ghost map W_r(O) → ∏_{i=1}^r O is injective with cokernel of bounded p-torsion since O is p-torsion-free; O, hence ∏O, is coherent and has the Artin–Rees property for f = p (asserted in the source without proof); by Lemmas 3.27–3.28 it suffices that W_r(O)/p is coherent (that W_r(O)[1/p] ≅ K^r is coherent is left implicit). As W_r(O)/p = W_r(O/p^N)/p for N large, it suffices (Lemma 3.25(ii), implicit) that W_r(O/p^N) is coherent, proved by induction on r and, for fixed r, on i for the square-zero extensions R_{i+1} → R_i with R_i = W_r(O/p^N)/V^{r−1}(p^i O/p^N) (R_0 = W_{r−1}(O/p^N), R_N = W_r(O/p^N)), whose kernel p^iO/p^{i+1}O is an R_i-module via R_i → O/p^N → O/p followed by φ^{r−1} and is finitely presented.",
+    "(ii): tensor a presentation down; conversely lift (R/I)^n → (R/I)^m → M → 0 to R^n ⊕ I^m → R^m → M → 0; for coherence of R/I lift a finitely generated ideal J to J̃ ⊂ R and use I/I^2 → J̃/IJ̃ → J → 0.",
+    "(iii): for a finitely generated ideal J ⊂ S, 0 → J ∩ I → J → JR → 0 with JR finitely presented over R hence over S; so J ∩ I is finitely generated, hence finitely presented inside the finitely presented R-module I; J is an extension of finitely presented modules.",
+    "(iv): Lemma 3.27 reduces finite generation of the kernel K of R^n → I to K/f, then to finite presentation of I/fI over R/f, using Artin–Rees twice and the coherence of R/f^M obtained from R/f by Lemma 3.26; Lemma 3.28 uses the equivalence of categories of modules up to bounded f-torsion.",
+    "(v): the submodule generated by an element killed by W_r(m) is finitely presented by coherence, hence W_r(O)/I with W_r(m) ⊂ I, hence a quotient W_s(k) of W_r(k); but ker(W_r(O) → W_s(k)) is not finitely generated since m is not."
+   ],
+   "acceptance": [
+    "A finitely generated submodule of a finitely presented W_n(O♭)-module (pM ⊂ M, or M[p^n] = H^{-1}(M ⊗^L A_inf/p^n)) is finitely presented — the two uses inside Lemma 4.9.",
+    "Contrast: A_inf itself is not coherent in general (the source cites [46]; not read), which is why the finite-presentation arguments of Lemmas 4.9 and 4.14 are run over W_n(O♭) = A_inf/p^n."
+   ],
+   "prerequisites": [
+    "mathlib:TruncatedWittVector",
+    "mathlib:IsNoetherianRing",
+    "mathlib:Module.Finite"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 3.24 statement p.28, proof p.30; lines 1763–1768, 1844–1860",
+     "excerpt": "For any r ≥ 1, the ring Wr (O) is coherent.",
+     "match": "The coherence statement; the characteristic-p case is what Lemma 4.9 uses for W_n(O♭). Line 1764: 'Unfortunately, in general Ainf is not coherent, cf. [46].'"
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 3.25 with proof, pp.28–29; lines 1769–1798",
+     "excerpt": "An R/I-module M is finitely presented as an R/I-module if and only if M is finitely presented as an R-module.",
+     "match": "Transfers finite presentation between A_inf and A_inf/p^n; used in Lemma 4.9(ii) and Corollary 4.15."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 3.26 with proof, p.29; lines 1799–1810",
+     "excerpt": "Assume that R is coherent and I is a finitely presented R-module. Then S is coherent.",
+     "match": "Square-zero extension step in both cases of Proposition 3.24."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemmas 3.27–3.28 with proofs, pp.29–30; lines 1811–1843",
+     "excerpt": "Then R is coherent if R[f −1 ] and R/f are coherent.",
+     "match": "Artin–Rees reduction for the characteristic-0 case."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Corollary 3.29 with proof, p.30; lines 1861–1871",
+     "excerpt": "there are no non-zero elements of M which are killed by Wr (m)",
+     "match": "Recorded consequence of coherence; not used in the CP.5 chain."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.2/rational-crystalline-comparison-over-C",
+   "parentStageId": "CohomologyComparisons:CP.2",
+   "realises": [
+    "CohomologyComparisons:CP.2"
+   ],
+   "title": "Rational A_crys/B_crys comparison over O_C (BMS1 Theorem 14.5(i))",
+   "kind": "comparison",
+   "statement": "Let X be proper smooth formal over O = O_C with generic fibre X and i ≥ 0. There is a canonical isomorphism H^i_crys(X_{O/p}/A_crys) ⊗_{A_crys} B_crys ≅ H^i_ét(X,Z_p) ⊗_{Z_p} B_crys. It is compatible with the isomorphism H^i_crys(X/B_dR^+) ⊗_{B_dR^+} B_dR ≅ H^i_ét(X,Z_p) ⊗ B_dR of Theorem 13.1 via the identification H^i_crys(X_{O/p}/A_crys) ⊗_{A_crys} B_dR^+ ≅ H^i_crys(X/B_dR^+).",
+   "hypotheses": [
+    "X proper and smooth formal over O_C; C complete algebraically closed over Q_p (Remark 14.2: for Theorem 14.1, C perfectoid with all p-power roots of unity suffices).",
+    "Input (AInfCohomology:AI.5, Theorem 14.3): RΓ_Ainf(X) ⊗^L A_crys ≃ RΓ_crys(X_{O/p}/A_crys) and RΓ_Ainf(X) ⊗ A_inf[1/μ] ≃ RΓ_ét(X,Z_p) ⊗ A_inf[1/μ]; all H^j_Ainf(X)[1/p] free.",
+    "Normalization: A_inf → B_crys factors through A_inf[1/μ] because B_crys := A_crys[1/μ] (Definition 3.22(ii)); verified by the reviewer, so this is no longer a gap."
+   ],
+   "proofSteps": [
+    "Source: 'The isomorphism in part (i) follows from Theorem 14.1' — base change the two derived comparisons of Theorem 14.3(iii),(iv) to B_crys.",
+    "Passage to cohomology groups (reconstructed, following CP.2's instruction to use perfectness and rational flatness): B_crys = A_crys[1/μ] (Definition 3.22(ii)) is a localization of A_crys, hence A_crys-flat, so H^i(RΓ_crys(X_{O/p}/A_crys) ⊗^L_{A_crys} B_crys) = H^i_crys ⊗_{A_crys} B_crys; B_crys is Z_p-torsion-free, hence Z_p-flat, so the étale side is H^i_ét ⊗ B_crys; and H^i(RΓ_Ainf(X) ⊗^L B_crys) = H^i_Ainf(X) ⊗ B_crys because the H^j_Ainf(X)[1/p] are free (a complex over A_inf[1/p] with free cohomology is formal).",
+    "Compatibility with the B_dR^+-lattice: the source says it 'amounts to the compatibility between the isomorphisms of Theorem 12.1 and Theorem 13.1, which one checks on the level of the explicit complexes'. The identification H^i_crys(X_{O/p}/A_crys) ⊗ B_dR^+ ≅ H^i_crys(X/B_dR^+) comes from Proposition 13.23 (a natural quasi-isomorphism built from the explicit complexes of §12.2, read by the reviewer), but the agreement of the two comparison isomorphisms is not displayed; see the CP.3 node and the corresponding gap."
+   ],
+   "acceptance": [
+    "Multiplicativity: the comparisons of Theorem 14.1 are compatible with multiplicative structures; φ acts on RΓ_Ainf(X) (Theorem 14.3), but Theorem 14.5(i) itself asserts no Frobenius compatibility and the O_C statement carries no Galois action — a Frobenius test here is a packet-authored target, not a source claim.",
+    "Elliptic curve with good reduction over O_C, ordinary and supersingular; the trivial case X = Spf O_C."
+   ],
+   "prerequisites": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+    "mathlib:BDeRham",
+    "mathlib:PadicInt"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.5(i) statement and proof, pp.120–121; lines 7782–7796, 7833–7836",
+     "excerpt": "The isomorphism in part (i) follows from Theorem 14.1. The compatibility with the BdR+ -lattice Hcrys (X/BdR+ ) amounts to the compatibility between the isomorphisms of Theorem 12.1 and Theorem 13.1, which one checks on the level of the explicit complexes.",
+     "match": "Source of the isomorphism and of the unread compatibility check."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.3(iii),(iv), p.120; lines 7748–7752",
+     "excerpt": "RΓAinf (X) ⊗LAinf Acrys ≃ RΓcrys (XO/p /Acrys ) ... RΓAinf (X) ⊗Ainf Ainf [1/µ] ≃ RΓét (X, Zp ) ⊗Zp Ainf [1/µ]",
+     "match": "The two derived comparisons consumed."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 12.1, p.96; lines 6048–6052",
+     "excerpt": "AΩX ⊗̂Ainf Acrys ≃ Ru∗ OYcrys /Acrys",
+     "match": "Sheaf-level A_crys comparison behind Theorem 14.1(iii) (proof unread)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Definition 3.22(ii), p.27; lines 1687–1690",
+     "excerpt": "Bcrys = Acrys [1/µ] = B+crys [1/µ], noting that µ^{p−1} ≡ ξ^p mod p ∈ Ainf , and thus µ^{p−1} ∈ pAcrys",
+     "match": "μ is invertible in B_crys by definition, so A_inf[1/μ] → B_crys exists and B_crys is a localization of A_crys."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 13.23 with proof, p.117; lines 7565–7580",
+     "excerpt": "There is a natural quasi-isomorphism RΓcrys (Y /Acrys ) ⊗Acrys B+dR ≅ RΓcrys (X/B+dR ). In particular, Hcrys (X/B+dR ) is free over B+dR .",
+     "match": "The good-reduction identification of B_dR^+-lattices (reviewer reading); the proof is a three-sentence sketch through the explicit complexes of §12.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.2/rational-crystalline-base-change-along-residue-section",
+   "parentStageId": "CohomologyComparisons:CP.2",
+   "realises": [
+    "CohomologyComparisons:CP.2"
+   ],
+   "title": "Rational crystalline base change from W(k) to A_crys along a residue-field section (BMS1 Proposition 13.21)",
+   "kind": "theorem",
+   "statement": "Let X be proper smooth formal over O = O_C, Y := X_{O/p}, Ȳ := X_k, and fix a section k → O/p. There is a canonical φ-equivariant isomorphism H^i_crys(Y/A_crys)[1/p] ≅ H^i_crys(Ȳ/W(k)) ⊗_{W(k)} A_crys[1/p]; in particular H^i_crys(Y/A_crys)[1/p] is a finite free A_crys[1/p]-module. Canonicity is relative to the section: the section is unique when k = F̄_p (Remark 13.22; the overline is lost in the text extraction and was checked on the PDF). In Theorem 14.6, where X is the base change of a proper smooth formal scheme over O_K with K discretely valued with residue field k, the proof uses 'a canonical section k → O/p → O_C/p' of the residue field k of K (the reduction of the canonical map W(k) → O_K), i.e. a variant of this proposition with H^i_crys(X_k/W(k)) on the right; that variant is not spelled out in the source (see the last proof step).",
+   "hypotheses": [
+    "X proper smooth formal over O_C (the §13.4 good-reduction setting); the first step of the proof applies to any qcqs smooth O/p-scheme.",
+    "A fixed section k → O/p, inducing W(k) → A_crys.",
+    "Imports: base change for crystalline cohomology; the reduction of the Frobenius statement to the affine case; Frobenius on crystalline cohomology of smooth affine k-schemes is an isomorphism after inverting p (the source reduces to 'the case of Z̄/k' without reference). The source calls the proposition 'a variant on a result of Berthelot–Ogus, [7]'; [7] was not read."
+   ],
+   "proofSteps": [
+    "For any qcqs smooth O/p-scheme Z, φ: H^i_crys(Z/A_crys) ⊗_{A_crys,φ} A_crys → H^i_crys(Z/A_crys) is an isomorphism after inverting p: reduce to Z affine, where Z ≅ Z̄ ×_{Spec k} Spec O/p (an isomorphism modulo p^{1/p^n} exists by finite presentation and lifts by smoothness), and base change from Z̄/k.",
+    "Iterate: H^i_crys(Y/A_crys) ⊗_{A_crys,φ^n} A_crys = H^i(Y_{O/p^{1/p^n}}/φ^{−n}(A_crys)) ⊗_{φ^{−n}(A_crys),φ^n} A_crys, whose left side agrees with H^i_crys(Y/A_crys) after inverting p.",
+    "For n large there is an isomorphism Y ×_{O/p} O/p^{1/p^n} ≅ Ȳ ×_{Spec k} Spec O/p^{1/p^n} reducing to the identity over Spec k (finite presentation), any two agreeing after increasing n; base change for crystalline cohomology gives the result.",
+    "DVR descent (reconstructed for Theorem 14.6): if X = X_0 ⊗_{O_K} O_C with ramification index e and p^n ≥ e, then O_K → O_C/p^{1/p^n} kills the uniformizer and coincides with the canonical section k → O_C/p^{1/p^n}, so the isomorphism of the previous step is canonical and the statement holds with k the residue field of K."
+   ],
+   "acceptance": [
+    "k = F̄_p: the section is unique (Remark 13.22: a surjection R → F_q of F_p-algebras with locally nilpotent kernel has a unique section; pass to the union over q).",
+    "Independence of the section in general is not claimed by the source; CP.2's 'claimed independence' must be limited to the canonical DVR section.",
+    "X = Spf O_C: both sides are A_crys[1/p] in degree 0."
+   ],
+   "prerequisites": [
+    "CrystallineCohomology:CR.3",
+    "mathlib:frobenius",
+    "mathlib:TensorProduct"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 13.21 statement, p.116; lines 7524–7531",
+     "excerpt": "Fix a section k → O/p. Then there is a canonical ϕ-equivariant isomorphism Hcrys (Y /Acrys )[1/p] ≅ Hcrys (Ȳ /W (k)) ⊗W (k) Acrys [1/p].",
+     "match": "Statement with its section dependence and finite-freeness consequence."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 13.21 proof, p.116; lines 7532–7553",
+     "excerpt": "Base change for crystalline cohomology implies the result.",
+     "match": "The crystalline base-change import."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark 13.22, p.116; lines 7554–7561 (PDF p.116 checked for the overline)",
+     "excerpt": "The choice of section k → O/p in Proposition 13.21 is unique in the important special case when k = F̄p .",
+     "match": "Limits of canonicity; k is the (algebraically closed) residue field of O_C."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.6 proof, p.122; lines 7898–7899",
+     "excerpt": "Note that in this situation, there is a canonical section k → O/p → OC /p, so part (i) follows from Theorem 14.5 (i) and Proposition 13.21.",
+     "match": "The canonical section used in the DVR descent."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Rational crystalline base change"
+   }
+  },
+  {
+   "id": "CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base",
+   "parentStageId": "CohomologyComparisons:CP.2",
+   "realises": [
+    "CohomologyComparisons:CP.2"
+   ],
+   "title": "Crystalline comparison and crystallinity of H^i_ét(X_C,Q_p) (BMS1 Theorem 14.6(i))",
+   "kind": "comparison",
+   "statement": "Let X be proper smooth formal over O_K, K complete discretely valued over Q_p with perfect residue field k, C a completed algebraic closure with Galois group G_K, X_C the geometric rigid-analytic generic fibre, i ≥ 0. There is a comparison isomorphism H^i_ét(X_C,Z_p) ⊗_{Z_p} B_crys ≅ H^i_crys(X_k/W(k)) ⊗_{W(k)} B_crys compatible with the G_K- and Frobenius actions and with the filtration; in particular H^i_ét(X_C,Q_p) is a crystalline G_K-representation.",
+   "hypotheses": [
+    "X proper smooth formal over O_K; K/Q_p complete discretely valued, k perfect.",
+    "Inputs: Theorem 14.5(i) for X_{O_C}; Proposition 13.21 with the canonical section k → O_K/p → O_C/p; Theorem 13.1 and its agreement with Theorem 5.1 (Scholze: H^i_ét(X_C,Z_p) ⊗ B_dR ≅ H^i_dR(X/K) ⊗_K B_dR) under Remark 13.20, for the filtration."
+   ],
+   "proofSteps": [
+    "Theorem 14.5(i) for X_{O_C}: H^i_crys(X_{O_C/p}/A_crys) ⊗ B_crys ≅ H^i_ét(X_C,Z_p) ⊗ B_crys.",
+    "Proposition 13.21 with the canonical section: H^i_crys(X_{O_C/p}/A_crys)[1/p] ≅ H^i_crys(X_k/W(k)) ⊗_{W(k)} A_crys[1/p]; tensor to B_crys.",
+    "G_K- and Frobenius compatibility: asserted in the statement; the proof text does not display the argument (canonicity of all maps for the G_K-action on O_C and for φ); recorded as remaining work.",
+    "Filtration: the isomorphism H^i_crys(X_C/B_dR^+) ⊗ B_dR ≅ H^i_ét(X_C,Z_p) ⊗ B_dR of Theorem 13.1 is compatible with Theorem 5.1's H^i_dR(X) ⊗_K B_dR ≅ H^i_ét(X_C,Z_p) ⊗ B_dR; together with the B_dR^+-lattice compatibility in Theorem 14.5(i) this identifies the Hodge filtration. The source does not say which filtration is meant on H^i_crys(X_k/W(k)) ⊗ B_crys; composing Proposition 13.21 (canonical section), Proposition 13.23 and Remark 13.20 gives H^i_crys(X_k/W(k)) ⊗_{W(k)} B_dR^+ ≅ H^i_dR(X/K) ⊗_K B_dR^+ (packet-authored composite), which carries the Hodge filtration.",
+    "Crystallinity (reconstructed; the source only says 'In particular'): taking G_K-invariants of the G_K-equivariant B_crys-linear isomorphism, with G_K acting trivially on H^i_crys(X_k/W(k)), gives D_crys(H^i_ét(X_C,Q_p)) = H^i_crys(X_k/W(k))[1/p] ⊗ B_crys^{G_K} = H^i_crys(X_k/W(k))[1/p] using B_crys^{G_K} = W(k)[1/p]; equality of dimensions then gives crystallinity by the period-functor formalism (PadicHodgeTheory R06.2)."
+   ],
+   "acceptance": [
+    "Good-reduction elliptic curve E: D_crys(H^1_ét(E_C,Q_p)) = H^1_crys(E_k/W(k))[1/p] with its Frobenius (H^1_ét(E_C,Q_p) is the Q_p-dual of V_pE; keep the duality explicit); ordinary versus supersingular slopes.",
+    "Frobenius compatibility must be checked with one normalization (arithmetic Frobenius on W(k), φ on A_crys) fixed in CP.0.",
+    "A proper smooth formal example not presented as a projective scheme (CP.2 acceptance) — none read in this batch."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.2/rational-crystalline-base-change-along-residue-section",
+    "CohomologyComparisons:CP.2/rational-crystalline-comparison-over-C",
+    "CohomologyComparisons:CP.3",
+    "CohomologyComparisons:CP.3/good-reduction-bdr-lattice-identification",
+    "PadicHodgeTheory:R06.2",
+    "mathlib:Valuation",
+    "mathlib:PadicInt"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.6(i) statement and proof, pp.121–122; lines 7852–7863, 7898–7911",
+     "excerpt": "For the compatibility with the filtration, we also use that the isomorphism ... from Theorem 13.1 is compatible with the isomorphism ... from Theorem 5.1.",
+     "match": "The CP.3 → CP.2 dependency for filtration compatibility."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 5.1 and the following paragraph, p.45; lines 2753–2771",
+     "excerpt": "In particular, the theorem gives a natural BdR+ -lattice HdR (X) ⊗K BdR+ ⊂ Hét (XC , Zp ) ⊗Zp BdR",
+     "match": "Scholze's de Rham comparison and its lattice (external, [58])."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 1.1(i), p.2; lines 139–145",
+     "excerpt": "compatible with the Galois and Frobenius actions, and the filtration. In particular, Hét (XC , Qp ) is a crystalline Galois representation.",
+     "match": "The exact list of compatibilities asserted."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.3/good-reduction-bdr-lattice-identification",
+   "parentStageId": "CohomologyComparisons:CP.3",
+   "realises": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "title": "The canonical B_dR^+-lattice in the good-reduction case",
+   "kind": "comparison",
+   "statement": "Let X be proper smooth formal over O_C with generic fibre X. Theorem 13.1 provides B_dR^+-modules H^i_crys(X/B_dR^+), finite free by Theorem 13.19, with a canonical isomorphism H^i_crys(X/B_dR^+) ⊗_{B_dR^+} B_dR ≅ H^i_ét(X,Z_p) ⊗ B_dR. In the good-reduction case Proposition 13.23 gives a natural quasi-isomorphism RΓ_crys(X_{O/p}/A_crys) ⊗_{A_crys} B_dR^+ ≅ RΓ_crys(X/B_dR^+); the degreewise identification H^i_crys(X_{O/p}/A_crys) ⊗_{A_crys} B_dR^+ ≅ H^i_crys(X/B_dR^+) is the one displayed in Theorem 14.5(i) (passing from Proposition 13.23 to it uses the freeness of H^i_crys(X_{O/p}/A_crys)[1/p] from Proposition 13.21 — a packet-authored step), and Theorem 14.5(i) asserts that under it the B_crys-comparison of Theorem 14.5(i) and the B_dR-comparison of Theorem 13.1 agree. If X = X_0 ⊗̂_K C with K ⊂ C discretely valued, H^i_dR(X_0/K) ⊗_K B_dR^+ ≅ H^i_crys(X/B_dR^+) (Remark 13.20, with K → B_dR^+ the unique continuous lift of K → C) and the comparison of Theorem 13.1 agrees with Theorem 5.1.",
+   "hypotheses": [
+    "X proper smooth adic space over C for Theorems 13.1 and 13.19; X the generic fibre of a proper smooth formal scheme over O_C for Proposition 13.23 and the good-reduction identification; X = X_0 ⊗̂_K C with X_0 proper smooth over a discretely valued subfield K ⊂ C for Remark 13.20.",
+    "Read by the reviewer only in outline: the proof of Theorem 13.19 (spreading out by Corollary 13.16, Lemma 13.13, derived ξ-completeness), the proof of Theorem 13.1 (local Koszul/de Rham comparison 'completely analogous to the proof of Proposition 12.9', and a commutative diagram for the agreement with Theorem 5.1) and the three-sentence proof of Proposition 13.23. Not read: §§13.1–13.2 (Lemmas 13.4–13.13, Proposition 13.15, Corollary 13.16), §12.2 and Proposition 12.9, and the explicit-complex check comparing Theorem 12.1 with Theorem 13.1 that the proof of Theorem 14.5(i) asserts."
+   ],
+   "proofSteps": [
+    "Theorem 13.1's route (overview paragraph only): define RΓ_crys(X/B_dR^+) by de Rham complexes of the completion D_Σ(R) of B_dR^+⟨(X_u^{±1})_{u∈Σ}⟩ → R along the kernel, for smooth affinoid R and a sufficiently large finite set Σ of units of R^◦, then take the colimit over Σ and globalize; agreement with Theorem 5.1 via Remark 13.20.",
+    "Good-reduction identification (Proposition 13.23): the crystalline cohomology of Y = X_{O/p} over A_crys is computed by explicit complexes as in the definition of RΓ_crys(X/B_dR^+) (§12.2); an explicit map between the models is locally, hence globally, a quasi-isomorphism, because locally both complexes are quasi-isomorphic to de Rham complexes of smooth lifts to A_crys, resp. B_dR^+. The agreement of the two comparison isomorphisms is only asserted in the proof of Theorem 14.5(i) ('one checks on the level of the explicit complexes').",
+    "Descent case: Remark 13.20 is read off from the proof of Theorem 13.19 (base change of the relative de Rham cohomology of a spreading-out along a lift A → B_dR^+). The agreement with Theorem 5.1 is the last paragraph of the proof of Theorem 13.1: a commutative diagram D_Σ(R) → D̃_Σ(R_K) ← R_K ⊗̂_K B_dR^+ over B_dR^+(R_∞,Σ) → OB_dR^+(R_∞,Σ) ← R_K ⊗̂_K B_dR^+, whose lower row encodes the comparison of Theorem 5.1 and whose upper row encodes Lemma 13.13 (unread)."
+   ],
+   "acceptance": [
+    "The lattice is not an arbitrary free B_dR^+-lattice: it is determined by the A_crys-crystalline cohomology of X_{O/p} (good reduction) or by H^i_dR(X_0) (descent case).",
+    "The identification must be compatible with Fargues' pair for H^i_Ainf(X) (used in Theorem 14.5(iii)).",
+    "Finite freeness of H^i_crys(X/B_dR^+) over B_dR^+ (Theorem 13.19; in the good-reduction case also Proposition 13.23 with Proposition 13.21), so that it is a lattice in the sense of Theorem 4.28."
+   ],
+   "prerequisites": [
+    "mathlib:BDeRhamPlus",
+    "mathlib:Module.Free"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 13.1, p.104; lines 6629–6643",
+     "excerpt": "In case X = X0 ⊗̂K C arises via base change from some complete discretely valued extension K of Qp with perfect residue field, this isomorphism agrees with the comparison from Theorem 5.1 above, under the identification Hcrys (X/BdR+ ) = HdR (X0 ) ⊗K BdR+ of Remark 13.20 below.",
+     "match": "Statement of the B_dR^+-cohomology and its agreement with Scholze's comparison."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark 13.20, p.114; lines 7393–7400",
+     "excerpt": "there is a canonical identification HdR (X0 /K) ⊗K BdR+ ≃ Hcrys (X/BdR+ ) of BdR+ -modules, where the implicit map K → BdR+ is the unique continuous lift of K → C that exists since K is discretely valued.",
+     "match": "The descent-case identification, including which map K → B_dR^+ is used."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.5(i) statement, p.120; lines 7782–7796",
+     "excerpt": "via the identification Hcrys (XO/p /Acrys ) ⊗Acrys BdR+ ≅ Hcrys (X/BdR+ ).",
+     "match": "The good-reduction identification consumed by CP.5's lattice recovery."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 13.23 with proof, p.117; lines 7565–7580",
+     "excerpt": "There is a natural quasi-isomorphism RΓcrys (Y /Acrys ) ⊗Acrys B+dR ≅ RΓcrys (X/B+dR ). In particular, Hcrys (X/B+dR ) is free over B+dR .",
+     "match": "The good-reduction identification of B_dR^+-lattices (reviewer reading); the proof is a three-sentence sketch through the explicit complexes of §12.2."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 13.19, p.114; lines 7368–7370",
+     "excerpt": "Let X/C be a proper smooth adic space. Then Hcrys (X/B+dR ) is finite free over B+dR for all i ∈ Z.",
+     "match": "Finite freeness of the B_dR^+-cohomology (reviewer reading)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proof of Theorem 13.1, p.115; lines 7468–7490",
+     "excerpt": "To check that this construction is compatible with the isomorphism from Theorem 5.1, use that in that case R = RK ⊗̂K C comes as a base change",
+     "match": "Location of the agreement with Theorem 5.1 used in Theorem 14.6(i) (reviewer reading, outline only)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/perfectness-and-tor-bounds-for-ainf-modules",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Perfectness, bounded torsion and Tor-dimension of finitely presented A_inf-modules",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.5 per its stage description ('the linear algebra controlling integral torsion under these specializations'); recorded here for the CP.5 application chain pending expansion of the AInfCohomology packet.] Let M be a finitely presented A_inf-module with M[1/p] finite free over A_inf[1/p]. Then (i) M is perfect as an A_inf-complex; (ii) the torsion submodule M_tor is killed by p^n for n ≫ 0 and is finitely presented and perfect over A_inf; (iii) M has Tor-dimension ≤ 2 and Tor_2^{A_inf}(M, W(k)) = 0; if moreover M has no x-torsion, then Tor_i^{A_inf}(M, W(k)) = 0 for all i > 0.",
+   "hypotheses": [
+    "K perfectoid field, A_inf = W(O♭), x as in the §4.2 convention.",
+    "M finitely presented over A_inf with M[1/p] finite free over A_inf[1/p] (the case M[1/p] = 0 is the base case of (i))."
+   ],
+   "proofSteps": [
+    "(i), case M[1/p] = 0: M is killed by p^n, hence a finitely presented W_n(O♭)-module; induction on n via 0 → pM → M → M/pM → 0, where M/pM is a finitely presented O♭-module, perfect over the valuation ring O♭ and hence over A_inf (O♭ = A_inf/p is perfect over A_inf), and pM is finitely presented over W_n(O♭) by coherence (Proposition 3.24, characteristic-p case) and killed by p^{n−1}.",
+    "(i), general case: choose a free A_inf-module N ⊂ M with N[1/p] = M[1/p] by clearing denominators; the quotient Q is finitely presented with Q[1/p] = 0, hence perfect; so M is perfect.",
+    "(ii): M_tor ∩ N = 0, so M_tor embeds in Q and is killed by p^n; then M_tor = M[p^n] = H^{-1}(M ⊗^L A_inf/p^n), a cohomology group of a perfect W_n(O♭)-complex, hence finitely presented over W_n(O♭) by coherence and over A_inf by Lemma 3.25(i); perfectness by (i).",
+    "(iii): Tor-dimension ≤ 2 since finitely presented O♭-modules have Tor-dimension ≤ 1 over O♭. With W̃ = colim A_inf/(x^{1/p^n}) and 0 → Q → W̃ → W(k) → 0 (Q an A_inf[1/p]-module): Tor_i(M,Q) = 0 for i > 0 as M[1/p] is free; W̃ has Tor-dimension 1 because x is a non-zero-divisor; hence Tor_2(M, W(k)) = 0. (The source asserts without further argument that W̃ → W(k) is the p-adic completion map and that W̃ is p-torsion-free; the proof opens with 'We freely use Lemma 3.25 and Lemma 3.26'.)",
+    "(iii), x-torsion-free case: Tor_i(M, W̃) = 0 for i > 0, giving 0 → Tor_1(M, W(k)) → M ⊗ Q → M ⊗ W̃ → M ⊗ W(k) → 0; the first term is killed after inverting p while p acts invertibly on M ⊗ Q, so Tor_1(M, W(k)) = 0."
+   ],
+   "acceptance": [
+    "M = A_inf/(x,p): perfect (Koszul), M_tor = M killed by p, Tor_1(M, W(k)) = k ≠ 0 (M has x-torsion, so the last clause does not apply).",
+    "M = A_inf/x is not an admissible test: M[1/p] = A_inf[1/p]/x is nonzero and killed by the non-zero-divisor x, hence not free over A_inf[1/p], so the hypothesis of Lemma 4.9 fails (its Tor_1(M, W(k)) = W(k) ≠ 0 says nothing about the lemma). Within the hypotheses, M = A_inf/(x,p) (first test) shows that the x-torsion-freeness assumption in (iii) cannot be dropped.",
+    "M finite free: all higher Tor vanish."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.0/coherence-of-witt-vectors-of-perfectoid-integers",
+    "mathlib:Module.Finite",
+    "mathlib:Module.Projective",
+    "mathlib:DerivedCategory"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.9 statement p.35, proof p.36; lines 2165–2227",
+     "excerpt": "Moreover, if M has no x-torsion, then Tori (M, W (k)) = 0 for i > 0.",
+     "match": "The Tor-vanishing under x-torsion-freeness that Lemma 4.16 and Corollary 4.17 turn into the adjacent-degree condition."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.9 proof, p.36; lines 2175, 2179–2202",
+     "excerpt": "since Wn (O♭ ) is coherent, pM ⊂ M is finitely presented over Wn (O♭ )",
+     "match": "The §3 coherence import inside the perfectness induction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/ainf-module-structure-theorem",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Structure of finitely presented A_inf-modules free after inverting p",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.2 per its stage description ('torsion decompositions' of finitely presented A_inf-modules free after p-inversion); recorded here for the CP.5 application chain.] Let M be a finitely presented A_inf-module with M[1/p] finite projective (equivalently free, Corollary 4.12) over A_inf[1/p]. There is a functorial exact sequence 0 → M_tor → M → M_free → M̄ → 0 with (i) M_tor finitely presented, perfect and killed by p^n for n ≫ 0; (ii) M_free finite free; (iii) M̄ finitely presented, perfect and supported at the closed point s ∈ Spec A_inf, i.e. killed by a power of (x,p). Moreover M is finite free if M ⊗_{A_inf} W(k) is p-torsion-free, or if K has characteristic 0 and M ⊗_{A_inf} O is p-torsion-free.",
+   "hypotheses": [
+    "K perfectoid field; M finitely presented over A_inf; M[1/p] finite projective over A_inf[1/p].",
+    "The second freeness criterion additionally needs char K = 0."
+   ],
+   "proofSteps": [
+    "(i) is Lemma 4.9(ii). N := M/M_tor is finitely presented, p-torsion-free and free after inverting p, so by Lemma 4.10 it defines a vector bundle on U = Spec A_inf minus the closed point (checked at the DVR A_inf,(p); the reduction 'It is enough to check that M ⊗ A_inf,(p) is finite free' is asserted in the proof of Lemma 4.10).",
+    "Kedlaya's Lemma 4.6: restriction is an equivalence between vector bundles on Spec A_inf and on U, and all vector bundles on U are free; hence M_free := H^0(U, N) is finite free, giving (ii). Full faithfulness: A_inf = A_inf[1/p] ∩ A_inf[1/x] inside A_inf[1/xp], by the Teichmüller expansion. Essential surjectivity (read by the reviewer): for a bundle given by (M_1, M_2, h), M := ker(M_1 ⊕ M_2 → M_12) lies in a finitely generated M' ⊂ M_1 with M'/M killed by a power of p; dim_k(M ⊗ k) ≥ d via a W(k)-lattice argument; M is p-adically complete, separated and p-torsion-free; M/p embeds in M_2/p ≅ (K♭)^d and is free of rank d by Lemmas 4.7–4.8 (an O♭-submodule E of (K♭)^d has dim_k(E ⊗ k) ≤ d, with equality only if it is free of rank d); hence M is finite free of rank d.",
+    "N → M_free is injective (N has no p-torsion) and an isomorphism over U, so the cokernel M̄ is finitely presented and supported at s; perfectness of M̄ follows from perfectness of the other three terms.",
+    "Freeness criterion: for a local domain R with residue field k_s and fraction field k_η, a finitely generated M with dim_{k_s}(M ⊗ k_s) = dim_{k_η}(M ⊗ k_η) is finite free (a nonzero Fitting ideal I ≠ R would separate the ranks at k_η ∉ Spec R/I and k_s ∈ Spec R/I). Apply to R = A_inf: the generic rank equals the rank over W(k)[1/p] or O[1/p] since M[1/p] is free, and equals dim_k(M ⊗ k) by the p-torsion-freeness assumption on M ⊗ W(k) (resp. M ⊗ O).",
+    "Corollary 4.12 (finite projective over A_inf[1/p] ⇒ free): choose a finitely generated M ⊂ N with M[1/p] = N; Lemma 4.10 and Lemma 4.6 give a finite free M' agreeing with M on U, so N = M'[1/p] is free."
+   ],
+   "acceptance": [
+    "M = (x,p) ⊂ A_inf: M_tor = 0, M_free = A_inf, M̄ = A_inf/(x,p) ≠ 0 — Remark 4.11: M is not projective though trivial on U.",
+    "M = A_inf/p^n ⊕ A_inf: M_tor = A_inf/p^n, M_free = A_inf, M̄ = 0.",
+    "The freeness criterion applied to M with M ⊗ W(k) p-torsion-free is the step Corollary 4.17 invokes."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.5/perfectness-and-tor-bounds-for-ainf-modules",
+    "mathlib:Module.Free",
+    "mathlib:Module.Finite"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 4.13 with proof, p.37; lines 2254–2281",
+     "excerpt": "Moreover, M is a finite free Ainf -module if either M ⊗Ainf W (k) is p-torsion-free, or if K has characteristic zero and M ⊗Ainf O is p-torsion-free.",
+     "match": "The freeness criterion consumed by Corollaries 4.17/4.20 and Lemma 4.18."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.6 with proof and Lemmas 4.7–4.8, pp.34–35; lines 2070–2160",
+     "excerpt": "restriction induces an equivalence of categories between vector bundles on Spec(Ainf ) and vector bundles on U . In particular, all vector bundles on U are free.",
+     "match": "Kedlaya's extension theorem used to produce M_free."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.10 with proof and Corollary 4.12 with proof, pp.36–37; lines 2231–2253",
+     "excerpt": "Let N be a finite projective Ainf [1/p]-module. Then N is free.",
+     "match": "Justifies 'equivalently free'; reused in Lemma 4.19."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/specialization-length-inequality",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Length goes up under specialization for finitely presented W_n(O♭)-modules",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.5 per its stage description ('the linear algebra controlling integral torsion under these specializations'); recorded here for the CP.5 application chain pending expansion of the AInfCohomology packet.] Let M be a finitely presented W_n(O♭)-module, M_η := M ⊗_{W_n(O♭)} W_n(K♭) and M_s := M ⊗_{W_n(O♭)} W_n(k). Then M_η and M_s have finite length over W_n(K♭) and W_n(k) respectively, and ℓ(M_η) = ℓ(M_s) − ℓ(Tor_1^{W_n(O♭)}(M, W_n(k))) ≤ ℓ(M_s).",
+   "hypotheses": [
+    "K perfectoid field; n ≥ 1; M finitely presented over W_n(O♭) = A_inf/p^n (equivalently a finitely presented A_inf-module killed by p^n, Lemma 3.25(i))."
+   ],
+   "proofSteps": [
+    "M ⊗^L_{W_n(O♭)} W_n(k) ≃ M ⊗^L_{A_inf} W(k); by Lemma 4.9 (M[1/p] = 0 is trivially free) M is perfect over A_inf, so each Tor_i^{W_n(O♭)}(M, W_n(k)) is a finitely generated W_n(k)-module, hence of finite length, and Tor_i = 0 for i > 1 by Lemma 4.9(iii).",
+    "Reformulate: ℓ(M_η) = ℓ(M ⊗^L W_n(K♭)) because W_n(O♭) → W_n(K♭) is flat (specialization dictionary, item (b)); ℓ(M_s) − ℓ(Tor_1) = ℓ(M ⊗^L W_n(k)) as an Euler characteristic, higher Tor vanishing.",
+    "Both sides are additive in short exact sequences of finitely presented modules. Writing M as an extension of M/p^{n−1}M by p^{n−1}M (= p^{n−1}M/p^nM, a module killed by p) reduces to n = 1, using M ⊗^L_{W_n(O♭)} W_n(k) ≃ M ⊗^L_{O♭} k when pM = 0. That p^{n−1}M and M/p^{n−1}M stay finitely presented uses the coherence of W_n(O♭) (Proposition 3.24) and Lemma 3.25(i), which the proof of Lemma 4.14 leaves implicit.",
+    "n = 1: by the classification of finitely presented modules over the valuation ring O♭ (external import), reduce to M = O♭ (both sides 1) and M = O♭/(x^r) with r > 0 in the value group of K♭ (M_η = 0; M_s = k and Tor_1(O♭/x^r, k) = k, so both sides 0)."
+   ],
+   "acceptance": [
+    "M = O♭/(x^r): strict inequality 0 < 1 = ℓ(M_s).",
+    "M = W_n(O♭)/(x^r) for n ≥ 2: ℓ(M_η) = 0, ℓ(M_s) = n, ℓ(Tor_1) = n.",
+    "M = W_n(O♭): equality n = n with Tor_1 = 0."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+    "CohomologyComparisons:CP.0/coherence-of-witt-vectors-of-perfectoid-integers",
+    "CohomologyComparisons:CP.5/perfectness-and-tor-bounds-for-ainf-modules",
+    "mathlib:Module.length",
+    "mathlib:TruncatedWittVector"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.14 with proof, pp.37–38; lines 2282–2305",
+     "excerpt": "ℓ(Mη ) = ℓ(Ms ) − ℓ(Tor1 (M, Wn (k))).",
+     "match": "The precise defect formula behind the inequality ℓ(M_η) ≤ ℓ(M_s)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.14 proof, p.38; lines 2302–2305",
+     "excerpt": "By the classification of finitely presented modules over valuation rings, we may assume M = O♭ or M = O♭ /(xr )",
+     "match": "Locates the external commutative-algebra import at the base case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/witt-versus-tilt-specialization-inequality",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Rank equality and length inequality between the W(k)- and W(K♭)-specializations",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.5 per its stage description ('the linear algebra controlling integral torsion under these specializations'); recorded here for the CP.5 application chain pending expansion of the AInfCohomology packet.] Let M be a finitely presented A_inf-module with M[1/p] free over A_inf[1/p]; put M_1 := M ⊗_{A_inf} W(K♭) and M_2 := M ⊗_{A_inf} W(k). Then (i) M_1 and M_2 have the same rank; (ii) for all n ≥ 1, ℓ_{W(k)}(M_2/p^n) ≥ ℓ_{W(K♭)}(M_1/p^n). Consequently (reconstructed from (i), (ii) and the structure of finitely generated modules over the discrete valuation rings W(k) and W(K♭)) ℓ(M_{2,tor}/p^n) ≥ ℓ(M_{1,tor}/p^n) for all n.",
+   "hypotheses": [
+    "K perfectoid field; M finitely presented over A_inf; M[1/p] free over A_inf[1/p]."
+   ],
+   "proofSteps": [
+    "(i): M_1[1/p] and M_2[1/p] are base changes of the finite free A_inf[1/p]-module M[1/p].",
+    "(ii): apply Lemma 4.14 to M/p^n, a finitely presented W_n(O♭)-module (Lemma 3.25(i)), whose η- and s-specializations are M_1/p^n and M_2/p^n.",
+    "Torsion form (reconstructed, not displayed in the source): for a finitely generated module N over a DVR with uniformizer p, ℓ(N/p^n) = n·rank N + ℓ(N_tor/p^n); subtract the common n·rank."
+   ],
+   "acceptance": [
+    "M = A_inf/(x,p) ⊕ A_inf: x is a unit in W(K♭) (its residue x̄ is a nonzero element of the field K♭), so M_1 = W(K♭) while M_2 = k ⊕ W(k); ranks 1 = 1 and ℓ(M_2/p^n) = n + 1 > n = ℓ(M_1/p^n).",
+    "M finite free: equality for all n."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.5/specialization-length-inequality",
+    "mathlib:Module.length",
+    "mathlib:Module.rank"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Corollary 4.15 with proof, p.38; lines 2308–2313",
+     "excerpt": "For all n ≥ 1, ℓ(M2 /pn ) ≥ ℓ(M1 /pn ).",
+     "match": "The inequality between the W(k)- and W(K♭)-specializations, 'crucial to our eventual applications' per the §4 introduction (p.31)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/derived-to-degreewise-witt-specialization",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Degreewise versus derived W(k)-specialization: injectivity and the adjacent-degree obstruction",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.5 per its stage description ('the linear algebra controlling integral torsion under these specializations'); recorded here for the CP.5 application chain pending expansion of the AInfCohomology packet.] Let C ∈ D(A_inf) with H^j(C)[1/p] free over A_inf[1/p] for every j, and fix i. The natural map H^i(C) ⊗_{A_inf} W(k) → H^i(C ⊗^L_{A_inf} W(k)) is injective and becomes bijective after inverting p. If H^{i+1}(C) has no x-torsion, the map is bijective.",
+   "hypotheses": [
+    "K perfectoid field; C ∈ D(A_inf) (no perfectness needed for this lemma).",
+    "H^j(C)[1/p] free over A_inf[1/p] for all j — needed to identify H^i(C) ⊗ Q with H^i(C ⊗^L Q) for the A_inf[1/p]-module Q and for rational bijectivity.",
+    "Bijectivity: H^{i+1}(C) x-torsion-free (one degree up)."
+   ],
+   "proofSteps": [
+    "Rational bijectivity is formal from freeness of the H^j(C)[1/p] (reconstructed reason: a complex over A_inf[1/p] with free cohomology groups is quasi-isomorphic to the direct sum of its shifted cohomology groups, so derived and ordinary base change agree after inverting p).",
+    "Injectivity of H^i(C) ⊗ W̃ → H^i(C ⊗^L W̃) with W̃ = colim A_inf/(x^{1/p^n}): both sides commute with filtered colimits, reducing to A_inf/(x^{1/p^n}), which the source 'can be checked easily using the Koszul presentation'; packet-authored expansion: the Koszul presentation gives 0 → H^i(C)/x^{1/p^n} → H^i(C ⊗^L A_inf/x^{1/p^n}) → H^{i+1}(C)[x^{1/p^n}] → 0, and the right-hand term vanishes for all n exactly when H^{i+1}(C) has no x-torsion, which gives bijectivity in that case.",
+    "With Q = ker(W̃ → W(k)) an A_inf[1/p]-module, the hypothesis gives H^i(C) ⊗ Q ≅ H^i(C ⊗^L Q). In the map of exact rows H^i(C)⊗Q → H^i(C)⊗W̃ → H^i(C)⊗W(k) → 0 over H^i(C⊗^L Q) → H^i(C⊗^L W̃) → H^i(C⊗^L W(k)), the left vertical map a is bijective and the middle map b injective; a diagram chase gives injectivity of the right map c.",
+    "Surjectivity of d: H^i(C⊗^L W̃) → H^i(C⊗^L W(k)): its obstruction is the boundary H^i(C ⊗^L W(k)) → H^{i+1}(C ⊗^L Q), which vanishes since the target is an A_inf[1/p]-module and d[1/p] is surjective (as c[1/p] is). Surjectivity of c then follows from surjectivity of b, i.e. from x-torsion-freeness of H^{i+1}(C)."
+   ],
+   "acceptance": [
+    "C = A_inf/(x,p)[−(i+1)] (Koszul-resolved): the hypotheses hold (H^{i+1}(C)[1/p] = 0), H^i(C) ⊗ W(k) = 0 but H^i(C ⊗^L W(k)) = Tor_1^{A_inf}(A_inf/(x,p), W(k)) = k ≠ 0: injective, not surjective; the failure is caused by x-torsion in H^{i+1}(C).",
+    "C with H^{i+1}(C) finite free: bijective.",
+    "The map is natural in C, hence compatible with a Frobenius-semilinear endomorphism of C and the Witt vector Frobenius on W(k) (packet-authored; Lemma 4.16 does not mention φ, while Theorem 14.5(iii) asserts that the resulting inclusion is φ-compatible)."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+    "mathlib:DerivedCategory",
+    "mathlib:HomologicalComplex"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.16 with proof, p.38; lines 2316–2360",
+     "excerpt": "the natural map H i (C) ⊗Ainf W (k) → H i (C ⊗LAinf W (k)) is injective, and bijective after inverting p. Furthermore, if H i+1 (C) has no x-torsion, then this map is bijective.",
+     "match": "Exact adjacent-degree hypothesis: x-torsion-freeness of H^{i+1}(C)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.16 proof, p.38; lines 2331–2360",
+     "excerpt": "the obstruction to surjectivity is the boundary map H i (C ⊗LAinf W (k)) → H i+1 (C ⊗LAinf Q)",
+     "match": "The boundary-map argument for surjectivity of d and the reduction of surjectivity of c to that of b."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/finite-presentation-and-freeness-criterion",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Finite presentation of cohomology, freeness from a torsion-free crystalline specialization, and the adjacent-degree equality",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.5 per its stage description ('the linear algebra controlling integral torsion under these specializations'); recorded here for the CP.5 application chain pending expansion of the AInfCohomology packet.] Let C ∈ D(A_inf) be a perfect complex with H^j(C)[1/p] free over A_inf[1/p] for all j. Then every H^j(C) is a finitely presented A_inf-module. For fixed i: if H^i(C ⊗^L W(k)) is p-torsion-free then H^i(C) is finite free over A_inf and H^i(C ⊗^L W(K♭)) = H^i(C) ⊗ W(K♭) is p-torsion-free. If moreover H^{i+1}(C) ⊗_{A_inf} W(k) is p-torsion-free — e.g. if H^{i+1}(C ⊗^L W(k)) is p-torsion-free, by Lemma 4.16 — then H^i(C) ⊗_{A_inf} W(k) = H^i(C ⊗^L_{A_inf} W(k)).",
+   "hypotheses": [
+    "C perfect over A_inf; H^j(C)[1/p] free for all j.",
+    "Freeness of H^i(C): H^i(C ⊗^L W(k)) p-torsion-free (degree i).",
+    "Degreewise equality: additionally H^{i+1}(C) ⊗ W(k) p-torsion-free (degree i+1). The source does not weaken this to a single degree."
+   ],
+   "proofSteps": [
+    "Finite presentation by descending induction on j: if H^{j'}(C) is finitely presented for all j' > j, then each is perfect (Lemma 4.9), so τ^{≤ j}C is perfect and H^j(C) is the top cohomology of a perfect complex, hence finitely presented. (The source asserts that the top cohomology group of a perfect complex is 'always finitely presented'.)",
+    "Freeness of H^i(C) (the source's preface 'Combining Proposition 4.13 with Lemma 4.16'): Lemma 4.16 embeds H^i(C) ⊗ W(k) into the p-torsion-free H^i(C ⊗^L W(k)); Proposition 4.13's final statement then makes H^i(C) finite free. The W(K♭)-statement follows from flatness of A_inf → W(K♭).",
+    "Adjacent-degree equality: H^{i+1}(C) ⊗ W(k) p-torsion-free ⇒ H^{i+1}(C) finite free (Proposition 4.13) ⇒ no x-torsion ⇒ Lemma 4.16's last clause gives bijectivity in degree i.",
+    "The 'e.g.' clause: Lemma 4.16 in degree i+1 embeds H^{i+1}(C) ⊗ W(k) into H^{i+1}(C ⊗^L W(k))."
+   ],
+   "acceptance": [
+    "C = A_inf/(x,p)[−(i+1)]: H^{i+1}(C ⊗^L W(k)) = k has p-torsion and the degree-i equality fails (Lemma 4.16 example).",
+    "C with all H^j(C ⊗^L W(k)) p-torsion-free: all H^j(C) finite free and derived = degreewise specialization in every degree."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.5/ainf-module-structure-theorem",
+    "CohomologyComparisons:CP.5/derived-to-degreewise-witt-specialization",
+    "CohomologyComparisons:CP.5/perfectness-and-tor-bounds-for-ainf-modules",
+    "mathlib:Module.Finite",
+    "mathlib:Module.Free"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Corollary 4.17 with proof, p.39; lines 2361–2381",
+     "excerpt": "If moreover H i+1 (C) ⊗Ainf W (k) is p-torsion-free (e.g., by Lemma 4.16, this happens if H i+1 (C ⊗LAinf W (k)) is p-torsion-free), then H i (C) ⊗Ainf W (k) = H i (C ⊗LAinf W (k)) .",
+     "match": "The exact two-degree hypothesis for the degreewise identification."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/mu-inverted-freeness-criterion",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Freeness after inverting p from μ-inverted and B_crys^+ freeness",
+   "kind": "lemma",
+   "statement": "[Supplier material: owned by AInfCohomology:AI.5 per its stage description ('the linear algebra controlling integral torsion under these specializations'); recorded here for the CP.5 application chain pending expansion of the AInfCohomology packet.] Assume K of characteristic 0 containing all p-power roots of unity, μ = [ε] − 1. Lemma 4.19: if M is a finitely presented A_inf-module with (i) M[1/pμ] finite projective over A_inf[1/pμ] and (ii) M ⊗_{A_inf} B_crys^+ finite projective over B_crys^+, then M[1/p] is finite free over A_inf[1/p]. Corollary 4.20: if C ∈ D(A_inf) is perfect with H^j(C)[1/pμ] free over A_inf[1/pμ] and H^j(C ⊗^L B_crys^+) free over B_crys^+ for all j, then every H^j(C) is finitely presented with H^j(C)[1/p] free, and the conclusions of Corollary 4.17 hold: freeness of H^i(C) if H^i(C ⊗^L W(k)) is p-torsion-free, and H^i(C) ⊗ W(k) = H^i(C ⊗^L W(k)) if moreover H^{i+1}(C) ⊗ W(k) is p-torsion-free (e.g. if H^{i+1}(C ⊗^L W(k)) is).",
+   "hypotheses": [
+    "char K = 0; K contains all p-power roots of unity (standing assumption stated before Lemma 4.18).",
+    "Lemma 4.19: M finitely presented, with (i) and (ii).",
+    "Corollary 4.20: C perfect; freeness after inverting pμ and after base change to B_crys^+ in every degree."
+   ],
+   "proofSteps": [
+    "R := A_inf[1/p], N := M[1/p], R̂ := μ-adic completion of R. The map R → R̂ factors through B_crys^+: produce A_crys → A_inf[1/p]/μ^n by bounding the images of ξ^m/m! (the cokernel of A_inf/μ^n → A_inf/ξ^n ⊕ A_inf/φ^{-1}(μ)^n is bounded p-torsion; ξ ≡ φ^{-1}(μ)^{p−1} mod p). μ is a non-zero-divisor of R (Proposition 3.17(ii), not cited at this point); the bounded-p-torsion claim is justified in the source only by 'this cokernel is finitely presented over A_inf, and acyclic after inverting p (since p ≡ ξ mod (φ^{-1}μ))'.",
+    "Beauville–Laszlo (external [4]) with Corollary 4.12: N is finite projective over R once N[1/μ] is finite projective (hypothesis (i)), N ⊗_R R̂ is finite projective (hypothesis (ii) through R → B_crys^+ → R̂) and N has no μ-torsion.",
+    "μ-torsion-freeness: from 0 → R → R̂ → Q' → 0 with Q' an R[1/μ]-module, Tor_1^R(N, Q') = Tor_1^{R[1/μ]}(N[1/μ], Q') = 0, so N ↪ N ⊗_R R̂, which is μ-torsion-free. (Injectivity of R → R̂ and the R[1/μ]-module structure of Q' are asserted in the source.)",
+    "Corollary 4.20: decreasing induction on j; for j maximal with H^j(C) ≠ 0, H^j(C) satisfies Lemma 4.19's hypotheses (top cohomology commutes with base change); 'the rest is Corollary 4.17'."
+   ],
+   "acceptance": [
+    "For C = RΓ_Ainf(X) the hypotheses are supplied by Theorem 14.3(iv) (H^j(C)[1/μ] = H^j_ét(X,Z_p) ⊗ A_inf[1/μ], which becomes free after also inverting p only because H^j_ét(X,Z_p) is a finitely generated Z_p-module — finiteness of p-adic étale cohomology of the proper smooth adic space X over C, from Scholze [58], which BMS1 recalls only in the discretely valued setting of Theorem 5.1 and does not cite here) and by Theorem 14.3(iii) with Proposition 13.21 (H^j(C ⊗^L B_crys^+) = H^j_crys(X_{O/p}/A_crys)[1/p] free) — the way Theorem 14.3 proves that all H^j_Ainf(X) are BKF modules.",
+    "Remark 4.21: the W(k)-hypothesis may be replaced by the O-hypothesis via Lemma 4.18."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+    "CohomologyComparisons:CP.5/ainf-module-structure-theorem",
+    "CohomologyComparisons:CP.5/finite-presentation-and-freeness-criterion",
+    "mathlib:Module.Free",
+    "mathlib:IsLocalRing"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.19 with proof, pp.39–40; lines 2406–2454",
+     "excerpt": "By the Beauville–Laszlo lemma, [4], and Corollary 4.12, it is enough to check that N [1/µ] is finite projective over R[1/µ], that N ⊗R R̂ is finite projective over R̂, and that N has no µ-torsion.",
+     "match": "The three conditions checked and the external import."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Corollary 4.20 with proof, p.40; lines 2458–2470",
+     "excerpt": "We only need to prove that H j (C)[1/p] is finite free over Ainf [1/p]; the rest is Corollary 4.17.",
+     "match": "Corollary 4.20 adds only rational freeness to Corollary 4.17."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.3 proof, p.120; lines 7764–7766",
+     "excerpt": "It follows that all cohomology groups are finite free after inverting p by Corollary 4.20 and comparisons (iii) and (iv), using also Proposition 13.21.",
+     "match": "How the criterion is instantiated on RΓ_Ainf(X)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/crystalline-de-rham-torsionfreeness-equivalence",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Torsion-freeness of the crystalline and de Rham specializations is equivalent degree by degree",
+   "kind": "lemma",
+   "statement": "Assume K of characteristic 0 with all p-power roots of unity. Let C ∈ D(A_inf) be perfect with H^j(C)[1/p] free for all j, and fix i. Then H^i(C ⊗^L_{A_inf} W(k)) is p-torsion-free iff H^i(C ⊗^L_{A_inf} O) is p-torsion-free (Lemma 4.18; in the geometric application A_inf → O is θ, as in the proof of Theorem 14.3). Hence (Remark 4.21) the hypothesis on H^i(C ⊗^L W(k)) in Corollaries 4.17/4.20 may be replaced by the same hypothesis on H^i(C ⊗^L O); applying Lemma 4.18 in degree i+1 converts the 'e.g.' condition on H^{i+1}(C ⊗^L W(k)) in the same way (packet-authored consequence). For X proper smooth formal over O_C this reads (Remark 14.4): H^i_crys(X_k/W(k)) torsion-free iff H^i_dR(X) torsion-free, for the fixed index i (footnote 2 of the introduction states the same over O_K); and each torsion-freeness hypothesis on H^i_crys(X_k/W(k)) in parts (ii) and (iii) of Theorems 14.5/14.6 may be replaced by torsion-freeness of the O-module H^i_dR(X) (Remark 14.7), the hypothesis on H^{i+1}_crys by that on H^{i+1}_dR.",
+   "hypotheses": [
+    "char K = 0 with all p-power roots of unity; C perfect; H^j(C)[1/p] free for all j.",
+    "For the geometric corollary: X proper smooth formal over O = O_C and Theorem 14.3(i),(ii) (AInfCohomology:AI.5 supply)."
+   ],
+   "proofSteps": [
+    "Each H^j(C) and each truncation of C is perfect (Corollary 4.17 and Lemma 4.9). Assume H^i(C ⊗^L W(k)) p-torsion-free; then H^i(C) ⊗ W(k) is p-torsion-free (Lemma 4.16) and H^i(C) is finite free (Proposition 4.13).",
+    "Tor_i^{A_inf}(H^j(C), W(k)) = 0 for i > 1 (Lemma 4.9(iii)) gives (τ^{≥ i}C) ⊗^L W(k) ≃ τ^{≥ i}(C ⊗^L W(k)); the torsion-freeness assumption places τ^{≥ i}(C ⊗^L W(k)) ⊗^L_{W(k)} k in D^{≥ i}(k), hence τ^{≥ i}C ⊗^L k ∈ D^{≥ i}(k), i.e. (τ^{≥ i}C ⊗^L O) ⊗^L_O k ∈ D^{≥ i}(k).",
+    "Therefore (a) the perfect complex τ^{≥ i}C ⊗^L O lies in D^{≥ i}(O) and (b) its H^i is free, using: a finitely presented O-module M is free iff Tor_1^O(M,k) = 0 (the Fitting-ideal argument at the end of Proposition 4.13). (a) gives τ^{≥ i}C ⊗^L O ≃ τ^{≥ i}(C ⊗^L O), and (b) then gives p-torsion-freeness of H^i(C ⊗^L O). The converse is identical with the roles exchanged.",
+    "Remark 14.4 notes that the weaker equivalence requiring both H^i and H^{i+1} torsion-free follows from universal coefficients relating H^*_dR(X), H^*_crys(X_k/W(k)) and H^*_dR(X_k), while no direct crystalline proof of the fixed-index equivalence is known."
+   ],
+   "acceptance": [
+    "Fixed index only: torsion in H^{i+1} is neither needed nor controlled.",
+    "For an elliptic curve over O_C (all groups torsion-free) both sides hold in every degree. Theorem 2.1 (statement read, p.13; construction unread): a smooth projective surface over Z_2 with all H^i_ét(X_{Q̄_2}, Z_2) free and H^2_crys(X_{F_2}/Z_2)_tor = F_2; by Remark 14.4 after base change to O_C, H^2_dR has torsion as well although étale cohomology is torsion-free (packet-authored consequence)."
+   ],
+   "prerequisites": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.5/ainf-module-structure-theorem",
+    "CohomologyComparisons:CP.5/derived-to-degreewise-witt-specialization",
+    "CohomologyComparisons:CP.5/finite-presentation-and-freeness-criterion",
+    "CohomologyComparisons:CP.5/perfectness-and-tor-bounds-for-ainf-modules",
+    "mathlib:Module.Free"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Lemma 4.18 with proof, p.39; lines 2385–2405",
+     "excerpt": "Then H i (C ⊗LAinf W (k)) is p-torsion-free if and only if H i (C ⊗LAinf O) is p-torsion-free.",
+     "match": "Fixed-degree equivalence."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark 14.4, p.120; lines 7768–7780",
+     "excerpt": "However, for a fixed index i as above, we do not know a direct “crystalline” proof of this equivalence.",
+     "match": "Geometric form and the contrast with the two-degree universal-coefficient argument."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark 14.7, p.122; lines 7915–7918",
+     "excerpt": "each torsion-freeness hypothesis on Hcrys (Xk /W (k)) in parts (ii) and (iii) of Theorem 14.5 and Theorem 14.6 can be replaced by the hypothesis that the O-module HdR (X) is torsion-free.",
+     "match": "Substitution rule for the hypotheses of the torsion and lattice theorems."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Introduction, footnote 2, p.3; line 220",
+     "excerpt": "We show that this is equivalent to requiring H i dR (X) being a torsion-free OK -module (for any fixed i).",
+     "match": "Fixed-index equivalence announced over O_K for Theorem 1.1(ii) (reviewer reading)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/length-monotonicity-under-torsion-cokernel",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Length modulo p^n is monotone along injections with torsion cokernel",
+   "kind": "lemma",
+   "statement": "For an injective map M ↪ N of finitely generated W(k)-modules with torsion cokernel Q, length_{W(k)}(N/p^n) ≥ length_{W(k)}(M/p^n) for all n ≥ 0.",
+   "hypotheses": [
+    "W(k) a discrete valuation ring with uniformizer p (k perfect); M, N finitely generated; Q = N/M torsion."
+   ],
+   "proofSteps": [
+    "Exact sequence Tor_1^{W(k)}(Q, W(k)/p^n) → M/p^n → N/p^n → Q/p^n → 0.",
+    "length Tor_1^{W(k)}(Q, W(k)/p^n) = length(Q/p^n) for any torsion W(k)-module Q (reconstructed check: Q ≅ ⊕ W(k)/p^{a_j} and both sides equal Σ min(a_j, n)).",
+    "Hence length(N/p^n) = length(Q/p^n) + length(M/p^n) − length(image of Tor_1) ≥ length(M/p^n)."
+   ],
+   "acceptance": [
+    "M = pW(k) ⊂ N = W(k): n ≥ n.",
+    "M = W(k) ⊂ N = W(k) ⊕ W(k)/p: n + 1 ≥ n.",
+    "Applied with M = H^i_Ainf(X) ⊗ W(k) ↪ N = H^i_crys(X_k/W(k)) in Theorem 14.5(ii)."
+   ],
+   "prerequisites": [
+    "mathlib:Module.length",
+    "mathlib:IsArtinian"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.5(ii) proof, p.121; lines 7837–7847",
+     "excerpt": "for any injective map M ֒→ N of finitely generated W (k)-modules with torsion cokernel Q, lengthW (k) (N/pn ) ≥ lengthW (k) (M/pn )",
+     "match": "The inline observation and its Tor exact sequence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/integral-torsion-length-inequality-over-C",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Crystalline torsion dominates étale torsion over O_C (BMS1 Theorem 14.5(ii))",
+   "kind": "theorem",
+   "statement": "Let X be a proper smooth formal scheme over the ring of integers O of a complete algebraically closed extension C of Q_p, with residue field k and generic fibre X, and let i ≥ 0. For all n ≥ 0, length_{W(k)}(H^i_crys(X_k/W(k))_tor/p^n) ≥ length_{Z_p}(H^i_ét(X,Z_p)_tor/p^n). In particular, if H^i_crys(X_k/W(k)) is p-torsion-free then so is H^i_ét(X,Z_p). The argument also gives rank_{W(k)} H^i_crys(X_k/W(k)) = rank_{Z_p} H^i_ét(X,Z_p).",
+   "hypotheses": [
+    "X proper and smooth formal over O_C; C complete algebraically closed over Q_p.",
+    "Input package from AInfCohomology:AI.5 (Theorem 14.3): C := RΓ_Ainf(X) perfect with all H^j(C)[1/p] free over A_inf[1/p]; C ⊗^L W(k) ≃ RΓ_crys(X_k/W(k)); C ⊗ A_inf[1/μ] ≃ RΓ_ét(X,Z_p) ⊗ A_inf[1/μ].",
+    "No torsion-freeness hypothesis: the inequality holds in every degree."
+   ],
+   "proofSteps": [
+    "M := H^i(C) is finitely presented with M[1/p] free (Corollary 4.17 with Theorem 14.3).",
+    "Lemma 4.16: M ⊗ W(k) ↪ H^i(C ⊗^L W(k)) = H^i_crys(X_k/W(k)), an isomorphism after inverting p, hence with torsion cokernel; so length(H^i_crys/p^n) ≥ length(M ⊗ W(k)/p^n) by the length-monotonicity lemma, and the ranks agree.",
+    "Corollary 4.15: rank(M ⊗ W(k)) = rank(M ⊗ W(K♭)) and length_{W(k)}(M ⊗ W(k)/p^n) ≥ length_{W(K♭)}(M ⊗ W(K♭)/p^n).",
+    "Étale identification (the source cites Theorem 14.1 for this step; details reconstructed): H^i(C)[1/μ] = H^i(C ⊗ A_inf[1/μ]) = H^i_ét(X,Z_p) ⊗_{Z_p} A_inf[1/μ] since localization is exact and A_inf[1/μ] is Z_p-flat; base change along A_inf[1/μ] → W(K♭) (μ a unit in W(K♭)) gives M ⊗ W(K♭) = H^i_ét(X,Z_p) ⊗_{Z_p} W(K♭); as Z_p → W(K♭) is flat with p remaining a uniformizer, length_{W(K♭)}((T ⊗ W(K♭))/p^n) = length_{Z_p}(T/p^n) and ranks agree.",
+    "Chain the inequalities and subtract n·rank from both ends (ranks equal) to obtain the torsion inequality; the p-torsion-free corollary is the case where the left side vanishes for all n."
+   ],
+   "acceptance": [
+    "n = 0 is trivial; n = 1 gives dim_k(H^i_crys,tor/p) ≥ dim_{F_p}(H^i_ét,tor/p).",
+    "Elliptic curve with good reduction over O_C: equality of ranks (1,2,1) and no torsion, in both the ordinary and the supersingular case.",
+    "Theorem 2.1 (p.13, statement only; construction unread): a smooth projective surface over Z_2 with all étale cohomology free and H^2_crys(X_{F_2}/Z_2)_tor = F_2 — the implication is not reversible (§2 introduction). Theorem 2.10 (p.16, statement only): a smooth projective surface H over a ramified O with H^2_ét(H_C,Z_p)_tor ≅ Z/p^2 and H^2_crys(H_k/W(k))_tor ≅ k ⊕ k — the étale torsion is not a subquotient of the crystalline torsion, although the length inequality holds (2 ≥ 1 for n = 1, 2 ≥ 2 for n ≥ 2)."
+   ],
+   "prerequisites": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+    "CohomologyComparisons:CP.5/crystalline-de-rham-torsionfreeness-equivalence",
+    "CohomologyComparisons:CP.5/derived-to-degreewise-witt-specialization",
+    "CohomologyComparisons:CP.5/finite-presentation-and-freeness-criterion",
+    "CohomologyComparisons:CP.5/length-monotonicity-under-torsion-cokernel",
+    "CohomologyComparisons:CP.5/witt-versus-tilt-specialization-inequality",
+    "mathlib:Module.length"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.5(ii) statement p.120 and proof p.121; lines 7797–7804, 7837–7847",
+     "excerpt": "For part (ii), we use Theorem 14.1, Lemma 4.16 and Corollary 4.15 together with the observation",
+     "match": "Identifies exactly the three inputs of the inequality."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 1.1(ii), p.3; lines 149–155",
+     "excerpt": "In particular, if Hcrys (Xk /W (k)) is p-torsion-free, then so is Hét (XC , Zp ).",
+     "match": "The one-directional corollary as stated in the introduction."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 2.10, p.16; lines 1008–1011",
+     "excerpt": "The above construction gives a smooth projective (relative) surface H over Spec(O) such that H2ét (HC , Zp )tor ≃ Z/p2 Z, while H2crys (Hk /W (k))tor ≃ k ⊕ k.",
+     "match": "Statement of the §2.2 example: no subquotient relation (reviewer reading; proof unread)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Crystalline torsion dominates etale torsion"
+   }
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/lattice-recovery-over-C",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Recovering the crystalline lattice from étale cohomology with its B_dR^+-lattice (BMS1 Theorem 14.5(iii))",
+   "kind": "theorem",
+   "statement": "Let X be proper smooth formal over O = O_C with generic fibre X and i ≥ 0. Tier 1 (hypothesis: H^i_crys(X_k/W(k)) p-torsion-free; then the finitely generated Z_p-module H^i_ét(X,Z_p) is p-torsion-free by part (ii), hence finite free, so the pair below satisfies the hypotheses of Theorem 4.28): H^i_Ainf(X) is a finite free Breuil–Kisin–Fargues module and there is a canonical isomorphism H^i_Ainf(X) ≅ BKF(H^i_ét(X,Z_p)), where BKF(H^i_ét(X,Z_p)) is the finite free BKF module attached by Fargues' equivalence (Theorem 4.28) to the pair (H^i_ét(X,Z_p), H^i_crys(X/B_dR^+) ⊂ H^i_ét(X,Z_p) ⊗ B_dR); moreover H^i_crys(X_k/W(k)) ⊃ BKF(H^i_ét(X,Z_p)) ⊗_{A_inf} W(k), compatibly with φ. Tier 2 (hypothesis: H^i_crys(X_k/W(k)) and H^{i+1}_crys(X_k/W(k)) both p-torsion-free): the inclusion is an equality, so H^i_crys(X_k/W(k)) with its φ-action is recovered from H^i_ét(X,Z_p) with its B_dR^+-lattice.",
+   "hypotheses": [
+    "X proper smooth formal over O_C.",
+    "Tier 1: H^i_crys(X_k/W(k)) p-torsion-free (degree i only).",
+    "Tier 2: H^{i+1}_crys(X_k/W(k)) p-torsion-free as well (degree i+1) — the source's exact adjacent-degree hypothesis; by Remark 14.7 either hypothesis may be replaced by torsion-freeness of H^i_dR(X), resp. H^{i+1}_dR(X).",
+    "Input package (AInfCohomology:AI.5, Theorem 14.3): RΓ_Ainf(X) perfect, φ, comparisons (i),(iii),(iv), all H^j_Ainf(X) BKF modules.",
+    "CP.3 input (Theorem 13.1): the B_dR^+-lattice H^i_crys(X/B_dR^+), identified in the good-reduction case with H^i_crys(X_{O/p}/A_crys) ⊗ B_dR^+ (Proposition 13.23; the degreewise identification is displayed in Theorem 14.5(i))."
+   ],
+   "proofSteps": [
+    "Corollary 4.20 (the source's citation; given Theorem 14.3's BKF conclusion, Corollary 4.17 already suffices) with C = RΓ_Ainf(X): H^i_crys(X_k/W(k)) = H^i(C ⊗^L W(k)) p-torsion-free ⇒ H^i(C) = H^i_Ainf(X) finite free; with its φ it is a finite free BKF module.",
+    "Its Fargues pair (reconstructed from 'the identification of the B_dR^+-lattice in part (i)'; not displayed): T = (H^i_Ainf(X) ⊗ W(C♭))^{φ=1} = H^i_ét(X,Z_p) by Theorem 14.3(iv) and Lemma 4.26 — this uses that comparison (iv) is φ-equivariant for the trivial Frobenius on H^i_ét(X,Z_p), which Theorem 14.3 does not state explicitly; Ξ = H^i_Ainf(X) ⊗ B_dR^+ = H^i_crys(X_{O/p}/A_crys) ⊗ B_dR^+ by Theorem 14.3(iii) (rational coefficients: derived and ordinary tensor agree because the H^j(C)[1/p] are free) = H^i_crys(X/B_dR^+) by the identification in part (i) (Proposition 13.23).",
+    "Fargues' equivalence (Theorem 4.28; only full faithfulness is needed, Remark 4.29, which proves it directly: faithfulness from Lemma 4.26 and injectivity of A_inf → A_inf[1/μ], fullness by induction on φ^{−r}(μ)^{−1} using the B_dR^+-lattices and Lemma 3.23) gives the canonical isomorphism H^i_Ainf(X) ≅ BKF(H^i_ét(X,Z_p)).",
+    "Lemma 4.16 gives the φ-compatible injection H^i_Ainf(X) ⊗ W(k) ↪ H^i(C ⊗^L W(k)) = H^i_crys(X_k/W(k)) (Tier 1 inclusion).",
+    "Tier 2: Corollary 4.20's last clause — if H^{i+1}(C) ⊗ W(k) is p-torsion-free, e.g. if H^{i+1}(C ⊗^L W(k)) = H^{i+1}_crys(X_k/W(k)) is — the injection is bijective."
+   ],
+   "acceptance": [
+    "Elliptic curve E over O_C: H^1_crys(E_k/W(k)) is recovered from H^1_ét(E,Z_p) with its B_dR^+-lattice; H^2 is torsion-free so the adjacent condition holds.",
+    "A test where H^{i+1}_crys has torsion but H^i_crys does not may assert only Tier 1 (the inclusion); the source neither proves equality nor gives an example of a strict inclusion in that case, and the generic Lemma 4.16 example (H^{i+1}(C) with x-torsion) shows only the algebraic mechanism.",
+    "Test specifications must not force all cohomology to be free (CP.5 acceptance rule)."
+   ],
+   "prerequisites": [
+    "AInfCohomology:AI.2",
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.2/rational-crystalline-base-change-along-residue-section",
+    "CohomologyComparisons:CP.2/rational-crystalline-comparison-over-C",
+    "CohomologyComparisons:CP.3",
+    "CohomologyComparisons:CP.3/good-reduction-bdr-lattice-identification",
+    "CohomologyComparisons:CP.5/crystalline-de-rham-torsionfreeness-equivalence",
+    "CohomologyComparisons:CP.5/derived-to-degreewise-witt-specialization",
+    "CohomologyComparisons:CP.5/mu-inverted-freeness-criterion",
+    "mathlib:BDeRhamPlus",
+    "mathlib:Module.Free"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.5(iii) statement, p.121; lines 7809–7831",
+     "excerpt": "Then, assuming only that Hcrys (Xk /W (k)) is p-torsion-free, we have a canonical isomorphism HAinf (X) ≅ BKF(Hét (X, Zp )), and Hcrys (Xk /W (k)) ⊃ BKF(Hét (X, Zp )) ⊗Ainf W (k), compatibly with the ϕ-action. If H^{i+1}crys (Xk /W (k)) is also p-torsion-free, then the last inclusion is an equality.",
+     "match": "The two-tier statement with the exact adjacent-degree hypothesis."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.5(iii) proof, p.121; lines 7848–7849",
+     "excerpt": "For part (iii), we use the equivalence of Theorem 4.28 together with Corollary 4.20, and the identification of the BdR+ -lattice in part (i).",
+     "match": "Names the three inputs of the recovery statement."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 4.28 and Remark 4.29, pp.42–43; lines 2610–2655",
+     "excerpt": "For the proof of our main theorems, we only need fully faithfulness of the functor M 7→ (T, Ξ), which is easy to prove directly.",
+     "match": "Only full faithfulness of Fargues' functor is consumed."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Paragraph after Theorem 5.1, p.45; lines 2762–2771",
+     "excerpt": "Thus, by Theorem 4.28, the torsion-free quotient of Hét (XC , Zp ) and this B+dR -lattice given by de Rham cohomology define a finite free Breuil–Kisin–Fargues module, which we will call BKF(Hét (XC , Zp )).",
+     "match": "BKF(−) is defined from the torsion-free quotient; Remark 5.2 adds that the lattice depends only on X_C (§13), so the construction works over C (reviewer reading)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Lattice recovery over O_C"
+   }
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/dvr-lattice-recovery-via-breuil-kisin",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Recovering the crystalline lattice from the G_K-lattice over a discretely valued base (BMS1 Theorem 14.6(iii))",
+   "kind": "theorem",
+   "statement": "Let X be proper smooth formal over O_K, K complete discretely valued over Q_p with perfect residue field k, C a completed algebraic closure with Galois group G_K, X_C the geometric rigid generic fibre, i ≥ 0. Assume H^i_crys(X_k/W(k)) and H^{i+1}_crys(X_k/W(k)) are p-torsion-free. Kisin's functor (Theorem 4.4; it depends on the fixed uniformizer π and roots π^{1/p^n}) attaches to the lattice H^i_ét(X_C,Z_p) in the crystalline G_K-representation H^i_ét(X_C,Q_p) a finite free Breuil–Kisin module BK(H^i_ét(X_C,Z_p)) over S = W(k)[[T]] (written 𝔖 in the source); there is an identification BK(H^i_ét(X_C,Z_p)) ⊗_S B_crys^+ ≅ H^i_crys(X_k/W(k)) ⊗_{W(k)} B_crys^+ (Proposition 4.34 and part (i); S → A_inf sends T to [π♭]^p and is the Frobenius on W(k), §4.4); extending scalars along B_crys^+ → W(k̄)[1/p] gives BK(H^i_ét) ⊗_S W(k)[1/p] ≅ H^i_crys(X_k/W(k))[1/p], where S → W(k) sends T to 0 and is the Frobenius on W(k) (introduction, p.4); and BK(H^i_ét(X_C,Z_p)) ⊗_S W(k) = H^i_crys(X_k/W(k)) as submodules of the common base extension to W(k)[1/p]. Thus H^i_crys(X_k/W(k)) with φ is recovered from H^i_ét(X_C,Z_p) with its G_K-action.",
+   "hypotheses": [
+    "X proper smooth formal over O_K, K/Q_p complete discretely valued, k perfect; a uniformizer π and compatible p-power roots π^{1/p^n} ∈ C fixed (§4.1), defining θ̃: S → O_K (T ↦ π), the element π♭ ∈ C♭, K_∞ and S → A_inf (T ↦ [π♭]^p, Frobenius on W(k)).",
+    "Both H^i_crys and H^{i+1}_crys(X_k/W(k)) p-torsion-free (the Theorem 1.1(iii) hypothesis; Remark 14.7 allows H^i_dR(X), H^{i+1}_dR(X) torsion-free instead).",
+    "H^i_ét(X_C,Q_p) crystalline (Theorem 14.6(i)) so that Kisin's functor applies.",
+    "External: Theorem 4.4 — existence and the identification M(T) ⊗_S W(C♭) ≅ T ⊗ W(C♭) from Kisin [49, Theorem 1.2.1]; uniqueness through [48, Proposition 2.1.12] and the equivalence between finite free φ-modules over S[1/T]^∧_p and finite free Z_p-modules with G_{K_∞}-action ([44, Proposition 4.1.1] or [35, Proposition 2.32]), with the implicit full faithfulness of restriction from crystalline G_K-representations to G_{K_∞}-representations; Proposition 4.34 — proof is one sentence: it 'follows from Kisin's construction of M(T), which starts with the crystalline side and an isomorphism between M(T) and D_crys(V) ⊗ S[1/p] on some rigid-analytic open of the generic fibre of Spf S, cf. [48, Section 1.2, Lemma 1.2.6]' (Kisin's argument unread)."
+   ],
+   "proofSteps": [
+    "Apply Theorem 14.5(iii) to X_{O_C} (residue field k̄): under torsion-freeness of H^i_crys and H^{i+1}_crys of X_{k̄} (base change of the hypotheses along k → k̄; import), H^i_crys(X_{k̄}/W(k̄)) = BKF(H^i_ét(X_C,Z_p)) ⊗_{A_inf} W(k̄), with the B_dR^+-lattice H^i_crys(X_C/B_dR^+) = H^i_dR(X/K) ⊗_K B_dR^+ (Remark 13.20) = D_dR(V) ⊗_K B_dR^+ (Theorem 5.1).",
+    "Proposition 4.34 (restated geometrically in Remark 5.2: BKF(H^i_ét) = BK(H^i_ét) ⊗_S A_inf): under Fargues' classification BK(T) ⊗_S A_inf corresponds to the pair (T, D_dR(V) ⊗_K B_dR^+); by full faithfulness (Remark 4.29) BK(H^i_ét) ⊗_S A_inf ≅ BKF(H^i_ét) = H^i_Ainf(X_{O_C}).",
+    "The identification BK ⊗_S B_crys^+ ≅ H^i_crys(X_k/W(k)) ⊗ B_crys^+ is Proposition 4.34's equality M(T) ⊗_S B_crys^+ = D_crys(V) ⊗ B_crys^+ combined with part (i) (D_crys(V) = H^i_crys(X_k/W(k))[1/p]); extending scalars along B_crys^+ → W(k̄)[1/p] (the Witt reduction A_inf → W(k̄) carries ξ to p and so extends to A_crys, introduction p.4) and taking G_{K_∞}-invariants as in Remark 4.5 gives BK ⊗_S W(k)[1/p] = H^i_crys[1/p], for the map S → W(k) with T ↦ 0 and Frobenius on W(k).",
+    "Equality of lattices: BK ⊗_S W(k̄) = H^i_crys(X_k/W(k)) ⊗_{W(k)} W(k̄) inside the common W(k̄)[1/p]-space (step 1 with base change of crystalline cohomology along k → k̄); descend to W(k) by faithful flatness of W(k) → W(k̄) (reconstructed; the source states 'part (iii) follows from Theorem 14.5(iii) and Proposition 4.34')."
+   ],
+   "acceptance": [
+    "Good-reduction elliptic curve over O_K: BK(H^1_ét(E_C,Z_p)) ⊗_S W(k) equals the Dieudonné module H^1_crys(E_k/W(k)).",
+    "The hypothesis in degree i+1 is retained: a case with torsion in H^{i+1}_crys is not covered by this statement (only the Tier 1 inclusion over C).",
+    "Consistency on Tate twists: Z_p(1) ↦ S{1} (Corollary 4.33, read by the reviewer: S{1} ⊗_S A_inf ≅ A_inf{1} compatibly with G_{K_∞}, and A_inf{1} = μ^{−1}(Z_p(1) ⊗ A_inf)) versus A_inf{1} (Example 4.24)."
+   ],
+   "prerequisites": [
+    "AInfCohomology:AI.2",
+    "CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base",
+    "CohomologyComparisons:CP.5/lattice-recovery-over-C",
+    "PadicHodgeTheory:R06.2",
+    "mathlib:Valuation",
+    "mathlib:Module.Free"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.6(iii) statement and proof, pp.121–122; lines 7872–7897, 7912–7913",
+     "excerpt": "Part (ii) is immediate from Theorem 14.5 (ii). Finally, part (iii) follows from Theorem 14.5 (iii) and Proposition 4.34.",
+     "match": "Reduction of the DVR statements to the O_C statements plus the Kisin/Fargues compatibility."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 4.4, Remark 4.5 and proof of Theorem 4.4, pp.33–34; lines 2017–2058",
+     "excerpt": "There is a natural fully faithful tensor functor T 7→ M (T ) from Zp -lattices T in crystalline GK -representations V to finite free Breuil–Kisin modules.",
+     "match": "Kisin's functor, the external input without a verified atlas supplier."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Proposition 4.34 statement and proof, p.44; lines 2719–2742",
+     "excerpt": "under Fargues’ classification, M (T )⊗S Ainf corresponds to the pair (T, Ξ), where Ξ = Dcrys (V ) ⊗W (k)[1/p] BdR+ ⊂ T ⊗Zp BdR",
+     "match": "Compatibility of Kisin's and Fargues' constructions used to compare lattices."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Introduction, p.4; line 225",
+     "excerpt": "(where the map S → W (k) sends T to 0 and is the Frobenius on W (k))",
+     "match": "Fixes the base change S → W(k) in the recovery statement (reviewer reading; checked on PDF p.4)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "§4.4 opening, p.43; lines 2661–2669",
+     "excerpt": "The constructions over K and C are related by the map S → Ainf that sends T to [π♭]^p and is the Frobenius on W (k)",
+     "match": "The map S → A_inf used for BK(T) ⊗_S A_inf (reviewer reading)."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark 5.2, p.45; lines 2775–2782",
+     "excerpt": "By Proposition 4.34, we then have BKF(Hét (XC , Zp )) = BK(Hét (XC , Zp )) ⊗S Ainf .",
+     "match": "The Kisin–Fargues compatibility in the notation of the geometric statement (reviewer reading)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Lattice recovery by Breuil-Kisin"
+   }
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/dvr-torsion-length-inequality",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Torsion inequality over a discretely valued base (BMS1 Theorem 14.6(ii))",
+   "kind": "theorem",
+   "statement": "With X proper smooth formal over O_K as in Theorem 14.6 and X_C its geometric generic fibre: for all n ≥ 0, length_{W(k)}(H^i_crys(X_k/W(k))_tor/p^n) ≥ length_{Z_p}(H^i_ét(X_C,Z_p)_tor/p^n); in particular H^i_crys(X_k/W(k)) p-torsion-free implies H^i_ét(X_C,Z_p) p-torsion-free (the converse fails, §2.1).",
+   "hypotheses": [
+    "X proper smooth formal over O_K, K complete discretely valued with perfect residue field k; no torsion hypothesis."
+   ],
+   "proofSteps": [
+    "The base change X_{O_C} is proper smooth formal over O_C with special fibre X_{k̄}; Theorem 14.5(ii) gives the inequality with W(k̄)-lengths of H^i_crys(X_{k̄}/W(k̄))_tor.",
+    "Reconstructed (the source says 'immediate'): RΓ_crys(X_{k̄}/W(k̄)) ≃ RΓ_crys(X_k/W(k)) ⊗^L_{W(k)} W(k̄) by crystalline base change along the perfect extension k → k̄ (import: CrystallineCohomology CR.3); W(k) → W(k̄) is flat with p a uniformizer on both sides, so torsion submodules and their lengths modulo p^n are preserved."
+   ],
+   "acceptance": [
+    "Same examples as the O_C statement; the inequality is independent of the choice of C."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.5/integral-torsion-length-inequality-over-C",
+    "CrystallineCohomology:CR.3",
+    "mathlib:Module.length",
+    "mathlib:Valuation"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Theorem 14.6(ii) statement and proof, pp.121–122; lines 7864–7870, 7912",
+     "excerpt": "Part (ii) is immediate from Theorem 14.5 (ii).",
+     "match": "The descent to the DVR case is by base change only."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "The torsion inequality over a DVR"
+   }
+  },
+  {
+   "id": "CohomologyComparisons:CP.5/mod-p-de-rham-dimension-bound",
+   "parentStageId": "CohomologyComparisons:CP.5",
+   "realises": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "title": "Mod-p de Rham dimension bounds mod-p étale dimension (BMS1 inequality (1))",
+   "kind": "application",
+   "statement": "For X proper smooth formal over O_K as in Theorem 1.1, dim_k H^i_dR(X_k) ≥ dim_{F_p} H^i_ét(X_C, F_p) for every i.",
+   "hypotheses": [
+    "X proper smooth formal over O_K, K complete discretely valued with perfect residue field.",
+    "Universal-coefficient identifications RΓ_crys(X_k/W(k)) ⊗^L_{W(k)} k ≃ RΓ_dR(X_k/k) (reduction of crystalline cohomology to the residue field — CrystallineCohomology CR.3's 'compatible reductions' together with the crystalline–de Rham comparison of CR.2) and RΓ_ét(X_C,Z_p) ⊗^L_{Z_p} F_p ≃ RΓ_ét(X_C,F_p), with the H^j_ét(X_C,Z_p) finitely generated (Theorem 5.1) so that all dimensions are finite."
+   ],
+   "proofSteps": [
+    "The source states (1) as implied by Theorem 1.1(ii) without displaying the argument; reconstruction: universal coefficients give dim_k H^i_dR(X_k) = dim_k(H^i_crys/p) + dim_k(H^{i+1}_crys[p]) and dim_{F_p} H^i_ét(X_C,F_p) = dim(H^i_ét(Z_p)/p) + dim(H^{i+1}_ét(Z_p)[p]).",
+    "Theorem 14.6(ii) with n = 1 in degree i, together with rank equality, gives dim_k(H^i_crys/p) ≥ dim_{F_p}(H^i_ét/p).",
+    "Theorem 14.6(ii) with n = 1 in degree i+1 gives dim_k(H^{i+1}_crys[p]) = length(H^{i+1}_crys,tor/p) ≥ length(H^{i+1}_ét,tor/p) = dim_{F_p}(H^{i+1}_ét[p]) (for finite-length modules over a DVR the length of the p-kernel equals the length modulo p).",
+    "Add the two inequalities. The argument uses the torsion inequality in the adjacent degrees i and i+1."
+   ],
+   "acceptance": [
+    "Elliptic curve: equalities 1, 2, 1 in degrees 0, 1, 2.",
+    "Remark 2.11 (p.16, statement only): for the Theorem 2.10 surface H over a ramified O, H^1_ét(H_C, Z/p) ≅ Z/p while H^1_dR(H_k) ≅ k ⊕ k, so (1) — 'the inequality ... coming from Theorem 1.1 (ii)' — can be strict. For the Theorem 2.1 surface over Z_2 the universal-coefficient count makes (1) strict in degrees 1 and 2 (packet-authored consequence). Remark 1.2 (p.3): for an Enriques surface S_k over a perfect field of characteristic 2, lifted to characteristic 0 (possible by [25, 52]), the lift has H^1_ét(S_C, F_2) ≅ F_2, so (1) forces H^1_dR(S_k) ≠ 0 — the non-vanishing first observed via [42, Corollaire 7.3.4 (a)]."
+   ],
+   "prerequisites": [
+    "CohomologyComparisons:CP.5/dvr-torsion-length-inequality",
+    "CrystallineCohomology:CR.3",
+    "mathlib:Module.finrank",
+    "mathlib:AlgebraicGeometry.Scheme"
+   ],
+   "sources": [
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Introduction after Theorem 1.1, p.3; lines 172–175",
+     "excerpt": "part (ii) implies the following inequality: (1) dimk HdR (Xk ) ≥ dimFp Hét (XC , Fp ).",
+     "match": "Statement of the mod-p bound; the derivation is not displayed in the passage read."
+    },
+    {
+     "sourceId": "bms1-2019",
+     "locator": "Remark 2.11, p.16; lines 1012–1016",
+     "excerpt": "Thus, the inequality dimFp H i (HC , Fp ) ≤ dimk H i dR (Hk ) coming from Theorem 1.1 (ii) can be strict.",
+     "match": "Confirms that (1) is derived from Theorem 1.1(ii) and can be strict (reviewer reading; the example's proof unread)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "CohomologyComparisons:CP.0",
+   "status": "partial",
+   "remaining": [
+    "Full normalization dictionary: θ̃ = θ∘φ^{−1} and its kernel, the Breuil–Kisin–Fargues twist A_inf{1} (Example 4.24, read by the reviewer but not decomposed), the Breuil–Kisin twist S{1} (Example 4.2), HT(χ_p)=+1, arithmetic versus geometric Frobenius, change of ε.",
+    "Proofs of Proposition 3.17, Corollary 3.18 and Lemma 3.23 (read by the reviewer, pp.25–28) are not decomposed; Lemma 3.23's intersection formula ∩_r (μ/φ^{−r}(μ))A_inf = μA_inf is used in Remark 4.29.",
+    "Construction of the maps to B_st and B_dR from the AI.0/CR.0/PadicHodgeTheory objects; the §13 introduction (p.104) states without proof that the continuous projection B_dR^+ → C has no continuous section.",
+    "Comparison functors between the formal scheme, its special fibre and its adic generic fibre — not covered by BMS1 §§3–4/14.",
+    "That μ is a unit in W(C♭) (presupposed by Lemma 4.26); μ is invertible in B_crys by Definition 3.22(ii).",
+    "Ownership: the coherence node is naturally AInfCohomology:AI.0 (or AI.2) material; the §4.2 items of the dictionary node (x, W̃, Q, W(K♭)) are AI.2/AI.5 material; items (c)–(d) are AI.0 / AI.0:period-comparison normalizations (links added by review)."
+   ],
+   "note": "The specialization dictionary for A_inf and the coherence of the truncated Witt vectors of a perfectoid ring of integers, which is what lets the whole structure theory work with finite presentation over a ring that is not noetherian."
+  },
+  {
+   "stageId": "CohomologyComparisons:CP.1",
+   "status": "not_read",
+   "remaining": [
+    "Statements of Theorems 14.1 and 14.3 were inspected only to identify which comparison each CP.2/CP.5 node consumes; no commutativity proof of the comparison diagram (§§8–13, BS22 §18) was read."
+   ],
+   "note": "Not decomposed. The integral derived comparison diagram itself is the subject of AInfCohomology and is imported; the decomposition records the layer as not read and this packet adds no node."
+  },
+  {
+   "stageId": "CohomologyComparisons:CP.2",
+   "status": "partial",
+   "remaining": [
+    "Proofs of Theorem 14.1(iii),(iv) and Theorem 12.1's globalization (AI.4/AI.5 material).",
+    "The G_K- and Frobenius-compatibility argument for Theorem 14.6(i), not displayed in the source's proof, and the definition of the filtration on the crystalline side.",
+    "The flatness facts used to pass from complexes to groups (reconstructed; B_crys = A_crys[1/μ] is a localization of A_crys by Definition 3.22(ii)).",
+    "Crystalline base change and the Frobenius isogeny for smooth affine k-schemes imported by Proposition 13.21; the Berthelot–Ogus result [7] of which it is 'a variant'; base change along k → k̄ and the unstated variant of Proposition 13.21 with the residue field of K used in Theorem 14.6.",
+    "Identification of D_cris with crystalline cohomology through the period invariants of PadicHodgeTheory R06.2 (B_crys^{G_K} = W(k)[1/p]).",
+    "A proper smooth formal example not presented as a projective scheme (acceptance)."
+   ],
+   "note": "The rational crystalline comparison over an algebraically closed complete field, the base change along the residue specialization, and the crystalline comparison over a discretely valued base with the crystallinity of the etale cohomology."
+  },
+  {
+   "stageId": "CohomologyComparisons:CP.3",
+   "status": "partial",
+   "remaining": [
+    "§§13.1–13.2: construction of RΓ_crys(X/B_dR^+) on very small affinoids, Lemmas 13.4–13.13 (independence of Σ), Definition 13.14, spreading out (Proposition 13.15, Corollary 13.16).",
+    "Details behind Theorem 13.19 (Lemma 13.13, Corollary 13.16) and behind the proof of Theorem 13.1 (§12.2, Proposition 12.9, Lemma 5.6, [58, Corollary 6.6]); both proofs and Proposition 13.23's three-sentence sketch were read by the reviewer only in outline.",
+    "The explicit-complex compatibility between Theorem 12.1 and Theorem 13.1 asserted in the proof of Theorem 14.5(i).",
+    "Agreement with Scholze's Theorem 5.1 through OB_dR^+ (lower row of the diagram in the proof of Theorem 13.1, p.115) and the corrected relative period-sheaf argument (PadicHodgeTheory P8:local-rational supply not checked against this use).",
+    "Filtration strictness and Hodge–Tate/de Rham degeneration statements (Theorem 13.3), not decomposed."
+   ],
+   "note": "The canonical B_dR^+ lattice in the good-reduction case. The construction of the B_dR^+ cohomology itself and the compatibility with the explicit complex were only partly read, which the decomposition records as a gap and this packet carries forward."
+  },
+  {
+   "stageId": "CohomologyComparisons:CP.4",
+   "status": "not_read",
+   "remaining": [
+    "Cesnavicius–Koshikawa §§5–6, 9 and Hyodo–Kato §§3–5 not opened in this batch."
+   ],
+   "note": "Not decomposed. The semistable and logarithmic branch with its monodromy operator was not read, and this packet adds no node for it."
+  },
+  {
+   "stageId": "CohomologyComparisons:CP.5",
+   "status": "partial",
+   "remaining": [
+    "BMS1 §§2.1–2.2 counterexamples: the statements of Theorem 2.1, Theorem 2.10 and Remark 2.11 were read by the reviewer; the constructions and proofs (pp.13–20) are unread and needed before the acceptance tests can be certified.",
+    "Kisin's Theorem 4.4 and Proposition 4.34: the cited inputs [49, Theorem 1.2.1], [48, Proposition 2.1.12], [48, §1.2, Lemma 1.2.6], [44, Proposition 4.1.1] or [35, Proposition 2.32], full faithfulness of restriction to G_{K_∞}, and an atlas supplier for them.",
+    "Fargues' Theorem 4.28: essential surjectivity (the source refers to [61] for a proof); Lemma 4.26 with proof and Remark 4.29 read; Lemma 4.27 (Fargues–Fontaine [31, Corollaire 11.1.14]) is not used by these nodes.",
+    "External commutative algebra: classification of finitely presented modules over valuation rings; Beauville–Laszlo; the uncited standard inputs listed in the commutative-algebra gap.",
+    "Semistable branch (CK §§7–8) and the Fontaine–Laffaille/Breuil–Kisin small-weight comparison with R07.",
+    "Re-homing of the generic linear-algebra nodes to AInfCohomology:AI.5/AI.2 once that packet is expanded."
+   ],
+   "note": "The heart of the packet: the structure theory of finitely presented A_inf-modules, the length inequalities under specialization, the freeness criteria, and the two torsion inequalities and two lattice-recovery theorems they yield, over an algebraically closed complete field and over a discretely valued base. Fourteen of the twenty nodes are here."
+  },
+  {
+   "stageId": "CohomologyComparisons:CP.6",
+   "status": "not_read",
+   "remaining": [
+    "No product, duality, Chern-class or export material was read."
+   ],
+   "note": "Not decomposed. The reusable coefficient, product and arithmetic exports were not read."
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Kisin's functor (Theorem 4.4) and Proposition 4.34 have no verified atlas supplier",
+   "detail": "Theorem 14.6(iii) uses Kisin's fully faithful functor T ↦ M(T) from Z_p-lattices in crystalline G_K-representations to finite free Breuil–Kisin modules (BMS1 Theorem 4.4) and Proposition 4.34 (M(T) ⊗_S B_crys^+ = D_crys(V) ⊗ B_crys^+). Exact imports named in the proofs (read by the reviewer): existence and the identification M(T) ⊗_S W(C♭) ≅ T ⊗ W(C♭) from [49, Theorem 1.2.1]; uniqueness via [48, Proposition 2.1.12] and the equivalence of finite free φ-modules over S[1/T]^∧_p with finite free Z_p-modules with G_{K_∞}-action ([44, Proposition 4.1.1] or [35, Proposition 2.32]), plus the implicit full faithfulness of restriction from crystalline G_K-representations to G_{K_∞}-representations (Theorem 4.4 proof, pp.33–34, lines 2046–2058); Proposition 4.34 'follows from Kisin's construction of M(T), which starts with the crystalline side and an isomorphism between M(T) and D_crys(V) ⊗ S[1/p] on some rigid-analytic open of the generic fibre of Spf S, cf. [48, Section 1.2, Lemma 1.2.6]' (p.44, lines 2740–2742). Normalizations: S → A_inf sends T to [π♭]^p and is the Frobenius on W(k) (p.43, line 2668); the recovery statement uses S → W(k) with T ↦ 0 and Frobenius on W(k) (p.4, line 225). The atlas prerequisite FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4 describes only the coefficient ring, the Eisenstein height bound and the classification of finite-flat and p-divisible groups; AInfCohomology:AI.7 explicitly disclaims the representation classification ('R07 owns the representation/group classification'); PrismaticCohomology:PR.7 refers to 'R07's Kisin functor' and is not upstream of CP.5. No link was added. Next action: either extend R07.4's statement to Kisin's crystalline-lattice theorem in all Hodge–Tate weights (with the S[1/T]^∧_p ↔ G_{K_∞} equivalence) or assign a new owner, then read Kisin [48] (Crystalline representations and F-crystals, §1.2 and §2.1) and [49] (Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010), §1.2); neither is in the reference library, while [44] (Katz, LNM 350) is."
+  },
+  {
+   "title": "Theorem 14.3/14.1 input package (AInfCohomology:AI.5) not decomposed here",
+   "detail": "Statements of Theorems 14.1 and 14.3 and the two-paragraph proof of 14.3 were read: perfectness follows from derived ξ-completeness (Lemma 6.19) and the de Rham comparison; φ comes from Proposition 9.17 (AΩ ≅ Lη_ξ̃ AΩ); the BKF property uses Corollary 4.20 with comparisons (iii),(iv) and Proposition 13.21; part (iv) uses Theorem 5.7 (almost quasi-isomorphism, cokernel killed by W(m♭)). The reviewer also read the proof of Theorem 14.1 (pp.118–119): (iii) is Theorem 12.1, (iv) follows from the definition of AΩ_X, and (iii) implies (i) and (ii); an alternative route uses Proposition 6.12, Theorem 8.3, Theorem 11.1 and Langer–Zink [51, Theorem 3.5]. Implicit in the BKF step: Corollary 4.20's hypothesis (i) for RΓ_Ainf(X) needs H^j_ét(X,Z_p) finitely generated (Scholze [58]), and the use of (iv) in Theorem 14.5(iii) needs its φ-equivariance, which Theorem 14.3 does not state. None of §§6.2–12 was decomposed here. The AInfCohomology packet covers only AI.1 (décalage); AI.5 has no nodes. Next action: AInfCohomology packet extension for AI.4/AI.5 recording Theorem 14.3 with exactly these inputs."
+  },
+  {
+   "title": "B_dR^+-cohomology construction and the explicit-complex compatibility (CP.3) only partly read",
+   "detail": "Read: Theorem 13.1's statement and strategy paragraph (p.104); by the reviewer, Definition 13.18, Theorem 13.19 with proof and Remark 13.20 (§13.3, p.114), the proof of Theorem 13.1 (p.115) and §13.4's Proposition 13.23 with its sketch proof (p.117). Proposition 13.23 is the good-reduction identification RΓ_crys(Y/A_crys) ⊗_{A_crys} B_dR^+ ≅ RΓ_crys(X/B_dR^+) that the draft had recorded as unread; its proof only says that both sides are computed by explicit complexes as in §12.2 and are locally de Rham complexes of smooth lifts to A_crys, resp. B_dR^+. Not read: §§13.1–13.2 (Lemmas 13.4–13.13, Proposition 13.15, Corollary 13.16), §12.2 and Proposition 12.9; the compatibility of the comparison isomorphisms of Theorems 12.1 and 13.1 'checked on the level of the explicit complexes' (proof of Theorem 14.5(i)) is not displayed anywhere in the passages read. Next action: read §12.2 (explicit complexes, Proposition 12.9) and §13.1 (Lemmas 13.12–13.13), then write the explicit-complex compatibility as its own CP.3 node."
+  },
+  {
+   "title": "Scholze's de Rham comparison (Theorem 5.1, [58]) has no verified supplier in the CP graph",
+   "detail": "Theorem 5.1 (finite generation of H^i_ét(X_C,Z_p) and H^i_ét ⊗ B_dR ≅ H^i_dR(X) ⊗_K B_dR with G_K and filtrations, giving the lattice H^i_dR(X) ⊗ B_dR^+) is used for the filtration compatibility in Theorem 14.6(i) and for Ξ = D_dR(V) ⊗ B_dR^+ in Theorem 14.6(iii); its finiteness part is also used implicitly for the Corollary 4.20 hypothesis and for inequality (1). BMS1 only recalls it (p.45) and sketches its proof on pp.47–48 (Theorem 5.7, the Poincaré lemma for OB_dR^+ inspired by Andreatta–Iovita, Brinon's computation [18]). The agreement of Theorem 13.1 with Theorem 5.1 is proved on p.115 by a diagram whose lower row 'encodes the comparison isomorphism from Theorem 5.1', so Theorem 5.1's construction is an input of that agreement, not a consequence. In the atlas, CP.3's description owns the B_dR comparison and its agreement with the P8:local-rational period-sheaf construction, while P8's proper-comparison suffix consumes CP.3; no stage was found whose description owns Scholze's global finiteness and comparison theorems in [58] (BMS1 cites '[58, proof of Theorem 8.4]' for Theorem 5.7) upstream of CP.2/CP.3; [58] is in the reference library (Scholze, p-adic Hodge theory for rigid-analytic varieties, with its corrigendum [60]). Next action: decide whether CP.3 absorbs [58, §8] (with P8:local-rational supplying the Poincaré lemma) or a separate upstream owner is created, and check acyclicity."
+  },
+  {
+   "title": "Imports of Proposition 13.21: crystalline base change and Frobenius isogeny for smooth qcqs k-schemes",
+   "detail": "The proof invokes 'base change for crystalline cohomology', reduces the Frobenius statement for qcqs smooth O/p-schemes to the affine case without comment, and for the affine case uses that Frobenius on H^i_crys(Z̄/W(k)) ⊗_{W,φ} W(k) → H^i_crys(Z̄/W(k)) is an isomorphism after inverting p for smooth affine (not proper) k-schemes, without reference. The proposition is called 'a variant on a result of Berthelot–Ogus, [7]' (p.116, line 7531); [7] was not read. CrystallineCohomology:CR.3 owns derived base change for proper smooth schemes and crystalline families; its Frobenius-isogeny substage CR.3:Frobenius-isogeny is described as proved through de Rham–Witt/Cartier control, with scope to be checked against the non-proper affine case. Next action: read the CR.3:Frobenius-isogeny source (Illusie/Berthelot–Ogus) for the smooth affine case and [7]."
+  },
+  {
+   "title": "Standard commutative-algebra imports left external",
+   "detail": "(a) Classification of finitely presented modules over a (non-discrete) valuation ring as direct sums of cyclic modules O♭/(x^r) (Lemma 4.14, n = 1, p.38); (b) the Beauville–Laszlo lemma [4] (Lemma 4.19, p.40); (c) Lemma 4.6's essential surjectivity was read by the reviewer (pp.34–35) and uses only Lemmas 4.7–4.8 and uncited facts: finitely generated torsion-free modules over a valuation ring are free, m♭ ⊗ m♭ ≅ m♭, vector bundles on the local ring A_inf are free, and a five-lemma/limit argument; (d) formality of a complex over A_inf[1/p] whose cohomology groups are free (implicit 'formal' step of Lemma 4.16 and of the rational passage to cohomology groups); (e) non-coherence of A_inf ([46], cited); (f) in the proof of Proposition 3.24 (p.30): coherence of valuation rings, the Artin–Rees property of ∏O for f = p, W_r(O)[1/p] coherent, and [1, Tag 05CU] for the reminders on coherent rings (p.28); (g) perfectness of finitely presented modules over the valuation ring O♭ and their Tor-dimension ≤ 1 (Lemma 4.9, p.36); (h) 'the top cohomology group of a perfect complex ... is always finitely presented' (Corollary 4.17, p.39); (i) injectivity of R → R̂ with R[1/μ]-module cokernel (Lemma 4.19, p.40); (j) the reduction to A_inf,(p) in Lemma 4.10 (p.36); (k) for inequality (1): RΓ_ét(X_C,Z_p) ⊗^L F_p ≃ RΓ_ét(X_C,F_p) and finite generation of H^j_ét(X_C,Z_p). Next action: record Stacks/Bourbaki locators for (a), (d), (f)–(h) and the Beauville–Laszlo statement actually needed (μ a non-zero-divisor in A_inf[1/p])."
+  },
+  {
+   "title": "Normalization fact on μ used implicitly: μ is a unit in W(C♭)",
+   "detail": "Resolved by the reviewer: A_inf → B_crys factors through A_inf[1/μ] because BMS1 defines B_crys := A_crys[1/μ] = B_crys^+[1/μ] (Definition 3.22(ii), p.27, lines 1687–1690; repeated in the introduction, p.4), noting μ^{p−1} ∈ pA_crys. Still open: that μ = [ε] − 1 is a unit in W(C♭) (so that A_inf → W(C♭) factors through A_inf[1/μ]) is presupposed by the statement of Lemma 4.26 ('as submodules of the common base extension to W(C♭)', p.41) and used in its proof and, through Corollary 4.15, in Theorem 14.5(ii), but never proved. The reconstructed argument (μ ≡ [ε − 1] mod p with ε − 1 ≠ 0 in the field C♭, and W(C♭) is p-adically complete local with residue field C♭) is recorded in the dictionary node. Next action: find the statement in AI.0's supplier sources (BMS1 §3 or Fontaine) or add it as an explicit AI.0 lemma."
+  },
+  {
+   "title": "BMS1 §2 counterexamples: statements read, constructions unread",
+   "detail": "The reviewer read the statements (and checked them on the PDF): Theorem 2.1 (p.13) — a smooth projective geometrically connected surface X over Z_2 with H^i_ét(X_{Q̄_2}, Z_2) free for all i and H^2_crys(X_{F_2}/Z_2)_tor = F_2; Theorem 2.10 (p.16) — a smooth projective surface H over a ramified O with H^2_ét(H_C,Z_p)_tor ≅ Z/p^2 and H^2_crys(H_k/W(k))_tor ≅ k ⊕ k; Remark 2.11 (p.16) — H^1_ét(H_C, Z/p) ≅ Z/p while H^1_dR(H_k) ≅ k ⊕ k, so (1) can be strict. The constructions (singular Enriques surfaces and a hypersurface 3-fold for §2.1; a quotient approximation of BG for §2.2) and all proofs are unread, so the acceptance items built on them are not yet certified. Next action: read §§2.1–2.2 (pp.13–20) and record the two examples as CP.5 acceptance nodes."
+  },
+  {
+   "title": "Ownership of the generic A_inf linear algebra and of Proposition 13.21",
+   "detail": "Verified against both descriptions: AInfCohomology:AI.5 owns 'the linear algebra controlling integral torsion under these specializations' (BMS1 §§4, 14) and CohomologyComparisons:CP.5 'states the resulting torsion inequalities and lattice-recovery applications, importing this proof'; AInfCohomology:AI.2 owns BKF modules, torsion decompositions (Proposition 4.13) and Fargues' equivalence. The nodes for Lemmas 4.9, 4.14, 4.16, 4.19, Proposition 4.13 and Corollaries 4.15, 4.17, 4.20 are therefore supplier material recorded here under CP.5 (tagged in their statements; the Lemma 4.18 node is untagged because it also carries the geometric Remarks 14.4/14.7, and the length observation from the proof of Theorem 14.5(ii) is untagged — both are listed here) because the AInfCohomology packet has no AI.2/AI.5 nodes; on integration they should be moved into that packet (node ids must start with the owner roadmap) and the CP.5 application nodes should consume them by cross-roadmap links. Separately, Proposition 13.21 (recorded under CP.2 per CP.2's description) is also an input of AI.5's Theorem 14.3 (BKF property), while AI.5 → CP.2 is an existing edge: to avoid an AI.5 ⇄ CP.2 ownership cycle, Proposition 13.21 should be re-homed upstream (CrystallineCohomology CR.3 as a Berthelot–Ogus-type base change, or AI.4) with CP.2 consuming it. No node → AI.5 link was added. Review addition: the CP.0 dictionary node mixes CP.0 normalizations supplied by AInfCohomology:AI.0 and AI.0:period-comparison (links added) with §4.2 objects (x, W̃, Q, flatness of A_inf → W(K♭)) that belong with the AI.2/AI.5 linear algebra; the coherence node (Proposition 3.24, Lemmas 3.25–3.29) is generic A_inf/Witt-vector algebra. Integrating the packet as it stands would also add six direct stage edges absent from the atlas (CP.0 → CP.5 from the two CP.0 nodes, AI.2 → CP.5, CP.3 → CP.5, CP.3 → CP.2, CR.3 → CP.5, R06.2 → CP.5); each duplicates an existing transitive path and the union with the atlas stageEdges was checked acyclic."
+  },
+  {
+   "title": "G_K- and Frobenius-compatibility in Theorem 14.6(i) not displayed",
+   "detail": "The statement asserts compatibility with the Galois and Frobenius actions and 'the filtration'; the proof only addresses the construction and the filtration. The compatibility presumably follows from canonicity of Theorems 14.1, 13.1 and Proposition 13.21 under automorphisms of C over K and under φ, but this was not read. The source also does not say which filtration is meant on H^i_crys(X_k/W(k)) ⊗ B_crys: composing Proposition 13.21 (canonical section), Proposition 13.23 and Remark 13.20 gives H^i_crys(X_k/W(k)) ⊗_{W(k)} B_dR^+ ≅ H^i_dR(X/K) ⊗_K B_dR^+ (packet-authored composite), whose Hodge filtration is the natural candidate; its agreement with the identification H^i_crys(X_k/W(k)) ⊗_{W(k)} K = H^i_dR(X_K) recalled in the introduction (p.2) is not addressed. Next action: check §12.2's 'choicefree' globalization and Theorem 13.1's functoriality for the G_K-equivariance."
+  },
+  {
+   "title": "Semistable branch and small-weight comparison unread",
+   "detail": "Cesnavicius–Koshikawa §§7–8 (log torsion inequalities, ramification-normalized length factors, functorial lattice theorem) and the Fontaine–Laffaille/Breuil–Kisin comparison with R07 were not opened. CP.5's semistable paragraph remains entirely unread."
+  },
+  {
+   "title": "Fargues' equivalence: proof coverage",
+   "detail": "Read: Theorem 4.28's statement; Remark 4.29's direct full-faithfulness argument (faithfulness via Lemma 4.26 and injectivity of A_inf → A_inf[1/μ]; fullness via the induction M ⊂ φ^{−r}(μ)^{−1}N using the B_dR^+-lattice and Lemma 3.23's intersection formula); by the reviewer, Lemma 4.26 with proof (pp.41–42: Frobenius-module equivalence over W(C♭), reduction to finite free M via Proposition 4.13, the inclusion T ⊂ M after a twist, duality), the proof of Lemma 3.23 (pp.27–28) and Lemma 4.27 with its one-line proof citing Fargues–Fontaine [31, Corollaire 11.1.14]. The proof of Theorem 4.28 itself is not in BMS1 ('we refer to [61] for a proof', p.42); essential surjectivity is therefore unread. The supplier packet (AInfCohomology, AI.2) has no nodes yet. Remark 4.29 records that essential surjectivity is not needed for the main theorems."
+  },
+  {
+   "title": "The recorded hash is of a text extraction that is not public; the page locators were checked instead",
+   "detail": "The single source of this roadmap records a SHA-256 and gives its locators as line numbers in a supplied text extraction, as its own edition field says. That file is not public and could not be obtained, so the hash was not reproduced and the line numbers were not checked. What was checked in this session is the other half of every locator, the printed page, against arXiv:1602.03148v3 downloaded here: seven were tested and all seven land on the recorded page, namely Theorem 1.1 on page 2, Example 3.16 on page 25, Lemma 3.23 on page 27, Theorem 4.4 on page 33, Theorem 12.1 on page 96, Theorem 13.1 on page 104 and Theorem 14.1 on page 118. A reviewer should treat the page half of each locator as corroborated here and the line half as resting on the decomposition's own reading. A maintainer may wish to record a hash of a public file, or to drop the line numbers in favour of the page numbers, which are the portable half."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "AInfCohomology:AI.0",
+   "need": "The A_inf-cohomology theory itself, with its specializations, which is the object the whole comparison diagram of this roadmap relates. This packet plans the linear algebra of finitely presented A_inf-modules and the inequalities that follow; it does not construct the cohomology."
+  },
+  {
+   "supplier": "AInfCohomology:AI.0:period-comparison",
+   "need": "The period comparison of that theory, in the form the rational statements of CP.2 consume."
+  },
+  {
+   "supplier": "AInfCohomology:AI.2",
+   "need": "The input package the source's Theorems 14.1 and 14.3 rest on, which the decomposition records as not decomposed here."
+  },
+  {
+   "supplier": "AInfCohomology:AI.5",
+   "need": "The remaining part of that input package, named explicitly by the decomposition's second gap."
+  },
+  {
+   "supplier": "CrystallineCohomology:CR.3",
+   "need": "Crystalline base change and the Frobenius isogeny for smooth quasi-compact quasi-separated schemes over a perfect field, which the source's Proposition 13.21 imports and which the decomposition records as an unresolved boundary."
+  },
+  {
+   "supplier": "PadicHodgeTheory:R06.2",
+   "need": "Kisin's functor and the Breuil-Kisin module theory the lattice-recovery statement over a discretely valued base uses, together with Scholze's de Rham comparison; the decomposition records both as having no verified supplier in its own graph."
+  }
+ ],
+ "restructure": [
+  {
+   "kind": "split-layer",
+   "title": "CP.5 carries fourteen of the twenty nodes and should be divided",
+   "detail": "Of the twenty nodes of this roadmap fourteen are in CP.5, and they fall into two clearly separated groups. The first is linear algebra over A_inf that has nothing to do with cohomology: perfectness and Tor bounds, the structure theorem for finitely presented modules free after inverting p, the length inequalities under the various specializations, the monotonicity lemma and the freeness criteria. The second is the four arithmetic conclusions those tools give: the two torsion inequalities and the two lattice-recovery theorems. The first group is reusable by anything that works over A_inf and the decomposition's own gap list asks who should own it; the second is specific to this comparison. Dividing the layer, or moving the first group to the roadmap that owns the A_inf linear algebra, would make the reuse visible and would stop a reader of the atlas seeing one layer that is three times the size of any other."
+  }
+ ]
+}
