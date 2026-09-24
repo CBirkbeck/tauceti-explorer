@@ -1,0 +1,2789 @@
+{
+ "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "DeformationAndDerivedPatchingAlgebra:R03.6"
+ ],
+ "status": "partial",
+ "summary": "Layer R03.6 develops the commutative algebra with which a patching argument concludes. It introduces nearly faithful modules in the radical form Ann_R(M) ⊆ √0, which agrees with Taylor's nilpotent form over Noetherian rings and is characterised for finite modules by full support, and modules supported on a union of irreducible components. Supports are transported along arbitrary base change of finite modules and flat base change of arbitrary modules, along surjections, through coefficient changes and through the removal of framing variables; minimal primes and near faithfulness are compared before and after inverting a nonzerodivisor ϖ. A nonzero module of maximal depth over a Noetherian local ring is supported on top-dimensional components but need not be nearly faithful; it is nearly faithful when the ring has one minimal prime, and near faithfulness then forces equidimensionality. Near faithfulness spreads along a group acting transitively on components and lifts from the special fibre under Taylor's catenarity hypotheses. For the patched module of layer R03.5 these results give the Calegari–Geraghty conclusions: near faithfulness of H over R and (R∞/𝔞)_red ≅ R_red, or, over a regular R∞, freeness and ker φ∞ = 𝔞R∞. Three R = T theorems close the layer: R_red ≅ T exactly when T is reduced, R^tf ≅ T exactly when H[1/ϖ] is faithful, and R ≅ T exactly when H is faithful.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:CovBy",
+    "kind": "def",
+    "module": "Mathlib/Order/Defs/PartialOrder.lean",
+    "provides": "a ⋖ b: a < b with nothing strictly between (immediate specialisation in Spec A).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:FaithfulSMul",
+    "kind": "class",
+    "module": "Mathlib/Algebra/Group/Action/Faithful.lean",
+    "provides": "Faithful action; for modules this is 'faithful module'.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.FG.isNilpotent_iff_le_nilradical",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Noetherian/Nilpotent.lean",
+    "provides": "For a finitely generated ideal I: IsNilpotent I ↔ I ≤ nil R (the Noetherian 'ideal ≤ nilradical ⇒ nilpotent').",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.annihilator_quotient",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Colon.lean",
+    "provides": "Ann_R(R ⧸ I) = I.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.comap_radical",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "comap f (√K) = √(comap f K).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.disjoint_nonZeroDivisors_of_mem_minimalPrimes",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Localization.lean",
+    "provides": "A minimal prime of R contains no nonzerodivisor. First part of L9, with no DVR or Noetherian hypothesis.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.exists_minimalPrimes_le",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean",
+    "provides": "Every prime containing I contains a minimal prime over I.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+    "provides": "Krull's principal ideal theorem: in a Noetherian ring a prime minimal over a principal ideal has height ≤ 1.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.isRadical_iff_quotient_reduced",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Nilpotent.lean",
+    "provides": "I radical ↔ R ⧸ I reduced; gives IsReduced (R ⧸ nilradical R), the reduced quotient.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.map_radical_of_surjective",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "For surjective f with ker f ≤ I: f(√I) = √(f I); the input for R_red ≅ T_red (L14, L16, L17). No named R_red ≃ T_red equivalence exists.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.minimalPrimes",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean",
+    "provides": "Minimal primes over an ideal I.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.radical",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+    "provides": "The radical √I of an ideal.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Ideal.sInf_minimalPrimes",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean",
+    "provides": "The intersection of the minimal primes over I is √I; for I = 0 it is the nilradical.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsLocalRing.maximalIdeal",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Defs.lean",
+    "provides": "The maximal ideal of a local ring.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsLocalization.Away",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+    "provides": "S is the localization of R away from x.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsLocalization.eq_iff_exists",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Localization/Defs.lean",
+    "provides": "Kernel description of R → S⁻¹R; identifies ker(R → R[1/ϖ]) with the ϖ-power torsion (R^{tf} of L17).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsLocalization.minimalPrimes_comap",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Localization.lean",
+    "provides": "(J.comap).minimalPrimes = comap '' J.minimalPrimes for a localization; with J = ⊥ and R → R[1/ϖ] injective this gives the bijection of L9.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsRegularLocalRing",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+    "provides": "Regular local rings: Noetherian local with maximal ideal generated by dim R elements.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsSMulRegular",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Regular/SMul.lean",
+    "provides": "r is M-regular: m ↦ r • m is injective.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:IsSMulRegular.notMem_of_mem_minimalPrimes",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Localization.lean",
+    "provides": "An M-regular element lies in no prime minimal over Ann_R M.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:LinearEquiv.annihilator_eq",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "Linearly equivalent modules have equal annihilators.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.annihilator_le_of_injective",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "Injective M → M' gives Ann M' ≤ Ann M.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Localization.Away",
+    "kind": "abbrev",
+    "module": "Mathlib/GroupTheory/MonoidLocalization/Away.lean",
+    "provides": "The localization R[1/x].",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:LocalizedModule.Away",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
+    "provides": "The localized module M[1/x] (a Localization.Away x-module).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:LocalizedModule.equivTensorProduct",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Localization/BaseChange.lean",
+    "provides": "S⁻¹M ≃ S⁻¹R ⊗_R M as S⁻¹R-modules.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.FaithfullyFlat",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+    "provides": "Faithfully flat modules; the file's base-change instance makes S → S ⊗_R M faithfully flat when R → M is.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean",
+    "provides": "A flat local homomorphism of local rings is faithfully flat (Stacks 00HR).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.Finite.base_change",
+    "kind": "instance",
+    "module": "Mathlib/RingTheory/TensorProduct/Finite.lean",
+    "provides": "B ⊗_A M is B-finite when M is A-finite.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.Flat",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Flat/Basic.lean",
+    "provides": "Flat modules; a flat algebra is a flat ring map.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.Free.chooseBasis",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "A chosen basis of a free module; a nonzero free module is faithful (the instance in the same file is built from it).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.IsTorsionBySet.module",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+    "provides": "The (R ⧸ I)-module structure on a module killed by I.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.annihilator",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "Ann_R(M) := ker(R → AddMonoid.End M) as an ideal.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.annihilator_eq_bot",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "Ann_R M = ⊥ ↔ FaithfulSMul R M (Mathlib's notion of a faithful module; there is no Module.Faithful).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.annihilator_eq_top_iff",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "Ann_R M = ⊤ ↔ Subsingleton M.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Localization.lean",
+    "provides": "Noetherian R, finite M: the primes minimal over Ann M are associated primes of M (Stacks 02CE).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.comap_annihilator",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "Restriction of scalars along R₀ → R: (Ann_R M).comap = Ann_{R₀} M. No base-change (tensor) formula for annihilators exists at the pin.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+    "provides": "M ⧸ I•⊤ is killed by I, which gives its (R ⧸ I)-module structure.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.mem_support_iff_exists_annihilator",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "p ∈ Supp M ↔ ∃ m, Ann(R·m) ≤ p, for any module (no finiteness).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.mem_support_iff_nontrivial_residueField_tensorProduct",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+    "provides": "For finite M: p ∈ Supp M ↔ κ(p) ⊗ M ≠ 0 (fibre criterion; the key input for L1).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.mem_support_iff_of_finite",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "For finite M: p ∈ Supp M ↔ Ann_R(M) ≤ p.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.mem_support_mono",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "Supports are stable under specialisation: p ≤ q and p ∈ Supp M give q ∈ Supp M.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.support",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "Supp M = {p : PrimeSpectrum R | Nontrivial (LocalizedModule p.primeCompl M)} for a module over a commutative ring.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.support_eq_zeroLocus",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "For finite M: Supp M = V(Ann_R M) (Stacks 00L2).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.support_of_algebra",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "Supp_R A = V(ker(R → A)) for an R-algebra A (so Supp_R (R ⧸ I) = V(I)).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.support_quotient",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Support.lean",
+    "provides": "For finite M and an ideal I: Supp(M ⧸ I•⊤) = Supp M ∩ V(I) (Stacks 00L3).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:Module.support_subset_preimage_comap",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/Module.lean",
+    "provides": "For an R-algebra A and an A-module M with IsScalarTower R A M: Supp_A M ⊆ comap⁻¹(Supp_R M). One inclusion of L2 (image ⊆); no base-change statement.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:MulSemiringAction.toRingHom",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Ring/Action/Basic.lean",
+    "provides": "The ring automorphism of R given by g (used to state L13).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "Formal power series in the variables σ.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries.X",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "The variable x_s of A⟦σ⟧.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries.constantCoeff",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "The constant coefficient A⟦σ⟧ → A, a ring homomorphism.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:PrimeSpectrum.comap",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
+    "provides": "The continuous map Spec B → Spec A induced by a ring map A → B.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:PrimeSpectrum.comap_surjective_of_faithfullyFlat",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean",
+    "provides": "Faithfully flat A → B gives Spec B → Spec A surjective (descent half of L6).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:PrimeSpectrum.localization_away_comap_range",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+    "provides": "For R[1/r]: the image is D(r).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:PrimeSpectrum.localization_comap_injective",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+    "provides": "Spec S⁻¹R → Spec R is injective.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:PrimeSpectrum.zeroLocus_eq_univ_iff",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
+    "provides": "V(s) = Spec R ↔ s ⊆ nilradical R (with Module.support_eq_zeroLocus: finite M has full support ↔ Ann M ≤ nil R).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
+    "provides": "V(I) ⊆ V(J) ↔ J ≤ √I.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:RingHom.ker",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+    "provides": "The kernel of a ring homomorphism, as an ideal.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:RingHom.quotientKerEquivOfSurjective",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+    "provides": "First isomorphism theorem: R ⧸ ker f ≃+* S for surjective f.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:RingTheory.Sequence.IsRegular",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+    "provides": "M-regular sequences (weakly regular with M ⧸ (rs)M ≠ 0); states 'M ≠ 0 and depth M ≥ dim A' at the pin, which has no depth.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:SMulDistribClass",
+    "kind": "class",
+    "module": "Mathlib/Algebra/Group/Action/Defs.lean",
+    "provides": "g • r • s = (g • r) • (g • s): the semilinearity condition of L13.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:TensorProduct.quotTensorEquivQuotSMul",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+    "provides": "(R ⧸ I) ⊗_R M ≃ M ⧸ I•⊤.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:associatedPrimes",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean",
+    "provides": "Associated primes of a module.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:isReduced_localizationPreserves",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/LocalProperties/Reduced.lean",
+    "provides": "A localisation of a reduced ring is reduced.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:isReduced_of_injective",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Nilpotent/Defs.lean",
+    "provides": "A ring that injects into a reduced ring is reduced.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:minimalPrimes",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean",
+    "provides": "The set of minimal primes of R (= Ideal.minimalPrimes ⊥).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:minimalPrimes.equivIrreducibleComponents",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+    "provides": "Order isomorphism minimalPrimes R ≃ (irreducible components of Spec R)ᵒᵈ (Stacks 00ES); links D2 to 'union of components'.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:nilradical",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+    "provides": "The nilradical of a commutative semiring.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:nilradical_eq_bot_iff",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
+    "provides": "nil R = ⊥ ↔ IsReduced R.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:nonZeroDivisors",
+    "kind": "def",
+    "module": "Mathlib/Algebra/GroupWithZero/NonZeroDivisors.lean",
+    "provides": "The submonoid of nonzerodivisors of a ring.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:ringKrullDim",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+    "provides": "Krull dimension of a commutative ring, valued in WithBot ℕ∞.",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   },
+   {
+    "ref": "mathlib:ringKrullDim_quotient",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/KrullDimension/NonZeroDivisors.lean",
+    "provides": "dim R ⧸ I = the Krull dimension of V(I).",
+    "checked": "statement read in its source file at the pinned Mathlib commit"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "Taylor-AutomorphyII-2008",
+   "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations. II",
+   "authors": "Richard Taylor",
+   "edition": "Publ. Math. IHÉS 108 (2008), 183–239, DOI 10.1007/s10240-008-0015-2; Numdam open copy of the journal version, 57-page PDF, printed page = PDF page + 182. Crossref lists no correction or update for the DOI.",
+   "url": "https://www.numdam.org/article/PMIHES_2008__108__183_0.pdf",
+   "sha256": "f9014a899bcccaa56035314f196b15b581abe63d56cb9d9a285ce9e93f1030bc",
+   "readSections": [
+    "§2 Some commutative algebra: opening, Definition 2.1 and the remark after it, Lemma 2.2 (parts 1 and 2) with proof, Lemma 2.3 with proof, printed pp. 187–188 (PDF 5–6); page images checked",
+    "§4 Theorem 4.1 statement, printed p. 212 (PDF 30); page image checked",
+    "End of the proof of Theorem 4.1 (depth count, Lemma 2.3, reduction mod λ, Lemma 2.2, 'As T is reduced'), printed pp. 220–221 (PDF 38–39); page image of p. 221 checked"
+   ]
+  },
+  {
+   "id": "CalegariGeraghty-2018",
+   "title": "Modularity lifting beyond the Taylor–Wiles method",
+   "authors": "Frank Calegari and David Geraghty",
+   "edition": "Published version, Invent. Math. 211 (2018) 297–433 (DOI 10.1007/s00222-017-0749-x), 137-page PDF posted on Calegari's page; locators by section and PDF page. Same file (same SHA-256) as the integrated decomposition's source.",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/CG.pdf",
+   "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+   "readSections": [
+    "§6.1 Theorem 6.3 statement and conclusions (i)–(iv), PDF pp. 90–91 (page image of p. 91 checked)",
+    "End of the proof of Theorem 6.3, Theorem 6.4 with proof, Remark 6.5, PDF pp. 93–94 (page images checked, statement of 6.4(1) at 300 dpi)",
+    "Proposition 6.6 statement, its omitted proof and the paragraph after it, PDF pp. 94–95 (page image of p. 95 checked)"
+   ]
+  },
+  {
+   "id": "CalegariGeraghty-2018-correction",
+   "title": "Correction to: Modularity lifting beyond the Taylor–Wiles method",
+   "authors": "Frank Calegari and David Geraghty",
+   "edition": "Invent. Math. 227 (2022) 855–856, DOI 10.1007/s00222-021-01095-5 (published online 31 December 2021); found through Crossref 'updated-by' on the article DOI.",
+   "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01095-5.pdf",
+   "sha256": "c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7",
+   "readSections": [
+    "Whole correction, pp. 855–856: double brackets replaced by single brackets 47 times, items (1)–(12), including item (10) on Theorem 6.3"
+   ]
+  },
+  {
+   "id": "Kisin-FiniteFlatModularity-2009",
+   "title": "Moduli of finite flat group schemes, and modularity",
+   "authors": "Mark Kisin",
+   "edition": "Ann. of Math. 170 (2009), 1085–1180; journal PDF (98 pages); printed page numbers used (printed = PDF + 1082). Same file as the integrated decomposition's source.",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf",
+   "sha256": "076f8bb6ec683633f7742d27504b97f5feaef2ddbae2bc5dc4325eb8386f4ee7",
+   "readSections": [
+    "(3.3) The patching criterion: opening paragraph, Proposition (3.3.1) with proof, Lemma (3.3.4) with proof, printed pp. 1157–1159 (PDF 75–77); page images of pp. 1157 and 1159 checked"
+   ]
+  },
+  {
+   "id": "KhareWintenberger-SerreII",
+   "title": "Serre's modularity conjecture (II)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Author preprint proofs.pdf (98 pages; its own pagination equals the PDF page); published Invent. Math. 178 (2009) 505–586, not compared page by page. Same file as the integrated decomposition's source.",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "readSections": [
+    "§9.1.2 Proposition 9.2 statement (p. 81, page image checked) and proof of (I)–(III) (pp. 82–83, page image of p. 83 checked)",
+    "§9.1.3 Proposition 9.3 statement (pp. 83–84); patching data, Lemmas 9.4–9.6 with proofs and the end of the proof of Proposition 9.3 (II)–(III), pp. 86–89 (page images of pp. 88 and 89 checked)",
+    "§10.1 Theorem 10.1 with proof, pp. 90–92"
+   ]
+  },
+  {
+   "id": "ACCplus-PotentialAutomorphyCM",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+   "edition": "Journal version (Ann. of Math. 197 (2023)) posted on Calegari's page, 217-page PDF, printed page = PDF page + 896. Same file as the integrated decomposition's source.",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+   "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+   "readSections": [
+    "§6.3.5 set-up (items (4)–(6)), Assumption 6.3.6, the remark on supports and Lemma 6.3.7, printed p. 1051 (PDF 155), page image checked; Proposition 6.3.8 statement, p. 1052",
+    "§6.5: Lemma 6.5.9, (6.5.10) and the paragraph recalling [Tay08, Def. 2.1], printed p. 1066 (PDF 170), page image checked"
+   ]
+  },
+  {
+   "id": "StacksProject-web-2026-09-24",
+   "title": "The Stacks Project (online tag pages)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Web pages at stacks.math.columbia.edu fetched 2026-09-24; results cited by the chapter-section numbers shown on those pages (Algebra is Chapter 10) and by their stable tags. Each section was read from the TeX source served in the page. The hashes are of the HTML files read; pages carry live comments, so a refetch may hash differently.",
+   "url": "https://stacks.math.columbia.edu/tag/00AO",
+   "sha256": "b718c6a0209cf6b4f5595d0af8455893fcb9c52ebf5004841e09bf6201604674",
+   "readSections": [
+    "10.17 The spectrum of a ring (tag 00DY): Lemmas 10.17.2 (00E0), 10.17.5 (00E3), 10.17.7 (00E5)",
+    "10.20 Nakayama's lemma (07RC): tag list only",
+    "10.25 Zerodivisors and total rings of fractions (02LV): Lemmas 10.25.1 (00EU)–10.25.4",
+    "10.32 Locally nilpotent ideals (0AMF): Definition 10.32.1, Example 10.32.2 (0EGG), Lemmas 10.32.3–10.32.6 (00IM = 10.32.5)",
+    "10.39 Flat modules and flat ring maps (00H9): Lemmas 10.39.7 (00HI), 10.39.14–10.39.18 (00HQ = 10.39.16, 00HR = 10.39.17)",
+    "10.40 Supports and annihilators (080S): Definition 10.40.1 – Lemma 10.40.9 in full (07T8, 00L2, 0BUR, 07Z5, 051B, 00L3)",
+    "10.60 Dimension (00KD): Lemmas 10.60.11 (00KV) and 10.60.13 (00KW)",
+    "10.62 Support and dimension of modules (00KY): Lemmas 10.62.1–10.62.7",
+    "10.63 Associated primes (00L9): Definition 10.63.1 – Lemma 10.63.14 (Proposition 10.63.6 = 02CE, Lemma 10.63.8 = 05BV, Lemma 10.63.9 = 00LD, Lemma 10.63.14 = 05BY)",
+    "10.72 Depth (00LE): Lemmas 10.72.9 (0BK4) and 10.72.10 (0FCC)",
+    "10.97 Completion for Noetherian rings (0BNH): Lemmas 10.97.1–10.97.10 (00MB = 10.97.2, 0316 = 10.97.6)",
+    "10.103 Cohen–Macaulay modules (00N2): Definition 10.103.1 – Lemma 10.103.11 (0BUS = 10.103.7, 00NF = Definition 10.103.8)",
+    "10.105 Catenary rings (00NH): Definition 10.105.1 – Lemma 10.105.10 (0ECF)",
+    "10.110 Regular rings and global dimension (065U): Proposition 10.110.1 (00O7) – Lemma 10.110.9",
+    "10.111 Auslander–Buchsbaum (090U): Proposition 10.111.1 (090V) with proof",
+    "15.40 Some results on power series rings (07NK): Lemmas 15.40.1–15.40.3 (no flatness statement there)"
+   ],
+   "pageHashes": {
+    "00AO": "b718c6a0209cf6b4f5595d0af8455893fcb9c52ebf5004841e09bf6201604674",
+    "00DY": "9b1be251814eee09f440a21c486f6938d50c29ad52c7958f7fd5480d82afb7dd",
+    "00H9": "2a8b0d6e5e27464d05517762910d5420d4c1fade42f4ec742b821cdaaf59925c",
+    "00KD": "ca0f6d749d4930977424de52f85810386c9bc8f26272394c06f6edabd7591fee",
+    "00KY": "fd5f63ed71281b76497afaf22203a072c2a68c1d323941fdfd4bcd9cc28acbc1",
+    "00L2": "de8e1d7e1d993b939fefe750b780ffd80459d00903d9c3710bf510d269ba848d",
+    "00L9": "b41540b0efc350a9716e7fb07bf631277755a18f5dcab53fa12debde9c7a9f5d",
+    "00LE": "6eb31384ac3ecfa8eacc3c681ab97d9d5904a051a40823ae78997d65bb45f621",
+    "00N2": "3fc9728064803212fbb2ea9736964911cac5fc135109f8333a92d89bb4b1a3d8",
+    "00NH": "123c212e348583d52f864bc97d5e5868bd6fad43d814593b399ab9b4197019ff",
+    "02LV": "0a57d0328378e8cfafd7394a5471c22a621754dd8cb0498f29d7343bac9cf649",
+    "065U": "982a7f3f69b7376c1d78cd97c82e22f36185f58475d81742521d9140e19b80ad",
+    "07NK": "836dbc8d8f2ebd9aa99ed52f14571039d568141965b8ec350e8bc5bbba7a04d8",
+    "07RC": "05718cecceca9121a91ab57eb94b04c54c7d64ec14795afc9ab3085fa14bd2bc",
+    "080S": "e585d79abddc8e2fef27783a4a7a5ca5e1e02b8924ee4ee252e9162e71e03dc5",
+    "090U": "76bb77f5e530019bd9580396aaa5e23cded2d618a12e28ce26589a53afe59268",
+    "0AMF": "dca298bd166f858420dbcc1fd9777fc1cf77a3e32f2fcdd334b7a9dccac4cab9",
+    "0BNH": "48d4456ce8bb7d5d085a560f835144928d123fad39cfb9608f76476044f0e422"
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Nearly faithful modules",
+   "kind": "definition",
+   "statement": "Let R be a commutative ring and M an R-module. M is nearly faithful over R if Ann_R(M) ⊆ nilradical(R), that is, every element of R that kills M is nilpotent; equivalently √Ann_R(M) = √0. The definition carries no Noetherian or finiteness hypothesis. Characterisations, each an item of the API: (a) if Ann_R(M) is finitely generated, in particular if R is Noetherian, M is nearly faithful iff Ann_R(M) is a nilpotent ideal (Taylor's Definition 2.1); (b) if every minimal prime of R lies in Supp_R(M), M is nearly faithful, for every M; if M is finite, M is nearly faithful iff Supp_R(M) = Spec R iff every minimal prime of R lies in Supp_R(M) (the lemma nearly-faithful-iff-support-eq-univ); (c) a faithful module is nearly faithful; (d) if R is reduced, M is nearly faithful iff M is faithful.",
+   "hypotheses": [
+    "R commutative; M an arbitrary R-module.",
+    "(a) needs Ann_R(M) finitely generated, which holds when R is Noetherian; without it the nilpotent form is strictly stronger (Stacks Example 0EGG).",
+    "(b) needs M finite for 'nearly faithful ⇒ Supp M = Spec R'; 'every minimal prime in Supp M ⇒ nearly faithful' holds for every M.",
+    "(d) needs R reduced."
+   ],
+   "proofSteps": [
+    "(a) A nilpotent ideal lies in √0, with no hypothesis. Conversely, if Ann_R(M) ⊆ √0 and Ann_R(M) is finitely generated, then Ann_R(M)^n = 0 for some n (Stacks 00IM; Mathlib Ideal.FG.isNilpotent_iff_le_nilradical). Over a Noetherian ring every ideal is finitely generated.",
+    "(b), the implication for every M: if 𝔭 ∈ Supp M then some m ∈ M has Ann(m) ⊆ 𝔭 (Mathlib Module.mem_support_iff_exists_annihilator), so Ann M ⊆ 𝔭. If every minimal prime lies in Supp M, then Ann M ⊆ ⋂ Min(R) = √0 (Mathlib Ideal.sInf_minimalPrimes for the zero ideal).",
+    "(b), the implication for finite M: Supp M = V(Ann M) (Stacks 00L2; Mathlib Module.support_eq_zeroLocus), and V(I) = Spec R iff I ⊆ √0 (Mathlib PrimeSpectrum.zeroLocus_eq_univ_iff).",
+    "(c) Faithful means Ann_R(M) = 0 (Mathlib Module.annihilator_eq_bot). (d) √0 = 0 when R is reduced (Mathlib nilradical_eq_bot_iff).",
+    "Functoriality: an injective linear map M → N gives Ann N ⊆ Ann M (Mathlib LinearMap.annihilator_le_of_injective), and linear equivalences preserve annihilators (Mathlib LinearEquiv.annihilator_eq). Over a nonzero ring a nearly faithful module is nonzero, because Ann(0) = R (Mathlib Module.annihilator_eq_top_iff) and 1 is not nilpotent."
+   ],
+   "acceptance": [
+    "Over the dual numbers k[ε], the module k = k[ε]/(ε) is nearly faithful and not faithful.",
+    "In S = k[x_0, x_1, …]/(x_n^{n+1} : n ≥ 0) with J = (x_n : n ≥ 0), the S-module S/J is nearly faithful (J ⊆ √0), although Ann_S(S/J) = J is not nilpotent (Stacks Example 0EGG). This separates the definition from Taylor's nilpotent form outside the finitely generated case.",
+    "Over the node A = k[[x,y]]/(xy), the module A/(x) is not nearly faithful: its support V(x) misses the component V(y).",
+    "Over a nonzero ring the zero module is not nearly faithful."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "asks for 'the precise nearly faithful, radical-annihilator and union-of-components conclusion of each theorem'; the radical-annihilator form is this definition, applied to H^*(C∞) over R∞ and T∞."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "the Hecke module H over the deformation ring R is nearly faithful exactly when ker(R → T = im(R → End H)) lies in the nilradical; the deformation-to-Hecke map built in R22.1 is what this predicate is applied to (roadmap convention: 'State whether the conclusion is an integral isomorphism, a reduced/torsion-free R=T, or modularity of points on specified components')."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "each row of the statement table records whether the theorem gives R_red ≅ T (H nearly faithful), R^tf ≅ T or R ≅ T; near faithfulness is the hypothesis/conclusion that marks the reduced row."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.1",
+     "how": "KW II Theorem 10.1 obtains finiteness from Propositions 9.2–9.3(II), where R∞ acts faithfully (a fortiori nearly faithfully) on M∞, finite over O[[y]]."
+    },
+    {
+     "where": "Taylor 2008, proof of Theorem 4.1, p. 221",
+     "how": "H nearly faithful over R^univ_𝒮 plus T reduced gives (R^univ_𝒮)^red ≅ T."
+    },
+    {
+     "where": "Calegari–Geraghty, Theorem 6.4(2)–(3), PDF p. 93",
+     "how": "the conclusion 'H is a nearly faithful R-module', citing Taylor's terminology."
+    },
+    {
+     "where": "ACC+ §6.5, printed p. 1066",
+     "how": "near faithfulness of the Hecke action makes the auxiliary Hecke algebra local with maximal ideal the preimage of m_Q."
+    }
+   ],
+   "tests": [
+    {
+     "name": "nearlyFaithful_test_dualNumber",
+     "kind": "non-example",
+     "statement": "Over the dual numbers k[ε] (ε² = 0), the module k[ε]/(ε) is nearly faithful (its annihilator (ε) is nilpotent) but not faithful. A definition by faithfulness would reject it."
+    },
+    {
+     "name": "nearlyFaithful_test_zero",
+     "kind": "degenerate",
+     "statement": "Over a nonzero ring R, the zero module is not nearly faithful: Ann_R(0) = R ⊄ √0."
+    },
+    {
+     "name": "nearlyFaithful_test_self",
+     "kind": "compatibility",
+     "statement": "R is nearly faithful over itself, through Mathlib's FaithfulSMul R R and the compatibility instance NearlyFaithful.of_faithfulSMul."
+    },
+    {
+     "name": "nearlyFaithful_test_zmod",
+     "kind": "computation",
+     "statement": "Over ℤ/8 the module (ℤ/8)/(4) is nearly faithful (annihilator (4), and 4² = 0); over ℤ/6 the module (ℤ/6)/(3) is not (its annihilator (3) contains 3, which is not nilpotent)."
+    },
+    {
+     "name": "nearlyFaithful_test_node",
+     "kind": "non-example",
+     "statement": "Over A = k[[x,y]]/(xy), the module A/(x) is not nearly faithful: Ann = (x) ⊄ √0 = 0. A definition asking only that the support contain some irreducible component would accept it."
+    },
+    {
+     "name": "nearlyFaithful_test_int",
+     "kind": "compatibility",
+     "statement": "For an abelian group G, G is nearly faithful over ℤ iff ℤ acts faithfully on G (Mathlib FaithfulSMul ℤ G), since ℤ is reduced."
+    },
+    {
+     "name": "nearlyFaithful_test_notNilpotent",
+     "kind": "non-example",
+     "statement": "With S = k[x_0, x_1, …]/(x_n^{n+1} : n ≥ 0) and J = (x_n : n ≥ 0) (Stacks Example 0EGG), S/J is nearly faithful over S and Ann_S(S/J) = J is not a nilpotent ideal. Taylor's nilpotent form, used as the definition, would reject it."
+    }
+   ],
+   "planet": {
+    "name": "Nearly faithful module"
+   },
+   "prerequisites": [
+    "mathlib:Module.annihilator",
+    "mathlib:nilradical",
+    "mathlib:FaithfulSMul",
+    "mathlib:Module.support",
+    "mathlib:Module.annihilator_eq_bot",
+    "mathlib:nilradical_eq_bot_iff",
+    "mathlib:Ideal.FG.isNilpotent_iff_le_nilradical",
+    "mathlib:Module.mem_support_iff_exists_annihilator",
+    "mathlib:Ideal.sInf_minimalPrimes",
+    "mathlib:Module.support_eq_zeroLocus",
+    "mathlib:PrimeSpectrum.zeroLocus_eq_univ_iff",
+    "mathlib:LinearMap.annihilator_le_of_injective",
+    "mathlib:LinearEquiv.annihilator_eq",
+    "mathlib:Module.annihilator_eq_top_iff"
+   ],
+   "api": [
+    {
+     "name": "Module.NearlyFaithful.annihilator_le_nilradical",
+     "role": "projection",
+     "statement": "If M is nearly faithful over R, then Ann_R(M) ⊆ nilradical(R) (the field of the class)."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff",
+     "role": "characterisation",
+     "statement": "M is nearly faithful over R iff Ann_R(M) ⊆ nilradical(R)."
+    },
+    {
+     "name": "Module.NearlyFaithful.of_faithfulSMul",
+     "role": "compatibility",
+     "statement": "Instance: if R acts faithfully on M (Mathlib FaithfulSMul R M), then M is nearly faithful."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff_faithfulSMul",
+     "role": "compatibility",
+     "statement": "If R is reduced, M is nearly faithful iff FaithfulSMul R M."
+    },
+    {
+     "name": "Module.NearlyFaithful.of_isNilpotent_annihilator",
+     "role": "constructor",
+     "statement": "If Ann_R(M) is a nilpotent ideal, then M is nearly faithful. No hypothesis on R or M."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff_isNilpotent_annihilator_of_fg",
+     "role": "characterisation",
+     "statement": "If Ann_R(M) is finitely generated, M is nearly faithful iff Ann_R(M) is nilpotent (Taylor, Definition 2.1)."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff_isNilpotent_annihilator",
+     "role": "characterisation",
+     "statement": "If R is Noetherian, M is nearly faithful iff Ann_R(M) is nilpotent."
+    },
+    {
+     "name": "Module.nearlyFaithful_of_forall_minimalPrimes_mem_support",
+     "role": "constructor",
+     "statement": "If every minimal prime of R lies in Supp_R(M), then M is nearly faithful. No finiteness hypothesis."
+    },
+    {
+     "name": "Module.NearlyFaithful.support_eq_univ",
+     "role": "relation",
+     "statement": "If M is finite and nearly faithful, then Supp_R(M) = Spec R."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff_support_eq_univ",
+     "role": "characterisation",
+     "statement": "For finite M, M is nearly faithful iff Supp_R(M) = Spec R. Stated and proved as the lemma nearly-faithful-iff-support-eq-univ."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff_forall_minimalPrimes_mem_support",
+     "role": "characterisation",
+     "statement": "For finite M, M is nearly faithful iff every minimal prime of R lies in Supp_R(M). Stated and proved as the lemma nearly-faithful-iff-support-eq-univ."
+    },
+    {
+     "name": "Module.nearlyFaithful_iff_annihilator_le_radical_ker",
+     "role": "compatibility",
+     "statement": "Along a surjective ring map φ: A → B, a B-module N is nearly faithful over B iff Ann_A(N) ⊆ √(ker φ). Stated and proved as the lemma nearly-faithful-restrict-scalars-surjective."
+    },
+    {
+     "name": "Module.NearlyFaithful.nontrivial",
+     "role": "other",
+     "statement": "If R is a nonzero ring and M is nearly faithful over R, then M ≠ 0."
+    },
+    {
+     "name": "Module.NearlyFaithful.of_injective",
+     "role": "functoriality",
+     "statement": "If M is nearly faithful and f: M → N is an injective R-linear map, then N is nearly faithful."
+    },
+    {
+     "name": "LinearEquiv.nearlyFaithful_iff",
+     "role": "equivalence",
+     "statement": "If M ≅ N as R-modules, then M is nearly faithful iff N is."
+    }
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/NearlyFaithful",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Definition 2.1, printed p. 187 (PDF 5)",
+     "excerpt": "Let A denote a noetherian local ring. If M is a finitely generated A module the following are equivalent. – Ann_A(M) is nilpotent. – All minimal primes of A are in the support of M. – All primes of A are in the support of M. If these conditions are satisfied we call M a nearly faithful A-module.",
+     "match": "The source definition: finitely generated modules over Noetherian local rings, three equivalent conditions. The node keeps the second/third conditions (radical form) as the definition and the first as the Noetherian characterisation."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, remark after Definition 2.1, printed p. 187 (PDF 5)",
+     "excerpt": "If A is reduced then faithful and nearly faithful are synonymous.",
+     "match": "The reduced case of the characterisation: nilradical zero."
+    },
+    {
+     "sourceId": "ACCplus-PotentialAutomorphyCM",
+     "locator": "§6.5, paragraph after (6.5.10), printed p. 1066 (PDF 170)",
+     "excerpt": "(We recall ([Tay08, Def. 2.1]) that a finitely generated module over a Noetherian local ring is said to be nearly faithful if its annihilator is a nilpotent ideal.)",
+     "match": "ACC+ uses Taylor's definition in the nilpotent form, for finite modules over Noetherian local rings."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "(2) If R∞[1/p] is irreducible, then H is a nearly faithful R-module (in the terminology of [11]). (3) More generally, H is nearly faithful as an R-module providing that every irreducible component of Spec(R∞[1/p]) is in the support of H^{l0}(P∞)[1/p].",
+     "match": "Near-faithfulness conclusions; [11] is Taylor 2008, whose Definition 2.1 is the source definition."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.32.5, tag 00IM",
+     "excerpt": "Let R be a Noetherian ring. Let I, J be ideals of R. Suppose J ⊂ √I. Then J^n ⊂ I for some n. In particular, in a Noetherian ring the notions of “locally nilpotent ideal” and “nilpotent ideal” coincide.",
+     "match": "Noetherian: annihilator in the nilradical ⇔ annihilator nilpotent."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Example 10.32.2, tag 0EGG",
+     "excerpt": "Let R = k[x_n | n ∈ N] be the polynomial ring in infinitely many variables over a field k. Let I be the ideal generated by the elements x_n^n for n ∈ N and S = R/I. Then the ideal J ⊂ S generated by the images of x_n, n ∈ N is locally nilpotent, but not nilpotent.",
+     "match": "Gives the counterexample separating the two definitions: M = S/J is finite with Ann M = J ⊆ √0, not nilpotent."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.5, tag 00L2",
+     "excerpt": "Let R be a ring and let M be an R-module. If M is finite, then Supp(M) is closed. More precisely, if I = Ann(M) is the annihilator of M, then V(I) = Supp(M).",
+     "match": "Supp = V(Ann) for finite modules; the inclusion Supp ⊆ V(Ann) holds for every module (first half of the proof)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/supported-on-components",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Modules supported on a union of irreducible components",
+   "kind": "definition",
+   "statement": "Let R be a commutative ring and M an R-module. M is supported on components of Spec R if every prime minimal over Ann_R(M) is a minimal prime of R. For finite M this says exactly that Supp_R(M), which equals the closed set V(Ann_R M), is a union of irreducible components of Spec R, namely Supp M = ⋃_{𝔭 ∈ Min(R) ∩ Supp M} V(𝔭). The notion is used for finite modules; for a module that is not finite Supp M can differ from V(Ann M). A nearly faithful module is supported on components, all of them occurring.",
+   "hypotheses": [
+    "R commutative.",
+    "The characterisation by irreducible components needs M finite, so that Supp M = V(Ann M) (Stacks 00L2)."
+   ],
+   "proofSteps": [
+    "Characterisation, ⇒: every prime containing Ann M contains a prime minimal over Ann M (Stacks 00E0; Mathlib Ideal.exists_minimalPrimes_le), which is a minimal prime Q of R by hypothesis; so V(Ann M) = ⋃ V(Q) over these Q, and V(Q) is an irreducible component (Mathlib minimalPrimes.equivIrreducibleComponents).",
+    "Characterisation, ⇐: if Supp M = ⋃ V(Q_j) with Q_j minimal in R and 𝔭 is minimal over Ann M, then 𝔭 ∈ V(Ann M) = Supp M (Mathlib Module.support_eq_zeroLocus) gives 𝔭 ⊇ Q_j ⊇ Ann M for some j, so 𝔭 = Q_j by minimality.",
+    "Relation to nearly-faithful: if Ann M ⊆ √0, every prime contains Ann M, so the primes minimal over Ann M are the minimal primes of R."
+   ],
+   "acceptance": [
+    "Over ℤ, the module ℤ/2 is not supported on components: (2) is minimal over Ann = (2) and is not a minimal prime of ℤ.",
+    "Over the node A = k[[x,y]]/(xy), A/(x) is supported on components (Supp = V(x), one component) and is not nearly faithful.",
+    "Finiteness is needed for the characterisation: over ℤ_p, M = ℚ_p/ℤ_p has Ann M = 0, so the only prime minimal over Ann M is the minimal prime (0), yet Supp M = {(p)} is not a union of irreducible components."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "the 'union-of-components conclusion' and the warning 'neither Cohen–Macaulayness nor a nonzero complex implies full support' are statements in this vocabulary; ACC+ Proposition 6.3.8 (support contains every top-dimensional component) is its complex-level instance."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "the table must distinguish 'modularity of points on specified components' from full R=T; a point is covered only if its component lies in Supp M∞."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "roadmap consumer contract: 'a Cohen–Macaulay module alone does not prove every component modular'; R22.1's patched module is supported on the union of components recorded by this predicate."
+    },
+    {
+     "where": "Taylor 2008, Lemma 2.3, p. 188",
+     "how": "conclusion 'the support of M is equal to a union of irreducible components of Spec A'."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4(2), PDF p. 94",
+     "how": "the support of H^{l0}(P∞^□) is a union of irreducible components of Spec R∞ of maximal dimension."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isSupportedOnComponents_test_zero",
+     "kind": "degenerate",
+     "statement": "The zero module is supported on components: its annihilator is R, over which no prime is minimal."
+    },
+    {
+     "name": "isSupportedOnComponents_test_zmod",
+     "kind": "non-example",
+     "statement": "ℤ/2 over ℤ is not supported on components: (2) is minimal over Ann = (2) but is not a minimal prime of ℤ. A definition by 'Supp M is closed' would accept it."
+    },
+    {
+     "name": "isSupportedOnComponents_test_node",
+     "kind": "computation",
+     "statement": "Over A = k[[x,y]]/(xy), A/(x) is supported on components (Supp = V(x), an irreducible component) and is not nearly faithful."
+    },
+    {
+     "name": "isSupportedOnComponents_test_domain",
+     "kind": "characterisation",
+     "statement": "Over a domain R, a nonzero finite R-module is supported on components iff it is faithful (the only minimal prime is (0))."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Module.annihilator",
+    "mathlib:Ideal.minimalPrimes",
+    "mathlib:minimalPrimes",
+    "mathlib:minimalPrimes.equivIrreducibleComponents",
+    "mathlib:Module.support_eq_zeroLocus",
+    "mathlib:Ideal.exists_minimalPrimes_le"
+   ],
+   "api": [
+    {
+     "name": "Module.IsSupportedOnComponents.mem_minimalPrimes",
+     "role": "projection",
+     "statement": "If M is supported on components and 𝔭 is minimal over Ann_R(M), then 𝔭 is a minimal prime of R."
+    },
+    {
+     "name": "Module.isSupportedOnComponents_iff_exists_irreducibleComponents",
+     "role": "characterisation",
+     "statement": "For finite M: M is supported on components iff there is a set 𝒮 of irreducible components of Spec R with Supp_R(M) = ⋃ 𝒮."
+    },
+    {
+     "name": "Module.NearlyFaithful.isSupportedOnComponents",
+     "role": "relation",
+     "statement": "A nearly faithful module is supported on components."
+    },
+    {
+     "name": "LinearEquiv.isSupportedOnComponents_iff",
+     "role": "equivalence",
+     "statement": "If M ≅ N as R-modules, M is supported on components iff N is."
+    }
+   ],
+   "suggestedDeclarations": [
+    "Module.IsSupportedOnComponents"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/NearlyFaithful",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.3, printed p. 188 (PDF 6)",
+     "excerpt": "Suppose that the m_A-depth of M is greater than or equal to the Krull dimension of A. Then the m_A-depth of M equals the Krull dimension of A, and the support of M is equal to a union of irreducible components of Spec A. In particular if Spec A is irreducible then M is a nearly faithful A-module.",
+     "match": "Maximal depth forces support on a union of components; irreducibility then gives near faithfulness. The case M = 0 is implicitly excluded (see sourceIssues)."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, proof of Lemma 2.3, printed p. 188 (PDF 6)",
+     "excerpt": "every minimal prime over Ann_A M (which will then be an associated prime of M by Theorem 3.1a of [E]) has dimension at least the Krull dimension of A, and so must be a minimal prime of A.",
+     "match": "The proof: associated primes have dim A/𝔭 ≥ depth M (Eisenbud Prop. 18.2), and minimal primes over Ann M are associated."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2), PDF p. 94",
+     "excerpt": "note that since depth_{R∞}(H^{l0}(P∞^□)) = dim R∞, the support of H^{l0}(P∞^□) is a union of irreducible components of Spec(R∞) of maximal dimension. Since H^{l0}(P∞^□) ≠ {0}, the result follows.",
+     "match": "Maximal depth gives support on top-dimensional components; nonvanishing is used explicitly."
+    },
+    {
+     "sourceId": "ACCplus-PotentialAutomorphyCM",
+     "locator": "§6.3, Proposition 6.3.8, printed p. 1052 (PDF 156)",
+     "excerpt": "Supp_{R∞}(H^*(C∞)) = Spec T∞ ⊂ Spec R∞ contains every irreducible component of Spec R∞ of maximal dimension.",
+     "match": "A union-of-components conclusion (complex level, owned by P9) stated in the vocabulary of supported-on-components."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Proposition 10.63.6, tag 02CE",
+     "excerpt": "Let R be a Noetherian ring. Let M be a finite R-module. The following sets of primes are the same: The minimal primes in the support of M. The minimal primes in Ass(M).",
+     "match": "Primes minimal over Ann M are associated primes of M."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.5, tag 00L2",
+     "excerpt": "Let R be a ring and let M be an R-module. If M is finite, then Supp(M) is closed. More precisely, if I = Ann(M) is the annihilator of M, then V(I) = Supp(M).",
+     "match": "Supp = V(Ann) for finite modules; the inclusion Supp ⊆ V(Ann) holds for every module (first half of the proof)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Near faithfulness as full support",
+   "kind": "lemma",
+   "statement": "Let R be a commutative ring and M an R-module, and consider (i) M is nearly faithful; (ii) Supp_R M = Spec R; (iii) every minimal prime of R lies in Supp_R M. For every M, (ii) ⇔ (iii) ⇒ (i). If M is finite, (i), (ii) and (iii) are equivalent. If moreover Ann_R M is finitely generated (for instance R Noetherian), they are equivalent to (iv) Ann_R M is a nilpotent ideal.",
+   "hypotheses": [
+    "M finite for (i) ⇒ (ii); the other implications among (i)–(iii) hold for every M.",
+    "Ann_R M finitely generated, automatic for R Noetherian, for (iv)."
+   ],
+   "proofSteps": [
+    "(iii) ⇒ (i): the constructor nearlyFaithful_of_forall_minimalPrimes_mem_support of nearly-faithful (Ann M ⊆ 𝔭 for 𝔭 ∈ Supp M, and ⋂ Min(R) = √0 by Mathlib Ideal.sInf_minimalPrimes).",
+    "(ii) ⇔ (iii): every prime contains a minimal prime (Stacks 00E0; Mathlib Ideal.exists_minimalPrimes_le) and supports are stable under specialisation (Mathlib Module.mem_support_mono).",
+    "(i) ⇒ (ii) for finite M: Supp M = V(Ann M) (Stacks 00L2; Mathlib Module.support_eq_zeroLocus) and V(I) = Spec R iff I ⊆ √0 (Mathlib PrimeSpectrum.zeroLocus_eq_univ_iff).",
+    "(i) ⇔ (iv): Stacks 00IM; Mathlib Ideal.FG.isNilpotent_iff_le_nilradical (the API item nearlyFaithful_iff_isNilpotent_annihilator_of_fg of nearly-faithful)."
+   ],
+   "acceptance": [
+    "Finiteness is needed for (i) ⇒ (ii): over ℤ, ℚ/ℤ is faithful, hence nearly faithful, but the generic point (0) is not in its support (ℚ ⊗_ℤ ℚ/ℤ = 0). Over ℤ_p, ℚ_p/ℤ_p behaves the same way.",
+    "ACC+ §6.3.5: the kernel of T∞ → End(H*(C∞)) is nilpotent, so Supp_{T∞}(H*(C∞)) = Spec T∞; this is (iv) ⇒ (ii)."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "ACC+ §6.3.5 identifies Supp_{R∞}(H^*(C∞)) = Spec T∞ using only that the kernel of T∞ → End(H^*(C∞)) is nilpotent; this is (iv) ⇒ (ii) for T∞ acting on H^*(C∞)."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "near faithfulness is checked as 'every component of Spec R lies in the support' when the table's theorems are applied to components."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4, PDF p. 94",
+     "how": "near faithfulness of H^{l0}(P∞^□) is tested on the irreducible components of Spec R∞[1/p]."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Module.support_eq_zeroLocus",
+    "mathlib:PrimeSpectrum.zeroLocus_eq_univ_iff",
+    "mathlib:Ideal.exists_minimalPrimes_le",
+    "mathlib:Module.mem_support_mono",
+    "mathlib:Ideal.sInf_minimalPrimes",
+    "mathlib:Ideal.FG.isNilpotent_iff_le_nilradical",
+    "mathlib:Module.mem_support_iff_exists_annihilator"
+   ],
+   "suggestedDeclarations": [
+    "Module.nearlyFaithful_iff_support_eq_univ",
+    "Module.nearlyFaithful_iff_forall_minimalPrimes_mem_support"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/NearlyFaithful",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Definition 2.1, printed p. 187 (PDF 5)",
+     "excerpt": "Let A denote a noetherian local ring. If M is a finitely generated A module the following are equivalent. – Ann_A(M) is nilpotent. – All minimal primes of A are in the support of M. – All primes of A are in the support of M. If these conditions are satisfied we call M a nearly faithful A-module.",
+     "match": "The source definition: finitely generated modules over Noetherian local rings, three equivalent conditions. The node keeps the second/third conditions (radical form) as the definition and the first as the Noetherian characterisation."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.5, tag 00L2",
+     "excerpt": "Let R be a ring and let M be an R-module. If M is finite, then Supp(M) is closed. More precisely, if I = Ann(M) is the annihilator of M, then V(I) = Supp(M).",
+     "match": "Supp = V(Ann) for finite modules; the inclusion Supp ⊆ V(Ann) holds for every module (first half of the proof)."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.17.2, tag 00E0",
+     "excerpt": "Given an ideal I ⊂ R and a prime ideal I ⊂ 𝔭 there exists a prime I ⊂ 𝔮 ⊂ 𝔭 such that 𝔮 is minimal over I.",
+     "match": "Every prime contains a minimal prime; the same lemma records √I = ⋂_{I ⊂ 𝔭} 𝔭."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.32.5, tag 00IM",
+     "excerpt": "Let R be a Noetherian ring. Let I, J be ideals of R. Suppose J ⊂ √I. Then J^n ⊂ I for some n. In particular, in a Noetherian ring the notions of “locally nilpotent ideal” and “nilpotent ideal” coincide.",
+     "match": "Noetherian: annihilator in the nilradical ⇔ annihilator nilpotent."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4, PDF p. 94",
+     "excerpt": "Since R∞ is p-torsion free, all its minimal primes have characteristic 0. Thus H^{l0}(P∞^□) is nearly faithful as an R∞-module if and only if each irreducible component of Spec(R∞[1/p]) lies in the support of H^{l0}(P∞^□)[1/p].",
+     "match": "Minimal primes of a p-torsion-free ring avoid p, so near faithfulness can be tested after inverting p."
+    },
+    {
+     "sourceId": "ACCplus-PotentialAutomorphyCM",
+     "locator": "§6.3.5, before Lemma 6.3.7, printed p. 1051 (PDF 155)",
+     "excerpt": "Note that Supp_{R∞}(H^*(C∞)) = Spec T∞ and Supp_{R'∞}(H^*(C'∞)) = Spec T'∞ — the only point being that the kernel of T∞ → End_{S∞}(H^*(C∞)) is nilpotent.",
+     "match": "A nilpotent kernel of the map to End identifies the support with Spec of the Hecke ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-restrict-scalars-surjective",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Near faithfulness along a surjective ring map",
+   "kind": "lemma",
+   "statement": "Let φ: A → B be a surjective ring map and N a B-module, viewed as an A-module through φ. Then Ann_A(N) = φ⁻¹(Ann_B N), and N is nearly faithful over B iff Ann_A(N) ⊆ √(ker φ). In particular, if N is nearly faithful over A, then ker φ ⊆ √0_A and N is nearly faithful over B.",
+   "hypotheses": [
+    "φ surjective.",
+    "No finiteness of N and no Noetherian hypothesis."
+   ],
+   "proofSteps": [
+    "Ann_A(N) = φ⁻¹(Ann_B N) (Mathlib Module.comap_annihilator).",
+    "φ⁻¹(√0_B) = √(φ⁻¹(0)) = √(ker φ) (Mathlib Ideal.comap_radical).",
+    "As φ is surjective, Ann_B N = φ(Ann_A N); so Ann_B N ⊆ √0_B iff Ann_A N ⊆ φ⁻¹(√0_B) = √(ker φ).",
+    "If Ann_A N ⊆ √0_A, then ker φ ⊆ Ann_A N ⊆ √0_A ⊆ √(ker φ)."
+   ],
+   "acceptance": [
+    "For B = A/I and N = A/J with I ⊆ J: A/J is nearly faithful over A/I iff J ⊆ √I.",
+    "A/I is faithful over A/I, and nearly faithful over A iff I ⊆ √0."
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Module.comap_annihilator",
+    "mathlib:Ideal.comap_radical",
+    "mathlib:RingHom.ker",
+    "mathlib:Ideal.radical"
+   ],
+   "suggestedDeclarations": [
+    "Module.nearlyFaithful_iff_annihilator_le_radical_ker"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/NearlyFaithful",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.2(1), printed p. 187 (PDF 5)",
+     "excerpt": "If I is an ideal of A and M is a nearly faithful A-module then M/IM is a nearly faithful A/I-module. In particular, if J ⊃ I is another ideal and the action of A on M/IM factors through A/J then J ⊂ √I and M/IM is a nearly faithful A/J-module.",
+     "match": "The clause 'the action of A on M/IM factors through A/J ⇒ M/IM nearly faithful over A/J' is this lemma applied to A → A/J."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "Then H^{l0}(P∞^□)/𝔞 ≅ H is nearly faithful as an R∞/ı(𝔞)R∞-module. The action of R∞ on this module also factors through R∞/ker(φ∞) = R.",
+     "match": "Near faithfulness over R∞/ı(𝔞)R∞ is transferred to R = R∞/ker(φ∞) along a surjection; this lemma is that transfer."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Near faithfulness passes to quotients",
+   "kind": "lemma",
+   "statement": "Let A be a commutative ring, M a finite nearly faithful A-module and I ⊆ A an ideal. Then M/IM is nearly faithful over A/I. Moreover, let φ: A → B be a surjective ring map and N a B-module with an A-linear isomorphism M/IM ≅ N (the action of A on M/IM factors through B = A/J, J = ker φ). Then J ⊆ √I; and if I ⊆ √J (for instance I ⊆ J), N is nearly faithful over B.",
+   "hypotheses": [
+    "M finite over A.",
+    "No Noetherian hypothesis."
+   ],
+   "proofSteps": [
+    "Supp_A(M/IM) = Supp_A M ∩ V(I) (Stacks 00L3; Mathlib Module.support_quotient) = V(I), because Supp_A M = Spec A (nearly-faithful-iff-support-eq-univ).",
+    "M/IM is finite, so V(Ann_A(M/IM)) = Supp_A(M/IM) = V(I) (Mathlib Module.support_eq_zeroLocus), whence √Ann_A(M/IM) = √I (Mathlib PrimeSpectrum.zeroLocus_subset_zeroLocus_iff).",
+    "The A/I-module structure on M/IM is Mathlib's (Module.isTorsionBySet_quotient_ideal_smul and Module.IsTorsionBySet.module). By nearly-faithful-restrict-scalars-surjective for A → A/I, M/IM is nearly faithful over A/I iff Ann_A(M/IM) ⊆ √I, which holds.",
+    "For B: J kills N ≅ M/IM, so J ⊆ Ann_A(M/IM) ⊆ √I. If I ⊆ √J, then Ann_A(N) ⊆ √I ⊆ √J, and nearly-faithful-restrict-scalars-surjective gives N nearly faithful over B."
+   ],
+   "acceptance": [
+    "Finiteness is necessary: over ℤ_p, ℚ_p is faithful, but ℚ_p/pℚ_p = 0 is not nearly faithful over 𝔽_p.",
+    "Taylor, proof of Theorem 4.1: H_χ/λ ≅ H_1/λ is nearly faithful over R_χ/λ ≅ R_1/λ."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'specialization of local conditions' and reduction of patched modules modulo ϖ: near faithfulness passes to quotients."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "passing from the patched module M∞ over R∞ to the finite-level Hecke module H = M∞/𝔞M∞ over R∞/ı(𝔞)R∞."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4, PDF p. 93",
+     "how": "'H^{l0}(P∞^□)/𝔞 ≅ H is nearly faithful as an R∞/ı(𝔞)R∞-module'."
+    },
+    {
+     "where": "Taylor 2008, proof of Theorem 4.1, p. 221",
+     "how": "H_{χ}/λ ≅ H_{1}/λ is nearly faithful over R_{χ}/λ ≅ R_{1}/λ."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-restrict-scalars-surjective",
+    "mathlib:Module.support_quotient",
+    "mathlib:Module.support_eq_zeroLocus",
+    "mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff",
+    "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+    "mathlib:Module.IsTorsionBySet.module"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.quotient",
+    "Module.NearlyFaithful.ker_le_radical_of_equiv_quotient",
+    "Module.NearlyFaithful.of_equiv_quotient"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/NearlyFaithful",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.2(1), printed p. 187 (PDF 5)",
+     "excerpt": "If I is an ideal of A and M is a nearly faithful A-module then M/IM is a nearly faithful A/I-module. In particular, if J ⊃ I is another ideal and the action of A on M/IM factors through A/J then J ⊂ √I and M/IM is a nearly faithful A/J-module.",
+     "match": "Exactly the quotient statement, including the 'J ⊂ √I' clause used for the patching descent."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, proof of Lemma 2.2(1), printed p. 188 (PDF 6)",
+     "excerpt": "If ℘ ⊃ I is a prime ideal we need to show that (M/IM)_℘ ≠ (0). If not then M_℘/I_℘M_℘ = (M/IM)_℘ = (0) and so by Nakayama's lemma M_℘ = (0), a contradiction to ℘ being in the support of M.",
+     "match": "The proof is Supp(M/IM) = Supp M ∩ V(I) via Nakayama, which needs M finitely generated."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.9, tag 00L3",
+     "excerpt": "Let R be a ring and let M be an R-module. If M is finite then the support of M/IM is Supp(M) ∩ V(I).",
+     "match": "Supp(M/IM) = Supp M ∩ V(I) for finite M (Mathlib Module.support_quotient)."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "Then H^{l0}(P∞^□)/𝔞 ≅ H is nearly faithful as an R∞/ı(𝔞)R∞-module. The action of R∞ on this module also factors through R∞/ker(φ∞) = R.",
+     "match": "Quotient step (Taylor Lemma 2.2(1)) and the factorisation hypothesis."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Support under base change",
+   "kind": "theorem",
+   "statement": "Let φ: A → B be a ring map and M an A-module. For every M and every φ, Supp_B(B ⊗_A M) ⊆ (Spec φ)⁻¹(Supp_A M). If M is finite over A, or if φ is flat, equality holds: Supp_B(B ⊗_A M) = (Spec φ)⁻¹(Supp_A M).",
+   "hypotheses": [
+    "φ: A → B a map of commutative rings.",
+    "For equality: M finite over A, or φ flat. Equality fails when both are dropped."
+   ],
+   "proofSteps": [
+    "For 𝔮 ∈ Spec B with 𝔭 = φ⁻¹(𝔮): (B ⊗_A M)_𝔮 ≅ B_𝔮 ⊗_{A_𝔭} M_𝔭 (proof of Stacks 0BUR). So M_𝔭 = 0 forces (B ⊗_A M)_𝔮 = 0: this is the inclusion ⊆.",
+    "⊇ for finite M: M_𝔭 ≠ 0 gives κ(𝔭) ⊗_A M ≠ 0 (Mathlib Module.mem_support_iff_nontrivial_residueField_tensorProduct, Nakayama). Then κ(𝔮) ⊗_B (B ⊗_A M) ≅ κ(𝔮) ⊗_{κ(𝔭)} (κ(𝔭) ⊗_A M) is nonzero, κ(𝔭) → κ(𝔮) being a field extension; apply the same criterion over B, where B ⊗_A M is finite (Mathlib Module.Finite.base_change).",
+    "⊇ for flat φ: A_𝔭 → B_𝔮 is a flat local homomorphism of local rings, hence faithfully flat (Stacks 00HR; Mathlib Module.FaithfullyFlat.of_flat_of_isLocalHom), so B_𝔮 ⊗_{A_𝔭} M_𝔭 ≠ 0 when M_𝔭 ≠ 0."
+   ],
+   "acceptance": [
+    "Both hypotheses fail and equality fails for A = ℤ, B = ℤ/2, M = ℚ: Supp_ℤ ℚ = Spec ℤ, but ℤ/2 ⊗_ℤ ℚ = 0. (Over ℤ_p: B = 𝔽_p, M = ℚ_p.)",
+    "For the flat map A → A[1/ϖ]: Supp_{A[1/ϖ]}(M[1/ϖ]) is Supp_A M ∩ D(ϖ), viewed in Spec A[1/ϖ] = D(ϖ).",
+    "For A → A[[x_1, …, x_n]] and finite M: Supp(A[[x]] ⊗_A M) is the preimage of Supp_A M."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'component-support transport under finite flat coefficient changes, removal of framing variables' is this lemma applied to A → A ⊗_O O′, A → A[[x]] and A → A[1/ϖ]."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "support after inverting p: Supp M[1/p] is the preimage of Supp M in Spec R[1/p], used when the table states results on components of the generic fibre."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4(3), PDF p. 94",
+     "how": "support of H^{l0}(P∞^□)[1/p] over R∞[1/p] is the restriction of the support over R∞."
+    }
+   ],
+   "planet": {
+    "name": "Support under base change"
+   },
+   "prerequisites": [
+    "mathlib:Module.support",
+    "mathlib:PrimeSpectrum.comap",
+    "mathlib:Module.mem_support_iff_nontrivial_residueField_tensorProduct",
+    "mathlib:Module.Finite.base_change",
+    "mathlib:Module.Flat",
+    "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom"
+   ],
+   "suggestedDeclarations": [
+    "Module.support_baseChange_subset",
+    "Module.support_baseChange",
+    "Module.support_baseChange_of_flat"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/BaseChange",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.6, tag 0BUR",
+     "excerpt": "Let R → R′ be a ring map and let M be a finite R-module. Then Supp(M ⊗_R R′) is the inverse image of Supp(M).",
+     "match": "Exactly support-base-change for finite M; its proof gives (M ⊗ R′)_𝔭′ = M_𝔭 ⊗_{R_𝔭} R′_𝔭′."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.39.17, tag 00HR",
+     "excerpt": "A flat local ring homomorphism of local rings is faithfully flat.",
+     "match": "The flat case of support-base-change: R_𝔭 → R′_𝔭′ is flat local, so M_𝔭 ≠ 0 implies M_𝔭 ⊗ R′_𝔭′ ≠ 0."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/support-restrict-scalars-surjective",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Support along a surjective ring map",
+   "kind": "lemma",
+   "statement": "Let φ: A → B be a surjective ring map, with kernel I (so B ≅ A/I), and N a B-module, viewed as an A-module through φ. Then Supp_A(N) = (Spec φ)(Supp_B N): a prime 𝔭 of A lies in Supp_A N iff I ⊆ 𝔭 and φ(𝔭) ∈ Supp_B N. Here Spec φ is the closed immersion Spec B ≅ V(I) ⊆ Spec A.",
+   "hypotheses": [
+    "φ surjective.",
+    "No finiteness of N."
+   ],
+   "proofSteps": [
+    "If I ⊄ 𝔭, choose x ∈ I ∖ 𝔭: x acts as 0 on N and invertibly on N_𝔭, so N_𝔭 = 0.",
+    "If I ⊆ 𝔭, then 𝔭 = φ⁻¹(𝔮) with 𝔮 = φ(𝔭), and B ⊗_A A_𝔭 ≅ B_𝔮, so A_𝔭 ⊗_A N ≅ B_𝔮 ⊗_B N: N_𝔭 ≠ 0 iff N_𝔮 ≠ 0.",
+    "Spec B → V(I) is a homeomorphism (Stacks 00E5). Mathlib Module.support_subset_preimage_comap supplies Supp_B N ⊆ (Spec φ)⁻¹(Supp_A N) for any algebra; the two steps above give the rest."
+   ],
+   "acceptance": [
+    "For N = B = A/I: Supp_A(A/I) = V(I) (Mathlib Module.support_of_algebra), the image of Spec(A/I).",
+    "Supp_A N ⊆ V(I) for every A/I-module N, finite or not."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "supports of modules over quotients R∞/ker φ (specialisation of local conditions, R∞ ↠ R) are compared inside Spec R∞."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "H is an R-module through R∞ ↠ R; its support over R∞ is read off from its support over R."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4, PDF p. 93",
+     "how": "'The action of R∞ on this module also factors through R∞/ker(φ∞) = R'."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:Module.support",
+    "mathlib:PrimeSpectrum.comap",
+    "mathlib:Module.support_subset_preimage_comap",
+    "mathlib:Module.support_of_algebra"
+   ],
+   "suggestedDeclarations": [
+    "Module.support_eq_image_comap_of_surjective"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/BaseChange",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.17.7, tag 00E5",
+     "excerpt": "Let R be a ring. Let I ⊂ R be an ideal. The map R → R/I induces via the functoriality of Spec a homeomorphism Spec(R/I) ⟶ V(I) ⊂ Spec(R).",
+     "match": "The closed immersion through which supports over R/I are transported."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.63.14, tag 05BY",
+     "excerpt": "Let R be a ring. Let I be an ideal. Let M be an R/I-module. Via the canonical injection Spec(R/I) → Spec(R) we have Ass_{R/I}(M) = Ass_R(M).",
+     "match": "The associated-prime analogue of this lemma (proof omitted in the source); the support statement is proved directly."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "Then H^{l0}(P∞^□)/𝔞 ≅ H is nearly faithful as an R∞/ı(𝔞)R∞-module. The action of R∞ on this module also factors through R∞/ker(φ∞) = R.",
+     "match": "Quotient step (Taylor Lemma 2.2(1)) and the factorisation hypothesis."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Near faithfulness under base change and coefficient change",
+   "kind": "lemma",
+   "statement": "Let φ: A → B be a ring map and M a finite A-module. (a) If M is nearly faithful over A, then B ⊗_A M is nearly faithful over B. (b) If B ⊗_A M is nearly faithful over B and every minimal prime of A is φ⁻¹(𝔮) for some prime 𝔮 of B (for instance φ faithfully flat), then M is nearly faithful over A. (c) Coefficient change: if 𝒪 → 𝒪′ is faithfully flat (for instance a finite extension of complete discrete valuation rings) and A is an 𝒪-algebra, then M is nearly faithful over A iff (A ⊗_𝒪 𝒪′) ⊗_A M ≅ 𝒪′ ⊗_𝒪 M is nearly faithful over A ⊗_𝒪 𝒪′.",
+   "hypotheses": [
+    "M finite over A.",
+    "(b): every minimal prime of A lies in the image of Spec B → Spec A.",
+    "No Noetherian hypothesis."
+   ],
+   "proofSteps": [
+    "(a) support-base-change: Supp_B(B ⊗_A M) = (Spec φ)⁻¹(Supp_A M) = (Spec φ)⁻¹(Spec A) = Spec B. B ⊗_A M is B-finite (Mathlib Module.Finite.base_change); conclude by nearly-faithful-iff-support-eq-univ.",
+    "(b) A minimal prime 𝔭 equals φ⁻¹(𝔮); 𝔮 ∈ Supp_B(B ⊗_A M) = Spec B (nearly-faithful-iff-support-eq-univ over B), so 𝔭 ∈ Supp_A M by support-base-change; conclude by nearly-faithful-iff-support-eq-univ over A.",
+    "(c) A → A ⊗_𝒪 𝒪′ is faithfully flat (Stacks 00HI; the base-change instance of Mathlib's Module.FaithfullyFlat), hence surjective on spectra (Stacks 00HQ; Mathlib PrimeSpectrum.comap_surjective_of_faithfullyFlat). Apply (a) and (b)."
+   ],
+   "acceptance": [
+    "Descent fails without the hypothesis of (b): A = k × k, B = k by the first projection, M = k × 0 = A/(0 × k). Then B ⊗_A M = k is faithful over B, but Ann_A M = 0 × k ⊄ √0 = 0.",
+    "ℤ[[X]] ⊗_ℤ ℤ is nearly faithful over ℤ[[X]]."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'component-support transport under finite flat coefficient changes'."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "enlarging O to contain Hecke eigenvalues or residual data does not change near faithfulness of the Hecke module."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "statements proved after a finite coefficient extension descend to the original coefficient ring."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Module.Finite.base_change",
+    "mathlib:Module.FaithfullyFlat",
+    "mathlib:PrimeSpectrum.comap_surjective_of_faithfullyFlat"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.baseChange",
+    "Module.NearlyFaithful.of_baseChange",
+    "Module.nearlyFaithful_baseChange_iff"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/BaseChange",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.6, tag 0BUR",
+     "excerpt": "Let R → R′ be a ring map and let M be a finite R-module. Then Supp(M ⊗_R R′) is the inverse image of Supp(M).",
+     "match": "Exactly support-base-change for finite M; its proof gives (M ⊗ R′)_𝔭′ = M_𝔭 ⊗_{R_𝔭} R′_𝔭′."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.39.16, tag 00HQ",
+     "excerpt": "Let R → S be a flat ring map. The following are equivalent: R → S is faithfully flat, the induced map on Spec is surjective, and any closed point x ∈ Spec(R) is in the image of the map Spec(S) → Spec(R).",
+     "match": "Faithful flatness = flat + surjective on Spec."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.39.7, tag 00HI",
+     "excerpt": "Suppose that M is (faithfully) flat over R, and that R → R′ is a ring map. Then M ⊗_R R′ is (faithfully) flat over R′.",
+     "match": "Coefficient change A → A ⊗_O O′ is faithfully flat because O → O′ is."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-variables",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Removing framing variables",
+   "kind": "lemma",
+   "statement": "Let A be a commutative ring, σ a finite set and A[[x]] := A[[x_s : s ∈ σ]]. (0) The constant-coefficient map A[[x]] → A has kernel (x_s : s ∈ σ), so A[[x]]/(x) ≅ A. (a) A finite A-module M is nearly faithful over A iff A[[x]] ⊗_A M is nearly faithful over A[[x]]. (b) If N is a finite nearly faithful A[[x]]-module, then N/(x)N is nearly faithful over A = A[[x]]/(x).",
+   "hypotheses": [
+    "σ finite. For infinitely many variables Σ_s x_s has constant coefficient 0 and does not lie in the ideal (x_s : s ∈ σ), so (0) fails.",
+    "M finite over A; N finite over A[[x]].",
+    "No Noetherian or flatness hypothesis."
+   ],
+   "proofSteps": [
+    "(0) Write σ = {s_1, …, s_n}. Every f ∈ A[[x]] equals f(0) + Σ_i x_{s_i} g_i, where x_{s_i} g_i collects the monomials of f whose least occurring variable is x_{s_i}; every non-constant monomial is counted exactly once. So ker(constant coefficient) = (x_s : s ∈ σ).",
+    "(b) nearly-faithful-quotient with I = (x_s : s ∈ σ) gives N/(x)N nearly faithful over A[[x]]/(x), which is A by (0).",
+    "(a) ⇒ is nearly-faithful-base-change (a).",
+    "(a) ⇐: N = A[[x]] ⊗_A M is A[[x]]-finite, and N/(x)N ≅ (A[[x]]/(x)) ⊗_A M ≅ M as A-modules (Mathlib TensorProduct.quotTensorEquivQuotSMul and (0)). Apply (b) and invariance of near faithfulness under linear equivalence (API of nearly-faithful)."
+   ],
+   "acceptance": [
+    "Calegari–Geraghty §6.1: the ideal 𝔞 of S∞^□ contains the framing variables z_1, …, z_j, and passing from H^{l0}(P∞^□) to its quotient by them keeps near faithfulness.",
+    "Kisin (3.3.1): M ⊗ E = (M∞ ⊗ E)/(y_1, …, y_h) is faithful over R[1/p] = R∞[1/p]/(y_1, …, y_h)."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'removal of framing variables' for patched modules."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "roadmap text for the patching layer: 'Keep framing variables and their removal explicit'; the Hecke module over the unframed ring is recovered from the framed patched module by quotienting the framing variables."
+    },
+    {
+     "where": "Calegari–Geraghty, Theorem 6.3–6.4, PDF pp. 91–93",
+     "how": "𝔞 contains the framing variables z_i, and H = H^{l0}(P∞^□)/𝔞."
+    },
+    {
+     "where": "Kisin (3.3.1), p. 1159",
+     "how": "faithfulness over R∞[1/p] passes to R[1/p] = R∞[1/p]/(y_1,…,y_h)."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:MvPowerSeries",
+    "mathlib:MvPowerSeries.constantCoeff",
+    "mathlib:MvPowerSeries.X",
+    "mathlib:TensorProduct.quotTensorEquivQuotSMul"
+   ],
+   "suggestedDeclarations": [
+    "MvPowerSeries.ker_constantCoeff",
+    "Module.nearlyFaithful_mvPowerSeries_baseChange_iff",
+    "Module.NearlyFaithful.quotient_span_X"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/BaseChange",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.3, definition of 𝔞, PDF p. 91",
+     "excerpt": "Let 𝔞 ⊂ S∞^□ denote the kernel of the map S∞^□ → O sending each element of (Z_p)^q to 1 and each z_i to 0.",
+     "match": "𝔞 contains the framing variables z_i and the augmentation ideal, so passing to M∞/𝔞M∞ removes both."
+    },
+    {
+     "sourceId": "Kisin-FiniteFlatModularity-2009",
+     "locator": "(3.3), end of the proof of Proposition (3.3.1), printed p. 1159 (PDF 77)",
+     "excerpt": "M ⊗_O E = (M∞ ⊗_O E)/(y1, . . . , yh)(M∞ ⊗_O E) is a finite projective, faithful R[1/p] = R∞[1/p]/(y1, . . . , yh)R∞[1/p]-module",
+     "match": "Faithfulness after inverting p descends through the quotient by the patching variables y1, …, yh (projective case)."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.2(1), printed p. 187 (PDF 5)",
+     "excerpt": "If I is an ideal of A and M is a nearly faithful A-module then M/IM is a nearly faithful A/I-module. In particular, if J ⊃ I is another ideal and the action of A on M/IM factors through A/J then J ⊂ √I and M/IM is a nearly faithful A/J-module.",
+     "match": "Exactly the quotient statement, including the 'J ⊂ √I' clause used for the patching descent."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/minimal-primes-of-torsion-free",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Minimal primes after inverting a nonzerodivisor",
+   "kind": "lemma",
+   "statement": "Let R be a commutative ring and ϖ ∈ R a nonzerodivisor. Then ϖ lies in no minimal prime of R, and contraction 𝔮 ↦ 𝔮 ∩ R along R → R[1/ϖ] is a bijection from the minimal primes of R[1/ϖ] onto the minimal primes of R, with inverse 𝔭 ↦ 𝔭R[1/ϖ].",
+   "hypotheses": [
+    "ϖ a nonzerodivisor of R. No Noetherian or discrete-valuation hypothesis."
+   ],
+   "proofSteps": [
+    "First half: Mathlib Ideal.disjoint_nonZeroDivisors_of_mem_minimalPrimes (an element x of a minimal prime 𝔭 has s xⁿ = 0 for some s ∉ 𝔭, Stacks 00EU).",
+    "Mathlib IsLocalization.minimalPrimes_comap with J = 0: the contractions of the minimal primes of R[1/ϖ] are the primes minimal over ker(R → R[1/ϖ]). This kernel is 0 because ϖ is a nonzerodivisor (Mathlib IsLocalization.eq_iff_exists), so they are the minimal primes of R.",
+    "Contraction is injective on Spec R[1/ϖ] (Mathlib PrimeSpectrum.localization_comap_injective) with image D(ϖ) (Mathlib PrimeSpectrum.localization_away_comap_range; Stacks 00E3); the inverse is extension."
+   ],
+   "acceptance": [
+    "The nonzerodivisor hypothesis is needed: in R = ℤ_p × 𝔽_p with ϖ = (p, 0), the minimal prime ℤ_p × 0 contains ϖ, and R[1/ϖ] = ℚ_p has one minimal prime while R has two.",
+    "For R = 𝒪[[x_1, …, x_n]] the only minimal prime (0) corresponds to the minimal prime (0) of R[1/ϖ]."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'Distinguish integral support from support after inverting p': for O-flat patched rings the components of Spec R∞ and of Spec R∞[1/p] correspond."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "components of generic fibres of O-flat deformation rings are the components of the integral ring."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4, PDF p. 94",
+     "how": "'Since R∞ is p-torsion free, all its minimal primes have characteristic 0'."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:nonZeroDivisors",
+    "mathlib:minimalPrimes",
+    "mathlib:IsLocalization.Away",
+    "mathlib:Ideal.disjoint_nonZeroDivisors_of_mem_minimalPrimes",
+    "mathlib:IsLocalization.minimalPrimes_comap",
+    "mathlib:IsLocalization.eq_iff_exists",
+    "mathlib:PrimeSpectrum.localization_comap_injective",
+    "mathlib:PrimeSpectrum.localization_away_comap_range"
+   ],
+   "suggestedDeclarations": [
+    "IsLocalization.Away.comap_minimalPrimes_eq_of_mem_nonZeroDivisors"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Localization",
+    "namespace": "IsLocalization.Away"
+   },
+   "sources": [
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.25.1, tag 00EU",
+     "excerpt": "Let 𝔭 be a minimal prime of a ring R. Every element of the maximal ideal of R_𝔭 is nilpotent. If R is reduced then R_𝔭 is a field.",
+     "match": "If x ∈ 𝔭 minimal then s·xⁿ = 0 for some s ∉ 𝔭, so x is a zerodivisor; a nonzerodivisor lies in no minimal prime."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.63.9, tag 00LD",
+     "excerpt": "Let R be a Noetherian ring. Let M be an R-module. The union ⋃_{𝔮 ∈ Ass(M)} 𝔮 is the set of elements of R which are zerodivisors on M.",
+     "match": "Noetherian form: a nonzerodivisor lies in no associated (hence no minimal) prime."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.17.5, tag 00E3",
+     "excerpt": "Let R be a ring. Let S ⊂ R be a multiplicative subset. The map R → S⁻¹R induces via the functoriality of Spec a homeomorphism Spec(S⁻¹R) ⟶ {𝔭 ∈ Spec(R) | S ∩ 𝔭 = ∅}",
+     "match": "Primes of R[1/ϖ] are the primes of R not containing ϖ."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4, PDF p. 94",
+     "excerpt": "Since R∞ is p-torsion free, all its minimal primes have characteristic 0. Thus H^{l0}(P∞^□) is nearly faithful as an R∞-module if and only if each irreducible component of Spec(R∞[1/p]) lies in the support of H^{l0}(P∞^□)[1/p].",
+     "match": "Minimal primes of a p-torsion-free ring avoid p, so near faithfulness can be tested after inverting p."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Near faithfulness tested after inverting ϖ",
+   "kind": "lemma",
+   "statement": "Let R be a commutative ring, ϖ ∈ R a nonzerodivisor and M a finite R-module. The following are equivalent: (i) M is nearly faithful over R; (ii) M[1/ϖ] is nearly faithful over R[1/ϖ]; (iii) every irreducible component of Spec R[1/ϖ] lies in Supp M[1/ϖ]. If moreover R[1/ϖ] is reduced (for instance regular), then R is reduced and (i)–(iii) are equivalent to (iv) M is faithful over R and to (v) M[1/ϖ] is faithful over R[1/ϖ].",
+   "hypotheses": [
+    "ϖ a nonzerodivisor of R.",
+    "M finite over R.",
+    "(iv), (v): R[1/ϖ] reduced.",
+    "No Noetherian hypothesis."
+   ],
+   "proofSteps": [
+    "M[1/ϖ] ≅ R[1/ϖ] ⊗_R M (Mathlib LocalizedModule.equivTensorProduct). By support-base-change, Supp M[1/ϖ] is the preimage of Supp M, that is Supp M ∩ D(ϖ) inside Spec R (Stacks 00E3).",
+    "By minimal-primes-of-torsion-free the minimal primes of R lie in D(ϖ) and are the contractions of the minimal primes of R[1/ϖ]; so Min(R) ⊆ Supp M iff Min(R[1/ϖ]) ⊆ Supp M[1/ϖ]. M[1/ϖ] is finite over R[1/ϖ]; conclude (i) ⇔ (ii) by nearly-faithful-iff-support-eq-univ over R and over R[1/ϖ].",
+    "(ii) ⇔ (iii): the irreducible components of Spec R[1/ϖ] are the closures V(𝔮) of its minimal primes (Mathlib minimalPrimes.equivIrreducibleComponents), and V(𝔮) ⊆ Supp iff 𝔮 ∈ Supp (supports are stable under specialisation).",
+    "If R[1/ϖ] is reduced, R ↪ R[1/ϖ] (ϖ a nonzerodivisor) makes R reduced (Mathlib isReduced_of_injective); then nearly faithful ⇔ faithful over R and over R[1/ϖ] (API item nearlyFaithful_iff_faithfulSMul of nearly-faithful)."
+   ],
+   "acceptance": [
+    "ϖ must be a nonzerodivisor: R = ℤ_p × 𝔽_p, ϖ = (p, 0), M = ℤ_p × 0 give M[1/ϖ] = R[1/ϖ] = ℚ_p faithful, but Ann_R M = 0 × 𝔽_p ⊄ √0.",
+    "M must be finite: over ℤ_p, M = ℚ_p/ℤ_p is faithful while M[1/p] = 0.",
+    "Khare–Wintenberger II, Lemma 9.6 b): M∞ is faithful over the 𝒪-flat ring R∞ once M∞[1/2] is faithful over the regular ring R∞[1/2]; this is (v) ⇒ (iv)."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'Distinguish integral support from support after inverting p': near faithfulness over R∞ is decided on Spec R∞[1/p]."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.1",
+     "how": "KW II Lemma 9.6 b) (p = 2) proves M∞ faithful over the O-flat ring R∞ from faithfulness over R∞[1/2] (regular); this faithfulness gives R∞ ↪ End_{O[[y]]}(M∞) and the finiteness behind Theorem 10.1."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "theorems stated for points of the generic fibre (support of M∞[1/p]) versus integral statements."
+    },
+    {
+     "where": "Calegari–Geraghty, Theorem 6.4(3), PDF pp. 93–94",
+     "how": "the criterion 'every irreducible component of Spec(R∞[1/p]) is in the support'."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/minimal-primes-of-torsion-free",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:LocalizedModule.equivTensorProduct",
+    "mathlib:LocalizedModule.Away",
+    "mathlib:Localization.Away",
+    "mathlib:minimalPrimes.equivIrreducibleComponents",
+    "mathlib:isReduced_of_injective"
+   ],
+   "suggestedDeclarations": [
+    "Module.nearlyFaithful_iff_localizedModule_away",
+    "Module.nearlyFaithful_iff_forall_minimalPrimes_away_mem_support",
+    "Module.faithfulSMul_iff_localizedModule_away"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Localization",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4, PDF p. 94",
+     "excerpt": "Since R∞ is p-torsion free, all its minimal primes have characteristic 0. Thus H^{l0}(P∞^□) is nearly faithful as an R∞-module if and only if each irreducible component of Spec(R∞[1/p]) lies in the support of H^{l0}(P∞^□)[1/p].",
+     "match": "Minimal primes of a p-torsion-free ring avoid p, so near faithfulness can be tested after inverting p."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "(2) If R∞[1/p] is irreducible, then H is a nearly faithful R-module (in the terminology of [11]). (3) More generally, H is nearly faithful as an R-module providing that every irreducible component of Spec(R∞[1/p]) is in the support of H^{l0}(P∞)[1/p].",
+     "match": "Near-faithfulness conclusions; [11] is Taylor 2008, whose Definition 2.1 is the source definition."
+    },
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.3, proof of Lemma 9.6 b), p. 88",
+     "excerpt": "As R∞ (and M∞) are flat over O, it suffices to prove that M∞[1/2] is a faithful R∞[1/2]-module. As the action of R∞^inv on M∞ is faithful, the support Supp of the R∞[1/2]-module M∞[1/2] contains a irreducible component of Spec(R∞[1/2]).",
+     "match": "Reduction of faithfulness to the generic fibre for O-flat rings, then one component in the support."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, remark after Definition 2.1, printed p. 187 (PDF 5)",
+     "excerpt": "If A is reduced then faithful and nearly faithful are synonymous.",
+     "match": "The reduced case of the characterisation: nilradical zero."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.40.6, tag 0BUR",
+     "excerpt": "Let R → R′ be a ring map and let M be a finite R-module. Then Supp(M ⊗_R R′) is the inverse image of Supp(M).",
+     "match": "Exactly support-base-change for finite M; its proof gives (M ⊗ R′)_𝔭′ = M_𝔭 ⊗_{R_𝔭} R′_𝔭′."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.17.5, tag 00E3",
+     "excerpt": "Let R be a ring. Let S ⊂ R be a multiplicative subset. The map R → S⁻¹R induces via the functoriality of Spec a homeomorphism Spec(S⁻¹R) ⟶ {𝔭 ∈ Spec(R) | S ∩ 𝔭 = ∅}",
+     "match": "Primes of R[1/ϖ] are the primes of R not containing ϖ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Modules of maximal depth are supported on top-dimensional components",
+   "kind": "theorem",
+   "statement": "Let (A, 𝔪) be a Noetherian local ring and M ≠ 0 a finite A-module with depth_A M ≥ dim A (M maximal Cohen–Macaulay). Then depth_A M = dim A; every associated prime 𝔭 of M is a minimal prime of A with dim A/𝔭 = dim A; the primes minimal over Ann_A M are therefore minimal primes of A of maximal dimension; so M is supported on components (supported-on-components) and Supp M is a union of irreducible components of Spec A of dimension dim A. The theorem does not give full support: M need not be nearly faithful.",
+   "hypotheses": [
+    "A Noetherian local.",
+    "M finite and nonzero.",
+    "depth_A M ≥ dim A."
+   ],
+   "proofSteps": [
+    "For 𝔭 ∈ Ass M: depth M ≤ dim A/𝔭 (Stacks 0BK4; layer R03.3). Hence dim A ≤ dim A/𝔭 ≤ dim A, so dim A/𝔭 = dim A; 𝔭 is minimal, since a prime strictly inside 𝔭 would give a chain longer than dim A, which is finite (R03.3).",
+    "M ≠ 0 has an associated prime (R03.3); for it, depth M ≤ dim A/𝔭 = dim A, so depth M = dim A.",
+    "The primes minimal over Ann M are associated primes of M (Stacks 02CE; Mathlib Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes), hence minimal primes of A of maximal dimension. This is supported-on-components, and its characterisation makes Supp M a union of irreducible components."
+   ],
+   "acceptance": [
+    "A = k[[x,y]]/(xy), M = A/(x) ≅ k[[y]]: x + y is M-regular, so depth_A M = 1 = dim A; Supp M = V(x) is one of the two components, and M is not nearly faithful (Ann M = (x) is not nilpotent).",
+    "M = 0 is excluded: depth 0 = ∞ in the Stacks convention (proof of Stacks 0FCC), so the hypothesis holds while 'depth = dim A' fails. Taylor's Lemma 2.3 omits M ≠ 0 (source issue DeformationAndDerivedPatchingAlgebra/E2)."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'neither Cohen–Macaulayness nor a nonzero complex implies full support': maximal depth gives only a union of top-dimensional components."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "roadmap consumer contract: 'a Cohen–Macaulay module alone does not prove every component modular'."
+    },
+    {
+     "where": "Taylor 2008, proof of Theorem 4.1, p. 221",
+     "how": "depth count on the patched module followed by Lemma 2.3."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4(2) and Remark 6.5, PDF p. 94",
+     "how": "support of H^{l0}(P∞^□) is a union of components of maximal dimension; equidimensionality is necessary."
+    }
+   ],
+   "planet": {
+    "name": "Maximal Cohen–Macaulay support"
+   },
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/supported-on-components",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "mathlib:associatedPrimes",
+    "mathlib:ringKrullDim",
+    "mathlib:Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes",
+    "mathlib:RingTheory.Sequence.IsRegular",
+    "mathlib:IsLocalRing.maximalIdeal"
+   ],
+   "suggestedDeclarations": [
+    "Module.mem_minimalPrimes_of_mem_associatedPrimes_of_isRegular",
+    "Module.ringKrullDim_quotient_eq_of_isRegular",
+    "Module.isSupportedOnComponents_of_isRegular"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Components",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.3, printed p. 188 (PDF 6)",
+     "excerpt": "Suppose that the m_A-depth of M is greater than or equal to the Krull dimension of A. Then the m_A-depth of M equals the Krull dimension of A, and the support of M is equal to a union of irreducible components of Spec A. In particular if Spec A is irreducible then M is a nearly faithful A-module.",
+     "match": "Maximal depth forces support on a union of components; irreducibility then gives near faithfulness. The case M = 0 is implicitly excluded (see sourceIssues)."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, proof of Lemma 2.3, printed p. 188 (PDF 6)",
+     "excerpt": "every minimal prime over Ann_A M (which will then be an associated prime of M by Theorem 3.1a of [E]) has dimension at least the Krull dimension of A, and so must be a minimal prime of A.",
+     "match": "The proof: associated primes have dim A/𝔭 ≥ depth M (Eisenbud Prop. 18.2), and minimal primes over Ann M are associated."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2), PDF p. 94",
+     "excerpt": "note that since depth_{R∞}(H^{l0}(P∞^□)) = dim R∞, the support of H^{l0}(P∞^□) is a union of irreducible components of Spec(R∞) of maximal dimension. Since H^{l0}(P∞^□) ≠ {0}, the result follows.",
+     "match": "Maximal depth gives support on top-dimensional components; nonvanishing is used explicitly."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.72.9, tag 0BK4",
+     "excerpt": "Let (R, 𝔪) be a local Noetherian ring and M a finite R-module. For 𝔭 ∈ Ass(M) we have dim(R/𝔭) ≥ depth(M).",
+     "match": "The Stacks form of Eisenbud Prop. 18.2 used in Taylor's Lemma 2.3."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Proposition 10.63.6, tag 02CE",
+     "excerpt": "Let R be a Noetherian ring. Let M be a finite R-module. The following sets of primes are the same: The minimal primes in the support of M. The minimal primes in Ass(M).",
+     "match": "Primes minimal over Ann M are associated primes of M."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.103.7, tag 0BUS",
+     "excerpt": "Let R be a Noetherian local ring. Let M be a finite Cohen-Macaulay R-module. If 𝔭 ∈ Ass(M), then dim(R/𝔭) = dim(Supp(M)) and 𝔭 is a minimal prime in the support of M. In particular, M has no embedded associated primes.",
+     "match": "Cohen–Macaulay modules have no embedded primes and equidimensional support."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Definition 10.103.8, tag 00NF",
+     "excerpt": "Let R be a Noetherian local ring. A finite module M over R is called a maximal Cohen-Macaulay module if depth(M) = dim(R).",
+     "match": "The hypothesis of this theorem in standard vocabulary."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, proof of Lemma 10.72.10, tag 0FCC",
+     "excerpt": "If M_𝔭 = 0, then depth(M_𝔭) = ∞ and the lemma holds.",
+     "match": "Stacks convention depth(0) = ∞, which is why the maximal-depth results need M ≠ 0."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-maximal-depth-equidimensional",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "A nearly faithful module of maximal depth forces equidimensionality",
+   "kind": "lemma",
+   "statement": "Let (A, 𝔪) be a Noetherian local ring and M a finite nearly faithful A-module with depth_A M ≥ dim A. Then A is equidimensional: dim A/𝔭 = dim A for every minimal prime 𝔭 of A.",
+   "hypotheses": [
+    "A Noetherian local.",
+    "M finite and nearly faithful (hence M ≠ 0), with depth_A M ≥ dim A."
+   ],
+   "proofSteps": [
+    "M ≠ 0: a nearly faithful module over a nonzero ring is nonzero (API item NearlyFaithful.nontrivial of nearly-faithful).",
+    "By nearly-faithful-iff-support-eq-univ every minimal prime 𝔭 of A lies in Supp M, so Ann M ⊆ 𝔭; as 𝔭 is minimal in Spec A, it is minimal over Ann M.",
+    "maximal-cm-support-top-components gives dim A/𝔭 = dim A."
+   ],
+   "acceptance": [
+    "A = k[[x,y,z]]/(xy, xz) has minimal primes (x) with dim A/(x) = 2 = dim A and (y, z) with dim A/(y, z) = 1: A is not equidimensional, so no finite A-module of depth 2 is nearly faithful.",
+    "Calegari–Geraghty, Remark 6.5: for H^{l0}(P∞^□) to be nearly faithful over R∞, R∞ must be equidimensional."
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.ringKrullDim_quotient_eq_of_isRegular"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Components",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Remark 6.5, PDF p. 94",
+     "excerpt": "It follows from the proof of the previous theorem that for H^{l0}(P∞^□) to be nearly faithful as an R∞-module, it is necessary that R∞ be equidimensional.",
+     "match": "Exactly this lemma: near faithfulness of a module of maximal depth forces equidimensionality."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2), PDF p. 94",
+     "excerpt": "note that since depth_{R∞}(H^{l0}(P∞^□)) = dim R∞, the support of H^{l0}(P∞^□) is a union of irreducible components of Spec(R∞) of maximal dimension. Since H^{l0}(P∞^□) ≠ {0}, the result follows.",
+     "match": "The proof the remark refers to: maximal depth gives support on components of maximal dimension."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Maximal depth over an irreducible base gives near faithfulness",
+   "kind": "lemma",
+   "statement": "Let (A, 𝔪) be a Noetherian local ring with a unique minimal prime (Spec A irreducible) and M ≠ 0 a finite A-module with depth_A M ≥ dim A. Then Supp M = Spec A and M is nearly faithful. Corollary (Calegari–Geraghty, Theorem 6.4(2)): if ϖ ∈ A is a nonzerodivisor and Spec A[1/ϖ] is irreducible, then A has a unique minimal prime, and the conclusion holds.",
+   "hypotheses": [
+    "A Noetherian local with exactly one minimal prime.",
+    "M finite and nonzero, with depth_A M ≥ dim A.",
+    "Corollary: ϖ a nonzerodivisor of A, and A[1/ϖ] with exactly one minimal prime."
+   ],
+   "proofSteps": [
+    "M ≠ 0, so Ann M ≠ A and some prime is minimal over Ann M; by maximal-cm-support-top-components it is a minimal prime of A, hence the unique one, 𝔭₀. So Ann M ⊆ 𝔭₀, and 𝔭₀ ∈ Supp M (Mathlib Module.mem_support_iff_of_finite).",
+    "Every minimal prime of A lies in Supp M; conclude by nearly-faithful-iff-support-eq-univ.",
+    "Corollary: minimal-primes-of-torsion-free identifies the minimal primes of A with those of A[1/ϖ]."
+   ],
+   "acceptance": [
+    "'A unique minimal prime of maximal dimension' is not enough: A = k[[x,y,z]]/(xy, xz) has minimal primes (x) (dimension 2) and (y, z) (dimension 1); M = A/(x) ≅ k[[y,z]] has depth 2 = dim A, and Ann M = (x) is not nilpotent.",
+    "M ≠ 0 is needed (Taylor's Lemma 2.3 omits it; source issue DeformationAndDerivedPatchingAlgebra/E2).",
+    "Taylor, proof of Theorem 4.1: the patched ring has a unique minimal prime, so Lemma 2.3 makes the patched module nearly faithful."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "the auxiliary system in the two-system comparison has irreducible R^2_∞[1/p], so its module is nearly faithful (CG p. 95)."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "minimal-level patching with an irreducible (e.g. formally smooth or domain) local deformation ring yields a nearly faithful patched module."
+    },
+    {
+     "where": "Calegari–Geraghty, Theorem 6.4(2), PDF p. 93",
+     "how": "R∞[1/p] irreducible ⇒ H nearly faithful."
+    },
+    {
+     "where": "Taylor 2008, proof of Theorem 4.1, p. 221",
+     "how": "R^{□_T}_{{χ_v},∞} has a unique minimal ideal, so Lemma 2.3 gives near faithfulness."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/minimal-primes-of-torsion-free",
+    "mathlib:Module.mem_support_iff_of_finite",
+    "mathlib:minimalPrimes",
+    "mathlib:Localization.Away"
+   ],
+   "suggestedDeclarations": [
+    "Module.nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes",
+    "Module.nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes_away"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Components",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.3, printed p. 188 (PDF 6)",
+     "excerpt": "Suppose that the m_A-depth of M is greater than or equal to the Krull dimension of A. Then the m_A-depth of M equals the Krull dimension of A, and the support of M is equal to a union of irreducible components of Spec A. In particular if Spec A is irreducible then M is a nearly faithful A-module.",
+     "match": "Maximal depth forces support on a union of components; irreducibility then gives near faithfulness. The case M = 0 is implicitly excluded (see sourceIssues)."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§4, proof of Theorem 4.1, printed p. 221 (PDF 39)",
+     "excerpt": "and a unique minimal ideal. Thus (see Lemma 2.3) μ_m ≡ n mod 2 and H^{□_T}_{{χ_v},∞} is a nearly faithful R^{□_T}_{{χ_v},∞}-module.",
+     "match": "Application of Lemma 2.3 to a patched ring with a unique minimal prime."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "(2) If R∞[1/p] is irreducible, then H is a nearly faithful R-module (in the terminology of [11]). (3) More generally, H is nearly faithful as an R-module providing that every irreducible component of Spec(R∞[1/p]) is in the support of H^{l0}(P∞)[1/p].",
+     "match": "Near-faithfulness conclusions; [11] is Taylor 2008, whose Definition 2.1 is the source definition."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2), PDF p. 94",
+     "excerpt": "note that since depth_{R∞}(H^{l0}(P∞^□)) = dim R∞, the support of H^{l0}(P∞^□) is a union of irreducible components of Spec(R∞) of maximal dimension. Since H^{l0}(P∞^□) ≠ {0}, the result follows.",
+     "match": "Maximal depth gives support on top-dimensional components; nonvanishing is used explicitly."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, paragraph after Proposition 6.6, PDF p. 95",
+     "excerpt": "For the data indexed by i = 2, the ring R^2_∞[1/p] will be irreducible and hence H^2 will be a nearly faithful R^2-module by Theorem 6.4. Proposition 6.6 will then allow us to deduce that H^1 is a nearly faithful R^1-module, following the arguments of [11].",
+     "match": "The level-changing use: an irreducible auxiliary system plus Taylor's lift-from-the-special-fibre argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/support-group-transitive",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Support stable under a group acting transitively on components",
+   "kind": "lemma",
+   "statement": "Let G be a group acting on a commutative ring A by ring automorphisms and on an A-module M by additive bijections with g(a·m) = g(a)·g(m). Then Ann_A(M) is G-stable and Supp_A(M) is stable under 𝔭 ↦ g(𝔭). If G acts transitively on the minimal primes of A and Supp_A(M) contains one minimal prime, then every minimal prime lies in Supp_A(M) and M is nearly faithful; if A is Noetherian, Ann_A(M) is nilpotent; if A is reduced, M is faithful.",
+   "hypotheses": [
+    "Semilinearity g(a·m) = g(a)·g(m) (Mathlib SMulDistribClass G A M).",
+    "Transitivity of G on the minimal primes of A: an input supplied by the consumer (for Khare–Wintenberger II, their Lemma 9.4).",
+    "No finiteness of G or M and no Noetherian hypothesis for near faithfulness."
+   ],
+   "proofSteps": [
+    "Ann(g·m) = g(Ann(m)) for m ∈ M, by semilinearity. Hence g(Ann M) = Ann M, and if 𝔭 ∈ Supp M, say Ann(m) ⊆ 𝔭 (Mathlib Module.mem_support_iff_exists_annihilator), then Ann(g·m) ⊆ g(𝔭), so g(𝔭) ∈ Supp M.",
+    "Transitivity then puts every minimal prime in Supp M, and the constructor nearlyFaithful_of_forall_minimalPrimes_mem_support of nearly-faithful gives near faithfulness.",
+    "Nilpotence for Noetherian A and faithfulness for reduced A are API items of nearly-faithful (Stacks 00IM; Mathlib nilradical_eq_bot_iff)."
+   ],
+   "acceptance": [
+    "Khare–Wintenberger II, Lemma 9.6 b): 𝔗2(𝒪) ≅ (±1)^t acts on R∞[1/2], a regular ring whose components it permutes transitively; one component in the support gives M∞[1/2] faithful.",
+    "Transitivity is needed: for A = k × k with G trivial, M = k × 0 has one minimal prime in its support and is not nearly faithful."
+   ],
+   "uses": [
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.1",
+     "how": "KW II Theorem 10.1 needs R̄_S^ψ finite; for p = 2 this comes from Proposition 9.3(II), whose faithfulness input (Lemma 9.6 b)) is this lemma with G = 𝔗2(O) ≃ (±1)^t acting on R∞[1/2]."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "roadmap text: 'The source organisation is KW II §§7–9 with the Kisin finite-flat and dyadic component arguments explicitly included'; the dyadic component argument is this lemma."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "support transport under a group of twists acting on patched rings and modules."
+    },
+    {
+     "where": "Khare–Wintenberger II, Lemma 9.6 b), p. 88",
+     "how": "transitivity of 𝔗2(O) on the components plus 𝔗2(O)-stability of Supp gives M∞[1/2] faithful."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Module.mem_support_iff_exists_annihilator",
+    "mathlib:MulSemiringAction.toRingHom",
+    "mathlib:SMulDistribClass",
+    "mathlib:PrimeSpectrum.comap",
+    "mathlib:nilradical_eq_bot_iff"
+   ],
+   "suggestedDeclarations": [
+    "Module.smul_mem_annihilator_of_smulDistribClass",
+    "Module.comap_mulSemiringAction_mem_support",
+    "Module.nearlyFaithful_of_forall_minimalPrimes_exists_smul",
+    "Module.faithfulSMul_of_forall_minimalPrimes_exists_smul"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Components",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.3, proof of Lemma 9.6 b), p. 88",
+     "excerpt": "Since R∞^inv[1/2] is a (regular) domain, it follows from Lemma 9.4 that 𝔗2(O) ≃ (±1)^t acts transitively on these irreducible components. So we are reduced to proving that the Supp is stable by the action of 𝔗2(O).",
+     "match": "Transitivity of a finite group of twists on the components plus stability of the support."
+    },
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.3, proof of Lemma 9.6 b), p. 88",
+     "excerpt": "The annihilator of the D_{m,n} module L_{m,n} is stable by 𝔗2(O), and, passing to the projective limit, we see that the support of the R∞-module M∞-module is stable under the action of 𝔗2(O)",
+     "match": "Support stability is obtained from stability of the annihilator."
+    },
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.3, proof of Lemma 9.6 b), p. 88",
+     "excerpt": "As R∞ (and M∞) are flat over O, it suffices to prove that M∞[1/2] is a faithful R∞[1/2]-module. As the action of R∞^inv on M∞ is faithful, the support Supp of the R∞[1/2]-module M∞[1/2] contains a irreducible component of Spec(R∞[1/2]).",
+     "match": "Reduction of faithfulness to the generic fibre for O-flat rings, then one component in the support."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-lift-from-special-fibre",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Lifting near faithfulness from the special fibre",
+   "kind": "lemma",
+   "statement": "Let (A, 𝔪) be a Noetherian local ring and ϖ ∈ 𝔪 (in the source A is an 𝒪-algebra and ϖ = λ is a uniformiser of 𝒪). Assume that A is catenary, which for a Noetherian local ring means that 𝔭 ↦ dim A/𝔭 is a dimension function (dim A/𝔭 = dim A/𝔮 + 1 whenever 𝔮 is an immediate specialisation of 𝔭); that A is equidimensional (dim A/P = dim A for every minimal prime P); that no minimal prime of A contains ϖ (the generic points of Spec A lie over the generic fibre); and that every prime of A minimal over ϖA contains exactly one minimal prime of A. Let M be a finite A-module on which ϖ is a nonzerodivisor. If M/ϖM is nearly faithful over A/ϖA, then M is nearly faithful over A.",
+   "hypotheses": [
+    "A Noetherian local and ϖ ∈ 𝔪.",
+    "A catenary (in dimension-function form) and equidimensional.",
+    "No minimal prime of A contains ϖ.",
+    "Each prime minimal over ϖA contains exactly one minimal prime of A.",
+    "M finite, and ϖ a nonzerodivisor on M (M is 𝒪-torsion-free)."
+   ],
+   "proofSteps": [
+    "Let P be a minimal prime of A. As ϖ ∈ 𝔪, P + ϖA is proper; let ℘ be a prime minimal over it (Mathlib Ideal.exists_minimalPrimes_le). Krull's principal ideal theorem in the domain A/P (Mathlib Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes; Stacks 00KV) shows that no prime lies strictly between P and ℘, and P ≠ ℘ because ϖ ∉ P.",
+    "The dimension-function hypothesis gives dim A/℘ = dim A/P − 1 = dim A − 1. For a prime 𝔮 ⊊ ℘, dim A/𝔮 ≥ dim A/℘ + 1 = dim A (Mathlib ringKrullDim_quotient), so dim A/𝔮 = dim A and 𝔮 is a minimal prime (dim A is finite; layer R03.3). So ϖ ∉ 𝔮 for every 𝔮 ⊊ ℘, ℘ is minimal over ϖA, P is the only minimal prime inside ℘, and every prime strictly inside ℘ equals P.",
+    "M/ϖM is finite and nearly faithful over A/ϖA, so Ann_A(M/ϖM) ⊆ √(ϖA) (nearly-faithful-restrict-scalars-surjective) and ℘ ∈ V(ϖA) ⊆ Supp_A(M/ϖM) (Mathlib Module.support_eq_zeroLocus). Since Supp_A(M/ϖM) = Supp M ∩ V(ϖ) (Mathlib Module.support_quotient), ℘ ∈ Supp M, i.e. Ann M ⊆ ℘.",
+    "Choose 𝔮 ⊆ ℘ minimal over Ann M (Mathlib Ideal.exists_minimalPrimes_le). As ϖ is M-regular, ϖ ∉ 𝔮 (Mathlib IsSMulRegular.notMem_of_mem_minimalPrimes), so 𝔮 ≠ ℘ and 𝔮 = P by the second step. Hence Ann M ⊆ P and P ∈ Supp M (Mathlib Module.mem_support_iff_of_finite). As P was arbitrary, nearly-faithful-iff-support-eq-univ concludes."
+   ],
+   "acceptance": [
+    "ϖ-torsion-freeness of M is needed: A = ℤ_p, ϖ = p, M = 𝔽_p satisfy every other hypothesis and M/pM = 𝔽_p is nearly faithful over 𝔽_p, but M is not nearly faithful over ℤ_p.",
+    "The uniqueness hypothesis is needed: A = ℤ_p[[x]]/(x(x − p)) is complete, equidimensional of dimension 1, with minimal primes (x) and (x − p), neither containing p, both inside ℘ = (p, x). M = A/(x) ≅ ℤ_p is p-torsion-free, and M/pM = 𝔽_p is nearly faithful over A/pA = 𝔽_p[[x]]/(x²), but M is not nearly faithful over A.",
+    "ϖ ∈ 𝔪 is needed: if ϖ were a unit, A/ϖA = 0 and M = 0 would be a counterexample."
+   ],
+   "uses": [
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'comparison of two patched systems': CG uses Proposition 6.6 plus 'the arguments of [11]', i.e. this lemma, to pass near faithfulness from an irreducible auxiliary system to the system of interest through their common reduction mod ϖ (CG p. 95)."
+    },
+    {
+     "where": "Taylor 2008, proof of Theorem 4.1, p. 221",
+     "how": "'Thus Lemma 2.2 implies that H_{1,{1},∞} is a nearly faithful R_{{1},∞}-module'."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-restrict-scalars-surjective",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "mathlib:Ideal.exists_minimalPrimes_le",
+    "mathlib:Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes",
+    "mathlib:ringKrullDim_quotient",
+    "mathlib:CovBy",
+    "mathlib:Module.support_quotient",
+    "mathlib:Module.support_eq_zeroLocus",
+    "mathlib:Module.mem_support_iff_of_finite",
+    "mathlib:IsSMulRegular.notMem_of_mem_minimalPrimes",
+    "mathlib:IsSMulRegular"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.of_quotient_of_isSMulRegular"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Components",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.2(2), printed p. 188 (PDF 6)",
+     "excerpt": "Suppose that A is an excellent (or just catenary) local O-algebra, that each irreducible component of Spec A has the same dimension and that all the generic points of Spec A have characteristic zero. Suppose also that every prime of A minimal over λA contains a unique minimal prime of A.",
+     "match": "Hypotheses of the lift-from-the-special-fibre lemma (catenary, equidimensional, no minimal prime contains λ, unique minimal prime under each prime minimal over λA)."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.2(2), printed p. 188 (PDF 6)",
+     "excerpt": "Suppose finally that M is an A-module which is O-torsion free. If M/λM is a nearly faithful A/λA-module, then M is a nearly faithful A-module.",
+     "match": "Conclusion of the lemma; M is finitely generated by the lemma's preamble."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, proof of Lemma 2.2(2), printed p. 188 (PDF 6)",
+     "excerpt": "As A is catenary (because it is excellent) the Krull dimension of A/℘ is one less that the Krull dimension of A/P. If q is any prime properly contained in ℘ we see that A/q has Krull dimension at least the Krull dimension of A/P. Thus q is minimal and so does not contain λA.",
+     "match": "The dimension step: ℘ minimal over (λ, P) sits immediately above P, so every prime strictly below ℘ is minimal."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§4, end of the proof of Theorem 4.1, printed p. 221 (PDF 39)",
+     "excerpt": "Thus Lemma 2.2 implies that H^{□_T}_{1,{1},∞} is a nearly faithful R^{□_T}_{{1},∞}-module. Finally this implies that H is a nearly faithful R^univ_𝒮-module. As T is reduced, the theorem follows.",
+     "match": "The chain Lemma 2.3 → Lemma 2.2(1) mod λ → Lemma 2.2(2) → descent to H, then 'T reduced' converts near faithfulness into R^red ≅ T."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, paragraph after Proposition 6.6, PDF p. 95",
+     "excerpt": "For the data indexed by i = 2, the ring R^2_∞[1/p] will be irreducible and hence H^2 will be a nearly faithful R^2-module by Theorem 6.4. Proposition 6.6 will then allow us to deduce that H^1 is a nearly faithful R^1-module, following the arguments of [11].",
+     "match": "The level-changing use: an irreducible auxiliary system plus Taylor's lift-from-the-special-fibre argument."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.60.11, tag 00KV",
+     "excerpt": "Let R be a Noetherian ring. Let x ∈ R. If 𝔭 is minimal over (x) then the height of 𝔭 is 0 or 1. If 𝔭, 𝔮 ∈ Spec(R) and 𝔮 is minimal over (𝔭, x), then there is no prime strictly between 𝔭 and 𝔮.",
+     "match": "The Hauptidealsatz step in Taylor's Lemma 2.2(2)."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Lemma 10.105.10, tag 0ECF",
+     "excerpt": "Let (A, 𝔪) be a Noetherian local ring. The following are equivalent A is catenary, and 𝔭 ↦ dim(A/𝔭) is a dimension function on Spec(A).",
+     "match": "Catenary local ⇒ dim A/℘ = dim A/P − 1 for ℘ immediately above P."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Near faithfulness descends from the patched ring",
+   "kind": "theorem",
+   "statement": "Let R∞ be a commutative ring, ı: S → R∞ a ring map, 𝔞 ⊆ S an ideal, φ: R∞ ↠ R a surjective ring map and M∞ a finite R∞-module; let H be an R-module with an R∞-linear isomorphism M∞/ı(𝔞)M∞ ≅ H, R∞ acting on H through φ ((a): ker φ kills H). Assume (b): ı(𝔞) ⊆ ker φ + Ann_{R∞}(M∞), that is, the image of 𝔞 in End(M∞) lies in the image of ker φ (ı(𝔞) ⊆ ker φ + √0 also suffices). If M∞ is nearly faithful over R∞, then √(ı(𝔞)R∞) = √(ker φ); hence (R∞/ı(𝔞)R∞)_red ≅ R_red compatibly with the maps from R∞, and H is nearly faithful over R∞/ı(𝔞)R∞ and over R.",
+   "hypotheses": [
+    "M∞ finite over R∞.",
+    "(a) R∞ acts on H through φ, i.e. ker φ kills H.",
+    "(b) ı(𝔞) ⊆ ker φ + Ann_{R∞}(M∞) (or ker φ + √0).",
+    "No Noetherian hypothesis."
+   ],
+   "proofSteps": [
+    "nearly-faithful-quotient with I = ı(𝔞)R∞ and B = R: ker φ ⊆ √(ı(𝔞)R∞), and H is nearly faithful over R∞/ı(𝔞)R∞.",
+    "(b) and Ann_{R∞}(M∞) ⊆ √0 give ı(𝔞) ⊆ ker φ + √0 ⊆ √(ker φ). Hence √(ı(𝔞)R∞) = √(ker φ), and the second clause of nearly-faithful-quotient (I ⊆ √J) makes H nearly faithful over R.",
+    "(R∞/ı(𝔞)R∞)_red = R∞/√(ı(𝔞)R∞) = R∞/√(ker φ) ≅ R/√0_R = R_red, using R ≅ R∞/ker φ (Mathlib RingHom.quotientKerEquivOfSurjective) and φ(√ker φ) = √0_R (Mathlib Ideal.map_radical_of_surjective)."
+   ],
+   "acceptance": [
+    "M∞ finite is necessary: R∞ = S = ℤ_p, ı = id, 𝔞 = (p), M∞ = ℚ_p (faithful) and R = 0 satisfy (a) and (b), but (R∞/pR∞)_red = 𝔽_p ≠ 0 = R_red.",
+    "Calegari–Geraghty, Theorem 6.3(iv), supplies (a) and (b) for M∞ = H^{l0}(P∞^□): the image of 𝔞 in End(H^{l0}(P∞^□)) lies in that of ker(φ∞)."
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "roadmap consumer contract: 'Construct the universal ring map and prove that its kernel acts trivially on the actual patched module' is hypothesis (a); the finite-level module H over R is then nearly faithful."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "the reduced R = T rows of the table rest on this descent from the patched ring to R."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "P9 transports component support from patched complexes to finite level; on cohomology in one degree this is the module-level descent stated here."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "how": "reduction of near faithfulness of H over R to that of H^{l0}(P∞^□) over R∞."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Ideal.map_radical_of_surjective",
+    "mathlib:RingHom.quotientKerEquivOfSurjective",
+    "mathlib:Ideal.radical",
+    "mathlib:nilradical"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.radical_map_eq_radical_ker",
+    "Module.NearlyFaithful.of_patching",
+    "Module.NearlyFaithful.exists_ringEquiv_nilradical_of_patching"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Patching",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.3, conclusion (iv), PDF p. 91",
+     "excerpt": "There is a surjection φ∞ : R∞ ↠ R and an isomorphism ψ∞ : H^{l0}(P∞^□)/𝔞 ⥲ H of R∞-modules where R∞ acts on H via φ∞. Moreover, the image of 𝔞 in End(H^{l0}(P∞^□)) is contained in that of ker(φ∞).",
+     "match": "Supplies the two compatibility hypotheses of the descent theorem: ker φ∞ kills H, and 𝔞 acts through ker φ∞ only modulo Ann(M∞)."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "Then H^{l0}(P∞^□)/𝔞 ≅ H is nearly faithful as an R∞/ı(𝔞)R∞-module. The action of R∞ on this module also factors through R∞/ker(φ∞) = R.",
+     "match": "Quotient step (Taylor Lemma 2.2(1)) and the factorisation hypothesis."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "ı(𝔞) + N ⊂ ker(φ∞) + N where N is the ideal of nilpotent elements in R∞. From this it follows immediately that (R∞/ı(𝔞))^red ↠ R^red, as required.",
+     "match": "The radical comparison √(ı(𝔞)R∞) = √(ker φ∞) and the reduced isomorphism."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§2, Lemma 2.2(1), printed p. 187 (PDF 5)",
+     "excerpt": "If I is an ideal of A and M is a nearly faithful A-module then M/IM is a nearly faithful A/I-module. In particular, if J ⊃ I is another ideal and the action of A on M/IM factors through A/J then J ⊂ √I and M/IM is a nearly faithful A/J-module.",
+     "match": "Exactly the quotient statement, including the 'J ⊂ √I' clause used for the patching descent."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-free-conclusion",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Freeness over a regular patched ring",
+   "kind": "lemma",
+   "statement": "In the setting of patching-nearly-faithful-descends (ı: S → R∞, 𝔞, φ: R∞ ↠ R, M∞ finite, H ≅ M∞/ı(𝔞)M∞ an R-module through φ, and (b) ı(𝔞) ⊆ ker φ + Ann_{R∞}(M∞)), assume that R∞ is a regular local ring and that M∞ ≠ 0 with depth_{R∞} M∞ ≥ dim R∞. Then M∞ is free of positive rank over R∞ (hence faithful), ker φ = ı(𝔞)R∞, and H is a free R-module of positive rank (hence faithful over R). No near-faithfulness hypothesis is needed.",
+   "hypotheses": [
+    "R∞ regular local (in Calegari–Geraghty, R∞ ≅ 𝒪[[x_1, …, x_{q+j−l0}]], 'formally smooth over 𝒪').",
+    "M∞ finite and nonzero with depth ≥ dim R∞.",
+    "(a) R∞ acts on H through φ; (b) ı(𝔞) ⊆ ker φ + Ann_{R∞}(M∞); φ surjective."
+   ],
+   "proofSteps": [
+    "A finite module of maximal depth over a regular local ring is free (Stacks 00O7 with e = d, equivalently Auslander–Buchsbaum, Stacks 090V, with projective dimension finite by regularity; layer R03.3). M∞ ≠ 0 gives positive rank, and a nonzero free module is faithful (a basis vector b makes r ↦ r·b injective; Mathlib Module.Free.chooseBasis and Module.annihilator_eq_bot).",
+    "With Ann_{R∞}(M∞) = 0, (b) becomes ı(𝔞) ⊆ ker φ, so ı(𝔞)R∞ ⊆ ker φ.",
+    "H ≅ M∞/ı(𝔞)M∞ ≅ (R∞/ı(𝔞)R∞)^r with r > 0, so Ann_{R∞}(H) = ı(𝔞)R∞ (Mathlib Ideal.annihilator_quotient). ker φ kills H, so ker φ ⊆ ı(𝔞)R∞. Hence ker φ = ı(𝔞)R∞, R ≅ R∞/ı(𝔞)R∞, and H ≅ R^r."
+   ],
+   "acceptance": [
+    "Calegari–Geraghty, Theorem 6.4(1): R∞ ≅ 𝒪[[x_1, …, x_{q+j−l0}]] gives H free over R (the source prints R ≃ 𝒪[x_1, …]; source issue DeformationAndDerivedPatchingAlgebra/E1).",
+    "M∞ ≠ 0 is needed: M∞ = 0 satisfies the depth hypothesis in the Stacks convention and (b) for every φ, and then ker φ need not equal ı(𝔞)R∞."
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "minimal-level case where the local deformation ring is formally smooth: integral freeness of the Hecke module and R = T (with r-equals-t-free)."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "the integral-isomorphism rows of the statement table."
+    },
+    {
+     "where": "Calegari–Geraghty, Theorem 6.4(1), PDF p. 93",
+     "how": "H free over R and ı(𝔞)R∞ = ker φ∞."
+    },
+    {
+     "where": "Kisin (3.3.4) and Khare–Wintenberger II Proposition 9.2(III), p. 83",
+     "how": "the same depth-to-projectivity argument over the regular ring R∞[1/p] (component by component) gives M∞ ⊗ E projective and faithful."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "mathlib:IsRegularLocalRing",
+    "mathlib:RingTheory.Sequence.IsRegular",
+    "mathlib:Module.Free.chooseBasis",
+    "mathlib:Module.annihilator_eq_bot",
+    "mathlib:Ideal.annihilator_quotient"
+   ],
+   "suggestedDeclarations": [
+    "Module.ker_algebraMap_eq_map_of_patching",
+    "Module.free_of_patching"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Patching",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(1), PDF p. 93",
+     "excerpt": "(1) If R∞ is formally smooth over O, so R ≃ O[x1, . . . , xq+j−l0], then H is a free R-module.",
+     "match": "Freeness conclusion; 'R' is a misprint for R∞ and single brackets for power series (see sourceIssues)."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(1), PDF p. 93",
+     "excerpt": "Since depth_{R∞}(H^{l0}(P∞^□)) = dim R∞, applying the Auslander–Buchsbaum formula again, we deduce that H^{l0}(P∞^□) is free over R∞.",
+     "match": "Freeness from maximal depth over a regular ring."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(1), PDF p. 93",
+     "excerpt": "On the other hand, the freeness of H^{l0}(P∞^□) over R∞ and the fact that the image of 𝔞 in End(H^{l0}(P∞^□)) is contained in that of ker(φ∞) imply that ı(𝔞)R∞ ⊂ ker(φ∞). We deduce that ı(𝔞)R∞ = ker(φ∞) and that R acts freely on H, as required.",
+     "match": "The two inclusions giving ker φ∞ = ı(𝔞)R∞ and freeness of H over R."
+    },
+    {
+     "sourceId": "Kisin-FiniteFlatModularity-2009",
+     "locator": "(3.3), Lemma (3.3.4), printed p. 1159 (PDF 77)",
+     "excerpt": "Let A →φ D be a map of Noetherian domains of the same finite dimension d, and L a non-zero D-module which is finite and projective over A. Then φ is a finite map. If A and D are regular then L is a finite projective, faithful D-module.",
+     "match": "Regular target plus maximal depth gives projectivity (Auslander–Buchsbaum) and faithfulness."
+    },
+    {
+     "sourceId": "Kisin-FiniteFlatModularity-2009",
+     "locator": "(3.3), proof of Lemma (3.3.4), printed p. 1159 (PDF 77)",
+     "excerpt": "Now the A-depth of L is d, since L is A-free, hence the D-depth of L is ≥ d, and therefore equal to d. The Auslander-Buchsbaum theorem now implies that L is D-free (cf. [Di2, Thm. 2.1]).",
+     "match": "The depth-to-freeness step over a regular local ring."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Proposition 10.110.1, tag 00O7",
+     "excerpt": "Let R be a regular local ring of dimension d. Every finite R-module M of depth e has a finite free resolution 0 → F_{d−e} → … → F_0 → M → 0.",
+     "match": "With e = d the resolution has length 0: a finite module of maximal depth over a regular local ring is free."
+    },
+    {
+     "sourceId": "StacksProject-web-2026-09-24",
+     "locator": "Algebra, Proposition 10.111.1 (Auslander–Buchsbaum), tag 090V",
+     "excerpt": "Let R be a Noetherian local ring. Let M be a nonzero finite R-module which has finite projective dimension pd_R(M). Then we have depth(R) = pd_R(M) + depth(M)",
+     "match": "The formula CG and Kisin invoke."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-reduced",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Reduced R = T from near faithfulness",
+   "kind": "theorem",
+   "statement": "Let R be a commutative ring, H an R-module and T a commutative R-algebra acting faithfully on H, compatibly with R, with R → T surjective (the basic example is T = the image of R in End(H) = R/Ann_R(H)); then ker(R → T) = Ann_R(H). If H is nearly faithful over R, then ker(R → T) ⊆ √0_R, a nilpotent ideal when R is Noetherian; R_red → T_red is an isomorphism; and T is reduced iff Ann_R(H) = √0_R iff the map R → T induces an isomorphism R_red ≅ T. So 'T reduced' is necessary and sufficient for R_red ≅ T.",
+   "hypotheses": [
+    "T acts faithfully on H, R acting through R → T, and R → T surjective.",
+    "H nearly faithful over R.",
+    "For a nilpotent kernel: R Noetherian (or Ann_R H finitely generated)."
+   ],
+   "proofSteps": [
+    "ker(R → T) = Ann_R(H) because T acts faithfully (Mathlib Module.comap_annihilator and Module.annihilator_eq_bot); T ≅ R/Ann_R(H) (Mathlib RingHom.quotientKerEquivOfSurjective).",
+    "Ann_R(H) ⊆ √0 gives √Ann_R(H) = √0, so T_red = R/√Ann_R(H) = R_red (Mathlib Ideal.map_radical_of_surjective).",
+    "T is reduced iff Ann_R(H) is a radical ideal (Mathlib Ideal.isRadical_iff_quotient_reduced) iff Ann_R(H) = √Ann_R(H) = √0; this is exactly when R_red → T is defined and bijective.",
+    "Nilpotence: Mathlib Ideal.FG.isNilpotent_iff_le_nilradical (Stacks 00IM)."
+   ],
+   "acceptance": [
+    "Taylor, Theorem 4.1: H nearly faithful over R^univ_𝒮 and T reduced give (R^univ_𝒮)^red ≅ T.",
+    "T reduced cannot be dropped: R = T = k[ε] (ε² = 0) and H = R. H is faithful, R_red = k, and T is not isomorphic to R_red."
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "'Do not assume a datum whose fields already assert the wanted R=T isomorphism': with T defined as the image of R (or of the Hecke algebra, once R ↠ T is proved), R_red ≅ T is a theorem from near faithfulness and reducedness of T."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "the 'reduced R = T' rows of the statement table."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "ACC+ §6.3.5: Supp_{R∞}(H^*(C∞)) = Spec T∞ because ker(T∞ → End(H^*(C∞))) is nilpotent."
+    },
+    {
+     "where": "Taylor 2008, Theorem 4.1 and its proof, pp. 212, 221",
+     "how": "'As T is reduced, the theorem follows': (R^univ_𝒮)^red ≅ T."
+    }
+   ],
+   "planet": {
+    "name": "R = T up to nilpotents"
+   },
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:Module.comap_annihilator",
+    "mathlib:Module.annihilator_eq_bot",
+    "mathlib:RingHom.quotientKerEquivOfSurjective",
+    "mathlib:Ideal.map_radical_of_surjective",
+    "mathlib:Ideal.isRadical_iff_quotient_reduced",
+    "mathlib:Ideal.FG.isNilpotent_iff_le_nilradical"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.ker_algebraMap_le_nilradical",
+    "Module.NearlyFaithful.isNilpotent_ker_algebraMap",
+    "Module.NearlyFaithful.exists_ringEquiv_nilradical",
+    "Module.NearlyFaithful.isReduced_iff_ker_eq_nilradical",
+    "Module.NearlyFaithful.exists_ringEquiv_of_isReduced"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/ImageInEnd",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§4, Theorem 4.1, printed p. 212 (PDF 30)",
+     "excerpt": "Theorem 4.1. — Keep the notation and assumptions of the start of this section. Then (R^univ_𝒮)^red ⥲ T.",
+     "match": "The reduced R = T conclusion that near faithfulness plus 'T reduced' delivers."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§4, end of the proof of Theorem 4.1, printed p. 221 (PDF 39)",
+     "excerpt": "Thus Lemma 2.2 implies that H^{□_T}_{1,{1},∞} is a nearly faithful R^{□_T}_{{1},∞}-module. Finally this implies that H is a nearly faithful R^univ_𝒮-module. As T is reduced, the theorem follows.",
+     "match": "The chain Lemma 2.3 → Lemma 2.2(1) mod λ → Lemma 2.2(2) → descent to H, then 'T reduced' converts near faithfulness into R^red ≅ T."
+    },
+    {
+     "sourceId": "ACCplus-PotentialAutomorphyCM",
+     "locator": "§6.3.5, before Lemma 6.3.7, printed p. 1051 (PDF 155)",
+     "excerpt": "Note that Supp_{R∞}(H^*(C∞)) = Spec T∞ and Supp_{R'∞}(H^*(C'∞)) = Spec T'∞ — the only point being that the kernel of T∞ → End_{S∞}(H^*(C∞)) is nilpotent.",
+     "match": "A nilpotent kernel of the map to End identifies the support with Spec of the Hecke ring."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "ı(𝔞) + N ⊂ ker(φ∞) + N where N is the ideal of nilpotent elements in R∞. From this it follows immediately that (R∞/ı(𝔞))^red ↠ R^red, as required.",
+     "match": "The radical comparison √(ı(𝔞)R∞) = √(ker φ∞) and the reduced isomorphism."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-torsion-free-quotient",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Torsion-free R = T",
+   "kind": "theorem",
+   "statement": "Let R be a commutative ring, ϖ ∈ R, H an R-module on which ϖ is a nonzerodivisor, and T a commutative R-algebra acting faithfully on H, compatibly with R, with R → T surjective (for instance the image of R in End(H)). Let R[ϖ^∞] = ker(R → R[1/ϖ]) be the ϖ-power torsion ideal and R^tf := R/R[ϖ^∞]. (a) R[ϖ^∞] ⊆ Ann_R(H), so R → T factors through R^tf, and ϖ is a nonzerodivisor on T. (b) Ann_{R[1/ϖ]}(H[1/ϖ]) = Ann_R(H)[1/ϖ]; hence H[1/ϖ] is faithful over R[1/ϖ] iff ker(R → T) = R[ϖ^∞] iff R^tf → T is an isomorphism ('R = T up to ϖ-torsion'). (c) If H is nearly faithful, then R[ϖ^∞] ⊆ √0, (R^tf)_red = R_red ≅ T_red, and T is reduced iff T[1/ϖ] is reduced, in which case R_red ≅ T (r-equals-t-reduced).",
+   "hypotheses": [
+    "ϖ a nonzerodivisor on H.",
+    "T acts faithfully on H and R → T is surjective.",
+    "No finiteness of H."
+   ],
+   "proofSteps": [
+    "(a) If ϖᵏ r = 0 then ϖᵏ(r h) = 0, so r h = 0 for all h. If ϖ t = 0 in T then ϖ(t h) = 0, so t h = 0 for all h and t = 0 (T acts faithfully).",
+    "(b) H ↪ H[1/ϖ], so r/ϖᵏ kills H[1/ϖ] iff r kills H (Mathlib IsLocalization.eq_iff_exists and ϖ-regularity). Hence H[1/ϖ] is faithful iff Ann_R(H) ⊆ R[ϖ^∞] (Mathlib Module.annihilator_eq_bot); with (a) this means Ann_R(H) = R[ϖ^∞], and Ann_R(H) = ker(R → T) as in r-equals-t-reduced.",
+    "(c) R[ϖ^∞] ⊆ Ann_R(H) ⊆ √0. T ↪ T[1/ϖ] by (a), so T reduced ⇔ T[1/ϖ] reduced (Mathlib isReduced_of_injective; localisations of reduced rings are reduced, Mathlib isReduced_localizationPreserves). Then apply r-equals-t-reduced."
+   ],
+   "acceptance": [
+    "Kisin (3.3.1) and Khare–Wintenberger II, Proposition 9.2(III): M ⊗ E faithful over R[1/p] gives R → T surjective with p-power torsion kernel; this is (b).",
+    "ϖ-torsion-freeness of H is needed: R = ℤ_p[ε]/(ε², pε) and H = R. H[1/p] = ℚ_p is faithful over R[1/p] = ℚ_p, but T = R ≠ R^tf = ℤ_p."
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "roadmap convention 'a reduced/torsion-free R=T' — the torsion-free form is (b), the conclusion of Kisin's criterion and of KW II Propositions 9.2–9.3(III)."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "rows of the statement table whose conclusion is 'R → T surjective with p-power torsion kernel'."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "'Distinguish integral support from support after inverting p'."
+    },
+    {
+     "where": "Khare–Wintenberger II, Propositions 9.2(III) and 9.3(III), pp. 81–89",
+     "how": "'surjective with p-power torsion kernel' / '2-power torsion kernel'."
+    },
+    {
+     "where": "Kisin (3.3.1), pp. 1157–1159",
+     "how": "'isomorphism up to p-torsion' from M ⊗ E faithful over R[1/p]."
+    }
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-reduced",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+    "mathlib:IsLocalization.eq_iff_exists",
+    "mathlib:Localization.Away",
+    "mathlib:LocalizedModule.Away",
+    "mathlib:IsSMulRegular",
+    "mathlib:Module.annihilator_eq_bot",
+    "mathlib:isReduced_of_injective",
+    "mathlib:isReduced_localizationPreserves"
+   ],
+   "suggestedDeclarations": [
+    "Module.ker_away_le_ker_algebraMap",
+    "Module.exists_ringEquiv_torsionFree_iff_faithfulSMul",
+    "Module.NearlyFaithful.ker_away_le_nilradical",
+    "Module.isReduced_iff_isReduced_away"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/ImageInEnd",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "Kisin-FiniteFlatModularity-2009",
+     "locator": "(3.3), opening paragraph, printed p. 1157 (PDF 75)",
+     "excerpt": "In this section we explain a criterion for a map of O-algebras to be an isomorphism up to p-torsion.",
+     "match": "Kisin's criterion concludes R = T up to p-torsion, i.e. the torsion-free form."
+    },
+    {
+     "sourceId": "Kisin-FiniteFlatModularity-2009",
+     "locator": "(3.3), Proposition (3.3.1), conclusion, printed p. 1157 (PDF 75)",
+     "excerpt": "Then R is a finite O[[y_{h+1}, . . . , y_{h+j}]]-algebra, and M ⊗_O E is a finite projective and faithful R[1/p]-module.",
+     "match": "The faithfulness criterion: M ⊗ E faithful projective over R[1/p]."
+    },
+    {
+     "sourceId": "Kisin-FiniteFlatModularity-2009",
+     "locator": "(3.3), end of the proof of Proposition (3.3.1), printed p. 1159 (PDF 77)",
+     "excerpt": "M ⊗_O E = (M∞ ⊗_O E)/(y1, . . . , yh)(M∞ ⊗_O E) is a finite projective, faithful R[1/p] = R∞[1/p]/(y1, . . . , yh)R∞[1/p]-module",
+     "match": "Faithfulness after inverting p descends through the quotient by the patching variables y1, …, yh (projective case)."
+    },
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.2, Proposition 9.2(III), p. 81",
+     "excerpt": "(III) The map π : R̄^{□,ψ}_S → T^□_ψ(U)_m of Proposition 9.1 is surjective with p-power torsion kernel.",
+     "match": "The torsion-free form of R = T: kernel equals the p-power torsion."
+    },
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.2, proof of Proposition 9.2(III), p. 83",
+     "excerpt": "From Lemma 3.3.4 of [36] (that uses the Auslander-Buchsbaum theorem) it follows that M∞ ⊗_O E is a finite projective, faithful R∞[1/p]-module.",
+     "match": "Faithfulness after inverting p via Kisin's Lemma (3.3.4)."
+    },
+    {
+     "sourceId": "KhareWintenberger-SerreII",
+     "locator": "§9.1.3, end of the proof of Proposition 9.3(III), p. 89",
+     "excerpt": "We see that the natural surjective map R̄^{□,ψ}_S → T^□_ψ(U)_m has 2-power torsion kernel.",
+     "match": "Torsion-free R = T at p = 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-free",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Integral R = T from faithfulness",
+   "kind": "theorem",
+   "statement": "Let R be a commutative ring, H an R-module and T a commutative R-algebra acting faithfully on H, compatibly with R, with R → T surjective (for instance T = the image of R in End(H)). Then R → T is an isomorphism iff H is faithful over R. In particular, if H is free of positive rank over R (for instance by patching-free-conclusion), then R ≅ T integrally.",
+   "hypotheses": [
+    "T acts faithfully on H through R → T, which is surjective.",
+    "H faithful over R. Freeness of positive rank suffices; freeness alone does not (the zero module is free)."
+   ],
+   "proofSteps": [
+    "ker(R → T) = Ann_R(H) (Mathlib Module.comap_annihilator, T acting faithfully); so R → T is injective iff Ann_R(H) = 0 iff H is faithful (Mathlib Module.annihilator_eq_bot).",
+    "A free module with a basis vector b is faithful: r ↦ r·b is injective (Mathlib Module.Free.chooseBasis)."
+   ],
+   "acceptance": [
+    "The zero module is free over ℤ and not faithful: freeness alone does not give R ≅ T.",
+    "Calegari–Geraghty, Theorem 6.4(1): R acts freely on H ≠ 0, so R maps isomorphically to its image in End(H)."
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "minimal case: integral R ≅ T once the Hecke module is shown free (faithful) over R."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "the 'integral isomorphism' rows of the statement table, kept separate from the reduced and torsion-free rows."
+    },
+    {
+     "where": "Calegari–Geraghty, proof of Theorem 6.4(1), PDF p. 93",
+     "how": "'R acts freely on H'."
+    }
+   ],
+   "planet": {
+    "name": "Integral R = T from faithfulness"
+   },
+   "prerequisites": [
+    "mathlib:FaithfulSMul",
+    "mathlib:Module.comap_annihilator",
+    "mathlib:Module.annihilator_eq_bot",
+    "mathlib:Module.Free.chooseBasis"
+   ],
+   "suggestedDeclarations": [
+    "Module.bijective_algebraMap_iff_faithfulSMul",
+    "Module.bijective_algebraMap_of_free"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/ImageInEnd",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(1), PDF p. 93",
+     "excerpt": "On the other hand, the freeness of H^{l0}(P∞^□) over R∞ and the fact that the image of 𝔞 in End(H^{l0}(P∞^□)) is contained in that of ker(φ∞) imply that ı(𝔞)R∞ ⊂ ker(φ∞). We deduce that ı(𝔞)R∞ = ker(φ∞) and that R acts freely on H, as required.",
+     "match": "The two inclusions giving ker φ∞ = ı(𝔞)R∞ and freeness of H over R."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(1), PDF p. 93",
+     "excerpt": "(1) If R∞ is formally smooth over O, so R ≃ O[x1, . . . , xq+j−l0], then H is a free R-module.",
+     "match": "Freeness conclusion; 'R' is a misprint for R∞ and single brackets for power series (see sourceIssues)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-support-theorem",
+   "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "realises": [
+    "DeformationAndDerivedPatchingAlgebra:R03.6"
+   ],
+   "title": "Support and faithfulness of the patched module",
+   "kind": "theorem",
+   "statement": "Let M∞ be a patched module as constructed in layer R03.5: a finite module over a complete Noetherian local 𝒪-algebra R∞, with a ring map ı: S∞ → R∞ from the patching algebra, its augmentation ideal 𝔞 (which contains the framing variables), a surjection φ∞: R∞ ↠ R, an R-module H ≠ 0 and an R∞-linear isomorphism M∞/𝔞M∞ ≅ H with R∞ acting on H through φ∞, such that the image of 𝔞 in End(M∞) lies in the image of ker φ∞, and with depth_{R∞} M∞ = dim R∞. Then: (0) Supp_{R∞} M∞ is a union of irreducible components of Spec R∞ of dimension dim R∞, and if M∞ is nearly faithful, R∞ is equidimensional; (1) if R∞ is regular (formally smooth over 𝒪), then ker φ∞ = ı(𝔞)R∞, H is free of positive rank over R, and R → T is an isomorphism for every ring T through which R acts faithfully on H, in particular for the image of R in End(H); (2) if R∞ has a unique minimal prime (in particular if ϖ is a nonzerodivisor of R∞ and Spec R∞[1/ϖ] is irreducible), then H is nearly faithful over R and (R∞/ı(𝔞)R∞)_red ≅ R_red; (3) if ϖ is a nonzerodivisor of R∞ and every irreducible component of Spec R∞[1/ϖ] lies in Supp M∞[1/ϖ], the conclusions of (2) hold.",
+   "hypotheses": [
+    "The patched-module data of layer R03.5 with the properties listed: M∞ finite over R∞, the compatibility of 𝔞 with ker φ∞, and depth_{R∞} M∞ = dim R∞.",
+    "H ≠ 0, hence M∞ ≠ 0.",
+    "(1) R∞ regular; (2) R∞ with exactly one minimal prime; (3) ϖ a nonzerodivisor of R∞ and the component condition. Part (3) does not use the depth hypothesis."
+   ],
+   "proofSteps": [
+    "The R03.5 data give the hypotheses of patching-nearly-faithful-descends: (a) because R∞ acts on H through φ∞, and (b) ı(𝔞) ⊆ ker φ∞ + Ann_{R∞}(M∞) because the image of 𝔞 in End(M∞) lies in the image of ker φ∞.",
+    "(0) maximal-cm-support-top-components and nearly-faithful-maximal-depth-equidimensional (M∞ ≠ 0 since H ≠ 0).",
+    "(1) patching-free-conclusion gives ker φ∞ = ı(𝔞)R∞ and H free of positive rank over R; r-equals-t-free gives R ≅ T.",
+    "(2) maximal-cm-nearly-faithful-irreducible (with its corollary for R∞[1/ϖ]) makes M∞ nearly faithful over R∞; patching-nearly-faithful-descends transfers this to H over R and gives the reduced isomorphism.",
+    "(3) nearly-faithful-after-inverting makes M∞ nearly faithful over R∞; then patching-nearly-faithful-descends."
+   ],
+   "acceptance": [
+    "The node A = k[[x,y]]/(xy) with M = A/(x) in the roles of R∞ and M∞: (0) holds with the single component V(x), and neither (2) nor (3) applies, since M is not nearly faithful.",
+    "Calegari–Geraghty, Theorem 6.4(1)–(3), is this theorem for M∞ = H^{l0}(P∞^□), the top-degree cohomology of the patched complex; the complex-level statement and Proposition 6.6 are not this theorem."
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "the minimal-level Taylor–Wiles–Kisin argument ends here: part (1) or (2) applied to the patched Hecke module gives R = T integrally or R_red ≅ T."
+    },
+    {
+     "where": "GL2ModularityLifting:R32.1",
+     "how": "each row of the statement table is one of parts (1)–(3), recording whether the conclusion is integral, reduced or on specified components."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "the complex-level theorems specialise, in one degree, to this module-level statement."
+    }
+   ],
+   "planet": {
+    "name": "Patched module support theorem"
+   },
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-maximal-depth-equidimensional",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/patching-free-conclusion",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-free",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting"
+   ],
+   "suggestedDeclarations": [
+    "Module.NearlyFaithful.of_patching_of_subsingleton_minimalPrimes",
+    "Module.NearlyFaithful.of_patching_of_away",
+    "Module.bijective_algebraMap_of_patching"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Support/Patching",
+    "namespace": "Module"
+   },
+   "sources": [
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.3, conclusion (iv), PDF p. 91",
+     "excerpt": "There is a surjection φ∞ : R∞ ↠ R and an isomorphism ψ∞ : H^{l0}(P∞^□)/𝔞 ⥲ H of R∞-modules where R∞ acts on H via φ∞. Moreover, the image of 𝔞 in End(H^{l0}(P∞^□)) is contained in that of ker(φ∞).",
+     "match": "The patched-module data this theorem consumes: the surjection φ∞, the isomorphism with H, and the compatibility of 𝔞 with ker(φ∞)."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(1), PDF p. 93",
+     "excerpt": "(1) If R∞ is formally smooth over O, so R ≃ O[x1, . . . , xq+j−l0], then H is a free R-module.",
+     "match": "Part (1). 'R' is a misprint for R∞ and the brackets are power-series brackets (source issue E1)."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, Theorem 6.4(2)–(3), PDF p. 93",
+     "excerpt": "(2) If R∞[1/p] is irreducible, then H is a nearly faithful R-module (in the terminology of [11]). (3) More generally, H is nearly faithful as an R-module providing that every irreducible component of Spec(R∞[1/p]) is in the support of H^{l0}(P∞)[1/p].",
+     "match": "Parts (2) and (3), stated for H^{l0}(P∞^□), the module form of this theorem."
+    },
+    {
+     "sourceId": "CalegariGeraghty-2018",
+     "locator": "§6.1, proof of Theorem 6.4(2), PDF p. 94",
+     "excerpt": "note that since depth_{R∞}(H^{l0}(P∞^□)) = dim R∞, the support of H^{l0}(P∞^□) is a union of irreducible components of Spec(R∞) of maximal dimension. Since H^{l0}(P∞^□) ≠ {0}, the result follows.",
+     "match": "Part (0): maximal depth gives support on components of maximal dimension, and H ≠ 0 is used."
+    },
+    {
+     "sourceId": "Taylor-AutomorphyII-2008",
+     "locator": "§4, end of the proof of Theorem 4.1, printed p. 221 (PDF 39)",
+     "excerpt": "Thus Lemma 2.2 implies that H^{□_T}_{1,{1},∞} is a nearly faithful R^{□_T}_{{1},∞}-module. Finally this implies that H is a nearly faithful R^univ_𝒮-module. As T is reduced, the theorem follows.",
+     "match": "Taylor's instance of the same pattern: maximal depth, Lemma 2.3, descent to H, then 'T reduced'."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "status": "partial",
+   "remaining": [
+    "The facts on depth, associated primes, Krull dimension, regular local rings and catenarity used by maximal-cm-support-top-components, patching-free-conclusion and nearly-faithful-lift-from-special-fibre rest on the stage DeformationAndDerivedPatchingAlgebra:R03.3 as a whole, until R03.3 has a blueprint: depth M ≤ dim A/𝔭 for 𝔭 ∈ Ass M (Stacks 0BK4); Ass M ≠ ∅ for M ≠ 0; finiteness of the Krull dimension of a Noetherian local ring; a finite module of maximal depth over a regular local ring is free (Stacks 00O7, Auslander–Buchsbaum 090V); and, to apply the lift lemma to catenary rings, that 𝔭 ↦ dim A/𝔭 is a dimension function on a catenary Noetherian local ring (Stacks 0ECF). These prerequisites become node references once R03.3 is decomposed.",
+    "patched-module-support-theorem rests on the stage DeformationAndDerivedPatchingAlgebra:R03.5 as a whole for the patched module and its properties (finiteness, the compatibility of 𝔞 with ker φ∞, depth = dim R∞), until R03.5 has a blueprint."
+   ],
+   "notes": "Calegari–Geraghty Proposition 6.6 (comparison of two patched systems) and every complex-level statement (support of perfect complexes, H*(C∞), ACC+ Proposition 6.3.8, derived Ihara avoidance) belong to layer DeformationAndDerivedPatchingAlgebra:P9, which consumes this layer; they are not planned here. Supp(M/IM) = Supp M ∩ V(I) is Mathlib's Module.support_quotient, cited as a baseline declaration. Faithful flatness of power series rings is not needed: removing framing variables is the quotient by the variables together with base change."
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra/E1",
+   "source": "CalegariGeraghty-2018",
+   "kind": "misprint",
+   "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
+   "printed": "If R∞ is formally smooth over O, so R ≃ O[x1, . . . , xq+j−l0], then H is a free R-module.",
+   "correction": "If R∞ is formally smooth over O, so R∞ ≃ O[[x1, …, x_{q+j−l0}]], then H is a free R-module.",
+   "reason": "Formal smoothness is a hypothesis on R∞, and dim R∞ = 1 + j + q − l0 matches O[[x1,…,x_{q+j−l0}]]. The proof begins 'Suppose first of all that R∞ ≃ O[x1,…,x_{j+q−l0}]'. R (the quotient) is not formally smooth in general.",
+   "affects": "nothing",
+   "known": "Not corrected in print. The bracket part (single brackets for power-series brackets) is item (2) of the authors' Correction, Invent. Math. 227 (2022) 855–856, DOI 10.1007/s00222-021-01095-5; the slip R for R∞ is not in it. The same slip is already recorded in this atlas's register as PAPER-CALEGARI-GERAGHTY-18/E141, confirmed by REV-PAPER-CALEGARI-GERAGHTY-18; this entry records it for the blueprint that uses Theorem 6.4(1).",
+   "searched": [
+    "Crossref metadata for DOI 10.1007/s00222-017-0749-x (updated-by lists the 2021 correction)",
+    "the correction itself, read in full",
+    "the published PDF on Calegari's page (same text)",
+    "this atlas's errata register (research/errata/REGISTER.md and data/source-issues.json): PAPER-CALEGARI-GERAGHTY-18/E141 (this slip) and E15 (the brackets)"
+   ]
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra/E2",
+   "source": "Taylor-AutomorphyII-2008",
+   "kind": "error",
+   "locator": "§2, Lemma 2.3, printed p. 188 (PDF p. 6), journal version",
+   "printed": "Suppose that the m_A-depth of M is greater than or equal to the Krull dimension of A. Then the m_A-depth of M equals the Krull dimension of A, … In particular if Spec A is irreducible then M is a nearly faithful A-module.",
+   "correction": "Add the hypothesis M ≠ 0.",
+   "reason": "For M = 0 the depth is ∞ in the usual convention (e.g. Stacks, proof of Lemma 10.72.10, tag 0FCC), so the hypothesis holds while 'depth = dim A' fails, and Ann_A(0) = A is not nilpotent for A ≠ 0. The proof uses an associated prime of M, which exists only for M ≠ 0. The application in Theorem 4.1 has a nonzero module, and CG Theorem 6.4 states H^{l0}(P∞^□) ≠ {0} explicitly.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref metadata for DOI 10.1007/s10240-008-0015-2 (no correction or update relation)",
+    "the Numdam item page PMIHES_2008__108__183_0",
+    "this atlas's errata register (research/errata/REGISTER.md and data/source-issues.json): no entry for Taylor 2008; PAPER-CALEGARI-GERAGHTY-18/E130 records the analogous missing non-vanishing hypothesis in Calegari–Geraghty Lemma 6.2 and notes that Theorem 6.4(2) needs it too"
+   ]
+  }
+ ]
+}
