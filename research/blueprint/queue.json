@@ -25780,8 +25780,9 @@
     "REV-PAPER-BURUNGALE-TIAN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1892"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1892",
+   "finishedAt": "2026-09-24T03:23:14Z"
   },
   {
    "id": "RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -27594,7 +27595,8 @@
     "REV-AUDIT-16"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1582"
   },
   {
    "id": "REV-RT-AUDIT-16",
@@ -28739,7 +28741,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-algebraicnt-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1481"
   },
   {
    "id": "REV-RT-AREA-algebraicnt-2",
@@ -30193,8 +30196,9 @@
     "RT-AREA-representations-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1534"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1534",
+   "finishedAt": "2026-09-24T03:23:17Z"
   },
   {
    "id": "RT-AREA-homological",
@@ -30412,7 +30416,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-combinatorics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1545"
   },
   {
    "id": "REV-RT-AREA-combinatorics",
