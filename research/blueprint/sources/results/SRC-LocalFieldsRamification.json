@@ -1,0 +1,39 @@
+{
+ "roadmap": "LocalFieldsRamification",
+ "edits": [
+  {
+   "file": "content/tau-ceti/LocalFieldsRamification/README.md",
+   "line": 426,
+   "old": "  - *Source:* Serre, *A Course in Arithmetic*, II §3, for `ℚ_2`; Neukirch ANT II §5 in general.",
+   "new": "  - *Source:* Conrad, *Hensel's Lemma*, Theorem 4.5 and the remark after Theorem 4.7, for `ℚ_2`; Neukirch ANT II §5 in general."
+  }
+ ],
+ "citations": [
+  {
+   "book": "SERRE-COURSE-ARITHMETIC",
+   "file": "content/tau-ceti/LocalFieldsRamification/README.md",
+   "line": 426,
+   "statement": "For K = Q_2 the sharp threshold for squares in the unit filtration: U(Q_2, 3) = 1 + 8Z_2 consists of squares, while U(Q_2, 2) = 1 + 4Z_2 does not, with 5 as the witness. This is the e = 1 case of the layer's statement that U(K, 2e+1) is contained in the squares and U(K, 2e) is not.",
+   "outcome": "replaced",
+   "source": "CONRAD-HENSEL",
+   "locator": "Theorem 4.5 (p. 7) and the paragraph after Theorem 4.7 (p. 8)",
+   "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf",
+   "evidence": "Downloaded the PDF from the author's own page at the University of Connecticut (kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf, 459665 bytes, SHA-256 3243fe15855aa549d42ed96f476bfd9f5241cdeb8d33f72beee33fd2e6bfdebf) and read both places in it. Theorem 4.5, on p. 7, states with a two-paragraph proof: 'If u ∈ Z_2^× then u is a square in Q_2 if and only if u ≡ 1 mod 8 Z_2.' The forward direction squares the four units of Z/8Z; the converse, which is the containment the layer needs, applies the strong Hensel's lemma (Theorem 4.1 of the same notes) to f(X) = X^2 - u at a = 1, where |f(1)|_2 ≤ 1/8 < 1/4 = |f'(1)|_2^2. The sharpness, with the roadmap's own witness, is the paragraph after Theorem 4.7 on p. 8: 'the criterion for an element of Z_2^× to be a 2-adic square needs modulus 2^3, not modulus 2^2, by Theorem 4.5. For instance, 5 mod 4 is a square but 5 is not a 2-adic square since 5 ≢ 1 mod 8.' So both halves of the e = 1 case are there, proved, with the same witness. Serre's Course in Arithmetic II §3 proves the same two facts inside its determination of Q_p^×/(Q_p^×)^2; nothing the line claims is weakened by the move, and no hypothesis changes. The rest of the line, the general finite K/Q_2 statement, is cited to Neukirch: that citation is not in this batch and the replacement leaves it and the two continuation lines below it untouched."
+  }
+ ],
+ "register": [
+  {
+   "id": "CONRAD-HENSEL",
+   "title": "Keith Conrad, Hensel's Lemma",
+   "kind": "notes",
+   "access": "free",
+   "urls": [
+    "https://kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf"
+   ],
+   "match": [
+    "Conrad,? \\*Hensel'?s Lemma\\*"
+   ],
+   "note": "One of the author's expository blurbs, posted by him on his own page at the University of Connecticut (kconrad.math.uconn.edu/blurbs/). Twenty-five pages, with proofs; the graduate number theory blurb on Hensel's lemma in its weak and strong forms, with the p-adic power criteria as applications."
+  }
+ ]
+}
