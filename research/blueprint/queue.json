@@ -6215,8 +6215,8 @@
    ],
    "avoidAccountOf": "PAPER-FENG-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1355"
+   "state": "external",
+   "note": "claimed on GitHub issue #1355"
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
@@ -14098,9 +14098,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #552"
+   "note": "released on GitHub issue #552"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
