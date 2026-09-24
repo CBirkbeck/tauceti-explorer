@@ -1,0 +1,676 @@
+{
+ "roadmapId": "RelativeFarguesFontaine",
+ "protocol": "blueprint-v1",
+ "part": "RF4",
+ "status": "partial",
+ "scope": [
+  "RelativeFarguesFontaine:RF4",
+  "RelativeFarguesFontaine:RF4:G-torsors",
+  "RelativeFarguesFontaine:RF4:vector-bundles"
+ ],
+ "summary": "Relative Fargues-Fontaine curves and period geometry, second part: Beauville-Laszlo gluing for non-noetherian coefficient rings, meromorphic modifications at a degree-one divisor, the three notions of a G-torsor with their equivalence, and v-descent with etale-local triviality. Five nodes: the four of the reviewed decomposition whose stage lies in this part's scope, kept with their statements, hypotheses, proof steps, acceptance items and verified locators, and one added. The added node is the definition of the three notions of a G-torsor, which the decomposition had no node for although the stage is named 'Tannakian transfer' and its equivalence theorem is a statement about objects it did not define; its four locators - the three definitions on printed p. 179, the paragraph explaining the sousperfectoid hypothesis, the footnote that exactness implies faithfulness, and the sentence on printed p. 170 that meromorphy is tested on all algebraic representations - were read directly from Berkeley.pdf in this session, from a file whose SHA-256 reproduces byte for byte. All four of the roadmap's sources reproduce their hashes. Tau Ceti already has Tannaka reconstruction over a field and it is cited, but the transfer here is between three notions of TORSOR over a sousperfectoid adic space and does not follow from it; Mathlib supplies the completion, localization and finite-projectivity vocabulary of the Beauville-Laszlo lemma, and IsDiscreteValuationRing, which is what B^+ is at a geometric point and hence the base case of the etale-local triviality argument. Seven requests are filed and nine gaps recorded, the seven the decomposition carries for the whole roadmap and two added here. One structural proposal: the stage text should say which Tannakian statement it owns, since the pinned libraries have the other one.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "tauceti:TauCeti.Tannaka.tensorAutFunctor",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+    "provides": "The tensor-automorphism functor of a fibre functor, that is, the Tannakian group functor. This layer is named 'Tannakian transfer', and Tau Ceti already has the Tannakian machinery over a field; what is transferred here is between three notions of TORSOR over a sousperfectoid adic space, which is a different statement and is not pinned."
+   },
+   {
+    "ref": "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+    "provides": "Tannaka reconstruction over a field, for finitely generated comodules over a Hopf algebra. It is cited as the nearest pinned form of the Tannakian formalism; the theorem of this layer is about torsors and adic spaces and does not follow from it."
+   },
+   {
+    "ref": "tauceti:TauCeti.AffineGroupSchemeCat",
+    "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Basic.lean",
+    "provides": "Affine group schemes. The smooth affine group scheme G of the torsor definitions is one, and the convention G(S) = G(O_S(S)) turns it into an adic space."
+   },
+   {
+    "ref": "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
+    "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
+    "provides": "Reductive affine group schemes, the hypothesis on G in the local Hecke and Grassmannian statements of the last node."
+   },
+   {
+    "ref": "mathlib:Representation",
+    "module": "Mathlib/RepresentationTheory/Basic.lean",
+    "provides": "Representations of a group on a module. Rep G is the source of the Tannakian tensor-functor, and meromorphy is tested on every object of it."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.MonoidalCategory",
+    "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
+    "provides": "Monoidal categories. Rep G and Bun(X) are monoidal and a Tannakian torsor is a tensor-functor between them."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Functor.Monoidal",
+    "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
+    "provides": "Monoidal functors, the pinned form of the exact tensor-functor that a Tannakian torsor is."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Equivalence",
+    "module": "Mathlib/CategoryTheory/Equivalence.lean",
+    "provides": "Equivalences of categories, the conclusion of the three-descriptions theorem and of the Beauville-Laszlo gluing lemma."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf",
+    "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+    "provides": "Sheaves on a site. A cohomological torsor is an etale sheaf, and the v-stack statement of the last node is at this level."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.GrothendieckTopology",
+    "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
+    "provides": "Grothendieck topologies. The definitions are etale-local, the descent is v-local, and the source is explicit that with G smooth the fppf site may be replaced by the etale site; all three topologies appear."
+   },
+   {
+    "ref": "mathlib:IsAdicComplete",
+    "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+    "provides": "Adic completeness. The Beauville-Laszlo lemma is about the f-adic completion of a ring, and the whole subtlety is that R -> R-hat may fail to be flat."
+   },
+   {
+    "ref": "mathlib:AdicCompletion",
+    "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+    "provides": "The adic completion functor, the R-hat of the gluing lemma."
+   },
+   {
+    "ref": "mathlib:IsLocalization",
+    "module": "Mathlib/RingTheory/Localization/Defs.lean",
+    "provides": "Localization. R[f^{-1}] is the other half of the gluing datum, and the comparison isomorphism beta is between localizations of completions."
+   },
+   {
+    "ref": "mathlib:Ideal.span",
+    "module": "Mathlib/RingTheory/Ideal/Span.lean",
+    "provides": "Ideals and generators. f is a nonzerodivisor generating the ideal along which the completion is taken, and in the application it is a local generator of the Cartier ideal I_S."
+   },
+   {
+    "ref": "mathlib:Module.Projective",
+    "module": "Mathlib/Algebra/Module/Projective.lean",
+    "provides": "Projective modules. The finite-projectivity criterion is part of the Beauville-Laszlo lemma and not an addendum, and vector bundles are finite projective modules on affinoids."
+   },
+   {
+    "ref": "mathlib:Module.Free",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules, the local shape of a trivialised torsor and of a vector bundle."
+   },
+   {
+    "ref": "mathlib:IsDiscreteValuationRing",
+    "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+    "provides": "Discrete valuation rings. The etale-local triviality argument observes that at a geometric point B^+ is a PRODUCT OF COMPLETE DISCRETE VALUATION RINGS with algebraically closed residue field, so that all G-torsors over it are trivial; that observation is the base case of the whole descent."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme",
+    "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+    "provides": "Schemes. The Tannakian construction passes through the relative spectrum of a faithfully flat quasicoherent algebra, and Spec B^+_dR is the base of the affine Grassmannian's torsors."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+    "provides": "Invertible sheaves. The twist F'(kD) by which meromorphy is measured is a twist by a power of the invertible ideal of a degree-one divisor."
+   },
+   {
+    "ref": "tauceti:TauCeti.Huber.Pair",
+    "module": "TauCeti/RingTheory/Huber/Pair.lean",
+    "provides": "Huber pairs. X is locally Spa(R,R^+) with R sousperfectoid, and the gluing lemma is applied with R the ring of an annulus chart."
+   },
+   {
+    "ref": "tauceti:TauCeti.ValuationSpectrum.spa",
+    "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+    "provides": "Spa of a Huber pair, the pinned carrier for the adic spaces of the torsor definitions."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "FS-geometrization",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues, Peter Scholze",
+   "edition": "Author-hosted 356-page PDF (MPIM Bonn), inspected 2026-09-15; corresponds to arXiv:2102.13459v4 by metadata and contents, not by byte comparison",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "readSections": [
+    "Chapter II preamble, pp. 45-47",
+    "II.1.1 The curve Y_C, pp. 47-54 (Prop. II.1.1-Lemma II.1.14)",
+    "II.1.2 The Fargues-Fontaine curve, pp. 54-57 (Def. II.1.15-Def./Prop. II.1.22)",
+    "II.2 preamble and Stein exhaustion, p. 57 (Prop. II.2.1)",
+    "II.2.1 Lubin-Tate formal groups, pp. 58-61 (Prop. II.2.2-Cor. II.2.4)",
+    "II.2.3 The algebraic curve, pp. 64-68 (Thm. II.2.6, Prop. II.2.7, Rem. II.2.8, Prop. II.2.9)",
+    "III.3 Beauville-Laszlo uniformization, pp. 97-99 (Prop. III.3.1, Lemma III.3.2)",
+    "VI.1 The Beilinson-Drinfeld Grassmannian, pp. 190-195 (Def. VI.1.1-Prop. VI.1.12)",
+    "BP-RelativeFarguesFontaine--RF4, 24 September 2026: the file was downloaded again in this session from the URL recorded here and its SHA-256 reproduces the recorded value byte for byte."
+   ],
+   "accessed": "2026-09-16"
+  },
+  {
+   "id": "SW20-berkeley",
+   "title": "Berkeley Lectures on p-adic Geometry",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "Annals of Mathematics Studies 207; PDF dated 'March 27, 2020' on every page header",
+   "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+   "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+   "readSections": [
+    "5.2 (Lemma 5.2.8, Lemma 5.2.9 Beauville-Laszlo), printed pp. 38-39",
+    "5.3 Cartier divisors (Def. 5.3.1-Prop. 5.3.3), printed pp. 38-39",
+    "6.2 (Lemma 6.2.8, Def. 6.2.9, Lemma 6.2.10, Thm. 6.2.11), printed pp. 46-47",
+    "6.3 sousperfectoid rings (Def. 6.3.1, Ex. 6.3.2), printed p. 47",
+    "19.1 (Prop. 19.1.2, Rem. 19.1.3, Lemma 19.1.4), printed pp. 170-171",
+    "19.5 appendix (Thm. 19.5.2, Prop. 19.5.3), printed pp. 179-181",
+    "BP-RelativeFarguesFontaine--RF4, 24 September 2026: the file was downloaded again in this session and its SHA-256 reproduces the recorded value byte for byte. The three definitions of a G-torsor on printed p. 179, the reason for the sousperfectoid hypothesis on the same page, the footnote on p. 178 that exactness implies faithfulness, and the sentence on printed p. 170 that the Tannakian definition is the working one and that meromorphy is tested on all algebraic representations, were read directly from it in this session and are the sources of this packet's new definition node; the printed pages were confirmed from the running heads of the extracted text."
+   ],
+   "accessed": "2026-09-16"
+  },
+  {
+   "id": "BMS18-integral",
+   "title": "Integral p-adic Hodge theory",
+   "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+   "edition": "Publications IHES 128 (2018) 219-397; library PDF, section 3 inspected 2026-09-15",
+   "url": "https://arxiv.org/abs/1602.03148",
+   "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+   "readSections": [
+    "Section 3.2: Lemma 3.10 (i)-(ii) and Lemma 3.21, printed pp. 22-24 of the article text",
+    "BP-RelativeFarguesFontaine--RF4, 24 September 2026: the file was downloaded again in this session from the URL recorded here and its SHA-256 reproduces the recorded value byte for byte."
+   ],
+   "accessed": "2026-09-16"
+  },
+  {
+   "id": "GR02-almost",
+   "title": "Almost ring theory",
+   "authors": "Ofer Gabber, Lorenzo Ramero",
+   "edition": "arXiv:math/0201175v3, 'sixth (and final) release', 22 July 2002 (NOT the Springer LNM 1800 (2003) pagination cited by Fargues-Scholze as [GR03])",
+   "url": "https://arxiv.org/abs/math/0201175",
+   "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+   "readSections": [
+    "Contents, PDF p. 2",
+    "Proposition 5.4.21 (henselian approximation), PDF p. 121",
+    "Theorem 5.8.14 and Claims 5.8.15-5.8.16 (lifting/descent of torsors), PDF p. 148",
+    "BP-RelativeFarguesFontaine--RF4, 24 September 2026: the file was downloaded again in this session from the URL recorded here and its SHA-256 reproduces the recorded value byte for byte."
+   ],
+   "accessed": "2026-09-16"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "RelativeFarguesFontaine:RF4:G-torsors/three-notions-of-G-torsor",
+   "parentStageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "realises": [
+    "RelativeFarguesFontaine:RF4:G-torsors"
+   ],
+   "title": "Scholze-Weinstein 19.5: the geometric, cohomological and Tannakian notions of a G-torsor",
+   "kind": "definition",
+   "statement": "Let G be a SMOOTH affine group scheme over Z_p and X an analytic adic space over Z_p that is SOUSPERFECTOID, so that every Y in X_et is again sousperfectoid and in particular an adic space, O_{X_et} is an etale sheaf, and so are vector bundles. Write G also for the adic space with G(S) = G(O_S(S)). A GEOMETRIC G-torsor is an adic space P -> X with a G-action over X such that etale-locally on X there is a G-equivariant isomorphism P = G x X. A COHOMOLOGICAL G-torsor is an etale sheaf Q on X with a G-action such that etale-locally on X there is a G-equivariant isomorphism Q = G. A TANNAKIAN G-torsor is an EXACT tensor-functor P : Rep G -> Bun(X), where Bun(X) is the category of vector bundles on X. Scholze-Weinstein say that for their purposes the Tannakian definition is the easiest, and it is the one in which the meromorphy of a trivialization is tested: a trivialization is meromorphic along a divisor if and only if the corresponding statement holds for the vector bundles attached to ALL algebraic representations of G.",
+   "hypotheses": [
+    "G must be SMOOTH: it is what makes P -> X smooth by descent, hence admits etale-local sections, so that the geometric and cohomological notions may be taken on the etale site rather than the fppf site",
+    "X must be analytic over Z_p and SOUSPERFECTOID, locally Spa(R,R^+) with R sousperfectoid. Scholze-Weinstein explain the reason: in general, for an adic space X over Z_p, it is not clear whether G x X is an adic space at all, and sousperfectoidness is the class where it is",
+    "The convention G(S) = G(O_S(S)) identifies the group scheme with an adic space; without it the geometric notion cannot be stated",
+    "The tensor-functor of the Tannakian notion must be EXACT. Scholze-Weinstein note in a footnote that any exact tensor-functor is automatically faithful, since the trivial representation embeds into V tensor V^dual for any V, so O_X embeds into P(V) tensor P(V)^dual and P(V) is nonzero",
+    "Meromorphy of a trivialization is tested on ALL algebraic representations of G; it is not automatic from one faithful representation without its tensor constructions"
+   ],
+   "proofSteps": [
+    "Scholze-Weinstein first record the scheme-theoretic version and its proof, then restrict to sousperfectoid adic spaces because G x X need not be an adic space in general.",
+    "They then give the three definitions as a displayed list and state their equivalence as Theorem 19.5.2, which is the next node.",
+    "In section 19.1 they say that for their purposes the Tannakian definition is the easiest, and use it to define meromorphy of a trivialization representation by representation."
+   ],
+   "acceptance": [
+    "Check that the three notions agree for G = GL_n, where all three are vector bundles of rank n",
+    "Check that smoothness is used: exhibit where the etale site replaces the fppf site",
+    "Check that meromorphy tested on a single faithful representation, without its tensor constructions, is strictly weaker"
+   ],
+   "prerequisites": [
+    "AdicSpacesPartII:R2",
+    "AdicSpacesPartII:R3",
+    "PerfectoidSpaces:P2",
+    "PerfectoidSpaces:P3",
+    "BunGAndNewtonStrata:BG0",
+    "tauceti:TauCeti.AffineGroupSchemeCat",
+    "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
+    "tauceti:TauCeti.Tannaka.tensorAutFunctor",
+    "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+    "mathlib:CategoryTheory.MonoidalCategory",
+    "mathlib:CategoryTheory.Functor.Monoidal",
+    "mathlib:Representation",
+    "mathlib:CategoryTheory.Sheaf",
+    "mathlib:CategoryTheory.GrothendieckTopology",
+    "mathlib:Module.Projective",
+    "tauceti:TauCeti.Huber.Pair",
+    "tauceti:TauCeti.ValuationSpectrum.spa"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "19.5, printed p. 179",
+     "excerpt": "(Geometric) A geometric G-torsor is an adic space P -> X over X with an action of G over X such that etale locally on X, there is a G-equivariant isomorphism P = G x X. (Cohomological) A cohomological G-torsor is an etale sheaf Q on X with an action of G such that etale locally on X, there is a G-equivariant isomorphism Q = G. (Tannakian) A Tannakian G-torsor is an exact tensor-functor P ...",
+     "match": "The three definitions verbatim. Read directly from Berkeley.pdf in this session; the file's SHA-256 reproduces the recorded value, and the printed page was confirmed from the running head."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Before the three definitions, printed p. 179",
+     "excerpt": "There is the problem that in general, if X is an adic space over Z_p, it is not clear whether G x X is also an adic space. For this reason, we restrict to one class of spaces where this happens, at least when G is smooth. ... assume from now on that G is smooth, and that X is an analytic adic space over Z_p that is sousperfectoid.",
+     "match": "The reason the sousperfectoid hypothesis is imposed, which the stage text asks to be retained rather than assumed away."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Footnote 1 to 19.5, printed p. 178",
+     "excerpt": "any exact tensor-functor is faithful, as the trivial representation embeds into V tensor V^dual for any V in Rep G, and so O_X embeds into P(V) tensor P(V)^dual, thus P(V) is nonzero.",
+     "match": "Records that faithfulness is automatic from exactness, so it is not an extra hypothesis on a Tannakian torsor."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "19.1, printed p. 170",
+     "excerpt": "For our purposes, it is easiest to define G-torsors in terms of the Tannakian formalism, i.e., as exact tensor-functors from the category Rep_C G of algebraic representations of G towards the category of vector bundles; cf. Theorem 19.5.2 in the appendix. In this language, a trivialization of E is meromorphic along S-sharp if and only if this holds true for the corresponding vector ...",
+     "match": "The Tannakian definition is the working one, and it is where the meromorphy condition of the modification node is tested. Read directly from the hash-verified PDF in this session."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "IsGeometricTorsor",
+     "role": "data",
+     "statement": "An adic space P -> X with a G-action over X, etale-locally G-equivariantly isomorphic to G x X."
+    },
+    {
+     "name": "IsCohomologicalTorsor",
+     "role": "data",
+     "statement": "An etale sheaf Q on X with a G-action, etale-locally G-equivariantly isomorphic to G."
+    },
+    {
+     "name": "TannakianTorsor",
+     "role": "data",
+     "statement": "An EXACT tensor-functor Rep G -> Bun(X). This is the working definition, and the one in which meromorphy is tested."
+    },
+    {
+     "name": "TannakianTorsor.faithful",
+     "role": "structure",
+     "statement": "Exactness implies faithfulness automatically, because the trivial representation embeds into V tensor V^dual; so faithfulness is not an extra hypothesis."
+    },
+    {
+     "name": "sousperfectoid",
+     "role": "structure",
+     "statement": "The standing hypothesis on X: locally Spa(R,R^+) with R sousperfectoid, i.e. admitting a perfectoid R-tilde with R -> R-tilde split as topological R-modules. It is what makes G x X an adic space and O_{X_et} an etale sheaf."
+    },
+    {
+     "name": "groupAsAdicSpace",
+     "role": "coercion",
+     "statement": "The convention G(S) = G(O_S(S)) turning the affine group scheme into an adic space, without which the geometric notion cannot be stated."
+    },
+    {
+     "name": "meromorphic",
+     "role": "characterisation",
+     "statement": "A trivialization is meromorphic along a divisor iff the associated map of vector bundles is, for EVERY algebraic representation; this is the condition the modification node uses."
+    }
+   ],
+   "uses": [
+    {
+     "where": "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors",
+     "how": "the equivalence theorem is about exactly these three categories"
+    },
+    {
+     "where": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+     "how": "meromorphy of a modification is defined representation by representation through the Tannakian notion"
+    },
+    {
+     "where": "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
+     "how": "the v-descent proof reduces to GL_n via the Tannakian description, and etale-local triviality is a statement about the geometric one"
+    }
+   ],
+   "tests": [
+    {
+     "name": "GL_n_case",
+     "statement": "For G = GL_n all three notions are vector bundles of rank n; a definition under which they differ there is wrong."
+    },
+    {
+     "name": "smoothness_moves_fppf_to_etale",
+     "statement": "Smoothness of G is what lets the etale site replace the fppf site: P -> X is then smooth by descent and admits etale-local sections. Without it the definitions must be taken fppf-locally."
+    },
+    {
+     "name": "sousperfectoid_is_not_cosmetic",
+     "statement": "Without sousperfectoidness it is not clear that G x X is an adic space at all, so the geometric notion may not even be statable; the source says so in terms."
+    },
+    {
+     "name": "exactness_gives_faithfulness",
+     "statement": "An exact tensor-functor is automatically faithful; adding faithfulness as a hypothesis is redundant, and omitting exactness is not."
+    },
+    {
+     "name": "meromorphy_needs_all_representations",
+     "statement": "Meromorphy is tested on all algebraic representations. Testing on one faithful representation alone, without its tensor constructions, is strictly weaker and is not the source's condition."
+    }
+   ],
+   "planet": {
+    "name": "The three notions of G-torsor"
+   }
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:vector-bundles/beauville-laszlo-module-gluing",
+   "parentStageId": "RelativeFarguesFontaine:RF4:vector-bundles",
+   "realises": [
+    "RelativeFarguesFontaine:RF4:vector-bundles"
+   ],
+   "title": "The Beauville-Laszlo gluing lemma for non-noetherian coefficient rings",
+   "kind": "lemma",
+   "statement": "Let R be a commutative ring, f in R a nonzerodivisor and R-hat the f-adic completion of R. Then the category of R-modules M on which f is a nonzerodivisor is equivalent to the category of triples (M_{R-hat}, M_{R[f^{-1}]}, beta) where f is a nonzerodivisor on the R-hat-module M_{R-hat}, M_{R[f^{-1}]} is an R[f^{-1}]-module, and beta : M_{R-hat}[f^{-1}] -> M_{R[f^{-1}]} tensor_R R-hat is an isomorphism. Under this equivalence M is finite projective if and only if M_{R-hat} and M_{R[f^{-1}]} are finite projective.",
+   "hypotheses": [
+    "f is a nonzerodivisor in R; M is required to have f a nonzerodivisor",
+    "No noetherian or flatness hypothesis is imposed, and this is essential: Scholze-Weinstein point out that R -> R-hat may fail to be flat and that no descent datum over R-hat tensor_R R-hat is included, so the statement does NOT follow from fpqc descent",
+    "The finite projectivity criterion is part of the lemma, not an addendum"
+   ],
+   "proofSteps": [
+    "Scholze-Weinstein state the lemma as the key input for the equivalence between finite projective A-modules and locally finite free O_X-modules on a sheafy analytic adic space (Theorem 5.2.8, attributed to KL15 Theorem 2.7.7 and Kedlaya).",
+    "They record the two subtleties that block a descent-theoretic proof: possible non-flatness of R -> R-hat and the absence of a descent datum on the double completion.",
+    "Applying it with R the ring of an annulus chart and f a local generator of the Cartier ideal I_S gives the gluing of a bundle off D_S, a bundle on the formal neighbourhood, and an isomorphism on the punctured neighbourhood."
+   ],
+   "acceptance": [
+    "Verify the lemma on a non-noetherian example, e.g. R = W_{O_E}(R^+)[1/[varpi]] and f = xi",
+    "Verify that the equivalence is compatible with tensor products and duals, and with several disjoint divisors by iterating",
+    "Verify the finite-projectivity clause in both directions"
+   ],
+   "prerequisites": [
+    "RelativeFarguesFontaine:RF2:integral-divisors",
+    "RelativeFarguesFontaine:RF2:untilts",
+    "mathlib:IsAdicComplete",
+    "mathlib:AdicCompletion",
+    "mathlib:IsLocalization",
+    "mathlib:Module.Projective",
+    "mathlib:Module.Free",
+    "mathlib:Ideal.span"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Lemma 5.2.9, printed p. 38",
+     "excerpt": "Let R be a commutative ring, let f in R be a non-zero-divisor, and let R-hat be the f-adic completion of R. Then the category of R-modules M where f is not a zero-divisor is equivalent to the category of pairs (M_{R-hat}, M[f^{-1}], beta) ... Under this equivalence, M is finite projective if and only if M_{R-hat} and M_{R[f^{-1}]} are finite projective.",
+     "match": "Verbatim statement including the finite-projectivity criterion required by this stage."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "After Lemma 5.2.9, printed p. 38",
+     "excerpt": "This does not follow from fpqc descent because of two subtle points: R -> R-hat might not be flat if R is not noetherian, and also we have not included a descent datum on R-hat tensor_R R-hat.",
+     "match": "States exactly why the non-noetherian hypotheses must be retained, matching the stage text."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+   "parentStageId": "RelativeFarguesFontaine:RF4:vector-bundles",
+   "realises": [
+    "RelativeFarguesFontaine:RF4:vector-bundles"
+   ],
+   "title": "Modifications at a degree-one divisor and the Beauville-Laszlo description of Gr_G",
+   "kind": "comparison",
+   "statement": "For E, E' bundles (or G-bundles) on X_S and D in Div^1(S), a modification between E and E' at D is an isomorphism E|_{X_S \\ D} -> E'|_{X_S \\ D} that is meromorphic along D, meaning that for every representation the associated isomorphism of vector bundles extends to a morphism F -> F'(kD) for k >> 0 via F' -> F'(kD). Beauville-Laszlo gluing identifies Gr_G/phi^Z -> Div^1 with the moduli of D in Div^1(S), E in Bun_G(X_S), and a modification between the trivial G-bundle and E at D.",
+   "hypotheses": [
+    "D is a degree-one closed Cartier divisor, so I_D is invertible and the formal neighbourhood is Spec B^+_dR(R^sharp)",
+    "Meromorphy is tested on all representations in Rep_E(G) in the Tannakian description; it is not automatic",
+    "Gr_G is the B^+_dR-affine Grassmannian: G-torsors on Spec B^+_dR(R^sharp) with a trivialization over Spec B_dR(R^sharp); FS consider it 'absolutely' over Spd(E) rather than over a fixed algebraically closed C",
+    "The identification is quoted from SW20 Proposition 19.1.2"
+   ],
+   "proofSteps": [
+    "Recall Gr_G over Spd E as the etale sheafification of (R,R^+) -> G(B_dR(R^sharp))/G(B^+_dR(R^sharp)), equivalently as G-torsors on Spec B^+_dR with a trivialization over Spec B_dR (SW20 19.1.2, proved by showing every such torsor is etale-locally trivial, lifting trivializations along Spec B^+_dR/xi^n using H^1_et(S^sharp,O)=0).",
+    "Since S^sharp is a closed Cartier divisor in the ambient space, the Beauville-Laszlo lemma turns a torsor on the formal neighbourhood plus a trivialization on the punctured neighbourhood into a torsor on the complement glued to a torsor near D.",
+    "Descending along phi^Z gives the map Gr_G/phi^Z -> Div^1 and hence the morphism of v-stacks Gr_G -> Bun_G."
+   ],
+   "acceptance": [
+    "Verify the meromorphy condition is representation-independent for a faithful representation plus its tensor constructions",
+    "Verify the case G = GL_n against the classical lattice description of Gr",
+    "Verify the compatibility of the modification with tensor products and duals"
+   ],
+   "prerequisites": [
+    "RelativeFarguesFontaine:RF4:G-torsors/three-notions-of-G-torsor",
+    "RelativeFarguesFontaine:RF4:vector-bundles/beauville-laszlo-module-gluing",
+    "RelativeFarguesFontaine:RF2:untilts",
+    "RelativeFarguesFontaine:RF3",
+    "RelativeFarguesFontaine:RF1",
+    "BunGAndNewtonStrata:BG0",
+    "mathlib:CategoryTheory.MonoidalCategory",
+    "mathlib:Representation",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+    "mathlib:Module.Projective"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "III.3, printed p. 97",
+     "excerpt": "a modification between E and E' at D is an isomorphism E|_{X_S \\ D} -> E'|_{X_S \\ D} that is meromorphic along D. The latter means that for any representation in Rep_E(G), the associated isomorphism between vector bundles, F|_{X_S \\ D} -> F'|_{X_S \\ D} extends to a morphism F -> F'(kD) for k >> 0 via F' -> F'(kD). Beauville-Laszlo gluing then identifies Gr_G/phi^Z -> Div^1 with the moduli ...",
+     "match": "Verbatim definition of meromorphic modification and the Beauville-Laszlo identification with its citation. The excerpt is truncated here; the full quotation is in data/decompositions/RelativeFarguesFontaine.json, where the independent review checked it against the source."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proof of Proposition 19.1.2, printed p. 170",
+     "excerpt": "Recall that S^sharp -> S x-dot Spa Z_p x_{Spa C^flat x-dot Spa Z_p} U is a closed Cartier divisor by Proposition 11.3.1. Thus, the identification with G-torsors over this locus follows from the Tannakian formalism and the Beauville-Laszlo lemma, Lemma 5.2.9.",
+     "match": "Shows that the imported identification is exactly Beauville-Laszlo plus Tannaka, so this stage supplies the linear half."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors",
+   "parentStageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "realises": [
+    "RelativeFarguesFontaine:RF4:G-torsors"
+   ],
+   "title": "Equivalence of geometric, cohomological and Tannakian G-torsors on sousperfectoid spaces",
+   "kind": "theorem",
+   "statement": "Let G be a smooth affine group scheme and X an analytic adic space over Z_p that is sousperfectoid. The categories of geometric G-torsors (adic spaces P -> X with G-action, etale-locally G x X), cohomological G-torsors (etale sheaves with G-action, etale-locally G) and Tannakian G-torsors (exact tensor functors Rep G -> Bun(X)) are canonically equivalent, with the explicit comparison functors. Moreover any geometric G-torsor P -> X is itself sousperfectoid and locally etale over a ball over X.",
+   "hypotheses": [
+    "G is SMOOTH; X is analytic over Z_p and SOUSPERFECTOID (locally Spa(R,R^+) with R sousperfectoid, i.e. admitting a perfectoid R-tilde with R -> R-tilde split as topological R-modules)",
+    "Sousperfectoidness is what makes every Y in X_et an adic space (SW20 Prop. 6.3.3) and makes O_{X_et} and vector bundles etale sheaves (KL15 Thm 8.2.22(c))",
+    "Step (2) uses etale descent of vector bundles (KL15 Thm 8.2.22(d)); step (3) uses that P(O_G(G)) is a faithfully flat R-algebra whose spectrum analytifies to the torsor",
+    "Bun(X) means vector bundles on X, and the tensor functor must be exact"
+   ],
+   "proofSteps": [
+    "(1) The etale sheaf of sections of a geometric torsor is a cohomological torsor.",
+    "(2) For a cohomological torsor Q and V in Rep G, the pushout Q x^G (V tensor_{Z_p} O_X) is a vector bundle by etale descent of vector bundles, and V -> Q x^G V is an exact tensor functor.",
+    "(3) For a Tannakian torsor P, write O_G(G) as a filtered colimit of objects of Rep G, extend P colimit-preservingly; then for affinoid X = Spa(R,R^+), P(O_G(G)) is faithfully flat over R and the analytification of its spectrum is a geometric torsor. Smoothness makes it locally etale over affine space, hence its analytification is locally etale over a ball, hence sousperfectoid by Prop. 6.3.3.",
+    "The three composites are equivalent to the identity."
+   ],
+   "acceptance": [
+    "Verify that the equivalence is independent of the chosen faithful representation of G",
+    "Verify compatibility with extension of structure group along G -> H",
+    "Check that the sousperfectoid hypothesis is satisfied by the annuli Y_{S,I} and by Spec B^+_dR-style bases before transferring the equivalence"
+   ],
+   "prerequisites": [
+    "RelativeFarguesFontaine:RF4:G-torsors/three-notions-of-G-torsor",
+    "RelativeFarguesFontaine:RF4:vector-bundles/meromorphic-modification-at-a-divisor",
+    "AdicSpacesPartII:R2",
+    "AdicSpacesPartII:R3",
+    "PerfectoidSpaces:P2",
+    "PerfectoidSpaces:P3",
+    "BunGAndNewtonStrata:BG0",
+    "tauceti:TauCeti.Tannaka.tensorAutFunctor",
+    "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+    "tauceti:TauCeti.AffineGroupSchemeCat",
+    "mathlib:CategoryTheory.Equivalence",
+    "mathlib:CategoryTheory.Functor.Monoidal",
+    "mathlib:AlgebraicGeometry.Scheme",
+    "mathlib:Module.Projective"
+   ],
+   "sources": [
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Theorem 19.5.2, printed pp. 179-180",
+     "excerpt": "The categories of geometric, cohomological, and Tannakian G-torsors on X are canonically equivalent. ... Moreover, any geometric G-torsor P -> X is itself a sousperfectoid adic space that is locally etale over a ball over X.",
+     "match": "Exact statement of the transfer used by this stage."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Before Theorem 19.5.2, printed p. 179",
+     "excerpt": "So, assume from now on that G is smooth, and that X is an analytic adic space over Z_p that is sousperfectoid ... By Proposition 6.3.3, any Y in X_et is itself sousperfectoid, and in particular an adic space. This implies that O_{X_et} is an etale sheaf by [KL15, Theorem 8.2.22 (c)] (that is acyclic on affinoid subsets), and the same holds for vector bundles.",
+     "match": "Records the two standing hypotheses (smooth G, sousperfectoid X) and the imported sheaf statements, which must not be dropped."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Three notions of G-torsor agree"
+   }
+  },
+  {
+   "id": "RelativeFarguesFontaine:RF4:G-torsors/v-descent-and-local-triviality",
+   "parentStageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "realises": [
+    "RelativeFarguesFontaine:RF4:G-torsors"
+   ],
+   "title": "v-descent of G-torsors and etale-local triviality over the completed divisor rings",
+   "kind": "theorem",
+   "statement": "G-torsors on open subsets of S x-dot Spa Z_p form a v-stack (SW20 19.5.3). Applied to the completed divisor rings: the category of vector bundles over B^+_{Div^d} satisfies v-descent (check modulo powers of I_S and apply VI.1.4), hence by the Tannakian formalism so does the category of G-bundles; and any G-bundle over B^+_{Div^d_{Y-curly}}(S) is etale-locally on S trivial. Consequently Hck_{G,Div^d} and Gr_{G,Div^d} are small v-stacks with the quotient presentations by loop groups.",
+   "hypotheses": [
+    "G reductive over O_E (resp. E, resp. E) for the local Hecke and Grassmannian statements; smooth affine for the general descent statement",
+    "The v-descent proof reduces to GL_n via Tannaka, then uses that U x_{Spa Z_p} Spa Z_p[p^{1/p^infty}]^wedge_p is perfectoid, so the base change of the cover is a v-cover of perfectoid spaces",
+    "Etale-local triviality over B^+: at a geometric point B^+ is a product of complete discrete valuation rings with algebraically closed residue field, so torsors are trivial; in general triviality modulo I_S implies triviality by lifting along nilpotent thickenings, and the passage from the residue to a neighbourhood is the step FS attribute to [GR03, Proposition 5.4.21]",
+    "The isomorphism Hck = L^+G \\ LG / L^+G is an isomorphism of ETALE stacks over Div^d, obtained after etale-local trivialization"
+   ],
+   "proofSteps": [
+    "SW20 prove 19.5.3 by reducing to vector bundles via Tannaka, base changing to Z_p[p^{1/p^infty}]^wedge to make everything perfectoid, invoking v-descent for perfectoid spaces (Prop. 17.1.8) and then descending back along the split inclusion.",
+    "FS apply this modulo I_S^m and pass to the limit, obtaining v-descent for bundles and hence for G-bundles over B^+_{Div^d}.",
+    "The isomorphism E_1 = E_2 over B_{Div^d} is a section of an affine scheme over that ring, which again satisfies v-descent; smallness follows as in Prop. III.1.3.",
+    "Etale-local triviality of G-torsors over B^+ gives the double-quotient presentation of Hck and the single-quotient presentation of Gr."
+   ],
+   "acceptance": [
+    "Verify that the presentation is as etale stacks and not merely v-stacks",
+    "Verify triviality of G-torsors on B^+ at a geometric point directly from the complete-discrete-valuation-ring description",
+    "Check the affineness hypothesis on Z used in Definition VI.1.5, without which L^+Z and LZ need not be v-sheaves"
+   ],
+   "prerequisites": [
+    "RelativeFarguesFontaine:RF4:G-torsors/three-notions-of-G-torsor",
+    "RelativeFarguesFontaine:RF4:G-torsors/three-descriptions-of-G-torsors",
+    "DiamondsAndVStacks:D3",
+    "DiamondsAndVStacks:D4",
+    "PerfectoidSpaces:P2",
+    "RelativeFarguesFontaine:RF2:integral-divisors",
+    "mathlib:CategoryTheory.Sheaf",
+    "mathlib:CategoryTheory.GrothendieckTopology",
+    "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
+    "mathlib:IsDiscreteValuationRing",
+    "mathlib:Module.Projective"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Proof of Proposition VI.1.7, printed p. 193",
+     "excerpt": "Any G-bundle over B^+_{Div^d_{Y-curly}}(S) is etale locally on S trivial. Indeed, if S is a geometric point then B^+_{Div^d_{Y-curly}}(S) is a product of complete discrete valuation rings with algebraically closed residue field, so that all G-torsors are trivial. In general, note that triviality of the G-torsor over B^+_{Div^d_{Y-curly}}(S) is implied by triviality modulo I_S (as one can ...",
+     "match": "Exact local-triviality argument and the imported reference whose numbering could not be matched in the locally available copy (see gaps). The excerpt is truncated here; the full quotation is in data/decompositions/RelativeFarguesFontaine.json, where the independent review checked it against the source."
+    },
+    {
+     "sourceId": "FS-geometrization",
+     "locator": "Definition VI.1.5 and following, printed p. 192",
+     "excerpt": "We note that we use affinity of Z to see that these are actually v-sheaves - this makes it possible to reduce to the v-sheaf property of the structure sheaf.",
+     "match": "Records the affineness hypothesis on the target scheme in the loop-space construction."
+    },
+    {
+     "sourceId": "SW20-berkeley",
+     "locator": "Proof of Proposition 19.5.3, printed p. 180",
+     "excerpt": "We use the Tannakian interpretation of G-torsors. This directly reduces us to the case of G = GL_n, i.e. vector bundles. ... Recall that U is sousperfectoid; in fact, more precisely, the product U' = U x_{Spa Z_p} Spa Z_p[p^{1/p^infty}]^wedge_p is a perfectoid space.",
+     "match": "The proof route of the imported descent theorem, showing where sousperfectoidness enters."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "v-descent and etale-local triviality"
+   }
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "RelativeFarguesFontaine:RF4",
+   "status": "partial",
+   "remaining": [
+    "Aggregate stage; inherits the remaining items of RF4:vector-bundles and RF4:G-torsors."
+   ],
+   "note": "Aggregate layer over RF4:vector-bundles and RF4:G-torsors; no node of its own."
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF4:G-torsors",
+   "status": "partial",
+   "remaining": [
+    "KL15 Theorem 8.2.22 (c) and (d), used for the etale sheaf property and etale descent of vector bundles on sousperfectoid spaces, were not read.",
+    "SW20 Proposition 6.3.3 (stability of sousperfectoidness under etale maps) was not read.",
+    "The reference [GR03, Proposition 5.4.21] used by FS for etale-local triviality of G-torsors over B^+ could not be matched in the locally available copy of Gabber-Ramero (see gaps).",
+    "Independence of the faithful representation and compatibility with extension of structure group are asserted by the stage text; only the general Tannakian equivalence was read."
+   ],
+   "note": "The three notions of a G-torsor and their equivalence, and v-descent with etale-local triviality over the completed divisor rings. This packet adds a definition node for the three notions, read directly from the Berkeley lectures in this session; the decomposition had only the equivalence theorem, which is a statement about objects it did not define. Tau Ceti already has Tannaka reconstruction over a field, which is cited, but the transfer here is between three notions of TORSOR over a sousperfectoid adic space and does not follow from it."
+  },
+  {
+   "stageId": "RelativeFarguesFontaine:RF4:vector-bundles",
+   "status": "partial",
+   "remaining": [
+    "Only the statement of SW20 Lemma 5.2.9 was read; its proof (Beauville-Laszlo, Un lemme de descente, CRAS 1995) was not, so the non-noetherian argument itself is unverified.",
+    "Compatibility of the gluing with tensor, dual, base change and several disjoint divisors is asserted by the stage text but no source proof of these compatibilities was read.",
+    "Essential surjectivity and full faithfulness are packaged inside Lemma 5.2.9; the separate 'comparison on morphisms' the stage text asks for was not isolated."
+   ],
+   "note": "The Beauville-Laszlo gluing lemma for NON-NOETHERIAN coefficient rings, and the meromorphic modification at a degree-one divisor that it makes possible. The non-noetherian hypotheses are the content: Scholze-Weinstein point out that R -> R-hat may fail to be flat and that no descent datum on the double completion is included, so the lemma does NOT follow from fpqc descent. This layer supplies the linear half of the Beauville-Laszlo description of the affine Grassmannian; Gr_G itself is GeometricSatakeAndFusion's object, and the atlas edge runs from here to there, which is the right direction."
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Fargues' [Far20b] is absent from the supplied library",
+   "detail": "FS cite [Far20b] (L. Fargues) for (a) the equivalence of their Definition II.1.19 with a relative-Cartier-divisor definition (Remark II.1.20), (b) Remark VI.1.3's characterisation of Div^d(S) by geometric fibres, and (c) Corollary II.2.4 (Far20b Proposition 2.12) and the Lubin-Tate/Artin reciprocity comparison in Section 2.3. Searched the supplied library: CATALOGUE.json and the diamonds source files list no Fargues single-author paper besides FarguesFontaine_Courbes. NEXT SOURCE ACTION: obtain L. Fargues, 'Simple connexite des fibres d'une application d'Abel-Jacobi et corps de classes local' (Ann. Sci. ENS, author-hosted preprint) and read Definition 2.6, Proposition 2.12 and Section 2.3. Until then the geometric-fibre criterion is recorded as an unread import, not as an established input."
+  },
+  {
+   "title": "[GR03, Proposition 5.4.21] could not be matched in the locally available Gabber-Ramero copy",
+   "detail": "FS's proof of Proposition VI.1.7 concludes etale-local triviality of G-torsors over B^+_{Div^d} by citing [GR03, Proposition 5.4.21], i.e. the Springer LNM 1800 (2003) edition of Gabber-Ramero 'Almost ring theory'. The library copy is arXiv:math/0201175v3, the 2002 'sixth (and final) release'; in that numbering Proposition 5.4.21 (PDF p. 121) is a henselian-approximation density statement ('Let X be a smooth quasi-projective R[t^{-1}]-scheme ... the natural map X(R[t^{-1}]) -> X(R^wedge[t^{-1}]) has dense image'), while the torsor lifting/descent results are in Section 5.8 (e.g. Theorem 5.8.14, PDF p. 148, which resumes the assumptions of 5.4.21). The two editions plausibly renumber. NEXT SOURCE ACTION: consult the published LNM 1800 numbering (or a copy with the 2003 pagination) to identify the exact cited statement, then check that the hypotheses (henselian pair, smooth quasi-projective scheme, (t,I)-adic completion) are actually satisfied by B^+_{Div^d}(S) -> B^+/I_S. Recorded as an unresolved import boundary, not as an input package."
+  },
+  {
+   "title": "Sousperfectoid machinery is quoted but unread",
+   "detail": "Three separate steps rest on sousperfectoid theory that was located but not read: (i) FS II.1.1 cites [HK20] and [SW20, Section 6.3] for descending sheafiness along the split inclusion; (ii) the Stein exhaustion asserts Y_{(R,R^+),I} is affinoid sousperfectoid; (iii) SW20 Theorem 19.5.2 needs Proposition 6.3.3 and KL15 Theorem 8.2.22 (c),(d). Verified present in the library: Scholze-Weinstein Berkeley PDF Definition 6.3.1 and Example 6.3.2 were read (printed p. 47). KedlayaLiu_RelativePadicHodgeFoundations.pdf is present in the library (sha256 a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942) but Theorem 8.2.22 was not read. Hansen-Kedlaya 'Sheafiness criteria for Huber rings' was NOT found in the library (unchecked beyond CATALOGUE.json and the diamonds source files). NEXT SOURCE ACTION: read SW20 Proposition 6.3.3 and KL15 Theorem 8.2.22, and locate Hansen-Kedlaya."
+  },
+  {
+   "title": "Ramified Witt vector foundations are assumed, not decomposed",
+   "detail": "FS state the existence and uniqueness of the pi-adically complete flat O_E-lift and the Teichmueller section in one sentence with no proof and no citation. The stage text explicitly warns that 'A general E is not obtained by renaming p in a formula'. Nothing in the passages read proves the mixed-characteristic comparison with W(-) tensor-hat_{W(F_q)} O_E or the change-of-uniformizer isomorphism. NEXT SOURCE ACTION: read a ramified-Witt-vector source (Hazewinkel, 'Formal groups and applications', Ch. IV; or Drinfeld's pi-typical Witt vectors; or Fargues-Fontaine Courbes Chapter 1, which is in the library as FarguesFontaine_Courbes.pdf, sha256 cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3) and decompose the universal property there."
+  },
+  {
+   "title": "Classical points of Y_C and X_C are not covered by any RF stage text",
+   "detail": "FS II.1.6-II.1.14 and Definition/Proposition II.1.22 (classical points, the bijection with untilts, Proposition II.1.11's Spm(B) = |U|^cl, Corollary II.1.12's principal-ideal-domain property, Lemma II.1.14's inertia-surjectivity point used later in IV.7.3) were read but correspond to no stage text in the RelativeFarguesFontaine roadmap. They are consumed by VectorBundlesAndIsocrystals VB2:classification ('Geometric points') and by DiamondSixOperations/Drinfeld's lemma. They are decomposed in the VectorBundlesAndIsocrystals packet of this job rather than duplicated here. Flagged as a possible scope correction to the RF roadmap text."
+  },
+  {
+   "title": "F4 supplies the fixed-field Q_p estimate only; the ramified relative assembly of FS II.1.4 has no supplier",
+   "detail": "Added by independent review. The proposed edge FarguesFontaineDiamonds:F4 -> RelativeFarguesFontaine:RF2:untilts was checked against F4's atlas description, which fixes Q_p coefficients ('sections of Y_F-diamond -> S with maps S -> Spd Q_p', 'marked untilts of S over Q_p') and a fixed perfectoid field F. The coefficient-independent part of what RF2:untilts needs - the maximum-modulus / Shilov-boundary statement for one-variable period annuli, the perfectoidness of their compatible-root base extension, and the transfer through the split topological-module base extension - is inside F4's stated scope. The ramified and relative part is not: FS II.1.4 (printed p. 50) works over W_{O_E}(R^+) with xi = pi - a[varpi] obtained from pi = varpi^sharp theta(a), normalizes the spectral norm on each completed residue field of Y-curly_S by |[varpi]| = 1/q, and only then reduces the maximum principle to a geometric point. No stage in the atlas is declared to own that ramified relative step; RF2:untilts does it itself, and this packet decomposes it there. NEXT ACTION (orchestrator): either accept the edge as an analytic-estimate-only edge with this limitation recorded, or widen F4's stage text to cover a general nonarchimedean local coefficient field E, or add the ramified estimate as an explicit obligation of RF2:untilts. Also note the atlas currently lists F4's only consumer as RelativeFarguesFontaine:RF3, and RF2:untilts' requires does not contain F4, so integrating this packet adds a new stage edge; a reachability check confirms it introduces no cycle in stageEdges."
+  },
+  {
+   "title": "Atlas substage order is the reverse of the source's proof order: RF0 -> RF0:integral-Y and RF2:untilts -> RF2:integral-divisors, while the atlas has both edges the other way",
+   "detail": "Added by independent review. Both links are source-correct at NODE level. (a) Y-curly_S is defined as Spa W_{O_E}(R^+) minus V([varpi]) (printed p. 47), so the ramified Witt construction precedes the integral period space; but the atlas has RelativeFarguesFontaine:RF0:integral-Y -> RF0. (b) The proof of Proposition VI.1.2 (printed p. 191) says 'Each of the xi_i defines a closed Cartier divisor by Proposition II.1.4', so the single-untilt norm estimate of RF2:untilts precedes the degree-d product construction of RF2:integral-divisors; but the atlas has RF2:integral-divisors -> RF2:untilts. In both cases the SOURCE's order of proof is the reverse of the atlas's substage order. CONSEQUENCE AND DECISION NEEDED. The node-level link graph of all thirteen packets of this job is ACYCLIC (197 nodes, 210 edges, checked). The cycle appears only if node links are lifted to stage edges and unioned with data/atlas.json stageEdges. Nothing was reversed here, because reversing would misstate the source. The orchestrator must choose: (i) treat these as node-level edges only and do not lift them to stage edges at integration; (ii) re-parent the offending node (or split it) so that its stage matches the source's order; or (iii) revise the atlas substage ordering. Option (iii) is the one the source actually supports in each case."
+  },
+  {
+   "title": "The three notions of G-torsor had no node; one was added from a source read in this session",
+   "detail": "The reviewed decomposition has four nodes in this part and none of them is a definition: the geometric, cohomological and Tannakian notions of a G-torsor appear only inside the statement of the equivalence theorem that compares them. The stage is named 'Tannakian transfer' and its text asks for the transfer, and PROTOCOL section 0 requires that no definition of the sources be left out. A node was therefore added, RelativeFarguesFontaine:RF4:G-torsors/three-notions-of-G-torsor, with an API outline and five unit tests. Its four locators were read directly from Berkeley.pdf in this session, from a file whose SHA-256 reproduces the recorded value byte for byte, by inflating the PDF's object streams and reading its text operators; the printed pages were confirmed from the running heads. They are: the three definitions as a displayed list on printed p. 179; the paragraph immediately before them explaining that the sousperfectoid hypothesis is imposed because for a general adic space over Z_p it is not clear that G x X is an adic space; the footnote on p. 178 recording that any exact tensor-functor is automatically faithful, so faithfulness is not an extra hypothesis; and the sentence on printed p. 170 that the Tannakian definition is the working one and that meromorphy of a trivialization is tested on ALL algebraic representations. A reviewer should check these four first, since they are the only content of this packet not inherited from the reviewed decomposition."
+  },
+  {
+   "title": "Tau Ceti has Tannaka reconstruction, but over a field; the transfer here is a different statement",
+   "detail": "data/library-coverage.json has no reviewed audit entry for this roadmap, so the pinned declaration index was searched directly. Tau Ceti at f790474 has a substantial Tannaka development, 125 declarations across twelve files under TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/, including tensorAutFunctor and pointsFunctorIsoTensorAutFunctor, and both are cited here. But they are RECONSTRUCTION over a field, for finitely generated comodules over a Hopf algebra, and the theorem of this layer is the equivalence of three notions of TORSOR over a sousperfectoid analytic adic space over Z_p, whose proof runs through etale descent of vector bundles on such spaces and through the relative spectrum of a faithfully flat quasicoherent algebra. It does not follow from the pinned statement, and no node here plans the pinned statement again. Also cited from the pinned libraries: IsAdicComplete and AdicCompletion for the f-adic completion of the Beauville-Laszlo lemma, IsLocalization for R[f^{-1}], Module.Projective for its finite-projectivity clause, and IsDiscreteValuationRing, because the base case of the etale-local triviality argument is that at a geometric point B^+ is a PRODUCT OF COMPLETE DISCRETE VALUATION RINGS with algebraically closed residue field. Absent at both pins, as everywhere in this family: adic spaces, perfectoid rings and diamonds."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "AdicSpacesPartII:R2",
+   "need": "Analytic adic spaces and their etale site. The whole of RF4:G-torsors is stated for an analytic adic space over Z_p, and the etale-local conditions in the three definitions are conditions on that site."
+  },
+  {
+   "supplier": "AdicSpacesPartII:R3",
+   "need": "Sousperfectoid rings and spaces, with the stability of sousperfectoidness under etale maps. Scholze-Weinstein impose this hypothesis because, for a general adic space X over Z_p, it is not clear that G x X is an adic space at all; the decomposition records SW20 Proposition 6.3.3 as unread."
+  },
+  {
+   "supplier": "PerfectoidSpaces:P2",
+   "need": "Perfectoid pullback and rational localisations. Sousperfectoidness is defined by the existence of a perfectoid R-tilde with R -> R-tilde split, and the v-descent proof base changes to a perfectoid cover."
+  },
+  {
+   "supplier": "PerfectoidSpaces:P3",
+   "need": "Almost purity and the finite-etale site, on which the etale sheaf property of vector bundles over sousperfectoid spaces rests; the decomposition records KL15 Theorem 8.2.22 (c) and (d) as unread."
+  },
+  {
+   "supplier": "BunGAndNewtonStrata:BG0",
+   "need": "Torsors with reductive structure group, the ambient notion of G-bundle. The atlas already links this layer into RF4:G-torsors, and the Tannakian description of a G-bundle used throughout this part is its object."
+  },
+  {
+   "supplier": "DiamondsAndVStacks:D3",
+   "need": "Effective descent and the v-topology, in which the v-stack statement for G-torsors and the v-descent of vector bundles over the completed divisor rings are made."
+  },
+  {
+   "supplier": "DiamondsAndVStacks:D4",
+   "need": "Small v-stacks and diamonds, needed for the smallness of the local Hecke stack and the Grassmannian and for their quotient presentations."
+  }
+ ],
+ "restructure": [
+  {
+   "kind": "narrow-layer",
+   "title": "RF4:G-torsors should say which Tannakian statement it owns, since the pinned libraries have the other one",
+   "detail": "The stage is called 'Tannakian transfer' and its text asks for the equivalence of the three notions of G-torsor, for independence of the chosen faithful representation and for compatibility with extension of structure group. At the pinned commit Tau Ceti already has Tannaka reconstruction - tensorAutFunctor, pointsFunctorIsoTensorAutFunctor, reconstructedPoint and 122 further declarations - over a FIELD, for finitely generated comodules over a Hopf algebra. That is a different statement from the one this layer needs, and the difference is exactly where the work is: the transfer here is over a sousperfectoid analytic adic space, its proof uses etale descent of vector bundles on such spaces and the relative spectrum of a faithfully flat quasicoherent algebra, and its conclusion includes that a geometric torsor is itself sousperfectoid and locally etale over a ball. Saying so in the stage text would stop a reader thinking the layer has to build the Tannakian formalism, and would make the boundary with the pinned library visible where it matters. The same narrowing is proposed for GeometricSatakeAndFusion:GS4:integral-dual-group in the packet for that roadmap's second part, for the same reason: Tau Ceti's Tannaka is over a field, and both consumers need something else."
+  }
+ ]
+}
