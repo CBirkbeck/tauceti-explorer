@@ -29038,8 +29038,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-functionfields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1489"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1489",
+   "finishedAt": "2026-09-24T05:58:28Z"
   },
   {
    "id": "REV-RT-AREA-functionfields",
