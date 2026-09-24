@@ -29131,8 +29131,9 @@
     "RT-AREA-automorphic-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-automorphic-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1490"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1490",
+   "finishedAt": "2026-09-24T08:47:43Z"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -29738,7 +29739,8 @@
     "RT-AREA-padic-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-padic-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1512"
   },
   {
    "id": "RT-AREA-padic-3",
