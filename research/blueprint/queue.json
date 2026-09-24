@@ -29537,8 +29537,9 @@
     "RT-AREA-langlands-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-langlands-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1504"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1504",
+   "finishedAt": "2026-09-24T10:33:55Z"
   },
   {
    "id": "RT-AREA-modeltheory",
