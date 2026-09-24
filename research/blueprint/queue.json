@@ -4292,8 +4292,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -28063,7 +28063,8 @@
     "REV-AUDIT-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1597"
   },
   {
    "id": "RT-AUDIT-25",
