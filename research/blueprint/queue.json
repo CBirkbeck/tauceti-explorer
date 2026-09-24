@@ -5045,8 +5045,9 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1295"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1295",
+   "finishedAt": "2026-09-24T00:06:54Z"
   },
   {
    "id": "PAPER-BENOIST-WITTENBERG-20",
