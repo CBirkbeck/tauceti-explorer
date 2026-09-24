@@ -5206,8 +5206,8 @@
    ],
    "avoidAccountOf": "PAPER-LIU-ZHU-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-ZHU-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1303"
+   "state": "external",
+   "note": "claimed on GitHub issue #1303"
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17",
