@@ -1,0 +1,35 @@
+{
+  "redteam": "RT-AUDIT-10",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-10/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The R12.5 target-3 note asserts commutation without the raised-level restriction. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, HeckeSlash/Degeneracy.lean:88-95, heckeTCuspNat_levelRaise explicitly requires d*M dividing N, p prime and Nat.Coprime p N, and compares the level-N operator after level raising with the level-M operator before it. The inherited haveI clauses provide the nonzero levels and indices from those hypotheses. The current audit's R13.4b target-1 note already preserves p not dividing N. Apply the proposed qualified formula, keeping the geometric comparison partial. Citation refinement: the R12.5 row currently cites the individual operators rather than this commutation theorem; add the direct heckeTCuspNat_levelRaise reference at line 88 as related evidence. Do not present the restriction as a proof that every bad-prime pair fails; no general bad-prime identity is supplied by this declaration."
+    },
+    {
+      "finding": "RT-AUDIT-10/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. At the pinned Petersson/Adjoint.lean:160-165, peterssonInner_slash_left_adjugateGL assumes g in GL(2,R) with positive determinant and compares the pairing over S with the pairing over g • S. The audit's unscripted formula omits both facts. The neighboring inverse formula at :138-143 has the determinant power; the adjugate absorbs that power, not the change of domain. Use the proposed domain-indexed formula with det(g)>0, and retain the explicit absence of the final Hecke-operator adjoint theorem. No extra integrability premise should be invented for this exact totalized set-integral statement: the source explicitly explains why its change-of-variables theorem has none. Target partial and layer not built remain appropriate."
+    },
+    {
+      "finding": "RT-AUDIT-10/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The M5 target-1 note drops a hypothesis present in card_ker_mulByIntIsogeny, KernelCard.lean:117-125 at the Tau Ceti pin: [IsAlgClosed F], the elliptic Weierstrass setup, a nonzero multiplication-function witness, and hchar : (n : F) ≠ 0. Its conclusion is Nat.card of the point kernel equal to n.natAbs squared. In a field, hchar is the invertibility condition on the image of n. This is also how the same audit qualifies the input at R12.1 target 5. Restore that condition and retain the multiplication-isogeny setup. Neither algebraic closedness alone nor the degree/rank of a nonreduced kernel scheme substitutes for the point-cardinality hypothesis. The genus-one moduli comparison remains absent."
+    },
+    {
+      "finding": "RT-AUDIT-10/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with the proposed limited scope. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, GroupTheory/Finiteness.lean:579-628, proves Submonoid.fg_eqLocusM at line 627 under the listed ordered, cancellative and well-quasi-order hypotheses, with a generated additive form. Its additive docstring explicitly identifies the finite-power-of-naturals specialization as a version of Gordan's lemma. The proof uses fg_of_divisive, whose declaration starts at line 586 (the finding's line 585 is its preceding docstring). Credit this related equalizer/solution-monoid theorem. The cone's integral dual-character monoid, the identification reducing it to such a solution monoid, and the cone-specific chart/localization/gluing interfaces still need work. Keep C0 partly built and the composite chart target partial; do not label the toric scheme constructed."
+    },
+    {
+      "finding": "RT-AUDIT-10/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Mathlib's ContMDiffVectorBundle at VectorBundle/Basic.lean:288-309 is over an arbitrary nontrivially normed field, and its transition maps are differentiated over that same field. For a complex manifold and finite-dimensional complex fibre, taking the field to be C and order omega supplies complex-analytic transition maps. This is not merely a real-smooth bundle with complex fibres. The analytic-order meaning is supported by ContDiff/Defs.lean:157 and :773. VectorBundleCore.IsContMDiff and instContMDiffVectorBundle at :586-603 construct this structure from transition data; :610 supplies trivial examples, and :410 gives total-space transition regularity. Remove the blanket assertion that no holomorphic bundles exist. Retain the missing local-system comparison, filtration by holomorphic subbundles, flat connection and Griffiths transversality; this correction does not build a variation or an analytic-space theory. Preserve the related citation and absent VHS target."
+    },
+    {
+      "finding": "RT-AUDIT-10/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed as low-severity terminology. The audit's D1 target 0 calls the torus map weight (diagonal), whereas the roadmap fixes h(z) on V^(p,q) to act as z^(-p) conjugate(z)^(-q). On the real diagonal this is t^(-(p+q)); its inverse acts as t^(p+q), which is the roadmap's weight cocharacter. ShimuraData/README.md:36 explicitly distinguishes these, and :54 asks for the diagonal and norm maps. Rename the map into S as the diagonal map and distinguish h composed with it from the inverse weight cocharacter. Keep h(i)=C^(-1), the library's Hodge convention and all coverage statuses unchanged. The historically cited roadmap blob equals the current checked input."
+    }
+  ]
+}
