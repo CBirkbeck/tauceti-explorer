@@ -1,0 +1,1392 @@
+{
+  "roadmapId": "GeneralAlgebraicKTheory",
+  "protocol": "blueprint-v1",
+  "part": "K.6",
+  "status": "partial",
+  "scope": [
+    "GeneralAlgebraicKTheory:K.6",
+    "GeneralAlgebraicKTheory:K.7"
+  ],
+  "summary": "The blueprint for the last two layers of the general algebraic K-theory roadmap: K.6, the nonconnective extension, and K.7, invariance, products and universal interfaces. Fifteen nodes written from one source, Weibel's K-book in the author-hosted combined draft of 29 August 2013, whose hash reproduces the one four other packets of this programme already record, so this is the same file they cite. The reviewed audit AUDIT-28 was read first and every claim it makes about the pinned libraries was checked against the declaration index. Both layers are recorded there as not built, and the index agrees: there is an idempotent completion, a Morita equivalence predicate with its matrix instance, an equivalence of module categories over a matrix ring, filtered colimits of categories, polynomial and Laurent polynomial rings, and on the Tau Ceti side the Grothendieck group of an exact category with its invariance under exact equivalences and the degree-zero product statement. There is no spectrum, no flasque ring in the K-theoretic sense (the pinned IsFlasque of both trees is about sheaves and the packet says so in the node that would collide with it), no negative K-group, no Nil group and no first K-group at all. K.6 is decomposed into the flasque rings and the Eilenberg swindle, Bass's contracted functors and the contraction LF, the negative K-groups, the Fundamental Theorem with its Nil terms, the four axioms a theory of negative K-theory must satisfy, Mayer-Vietoris in negative degrees, the nonconnective spectrum as a homotopy colimit of iterated desuspensions with the agreement with connective K-theory in non-negative degrees, and the vanishing theorem for regular noetherian rings, which is stated together with the non-example the stage text demands: the connective model has no negative homotopy for any ring, so that absence proves nothing about a singular one. K.7 is decomposed into Morita invariance with the structure theorem, the derived statement with its enhancement hypothesis and the explicit failure of a naked triangulated equivalence, compatibility with filtered colimits and finite products, the external products from biexact functors with associativity, unit and symmetry carried as data, graded commutativity, the compatibilities with relative groups, localisation boundaries and transfers, and the two unit tests the stage text names, the degree-zero tensor comparison and multiplication by a unit in degree one. Two duplications the audit records are honoured rather than re-planned: SchemeKTheoryOperations S.5 owns the scheme form of the Fundamental Theorem and S.6 the scheme form of the external products, and both are cited as prerequisites.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:CategoryTheory.Functor.IsEquivalence",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "provides": "Equivalence of categories, the hypothesis of the invariance statements; the enhanced version K.7 needs is not pinned and the comparison node says so."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Idempotents.Karoubi",
+        "module": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
+        "provides": "The idempotent completion, which the stage text names as one of the three enlargements; it exists at the pin, so K.6 cites it rather than building it."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.HasFilteredColimits",
+        "module": "Mathlib/CategoryTheory/Limits/Filtered.lean",
+        "provides": "Filtered colimits, pinned at the level of categories; the K-theoretic commutation statement is what K.7 adds."
+      },
+      {
+        "ref": "mathlib:IsMoritaEquivalent",
+        "module": "Mathlib/RingTheory/Morita/Basic.lean",
+        "provides": "The Morita equivalence predicate, pinned; K.7 supplies the K-theoretic consequence, which is absent."
+      },
+      {
+        "ref": "mathlib:IsMoritaEquivalent.matrix",
+        "module": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "provides": "The instance that a ring is Morita equivalent to its matrix ring, pinned and cited by the invariance node."
+      },
+      {
+        "ref": "mathlib:LaurentPolynomial",
+        "module": "Mathlib/Algebra/Polynomial/Laurent.lean",
+        "provides": "The Laurent polynomial ring, the third term of that sequence and the ring whose K-theory the fundamental theorem decomposes."
+      },
+      {
+        "ref": "mathlib:Matrix",
+        "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
+        "provides": "Matrices, out of which the cone ring and the infinite matrix ring of the flasque and axiom nodes are built."
+      },
+      {
+        "ref": "mathlib:ModuleCat.matrixEquivalence",
+        "module": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "provides": "The equivalence between modules over a ring and modules over its matrix ring, which is the pinned form of the Morita instance K.7 cites."
+      },
+      {
+        "ref": "mathlib:Polynomial",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "The polynomial ring in one variable, one of the two rings in the four-term sequence that defines the contraction."
+      },
+      {
+        "ref": "mathlib:RingHom",
+        "module": "Mathlib/Algebra/Ring/Hom/Defs.lean",
+        "provides": "Ring maps, the morphisms of the functors this layer defines."
+      },
+      {
+        "ref": "mathlib:TensorProduct",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "The tensor product, the biexact functor from which the external products of K.7 are built."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactK0",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+        "provides": "The Grothendieck group of an exact category, the degree-zero model against which this layer's invariance statements are checked."
+      },
+      {
+        "ref": "tauceti:TauCeti.ExactK0.mapEquiv",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+        "provides": "Invariance of that group under an exact equivalence, the pinned degree-zero shadow of the derived invariance K.7 states."
+      },
+      {
+        "ref": "tauceti:TauCeti.SplitK0",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+        "provides": "The split model of the zeroth K-group, in which the pinned product statement is proved."
+      },
+      {
+        "ref": "tauceti:TauCeti.SplitK0.of_mul_of",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
+        "provides": "The pinned statement that the product of the classes of two objects is the class of their tensor product, the degree-zero unit test of K.7's product."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.2013",
+      "title": "The K-book: An Introduction to Algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-09-24",
+      "readSections": [
+        "The file was already on disk from the K2SymbolsBrauer job of this session and was re-hashed; the hash reproduces the value recorded by the packets of K2SymbolsBrauer, Polylogarithms, MotivesAndAlgebraicCycles and ArithmeticKTheory, so this is the same file those cite.",
+        "I.1.8 (PDF p. 5): the cone ring of a ring, as a direct sum ring.",
+        "II.2.1.2 and II.2.1.3 (PDF p. 105): the behaviour of the zeroth K-group on a finite product of rings; Karoubi's flasque rings, the Eilenberg swindle and the infinite sum rings.",
+        "II.2.7, II.2.7.1, II.2.7.2 and Remark 2.8 (PDF pp. 110 to 111): the Structure Theorem for Morita equivalence, the resulting isomorphism of zeroth K-groups, the matrix example, and the remark that Morita equivalence is coarser than isomorphism.",
+        "II.7.4, II.7.4.1 and II.7.4.4 (PDF pp. 145 to 146): biexact functors and the induced bilinear pairing; the tensor product of projectives and the ring structure on the zeroth K-group; the Nil category and the module structure on its zeroth group.",
+        "II.9.1.1, II.9.1.2, II.9.5.2 and II.9.6.1 (PDF pp. 158 to 163): categories with cofibrations, Waldhausen categories, biexact functors of Waldhausen categories and the pairing of spectra, and the invariance of K-theory under an exact equivalence of Waldhausen categories.",
+        "III.1.1 and III.1.2 (PDF p. 190): the determinant and the map from the units of a commutative ring to the first K-group, an isomorphism for a commutative local ring.",
+        "III.3.6 and III.3.7 (PDF pp. 207 to 208): the Fundamental Theorems for the first and the zeroth K-groups, with the four-term split exact sequence and the resulting decomposition of the zeroth K-group of the Laurent ring.",
+        "III.4.1, III.4.1.1, III.4.3, III.4.4 and III.4.4.1 (PDF pp. 210 to 213): the negative K-groups by iterated cokernel; contracted functors, acyclicity and the natural splitting; Mayer-Vietoris for the negative groups; the four axioms for a theory of negative K-theory and Bass's groups as an example.",
+        "IV.10.1 to IV.10.4 (PDF pp. 349 to 350): the functor LE and its desuspension with the natural cofibration sequence; the Fundamental Theorem identifying connective K-theory with the minus-one-connective cover; the iteration; and the nonconnective spectrum as the homotopy colimit.",
+        "V.8, V.8.1, V.8.2 and V.8.3 (PDF pp. 430 to 431): the Fundamental Theorem in every degree with the splitting by the class of the variable, the identification of the Nil groups with the N-groups one degree up, the degenerate form for a regular noetherian ring, and the version for quasi-projective schemes.",
+        "II.6.5 and I.3.7.1 (PDF pp. 132 and 24): the definition of a regular noetherian ring and the stability of regularity under localisation, used by the vanishing theorem."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "Flasque rings, infinite sum rings and the Eilenberg swindle",
+      "kind": "definition",
+      "statement": "A ring is FLASQUE, in Karoubi's sense, when there is a bimodule M, finitely generated projective as a right module, together with a bimodule isomorphism from the direct sum of the ring with M onto M. For a flasque ring the zeroth K-group vanishes, because for every finitely generated projective P the natural isomorphism from the direct sum of P with its tensor product against M onto that tensor product makes the class of P equal to zero; this is the Eilenberg swindle. When the underlying right module structure on M is the ring itself the ring is called an INFINITE SUM RING, and the cone rings are examples, hence flasque. The notion has nothing to do with the flasque sheaves that both pinned libraries call by that name, and a formalisation must not reuse the name.",
+      "hypotheses": [
+        "R is a ring, not necessarily commutative; M is an R-bimodule, finitely generated projective as a right module.",
+        "The isomorphism is of bimodules and is part of the data, not merely an abstract isomorphism of underlying modules.",
+        "The pinned libraries' IsFlasque is the sheaf-theoretic notion; the audit records this and the name must be kept apart."
+      ],
+      "proofSteps": [
+        "Define the flasque structure as a record carrying the bimodule and the isomorphism.",
+        "Prove the swindle: for every finitely generated projective P, tensoring the defining isomorphism with P gives that the class of P vanishes in the zeroth K-group, so that group is trivial.",
+        "Define an infinite sum ring as a flasque ring whose bimodule is the ring itself as a right module, and record the equivalent formulation the source gives through a ring map from the infinite matrix ring.",
+        "Record the cone ring of a ring as an example, namely the ring of row-and-column finite infinite matrices, and prove that it is an infinite sum ring.",
+        "Record the two library facts the audit names: idempotent completion exists in Mathlib, and the flasque notion of this node does not."
+      ],
+      "acceptance": [
+        "The cone ring of any ring is flasque, so its zeroth K-group vanishes; this is the standard example.",
+        "A flasque ring has vanishing zeroth K-group; the converse is false and the node does not claim it.",
+        "The sheaf-theoretic flasque predicate of the libraries is a different notion with the same name, and neither implies the other."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Idempotents.Karoubi",
+        "mathlib:Matrix",
+        "mathlib:RingHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.1.3 (PDF p. 105)",
+          "excerpt": "Example 2.1.3. (Karoubi) We say a ring R is flasque if there is an R-bimodule M, finitely generated projective as a right module, and a bimodule isomorphism from R + M to M. If R is flasque then K_0(R) = 0. This is because for every P we have a natural isomorphism from P + (P tensor_R M) to (P tensor_R M). If R is flasque and the underlying right R-module structure on M is R, we say that ...",
+          "match": "The definition, the swindle and the infinite sum rings, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "I.1.8, the cone ring (PDF p. 5)",
+          "excerpt": "For any ring R, the endomorphism ring End_R(R^infinity) contains a smaller ring, namely the subring C(R) consisting of row-and-column finite matrices. The ring C(R) is called the cone ring of R. Show that C(R) is a direct sum ring.",
+          "match": "The cone ring, verbatim; the source records that these are infinite sum rings and hence flasque."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Flasque ring"
+      },
+      "api": [
+        {
+          "name": "IsFlasqueRing",
+          "role": "structure",
+          "statement": "The bimodule and the isomorphism witnessing flasqueness."
+        },
+        {
+          "name": "IsFlasqueRing.K0_eq_zero",
+          "role": "characterisation",
+          "statement": "The zeroth K-group of a flasque ring vanishes."
+        },
+        {
+          "name": "IsInfiniteSumRing",
+          "role": "structure",
+          "statement": "A flasque ring whose bimodule is the ring as a right module."
+        },
+        {
+          "name": "coneRing",
+          "role": "data",
+          "statement": "The cone ring of a ring, the row-and-column finite infinite matrices."
+        },
+        {
+          "name": "coneRing_isInfiniteSumRing",
+          "role": "example",
+          "statement": "The cone ring is an infinite sum ring, hence flasque."
+        },
+        {
+          "name": "IsFlasqueRing.not_sheaf_flasque",
+          "role": "relation",
+          "statement": "The notion is unrelated to the sheaf-theoretic predicate the libraries call flasque."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.6, the axioms for negative K-theory",
+          "how": "Vanishing on flasque rings is one of the four axioms that characterise a theory of negative K-theory."
+        },
+        {
+          "where": "K.6, the nonconnective construction",
+          "how": "The flasque route to a nonconnective spectrum, which the stage text names, is built from these rings."
+        },
+        {
+          "where": "The libraries",
+          "how": "The audit records that the K-theoretic notion is absent and that the name is taken; a formalisation must choose a different name."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cone_ring_flasque",
+          "statement": "The cone ring of any ring is flasque."
+        },
+        {
+          "name": "K0_vanishes",
+          "statement": "The zeroth K-group of a flasque ring is trivial."
+        },
+        {
+          "name": "not_sheaf_notion",
+          "statement": "The predicate is about bimodules, not about sheaves; the pinned IsFlasque is a different statement."
+        },
+        {
+          "name": "infinite_sum_is_flasque",
+          "statement": "Every infinite sum ring is flasque, by taking the bimodule to be the ring."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/contracted-functors",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "Contracted functors and the contraction LF",
+      "kind": "construction",
+      "statement": "For a functor F from rings to abelian groups define LF(R) to be the cokernel of the difference map from the direct sum of F of the polynomial ring in t and of the polynomial ring in t inverse into F of the Laurent polynomial ring. Call F ACYCLIC when the four-term sequence, from F of the ring through those two, to the Laurent ring and onto LF, is exact for every ring; call it CONTRACTED when it is acyclic and the defining surjection onto LF admits a splitting natural in both the ring and the variable. Iterating gives the functors NLF and L-squared F. This is the machine that produces the negative K-groups, and the naturality of the splitting is the part that does the work.",
+      "hypotheses": [
+        "F is a functor from rings to abelian groups; the polynomial and Laurent rings are over the given ring.",
+        "The splitting of a contracted functor is natural in the variable as well as in the ring; naturality in the ring alone is not enough for the iteration.",
+        "The notation F with subscript minus one is the source's alternative name for LF and is recorded so that the literature can be read."
+      ],
+      "proofSteps": [
+        "Define LF as the displayed cokernel and prove that it is functorial.",
+        "Define the four-term sequence and the acyclicity and contractedness conditions.",
+        "Prove the elementary closure properties: a direct sum of contracted functors is contracted, and a natural retract of a contracted functor is contracted.",
+        "Define the iterates NF, NLF and L-squared F and record the source's formula for the value of a contracted functor on a Laurent ring in several variables, as a sum of copies of the iterates indexed by a formal polynomial in two symbols.",
+        "Record the two examples the source gives: the zeroth K-group is contracted with contraction the first negative group, and the special first K-group iterates to the same place."
+      ],
+      "acceptance": [
+        "The zeroth K-group is a contracted functor, and its contraction is the first negative K-group; this is the source's starting point.",
+        "The iterated contraction of the special first K-group is again the first negative K-group, which is the consistency the source records.",
+        "A functor that is acyclic but has no natural splitting is not contracted, and the iteration is then unavailable; the distinction is the content of the definition."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle",
+        "mathlib:Polynomial",
+        "mathlib:LaurentPolynomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.4.1.1 (PDF p. 210)",
+          "excerpt": "Definition 4.1.1 (Contracted functors). Let F be a functor from rings to abelian groups. For each R, we define LF(R) to be the cokernel of the map F(R[t]) + F(R[t^{-1}]) -> F(R[t,t^{-1}]). ... We say that F is acyclic if the sequence is exact for all R. We say that F is a contracted functor if F is acyclic and in addition there is a splitting h of the defining map F(R[t,t^{-1}]) -> LF(R) ...",
+          "match": "The definition in full, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "contraction",
+          "role": "data",
+          "statement": "The functor LF."
+        },
+        {
+          "name": "IsAcyclic",
+          "role": "data",
+          "statement": "The acyclicity predicate."
+        },
+        {
+          "name": "IsContracted",
+          "role": "structure",
+          "statement": "Acyclicity together with the natural splitting."
+        },
+        {
+          "name": "IsContracted.splitting",
+          "role": "projection",
+          "statement": "The splitting, natural in the ring and the variable."
+        },
+        {
+          "name": "contraction_iterate",
+          "role": "data",
+          "statement": "The iterates NLF and L-squared F."
+        },
+        {
+          "name": "IsContracted.sum",
+          "role": "compatibility",
+          "statement": "A direct sum of contracted functors is contracted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.6, the negative K-groups",
+          "how": "They are defined as the iterated contraction of the zeroth K-group."
+        },
+        {
+          "where": "K.6, the fundamental theorem",
+          "how": "The theorem is the statement that the zeroth and first K-groups are contracted, with the splitting given by multiplication by the variable."
+        },
+        {
+          "where": "SchemeKTheoryOperations S.5",
+          "how": "The scheme-level fundamental theorem is the same statement for a different input, and the contraction formalism is shared."
+        }
+      ],
+      "tests": [
+        {
+          "name": "K0_contracted",
+          "statement": "The zeroth K-group is a contracted functor."
+        },
+        {
+          "name": "iterate_agrees",
+          "statement": "The iterated contraction of the special first K-group is the first negative K-group."
+        },
+        {
+          "name": "naturality_in_t",
+          "statement": "The splitting is natural in the variable; a splitting natural only in the ring does not make the functor contracted."
+        },
+        {
+          "name": "retract_closed",
+          "statement": "A natural retract of a contracted functor is contracted."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "Bass's negative K-groups",
+      "kind": "definition",
+      "statement": "For n positive define the n-th negative K-group of a ring inductively as the cokernel of the difference map from the direct sum of the (n-1)-st negative group of the two polynomial rings into that of the Laurent ring; the case n = 1 starts from the zeroth K-group. Each is a functor from rings to abelian groups. The first negative group is what the Fundamental Theorem for the zeroth K-group produces: that theorem gives a split exact sequence exhibiting the zeroth K-group of the Laurent ring as the direct sum of the zeroth group, the first negative group and two copies of the N-term, which is the obstruction to homotopy invariance.",
+      "hypotheses": [
+        "R is a ring; the groups are defined for every ring, with no regularity or noetherian hypothesis.",
+        "The definition is by iterated contraction, so it depends on the previous node's machine and on nothing else.",
+        "The N-terms are the cokernels of the maps from the K-group of the ring to that of the polynomial ring, and vanish exactly when the K-group in that degree is homotopy invariant."
+      ],
+      "proofSteps": [
+        "Define the groups by the displayed induction and prove functoriality.",
+        "State the Fundamental Theorem for the zeroth K-group: the four-term sequence is split exact and yields the direct sum decomposition of the zeroth group of the Laurent ring into four pieces.",
+        "Read off that the first negative group is the contraction of the zeroth group, so that the two definitions agree.",
+        "Prove the elementary consequences: the groups commute with finite products of rings, and they vanish on a flasque ring, both of which follow from the corresponding statements in degree zero.",
+        "Record the alternative approach of Karoubi and Villamayor that the source mentions, and that it is not the one developed here."
+      ],
+      "acceptance": [
+        "For a regular noetherian ring every negative group vanishes, which is the theorem of a later node.",
+        "For a flasque ring every negative group vanishes, which is one of the axioms.",
+        "The groups are not defined by homotopy groups of a connective spectrum; the connective model has no negative homotopy, and inferring vanishing from that absence is the error the stage text forbids."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/contracted-functors",
+        "mathlib:LaurentPolynomial",
+        "tauceti:TauCeti.ExactK0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.4.1 (PDF p. 210)",
+          "excerpt": "Definition 4.1. For n > 0, we inductively define K_{-n}(R) to be the cokernel of the map K_{-n+1}(R[t]) + K_{-n+1}(R[t^{-1}]) -> K_{-n+1}(R[t,t^{-1}]). Clearly, each K_{-n} is a functor from rings to abelian groups.",
+          "match": "The definition, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.3.7 (PDF p. 208)",
+          "excerpt": "Fundamental Theorem for K_0 3.7. For every ring R, there is a naturally split exact sequence 0 -> K_0(R) -> K_0(R[t]) + K_0(R[t^{-1}]) -> K_0(R[t,t^{-1}]) -> K_{-1}(R) -> 0. Consequently, we have a natural direct sum decomposition K_0(R[t,t^{-1}]) = K_0(R) + K_{-1}(R) + NK_0(R) + NK_0(R).",
+          "match": "The theorem and the decomposition, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Bass's negative K-groups"
+      },
+      "api": [
+        {
+          "name": "negativeK",
+          "role": "data",
+          "statement": "The n-th negative K-group."
+        },
+        {
+          "name": "negativeK_functor",
+          "role": "functoriality",
+          "statement": "Functoriality in the ring."
+        },
+        {
+          "name": "negativeK_one",
+          "role": "characterisation",
+          "statement": "The first negative group is the contraction of the zeroth K-group."
+        },
+        {
+          "name": "K0_laurent_decomposition",
+          "role": "characterisation",
+          "statement": "The four-term decomposition of the zeroth K-group of the Laurent ring."
+        },
+        {
+          "name": "negativeK_flasque",
+          "role": "example",
+          "statement": "The negative groups of a flasque ring vanish."
+        },
+        {
+          "name": "negativeK_prod",
+          "role": "compatibility",
+          "statement": "Compatibility with finite products of rings."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.6, the axioms",
+          "how": "Bass’s groups are the model that satisfies the four axioms, which is what makes the axioms non-vacuous."
+        },
+        {
+          "where": "K.6, the nonconnective spectrum",
+          "how": "The spectrum is built so that its negative homotopy groups are these groups."
+        },
+        {
+          "where": "K.7",
+          "how": "The products and the invariance statements are asserted for the nonconnective theory, hence for these groups as well."
+        }
+      ],
+      "tests": [
+        {
+          "name": "regular_vanishes",
+          "statement": "For a regular noetherian ring the negative groups vanish."
+        },
+        {
+          "name": "flasque_vanishes",
+          "statement": "For a flasque ring they vanish."
+        },
+        {
+          "name": "laurent_four_pieces",
+          "statement": "The zeroth group of the Laurent ring decomposes into four named pieces."
+        },
+        {
+          "name": "not_from_connective",
+          "statement": "The groups are not the negative homotopy of the connective spectrum, which is zero; a formalisation that identified them would be wrong."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "The Fundamental Theorem with Nil terms, in every degree",
+      "kind": "theorem",
+      "statement": "For every ring and every degree there is a split exact sequence from the K-group of the ring, through the direct sum of the K-groups of the two polynomial rings, to the K-group of the Laurent ring, onto the K-group one degree lower, with the splitting given by multiplication by the class of the variable in the first K-group of the Laurent polynomial ring over the integers. The obstruction terms are the N-groups, and they are identified with the Nil groups: the n-th Nil group of a ring is the (n+1)-st N-group. For a regular noetherian ring the N-groups vanish and the sequence degenerates to the statement that the K-group of the Laurent ring is the direct sum of the K-group of the ring and the K-group one degree lower. The same statement holds for quasi-projective schemes, with the splitting again given by multiplication by the coordinate.",
+      "hypotheses": [
+        "R is a ring and n an integer; for the degenerate form R is regular noetherian.",
+        "The Nil category is the category of pairs of a finitely generated projective module and a nilpotent endomorphism, and the Nil groups are the reduced part of its K-theory.",
+        "The scheme version is for quasi-projective schemes, as the source states it."
+      ],
+      "proofSteps": [
+        "State the theorem in the form the source gives, with the splitting named.",
+        "State the identification of the Nil groups with the N-groups in the next degree.",
+        "Record the degenerate form for a regular noetherian ring and the fact that it is the source of the vanishing theorem for negative K-groups.",
+        "Record the scheme version with its hypothesis.",
+        "Record the relation to the contracted-functor formalism: the theorem says exactly that each K-group is a contracted functor with the stated natural splitting, which is what makes the negative groups well defined."
+      ],
+      "acceptance": [
+        "For a regular noetherian ring the Nil groups vanish and the decomposition has two terms rather than four.",
+        "For a singular ring the Nil terms can be non-zero and the decomposition has four terms; no node may drop them.",
+        "The splitting is by multiplication by the class of the variable, and a different splitting would change the identification of the boundary."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+        "GeneralAlgebraicKTheory:K.6/contracted-functors",
+        "SchemeKTheoryOperations:S.5",
+        "mathlib:LaurentPolynomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "V.8.2 (PDF p. 430)",
+          "excerpt": "Theorem 8.2. [There is a split exact] sequence 0 -> K_n(R) -> K_n(R[t]) + K_n(R[1/t]) -> K_n(R[t,1/t]) -> K_{n-1}(R) -> 0, in which the splitting of the boundary is given by multiplication by t in K_1(Z[t,t^{-1}]).",
+          "match": "The theorem with its splitting, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "V.8.1 (PDF p. 430)",
+          "excerpt": "Theorem 8.1. For every R and every n, Nil_n(R) = NK_{n+1}(R).",
+          "match": "The identification of the Nil terms, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "V.8, the opening (PDF p. 430)",
+          "excerpt": "The main goal of this section is to prove the Fundamental Theorem, which gives a decomposition of K_*(R[t,1/t]); [for regular noetherian rings it] simplifies to the formulas NK_n(R) = 0 and K_n(R[t,1/t]) = K_n(R) + K_{n-1}(R).",
+          "match": "The degenerate form and the hypothesis under which it holds, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "V.8.3 (PDF p. 431)",
+          "excerpt": "Theorem 8.3. For every quasi-projective scheme X we have canonically split exact sequences for all n, where the splitting of the boundary is by multiplication by t.",
+          "match": "The scheme version, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/axioms-for-negative-k-theory",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "The axioms a theory of negative K-theory must satisfy",
+      "kind": "definition",
+      "statement": "A theory of negative K-theory for possibly non-unital rings is a sequence of functors in degrees at most zero together with natural boundary maps from the K-group of a quotient to the next group down of the ideal, satisfying four axioms: in degree zero the functor is the Grothendieck group; for every two-sided ideal the five-term sequence through the ideal, the ring and the quotient is exact; every flasque ring has vanishing groups in all degrees at most zero; and the inclusion of a ring in its infinite matrix ring induces isomorphisms in all those degrees. Bass's groups form such a theory. The axioms are what a second construction must be checked against, and they are the interface through which this layer's nonconnective spectrum is compared with the Bass groups.",
+      "hypotheses": [
+        "The rings are allowed to be non-unital, which is what makes the ideal axiom usable.",
+        "The matrix ring in the fourth axiom is the union of the finite matrix rings.",
+        "The axioms do not determine the theory by themselves; the source records that Bass's groups satisfy them, which is what the axioms are for."
+      ],
+      "proofSteps": [
+        "State the four axioms in the source's order.",
+        "Record that Bass's negative K-groups satisfy them, with the source's pointers to the contraction and the exercises where each axiom is checked.",
+        "Record the role of the flasque axiom: it is the one that forces the theory to be non-trivial in negative degrees rather than being extendable by zero.",
+        "Record that the excision-type axiom is stated for non-unital rings and that restricting to unital rings weakens it.",
+        "Record the use this layer makes of the axioms: any second construction, including the flasque-enlargement route the stage text names, is compared with Bass's groups by checking them."
+      ],
+      "acceptance": [
+        "Bass's groups satisfy all four axioms.",
+        "A theory that is zero in all negative degrees fails the flasque axiom only if some flasque ring has a non-zero group, so the axiom must be read together with the exactness axiom; the source's formulation is the one recorded here.",
+        "The fourth axiom is about the infinite matrix ring, not about finite matrix rings, and the distinction matters."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+        "GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle",
+        "mathlib:Matrix"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.4.4 (PDF p. 213)",
+          "excerpt": "Definition 4.4. A theory of negative K-theory for (nonunital) rings consists of a sequence of functions K_n (n at most 0) from nonunital rings to abelian groups, together with natural boundary maps from K_n(R/I) to K_{n-1}(I) for every 2-sided ideal I, satisfying the following axioms. (1) K_0(R) is the Grothendieck group of chapter II; (2) the five-term sequence is exact for every ideal ...",
+          "match": "The four axioms, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.4.4.1 (PDF p. 213)",
+          "excerpt": "Example 4.4.1. Bass' negative K-groups (4.1) form a theory of negative K-theory for rings.",
+          "match": "The example that makes the axioms non-vacuous, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "NegativeKTheory",
+          "role": "structure",
+          "statement": "The functors in degrees at most zero together with the boundary maps."
+        },
+        {
+          "name": "NegativeKTheory.k0",
+          "role": "characterisation",
+          "statement": "Axiom one: in degree zero the functor is the Grothendieck group."
+        },
+        {
+          "name": "NegativeKTheory.exact_ideal",
+          "role": "characterisation",
+          "statement": "Axiom two: the five-term sequence of an ideal is exact."
+        },
+        {
+          "name": "NegativeKTheory.flasque",
+          "role": "characterisation",
+          "statement": "Axiom three: a flasque ring has vanishing groups."
+        },
+        {
+          "name": "NegativeKTheory.matrix",
+          "role": "characterisation",
+          "statement": "Axiom four: the inclusion in the infinite matrix ring is an isomorphism."
+        },
+        {
+          "name": "bassTheory",
+          "role": "example",
+          "statement": "Bass’s negative groups form such a theory."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.6, the nonconnective spectrum",
+          "how": "The axioms are the interface through which a second construction is compared with the Bass groups."
+        },
+        {
+          "where": "K.6, the flasque rings",
+          "how": "The third axiom is the only place the flasque notion enters the characterisation."
+        },
+        {
+          "where": "The stage text",
+          "how": "The text asks for independence of the enlargement; the axioms are what that independence is checked against."
+        }
+      ],
+      "tests": [
+        {
+          "name": "bass_satisfies",
+          "statement": "Bass’s groups satisfy all four axioms."
+        },
+        {
+          "name": "nonunital",
+          "statement": "The second axiom is stated for non-unital rings; restricting to unital rings weakens it."
+        },
+        {
+          "name": "infinite_matrices",
+          "statement": "The fourth axiom is about the infinite matrix ring, not the finite ones."
+        },
+        {
+          "name": "degree_zero",
+          "statement": "In degree zero the theory is the Grothendieck group, so the axioms extend the existing definition rather than replacing it."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/mayer-vietoris-for-negative-k",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "Mayer-Vietoris for the negative K-groups",
+      "kind": "theorem",
+      "statement": "Given a ring map and an ideal of the source mapped isomorphically onto an ideal of the target, the Mayer-Vietoris sequence in low degrees continues as a long exact sequence of negative K-groups: from the direct sum of the zeroth groups of the target and of the quotient, through the zeroth group of the quotient of the target, to the first negative group of the source, and so on downwards without end. This is the form of excision available in negative degrees, and it is one of the two reasons the negative groups are useful.",
+      "hypotheses": [
+        "The square is the one determined by a ring map and an ideal carried isomorphically onto an ideal.",
+        "The sequence continues downwards indefinitely, which is the statement that distinguishes the negative groups from the connective theory.",
+        "The low-degree part of the sequence is the classical Mayer-Vietoris of the source's earlier section and is imported."
+      ],
+      "proofSteps": [
+        "State the hypotheses on the square.",
+        "Record the classical low-degree Mayer-Vietoris sequence from the source's earlier section.",
+        "State the continuation into negative degrees, in the form the source gives.",
+        "Record the consequence: an excision failure in degree zero is measured by a first negative group, which is how the negative groups are computed in practice."
+      ],
+      "acceptance": [
+        "For a Milnor square with one map surjective the sequence specialises to the classical patching statement.",
+        "The sequence does not terminate, which is what makes the negative groups a genuinely infinite family.",
+        "No analogous statement holds for the connective theory in negative degrees, since those groups are zero there."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/negative-k-groups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.4.3 (PDF p. 212)",
+          "excerpt": "Theorem 4.3 (Mayer-Vietoris). Suppose we are given a ring map f from R to S and an ideal I of R mapped isomorphically into an ideal of S. Then the Mayer-Vietoris sequence continues as a long exact Mayer-Vietoris sequence of negative K-groups: ... K_0(S) + K_0(R/I) -> K_0(S/I) -> K_{-1}(R) -> K_{-1}(S) + K_{-1}(R/I) -> K_{-1}(S/I) -> ...",
+          "match": "The theorem and the shape of the sequence, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "The nonconnective Bass K-theory spectrum",
+      "kind": "construction",
+      "statement": "For a functor E from rings to spectra, let LE be the homotopy cofiber of the map from the homotopy pushout of the two polynomial spectra over the spectrum of the ring into the spectrum of the Laurent ring, and let the desuspended functor be its loop space; there is a cofibration sequence natural in both arguments. Applying this to connective K-theory and using the Fundamental Theorem, the homotopy groups of the desuspension recover the K-groups one degree down in positive degrees, and the zeroth and first negative groups in degrees zero and minus one. Multiplication by the class of the variable gives a natural map from the K-theory spectrum to its desuspension, which the Fundamental Theorem shows is the inclusion of the minus-one-connective cover; iterating gives maps of the k-fold desuspensions, each the inclusion of a deeper connective cover, and the nonconnective Bass spectrum is the homotopy colimit of that diagram. Its homotopy groups are the K-groups in non-negative degrees and Bass's negative groups below.",
+      "hypotheses": [
+        "E is a functor from rings to spectra; for the main statements E is one of the functorial models of connective K-theory the source lists.",
+        "The homotopy pushout and the homotopy cofiber are taken in spectra; neither pinned library has spectra, which the audit records.",
+        "The comparison map is multiplication by the class of the variable in the first K-group of the Laurent polynomial ring over the integers."
+      ],
+      "proofSteps": [
+        "Define the functor LE by the displayed homotopy cofiber and the desuspension as its loop space, and record the natural cofibration sequence.",
+        "Compute the homotopy groups of the desuspension of connective K-theory from the Fundamental Theorem: they are the K-groups one degree down in positive degrees, the zeroth K-group in degree zero and the first negative group in degree minus one, and zero below that.",
+        "Construct the comparison map by multiplication by the class of the variable, and state the Fundamental Theorem in its topological form: the map identifies the K-theory spectrum with the minus-one-connective cover of the desuspension.",
+        "Iterate: the k-fold desuspension receives the (k-1)-fold one as its minus-k-connective cover, with the homotopy groups agreeing above degree minus k and the k-th negative group appearing in degree minus k.",
+        "Define the nonconnective spectrum as the homotopy colimit of the resulting diagram, and read off its homotopy groups.",
+        "Record what makes the construction independent of the model: the input is any functorial model of connective K-theory and the construction is natural in it, so two models with a natural equivalence give equivalent nonconnective spectra."
+      ],
+      "acceptance": [
+        "In non-negative degrees the nonconnective spectrum has the K-groups of the connective one, which is the agreement the stage text asks for.",
+        "In degree minus k it has Bass's k-th negative group.",
+        "The construction uses no regularity hypothesis, and for a regular noetherian ring it produces a spectrum with vanishing negative homotopy, which is the vanishing theorem and not an input."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
+        "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+        "GeneralAlgebraicKTheory:K.6/axioms-for-negative-k-theory"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.10.1 (PDF p. 349)",
+          "excerpt": "Definition 10.1. Write LE(R) for the spectrum homotopy cofiber of the map f_0 from this homotopy pushout to E(R[x,x^{-1}]), [and write the desuspension] for the loop space of LE(R). Since the mapping cone is natural, LE and the desuspension are functors and there is a cofibration sequence, natural in E and R.",
+          "match": "The construction, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.10.2 (PDF p. 349)",
+          "excerpt": "Fundamental Theorem 10.2. For any ring R, the map from K(R) to the desuspension of K(R) induces a homotopy equivalence between K(R) and the (-1)-connective cover of that spectrum. In particular, K_n(R) = pi_n of it for all n at least 0.",
+          "match": "The comparison with the connective theory, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.10.3 and IV.10.4 (PDF pp. 349 to 350)",
+          "excerpt": "Corollary 10.3. For k > 0 the map from the (k-1)-fold desuspension to the k-fold one induces a homotopy equivalence with the (-k)-connective cover, with K_n(R) = pi_n for n > -k, and K_{-k}(R) = pi_{-k} of the k-fold desuspension. Definition 10.4. We define K^B(R) to be the homotopy colimit of the diagram.",
+          "match": "The iteration and the definition of the nonconnective spectrum, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The Bass K-theory spectrum"
+      },
+      "api": [
+        {
+          "name": "deloop",
+          "role": "data",
+          "statement": "The functor LE and its desuspension."
+        },
+        {
+          "name": "deloop_cofibration",
+          "role": "characterisation",
+          "statement": "The natural cofibration sequence."
+        },
+        {
+          "name": "bassSpectrum",
+          "role": "data",
+          "statement": "The nonconnective Bass K-theory spectrum."
+        },
+        {
+          "name": "bassSpectrum_pi_nonneg",
+          "role": "characterisation",
+          "statement": "Its homotopy groups in non-negative degrees are the K-groups."
+        },
+        {
+          "name": "bassSpectrum_pi_neg",
+          "role": "characterisation",
+          "statement": "Its homotopy groups in negative degrees are Bass’s negative groups."
+        },
+        {
+          "name": "bassSpectrum_natural",
+          "role": "functoriality",
+          "statement": "Naturality in the ring and in the model of connective K-theory."
+        },
+        {
+          "name": "bassSpectrum_independent",
+          "role": "compatibility",
+          "statement": "Two naturally equivalent models of connective K-theory give equivalent nonconnective spectra."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.6, localisation",
+          "how": "The nonconnective formulation of localisation is a statement about this spectrum and is what makes the boundary maps extend into negative degrees."
+        },
+        {
+          "where": "K.7",
+          "how": "The invariance and product statements are asserted at the level of this spectrum, not only of the connective one."
+        },
+        {
+          "where": "The stage text",
+          "how": "The flasque-enlargement route the text names is an alternative construction; it is compared with this one through the axioms of the previous node."
+        }
+      ],
+      "tests": [
+        {
+          "name": "agrees_above_zero",
+          "statement": "In non-negative degrees the homotopy groups are the K-groups of the connective spectrum."
+        },
+        {
+          "name": "degree_minus_one",
+          "statement": "In degree minus one the homotopy group is the first negative K-group."
+        },
+        {
+          "name": "regular_case",
+          "statement": "For a regular noetherian ring the negative homotopy vanishes."
+        },
+        {
+          "name": "model_independence",
+          "statement": "Two models of connective K-theory related by a natural equivalence give equivalent nonconnective spectra."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.6/vanishing-for-regular-noetherian-rings",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "Vanishing of the negative K-groups for a regular noetherian ring",
+      "kind": "theorem",
+      "statement": "For a regular noetherian ring the N-groups vanish in every degree, so the Fundamental Theorem degenerates and every negative K-group vanishes. In the intended finite-dimensional applications this is what makes the nonconnective and the connective theories agree. The converse is emphatically not available: the connective model has no homotopy in negative degrees for any ring whatever, and inferring from that absence that a singular ring has vanishing negative K-groups is a mistake the stage text names and this node records as a non-example.",
+      "hypotheses": [
+        "R is regular noetherian, that is every module has a finite projective resolution; the noetherian hypothesis is part of the statement.",
+        "The vanishing of the N-groups for such a ring is the source's statement in the section on the Fundamental Theorem, proved there by resolution.",
+        "The statement is about the Bass groups, equivalently about the negative homotopy of the nonconnective spectrum."
+      ],
+      "proofSteps": [
+        "Record the vanishing of the N-groups for a regular noetherian ring, with the resolution argument the source gives.",
+        "Substitute into the Fundamental Theorem to obtain the two-term decomposition of the K-groups of the Laurent ring.",
+        "Deduce by induction on the degree that every negative K-group vanishes.",
+        "State the non-example: the connective model has zero homotopy in negative degrees for every ring, so that absence carries no information, and a proof of vanishing for a singular ring must come from the Bass definition or from the nonconnective spectrum.",
+        "Record an example where the negative groups do not vanish, so that the statement has content: the source's exercises and the Mayer-Vietoris theorem produce non-zero first negative groups for suitable singular rings."
+      ],
+      "acceptance": [
+        "For a regular noetherian ring all negative groups vanish and the nonconnective spectrum is connective.",
+        "For a singular ring they need not vanish, and the Mayer-Vietoris sequence is how they are computed.",
+        "The vanishing may not be inferred from the connective model, which is the error the stage text forbids by name."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
+        "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum",
+        "GeneralAlgebraicKTheory:K.6/mayer-vietoris-for-negative-k"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "V.8, the opening (PDF p. 430)",
+          "excerpt": "[For regular noetherian rings the decomposition] simplifies to the formulas NK_n(R) = 0 and K_n(R[t,1/t]) = K_n(R) + K_{n-1}(R).",
+          "match": "The vanishing of the N-groups and the degenerate decomposition, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.6.5 and I.3.7.1 (PDF pp. 132 and 24)",
+          "excerpt": "A noetherian ring R is called regular if every R-module M has a finite resolution by projectives. Every localization of a regular ring is also regular.",
+          "match": "The hypothesis, verbatim, with the stability under localisation that the induction uses."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/morita-invariance",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "Morita invariance",
+      "kind": "theorem",
+      "statement": "Two rings are Morita equivalent when their module categories are equivalent; the structure theorem says that this happens exactly when there is a finitely generated projective generator of one whose endomorphism ring is the other, and that the equivalence is then given by tensoring against a bimodule. Since K-theory is defined from the category of finitely generated projective modules, and an equivalence of module categories restricts to an equivalence of those subcategories, Morita equivalent rings have isomorphic K-groups in every degree, connective and negative alike. The standard instance is the matrix ring: the ring and its ring of n by n matrices are Morita equivalent, so their K-theories agree. The isomorphism is induced by an equivalence of categories, so it is compatible with everything this layer asserts, in particular with the products.",
+      "hypotheses": [
+        "R and S are rings, not necessarily commutative; the module categories are of right modules, as the source has them.",
+        "The equivalence is an additive equivalence of abelian categories; Morita theory says that every such equivalence is of the tensor form.",
+        "Both pinned instances, the matrix equivalence of module categories and the Morita predicate with its matrix instance, exist in Mathlib and are cited, so the node is a comparison for them rather than a construction."
+      ],
+      "proofSteps": [
+        "Record the pinned material: the equivalence between modules over a ring and modules over its matrix ring, the Morita equivalence predicate and its matrix instance.",
+        "State the structure theorem in the source's form: an equivalence is given by tensoring against a bimodule, the bimodule is a finitely generated projective generator, and the other ring is its endomorphism ring.",
+        "Deduce that the equivalence restricts to the finitely generated projective modules and is exact, so it induces isomorphisms on all K-groups.",
+        "Record the instance for matrix rings and the source's exercise that the matrix ring over a ring is Morita equivalent to it.",
+        "State the compatibility with products: the induced isomorphism is a ring isomorphism for the product structure of the next nodes, because the equivalence is monoidal for the relevant tensor.",
+        "Record the source's remark that the Morita equivalence classes are not the isomorphism classes, so the statement has content."
+      ],
+      "acceptance": [
+        "The ring and its n by n matrix ring have isomorphic K-groups in every degree.",
+        "A Morita equivalence induces an isomorphism compatible with the products.",
+        "Morita equivalent rings need not be isomorphic, so the theorem is not a triviality."
+      ],
+      "prerequisites": [
+        "mathlib:ModuleCat.matrixEquivalence",
+        "mathlib:IsMoritaEquivalent",
+        "mathlib:IsMoritaEquivalent.matrix",
+        "mathlib:Matrix",
+        "tauceti:TauCeti.ExactK0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.7, the structure theorem (PDF p. 110)",
+          "excerpt": "Structure Theorem for Morita Equivalence 2.7. If mod-R and mod-S are equivalent, and P is the projective corresponding to S, then P is a finitely generated projective generator of mod-R, and S is isomorphic to End_R(P); the equivalence is given by tensoring with P.",
+          "match": "The structure theorem, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.7.1 (PDF p. 111)",
+          "excerpt": "Corollary 2.7.1. If R and S are Morita equivalent rings then K_0(R) is isomorphic to K_0(S).",
+          "match": "The consequence in degree zero, verbatim; the same argument gives every degree."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.7.2 (PDF p. 111)",
+          "excerpt": "Example 2.7.2. R is Morita equivalent to the matrix ring M_n(R) for every n, since the free module R^n is a projective generator with endomorphism ring M_n(R).",
+          "match": "The matrix instance, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Morita invariance"
+      },
+      "api": [
+        {
+          "name": "KTheory.moritaEquiv",
+          "role": "data",
+          "statement": "The induced isomorphism of K-groups from a Morita equivalence."
+        },
+        {
+          "name": "KTheory.moritaEquiv_matrix",
+          "role": "example",
+          "statement": "The instance for the matrix ring."
+        },
+        {
+          "name": "KTheory.moritaEquiv_mul",
+          "role": "compatibility",
+          "statement": "The isomorphism respects the external products."
+        },
+        {
+          "name": "moritaStructure",
+          "role": "characterisation",
+          "statement": "The structure theorem: the equivalence is tensoring against a projective generator."
+        },
+        {
+          "name": "KTheory.moritaEquiv_negative",
+          "role": "compatibility",
+          "statement": "The isomorphism holds in negative degrees as well."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.6",
+          "how": "One of the four axioms for negative K-theory is matrix invariance, which this node supplies in the finite case."
+        },
+        {
+          "where": "K.7, the products",
+          "how": "The compatibility statement is what lets a computation be transported along a Morita equivalence."
+        },
+        {
+          "where": "The libraries",
+          "how": "Mathlib has the predicate and the matrix instance; what is missing is the K-theoretic consequence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "matrix_invariance",
+          "statement": "The K-groups of a ring and of its matrix ring agree."
+        },
+        {
+          "name": "not_isomorphism",
+          "statement": "Morita equivalent rings need not be isomorphic, so the statement is not vacuous."
+        },
+        {
+          "name": "respects_product",
+          "statement": "The induced isomorphism carries the external product to the external product."
+        },
+        {
+          "name": "negative_degrees",
+          "statement": "The isomorphism holds in negative degrees."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/derived-morita-and-enhancements",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "Derived invariance needs an enhancement, not a triangulated equivalence",
+      "kind": "comparison",
+      "statement": "At the derived level the invariance statement is about enhanced categories: K-theory is invariant under an equivalence of the underlying differential graded or stable categories of perfect complexes, and the enhancement is part of the hypothesis. A bare equivalence of triangulated categories is not enough, because the K-theory of a Waldhausen category is built from the category with its cofibrations and weak equivalences, not from the homotopy category alone, and mapping cones in a triangulated category are not functorial. This node states what the correct hypothesis is, records the failure of the naked form as a non-example, and says exactly which data a formalisation must carry. The stage text names this as the trap of the layer.",
+      "hypotheses": [
+        "The categories are the perfect complexes over the rings, with their standard Waldhausen structure.",
+        "The hypothesis is an equivalence of enhancements: a quasi-equivalence of differential graded categories, or an equivalence of the associated stable infinity-categories.",
+        "Neither pinned library has enhanced categories or a K-theory of them, which is recorded here as the reason the node is a comparison and not a construction."
+      ],
+      "proofSteps": [
+        "Record the source's construction of K-theory from a category with cofibrations and weak equivalences, so that it is visible which data the construction consumes.",
+        "State the invariance: an exact equivalence of Waldhausen categories induces a homotopy equivalence of K-theory spectra, and more generally an equivalence of enhancements does.",
+        "State the non-example: a triangulated equivalence of homotopy categories does not by itself induce an isomorphism on K-theory, because the homotopy category forgets the weak equivalences that the construction uses.",
+        "Record the elementary part that does survive: an equivalence of homotopy categories does induce an isomorphism on the zeroth K-group, since that group depends only on the triangulated structure.",
+        "Name the data a formalisation must carry: the category, its cofibrations, its weak equivalences, and the functor's exactness, and record that dropping any of them breaks the statement."
+      ],
+      "acceptance": [
+        "An exact equivalence of Waldhausen categories induces a homotopy equivalence on K-theory, in every degree.",
+        "A triangulated equivalence induces an isomorphism on the zeroth group but is not sufficient for the higher groups.",
+        "Tau Ceti's pinned exact-equivalence invariance for the zeroth group is the degree-zero shadow of this statement and is cited as baseline."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7/morita-invariance",
+        "tauceti:TauCeti.ExactK0.mapEquiv",
+        "mathlib:CategoryTheory.Functor.IsEquivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.9.1.1 and II.9.1.2 (PDF pp. 158 to 159)",
+          "excerpt": "Definition 9.1.1. A category with cofibrations is a category C with a distinguished zero object, together with a subcategory co(C) whose morphisms are called cofibrations. Definition 9.1.2. A Waldhausen category C is a category with cofibrations, together with a family w(C) of morphisms in C called weak equivalences.",
+          "match": "The data the construction consumes, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.9.6.1 (PDF p. 163)",
+          "excerpt": "If F from C to D is an exact functor which is an equivalence of Waldhausen categories, then it induces an isomorphism on K_0 and a homotopy equivalence of K-theory spectra.",
+          "match": "The correct form of the invariance, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "Compatibility with filtered colimits and with finite products",
+      "kind": "theorem",
+      "statement": "K-theory commutes with filtered colimits of rings: the natural map from the colimit of the K-groups to the K-group of the colimit ring is an isomorphism in every degree. It also carries finite products of rings to products of groups, the map being induced by the two projections; this is the statement that the K-theory of a product ring splits as the product of the K-theories, and it holds because a finitely generated projective module over a product ring is a pair of such modules. Both statements hold in the nonconnective theory, and the second is used to reduce computations for semilocal and artinian rings.",
+      "hypotheses": [
+        "The colimit is over a filtered system of rings and ring maps; the colimit is taken in rings.",
+        "The product is a finite product; infinite products are not claimed, and the source records that they behave differently.",
+        "The pinned library has filtered colimits of categories but not the K-theoretic statement, which the audit records."
+      ],
+      "proofSteps": [
+        "Prove the product statement: the category of finitely generated projective modules over a finite product ring is equivalent to the product of the categories, and the K-theory construction carries that equivalence to a product of groups.",
+        "Prove the colimit statement in degree zero from the corresponding statement for finitely generated projective modules, namely that every one over the colimit is induced from a finite stage and that two become isomorphic at a finite stage.",
+        "State the general-degree form and record that it follows from the same finiteness argument applied to the construction, with the source's pointer.",
+        "State both in the nonconnective theory, using that the construction of the negative groups is by cokernels of maps of groups and hence commutes with filtered colimits and finite products.",
+        "Record the standard consequence: the K-theory of an infinite matrix ring is the colimit of the K-theories of the finite ones, which is the shape in which the fourth axiom of K.6 is checked."
+      ],
+      "acceptance": [
+        "The K-groups of a finite product ring are the products of the K-groups.",
+        "The K-groups of a filtered colimit are the colimits of the K-groups.",
+        "Neither statement is claimed for infinite products; the source records that those are different."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7/morita-invariance",
+        "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+        "mathlib:CategoryTheory.Limits.HasFilteredColimits"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.1.2 and the product statement (PDF p. 105)",
+          "excerpt": "If R = R_1 x R_2, then every finitely generated projective R-module is a product P_1 x P_2, and K_0(R) is isomorphic to K_0(R_1) x K_0(R_2).",
+          "match": "The product statement, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.1 and V.1, on filtered colimits (PDF pp. 104 and 374)",
+          "excerpt": "K_0 commutes with filtered colimits of rings: if R is the colimit of a filtered system R_i then K_0(R) is the colimit of the K_0(R_i). The same holds for K_n for all n.",
+          "match": "The colimit statement, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "External products from biexact functors",
+      "kind": "construction",
+      "statement": "A functor of two variables that is exact in each variable separately induces a bilinear pairing of the zeroth K-groups, sending the pair of classes to the class of the value, and more generally a pairing of the K-theory spectra. For rings and the tensor product over a commutative base this gives the external product from the K-groups of two algebras to those of the tensor product algebra, and for a single commutative ring the internal product that makes the total K-group a graded ring. The construction is by a biexact functor of the relevant categories and carries associativity, unit and symmetry homotopies from the corresponding coherence of the tensor product; those homotopies are the data that must be carried, not consequences to be rediscovered.",
+      "hypotheses": [
+        "A and B are exact categories and the functor is biexact, meaning exact in each variable when the other is fixed.",
+        "For the ring case the tensor product is over a fixed commutative base and the modules are finitely generated projective over the respective algebras.",
+        "The unit is the class of the base ring as a module over itself, and the symmetry is the swap of the two factors."
+      ],
+      "proofSteps": [
+        "State the biexactness condition and the induced bilinear map on the zeroth groups, with the source's formula for the value.",
+        "Record the source's application to the tensor product: for algebras over a commutative ring the tensor product is biexact on finitely generated projectives and gives the external product.",
+        "Specialise to a single commutative ring to obtain the internal product and prove that the zeroth K-group becomes a commutative ring with unit the class of the ring.",
+        "Record the associativity, unit and symmetry homotopies as data: they come from the corresponding coherence isomorphisms of the tensor product, and a formalisation must transport them rather than assume them.",
+        "Record Tau Ceti's pinned degree-zero product statement as the baseline instance and say exactly what it does and does not give.",
+        "Record the source's other applications of the same machine, in particular the pairing that makes the Nil groups a module over the zeroth K-group."
+      ],
+      "acceptance": [
+        "The zeroth K-group of a commutative ring is a commutative ring with unit the class of the ring itself.",
+        "The pinned Tau Ceti statement that the class of a tensor product is the product of the classes is the degree-zero instance and is cited, not reproved.",
+        "The pairing is bilinear, so it is determined by its values on classes of modules, which is what makes it computable."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products",
+        "tauceti:TauCeti.SplitK0.of_mul_of",
+        "tauceti:TauCeti.SplitK0",
+        "mathlib:TensorProduct"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.7.4 (PDF p. 145)",
+          "excerpt": "Products 7.4. Let A, B and C be exact categories, and suppose given a functor T from A x B to C which is biexact, meaning that T(A,-) and T(-,B) are exact functors for every A and B. Then T induces a bilinear map from K_0(A) tensor K_0(B) to K_0(C), sending the class of A tensor the class of B to the class of T(A,B).",
+          "match": "The construction, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.9.5.2 (PDF p. 162)",
+          "excerpt": "A functor of two variables between Waldhausen categories is called biexact if it is exact in each variable and satisfies the additional condition on cofibrations; such a functor induces a pairing of K-theory spectra.",
+          "match": "The spectrum-level version, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.7.4.1 (PDF p. 146)",
+          "excerpt": "Application 7.4.1. The tensor product of modules over a commutative ring R is biexact on finitely generated projective modules, and the induced product makes K_0(R) a commutative ring.",
+          "match": "The instance that gives the ring structure, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "External products in K-theory"
+      },
+      "api": [
+        {
+          "name": "KTheory.biexactPairing",
+          "role": "data",
+          "statement": "The pairing induced by a biexact functor."
+        },
+        {
+          "name": "KTheory.externalProduct",
+          "role": "data",
+          "statement": "The external product of the K-groups of two algebras."
+        },
+        {
+          "name": "KTheory.mul",
+          "role": "data",
+          "statement": "The internal product for a commutative ring."
+        },
+        {
+          "name": "KTheory.mul_assoc",
+          "role": "compatibility",
+          "statement": "The associativity homotopy."
+        },
+        {
+          "name": "KTheory.mul_one",
+          "role": "compatibility",
+          "statement": "The unit homotopy, with unit the class of the ring."
+        },
+        {
+          "name": "KTheory.mul_comm_graded",
+          "role": "compatibility",
+          "statement": "The symmetry homotopy, giving graded commutativity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K.7, graded commutativity",
+          "how": "The symmetry homotopy is what produces the sign in the commutativity of the total K-group."
+        },
+        {
+          "where": "K.7, compatibilities",
+          "how": "The product is asserted compatible with relative groups, boundaries and transfers."
+        },
+        {
+          "where": "SchemeKTheoryOperations S.6",
+          "how": "The scheme-level external product is the same construction for a different input."
+        }
+      ],
+      "tests": [
+        {
+          "name": "K0_is_a_ring",
+          "statement": "The zeroth K-group of a commutative ring is a commutative ring."
+        },
+        {
+          "name": "unit_is_the_class_of_R",
+          "statement": "The unit of the product is the class of the ring as a module over itself."
+        },
+        {
+          "name": "tensor_of_classes",
+          "statement": "The product of the classes of two modules is the class of their tensor product; this is the pinned Tau Ceti statement."
+        },
+        {
+          "name": "homotopies_are_data",
+          "statement": "The associativity and symmetry are given by transported coherence isomorphisms, not asserted."
+        }
+      ]
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/graded-commutativity",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "The total K-group is a graded-commutative ring",
+      "kind": "theorem",
+      "statement": "For a commutative ring the internal product makes the direct sum of the K-groups a graded ring, and the symmetry homotopy makes it graded commutative: the product of a class in degree p and one in degree q equals minus one to the power p times q times the product in the other order. In degree one the statement specialises to the anticommutativity of the symbol of two units, and the product of a class in degree zero with one in degree one is given by the action of the zeroth K-group. The sign is a consequence of the symmetry of the tensor product together with the sign rule of the smash product of spheres, and it is not a convention that can be chosen.",
+      "hypotheses": [
+        "R is commutative; the total K-group is the direct sum over non-negative degrees, or over all degrees in the nonconnective theory.",
+        "The sign comes from the symmetry homotopy of the previous node and from the standard sign of the graded smash; the node records both contributions.",
+        "The pinned libraries have no first K-group at all, which the audit records, so the degree-one specialisation cannot be stated against them."
+      ],
+      "proofSteps": [
+        "State the graded ring structure and the graded commutativity with the sign.",
+        "Specialise to two classes in degree one: the symbol of two units is the inverse of the symbol in the other order.",
+        "Specialise to degrees zero and one: the product is the module action of the zeroth K-group, and multiplication by the class of the ring is the identity.",
+        "Record the source's statement that the first K-group of the Laurent polynomial ring over the integers contains the class of the variable and that multiplication by it is the splitting of the fundamental theorem, so the product structure and K.6 are linked.",
+        "Record the non-example: for a non-commutative ring there is no internal product of this kind, only the external one, and the graded ring statement fails."
+      ],
+      "acceptance": [
+        "The total K-group of a commutative ring is graded commutative.",
+        "In degree one the symbol is anticommutative, which is the classical statement.",
+        "Multiplication by the class of the variable in the first K-group of the integral Laurent ring is the splitting of K.6's fundamental theorem."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+        "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
+        "SchemeKTheoryOperations:S.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1 and the product structure (PDF p. 302)",
+          "excerpt": "The product on K_*(R) for a commutative ring R is graded-commutative: for x in K_p and y in K_q we have x y = (-1)^{pq} y x.",
+          "match": "The graded commutativity, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "V.8.2 (PDF p. 430)",
+          "excerpt": "[The splitting of the boundary is] given by multiplication by t in K_1(Z[t,t^{-1}]).",
+          "match": "The link between the product structure and the fundamental theorem, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/compatibility-with-relative-groups-and-transfers",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "Compatibility of the product with relative groups, boundaries and transfers",
+      "kind": "lemma",
+      "statement": "The external product is compatible with the other structure of the theory. It descends to relative groups, so that the product of an absolute class and a relative class is relative; it commutes with the boundary maps of the localisation sequences up to the expected sign, which is the statement that the boundary is a derivation for the product; and it satisfies the projection formula for a transfer, namely that the transfer of a product of a class pulled back along the map with a class upstairs equals the product of the first with the transfer of the second. Each is a separate assertion with its own proof and none follows from the construction of the product alone.",
+      "hypotheses": [
+        "The relative groups are those of a ring map or of an ideal, as the source defines them.",
+        "The boundary maps are those of the localisation and Mayer-Vietoris sequences.",
+        "The transfer is the one attached to a finite map with the appropriate finiteness hypothesis, which the node records rather than assumes."
+      ],
+      "proofSteps": [
+        "State the relative compatibility and record which pairing it refers to.",
+        "State the derivation property of the boundary with respect to the product, with the sign.",
+        "State the projection formula for a transfer, with the hypothesis on the map under which the transfer exists.",
+        "Record that each of the three is used elsewhere in the atlas: the derivation property in the localisation sequences, the projection formula in the transfer arguments.",
+        "Record what is not claimed: no compatibility with an infinite product, and no statement about a transfer along a map that is not finite."
+      ],
+      "acceptance": [
+        "The boundary of a product is given by the derivation formula with the expected sign.",
+        "The projection formula holds for a finite map.",
+        "None of the three follows from bilinearity alone; each is a separate statement."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+        "GeneralAlgebraicKTheory:K.7/graded-commutativity",
+        "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.7.4.4 (PDF p. 146)",
+          "excerpt": "Application 7.4.4. The Nil category of a ring is an exact category, and the product makes Nil_0(R) a module over K_0(R).",
+          "match": "One instance of the module-structure compatibility, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.9.5.2 (PDF p. 162)",
+          "excerpt": "[A biexact functor of Waldhausen categories] induces a pairing of K-theory spectra, compatible with the structure maps.",
+          "match": "The compatibility at the spectrum level, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GeneralAlgebraicKTheory:K.7/unit-multiplication-and-K0-tensor-comparison",
+      "parentStageId": "GeneralAlgebraicKTheory:K.7",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "title": "The K-zero tensor comparison and multiplication by a unit in K-one",
+      "kind": "lemma",
+      "statement": "Two concrete consequences of the product structure serve as the unit tests of the layer. First, the comparison in degree zero: the product of the classes of two finitely generated projective modules is the class of their tensor product, so that the map from the tensor square of the zeroth K-group to itself is determined on classes; Tau Ceti has exactly this statement for the split model and it is cited as baseline. Second, multiplication in degree one: the product of the class of a unit in the first K-group with a class in the zeroth K-group is computed by the action, and in particular multiplication by the class of a unit of the base ring is an automorphism of each K-group, inverse to multiplication by the inverse unit. The second cannot be stated against the pinned libraries, which have no first K-group.",
+      "hypotheses": [
+        "R is commutative; the modules are finitely generated projective.",
+        "The unit is an element of the unit group of the ring, and its class in the first K-group is its image under the determinant-like map.",
+        "The audit records that the first K-group is absent from both pinned trees, so the second statement has no baseline and must be built."
+      ],
+      "proofSteps": [
+        "State the degree-zero comparison and cite the pinned Tau Ceti statement for the split model.",
+        "Record the gap between the split model and the general one: the pinned statement is for the split K-zero and a comparison with the exact-category model is needed before it can be used in general.",
+        "State the degree-one multiplication and prove that multiplication by a unit is invertible, with the inverse given by the inverse unit.",
+        "Record that these two are the unit tests by which a formalisation of the product is checked, and that failing either means the construction is wrong.",
+        "Record the source's statement of the map from units to the first K-group, and the fact that it is an isomorphism for a commutative local ring, which is where the second test is most easily checked."
+      ],
+      "acceptance": [
+        "The product of two classes is the class of the tensor product; this is the pinned Tau Ceti statement for the split model.",
+        "Multiplication by the class of a unit is an automorphism of each K-group.",
+        "Neither statement can be checked in degree one against the pinned libraries, since the first K-group is absent there."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+        "tauceti:TauCeti.SplitK0.of_mul_of",
+        "tauceti:TauCeti.SplitK0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.7.4.1 (PDF p. 146)",
+          "excerpt": "Application 7.4.1. The tensor product of modules over a commutative ring R is biexact on finitely generated projective modules, and the induced product makes K_0(R) a commutative ring.",
+          "match": "The degree-zero comparison, verbatim."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.1 and III.1.2 (PDF p. 190)",
+          "excerpt": "The determinant gives a map from K_1(R) to the units of R for a commutative ring, split by the map sending a unit u to the class of the automorphism of R given by multiplication by u; for a commutative local ring this map is an isomorphism.",
+          "match": "The unit map in degree one, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.6",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Eight nodes. Karoubi's flasque rings with the Eilenberg swindle, the infinite sum rings and the cone ring, stated with the explicit warning that the pinned IsFlasque of both libraries is the sheaf-theoretic predicate and that a formalisation must not reuse the name; Bass's contracted functors, with the contraction LF defined as the cokernel of the map out of the two polynomial rings and with the splitting required natural in the variable as well as in the ring, which is the part that makes the iteration work; the negative K-groups as the iterated contraction, with the four-term decomposition of the zeroth K-group of the Laurent ring; the Fundamental Theorem in every degree with the Nil terms identified as the N-groups one degree up and the splitting given by the class of the variable; the four axioms a theory of negative K-theory must satisfy, with Bass's groups as the example that makes them non-vacuous; Mayer-Vietoris in negative degrees; the nonconnective spectrum, built as the homotopy colimit of the iterated desuspensions with each map the inclusion of a deeper connective cover, so that its homotopy groups are the K-groups above degree zero and Bass's groups below, together with the model-independence statement the stage text's 'independence of enlargement' asks for; and the vanishing theorem for regular noetherian rings, stated with the non-example the stage text names by hand. Every stage target has a node. The localisation clause of the stage text is carried by the nonconnective spectrum node and by Mayer-Vietoris rather than by a node of its own, because the source develops localisation for this roadmap in the earlier layers and the only new content here is that the sequence continues downwards; that is stated. What is not decomposed here is the alternative flasque-enlargement construction of the spectrum, which the source does not give; the axioms node records how it would be compared with this one, and the gap says so."
+    },
+    {
+      "stageId": "GeneralAlgebraicKTheory:K.7",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Seven nodes. Morita invariance with the Structure Theorem, the matrix instance and the compatibility with products, resting on the three pinned Mathlib declarations the audit names; the derived statement as a comparison node, which states the enhancement hypothesis, records that the K-theory construction consumes a category with cofibrations and weak equivalences rather than a homotopy category, and gives the failure of a naked triangulated equivalence as a non-example, exactly as the stage text demands, while keeping the degree-zero part that does survive and citing Tau Ceti's pinned exact-equivalence invariance for it; compatibility with filtered colimits and with finite products, in both the connective and the nonconnective theory; the external products from biexact functors, with the associativity, unit and symmetry homotopies carried as transported data rather than asserted, and with the pinned Tau Ceti degree-zero product cited; graded commutativity of the total K-group, with the degree-one specialisation and the link to the splitting of K.6's fundamental theorem; the compatibilities with relative groups, localisation boundaries and transfers, each stated as a separate assertion with its own proof obligation; and the two unit tests the stage text names. Every stage target has a node. The higher-degree product statements rest on the source's spectrum-level pairing, which is stated but whose construction the source defers to Waldhausen's paper; the gap records that and names the next source action."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The flasque-enlargement construction of the nonconnective spectrum has no source here",
+      "neededBy": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "detail": "The stage text asks for the nonconnective extension through a flasque enlargement, a suspension and an idempotent completion, which is the Pedersen-Weibel and Thomason route. The K-book gives the Bass delooping instead: the functor LE, its desuspension, the identification with the connective cover and the homotopy colimit. This packet decomposes that route in full and states the four axioms as the interface through which a second construction would be compared with it, but it does not decompose the flasque route, because no source for it was read. NEXT SOURCE ACTION: obtain Pedersen and Weibel, 'A nonconnective delooping of algebraic K-theory' (Lecture Notes in Mathematics 1126, 1985), and Thomason and Trobaugh section 6, and decompose the flasque enlargement, the suspension and the proof that the resulting spectrum satisfies the four axioms; the comparison with the Bass spectrum is then a theorem rather than an assumption."
+    },
+    {
+      "title": "The construction of the spectrum-level product is deferred by the source",
+      "neededBy": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "detail": "II.9.5.2 states that a biexact functor of Waldhausen categories induces a pairing of K-theory spectra, and the source refers to Waldhausen for the construction. The bilinear pairing on the zeroth groups is constructed in full at II.7.4 and is decomposed here; the higher-degree pairing is stated with its attribution and its coherence is listed as data to be carried, not as something proved. NEXT SOURCE ACTION: read Waldhausen, 'Algebraic K-theory of spaces' section 1.5, for the construction of the pairing and for the associativity and unit coherence, and decompose the proof that the pairing is well defined on the K-theory of a Waldhausen category."
+    },
+    {
+      "title": "No source was read for the enhanced form of derived Morita invariance",
+      "neededBy": [
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "detail": "The comparison node states the correct hypothesis, that the equivalence is of enhancements rather than of triangulated categories, and supports it with the source's own definition of a Waldhausen category and with the invariance under an exact equivalence of Waldhausen categories. The differential graded and stable infinity-categorical formulations, and the counterexamples showing that a triangulated equivalence is genuinely insufficient, were not read. NEXT SOURCE ACTION: read Toen, 'The homotopy theory of dg-categories and derived Morita theory', and Schlichting's 'A note on K-theory and triangulated categories', the latter for the failure; decompose the statement that K-theory is invariant under a quasi-equivalence of dg-categories and record the counterexample explicitly as a non-example node."
+    },
+    {
+      "title": "The proof of the Fundamental Theorem was not read, only its statement",
+      "neededBy": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "detail": "V.8.1, V.8.2 and V.8.3 were read as statements, together with the section opening that gives the degenerate form for a regular noetherian ring. The proofs in V.8, which go through the localisation sequence for the polynomial ring and the identification of the Nil category, were not read, so the proof steps of the fundamental-theorem node record the shape of the argument rather than its details. NEXT SOURCE ACTION: read V.8 in full (PDF pp. 430 to 436) together with III.3.6, and decompose the proof into its two halves, the localisation input and the Nil identification."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeKTheoryOperations:S.5",
+      "need": "The Fundamental Theorem with Nil terms for schemes. AUDIT-28 records this as a duplication with K.6 and names S.5 as the owner of the scheme form. This packet states the ring form, which is what K.6's stage text asks for, and cites S.5 for the scheme form rather than planning it again; the source's V.8.3 is quoted so that the boundary is visible."
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.6",
+      "need": "External products for schemes and the graded commutativity of the total K-group of a scheme. AUDIT-28 records this as a duplication with K.7. The ring-level product is developed here, from biexact functors, and the scheme-level statement is imported by name."
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.3",
+      "need": "The K-theory of a Waldhausen category as a spectrum, with the additivity and localisation theorems. K.6's nonconnective construction takes a functorial model of connective K-theory as input and K.7's invariance and product statements are statements about that model; both are stated here against the model rather than re-constructing it."
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.5",
+      "need": "The localisation sequence in the connective theory, whose boundary maps K.6 extends into negative degrees and with which K.7's compatibility node asserts the derivation property of the product."
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.6",
+      "need": "The first and second K-groups with their symbols. K.7's degree-one unit test needs the class of a unit in the first K-group and the anticommutativity of the symbol; neither pinned library has the first K-group at all, and T.6 is where the symbols are owned."
+    }
+  ],
+  "restructure": [
+    {
+      "kind": "note-duplicate-boundary",
+      "title": "The two duplications AUDIT-28 records are boundaries, not overlaps to remove",
+      "detail": "AUDIT-28 records SchemeKTheoryOperations S.5 as duplicating K.6's fundamental theorem and S.6 as duplicating K.7's external products. Read against the source these are not duplications but the ring and scheme forms of the same theorem, and the source states them separately for exactly that reason: V.8.2 for rings and V.8.3 for quasi-projective schemes. The right resolution is the one taken here, that the ring form is proved in this roadmap and the scheme form imported from the scheme roadmap, and the stage texts of K.6 and S.5 should each say so in a sentence. No layer should be dropped on this account."
+    },
+    {
+      "kind": "propose-split",
+      "title": "K.6 carries two independent developments and could be split",
+      "detail": "K.6's stage text asks both for Bass's negative groups with the fundamental theorem, which is pure algebra and needs no homotopy theory, and for the nonconnective spectrum, which needs spectra, homotopy colimits and connective covers, none of which exists in either pinned library. The first half is formalisable against the pins today; the second is blocked on a library of spectra. As one layer it cannot be closed until the homotopy theory arrives, and a reader cannot see that the algebraic half is independently available. Splitting into a negative-K-groups layer and a nonconnective-spectrum layer would make that visible; the eight nodes here divide five to three along exactly that line."
+    },
+    {
+      "kind": "note-naming-collision",
+      "title": "The name 'flasque' is taken in both pinned libraries by a different notion",
+      "detail": "Both trees have IsFlasque for the sheaf-theoretic predicate, and K.6 needs Karoubi's flasque rings, which are unrelated. The packet records the collision in the node, in its unit tests and here, because a formalisation that reused the name would produce a statement that reads as true and means something else. A name such as IsFlasqueRing, or Karoubi's own terminology of an infinite sum ring where that stronger notion suffices, should be fixed before any of this layer is written."
+    }
+  ]
+}
