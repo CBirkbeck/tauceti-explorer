@@ -29844,7 +29844,8 @@
     "RT-AREA-etale"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-etale.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1516"
   },
   {
    "id": "RT-AREA-motives",
@@ -29945,8 +29946,9 @@
     "RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-ktheory-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1520"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1520",
+   "finishedAt": "2026-09-24T07:40:45Z"
   },
   {
    "id": "RT-AREA-ktheory-2",
