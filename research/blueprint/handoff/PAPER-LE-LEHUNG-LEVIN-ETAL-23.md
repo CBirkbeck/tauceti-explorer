@@ -1,5 +1,23 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-d67081; issue 1254; confirmed claim 5806242520; 24 September 2026. **Partial checkpoint, continuing the Codex checkpoint below.** Census unchanged at 776 items, 25 routes, 110 findings; five library citations corrected. No Lean deliverable or compilation. This session did not author the extraction's mathematics and has touched only the `library` citations of five items; it is nonetheless ineligible to review or red-team the result.
+
+## Completed here — the per-item library audit (resume item 7, library half)
+
+Every `library` and `planned` item was checked against the pinned commits: 146 library items carrying 224 citations over 219 distinct declarations, and 48 planned items.
+
+- **Five citations were wrong and are corrected.** Four dropped the `CategoryTheory.` namespace — L134's `ShortComplex.moduleCat_exact_iff` and `ShortComplex.moduleCat_exact_iff_range_eq_ker`, L135's `ShortComplex.moduleCatHomologyIso` and `ShortComplex.π_moduleCatCyclesIso_hom` — and L141 carried a spurious `Algebra.` prefix on `IsSeparable.of_integral`, which is at Mathlib/FieldTheory/Separable.lean:658. All five now resolve; no statement, status or route changed.
+- **Three apparent misses are not errors, and should not be "corrected" by a later worker.** L55's `Module.Flat.instTensorProduct` is an auto-named instance that Mathlib's own Flat/Stability.lean:91 refers to by that name; L77's `IsAdicComplete.henselianRing` is a named instance at RingTheory/Henselian.lean:170; and `HenselianRing.is_henselian` is a structure field, declared at Henselian.lean:96. The declarations index carries none of the three, which is an index limitation, not a citation error.
+- **Clean on every other axis.** No cited declaration is private, none is deprecated (two that a mechanical window flags — `Ideal.exists_minimalPrimes_le` and `IsLocalization.AtPrime.ringKrullDim_eq_height` — carry no attribute themselves; the `@[deprecated]` above each belongs to the preceding declaration), no citation is tagged to the wrong library, no `library` item lacks a citation, and all 48 planned items' stage references resolve.
+- The weakest name-to-statement overlaps were read rather than trusted: L24 cites `MvPolynomial.pderiv_mul` for the Leibniz rule and L36 cites `Submodule.le_of_le_smul_of_le_jacobson_bot` for Nakayama, both correct despite sharing no vocabulary with the item names.
+
+## Resume from here
+
+Resume items 1 to 6 of the Codex note below are untouched and remain in force. Item 7 is now half done: the library citations are audited and correct, so what remains of it is the **fine ownership** half — whether each cited declaration actually *provides* its item's statement, rather than merely existing — together with the contract tests Z106/Z111/Z120. A mechanical overlap screen is not enough for that half; it produced only naming-style false positives here, and the work needs the statements read at the pin against the item text.
+
+---
+
+
 Codex — codex-c83e7a; issue1254; confirmed claim5805811150; 24 September2026. **Partial checkpoint.** Current census:776 items,146 library/48 planned/582 missing,25 routes,110 unreviewed source findings,174 definitions/constructions,1,226 acyclic internal edges. No Lean deliverable or compilation. This session authored the extraction and is ineligible to review/red-team it.
 
 ## Completed here
