@@ -1,0 +1,41 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+  "worker": "Codex — codex-a71f92",
+  "date": "2026-09-24",
+  "inputRevision": "1e11ed64db168259c7db04e914be380e4aa2548a",
+  "summary": "All three dependency edges survive the attack. Two medium-severity pinned-library scope errors remain: the requested narrow genus-field predicate already exists, and the multiplicative square-class, field-map and cardinality adapters assigned as consumer additions are already implemented. Preserve the edges and the ordinary/narrow correction; update the import-versus-build boundary. No additional independent edge was established by the catalogue screen.",
+  "checked": [
+    "Read the complete four-layer Multiquadratic roadmap, the accepted link map's three links, two overlaps, requests and review metadata, its independent review report, and all four reviewed AUDIT-04 coverage entries.",
+    "Checked all nine link quotations against the supplying/consuming stage or its ownership passage; read QuadraticFormInvariants Layer 0 and ownership conventions, ClassFieldTheory Layer 10, GlobalNumberFields Layer 2, and the full EffectiveBounds roadmap.",
+    "Read pinned statements for the square-class carrier and independence, tower degree, sign-change Galois group, and multiquadratic splitting law. Rechecked the finite-index, characteristic, independence, number-field, prime and coprimality hypotheses. The CFT edges supply only the explicit biquadratic example.",
+    "Read the ordinary genus-field predicate and real/imaginary construction statements, the narrow class-group carrier and forgetful map, and NumberField.units_sq_index_le. Independently read all of NarrowGenusField.lean and SquareClassGroup/Multiplicative.lean, including the proofs of the declarations supporting both findings.",
+    "Matched all nine reviewBaseline source SHA-256 hashes. Verified the two newly cited files against GitHub blob identities at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; recorded their hashes and statement locators in the report. Mathlib baseline is 082e2d37e8b0463410cdb532e111cd43d5a66174.",
+    "Screened stage titles/descriptions of 212 atlas roadmaps plus six proposed roadmaps (2,007 stages) for multiquadratic, biquadratic, genus-field, ambiguous-class, square-class, unit-square, narrow-class, prime-discriminant and elementary-two contracts; also searched the source documents. Search hits were leads, not a claim to have read every roadmap.",
+    "Deepened plausible omissions through CFT Layers 12/13, NumberFieldArithmetic Layers 2/8, EllipticCurves Layers 5/6, ProfiniteCohomology Layer 9, GlobalQuadraticForms Layers 2/3/5, local power-class contracts, and the ArithmeticStatistics/ComputationalNumberTheory scopes. Read existing EffectiveBounds and CFT incoming links, the NFA Frobenius overlap, and the ProfiniteCohomology-to-EllipticCurves Kummer link.",
+    "Checked that the example has independent rational square classes 13 and 17; verified 2^2 = 17 mod 13 and 8^2 = 13 mod 17. Distinguished singleton splitting tests at 13/17 from the inapplicable full-compositum unramified-prime hypothesis. Kept Cl/Cl^2 distinct from Cl[2], and retained the already-recorded discriminant-12 ordinary/narrow counterexample.",
+    "Ran check_links.py on the unchanged accepted map: three links, two overlaps, 218 examined entries, zero errors or warnings. This includes endpoint, quotation and cycle checks against other packets. No Lean compilation or independent proof reconstruction of all cited library results was performed."
+  ],
+  "findings": [
+    {
+      "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic/1",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json overlaps[1].proposal; requests[id=MQ-LINK-R1].request; reviewBaseline.qualification",
+      "claim": "MQ-LINK-R1 calls separately packaging a narrow genus-field predicate a distinct remaining obligation. The qualification relies on a future-work comment in GenusField.lean, but the same pinned tree already contains the packaged predicate, its candidate-field theorem and root-preserving uniqueness. The comment is stale evidence for remaining work.",
+      "evidence": "At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/NumberTheory/Multiquadratic/Unramified/NarrowGenusField.lean:68 defines TauCeti.Multiquadratic.IsNarrowGenusField d L y for a number field L: a chosen quadratic root, abelian Galois extension of Q, finite-place unramifiedness over Q(y), and maximality among such number fields (no infinite-place condition). Lines 100 and 130 prove IsNarrowGenusField.exists_algEquiv_apply_eq and nonempty_algEquiv. Lines 140–142 prove isNarrowGenusField_candidateGenusField for Squarefree d and ¬ IsSquare (d : Q), with no sign restriction. File SHA-256 bb1d50d8820f79047d0628023aacd18d79909cd2a61ad6fa7b84b15fe10c084f; Git blob 2fc11fbccaef6a953283fe671807402f5999b29a.",
+      "fix": "Keep MQ-LINK-R1 open for the genuine source README ordinary/narrow correction and preserve the real candidateGenusFieldReal versus imaginary candidateGenusField distinction. Remove the narrow-predicate implementation obligation; instead import IsNarrowGenusField, isNarrowGenusField_candidateGenusField and its uniqueness API from the existing file. Add this file to reviewBaseline.sources and replace the stale-comment-based qualification in the overlap/request/metadata. Record the correction in the authorized fix report; do not silently rewrite the historical review or reimplement the predicate. No dependency edge needs changing."
+    },
+    {
+      "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic/2",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json links[0].reason and reviewBaseline.sources; underlying contract content/tau-ceti/QuadraticFormInvariants/README.md:615–620",
+      "claim": "The link limits the supplied prefix to the additive square-class quotient and says the consumer adds multiplicative notation, field-map and cardinality adapters. At the stated programme baseline all three generic adapters are already present, so this is an incomplete import-versus-build boundary. The historical ownership link is valid; treating these generic adapters as remaining consumer implementation invites duplication.",
+      "evidence": "At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean:45 defines TauCeti.MultiplicativeSquareClassGroup K = Kˣ / Subgroup.square Kˣ; :65 gives multiplicativeSquareClassEquiv, :80 elementaryTwoQuotientEquivSquareClassGroup, :99 finite_multiplicativeSquareClassGroup_iff, :105 natCard_multiplicativeSquareClassGroup. RingHom.multiplicativeSquareClassMap (:118) and squareClassMap (:148) provide pushforward for arbitrary field homomorphisms, with generator, identity and composition lemmas and the commuting comparison multiplicativeSquareClassEquiv_map (:169). Hypotheses are Field, not char ≠ 2. These match precisely the three generic interop bullets in QuadraticFormInvariants Layer 0. File SHA-256 9d5d29847994ee730341e7e89b4c11ebab243b614baf1a49bd18a9284c838aba; Git blob 3a2772124edbb3ccd561427577586ea3dbf4da89.",
+      "fix": "Retain Multiquadratic Layer 0 -> QuadraticFormInvariants Layer 0 and its explicit evidence, but state that both the additive prefix and these generic interop adapters are pinned imports. Cite Basic.lean and Multiplicative.lean and add the latter to baseline evidence. Leave only genuinely form-specific uses/comparisons with the consumer; do not claim the whole quadratic-form layer is implemented. If the owner README cannot be changed within the fix job, record a source-correction request distinguishing its historical milestone from the current remaining work."
+    }
+  ]
+}
