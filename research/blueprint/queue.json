@@ -4118,8 +4118,9 @@
    ],
    "avoidAccountOf": "PAPER-NAKAMURA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-NAKAMURA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1244"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1244",
+   "finishedAt": "2026-09-24T00:10:43Z"
   },
   {
    "id": "PAPER-LI-23",
@@ -27815,7 +27816,8 @@
     "REV-AUDIT-22"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1594"
   },
   {
    "id": "REV-RT-AUDIT-22",
