@@ -1761,8 +1761,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-LIU-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1116"
+   "state": "pending",
+   "note": "released on GitHub issue #1116"
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
