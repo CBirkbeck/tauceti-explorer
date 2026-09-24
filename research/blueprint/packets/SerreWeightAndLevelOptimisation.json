@@ -458,7 +458,7 @@
    ],
    "title": "The integral old/new exact sequence of Hecke modules at a prime exactly dividing the level",
    "kind": "theorem",
-   "statement": "Let M be prime to p and let H denote the integral cuspidal Hecke module of level Mp supplied by the modular-curve roadmap (the first integral homology of X₁(M,p), equivalently the character-group-and-lattice package of the Jacobian). Write α, β : H → H_M for the two degeneracy maps to level M and ι : H_M ⊕ H_M → H for their transpose. Then there is an exact sequence of modules over the integral Hecke algebra 𝕋 of level Mp, 0 → H_M ⊕ H_M → H → H^{p-new} → 0, in which H^{p-new} is defined as the cokernel, the maps are 𝕋-equivariant for the Hecke operators T_n with n prime to p, and the sequence need not split. Its cokernel and the torsion of ι are what distinguish this statement from the complex decomposition S_k(Γ₁(N)) = old ⊕ new, which is a direct sum over ℂ and therefore carries no information about ℓ-torsion or saturation.",
+   "statement": "Let M be prime to p and let H denote the integral cuspidal Hecke module of level Mp that this layer imports rather than builds. It is a lattice on the modular-symbol and homology side, not a lattice inside a space of forms: the Tau Ceti ModularForms roadmap builds its finitely generated integral Hecke module as the Γ₁(N)-coinvariants of Div⁰(ℙ¹(ℚ)) ⊗ Sym^{k-2}(ℤ²) and states explicitly that no lattice inside the space of forms is ever constructed, so H must be taken on that side and its Hecke action is the integral action on symbols. Write α, β : H → H_M for the two degeneracy maps to level M and ι : H_M ⊕ H_M → H for their transpose. Then there is an exact sequence of modules over the integral Hecke algebra 𝕋 of level Mp, 0 → H_M ⊕ H_M → H → H^{p-new} → 0, in which H^{p-new} is defined as the cokernel, the maps are 𝕋-equivariant for the Hecke operators T_n with n prime to p, and the sequence need not split. Its cokernel and the torsion of ι are what distinguish this statement from the complex decomposition S_k(Γ₁(N)) = old ⊕ new, which is a direct sum over ℂ and therefore carries no information about ℓ-torsion or saturation.",
    "hypotheses": [
     "M prime to p",
     "H the integral cuspidal Hecke module of level Mp, with its 𝕋-action",
@@ -1092,6 +1092,10 @@
  ],
  "requests": [
   {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "The finitely generated integral Hecke module of modular symbols and the integrality and commutativity of the Hecke action on it (that roadmap's HeckeSymbol, HeckeCommute, HeckeFinite milestones), together with the coefficient field as a number field. R20.1 consumes this lattice; it does not construct one, and in particular it does not construct a lattice inside a space of forms, which that roadmap rules out by design."
+  },
+  {
    "supplier": "ModularCurvesPartII:R14.2",
    "need": "The integral cuspidal Hecke module of X₁(M,p) with its Hecke action, as a module over the integral Hecke algebra, together with the integral structure needed to state saturation. R20.1 consumes this rather than constructing it; the library supplies only the complex cusp-form spaces."
   },
@@ -1146,8 +1150,23 @@
    "detail": "R20.2/serre-level is cited to Ribet §2, which states the formula n(p, ρ) = Σ_{i≥0} (1/(G₀:G_i)) dim V/V_i explicitly and attributes it to Serre [49, §1]; that is a primary citation for the formula as this packet states it. Serre, 'Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)', Duke Math. J. 54 (1987) 179–230, was not itself obtained, so the attribution to Serre's own numbering rests on Ribet's word. The weight recipe k(ρ), which R20.3 needs, is the part that genuinely requires Serre or Edixhoven and is why R20.3 is left not_read."
   },
   {
+   "title": "check_blueprint reads a Tau Ceti anchor stage id as a baseline declaration",
+   "detail": "The ModularForms layer-8 import is recorded as a request and not as a node prerequisite, because it cannot be both. check_blueprint resolves a node prerequisite by testing BASE_REF = ^(mathlib|tauceti):(\\S+)$ before testing membership in the atlas stage set, so the anchor stage id 'tauceti:TauCetiRoadmap/ModularForms#layer-8-...' matches the baseline pattern and is reported as 'baseline prerequisite ... is not listed in baseline.declarations'. Any packet importing from a Tau Ceti anchor layer will hit this, so anchor-layer imports are expressible only through `requests`. The dependency is therefore real but is not in the prerequisite graph; a reviewer should read the requests list alongside the node prerequisites."
+  },
+  {
    "title": "No library-coverage audit exists for any layer of this roadmap",
    "detail": "data/library-coverage.json has entries for 1316 atlas stages and none of R20.1–R20.6 is among them, so there is no reviewed verdict to plan against. The baseline determinations in this packet were made by indexing the pinned trees directly (mathlib 082e2d37, 8482 .lean files; tauceti f790474, 5477 .lean files, 70802 indexed declarations) and reading the cited statements in source. Three probes gave false cleans before being corrected: 'HeckeAlgebra' and 'HeckeOperator' return 0 while 'Hecke' returns 1186; 'newSpace' returns 0 while the new subspace exists as TauCeti.cuspFormsNew; and 'characterGroup' returns 47 hits that are the character group of a split torus, not the character group of the toric part of a Jacobian's bad fibre. A reviewer should repeat searches under several descriptions."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "SerreWeightAndLevelOptimisation",
+    "tauceti:TauCetiRoadmap/ModularForms"
+   ],
+   "detail": "RS-06's entry for R20.1 narrows the layer to 'Own integral old/new exact sequences and congruence-module applications with localisation, saturation, and controlled-level passage' and says to 'Import actual integral curve Hecke modules and the R14.4 Ihara theorem'. Its suppliedBy list names ModularForms layers 3 and 4 (the Petersson product with oldforms and newforms; eigenforms, newforms and the conductor) together with ModularCurvesPartII R14.2-R14.4 and AlgebraicModularFormsAndSerreWeights R15.5. But layers 3 and 4 of ModularForms are characteristic-zero analytic layers: the library realises them as Submodule over C via the Petersson inner product, which is what this packet's baseline entries for cuspFormsOld, cuspFormsNew and isCompl_cuspFormsOld_cuspFormsNew record. The integral Hecke module that R20.1 actually needs is planned in ModularForms **layer 8**, 'modular symbols, the integral Hecke algebra, and coefficient fields', which builds the finitely generated integral Hecke module of modular symbols and proves the integrality and commutativity of the Hecke action on it. Layer 8 is absent from RS-06's suppliedBy list for R20.1.",
+   "proposal": "Add the ModularForms layer-8 stage to the suppliedBy list of the RS-06 entry for SerreWeightAndLevelOptimisation:R20.1, as the supplier of the integral Hecke module and the integral Hecke action; keep layers 3 and 4 as the suppliers of the characteristic-zero old/new and newform theory that they in fact provide. This packet already records the import as a request and as a prerequisite edge, so no planning changes here; the proposal is to make the restructuring's supplier list match where the integral structure is planned. Note also layer 8's design constraint, that no lattice inside the space of forms is ever constructed, which is why R20.1's integral module is stated on the symbol and homology side."
   }
  ],
  "sourceIssues": [],
