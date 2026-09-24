@@ -23132,13 +23132,14 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-HabiroCyclotomicCompletions",
     "BP-HabiroNahmSeries",
     "BP-K3BlochGroups"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1024"
   },
   {
    "id": "REV-ArithmeticQuantumTopology",
@@ -29644,8 +29645,9 @@
     "RT-AREA-algebraicgeometry"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-algebraicgeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1508"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1508",
+   "finishedAt": "2026-09-24T11:00:31Z"
   },
   {
    "id": "RT-AREA-padic-1",
