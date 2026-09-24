@@ -27285,8 +27285,9 @@
     "REV-AUDIT-10"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-10.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1570"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1570",
+   "finishedAt": "2026-09-24T05:53:11Z"
   },
   {
    "id": "REV-RT-AUDIT-10",
@@ -29014,7 +29015,8 @@
     "RT-AREA-arithmeticgeometry-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-arithmeticgeometry-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1486"
   },
   {
    "id": "RT-AREA-functionfields",
