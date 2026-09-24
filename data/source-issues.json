@@ -48788,9 +48788,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed. Page 248 prints ‘For every v ∈ V^{(v)}_F, by [42, Theorem 1.2 & Theorem 1.3], I^□_{r,v}(χ_v) is an irreducible representation of G_{2r}(F_v) unless χ²_v = 1’. The superscript is the index of the very product being decomposed — the lemma fixes a rational place w and studies I^□_{r,w}(χ_w) = ⊗_{v∈V^{(w)}_F} I^□_{r,v}(χ_v) — so V^{(v)}_F is not an object the paper defines; the footnote on p. 222 introduces V^{(w)}_F. The same slip recurs six lines below. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DISEGNI-LIU-24/E2",
@@ -48808,9 +48808,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed decisively by the statements on either side of it. Definition 3.21 on p. 258 reads ‘We say that the (unramified) representation π_v of G_r(F_v) is Panchishkin if β_{u,r} ∈ O^×_L …’, while Lemma 3.22, the next statement on the same page, opens ‘(1) π_v is Panchishkin unramified’, and Lemma 4.14 on p. 281 reads ‘If π_v is Panchishkin unramified (Definition 3.21)’ — citing this very definition by the fuller name. The property is ‘Panchishkin unramified’ throughout, including in Definition 1.2 of the introduction. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DISEGNI-LIU-24/E3",
@@ -48828,9 +48828,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed. Page 304 prints ‘for every T^□ ∈ Herm°_{2r}(F)^+_V (Notation 4.33)’, but that object and the place v_{T^□} are introduced in Notation 4.32; 4.33 is the proposition computing the local heights away from p. The extraction’s note that a mechanical sweep of the internal cross-references found no other mismatch is a useful thing to have on the record. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DISEGNI-LIU-24/E4",
@@ -48848,9 +48848,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed in all three places, each settled by its own neighbourhood. Page 323 states the lemma for ‘a, where a is an arbitrary element in H^q(S, A_L) satisfying μ(a) = β(b)’ and then says ‘It is easy to check that the 1-cocycle does not depend on the choice of x’ — x occurring nowhere else. On p. 324 the proof introduces ‘b^q ∈ (B^q_L)^G a closed element that represents b’, then writes ‘Since ν^q(y^q) induces an element in H^q((C^•_L)^G)_0’ with y^q undefined, and two words later uses ν^q(b^q) correctly. And Appendix A has no complex E: the only E there are the bi-extensions E_c and E^c_{c′} of §A.3, so the displayed description of H^q((C^•_L)^G)_0 must be the usual one in C^q_L. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DISEGNI-LIU-24/E5",
@@ -48868,9 +48868,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed, and the next sentence settles the second half. Page 325 prints ‘The element c′ gives rise to a map κ_{c′} : H^{2d−2}(Z′_K̄, L(d−1)) → L that vanishes on the image of the map H^{2d−2}(X_K̄, L(d)) → H^{2d−2}(Z′_K̄, L(d))’: the source of κ_{c′} carries the twist L(d−1) while the vanishing clause is written with L(d). And the sentence immediately after reads ‘Applying the pullback along κ_c and the pushforward along κ_{c′}(1) to the diagram (A.2)’, so it is κ_{c′}(1), not κ_{c′}, that meets the L(d) of (A.2) — exactly as the finding says. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DISEGNI-LIU-24/E6",
@@ -48888,9 +48888,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed decisively, against the proposition being applied. Page 344, Proposition B.11, concludes ‘res_{K_U}(t^*β_c) ∈ H¹_f(K_U, H^{2d−1}_c(Ū, L(d)))’, over Ū and not Ū_t — the correspondence t^* is what moves the class. The third application on p. 347 sets U = X∖(supp 𝒞′)_{t′} and then writes the conclusion with H^{2d−1}_c(Ū_t, L(d)), and the pushout map in the following sentence repeats it; the subscript also collides with the t := t₁t₂ defined in the same sentence. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DISEGNI-LIU-24/E7",
@@ -48908,9 +48908,9 @@
    "owner": "PAPER-DISEGNI-LIU-24",
    "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
    "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DISEGNI-LIU-24",
+   "reviewReason": "Confirmed; I checked the ones that can be checked at sight and they are all there. Page 348: ‘let P_l be the R_l-ring wit a discrete action by G_K’. Pages 350 and 362: ‘factors though’, twice. Page 363: ‘hence the corresponding edges maps’ — with ‘the corresponding edge maps’ written correctly four words later in the same sentence. The substantive one of the group is the first: Lemma A.4 is stated for C ∈ D^+_G(S, Z_{p•}) while Definition A.3 and Lemma A.5 are over W_• and the lemma is applied on p. 363 to an object of D^+_{G_K}(X_ét, W_•), so its hypothesis as printed is narrower than its use, and the proof does work verbatim over W_•. Grouping seven typographical slips into one entry is reasonable, though a reader of the register will have to follow the list. Checked at the recorded page in the published text. Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (146 marks, pp. 220–371). Crossref records no correction to doi:10.1007/s00222-024-01243-7."
   },
   {
    "id": "PAPER-DITTMANN-POP-23/E1",
