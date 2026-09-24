@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-RS-32",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-32",
+  "summary": "No substantiated finding in the accepted restructuring. The seven owners and all nine retained stages preserve the finite-complex/arithmetic boundary; every narrowed-stage consumer has its supplier handoff, and none of the 72 links creates a cycle in either tested graph. This is a structural red-team result, not proof closure or a new library audit.",
+  "checked": [
+    "Read the entire RS-32 result, original report, family specification and accepted REV-RS-32 review; distinguish the corrected four-narrow/seven-owner/72-link result from the explicitly superseded original three-narrow/six-owner/20-link report.",
+    "Read the full nine-stage ShimuraCompactifications document and all seven layers, conventions, exclusions, dependency order and acceptance tests of the unchanged AnalyticToricGeometry anchor; compared every original member target with the retained work and its suppliers.",
+    "Read the full NeronModelsAndSemistableAbelianVarieties document and the R11.3 decision/owner records in accepted RS-25; checked the local Raynaud/polarized-uniformisation import against C4 relative degeneration, effectivity and specialization obligations.",
+    "Read all 102 targets and notes in the 16 integrated reviewed library-audit records for the member and anchor, including their duplication leads. Independently read Fan and SplitTorus.groupScheme with their surrounding hypotheses at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; verified both local source files byte-for-byte against the pinned remote files.",
+    "Checked all seven unique-owner records and all 72 distinct links against their actual stages; 30 endpoint/member/consumer descriptions are literal source-document text. Read additional ModularCurvesPartII R13.1–R13.3/R13.4b and Faltings R28.1 interfaces.",
+    "Screened the current campaign documents for named ShimuraCompactifications references, C0–C6 references, toroidal geometry, Raynaud and semi-abelian terms; read all 109 resulting line contexts and distinguished unrelated C-stage numbering. Checked the substantive consumer stages and their explicit dependency ranges, including those absent from the original atlas edge list.",
+    "Checked all direct consumers of each narrowed stage in the atlas/dependency/link-packet/RS-32 union: C0 has four, C2 six, C3 six and C4 eight. Every named supplier links directly to its narrowed stage and all of those consumers; no owner link replaces the retained arithmetic result.",
+    "Graph check: 4,440 distinct baseline pairs, 72 proposed pairs (three already present), 4,509 in the union; no proposal edge has a return path. A second check including all other accepted restructuring links gives 7,053 pairs and still no return path for any RS-32 edge.",
+    "Checked exact Part II anchor/title, preservation of all nine stage IDs, four narrow decisions, seven owner rows, live non-retired endpoints, absence of changes to any upstream roadmap, target immutability and independence from original session astra-7c41e9 and reviewer codex-a71f92.",
+    "Ran check_restructure.py, check_redteam.py and intake.py check-files; no Lean file is required for this red-team report. Refreshed the input snapshot before publication and found no input changes."
+  ],
+  "findings": []
+}
