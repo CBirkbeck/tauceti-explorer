@@ -1528,8 +1528,9 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-SCHOLZE-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-SCHOLZE-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1104"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1104",
+   "finishedAt": "2026-09-24T15:06:26Z"
   },
   {
    "id": "PAPER-FINTZEN-21",
@@ -3113,8 +3114,9 @@
    ],
    "avoidAccountOf": "PAPER-CHARLES-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHARLES-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1189"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1189",
+   "finishedAt": "2026-09-24T15:06:29Z"
   },
   {
    "id": "PAPER-KALETHA-16",
@@ -5790,8 +5792,9 @@
    ],
    "avoidAccountOf": "PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1333"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1333",
+   "finishedAt": "2026-09-24T15:06:33Z"
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17",
@@ -6292,8 +6295,9 @@
    ],
    "avoidAccountOf": "PAPER-IM-KIM-LE-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1359"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1359",
+   "finishedAt": "2026-09-24T15:06:37Z"
   },
   {
    "id": "PAPER-VANHOFTEN-24",
@@ -8699,8 +8703,9 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2185"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2185",
+   "finishedAt": "2026-09-24T15:06:40Z"
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -26524,8 +26529,9 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-28.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1625"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1625",
+   "finishedAt": "2026-09-24T15:06:43Z"
   },
   {
    "id": "REV-RT-RS-28",
