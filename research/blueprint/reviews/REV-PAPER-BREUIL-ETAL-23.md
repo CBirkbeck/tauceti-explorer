@@ -84,10 +84,19 @@ Neither is a defect, but a design job should know both.
 
 - **There are no `library` and no `planned` items at all.** I checked the pinned libraries for the
   obvious candidates and the all-`missing` census holds: the declaration index at Mathlib `082e2d3` and
-  Tau Ceti `f790474` has no Gelfand–Kirillov dimension, no Lazard theory of uniform pro-`p` groups, and
-  no Weierstrass preparation for power series over a complete DVR — which is what the proof of
-  Lemma 3.3.1 actually uses. Nothing here is already formalised. (With no library citations there is
-  nothing for a `libraryPins` block to pin, so I did not add one.)
+  Tau Ceti `f790474` has no Gelfand–Kirillov dimension and no Lazard theory of uniform pro-`p` groups.
+  (With no library citations there is nothing for a `libraryPins` block to pin, so I did not add one.)
+
+  **Correction, 24 September 2026 (cc-7b31c4).** The first version of this review added "and no
+  Weierstrass preparation for power series over a complete DVR — which is what the proof of Lemma 3.3.1
+  actually uses" to that list. **That was wrong.** Mathlib has
+  `Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean` at the pin — Weierstrass division,
+  Weierstrass factorization and the preparation theorem for power series over a ring that is adic
+  complete for an ideal, in particular over a complete DVR — with 88 declarations in the index
+  (`PowerSeries.IsWeierstrassDivisionAt`, `PowerSeries.IsWeierstrassDivision`,
+  `PowerSeries.IsWeierstrassDivisorAt` and their consequences). The extraction carries no item for
+  Weierstrass preparation, so no item status changes; but a design job reading this review should know
+  that this input is already formalised.
 - **Atlas layers are named in the briefs rather than on the items.** The job asks that an item planned by
   a layer name that layer; this extraction instead records its imports route-by-route — completed group
   algebras from `PadicMeasuresIwasawaAlgebras`, smooth representations from
