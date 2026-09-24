@@ -1,0 +1,83 @@
+{
+  "redteam": "RT-AUDIT-14",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-14/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed (high). I read Tate §2.3 and Definition/Lemma 2.4.1 on PDF page images 14,16,17 (printed 2.07,2.09,2.10): the convergence region is positive total character exponent. Independently, take F=Q_p, f=1_Z_p, chi(x)=|x|_p^(-1), s=1, and multiplicative Haar measure with vol(Z_p^units)=1. The disjoint annuli p^m Z_p^units for m>=0 each have measure one and integrand one, so partial integrals equal N+1 and diverge. The audit target nevertheless asserts convergence since Re(s)=1>0. Fix the sufficient half-plane to Re(s)+e(chi)>0 with |chi(x)|=|x|^e(chi), or explicitly restrict that assertion to unitary chi and handle norm twists separately. Prefer e or sigma to avoid confusing this real exponent with the conductor exponent a(chi). It is a uniform sufficient region, not an iff for each individual test function. Retain partial status and existing Mellin/Gamma ingredients; the original roadmap only says 'stated half-plane' and does not introduce this error. No erratum to Tate is warranted. Regenerate coverage through normal fix intake."
+    },
+    {
+      "finding": "RT-AUDIT-14/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed (medium), limited to the matrix input. At Mathlib 082e2d3 I read Matrix.charpoly_inv in its CommRing, Fintype and DecidableEq context, with IsUnit A, and Matrix.charpoly_transpose in its matching context. Hence charpoly((A^(-1))^T)=(-1)^n C(det(A)^(-1)) charpolyRev(A). The determinant inverse notation in the general commutative-ring statement is ring inverse. The reverse characteristic-polynomial definition and reverse_charpoly give the link to det(1-XA). Add the two public declarations as related ingredients, with invertibility explicit; replace only the asserted absence of the contragredient matrix formula. The compound target remains partial: this does not construct or identify Satake parameters and does not supply its tensor-product identity. The two additions bring the existing three-entry citation list to five, within the cap. Three exact symbolic matrix examples independently checked the sign and inverse-determinant factor; no Lean composition was compiled."
+    },
+    {
+      "finding": "RT-AUDIT-14/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed (high). I visually read GSWZ Definition 1.7, equations (27)-(31), Theorem 6/equation (81) and the proof's initial support convention on printed pages 12 and 24 of the public 13 August 2025 PDF. The exponents belong to infinite q-Pochhammer factors, not individual binomials. For A=(1), the n=1 summand gives [t]F_A=-q/(1-q). A binomial product with finitely many nonzero c_(1,i) instead has coefficient -sum_i c_(1,i)q^(i/2), a Laurent polynomial in u=q^(1/2). The proposed value -u^2/(1-u^2) has a pole at u=1, whereas Laurent polynomials have none there. Factors of t-degree>=2 cannot repair the contradiction. Use the source product over nonzero multi-indices n and integers i of (q^i t^n;q)_infinity^c_(n,i), initially in Z((q))[[t]] with i-support bounded below for each n; admissibility makes it finite, equivalently L_n(q) in Z[q,q^(-1)]. Preserve Q(q)[[t]] for the stated admissible-series object and the symmetric-integral matrix hypothesis; no positivity assumption is added. If half-powers are retained, declare the variable change for both argument and base q. Keep the existing library statuses, correct both target texts consistently, and regenerate coverage. This is an audit misstatement, not a source erratum."
+    },
+    {
+      "finding": "RT-AUDIT-14/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed (low). At Mathlib 082e2d3, ContRepresentation has the sole data field toMonoidHom : G ->* (V ->L[R] V). Its surrounding variables require Monoid G but no topology on G; they require a topological additive module V. Thus each fixed g acts continuously on V, but the structure cannot assert continuity in the group variable, so 'separately continuous' is too strong in both occurrences. Replace it by 'representation by continuous linear operators' and retain group-variable/joint continuity as additional obligations. Preserve the target's absent classification for the specific completed-cohomology Banach construction; this finding does not re-audit all possible Banach-representation code."
+    }
+  ],
+  "reviewer": "Codex / codex-7e92bd",
+  "date": "2026-09-24",
+  "snapshot": "e47d5d09cdcee887d2f7987e2168f2a95a1d0777",
+  "scope": "Independent verification of all four submitted findings, not a new audit of all 411 original citations.",
+  "sources": [
+    {
+      "url": "https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf",
+      "sha256": "0c40f263e8ab7924d1f0a8c7e40d81d464aec6620b8ec14101f21f7b07e6f0c8",
+      "read": "2026-09-24",
+      "locator": "§2.3 and Definition/Lemma 2.4.1; PDF pages 14,16,17; printed pages 2.07,2.09,2.10; page images inspected."
+    },
+    {
+      "url": "https://guests.mpim-bonn.mpg.de/stavros/publications/habiro-ring-number-field.pdf",
+      "sha256": "b5684e851c0dd3e7bebd251de667680606f7aaa2a8725a49c36a7a581f28d1af",
+      "read": "2026-09-24",
+      "locator": "13 August 2025 version, printed pages 12 and 24, Definition 1.7, equations (27)-(31), Theorem 6/equation (81) and opening support convention; page images inspected."
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+      "sha256": "27999a02f480995bda68950253125f44cefcfaff12b25cd837e6dd9b16f8d506"
+    },
+    {
+      "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+      "sha256": "4fc1ee06ff76b13dd6e641e7b284e9e925f2cc259784bed14dd6828296e39d09"
+    },
+    {
+      "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Continuous/Basic.lean",
+      "sha256": "a683f0bb643cc15fbc84768610a539642a6a05e1d0353373025c75be02ad7884"
+    },
+    {
+      "file": "Mathlib/Analysis/MellinTransform.lean",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/MellinTransform.lean",
+      "sha256": "81851086004a6e5424da555061a4b2f9d2e7cece148d9d49c3537a05adba73ff"
+    }
+  ],
+  "validation": {
+    "leanCompiled": false,
+    "pinnedSourceFilesByteMatched": 4,
+    "coverageMirror": {
+      "layers": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "HabiroNahmSeries:HB.8",
+        "CompletedCohomologyPartII:CC.2"
+      ],
+      "commonFieldsMatch": true
+    },
+    "symbolicChecks": "three inverse-transpose matrix identities and the rank-one Habiro pole obstruction",
+    "redteamChecker": "pass",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "9aef8a776a9990e4a58cee945e1b80f3100c8906",
+    "unchangedInputBlobs": 20,
+    "claimComment": 5806615198,
+    "claimConfirmation": 5806616459
+  }
+}
