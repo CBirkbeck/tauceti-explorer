@@ -86256,6 +86256,326 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E94",
+   "kind": "error",
+   "locator": "Corollary 4.2.6, statement, published PDF84 (checked on the page image); compare its proof on PDF84",
+   "printed": "Let λ ∈ X_*(T^∨) be a dominant cocharacter. Assume that ā = a mod ϖ ∈ F^n is h_λ-generic. Then there is a natural bijection w̃ ↦ closure(S°_F(w̃^*) ∩ Fl^{∇a}) between Adm^reg(λ) and the top-dimensional irreducible components of M^nv(≤λ,∇_a)_F.",
+   "correction": "Read 'the d-dimensional irreducible components' (d = dim(B\\GL_n)_F), which is what the proof establishes ('S°_F(z̃) ∩ Fl^{∇a} has maximal dimension d if and only if z̃ = w̃^* where w̃ is regular'); alternatively assume λ regular.",
+   "reason": "Take GL_3 and λ = (1,0,0), which is dominant with h_λ = 1. Every element of Adm(λ) has length ≤ ℓ(t_λ) = 2. A regular element has the form w̃2^{-1}w0t_νw̃1, a reduced product (Proposition 2.1.5, Lemma 2.1.4), so its length is ≥ ℓ(w0) = 3. Hence Adm^reg(λ) = ∅. Yet M^nv(≤λ,∇_a)_F contains the nonempty affine spaces S°_F(w̃^*) ∩ Fl^{∇a} of Theorem 4.2.4 (e.g. w̃ = t_λ), so it has top-dimensional components, all of dimension < d. For regular λ, t_λ ∈ Adm^reg(λ), so the two readings agree. The only later use, Theorem 4.3.10, assumes λ regular.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E95",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.2.4, displayed Leibniz-rule condition and the following sentence, published PDF87 (checked on the page image)",
+   "printed": "By Leibniz rule, this is the condition that w̃^*L^∇_a(N_{w̃^*})(w̃^*)^{-1} + L^∇_a(w̃^*) ∈ (1/v) Lie I_F. It is straightforward to check that L^∇_a(w̃^*) ∈ (1/v) Lie I_F …",
+   "correction": "The second summand is v(dw̃^*/dv)(w̃^*)^{-1} (that is, L^∇_0(w̃^*)), not L^∇_a(w̃^*).",
+   "reason": "For A = w̃^*N, v(dA/dv)A^{-1} + A Diag(ā)A^{-1} = v(dw̃^*/dv)(w̃^*)^{-1} + w̃^*[v(dN/dv)N^{-1} + N Diag(ā)N^{-1}](w̃^*)^{-1}. The printed sum counts w̃^*Diag(ā)(w̃^*)^{-1} twice. Both v(dw̃^*/dv)(w̃^*)^{-1} and w̃^*Diag(ā)(w̃^*)^{-1} are constant diagonal matrices in Lie I_F, so either way the condition reduces to vL^∇_a(N) ∈ (w̃^*)^{-1}Lie I_F w̃^*. The analogous computation (4.8) in Lemma 4.3.8 uses the correct form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E96",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.2.4, equation (4.4) and the definition of F_α(<_C α) after (4.6), published PDF86–87 (checked on the page images)",
+   "printed": "(N_{w̃^*}Diag(ā)N_{w̃^*}^{-1})_{−α} = ⟨ā,α^∨⟩v^{δ_{α>0}}f_α + G_α(<_C α) + F_{2,α}(<_C α) (4.4), where F_{2,α}(<_C α) is a linear combination of terms of the form v^{δ_{α1>0}}f_{α1}G_{α2}(<_C α2) … ; F_α(<_C α) = a_iG_α(<_C α) + F_{1,α}(<_C α) + F_{2,α}(<_C α).",
+   "correction": "For α = ε_i − ε_k (so the −α-entry is the (k,i)-entry), (N Diag(ā)N^{-1})_{ki} = ⟨ā,α^∨⟩v^{δ_{α>0}}f_α + a_kG_α + Σ_{j≠i,k} a_jN_{kj}(N^{-1})_{ji}, where (N^{-1})_{ji} = −v^{δ_{α2>0}}f_{α2} + G_{α2}. So G_α carries the coefficient a_k, both in (4.4) and in F_α, and F_{2,α} must also include the products v^{δ_{α1>0}+δ_{α2>0}}f_{α1}f_{α2}.",
+   "reason": "Take a 3×3 lower unipotent N with N_{21} = x, N_{32} = y, N_{31} = z, and α = ε_1 − ε_3. Then (N^{-1})_{31} = −z + xy, so G_α = xy, and (N Diag(a)N^{-1})_{31} = (a_1 − a_3)z + (a_3 − a_2)xy. The printed (4.4) gives (a_1 − a_3)z + xy, since F_{2,α} = 0 here (G is zero for simple roots), and the printed F_α gives the coefficient a_1 on xy. The proof uses only that the remainder involves f_{α′} for α′ <_C α and is divisible by v^{δ_{α>0}}, and both still hold.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E97",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.7.3, second bullet (definition of V), published PDF98 (checked on the page image at 400 dpi)",
+   "printed": "b(i + δ_{α>0}) + ⟨a, α^∨⟩) is invertible for all roots α and 0 ≤ i < d_{α,ww̃_{1,j}}",
+   "correction": "0 ≤ i < d_{α,w0w̃_{1,j}}",
+   "reason": "No element w is in scope; the proof fixes w̃ ≤ w0w̃_{1,j}. The cell is S°(w̃_{1,j}^*w0) = S°((w0w̃_{1,j})^*), and the proof of Theorem 4.2.4, invoked in the same sentence, uses d_{α,w̃} for the element w̃ = w0w̃_{1,j} whose star gives the cell.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E98",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.6.2, last display, published PDF96 (checked on the page image)",
+   "printed": "AP(λ_j) ⥲ Irr_d((M^nv(λ_j, ∇_{a_j}))_F(s_j^{-1}t_{μ_j+η_j}))",
+   "correction": "AP(λ_j) ⥲ Irr_d((M^nv(≤λ_j, ∇_{a_j}))_F(s_j^{-1}t_{μ_j+η_j}))",
+   "reason": "The model M^nv(λ_j,∇_{a_j}) is never defined; the naive model is M^nv(≤λ_j,∇_{a_j}) (Definition 4.1.3). The product decomposition displayed just above, and Theorem 4.3.10 as cited, both use M^nv(≤λ_j,∇_{a_j}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E99",
+   "kind": "misprint",
+   "locator": "§4.7, preamble before Lemma 4.7.1, published PDF96 (checked on the page image)",
+   "printed": "there is an action of T^{∨,ext} = T^∨ × G_m on Fl where T^∨ acts on Fl by left translation and the G_m factor acts by loop rotation v ↦ r^{-1}v.",
+   "correction": "T^∨ acts on Fl by right translation.",
+   "reason": "On Fl = I_F\\LGL_n, left multiplication by T^∨ ⊂ I_F is trivial. §3.4 (PDF71) builds the T^{∨,ext}-action from the right-translation action of T^∨ on LG. The same paragraph of §4.7 speaks of T^∨-fixed points 'under the right translation action'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E100",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.7.2, published PDF97 (checked on the page image)",
+   "printed": "By Theorem 4.3.9, C_(w̃_{1,j},ω_j) is equal to S^{∇0}_F(w̃_{1,j}, e, t_{ω_j}ww0)",
+   "correction": "By (4.9) (with Proposition 4.3.6), since t_{ω_j}ww0(0) = ω_j, C_(w̃_{1,j},ω_j) is equal to S^{∇0}_F(w̃_{1,j}, e, t_{ω_j}ww0).",
+   "reason": "Theorem 4.3.9 requires m ≥ 1 and s̃ (m+n−1)-generic, hence at least n-genericity. Proposition 4.7.2 assumes only that C_(w̃1,ω) is defined, i.e. each t_{ω_j} is (n−1)-generic. Definition (4.9) gives the identity directly for any s̃ with s̃(0) = ω_j, and t_{ω_j}ww0 is such an element.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E101",
+   "kind": "error",
+   "locator": "Lemma 5.4.5, PDF118 (statement), as applied in the proof of Proposition 5.4.3, PDF119 (both page images checked)",
+   "printed": "Assume that Y_j − Ad(A^{(j)}z̃_j)φ(Y_{j−1}) ∈ (1/v^h) Mat_n(J[[v]]), for all j ∈ 𝒥. Then Y_j ∈ Lie I_F(J).",
+   "correction": "Assume instead (A^{(j)})^{−1}(Y_j − Ad(A^{(j)}z̃_j)φ(Y_{j−1}))A^{(j)} ∈ v^{−h}Mat_n(J[[v]]), i.e. Ad(A^{(j)})^{−1}(Y_j) − Ad(z̃_j)(φ(Y_{j−1})) ∈ v^{−h}Mat_n(J[[v]]). This is the Lie analogue of v^h(A_2^{(j)})^{−1}I^{(j)}A_1^{(j)} ∈ Mat_n(R[[v]]) in Lemma 5.4.4, and with it the argument of Lemma 5.4.4 goes through (for n ≥ 2). The use in Proposition 5.4.3 survives: there a_j = (A_2^{(j)}−A_1^{(j)})(A_1^{(j)})^{−1}, so (A_1^{(j)})^{−1}a_jA_1^{(j)} = (A_1^{(j)})^{−1}(A_2^{(j)}−A_1^{(j)}) ∈ v^{−h}Mat_n(J[[v]]) by the height condition on A_1.",
+   "reason": "Counterexample: f = 1, n = 2, p = 11, h = 2, s = 1, μ = (3,0), so μ+η = (4,0) and 3 < 4 < p−3, and μ is 3-deep in C_0. Take R = J = F, A = diag(1, v^2) ∈ L^{[0,2]}GL_2(F) and Y = E_21 (constant). Then Ad(z̃)φ(Y) = v^{−4}E_21 and Ad(A)(v^{−4}E_21) = v^{−2}E_21, so Y − Ad(Az̃)φ(Y) = (1 − v^{−2})E_21 ∈ v^{−2}Mat_2(F[[v]]). But Y is not upper triangular mod v, so Y ∉ Lie I_F(J). The 'same argument' as Lemma 5.4.4 bounds Ad(z̃_j)φ(Y_{j−1}) = Ad(A^{(j)})^{−1}(Y_j − b_j), and conjugating by (A^{(j)})^{−1} can lose a further v^h. So it needs the hypothesis on Ad(A^{(j)})^{−1}(b_j), not on b_j.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E102",
+   "kind": "gap",
+   "locator": "Lemma 5.1.10(a),(b),(d) and its proof, PDF105; Lemma 5.4.4, inequality (5.11), PDF118; Proposition 5.4.3, PDF117 (page images checked)",
+   "printed": "In particular, for such a μ to exist we need m + 1 < p. / k_j ≥ pk_{j−1} − max_{α∈R}{⟨μ_j+η_j, α^∨⟩} − h > pk_{j−1} − p + m − h ≥ p(k_{j−1}−1)+1",
+   "correction": "Assume n ≥ 2 in §5. Then an m-deep μ in C_0 forces p ≥ 2m+2, so m+1 < p, and (h+1)-depth gives p ≥ 2h+4 > h+1. For n = 1, one needs p > m in Lemma 5.1.10 and p > h+1 in Lemma 5.4.4 and Proposition 5.4.3.",
+   "reason": "GL_1 has no roots, so m-genericity and (h+1)-depth in C_0 are vacuous (Definition 2.1.10), and nothing in the paper excludes n = 1 (§8 even says 'n > 0'). (i) I = 1+v ∈ I_1(F) has φ(I) = 1+v^p ≢ 1 mod v^{m+1} for m ≥ p, contradicting Lemma 5.1.10(a), (b) with k = 1, and (d) with Y = v. (ii) (5.11) bounds the diagonal entries (exponent 0) by the maximum over roots, which is empty for n = 1. With A_1 = 1 and A_2 = v^{p−1} (both in L^{[0,h]}GL_1 when h ≥ p−1) and I^{(j)} = v^{−1} for all j, A_2z̃_j = I^{(j)}A_1z̃_jφ(I^{(j−1)})^{−1} holds but I ∉ I_F(R), contradicting Lemma 5.4.4. (iii) For K = Q_p, τ trivial and h ≥ p−1, the rank-one Breuil–Kisin modules with Frobenius 1 and v^{p−1} are not isomorphic, but their étale φ-modules are (e ↦ ve). So ε_τ is not a monomorphism, contradicting Proposition 5.4.3. This is the same pattern as E84 and E88.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E103",
+   "kind": "gap",
+   "locator": "Proposition 5.5.9, last sentence of the proof, PDF125 (page image checked); relied on in the proof of Corollary 5.5.10, PDF125",
+   "printed": "In particular we have T^*_dd(M′) ≅ ρ̄^ss, and Proposition 5.5.7 implies furthermore that M′ is semisimple.",
+   "correction": "Before invoking Proposition 5.5.7, show that ρ̄^ss has a lowest alcove presentation with w̃^*(ρ̄^ss)(w̃^*(τ))^{−1} ∈ Gr^{[0,h],J}_{G,F}, equivalently that some semisimple Breuil–Kisin module in Y^{[0,h],τ}(F′) realises ρ̄^ss. The paper obtains such a module in Corollary 5.5.8 only by appeal to [56, Theorem 3.2.20]. Then Proposition 5.5.7 gives a semisimple M″ with T^*_dd(M″) ≅ ρ̄^ss, and Proposition 5.4.3 (ε_τ a monomorphism) gives M′ ≅ M″.",
+   "reason": "Proposition 5.5.7 (PDF123) says only this: for semisimple ρ̄, a semisimple M with T^*_dd(M) ≅ ρ̄ exists iff ρ̄ has such a presentation. It says nothing about an arbitrary M′ with T^*_dd(M′) semisimple. The proof of 5.5.9 produces M′ abstractly, as the point x = 0 of a closed locus, and never checks the criterion for ρ̄^ss. The proof of Corollary 5.5.10 ('By Proposition 5.5.7, M is semisimple of shape …') depends on this step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E104",
+   "kind": "misprint",
+   "locator": "Proposition 5.2.7 proof, paragraph after (5.7), PDF112 (page image checked)",
+   "printed": "if Y_j ∈ Lie T^∨(J) then Ad(A_F^{(j)}s_j^{−1}v^{μ_j+η_j})(φ(Y_{j−1})) = Ad(D̄_jŪ_j)(Ad(s_j^{−1})(Y_{j−1})) ⊂ Ad(D̄_jŪ_j)(Lie T^∨(J))",
+   "correction": "if Y_{j−1} ∈ Lie T^∨(J) then … = Ad(D̄_jŪ_j)(Ad(z̃_js_j^{−1})(Y_{j−1})) ⊂ Ad(D̄_jŪ_j)(Lie T^∨(J)); the inclusion still holds because z̃_j ∈ W̃^∨ normalises T^∨.",
+   "reason": "By construction A_F^{(j)} ≡ D̄_jŪ_jz̃_j (PDF111), and φ and Ad(v^{μ_j+η_j}) fix constant diagonal matrices, so the printed equality drops Ad(z̃_j). That factor permutes diagonal entries, so the two sides differ in general. The hypothesis is also needed on Y_{j−1}, not Y_j.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E105",
+   "kind": "misprint",
+   "locator": "Proposition 5.5.2 proof, last sentence, PDF122 (page image checked)",
+   "printed": "ι_z̃(Dz̃′) ≅ ι_z̃(D′z̃′) if and only if Dz̃ and D′z̃′ are T^{∨,𝒥}(F)-conjugate by shifted conjugation.",
+   "correction": "… if and only if Dz̃′ and D′z̃′ are T^{∨,𝒥}(F)-conjugate by shifted conjugation. The criterion is the monomorphism ι_z̃ of Proposition 5.4.6, which Proposition 5.4.7 incorporates.",
+   "reason": "The two étale φ-modules compared are ι_z̃(Dz̃′) and ι_z̃(D′z̃′). z̃ is the base point of Fl̃^{[a,b]}_{J,z̃}, not the translated fixed point z̃′.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E106",
+   "kind": "misprint",
+   "locator": "Remark 5.2.5, second paragraph, PDF110 (page image checked)",
+   "printed": "Furthermore, in this case Proposition 5.2.2 shows that we can adjust the eigenbasis β … The proof of Proposition 5.2.2 and the fact that …",
+   "correction": "Lemma 5.2.2 (both occurrences).",
+   "reason": "The result numbered 5.2.2 (PDF107) is a Lemma; there is no Proposition 5.2.2. The proof of Proposition 5.2.7 relies on this remark for its case a = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E107",
+   "kind": "misprint",
+   "locator": "Definition 5.5.4, sentence after the definition, PDF123 (page image checked)",
+   "printed": "This is well-defined since ε_τ is a monomorphism (Proposition 5.4.7).",
+   "correction": "Proposition 5.4.3.",
+   "reason": "Proposition 5.4.7 is the commutative diagram (5.13). The monomorphism property of ε_τ is Proposition 5.4.3 (PDF117), and the text introducing 5.4.7 says it is obtained by combining Propositions 5.4.6, 5.4.3 and Corollary 5.2.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E108",
+   "kind": "misprint",
+   "locator": "§5.4.2, definition of Fl̃^{[a,b]}_{J,z̃}, PDF120 (page image checked)",
+   "printed": "where L^{[a,b]}GL_n is as in Definition 5.5.",
+   "correction": "as in (5.5).",
+   "reason": "L^{[a,b]}(GL_n)_F is defined by the displayed equation (5.5) on PDF106; the paper has no Definition 5.5.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E109",
+   "kind": "misprint",
+   "locator": "Proposition 5.4.3 proof, PDF119 (page image checked)",
+   "printed": "while Hom_{Y^{[0,h],τ}(R)}(M_1, M_2) is in bijection with the set of tuple (I^{(j)})_{j∈𝒥} ∈ I_F(R) satisfying the same relation by Proposition 5.1.8.",
+   "correction": "(I^{(j)})_{j∈𝒥} ∈ I(R)^𝒥.",
+   "reason": "Here R is a Noetherian O/ϖ^a-algebra, not an F-algebra. Proposition 5.1.8 gives the group I(R), and the next sentence itself requires solutions to 'belong to I(R)^𝒥'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "24 September 2026: the published author-hosted PDF (math.rice.edu/~bl70/LocModels.pdf, SHA-256 e5647879…) was read and the passage checked on a rendered page image.",
+    "24 September 2026: the bounded correction search recorded for E92–E93 applies (arXiv 2007.05398 v2 is the latest version; the Springer article page and the author's page link no correction). arXiv v2 was not separately compared for this passage."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
