@@ -42775,8 +42775,7 @@
     "AbelianSchemesAndArithmeticModuli"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AbelianSchemesAndArithmeticModuli.json",
-    "content/campaign/AbelianSchemesAndArithmeticModuli/README.md"
+    "research/blueprint/sources/SRC-AbelianSchemesAndArithmeticModuli.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -42813,8 +42812,7 @@
     "AdicEtaleGeometry"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AdicEtaleGeometry.json",
-    "content/campaign/AdicEtaleGeometry/README.md"
+    "research/blueprint/sources/SRC-AdicEtaleGeometry.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -42851,8 +42849,7 @@
     "tauceti:TauCetiRoadmap/AdicSpaces"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AdicSpaces.json",
-    "content/tau-ceti/AdicSpaces/README.md"
+    "research/blueprint/sources/SRC-AdicSpaces.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -42889,8 +42886,7 @@
     "AdicSpacesPartII"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AdicSpacesPartII.json",
-    "content/campaign/AdicSpacesPartII/README.md"
+    "research/blueprint/sources/SRC-AdicSpacesPartII.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -42927,8 +42923,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AdoIwasawa.json",
-    "content/tau-ceti/RepresentationTheory/AdoIwasawa/README.md"
+    "research/blueprint/sources/SRC-AdoIwasawa.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -42965,8 +42960,7 @@
     "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AlgebraicCodingTheory.json",
-    "content/tau-ceti/AlgebraicCodingTheory/README.md"
+    "research/blueprint/sources/SRC-AlgebraicCodingTheory.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43003,10 +42997,7 @@
     "tauceti:TauCetiRoadmap/AlgebraicCurves"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AlgebraicCurves.json",
-    "content/tau-ceti/AlgebraicCurves/PROGRESS.md",
-    "content/tau-ceti/AlgebraicCurves/README.md",
-    "content/tau-ceti/AlgebraicCurves/STATUS.md"
+    "research/blueprint/sources/SRC-AlgebraicCurves.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43043,8 +43034,7 @@
     "tauceti:TauCetiRoadmap/AlgebraicTopology"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AlgebraicTopology.json",
-    "content/tau-ceti/AlgebraicTopology/README.md"
+    "research/blueprint/sources/SRC-AlgebraicTopology.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43081,8 +43071,7 @@
     "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AnalyticToricGeometry.json",
-    "content/tau-ceti/AnalyticToricGeometry/README.md"
+    "research/blueprint/sources/SRC-AnalyticToricGeometry.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43119,8 +43108,7 @@
     "AutomorphicFormsOnReductiveGroups"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-AutomorphicFormsOnReductiveGroups.json",
-    "content/campaign/AutomorphicFormsOnReductiveGroups/README.md"
+    "research/blueprint/sources/SRC-AutomorphicFormsOnReductiveGroups.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43157,8 +43145,7 @@
     "tauceti:TauCetiRoadmap/BelyiMaps"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-BelyiMaps.json",
-    "content/tau-ceti/BelyiMaps/README.md"
+    "research/blueprint/sources/SRC-BelyiMaps.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43195,8 +43182,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-CharacterTheory.json",
-    "content/tau-ceti/RepresentationTheory/CharacterTheory/README.md"
+    "research/blueprint/sources/SRC-CharacterTheory.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43233,8 +43219,7 @@
     "tauceti:TauCetiRoadmap/Chebotarev"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-Chebotarev.json",
-    "content/tau-ceti/Chebotarev/README.md"
+    "research/blueprint/sources/SRC-Chebotarev.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43271,8 +43256,7 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ClassFieldTheory.json",
-    "content/tau-ceti/ClassFieldTheory/README.md"
+    "research/blueprint/sources/SRC-ClassFieldTheory.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43309,8 +43293,7 @@
     "ClassicalAdicEtaleCohomology"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ClassicalAdicEtaleCohomology.json",
-    "content/campaign/ClassicalAdicEtaleCohomology/README.md"
+    "research/blueprint/sources/SRC-ClassicalAdicEtaleCohomology.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43347,8 +43330,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ClassicalGroups.json",
-    "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md"
+    "research/blueprint/sources/SRC-ClassicalGroups.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43385,8 +43367,7 @@
     "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-CombinatorialHeegaardFloer.json",
-    "content/tau-ceti/CombinatorialHeegaardFloer/README.md"
+    "research/blueprint/sources/SRC-CombinatorialHeegaardFloer.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43423,8 +43404,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-CompactGroups.json",
-    "content/tau-ceti/RepresentationTheory/CompactGroups/README.md"
+    "research/blueprint/sources/SRC-CompactGroups.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43461,8 +43441,7 @@
     "tauceti:Completed/ContourIntegration"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ContourIntegration.json",
-    "content/tau-ceti/Completed/ContourIntegration/README.md"
+    "research/blueprint/sources/SRC-ContourIntegration.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43499,8 +43478,7 @@
     "tauceti:TauCetiRoadmap/DenseGraphLimits"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-DenseGraphLimits.json",
-    "content/tau-ceti/DenseGraphLimits/README.md"
+    "research/blueprint/sources/SRC-DenseGraphLimits.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43537,8 +43515,7 @@
     "tauceti:TauCetiRoadmap/EllipticCurves"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-EllipticCurves.json",
-    "content/tau-ceti/EllipticCurves/README.md"
+    "research/blueprint/sources/SRC-EllipticCurves.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43575,8 +43552,7 @@
     "tauceti:TauCetiRoadmap/Exchangeability"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-Exchangeability.json",
-    "content/tau-ceti/Exchangeability/README.md"
+    "research/blueprint/sources/SRC-Exchangeability.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43613,8 +43589,7 @@
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-FuchsianOrbifolds.json",
-    "content/tau-ceti/FuchsianOrbifolds/README.md"
+    "research/blueprint/sources/SRC-FuchsianOrbifolds.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43651,8 +43626,7 @@
     "tauceti:TauCetiRoadmap/GeometricTopology"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-GeometricTopology.json",
-    "content/tau-ceti/GeometricTopology/README.md"
+    "research/blueprint/sources/SRC-GeometricTopology.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43689,8 +43663,7 @@
     "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-GlobalQuadraticForms.json",
-    "content/tau-ceti/GlobalQuadraticForms/README.md"
+    "research/blueprint/sources/SRC-GlobalQuadraticForms.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43727,8 +43700,7 @@
     "tauceti:TauCetiRoadmap/HeegaardFloer"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-HeegaardFloer.json",
-    "content/tau-ceti/HeegaardFloer/README.md"
+    "research/blueprint/sources/SRC-HeegaardFloer.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43765,8 +43737,7 @@
     "HeegnerPointEulerSystems"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-HeegnerPointEulerSystems.json",
-    "content/campaign/HeegnerPointEulerSystems/README.md"
+    "research/blueprint/sources/SRC-HeegnerPointEulerSystems.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43803,8 +43774,7 @@
     "tauceti:TauCetiRoadmap/HopfRinow"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-HopfRinow.json",
-    "content/tau-ceti/HopfRinow/README.md"
+    "research/blueprint/sources/SRC-HopfRinow.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43841,8 +43811,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-InductionRestriction.json",
-    "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md"
+    "research/blueprint/sources/SRC-InductionRestriction.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43879,9 +43848,7 @@
     "tauceti:Completed/IntegralLattices"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-IntegralLattices.json",
-    "content/tau-ceti/Completed/IntegralLattices/PROGRESS.md",
-    "content/tau-ceti/Completed/IntegralLattices/README.md"
+    "research/blueprint/sources/SRC-IntegralLattices.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43918,8 +43885,7 @@
     "tauceti:TauCetiRoadmap/JacobianChallenge"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-JacobianChallenge.json",
-    "content/tau-ceti/JacobianChallenge/README.md"
+    "research/blueprint/sources/SRC-JacobianChallenge.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43956,8 +43922,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-LieGroups.json",
-    "content/tau-ceti/RepresentationTheory/LieGroups/README.md"
+    "research/blueprint/sources/SRC-LieGroups.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -43994,8 +43959,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-LieHighestWeight.json",
-    "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md"
+    "research/blueprint/sources/SRC-LieHighestWeight.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44032,8 +43996,7 @@
     "tauceti:TauCetiRoadmap/LocalFieldsRamification"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-LocalFieldsRamification.json",
-    "content/tau-ceti/LocalFieldsRamification/README.md"
+    "research/blueprint/sources/SRC-LocalFieldsRamification.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44070,8 +44033,7 @@
     "tauceti:TauCetiRoadmap/ModularCurves"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ModularCurves.json",
-    "content/tau-ceti/ModularCurves/README.md"
+    "research/blueprint/sources/SRC-ModularCurves.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44108,8 +44070,7 @@
     "tauceti:TauCetiRoadmap/ModularForms"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ModularForms.json",
-    "content/tau-ceti/ModularForms/README.md"
+    "research/blueprint/sources/SRC-ModularForms.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44146,8 +44107,7 @@
     "tauceti:TauCetiRoadmap/Multiquadratic"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-Multiquadratic.json",
-    "content/tau-ceti/Multiquadratic/README.md"
+    "research/blueprint/sources/SRC-Multiquadratic.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44184,8 +44144,7 @@
     "NeronModelsAndSemistableAbelianVarieties"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-NeronModelsAndSemistableAbelianVarieties.json",
-    "content/campaign/NeronModelsAndSemistableAbelianVarieties/README.md"
+    "research/blueprint/sources/SRC-NeronModelsAndSemistableAbelianVarieties.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44222,8 +44181,7 @@
     "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-NumberFieldArithmetic.json",
-    "content/tau-ceti/NumberFieldArithmetic/README.md"
+    "research/blueprint/sources/SRC-NumberFieldArithmetic.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44260,8 +44218,7 @@
     "tauceti:TauCetiRoadmap/OneParameterSemigroups"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-OneParameterSemigroups.json",
-    "content/tau-ceti/OneParameterSemigroups/README.md"
+    "research/blueprint/sources/SRC-OneParameterSemigroups.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44298,8 +44255,7 @@
     "tauceti:Completed/OrthogonalL2Bases"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-OrthogonalL2Bases.json",
-    "content/tau-ceti/Completed/OrthogonalL2Bases/README.md"
+    "research/blueprint/sources/SRC-OrthogonalL2Bases.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44336,8 +44292,7 @@
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-PolynomialGaloisGroups.json",
-    "content/tau-ceti/PolynomialGaloisGroups/README.md"
+    "research/blueprint/sources/SRC-PolynomialGaloisGroups.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44374,8 +44329,7 @@
     "tauceti:TauCetiRoadmap/ProfiniteCohomology"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ProfiniteCohomology.json",
-    "content/tau-ceti/ProfiniteCohomology/README.md"
+    "research/blueprint/sources/SRC-ProfiniteCohomology.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44412,8 +44366,7 @@
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-QuadraticFormInvariants.json",
-    "content/tau-ceti/QuadraticFormInvariants/README.md"
+    "research/blueprint/sources/SRC-QuadraticFormInvariants.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44450,8 +44403,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-QuiverRepresentations.json",
-    "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md"
+    "research/blueprint/sources/SRC-QuiverRepresentations.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44488,8 +44440,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-RootSystems.json",
-    "content/tau-ceti/RepresentationTheory/RootSystems/README.md"
+    "research/blueprint/sources/SRC-RootSystems.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44526,8 +44477,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-SemisimpleAlgebras.json",
-    "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md"
+    "research/blueprint/sources/SRC-SemisimpleAlgebras.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44564,8 +44514,7 @@
     "ShimuraCompactifications"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-ShimuraCompactifications.json",
-    "content/campaign/ShimuraCompactifications/README.md"
+    "research/blueprint/sources/SRC-ShimuraCompactifications.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44602,8 +44551,7 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-SpinRepresentations.json",
-    "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md"
+    "research/blueprint/sources/SRC-SpinRepresentations.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44640,8 +44588,7 @@
     "tauceti:TauCetiRoadmap/StablePeriodicCurved"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-StablePeriodicCurved.json",
-    "content/tau-ceti/StablePeriodicCurved/README.md"
+    "research/blueprint/sources/SRC-StablePeriodicCurved.result.json"
    ],
    "after": [],
    "state": "pending",
@@ -44678,8 +44625,7 @@
     "tauceti:TauCetiRoadmap/StandardDistributions"
    ],
    "outputs": [
-    "research/blueprint/sources/results/SRC-StandardDistributions.json",
-    "content/tau-ceti/StandardDistributions/README.md"
+    "research/blueprint/sources/SRC-StandardDistributions.result.json"
    ],
    "after": [],
    "state": "pending",
