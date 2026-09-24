@@ -1,0 +1,463 @@
+{
+  "paper": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject. The shared Jacquet–Rallis candidate is the right direction and its area is corrected to automorphic, but the item bundles do not expose the truncation estimates, convergence, transfer and regularization inputs; E1 is not repaired. The exact split/inert adapter 60 is now explicitly missing. Resolve G1–G3 and G6 before design."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Reject. Coalesce the existing GanGrossPrasadConjecturesForClassicalGroups candidate; the local GGP, Bessel uniqueness, weak/strong base-change and unramified Bessel-function statements are still mostly second-hand summaries with unsplit hypotheses. Rank-zero and additive-character conventions need explicit definitions and tests."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "Reject. The Asai/GL_n Part II candidate is shared with BPCZ22, but central averaging (28), λ-domain (31,35), and Jacquet-character normalization have needed correction. Split the multiple propositions and close the local zeta-integral estimates, Epstein residues and §6.2 analytic-continuation/residue suppliers."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject. Reuse the existing SchwartzMultipliers Part II candidate. Items 15 and 16 combine new weights, support estimates, kernel expansions and uniform convergence without the individual statements or input signatures. The nonlinear LF/topological and Arthur cone estimates cannot be inferred from a title or bibliography."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "Reject. Extending LieGroups is appropriate after importing its Borel–Weil–Bott layer, but the original all-component and W_L statements are false. E12–E14, the primary Lefschetz convention, title and tests are corrected; the fixed-point/cohomology-action adapter and proof decomposition remain G5."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject. AL.3 is a plausible archimedean Whittaker owner, but the exact target is character-equivariant. Kemarsky only verifies the complex unitary case, and the general complex, real and p-adic inputs have not all been pinned and matched. SR.5’s integral-family derivative API is not itself a proof of all-field Kirillov surjectivity."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Reject. ET.6 owns the p-adic direction but cannot alone supply an item quantifying over all local fields. AF.1 does not explicitly state the required real/complex unitary-dual classification. Split item 38 and give primary classification statements and bounds in each case."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "Reject. New source request records the correct ML.5 direction and coalesces the Jiang–Zhang grs-descent request. Its exact unitary-group/parity/auxiliary-character theorem and proof are not yet read and extracted; marking it planned would hide this gap."
+    }
+  ],
+  "notes": "Independent reviewer Codex codex-c83e7a; original extraction was Claude Code cc-39fac3, PR #2050 (not this session). All 69 items, all statuses, all routes and all 11 inherited source findings were checked. Applied clear corrections, added eight source findings and route 8, and recorded six concrete remaining gap groups. Read every page of the published paper and selected primary suppliers, searched both pinned Lean trees (9055 Mathlib and 5489 Tau Ceti files) and all 2007 atlas stages, read cited layer descriptions and available audit entries. No specialized library implementation found; basic representations, measures, modular Eisenstein series and Bessel-potential functions do not supply these targets. Finished review; extraction remains partial. Lean is not applicable to this paper-review deliverable.",
+  "itemChecks": [
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/1",
+      "status": "missing",
+      "locatorChecked": "§§1.1.2 and 1.1.4, pp. 2–4",
+      "finding": "Parameter classes, conjugate-dual pairs, central-character normalization and the parameter space match §§1.1.2/1.1.4; split these definitions and component-group data."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/2",
+      "status": "missing",
+      "locatorChecked": "§§1.1.3–1.1.4, pp. 3–4",
+      "finding": "Matches weak base change at split places; do not replace it by strong base change or silently include archimedean compatibility (E1)."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/3",
+      "status": "missing",
+      "locatorChecked": "§1.2.1 and Remark 1.2.1.1, p. 4",
+      "finding": "Matches the cross-factor noncontragredience condition and its use in the Rankin–Selberg period; preserve the distinction from regularity."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/4",
+      "status": "missing",
+      "locatorChecked": "§1.2.4 and Remark 1.2.4.2, pp. 5–6",
+      "finding": "L-value and normalized local form are bundled; restore independent definitions, Laurent leading coefficient and measure dependence. E2 checked."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/5",
+      "status": "missing",
+      "locatorChecked": "§§1.3.1–1.3.2 and §8.1.3, pp. 6–7 and 72–74",
+      "finding": "Bessel flag, unipotent group and character need separate items; clarify the introductory character field and r=0 endpoint rather than evaluating y_r at r=0."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/6",
+      "status": "missing",
+      "locatorChecked": "§§1.3.5–1.3.6, Remarks 1.3.6.2, and §8.4, pp. 8–9 and 76–77",
+      "finding": "Separate weak Harish–Chandra spaces, their LF topology, density, regularized local periods and refined conjecture. §8.4 explicitly warns that fixed-growth spaces lack the same density."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/7",
+      "status": "missing",
+      "locatorChecked": "§8.6.1, p. 79",
+      "finding": "The factorization uses local multiplicity one in different fields. Statements of ARS/GGP/JSZ with field and continuity hypotheses remain to be extracted."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/8",
+      "status": "missing",
+      "locatorChecked": "(8.7.2.4) and proof of Lemma 8.7.2.2, pp. 87–88",
+      "finding": "Paper locators match; Khoury/Liu/Zhang formulas and normalizations are still second-hand suppliers, not a closed theorem."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/9",
+      "status": "missing",
+      "locatorChecked": "§7.3.1 and §7.3.4, pp. 71–72",
+      "finding": "Local GGP supplies nonvanishing of the semilocal distribution; do not infer positivity or all-form equivalence without the precise local statement."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/10",
+      "status": "missing",
+      "locatorChecked": "Theorem 1.2.3.1 and Remark 1.2.3.2, p. 5; proof §7.2, pp. 69–70",
+      "finding": "Main equivalence matches p.5: H-regular Π, imaginary parameter, and existence of a unitary cuspidal datum with a nonzero regularized period. Proof still consumes E1 and transfer inputs."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/11",
+      "status": "missing",
+      "locatorChecked": "Theorem 1.2.4.1, p. 6; proof §7.3, pp. 70–72",
+      "finding": "Formula matches p.6; retain regular Hermitian Π and everywhere-tempered σ, nonzero pure tensor and Tamagawa normalization. Do not add an unstated H-regularity hypothesis."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/12",
+      "status": "missing",
+      "locatorChecked": "Theorem 1.3.3.1 and Remarks 1.3.3.2, p. 7; reduction §1.3.4, pp. 7–8, and §8.8",
+      "finding": "Main Bessel equivalence matches p.7 with G_m×G_{n+1}; r=0 and m=0 reductions are separate boundary cases (E3–E4)."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/13",
+      "status": "missing",
+      "locatorChecked": "Theorem 1.3.6.1, p. 9; proof §§8.5–8.8",
+      "finding": "Refined Bessel identity matches p.9 for everywhere-tempered cuspidal σ and normalized local factors; proof depends on the full §8 reduction."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/14",
+      "status": "planned",
+      "locatorChecked": "§§2.3.1–2.3.3, pp. 16–17",
+      "finding": "AS.3 plans truncation; AA.3 supplies reduction/Siegel domains. The partition, characteristic-function definition and equivalent description still need splitting."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/15",
+      "status": "missing",
+      "locatorChecked": "§§2.3.3–2.3.4, pp. 17–19",
+      "finding": "Four numbered statements plus a weight construction are combined; write each support/bound with its quantifiers and the λ-cone, not only its locator."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/16",
+      "status": "missing",
+      "locatorChecked": "Lemma 3.5.6.1, Lemma 3.5.6.2 and Remark 3.5.6.3, pp. 32–34",
+      "finding": "Lemma 3.5.6.1, its analytic bounds and the residual-spectrum vanishing argument need separate statements and an explicit unitary-regular spectral input."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/17",
+      "status": "missing",
+      "locatorChecked": "§§3.1–3.2.2 and Remark 3.2.2.1, pp. 19–22",
+      "finding": "Unitary setup and modified kernel match §3.1–3.2; split parabolic correspondence, constant terms, truncated kernel and its absolute-convergence bounds."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/18",
+      "status": "missing",
+      "locatorChecked": "Theorem 3.2.3.1, p. 22; proof §3.4.3, pp. 26–27",
+      "finding": "The coarse expansion has convergence, polynomial-exponential dependence and a constant term; separate each assertion and its domain."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/19",
+      "status": "missing",
+      "locatorChecked": "§§3.3.2–3.3.4, Proposition 3.3.3.1, Lemmas 3.3.3.2 and 3.3.4.1, and (3.5.3.3), pp. 22–25 and 31",
+      "finding": "The truncation operator, three estimates and cancellation identity are distinct items; restore the support condition corrected in E17."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/20",
+      "status": "missing",
+      "locatorChecked": "Theorem 3.3.5.1, Corollary 3.3.5.2, §3.4, Theorem 3.4.2.1, Corollary 3.4.2.2, Lemmas 3.4.5.1–3.4.5.2, pp. 25–30",
+      "finding": "Eight cited estimates/theorems are bundled; isolate the kernel comparison, truncation comparison and limit statements. E6 and E18 checked."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/21",
+      "status": "missing",
+      "locatorChecked": "§3.5.2 and §7.1.5, pp. 30 and 65",
+      "finding": "U-, U′- and joint regularity match their separate definitions. Keep the three predicates and their implication API distinct."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/22",
+      "status": "missing",
+      "locatorChecked": "§1.2.2, Proposition 3.5.3.1 and §3.5.4, pp. 4–5 and 30–32",
+      "finding": "The regularized period and Proposition 3.5.3.1 match; separate meromorphic continuation, T-independence under regularity and continuity."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/23",
+      "status": "missing",
+      "locatorChecked": "§3.5.5 and Proposition 3.5.5.1, p. 32",
+      "finding": "Relative-character definition and Proposition 3.5.5.1 are distinct: basis independence, regularity and continuity require explicit supplier statements."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/24",
+      "status": "missing",
+      "locatorChecked": "Proposition 3.5.6.4 and Theorem 3.5.7.1, pp. 34–36",
+      "finding": "Two expansion statements are bundled. The correct BPCZ relative-character convergence locator is Proposition 2.8.4.1 (E10), read at its source."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/25",
+      "status": "missing",
+      "locatorChecked": "§§4.1.3–4.1.4 and §7.1.4, pp. 38 and 64",
+      "finding": "Hermitian/regular data and the Levi assembled from paired constituents match pp.38/64; split their definitions and prove independence of ordering."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/26",
+      "status": "missing",
+      "locatorChecked": "§4.1.5, Lemma 4.1.5.1 and (4.1.5.6), pp. 38–39",
+      "finding": "Intertwining periods, conjugation representatives and parabolic descent need separate constructions with convergence/continuation hypotheses."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/27",
+      "status": "missing",
+      "locatorChecked": "§§4.1.6–4.1.7, pp. 39–40",
+      "finding": "Corrected extra conjugation; the existing φ-bar is necessary. Separate the Rankin–Selberg period and relative-character definition/Schwartz theorem."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/28",
+      "status": "missing",
+      "locatorChecked": "Proof of Lemma 4.1.9.1, pp. 41–42",
+      "finding": "Corrected central-average coefficient to 2^{-dim a_L^G}; read Chaudouard §§7.2–7.3. Extract the supplier’s relative-character construction and proof dependencies."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/29",
+      "status": "missing",
+      "locatorChecked": "Lemma 4.1.9.1, pp. 41–42",
+      "finding": "Corrected extra conjugation in (4.1.9.4); coefficient 2^{-dim a_L} is appropriate for the unaveraged kernel."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/30",
+      "status": "missing",
+      "locatorChecked": "Theorem 4.1.8.1 and §4.1.9, pp. 40–43",
+      "finding": "The stated linear-side contribution matches Theorem 4.1.8.1; closure still depends on 26–29, tensor convergence and regularization."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/31",
+      "status": "missing",
+      "locatorChecked": "§§4.2.1–4.2.7, Propositions 4.2.5.1, 4.2.6.1, 4.2.7.1, pp. 43–46",
+      "finding": "Split three identities; only the Flicker–Rallis/intertwining identity has λ in i a_M^{L,*}. Whittaker measures and Laurent coefficients need their own definitions."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/32",
+      "status": "missing",
+      "locatorChecked": "(4.2.8.1) and Theorem 4.2.8.1, p. 46; announced in §1.4.3, p. 11",
+      "finding": "Whittaker relative-character identity matches; keep its genuine conjugation on β. E7 is a notation correction, not an extra conjugation to remove."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/33",
+      "status": "missing",
+      "locatorChecked": "§§5.1.1–5.1.3 and Lemma 5.1.2.1, pp. 46–47",
+      "finding": "Double-coset/involution classification matches Lemma 5.1.2.1; pin JLR’s representatives and stabilizers independently."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/34",
+      "status": "missing",
+      "locatorChecked": "§5.1.3, p. 47",
+      "finding": "Basic intertwining period for σ⊠σ* matches §5.1.3; holomorphic domains and distinction assumptions are handled later, not automatic here."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/35",
+      "status": "missing",
+      "locatorChecked": "§5.2 and Proposition 5.2.2.1, pp. 47–48",
+      "finding": "Corrected D_r to the λ-domain; separate the Epstein series, meromorphic continuation and residues. The Jacquet–Shalika residue normalization still needs its primary-source check."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/36",
+      "status": "missing",
+      "locatorChecked": "§§5.3–5.4.8, Propositions 5.3.4.1, 5.4.4.1, 5.4.5.1, Corollary 5.4.5.2, Lemma 5.4.6.1, pp. 48–55",
+      "finding": "Multiple pseudo-Eisenstein, Jacquet-integral and orthogonality results are bundled; E19 corrects the missing local character factor."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/37",
+      "status": "missing",
+      "locatorChecked": "Lemma 5.5.2.1, pp. 55–56",
+      "finding": "Lemma 5.5.2.1 has three separate analytic assertions. Its generic-unitary exponent bound and local uniformity need exact field-specific inputs."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/38",
+      "status": "missing",
+      "locatorChecked": "Proof of Lemma 5.5.2.1, p. 56",
+      "finding": "All-field statement is not supplied by ET.6 alone; the real/complex classification needs its own item and AF.1 source request."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/39",
+      "status": "missing",
+      "locatorChecked": "Theorem 5.5.1.1 and §5.5.2, pp. 55–57",
+      "finding": "Theorem 5.5.1.1 matches the meromorphic identity and its two stated holomorphy cases; retain possible λ=0 pole when σ is distinguished."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/40",
+      "status": "missing",
+      "locatorChecked": "§§6.2.1–6.2.5, pp. 58–59",
+      "finding": "General Hermitian multiplicities, regular specialization, β_n and stabilization in S are different definitions/results; preserve the J-empty condition under regularity."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/41",
+      "status": "missing",
+      "locatorChecked": "Theorem 6.2.6.1, Corollary 6.2.7.1, §§6.2.8–6.2.9, pp. 59–62",
+      "finding": "Three parts of Theorem 6.2.6.1 and Corollary 6.2.7.1 must be split. Residue factors, Schwartz continuity and the central factor 1/2 are material."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/42",
+      "status": "missing",
+      "locatorChecked": "Theorem 6.1.1.1 and §6.3, pp. 57 and 62–63",
+      "finding": "Alternative proof reaches the same contribution as 30; keep one theorem owner and record this proof route and its additional analytic suppliers."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/43",
+      "status": "missing",
+      "locatorChecked": "§§7.1.2–7.1.5 and Remarks 7.1.5.1, pp. 63–65",
+      "finding": "Corrected bc to the inverse antidiagonal identification. The sum over cuspidal data and its normal convergence need separate items."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/44",
+      "status": "missing",
+      "locatorChecked": "Lemmas 7.1.7.1 and 7.1.7.2 and §7.1.7, pp. 66–68",
+      "finding": "Two multiplier lemmas and their level conditions are distinct; restore spectral twists in the comparison, and leave E1’s endoscopic compatibility proof open."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/45",
+      "status": "missing",
+      "locatorChecked": "Theorem 7.1.6.1, Remark 7.1.6.2, §7.1.7, pp. 65–69",
+      "finding": "The relative-character identity matches pp.65–69, including test-function transfer and unramified conditions. Stone–Weierstrass separation is an omitted supplier."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/46",
+      "status": "missing",
+      "locatorChecked": "§§7.3.1–7.3.2, pp. 70–71",
+      "finding": "Separate local relative characters and the global factorization; the Asai denominator is the Laurent leading coefficient (E9)."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/47",
+      "status": "missing",
+      "locatorChecked": "§7.3.4, p. 72",
+      "finding": "The cited local comparison is used for induced tempered representations; its transfer, measure and normalization hypotheses remain to be extracted from the primary supplier."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/48",
+      "status": "planned",
+      "locatorChecked": "§7.3.1 and §7.3.4, pp. 70–71",
+      "finding": "ML.4 explicitly plans Arthur/Mok/KMSW classification inputs; keep planned status while requiring precise theorem pins and all-place compatibility adapters."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/49",
+      "status": "missing",
+      "locatorChecked": "Proof of Lemma 7.1.7.1, p. 66, and Remarks 1.3.3.2, p. 7",
+      "finding": "Changed to missing; ML.5 does not explicitly state this descent theorem. Added source route 8, coalesced with Jiang–Zhang’s classical GRS input."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/50",
+      "status": "missing",
+      "locatorChecked": "§§7.2.2–7.2.3 and §7.3.3, pp. 69–71",
+      "finding": "Transfer and positivity are different results. Approximation at nonsplit archimedean places must not become an assertion of unrestricted exact transfer."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/51",
+      "status": "missing",
+      "locatorChecked": "§§8.1.1–8.1.3, pp. 72–74",
+      "finding": "Corrected ℬ′: subgroup of U′ intersected with ℬ under the unitary embedding, with a Levi projection to ℬ_L; not U′∩ℬ_L."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/52",
+      "status": "missing",
+      "locatorChecked": "§8.2, pp. 74–75",
+      "finding": "Split self-dual measures, convergence factors, ν constants and Fourier inversion; keep the ν^{-1} factor and local/global normalization identities."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/53",
+      "status": "missing",
+      "locatorChecked": "§8.3, pp. 75–76",
+      "finding": "Three global period definitions and their separate convergence hypotheses match §8.3; record the Whittaker sign explicitly."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/54",
+      "status": "missing",
+      "locatorChecked": "Proposition 8.5.1.1, pp. 77–79",
+      "finding": "Global unfolding matches Proposition 8.5.1.1 in a right half-plane; mirabolic Fourier expansion and the torus convergence estimate are omitted suppliers."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/55",
+      "status": "missing",
+      "locatorChecked": "Proposition 8.6.1.1 and Lemma 8.6.1.2, pp. 79–82",
+      "finding": "Split convergence, tempered half-plane, nonvanishing equivalence and growth estimates. General generic τ cannot be justified only by Kemarsky’s unitary theorem."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/56",
+      "status": "missing",
+      "locatorChecked": "Proof of Proposition 8.6.1.1, p. 82",
+      "finding": "Corrected twisted compact-modulo-N target. Primary complex theorem read; real, p-adic, nonunitary extension, split products and r=0,1 boundaries remain explicit gaps."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/57",
+      "status": "missing",
+      "locatorChecked": "Proposition 8.6.2.1 and Lemma 8.6.2.2, pp. 82–84",
+      "finding": "Separate Proposition 8.6.2.1 and Lemma 8.6.2.2, weak-Schwartz continuity and Fourier inversion. Preserve the two independent tensor slots (E16)."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/58",
+      "status": "missing",
+      "locatorChecked": "Proposition 8.7.2.1, Lemmas 8.7.2.2–8.7.2.3 and (8.7.2.2)–(8.7.2.8), pp. 84–90",
+      "finding": "Published corrected unramified formula is used; split both lemmas and the determinant/Cauchy calculations. Its Appendix application uses the corrected local Γ_v and Frobenius component."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/59",
+      "status": "planned",
+      "locatorChecked": "(8.7.2.3), p. 87",
+      "finding": "AL.3 supplies unramified Whittaker calculations; normalization L_W(φ°)=1 and the L-group/Satake dictionary remain explicit consumer conventions."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/60",
+      "status": "missing",
+      "locatorChecked": "Lemma 8.7.2.3, p. 88",
+      "finding": "Changed full L-group identity to missing; connected Cauchy and Schur-character results remain upstream imports, while split/inert and q_E adapters go to route 1."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/61",
+      "status": "missing",
+      "locatorChecked": "§8.8.1 and Proposition 8.8.2.1, p. 91",
+      "finding": "Separate global identity (8.8.1.1) from nonvanishing equivalence. Analytic continuation and existence of a nonzero Whittaker vector are essential inputs."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/62",
+      "status": "missing",
+      "locatorChecked": "§8.8.3 and Proposition 8.8.3.1, pp. 91–94",
+      "finding": "Corrected (8.8.3.2) tensor slots via E16. Separate regularized Euler products, inner-product factorizations and the final implication."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/63",
+      "status": "missing",
+      "locatorChecked": "(8.8.3.4), p. 94",
+      "finding": "Whittaker factorization matches (8.8.3.4); extract the Lapid–Mao/Jacquet–Shalika supplier with induced, unitary and measure hypotheses."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/64",
+      "status": "planned",
+      "locatorChecked": "Appendix A, proof of Proposition A.0.2.1, p. 95",
+      "finding": "LieGroups Layer 8 explicitly plans Borel–Weil–Bott. Keep it as an import; a convention map for χ, the associated bundle and group action is still required."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/65",
+      "status": "missing",
+      "locatorChecked": "Appendix A, proof of Proposition A.0.2.1, p. 95",
+      "finding": "Replaced ambiguous action/inverse-derivative expression with Atiyah–Bott’s explicit f*ℒ→ℒ convention, read on original pp.458–459."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/66",
+      "status": "missing",
+      "locatorChecked": "Appendix A, A.0.1–A.0.2, Proposition A.0.2.1, pp. 94–95",
+      "finding": "Corrected singular case to generator component and retained alternating cohomology sign. Counterexample on the identity component verifies E12/E14."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/67",
+      "status": "missing",
+      "locatorChecked": "Appendix A, Corollary A.0.2.2, pp. 95–96",
+      "finding": "Corrected W_L to the Γ-fixed Weyl subgroup and restricted to generator component. Torus×C₂ and swapped-SL₂ examples verify E12/E13."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/68",
+      "status": "planned",
+      "locatorChecked": "§2.2.4, pp. 15–16",
+      "finding": "AS.1–AS.2 explicitly own induced families, Eisenstein series and intertwining operators; split convergence, continuation and functional equations."
+    },
+    {
+      "item": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/69",
+      "status": "planned",
+      "locatorChecked": "§§2.1–2.2.5, pp. 12–16",
+      "finding": "AF.2–AF.3, AS.4 and AA.2 supply the directions stated. The item bundles many objects; topology, central normalization, K-bases, spectral projectors and kernels need separate APIs."
+    }
+  ]
+}
