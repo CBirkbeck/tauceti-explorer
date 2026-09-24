@@ -29417,7 +29417,8 @@
     "RT-AREA-langlands-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-langlands-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1500"
   },
   {
    "id": "RT-AREA-langlands-2",
@@ -29741,8 +29742,9 @@
     "RT-AREA-padic-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-padic-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1512"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1512",
+   "finishedAt": "2026-09-24T09:23:56Z"
   },
   {
    "id": "RT-AREA-padic-3",
