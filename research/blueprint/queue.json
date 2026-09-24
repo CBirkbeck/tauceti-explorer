@@ -21163,8 +21163,9 @@
     "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #985"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF0",
@@ -22019,9 +22020,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1003"
+   "note": "released on GitHub issue #1003"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB3",
