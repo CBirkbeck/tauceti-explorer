@@ -4291,8 +4291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -26234,7 +26234,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1746"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -26435,8 +26436,9 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1622"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1622",
+   "finishedAt": "2026-09-24T00:57:19Z"
   },
   {
    "id": "RT-RS-28",
@@ -27598,7 +27600,8 @@
     "REV-AUDIT-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1583"
   },
   {
    "id": "RT-AUDIT-18",
