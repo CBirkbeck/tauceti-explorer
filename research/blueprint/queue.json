@@ -26262,8 +26262,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1749"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1749",
+   "finishedAt": "2026-09-24T01:11:14Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -29980,7 +29981,8 @@
     "RT-AREA-representations-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-representations-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1530"
   },
   {
    "id": "RT-AREA-representations-2",
@@ -30272,7 +30274,8 @@
     "RT-AREA-probability"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-probability.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1542"
   },
   {
    "id": "RT-AREA-combinatorics",
