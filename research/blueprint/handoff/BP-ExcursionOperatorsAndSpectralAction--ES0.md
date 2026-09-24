@@ -1,6 +1,37 @@
 # Handoff — BP-ExcursionOperatorsAndSpectralAction--ES0 (issue #726)
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-es0`.
+Agent: Claude Code, session `cc-7b31c4`. Branches `cc-7b31c4-bp-es0` (pull request
+#2862, merged) and `cc-7b31c4-bp-es0-audit` (this correction).
+
+## Correction, 24 September 2026
+
+The first version of this job said there is "no reviewed audit in
+`data/library-coverage.json`" for this roadmap. **That is wrong.** `AUDIT-20`, reviewed
+as `REV-AUDIT-20` on 17 September 2026 with 240 targets checked and 89 corrections,
+covers all seventeen layers and returns **not built** for every one. The verdicts
+overturn nothing planned here, but two of the audit's target notes do change the packet,
+and both corrections are applied:
+
+- **`ES0` was recorded as *partial*, not absent.** Mathlib at the pinned commit already
+  has `CategoryTheory.CatCenter C = End (𝟭 C)`, with `CatCenter.app`,
+  `CatCenter.naturality`, `CatCenter.ext`, `CatCenter.mul_app` and
+  `Linear.toCatCenter : R →+* CatCenter C`. The node
+  `ES0/bernstein-center-of-a-category` re-planned that. It now **cites** those five
+  declarations and owns only what the audit says is missing: the degree-zero centre
+  `π₀ End(id)` of a *stable* Λ-linear enhancement, with its condensed structure — the
+  object the proof of IX.5.1 actually names. The suggested Lean file now abbreviates
+  `centre := CatCenter` and proves the naturality and scalar items by citation.
+- **`ES3`'s coefficient hypothesis is statable at the pins.** The audit records that,
+  although the dual group is absent as a group scheme, `π₁(Ĝ)` is the quotient of the
+  character lattice by the root lattice and `RootPairing.flip` expresses it. That
+  declaration is now cited.
+- **`ES0` duplicates `GlobalShtukasAndFunctionFieldLanglands:GS.5`**, which builds the
+  same excursion operators with the same relations globally over a function field. A
+  request to it is added, with a note that a restructuring job should decide which layer
+  owns the shared algebra.
+
+Everything else in the packet is unchanged: 26 nodes, 23 planets, the same sources and
+the same locators.
 
 ## Deliverables
 
@@ -32,8 +63,9 @@ every `implementationStatus` is `unchecked`.
 
 **This roadmap has no integrated decomposition.** There is no file for
 `ExcursionOperatorsAndSpectralAction` in `data/decompositions/`, no draft in
-`research/expansion/drafts/`, no external contribution and no reviewed audit in
-`data/library-coverage.json`. All 26 nodes were written from Fargues–Scholze read
+`research/expansion/drafts/` and no external contribution. There **is** a reviewed
+library audit — `AUDIT-20`, see the correction above — and it returns *not built* for
+every layer. All 26 nodes were written from Fargues–Scholze read
 directly in this session, from `Geometrization.pdf` whose SHA-256
 `9ab9efbd0df251bf…` reproduces the recorded value byte for byte. The text was extracted
 by inflating the PDF's object streams and reading its text operators; printed pages came
