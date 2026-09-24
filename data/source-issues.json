@@ -123737,6 +123737,104 @@
    "reviewReason": "Reverse the orientation of a nonseparating curve: the twist is unchanged and its nonzero primitive homology class is negated. Equality of the rank-one symplectic operators conversely identifies the primitive line up to sign. This sentence is not needed for the surjectivity theorem. The displayed passage was checked visually in the PDF."
   },
   {
+   "id": "MotivesAndAlgebraicCycles/E1",
+   "kind": "misprint",
+   "locator": "Huber and Mueller-Stach, arXiv:1105.0865v5, Theorem 2.10, page 11",
+   "printed": "then the space of formal periods P (Definition 2.4) agrees with the comparison algebra A_{1,2} (Definition 2.8). P = P_{1,2} = A_{1,2}.",
+   "correction": "The two parenthetical references are crossed and neither is right. The space of formal periods P is Definition 2.8; the comparison algebra A_{1,2} is Definition 2.1; Definition 2.4 defines the third term of the display, the space of periods P_{1,2} of a diagram. The sentence should read: the space of formal periods P (Definition 2.8) agrees with the comparison algebra A_{1,2} (Definition 2.1).",
+   "reason": "Checked against the numbering in the same section of the same file. Definition 2.1 puts A_{1,2} equal to the colimit over finite subdiagrams of the dual of the homomorphisms between the two restricted representations. Definition 2.4 defines the space of periods P_{1,2} by generators and relations attached to vertices of the diagram. Definition 2.8 defines the effective formal periods and then P as a localisation. Corollary 3.4, on page 13, cites Definition 2.8 for P, which confirms the intended attribution.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version, with no later version and no comment recording an erratum",
+    "the published version's own numbering could not be compared, since this finding is about the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E2",
+   "kind": "misprint",
+   "locator": "Huber and Mueller-Stach, arXiv:1105.0865v5, proof of Corollary 3.4, page 13",
+   "printed": "By Theorems 2.6 and 2.9 we have A_{1,2} = P = P_{1,2}",
+   "correction": "The second reference should be Theorem 2.10. The numbered item 2.9 in that paper is a remark, comparing the definition of formal periods with Kontsevich's; the result that identifies P with P_{1,2} is Theorem 2.10.",
+   "reason": "Checked against the numbering of Section 2 in the same file: 2.1 and 2.4 and 2.8 are definitions, 2.2 and 2.5 are a lemma and a proposition, 2.6 is the theorem that the natural map from P_{1,2} to A_{1,2} is an isomorphism, 2.7 and 2.9 are remarks, and 2.10 is the theorem that P equals P_{1,2}. The displayed chain of three equalities needs exactly 2.6 and 2.10.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for arXiv:1105.0865, where v5 is the most recent version and no erratum is recorded"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E3",
+   "kind": "misprint",
+   "locator": "The Stacks Project, tag 0FG0, proof of the composition lemma, in the list of justifications after the displayed chain of equalities",
+   "printed": "The fourth equality follows from the projection formula for p^{1234}_{134}. The fourth equality is that proper pushforward is compatible with composition.",
+   "correction": "The second occurrence should read: the fifth equality is that proper pushforward is compatible with composition.",
+   "reason": "The displayed computation in that proof is a chain of six expressions, hence five equalities, and the justifications are given in order: the first is the definition of composition, the second is flat pullback against proper pushforward, the third is that the intersection product commutes with the Gysin map of a flat projection, and then two more remain. Naming the fourth twice leaves the fifth unjustified and one justification attached to the wrong step.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the current master of the Stacks Project source repository, where the file weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contains both occurrences",
+    "the tag page for 0FG0, which displays the same text"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E4",
+   "kind": "misprint",
+   "locator": "The Stacks Project, tag 0FG5, proof of part (2)",
+   "printed": "Proof of (2). Recall that [Gamma_f]_*(beta) = pr_{1,*}([Gamma_f] . pr_2^*beta).",
+   "correction": "The operation on the left is the pullback by the correspondence and should be written [Gamma_f]^*(beta); the displayed formula is the definition of pullback, not of pushforward.",
+   "reason": "In the same chapter the two operations are defined by c^*(beta) = pr_{1,*}(c . pr_2^*beta) and c_*(alpha) = pr_{2,*}(c . pr_1^*alpha). Part (2) of the lemma is the statement about pullback of cycles by the correspondence, and the displayed right hand side is the first of those two formulas. Written as printed, the proof of part (2) opens by recalling a formula for the operation that part (1) is about, with the wrong right hand side attached to it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the current master of the Stacks Project source repository, where weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still prints the subscript star",
+    "the tag page for 0FG5, which displays the same text"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E5",
+   "kind": "misprint",
+   "locator": "The Stacks Project, tag 0FG5, proof of part (1), last sentence",
+   "printed": "Then we coclude because pr_{2,*} composed with (f, 1)_* = 1_*.",
+   "correction": "Read: then we conclude.",
+   "reason": "A spelling slip; the sentence is otherwise correct and the identity it states is the one the proof needs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the current master of the Stacks Project source repository, where weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contains the misspelling"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E1",
    "kind": "misprint",
    "locator": "§1.6, arXiv v3 p. 7; published p. 902; compare Theorem 10.1 on published p. 969.",
