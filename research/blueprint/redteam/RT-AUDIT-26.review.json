@@ -320,7 +320,7 @@
     "publicationBase": "0b5c10216482a0180cabc80331f1a4625a6ebaa6",
     "unchangedInputBlobs": 42,
     "claimComment": 5808145722,
-    "claimConfirmation": 5807949225,
-    "baselineSourceHashes": "9055 Mathlib and 2689 Tau Ceti tracked Lean files match their pins"
+    "claimConfirmation": 5808146975,
+    "baselineSourceHashes": "9055 Mathlib and 5489 Tau Ceti tracked Lean files match their pins"
   }
 }
