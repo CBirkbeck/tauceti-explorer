@@ -17099,8 +17099,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E5.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #720"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E5",
@@ -19367,9 +19368,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-LanglandsParameterStacks.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #767"
+   "note": "released on GitHub issue #767"
   },
   {
    "id": "REV-LanglandsParameterStacks",
