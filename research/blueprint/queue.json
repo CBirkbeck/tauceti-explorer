@@ -29099,8 +29099,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-automorphic-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1491"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1491",
+   "finishedAt": "2026-09-24T08:05:36Z"
   },
   {
    "id": "REV-RT-AREA-automorphic-1",
@@ -29701,7 +29702,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-padic-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1513"
   },
   {
    "id": "REV-RT-AREA-padic-2",
@@ -30059,7 +30061,8 @@
     "RT-AREA-geomlanglands"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-geomlanglands.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1524"
   },
   {
    "id": "RT-AREA-commutative",
