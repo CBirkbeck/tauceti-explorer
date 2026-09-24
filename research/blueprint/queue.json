@@ -25865,7 +25865,8 @@
     "REV-PAPER-BENNETT-SIKSEK-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1732"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -25885,8 +25886,9 @@
     "REV-PAPER-COUVEIGNES-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-COUVEIGNES-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1735"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1735",
+   "finishedAt": "2026-09-24T01:49:02Z"
   },
   {
    "id": "REV-RT-PAPER-COUVEIGNES-20",
@@ -25973,8 +25975,9 @@
     "REV-PAPER-MARTIN-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MARTIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1739"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1739",
+   "finishedAt": "2026-09-24T01:49:03Z"
   },
   {
    "id": "REV-RT-PAPER-MARTIN-25",
