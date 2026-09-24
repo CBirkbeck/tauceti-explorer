@@ -1,0 +1,52 @@
+{
+ "paper": "PAPER-DOSPINESCU-LEBRAS-17",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "The pending Part II owns the geometric realisation of the p-adic correspondence for GL_2(Q_p) in the Drinfeld tower, and its étale statement quotes this paper's theorem as an input; the de Rham realisation is the first layer of the same roadmap, not a new direction. The title begins with the parent's exact atlas title and matches the candidate's, which Colmez–Dospinescu–Nizioł (2020, 2023) also use; the brief names E7, E9, E16, E19, E22, E24, E27, E30, E38, E40 and E41."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "The pending roadmap already plans the tower M^ϖ_n, the analysis of Stein curves (Kiehl, Serre duality, Steinberg descriptions of O(Ω) and Ω^1(Ω)), the de Rham computations of the tower and the global method by p-adic uniformisation; the paper's §§3–5 and 10 are the same objects over Q_p. The id and title match Colmez–Dospinescu–Nizioł's candidate (2020, 2023); Boxer–Calegari–Gee–Pilloni (2025) use the same id with a shorter title (see the questions in the review report). The brief names E12, E14 and E16."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "The pending roadmap plans the Schneider–Teitelbaum distribution algebra and coadmissible modules; the paper's uses of them are instances, and Frommer's theorem and Lemmas 5.9–5.10 are general facts of the same theory. The id and title match the candidate that Ding (2025), Boxer–Calegari–Gee–Pilloni (2025) and Colmez–Dospinescu–Nizioł (2020) also use; the brief names E11."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "The pending roadmap plans trianguline (φ, Γ)-modules and triangulations; Colmez's two-dimensional definition and eigenvector criterion are its base case, which no layer of the atlas owns. The id and title match the candidate that Ding (2025), Breuil–Hellmann–Schraen (2019) and Newton–Thorne (2021) also use."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "The stages CompletedCohomologyAndLocalGlobalCompatibility:R31.1, CompletedCohomologyAndLocalGlobalCompatibility:R31.2, CompletedCohomologyAndLocalGlobalCompatibility:R31.4 own this: R31.1–R31.4 plan completed cohomology of modular and Shimura curves, its classical specialisations and Emerton's local–global compatibility (R31.4 names Emerton's unpublished manuscript). The Lemme 5.6 item carries E2."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "The stages PadicHodgeTheory:R06.3 own this: R06.3 plans the p-adic monodromy theorem and the bridge from de Rham representations to differential modules (RD.2 exports the analytic monodromy theorem to it)."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "The stages PhiGammaModulesAndIwasawaCohomology:PG.5 own this: PG.5 plans the ψ-complex and H^1_Iw ≅ D(T)^{ψ=1}. The item for the generation statement of [52] carries E24."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "The stages PadicDifferentialEquationsAndRigidCohomology:RD.1 own this: RD.1 plans differential modules over the Robba ring; Kedlaya's duality between the cokernel and the kernel of ∂ is a statement of that layer."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "The stages GL2AutomorphicRepresentationsAndTransfer:R16.2 own this: R16.2 specialises local smooth representation theory to GL_2, including the explicit supercuspidal descriptions; Henniart's unicity of types for GL_2 is a statement of that layer."
+  }
+ ],
+ "notes": "Independent review REV-PAPER-DOSPINESCU-LEBRAS-17 by Claude Code, session cc-2aeb03; the extraction was written by Claude Code (cc-39fac3, #2093). arXiv:1509.00606v2, the authors' final version the extraction read (hash matching), was read in full on page images in six ranges against every item. Corrected in place: 122 item fields (52 statements, 36 locators, 30 names, 4 kinds) and 2 notes; 36 bundled items split or narrowed, one numbered result per item; 88 items added (4 planned) for the split-off results and for definitions, constructions and cited inputs the proofs use; no item removed. The briefs of routes 1–3 and the items of the source routes carry the confirmed corrections. Prerequisites: the 13 entries checked, and 7 cited works the proofs use as black boxes added (Colmez's Astérisque 330 memoir among them). Mistakes: E1–E5 confirmed, E2 revised. 40 new claims were checked a second time, independently: 34 confirmed, 5 reclassified, 1 rejected; two duplicates were folded, and the rest are E6–E42. The main new ones: Théorème 1.10 is false as printed, found independently by two readers and confirmed by two verifiers: a locally constant function on Σ_0 equal to 1 on one copy of Ω and −1 on the other is infinitely primitivable but not in O(Ω); it holds with conclusion f ∈ H^0_dR(Σ_n)·O(Ω), for components with trivial central character (E9, E40). Proposition 7.7 b) is false for k ≥ 2 (E19), unused there. Gaps in the proofs of Lemme 3.3, Théorèmes 5.1, 8.3 and 9.7, Propositions 8.4 a) and 11.10 and Remarque 11.13, and in the uniqueness of Théorème 1.7 (E7, E12, E16, E22, E24, E27, E38, E41). Théorèmes 1.2, 1.4 and 1.7 stand."
+}
