@@ -4291,8 +4291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -26035,8 +26035,9 @@
     "REV-PAPER-HARPAZ-WITTENBERG-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1894"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1894",
+   "finishedAt": "2026-09-24T00:36:25Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -27550,7 +27551,8 @@
     "REV-AUDIT-17"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1584"
   },
   {
    "id": "REV-RT-AUDIT-17",
@@ -30207,7 +30209,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-probability.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1543"
   },
   {
    "id": "REV-RT-AREA-probability",
