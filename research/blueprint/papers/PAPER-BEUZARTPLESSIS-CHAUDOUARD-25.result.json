@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "The global Gan–Gross–Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods",
     "authors": "Raphaël Beuzart-Plessis and Pierre-Henri Chaudouard",
@@ -12,10 +12,11 @@
     "readSections": [
       "The published version, read in full: the open-access (CC BY 4.0) PDF from Cambridge Core (98 pages; SHA-256 cf4d67e66276bdca486856754dcda7cddaeef75ed77d9924cd58c239de866439; fetched 23 September 2026; received 2 March 2025, accepted 28 March 2025). Read: §1 (Theorems 1.2.3.1, 1.2.4.1, 1.3.3.1, 1.3.6.1), §2 (preliminaries and Arthur's partition), §3 (the unitary Jacquet–Rallis trace formula and its (U, U′)-regular contribution), §4 (the (G, H)-regular contribution on the linear side and its Whittaker form), §5 (intertwining periods and Whittaker functions), §6 (the alternative proof via Flicker–Rallis zeta integrals), §7 (the comparison and the proofs of Theorems 1.2.3.1 and 1.2.4.1), §8 (reduction of Bessel periods to corank one, with the unramified computation), Appendix A (Weyl's character formula for non-connected groups) and the references. Page numbers are the journal's; misprints were checked on page images.",
       "arXiv 2302.12331 has only v1 (23 February 2023); the 2025 published version, which thanks P. Boisseau for correcting the statement of Proposition 8.7.2.1 in a previous version, is the one extracted.",
-      "Cited inputs (Zydor, Chaudouard–Zydor, Ichino–Yamana 2015 and 2019, Jacquet–Lapid–Rogawski, Lapid, Chaudouard 2022, Flicker, Feigon–Lapid–Offen, Beuzart-Plessis, Y. Liu, Khoury, L. Zhang, Mok, KMSW, Ginzburg–Rallis–Soudry, Atiyah–Bott) were not read; items resting on them state them as the paper uses them. The use of Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14 was checked against its source (arXiv 1912.07169v3)."
+      "Cited inputs (Zydor, Chaudouard–Zydor, Ichino–Yamana 2015 and 2019, Jacquet–Lapid–Rogawski, Lapid, Chaudouard 2022, Flicker, Feigon–Lapid–Offen, Beuzart-Plessis, Y. Liu, Khoury, L. Zhang, Mok, KMSW, Ginzburg–Rallis–Soudry, Atiyah–Bott) were not read; items resting on them state them as the paper uses them. The use of Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14 was checked against its source (arXiv 1912.07169v3).",
+      "Independent review REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25, Codex codex-c83e7a, 2026-09-24: read all published pp.1–98 afresh, including proofs and references; published PDF SHA-256 d0e0ef8c411a110497c6fa184d36b8a416d61710b2bd05506f36d1e65ba43659 (download watermark differs from the original extraction). Read arXiv v1 Appendix pp.84–85 and selected §8.7 pages for version checks. Read BPLZZ2021 pp.548,556–559,568–574; BPCZ2022 Proposition 2.8.4.1 printed pp.227–228; Kemarsky2015 pp.579–582; Atiyah–Bott1968 pp.457–460 (scanned images); Chaudouard author version §§7.2.1–7.3.2 pp.77–80. No full recursive supplier closure is claimed."
     ]
   },
-  "summary": "The sequel to PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22. It extends the global Gan–Gross–Prasad and Ichino–Ikeda conjectures for U(n) × U(n+1) to periods of Eisenstein series attached to H-regular Hermitian Arthur parameters — parameters with a non-discrete part Π_1 ⊠ ⋯ ⊠ Π_r ⊠ Π_0 ⊠ Π*_r ⊠ ⋯ ⊠ Π*_1 — and proves them (Theorems 1.2.3.1, 1.2.4.1). By a global and local unfolding with an unramified computation, it deduces the Gan–Gross–Prasad conjecture and Liu's refined (Ichino–Ikeda) conjecture for Bessel periods of U(m) × U(n+1) in general (Theorems 1.3.3.1, 1.3.6.1). The new spectral contributions are continuous: on the unitary side J^U_χ = ∫ J^U_{P,π}(λ) dλ through Ichino–Yamana regularised periods (§3); on the linear side I_χ = 2^{−dim 𝔞_L}∫ I_{P,π}(λ) dλ through general Jacquet–Lapid–Rogawski intertwining periods and Chaudouard's spectral expansion of the Flicker–Rallis period (§4), expressed in Whittaker terms by a new formula for a basic intertwining period (Theorem 5.5.1.1) and reproved with zeta integrals (§6). All of it extends pending candidates, which this extraction coalesces with: the Jacquet–Rallis comparison, the Asai and Flicker–Rallis periods Part II, the Gan–Gross–Prasad framework and the Schwartz-function Part II. The one new owner is a small Part II of Tau Ceti's Lie groups roadmap for Weyl's character formula on non-connected groups ^LG = Ĝ ⋊ Γ (Appendix A). Eleven source issues are recorded; the one of substance (E1) is again the use of Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) for a non-cuspidal base change.",
+  "summary": "The paper establishes Eisenstein and Bessel Gan–Gross–Prasad/Ichino–Ikeda identities. Independent review checked all 69 extracted items against the published 98-page paper, corrected statements and source errors, and found unresolved granularity, supplier, local-field and convention gaps. The corrected extraction has 6 planned and 63 missing items, 8 routes, and 19 reviewed source findings. No route is yet accepted for construction; the review is finished and requests revision of the extraction.",
   "items": [
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/1",
@@ -259,28 +260,28 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/27",
       "kind": "definition",
       "name": "The Rankin–Selberg period of Eisenstein series for H-regular data and the relative character I_{P,π}(λ, f)",
-      "statement": "For (M, π) H-regular and λ ∈ 𝔞*_M: 𝒫(E(φ, λ)) = ∫_{[H]} Λ^T_rE(h, φ, λ) dh, independent of T (as in PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, Prop. 5.1.4.1), holomorphic on i𝔞*_M and continuous in φ. For (G, H)-regular Hermitian χ and λ ∈ i𝔞^{L,*}_M: I_{P,π}(λ, f) = Σ_{φ∈ℬ_{P,π}} 𝒫(E(I_P(λ, f)φ, λ))·\\overline{J(ξ, φ̄, −λ)}, and f ↦ (λ ↦ I_{P,π}(λ, f)) is continuous 𝒮(G(A)) → 𝒮(i𝔞^{L,*}_M) (Lapid 2006, Prop. 6.1; Chaudouard 2022, Prop. 7.2.3.2).",
+      "statement": "For (M, π) H-regular and λ ∈ 𝔞*_M: 𝒫(E(φ, λ)) = ∫_{[H]} Λ^T_rE(h, φ, λ) dh, independent of T (as in PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, Prop. 5.1.4.1), holomorphic on i𝔞*_M and continuous in φ. For (G, H)-regular Hermitian χ and λ ∈ i𝔞^{L,*}_M: I_{P,π}(λ, f) = Σ_{φ∈ℬ_{P,π}} 𝒫(E(I_P(λ, f)φ, λ))·J(ξ, φ̄, −λ), and f ↦ (λ ↦ I_{P,π}(λ, f)) is continuous 𝒮(G(A)) → 𝒮(i𝔞^{L,*}_M) (Lapid 2006, Prop. 6.1; Chaudouard 2022, Prop. 7.2.3.2).",
       "locator": "§§4.1.6–4.1.7, pp. 39–40",
       "status": "missing",
-      "note": "The relative character on the linear side of the comparison."
+      "note": "The relative character on the linear side of the comparison. Independent review: The published formulas (4.1.7.1), (4.1.9.4) have no outer conjugation on J(ξ, φ̄, −λ). The bar on φ already supplies antilinearity. An extra conjugation destroys basis invariance under φ ↦ cφ, |c|=1."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/28",
       "kind": "theorem",
       "name": "Chaudouard's spectral expansion of the Flicker–Rallis period of the kernel",
-      "statement": "For the symmetric space GL_n(E)/GL_n(F), the Flicker–Rallis period ∫_{[G′]_0}∫_{A^∞_G} K_χ(ax, g)η(g) da dg of the χ-part of the kernel has an explicit, absolutely convergent spectral expansion Σ_{P_1}|𝒫(M_1)|^{−1}Σ_{L_1∈ℒ_2(M_1)} 2^{−dim 𝔞_{L_1}}Σ ∫_{i𝔞^{L_1,*}_{M_1}} ℐ_{L_1,wπ}(x, f, λ) dλ in terms of Eisenstein series and intertwining periods (Chaudouard, A spectral expansion for the symmetric space GL_n(E)/GL_n(F), arXiv:2204.06069, Thm. 7.2.4.1, Prop. 7.2.3.2).",
+      "statement": "For the symmetric space GL_n(E)/GL_n(F), the Flicker–Rallis period ∫_{[G′]_0}∫_{A^∞_G} K_χ(ax, g)η(g) da dg of the χ-part of the kernel has an explicit, absolutely convergent spectral expansion Σ_{P_1}|𝒫(M_1)|^{−1}Σ_{L_1∈ℒ_2(M_1)} 2^{−dim(𝔞_{L_1}/𝔞_G)}Σ ∫_{i𝔞^{L_1,*}_{M_1}} ℐ_{L_1,wπ}(x, f, λ) dλ in terms of Eisenstein series and intertwining periods (Chaudouard, A spectral expansion for the symmetric space GL_n(E)/GL_n(F), arXiv:2204.06069, Thm. 7.2.4.1, Prop. 7.2.3.2).",
       "locator": "Proof of Lemma 4.1.9.1, pp. 41–42",
       "status": "missing",
-      "note": "A cited input, stated as the paper uses it for a product of two linear groups with the η_{G′}-twist; its general statement belongs with the Flicker–Rallis periods."
+      "note": "A cited input, stated as the paper uses it for a product of two linear groups with the η_{G′}-twist; its general statement belongs with the Flicker–Rallis periods. Independent review: For the centrally averaged kernel the coefficient is 2^{-dim a_L^G}; for the unaveraged kernel it is 2^{-dim a_L}. Checked Chaudouard, author version Spectral-sym-selecta.pdf, §§7.2.4–7.3.2, pp.78–80: the intervening factor for GL_n is 1/2. In the product case it is 2^{-dim a_G}. The general supplier still needs its constructions and proof dependencies extracted."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/29",
       "kind": "theorem",
       "name": "Lemma 4.1.9.1: the Flicker–Rallis period of the kernel for a (G, H)-regular datum",
-      "statement": "For χ (G, H)-regular and x ∈ G(A), ∫_{[G′]} K_χ(x, g)η_{G′}(g) dg (absolutely convergent) vanishes unless χ is Hermitian; if χ is Hermitian and represented by (M_P, π): ∫_{[G′]} K_χ(x, g)η_{G′}(g) dg = 2^{−dim 𝔞_L}∫_{i𝔞^{L,*}_M} Σ_{φ∈ℬ_{P,π}} E(x, I_P(λ, f)φ, λ)·\\overline{J(ξ, φ̄, −λ)} dλ (4.1.9.4).",
+      "statement": "For χ (G, H)-regular and x ∈ G(A), ∫_{[G′]} K_χ(x, g)η_{G′}(g) dg (absolutely convergent) vanishes unless χ is Hermitian; if χ is Hermitian and represented by (M_P, π): ∫_{[G′]} K_χ(x, g)η_{G′}(g) dg = 2^{−dim 𝔞_L}∫_{i𝔞^{L,*}_M} Σ_{φ∈ℬ_{P,π}} E(x, I_P(λ, f)φ, λ)·J(ξ, φ̄, −λ) dλ (4.1.9.4).",
       "locator": "Lemma 4.1.9.1, pp. 41–42",
       "status": "missing",
-      "note": "From Chaudouard's Theorem 7.2.4.1, the factor 2^{−dim 𝔞_G} of the measures on A^∞_G and A^∞_{G′}, the identities (4.1.9.7)–(4.1.9.8) (functional equations of Eisenstein series and of intertwining periods, JLR Thm. 31 with Lapid 2006, Lemma 8.1) and Σ_{P_1}|𝒫(M_1)|^{−1}|W(P, P_1)| = 1."
+      "note": "From Chaudouard's Theorem 7.2.4.1, the factor 2^{−dim 𝔞_G} of the measures on A^∞_G and A^∞_{G′}, the identities (4.1.9.7)–(4.1.9.8) (functional equations of Eisenstein series and of intertwining periods, JLR Thm. 31 with Lapid 2006, Lemma 8.1) and Σ_{P_1}|𝒫(M_1)|^{−1}|W(P, P_1)| = 1. Independent review: The published formulas (4.1.7.1), (4.1.9.4) have no outer conjugation on J(ξ, φ̄, −λ). The bar on φ already supplies antilinearity. An extra conjugation destroys basis invariance under φ ↦ cφ, |c|=1."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/30",
@@ -295,7 +296,7 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/31",
       "kind": "theorem",
       "name": "Propositions 4.2.5.1, 4.2.6.1 and 4.2.7.1: Whittaker expressions for the two periods",
-      "statement": "For χ as in §4.1.4, λ ∈ i𝔞^{G,*}_P, Π_λ = Ind(π_λ) (irreducible, unitary, generic), W(g, φ, λ) = ∫_{[N]} E(ug, φ, λ)ψ_N(u)^{−1} du ∈ W(Π_λ, ψ_N): (4.2.5.1) Z^RS(0, W(φ, λ)) = 𝒫(E(φ, λ)) (Ichino–Yamana, Compositio 2015, Thm. 1.1, using H-regularity); (4.2.6.1) ⟨φ, φ⟩_Pet = ⟨W(φ, λ), W(φ, λ)⟩_Whitt (as PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, Thm. 8.1.2.1, G-regularity); (4.2.7.1) J(ξ, φ, λ) = β_η(W(φ, λ)), via Lemma 4.1.5.1, W. Zhang's JAMS 2014 Prop. 3.2, Flicker, Theorem 5.5.1.1 and the local Theorem 9.1.7.1 of PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, with Π^Q_λ (L′, η_{G′})-distinguished (Flicker 1992, Prop. 2.6) and L^{S,*}(1, Π^Q_λ, As_L)W^S = L^{S,*}(1, Π_λ, As)W (Shahidi 1981, §4).",
+      "statement": "For χ as in §4.1.4, λ ∈ i𝔞^{G,*}_P, Π_λ = Ind(π_λ) (irreducible, unitary, generic), W(g, φ, λ) = ∫_{[N]} E(ug, φ, λ)ψ_N(u)^{−1} du ∈ W(Π_λ, ψ_N): (4.2.5.1) Z^RS(0, W(φ, λ)) = 𝒫(E(φ, λ)) (Ichino–Yamana, Compositio 2015, Thm. 1.1, using H-regularity); (4.2.6.1) ⟨φ, φ⟩_Pet = ⟨W(φ, λ), W(φ, λ)⟩_Whitt (as PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, Thm. 8.1.2.1, G-regularity); For the third identity impose the additional restriction λ ∈ i𝔞^{L,*}_M: (4.2.7.1) J(ξ, φ, λ) = β_η(W(φ, λ)), via Lemma 4.1.5.1, W. Zhang's JAMS 2014 Prop. 3.2, Flicker, Theorem 5.5.1.1 and the local Theorem 9.1.7.1 of PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, with Π^Q_λ (L′, η_{G′})-distinguished (Flicker 1992, Prop. 2.6) and L^{S,*}(1, Π^Q_λ, As_L)W^S = L^{S,*}(1, Π_λ, As)W (Shahidi 1981, §4).",
       "locator": "§§4.2.1–4.2.7, Propositions 4.2.5.1, 4.2.6.1, 4.2.7.1, pp. 43–46",
       "status": "missing",
       "note": "Generalise Flicker's computation of Flicker–Rallis periods and the Ichino–Yamana Rankin–Selberg identity to G-regular Hermitian data."
@@ -331,7 +332,7 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/35",
       "kind": "theorem",
       "name": "Proposition 5.2.2.1: intertwining periods twisted by the Epstein series",
-      "statement": "For Φ ∈ 𝒮(A^{2n}), E(h, Φ, s) = ∫_{A^∞_{G′}}Σ_{γ∈𝒫′(F)∖G′(F)} Φ(e_{2n}γah)|det(ah)|^s da (Re s > 1; continuation to 𝒯([G′]) with simple poles at 0, 1, residues Φ(0), Φ̂(0), Jacquet–Shalika Lemma 4.2), and for ξ ∈ _PW_{P,2}, ξ ≠ 1, J(ξ, φ, λ, Φ, s) = ∫_{A^∞_{G′}P_ξ̃(F)∖G′(A)} e^{⟨λ,H_P(ξ̃h)⟩}φ(ξ̃h)E(h, Φ, s) dh: there is r > 0 such that on D_r = {Re⟨λ, α^∨⟩ > r} × ℂ ∖ {0, 1} the integral converges absolutely and locally uniformly and is holomorphic; for ξ ≠ ξ_0 it extends holomorphically to D_r × ℂ; for ξ = ξ_0 it has simple poles at s = 0, 1 with residues Φ(0)J(ξ_0, φ, λ) and Φ̂(0)J(ξ_0, φ, λ).",
+      "statement": "For Φ ∈ 𝒮(A^{2n}), E(h, Φ, s) = ∫_{A^∞_{G′}}Σ_{γ∈𝒫′(F)∖G′(F)} Φ(e_{2n}γah)|det(ah)|^s da (Re s > 1; continuation to 𝒯([G′]) with simple poles at 0, 1, residues Φ(0), Φ̂(0), Jacquet–Shalika Lemma 4.2), and for ξ ∈ _PW_{P,2}, ξ ≠ 1, J(ξ, φ, λ, Φ, s) = ∫_{A^∞_{G′}P_ξ̃(F)∖G′(A)} e^{⟨λ,H_P(ξ̃h)⟩}φ(ξ̃h)E(h, Φ, s) dh: there is r > 0 such that with D_r = {λ : Re⟨λ, α^∨⟩ > r}, on D_r × (ℂ ∖ {0, 1}) the integral converges absolutely and locally uniformly and is holomorphic; for ξ ≠ ξ_0 it extends holomorphically to D_r × ℂ; for ξ = ξ_0 it has simple poles at s = 0, 1 with residues Φ(0)J(ξ_0, φ, λ) and Φ̂(0)J(ξ_0, φ, λ).",
       "locator": "§5.2 and Proposition 5.2.2.1, pp. 47–48",
       "status": "missing",
       "note": "Uses the bounds (5.2.2.2)–(5.2.2.3) extracted from Jacquet–Lapid–Rogawski (Prop. 24 and after (58))."
@@ -343,7 +344,7 @@
       "statement": "For the pseudo-Eisenstein series θ(g) = Σ_{δ∈P(F)∖G(F)} B(δg), B(g) = ∫_{κ+i𝔞^{G,*}_P} e^{⟨λ,H_P(g)⟩}(I_P(λ, f)φ)(g)β(λ) dλ (β Paley–Wiener, f ∈ C_c^∞(G(F_∞)), κ in the convergence range with ⟨κ, α^∨⟩ > r): if β vanishes at −μ_{i,s} (the exponents of the constant term (5.3.1.1)), ∫_{[G′]_0} θ(h)E(h, Φ, s) dh = Σ_{ξ∈_PW_{P,2}, ξ≠1} ∫_{κ+i𝔞^{G,*}_P} J(ξ, I_P(λ, f)φ, λ, Φ, s)β(λ) dλ (5.3.4.1); if β vanishes at ±sα/2, it equals ∫_{κ+i𝔞^{G,*}_P}(∫_{N′_{2n}(A)∖G′(A)} 𝒲(h, I_P(λ, f)φ, λ)Φ(e_{2n}h)|det h|^s dh)β(λ) dλ (5.4.5.1), where 𝒲(g, φ, λ) = W(g, E(φ, λ)) (5.4.3.1). Hence Σ_{ξ≠1} J(ξ, φ, λ, Φ, s) = ∫_{N′_{2n}(A)∖G′(A)} 𝒲(h, φ, λ)Φ(e_{2n}h)|det h|^s dh for Re s ≫ 0 (Corollary 5.4.5.2).",
       "locator": "§§5.3–5.4.8, Propositions 5.3.4.1, 5.4.4.1, 5.4.5.1, Corollary 5.4.5.2, Lemma 5.4.6.1, pp. 48–55",
       "status": "missing",
-      "note": "Unfolding through the variant mirabolics 𝒫_i with the partial Fourier coefficients W_i and the vanishing of constant terms θ_{P_i} for i ∉ {n, 2n} (Lemma 5.4.6.1); Proposition 5.4.4.1 (absolute convergence) uses (5.4.4.2), Beuzart-Plessis's Asai estimates and Jacquet–Piatetski-Shapiro–Shalika's bound (1979, Prop. 2.4.1); Lapid–Rogawski Lemma 9.1.2 separates the λ-integrals."
+      "note": "Unfolding through the variant mirabolics 𝒫_i with the partial Fourier coefficients W_i and the vanishing of constant terms θ_{P_i} for i ∉ {n, 2n} (Lemma 5.4.6.1); Proposition 5.4.4.1 (absolute convergence) uses (5.4.4.2), Beuzart-Plessis's Asai estimates and Jacquet–Piatetski-Shapiro–Shalika's bound (1979, Prop. 2.4.1); Lapid–Rogawski Lemma 9.1.2 separates the λ-integrals. Independent review: In the local Jacquet integral (5.4.4.1), include the factor ψ(u)^{-1}, matching the global integral in §5.4.3 (E19). This bundled item must be split before design."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/37",
@@ -403,7 +404,7 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/43",
       "kind": "definition",
       "name": "The data 𝔛^h_Π, the base-change map bc and the relative characters J^h_Π(λ, f)",
-      "statement": "For h ∈ ℋ°, 𝔛^h_Π ⊂ 𝔛(U_h) is the set of classes (M_h, σ) with Π a weak base change of (P_h, σ), σ unramified outside S_0 (for ∏_{v∉S_0}(M_h(F_v) ∩ K_{h,v})), and Π_{0,v} the split base change of σ_{0,v} for v ∉ S′_0 ∪ V_{F,∞} (S′_0 = (S_0 ∖ V_{F,∞}) ∪ {inert places}). With M_h = G^♯ × U, bc: 𝔞^{L,*}_M ≅ 𝔞*_{M_h}, the antidiagonal embedding x ↦ (x, −x). J^h_Π(λ, f) = Σ_{(M_h,σ)} J^h_{P_h,σ}(bc(λ), f) over representatives of 𝔛^h_Π (7.1.5.2), absolutely and locally uniformly convergent (Müller, GAFA 1998, Cor. 0.3), holomorphic on i𝔞^{L,*}_M, independent of representatives (Proposition 3.5.5.1).",
+      "statement": "For h ∈ ℋ°, 𝔛^h_Π ⊂ 𝔛(U_h) is the set of classes (M_h, σ) with Π a weak base change of (P_h, σ), σ unramified outside S_0 (for ∏_{v∉S_0}(M_h(F_v) ∩ K_{h,v})), and Π_{0,v} the split base change of σ_{0,v} for v ∉ S′_0 ∪ V_{F,∞} (S′_0 = (S_0 ∖ V_{F,∞}) ∪ {inert places}). With M_h = G^♯ × U, bc: 𝔞^{L,*}_M ≅ 𝔞*_{M_h}, the inverse of the identification x ↦ (x, −x) from 𝔞*_{M_h} onto 𝔞^{L,*}_M. J^h_Π(λ, f) = Σ_{(M_h,σ)} J^h_{P_h,σ}(bc(λ), f) over representatives of 𝔛^h_Π (7.1.5.2), absolutely and locally uniformly convergent (Müller, GAFA 1998, Cor. 0.3), holomorphic on i𝔞^{L,*}_M, independent of representatives (Proposition 3.5.5.1).",
       "locator": "§§7.1.2–7.1.5 and Remarks 7.1.5.1, pp. 63–65",
       "status": "missing",
       "note": "Corrected statement: bc pulls the measure on 𝔞*_{M_h} back to 2^{−dim 𝔞^L_M} times the measure on 𝔞^{L,*}_M, as (7.1.7.3) uses; the remark prints 2^{dim 𝔞^L_M} (sourceIssues E8)."
@@ -462,11 +463,8 @@
       "name": "Ginzburg–Rallis–Soudry descent (existence of a unitary datum with base change Π)",
       "statement": "For an H-regular Hermitian Arthur parameter Π there is h♭ ∈ ℋ° with 𝔛^{h♭}_Π ≠ ∅; for m = 0 the GRS descent also proves the Whittaker case of Theorem 1.3.3.1.",
       "locator": "Proof of Lemma 7.1.7.1, p. 66, and Remarks 1.3.3.2, p. 7",
-      "status": "planned",
-      "planned": [
-        "ModularityAndLanglandsExtensions:ML.5"
-      ],
-      "note": "Automorphic descent is ML.5."
+      "status": "missing",
+      "note": "ML.5 is the appropriate proposed supplier, but its current layer text does not explicitly plan this GRS descent theorem. Coalesce with the missing grs-descent item/source route of PAPER-JIANG-ZHANG-20; do not assign the classical GRS input to that packet’s TwistedAutomorphicDescents extension. Exact all-rank unitary descent, parity, and auxiliary-character hypotheses remain to be extracted from GRS11."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/50",
@@ -481,7 +479,7 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/51",
       "kind": "definition",
       "name": "The auxiliary groups of the reduction to corank one",
-      "statement": "With h_m ∈ ℋ_m, h_{m+1} = h_m ⊕ h_0, h_n = h^{⊕r}_s ⊕ h_m, h_{n+1} = h_n ⊕ h_0 and U_m ⊂ U_{m+1} ⊂ U_n ⊂ U_{n+1}: 𝒢 = U_m × U_{n+1}, U = U_n × U_{n+1}, Ũ = U_m × U_{m+1}; ℬ = U_m ⋉ N, U′ = U_n, Ũ′ = U_m (8.1.3.2); P′ = P ∩ U_n; Q_n ⊂ U_n and Q_{n+1} ⊂ U_{n+1} the stabilisers of X_r with unipotent radicals V_n, V_{n+1}; G_r ⊂ U_n, U_{n+1} acting on X_r, Y_r; N = N_r ⋉ V_{n+1}; L_n = G_r × U_m (8.1.3.3); Q = Q_n × U_{n+1}, L = L_n × U_{n+1} = G_r × 𝒢; ℬ_L = N_r × ℬ with ψ^L_ℬ = ψ_{−r} ⊠ ψ_ℬ; ℬ′ = U′ ∩ ℬ_L = (N_r × U_m) ⋉ V_n; Eisenstein series E^{U_n}_{Q_n}(φ_n, s) and hyperspecial maximal compacts outside S.",
+      "statement": "With h_m ∈ ℋ_m, h_{m+1} = h_m ⊕ h_0, h_n = h^{⊕r}_s ⊕ h_m, h_{n+1} = h_n ⊕ h_0 and U_m ⊂ U_{m+1} ⊂ U_n ⊂ U_{n+1}: 𝒢 = U_m × U_{n+1}, U = U_n × U_{n+1}, Ũ = U_m × U_{m+1}; ℬ = U_m ⋉ N, U′ = U_n, Ũ′ = U_m (8.1.3.2); P′ = P ∩ U_n; Q_n ⊂ U_n and Q_{n+1} ⊂ U_{n+1} the stabilisers of X_r with unipotent radicals V_n, V_{n+1}; G_r ⊂ U_n, U_{n+1} acting on X_r, Y_r; N = N_r ⋉ V_{n+1}; L_n = G_r × U_m (8.1.3.3); Q = Q_n × U_{n+1}, L = L_n × U_{n+1} = G_r × 𝒢; ℬ_L = N_r × ℬ with ψ^L_ℬ = ψ_{−r} ⊠ ψ_ℬ; ℬ′ = (N_r × U_m) ⋉ V_n ⊂ U′; under the identification of U′ with U_n ⊂ U_{n+1}, it is U′ ∩ ℬ. Its map to ℬ_L is through the Levi projection of Q; Eisenstein series E^{U_n}_{Q_n}(φ_n, s) and hyperspecial maximal compacts outside S.",
       "locator": "§§8.1.1–8.1.3, pp. 72–74",
       "status": "missing",
       "note": "The coordinates in which a Bessel period of U_m × U_{n+1} becomes a Whittaker–Bessel period of a Levi of U_n × U_{n+1}."
@@ -526,10 +524,10 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/56",
       "kind": "theorem",
       "name": "The Kirillov model of generic representations of GL_r",
-      "statement": "For τ an irreducible generic representation of G_r(F_v) with Whittaker functional L_W, every f ∈ C_c^∞(N_{r−1}(F_v)∖G_{r−1}(F_v)) is h ↦ L_W(τ(h)φ_τ) for some φ_τ ∈ τ (Gelfand–Kazhdan 1975, Thm. 6; Kemarsky 2015, Thm. 1 at complex places).",
+      "statement": "For τ an irreducible generic representation of G_r(F_v) with Whittaker functional L_W, for r ≥ 2, every smooth function f on G_{r−1}(F_v), compactly supported modulo N_{r−1}(F_v) and satisfying f(uh)=ψ_{−r}(u)f(h) is h ↦ L_W(τ(h)φ_τ) for some φ_τ ∈ τ (Gelfand–Kazhdan 1975, Thm. 6; Kemarsky 2015, Thm. 1 at complex places).",
       "locator": "Proof of Proposition 8.6.1.1, p. 82",
       "status": "missing",
-      "note": "Local GL_n Whittaker theory; the p-adic case belongs with SR.5's Bernstein–Zelevinsky derivatives and the archimedean case with AL.3's archimedean Whittaker API."
+      "note": "Local GL_n Whittaker theory; the p-adic case belongs with SR.5's Bernstein–Zelevinsky derivatives and the archimedean case with AL.3's archimedean Whittaker API. Independent review: This is the general assertion used on p.82, after correcting its missing character. Kemarsky Theorem 1, printed p.580, was read and proves the complex case for generic UNITARY irreducible τ, including continuity. It does not alone justify arbitrary generic nonunitary τ in Proposition 8.6.1.1. The real case is attributed to Jacquet 2010, and the nonarchimedean case to Gelfand–Kazhdan 1975; those exact proofs and the extension beyond the complex unitary case remain gaps. For split E_v use the two factors. Handle r=0 and r=1 separately."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/57",
@@ -567,12 +565,8 @@
       "name": "The Cauchy identity for GL_r characters (Lemma 8.7.2.3)",
       "statement": "For S_1, S_2 ∈ T̂_r Frob_v and Re s ≫ 0: Σ_{t∈Λ^{++}_r}|det t|^{½+s}_{E_v}ch_t(S_1)ch_t(S_2) = det(1 − q^{−1/2}S_{1,s} ⊗^I S_2)^{−1}, S_{1,s} = q^{−s}S_1 (from Bump, Lie Groups, Thm. 43.3).",
       "locator": "Lemma 8.7.2.3, p. 88",
-      "status": "planned",
-      "planned": [
-        "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials"
-      ],
-      "note": "The Cauchy identity Σ_λ s_λ(x)s_λ(y) = ∏(1 − x_iy_j)^{−1} is planned in Tau Ceti's SchurWeyl (via RSK) and the identification of GL_n characters with Schur polynomials in ClassicalGroups; the L-group reformulation is part of Proposition 8.7.2.1."
+      "status": "missing",
+      "note": "The Cauchy identity Σ_λ s_λ(x)s_λ(y) = ∏(1 − x_iy_j)^{−1} is planned in Tau Ceti's SchurWeyl (via RSK) and the identification of GL_n characters with Schur polynomials in ClassicalGroups; the L-group reformulation is part of Proposition 8.7.2.1. Independent review: The connected Cauchy identity and Schur-character dictionary are explicitly planned in tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk, tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials. They do not themselves state the displayed Frobenius-component identity, its split/inert determinant calculation, or the q versus q_E normalization. These consumer adapters remain missing and belong with the unramified calculation, route 1."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/61",
@@ -590,7 +584,7 @@
       "statement": "With Petersson products on σ_m, σ_{n+1}, the inner product ⟨E(φ, 0), E(φ′, 0)⟩_τ = ∫_{R(A)∖G_r(A)}∫_{[M]^1} φ(mg)\\overline{φ′(mg)} on τ, the induced product on σ_n, their local factorisations, and the regularised products ∏′_v of local periods (with L^{T,*}(1, σ_n, Ad), L^{T,*}(1, τ, Ad) the leading coefficients of order a = dim A_M): if |𝒫_{U′}(E^{U_n}_{Q_n}(φ_n, s) ⊗ φ_{n+1})|² = c∏′_v 𝒫_{U′,v}(φ_{n,s,v} ⊗ φ_{n+1,v}, ·) for all factorisable vectors and s ∈ iℝ, then |𝒫_{ℬ,ψ_ℬ}(φ_m ⊗ φ_{n+1})|² = c∏′_v 𝒫_{ℬ,ψ_ℬ,v}(φ_{m,v} ⊗ φ_{n+1,v}, ·) for all factorisable φ_m, φ_{n+1}.",
       "locator": "§8.8.3 and Proposition 8.8.3.1, pp. 91–94",
       "status": "missing",
-      "note": "Divides (8.8.3.3) by the Whittaker-period factorisation |𝒫_{N_r,ψ_{−r}}(φ_τ)|² = ∏′_v𝒫_{N_r,ψ_{−r},v}(φ_{τ,v}, φ_{τ,v}) (separate item), using Proposition 8.6.2.1, (8.2.1.1) and the unramified local values of Liu and Harris."
+      "note": "Divides (8.8.3.3) by the Whittaker-period factorisation |𝒫_{N_r,ψ_{−r}}(φ_τ)|² = ∏′_v𝒫_{N_r,ψ_{−r},v}(φ_{τ,v}, φ_{τ,v}) (separate item), using Proposition 8.6.2.1, (8.2.1.1) and the unramified local values of Liu and Harris. Independent review: Use the two matched tensor slots a(h1), a(h2) in (8.8.3.2), as in Proposition 8.6.2.1 (E16)."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/63",
@@ -617,28 +611,28 @@
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/65",
       "kind": "theorem",
       "name": "The Atiyah–Bott holomorphic Lefschetz fixed point formula",
-      "statement": "For a holomorphic automorphism S of a compact complex manifold X with isolated non-degenerate fixed points, lifted to a holomorphic line bundle ℒ: Σ_i(−1)^iTr(S | H^i(X, ℒ)) = Σ_{S(x)=x} Tr(S | ℒ_x)/det(1 − dS_x^{−1} | T^{1,0}_xX) (Atiyah–Bott, Ann. of Math. 88 (1968), Thm. 4.12), applied to regular S ∈ T̂F acting on Ĝ/B̂ with fixed points W ⊂ X.",
+      "statement": "Let X be a compact complex manifold, f:X→X a holomorphic map with simple fixed points (det_C(1−df_x) ≠ 0), ℒ a holomorphic line bundle, and Φ:f*ℒ→ℒ a holomorphic bundle map. For the endomorphism T induced by pullback followed by Φ on sheaf cohomology, Σ_i (−1)^i Tr(T|H^i(X,ℒ)) = Σ_{f(x)=x} Tr(Φ_x)/det_C(1−df_x). This is the line-bundle specialization of Atiyah–Bott Theorem 4.12, printed pp.458–459. To use a group action on the bundle, explicitly choose whether f is S or S^{-1} and translate the fiber map and induced cohomology action together.",
       "locator": "Appendix A, proof of Proposition A.0.2.1, p. 95",
       "status": "missing",
-      "note": "A cited input for the twisted character formula."
+      "note": "A cited input for the twisted character formula. Independent review: Read the scanned primary source pp.457–460. The original extraction mixed an unspecified action lift with an inverse derivative. The pullback convention above fixes the ambiguity. The Appendix A fiber-character/Borel convention still requires an explicit compatibility proof."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/66",
       "kind": "theorem",
       "name": "Proposition A.0.2.1: Weyl's character formula for non-connected groups ^LG = Ĝ ⋊ Γ",
-      "statement": "Let Γ be finite cyclic acting holomorphically on Ĝ preserving (B̂, T̂), ^LG = Ĝ ⋊ Γ, ^LT = T̂ ⋊ Γ, W = Norm_Ĝ(^LT)/T̂ = Ŵ^Γ, D_{Ĝ/B̂}(S) = det(1 − Ad(S) | Lie Ĝ/Lie B̂), and for dominant Γ-invariant χ let ch_χ be the character of the unique extension of V_χ to ^LG with Γ trivial on the highest weight line. For a generator F of Γ and χ ∈ X*(T̂)^Γ: (1) if χ + ρ is singular, Σ_{w∈W}χ(wS)/D_{Ĝ/B̂}(wS) = 0 for every regular S ∈ ^LT; (2) otherwise, with χ^+ = w_χ·χ (w_χ ∈ W), there is a root of unity ε_χ with Σ_{w∈W}χ(wS)/D_{Ĝ/B̂}(wS) = ε_χ ch_{χ^+}(S) for regular S ∈ T̂F, and ε_χ = 1 if χ is dominant.",
+      "statement": "Let Γ be finite cyclic acting holomorphically on Ĝ preserving (B̂, T̂), ^LG = Ĝ ⋊ Γ, ^LT = T̂ ⋊ Γ, W = Norm_Ĝ(^LT)/T̂ = Ŵ^Γ, D_{Ĝ/B̂}(S) = det(1 − Ad(S) | Lie Ĝ/Lie B̂), and for dominant Γ-invariant χ let ch_χ be the character of the unique extension of V_χ to ^LG with Γ trivial on the highest weight line. For a generator F of Γ and χ ∈ X*(T̂)^Γ: (1) if χ + ρ is singular, Σ_{w∈W}χ(wS)/D_{Ĝ/B̂}(wS) = 0 for every regular S ∈ T̂F; (2) otherwise, with χ^+ = w_χ·χ (w_χ ∈ W), there is a root of unity ε_χ with Σ_{w∈W}χ(wS)/D_{Ĝ/B̂}(wS) = ε_χ ch_{χ^+}(S) for regular S ∈ T̂F, and ε_χ = 1 if χ is dominant.",
       "locator": "Appendix A, A.0.1–A.0.2, Proposition A.0.2.1, pp. 94–95",
       "status": "missing",
-      "note": "Proved from Borel–Weil–Bott and the Atiyah–Bott fixed point formula on Ĝ/B̂ = ^LG/^LB."
+      "note": "Proved from Borel–Weil–Bott and the Atiyah–Bott fixed point formula on Ĝ/B̂ = ^LG/^LB. Independent review: Use the generator component in both alternatives (E12). In the nonsingular case the proof must retain (−1)^ℓ(wχ); εχ is that sign times the eigenvalue of the finite cyclic action on the cohomology realization (E14). The cohomological convention adapter remains unclosed."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/67",
       "kind": "theorem",
       "name": "Corollary A.0.2.2: the Weyl denominator sum over a Levi",
-      "statement": "For a Γ-stable standard parabolic Q̂ ⊃ B̂ with Levi L̂ ⊃ T̂ and W_L = Norm_{^LL}(T̂)/T̂: Σ_{w∈W_L}D_{Ĝ/B̂}(wS)^{−1} = D_{Ĝ/Q̂}(S)^{−1} for every regular S ∈ ^LT.",
+      "statement": "For a Γ-stable standard parabolic Q̂ ⊃ B̂ with Levi L̂ ⊃ T̂ and W_L = (Norm_{L̂}(T̂)/T̂)^Γ = Norm_{L̂}(^LT)/T̂: Σ_{w∈W_L}D_{Ĝ/B̂}(wS)^{−1} = D_{Ĝ/Q̂}(S)^{−1} for every regular S ∈ T̂F, where F generates Γ.",
       "locator": "Appendix A, Corollary A.0.2.2, pp. 95–96",
       "status": "missing",
-      "note": "From D_{Ĝ/B̂} = D_{Ĝ/Q̂}D_{L̂/B̂_L} and Proposition A.0.2.1 for the trivial character of ^LL."
+      "note": "From D_{Ĝ/B̂} = D_{Ĝ/Q̂}D_{L̂/B̂_L} and Proposition A.0.2.1 for the trivial character of ^LL. Independent review: Corrections E12–E13. For split local places take Γ_v={1}; for inert places take Γ_v=Gal(E/F), with F=Frob_v. This retains the actual §8.7 applications."
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/68",
@@ -847,7 +841,7 @@
       "parent": "EndoscopicTransferAndUnitaryTraceComparison",
       "roadmap": "JacquetRallisRelativeTraceComparison",
       "title": "Endoscopic transfer and unitary trace comparison, Part II: Jacquet–Rallis relative transfer and Weil-equivariant trace comparison",
-      "area": "modular",
+      "area": "automorphic",
       "items": [
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/10",
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/11",
@@ -880,9 +874,10 @@
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/57",
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/58",
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/61",
-        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/62"
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/62",
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/60"
       ],
-      "brief": "This route coalesces with JacquetRallisRelativeTraceComparison, proposed by PAPER-ZHANG-21 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21 and PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22; keep its id, title, parent, area and brief. Beuzart-Plessis–Chaudouard, 'The global Gan–Gross–Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods' (Forum Math. Pi 13 (2025), e16), is the next layer: the comparison for H-regular Hermitian Arthur parameters, whose contributions are continuous. Final theorems, as the paper states them. Theorem 1.2.3.1: for Π an H-regular Hermitian Arthur parameter of G_n × G_{n+1} and λ ∈ i𝔞*_Π, L(½, Π_λ) ≠ 0 iff some (h, P ⊂ U_h, σ) with Π a weak base change of (P, σ) has φ ↦ 𝒫_{U′_h}(φ, λ) ≢ 0 on 𝒜_{P,σ}(U_h). Theorem 1.2.4.1: for σ tempered, |𝒫_{U′_h}(φ, λ)|²/(φ, φ)_Pet = |S_Π|^{−1}𝓛(½, Σ_λ)∏_v P♮_{h,Σ_{λ,v}}(φ_v, φ_v)/(φ_v, φ_v)_v. Theorem 1.3.3.1: for Π discrete Hermitian of G_m × G_{n+1} (n = m + 2r), L(½, Π) ≠ 0 iff some cuspidal σ of U(h) × U(h_{n+1}) with base change Π has a non-zero Bessel period. Theorem 1.3.6.1: Liu's refined conjecture for Bessel periods of tempered σ. Add, after the candidate's discrete case: (1) the unitary coarse expansion for Schwartz functions (Theorem 3.2.3.1) with the Ichino–Yamana truncation Λ^T_u (Proposition 3.3.3.1) and the characterisation of J^U_χ by the truncated kernel (Theorem 3.3.5.1, Corollary 3.3.5.2, Theorem 3.4.2.1, Corollary 3.4.2.2); (2) U-, U′- and (U, U′)-regular data, the regularised periods 𝒫_{U′}(φ, λ) (Proposition 3.5.3.1), the relative characters J^U_{P,π} and Theorem 3.5.7.1; (3) (G, H)-regular Hermitian data with their Levi L, the relative character I_{P,π}(λ, f), Theorem 4.1.8.1, Theorem 4.2.8.1 and the second proof Theorem 6.1.1.1; (4) 𝔛^h_Π, bc and J^h_Π, the multipliers of Lemmas 7.1.7.1–7.1.7.2, Theorem 7.1.6.1, local relative characters of induced tempered representations and the local comparison, and the proofs of Theorems 1.2.3.1 and 1.2.4.1; (5) the reduction of Bessel periods (§8): the auxiliary groups, measures and mirabolic Fourier inversion, the global unfolding (Proposition 8.5.1.1), the local unfolding and its non-vanishing (Proposition 8.6.1.1), the local period identity (Proposition 8.6.2.1), the unramified computation (Proposition 8.7.2.1), Propositions 8.8.2.1 and 8.8.3.1, and the proofs of Theorems 1.3.3.1 and 1.3.6.1. Treat as proof obligations: the extension of Zydor's auxiliary-kernel results to Schwartz functions left to the reader in the proof of Theorem 3.2.3.1; and assertion 2 of Lemma 7.1.7.1 (sourceIssues E1). That assertion needs the archimedean infinitesimal characters of all (M_h, σ) ∈ 𝔛^h_Π to base-change to that of Π, and the paper takes this from Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) for a possibly non-cuspidal discrete base change Π_0 — the case where that theorem's printed proof has a gap (PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1). Supply it from the repaired argument or, stating the dependence, from Mok and KMSW. Use the corrected statements of sourceIssues E2–E11 (in particular the measure factor 2^{−dim 𝔞^L_M} of bc and L^{S_0,*} in (7.3.1.1)). Additional imports: Automorphic L-functions and local factors, Part II (AutomorphicLFunctionsPartIIAsaiAndGLnPeriods) for intertwining periods, Theorem 5.5.1.1, Lemma 4.1.9.1, Propositions 4.2.5.1–4.2.7.1 and Theorem 6.2.6.1; The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups) for regular Hermitian parameters, weak base change of (P, σ), Bessel data, local Bessel periods and the refined conjectures; Automorphic spectral theory and trace distributions, Part II (AutomorphicSpectralTheoryPartIISchwartzMultipliers) for weights and kernels; Lie groups and the Lie algebra correspondence, Part II (LieGroupsPartIITwistedCharacterFormula, proposed here) for Appendix A; ML.4 and ML.5.",
+      "brief": "This route coalesces with JacquetRallisRelativeTraceComparison, proposed by PAPER-ZHANG-21 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21 and PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22; keep its id, title and parent, align its area to automorphic, and extend its brief. Beuzart-Plessis–Chaudouard, 'The global Gan–Gross–Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods' (Forum Math. Pi 13 (2025), e16), is the next layer: the comparison for H-regular Hermitian Arthur parameters, whose contributions are continuous. Final theorems, as the paper states them. Theorem 1.2.3.1: for Π an H-regular Hermitian Arthur parameter of G_n × G_{n+1} and λ ∈ i𝔞*_Π, L(½, Π_λ) ≠ 0 iff some (h, P ⊂ U_h, σ) with Π a weak base change of (P, σ) has φ ↦ 𝒫_{U′_h}(φ, λ) ≢ 0 on 𝒜_{P,σ}(U_h). Theorem 1.2.4.1: for σ tempered, |𝒫_{U′_h}(φ, λ)|²/(φ, φ)_Pet = |S_Π|^{−1}𝓛(½, Σ_λ)∏_v P♮_{h,Σ_{λ,v}}(φ_v, φ_v)/(φ_v, φ_v)_v. Theorem 1.3.3.1: for Π discrete Hermitian of G_m × G_{n+1} (n = m + 2r), L(½, Π) ≠ 0 iff some cuspidal σ of U(h) × U(h_{n+1}) with base change Π has a non-zero Bessel period. Theorem 1.3.6.1: Liu's refined conjecture for Bessel periods of tempered σ. Add, after the candidate's discrete case: (1) the unitary coarse expansion for Schwartz functions (Theorem 3.2.3.1) with the Ichino–Yamana truncation Λ^T_u (Proposition 3.3.3.1) and the characterisation of J^U_χ by the truncated kernel (Theorem 3.3.5.1, Corollary 3.3.5.2, Theorem 3.4.2.1, Corollary 3.4.2.2); (2) U-, U′- and (U, U′)-regular data, the regularised periods 𝒫_{U′}(φ, λ) (Proposition 3.5.3.1), the relative characters J^U_{P,π} and Theorem 3.5.7.1; (3) (G, H)-regular Hermitian data with their Levi L, the relative character I_{P,π}(λ, f), Theorem 4.1.8.1, Theorem 4.2.8.1 and the second proof Theorem 6.1.1.1; (4) 𝔛^h_Π, bc and J^h_Π, the multipliers of Lemmas 7.1.7.1–7.1.7.2, Theorem 7.1.6.1, local relative characters of induced tempered representations and the local comparison, and the proofs of Theorems 1.2.3.1 and 1.2.4.1; (5) the reduction of Bessel periods (§8): the auxiliary groups, measures and mirabolic Fourier inversion, the global unfolding (Proposition 8.5.1.1), the local unfolding and its non-vanishing (Proposition 8.6.1.1), the local period identity (Proposition 8.6.2.1), the unramified computation (Proposition 8.7.2.1), Propositions 8.8.2.1 and 8.8.3.1, and the proofs of Theorems 1.3.3.1 and 1.3.6.1. Treat as proof obligations: the extension of Zydor's auxiliary-kernel results to Schwartz functions left to the reader in the proof of Theorem 3.2.3.1; and assertion 2 of Lemma 7.1.7.1 (sourceIssues E1). That assertion needs the archimedean infinitesimal characters of all (M_h, σ) ∈ 𝔛^h_Π to base-change to that of Π, and the paper takes this from Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) for a possibly non-cuspidal discrete base change Π_0 — the case where that theorem's printed proof has a gap (PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1). Supply it from the repaired argument or, stating the dependence, from Mok and KMSW. Use the corrected statements of sourceIssues E2–E11 (in particular the measure factor 2^{−dim 𝔞^L_M} of bc and L^{S_0,*} in (7.3.1.1)). Additional imports: Automorphic L-functions and local factors, Part II (AutomorphicLFunctionsPartIIAsaiAndGLnPeriods) for intertwining periods, Theorem 5.5.1.1, Lemma 4.1.9.1, Propositions 4.2.5.1–4.2.7.1 and Theorem 6.2.6.1; The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups) for regular Hermitian parameters, weak base change of (P, σ), Bessel data, local Bessel periods and the refined conjectures; Automorphic spectral theory and trace distributions, Part II (AutomorphicSpectralTheoryPartIISchwartzMultipliers) for weights and kernels; Lie groups and the Lie algebra correspondence, Part II (LieGroupsPartIITwistedCharacterFormula, proposed here) for Appendix A; ML.4 and ML.5. The canonical galaxy for this candidate is automorphic. Item 60 supplies only the missing split/inert L-group reformulation; import the connected Cauchy and Schur-character results from SchurWeyl Layer 7 and ClassicalGroups Layer 4. The review records unresolved proof and prerequisite gaps; this brief is not accepted for design.",
       "reason": "The Jacquet–Rallis comparison owner already carries the discrete case (PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22) and this paper runs the same comparison for Eisenstein data; the reduction of Bessel periods is the final step of the same unitary Gan–Gross–Prasad proofs, which this candidate records as the consumer of the framework. The route keeps the candidate's area value 'modular', which is not a galaxy id in data/galaxies.json; the review should correct it on all the routes together (automorphic is the natural galaxy)."
     },
     {
@@ -945,14 +940,14 @@
       "route": "part-ii",
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
       "roadmap": "LieGroupsPartIITwistedCharacterFormula",
-      "title": "Lie groups and the Lie algebra correspondence, Part II: Borel–Weil–Bott and the twisted Weyl character formula for non-connected groups",
+      "title": "Lie groups and the Lie algebra correspondence, Part II: twisted Weyl character formulas for non-connected groups",
       "area": "representations",
       "items": [
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/65",
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/66",
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/67"
       ],
-      "brief": "Part II of Tau Ceti's Lie groups and the Lie algebra correspondence (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups). It starts from Layer 8 (Borel–Weil, flag manifolds and Bruhat), whose Borel–Weil–Bott refinement it uses; do not replan it. Source: Beuzart-Plessis–Chaudouard, 'The global Gan–Gross–Prasad conjecture for unitary groups. II' (Forum Math. Pi 13 (2025)), Appendix A, 'a probably well-known extension of Weyl's character formula to non-connected groups', needed for unramified computations with L-groups. Final theorems, as the paper states them. Proposition A.0.2.1: for Ĝ connected complex reductive with Borel pair (B̂, T̂), Γ finite cyclic acting holomorphically and preserving (B̂, T̂), ^LG = Ĝ ⋊ Γ, W = Ŵ^Γ, a generator F of Γ and χ ∈ X*(T̂)^Γ: Σ_{w∈W}χ(wS)/D_{Ĝ/B̂}(wS) = 0 for regular S ∈ ^LT if χ + ρ is singular, and = ε_χ ch_{χ^+}(S) for regular S ∈ T̂F otherwise (χ^+ = w_χ·χ, ε_χ a root of unity, ε_χ = 1 for dominant χ), where ch_χ is the character of the extension of V_χ to ^LG trivial on the highest weight line. Corollary A.0.2.2: Σ_{w∈W_L}D_{Ĝ/B̂}(wS)^{−1} = D_{Ĝ/Q̂}(S)^{−1} for a Γ-stable standard parabolic Q̂ with Levi L̂. Cover: the semidirect products ^LG, ^LT, ^LB and regular elements; Γ-invariant dominant characters and the canonical extension of V_χ; the dot action and the singular/non-singular alternative; the Atiyah–Bott holomorphic Lefschetz formula for a regular S ∈ T̂F acting on X = Ĝ/B̂ = ^LG/^LB with fixed points W, stated as a cited theorem with its exact hypotheses; Proposition A.0.2.1 and Corollary A.0.2.2. Tests: Γ trivial recovers Weyl's character formula (and ε_χ = 1); Ĝ = GL_n(ℂ) × GL_n(ℂ) with Γ swapping the factors, where the formula expresses twisted characters of GL_n × GL_n through characters of GL_n evaluated at products; the unitary L-group GL_n(ℂ) ⋊ Gal(E/F) of §8.7.2 of the source. Imports: Layer 8 (Borel–Weil and the Borel–Weil–Bott refinement), Tau Ceti's RootSystems (Weyl group, dot action) and LieHighestWeight (highest weight modules). Consumer: JacquetRallisRelativeTraceComparison (Proposition 8.7.2.1).",
+      "brief": "Part II of Tau Ceti's Lie groups and the Lie algebra correspondence (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups). It starts from Layer 8 (Borel–Weil, flag manifolds and Bruhat), whose Borel–Weil–Bott refinement it uses; do not replan it. Source: Beuzart-Plessis–Chaudouard, 'The global Gan–Gross–Prasad conjecture for unitary groups. II' (Forum Math. Pi 13 (2025)), Appendix A, 'a probably well-known extension of Weyl's character formula to non-connected groups', needed for unramified computations with L-groups. Final theorems, as the paper states them. Proposition A.0.2.1: for Ĝ connected complex reductive with Borel pair (B̂, T̂), Γ finite cyclic acting holomorphically and preserving (B̂, T̂), ^LG = Ĝ ⋊ Γ, W = Ŵ^Γ, a generator F of Γ and χ ∈ X*(T̂)^Γ: Σ_{w∈W}χ(wS)/D_{Ĝ/B̂}(wS) = 0 for regular S ∈ T̂F if χ + ρ is singular, and = ε_χ ch_{χ^+}(S) for regular S ∈ T̂F otherwise (χ^+ = w_χ·χ, ε_χ a root of unity, ε_χ = 1 for dominant χ), where ch_χ is the character of the extension of V_χ to ^LG trivial on the highest weight line. Corollary A.0.2.2: Σ_{w∈W_L}D_{Ĝ/B̂}(wS)^{−1} = D_{Ĝ/Q̂}(S)^{−1} for a Γ-stable standard parabolic Q̂ with Levi L̂. Cover: the semidirect products ^LG, ^LT, ^LB and regular elements; Γ-invariant dominant characters and the canonical extension of V_χ; the dot action and the singular/non-singular alternative; the Atiyah–Bott holomorphic Lefschetz formula for a regular S ∈ T̂F acting on X = Ĝ/B̂ = ^LG/^LB with fixed points W, stated as a cited theorem with its exact hypotheses; Proposition A.0.2.1 and Corollary A.0.2.2. Tests: Γ trivial recovers Weyl's character formula (ε_χ = (−1)^ℓ(w_χ), equal to 1 for dominant χ); Ĝ = GL_n(ℂ) × GL_n(ℂ) with Γ swapping the factors, where the formula expresses twisted characters of GL_n × GL_n through characters of GL_n evaluated at products; the unitary L-group GL_n(ℂ) ⋊ Gal(E/F) of §8.7.2 of the source. Imports: Layer 8 (Borel–Weil and the Borel–Weil–Bott refinement), Tau Ceti's RootSystems (Weyl group, dot action) and LieHighestWeight (highest weight modules). Consumer: JacquetRallisRelativeTraceComparison (Proposition 8.7.2.1). In the Levi identity use W_L=Ŵ_L^Γ and regular S∈T̂F. The fixed-point sum is an alternating cohomology trace. Use item 65’s explicit pullback convention and prove its compatibility with the highest-weight normalization. Test the excluded identity component of (SL₂×SL₂)⋊C₂, χ=(-1,-1), and the connected SL₂ weight -2. Borel–Weil–Bott remains an import from Layer 8. This route needs the convention and proof-closure work listed in the review before design.",
       "reason": "Weyl's character formula for non-connected groups Ĝ ⋊ Γ is a statement about complex reductive groups, planned nowhere (Tau Ceti's LieGroups plans Borel–Weil and its Bott refinement for connected groups; ClassicalGroups plans characters of GL_n as Schur polynomials). It extends LieGroups Layer 8 in its own direction (fixed-point formulas on flag varieties), so a Part II of that roadmap rather than a new roadmap or a lemma inside a trace-formula roadmap; unramified computations with L-groups of unitary groups in later papers can import it."
     },
     {
@@ -964,7 +959,7 @@
       "items": [
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/56"
       ],
-      "reason": "AL.3 plans the Whittaker constructions for GL_n (importing SR.5's Bernstein–Zelevinsky derivatives in the p-adic case) and the archimedean Whittaker functional API. The surjectivity of the Kirillov model onto C_c^∞(N_{r−1}∖G_{r−1}) (Gelfand–Kazhdan; Kemarsky at complex places) is a statement of that kind; PAPER-GAN-ICHINO-18 and PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22 route other Rankin–Selberg inputs to the same layer."
+      "reason": "AL.3 owns the archimedean Whittaker API and imports local GL_n constructions. Item 56 has a character-equivariant, compact-modulo-N target. Read Jacquet’s real-field result and Gelfand–Kazhdan’s nonarchimedean result; Kemarsky Theorem 1 only supplies the complex generic unitary case. SR.5 specifically plans integral families and derivatives, not an explicit all-field Kirillov surjectivity theorem. The general consumer and field-specific proof obligations remain open."
     },
     {
       "route": "source",
@@ -975,7 +970,18 @@
       "items": [
         "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/38"
       ],
-      "reason": "ET.6 develops the segment and Langlands-quotient theory of GL_m over p-adic fields; PAPER-JIANG-ZHANG-20 routes Tadić's description of the generic unitary dual to it. The classification of generic unitary representations as fully induced from essentially discrete series with exponents in ]−½, ½[ (Zelevinsky, Tadić, Badulescu–Renard) is that statement; its archimedean case is imported from AF.1, where PAPER-JIANG-ZHANG-20 routes Vogan's generic unitary dual."
+      "reason": "ET.6 is the proposed owner for the p-adic generic unitary-dual input. The item also asserts real and complex cases. AF.1 gives the archimedean representation framework, but a precise generic-unitary classification theorem must be separately extracted and requested there; the present layer text and a reference to PAPER-JIANG-ZHANG-20 are not evidence that this exact theorem is already planned. Split the item and prove the source-to-consumer match before activating the route."
+    },
+    {
+      "route": "source",
+      "roadmap": "ModularityAndLanglandsExtensions",
+      "stages": [
+        "ModularityAndLanglandsExtensions:ML.5"
+      ],
+      "items": [
+        "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/49"
+      ],
+      "reason": "ML.5 is the appropriate proposed supplier, but its current layer text does not explicitly plan this GRS descent theorem. Coalesce with the missing grs-descent item/source route of PAPER-JIANG-ZHANG-20; do not assign the classical GRS input to that packet’s TwistedAutomorphicDescents extension. Exact all-rank unitary descent, parity, and auxiliary-character hypotheses remain to be extracted from GRS11."
     }
   ],
   "sourceIssues": [
@@ -984,16 +990,22 @@
       "kind": "gap",
       "locator": "Proof of Lemma 7.1.7.1, assertion 2, p. 67",
       "printed": "Let (M_Q, ρ) be a representative of an element in 𝔛^h_Π. We claim that Ind^{U_h}_Q(ρ) and Ind^{U_{h♭}}_{P_{h♭}}(σ♭_{bc(λ)}) have the same Archimedean infinitesimal character … The former condition follows from [BLZZ21, Theorem 4.14 (4)] (applied to ρ) and the fact that the base change map is injective at the level of archimedean infinitesimal characters.",
-      "correction": "The claim is true, but the cited proof does not give it here. Take the compatibility of archimedean infinitesimal characters for the unitary part ρ_0 from Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) with its Proposition 4.13(1) repaired by isolating with Theorem 3.19 (PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1), or from Mok and Kaletha–Mínguez–Shin–White (strong base change is compatible at archimedean places; BPLZZ Remark 4.15), stating that dependence.",
-      "reason": "BPLZZ Theorem 4.14(4) rests on its Proposition 4.13(1), whose argument by contradiction reaches the archimedean component only when the base change is cuspidal. Here ρ = ρ♯ ⊠ ρ_0 with ρ_0 cuspidal on a unitary group whose weak base change is the discrete component Π_0 of Π, a discrete Hermitian Arthur parameter that is not cuspidal in the endoscopic cases the paper covers (this is the same step as in PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E1). Assertion 2, μ^h(Ind(σ_{bc(λ)})) = 1 on all of 𝔛^h_Π, is used to identify J^h_Π(λ_0, μ^h ∗ f^h) with J^h_Π(λ_0, f^h) at the end of the proof of Theorem 7.1.6.1. The theorems remain true by the repaired argument, so only the proof is affected.",
+      "correction": "Supply the archimedean compatibility proof for the endoscopic discrete base-change component. BPLZZ Theorem 4.14(4) states the needed result, but its printed proof goes through Proposition 4.13(1). That proof’s final nonemptiness assertion needs an additional argument in case (a). Theorem 3.19 is a possible repair tool, not a repair certified here. Alternatively, extract and verify the exact Mok/KMSW theorem and hypotheses indicated by BPLZZ Remark 4.15. Also retain the bc(λ) twist when comparing the induced representations.",
+      "reason": "Read BPLZZ Annals 194 (2021), Definition 3.16 p.556, Theorem 3.19 p.558, Proposition 4.13 pp.569–571 and Theorem 4.14 with Remark 4.15 pp.572–573. Definition 3.16 requires equality of the archimedean infinitesimal character as well as finite-place data. The contradiction in Proposition 4.13 assumes that weak base change does not exist and proves that this assumption fails; it does not establish D(G′,1)^heart_{χ′}≠∅ once an endoscopic weak base change exists with archimedean compatibility still to prove. Theorem 4.14(4) then cites precisely Proposition 4.13(1). Thus the confirmed issue is an inherited proof obligation, not a claim that Theorem 4.14 has a cuspidality hypothesis or that the BPC25 theorem is false. The original assertion that Theorem 3.19 already repairs all steps has been withdrawn.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1 and PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E1 (this atlas's extractions); source of BPLZZ Proposition 4.13 and Theorem 4.14 in arXiv 1912.07169v3"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the narrower inherited-proof sense stated above; no completed repair or false-main-theorem claim.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E2",
@@ -1005,11 +1017,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-        "page image of the published PDF checked"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the published p.5 image; the Laurent monomial (s−1)^{-d} requires multiplication by (s−1)^d, not its inverse.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E3",
@@ -1021,11 +1039,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-        "page image of the published PDF checked"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed p.7 against the ranks m and n+1 of the two unitary factors and §1.3.4.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E4",
@@ -1037,10 +1061,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed p.7: the r=0 reduction is the earlier corank-one theorem; the printed self-reference supplies no reduction.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E5",
@@ -1052,10 +1083,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed p.20 against (3.1.4.1) and the embedding U′⊂U″.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E6",
@@ -1067,10 +1105,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed p.26 in the unitary section; the test function and all three kernels live on U.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E7",
@@ -1078,15 +1123,21 @@
       "locator": "(4.2.8.1), p. 46, and the display in §1.4.3, p. 11",
       "printed": "I_{Π_λ}(f) = Σ_{φ∈ℬ_{P,π}} Z^RS(0, W(I_P(λ, f)φ, λ))\\overline{β_η(W(φ, λ))}/⟨W(φ, λ), W(φ, λ)⟩_Pet",
       "correction": "The denominator is ⟨W(φ, λ), W(φ, λ)⟩_Whitt.",
-      "reason": "W(φ, λ) is a Whittaker function, on which only the Whittaker inner product of §4.2.4 is defined; Proposition 4.2.6.1, used in the term-by-term proof of Theorem 4.2.8.1, identifies ⟨φ, φ⟩_Pet with ⟨W(φ, λ), W(φ, λ)⟩_Whitt, and (7.3.2.1) uses ⟨·,·⟩_Whitt locally.",
+      "reason": "Confirmed as a notation discrepancy with the form explicitly defined in §4.2.4. Proposition 4.2.6.1 identifies that Whittaker form with the transported Petersson form, so the printed Pet can be interpreted by transport; this is not a false numerical identity or a proof gap. Writing Whitt fixes the convention without changing the scalar.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-        "page image of the published PDF checked"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as notation only; the transported Petersson form makes the intended expression meaningful.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E8",
@@ -1094,14 +1145,21 @@
       "locator": "Remarks 7.1.5.1, second paragraph, p. 65",
       "printed": "We warn also the reader that the map (7.1.5.1) does not preserve the various choices of Haar measures. In fact, the pullback of the measure on 𝔞*_{M_h} is 2^{dim(𝔞^L_M)} times the measure on 𝔞^{L,*}_M.",
       "correction": "The pullback of the measure on 𝔞*_{M_h} by bc is 2^{−dim(𝔞^L_M)} times the measure on 𝔞^{L,*}_M.",
-      "reason": "The second equality of (7.1.7.3) changes variables with exactly this factor, ∫_{i𝔞*_{M_h}}F = 2^{−dim 𝔞^L_M}∫_{i𝔞^{L,*}_M}F∘bc, and only then does (7.1.6.1) come out with |S_Π|^{−1} = 2^{dim 𝔞^L_M − dim 𝔞_L} (7.1.4.1). Direct check for one pair (σ, σ*), M = G_m × G_m, L = G_{2m}, M_h = Res_{E/F}GL_m: bc(z) = (z, −z), so in the coordinate u = x − y on 𝔞*_M/𝔞*_L (quotient measure du) one has u = 2z and dz = du/2.",
+      "reason": "The second equality of (7.1.7.3) changes variables with exactly this factor, ∫_{i𝔞*_{M_h}}F = 2^{−dim 𝔞^L_M}∫_{i𝔞^{L,*}_M}F∘bc, and only then does (7.1.6.1) come out with |S_Π|^{−1} = 2^{dim 𝔞^L_M − dim 𝔞_L} (7.1.4.1). Direct check for one pair (σ, σ*), M = G_m × G_m, L = G_{2m}, M_h = Res_{E/F}GL_m: bc is the inverse of z ↦ (z, −z), so in the coordinate u = x − y on 𝔞*_M/𝔞*_L (quotient measure du) one has u = 2z and dz = du/2.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed p.65 image, §2.1.8 measure convention and (7.1.7.3). In one pair u=x−y=2z and bc(u)=u/2, so the pullback is du/2.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E9",
@@ -1113,11 +1171,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-        "page image of the published PDF checked"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed p.71 image against §1.2.4 and the starred coefficient in (7.3.2.1).",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E10",
@@ -1125,30 +1189,251 @@
       "locator": "Lead-in to Lemmas 7.1.7.1–7.1.7.2, p. 66; proofs of Proposition 3.5.6.4 and Theorem 3.5.7.1, pp. 35–36",
       "printed": "The following two lemmas are based on [BLZZ21, theorem 3.17] … It follows from [BPCZ22, Proposition 2.8.41] … by [BPCZ22, Proposition 2.8.41]",
       "correction": "[BLZZ21, Theorem 3.19] (as the proof of Lemma 7.1.7.1 itself cites) and [BPCZ22, Proposition 2.8.4.1].",
-      "reason": "3.17 is the arXiv v1 number of the isolation theorem, which is Theorem 3.19 of the Annals paper cited in the bibliography (3.17 is there a proposition); BPCZ has no Proposition 2.8.41, and Proposition 2.8.4.1 is its relative-character convergence statement.",
+      "reason": "The published BPLZZ source has Proposition 3.17 (annihilating one component) and Theorem 3.19 (the full isolation statement) on pp.556–558. The later proof in BPC25 itself cites Theorem 3.19. BPCZ2022, printed pp.227–228, has Proposition 2.8.4.1, with the absolute convergence, basis independence and uniform distribution bounds used here. This review does not rely on the original extraction’s claim about the v1 numbering.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-        "arXiv 1912.07169 v1 and v3 compared (numbering of Beuzart-Plessis–Liu–Zhang–Zhu)"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed both primary published locators: BPLZZ p.558 and BPCZ pp.227–228.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     },
     {
       "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E11",
       "kind": "misprint",
-      "locator": "Lemma 7.1.7.2(1), p. 67; §7.3.1, p. 71; §8.2.1, p. 74; §4.1.5, p. 38",
-      "printed": "For all f ∈ 𝒮(G(A), K^∞_{h,1}) … f^h ∈ 𝒮(U_{h_0}(A)) … for each G ∈ {U_m, U_n, U_{n+1}, U_{n+2}, G_r, V_n} … the Haar measure we have fixed on G_r(F_v) … Levi factor L′ = L ∩ G",
-      "correction": "𝒮(G(A), K^∞_1); 𝒮(U_h(A)); U_{m+1} for U_{n+2} and G_k(F_v) for G_r(F_v) in the definition of ν(G_{k,v}); L′ = L ∩ G′.",
-      "reason": "Index slips: K^∞_{h,1} is the unitary-side level; §7.3 fixes h (h_0 is the rank-one form); only U_m, U_{m+1}, U_n, U_{n+1} are defined in §8.1.3; ν(G_{k,v}) compares measures on G_k; L′ is the Levi of Q′ = Q ∩ G′.",
+      "locator": "Lemma 7.1.7.2(1), p. 67; §7.3.1, p. 71; §8.2.1, p. 74; §4.1.5, p. 38; §5.4.2 p.51; end of proof of Lemma 7.1.7.1 p.67; (8.6.2.5) p.84; display before (8.7.2.8) p.89; §8.8.3 p.92",
+      "printed": "For all f ∈ 𝒮(G(A), K^∞_{h,1}) … f^h ∈ 𝒮(U_{h_0}(A)) … for each G ∈ {U_m, U_n, U_{n+1}, U_{n+2}, G_r, V_n} … the Haar measure we have fixed on G_r(F_v) … Levi factor L′ = L ∩ G; 𝒫_{2n}=B_{2n}; Ind_Q^{U_h}(ρ) compared with Ind_{P_{h♭}}^{U_{h♭}}(σ♭_{bc(λ)}); ν(G_{k,v}) in (8.6.2.5); a tensor-product sign between the second and third summands of S_{τ,s} ⊗^I wS_{n+1}; the local Bessel form on σ_{m,v}⊠σ_{n,v}",
+      "correction": "𝒮(G(A), K^∞_1); 𝒮(U_h(A)); U_{m+1} for U_{n+2} and G_k(F_v) for G_r(F_v) in the definition of ν(G_{k,v}); L′ = L ∩ G′. Also 𝒫_{2n}=N_{2n}; compare Ind_Q^{U_h}(ρ_{bc(λ)}); use ν(G_{r,v}) in (8.6.2.5); use a direct-sum sign between all three summands in the displayed decomposition; the Bessel form acts on σ_{m,v}⊠σ_{n+1,v}.",
+      "reason": "Index slips: K^∞_{h,1} is the unitary-side level; §7.3 fixes h (h_0 is the rank-one form); only U_m, U_{m+1}, U_n, U_{n+1} are defined in §8.1.3; ν(G_{k,v}) compares measures on G_k; L′ is the Levi of Q′ = Q ∩ G′. The block definition of 𝒫_i has lower block N_i, hence 𝒫_{2n}=N_{2n}. The representations in assertion 2 both carry the bc(λ) twist. The Fourier inversion is applied to G_r in (8.6.2.5). The three restrictions of the tensor representation on the Levi are a direct sum, as the next determinant factorization requires. The Bessel group is U_m×U_{n+1}, not U_m×U_n.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-        "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-        "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
-      ]
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed each listed index against the surrounding definitions on pp.38, 67, 71, 74. Also independently checked the additional cited displays and their adjacent definitions.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E12",
+      "kind": "error",
+      "locator": "Proposition A.0.2.1(1), p.95, and Corollary A.0.2.2, pp.95–96; arXiv v1 pp.84–85",
+      "printed": "for every regular S ∈ ^LT",
+      "correction": "Restrict both assertions to regular S∈T̂F where F generates Γ, as in the proof and in Proposition A.0.2.1(2). For the split local application use Γ_v={1}. An all-component theorem would require component-dependent Weyl data and a separate statement.",
+      "reason": "Take Ĝ=SL₂×SL₂, Γ=C₂ swapping the factors and upper triangular Borels. Then W=Ŵ^Γ is the diagonal two-element Weyl group. In the identity component take S=(diag(a,a^{-1}),diag(b,b^{-1})), a=2,b=3. It is regular. For χ=(-1,-1)=-ρ, χ+ρ is singular, but the two-term sum is 2ab/((a²−1)(b²−1))=1/2, not zero. With χ=0 and Q̂=Ĝ, the denominator sum, even with corrected W_L=W, is 37/24, not 1. On the generator component the analogous two sums are 0 and 1. Exact rational checks for all a,b∈{2,3,4,5} reproduce these values and boundaries. The proof on p.95 expressly fixes S∈T̂F.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; the published/preprint Appendix A comparison also retains this problem.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E13",
+      "kind": "misprint",
+      "locator": "Corollary A.0.2.2, p.95; arXiv v1 p.85",
+      "printed": "W_L = Norm_{^LL}(T̂)/T̂ ⊂ W",
+      "correction": "Use W_L=Ŵ_L^Γ=Norm_{L̂}(^LT)/T̂, consistent with the definition of W in A.0.2.",
+      "reason": "The printed quotient includes Γ and in general the full Weyl group of L̂, rather than its Γ-fixed subgroup. Take Ĝ=L̂=Q̂=B̂=T̂=G_m and Γ=C₂ acting trivially. The printed quotient is C₂, while W=1; every determinant on the zero tangent quotient is 1. Its sum is 2 instead of 1, even on the generator component. The corrected fixed Weyl group has one element.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; the published/preprint Appendix A comparison also retains this problem.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E14",
+      "kind": "misprint",
+      "locator": "Proof of Proposition A.0.2.1, p.95; arXiv v1 pp.84–85",
+      "printed": "Σ_{w∈W} χ(wS)/D_{Ĝ/B̂}(wS) = Tr(S|H^i(X,ℒχ))",
+      "correction": "Insert (−1)^i in front of the trace, and include it in εχ. For trivial Γ this gives εχ=(−1)^ℓ(wχ), not always 1.",
+      "reason": "Atiyah–Bott Theorem 4.12 uses the alternating sum defined in its (4.11), printed pp.458–459. For connected SL₂, Γ=1 and weight χ=-2, the two Weyl terms are a^{-2}/(1−a^{-2}) + a²/(1−a²) = -1 for a²≠1. The dominant dot translate is 0 and its character is 1. The missing sign is therefore visible without any analytic approximation. The proposition’s unspecified root of unity can absorb it; the printed proof and the extraction’s trivial-Γ test cannot omit it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; the published/preprint Appendix A comparison also retains this problem.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E15",
+      "kind": "error",
+      "locator": "Proof of Proposition 8.6.1.1, p.82",
+      "printed": "for every f ∈ C_c^∞(N_{r−1}(F_v)∖G_{r−1}(F_v))",
+      "correction": "Use smooth functions compact modulo N_{r−1} satisfying f(uh)=ψ_{−r}(u)f(h). Additionally verify the precise local-field and unitarity hypotheses of the cited Kirillov theorem before applying it to arbitrary generic τ.",
+      "reason": "A Whittaker functional satisfies L_W(τ(u)τ(h)φ)=ψ_{−r}(u)L_W(τ(h)φ). For r≥3 and ψ_{−r}(u)≠1, a nonzero ordinary left-N-invariant function cannot equal this restriction. Kemarsky’s primary Theorem 1, printed p.580, explicitly uses the twisted compact-modulo-N space and assumes generic unitary irreducible representations of GL_n(C); its introduction separately attributes real and p-adic analogues to Jacquet and Gelfand–Kazhdan. The equivariance error is confirmed. The arbitrary nonunitary complex extension remains a proof obligation, not a claimed counterexample to the main proposition.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E16",
+      "kind": "misprint",
+      "locator": "Equation (8.8.3.2), p.93",
+      "printed": "P_{ℬ_L,ψ^L_ℬ,v}(φ_{n,s,v}(h1)⊗σ_{n+1,v}(h2)φ_{n+1,v}, φ_{n,s,v}(h1)⊗σ_{n+1,v}(h2)φ_{n+1,v})",
+      "correction": "The two slots must be a(h1) and a(h2), where a(h)=φ_{n,s,v}(h)⊗σ_{n+1,v}(h)φ_{n+1,v}.",
+      "reason": "The published image repeats the same crossed tensor in both slots. Proposition 8.6.2.1, equation (8.6.2.1) on p.82, supplies the sesquilinear double integral with the two matched slots. The preceding global expression (8.8.3.1) likewise has a(h1) and the conjugate a(h2). Substitution of that cited proposition gives the correction directly.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E17",
+      "kind": "misprint",
+      "locator": "After equation (3.3.4.4), p.24",
+      "printed": "σ_1^2(H_1) ≠ 1",
+      "correction": "Use σ_1^2(H_1) ≠ 0 (equivalently =1 for the characteristic function).",
+      "reason": "The bound is needed on the support of the chamber characteristic function. The very next assumption (3.3.4.5) makes F·σ nonzero. The printed condition excludes that support, so the bound cannot be applied in the following sentence. This is the support-condition correction; no new proof of the cited Arthur estimate is claimed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E18",
+      "kind": "misprint",
+      "locator": "Final estimate on p.29 in the proof following Lemma 3.4.5.2",
+      "printed": "d_{P′_1}(−α,y)",
+      "correction": "Use d_{P′_1}(−λ,y).",
+      "reason": "The estimate is stated for any n1,n2,r and uses the chosen λ in Lemma 3.4.5.2. Its next sentence explicitly refers to this same factor as d_{P′_1}(−λ,y) and its expansion in simple roots. The earlier α belongs to a preceding proof and is not the parameter of this estimate.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E19",
+      "kind": "misprint",
+      "locator": "Local Jacquet integral (5.4.4.1), p.51",
+      "printed": "∫_{(N_{2n}∩M)(F_S)∖N_{2n}(F_S)} W^ψ_{M,S}(Π_λ(ξ_0 u g_S)φ) du",
+      "correction": "Insert ψ(u)^{-1} in the integrand, as in the global integral in §5.4.3 immediately above.",
+      "reason": "The global definition on the same page includes this character factor. Without it the local expression fails the Whittaker transformation law: already for n=1, right translation of g_S by u0∈N_2 changes variables u↦u u0 and leaves the unweighted integral invariant, whereas a ψ-Whittaker function must gain ψ(u0). The factor ψ(u)^{-1} yields exactly that transformation. The factorization (5.4.4.2) requires this Whittaker functional.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+        "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+        "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+        "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+        "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search.",
+        "by": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
+      }
     }
-  ]
+  ],
+  "gaps": [
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/G1",
+      "detail": "Split bundled definitions/results (especially 1,4–7,14–20,22–24,26–28,31,35–37,40–41,43–44,46,51–55,57–58,61–62,68–69) and supply all hypotheses, definition APIs, dependency edges and boundary tests. A long theorem name listing locators is not a set of extracted statements."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/G2",
+      "detail": "Extract missing analytic and combinatorial suppliers: height/log-height and Schwartz/tempered LF topologies, completed tensor products, Dixmier–Malliavin, the relevant uniform-boundedness/closed-graph statements, Arthur cone functions and estimates, non-K-finite extensions in §§3.4–3.5, spectral convergence and passage to limits, the Stone–Weierstrass spectral-separation step in §7.1.7, and the BPCZ Appendix A residue/Schwartz-continuation inputs of §6.2. Match existing analysis declarations at the pins before planning general substitutes."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/G3",
+      "detail": "Resolve the inherited BPLZZ proof obligation E1 with a complete primary proof or an exact Mok/KMSW theorem and hypothesis match. Pin GRS descent, local GGP, transfer, uniqueness and unramified Bessel-function suppliers by statement and version. A bibliography entry alone closes none of these."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/G4",
+      "detail": "Separate p-adic, real, complex and split-product inputs in 38 and 56. The complex Kemarsky theorem verified here assumes unitarity; Proposition 8.6.1.1 uses arbitrary generic τ. The exact archimedean generic unitary classification needs its own AF.1 source item. Treat r=0,1 separately. In the introduction clarify the AE/E character versus the printed A/F domain and the r=0 indexing convention before making Bessel data usable."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/G5",
+      "detail": "Close Appendix A’s cohomology/fiber-action convention adapter using the explicit Atiyah–Bott pullback convention and Borel–Weil–Bott import. Keep E12–E14 corrections; prove component-specific fixed-point identification and the extension of a highest-weight representation. Decompose the split/inert Cauchy adapter 60 and determinant identities of §8.7; do not re-plan connected Schur/Cauchy/Borel–Weil–Bott theory."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/G6",
+      "detail": "Coalesce routes 1–4 with the already proposed candidates in BPLZZ21, BPCZ22, Zhang21 and Jiang–Zhang20. Align the Jacquet–Rallis galaxy to automorphic across those packets through their owners. Give exact supplier/consumer signatures and check the resulting stage graph for cycles; the current directional ownership check does not certify a full stage-level graph. Retain the separate stronger hypotheses of each main theorem; do not silently assume H-regularity for Theorem 1.2.4.1, which is stated with regular tempered data."
+    }
+  ],
+  "review": {
+    "by": "independent-review-REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+    "verdict": "revise",
+    "date": "2026-09-24",
+    "notes": "Finished independent review, with clear corrections applied. All routes rejected pending the explicitly listed closure and statement gaps; no formalization claimed."
+  }
 }
