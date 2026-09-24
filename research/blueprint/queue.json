@@ -29481,8 +29481,9 @@
     "RT-AREA-langlands-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-langlands-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1502"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1502",
+   "finishedAt": "2026-09-24T10:26:40Z"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -30655,7 +30656,8 @@
     "RT-AREA-topology"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-topology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1546"
   },
   {
    "id": "RT-AREA-diffgeom",
