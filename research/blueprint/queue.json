@@ -26317,7 +26317,8 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1619"
   },
   {
    "id": "REV-RT-RS-07",
@@ -26572,7 +26573,8 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-30.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1629"
   },
   {
    "id": "REV-RT-RS-30",
@@ -26646,7 +26648,8 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-31.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1630"
   },
   {
    "id": "RT-RS-32",
@@ -30286,8 +30289,9 @@
     "RT-AREA-probability"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-probability.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1542"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1542",
+   "finishedAt": "2026-09-24T01:19:08Z"
   },
   {
    "id": "RT-AREA-combinatorics",
