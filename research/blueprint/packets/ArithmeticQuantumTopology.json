@@ -1,0 +1,2801 @@
+{
+ "roadmapId": "ArithmeticQuantumTopology",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "status": "partial",
+ "summary": "Blueprint of the arithmetic quantum topology roadmap, built on Habiro's construction of a unified Witten-Reshetikhin-Turaev invariant of integral homology spheres and on Neumann's extended Bloch group. QT.0 supplies framed links, surgery and, as the refinement this roadmap actually needs, admissible links, Hoste moves and the refined Kirby calculus. QT.1 and QT.2 build the integral forms of the quantized enveloping algebra of sl(2), the universal invariant of bottom tangles, the cyclotomic basis and the integrality and divisibility theorem for algebraically split links. QT.3 constructs the unified invariant and proves it well defined against the refined calculus; QT.4 evaluates it at roots of unity, recovering the quantum invariants with their integrality and Galois equivariance, and identifies its Taylor expansion with the Ohtsuki series. QT.5 decomposes the extended Bloch group route to volume and Chern-Simons. QT.6 and QT.7 are recorded as unread: their sources were not acquired, and the gaps and requests say what they would need. The packet plans nothing that the pinned libraries already contain; it cites their ribbon-category, Hopf-algebra, cyclotomic-polynomial and framed-link carriers as baseline.",
+ "scope": [
+  "ArithmeticQuantumTopology:QT.0",
+  "ArithmeticQuantumTopology:QT.1",
+  "ArithmeticQuantumTopology:QT.2",
+  "ArithmeticQuantumTopology:QT.3",
+  "ArithmeticQuantumTopology:QT.4",
+  "ArithmeticQuantumTopology:QT.5",
+  "ArithmeticQuantumTopology:QT.6",
+  "ArithmeticQuantumTopology:QT.7"
+ ],
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:CategoryTheory.MonoidalCategory",
+    "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
+    "provides": "Monoidal categories with associators and unitors; the ambient structure a ribbon category refines."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.BraidedCategory",
+    "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+    "provides": "Braided monoidal categories with the hexagon axioms; the braiding of a ribbon category is one of these."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.ExactPairing",
+    "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+    "provides": "Duality data (evaluation and coevaluation with the triangle identities) for a single pair of objects."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.RigidCategory",
+    "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+    "provides": "Left and right duals for every object; the duality half of a ribbon category."
+   },
+   {
+    "ref": "mathlib:HopfAlgebra",
+    "module": "Mathlib/RingTheory/HopfAlgebra/Basic.lean",
+    "provides": "Hopf algebras over a commutative ring, with antipode; the ordinary (non-braided) case of the structures used here."
+   },
+   {
+    "ref": "mathlib:Polynomial.cyclotomic",
+    "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+    "provides": "The cyclotomic polynomials over a ring, which cut out the evaluation ideals of the Habiro ring."
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot",
+    "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+    "provides": "Primitive roots of unity and their order; the evaluation points of the quantum invariants."
+   },
+   {
+    "ref": "mathlib:Complex.log",
+    "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+    "provides": "The principal complex logarithm, the branch on which combinatorial flattenings are defined."
+   },
+   {
+    "ref": "mathlib:Matrix.det",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "Determinants, used for the linking matrix conditions on an admissible framed link."
+   },
+   {
+    "ref": "tauceti:TauCeti.FramedOrientedGaussCode",
+    "module": "TauCeti/KnotTheory/GaussCode/FramedUnbased.lean",
+    "provides": "Framed oriented Gauss codes: an existing combinatorial carrier for framed oriented links with an integer framing per component."
+   },
+   {
+    "ref": "tauceti:TauCeti.BasedOrientedGaussCode.writhe",
+    "module": "TauCeti/KnotTheory/GaussCode/Basic.lean",
+    "provides": "The writhe of a based oriented Gauss code, the blackboard framing comparison used to normalise framings."
+   },
+   {
+    "ref": "tauceti:TauCeti.FramedMarkovBraid",
+    "module": "TauCeti/KnotTheory/Markov.lean",
+    "provides": "Framed braid closures with the Markov moves; the braid presentation of a framed link."
+   },
+   {
+    "ref": "tauceti:TauCeti.MarkovEquiv",
+    "module": "TauCeti/KnotTheory/Markov.lean",
+    "provides": "Markov equivalence of braids, the equivalence relation whose classes are link types."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "habiro2008",
+   "title": "A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres",
+   "authors": "Kazuo Habiro",
+   "edition": "arXiv:math/0605314v1 (11 May 2006); published as Invent. Math. 171 (2008), no. 1, 1-81",
+   "url": "https://arxiv.org/abs/math/0605314",
+   "sha256": "79069d6aa22d8c0b439e79db3348184c6c089336c64f804ded6a99162a72c136",
+   "note": "The e-print source package was read; the sha256 is of the arXiv e-print tarball of v1. Section and statement numbers below are the e-print's, recomputed from the source's theorem counter (numbered by section).",
+   "readSections": [
+    "1 Introduction (1.1-1.4)",
+    "2 The algebra U_h(sl_2) and its subalgebras",
+    "3 Braided Hopf algebra structure",
+    "4 Universal sl_2 invariant of bottom tangles",
+    "5 Colored Jones polynomials",
+    "6 Knots",
+    "8 Algebraically-split links",
+    "9 Twists",
+    "10 The invariant J_M",
+    "11 Specializations at roots of unity",
+    "12 Some properties of J_M (12.1-12.6)"
+   ]
+  },
+  {
+   "id": "neumann2004",
+   "title": "Extended Bloch group and the Cheeger-Chern-Simons class",
+   "authors": "Walter D. Neumann",
+   "edition": "arXiv:math/0307092; published in Geom. Topol. 8 (2004) 413-474",
+   "url": "https://arxiv.org/abs/math/0307092",
+   "sha256": "0553bc88d84bedfeb05a86e28a3c03ea57fb855e5fad1033d28f1eeeca715889",
+   "note": "The e-print source package was read; the sha256 is of the arXiv e-print tarball. Statement numbers are the e-print's, recomputed from the source.",
+   "readSections": [
+    "1 Introduction",
+    "2 The extended Bloch group",
+    "3 Parameters for ideal hyperbolic simplices",
+    "4 Definition of the map from H_3",
+    "5 Developing map",
+    "7 Computation of the extended Bloch group"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/framed-link-and-linking-matrix",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Framed oriented links and their linking matrix",
+   "kind": "definition",
+   "statement": "A framed oriented link L = L_1 cup ... cup L_m in the 3-sphere is an oriented link together with an integer f_i for each component, the framing, understood as the surgery coefficient of that component relative to the Seifert framing. Its linking matrix is the integer m-by-m symmetric matrix Lk(L) with off-diagonal entries lk(L_i, L_j) and diagonal entries f_i. L is algebraically split when lk(L_i, L_j) = 0 for all i different from j, and unit-framed when every f_i is 1 or -1.",
+   "hypotheses": [
+    "L is a link in the oriented 3-sphere with a chosen orientation of each component",
+    "the framing of each component is an integer, normalised against the Seifert framing (framing 0)"
+   ],
+   "proofSteps": [
+    "Take the existing combinatorial carrier of a framed oriented link (a framed oriented Gauss code, or a framed braid closure) and read the framing off the carrier.",
+    "Define lk(L_i, L_j) as one half of the sum of the signs of the crossings between the two components, and prove that it is invariant under the moves of the carrier.",
+    "Define the diagonal entry to be the framing, and prove symmetry of the matrix from symmetry of the linking number.",
+    "Prove that the blackboard framing of a diagram has framing equal to the writhe of that component, so the Seifert normalisation is the writhe-corrected one."
+   ],
+   "acceptance": [
+    "The 0-framed unknot has the 1-by-1 zero matrix; the (+1)-framed unknot has the matrix (1).",
+    "The Hopf link with both components 0-framed has matrix [[0,1],[1,0]]; its determinant is -1, so it is not algebraically split.",
+    "The Borromean rings with all framings 0 are algebraically split: every pairwise linking number is 0 while the link is not trivial."
+   ],
+   "prerequisites": [
+    "tauceti:TauCeti.FramedOrientedGaussCode",
+    "tauceti:TauCeti.BasedOrientedGaussCode.writhe",
+    "mathlib:Matrix.det"
+   ],
+   "api": [
+    {
+     "name": "linkingMatrix",
+     "role": "data",
+     "statement": "linkingMatrix L is a symmetric integer matrix indexed by the components of L."
+    },
+    {
+     "name": "linkingMatrix_symm",
+     "role": "characterisation",
+     "statement": "linkingMatrix L is symmetric: its (i,j) and (j,i) entries agree."
+    },
+    {
+     "name": "linkingMatrix_diag",
+     "role": "projection",
+     "statement": "The (i,i) entry of linkingMatrix L is the framing of the i-th component."
+    },
+    {
+     "name": "IsAlgebraicallySplit",
+     "role": "structure",
+     "statement": "IsAlgebraicallySplit L holds when every off-diagonal entry of linkingMatrix L vanishes."
+    },
+    {
+     "name": "linkingMatrix_of_move",
+     "role": "compatibility",
+     "statement": "The linking matrix is unchanged by the moves of the chosen carrier, so it is an invariant of the framed link type."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.0/admissible-framed-link",
+     "how": "Admissibility is a condition on the linking matrix: zero off the diagonal and plus or minus one on it."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.0/surgery-presentation",
+     "how": "The first homology of the surgered manifold is the cokernel of the linking matrix, so the matrix decides when the result is an integral homology sphere."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split",
+     "how": "The integrality theorem is stated for algebraically split 0-framed links, a condition on this matrix."
+    }
+   ],
+   "tests": [
+    {
+     "name": "linkingMatrix_unknot",
+     "statement": "The linking matrix of the 0-framed unknot is the 1-by-1 zero matrix."
+    },
+    {
+     "name": "linkingMatrix_hopf",
+     "statement": "The linking matrix of the 0-framed Hopf link is [[0,1],[1,0]], which is not diagonal, so the Hopf link is not algebraically split."
+    },
+    {
+     "name": "linkingMatrix_blackboard",
+     "statement": "For a diagram with the blackboard framing, the diagonal entry of the linking matrix is the writhe of that component; this distinguishes the Seifert normalisation from the blackboard one."
+    },
+    {
+     "name": "not_algebraicallySplit_of_det_ne",
+     "statement": "A two-component link whose linking matrix has a nonzero off-diagonal entry is not algebraically split; in particular the Hopf link is a non-example."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 10.1, e-print p. 51",
+     "excerpt": "We call a framed link L in S^3 admissible if L is algebraically-split and each component has framing plus or minus 1.",
+     "match": "Habiro fixes exactly this normalisation of framings and linking numbers before defining the class of links his surgery formula uses."
+    }
+   ],
+   "planet": {
+    "name": "Framed link and linking matrix"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/surgery-presentation",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Surgery on a framed link and the homology of the result",
+   "kind": "construction",
+   "statement": "For a framed oriented link L in the 3-sphere, let S^3(L) be the closed oriented 3-manifold obtained by removing an open tubular neighbourhood of L and regluing solid tori so that the meridian of the i-th new solid torus is sent to the curve of slope f_i on the corresponding torus boundary. The first homology of S^3(L) is the cokernel of the linking matrix of L. In particular S^3(L) is an integral homology sphere if and only if the linking matrix has determinant plus or minus 1, and S^3 itself is the result of surgery on the empty link.",
+   "hypotheses": [
+    "L is a framed oriented link in the oriented 3-sphere",
+    "the gluing is orientation-reversing on the boundary tori, so that S^3(L) carries an induced orientation"
+   ],
+   "proofSteps": [
+    "Construct the exterior of L as the complement of an open tubular neighbourhood, using the tubular-neighbourhood theorem for the 1-manifold L inside the 3-sphere.",
+    "Glue m solid tori along the slopes f_i and record the orientation convention.",
+    "Compute the first homology with the Mayer-Vietoris sequence of the decomposition into exterior and solid tori: the exterior has first homology free on the meridians, and gluing kills the surgery slopes, so the cokernel of the linking matrix appears.",
+    "Deduce that the result is an integral homology sphere exactly when the linking matrix is unimodular."
+   ],
+   "acceptance": [
+    "The empty link presents the 3-sphere.",
+    "Surgery on the (plus or minus 1)-framed unknot gives the 3-sphere again; this is the blow-up and blow-down move.",
+    "Surgery on the p/q-framed unknot with integral coefficient p gives the lens space L(p,1); its first homology is the cyclic group of order the absolute value of p, which matches the cokernel of the 1-by-1 matrix (p)."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/framed-link-and-linking-matrix"
+   ],
+   "api": [
+    {
+     "name": "surgery",
+     "role": "constructor",
+     "statement": "surgery L is the closed oriented 3-manifold obtained by surgery on the framed link L."
+    },
+    {
+     "name": "surgery_empty",
+     "role": "example",
+     "statement": "Surgery on the empty framed link is the 3-sphere."
+    },
+    {
+     "name": "homology_surgery",
+     "role": "characterisation",
+     "statement": "The first homology of surgery L is the cokernel of linkingMatrix L."
+    },
+    {
+     "name": "isIntegralHomologySphere_iff",
+     "role": "characterisation",
+     "statement": "surgery L is an integral homology sphere if and only if the determinant of linkingMatrix L is a unit."
+    },
+    {
+     "name": "surgery_disjoint_union",
+     "role": "functoriality",
+     "statement": "Surgery on a split union of framed links is the connected sum of the surgeries."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+     "how": "The unified invariant is defined from a surgery presentation of the manifold and must be shown independent of it."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.0/refined-kirby-calculus",
+     "how": "The move theorem is a statement about when two framed links have orientation-preserving homeomorphic surgeries."
+    }
+   ],
+   "tests": [
+    {
+     "name": "surgery_empty_eq_sphere",
+     "statement": "Surgery on the empty link is the 3-sphere, so the invariant of the empty presentation must be the invariant of the 3-sphere."
+    },
+    {
+     "name": "surgery_unknot_pm_one",
+     "statement": "Surgery on the plus-one-framed unknot is again the 3-sphere: a definition that gave a different manifold here would be wrong."
+    },
+    {
+     "name": "homology_surgery_unknot_p",
+     "statement": "Surgery on the p-framed unknot has first homology cyclic of order the absolute value of p; for p = 0 this is infinite cyclic, so that presentation is not an integral homology sphere."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 10.2, e-print pp. 51-52",
+     "excerpt": "Let M be an integral homology sphere, and let L be an admissible framed link in S^3 such that M is obtained from S^3 by surgery along L.",
+     "match": "The construction of the unified invariant starts from exactly this surgery presentation."
+    }
+   ],
+   "planet": {
+    "name": "Surgery along a framed link"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/admissible-framed-link",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Admissible framed links",
+   "kind": "definition",
+   "statement": "A framed link L in the 3-sphere is admissible if it is algebraically split, that is all pairwise linking numbers vanish, and every component has framing plus 1 or minus 1. Surgery on an admissible link always yields an integral homology sphere, since its linking matrix is diagonal with entries plus or minus 1 and hence unimodular; conversely every integral homology sphere is obtained by surgery on an admissible link.",
+   "hypotheses": [
+    "L is a framed oriented link in the 3-sphere"
+   ],
+   "proofSteps": [
+    "Record admissibility as the conjunction of the algebraically split condition on the off-diagonal entries and the unit condition on the diagonal of the linking matrix.",
+    "Deduce unimodularity of the linking matrix, hence that the surgery is an integral homology sphere.",
+    "State the converse, that every integral homology sphere has an admissible presentation, as a separate theorem, since its proof needs the classical calculus."
+   ],
+   "acceptance": [
+    "The empty link is admissible and presents the 3-sphere.",
+    "The (plus 1)-framed unknot is admissible; the 0-framed unknot is not, since its framing is not a unit.",
+    "The 0-framed Hopf link is not admissible, since its linking number is 1."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/framed-link-and-linking-matrix",
+    "ArithmeticQuantumTopology:QT.0/surgery-presentation"
+   ],
+   "api": [
+    {
+     "name": "IsAdmissible",
+     "role": "structure",
+     "statement": "IsAdmissible L holds when L is algebraically split and every framing is plus or minus one."
+    },
+    {
+     "name": "isAdmissible_iff",
+     "role": "characterisation",
+     "statement": "IsAdmissible L holds if and only if linkingMatrix L is diagonal with all diagonal entries of absolute value one."
+    },
+    {
+     "name": "isIntegralHomologySphere_of_isAdmissible",
+     "role": "compatibility",
+     "statement": "If L is admissible then surgery L is an integral homology sphere."
+    },
+    {
+     "name": "isAdmissible_empty",
+     "role": "example",
+     "statement": "The empty framed link is admissible."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.0/refined-kirby-calculus",
+     "how": "The refined move theorem is a statement about admissible links only."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+     "how": "The surgery formula for the unified invariant is evaluated on an admissible presentation, where the twist element can be inserted componentwise."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isAdmissible_unknot_one",
+     "statement": "The plus-one-framed unknot is admissible."
+    },
+    {
+     "name": "not_isAdmissible_unknot_zero",
+     "statement": "The 0-framed unknot is not admissible; this is the case that separates admissibility from the algebraically split condition alone."
+    },
+    {
+     "name": "not_isAdmissible_hopf",
+     "statement": "The unit-framed Hopf link is not admissible, since its off-diagonal linking number is 1."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 10.1, e-print p. 51",
+     "excerpt": "We call a framed link L in S^3 admissible if L is algebraically-split and each component has framing plus or minus 1.",
+     "match": "Verbatim the definition this node records."
+    }
+   ],
+   "planet": {
+    "name": "Admissible framed link"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/kirby-and-fenn-rourke-moves",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Kirby moves and the Fenn-Rourke move",
+   "kind": "definition",
+   "statement": "On framed links in the 3-sphere, the first Kirby move (blow-up and blow-down) adds or deletes a split unknotted component with framing plus or minus 1; the second Kirby move (handle slide) replaces a component L_i by a band sum of L_i with a parallel copy of L_j taken along the framing of L_j, and changes the framings by f_i becomes f_i + f_j + 2 lk(L_i, L_j). The Fenn-Rourke move is the single move that replaces the part of a framed link inside a ball meeting an unknotted component K of framing plus or minus 1 by the result of a full twist along a disc bounded by K, deleting K.",
+   "hypotheses": [
+    "the moves are performed inside the 3-sphere on framed oriented links",
+    "framings are the Seifert-normalised integers of the linking-matrix node"
+   ],
+   "proofSteps": [
+    "Define the blow-up and blow-down move and compute its effect on the linking matrix: it adds or removes a diagonal block of size one with entry plus or minus 1.",
+    "Define the handle slide as a band sum along the framing of the sliding component and compute the resulting framing change f_i + f_j + 2 lk(L_i, L_j).",
+    "Define the Fenn-Rourke move as a plus or minus one twist along a disc, and prove that it is generated by the two Kirby moves and conversely.",
+    "Prove that each move leaves the surgered manifold unchanged up to orientation-preserving homeomorphism, by exhibiting the corresponding handle move on the 4-dimensional 2-handlebody."
+   ],
+   "acceptance": [
+    "A blow-up changes the linking matrix by a diagonal summand of plus or minus one and does not change the surgered manifold.",
+    "A handle slide changes the linking matrix by a unimodular congruence, so it preserves the isomorphism class of the cokernel.",
+    "The Fenn-Rourke move applied to an unknotted plus-one-framed component of a two-component link reproduces the twisting formula on the linking matrix."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/framed-link-and-linking-matrix",
+    "ArithmeticQuantumTopology:QT.0/surgery-presentation"
+   ],
+   "api": [
+    {
+     "name": "IsKirbyMove",
+     "role": "structure",
+     "statement": "IsKirbyMove L L' holds when L' is obtained from L by one blow-up, blow-down or handle slide."
+    },
+    {
+     "name": "IsFennRourkeMove",
+     "role": "structure",
+     "statement": "IsFennRourkeMove L L' holds when L' is obtained from L by one Fenn-Rourke twist."
+    },
+    {
+     "name": "surgery_eq_of_isKirbyMove",
+     "role": "compatibility",
+     "statement": "A Kirby move does not change the surgered manifold up to orientation-preserving homeomorphism."
+    },
+    {
+     "name": "linkingMatrix_congr_of_handleSlide",
+     "role": "compatibility",
+     "statement": "A handle slide changes the linking matrix by congruence with a unimodular matrix."
+    },
+    {
+     "name": "kirbyEquiv",
+     "role": "relation",
+     "statement": "kirbyEquiv is the equivalence relation generated by isotopy and Kirby moves."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.0/refined-kirby-calculus",
+     "how": "The refined theorem is stated for the sub-relation generated by the Fenn-Rourke moves that stay inside the admissible class."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/JM-well-defined",
+     "how": "Independence of the unified invariant is proved against this move relation."
+    }
+   ],
+   "tests": [
+    {
+     "name": "kirbyEquiv_empty_unknot_one",
+     "statement": "The empty link and the plus-one-framed unknot are Kirby equivalent, since one blow-down relates them."
+    },
+    {
+     "name": "framing_of_handleSlide",
+     "statement": "Sliding L_1 over L_2 in the 0-framed Hopf link changes the framing of the first component by f_2 + 2 lk = 0 + 2, which pins the sign convention."
+    },
+    {
+     "name": "not_kirbyEquiv_of_ne_homology",
+     "statement": "Two framed links whose cokernels are non-isomorphic groups are not Kirby equivalent, since surgery is invariant; the 0-framed and 3-framed unknots are a non-example pair."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 10.1, e-print p. 51",
+     "excerpt": "Recall that two framed links in S^3 yield orientation-preserving homeomorphic results of surgery if and only if they are related by a sequence of isotopies and Fenn-Rourke moves.",
+     "match": "Habiro states the classical calculus in the Fenn-Rourke form before refining it to admissible links."
+    }
+   ],
+   "planet": {
+    "name": "Kirby and Fenn-Rourke moves"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/hoste-move",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Hoste moves between admissible links",
+   "kind": "definition",
+   "statement": "A Hoste move is a Fenn-Rourke move between two admissible framed links. Equivalently, it is a Fenn-Rourke move whose source and target are both algebraically split with all framings plus or minus one; the admissibility of both ends is part of the definition, not a consequence of it, since a Fenn-Rourke move applied to an admissible link generally leaves the admissible class.",
+   "hypotheses": [
+    "both the source and the target of the move are admissible framed links"
+   ],
+   "proofSteps": [
+    "Define the relation on admissible links generated by isotopy and by those Fenn-Rourke moves whose two ends are both admissible.",
+    "Record that this is strictly smaller than the restriction of the Fenn-Rourke relation to admissible links: a single Fenn-Rourke move can produce non-zero linking numbers or non-unit framings, and such a move is not a Hoste move.",
+    "Prove that the relation is an equivalence relation on admissible links."
+   ],
+   "acceptance": [
+    "Isotopy of admissible links is a Hoste equivalence.",
+    "A Fenn-Rourke move whose target has a non-unit framing is not a Hoste move, although it is a Fenn-Rourke move.",
+    "The empty link and the plus-one-framed unknot are Hoste equivalent."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/admissible-framed-link",
+    "ArithmeticQuantumTopology:QT.0/kirby-and-fenn-rourke-moves"
+   ],
+   "api": [
+    {
+     "name": "IsHosteMove",
+     "role": "structure",
+     "statement": "IsHosteMove L L' holds when L and L' are admissible and related by one Fenn-Rourke move."
+    },
+    {
+     "name": "hosteEquiv",
+     "role": "relation",
+     "statement": "hosteEquiv is the equivalence relation on admissible framed links generated by isotopy and Hoste moves."
+    },
+    {
+     "name": "isFennRourkeMove_of_isHosteMove",
+     "role": "compatibility",
+     "statement": "Every Hoste move is a Fenn-Rourke move."
+    },
+    {
+     "name": "hosteEquiv_refl",
+     "role": "relation",
+     "statement": "hosteEquiv is reflexive on admissible links."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.0/refined-kirby-calculus",
+     "how": "The refined calculus says exactly that Hoste equivalence detects orientation-preserving homeomorphism of the surgeries."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/JM-well-defined",
+     "how": "Well-definedness is proved by checking invariance of the surgery formula under a single Hoste move."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isHosteMove_blowdown_unknot",
+     "statement": "Deleting a split plus-one-framed unknot from an admissible link is a Hoste move."
+    },
+    {
+     "name": "not_isHosteMove_of_target_not_admissible",
+     "statement": "A Fenn-Rourke move whose target has a component of framing 2 is not a Hoste move; this is the case that makes the refinement a genuine restriction."
+    },
+    {
+     "name": "hosteEquiv_of_isotopy",
+     "statement": "Isotopic admissible links are Hoste equivalent."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 10.1 and the sentence after it, e-print p. 51",
+     "excerpt": "Here a Hoste move is defined to be a Fenn-Rourke move between two admissible framed links.",
+     "match": "Verbatim the definition this node records."
+    }
+   ],
+   "planet": {
+    "name": "Hoste move"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/refined-kirby-calculus",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Refined Kirby calculus for admissible links (Hoste's conjecture)",
+   "kind": "theorem",
+   "statement": "Two admissible framed links L and L' in the 3-sphere yield orientation-preserving homeomorphic results of surgery if and only if L and L' are related by a sequence of isotopies and Hoste moves.",
+   "hypotheses": [
+    "L and L' are admissible framed links in the oriented 3-sphere"
+   ],
+   "proofSteps": [
+    "The easy direction is that a Hoste move is a Fenn-Rourke move and therefore does not change the surgered manifold.",
+    "For the converse, take a sequence of Fenn-Rourke moves relating L to L' given by the classical calculus; the intermediate links need not be admissible.",
+    "Follow the cited refinement, which replaces that sequence by one staying inside the admissible class.",
+    "Conclude that Hoste equivalence of admissible links is exactly orientation-preserving homeomorphism of the surgeries."
+   ],
+   "acceptance": [
+    "Applied to the empty link and a plus-one-framed unknot, the theorem gives a Hoste move, which it must, since both present the 3-sphere.",
+    "Any invariant of admissible links that is unchanged by a single Hoste move descends to an invariant of integral homology spheres.",
+    "The theorem is false with 'Hoste move' replaced by 'Kirby move' as a statement about admissible links, since an intermediate link of a Kirby sequence need not be admissible."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/hoste-move",
+    "ArithmeticQuantumTopology:QT.0/refined-presentation-existence"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 10.1, e-print p. 51",
+     "excerpt": "Two admissible framed links L and L' in S^3 yield orientation-preserving homeomorphic results of surgery if and only if L and L' are related by a sequence of isotopies and Hoste moves.",
+     "match": "Verbatim the theorem this node records; Habiro attributes it to the refinement of Kirby calculus that settles Hoste's conjecture."
+    }
+   ],
+   "planet": {
+    "name": "Refined Kirby calculus"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.0/refined-presentation-existence",
+   "parentStageId": "ArithmeticQuantumTopology:QT.0",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.0"
+   ],
+   "title": "Every integral homology sphere has an admissible surgery presentation",
+   "kind": "theorem",
+   "statement": "For every integral homology sphere M there is an admissible framed link L in the 3-sphere with surgery along L orientation-preserving homeomorphic to M.",
+   "hypotheses": [
+    "M is a closed oriented 3-manifold with the integral homology of the 3-sphere"
+   ],
+   "proofSteps": [
+    "Start from any surgery presentation of M, which exists by the classical theorem that every closed oriented 3-manifold is surgery on a framed link.",
+    "Diagonalise the linking matrix over the integers by handle slides and blow-ups, using unimodularity of the matrix of an integral homology sphere.",
+    "Blow up to change the diagonal entries to plus or minus one and to kill the remaining linking numbers, keeping the surgered manifold fixed.",
+    "Record the resulting link, which is algebraically split with unit framings, hence admissible."
+   ],
+   "acceptance": [
+    "The 3-sphere has the empty admissible presentation.",
+    "The Poincare homology sphere, presented by plus or minus one surgery on the left trefoil, already has an admissible presentation with one component.",
+    "A manifold with non-trivial first homology has no admissible presentation, since the linking matrix of an admissible link is unimodular."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/admissible-framed-link"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 10.2, e-print pp. 51-52",
+     "excerpt": "Let M be an integral homology sphere, and let L be an admissible framed link in S^3 such that M is obtained from S^3 by surgery along L.",
+     "match": "The definition of the unified invariant presupposes the existence of such a presentation, which this node isolates."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.1/quantized-enveloping-algebra",
+   "parentStageId": "ArithmeticQuantumTopology:QT.1",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.1"
+   ],
+   "title": "The h-adic quantized enveloping algebra of sl(2) and its integral forms",
+   "kind": "definition",
+   "statement": "Let U_h be the h-adically complete algebra over the ring of formal power series in h over the rationals generated by H, E and F with the usual relations, with q = exp(h), v = exp(h/2), K = exp(hH/2). Inside it sit the integral forms U_q, generated over the ring of Laurent polynomials in v by the divided powers of F, the powers of K and the element e = (q-1)F, and its even part U_q^ev generated by the same divided powers, the even powers of K and e. Their h-adic completions are written with a tilde. The even integral form is a left module over the odd one.",
+   "hypotheses": [
+    "the ground ring of U_h is the ring of formal power series in h over the rationals",
+    "v is a square root of q with q = exp(h)"
+   ],
+   "proofSteps": [
+    "Present U_h by generators and relations and complete h-adically.",
+    "Define the divided powers and the element e and prove that the stated monomials freely span each integral form over the Laurent polynomial ring in v.",
+    "Prove that the even part is a left submodule of the odd one under the adjoint action.",
+    "Complete each form with respect to the filtration by the ideals generated by the divided powers and record the resulting topological algebras."
+   ],
+   "acceptance": [
+    "The stated monomials form a free basis of each integral form, so a coefficient comparison is available.",
+    "The even form is a subalgebra of the odd one, and the odd one is a subalgebra of U_h.",
+    "Setting h = 0 recovers the classical universal enveloping algebra of sl(2) over the rationals."
+   ],
+   "prerequisites": [
+    "mathlib:HopfAlgebra"
+   ],
+   "api": [
+    {
+     "name": "Uq",
+     "role": "data",
+     "statement": "Uq is the integral form of U_h generated by the divided powers of F, the powers of K and the element e."
+    },
+    {
+     "name": "Uqev",
+     "role": "data",
+     "statement": "Uqev is the even integral form, generated by the divided powers of F, the even powers of K and e."
+    },
+    {
+     "name": "basis_Uq",
+     "role": "characterisation",
+     "statement": "The monomials in the divided powers of F, the powers of K and e freely span Uq over the Laurent polynomials in v."
+    },
+    {
+     "name": "Uqev_le_Uq",
+     "role": "structure",
+     "statement": "Uqev is a subalgebra of Uq, and a left Uq-submodule under the adjoint action."
+    },
+    {
+     "name": "completion",
+     "role": "constructor",
+     "statement": "The h-adic completions of Uq and Uqev, with their filtrations, are again algebras."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.1/braided-hopf-structure",
+     "how": "The braided Hopf algebra structure is carried by the completed even integral form."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.1/universal-sl2-invariant",
+     "how": "The universal invariant of a bottom tangle takes values in completed tensor powers of these forms."
+    }
+   ],
+   "tests": [
+    {
+     "name": "basis_freeness",
+     "statement": "The listed monomials are linearly independent over the Laurent polynomial ring; a spanning claim without freeness would not pin the form down."
+    },
+    {
+     "name": "Uqev_ne_Uq",
+     "statement": "K itself lies in Uq and not in Uqev, so the two forms are different."
+    },
+    {
+     "name": "classical_limit",
+     "statement": "Modulo h the algebra is the classical enveloping algebra of sl(2); a form with the wrong classical limit is wrong."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 2.3, Lemma 2.1, e-print pp. 12-13",
+     "excerpt": "Uq (resp. Uqev) is freely spanned over the Laurent polynomial ring by the elements F-divided-power K^j e^k (resp. F-divided-power K^{2j} e^k) with i, k at least 0 and j an integer.",
+     "match": "The freeness statement this node records as the basis of both integral forms."
+    }
+   ],
+   "planet": {
+    "name": "Integral forms of U_h(sl2)"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.1/ribbon-structure",
+   "parentStageId": "ArithmeticQuantumTopology:QT.1",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.1"
+   ],
+   "title": "The ribbon structure of U_h(sl(2))",
+   "kind": "construction",
+   "statement": "The algebra U_h carries a ribbon Hopf algebra structure: a coproduct, counit and antipode, a universal R-matrix satisfying the hexagon identities, and a central ribbon element whose square is the product of the two Drinfeld elements. The category of topologically free U_h-modules of finite rank is then a ribbon category, so every framed oriented tangle diagram gives a morphism invariant under the framed Reidemeister moves.",
+   "hypotheses": [
+    "U_h is the h-adically complete quantized enveloping algebra of the previous node"
+   ],
+   "proofSteps": [
+    "Record the standard coproduct, counit and antipode on the generators and prove the Hopf algebra axioms h-adically.",
+    "Write the universal R-matrix as the product of the diagonal part and the quantum exponential of the E-F term, and prove the two hexagon identities and the Yang-Baxter equation.",
+    "Define the ribbon element from the Drinfeld element and the grouplike element, and prove centrality and the compatibility with the coproduct.",
+    "Deduce that the finite-rank topologically free module category is ribbon, and hence that framed oriented tangle diagrams give well-defined morphisms."
+   ],
+   "acceptance": [
+    "The R-matrix satisfies the Yang-Baxter equation, which is what makes the braiding a braiding.",
+    "The ribbon element acts on the (n+1)-dimensional module by a scalar, and that scalar is the framing-change factor used later to normalise surgery formulas.",
+    "The invariant of the 0-framed unknot coloured by the (n+1)-dimensional module is the quantum integer [n+1], not 1; this pins the normalisation."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.1/quantized-enveloping-algebra",
+    "mathlib:CategoryTheory.BraidedCategory",
+    "mathlib:CategoryTheory.RigidCategory",
+    "mathlib:CategoryTheory.ExactPairing"
+   ],
+   "api": [
+    {
+     "name": "universalR",
+     "role": "data",
+     "statement": "The universal R-matrix of U_h, an invertible element of the completed tensor square."
+    },
+    {
+     "name": "yangBaxter",
+     "role": "relation",
+     "statement": "The universal R-matrix satisfies the Yang-Baxter equation."
+    },
+    {
+     "name": "ribbonElement",
+     "role": "data",
+     "statement": "The ribbon element is a central invertible element with the standard compatibility with the coproduct and antipode."
+    },
+    {
+     "name": "braidedCategory_modules",
+     "role": "instance",
+     "statement": "The category of finite-rank topologically free U_h-modules is braided, with braiding given by the R-matrix."
+    },
+    {
+     "name": "rigidCategory_modules",
+     "role": "instance",
+     "statement": "The same category is rigid, with duals given by the antipode and the grouplike element."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.1/universal-sl2-invariant",
+     "how": "The universal invariant of a tangle is built from the R-matrix, the duality maps and the ribbon element."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/coloured-jones",
+     "how": "Colouring by finite-dimensional modules and taking quantum traces turns the universal invariant into the coloured Jones polynomials."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ribbon_unknot_framing",
+     "statement": "Changing the framing of a component by one multiplies the invariant by the scalar by which the ribbon element acts; this fixes the framing anomaly."
+    },
+    {
+     "name": "R_matrix_classical_limit",
+     "statement": "Modulo h the R-matrix is the identity, so the braiding degenerates to the symmetry of the classical category."
+    },
+    {
+     "name": "quantum_dimension_V1",
+     "statement": "The quantum dimension of the 2-dimensional module is the quantum integer [2], not 2; a definition returning the ordinary dimension is wrong."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 3.1, e-print pp. 19-20",
+     "excerpt": "Ribbon structure for U_h.",
+     "match": "The section that records the ribbon Hopf algebra structure of U_h that this node fixes as its normalisation."
+    }
+   ],
+   "planet": {
+    "name": "Ribbon structure of U_h"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.1/braided-hopf-structure",
+   "parentStageId": "ArithmeticQuantumTopology:QT.1",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.1"
+   ],
+   "title": "Braided Hopf algebra structure on the completed even integral form",
+   "kind": "theorem",
+   "statement": "The braided Hopf algebra structure of the braided transmutation of U_h induces a braided Hopf algebra structure with invertible antipode on the h-adic completion of the even integral form; that is, each of the braided structure maps, and the inverses of the braiding and the antipode, carries the completed even form into the appropriate completed tensor power.",
+   "hypotheses": [
+    "the completed even integral form is the one of the definition node",
+    "the braided Hopf structure on U_h is the transmutation of its ribbon Hopf structure"
+   ],
+   "proofSteps": [
+    "Recall the braided transmutation of U_h: the same algebra with the braided coproduct and antipode built from the R-matrix.",
+    "Check on the free basis of the even form that each structure map has image in the completed tensor power of the even form.",
+    "Extend to the completion by continuity, using that each structure map respects the defining filtration.",
+    "Record that the same holds for the odd form and for the Z/2-grading, which is the variant used for bottom knots."
+   ],
+   "acceptance": [
+    "Each of the braided product, unit, coproduct, counit, antipode and its inverse preserves the integral form.",
+    "A structure map that left the integral form would break the integrality of the universal invariant, which is the point of the theorem.",
+    "The statement fails for the non-completed form, so the completion is not cosmetic."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.1/quantized-enveloping-algebra",
+    "ArithmeticQuantumTopology:QT.1/ribbon-structure"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 3.1, e-print p. 22",
+     "excerpt": "The braided Hopf algebra structure of the braided transmutation of U_h induces a braided Hopf algebra structure with invertible antipode for the completed even integral form.",
+     "match": "Verbatim the theorem this node records."
+    }
+   ],
+   "planet": {
+    "name": "Braided Hopf structure on the integral form"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.1/bottom-tangle",
+   "parentStageId": "ArithmeticQuantumTopology:QT.1",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.1"
+   ],
+   "title": "Bottom tangles and their closure",
+   "kind": "definition",
+   "statement": "An n-component bottom tangle is a framed oriented tangle in a cube consisting of n arcs, the i-th running from the (2i)-th to the (2i-1)-th point of a row of 2n points on the bottom face, with no closed components. Closing each arc by an arc in the exterior gives an n-component framed oriented link, the closure, and every framed oriented link is the closure of a bottom tangle. Bottom tangles compose by stacking and tensor by juxtaposition.",
+   "hypotheses": [
+    "tangles are framed and oriented, and considered up to isotopy fixing the boundary"
+   ],
+   "proofSteps": [
+    "Define the category of framed oriented tangles in a cube with the stacking composition and the juxtaposition tensor product.",
+    "Cut out the bottom tangles as those whose components are the described arcs.",
+    "Define the closure and prove that it is well defined on isotopy classes.",
+    "Prove surjectivity of the closure onto framed oriented links by an explicit isotopy that pulls a link into bottom position."
+   ],
+   "acceptance": [
+    "The closure of the trivial n-component bottom tangle is the n-component unlink with zero framings.",
+    "The closure of a bottom knot is a knot, and every knot arises this way.",
+    "Stacking is associative and juxtaposition is functorial, so the invariant defined below is multiplicative in the expected way."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.0/framed-link-and-linking-matrix"
+   ],
+   "api": [
+    {
+     "name": "BottomTangle",
+     "role": "structure",
+     "statement": "BottomTangle n is the type of n-component bottom tangles up to isotopy."
+    },
+    {
+     "name": "closure",
+     "role": "constructor",
+     "statement": "closure sends a bottom tangle to a framed oriented link with the same number of components."
+    },
+    {
+     "name": "closure_surjective",
+     "role": "characterisation",
+     "statement": "Every framed oriented link is the closure of some bottom tangle."
+    },
+    {
+     "name": "comp",
+     "role": "functoriality",
+     "statement": "Bottom tangles compose by stacking, compatibly with the closure on the relevant part."
+    },
+    {
+     "name": "tensor",
+     "role": "functoriality",
+     "statement": "Juxtaposition of bottom tangles corresponds to the split union of their closures."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.1/universal-sl2-invariant",
+     "how": "The universal invariant is defined on bottom tangles, where the algebra structure of the target matches the stacking."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/cyclotomic-expansion",
+     "how": "The cyclotomic expansion of a knot is stated for a bottom knot and transported to its closure."
+    }
+   ],
+   "tests": [
+    {
+     "name": "closure_trivial",
+     "statement": "The closure of the trivial bottom tangle is the zero-framed unlink."
+    },
+    {
+     "name": "closure_of_bottom_knot",
+     "statement": "A one-component bottom tangle closes to a knot; the number of components is preserved."
+    },
+    {
+     "name": "bottomTangle_not_closed",
+     "statement": "A tangle with a closed component is not a bottom tangle; this excludes the degenerate case where the universal invariant would already be a trace."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 4.1, e-print pp. 26-27",
+     "excerpt": "Bottom tangles.",
+     "match": "The section that fixes the bottom tangle conventions used throughout, and on which the universal invariant is defined."
+    }
+   ],
+   "planet": {
+    "name": "Bottom tangle"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.1/universal-sl2-invariant",
+   "parentStageId": "ArithmeticQuantumTopology:QT.1",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.1"
+   ],
+   "title": "The universal sl(2) invariant of a bottom tangle",
+   "kind": "construction",
+   "statement": "To an n-component bottom tangle T one associates an element J_T of the n-fold completed tensor power of U_h, by reading a tangle diagram of T from the bottom, assigning the universal R-matrix and its inverse to crossings, the duality elements to critical points and the ribbon element to framing changes. The result is invariant under the framed Reidemeister moves, and is multiplicative for the stacking and the juxtaposition.",
+   "hypotheses": [
+    "T is a framed oriented bottom tangle",
+    "the ribbon structure of U_h is the one fixed above"
+   ],
+   "proofSteps": [
+    "Fix a diagram of T in general position and define the element by the standard assignment to crossings and critical points.",
+    "Prove invariance under each framed Reidemeister move, using the hexagon identities, the Yang-Baxter equation and the duality identities.",
+    "Prove that the element lies in the invariant part of the completed tensor power under the adjoint action.",
+    "Prove multiplicativity under stacking and juxtaposition, which makes the assignment functorial."
+   ],
+   "acceptance": [
+    "The invariant of the trivial bottom tangle is the unit of the tensor power.",
+    "The invariant of a bottom knot with a framing change by one is multiplied by the ribbon element, which pins the framing anomaly.",
+    "The invariant is unchanged by the first framed Reidemeister move, which is the one that fails for the unframed theory."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.1/bottom-tangle",
+    "ArithmeticQuantumTopology:QT.1/ribbon-structure"
+   ],
+   "api": [
+    {
+     "name": "J",
+     "role": "data",
+     "statement": "J T is the universal invariant of the bottom tangle T, an element of the completed n-fold tensor power."
+    },
+    {
+     "name": "J_trivial",
+     "role": "example",
+     "statement": "The universal invariant of the trivial bottom tangle is the unit."
+    },
+    {
+     "name": "J_comp",
+     "role": "functoriality",
+     "statement": "The universal invariant is multiplicative under stacking of bottom tangles."
+    },
+    {
+     "name": "J_tensor",
+     "role": "functoriality",
+     "statement": "The universal invariant of a juxtaposition is the tensor product of the invariants."
+    },
+    {
+     "name": "J_mem_invariants",
+     "role": "characterisation",
+     "statement": "The universal invariant lies in the adjoint-invariant part of the completed tensor power."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/coloured-jones",
+     "how": "Applying quantum traces in finite-dimensional modules turns the universal invariant into the coloured Jones polynomials."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+     "how": "The surgery formula pairs the universal invariant of a bottom tangle with copies of the twist element."
+    }
+   ],
+   "tests": [
+    {
+     "name": "J_unknot_zero_framed",
+     "statement": "The universal invariant of the 0-framed unknotted bottom tangle is the unit."
+    },
+    {
+     "name": "J_framing_change",
+     "statement": "Adding a positive kink multiplies the invariant by the ribbon element; an assignment invariant under the first Reidemeister move would be the wrong, unframed, invariant."
+    },
+    {
+     "name": "J_hopf_nontrivial",
+     "statement": "The universal invariant of the bottom tangle closing to the Hopf link is not the unit, so the invariant sees linking."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 4.2, e-print pp. 27-28",
+     "excerpt": "Universal sl_2 invariant of bottom tangles.",
+     "match": "The construction this node records, in the normalisation used for the integrality theorem below."
+    }
+   ],
+   "planet": {
+    "name": "Universal sl(2) invariant"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.1/universal-invariant-integrality",
+   "parentStageId": "ArithmeticQuantumTopology:QT.1",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.1"
+   ],
+   "title": "Integrality of the universal invariant on 0-framed bottom tangles",
+   "kind": "theorem",
+   "statement": "If T is an n-component 0-framed bottom tangle then its universal invariant lies in the n-th integral submodule, namely the image of the completed n-fold tensor power of the even integral form inside the completed tensor power of U_h.",
+   "hypotheses": [
+    "T is a 0-framed bottom tangle with n components"
+   ],
+   "proofSteps": [
+    "Reduce to generators: the universal invariant of any bottom tangle is built from finitely many structure maps applied to the invariant of the elementary tangles.",
+    "Check that the invariant of each elementary 0-framed piece lies in the integral submodule.",
+    "Apply the theorem that the braided structure maps preserve the completed even integral form, so the property propagates through the construction.",
+    "Conclude by the closure property of the family of integral submodules under those maps."
+   ],
+   "acceptance": [
+    "The invariant of the 0-framed unknotted bottom tangle lies in the integral submodule, being the unit.",
+    "The theorem fails for non-zero framings, where the ribbon element contributes denominators; this is why the framing hypothesis is present.",
+    "Integrality is what makes the coloured Jones polynomials Laurent polynomials rather than rational functions."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.1/universal-sl2-invariant",
+    "ArithmeticQuantumTopology:QT.1/braided-hopf-structure"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 4.1, e-print p. 28",
+     "excerpt": "If T is a 0-framed n-component bottom tangle then its universal invariant lies in the n-th integral submodule.",
+     "match": "Verbatim the theorem this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/coloured-jones",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "Coloured Jones polynomials from the universal invariant",
+   "kind": "construction",
+   "statement": "For a framed oriented m-component link L presented as the closure of a bottom tangle T, and finite-dimensional U_h-modules V_{n_1}, ..., V_{n_m} of dimensions n_i + 1, the coloured Jones polynomial J_L(V_{n_1}, ..., V_{n_m}) is obtained by applying the quantum trace in V_{n_i} to the i-th tensor factor of the universal invariant of T. It is an invariant of the framed oriented link, multilinear in the colours, and normalised so that the 0-framed unknot coloured by V_n has value the quantum integer [n+1].",
+   "hypotheses": [
+    "L is a framed oriented link, presented as the closure of a bottom tangle",
+    "the colours are finite-dimensional U_h-modules"
+   ],
+   "proofSteps": [
+    "Recall the finite-dimensional modules V_n of U_h and their quantum traces, built from the grouplike element of the ribbon structure.",
+    "Define the coloured invariant by applying the quantum trace componentwise to the universal invariant of a bottom tangle whose closure is L.",
+    "Prove independence of the chosen bottom tangle, using that the trace is a closure operation.",
+    "Extend multilinearly to the representation ring, and record the reduced normalisation obtained by dividing by the value of the unknot."
+   ],
+   "acceptance": [
+    "The 0-framed unknot coloured by V_n has coloured Jones the quantum integer [n+1]; the reduced value is 1.",
+    "The trefoil coloured by V_1 recovers the Jones polynomial in the fixed variable convention.",
+    "The invariant is multilinear in the colours, so it extends to the representation ring."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.1/universal-sl2-invariant",
+    "ArithmeticQuantumTopology:QT.1/universal-invariant-integrality"
+   ],
+   "api": [
+    {
+     "name": "colouredJones",
+     "role": "data",
+     "statement": "colouredJones L n is the coloured Jones polynomial of the framed link L with the given colours."
+    },
+    {
+     "name": "colouredJones_unknot",
+     "role": "example",
+     "statement": "The 0-framed unknot coloured by V_n has value the quantum integer [n+1]."
+    },
+    {
+     "name": "colouredJones_multilinear",
+     "role": "functoriality",
+     "statement": "The coloured Jones invariant is multilinear in the colours, hence extends to the representation ring."
+    },
+    {
+     "name": "reducedJones",
+     "role": "data",
+     "statement": "The reduced coloured Jones polynomial is the quotient by the value of the unknot with the same colour."
+    },
+    {
+     "name": "colouredJones_framing_change",
+     "role": "compatibility",
+     "statement": "Changing the framing of a component multiplies the invariant by the ribbon scalar of its colour."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/cyclotomic-expansion",
+     "how": "The cyclotomic expansion is an expansion of the reduced coloured Jones polynomials of a knot."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+     "how": "The surgery formula is a pairing of these invariants, extended to the completion, with the twist element."
+    }
+   ],
+   "tests": [
+    {
+     "name": "colouredJones_unknot_V1",
+     "statement": "The 0-framed unknot coloured by the 2-dimensional module has value the quantum integer [2], not 1; a definition returning 1 is the reduced one."
+    },
+    {
+     "name": "colouredJones_trefoil_V1",
+     "statement": "The 2-dimensional colour on the right trefoil gives the Jones polynomial of the trefoil in the pinned variable, which fixes the chirality convention."
+    },
+    {
+     "name": "colouredJones_split_union",
+     "statement": "For a split union the invariant is the product of the invariants, so a definition that failed multiplicativity would be wrong."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Sections 5.2 and 5.3, e-print pp. 33-35",
+     "excerpt": "Colored Jones polynomials. Quantum trace and the colored Jones polynomial.",
+     "match": "The two subsections that define the coloured invariants from the universal invariant in the normalisation used here."
+    }
+   ],
+   "planet": {
+    "name": "Coloured Jones polynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/p-basis",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "The elements P_n and the cyclotomic basis of the representation ring",
+   "kind": "definition",
+   "statement": "Inside the representation ring of U_h over the rationals in v, set P_n to be the product over i from 0 to n-1 of (V_1 - v^{2i+1} - v^{-2i-1}) up to the fixed normalisation, and P''_n its rescaling by the stated quantum binomial factor. These elements satisfy the two triangular change-of-basis formulas expressing P_n in the V_i and V_n in the P_i with quantum binomial coefficients, so that the P_n form a basis of the representation ring adapted to the cyclotomic expansion.",
+   "hypotheses": [
+    "the ground ring contains the Laurent polynomials in v"
+   ],
+   "proofSteps": [
+    "Define P_n by the stated product and P''_n by the stated rescaling.",
+    "Prove the expansion of P_n in the basis of the V_i with the displayed alternating quantum binomial coefficients.",
+    "Prove the inverse expansion of V_n in the P_i with the displayed quantum binomial coefficients.",
+    "Deduce that both families are bases of the representation ring after inverting the relevant quantum integers, and record the integral statements that survive without inverting them."
+   ],
+   "acceptance": [
+    "P_0 is 1 and P_1 is V_1 minus the quantum integer [2], so the first values pin the normalisation.",
+    "The two change-of-basis formulas are inverse to each other, which is a finite check in each degree.",
+    "The coefficients of the expansion of V_n in the P_i are quantum binomial coefficients, hence Laurent polynomials, so the change of basis is integral in that direction."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/coloured-jones"
+   ],
+   "api": [
+    {
+     "name": "P",
+     "role": "data",
+     "statement": "P n is the n-th cyclotomic element of the representation ring."
+    },
+    {
+     "name": "P_zero",
+     "role": "example",
+     "statement": "P 0 is the unit of the representation ring."
+    },
+    {
+     "name": "V_eq_sum_P",
+     "role": "characterisation",
+     "statement": "V n is the sum over i of the quantum binomial coefficient times P i."
+    },
+    {
+     "name": "P_eq_sum_V",
+     "role": "characterisation",
+     "statement": "P n is the displayed alternating sum of the V_i with quantum binomial coefficients."
+    },
+    {
+     "name": "P_basis",
+     "role": "structure",
+     "statement": "The family P n is a basis of the representation ring over the coefficient ring in which the change of basis is invertible."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/cyclotomic-expansion",
+     "how": "The cyclotomic expansion is the expansion of the universal invariant of a bottom knot in the dual basis to the P''_n."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/algebra-P-and-completion",
+     "how": "The span of the P_n is the algebra whose completion carries the twist element."
+    }
+   ],
+   "tests": [
+    {
+     "name": "P_one",
+     "statement": "P 1 equals V_1 minus the quantum integer [2]; a different constant would break the vanishing of the pairing below."
+    },
+    {
+     "name": "V_one_in_P",
+     "statement": "Expanding V_1 in the P basis gives P_1 plus the quantum integer [2] times P_0, the inverse of the previous test."
+    },
+    {
+     "name": "P_change_of_basis_triangular",
+     "statement": "The change of basis is triangular with invertible diagonal, so a non-triangular family is not this one."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Lemma 6.1 and equations (6.1)-(6.2), e-print pp. 36-37",
+     "excerpt": "For n at least 0 we have the two displayed expansions of P_n in the V_i and of V_n in the P_i with quantum binomial coefficients.",
+     "match": "The two change-of-basis formulas this node records."
+    }
+   ],
+   "planet": {
+    "name": "Cyclotomic basis P_n"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/dual-basis-pairing",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "The quantum trace pairing is dual to the cyclotomic basis",
+   "kind": "lemma",
+   "statement": "For all m and n at least 0, the quantum trace in the colour P''_m of the element sigma_n is the Kronecker delta of m and n.",
+   "hypotheses": [
+    "the sigma_n are the central elements of the completed even integral form used to expand the universal invariant of a bottom knot",
+    "P''_m is the rescaled cyclotomic element"
+   ],
+   "proofSteps": [
+    "Express the quantum trace in a colour as a pairing between the representation ring and the centre of the integral form.",
+    "Compute the pairing of P_m with the elements S_n and obtain the displayed quantum binomial normalisation.",
+    "Rescale to P''_m and deduce the Kronecker delta.",
+    "Record that this makes the two families dual bases, which is what turns the expansion of the universal invariant into an expansion of coloured Jones polynomials."
+   ],
+   "acceptance": [
+    "The pairing of P''_0 with sigma_0 is 1 and with sigma_1 is 0.",
+    "Duality forces the coefficients in the cyclotomic expansion to be the reduced coloured Jones values at the colours P''_n.",
+    "Without the rescaling the pairing is the stated quantum binomial rather than 1, so the normalisation is not cosmetic."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/p-basis"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Proposition 6.3, e-print p. 38",
+     "excerpt": "For m, n at least 0 we have that the quantum trace in the colour P''_m of sigma_n is the Kronecker delta of m and n.",
+     "match": "Verbatim the statement this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/cyclotomic-expansion",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "Cyclotomic expansion of the universal invariant of a bottom knot",
+   "kind": "theorem",
+   "statement": "For a bottom knot T with closure the knot K, the universal invariant of T is the sum over n at least 0 of the coloured Jones value of K at the colour P''_n times the central element sigma_n. In particular the coefficients of the cyclotomic expansion of a knot are themselves coloured Jones values, at the cyclotomic colours.",
+   "hypotheses": [
+    "T is a one-component 0-framed bottom tangle with closure K"
+   ],
+   "proofSteps": [
+    "Write the universal invariant of the bottom knot in the unique expansion in the central elements sigma_p, which exists by the structure theorem for the centre of the completed even form.",
+    "Apply the quantum trace in the colour P''_m to both sides.",
+    "Use the duality lemma to see that the left side is the coloured Jones value at P''_m and the right side is the m-th coefficient.",
+    "Conclude the displayed identity."
+   ],
+   "acceptance": [
+    "For the unknot the expansion is the single term sigma_0, so all higher coefficients vanish.",
+    "The coefficients are Laurent polynomials, by the integrality theorem, which is the point of the expansion.",
+    "Summing the expansion against the change-of-basis formula recovers the ordinary coloured Jones polynomials."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/dual-basis-pairing",
+    "ArithmeticQuantumTopology:QT.1/universal-invariant-integrality"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 6.4 with Theorem 4.5, e-print pp. 38-39 and p. 31",
+     "excerpt": "For a bottom knot T with closure K we have that the universal invariant of T is the sum over n of the coloured Jones value of K at P''_n times sigma_n.",
+     "match": "Verbatim the theorem this node records, together with the uniqueness of the expansion it rests on."
+    }
+   ],
+   "planet": {
+    "name": "Cyclotomic expansion of a knot"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/algebra-P-and-completion",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "The algebra spanned by the cyclotomic elements and its completion",
+   "kind": "definition",
+   "statement": "Let P be the span over the Laurent polynomial ring in v of the elements P_n inside the representation ring over the rationals in v. Then P is a subalgebra, with the displayed structure constants expressing the product P_m P_n as a quantum binomial combination of the P_{m+n-i}, and its completion with respect to the filtration by the ideals generated by the P_n with n at least k is the ring in which the twist element lives.",
+   "hypotheses": [
+    "the coefficient ring is the Laurent polynomials in v"
+   ],
+   "proofSteps": [
+    "Compute the product P_m P_n by induction and obtain the displayed quantum binomial structure constants.",
+    "Deduce that P is closed under multiplication, hence a subalgebra of the representation ring.",
+    "Define the decreasing filtration by the spans of the P_n with n at least k, and check that it is multiplicative.",
+    "Complete with respect to the filtration and record that the resulting ring receives infinite sums of the P_n with Laurent polynomial coefficients."
+   ],
+   "acceptance": [
+    "P_0 is the unit, so P contains the coefficient ring.",
+    "The structure constants are Laurent polynomials, so P is an algebra over the Laurent polynomial ring and not merely over its fraction field.",
+    "The completion contains elements that are infinite sums, such as the twist element, which do not lie in P itself."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/p-basis"
+   ],
+   "api": [
+    {
+     "name": "algebraP",
+     "role": "data",
+     "statement": "algebraP is the span of the P_n inside the representation ring."
+    },
+    {
+     "name": "mul_P",
+     "role": "characterisation",
+     "statement": "The product of P_m and P_n is the displayed quantum binomial combination of the P_{m+n-i}."
+    },
+    {
+     "name": "algebraP_isSubalgebra",
+     "role": "structure",
+     "statement": "algebraP is a subalgebra of the representation ring over the Laurent polynomial ring."
+    },
+    {
+     "name": "filtration",
+     "role": "data",
+     "statement": "The decreasing filtration of algebraP by the spans of the P_n with n at least k is multiplicative."
+    },
+    {
+     "name": "completion",
+     "role": "constructor",
+     "statement": "The completion of algebraP with respect to the filtration, in which infinite sums of the P_n converge."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/twist-element",
+     "how": "The twist element is an infinite sum of the P_n, so it lives in this completion and not in the algebra itself."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split",
+     "how": "The integrality theorem is stated for colours taken in the filtration steps of this algebra."
+    }
+   ],
+   "tests": [
+    {
+     "name": "P_zero_eq_one",
+     "statement": "P 0 is the unit of the algebra."
+    },
+    {
+     "name": "mul_P_one_one",
+     "statement": "The product of P_1 with itself expands with the stated quantum binomial coefficients; wrong constants would break the twisting theorem."
+    },
+    {
+     "name": "twistElement_not_mem",
+     "statement": "The twist element lies in the completion and not in the algebra, so the completion step is necessary."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 8.1 and Lemma 8.1, e-print pp. 44-45",
+     "excerpt": "The algebra P is a subalgebra of the representation ring over the Laurent polynomial ring, with the displayed product formula for P_m P_n.",
+     "match": "The subalgebra statement and structure constants this node records."
+    }
+   ],
+   "planet": {
+    "name": "The algebra P and its completion"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "Integrality and divisibility for algebraically split 0-framed links",
+   "kind": "theorem",
+   "statement": "Let L be an m-component algebraically split 0-framed link and for each i let x_i lie in the k_i-th filtration step of the algebra P. Then the coloured invariant of L at these colours lies in the ideal generated by the displayed quantum binomial coefficient divided by the first quantum integer, where k is the maximum of the k_i. In particular the invariant is a Laurent polynomial and is divisible by that explicit factor.",
+   "hypotheses": [
+    "L is algebraically split with all framings 0",
+    "each colour lies in the stated filtration step of the algebra P"
+   ],
+   "proofSteps": [
+    "Reduce to the universal invariant of a bottom tangle whose closure is L, using integrality of that invariant for 0-framed tangles.",
+    "Prove the auxiliary lemma that the quantum trace of an element of the even integral form in a colour from P lies in the Laurent polynomial ring.",
+    "Propagate the divisibility through the components by the multilinearity of the invariant and the filtration on P.",
+    "Assemble the divisibility bound with k the maximum of the filtration degrees."
+   ],
+   "acceptance": [
+    "For the unknot with colour in the k-th step the value is divisible by the stated factor, which is the one-component case.",
+    "The divisibility fails for links that are not algebraically split, which is why the hypothesis is present.",
+    "The theorem gives the convergence of the surgery sum used to define the unified invariant."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/algebra-P-and-completion",
+    "ArithmeticQuantumTopology:QT.1/universal-invariant-integrality",
+    "ArithmeticQuantumTopology:QT.2/quantum-trace-integrality"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 8.2, e-print p. 46",
+     "excerpt": "Let L be an m-component algebraically split 0-framed link and let each colour lie in the stated filtration step. Then the coloured invariant lies in the ideal generated by the displayed quantum binomial coefficient divided by the first quantum integer, where k is the maximum of the filtration degrees.",
+     "match": "Verbatim the theorem this node records; it is the divisibility that makes the surgery sum converge."
+    }
+   ],
+   "planet": {
+    "name": "Integrality for algebraically split links"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/quantum-trace-integrality",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "Quantum traces of the integral form in cyclotomic colours are integral",
+   "kind": "lemma",
+   "statement": "If x lies in the even integral form and y lies in the algebra P, then the quantum trace of x in the colour y lies in the Laurent polynomial ring in v.",
+   "hypotheses": [
+    "x is in the even integral form of the quantized enveloping algebra",
+    "y is in the algebra spanned by the cyclotomic elements"
+   ],
+   "proofSteps": [
+    "Reduce to the basis monomials of the even integral form and to the generators P_n of the algebra.",
+    "Compute the quantum trace of a basis monomial in the colour P_n and show that it vanishes unless the divided-power and e-degrees agree.",
+    "In the surviving cases evaluate the trace explicitly and observe that it is a Laurent polynomial.",
+    "Extend by linearity and continuity to the whole integral form and to all of the algebra."
+   ],
+   "acceptance": [
+    "The trace of the unit in the colour P_0 is 1.",
+    "The trace of a basis monomial with mismatched degrees vanishes, which is the vanishing that makes the computation finite.",
+    "The lemma fails for colours outside the algebra P, where denominators appear, so the restriction on colours is necessary."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.1/quantized-enveloping-algebra",
+    "ArithmeticQuantumTopology:QT.2/algebra-P-and-completion"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Lemma 8.5 with Lemma 8.8, e-print pp. 47-49",
+     "excerpt": "If x is in the even integral form and y is in the algebra P then the quantum trace of x in the colour y lies in the Laurent polynomial ring.",
+     "match": "Verbatim the lemma this node records, together with the vanishing computation that proves it."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.2/coloured-jones-determination",
+   "parentStageId": "ArithmeticQuantumTopology:QT.2",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.2"
+   ],
+   "title": "Each coloured Jones polynomial is determined modulo an explicit ideal by the earlier ones",
+   "kind": "theorem",
+   "statement": "If K is a knot then for each n at least 0 the n-th coloured Jones polynomial of K is determined modulo the ideal generated by the displayed quantum integer product by the values at the colours V_0, ..., V_{n-1}.",
+   "hypotheses": [
+    "K is a knot, so the cyclotomic expansion is available"
+   ],
+   "proofSteps": [
+    "Expand the n-th coloured Jones polynomial in the cyclotomic basis using the change-of-basis formula.",
+    "Observe that the terms with index below n are determined by the earlier values.",
+    "Bound the remaining term by the divisibility of the cyclotomic coefficients from the integrality theorem.",
+    "Conclude the stated congruence."
+   ],
+   "acceptance": [
+    "For n equal to 0 the statement is vacuous and for n equal to 1 it recovers a known congruence of the Jones polynomial.",
+    "The ideal is not the zero ideal, so the statement is a congruence and not an equality; a stronger reading would be false.",
+    "The result is a consequence of integrality and not of the definition, so it fails for invariants without the cyclotomic expansion."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/cyclotomic-expansion",
+    "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Proposition 6.5, e-print p. 39",
+     "excerpt": "If K is a knot then for each n the n-th coloured Jones polynomial is determined modulo the displayed ideal by the values at the colours below n.",
+     "match": "Verbatim the statement this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.3/twist-element",
+   "parentStageId": "ArithmeticQuantumTopology:QT.3",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.3"
+   ],
+   "title": "The twist element in the completed cyclotomic algebra",
+   "kind": "construction",
+   "statement": "There are elements omega_plus and omega_minus of the completion of the algebra P, the twist elements, characterised by the property that the pairing of omega_plus or omega_minus with any x in the representation ring equals the coloured invariant of the plus or minus one framed unknot at the colour x.",
+   "hypotheses": [
+    "the completion of the algebra spanned by the cyclotomic elements is the one constructed above"
+   ],
+   "proofSteps": [
+    "Write the candidate as an infinite sum of the P_n with explicit Laurent polynomial coefficients and check convergence in the filtration.",
+    "Prove the characterising identity by evaluating both sides on the basis of the representation ring.",
+    "Deduce that the element is unique with that property, since the pairing is non-degenerate.",
+    "Record the sign conventions for the two framings."
+   ],
+   "acceptance": [
+    "Pairing the twist element with the colour V_0 gives the value of the unknot with framing plus or minus one, which fixes the normalisation.",
+    "The element is not a finite sum, so it genuinely lives in the completion.",
+    "The two twist elements are inverse to each other in the completed algebra."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/algebra-P-and-completion",
+    "ArithmeticQuantumTopology:QT.2/coloured-jones"
+   ],
+   "api": [
+    {
+     "name": "omega",
+     "role": "data",
+     "statement": "omega is the twist element of the completed cyclotomic algebra, in the two sign variants."
+    },
+    {
+     "name": "pairing_omega",
+     "role": "characterisation",
+     "statement": "The pairing of omega with a colour x is the coloured invariant of the unit-framed unknot at x."
+    },
+    {
+     "name": "omega_mul_inv",
+     "role": "relation",
+     "statement": "The two twist elements are mutually inverse in the completed algebra."
+    },
+    {
+     "name": "omega_mem_completion",
+     "role": "structure",
+     "statement": "The twist element lies in the completion of the cyclotomic algebra and not in the algebra itself."
+    },
+    {
+     "name": "omega_coeff",
+     "role": "projection",
+     "statement": "The coefficients of the twist element in the cyclotomic basis are explicit Laurent polynomials."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/twisting-theorem",
+     "how": "The twisting theorem computes the effect of a plus or minus one surgery as insertion of the twist element."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+     "how": "The surgery formula inserts one twist element for each component of the admissible presentation."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pairing_omega_V0",
+     "statement": "The pairing of the twist element with the trivial colour is the invariant of the unit-framed unknot; a normalisation giving 1 here is wrong."
+    },
+    {
+     "name": "omega_plus_mul_omega_minus",
+     "statement": "The product of the two twist elements is 1, which is the algebraic shadow of blowing up and then blowing down."
+    },
+    {
+     "name": "omega_not_finite",
+     "statement": "The twist element has infinitely many non-zero cyclotomic coefficients, so it is not an element of the uncompleted algebra."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Proposition 9.1 and Proposition 9.2, e-print pp. 49-50",
+     "excerpt": "For each x in the representation ring we have that the pairing of the twist elements with x equals the invariant of the plus or minus one framed unknot at x. The two twist elements are inverse to each other in the completed algebra.",
+     "match": "The two statements this node records as the definition and the first property of the twist element."
+    }
+   ],
+   "planet": {
+    "name": "Twist element"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.3/twisting-theorem",
+   "parentStageId": "ArithmeticQuantumTopology:QT.3",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.3"
+   ],
+   "title": "Twisting theorem: surgery along a unit-framed unknotted component",
+   "kind": "theorem",
+   "statement": "Let L_1 union ... union L_m union K be an (m+1)-component algebraically split 0-framed link whose last component K is unknotted, and let the twisted link denote the framed link obtained from the first m components by plus or minus one surgery along K. Then for colours x_1, ..., x_m in the completed cyclotomic algebra the coloured invariant of the twisted link at those colours equals the coloured invariant of the original link at the same colours together with the twist element in the last slot.",
+   "hypotheses": [
+    "the link is algebraically split and 0-framed",
+    "the distinguished component is unknotted"
+   ],
+   "proofSteps": [
+    "Interpret plus or minus one surgery along an unknotted component as a full twist applied to the strands passing through the spanning disc.",
+    "Express the effect of that twist on the universal invariant as insertion of the ribbon element on the relevant strands.",
+    "Identify the resulting insertion with the pairing against the twist element, using the characterising property of the twist element.",
+    "Check convergence of the resulting expression in the completion, using the integrality and divisibility theorem."
+   ],
+   "acceptance": [
+    "With no other components the theorem reduces to the characterising property of the twist element.",
+    "Applying the theorem twice with opposite signs returns the original invariant, matching that the two twist elements are inverse.",
+    "The identity is an identity in the completed algebra and requires the divisibility theorem for convergence."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.3/twist-element",
+    "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 9.4, e-print p. 50",
+     "excerpt": "Let the link be an (m+1)-component algebraically split 0-framed link whose last component is unknotted, and let the twisted link be obtained by plus or minus one framed surgery along it. Then the coloured invariant of the twisted link equals the invariant of the original link with the twist element in the last slot.",
+     "match": "Verbatim the theorem this node records."
+    }
+   ],
+   "planet": {
+    "name": "Twisting theorem"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+   "parentStageId": "ArithmeticQuantumTopology:QT.3",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.3"
+   ],
+   "title": "The unified invariant of an integral homology sphere",
+   "kind": "construction",
+   "statement": "Let M be an integral homology sphere and L an admissible framed link presenting it, with m components and framings epsilon_i in plus or minus one. Define the element of the Habiro ring by taking the coloured invariant of the 0-framed link underlying L with the twist element of sign epsilon_i inserted in the i-th slot, divided by the corresponding product of unknot normalisations. The divisibility theorem makes the resulting sum converge in the Habiro ring.",
+   "hypotheses": [
+    "L is an admissible framed link presenting M",
+    "the coefficient ring is the Habiro ring, the completion of the Laurent polynomial ring with respect to the ideals generated by the q-shifted factorials"
+   ],
+   "proofSteps": [
+    "Take the 0-framed link underlying L and its coloured invariant, extended multilinearly to colours in the completed cyclotomic algebra.",
+    "Insert the twist element of the matching sign in each slot and normalise by the unknot values, which is the standard surgery normalisation.",
+    "Prove convergence of the resulting infinite sum in the Habiro ring, using the divisibility theorem for algebraically split 0-framed links.",
+    "Record the resulting element, which depends a priori on the presentation."
+   ],
+   "acceptance": [
+    "The empty presentation gives the element 1, so the invariant of the 3-sphere is 1.",
+    "The sum converges in the Habiro ring but not in the Laurent polynomial ring, so the completion is necessary.",
+    "The construction uses only admissible presentations; for a general framed link the same formula does not converge."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.3/twisting-theorem",
+    "ArithmeticQuantumTopology:QT.0/admissible-framed-link",
+    "ArithmeticQuantumTopology:QT.0/refined-presentation-existence"
+   ],
+   "api": [
+    {
+     "name": "unifiedInvariantOfPresentation",
+     "role": "constructor",
+     "statement": "The element of the Habiro ring attached to an admissible framed link by the surgery formula."
+    },
+    {
+     "name": "unifiedInvariant_empty",
+     "role": "example",
+     "statement": "The empty admissible link gives the element 1."
+    },
+    {
+     "name": "summable",
+     "role": "characterisation",
+     "statement": "The defining sum converges in the Habiro ring, by the divisibility theorem."
+    },
+    {
+     "name": "unifiedInvariant_mirror",
+     "role": "compatibility",
+     "statement": "Reversing the orientation of the presentation replaces q by its inverse in the formula."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.3/JM-well-defined",
+     "how": "Well-definedness is the statement that this element does not depend on the admissible presentation."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.4/evaluation-theorem",
+     "how": "Evaluating the element at a root of unity gives the Witten-Reshetikhin-Turaev invariant."
+    }
+   ],
+   "tests": [
+    {
+     "name": "unified_empty",
+     "statement": "The empty presentation gives 1, so the invariant of the 3-sphere is 1."
+    },
+    {
+     "name": "unified_unknot_pm_one",
+     "statement": "The plus-one-framed unknot also presents the 3-sphere and must give 1; this is the first non-trivial instance of independence."
+    },
+    {
+     "name": "unified_converges",
+     "statement": "The defining sum has terms divisible by higher and higher q-shifted factorials, so it converges in the Habiro ring; a formula without that divisibility would not define an element."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 10.2, equation for J_M, e-print pp. 51-52",
+     "excerpt": "Let M be an integral homology sphere, and let L be an admissible framed link in S^3 such that M is obtained from S^3 by surgery along L.",
+     "match": "The surgery formula this node records, in the normalisation Habiro fixes."
+    }
+   ],
+   "planet": {
+    "name": "Unified invariant J_M"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.3/JM-well-defined",
+   "parentStageId": "ArithmeticQuantumTopology:QT.3",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.3"
+   ],
+   "title": "The unified invariant does not depend on the admissible presentation",
+   "kind": "theorem",
+   "statement": "For an integral homology sphere M the element of the Habiro ring defined by the surgery formula does not depend on the choice of admissible framed link presenting M. Hence the assignment of that element to M is an invariant of integral homology spheres with values in the Habiro ring.",
+   "hypotheses": [
+    "M is an integral homology sphere",
+    "the presentations compared are admissible"
+   ],
+   "proofSteps": [
+    "By the refined Kirby calculus any two admissible presentations of M are related by isotopies and Hoste moves.",
+    "Check invariance of the surgery formula under an isotopy, which is immediate from invariance of the coloured invariant.",
+    "Check invariance under a single Hoste move, using the twisting theorem to compare the two sides.",
+    "Conclude by induction along the sequence of moves."
+   ],
+   "acceptance": [
+    "The empty link and the plus-one-framed unknot both give 1, matching that both present the 3-sphere.",
+    "The proof uses the refined calculus and not the classical one, since the intermediate links of a classical sequence need not be admissible.",
+    "The invariant of a connected sum is the product of the invariants, which is a consistency check on the normalisation."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+    "ArithmeticQuantumTopology:QT.0/refined-kirby-calculus"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 10.2, e-print p. 52",
+     "excerpt": "For an integral homology sphere M, the element defined by the surgery formula does not depend on the choice of L. Hence the correspondence defines an invariant of integral homology spheres with values in the Habiro ring.",
+     "match": "Verbatim the theorem this node records."
+    }
+   ],
+   "planet": {
+    "name": "Well-definedness of J_M"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.3/JM-divisibility",
+   "parentStageId": "ArithmeticQuantumTopology:QT.3",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.3"
+   ],
+   "title": "First divisibility of the unified invariant",
+   "kind": "lemma",
+   "statement": "For every integral homology sphere M the element J_M minus 1 is divisible in the Habiro ring by the product of the second and third cyclotomic-type factors, namely by (q squared minus 1)(q cubed minus 1) divided by (q minus 1).",
+   "hypotheses": [
+    "M is an integral homology sphere"
+   ],
+   "proofSteps": [
+    "Expand the surgery formula and isolate the constant term, which is 1.",
+    "Bound the remaining terms by the divisibility theorem for algebraically split 0-framed links with colours in the first filtration step.",
+    "Combine the resulting factors and identify the product as the displayed one.",
+    "Record the stronger divisibility by q to the sixth minus 1, which follows by an extra argument."
+   ],
+   "acceptance": [
+    "For the 3-sphere the statement is trivial, since the difference is 0.",
+    "The divisibility gives the first congruence for the Ohtsuki series and is the source of the integrality of its coefficients.",
+    "The stronger statement, divisibility by q to the sixth minus 1, holds and is recorded separately."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.3/JM-well-defined",
+    "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Lemma 10.3 and Proposition 12.14, e-print pp. 52 and 62",
+     "excerpt": "Let M be an integral homology sphere. Then J_M minus 1 is divisible by (q squared minus 1)(q cubed minus 1) divided by (q minus 1) in the Habiro ring. For any integral homology sphere, J_M minus 1 is divisible by q to the sixth minus 1.",
+     "match": "The two divisibility statements this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.3/JM-connected-sum-and-orientation",
+   "parentStageId": "ArithmeticQuantumTopology:QT.3",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.3"
+   ],
+   "title": "Multiplicativity under connected sum and behaviour under orientation reversal",
+   "kind": "theorem",
+   "statement": "The unified invariant is multiplicative under connected sum, so that the invariant of a connected sum is the product of the invariants, and the invariant of the 3-sphere is 1. Reversing the orientation of an integral homology sphere replaces the invariant by the image of the invariant under the ring involution sending q to its inverse.",
+   "hypotheses": [
+    "M and the second manifold are integral homology spheres"
+   ],
+   "proofSteps": [
+    "Present the connected sum by the split union of admissible presentations of the two summands.",
+    "Use multiplicativity of the coloured invariant on split unions to factor the surgery formula.",
+    "For orientation reversal, take the mirror image of the presentation and track the effect on the twist elements and on the coloured invariant.",
+    "Identify the result with the ring involution of the Habiro ring."
+   ],
+   "acceptance": [
+    "The invariant of the 3-sphere is 1, which is the empty case of multiplicativity.",
+    "The invariant of the connected sum of a manifold with its own orientation reversal is the norm of the invariant under the involution.",
+    "An invariant that failed multiplicativity would not evaluate to the Witten-Reshetikhin-Turaev invariants, which are multiplicative."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.3/JM-well-defined"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Proposition 12.1, e-print p. 57",
+     "excerpt": "The invariant is multiplicative under connected sum and the invariant of the 3-sphere is 1. If the manifold with reversed orientation is taken, the invariant is the image under the involution sending q to its inverse.",
+     "match": "Verbatim the two statements this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.4/WRT-invariant-at-a-root",
+   "parentStageId": "ArithmeticQuantumTopology:QT.4",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.4"
+   ],
+   "title": "The Witten-Reshetikhin-Turaev invariant at a root of unity",
+   "kind": "definition",
+   "statement": "For a primitive r-th root of unity zeta, the sl(2) Witten-Reshetikhin-Turaev invariant of a closed oriented 3-manifold is defined from a surgery presentation by the standard state sum over the admissible colours at level r, normalised by the invariants of the plus and minus one framed unknots so that the value on the 3-sphere is 1.",
+   "hypotheses": [
+    "zeta is a primitive r-th root of unity",
+    "the manifold is presented by a framed link"
+   ],
+   "proofSteps": [
+    "Fix the finite set of admissible colours at the given root and the corresponding evaluations of the coloured Jones polynomials.",
+    "Form the state sum over those colours weighted by quantum dimensions, and normalise by the signature-dependent unknot factors.",
+    "Prove invariance under the Kirby moves, which is where the normalisation and the choice of admissible colours are used.",
+    "Record the resulting invariant and its normalisation on the 3-sphere."
+   ],
+   "acceptance": [
+    "The value on the 3-sphere is 1.",
+    "The value at a root of unity of order 1 or 2 is 1 as well, which is the degenerate range.",
+    "For an integral homology sphere the invariant lies in the ring of integers of the cyclotomic field, which is a theorem rather than a definition."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.2/coloured-jones",
+    "mathlib:IsPrimitiveRoot",
+    "mathlib:Polynomial.cyclotomic"
+   ],
+   "api": [
+    {
+     "name": "wrt",
+     "role": "data",
+     "statement": "wrt zeta M is the Witten-Reshetikhin-Turaev invariant of M at the root zeta."
+    },
+    {
+     "name": "wrt_sphere",
+     "role": "example",
+     "statement": "The value on the 3-sphere is 1."
+    },
+    {
+     "name": "wrt_kirby_invariant",
+     "role": "compatibility",
+     "statement": "The state sum is unchanged by the Kirby moves, so it is an invariant of the manifold."
+    },
+    {
+     "name": "wrt_connected_sum",
+     "role": "functoriality",
+     "statement": "The invariant is multiplicative under connected sum."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.4/evaluation-theorem",
+     "how": "The evaluation theorem identifies the image of the unified invariant at a root with this invariant."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.4/determination-by-WRT",
+     "how": "The determination theorem compares the unified invariant with the whole family of these values."
+    }
+   ],
+   "tests": [
+    {
+     "name": "wrt_sphere_one",
+     "statement": "The invariant of the 3-sphere is 1, which pins the normalisation."
+    },
+    {
+     "name": "wrt_lens_space",
+     "statement": "For a lens space the state sum evaluates to the classical Gauss-sum expression; a definition disagreeing here has the wrong normalisation."
+    },
+    {
+     "name": "wrt_multiplicative",
+     "statement": "The invariant of a connected sum is the product of the invariants."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Section 11.2, e-print pp. 53-54",
+     "excerpt": "Definition of the Witten-Reshetikhin-Turaev invariant at a root of unity.",
+     "match": "The subsection that fixes the normalisation of the invariant this node records."
+    }
+   ],
+   "planet": {
+    "name": "WRT invariant at a root"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.4/evaluation-theorem",
+   "parentStageId": "ArithmeticQuantumTopology:QT.4",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.4"
+   ],
+   "title": "Evaluation of the unified invariant at a root of unity",
+   "kind": "theorem",
+   "statement": "Let M be an integral homology sphere and zeta a primitive r-th root of unity. Then the evaluation at zeta of the unified invariant of M equals the sl(2) Witten-Reshetikhin-Turaev invariant of M at zeta.",
+   "hypotheses": [
+    "M is an integral homology sphere",
+    "zeta is a primitive root of unity of any order"
+   ],
+   "proofSteps": [
+    "Evaluate the surgery formula for the unified invariant at the root, using that evaluation is a ring homomorphism from the Habiro ring to the ring of integers of the cyclotomic field.",
+    "Identify the evaluated twist elements with the finite Gauss sums appearing in the state sum.",
+    "Match the normalisations, using the auxiliary lemma on coloured invariants with colours in the representation ring at the root.",
+    "Conclude the equality for every root of unity, without restriction on the order."
+   ],
+   "acceptance": [
+    "Both sides are 1 on the 3-sphere.",
+    "The theorem holds for every root of unity, including those of even and of non-prime-power order, which the earlier literature had excluded.",
+    "As a corollary the Witten-Reshetikhin-Turaev invariant of an integral homology sphere is an algebraic integer in the cyclotomic field, and the family is Galois equivariant."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.3/JM-well-defined",
+    "ArithmeticQuantumTopology:QT.4/WRT-invariant-at-a-root"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 11.1 with Theorem 1.2, e-print pp. 53 and 5",
+     "excerpt": "Let M be an integral homology sphere and let zeta be a primitive r-th root of unity. Then the evaluation at zeta of the unified invariant equals the sl(2) Witten-Reshetikhin-Turaev invariant of M at zeta.",
+     "match": "Verbatim the theorem this node records, in its introduction and its body form."
+    }
+   ],
+   "planet": {
+    "name": "Evaluation at roots of unity"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.4/integrality-and-galois",
+   "parentStageId": "ArithmeticQuantumTopology:QT.4",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.4"
+   ],
+   "title": "Integrality and Galois equivariance of the quantum invariants",
+   "kind": "theorem",
+   "statement": "For every integral homology sphere M and every root of unity zeta, the Witten-Reshetikhin-Turaev invariant of M at zeta lies in the ring of integers generated by zeta, and for every field automorphism alpha of the cyclotomic field the invariant at the image of zeta is the image of the invariant.",
+   "hypotheses": [
+    "M is an integral homology sphere"
+   ],
+   "proofSteps": [
+    "Apply the evaluation theorem to write the invariant as the image of an element of the Habiro ring.",
+    "Observe that the Habiro ring has coefficients in the integers, so evaluation lands in the ring of integers generated by the root.",
+    "For equivariance, note that an automorphism of the cyclotomic field commutes with evaluation of a fixed element of the Habiro ring.",
+    "Conclude both statements."
+   ],
+   "acceptance": [
+    "The invariant is an algebraic integer, not merely an algebraic number; this is a strictly stronger statement than the state sum gives directly.",
+    "Galois equivariance relates the values at all primitive roots of the same order, so one value determines the others in that orbit.",
+    "The two statements fail for rational homology spheres without a modified coefficient ring."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.4/evaluation-theorem"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Corollary 1.3 and the following paragraph, e-print p. 5",
+     "excerpt": "For any integral homology sphere M and for zeta a root of unity we have that the invariant lies in the ring of integers generated by zeta. The theorem immediately implies Galois equivariance of the invariant.",
+     "match": "The two consequences this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.4/determination-by-WRT",
+   "parentStageId": "ArithmeticQuantumTopology:QT.4",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.4"
+   ],
+   "title": "The unified invariant is determined by the family of quantum invariants",
+   "kind": "theorem",
+   "statement": "The unified invariant of an integral homology sphere is determined by the function assigning to each root of unity the Witten-Reshetikhin-Turaev invariant at that root; consequently the unified invariant and that function have the same power to distinguish integral homology spheres. Moreover both are determined by the values at any subset of roots of unity that has a limit point in the relevant sense.",
+   "hypotheses": [
+    "M is an integral homology sphere"
+   ],
+   "proofSteps": [
+    "Use the evaluation theorem to see that the function of roots is the image of the unified invariant under the product of the evaluation maps.",
+    "Apply the injectivity property of the Habiro ring: the product of evaluations over a subset with a limit point is injective.",
+    "Deduce that the unified invariant is recovered from the family of values.",
+    "Record the complementary statement that a subset without a limit point does not suffice."
+   ],
+   "acceptance": [
+    "Two integral homology spheres with the same quantum invariants at all roots have the same unified invariant.",
+    "A subset of roots without a limit point is not enough, so the hypothesis is sharp.",
+    "The statement is about the evaluation map on the Habiro ring, not about the manifolds, so it needs the ring-theoretic injectivity input."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.4/evaluation-theorem"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 1.4 with Proposition 1.1, e-print pp. 5 and 3",
+     "excerpt": "The invariant J_M is determined by the WRT function. Moreover both are determined by the values at the roots in a subset with a limit point. If a subset of roots has a limit point then the corresponding product of evaluation maps on the Habiro ring is injective.",
+     "match": "The determination statement and the injectivity property of the Habiro ring it rests on."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.4/ohtsuki-series",
+   "parentStageId": "ArithmeticQuantumTopology:QT.4",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.4"
+   ],
+   "title": "Taylor expansion at q equal to 1 is the Ohtsuki series",
+   "kind": "theorem",
+   "statement": "For every integral homology sphere M, the image of the unified invariant under the Taylor expansion homomorphism from the Habiro ring to the ring of formal power series in q minus 1 is the Ohtsuki series of M.",
+   "hypotheses": [
+    "M is an integral homology sphere",
+    "the Taylor expansion map is the canonical homomorphism from the Habiro ring to power series in q minus 1"
+   ],
+   "proofSteps": [
+    "Recall that the Ohtsuki series is characterised by congruences with the quantum invariants at roots of prime power order.",
+    "Evaluate the unified invariant at those roots using the evaluation theorem.",
+    "Compare the two sides through the commutative square relating the Taylor expansion and the evaluation maps.",
+    "Use injectivity of the product of the p-adic evaluations on power series to conclude equality."
+   ],
+   "acceptance": [
+    "The constant term is 1, matching that the Ohtsuki series begins with 1.",
+    "The first non-trivial coefficient is the Casson invariant up to the standard normalisation, which fixes the convention.",
+    "The theorem identifies two objects defined by different means, so it is a comparison and not a definition."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.4/evaluation-theorem",
+    "ArithmeticQuantumTopology:QT.3/JM-divisibility"
+   ],
+   "sources": [
+    {
+     "sourceId": "habiro2008",
+     "locator": "Theorem 12.6, e-print p. 59",
+     "excerpt": "For every integral homology sphere M we have that the Taylor expansion of the unified invariant is the Ohtsuki series of M.",
+     "match": "Verbatim the theorem this node records."
+    }
+   ],
+   "planet": {
+    "name": "Ohtsuki series"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.5/ideal-tetrahedron-and-shape",
+   "parentStageId": "ArithmeticQuantumTopology:QT.5",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.5"
+   ],
+   "title": "Oriented ideal tetrahedra and their shape parameters",
+   "kind": "definition",
+   "statement": "An oriented ideal tetrahedron in hyperbolic 3-space is determined up to isometry by a shape parameter z in the complex numbers with z different from 0 and 1, the cross-ratio of its four ideal vertices in the chosen order. The three pairs of opposite edges carry the three parameters z, z' = 1/(1-z) and z'' = 1 - 1/z, which multiply to minus 1 and satisfy the two relations recorded below; the tetrahedron is positively oriented when the imaginary part of z is positive.",
+   "hypotheses": [
+    "the four ideal vertices are distinct points of the boundary sphere",
+    "an ordering of the vertices is chosen, and the parity of the ordering is recorded"
+   ],
+   "proofSteps": [
+    "Define the shape as the cross-ratio of the four ideal vertices in the chosen order.",
+    "Prove that two ordered ideal tetrahedra are isometric by an orientation-preserving isometry if and only if their shapes agree.",
+    "Derive the two companion parameters from the action of the even permutations of the vertices, and prove the product relation.",
+    "Record the degenerate cases excluded by the condition that the shape is neither 0 nor 1."
+   ],
+   "acceptance": [
+    "The regular ideal tetrahedron has shape the primitive sixth root of unity, and its three parameters coincide.",
+    "An even permutation of the vertices permutes the three parameters cyclically, and an odd one inverts them.",
+    "The shape 0 or 1 corresponds to a degenerate tetrahedron and is excluded."
+   ],
+   "prerequisites": [
+    "mathlib:Complex.log"
+   ],
+   "api": [
+    {
+     "name": "IdealTetrahedron",
+     "role": "structure",
+     "statement": "An ordered oriented ideal tetrahedron, recorded by its shape parameter in the complement of 0 and 1."
+    },
+    {
+     "name": "shape",
+     "role": "data",
+     "statement": "shape T is the cross-ratio of the four ideal vertices in the chosen order."
+    },
+    {
+     "name": "shape_companions",
+     "role": "characterisation",
+     "statement": "The three edge parameters are z, 1/(1-z) and 1-1/z, and their product is minus 1."
+    },
+    {
+     "name": "isometry_iff_shape_eq",
+     "role": "characterisation",
+     "statement": "Two ordered ideal tetrahedra are orientation-preserving isometric if and only if their shapes agree."
+    },
+    {
+     "name": "positively_oriented",
+     "role": "relation",
+     "statement": "A tetrahedron is positively oriented exactly when the imaginary part of its shape is positive."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/combinatorial-flattening",
+     "how": "A flattening is a choice of logarithms of the three shape parameters with a linear condition."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/gluing-and-completeness-equations",
+     "how": "The gluing equations are polynomial equations in the shapes of the tetrahedra of a triangulation."
+    }
+   ],
+   "tests": [
+    {
+     "name": "shape_regular",
+     "statement": "The regular ideal tetrahedron has shape the primitive sixth root of unity; a convention giving a different value is a different cross-ratio ordering."
+    },
+    {
+     "name": "shape_product",
+     "statement": "The product of the three edge parameters is minus 1, not 1; this pins the convention."
+    },
+    {
+     "name": "shape_excludes_degenerate",
+     "statement": "Shapes 0 and 1 are excluded, so a degenerate configuration is not an ideal tetrahedron."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "neumann2004",
+     "locator": "Section 3, e-print Definition 3.1 and the surrounding text",
+     "excerpt": "We shall call any triple of the form (log z + p pi i, log z' + q pi i, log z'' + r pi i) with integers p, q, r and the three entries summing to zero a combinatorial flattening for our simplex.",
+     "match": "The passage that fixes the three edge parameters of an ideal simplex, on which this node's conventions rest."
+    }
+   ],
+   "planet": {
+    "name": "Ideal tetrahedron and shape"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.5/gluing-and-completeness-equations",
+   "parentStageId": "ArithmeticQuantumTopology:QT.5",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.5"
+   ],
+   "title": "Gluing and completeness equations of an ideal triangulation",
+   "kind": "definition",
+   "statement": "Given an ideal triangulation of the interior of a compact 3-manifold with torus boundary, with a shape assigned to each tetrahedron, the edge (gluing) equation at an edge asserts that the product of the edge parameters around that edge is 1 and that the sum of the corresponding logarithms is two pi i; the completeness equation at a cusp asserts that the derived holonomy of each generator of the cusp group is trivial. A positively oriented solution of the gluing and completeness equations gives a complete finite-volume hyperbolic structure on the interior.",
+   "hypotheses": [
+    "the triangulation is an ideal triangulation of the interior of a compact 3-manifold whose boundary is a union of tori"
+   ],
+   "proofSteps": [
+    "Write the edge equations as the vanishing of a product of edge parameters together with the logarithmic form that fixes the branch.",
+    "Write the completeness equations as the triviality of the derived holonomy of the cusp, in terms of the same parameters.",
+    "Record that a positively oriented solution assembles the tetrahedra into a complete structure, and that the hyperbolic volume of the structure is the sum of the volumes of the tetrahedra.",
+    "Record that the logarithmic form of the edge equations is what the flattening condition of the next node refines."
+   ],
+   "acceptance": [
+    "For the figure-eight knot complement with its two-tetrahedron triangulation the equations have the solution with both shapes the primitive sixth root of unity.",
+    "A solution with some shape of negative imaginary part does not give a complete structure with the induced orientation.",
+    "The volume of the resulting structure is the sum of the volumes of the ideal tetrahedra, which is the identity the regulator comparison uses."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.5/ideal-tetrahedron-and-shape"
+   ],
+   "api": [
+    {
+     "name": "IdealTriangulation",
+     "role": "structure",
+     "statement": "An ideal triangulation with a shape assigned to each tetrahedron."
+    },
+    {
+     "name": "edgeEquation",
+     "role": "relation",
+     "statement": "At each edge, the product of the incident edge parameters is 1 and the sum of their logarithms is two pi i."
+    },
+    {
+     "name": "cuspEquation",
+     "role": "relation",
+     "statement": "At each cusp, the derived holonomy of each generator is trivial."
+    },
+    {
+     "name": "isGeometricSolution",
+     "role": "characterisation",
+     "statement": "A solution all of whose shapes have positive imaginary part gives a complete finite-volume structure."
+    },
+    {
+     "name": "volume_eq_sum",
+     "role": "compatibility",
+     "statement": "The volume of the structure is the sum of the volumes of its tetrahedra."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/bloch-element-of-a-triangulation",
+     "how": "The Bloch element is the sum of the shapes of a solution, and its well-definedness rests on the edge equations."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons",
+     "how": "The comparison of the regulator with volume and Chern-Simons is stated for a solution of these equations."
+    }
+   ],
+   "tests": [
+    {
+     "name": "figure_eight_solution",
+     "statement": "The two-tetrahedron triangulation of the figure-eight knot complement has the solution with both shapes the primitive sixth root of unity; this is the running example."
+    },
+    {
+     "name": "edge_equation_log_form",
+     "statement": "The logarithmic edge equation fixes the branch: the product form alone does not, and the two differ by multiples of two pi i."
+    },
+    {
+     "name": "not_geometric_of_negative_imaginary",
+     "statement": "A solution with a shape of negative imaginary part is not geometric, so the positivity condition is not redundant."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "neumann2004",
+     "locator": "Section 3, the edge sums and the flattening condition",
+     "excerpt": "We say that the terms satisfy the flattening condition if each of the above linear combinations of log-parameters is equal to zero.",
+     "match": "The logarithmic edge relations of a triangulation, which this node records in their geometric form before the flattening refinement."
+    }
+   ],
+   "planet": {
+    "name": "Gluing and completeness equations"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.5/combinatorial-flattening",
+   "parentStageId": "ArithmeticQuantumTopology:QT.5",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.5"
+   ],
+   "title": "Combinatorial flattenings and the extended pre-Bloch group",
+   "kind": "definition",
+   "statement": "A combinatorial flattening of an ideal tetrahedron with shape z is a triple of the form (log z + p pi i, log z' + q pi i, log z'' + r pi i) with integers p, q and r whose three entries sum to zero. The set of flattenings is in bijection with a Riemann surface covering the complement of 0 and 1, and the extended pre-Bloch group is the quotient of the free abelian group on flattenings by the lifted five-term relation.",
+   "hypotheses": [
+    "the logarithms are taken on the principal branch and the integers record the branch corrections"
+   ],
+   "proofSteps": [
+    "Define a flattening as the displayed triple with the linear condition.",
+    "Prove that the assignment of a flattening to a pair of integers and a shape is a bijection onto the covering surface.",
+    "Define the lifted five-term relation on the covering, and record that it is the most general lift of the classical five-term relation compatible with the Rogers dilogarithm.",
+    "Define the extended pre-Bloch group as the quotient by all instances of that relation."
+   ],
+   "acceptance": [
+    "A flattening determines its shape, so the covering map is well defined.",
+    "The three components of a flattening sum to zero, which excludes the arbitrary choices of branch.",
+    "Forgetting the flattening sends the extended pre-Bloch group onto the ordinary pre-Bloch group."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.5/ideal-tetrahedron-and-shape"
+   ],
+   "api": [
+    {
+     "name": "Flattening",
+     "role": "structure",
+     "statement": "A combinatorial flattening of an ideal tetrahedron, recorded as a shape together with two integers."
+    },
+    {
+     "name": "flattening_sum_zero",
+     "role": "characterisation",
+     "statement": "The three log-parameters of a flattening sum to zero."
+    },
+    {
+     "name": "flatteningEquiv",
+     "role": "equivalence",
+     "statement": "Flattenings correspond bijectively to the points of the covering surface of the complement of 0 and 1."
+    },
+    {
+     "name": "extendedPreBloch",
+     "role": "constructor",
+     "statement": "The extended pre-Bloch group is the quotient of the free abelian group on flattenings by the lifted five-term relation."
+    },
+    {
+     "name": "forget",
+     "role": "functoriality",
+     "statement": "Forgetting the flattening is a surjection onto the ordinary pre-Bloch group."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/bloch-element-of-a-triangulation",
+     "how": "The Bloch element of a hyperbolic manifold is built from a flattening of each tetrahedron of a triangulation."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons",
+     "how": "The Rogers dilogarithm is defined on flattenings and descends to the extended pre-Bloch group."
+    }
+   ],
+   "tests": [
+    {
+     "name": "flattening_zero_zero",
+     "statement": "The flattening with both integers zero is the principal one; a different default would move the Chern-Simons term by a period."
+    },
+    {
+     "name": "flattening_determines_shape",
+     "statement": "Two flattenings with the same log-parameters have the same shape."
+    },
+    {
+     "name": "lifted_five_term_general",
+     "statement": "The lifted five-term relation is a lift of the classical one, so it maps onto it under forgetting; a relation that did not lift the classical one would be wrong."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "neumann2004",
+     "locator": "Definition 3.1 and Definition 2.2, e-print sections 2 and 3",
+     "excerpt": "We shall call any triple of the form (log z + p pi i, log z' + q pi i, log z'' + r pi i) with p, q, r integers and the three entries summing to zero a combinatorial flattening for our simplex. This map is a bijection, so the covering may be identified with the set of all combinatorial flattenings of ideal tetrahedra.",
+     "match": "The definition of a flattening and the identification of the covering surface with the set of flattenings."
+    }
+   ],
+   "planet": {
+    "name": "Combinatorial flattening"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.5/five-term-and-pachner",
+   "parentStageId": "ArithmeticQuantumTopology:QT.5",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.5"
+   ],
+   "title": "The flattening condition makes a two-three move an instance of the lifted five-term relation",
+   "kind": "lemma",
+   "statement": "A geometric five-term relation among five ideal simplices is an instance of the lifted five-term relation in the extended pre-Bloch group if and only if the chosen flattenings satisfy the flattening condition, namely that the relevant linear combinations of log-parameters around each edge vanish.",
+   "hypotheses": [
+    "five ideal simplices arranged as in the five-term configuration, each with a chosen flattening"
+   ],
+   "proofSteps": [
+    "Write the five-term configuration and its log-parameters explicitly.",
+    "Compute the linear combinations of log-parameters around each edge of the configuration.",
+    "Show that the vanishing of those combinations is equivalent to the corresponding relation holding in the covering, which is the lifted five-term relation.",
+    "Record the extension lemma, that flattenings specified on part of the configuration extend when the adjusted angle sums vanish."
+   ],
+   "acceptance": [
+    "The classical five-term relation is recovered by forgetting the flattenings.",
+    "Without the flattening condition the lifted relation fails, so the condition is not automatic.",
+    "The lemma is what makes a two-three Pachner move on an ideal triangulation act trivially on the Bloch element."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.5/combinatorial-flattening"
+   ],
+   "sources": [
+    {
+     "sourceId": "neumann2004",
+     "locator": "Lemma 3.4 with Lemma 3.5, e-print section 3",
+     "excerpt": "The geometric five-term relation is an instance of the lifted five term relation if and only if the terms satisfy the flattening condition. If the flattenings are specified for a subset of the five ideal simplices and the sum of adjusted angles is zero around each edge, then they extend.",
+     "match": "The two statements this node records."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.5/bloch-element-of-a-triangulation",
+   "parentStageId": "ArithmeticQuantumTopology:QT.5",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.5"
+   ],
+   "title": "The extended Bloch element of a hyperbolic 3-manifold",
+   "kind": "construction",
+   "statement": "For a complete hyperbolic 3-manifold presented by a flattened ideal triangulation, the alternating sum of the flattened shapes of its tetrahedra is an element of the extended pre-Bloch group that lies in the extended Bloch group, and depends only on the underlying homology class; for a closed or finite-volume manifold this gives a well-defined element attached to the manifold. A flattening always exists.",
+   "hypotheses": [
+    "the triangulation is an ordered cycle in the sense of the source",
+    "a flattening of the cycle is chosen"
+   ],
+   "proofSteps": [
+    "Take the alternating sum of the flattened shapes over the tetrahedra of the triangulation, with the signs given by the orientations.",
+    "Prove that the result lies in the kernel defining the extended Bloch group, by computing the image under the map to the exterior square.",
+    "Prove independence of the flattening and of the triangulation, using the five-term lemma for the two-three move and the cycle relation.",
+    "Record the existence theorem for flattenings, which makes the construction unconditional."
+   ],
+   "acceptance": [
+    "A flattening of the triangulation exists, so the element is always defined.",
+    "The element does not depend on the flattening, which is the content of the invariance statement.",
+    "For the figure-eight knot complement the element is the class attached to the two regular ideal tetrahedra, which is the running example."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.5/five-term-and-pachner",
+    "ArithmeticQuantumTopology:QT.5/gluing-and-completeness-equations"
+   ],
+   "api": [
+    {
+     "name": "blochElement",
+     "role": "constructor",
+     "statement": "blochElement M is the class in the extended Bloch group attached to a flattened ideal triangulation of M."
+    },
+    {
+     "name": "blochElement_exists",
+     "role": "structure",
+     "statement": "A flattening of the triangulation exists, so the element is defined."
+    },
+    {
+     "name": "blochElement_indep",
+     "role": "characterisation",
+     "statement": "The element does not depend on the chosen flattening, only on the homology class."
+    },
+    {
+     "name": "blochElement_mem_extendedBloch",
+     "role": "compatibility",
+     "statement": "The element lies in the extended Bloch group, the kernel of the map to the exterior square."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons",
+     "how": "The volume and Chern-Simons invariant are read off from the Rogers dilogarithm of this element."
+    },
+    {
+     "where": "ArithmeticQuantumTopology:QT.6",
+     "how": "The arithmetic of the shape field of the triangulation and the regulator of this element are the inputs to the asymptotic statements planned in the next stage."
+    }
+   ],
+   "tests": [
+    {
+     "name": "blochElement_figure_eight",
+     "statement": "The figure-eight knot complement gives the class of twice the flattened regular simplex; a construction giving a different class has the wrong signs."
+    },
+    {
+     "name": "blochElement_flattening_independent",
+     "statement": "Changing the flattening by an admissible amount does not change the class."
+    },
+    {
+     "name": "blochElement_not_in_prebloch_kernel",
+     "statement": "The element is non-zero for a hyperbolic manifold, since its Rogers dilogarithm has non-zero imaginary part equal to the volume."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "neumann2004",
+     "locator": "Theorem 4.5 with Theorem 4.6, e-print section 4",
+     "excerpt": "For each choice of the auxiliary point a strong flattening of the cycle exists. For any flattening of the cycle the alternating sum of the flattened shapes only depends on the homology class, it lies in the extended Bloch group, and the resulting map is defined.",
+     "match": "The existence and invariance statements this node records."
+    }
+   ],
+   "planet": {
+    "name": "Extended Bloch element"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons",
+   "parentStageId": "ArithmeticQuantumTopology:QT.5",
+   "realises": [
+    "ArithmeticQuantumTopology:QT.5"
+   ],
+   "title": "The Rogers dilogarithm computes volume and Chern-Simons",
+   "kind": "theorem",
+   "statement": "The Rogers dilogarithm gives a well-defined map from the covering surface to the complex numbers modulo pi squared times the integers, and the relations defining the extended pre-Bloch group are functional equations for it. There is an isomorphism from the third homology of the discrete group of orientation-preserving isometries of hyperbolic 3-space onto the extended Bloch group such that the composition with the Rogers dilogarithm is the characteristic class given by i times the sum of the volume and i times the Chern-Simons invariant.",
+   "hypotheses": [
+    "the extended Bloch group and the flattened Rogers dilogarithm are the ones defined above"
+   ],
+   "proofSteps": [
+    "Define the flattened Rogers dilogarithm by the displayed formula and prove that it is well defined modulo pi squared.",
+    "Prove that the lifted five-term relation and the transfer relations are functional equations for it.",
+    "Construct the map from the third homology group by sending a class to the extended Bloch element of a representing flattened cycle.",
+    "Prove that it is an isomorphism and that the composition with the Rogers dilogarithm is the stated characteristic class."
+   ],
+   "acceptance": [
+    "The imaginary part of the value is the volume, so the real regulator computes volume.",
+    "The real part is the Chern-Simons invariant, defined modulo the stated period.",
+    "For the figure-eight knot complement the imaginary part is twice the volume of the regular ideal tetrahedron."
+   ],
+   "prerequisites": [
+    "ArithmeticQuantumTopology:QT.5/bloch-element-of-a-triangulation"
+   ],
+   "sources": [
+    {
+     "sourceId": "neumann2004",
+     "locator": "Proposition 2.5 and Theorem 2.6, e-print section 2",
+     "excerpt": "The Rogers dilogarithm gives a well defined map to the complex numbers modulo pi squared. There exists an isomorphism from the third homology of the discrete isometry group onto the extended Bloch group such that the composition with the Rogers dilogarithm is the characteristic class given by i times the volume plus i times the Chern-Simons invariant.",
+     "match": "The two statements this node records, which are the comparison the stage asks for."
+    }
+   ],
+   "planet": {
+    "name": "Volume and Chern-Simons from the regulator"
+   },
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "HabiroCyclotomicCompletions:HC.1",
+   "need": "The Habiro ring itself: the completion of the Laurent polynomial ring in q with respect to the ideals generated by the q-shifted factorials, its ring structure, the evaluation homomorphisms at roots of unity and the Taylor expansion homomorphism at q equal to 1. Every node of QT.3 and QT.4 takes values in this ring; this packet uses it and does not build it.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.3/definition-of-JM",
+    "ArithmeticQuantumTopology:QT.4/evaluation-theorem"
+   ]
+  },
+  {
+   "supplier": "HabiroCyclotomicCompletions:HC.4",
+   "need": "Injectivity of the product of the evaluation maps over a set of roots of unity with a limit point, and the failure of injectivity without a limit point. The determination theorem of QT.4 is exactly the transport of this ring-theoretic statement along the evaluation theorem.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.4/determination-by-WRT"
+   ]
+  },
+  {
+   "supplier": "HabiroCyclotomicCompletions:HC.3",
+   "need": "Compatibility of the Taylor expansion map at q equal to 1 with the evaluations at roots of prime power order, in the commutative square used to identify the Taylor expansion of the unified invariant with the Ohtsuki series.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.4/ohtsuki-series"
+   ]
+  },
+  {
+   "supplier": "HabiroCyclotomicCompletions:HC.6",
+   "need": "The q-shifted factorial and quantum binomial identities in the completed ring, in particular the divisibility of the quantum binomial coefficient used as the bound in the integrality theorem of QT.2.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.2/integrality-algebraically-split"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here",
+   "need": "Framed oriented link presentations as first-class types with their equivalences, the Reidemeister moves, the geometric-to-diagram correspondence and the Jones polynomial in the pinned Kauffman-bracket normalisation. QT.0 and QT.2 should import these rather than build a second carrier and a second Jones polynomial; the comparison of the two normalisations is part of the import.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.0/framed-link-and-linking-matrix",
+    "ArithmeticQuantumTopology:QT.2/coloured-jones"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-5-dehn-surgery",
+   "need": "Surgery on a framed link, the resulting closed oriented 3-manifold, and the classical Kirby and Fenn-Rourke move theorems. QT.0 needs the classical calculus as the input to the refined calculus for admissible links; only the refinement is new here.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.0/surgery-presentation",
+    "ArithmeticQuantumTopology:QT.0/kirby-and-fenn-rourke-moves",
+    "ArithmeticQuantumTopology:QT.0/refined-presentation-existence"
+   ]
+  },
+  {
+   "supplier": "Polylogarithms:P.1",
+   "need": "The dilogarithm and the Bloch-Wigner function with the five-term relation, on which the Rogers dilogarithm of QT.5 is built. Neither pinned library has any dilogarithm.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons"
+   ]
+  },
+  {
+   "supplier": "Polylogarithms:P.2",
+   "need": "The weight-two regulator and the comparison of the Bloch-Wigner function with hyperbolic volume. QT.5 should import this identity rather than prove it again; the red team of this area recorded the duplication.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons"
+   ]
+  },
+  {
+   "supplier": "K3BlochGroups:V.3",
+   "need": "The Bloch group of a field with its exact sequence conventions, so that the extended Bloch group of QT.5 can be compared with it along the forgetful map.",
+   "for": [
+    "ArithmeticQuantumTopology:QT.5/combinatorial-flattening"
+   ]
+  },
+  {
+   "supplier": "HabiroNahmSeries:HB.9",
+   "need": "The theorem that the Nahm-type series attached to a symmetric matrix lie in the K-theory-indexed Habiro modules of the associated field. QT.6 needs this as the target of its comparison; this packet does not plan QT.6.",
+   "for": []
+  },
+  {
+   "supplier": "HabiroNahmSeries:HB.4",
+   "need": "The asymptotic toolkit (Euler-Maclaurin summation, critical points, Hessians, formal Gaussian integration and remainder bounds) that QT.6's stationary-phase statements would import rather than rebuild.",
+   "for": []
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.0",
+   "status": "partial",
+   "note": "The refinement this stage exists for is decomposed: admissible links, Hoste moves, the refined calculus and the existence of an admissible presentation. The classical Kirby and Fenn-Rourke theorems are stated as nodes but cited rather than decomposed, and belong to the geometric-topology roadmap.",
+   "remaining": [
+    "A primary decomposition of the classical Kirby and Fenn-Rourke move theorems, or an import of them from the geometric-topology roadmap.",
+    "The proof that every integral homology sphere has an admissible presentation, whose steps here are recorded but not sourced to a primary text."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.1",
+   "status": "partial",
+   "note": "The quantum-group side is decomposed in the form the source actually uses: the integral forms, the ribbon structure, the braided Hopf structure on the completed even form, bottom tangles, the universal invariant and its integrality.",
+   "remaining": [
+    "The root-of-unity semisimplification and the Reshetikhin-Turaev surgery normalisation, which the stage text also asks for and which this source does not provide; they need a primary Reshetikhin-Turaev reference.",
+    "The structure theorem for the centre of the completed even integral form, quoted here from a companion paper."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.2",
+   "status": "partial",
+   "note": "The cyclotomic expansion, the cyclotomic basis and the integrality and divisibility theorem for algebraically split links are decomposed from the primary source.",
+   "remaining": [
+    "The comparison of the colour-one specialisation with the Jones polynomial of the geometric-topology roadmap, in that roadmap's normalisation.",
+    "The two-variable and Melvin-Morton-Rozansky boundary material, which the source treats and which the stage text does not mention."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.3",
+   "status": "partial",
+   "note": "The construction of the unified invariant, its well-definedness against the refined calculus, its first divisibility and its behaviour under connected sum and orientation reversal are decomposed from the primary source.",
+   "remaining": [
+    "The rational homology sphere extension, which needs a different coefficient completion and is out of scope here."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.4",
+   "status": "partial",
+   "note": "The sl(2) half is decomposed: the evaluation theorem, integrality and Galois equivariance, determination by the family of quantum invariants, and the identification of the Taylor expansion with the Ohtsuki series.",
+   "remaining": [
+    "The general Lie type variants, which are a separate paper that was not read.",
+    "The p-adic and mod p Witten-Reshetikhin-Turaev functions, which the source also treats."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.5",
+   "status": "partial",
+   "note": "The extended Bloch group route is decomposed from a primary source: ideal tetrahedra and shapes, gluing and completeness equations, combinatorial flattenings, the five-term lemma behind the two-three move, the extended Bloch element and the volume and Chern-Simons theorem.",
+   "remaining": [
+    "Cusped hyperbolic 3-manifolds, Mostow-Prasad rigidity and the theorem that a positively oriented solution gives the complete structure, which no layer of the atlas owns.",
+    "The comparison of the real regulator with the weight-two regulator of the polylogarithm layers, which is where the duplication recorded in the restructure notes sits."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.6",
+   "status": "not_read",
+   "note": "No source for this stage was acquired. The state integral, its contour and normalisation, the non-compact quantum dilogarithm, the Neumann-Zagier datum and the asymptotic expansion are all unread, and the requests record what the eventual nodes would import.",
+   "remaining": [
+    "Acquire and decompose a primary state-integral source and the asymptotic theorems for the chosen family.",
+    "Fix the exact comparison to be exported to the Nahm-series roadmap."
+   ]
+  },
+  {
+   "stageId": "ArithmeticQuantumTopology:QT.7",
+   "status": "not_read",
+   "note": "No source for this stage was acquired. Quantum modularity, the refined volume conjectures and arithmetic resurgence are stated in the roadmap without the definitions they need, and the Kashaev invariant, which they are about, is named nowhere in the roadmap.",
+   "remaining": [
+    "Define the Kashaev invariant and state the volume conjecture with its proved cases.",
+    "Acquire primary sources for each proved quantum-modular example before any conjecture is formulated."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "The general Lie type half of QT.4 is not decomposed",
+   "detail": "QT.4 asks for the variants of the unified invariant for quantum groups of an arbitrary simple Lie algebra, with their own integral forms and admissible root orders. That is the Habiro-Le construction, a separate paper, which was not read for this packet. The nodes here cover only the sl(2) case of Habiro's paper. The roadmap's second source entry, which names that work, also carries a year range rather than a version, so the exact text to read is not pinned."
+  },
+  {
+   "title": "The classical Kirby calculus is cited, not decomposed",
+   "detail": "QT.0's nodes state the classical Fenn-Rourke and Kirby move theorems and the existence of a surgery presentation, but their proofs are not decomposed here: the excerpt cited is Habiro's recollection of them, not a primary decomposition. They belong to the Tau Ceti geometric-topology roadmap, and a request records that. Only the refinement to admissible links and Hoste moves is decomposed from a primary source."
+  },
+  {
+   "title": "QT.6 and QT.7 are not read",
+   "detail": "No node is written for the state-integral, Nahm-series and asymptotics stage or for the quantum-modularity stage. Their sources were not acquired: Faddeev's non-compact quantum dilogarithm, the Andersen-Kashaev state integral, the Dimofte-Garoufalidis series with the Neumann-Zagier datum, the resurgence toolkit and the quantum-modularity conjecture. The coverage records for those two stages are not_read, and the requests list what the eventual nodes would import."
+  },
+  {
+   "title": "The Kashaev invariant and the volume conjecture are named nowhere in the roadmap",
+   "detail": "QT.7's quantum-modularity and refined-volume targets are statements about the Kashaev invariant, which the roadmap text never mentions; neither does it name any proved case of the volume conjecture. A blueprint for QT.7 needs those definitions first, and this packet does not supply them."
+  },
+  {
+   "title": "The centre of the completed even integral form is used as a black box",
+   "detail": "The cyclotomic expansion of a bottom knot rests on the structure theorem identifying the centre of the completed even integral form with an inverse limit of polynomial quotients. That theorem is quoted from a companion paper of the source and is not decomposed here; the node that uses it cites it as part of its source reference rather than as its own statement."
+  },
+  {
+   "title": "Rational homology spheres are out of scope",
+   "detail": "The unified invariant of this packet is defined for integral homology spheres only. The extension to rational homology spheres needs a different coefficient completion, with the order of the first homology inverted, and a separate invariance theorem. The roadmap's own boundary sentence says so, and no node here covers it."
+  }
+ ],
+ "restructure": [
+  {
+   "kind": "import",
+   "layer": "ArithmeticQuantumTopology:QT.0",
+   "detail": "QT.0 should import framed and oriented link presentations, their equivalences and surgery from the Tau Ceti geometric-topology roadmap (its layers 4 and 5) instead of constructing them, and keep only the refinement to admissible links, Hoste moves and the refined calculus. Its current inputs are the two library-integration layers, which supply nothing a framed link construction uses.",
+   "evidence": "The stage's requires in data/atlas.json are the two FoundationsAndLibraryIntegration layers only; the geometric-topology roadmap's layer 4 owns knot and link presentations carrying orientation and framing, and its layer 5 owns surgery on framed links."
+  },
+  {
+   "kind": "import",
+   "layer": "ArithmeticQuantumTopology:QT.2",
+   "detail": "QT.2 should import the Jones polynomial from the geometric-topology roadmap and state the comparison between its Kauffman-bracket normalisation and the colour-one specialisation of the coloured Jones polynomial, rather than leaving two unrelated Jones polynomials in the atlas.",
+   "evidence": "That roadmap's layer 4 fixes the Jones polynomial via the Kauffman bracket with the substitution of A to the minus fourth power, with two algorithms and an agreement theorem; QT.2 constructs coloured link polynomials with no reference to it."
+  },
+  {
+   "kind": "prerequisite",
+   "layer": "ArithmeticQuantumTopology:QT.5",
+   "detail": "QT.5's dependence on the K-theory Bloch-group layers should be narrowed to the Bloch-group conventions it actually uses, and the dilogarithm and weight-two regulator should be imported from the polylogarithm layers, which own them. Its dependence on QT.0 should be dropped: no node of QT.5 uses framed links or Kirby calculus.",
+   "evidence": "The stage requires QT.0 together with two K3BlochGroups layers; none of the ideal-tetrahedron, gluing-equation, flattening or regulator material uses framed links, and the hyperbolic volume identity is owned by the weight-two regulator layer."
+  },
+  {
+   "kind": "prerequisite",
+   "layer": "ArithmeticQuantumTopology:QT.6",
+   "detail": "QT.6 requires the finite-index modular-function layer of the Nahm-series roadmap and the whole unified-invariant chain through QT.4. Neither is used by state integrals of cusped manifolds; the inputs it does need are the coloured Jones and Kashaev invariants and the hyperbolic data of QT.5.",
+   "evidence": "The stage's requires are QT.4, QT.5 and two HabiroNahmSeries layers; its text is about state integrals, gluing equations and their asymptotics."
+  }
+ ],
+ "sourceIssues": [],
+ "implementationStatus": "unchecked",
+ "suggestedLean": "research/blueprint/suggested/ArithmeticQuantumTopology.lean",
+ "reviewAudit": {
+  "agent": "Claude Code",
+  "session": "cc-7b31c4",
+  "originalAuthor": null,
+  "supplierStagesRead": [
+   "HabiroCyclotomicCompletions HC.1, HC.3, HC.4, HC.6",
+   "K3BlochGroups V.3, V.5",
+   "Polylogarithms P.1, P.2",
+   "HabiroNahmSeries HB.4, HB.5a, HB.8, HB.9",
+   "tauceti GeometricTopology layers 4 and 5",
+   "FoundationsAndLibraryIntegration LI.0 and LI.4"
+  ],
+  "leanStatus": "not compiled: the suggested file is a signature sketch and was not built against the pins"
+ }
+}
