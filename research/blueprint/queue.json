@@ -15070,8 +15070,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.7.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #678"
   },
   {
    "id": "REV-ArithmeticKTheory--N.7",
@@ -19132,9 +19133,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #762"
+   "note": "deliverables arrived from an external worker on issue #762",
+   "finishedAt": "2026-09-24T22:13:21Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.3",
