@@ -123137,6 +123137,25 @@
    "reviewReason": null
   },
   {
+   "id": "K3BlochGroups/E1",
+   "kind": "misprint",
+   "locator": "The K-book, author-hosted draft of 29 August 2013, Theorem VI.5.7 (PDF p. 498)",
+   "printed": "Note: there was a typo in the published version.)",
+   "correction": "The parenthetical note is the author's own, flagging a typographical error in the published Graduate Studies in Mathematics printing of the same theorem. A reader working from the published book should take the statement in the form given in this draft: the first homology of the group of invertible two by two matrices is the units of the field, the second homology is the direct sum of the exterior square of the units and K_2 of the field, and the displayed sequence from the third homology of the monomial subgroup through the third homology of the general linear group onto the Bloch group is exact.",
+   "reason": "The draft carries an unbalanced parenthesis and an explicit note that the published version differs. The correction records which form this packet uses, since the two differ in a statement every node of V.4 depends on. The published text was not obtained, so no claim is made about what it prints.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: the author's book page at sites.math.rutgers.edu was read for an errata file; the combined draft itself carries the note quoted above. The published Graduate Studies in Mathematics printing was not obtained, so the difference could not be collated."
+   ],
+   "owner": "K3BlochGroups",
+   "file": "research/blueprint/packets/K3BlochGroups.json",
+   "citation": "Sources of the blueprint of K3BlochGroups",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "KTheoryLowDegrees/E1",
    "kind": "misprint",
    "locator": "September 2012 Chapter I, Exercise 3.8(b), p.25; compared with combined August 2013 draft, printed p.29/PDF p.37.",

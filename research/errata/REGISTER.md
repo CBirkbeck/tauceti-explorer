@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-4954 new mistakes confirmed · 986 awaiting review · 326 already corrected in print · 76 rejected on review · 0 extractions and packets not yet checked.
+4954 new mistakes confirmed · 987 awaiting review · 326 already corrected in print · 76 rejected on review · 0 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -9369,6 +9369,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 
 - **Misprint** at Section 1, paragraph after the definition of E-functions, p. 1 (arXiv v3). The source says `Actually, Siegel's deﬁnition was slightly more general in that condition (3) reads h(a0, a1, . . . , ak) = o(k log k).`; it should be `'condition (3)' should be 'condition (2)' (condition 3 is the differential equation; condition 2 is the height bound).`. The listed conditions are 1. algebraic coefficients, 2. h = O(k), 3. the differential equation. Recorded as `DiophantineApproximationAndTranscendence/E504`; looked for an existing correction in: arXiv versions v1-v3 listing (math/0405549).
 - **Misprint** at Proof of Theorem 2.5, p. 5, and proof of Proposition 4.1, p. 8 (arXiv v3). The source says `Hence, from Andr´e's Theorem 2.2 it follows that all solutions of Ly = 0 vanish at z = 1. ... Taking up the notations of the proof of Theorem 2.2 we now see that`; it should be `'Theorem 2.2' should be 'Corollary 2.2' in both places.`. The numbered result 2.2 is Corollary 2.2 (André); there is no Theorem 2.2. Recorded as `DiophantineApproximationAndTranscendence/E505`; looked for an existing correction in: arXiv versions v1-v3 listing (math/0405549).
+
+### Sources of the blueprint of K3BlochGroups (`K3BlochGroups`)
+
+- **Misprint** at The K-book, author-hosted draft of 29 August 2013, Theorem VI.5.7 (PDF p. 498). The source says `Note: there was a typo in the published version.)`; it should be `The parenthetical note is the author's own, flagging a typographical error in the published Graduate Studies in Mathematics printing of the same theorem. A reader working from the published book should take the statement in the form given in this draft: the first homology of the group of invertible two by two matrices is the units of the field, the second homology is the direct sum of the exterior square of the units and K_2 of the field, and the displayed sequence from the third homology of the monomial subgroup through the third homology of the general linear group onto the Bloch group is exact.`. The draft carries an unbalanced parenthesis and an explicit note that the published version differs. The correction records which form this packet uses, since the two differ in a statement every node of V.4 depends on. The published text was not obtained, so no claim is made about what it prints. Recorded as `K3BlochGroups/E1`; looked for an existing correction in: 2026-09-24: the author's book page at sites.math.rutgers.edu was read for an errata file; the combined draft itself carries the note quoted above. The published Graduate Studies in Mathematics printing was not obtained, so the difference could not be collated..
 
 ### Charles A. Weibel, The K-book, Chapter II: The Grothendieck group K₀, Author-hosted September 2012 chapter PDF; page numbers are chapter-local. Compared with the author-hosted 29 August 2013 combined draft where indicated. (`KTheoryLowDegrees`)
 
