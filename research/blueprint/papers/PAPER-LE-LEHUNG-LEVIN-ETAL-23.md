@@ -1,3 +1,77 @@
+# LLHLM23 continuation: Kisin uniqueness and finite-length restriction
+
+Codex — codex-c83e7a, issue #1254, 24 September 2026. Confirmed claim5805811150. This continues the768-item checkpoint from PR2620 at `594e4e119c04bc68d43628fdc211d2370794a934`.
+
+**Partial:776 items (146 library,48 planned,582 missing),25 routes,110 unreviewed source findings.** All768 inherited IDs and statuses and all source data are preserved. There are174 definition/construction items; this continuation adds only theorem items. It is a source extraction and proof plan, with no Lean implementation or independent-review claim.
+
+## Kisin uniqueness: corrected hypotheses and scalar case
+
+E101's correction is now the actual statement of K31 (Lemma5.4.5): the error must satisfy
+
+```
+Ad(A_j)^(-1)(Y_j) − Ad(z_j)φ(Y_(j−1)) ∈ v^(−h) Mat_n(J[[v]]).
+```
+
+Bounding `Y_j−Ad(A_j z_j)φ(Y_(j−1))` alone is insufficient. The nilpotent lifting argument in K29 uses the corrected bound, since its error becomes `A_1^(-1)(A_2−A_1)` after conjugation. The proof keeps arbitrary coefficient modules J and treats the zero case separately.
+
+E102 is propagated into the statements of K10–K12/K49, K29–K31 and their direct consumers. An m-dependent Frobenius estimate in rank one requires `p>m`; lattice uniqueness at height h requires `p>h+1`. At the first excluded height `h=p−1`, scalar lattices with Frobenius exponents0 and p−1 become isomorphic after inverting v via `v^(−1)`. Thus root-depth genericity, which is vacuous for GL1, cannot imply an unrestricted uniqueness assertion.
+
+The pole calculation is explicit: in higher rank the depth hypothesis bounds root differences by `p−h−2`; a positive maximal pole K would give `pK≤K+p−2`, impossible for K≥1. In rank one the corresponding estimate is `(p−1)K≤h`. Once integrality is known, apply the same bound to the inverse and exclude constant lower-triangular entries to obtain Iwahori membership.
+
+K55 separates the valid scalar argument from these bounds. On `1+vR[[v]]`, solve `I_j=X_jφ(I_(j−1))` by iteration; successive errors have orders at least `p^r`. The ratio of two solutions is fixed by cyclic Frobenius and is therefore1. On `vJ[[v]]`, the inverse of `1−Φ` is the coefficientwise convergent series `ΣΦ^r`. This works over nonreduced coefficient rings and requires no height bound. It preserves the unrestricted rank-one gauge assertions in K16/K19 and the rank-one branch of K41.
+
+## Semisimplicity without a circular genericity argument
+
+The omitted implication in E103 is supplied by K56–K58. The relevant WE19 result is **Theorem3.2.26**, not Theorem3.2.20, which supplies a lattice from a lift. The new proof adapts its semisimplicity argument to the arbitrary-height uniqueness statement in the current paper:
+
+1. K56 repeats the presentation and gauge matrices over an unramified extension, retaining the depth and height conditions and the convention change in K07.
+2. In the split-character case, scale the chosen étale summands over `F′[t_1±,…,t_n±]`. Full faithfulness in K29 forces the actual marked Kisin lattice to be invariant under this universal scaling. Extracting the coefficient of each t_i proves stability under the individual projections. This is an argument over the torus scheme, not just its finite set of rational points.
+3. Each projected lattice has rank one. Descent eigenbases and scalar Frobenius contraction give a constant monomial basis (K57).
+4. For a semisimple étale realization, first split it over an unramified/coefficient extension. Gauge uniqueness forces the extended original gauge matrices to be monomial; injective coefficient extension detects their zero and constant entries before extension (K58). Rank one follows directly from K55 at every height.
+
+K43 (Proposition5.5.9) now makes its degeneration over the whole affine line. Over G_m the family is isomorphic to the original one. Pulling back the closed Kisin/Hodge immersion gives an ideal of F′[x] that vanishes after inverting x, hence is zero. Its fibre at0 has semisimple étale realization, so K58 applies to that very lattice and retains its Hodge bound. The dependency check proves that K58 uses none of K41/K43/K44/K47/K48; no genericity conclusion is used to prove its own premise.
+
+The closed-immersion step imports the actual pinned scheme theorem `AlgebraicGeometry.IsClosedImmersion.iff_isProper_and_mono` (L143). Z142 records the algebraic-space representability and compatible formal-truncation adapter, owned by SchemeAndStackFoundations SF.1/SF.4. The scheme theorem alone is not a statement about arbitrary stacks. The outer Stacks proofs were read; their finite étale quotient foundation remains an explicit supplier.
+
+## Section7.2: prime bounds and finite-length coefficients
+
+G21 retains `n≥2 or p>h+1`. G24 retains `n≥2 or p>max(h+1,2)`. For the extracted diagram and monodromy comparison G18/G25/G62, `n≥2 or p>h+2` is a sufficient combined range. These are recorded proof ranges; no sharp unrestricted rank-one version of all later main theorems is asserted. G66's coefficient-projectivity consequence now carries its G21 hypothesis.
+
+**E110 is a new unreviewed source finding.** Lemma7.2.10(2) fails for rank one at p=2: take K=Q2 and the trivial representation. Its inertia is2-generic because there are no roots, while its adjoint and the residual cyclotomic character are both trivial. The required twisted invariant space stays nonzero after every unramified extension. Section6's odd-prime restriction is explicitly local to that section; Section7 returns to the Section5 setup. The corrected G49 requires rank≥2 or odd p.
+
+For rank n≥2 the all-rank proof is now explicit. Two-depth gives `3(n−1)≤p−3`, hence `p>n`; the order r of the inertial permutation divides n! and is prime to p. After unramified degree-r extension the semisimplification splits into characters. Write an off-diagonal inertia exponent difference as `D=Σ p^j δ_j`, with `3≤|δ_j|≤p−3`, and the cyclotomic exponent as `C=Σ p^j`. Then
+
+```
+|D−C| ≤ (p−2)(p^d−1)/(p−1) < p^d−1,
+(D−C) mod p = δ_0−1 ≠ 0.
+```
+
+Thus no off-diagonal ratio is cyclotomic; the diagonal ratios are trivial and p>2 excludes them too. This extends the actual rank-three argument in Shapes and shadows rather than treating that source as an all-rank theorem.
+
+E65's finite-length correction is decomposed in G67–G68 and used in G50. The coefficient object is `Hom_O(V,W)` with conjugation action. Its composition factors occur among character ratios from the residual adjoint, by left exactness of Hom through composition series. There is no assumption that V and W are free or killed by the uniformizer.
+
+G68 records the noncyclotomic character H1 restriction seed from GLS5.4.2 and EGS7.4.3. G67 then proves H0 equality and H1 injectivity simultaneously by induction on O-length. For `0→M1→M→χ→0`, lift the character invariant before subtracting its connecting class; the induction for M1 completes both diagram chases. Descend from the prime-to-p unramified splitting extension using the common residual quotient for H0 and `cor∘res=degree` for H1. These operations import upstream ProfiniteCohomology layers5–6. No new generic cohomology construction or full Hochschild–Serre spectral sequence is needed.
+
+The read seed proofs still rely on the Kummer tower's field-theoretic structure and the absence of cyclic degree-p subfields when ζ_p is absent. Those obligations are explicitly recorded in `kummer-tower-field-inputs`; the finite-length induction does not make them disappear. At p=2, the H0 statement G23 instead uses the absence of trivial character constituents; the odd-prime seed is not applied outside its scope. G51/G52 spell out submodule induction and passage through `V/p^N W⊂W/p^N W`. G25/G62 retain the distinct reduced-target and finite-flat-point criteria and the Hodge-filtration supplier.
+
+## Evidence, ownership and validation
+
+The main published212-page PDF has SHA256 `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`. This pass freshly read PDF24,99–100,105–125,129,131–132 and142–149, and inspected the relevant105/118/119/146 page images. Inherited full-paper reading retains its attribution. Supporting selected readings are WE19 PDF13,20–21,26–35; Shapes and shadows PDF30–34; GLS's author-hosted50-page copy PDF42; and EGS's author-hosted75-page copy PDF47–49. The GLS copy is not identified with its52-page journal version. Exact links, versions, read scopes and available hashes are in `source.continuationReadings`.
+
+The correction search checked the title/erratum queries, the author's publication page and the arXiv version record. No dedicated correction was located in that bounded search. E110 was not separately compared passage-by-passage with arXivv2. No finding receives an independent-review verdict here.
+
+K55–K58 belong to existing LocalGaloisDeformationRings L7. G67–G68 refine the existing monodromy PartII route. Z142 stays with the existing scheme/stack owner and imports L143. There are no new routes. Current owner descriptions, reviewed local-deformation/scheme audit rows and both pinned library trees were consulted; generic continuous cohomology retains its upstream owner.
+
+Validation gives776 unique item IDs, exactly one route per582 missing items and1,226 acyclic internal edges. The K58 and G67 ancestor checks exclude their own consumers. Every untouched inherited item is byte-equivalent as a JSON object, all768 inherited statuses remain,105 untouched inherited source findings are unchanged, and all sourceData is unchanged. E65/E101/E102/E103 are the four deliberately refined inherited findings; E110 is added. Exact diagnostics check E101's Laurent exponents, E102 at p=2,3,5,7,11, scalar contraction modulo v^96 including Z/4, and92,864 signed-digit cases for G49. These finite calculations test algebra and bounds; they do not prove the general theorems. No Lean file was required or compiled.
+
+The current no-outline theorem census is U26, G32, B28, Z1, L137 and P1; these are counts by family, not item IDs. Library entries may import their existing proofs. The14 gap records still govern completion: external supplier closure, later rank-one propagation, Kummer-tower field inputs, Section2 small-prime/Jantzen/DL inputs, regularity, AppendixB certificates, contract auditing and fine ownership. This checkpoint does not declare the paper complete.
+
+## Historical reports
+
+The following reports preserve attribution, inventories and earlier evidence. Their numerical censuses, old statements and unresolved-argument descriptions are historical. The current JSON and this continuation supersede them wherever they differ, in particular for E101–E103, E65 and Section7.2. Earlier validation was not rerun unless listed above.
+
+---
+
 # LLHLM23 continuation: proof steps for §§4–5
 
 Claude Code — cc-39fac3, issue #1254, 24 September 2026. Claim 5805537570, confirmed by the bot. **Partial checkpoint: 768 items (145 library, 48 planned, 575 missing), 25 routes, 109 unreviewed source findings.** All inherited item IDs, statuses, routes, source data and the 93 earlier findings are preserved. This is source-level planning, not independent review or formal implementation.
