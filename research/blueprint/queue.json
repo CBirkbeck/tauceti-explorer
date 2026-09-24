@@ -16867,9 +16867,10 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-EllipticKTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #715"
+   "note": "deliverables arrived from an external worker on issue #715",
+   "finishedAt": "2026-09-24T23:42:20Z"
   },
   {
    "id": "REV-EllipticKTheory",
@@ -16916,8 +16917,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #716"
   },
   {
    "id": "REV-EllipticRegulators",
