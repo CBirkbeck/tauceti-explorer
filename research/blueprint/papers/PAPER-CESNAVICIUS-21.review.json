@@ -1,0 +1,37 @@
+{
+ "paper": "PAPER-CESNAVICIUS-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Nothing in the atlas plans Macaulayfication, (S_2)-ification, CM- or (S_n)-quasi-excellence, the openness of the (S_n) and Cohen–Macaulay loci, formal equidimensionality or Ratliff's theorem, and SF.4 asks for resolution only in named proved settings, so a Part II of SchemeAndStackFoundations is justified; area algebraicgeometry is a galaxy id. As corrected by the review: the expository items 14 and 15 were removed; item 52 moved to AS.1 and item 53 to the arithmetic-presentation Part II; nine items were added (Ratliff, Lemma 2.3(b), the final clause of Lemma 2.11, formal patching, Zariski's main theorem, (S_2) of j_*, birational morphisms, CM-excellence of rings with a dualizing complex, Zariski connectedness). The brief now states Theorems 1.6 and 5.3, Corollaries 1.8, 1.10 and 1.11 and Proposition 5.5 verbatim and names its imports by title and id. Blowups come from StableReduction Layers 4 and 2, not R09.7a, which plans only smooth base change. The reason's two false sentences are corrected."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accepted as narrowed, retitled and renamed (KawasakiCohenMacaulayBlowingUps). CM-secant sequences, d-sequences, module blowups and Kawasaki's Theorem 3.14 are planned nowhere, and the commutative-algebra roadmap is the right parent. Local cohomology beyond Mathlib, secant sequences and systems of parameters belong to R03.3, and dualizing complexes to AS.1, by accepted routes of PAPER-ANDRE-18-B, PAPER-BHATT-ETAL-23 and PAPER-HACON-WITASZEK-23. The route's claim that the atlas has only perverse-sheaf dualizing complexes was false. Items 35 and 39 left, and the brief was rewritten to state Theorem 3.14 exactly, import R03.3, AS.1, StableReduction Layer 4 and L5 by title and id, and drop the unsupported claim of other consumers."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accepted as rewritten. Its only item, the Nagata compactification, is planned in AdicCoefficientsAndComparisons L2, which its reason missed (precedent PAPER-BOXER-PILLONI-26/nagata-compactification), so item 13 is now planned. The route now sources SF.0 with the extension of coherent submodules and closed subschemes (EGA I 9.4.7) and SF.4 with Kollár's coherence criterion for j_* (Stacks 0BK3). The criterion joins SF.4 beside the SGA 2 VIII 2.3 criteria, which the accepted route 4 of PAPER-CESNAVICIUS-19 put there."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Added by the review. It sources R03.3 with the local algebra that accepted routes already give R03.3: secant sequences and Remark 3.2, the local cohomology calculus, Grothendieck's depth criterion, the residue-field injective hull, the flat depth formula, and the equidimensionality of catenary (S_2) local rings."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Added by the review. The accepted routes 5 of PAPER-HACON-WITASZEK-23 and PAPER-BHATT-ETAL-23 make AS.1 the single owner of Noetherian dualizing complexes, and the rejected route 3 of PAPER-IYENGAR-KHARE-MANNING-24 put them elsewhere. This route adds §3.5, §4.2, local duality and the existence and Cohen–Macaulay criteria. Whether AS.1, on the ∞-categorical AS.0, is the right home for the Noetherian ring case is a maintainer question, which the reason records; the items should then move with the accepted ones."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Added by the review. Lemma 4.3 is the Noetherian projective case of PAPER-CESNAVICIUS-22/avoidance, which PAPER-CESNAVICIUS-22 route 7 proposes for SchemeAndStackFoundationsPartIIArithmeticPresentation (rejected pending revision, with the direction found justified) and whose id the accepted PAPER-BHATT-ETAL-23 route 13 reuses. The route copies that route's title, area, imports and brief and adds one sentence. make_queue.py keeps the brief of the later paper for a shared design id, so a shorter brief here would replace theirs."
+  }
+ ],
+ "notes": "Accept after corrections made in place. Three checkers covered §§1–2, §§3–5 with the bibliography, and every status and route; the coordinator settled their disagreements at the TeX and checked every new mistake there. Items: 61 became 81 (3 library, 5 planned, 73 missing): 2 expository items were removed and 22 added (splits of 17, 20, 21, 29, 34 and 38, and inputs the proofs use without citation in the items). Item 13 (Nagata) is now planned in L2; item 17's blowups are planned in StableReduction Layers 4 and 2, and its remainder is library. E1–E3 are confirmed, with E3's locator corrected and its correction extended to Theorem 2.13. E4–E9 are new: five misprints (§1.14, Remark 3.9, Proposition 3.11(iii), I_s, (3.14.10)) and one error in (4.4.1) with a one-line repair; no stated result changes. Six prerequisites were corrected: the wrong Gabber–Liu–Lorenzini and Kollár papers, a Deligne DOI that resolves to another paper, the §1.12 names, and the Ogoma, Heitmann and Heinrich references. For the maintainer: route 6 shares its design id with two other papers, and routes 1 and 2 of the same paper depend on each other in one direction (route 2 first)."
+}
