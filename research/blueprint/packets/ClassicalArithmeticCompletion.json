@@ -1,0 +1,1175 @@
+{
+ "roadmapId": "ClassicalArithmeticCompletion",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "status": "partial",
+ "scope": [
+  "ClassicalArithmeticCompletion:CA.0",
+  "ClassicalArithmeticCompletion:CA.1",
+  "ClassicalArithmeticCompletion:CA.2",
+  "ClassicalArithmeticCompletion:CA.3",
+  "ClassicalArithmeticCompletion:CA.4",
+  "ClassicalArithmeticCompletion:CA.5",
+  "ClassicalArithmeticCompletion:CA.6",
+  "ClassicalArithmeticCompletion:CA.7"
+ ],
+ "summary": "Classical arithmetic, sequences, polynomials and reciprocity. The reviewed library audit records this roadmap as largely built: CA.0 is built outright, CA.5 is a process layer, and CA.1 to CA.4 and CA.6 are partly built. The protocol is explicit that a target the libraries contain is a baseline citation and never a node, so the deliverable here is mostly a register of what is already there - 53 pinned declarations, one per target the audit records as present - together with nodes for exactly the targets it records as missing and for which a free source could be read. Ten nodes are planned, from three freely available books read for the sections used: Shoup's computational number theory book for the integer form of the Chinese remainder theorem at non-coprime moduli, the structure of the units modulo a power of two with its explicit generators, and the d-th power criterion in a cyclic group and in a finite field; Stanley's Enumerative Combinatorics for the equivalence between a rational generating function, a linear recurrence and the closed form with its polynomial coefficients at a repeated root; and Stein's computational algebraic number theory book for the Smith normal form of a rectangular integer matrix, the invariant-factor form of the structure theorem, and the solvability criterion and parametrisation for an integer linear system. CA.0 is closed. CA.1, CA.2, CA.3, CA.4 and CA.6 are partial, each with a remaining list naming every target that is not planned and, where one is known, the free source a continuation job should obtain. CA.7 is marked not read, since no source for integral Galois module structure was obtained. Two structural proposals are recorded: that the process layer CA.5 be removed, and that CA.7, which shares no object, source or technique with the rest, be moved out.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Nat.ModEq",
+    "module": "Mathlib/Data/Nat/ModEq.lean",
+    "provides": "Congruence of natural numbers. CA.0's congruence targets are this and its integer counterpart; the reviewed audit records the layer as built, so nothing about congruences is planned here."
+   },
+   {
+    "ref": "mathlib:Int.ModEq",
+    "module": "Mathlib/Data/Int/ModEq.lean",
+    "provides": "Congruence of integers, the relation in which the one node of CA.0 is stated."
+   },
+   {
+    "ref": "mathlib:Nat.chineseRemainder",
+    "module": "Mathlib/Data/Nat/ModEq.lean",
+    "provides": "The Chinese remainder theorem for two coprime moduli over the natural numbers, computably. CA.0's coprime CRT target is this together with the family and ideal-theoretic versions, and is not planned again."
+   },
+   {
+    "ref": "mathlib:Nat.chineseRemainder'",
+    "module": "Mathlib/Data/Nat/ModEq.lean",
+    "provides": "The two-modulus Chinese remainder theorem at non-coprime moduli over the natural numbers, taking exactly the hypothesis that the two residues agree modulo the greatest common divisor and returning a solution below the least common multiple. The single node of CA.0 is the integer form of this statement, which the audit records as unstated."
+   },
+   {
+    "ref": "mathlib:ZMod.chineseRemainder",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "The ring isomorphism between the integers modulo a product of coprime moduli and the product of the two residue rings."
+   },
+   {
+    "ref": "mathlib:Nat.xgcd",
+    "module": "Mathlib/Data/Int/GCD.lean",
+    "provides": "The extended Euclidean algorithm, computable, with the Bezout coefficients. CA.0's first target."
+   },
+   {
+    "ref": "mathlib:EuclideanDomain.gcd",
+    "module": "Mathlib/Algebra/EuclideanDomain/Defs.lean",
+    "provides": "Greatest common divisors in a Euclidean domain, the general form of the same target."
+   },
+   {
+    "ref": "mathlib:UniqueFactorizationMonoid",
+    "module": "Mathlib/RingTheory/UniqueFactorizationDomain/Defs.lean",
+    "provides": "Unique factorisation, with every principal ideal domain an instance. CA.0's factorisation target."
+   },
+   {
+    "ref": "mathlib:Nat.factorization",
+    "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+    "provides": "The prime factorisation of a natural number as a finitely supported function, and with it the p-adic valuations CA.0 asks for."
+   },
+   {
+    "ref": "mathlib:Nat.totient",
+    "module": "Mathlib/Data/Nat/Totient.lean",
+    "provides": "Euler's phi function with its multiplicativity on coprime arguments. CA.0's arithmetic function target, which the audit records as built."
+   },
+   {
+    "ref": "mathlib:ArithmeticFunction",
+    "module": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+    "provides": "The semiring of arithmetic functions under Dirichlet convolution, in which the divisor functions, the von Mangoldt function and the prime-counting functions of CA.0 all live."
+   },
+   {
+    "ref": "mathlib:ArithmeticFunction.moebius",
+    "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+    "provides": "The Moebius function with Moebius inversion, CA.0's inversion target."
+   },
+   {
+    "ref": "mathlib:ZMod.pow_totient",
+    "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+    "provides": "Euler's theorem in the residue ring, the statement CA.0 names under congruences and residue rings."
+   },
+   {
+    "ref": "mathlib:IsCyclic",
+    "module": "Mathlib/Algebra/Group/DivInvMonoid.lean",
+    "provides": "Cyclic groups. The one node of CA.1 about the units modulo a power of two is a statement that this class fails, together with the explicit decomposition that replaces it."
+   },
+   {
+    "ref": "mathlib:ZMod.isCyclic_units_iff",
+    "module": "Mathlib/RingTheory/ZMod/UnitsCyclic.lean",
+    "provides": "The units modulo n form a cyclic group exactly for n in the list 1, 2, 4, an odd prime power and twice one. This is CA.1's primitive root target, which is therefore not planned; what the audit records as missing is the structure in the remaining case, a power of two at least eight, and that is the node planned here."
+   },
+   {
+    "ref": "mathlib:orderOf",
+    "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+    "provides": "The order of a group element, in which the generators of the two-power unit group are pinned down."
+   },
+   {
+    "ref": "mathlib:ZMod.euler_criterion",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+    "provides": "Euler's criterion: a nonzero residue modulo an odd prime is a square exactly when its power by half of p minus one is one. The node on the d-th power criterion is the general d, of which this is the case d equal to two."
+   },
+   {
+    "ref": "mathlib:ZMod.pow_card_sub_one_eq_one",
+    "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+    "provides": "Fermat's little theorem in the residue field, used in the proof of the power residue criterion."
+   },
+   {
+    "ref": "mathlib:legendreSym",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+    "provides": "The Legendre symbol. CA.1's quadratic reciprocity target is built and is not planned here."
+   },
+   {
+    "ref": "mathlib:legendreSym.quadratic_reciprocity",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+    "provides": "Quadratic reciprocity for the Legendre symbol, with the supplementary laws at minus one and at two."
+   },
+   {
+    "ref": "mathlib:jacobiSym",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+    "provides": "The Jacobi symbol."
+   },
+   {
+    "ref": "mathlib:jacobiSym.quadratic_reciprocity",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+    "provides": "Quadratic reciprocity for the Jacobi symbol."
+   },
+   {
+    "ref": "mathlib:gaussSum",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "Gauss sums over a finite commutative ring with an additive character. CA.1's Gauss sum target is built; what the audit records as missing there is only the absolute value identity as a named lemma, which is listed in the coverage record rather than planned, since no source read here states it as such."
+   },
+   {
+    "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "The product of a Gauss sum with the sum of the inverse characters is the cardinality of the ring, the identity from which the absolute value identity follows in two lines."
+   },
+   {
+    "ref": "mathlib:jacobiSum",
+    "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+    "provides": "Jacobi sums with their relation to Gauss sums."
+   },
+   {
+    "ref": "mathlib:LinearRecurrence",
+    "module": "Mathlib/Algebra/LinearRecurrence.lean",
+    "provides": "The solution space of a linear recurrence with constant coefficients, and the equivalence with the initial values. CA.2's recurrence target rests on this; what is missing is the closed form with repeated roots and the characterisation by rationality of the generating function, which are the nodes planned here."
+   },
+   {
+    "ref": "mathlib:LinearRecurrence.charPoly",
+    "module": "Mathlib/Algebra/LinearRecurrence.lean",
+    "provides": "The characteristic polynomial of a linear recurrence, and the geometric solutions attached to its roots. The node on the closed form is the statement that the polynomial solutions attached to a repeated root complete these to a basis."
+   },
+   {
+    "ref": "mathlib:PowerSeries",
+    "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+    "provides": "Formal power series, in which the rationality predicate of CA.2 is defined."
+   },
+   {
+    "ref": "mathlib:PowerSeries.coeff",
+    "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+    "provides": "The coefficients of a formal power series, the sequence the rationality predicate is about."
+   },
+   {
+    "ref": "mathlib:PowerSeries.inv",
+    "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+    "provides": "Inverses of formal power series with invertible constant term, which is what makes the quotient in the rationality predicate meaningful."
+   },
+   {
+    "ref": "mathlib:RatFunc",
+    "module": "Mathlib/FieldTheory/RatFunc/Defs.lean",
+    "provides": "The field of rational functions, and its embedding in Laurent series. The audit records the embedding as present and the rationality predicate for power series as missing."
+   },
+   {
+    "ref": "mathlib:LaurentSeries",
+    "module": "Mathlib/RingTheory/LaurentSeries.lean",
+    "provides": "Laurent series, the target of that embedding."
+   },
+   {
+    "ref": "mathlib:Polynomial.Monic",
+    "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+    "provides": "Monic polynomials, in which the minimal polynomial of a linearly generated sequence is normalised."
+   },
+   {
+    "ref": "mathlib:Polynomial.degree",
+    "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+    "provides": "The degree of a polynomial, which bounds the order of the recurrence."
+   },
+   {
+    "ref": "mathlib:Ideal.span",
+    "module": "Mathlib/RingTheory/Ideal/Span.lean",
+    "provides": "Spans of ideals. The set of generating polynomials of a sequence is an ideal, and the minimal polynomial is the monic generator of it."
+   },
+   {
+    "ref": "mathlib:IsPrincipalIdealRing",
+    "module": "Mathlib/RingTheory/Ideal/Span.lean",
+    "provides": "Principal ideal rings. The polynomial ring over a field is one, which is what makes the minimal polynomial exist."
+   },
+   {
+    "ref": "mathlib:Matrix.det",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "The determinant of a matrix, in which invertibility over the integers is expressed."
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "Invertible matrices over a ring, the transformation matrices of the Smith normal form."
+   },
+   {
+    "ref": "mathlib:Matrix.charpoly",
+    "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+    "provides": "The characteristic polynomial of a matrix. The companion matrix whose characteristic polynomial is a prescribed monic polynomial is recorded in CA.2's remaining list, not planned here."
+   },
+   {
+    "ref": "mathlib:Module.Free",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules, the shape of the presentation a Smith normal form diagonalises."
+   },
+   {
+    "ref": "mathlib:Module.Finite",
+    "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+    "provides": "Finitely generated modules, the hypothesis of the structure theorem."
+   },
+   {
+    "ref": "mathlib:Module.equiv_free_prod_directSum",
+    "module": "Mathlib/Algebra/Module/PID.lean",
+    "provides": "The structure theorem for a finitely generated module over a principal ideal domain, in elementary-divisor form: a free part and a direct sum of quotients by prime powers. The node planned in CA.3 is the invariant-factor form with the divisibility chain, which the audit records as missing."
+   },
+   {
+    "ref": "mathlib:Module.equiv_directSum_of_isTorsion",
+    "module": "Mathlib/Algebra/Module/PID.lean",
+    "provides": "The torsion case of the same theorem."
+   },
+   {
+    "ref": "mathlib:Ideal.smithCoeffs",
+    "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+    "provides": "The basis-level Smith coefficients of a submodule of a free module over a principal ideal domain. The audit records that this comes without the divisibility chain and without a matrix form for rectangular or singular matrices, which is what the node in CA.3 supplies."
+   },
+   {
+    "ref": "tauceti:TauCeti.IntegralLattice.exists_gramSmithInvariantFactors_smith_normal_form",
+    "module": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Smith.lean",
+    "provides": "The Smith normal form of the Gram matrix of an integral lattice, with invertible integer transformation matrices and the divisibility chain. This is the square nonsingular case the audit records as present; the node planned here is the rectangular and singular case."
+   },
+   {
+    "ref": "tauceti:TauCeti.IntegralLattice.gramSmithInvariantFactors_dvd",
+    "module": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Smith.lean",
+    "provides": "The divisibility chain of those invariant factors, the form the node planned here generalises."
+   },
+   {
+    "ref": "mathlib:Pell.exists_of_not_isSquare",
+    "module": "Mathlib/NumberTheory/Pell.lean",
+    "provides": "A nontrivial solution of the Pell equation exists for a positive nonsquare d. CA.4's Pell target is built and is not planned here; the negative and generalised Pell equations are recorded as remaining."
+   },
+   {
+    "ref": "mathlib:Nat.Prime.sq_add_sq",
+    "module": "Mathlib/NumberTheory/SumTwoSquares.lean",
+    "provides": "Fermat's two-square theorem. CA.4's sums of squares target is built for two and four squares; the three-square theorem and the representation counts are recorded as remaining."
+   },
+   {
+    "ref": "mathlib:Nat.sum_four_squares",
+    "module": "Mathlib/NumberTheory/SumFourSquares.lean",
+    "provides": "Lagrange's four-square theorem."
+   },
+   {
+    "ref": "mathlib:PythagoreanTriple",
+    "module": "Mathlib/NumberTheory/PythagoreanTriples.lean",
+    "provides": "The classification of Pythagorean triples, part of CA.4's descent target, which the audit records as built."
+   },
+   {
+    "ref": "mathlib:fermatLastTheoremThree",
+    "module": "Mathlib/NumberTheory/FLT/Three.lean",
+    "provides": "Fermat's last theorem for the exponent three. The audit records this as missing from the declaration index; it is in the index at the pinned commit, and this citation records that."
+   },
+   {
+    "ref": "mathlib:Polynomial.mahlerMeasure",
+    "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+    "provides": "The Mahler measure of a complex polynomial, with multiplicativity and the root formula. CA.6's first target is built for polynomials; the Mahler measure of an algebraic number is recorded as remaining, since no source read here defines it."
+   },
+   {
+    "ref": "mathlib:NumberField.house",
+    "module": "Mathlib/NumberTheory/NumberField/House.lean",
+    "provides": "The house of an element of a number field, CA.6's second target, which the audit records as built."
+   },
+   {
+    "ref": "mathlib:Polynomial.roots",
+    "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+    "provides": "The multiset of roots of a polynomial, in which the distinct reciprocal roots of the denominator and their multiplicities are named in the closed form of CA.2."
+   },
+   {
+    "ref": "mathlib:AddCommGroup",
+    "module": "Mathlib/Algebra/Group/Defs.lean",
+    "provides": "Abelian groups, the objects the structure theorem of CA.3 classifies."
+   },
+   {
+    "ref": "mathlib:Nat.digits",
+    "module": "Mathlib/Data/Nat/Digits/Defs.lean",
+    "provides": "Base-b digits of a natural number with uniqueness. CA.2's radix target is built over the naturals; the p-adic digit expansion is recorded as remaining."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "SHOUP.V2",
+   "title": "A Computational Introduction to Number Theory and Algebra (Version 2)",
+   "authors": "Victor Shoup",
+   "edition": "Version 2, the author's freely distributable PDF, 598 pages",
+   "url": "https://shoup.net/ntb/ntb-v2.pdf",
+   "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
+   "accessed": "2026-09-24",
+   "readSections": [
+    "Section 2.4 through Exercise 2.18 (printed pp. 21 to 24): congruences, the Chinese remainder theorem for pairwise relatively prime moduli, and the two-modulus criterion at non-coprime moduli",
+    "Section 7.5, The structure of Z_n^* (printed pp. 203 to 206): Theorem 7.28 with its proof in both the odd and the even case, Lemmas 7.30 and 7.31, Example 7.61 and Exercise 7.69",
+    "Section 18.1, Basic definitions and properties (printed pp. 486 to 489): linearly generated sequences, generating polynomials, Theorem 18.1 and the minimal polynomial, Examples 18.1 to 18.3 and Exercises 18.1 to 18.3"
+   ],
+   "note": "Printed page equals PDF page minus 18. The recorded hash is the one the reviewed integrated decomposition of this roadmap records, and re-downloading the file reproduces it byte for byte."
+  },
+  {
+   "id": "STANLEY.EC1",
+   "title": "Enumerative Combinatorics, Volume 1, second edition",
+   "authors": "Richard P. Stanley",
+   "edition": "The author's freely posted PDF of the second edition",
+   "url": "https://math.mit.edu/~rstan/ec/ec1.pdf",
+   "sha256": "f669d7b0d78730b7c812794a437fb6a78e0c182c10dfd520bc26d627cf45a1d5",
+   "accessed": "2026-09-24",
+   "readSections": [
+    "Section 4.1, Rational Power Series in One Variable (printed p. 535 onwards): Theorem 4.1.1 with its proof, the three equivalent conditions and the four vector spaces the proof compares"
+   ]
+  },
+  {
+   "id": "STEIN.ANT",
+   "title": "Algebraic Number Theory, a Computational Approach",
+   "authors": "William Stein",
+   "edition": "The author's freely posted PDF",
+   "url": "https://wstein.org/books/ant/ant.pdf",
+   "sha256": "4ea5168b966f36326a1b7e1a86471c6f4b8a5fe838e29b96b9f3bde648917107",
+   "accessed": "2026-09-24",
+   "readSections": [
+    "Section 2.1, Finitely Generated Abelian Groups: Definition 2.1.1, Theorem 2.1.2 (the structure theorem in invariant-factor form), Proposition 2.1.3, Corollary 2.1.4 and Proposition 2.1.5 (Smith normal form for a rectangular integer matrix), with the reinterpretation of a presentation as a matrix and of the cokernel as the group"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ClassicalArithmeticCompletion:CA.0/crt-at-non-coprime-moduli-over-the-integers",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.0",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.0"
+   ],
+   "title": "The Chinese remainder theorem at non-coprime moduli, over the integers",
+   "kind": "theorem",
+   "statement": "Let m and n be positive integers, let d be their greatest common divisor and let l be their least common multiple. For integers a and b there is an integer x with x congruent to a modulo m and x congruent to b modulo n if and only if a is congruent to b modulo d. When such an x exists, an integer y satisfies the same two congruences if and only if y is congruent to x modulo l.",
+   "hypotheses": [
+    "m and n are positive integers.",
+    "a and b are arbitrary integers; no coprimality is assumed.",
+    "The conclusion is over the integers, and the uniqueness is modulo the least common multiple, not modulo the product."
+   ],
+   "proofSteps": [
+    "For necessity, suppose x solves both congruences; then a minus b is a difference of two multiples of d, since d divides both m and n, so a is congruent to b modulo d.",
+    "For sufficiency, write d as an integer combination of m and n by the extended Euclidean algorithm, and use the hypothesis to exhibit the solution explicitly; this is the source's exercise.",
+    "For uniqueness, if x and y both solve the system then their difference is divisible by m and by n, hence by the least common multiple, and conversely.",
+    "Record that the natural number form of both statements is in the pinned library and that only the integer form is new; the proof of the integer form from the natural number form is a case split on signs and is one of the proof steps."
+   ],
+   "acceptance": [
+    "The criterion is congruence modulo the greatest common divisor, and the uniqueness is modulo the least common multiple. Using the product in place of the least common multiple is wrong as soon as the moduli share a factor.",
+    "For coprime moduli the criterion is vacuous and the statement is the classical Chinese remainder theorem.",
+    "For m equal to n the criterion says a is congruent to b modulo m, and the solution set is one residue class."
+   ],
+   "prerequisites": [
+    "mathlib:Nat.chineseRemainder'",
+    "mathlib:Int.ModEq",
+    "mathlib:Nat.ModEq",
+    "mathlib:Nat.xgcd"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Exercise 2.18 (printed p. 24, PDF p. 42)",
+     "excerpt": "Suppose n_1 and n_2 are positive integers, and let d := gcd(n_1, n_2). Let a_1 and a_2 be arbitrary integers. Show that there exists an integer a such that a is congruent to a_1 modulo n_1 and a is congruent to a_2 modulo n_2 if and only if a_1 is congruent to a_2 modulo d.",
+     "match": "The node is that exercise for the existence half. The source gives no uniqueness statement, so the second half of the node is proved here from the definition of the least common multiple, and the proof steps say so. The reviewed integrated decomposition of this roadmap records the same exercise, with its review correcting an earlier citation of Exercise 2.16, which is about linear congruences modulo pairwise coprime moduli."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/unit-group-of-a-power-of-two",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The unit group modulo a power of two, with explicit generators",
+   "kind": "construction",
+   "statement": "Let e be an integer at least three. The class of five in the units modulo two to the e has order two to the e minus two, the class of minus one has order two and is not a power of the class of five, and the two cyclic subgroups they generate intersect trivially and together fill the whole group. Hence the units modulo two to the e are the internal direct product of the subgroup generated by minus one and the subgroup generated by five, and are isomorphic to the product of a cyclic group of order two with a cyclic group of order two to the e minus two. For e equal to one or two the group is cyclic.",
+   "hypotheses": [
+    "e is an integer at least three for the decomposition; the cases e equal to one and two are stated separately and are cyclic.",
+    "The generators are the classes of minus one and of five; the statement is about these explicit elements and not only about the abstract isomorphism type."
+   ],
+   "proofSteps": [
+    "Prove the lifting lemma: if a is congruent to one plus p to the e modulo p to the e plus one, and p to the e exceeds two, then a to the p is congruent to one plus p to the e plus one modulo p to the e plus two.",
+    "Apply it repeatedly to five modulo two to the e, reading the successive squares in binary, to see that the class of five has order two to the e minus two.",
+    "Show that minus one is not in the subgroup generated by five: a cyclic group of even order has exactly one element of order two, so if minus one were in that subgroup it would equal the relevant power of five, which the previous computation contradicts.",
+    "Conclude that the two subgroups intersect trivially, so their internal product is a subgroup whose order equals that of the whole group, hence is the whole group.",
+    "Record the two small cases e equal to one and two, which are verified directly."
+   ],
+   "acceptance": [
+    "The decomposition is with a cyclic factor of order two to the e minus two and not to the e minus one; the exponent is what fails if the lifting lemma is applied one step too far.",
+    "The generators are explicit: minus one and five. A statement of the isomorphism type alone does not give the two projections a user needs.",
+    "For e equal to three the group has order four and is the Klein four group, generated by the classes of minus one and five, which are three and five modulo eight."
+   ],
+   "prerequisites": [
+    "mathlib:ZMod.isCyclic_units_iff",
+    "mathlib:IsCyclic",
+    "mathlib:orderOf"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Theorem 7.28 with the part of its proof for p equal to two (printed pp. 203 and 205), and Lemma 7.31",
+     "excerpt": "The group of units modulo two to the e is cyclic for e equal to 1 or 2, but not for e at least 3. For e at least 3 it is isomorphic to the additive group of the integers modulo two, times the integers modulo two to the e minus two. Suppose e at least 3. Consider the subgroup G generated by the class of 5. We claim that the class of minus 1 is not in G.",
+     "match": "The node is the second half of that theorem, the part the pinned library does not have, together with the explicit generators the source's proof produces; the cyclicity criterion itself is a baseline citation and is not planned."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "ZMod.unitsTwoPowEquiv",
+     "role": "data",
+     "statement": "The isomorphism between the units modulo two to the e and the product of a cyclic group of order two and one of order two to the e minus two, for e at least three."
+    },
+    {
+     "name": "ZMod.orderOf_five",
+     "role": "characterisation",
+     "statement": "The class of five has order two to the e minus two."
+    },
+    {
+     "name": "ZMod.neg_one_not_mem_zpowers_five",
+     "role": "characterisation",
+     "statement": "Minus one is not a power of five."
+    },
+    {
+     "name": "ZMod.unitsTwoPow_eq_prod",
+     "role": "structure",
+     "statement": "Every unit is uniquely a power of five times a sign."
+    },
+    {
+     "name": "ZMod.not_isCyclic_units_two_pow",
+     "role": "relation",
+     "statement": "For e at least three the group is not cyclic, which is the negative half of the pinned cyclicity criterion."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-cyclic-group",
+     "how": "the criterion applies to each cyclic factor once the group is decomposed"
+    },
+    {
+     "where": "ClassicalArithmeticCompletion:CA.0",
+     "how": "the layer's decomposition of the units modulo n into prime power factors is completed by this case"
+    }
+   ],
+   "tests": [
+    {
+     "name": "modulus_eight",
+     "statement": "The units modulo eight are the Klein four group, generated by the classes of three and five; every element squares to one."
+    },
+    {
+     "name": "modulus_sixteen",
+     "statement": "The class of five has order four modulo sixteen, and the group is the product of that cyclic group of order four with the subgroup of order two generated by minus one."
+    },
+    {
+     "name": "not_cyclic",
+     "statement": "For e at least three the group is not cyclic, so an implementation that returns a single generator is wrong."
+    },
+    {
+     "name": "small_cases",
+     "statement": "For e equal to one the group is trivial and for e equal to two it is cyclic of order two, so the decomposition is stated only for e at least three."
+    }
+   ],
+   "planet": {
+    "name": "Units modulo a power of two"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-cyclic-group",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The d-th power criterion in a finite cyclic group",
+   "kind": "theorem",
+   "statement": "Let G be a finite cyclic group of order N and let d be a positive integer. Then the subgroup of d-th powers of G is the unique subgroup of order N divided by the greatest common divisor of d and N, and an element a of G is a d-th power if and only if a raised to the power N divided by that greatest common divisor is the identity.",
+   "hypotheses": [
+    "G is cyclic of finite order N.",
+    "d is a positive integer, not assumed to divide N.",
+    "The criterion is an equivalence, in both directions."
+   ],
+   "proofSteps": [
+    "Fix a generator and identify G with the additive group of residues modulo N, under which the d-th power map becomes multiplication by d.",
+    "Compute the image of multiplication by d as the subgroup generated by the greatest common divisor of d and N, of index that greatest common divisor, hence of order N divided by it.",
+    "Use that a cyclic group has exactly one subgroup of each order dividing the order to identify the image with the kernel of raising to the power N divided by the greatest common divisor.",
+    "Read off the criterion as membership in that kernel."
+   ],
+   "acceptance": [
+    "The exponent in the criterion is N divided by the greatest common divisor of d and N, and not N divided by d; for d not dividing N the latter is not even an integer.",
+    "For d equal to two and G the units modulo an odd prime this is Euler's criterion, which is the case the pinned library has.",
+    "The subgroup of d-th powers has order N divided by that greatest common divisor, which pins its index."
+   ],
+   "prerequisites": [
+    "mathlib:IsCyclic",
+    "mathlib:orderOf",
+    "mathlib:ZMod.euler_criterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Example 7.61 (printed p. 205)",
+     "excerpt": "Let d divide p minus one. Since the units modulo p form a cyclic group of order p minus one, the d-th powers form the unique subgroup of order (p minus one) over d, and it is the set of elements whose power by (p minus one) over d is one; that is, a is a d-th power if and only if a to the (p minus one) over d equals one.",
+     "match": "The node is that example, stated for an arbitrary finite cyclic group and for an arbitrary positive d, with the greatest common divisor in place of the source's divisibility hypothesis; the reduction to the source's case is the first proof step, since the d-th powers of a cyclic group of order N coincide with its g-th powers where g is that greatest common divisor."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-finite-field",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The n-th power residue criterion in a finite field",
+   "kind": "theorem",
+   "statement": "Let F be a finite field with q elements and let n be a positive integer. A nonzero element a of F is an n-th power in F if and only if a raised to the power q minus one divided by the greatest common divisor of n and q minus one is one. The n-th powers form a subgroup of index that greatest common divisor in the multiplicative group.",
+   "hypotheses": [
+    "F is a finite field with q elements and n is a positive integer.",
+    "a is nonzero; the zero element is an n-th power trivially and is excluded from the multiplicative statement."
+   ],
+   "proofSteps": [
+    "Use that the multiplicative group of a finite field is cyclic of order q minus one.",
+    "Apply the criterion for a finite cyclic group with N equal to q minus one.",
+    "Read off the index statement from the order of the subgroup of n-th powers."
+   ],
+   "acceptance": [
+    "The criterion is stated with the greatest common divisor, so it applies for every n and not only for n dividing q minus one.",
+    "For n equal to two and q odd it is Euler's criterion in the finite field.",
+    "For n coprime to q minus one every nonzero element is an n-th power, since the greatest common divisor is one and the condition is vacuous."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-cyclic-group",
+    "mathlib:ZMod.pow_card_sub_one_eq_one",
+    "mathlib:ZMod.euler_criterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Example 7.61 (printed p. 205) together with Theorem 7.29",
+     "excerpt": "Let D be an integral domain and G a subgroup of the units of D of finite order. Then G is cyclic. Since the units modulo p form a cyclic group of order p minus one, the d-th powers form the unique subgroup of order (p minus one) over d.",
+     "match": "The node is the same criterion with the units modulo a prime replaced by the multiplicative group of an arbitrary finite field, which is cyclic by Theorem 7.29; this is the exact statement the reviewed library audit of this layer records as missing."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Power residue criterion"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.2/generating-polynomials-and-the-minimal-polynomial",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.2",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.2"
+   ],
+   "title": "Linearly generated sequences and their minimal polynomial",
+   "kind": "construction",
+   "statement": "Let F be a field, V an F-vector space and s an infinite sequence of elements of V. Call s linearly generated if it satisfies a linear recurrence with constant coefficients in F. For a polynomial g write g applied to s for the linear combination of the terms of s with the coefficients of g, and call g a generating polynomial of s if that combination vanishes on every shift of s. Then the set of generating polynomials of s is an ideal of the polynomial ring, s is linearly generated exactly when that ideal is nonzero, and the monic generator of the ideal, called the minimal polynomial of s, is the unique monic polynomial dividing every generating polynomial.",
+   "hypotheses": [
+    "F is a field and V an F-vector space, not assumed finite dimensional.",
+    "The sequence is indexed by the natural numbers.",
+    "The zero polynomial is a generating polynomial of every sequence and is excluded when the minimal polynomial is normalised."
+   ],
+   "proofSteps": [
+    "Define the pairing between a polynomial and the sequence, and check that it is additive in the polynomial and homogeneous for scalars.",
+    "Check that the set of generating polynomials is closed under addition, under multiplication by scalars and under multiplication by the indeterminate, and conclude that it is an ideal.",
+    "Use that the polynomial ring over a field is a principal ideal ring to write the ideal as generated by one polynomial, and normalise it to be monic when it is nonzero.",
+    "Record the equivalence: s is linearly generated exactly when the ideal is nonzero, and the coefficients of the recurrence are read off from the generator.",
+    "Record the two examples the source gives: for the sequence of powers of an element of a quotient of the polynomial ring the minimal polynomial of the sequence is the minimal polynomial of the element, and for the sequence of images of a vector under the iterates of a linear map it is the minimal polynomial of that vector under the map."
+   ],
+   "acceptance": [
+    "The generating polynomials form an ideal, not merely a subspace; closure under multiplication by the indeterminate is the shift invariance and is what makes the minimal polynomial divide every generating polynomial.",
+    "The minimal polynomial is monic and unique.",
+    "For the sequence of powers of an element the construction returns the usual minimal polynomial of that element, which is the compatibility a user needs."
+   ],
+   "prerequisites": [
+    "mathlib:Ideal.span",
+    "mathlib:IsPrincipalIdealRing",
+    "mathlib:Polynomial.Monic",
+    "mathlib:Polynomial.degree",
+    "mathlib:LinearRecurrence"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Section 18.1 (printed pp. 486 to 489): the definition of a linearly generated sequence, the definition of a generating polynomial, Theorem 18.1, and Examples 18.2 and 18.3",
+     "excerpt": "s is linearly generated over F if there exist scalars c_0 to c_{k-1} such that the recurrence holds; equivalently, if there is a non-zero g with (X^i g) applied to s equal to 0 for all i, and such a g is a generating polynomial. Theorem 18.1. The set of generating polynomials is an ideal of F[X]. Since all ideals of F[X] are principal, we call its monic generator the minimal polynomial of s.",
+     "match": "The node is that definition and theorem together with the normalisation of the minimal polynomial and the two examples the source gives immediately after, which are what pin the construction against the minimal polynomial a reader already knows."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Sequence.IsLinearlyGenerated",
+     "role": "data",
+     "statement": "The predicate that a sequence satisfies a linear recurrence with constant coefficients."
+    },
+    {
+     "name": "Sequence.generatingIdeal",
+     "role": "data",
+     "statement": "The ideal of generating polynomials of a sequence."
+    },
+    {
+     "name": "Sequence.minPoly",
+     "role": "data",
+     "statement": "The monic generator of that ideal, the minimal polynomial of the sequence."
+    },
+    {
+     "name": "Sequence.minPoly_dvd",
+     "role": "characterisation",
+     "statement": "A polynomial is a generating polynomial exactly when the minimal polynomial divides it."
+    },
+    {
+     "name": "Sequence.minPoly_of_powers",
+     "role": "compatibility",
+     "statement": "For the sequence of powers of an element of a finite extension the minimal polynomial of the sequence is the minimal polynomial of the element."
+    },
+    {
+     "name": "Sequence.isLinearlyGenerated_iff",
+     "role": "characterisation",
+     "statement": "A sequence is linearly generated exactly when its minimal polynomial is nonzero."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalArithmeticCompletion:CA.2/rational-iff-linearly-generated",
+     "how": "the minimal polynomial is the denominator of the generating function in lowest terms"
+    },
+    {
+     "where": "ClassicalArithmeticCompletion:CA.2/rational-power-series",
+     "how": "the rationality predicate is stated against the same recurrence"
+    }
+   ],
+   "tests": [
+    {
+     "name": "all_zero_sequence",
+     "statement": "The only sequence for which the constant polynomial one is a generating polynomial is the zero sequence."
+    },
+    {
+     "name": "fibonacci",
+     "statement": "The Fibonacci sequence has minimal polynomial X squared minus X minus one."
+    },
+    {
+     "name": "powers_of_an_element",
+     "statement": "For the sequence of powers of an element of a field extension, the minimal polynomial of the sequence is the minimal polynomial of the element."
+    },
+    {
+     "name": "ideal_not_just_subspace",
+     "statement": "The set of generating polynomials is closed under multiplication by the indeterminate; a definition that only asks for a subspace admits sets that are not ideals and has no well defined monic generator."
+    }
+   ],
+   "planet": {
+    "name": "Minimal polynomial of a sequence"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.2/rational-power-series",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.2",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.2"
+   ],
+   "title": "The rationality predicate for a formal power series",
+   "kind": "definition",
+   "statement": "Let K be a field. A formal power series over K is rational if it is equal, in the field of Laurent series, to the quotient of a polynomial by a polynomial with nonzero constant term. Equivalently there are polynomials P and Q with Q having constant term one such that the power series multiplied by Q is P. The degree condition that the numerator has degree less than that of the denominator is not part of the predicate and is a normalisation used in the equivalence with recurrences.",
+   "hypotheses": [
+    "K is a field.",
+    "The denominator has nonzero constant term, so that its inverse exists as a power series.",
+    "The predicate is about the power series and not about a chosen pair of polynomials."
+   ],
+   "proofSteps": [
+    "Define the predicate as the existence of such a pair.",
+    "Check that it does not depend on the choice of the pair, and that it is equivalent to lying in the image of the embedding of rational functions with no pole at zero into power series.",
+    "Check that the rational power series form a subring containing the polynomials and closed under the inverse of a series with invertible constant term.",
+    "Record that the pinned library has the embedding of rational functions into Laurent series but no such predicate, which is what makes this a node."
+   ],
+   "acceptance": [
+    "The predicate is on the series, not on a presentation; two different pairs of polynomials give the same predicate.",
+    "The polynomials are rational, and so is the inverse of any series with invertible constant term.",
+    "The exponential series is not rational, which is the non-example that distinguishes the predicate from being a formal power series at all."
+   ],
+   "prerequisites": [
+    "mathlib:PowerSeries",
+    "mathlib:PowerSeries.coeff",
+    "mathlib:PowerSeries.inv",
+    "mathlib:RatFunc",
+    "mathlib:LaurentSeries"
+   ],
+   "sources": [
+    {
+     "sourceId": "STANLEY.EC1",
+     "locator": "Section 4.1, the statement of Theorem 4.1.1, condition (i)",
+     "excerpt": "The following conditions on a function f from the natural numbers to the complex numbers are equivalent: (i) the sum over n at least 0 of f(n) x^n equals P(x) over Q(x), where Q(x) equals 1 plus alpha_1 x plus ... plus alpha_d x^d and P(x) is a polynomial in x of degree less than d.",
+     "match": "The node is the predicate that condition (i) quantifies over, isolated as a definition. The source states it with the normalisation that the denominator has constant term one and the numerator has smaller degree; the node keeps the first as part of the predicate and records the second as a normalisation, since it is a consequence for a series and not a restriction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "PowerSeries.IsRational",
+     "role": "data",
+     "statement": "The predicate that a formal power series is a quotient of polynomials with invertible denominator."
+    },
+    {
+     "name": "PowerSeries.IsRational.polynomial",
+     "role": "constructor",
+     "statement": "Every polynomial is rational."
+    },
+    {
+     "name": "PowerSeries.IsRational.inv",
+     "role": "constructor",
+     "statement": "The inverse of a series with invertible constant term is rational when the series is."
+    },
+    {
+     "name": "PowerSeries.IsRational.subring",
+     "role": "structure",
+     "statement": "The rational power series form a subring."
+    },
+    {
+     "name": "PowerSeries.isRational_iff_mem_range",
+     "role": "characterisation",
+     "statement": "A series is rational exactly when it lies in the image of the rational functions without a pole at zero."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalArithmeticCompletion:CA.2/rational-iff-linearly-generated",
+     "how": "the equivalence is stated with this predicate on one side"
+    },
+    {
+     "where": "ClassicalArithmeticCompletion:CA.2/generating-polynomials-and-the-minimal-polynomial",
+     "how": "the denominator of a rational generating function is the reverse of the minimal polynomial of the coefficient sequence"
+    }
+   ],
+   "tests": [
+    {
+     "name": "geometric_series",
+     "statement": "The series with all coefficients one is rational, being the inverse of one minus the indeterminate."
+    },
+    {
+     "name": "polynomial",
+     "statement": "Every polynomial is rational."
+    },
+    {
+     "name": "exponential_not_rational",
+     "statement": "Over a field of characteristic zero the series with coefficients the reciprocals of the factorials is not rational, since its coefficient sequence satisfies no linear recurrence with constant coefficients."
+    }
+   ],
+   "planet": {
+    "name": "Rational power series"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.2/rational-iff-linearly-generated",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.2",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.2"
+   ],
+   "title": "Rational generating functions, linear recurrences and closed forms",
+   "kind": "theorem",
+   "statement": "Fix complex numbers alpha_1 to alpha_d with d at least one and alpha_d nonzero, and put Q equal to one plus the sum of alpha_i times the i-th power of the indeterminate. For a function f from the natural numbers to the complex numbers the following are equivalent: the generating function of f is the quotient of a polynomial of degree less than d by Q; f satisfies, for every n, the linear recurrence whose coefficients are the alpha_i; and f is the sum over the distinct nonzero reciprocal roots gamma_i of Q, with multiplicities d_i, of a polynomial of degree less than d_i in n times the n-th power of gamma_i.",
+   "hypotheses": [
+    "The alpha_i are complex numbers with alpha_d nonzero, so Q has degree exactly d and nonzero constant term.",
+    "The gamma_i are the distinct nonzero numbers with Q equal to the product of one minus gamma_i times the indeterminate, raised to the multiplicity d_i.",
+    "The third condition is the closed form, including the case of repeated roots, where the coefficient is a polynomial in n and not a constant."
+   ],
+   "proofSteps": [
+    "Introduce the four complex vector spaces the source compares: the functions satisfying each of the three conditions, and the functions whose generating function is a combination of the partial fractions attached to the roots.",
+    "Show the last has dimension d, by exhibiting the partial fractions as a spanning set of the right cardinality and proving their linear independence by multiplying a putative relation by the appropriate power and evaluating at the reciprocal of a root.",
+    "Show the first has dimension d, since the numerator's d coefficients are free, and that the second has dimension d, since the first d values are free and determine the rest.",
+    "Show the third has dimension at most d and contains the fourth, and conclude that all four coincide by comparing dimensions.",
+    "Record the two consequences the layer needs: a sequence is linearly generated exactly when its generating function is rational, and the closed form for a repeated root carries a polynomial factor in n."
+   ],
+   "acceptance": [
+    "The closed form has polynomial coefficients in n, of degree less than the multiplicity; a statement with constant coefficients is false as soon as Q has a repeated root, and the simplest witness is Q equal to one minus the indeterminate squared.",
+    "The equivalence fixes the denominator Q, so it is a statement about a fixed recurrence and not only about the existence of some recurrence.",
+    "The condition alpha_d nonzero is needed for the degree of Q, and the roots gamma_i are nonzero because Q has nonzero constant term."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.2/rational-power-series",
+    "ClassicalArithmeticCompletion:CA.2/generating-polynomials-and-the-minimal-polynomial",
+    "mathlib:LinearRecurrence",
+    "mathlib:LinearRecurrence.charPoly",
+    "mathlib:Polynomial.roots"
+   ],
+   "sources": [
+    {
+     "sourceId": "STANLEY.EC1",
+     "locator": "Theorem 4.1.1 with its proof (printed pp. 535 to 536)",
+     "excerpt": "Let alpha_1, ..., alpha_d be complex numbers, alpha_d nonzero. The following are equivalent: (i) the generating function is P(x)/Q(x), P of degree less than d; (ii) for all n, f(n+d) + alpha_1 f(n+d-1) + ... + alpha_d f(n) = 0; (iii) f(n) is the sum over i of P_i(n) gamma_i^n, where Q is the product of (1 - gamma_i x)^{d_i}, the gamma_i distinct and nonzero, and P_i of degree less than d_i.",
+     "match": "The node is that theorem with all three conditions, including the repeated-root closed form of (iii), which is exactly what the reviewed library audit of this layer records as missing; the proof steps follow the source's dimension count over the four spaces."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Rational generating functions"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.3/smith-normal-form-of-an-integer-matrix",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.3",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "title": "Smith normal form of a rectangular integer matrix",
+   "kind": "construction",
+   "statement": "Let A be an integer matrix with n rows and m columns. Then there are invertible integer matrices P and Q, of sizes n by n and m by m, such that the product P times A times Q has nonzero entries only on the diagonal, and those entries are positive integers n_1 to n_s followed by zeros, with n_1 dividing n_2, dividing n_3 and so on up to n_s. The integers n_1 to n_s and the number of zeros are determined by A.",
+   "hypotheses": [
+    "A is an arbitrary integer matrix; it is not assumed square, and its determinant is not assumed nonzero.",
+    "P and Q are invertible over the integers, that is, of determinant plus or minus one.",
+    "The divisibility chain is part of the statement, and the diagonal entries are positive."
+   ],
+   "proofSteps": [
+    "Perform integer row and column operations to move a nonzero entry of least absolute value into the top left corner.",
+    "Reduce every other entry of the first row and of the first column modulo that entry and repeat; the absolute value of the corner strictly decreases unless the row and the column are already cleared, so the process terminates.",
+    "If some entry of the remaining block is not divisible by the corner, add the row containing it to the first row and repeat the previous step; this again strictly decreases the corner and terminates, and at the end the corner divides every entry.",
+    "Recurse on the remaining block to produce the chain.",
+    "Record uniqueness of the diagonal entries, which the source obtains by reinterpreting the cokernel."
+   ],
+   "acceptance": [
+    "The statement covers rectangular and singular matrices, which is what the pinned libraries lack; the square nonsingular case is already in Tau Ceti for Gram matrices.",
+    "The divisibility chain is asserted, not merely diagonality; a diagonal form without it is not unique.",
+    "The transformation matrices are invertible over the integers, not over the rationals."
+   ],
+   "prerequisites": [
+    "mathlib:Matrix.det",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:Ideal.smithCoeffs",
+    "tauceti:TauCeti.IntegralLattice.exists_gramSmithInvariantFactors_smith_normal_form",
+    "tauceti:TauCeti.IntegralLattice.gramSmithInvariantFactors_dvd"
+   ],
+   "sources": [
+    {
+     "sourceId": "STEIN.ANT",
+     "locator": "Proposition 2.1.5 with the paragraph introducing it (Section 2.1)",
+     "excerpt": "Suppose A is an n by m integer matrix. Then there exist invertible integer matrices P and Q such that P A Q only has nonzero entries along the diagonal, and these entries are n_1, n_2, ..., n_s, 0, ..., 0, where s at least 0, n_1 at least 1 and n_1 divides n_2 divides ... divides n_s.",
+     "match": "The node is that proposition; the proof steps are the source's row and column reduction, with the termination argument made explicit because it is what an implementation must supply."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Matrix.smithNormalForm",
+     "role": "data",
+     "statement": "The diagonal form of an integer matrix, together with the two transformation matrices."
+    },
+    {
+     "name": "Matrix.smithNormalForm_spec",
+     "role": "characterisation",
+     "statement": "The defining equation, that the product of the three matrices is diagonal with the stated entries."
+    },
+    {
+     "name": "Matrix.smithInvariantFactors",
+     "role": "data",
+     "statement": "The list of positive diagonal entries."
+    },
+    {
+     "name": "Matrix.smithInvariantFactors_dvd",
+     "role": "structure",
+     "statement": "Each invariant factor divides the next."
+    },
+    {
+     "name": "Matrix.smithInvariantFactors_unique",
+     "role": "characterisation",
+     "statement": "The invariant factors and the number of zeros are determined by the matrix."
+    },
+    {
+     "name": "Matrix.smithNormalForm_isUnit",
+     "role": "instance",
+     "statement": "The two transformation matrices are invertible over the integers."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalArithmeticCompletion:CA.3/invariant-factor-decomposition",
+     "how": "the structure theorem is read off from the Smith form of a presentation matrix"
+    },
+    {
+     "where": "ClassicalArithmeticCompletion:CA.4/integer-linear-systems",
+     "how": "the solution set of an integer linear system is read off from the same form"
+    }
+   ],
+   "tests": [
+    {
+     "name": "two_by_three",
+     "statement": "For the matrix with rows (2, 4, 6) and (3, 6, 9) the invariant factors are 1 and nothing else, with two zero columns; a computation returning 2 and 3 has not imposed the divisibility chain."
+    },
+    {
+     "name": "singular_square",
+     "statement": "For the two by two matrix with rows (2, 0) and (0, 0) the form is itself, with one invariant factor 2 and one zero."
+    },
+    {
+     "name": "chain_is_not_automatic",
+     "statement": "For the diagonal matrix with entries 2 and 3 the Smith form is the diagonal matrix with entries 1 and 6, not the original, since 2 does not divide 3."
+    },
+    {
+     "name": "transformations_are_unimodular",
+     "statement": "The transformation matrices have determinant plus or minus one; allowing rational matrices makes every nonsingular matrix equivalent to the identity and destroys the invariants."
+    }
+   ],
+   "planet": {
+    "name": "Smith normal form"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.3/invariant-factor-decomposition",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.3",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "title": "The structure theorem in invariant-factor form",
+   "kind": "theorem",
+   "statement": "Let G be a finitely generated abelian group. Then G is isomorphic to a direct sum of cyclic groups of orders n_1 to n_s and a free abelian group of rank r, where n_1 is greater than one and n_1 divides n_2, dividing n_3 and so on up to n_s. The integers r and n_1 to n_s are determined by G.",
+   "hypotheses": [
+    "G is a finitely generated abelian group.",
+    "The n_i satisfy the divisibility chain and are each greater than one; this is the invariant-factor form and not the elementary-divisor form."
+   ],
+   "proofSteps": [
+    "Choose generators to write G as the cokernel of a homomorphism between two finitely generated free abelian groups, using that a subgroup of a finitely generated abelian group is finitely generated.",
+    "Choose bases to present that homomorphism by an integer matrix.",
+    "Apply the Smith normal form to the matrix and read off the cokernel as the displayed direct sum, the invariant factors giving the torsion part and the zero columns the free part.",
+    "Prove uniqueness by recovering the invariant factors from the group, for instance from the orders of the quotients by the subgroups of elements killed by a fixed integer."
+   ],
+   "acceptance": [
+    "The conclusion is the invariant-factor form with a divisibility chain, which the pinned library does not have; it has the elementary-divisor form, and the two are related by the Chinese remainder theorem but are different statements.",
+    "The data r and the n_i are determined by G, which is what makes them invariants.",
+    "For G the direct sum of a cyclic group of order two and one of order three, the invariant-factor form is a single cyclic group of order six."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.3/smith-normal-form-of-an-integer-matrix",
+    "mathlib:Module.equiv_free_prod_directSum",
+    "mathlib:Module.equiv_directSum_of_isTorsion",
+    "mathlib:Module.Finite",
+    "mathlib:Module.Free",
+    "mathlib:AddCommGroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "STEIN.ANT",
+     "locator": "Theorem 2.1.2, Proposition 2.1.3 and Corollary 2.1.4 (Section 2.1)",
+     "excerpt": "Let G be a finitely generated abelian group. Then there is an isomorphism of G with a direct sum of the integers modulo n_1, ..., modulo n_s, and the integers to the r, where r, s at least 0, n_1 greater than 1 and n_1 divides n_2 divides ... divides n_s. Furthermore, the n_i and r are uniquely determined by G. If H is a subgroup of a finitely generated abelian group, then H is finitely generated.",
+     "match": "The node is that theorem with the source's route to it through a presentation and the Smith normal form; the elementary-divisor form is a baseline citation and the invariant-factor form is what is planned."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.4/integer-linear-systems",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.4",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.4"
+   ],
+   "title": "Integer linear systems and the parametrisation of their solutions",
+   "kind": "construction",
+   "statement": "Let A be an integer matrix with n rows and m columns and let b be an integer vector of length n. Write the Smith normal form of A as the product of P, A and Q, diagonal with invariant factors n_1 to n_s. Then the system A x equals b has an integer solution if and only if, writing c for P times b, the i-th entry of c is divisible by n_i for i at most s and the remaining entries of c are zero; and in that case the set of all integer solutions is a coset of the kernel of A, which is the free abelian group of rank m minus s spanned by the last m minus s columns of Q.",
+   "hypotheses": [
+    "A and b have integer entries; no rank or squareness hypothesis is made.",
+    "The Smith normal form and its transformation matrices are those of the previous layer's node.",
+    "The parametrisation is of the full solution set over the integers, not over the rationals."
+   ],
+   "proofSteps": [
+    "Change variables by y equal to the inverse of Q applied to x, so that the system becomes the diagonal system with right hand side P times b.",
+    "Solve the diagonal system entry by entry: the first s entries are determined by divisibility, and the remaining entries are free.",
+    "Read off the solvability criterion and a particular solution.",
+    "Translate back through Q to describe the solution set as a coset of the span of the last m minus s columns of Q, and check that that span is the kernel of A.",
+    "Record the special case of one equation in two unknowns, which is the classical parametrisation of a linear Diophantine equation."
+   ],
+   "acceptance": [
+    "Both halves are needed: the criterion and the parametrisation. The pinned library has solvability for one equation in two unknowns and neither the general criterion nor any parametrisation.",
+    "The kernel is free of rank m minus s, so the solution set is a coset of a free group of that rank, not a single solution.",
+    "For one equation a x plus b y equals n with g the greatest common divisor of a and b, the criterion is that g divides n and the parametrisation is the classical one with step b over g and minus a over g."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.3/smith-normal-form-of-an-integer-matrix",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:Module.Free"
+   ],
+   "sources": [
+    {
+     "sourceId": "STEIN.ANT",
+     "locator": "Section 2.1, the paragraphs reinterpreting a presentation as a matrix and the cokernel as the group, with Proposition 2.1.5",
+     "excerpt": "We view the homomorphism as left multiplication by the n by m matrix A whose columns are the images of the generators. The cokernel of A is the quotient of the integers to the n by the image of A, and this cokernel is isomorphic to G. The following proposition implies that we may choose bases such that the matrix only has nonzero entries along the diagonal.",
+     "match": "The node is the solvability and parametrisation statement obtained from that reinterpretation: the source diagonalises the matrix and describes the cokernel, and the criterion for b to lie in the image and the description of the kernel are the two readings of the same diagonalisation. The source does not state them as a theorem about linear systems, and the proof steps carry that derivation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Matrix.IntSolvable",
+     "role": "data",
+     "statement": "The predicate that an integer linear system has an integer solution."
+    },
+    {
+     "name": "Matrix.intSolvable_iff",
+     "role": "characterisation",
+     "statement": "The divisibility criterion on the transformed right hand side."
+    },
+    {
+     "name": "Matrix.intSolutionSet",
+     "role": "data",
+     "statement": "The set of integer solutions, as a coset of the kernel."
+    },
+    {
+     "name": "Matrix.intKernel_basis",
+     "role": "structure",
+     "statement": "A basis of the kernel, given by the last columns of the second transformation matrix."
+    },
+    {
+     "name": "Matrix.intSolutionSet_eq",
+     "role": "characterisation",
+     "statement": "The solution set is the particular solution plus the span of that basis."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ClassicalArithmeticCompletion:CA.3/invariant-factor-decomposition",
+     "how": "the same diagonalisation gives the structure of the cokernel"
+    },
+    {
+     "where": "ClassicalArithmeticCompletion:CA.4",
+     "how": "the layer's linear Diophantine target is the case of one equation"
+    }
+   ],
+   "tests": [
+    {
+     "name": "one_equation",
+     "statement": "For 6 x plus 10 y equal to 4 the greatest common divisor is 2, which divides 4, and the solutions are x equal to minus 1 plus 5 t, y equal to 1 minus 3 t."
+    },
+    {
+     "name": "unsolvable",
+     "statement": "For 6 x plus 10 y equal to 3 there is no integer solution, although there is a rational one; a criterion over the rationals is the wrong one."
+    },
+    {
+     "name": "kernel_rank",
+     "statement": "For the one by two matrix with entries 6 and 10 the kernel is free of rank one, generated by (5, minus 3)."
+    }
+   ],
+   "planet": {
+    "name": "Integer linear systems"
+   }
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.0",
+   "status": "closed",
+   "note": "The reviewed library audit records this layer as built: greatest common divisors with Bezout and the extended Euclidean algorithm, unique factorisation, congruences and residue rings, the Chinese remainder theorem for coprime and for pairwise coprime families, p-adic valuations with Legendre's formula, the arithmetic functions with their multiplicativity, Dirichlet convolution and Moebius inversion are all in the pinned libraries, and are cited here as baseline declarations rather than planned. One statement inside a built target is recorded by the audit as unstated: the Chinese remainder theorem at non-coprime moduli in its integer form, the pinned library having only the natural number form. That is the single node of this layer, and with it the layer is closed."
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.1",
+   "status": "partial",
+   "note": "Quadratic reciprocity for the Legendre and Jacobi symbols with both supplementary laws, Euler's criterion, Gauss and Jacobi sums with their product identities, and the criterion for the units modulo n to be cyclic are all in the pinned libraries and are cited as baseline declarations. Three of the audit's missing targets are planned here: the structure of the units modulo a power of two, with the explicit generators minus one and five, which is the one case the cyclicity criterion leaves open; the d-th power criterion in a finite cyclic group; and its specialisation to a finite field, which is the audit's exact missing statement.",
+   "remaining": [
+    "The n-th power residue symbols, modulo a prime and in a number field, and the Kummer pairing they are defined through. The criterion is planned here; the symbol is a further object and no source read for this packet defines it.",
+    "The identity that the absolute value squared of a Gauss sum is the cardinality of the field, as a named lemma. The audit records it as two lines from the product identity that is in the library; no source read here states it as a lemma, so it is not planned rather than being written from memory.",
+    "The Hilbert, that is norm-residue, symbols at two and at a real place, and the product formula tying the local symbols together. A free source that states and proves them exists and was located but not read in this session: John Voight, Quaternion Algebras, the author's freely posted book. A continuation job should read its chapters on the Hilbert symbol and plan these.",
+    "Higher reciprocity through class field theory: cubic, quartic, Eisenstein, general power reciprocity and Artin reciprocity, with ramified primes excluded. The audit records the Artin symbol at unramified primes in Tau Ceti and no reciprocity law; this is a substantial body of work with its own sources and belongs to a continuation job."
+   ]
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.2",
+   "status": "partial",
+   "note": "Bernoulli numbers, the binomial identities of Vandermonde, Lucas and Kummer, the combinatorial number families, base-b digits of naturals and the solution space of a linear recurrence with its characteristic polynomial are in the pinned libraries and are cited as baseline declarations. Three of the audit's missing targets are planned here: the minimal polynomial of a linearly generated sequence, the rationality predicate for a formal power series, and the three-way equivalence between rationality of the generating function, the linear recurrence and the closed form, the last including the polynomial coefficients that a repeated root forces.",
+   "remaining": [
+    "Companion matrices in general rank, with the characteristic polynomial equal to the prescribed monic polynomial. Tau Ceti has the rank two case; no source read here treats the general case, and it is not planned.",
+    "General Lucas sequences and their strong divisibility, and strong divisibility of elliptic divisibility sequences. The audit records Fibonacci strong divisibility and the elliptic net property as present.",
+    "Euler numbers, that is the secant and zigzag numbers, which are absent from both libraries.",
+    "The p-adic digit expansion as an equivalence between the p-adic integers and sequences of digits, and uniqueness of base-b expansions of reals.",
+    "Automatic sequences: automata with output, k-kernels, the Thue-Morse sequence and Cobham's theorem, and with them Christol's theorem. Nothing in either library and no free source obtained for this packet.",
+    "Farey sequences with mediants and the neighbour property, absent from both libraries and from every source read here.",
+    "The convergent Bernoulli generating function on the disc of radius two pi, and a general transfer theorem from formal to analytic identities."
+   ]
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.3",
+   "status": "partial",
+   "note": "Eisenstein and the other irreducibility criteria, resultants with the root-product formula, discriminants of polynomials with the root-difference formula and the reduction criterion, and the elementary-divisor form of the structure theorem are in the pinned libraries and are cited as baseline declarations. Two of the audit's missing targets are planned here: the Smith normal form of a rectangular or singular integer matrix, with invertible transformation matrices and the divisibility chain, and the invariant-factor form of the structure theorem that follows from it.",
+   "remaining": [
+    "The Hermite normal form over the integers, with existence and uniqueness. Absent from both libraries and from every source read here.",
+    "The ring of integer-valued polynomials and Polya's theorem. Tau Ceti has the binomial basis and integral Newton interpolation; the ring itself and the theorem are not planned.",
+    "The rational canonical form of an endomorphism in general rank; Tau Ceti has the two by two non-scalar case.",
+    "Trinomial discriminant formulas and resultants of binary forms, both recorded by the audit as absent.",
+    "Effective ideal arithmetic: ideal bases through the Hermite normal form and terminating normal-form algorithms. This is an algorithmic layer with its own sources."
+   ]
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.4",
+   "status": "partial",
+   "note": "The Pell equation with its fundamental solution and the classification of all solutions, Fermat's two-square theorem, Lagrange's four-square theorem, the descent results including Fermat's last theorem for the exponents three and four, and the classification of Pythagorean triples are in the pinned libraries and are cited as baseline declarations. One of the audit's missing targets is planned here: the solvability criterion and the full parametrisation of the solutions of an integer linear system, through the Smith normal form of the previous layer, which specialises to the classical parametrisation of a linear Diophantine equation in two unknowns.",
+   "remaining": [
+    "The negative and generalised Pell equations and the continued fraction algorithm that decides them. No source read for this packet treats continued fractions; Shoup says explicitly that they are not discussed in his book.",
+    "Legendre's three-square theorem and Jacobi's representation counts, both absent from the libraries and from the sources read.",
+    "Exponential Diophantine equations such as Catalan-Mihailescu and Ramanujan-Nagell, each of which needs its own primary source.",
+    "The routing interface from genus-one and higher-genus equations to the rational-point owners, preserving primitivity and local solubility. This is an interface and not a theorem, and the audit records that nothing on the transfer side exists.",
+    "Numerical semigroup theory beyond the Frobenius number of two coprime generators: genus, the gap count, Apery sets and symmetry.",
+    "Egyptian-fraction identities with precise finite or asymptotic claims."
+   ]
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.5",
+   "status": "source_decomposed",
+   "note": "The reviewed library audit gives this layer the verdict process: every one of its targets is an instruction to reuse an object that another layer or another roadmap owns, and the audit records each of them as already present in the pinned libraries, namely integral bases, unit groups with Dirichlet's theorem and the regulator, class groups with finiteness, the Minkowski bound and several explicit class numbers, relative discriminants and the different, Frobenius elements, and ideal factorisation through Dedekind-Kummer. The layer therefore has no mathematics of its own and gets no nodes, as the job instructions require for a process layer, and its removal is proposed in the restructure list. The one target the audit flags as partial, a certification pipeline from matrix computations to intrinsic invariants, is recorded there as belonging to ComputationalNumberTheory CN.2, so it is not this layer's work either."
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.6",
+   "status": "partial",
+   "note": "The Mahler measure of a complex polynomial with multiplicativity and the root formula, the house of an algebraic number, the Northcott finiteness statements and the characterisation of roots of unity among algebraic integers are in the pinned libraries and are cited as baseline declarations. Nothing is planned here: every one of the audit's missing targets needs a source that was sought and not obtained.",
+   "remaining": [
+    "The Mahler measure of an algebraic number, defined as that of its minimal polynomial over the integers. The definition is short but is not planned without a source that states it, and the survey that does was not obtained.",
+    "Pisot and Salem numbers with the certified classification by conjugate moduli.",
+    "The comparison log of the Mahler measure equals the degree times the Weil height, and canonical heights of polarised dynamical systems.",
+    "Smyth's, Dobrowolski's and Schinzel-Zassenhaus's lower bounds, with Lehmer's problem kept conjectural. The natural free source is Chris Smyth's survey on the Mahler measure of algebraic numbers; the author's page refused the download in this session and no arXiv version was located, which is recorded as a gap."
+   ]
+  },
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.7",
+   "status": "not_read",
+   "note": "Integral Galois module structure. The reviewed audit records almost the whole layer as absent from both libraries: rings of integers as modules over a group ring, locally free class groups of orders, Galois resolvents in Frohlich's sense, Noether's theorem on tame ramification and local normal integral bases, the Hilbert-Speiser theorem, the Frohlich-Taylor class-group theorems, and orders in semisimple algebras. No source for any of this was obtained for this packet, so no node is planned and the layer is honestly marked as not read rather than partial.",
+   "remaining": [
+    "A free source for Galois module structure. Frohlich's book is not freely available; a continuation job should look for lecture notes or survey articles that state Noether's theorem and the Hilbert-Speiser theorem with proofs, and plan from those.",
+    "The group-ring module structure on the ring of integers, on which everything else in the layer rests. The Galois action itself is in the pinned libraries and is the starting point.",
+    "The normal basis theorem in its integral form. The audit records the rational normal basis theorem as present in Mathlib but missing from the declaration index; that claim was not re-checked for this packet beyond noting that no declaration matching the name appears in the pinned index."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "The free survey needed for CA.6 could not be downloaded",
+   "detail": "Every missing target of CA.6 - the Mahler measure of an algebraic number, Pisot and Salem numbers, the comparison with the Weil height, and the lower bounds of Smyth, Dobrowolski and Schinzel-Zassenhaus - is covered by Chris Smyth's survey on the Mahler measure of algebraic numbers. Two paths to a free copy were tried in this session: the author's page at the University of Edinburgh, which answered with a refusal rather than the file, and a search for an arXiv version, which did not turn one up. No node of CA.6 is planned, and the layer's coverage record lists each target as remaining. A continuation job with access to that survey, or to another free source stating these results with proofs, can plan the whole layer from it."
+  },
+  {
+   "title": "No free source for integral Galois module structure was obtained",
+   "detail": "CA.7 asks for rings of integers as modules over group rings, locally free class groups of orders, Noether's theorem relating tame ramification to local freeness, the Hilbert-Speiser theorem and the Frohlich-Taylor theorems. The standard reference is Frohlich's book on Galois module structure of algebraic integers, which is not freely available, and no free lecture notes or survey covering the same ground were obtained in this session. The layer is marked not read, which is what the coverage vocabulary has for exactly this situation, and nothing is planned from memory."
+  },
+  {
+   "title": "Continued fractions are not in the source read, so the Pell remainder is unsourced",
+   "detail": "CA.4's negative and generalised Pell equations are decided by the continued fraction expansion of a square root, and Shoup's book, which is otherwise the source for the elementary layers of this roadmap, says in its preface that continued fractions are not discussed in it. Stein's computational algebraic number theory book treats Pell's equation through unit groups rather than through continued fractions. Neither supplies the algorithm, so it is recorded as remaining rather than planned, and a continuation job needs a source for it."
+  },
+  {
+   "title": "No free source for automatic sequences, Christol's theorem or Farey sequences",
+   "detail": "Three of CA.2's targets - automatic sequences with k-kernels and Cobham's theorem, Christol's theorem relating algebraic power series over a finite field to automatic coefficients, and Farey sequences with the neighbour property - are absent from both pinned libraries and from all three sources read for this packet. The standard references are books that are not freely available. The three are listed in CA.2's remaining list, and a continuation job should obtain a source before planning any of them."
+  },
+  {
+   "title": "The job names a retired roadmap as a supplier",
+   "detail": "The issue for this job names BP-FoundationsAndLibraryIntegration among its suppliers. That roadmap was retired on 16 September 2026 and is listed in data/roadmap-retirements.json, and the blueprint checker warns on any prerequisite naming one of its stages. No node of this packet names it, and the targets it would have supplied - the elementary arithmetic that CA.0 rests on - are cited directly to the pinned libraries instead. This is recorded here so that the maintainer can see that the supplier list of this job is stale rather than that the supplier was ignored."
+  }
+ ],
+ "requests": [],
+ "restructure": [
+  {
+   "kind": "remove-layer",
+   "title": "CA.5 is a process layer and should be removed",
+   "detail": "The reviewed library audit gives ClassicalArithmeticCompletion:CA.5 the verdict process. Its seven targets are all instructions to reuse objects owned elsewhere - integral bases, unit groups and the regulator, class groups and the Minkowski bound, relative discriminants and the different, Frobenius elements, ideal factorisation - and the audit records every one of them as already present in the pinned libraries. There is no mathematics for a blueprint to plan, and the job instructions for this kind say that a process layer gets no nodes and that its removal should be proposed. The proposal is to remove the layer and to keep its content as stage links from the layers that own those objects to the layers of this roadmap that consume them, so that the dependency the layer records is not lost. The one target the audit calls partial, a certification pipeline from matrix computations to intrinsic invariants, is recorded there as belonging to ComputationalNumberTheory CN.2 and should be linked there rather than kept here."
+  },
+  {
+   "kind": "split-roadmap",
+   "title": "CA.7 is a different subject and should not sit in this roadmap",
+   "detail": "Layers CA.0 to CA.6 are elementary and classical: divisibility, reciprocity, sequences, polynomial and matrix arithmetic, Diophantine equations, and heights of algebraic numbers. CA.7 is integral Galois module structure: rings of integers as modules over group rings, locally free class groups of orders, Noether's theorem, Hilbert-Speiser, and the Frohlich-Taylor theorems. It shares no object, no source and no technique with the rest of the roadmap; the audit records essentially all of it as absent from both libraries, and its literature is a separate one. Keeping it here means that this roadmap can never be closed for a reason unrelated to everything else it contains, which is what has happened in this packet: seven layers have a verdict and a plan, and the eighth has neither because its sources are not free. The proposal is to move CA.7 out, either into the roadmap that owns Galois cohomology and Galois modules or as a small roadmap of its own with its own source route."
+  }
+ ]
+}
