@@ -1,0 +1,92 @@
+{
+  "paper": "PAPER-CARAIANI-SCHOLZE-17",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accepted as narrowed by the review. Nothing in the atlas owns the compact endgame: IG.5 and IG.7 are fixed to the non-compact datum of the sequel, and TC.4 rules out new terminal claims about Galois representations. The Part II keeps Theorem 1.1 = Theorem 6.3.1 with its proof inputs, Theorem 5.5.7, the simple-Shimura branch of §5.6 and Lemma 6.2.2 (15 items). Ten of its 22 submitted items leave: nine move to source routes that widen existing layers (items 92, 95, 100, 101 and 102, Shin's trace formula and the transfer at p, to EndoscopicTransferAndUnitaryTraceComparison; Definition 1.9, Corollary 5.5.5 and Remark 5.5.6 to AutomorphicGaloisRepresentationsPartII; Lemma 5.5.8 to BunGAndNewtonStrata BG1), and Theorem 5.5.4 becomes planned at AutomorphicGaloisRepresentationsPartII. The brief was rewritten to state the final theorems exactly, with the corrections E12, E74, E77, E79, E83, E86, E87, E95, E96, E97 and E98, and to name every import."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accepted. IgusaVarietiesAndTorsionConcentration owns central leaves, the automorphism group of the p-divisible group, perfect and Mantovan Igusa varieties, the fibres of the Hodge–Tate period map and the perversity of nearby cycles; IG.1 already lists §4 of this paper among its sources."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accepted. BunGAndNewtonStrata owns B(G), κ, ν, the Beauville–Laszlo map and the Newton strata. BG1 takes the classification statements this paper uses (the µ-ordinary element, the Rapoport–Richartz lemma, B(G) of products and restrictions of scalars, and Lemma 5.5.8, which only the µ-ordinary class has quasi-split J_b); BG2:uniformization takes Lemma 3.5.4, Proposition 3.5.3 and Remark 3.5.8, which describe the image of Gr_{G,µ}(C, O_C) in B(G, µ^{-1}) ('Prove the bijection |Bun_G| → B(G), geometric-base independence and the kappa/nu formulas'); BG3 takes Definition 3.5.6, Proposition 3.5.7 (upper semicontinuity, E35) and Corollary 3.5.9 = Theorem 1.11, the pullback of its strata along Fℓ_{G,µ} ≅ Gr_{G,µ} → Bun_G ('Construct Bun_G^b as the locally closed substack for each b')."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accepted. GS0:Schubert-smoothness plans to 'Identify a Schubert cell by its parabolic flag base and positive-loop unipotent fibres' and to 'Prove FS VI.2.4/IV.1.18'. For minuscule µ the weights of µ on Lie G lie in {−1, 0, 1}, the unipotent fibres are points and the Bialynicki-Birula map Gr_{G,µ} → Fℓ_{G,µ} is an isomorphism (Theorem 3.4.5), which the layer should derive from its stabilizer computation; Lemmas 3.4.4 and 3.4.6, minuscule cocharacters, Kedlaya–Liu's projectivity criterion and Griffiths transversality are its auxiliary inputs."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accepted. P8 plans 'the relative Poincaré lemma' and to 'apply CohomologyComparisons CP.3–CP.4 to the proper-smooth comparison with connection and tensor compatibility'. It takes the relative Hodge–Tate filtration with Corollary 2.2.4, Proposition 2.2.5 and Scholze's B^+_dR-local system of a filtered module with integrable connection; the blueprint must state the primitive comparison R^iπ_*Ô_X ≅ R^iπ_*Ẑ_p ⊗ Ô_S as an input (p. 666) and use the corrected sheaf OB^+_dR of Scholze's corrigendum (E18)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accepted. T2 builds the Hodge–Tate sequence and filtration; it takes Theorem 4.1.4 (p-divisible groups over O_C/p and their vector bundles on X_{C♭}), the classification of p-divisible groups over O_C by pairs (T, W), and the modification description of G ×_{O_C} O_C/p."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accepted. R07.1 plans p-divisible groups and their Tate modules ('Define a p-divisible group … Construct its Tate module'); it takes the universal cover G̃ = T_pG[1/p] (Definition 4.1.1), Messing's representability and the properties of Proposition 4.1.2, and the rigidity of universal covers."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accepted. EndoscopicTransferAndUnitaryTraceComparison owns Shin's stable trace formula for Igusa varieties and the transfer at p (ET.5: 'prove the stable Igusa identity, including ker^1 and iota(G,H) factors'), elliptic endoscopic data (ET.0), pseudocoefficients (ET.1), base change and the twisted trace formula (ET.4), Badulescu's Jacquet–Langlands map with 'the source's nontransfer obstruction for generic principal-series parameters to a nontrivial inner form' (ET.6) and the expression of the Igusa representation by automorphic representations (ET.7b)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accepted. AutomorphicGaloisRepresentationsPartII owns the Galois representations attached to regular algebraic automorphic representations (AG2.0, AG2.2: 'Construct the representation for each discrete constituent with its explicit algebraic twists'), local–global compatibility (AG2.5) and genericity (AG2.7: 'Compare a stronger decomposed-generic API only as a separate specialization')."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Accepted. P7 constructs 'Huber tilde-limits with both the inverse-limit topology and affinoid density condition' and Frobenius-controlled towers. It takes Scholze–Weinstein's preperfectoid adic spaces and their strong completions, which Theorem 4.2.4 and Proposition 4.2.14 use for the infinite-level Rapoport–Zink space."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Accepted. VB1 defines bundles on the curve and compares them 'with finite projective modules on annuli and Frobenius descent'. It takes the Robba rings of §§3.2–3.3 and Kedlaya–Liu's comparison of bundles with φ-modules over them. Items 32."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Accepted. C8 covers 'topological dimension, topological transcendence degree of complete fields … analytic dimension comparisons'; it takes the general dimension theory of partially proper analytic adic spaces of Propositions 4.2.19–4.2.21 and Remark 4.2.20."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Accepted. IG.0 constructs 'the profinite automorphism group of the geometric fibre functor on finite étale covers' and treats 'connected components and base-point change as explicit equivalences'. This route widens it to the pro-étale fundamental group of Bhatt–Scholze for connected, locally topologically noetherian schemes, with the equivalence between J_b(Q_p)-torsors on S_proét and continuous homomorphisms π_1^proét(S, x̄) → J_b(Q_p), used in Proposition 1.13 and Remark 4.3.14."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Accepted. B1 constructs the canonical principal bundles, which cuts G out of GL(V) by tensors. It takes Deligne's theorem that a reductive group is the stabiliser of finitely many tensors in a faithful representation, which §2.3 uses for the same purpose."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Accepted. C5 constructs the algebraic de Rham complex of a smooth complex variety, its analytification and the comparison; for proper smooth varieties it combines C2–C3. It takes Deligne's equivalence for flat connections with regular singular points, which §2.3 uses to see that the horizontal tensors are algebraic; for the proper S_K of the main theorems proper GAGA from C3 suffices."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "Accepted. AL.3 constructs the GL_n × GL_m Rankin–Selberg zeta integrals and their factors. The proof of Lemma 5.5.1 uses Jacquet–Shalika's strong multiplicity one for isobaric representations, which Jacquet and Shalika derive from these Rankin–Selberg L-functions; the route asks AL.3 to add that consequence."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "Accepted. EDC.5 constructs 'the middle perverse t-structure on the appropriate bounded constructible category' for finite-type schemes over a field. It takes the lemma that a perverse sheaf is concentrated in one degree at the generic points of its support, which Corollary 6.1.4 uses."
+    }
+  ],
+  "notes": "The extraction was corrected in place, and this verdict applies to the corrected file; research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-17.md lists every change. Items: 116 statements, 21 locators, 11 names and the planning stages of 34 items were corrected, and 14 statuses changed; 40 items (125–164) were added for definitions and cited results on the way to the main theorems. Statuses follow a stricter rule than the extraction's: an item is planned only when a stage covers it in this paper's generality, so Shin's trace-formula items, which EndoscopicTransferAndUnitaryTraceComparison plans only for the sequel's even-rank group, are routed to that roadmap by a source route that widens it. Routes: all six submitted routes were accepted with corrections. The Part II is narrowed from 22 to 15 items; the Igusa route assigns each item to one of IG.0, IG.1, IG.3, IG.4 and states the generality of the widening; the smaller routes are corrected (BG2:uniformization for BG2, R07.1 for the universal cover, T2 only). Eleven source routes were added, for items the review made missing or added and for items moved out of the submitted routes. Mistakes: E1–E13 are confirmed; E14–E100 are new, among them five errors in stated results (Proposition 4.2.14, Remark 4.2.17, Red^b and Lemma 5.4.2, Lemma 5.5.1, Corollary 5.5.2), none of which changes the main theorems. For the maintainer: the routing needs new stage dependencies that close no cycle (SF.4 into IG.0, with a direct edge from R07.1, which is already upstream of IG.0; BG3 into IG.3 and IG.4; GS0:Schubert-smoothness into BG3, VB1 and VB2 into T2); the sequel's Theorem 2.7.3 should import the dimension formula of Proposition 4.2.23 from IG.3."
+}
