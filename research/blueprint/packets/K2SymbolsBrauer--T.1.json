@@ -1,0 +1,2194 @@
+{
+ "roadmapId": "K2SymbolsBrauer",
+ "protocol": "blueprint-v1",
+ "part": "T.1",
+ "status": "partial",
+ "scope": [
+  "K2SymbolsBrauer:T.1",
+  "K2SymbolsBrauer:T.1:classical",
+  "K2SymbolsBrauer:T.1:plus",
+  "K2SymbolsBrauer:T.2",
+  "K2SymbolsBrauer:T.2:graded-map",
+  "K2SymbolsBrauer:T.2:symbols"
+ ],
+ "summary": "The Steinberg group, classical K_2, and the symbol presentation, planned from Weibel's K-book chapter III sections 5, 6 and 7. T.1:classical builds St_n(R) for n at least three from the generators x_ij(r) and the Steinberg relations, with the distinct-index hypotheses explicit, then stabilises to St(R), defines K_2(R) as the kernel of the surjection onto E(R), and proves Steinberg's theorem that this kernel is precisely the centre. The universal-central-extension theory is developed in the generality the Recognition Theorem needs, including the Hopf formula for H_2 and the characterisation of a universal central extension by the vanishing of H_1 and H_2, so that St(R) is identified as the universal central extension of E(R); the finite-rank splitting for n at least five is proved separately, and the caveat that the finite-rank kernel need not be central is kept. T.1:plus deduces K_2(R) = H_2(E(R), Z) and, importing the plus construction and the K-theory space, identifies it with the second homotopy group. T.2:symbols builds the star product of commuting matrices, the Steinberg symbol from the diagonal lifts h_ij, the Steinberg identity and its consequences, including the correct formula for the symbol of a with itself, which is not zero integrally, the Dennis-Stein symbols, Milnor K-theory as the tensor algebra modulo the homogeneous Steinberg ideal, Matsumoto's theorem, and the higher tame symbols. T.2:graded-map constructs the graded map to Quillen K-theory whose degree-two component is Matsumoto's isomorphism and whose degree-three component is what K3BlochGroups V.2 consumes. Nothing here is formalised; implementationStatus is unchecked throughout.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:PresentedGroup",
+    "module": "Mathlib/GroupTheory/PresentedGroup.lean",
+    "provides": "Groups by generators and relations, the carrier of the Steinberg presentation."
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup.transvection",
+    "module": "Mathlib/LinearAlgebra/Matrix/ElementaryRowOperations.lean",
+    "provides": "The elementary matrix e_ij(r) as a unit of the matrix ring, the target of the Steinberg generators."
+   },
+   {
+    "ref": "tauceti:TauCeti.transvectionUnit",
+    "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
+    "provides": "The elementary matrix as a unit over a commutative ring, with its group-theoretic API."
+   },
+   {
+    "ref": "tauceti:TauCeti.commutatorElement_transvectionUnit",
+    "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
+    "provides": "The commutator formulas for elementary matrices: exactly the Steinberg relations, proved for transvections, which is what the map out of the Steinberg group needs."
+   },
+   {
+    "ref": "mathlib:commutatorElement",
+    "module": "Mathlib/Algebra/Group/Commutator.lean",
+    "provides": "The group commutator in which every Steinberg relation and every symbol is written."
+   },
+   {
+    "ref": "mathlib:Subgroup.center",
+    "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
+    "provides": "The centre of a group, which Steinberg's theorem identifies with K_2."
+   },
+   {
+    "ref": "mathlib:Group.IsPerfect",
+    "module": "Mathlib/GroupTheory/IsPerfect.lean",
+    "provides": "Perfectness, the hypothesis of the Recognition Theorem."
+   },
+   {
+    "ref": "mathlib:GroupExtension",
+    "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
+    "provides": "Group extensions; the centrality predicate this layer needs is not part of it and is added here."
+   },
+   {
+    "ref": "tauceti:TauCeti.FactorSet.inl_range_le_center",
+    "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
+    "provides": "That an extension built from a trivial-action factor set is central, the nearest pinned statement about central extensions."
+   },
+   {
+    "ref": "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
+    "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+    "provides": "The classification of extensions with abelian kernel by the cohomology class of their factor sets, the pinned form of the correspondence with H^2."
+   },
+   {
+    "ref": "mathlib:groupHomology.H2",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+    "provides": "Degree-two group homology, the group the Hopf formula computes and the target of the identification of K_2."
+   },
+   {
+    "ref": "mathlib:groupHomology.H1",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+    "provides": "Degree-one group homology, which vanishes exactly for a perfect group."
+   },
+   {
+    "ref": "mathlib:groupHomology",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+    "provides": "Group homology in every degree, on the bar complex."
+   },
+   {
+    "ref": "mathlib:HomotopyGroup",
+    "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
+    "provides": "Homotopy groups of a pointed space, the target of the comparison of T.1:plus."
+   },
+   {
+    "ref": "mathlib:TensorAlgebra",
+    "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+    "provides": "The tensor algebra, the carrier of Milnor K-theory once applied to the units written additively."
+   },
+   {
+    "ref": "mathlib:Additive",
+    "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+    "provides": "The additive type tag turning the unit group into a module over the integers."
+   },
+   {
+    "ref": "mathlib:RingQuot",
+    "module": "Mathlib/Algebra/RingQuot.lean",
+    "provides": "The quotient of an algebra by a two-sided ideal generated by a relation, the form of the Steinberg ideal."
+   },
+   {
+    "ref": "mathlib:Matrix.diag2_decompose",
+    "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+    "provides": "The decomposition of the two by two diagonal matrix diag(a, a inverse) as a product of six transvections, over a field: the matrix identity behind the lift h_ij(u)."
+   },
+   {
+    "ref": "tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose",
+    "module": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Diagonal.lean",
+    "provides": "The same decomposition at two coordinates of a larger matrix over a commutative ring, which is the form the stable symbol needs."
+   },
+   {
+    "ref": "mathlib:Units",
+    "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+    "provides": "The unit group of a ring, the source of every symbol."
+   },
+   {
+    "ref": "mathlib:DirectLimit",
+    "module": "Mathlib/Order/DirectedInverseSystem.lean",
+    "provides": "The colimit of a directed system, the form of the stabilisation from finite rank to the stable Steinberg group."
+   },
+   {
+    "ref": "mathlib:ZMod",
+    "module": "Mathlib/Data/ZMod/Defs.lean",
+    "provides": "The cyclic groups in which the small computations of this layer land."
+   },
+   {
+    "ref": "mathlib:NumberField.InfinitePlace.nrRealPlaces",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+    "provides": "The invariant r_1 in which the Bass-Tate answer for Milnor K-theory of a number field is stated."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "Kbook.2013",
+   "title": "The K-book: An Introduction to Algebraic K-theory",
+   "authors": "Charles A. Weibel",
+   "edition": "Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013). Internal numbering (chapter.section.item) is quoted.",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+   "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+   "accessed": "2026-09-24",
+   "readSections": [
+    "III.5.1-III.5.5.1: the Steinberg group, K_2, Steinberg's centre theorem, universal central extensions, the Hopf formula, the Recognition Theorem and the finite-rank splitting (PDF pp. 225-228)",
+    "III.5.10-III.5.11.1: the star product, the Steinberg symbol, the Steinberg identity, the generation theorem and the Dennis-Stein symbols (PDF pp. 233-234)",
+    "III.6.1-III.6.1.3: Matsumoto's theorem, K_2 of a finite field, the rational function field and the torsion kernel (PDF p. 239)",
+    "III.7.1-III.7.3.1: Milnor K-theory, its examples, the higher tame symbols and rigidity (PDF pp. 253-254)",
+    "IV.1.20 and Ex. IV.1.9 for the comparison with homotopy K-theory (PDF pp. 281-282)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "The Steinberg group of a ring in finite rank",
+   "kind": "definition",
+   "statement": "For a ring R and an integer n at least three define St_n(R) by generators x_ij(r), indexed by a pair of distinct integers i and j between one and n and an element r of R, subject to the Steinberg relations: x_ij(r) x_ij(s) = x_ij(r + s), and the commutator of x_ij(r) with x_kl(s) is trivial when j is different from k and i is different from l, is x_il(rs) when j equals k and i is different from l, and is x_kj(minus s r) when j is different from k and i equals l. The distinct-index hypotheses are part of each relation and are never dropped. No definition is given for n equal to two.",
+   "hypotheses": [
+    "R is an associative unital ring.",
+    "n is at least three.",
+    "i and j are distinct indices between one and n."
+   ],
+   "proofSteps": [
+    "Take the free group on the indexed generator set and quotient by the normal closure of the displayed relations, using the pinned presented-group construction.",
+    "State each relation with its index hypothesis attached, so that the three commutator cases are disjoint and exhaustive for distinct pairs.",
+    "Prove the elementary consequences: x_ij(0) is the identity and x_ij(r) inverse is x_ij(minus r).",
+    "Prove the universal property: a group homomorphism out of St_n(R) is the same as a family of elements satisfying the relations.",
+    "Record that rank two is excluded, as the source does, because the relations degenerate there."
+   ],
+   "acceptance": [
+    "x_ij(0) is the identity.",
+    "The three commutator cases are disjoint, and the case i equal to l with j equal to k is not covered by any of them, which is why rank two is excluded.",
+    "For n at least three the group is nontrivial whenever R is."
+   ],
+   "prerequisites": [
+    "mathlib:PresentedGroup",
+    "mathlib:commutatorElement"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.1 (PDF p. 225)",
+     "excerpt": "Definition 5.1. For n >= 3 the Steinberg group St_n(R) of a ring R is the group defined by generators x_ij(r), with i, j a pair of distinct integers between 1 and n and r in R, subject to the following Steinberg relations: x_ij(r) x_ij(s) = x_ij(r + s); [x_ij(r), x_kl(s)] = 1 if j is not k and i is not l, x_il(rs) if j = k and i is not l, x_kj(-sr) if j is not k and i = l.",
+     "match": "The definition and the three relations, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Steinberg",
+     "role": "data",
+     "statement": "The group St_n(R) for n at least three."
+    },
+    {
+     "name": "Steinberg.x",
+     "role": "constructor",
+     "statement": "The generator x_ij(r), taking the distinctness of the indices as a hypothesis."
+    },
+    {
+     "name": "Steinberg.x_add",
+     "role": "relation",
+     "statement": "x_ij(r) x_ij(s) = x_ij(r + s)."
+    },
+    {
+     "name": "Steinberg.commutator",
+     "role": "relation",
+     "statement": "The three commutator relations, each with its index hypothesis."
+    },
+    {
+     "name": "Steinberg.lift",
+     "role": "universal-property",
+     "statement": "A family satisfying the relations induces a unique homomorphism out of St_n(R)."
+    },
+    {
+     "name": "Steinberg.x_zero",
+     "role": "simp",
+     "statement": "x_ij(0) is the identity."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.1's stabilisation",
+     "how": "the stable group is the colimit of these"
+    },
+    {
+     "where": "T.1's finite-rank splitting",
+     "how": "the splitting theorem for n at least five is a statement about these groups"
+    },
+    {
+     "where": "T.2's symbol",
+     "how": "the elements w_ij and h_ij, from which the symbol is built, are words in these generators"
+    }
+   ],
+   "tests": [
+    {
+     "name": "x_zero",
+     "statement": "x_ij(0) is the identity."
+    },
+    {
+     "name": "x_inv",
+     "statement": "The inverse of x_ij(r) is x_ij(minus r)."
+    },
+    {
+     "name": "commutator_disjoint_cases",
+     "statement": "For distinct pairs with j not k and i not l the commutator is trivial, which is the first case."
+    },
+    {
+     "name": "no_rank_two",
+     "statement": "The definition is not given for n equal to two: a definition that extends it there asserts relations the source does not."
+    }
+   ],
+   "planet": {
+    "name": "Steinberg group"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/Steinberg",
+    "namespace": "TauCeti.Steinberg"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "The elementary matrices satisfy the Steinberg relations",
+   "kind": "lemma",
+   "statement": "For every ring R and every n at least three the elementary matrices e_ij(r) in the general linear group satisfy the Steinberg relations. Consequently there is a canonical surjection from St_n(R) onto the subgroup E_n(R) generated by the elementary matrices, sending x_ij(r) to e_ij(r).",
+   "hypotheses": [
+    "R is an associative unital ring; n is at least three."
+   ],
+   "proofSteps": [
+    "Import the elementary matrices and their commutator formulas from the pinned libraries, where they are proved for transvections over a commutative ring.",
+    "Check the additivity relation and each of the three commutator cases against the pinned formulas, keeping the index hypotheses aligned.",
+    "Apply the universal property of the Steinberg presentation to obtain the homomorphism.",
+    "Prove surjectivity onto E_n(R), which is immediate since the elementary matrices generate it by definition.",
+    "Record the boundary of the pinned input: the commutator formulas are stated over a commutative ring, and the noncommutative case is proved here."
+   ],
+   "acceptance": [
+    "The image of x_ij(r) is e_ij(r).",
+    "The map is onto E_n(R) but not onto GL_n(R) in general.",
+    "The relations hold for elementary matrices, which is what makes the Steinberg presentation an imitation of them rather than an arbitrary presentation."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+    "mathlib:Matrix.GeneralLinearGroup.transvection",
+    "tauceti:TauCeti.transvectionUnit",
+    "tauceti:TauCeti.commutatorElement_transvectionUnit"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.1.2 (PDF p. 225)",
+     "excerpt": "As observed in 1.3.1, the Steinberg relations are also satisfied by the elementary matrices e_ij(r) which generate the subgroup E_n(R) of GL_n(R). Hence there is a canonical group surjection phi_n : St_n(R) -> E_n(R) sending x_ij(r) to e_ij(r).",
+     "match": "The observation and the resulting surjection, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/stabilisation",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "Stabilisation and the stable Steinberg group",
+   "kind": "construction",
+   "statement": "The Steinberg relations for n plus one include those for n, so there is a canonical map from St_n(R) to St_{n+1}(R). Define the stable Steinberg group St(R) as the colimit of this tower, and observe that the maps onto the finite-rank elementary groups stabilise to a surjection from St(R) onto the stable elementary group E(R). The stable and finite-rank objects are kept distinct throughout.",
+   "hypotheses": [
+    "R is an associative unital ring."
+   ],
+   "proofSteps": [
+    "Construct the map from St_n(R) to St_{n+1}(R) by sending each generator to the generator with the same indices, which is legitimate because the relations for the larger rank include those for the smaller.",
+    "Form the colimit of the tower, using the pinned direct-limit construction.",
+    "Construct the stable elementary group as the colimit of the finite-rank elementary groups and prove that the surjections are compatible with the two towers.",
+    "Deduce the stable surjection onto E(R).",
+    "Prove functoriality in the ring, for both the finite-rank and the stable objects."
+   ],
+   "acceptance": [
+    "The stable map is surjective onto E(R).",
+    "A statement proved for St(R) does not follow for St_n(R): the two are kept distinct, which is the discipline the layer requires.",
+    "The construction is functorial in the ring."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+    "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+    "mathlib:DirectLimit"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.1.2 (PDF p. 225)",
+     "excerpt": "The Steinberg relations for n + 1 include the Steinberg relations for n, so there is an obvious map St_n(R) -> St_{n+1}(R). We write St(R) for the colimit of the St_n(R), and observe that by stabilizing the phi_n induce a surjection phi : St(R) -> E(R).",
+     "match": "The stabilisation and the stable surjection, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Steinberg.stabilise",
+     "role": "constructor",
+     "statement": "The map from rank n to rank n plus one."
+    },
+    {
+     "name": "StableSteinberg",
+     "role": "data",
+     "statement": "The colimit St(R)."
+    },
+    {
+     "name": "StableSteinberg.phi",
+     "role": "constructor",
+     "statement": "The surjection onto the stable elementary group."
+    },
+    {
+     "name": "StableSteinberg.phi_surjective",
+     "role": "characterisation",
+     "statement": "That surjection is onto."
+    },
+    {
+     "name": "StableSteinberg.map",
+     "role": "functoriality",
+     "statement": "Functoriality in the ring."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.1's definition of K_2",
+     "how": "K_2 is the kernel of the stable surjection"
+    },
+    {
+     "where": "K3BlochGroups V.1",
+     "how": "that layer's homological model is about this stable group and its superperfection"
+    },
+    {
+     "where": "T.1:plus",
+     "how": "the comparison with the K-theory space is stated for the stable objects"
+    }
+   ],
+   "tests": [
+    {
+     "name": "surjective",
+     "statement": "The stable map onto E(R) is surjective."
+    },
+    {
+     "name": "colimit_property",
+     "statement": "Every element of St(R) comes from some finite rank."
+    },
+    {
+     "name": "functorial",
+     "statement": "A ring map induces a compatible map of stable Steinberg groups."
+    },
+    {
+     "name": "not_finite_rank",
+     "statement": "A property of St(R) is not asserted for St_n(R): the two are different groups."
+    }
+   ],
+   "planet": {
+    "name": "Stable Steinberg group"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/Steinberg",
+    "namespace": "TauCeti.Steinberg"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/k2-definition",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "Classical K_2 of a ring",
+   "kind": "definition",
+   "statement": "Define K_2(R) as the kernel of the stable surjection from St(R) onto E(R). This gives the exact sequence of groups from the trivial group to K_2(R) to St(R) to GL(R) to K_1(R) to the trivial group. Both St and K_2 are covariant functors from rings to groups.",
+   "hypotheses": [
+    "R is an associative unital ring."
+   ],
+   "proofSteps": [
+    "Take the kernel of the stable surjection.",
+    "Assemble the four-term exact sequence, using that E(R) is the commutator subgroup of GL(R) and that K_1(R) is the quotient, both imported.",
+    "Prove functoriality in the ring.",
+    "Record that abelianness is not part of the definition: it is Steinberg's theorem, proved next."
+   ],
+   "acceptance": [
+    "The sequence is exact at each of its four places.",
+    "K_2 of the zero ring is trivial.",
+    "K_2(Z) is cyclic of order two, generated by the symbol of minus one with itself; this is the acceptance test that the group is not trivially zero."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/stabilisation",
+    "GeneralAlgebraicKTheory:K.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.2 (PDF p. 225)",
+     "excerpt": "Definition 5.2. The group K_2(R) is the kernel of phi : St(R) -> E(R). Thus there is an exact sequence of groups 1 -> K_2(R) -> St(R) -> GL(R) -> K_1(R) -> 1.",
+     "match": "The definition and the exact sequence, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "K2",
+     "role": "data",
+     "statement": "The group K_2(R)."
+    },
+    {
+     "name": "K2.subtype",
+     "role": "coercion",
+     "statement": "Its inclusion into St(R)."
+    },
+    {
+     "name": "K2.mem_iff",
+     "role": "characterisation",
+     "statement": "An element lies in K_2(R) exactly when its image in E(R) is trivial."
+    },
+    {
+     "name": "K2.map",
+     "role": "functoriality",
+     "statement": "Functoriality in the ring."
+    },
+    {
+     "name": "K2.exact",
+     "role": "structure",
+     "statement": "The four-term exact sequence."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.2's symbols",
+     "how": "every symbol is an element of this group"
+    },
+    {
+     "where": "T.1:plus",
+     "how": "the comparison identifies this group with a homotopy group"
+    },
+    {
+     "where": "K3BlochGroups V.1",
+     "how": "the kernel of the universal central extension there is this group"
+    }
+   ],
+   "tests": [
+    {
+     "name": "zero_ring",
+     "statement": "K_2 of the zero ring is trivial."
+    },
+    {
+     "name": "integers",
+     "statement": "K_2(Z) is cyclic of order two."
+    },
+    {
+     "name": "finite_field",
+     "statement": "K_2 of a finite field is trivial."
+    },
+    {
+     "name": "not_by_definition_abelian",
+     "statement": "Abelianness is a theorem, not part of the definition: a definition that assumes it assumes Steinberg's theorem."
+    }
+   ],
+   "planet": {
+    "name": "Classical K2"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/Steinberg",
+    "namespace": "TauCeti.Steinberg"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/k2-is-centre",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "Steinberg's theorem: K_2 is the centre of the Steinberg group",
+   "kind": "theorem",
+   "statement": "For every ring R the group K_2(R) is abelian; in fact it is precisely the centre of St(R).",
+   "hypotheses": [
+    "R is an associative unital ring."
+   ],
+   "proofSteps": [
+    "One inclusion: if an element is central in St(R) then its image is central in E(R), and the centre of E(R) is trivial, so the image is trivial and the element lies in K_2(R).",
+    "For the other inclusion take an element y of the kernel. Its commutator with every element of St(R) maps to the identity in E(R).",
+    "Choose n large enough that y is a word in the generators with indices below n. For each generator x_kn(s) with k below n, the Steinberg relations put the commutator of y with it inside the subgroup generated by the symbols x_in(r) with i below n.",
+    "That subgroup maps injectively into E(R), so the commutator is trivial and y commutes with every such generator.",
+    "By symmetry y commutes with every x_nk(s), hence with every x_kl(s) for k and l below n, since each such generator is a commutator of two of the previous ones. Let n grow to conclude that y is central.",
+    "Record the one input that is not self-contained: the injectivity of the displayed subgroup into E(R), which the source relegates to an exercise and which is proved here."
+   ],
+   "acceptance": [
+    "K_2(R) is abelian, which is what makes the four-term sequence a sequence of abelian groups at that spot.",
+    "The centre of E(R) is trivial, which is the first half of the argument and is needed separately.",
+    "The theorem is about the stable group: the centre of St_n(R) is a different question, treated in the finite-rank caveat."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/k2-definition",
+    "K2SymbolsBrauer:T.1/stabilisation",
+    "mathlib:Subgroup.center"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.2.1 (PDF p. 225)",
+     "excerpt": "Theorem 5.2.1. (Steinberg) K_2(R) is an abelian group. In fact it is precisely the center of St(R).",
+     "match": "The theorem, with the proof of the source followed step by step."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "K2 is the centre of St"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/central-extension",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "Central extensions and their equivalence",
+   "kind": "definition",
+   "statement": "A central extension of a group G by an abelian group A is a short exact sequence from the trivial group to A to X to G to the trivial group in which A lies in the centre of X. It is split when it is isomorphic to the projection from the product. Two extensions of G by A are equivalent when there is an isomorphism between them that is the identity on A and induces the identity on G, and the equivalence classes correspond to the elements of the second cohomology group of G with coefficients in A. A homomorphism over G between two central extensions is a group map commuting with the projections.",
+   "hypotheses": [
+    "G is a group; A is an abelian group."
+   ],
+   "proofSteps": [
+    "Define a central extension as the pinned notion of a group extension together with the condition that the image of the kernel lies in the centre; the pinned extension API has no centrality predicate, so it is added here.",
+    "Define splitness and equivalence.",
+    "State the correspondence with the second cohomology group, importing the pinned classification of extensions with abelian kernel by the cohomology class of their factor sets.",
+    "Define a homomorphism over G and prove that composition and identities make central extensions of G into a category."
+   ],
+   "acceptance": [
+    "The split extension corresponds to the zero cohomology class.",
+    "An extension built from a trivial-action factor set is central, which is the pinned statement.",
+    "Equivalence is finer than isomorphism of groups: two inequivalent extensions can have isomorphic total groups."
+   ],
+   "prerequisites": [
+    "mathlib:GroupExtension",
+    "tauceti:TauCeti.FactorSet.inl_range_le_center",
+    "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
+    "mathlib:Subgroup.center"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.3 (PDF p. 226)",
+     "excerpt": "Let G be a group and A an abelian group. A central extension of G by A is a short exact sequence of groups 1 -> A -> X -> G -> 1 such that A is in the center of X. We say that a central extension is split if it is isomorphic to an extension of the form 1 -> A -> A x G -> G -> 1.",
+     "match": "The definitions, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "IsCentralExtension",
+     "role": "characterisation",
+     "statement": "The predicate that an extension is central."
+    },
+    {
+     "name": "CentralExtension.split",
+     "role": "characterisation",
+     "statement": "Splitness."
+    },
+    {
+     "name": "CentralExtension.Equiv",
+     "role": "structure",
+     "statement": "Equivalence of two extensions of G by A."
+    },
+    {
+     "name": "CentralExtension.classify",
+     "role": "characterisation",
+     "statement": "The correspondence of equivalence classes with the second cohomology group."
+    },
+    {
+     "name": "CentralExtension.homOver",
+     "role": "structure",
+     "statement": "A homomorphism over G, with composition and identities."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.1's universal central extension",
+     "how": "the universal object is defined in this category"
+    },
+    {
+     "where": "T.1's Recognition Theorem",
+     "how": "the characterisation by splitting of central extensions is stated here"
+    },
+    {
+     "where": "K3BlochGroups V.1",
+     "how": "the superperfection argument there is about this notion"
+    }
+   ],
+   "tests": [
+    {
+     "name": "split_is_trivial_class",
+     "statement": "A split extension has the zero class."
+    },
+    {
+     "name": "trivial_action_central",
+     "statement": "An extension from a trivial-action factor set is central."
+    },
+    {
+     "name": "equivalence_finer",
+     "statement": "Two inequivalent extensions can have isomorphic total groups: a non-example."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/Steinberg",
+    "namespace": "TauCeti.Steinberg"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/universal-central-extension",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "Universal central extensions",
+   "kind": "definition",
+   "statement": "A universal central extension of G is a central extension from which there is a unique homomorphism over G to every other central extension of G. It is unique up to isomorphism over G when it exists.",
+   "hypotheses": [
+    "G is a group."
+   ],
+   "proofSteps": [
+    "Define the universal property in the category of central extensions of G.",
+    "Prove uniqueness up to isomorphism over G by the usual argument with the two composites.",
+    "Record that existence is not automatic and is the content of the Recognition Theorem."
+   ],
+   "acceptance": [
+    "The universal object is unique up to isomorphism over G.",
+    "A group with a nontrivial abelianisation has none, which is the next lemma.",
+    "Existence is a theorem, not part of the definition."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/central-extension"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.3.1 (PDF p. 227)",
+     "excerpt": "Definition 5.3.1. A universal central extension of G is a central extension X -> G such that for every other central extension Y -> G there is a unique homomorphism f over G from X to Y. Clearly a universal central extension is unique up to isomorphism over G, provided it exists.",
+     "match": "The definition, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "IsUniversalCentralExtension",
+     "role": "characterisation",
+     "statement": "The universal property."
+    },
+    {
+     "name": "uce_unique",
+     "role": "characterisation",
+     "statement": "Uniqueness up to isomorphism over G."
+    },
+    {
+     "name": "uce_hom",
+     "role": "constructor",
+     "statement": "The unique homomorphism to any central extension."
+    },
+    {
+     "name": "uce_hom_unique",
+     "role": "characterisation",
+     "statement": "Its uniqueness."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.1's identification of the Steinberg group",
+     "how": "St(R) is the universal central extension of E(R)"
+    },
+    {
+     "where": "K3BlochGroups V.1",
+     "how": "superperfection is deduced from this property"
+    },
+    {
+     "where": "T.1:plus",
+     "how": "the comparison with H_2 runs through the universal property"
+    }
+   ],
+   "tests": [
+    {
+     "name": "unique",
+     "statement": "Two universal central extensions of the same group are isomorphic over it."
+    },
+    {
+     "name": "nonperfect_has_none",
+     "statement": "A group with nontrivial abelianisation has no universal central extension."
+    },
+    {
+     "name": "existence_is_a_theorem",
+     "statement": "Existence is not part of the definition."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/Steinberg",
+    "namespace": "TauCeti.Steinberg"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/uce-perfect",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "A universal central extension forces perfectness, and rigidity of maps out of a perfect extension",
+   "kind": "lemma",
+   "statement": "If G has a universal central extension X then both G and X are perfect. If X and Y are central extensions of G and X is perfect, there is at most one homomorphism over G from X to Y.",
+   "hypotheses": [
+    "G is a group; X and Y are central extensions of G."
+   ],
+   "proofSteps": [
+    "For the first statement, suppose the abelianisation of X is nontrivial and form the split central extension of G by it; then the two obvious homomorphisms over G from X are distinct, contradicting uniqueness. Perfectness of G follows since it is a quotient of X.",
+    "For the second statement, write two homomorphisms as differing by central elements, evaluate on a commutator and observe that the central corrections cancel; since commutators generate X the two agree."
+   ],
+   "acceptance": [
+    "The two statements are what make the Recognition Theorem's proof work and are used separately.",
+    "A perfect group can still have several central extensions; uniqueness is of the map, not of the extension.",
+    "The first statement is the obstruction: a non-perfect group has no universal central extension at all."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/universal-central-extension",
+    "mathlib:Group.IsPerfect"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.3.2 and III.5.3.3 (PDF p. 227)",
+     "excerpt": "Lemma 5.3.2. If G has a universal central extension X -> G, then both G and X must be perfect groups. ... Lemma 5.3.3. If X and Y are central extensions of G, and X is a perfect group, there is at most one homomorphism over G from X to Y.",
+     "match": "The two lemmas, with the proofs of the source."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/hopf-formula",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "The Hopf formula and the two extensions attached to a presentation",
+   "kind": "theorem",
+   "statement": "A presentation of G as a free group F modulo a normal subgroup S gives two central extensions: one with kernel S modulo the commutator of S with F, and one with kernel the intersection of S with the commutator subgroup of F, modulo the same commutator. The second kernel is the second integral homology of G, which is Hopf's formula.",
+   "hypotheses": [
+    "G is a group presented as a quotient of a free group F by a normal subgroup S."
+   ],
+   "proofSteps": [
+    "Form the two displayed quotients and prove that both are central extensions, of G and of its commutator subgroup respectively.",
+    "Prove Hopf's formula identifying the second kernel with the second integral homology of G, by comparing the two with the bar resolution.",
+    "Record that when G is perfect the second extension is again an extension of G, which is the case the Recognition Theorem uses."
+   ],
+   "acceptance": [
+    "For a free group both kernels vanish and the second homology is trivial.",
+    "For a perfect group the second extension is an extension of G itself.",
+    "The formula computes the second homology from any presentation, so the answer does not depend on the presentation, which is the content."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/central-extension",
+    "mathlib:groupHomology.H2",
+    "mathlib:groupHomology"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.3.4 and III.5.3.5 (PDF p. 227)",
+     "excerpt": "The group (R intersect [F, F]) / [R, F] in (5.3.5) is the homology group H_2(G; Z); this identity was discovered in 1941 by Hopf.",
+     "match": "Hopf's formula and the two extensions, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/recognition-theorem",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "The Recognition Theorem",
+   "kind": "theorem",
+   "statement": "Every perfect group G has a universal central extension, namely the extension with kernel the second integral homology of G coming from any presentation. Moreover, for a central extension X of G the following are equivalent: X is a universal central extension; X is perfect and every central extension of X splits; the first and second integral homology groups of X vanish.",
+   "hypotheses": [
+    "G is a perfect group; X is a central extension of G."
+   ],
+   "proofSteps": [
+    "Given any central extension X of G, lift the map from the free group to X, which is possible because the free group is free.",
+    "The image of the relation subgroup is central in X, so the commutator of the relation subgroup with the free group dies, and the lift induces a map over G from the Hopf extension to X; it is unique by the rigidity lemma.",
+    "This proves both that the Hopf extension is universal and the equivalence of the first and third conditions.",
+    "The implication from the first to the second is the perfectness lemma together with the splitting of central extensions of a universal object; the converse is immediate.",
+    "Record the third condition in the form used downstream: a group is the source of a universal central extension exactly when it is superperfect."
+   ],
+   "acceptance": [
+    "For a free group the theorem is vacuous, since a free group is perfect only when trivial.",
+    "The third condition is the one K3BlochGroups V.1 uses to prove superperfection of the Steinberg group.",
+    "Perfectness alone does not make a group superperfect: the alternating group on five letters is perfect with nonvanishing second homology, and is not the source of a universal central extension of itself."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/hopf-formula",
+    "K2SymbolsBrauer:T.1/uce-perfect",
+    "K2SymbolsBrauer:T.1/universal-central-extension",
+    "mathlib:groupHomology.H1",
+    "mathlib:groupHomology.H2"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.4 (PDF p. 227)",
+     "excerpt": "Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 -> H_2(G; Z) -> [F, F] / [R, F] -> G -> 1. Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H_1(X; Z) = H_2(X; Z) = 0.",
+     "match": "The theorem and its three equivalent conditions, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Recognition Theorem"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/steinberg-is-uce",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "The Steinberg group is the universal central extension of the elementary group",
+   "kind": "theorem",
+   "statement": "For every ring R the stable Steinberg group St(R) is the universal central extension of E(R). Consequently K_2(R) is isomorphic to the second integral homology of E(R).",
+   "hypotheses": [
+    "R is an associative unital ring."
+   ],
+   "proofSteps": [
+    "Observe that E(R) is perfect, so the Recognition Theorem applies.",
+    "Prove that St(R) is a central extension of E(R), which is Steinberg's centre theorem.",
+    "Apply the Recognition Theorem together with the finite-rank splitting result below: every central extension of St(R) splits, so St(R) is universal.",
+    "Read off the identification of K_2(R) with the second homology of E(R) from the uniqueness of the universal object and the Hopf formula."
+   ],
+   "acceptance": [
+    "The identification of K_2 with the second homology is the statement T.1:plus starts from.",
+    "For the ring of integers both sides are cyclic of order two.",
+    "The theorem is about the stable group; the finite-rank analogue needs n at least five and is stated separately."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/recognition-theorem",
+    "K2SymbolsBrauer:T.1/k2-is-centre",
+    "K2SymbolsBrauer:T.1/finite-rank-splitting"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.5 (PDF p. 228)",
+     "excerpt": "Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K_2(R) = H_2(E(R); Z).",
+     "match": "The theorem, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "St(R) is the universal central extension"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/finite-rank-splitting",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "Every central extension of the finite-rank Steinberg group splits, for n at least five",
+   "kind": "theorem",
+   "statement": "For n at least five every central extension of St_n(R) splits; consequently St_n(R) is the universal central extension of E_n(R).",
+   "hypotheses": [
+    "R is an associative unital ring; n is at least five."
+   ],
+   "proofSteps": [
+    "Show first that two elements of the extension lying over generators with disjoint index conditions commute, by introducing an auxiliary index distinct from the four given ones and writing one of the two as a commutator; this is where n at least five is used.",
+    "Choose distinct indices and elements over three generators, and show that the commutator subgroup of the subgroup they generate is abelian.",
+    "Use the Hall-Witt style identity to show that the element defined as a commutator of two lifts does not depend on the intermediate index nor on the chosen lifts.",
+    "Prove that these elements satisfy the Steinberg relations, so that they define a homomorphism from St_n(R) to the extension splitting it.",
+    "Deduce from the Recognition Theorem that St_n(R) is the universal central extension of E_n(R)."
+   ],
+   "acceptance": [
+    "The bound n at least five is used in the first step and is recorded, not smoothed over.",
+    "The splitting is by an explicit homomorphism, which is what makes the argument constructive.",
+    "The statement does not say that the kernel of the finite-rank map is central, which is the separate caveat below."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+    "K2SymbolsBrauer:T.1/recognition-theorem",
+    "K2SymbolsBrauer:T.1/elementary-matrices-satisfy"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.5.1 (PDF p. 228)",
+     "excerpt": "Proposition 5.5.1. If n >= 5, every central extension Y -> St_n(R) is split. Hence St_n(R) is the universal central extension of E_n(R).",
+     "match": "The proposition, with the proof of the source followed step by step."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/finite-rank-caveat",
+   "parentStageId": "K2SymbolsBrauer:T.1:classical",
+   "realises": [
+    "K2SymbolsBrauer:T.1:classical"
+   ],
+   "title": "What the stable theorem does not give in finite rank",
+   "kind": "lemma",
+   "statement": "The centrality of the kernel of the map from St_n(R) to E_n(R) is not asserted for every ring and every rank. Steinberg's centre theorem is a statement about the stable group, and its proof uses that the rank may be increased arbitrarily. This node records the boundary explicitly and states what is available: the splitting result for n at least five, and the stable centrality.",
+   "hypotheses": [
+    "R is an associative unital ring; n is at least three."
+   ],
+   "proofSteps": [
+    "State the two available results and their hypotheses: the stable centre theorem, with no rank hypothesis but about the colimit, and the finite-rank splitting for n at least five.",
+    "State explicitly what does not follow: that the kernel of the finite-rank map is central for every ring and every rank at least three.",
+    "Record where the stable proof uses growth of the rank, namely in the step that chooses n large enough for a given element and then lets n grow."
+   ],
+   "acceptance": [
+    "The stable theorem is used only for the stable group in every downstream node.",
+    "The finite-rank splitting is stated with its hypothesis n at least five.",
+    "No node of this packet asserts finite-rank centrality, which is the acceptance test."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/k2-is-centre",
+    "K2SymbolsBrauer:T.1/finite-rank-splitting"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.2.1 proof (PDF p. 226)",
+     "excerpt": "Choose an integer n large enough that y can be expressed as a word in the symbols x_ij(r) with i, j < n. ... Since n can be arbitrarily large, this proves that y is in the center of St(R).",
+     "match": "The step of the stable proof that uses growth of the rank, which is why the finite-rank statement does not follow."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/k2-h2-elementary",
+   "parentStageId": "K2SymbolsBrauer:T.1:plus",
+   "realises": [
+    "K2SymbolsBrauer:T.1:plus"
+   ],
+   "title": "K_2 is the second homology of the elementary group",
+   "kind": "theorem",
+   "statement": "For every ring R there is an isomorphism from K_2(R) to the second integral homology of E(R), natural in R. It is the identification of the kernel of the universal central extension with the kernel given by the Hopf formula.",
+   "hypotheses": [
+    "R is an associative unital ring."
+   ],
+   "proofSteps": [
+    "Import that St(R) is the universal central extension of E(R).",
+    "Import the Hopf extension of E(R) with kernel the second homology, which is also universal by the Recognition Theorem.",
+    "Compare the two by the uniqueness of the universal object over E(R); the resulting isomorphism over E(R) restricts to an isomorphism of kernels.",
+    "Prove naturality in the ring, using functoriality of both constructions."
+   ],
+   "acceptance": [
+    "For the ring of integers both sides are cyclic of order two.",
+    "The isomorphism is natural, which is what the comparison with homotopy needs.",
+    "The identification is of kernels, not merely an abstract isomorphism of abelian groups; the acceptance test is the compatibility with the two projections."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/steinberg-is-uce",
+    "K2SymbolsBrauer:T.1/hopf-formula",
+    "K2SymbolsBrauer:T.1/k2-definition",
+    "mathlib:groupHomology.H2"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.5 (PDF p. 228)",
+     "excerpt": "Hence K_2(R) = H_2(E(R); Z).",
+     "match": "The identification, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "K2 is H2 of E(R)"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.1/k2-pi2",
+   "parentStageId": "K2SymbolsBrauer:T.1:plus",
+   "realises": [
+    "K2SymbolsBrauer:T.1:plus"
+   ],
+   "title": "K_2 is the second homotopy group of the K-theory space",
+   "kind": "theorem",
+   "statement": "For every ring R there is an isomorphism from K_2(R) to the second homotopy group of the plus construction on the classifying space of the stable general linear group, natural in R. It is obtained by combining the identification with the second homology of E(R) with the Hurewicz theorem applied to the simply connected space obtained from the plus construction.",
+   "hypotheses": [
+    "R is an associative unital ring."
+   ],
+   "proofSteps": [
+    "Import the plus construction and the K-theory space, and the fact that the plus construction on the classifying space of the stable elementary group is the universal cover of the plus construction on the classifying space of the stable general linear group.",
+    "That space is simply connected, and its second homotopy group is its second homology by the Hurewicz theorem.",
+    "Its second homology is the second homology of E(R), by the homology isomorphism the plus construction provides.",
+    "Compose with the identification of the previous node and prove naturality.",
+    "Record the division of labour: the plus construction belongs to StableHomotopyKTheory, the K-theory space to GeneralAlgebraicKTheory, and this layer supplies the explicit model they are compared with."
+   ],
+   "acceptance": [
+    "The composite isomorphism is natural in the ring.",
+    "For a finite field both sides are trivial.",
+    "The Hurewicz step needs simple connectivity, which is why the elementary group, and not the general linear group, appears."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/k2-h2-elementary",
+    "StableHomotopyKTheory:H.3",
+    "GeneralAlgebraicKTheory:K.2",
+    "mathlib:HomotopyGroup"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "Ex. IV.1.9 and IV.1.20 (PDF pp. 281-282)",
+     "excerpt": "Show that there is a homotopy fibration BA -> BS+ -> BP+. Conclude that pi_n(BS+) = 0 for n <= 2, and that pi_n(BS+) = pi_n(BP+) = pi_n(BG+) for all n >= 3.",
+     "match": "The plus-construction comparison this node instantiates in degree two, where the Hurewicz theorem applies to the simply connected cover."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "K2 is the second homotopy group"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/star-product",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "The star product of commuting matrices",
+   "kind": "construction",
+   "statement": "If two matrices of E(R) commute, lift them to St(R) and define their star product to be the commutator of the lifts, an element of K_2(R). The definition does not depend on the lifts, because two lifts differ by central elements. The star product is invariant under simultaneous conjugation by an element of GL(R), is skew-symmetric, and is bilinear.",
+   "hypotheses": [
+    "R is an associative unital ring; the two matrices lie in E(R) and commute."
+   ],
+   "proofSteps": [
+    "Choose lifts and form their commutator; the image in E(R) is trivial, so it lies in K_2(R).",
+    "Prove independence of the lifts: two lifts differ by central elements, which drop out of a commutator.",
+    "Prove conjugation invariance by lifting the block diagonal matrix built from the conjugating element and its inverse, and using that the commutator is central.",
+    "Prove skew-symmetry and bilinearity from the commutator identities.",
+    "Record that the construction needs the two matrices to commute; without that hypothesis the commutator does not land in K_2(R)."
+   ],
+   "acceptance": [
+    "The star product of a matrix with itself is trivial.",
+    "It is invariant under simultaneous conjugation.",
+    "Bilinearity holds in each variable separately, for commuting arguments."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.1/k2-definition",
+    "K2SymbolsBrauer:T.1/k2-is-centre",
+    "mathlib:commutatorElement"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5 Steinberg symbols (PDF p. 233)",
+     "excerpt": "If two matrices A, B in E(R) commute, we can construct an element in K_2(R) by lifting their commutator to St(R). ... This definition is independent of the choice of a and b because any other lift will equal ac, bc' for central elements c, c', and [ac, bc'] = [a, b].",
+     "match": "The construction and its independence of lifts, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "starProduct",
+     "role": "constructor",
+     "statement": "The star product of two commuting elements of E(R)."
+    },
+    {
+     "name": "starProduct_lift_indep",
+     "role": "characterisation",
+     "statement": "It does not depend on the chosen lifts."
+    },
+    {
+     "name": "starProduct_conj",
+     "role": "relation",
+     "statement": "Invariance under simultaneous conjugation by an element of GL(R)."
+    },
+    {
+     "name": "starProduct_skew",
+     "role": "relation",
+     "statement": "Skew-symmetry."
+    },
+    {
+     "name": "starProduct_mul_left",
+     "role": "relation",
+     "statement": "Bilinearity in the first argument."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.2's Steinberg symbol",
+     "how": "the symbol is the star product of two specific diagonal matrices"
+    },
+    {
+     "where": "T.2's Steinberg identity",
+     "how": "the identity is proved by a computation with lifts of these matrices"
+    }
+   ],
+   "tests": [
+    {
+     "name": "self",
+     "statement": "The star product of a matrix with itself is trivial."
+    },
+    {
+     "name": "conjugation",
+     "statement": "Simultaneous conjugation does not change it."
+    },
+    {
+     "name": "bilinear",
+     "statement": "It is multiplicative in the first argument."
+    },
+    {
+     "name": "needs_commuting",
+     "statement": "For non-commuting matrices the commutator of lifts is not in K_2(R): a non-example."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/MilnorK",
+    "namespace": "TauCeti.MilnorK"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/steinberg-symbol",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "The Steinberg symbol",
+   "kind": "definition",
+   "statement": "For commuting units r and s of a ring R define the Steinberg symbol as the star product of the diagonal matrix with r and r inverse at two coordinates with the diagonal matrix with s and s inverse at two coordinates chosen to overlap in exactly one index. Equivalently it is the commutator of the elements h_ij(r) and h_ik(s) of St(R), where w_ij(r) is the word x_ij(r) x_ji(minus r inverse) x_ij(r) and h_ij(r) is w_ij(r) w_ij(minus one). The symbol is skew-symmetric and bilinear.",
+   "hypotheses": [
+    "R is an associative unital ring; r and s are commuting units."
+   ],
+   "proofSteps": [
+    "Define w_ij(r) and h_ij(r) by the displayed words and compute their images in GL(R): w_ij(r) maps to the monomial matrix with r and minus r inverse in the two off-diagonal places, and h_ij(r) to the diagonal matrix with r and r inverse.",
+    "Import the pinned decomposition of that diagonal matrix as a product of six elementary matrices, which is the matrix identity behind the lift, and check that it matches the word h_ij(r).",
+    "Define the symbol as the star product of the two diagonal matrices, or equivalently as the commutator of h_ij(r) and h_ik(s), and prove the two agree.",
+    "Prove that the symbol does not depend on the choice of the three indices.",
+    "Deduce skew-symmetry and bilinearity from the corresponding properties of the star product."
+   ],
+   "acceptance": [
+    "The symbol of one with anything is trivial.",
+    "Skew-symmetry and bilinearity hold.",
+    "The symbol is defined for commuting units of any ring, not only for a field; the field case is where Matsumoto's theorem applies."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/star-product",
+    "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+    "K2SymbolsBrauer:T.1/stabilisation",
+    "mathlib:Matrix.diag2_decompose",
+    "tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose",
+    "mathlib:Units"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.10 and III.5.10.1 (PDF p. 233)",
+     "excerpt": "Definition 5.10. If r, s are commuting units in a ring R, we define the Steinberg symbol {r, s} in K_2(R) to be the star product of the two displayed diagonal matrices. ... For any unit r of R we set w_ij(r) = x_ij(r) x_ji(-r^{-1}) x_ij(r) and h_ij(r) = w_ij(r) w_ij(-1). ... By definition we then have: {r, s} = [h_12(r), h_13(s)] = [h_ij(r), h_ik(s)].",
+     "match": "The definition and the two descriptions, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "steinbergSymbol",
+     "role": "constructor",
+     "statement": "The symbol of two commuting units."
+    },
+    {
+     "name": "steinbergSymbol_eq_commutator",
+     "role": "characterisation",
+     "statement": "It is the commutator of h_ij(r) and h_ik(s)."
+    },
+    {
+     "name": "steinbergSymbol_one",
+     "role": "simp",
+     "statement": "The symbol with a one entry is trivial."
+    },
+    {
+     "name": "steinbergSymbol_mul_left",
+     "role": "relation",
+     "statement": "Bilinearity in the first entry."
+    },
+    {
+     "name": "steinbergSymbol_skew",
+     "role": "relation",
+     "statement": "Skew-symmetry."
+    },
+    {
+     "name": "steinbergSymbol_index_indep",
+     "role": "characterisation",
+     "statement": "Independence of the chosen indices."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.2's Matsumoto theorem",
+     "how": "the theorem presents K_2 of a field by these symbols"
+    },
+    {
+     "where": "Milnor K-theory",
+     "how": "the degree-two Milnor symbols are identified with these"
+    },
+    {
+     "where": "K3BlochGroups V.5",
+     "how": "the decomposable class in K_3 of the rationals is built from the symbol with three minus-one entries"
+    }
+   ],
+   "tests": [
+    {
+     "name": "one_entry",
+     "statement": "The symbol with a one entry is trivial."
+    },
+    {
+     "name": "minus_one_integers",
+     "statement": "For the integers the symbol of minus one with itself is the nontrivial element of K_2(Z)."
+    },
+    {
+     "name": "bilinear",
+     "statement": "The symbol is multiplicative in each entry."
+    },
+    {
+     "name": "not_alternating_integrally",
+     "statement": "The symbol of a with itself is not trivial in general, which the next node computes."
+    }
+   ],
+   "planet": {
+    "name": "Steinberg symbol"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/MilnorK",
+    "namespace": "TauCeti.MilnorK"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/steinberg-identity",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "The Steinberg identity and the symbol of a unit with its negative",
+   "kind": "theorem",
+   "statement": "If r and one minus r are both units of R then the symbol of r with one minus r is trivial, and the symbol of r with minus r is trivial. The second statement holds for every unit r, even when one minus r is not a unit.",
+   "hypotheses": [
+    "R is an associative unital ring; r is a unit, and for the first statement one minus r is also a unit."
+   ],
+   "proofSteps": [
+    "Prove the first statement by the explicit computation in the Steinberg group that the source performs: rewrite the product of the three w-elements using the commutation rules, and use the four identities among r and one minus r that the source lists, to obtain the w-element of the product.",
+    "Multiply by the w-element at minus one to obtain the multiplicativity of the h-elements when the two arguments sum to one, and deduce that the symbol vanishes.",
+    "Deduce the second statement from the first by writing minus r as the quotient of one minus r by one minus r inverse and expanding.",
+    "For the general form of the second statement record the argument the source gives: it follows from an injectivity statement between K_2 of two localisations, proved later in the source, or from a direct proof in Milnor's book."
+   ],
+   "acceptance": [
+    "The symbol of r with one minus r vanishes whenever both are units.",
+    "The symbol of r with minus r vanishes for every unit, which is the stronger form.",
+    "The two statements have different hypotheses and the difference is recorded, not smoothed over."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/steinberg-symbol",
+    "K2SymbolsBrauer:T.1/steinberg-group-finite-rank"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.10.2, III.5.10.3 and III.5.10.4 (PDF pp. 233-234)",
+     "excerpt": "Lemma 5.10.2. If both r and 1 - r are units of R, then in K_2(R) we have: {r, 1 - r} = 1 and {r, -r} = 1. ... Remark 5.10.4. The equation {r, -r} = 1 holds more generally for every unit r, even if 1 - r is not a unit.",
+     "match": "The lemma and the remark, as displayed, with the computation of the cited proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Steinberg identity"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/symbol-consequences",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Skew-symmetry, and the correct value of the symbol of a unit with itself",
+   "kind": "lemma",
+   "statement": "The Steinberg symbols are skew-symmetric: the symbol of a with b times the symbol of b with a is trivial. The symbol of a with itself is the symbol of a with minus one, which is an element of order dividing two; it is not trivial in general. Asserting that the symbol of a with itself vanishes integrally is an error.",
+   "hypotheses": [
+    "R is an associative unital ring; a and b are commuting units."
+   ],
+   "proofSteps": [
+    "Derive skew-symmetry from the identity for the symbol of a unit with its negative: expand the symbol of a with minus ab and the symbol of b with minus ab and use bilinearity.",
+    "From the vanishing of the symbol of a with minus a and bilinearity obtain that the symbol of a with itself is the inverse of the symbol of a with minus one.",
+    "Prove that the symbol of a with minus one squares to the symbol of a with one, which is trivial, so it has order dividing two; hence the symbol of a with itself equals the symbol of a with minus one.",
+    "Record the negative statement: skew-symmetry gives that the square of the symbol of a with itself is trivial, and nothing more."
+   ],
+   "acceptance": [
+    "For the integers the symbol of minus one with itself is the nontrivial element of K_2(Z), so the symbol of a unit with itself is not always trivial.",
+    "For a finite field of even order the symbol of a with itself is trivial, because minus one is one there.",
+    "Skew-symmetry holds in general and is what the alternating property of Milnor K-theory rests on."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/steinberg-identity",
+    "K2SymbolsBrauer:T.2/steinberg-symbol"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.1 (PDF p. 239)",
+     "excerpt": "Note that the calculation (5.10.3) implies that {x, -x} = 1 for all x, and this implies that the Steinberg symbols are skew-symmetric: {x, y}{y, x} = {x, -xy}{y, -xy} = {xy, -xy} = 1.",
+     "match": "The derivation of skew-symmetry, as displayed; the value of the symbol of a unit with itself follows from the same identity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/symbols-generate",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Steinberg symbols generate K_2 of a semilocal ring",
+   "kind": "theorem",
+   "statement": "If R is a field, a division ring, a local ring or a semilocal ring then K_2(R) is generated by the Steinberg symbols. The statement is not asserted for a general ring.",
+   "hypotheses": [
+    "R is a field, a division ring, a local ring or a semilocal ring."
+   ],
+   "proofSteps": [
+    "Import the generation statement from the source, which attributes the field and division-ring cases to Milnor's book and the semilocal extension to Dennis and Stein.",
+    "Record the hypothesis: for a general ring the symbols need not generate, which is why the Dennis-Stein symbols are introduced.",
+    "Record the consequence used below: for a field the presentation of Matsumoto's theorem is a presentation of the whole group, not of a subgroup."
+   ],
+   "acceptance": [
+    "For a field the symbols generate, which Matsumoto's theorem then presents.",
+    "For a general commutative ring generation is not asserted.",
+    "The Dennis-Stein symbols are introduced precisely because of that gap."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/steinberg-symbol",
+    "K2SymbolsBrauer:T.1/k2-definition"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.10.5 (PDF p. 234)",
+     "excerpt": "Theorem 5.10.5. If R is a field, division ring, local ring, or even a semilocal ring, then K_2(R) is generated by the Steinberg symbols {r, s}.",
+     "match": "The theorem and its hypotheses, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/dennis-stein-symbol",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Dennis-Stein symbols",
+   "kind": "definition",
+   "statement": "For commuting elements r and s of R with one minus rs a unit define the Dennis-Stein symbol as the displayed word in the Steinberg group; it lies in K_2(R) because its image in E(R) is trivial. It is independent of the two indices, and when r is a unit it equals the Steinberg symbol of r with one minus rs. The symbols satisfy the three relations: the symbol of r with s times the symbol of s with r is trivial; the symbol of r with s times the symbol of r with t is the symbol of r with s plus t minus rst; and the symbol of r with st is the symbol of rs with t times the symbol of tr with s. The modern sign convention is used, which differs from the pre-1980 literature by an inverse and a sign.",
+   "hypotheses": [
+    "R is an associative unital ring; r and s commute and one minus rs is a unit."
+   ],
+   "proofSteps": [
+    "Write the displayed word and check that its image in E(R) is trivial, so that it lies in K_2(R).",
+    "Prove independence of the two indices.",
+    "Prove that for r a unit it reduces to the Steinberg symbol of r with one minus rs.",
+    "Prove the three relations.",
+    "Record the sign convention explicitly, together with the consequence that the symbol of r with one is trivial."
+   ],
+   "acceptance": [
+    "The symbol of r with one is trivial, which follows from the third relation.",
+    "For r a unit the symbol reduces to a Steinberg symbol.",
+    "The convention is the modern one; the pre-1980 symbol is the inverse of this one at minus r, and mixing the two is an error the definition records."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/steinberg-symbol",
+    "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+    "K2SymbolsBrauer:T.1/k2-definition"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.11 (PDF p. 234)",
+     "excerpt": "Definition 5.11 (Dennis-Stein symbols). ... (D1) the symbol of r with s times the symbol of s with r is 1; (D2) the symbol of r with s times the symbol of r with t is the symbol of r with s + t - rst; (D3) the symbol of r with st is the symbol of rs with t times the symbol of tr with s. ... We warn the reader that the meaning of the symbol changed circa 1980.",
+     "match": "The definition, the three relations and the warning about the convention, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "dennisSteinSymbol",
+     "role": "constructor",
+     "statement": "The symbol of two commuting elements with one minus their product a unit."
+    },
+    {
+     "name": "dennisStein_index_indep",
+     "role": "characterisation",
+     "statement": "Independence of the chosen indices."
+    },
+    {
+     "name": "dennisStein_eq_steinberg",
+     "role": "compatibility",
+     "statement": "For r a unit it is the Steinberg symbol of r with one minus rs."
+    },
+    {
+     "name": "dennisStein_D1",
+     "role": "relation",
+     "statement": "The first relation."
+    },
+    {
+     "name": "dennisStein_D2",
+     "role": "relation",
+     "statement": "The second relation."
+    },
+    {
+     "name": "dennisStein_D3",
+     "role": "relation",
+     "statement": "The third relation."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.2's presentation of K_2 of a local ring",
+     "how": "the presentation is by these symbols and the three relations"
+    },
+    {
+     "where": "relative K_2",
+     "how": "the symbol is defined relative to an ideal when one argument lies in it, which is where it is indispensable"
+    }
+   ],
+   "tests": [
+    {
+     "name": "one_entry",
+     "statement": "The symbol of r with one is trivial."
+    },
+    {
+     "name": "unit_case",
+     "statement": "For r a unit it reduces to a Steinberg symbol."
+    },
+    {
+     "name": "relations",
+     "statement": "The three relations hold."
+    },
+    {
+     "name": "convention",
+     "statement": "The modern convention is used: the pre-1980 symbol is a different element, which is a non-example."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/MilnorK",
+    "namespace": "TauCeti.MilnorK"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/dennis-stein-presentation",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "K_2 of a local ring is presented by Dennis-Stein symbols",
+   "kind": "theorem",
+   "statement": "If R is a commutative local ring, or a field, then K_2(R) is presented as the abelian group generated by the Dennis-Stein symbols of pairs whose product differs from one by a unit, subject only to the three relations.",
+   "hypotheses": [
+    "R is a commutative local ring or a field."
+   ],
+   "proofSteps": [
+    "Import the presentation from the source, which attributes it to Maazen, Stienstra and van der Kallen in the form corrected by Keune.",
+    "Record the historical caveat the source gives: the earlier work preceded the correct definition of relative K_2, so the citation is to the later reference.",
+    "Record the relation to the Steinberg presentation: for a field the two presentations agree after translating the symbols, which is the compatibility statement."
+   ],
+   "acceptance": [
+    "For a field the presentation is compatible with Matsumoto's.",
+    "The relations are exactly the three, with no others needed.",
+    "The theorem is for commutative local rings and fields; the semilocal case is only a generation statement."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/dennis-stein-symbol",
+    "K2SymbolsBrauer:T.2/symbols-generate"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.11.1 (PDF p. 234)",
+     "excerpt": "Theorem 5.11.1. (a) Let R be a commutative local ring, or a field. Then K_2(R) may be presented as the abelian group generated by the symbols with r, s in R such that 1 - rs is a unit, subject only to the relations (D1), (D2) and (D3).",
+     "match": "The theorem, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/matsumoto",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Matsumoto's theorem",
+   "kind": "theorem",
+   "statement": "For a field F the group K_2(F) is the abelian group generated by the Steinberg symbols of pairs of nonzero elements, subject only to bilinearity in each entry and the Steinberg identity that the symbol of x with one minus x is trivial for x different from zero and one. Equivalently, K_2(F) is the quotient of the tensor square of the multiplicative group by the subgroup generated by the elements x tensor one minus x.",
+   "hypotheses": [
+    "F is a field."
+   ],
+   "proofSteps": [
+    "State the presentation and prove that the displayed relations hold, which is the content of the symbol nodes above.",
+    "Prove the converse, that no further relations are needed. This is the normal-form argument: it is not enough to check that the map respects the relations, and the source refers to Milnor's book for a self-contained proof, which this node follows.",
+    "Record the reformulation as a quotient of the tensor square, which is the form Milnor K-theory generalises.",
+    "Deduce skew-symmetry inside the presentation, by the computation already recorded."
+   ],
+   "acceptance": [
+    "The presentation gives K_2 of a finite field trivial, which is the next node and a genuine test of the presentation.",
+    "The reformulation as a quotient of the tensor square is the degree-two case of Milnor K-theory.",
+    "The theorem is a presentation, not merely a surjection: the normal-form argument is what distinguishes the two, and a proof that only checks the relations is incomplete."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/steinberg-symbol",
+    "K2SymbolsBrauer:T.2/steinberg-identity",
+    "K2SymbolsBrauer:T.2/symbols-generate",
+    "K2SymbolsBrauer:T.2/symbol-consequences"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.1 (PDF p. 239)",
+     "excerpt": "Matsumoto's Theorem 6.1. If F is a field then K_2(F) is the abelian group generated by the set of Steinberg symbols {x, y} with x, y in F^x, subject only to the relations: (Bilinearity) ...; (Steinberg Identity) {x, 1 - x} = 1 for all x not 0, 1. In other words, K_2(F) is the quotient of F^x tensor F^x by the subgroup generated by the elements x tensor (1 - x).",
+     "match": "The theorem and its reformulation, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Matsumoto's theorem"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/k2-finite-field",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "K_2 of a finite field is trivial",
+   "kind": "theorem",
+   "statement": "For every finite field the group K_2 is trivial.",
+   "hypotheses": [
+    "F is a finite field with q elements."
+   ],
+   "proofSteps": [
+    "Reduce by Matsumoto's theorem to showing that the generator of the tensor square of the cyclic unit group dies, that is, that the symbol of a generator with itself is trivial.",
+    "In even characteristic use that minus one is one, so the symbol of a generator with itself is the symbol of the generator with its negative, which is trivial.",
+    "In odd characteristic use skew-symmetry to see that the symbol of the generator with itself squares to the trivial element, so it equals the symbol of any odd power of the generator with any other odd power.",
+    "Conclude by finding a non-square u for which one minus u is also a non-square: the map sending u to one minus u is an involution of the set of elements different from zero and one, which has (q minus one) halves non-squares and only (q minus three) halves squares, so such a u exists.",
+    "Apply the Steinberg identity at that u."
+   ],
+   "acceptance": [
+    "The counting step is what makes the argument work and is recorded, not asserted.",
+    "The two characteristics are treated separately.",
+    "The conclusion feeds the Milnor K-theory examples: all higher Milnor K-groups of a finite field vanish."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/matsumoto",
+    "K2SymbolsBrauer:T.2/symbol-consequences",
+    "mathlib:ZMod"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.1.1 (PDF p. 239)",
+     "excerpt": "Corollary 6.1.1. K_2(F_q) = 1 for every finite field F_q.",
+     "match": "The corollary, with the counting proof of the source."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/rational-function-field",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "K_2 of a field is a direct summand of K_2 of a rational function field, and the torsion kernel",
+   "kind": "lemma",
+   "statement": "For a field F the natural map from K_2(F) to K_2 of the rational function field in one variable is a split injection, split by the leading-coefficient map. Consequently K_2(F) injects into K_2 of every purely transcendental extension, and for an arbitrary field extension the kernel of the map on K_2 is a torsion subgroup.",
+   "hypotheses": [
+    "F is a field; the extension is arbitrary for the last statement."
+   ],
+   "proofSteps": [
+    "Define the leading coefficient of a rational function as the quotient of the leading coefficients of numerator and denominator, and define a map on symbols by applying it to both entries.",
+    "Check the presentation of Matsumoto's theorem: bilinearity is immediate, and the Steinberg identity holds because the leading coefficient of one minus a rational function is one, one minus the leading coefficient, or minus the leading coefficient, according to the comparison of the degrees.",
+    "Deduce that the map is well defined and splits the natural inclusion.",
+    "Pass to filtered colimits for an arbitrary purely transcendental extension.",
+    "For the last statement reduce to a finite extension and use that the composite of restriction and transfer is multiplication by the degree."
+   ],
+   "acceptance": [
+    "The leading-coefficient map is a homomorphism, which is the content of the three-case check.",
+    "The kernel of the map on K_2 for an arbitrary extension is torsion, not zero.",
+    "The splitting is by an explicit map, not by an abstract argument."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/matsumoto",
+    "K2SymbolsBrauer:T.2/k2-finite-field"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.1.2 and III.6.1.3 (PDF p. 239)",
+     "excerpt": "Example 6.1.2. Let F(t) be a rational function field in one variable t over F. Then K_2(F) is a direct summand of K_2 F(t). ... Lemma 6.1.3. For every field extension F in E, the kernel of K_2(F) -> K_2(E) is a torsion subgroup.",
+     "match": "The example and the lemma, with the leading-coefficient construction of the cited proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/milnor-k-theory",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Milnor K-theory of a field",
+   "kind": "definition",
+   "statement": "For a field F form the tensor algebra of the multiplicative group written additively, with the degree-one element attached to a nonzero x written l(x). Define the graded ring K^M of F as the quotient of that tensor algebra by the two-sided ideal generated by the homogeneous elements l(x) tensor l(one minus x) with x different from zero and one. The Milnor K-group in degree n is the degree-n part, presented by symbols that are multiplicative in each entry and vanish when two consecutive entries sum to one. Degree zero is the integers and degree one is the multiplicative group written additively.",
+   "hypotheses": [
+    "F is a field.",
+    "All tensor products are over the integers."
+   ],
+   "proofSteps": [
+    "Form the tensor algebra of the unit group, using the additive type tag and the pinned tensor algebra.",
+    "Form the two-sided ideal generated by the displayed homogeneous elements and take the quotient as a graded ring, using the pinned quotient construction.",
+    "Prove that the quotient is graded, so that the degree-n parts are defined.",
+    "Prove the two low-degree identifications, degree zero and degree one.",
+    "Prove the presentation statement: the degree-n group is generated by the symbols subject to multiplicativity in each entry and the vanishing relation.",
+    "Prove functoriality in the field."
+   ],
+   "acceptance": [
+    "Degree zero is the integers and degree one is the unit group written additively.",
+    "Degree two is Matsumoto's presentation, hence K_2(F), which is the next node.",
+    "The ideal is generated by homogeneous elements of degree two, so the quotient is graded; a non-homogeneous generator would destroy the grading."
+   ],
+   "prerequisites": [
+    "mathlib:TensorAlgebra",
+    "mathlib:Additive",
+    "mathlib:RingQuot",
+    "mathlib:Units"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.1 (PDF p. 253)",
+     "excerpt": "Definition 7.1. The graded ring K^M_*(F) is defined to be the quotient of T(F^x) by the ideal generated by the homogeneous elements l(x) tensor l(1 - x) with x not 0, 1. The Milnor K-group K^M_n(F) is defined to be the subgroup of elements of degree n.",
+     "match": "The definition, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "milnorK",
+     "role": "data",
+     "statement": "The graded ring, and its degree-n part."
+    },
+    {
+     "name": "milnorK.symbol",
+     "role": "constructor",
+     "statement": "The symbol of an n-tuple of nonzero elements."
+    },
+    {
+     "name": "milnorK.symbol_mul",
+     "role": "relation",
+     "statement": "Multiplicativity in each entry."
+    },
+    {
+     "name": "milnorK.symbol_steinberg",
+     "role": "relation",
+     "statement": "Vanishing when two consecutive entries sum to one."
+    },
+    {
+     "name": "milnorK.zero",
+     "role": "compatibility",
+     "statement": "Degree zero is the integers."
+    },
+    {
+     "name": "milnorK.one",
+     "role": "compatibility",
+     "statement": "Degree one is the unit group written additively."
+    },
+    {
+     "name": "milnorK.map",
+     "role": "functoriality",
+     "statement": "Functoriality in the field."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.2's Matsumoto comparison",
+     "how": "the degree-two group is identified with K_2"
+    },
+    {
+     "where": "HigherLocalFieldsAndHigherClassFieldTheory HL.1",
+     "how": "that layer assembles these groups along a residue tower and imports rather than rebuilds them"
+    },
+    {
+     "where": "K3BlochGroups V.2",
+     "how": "the degree-three group is the source of the map whose cokernel is the indecomposable K_3"
+    }
+   ],
+   "tests": [
+    {
+     "name": "degree_zero_one",
+     "statement": "Degree zero is the integers and degree one is the unit group."
+    },
+    {
+     "name": "finite_field",
+     "statement": "For a finite field every degree at least two vanishes."
+    },
+    {
+     "name": "graded",
+     "statement": "The quotient is graded, because the ideal is generated in a single degree."
+    },
+    {
+     "name": "not_alternating_by_fiat",
+     "statement": "The alternating property is a theorem, proved from skew-symmetry in degree two, not an axiom."
+    }
+   ],
+   "planet": {
+    "name": "Milnor K-theory"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/MilnorK",
+    "namespace": "TauCeti.MilnorK"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/milnor-alternating",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Milnor symbols are alternating",
+   "kind": "lemma",
+   "statement": "Interchanging two entries of a Milnor symbol replaces it by its inverse, and consequently for any permutation the symbol of the permuted tuple is the sign of the permutation times the original symbol.",
+   "hypotheses": [
+    "F is a field; the entries are nonzero."
+   ],
+   "proofSteps": [
+    "Use that in degree two the sum of the symbol and its transpose vanishes, which is skew-symmetry proved above.",
+    "Deduce that interchanging two adjacent entries of an n-tuple changes the sign, since the degree-two relation can be applied in place inside the product.",
+    "Extend to an arbitrary transposition and then to an arbitrary permutation by decomposing it into transpositions.",
+    "Record what this does not say: the symbol with a repeated entry need not vanish integrally, and equals the symbol with that entry replaced by minus one in the appropriate position."
+   ],
+   "acceptance": [
+    "A transposition changes the sign.",
+    "A symbol with a repeated entry is two-torsion but not necessarily zero, which is the same caveat as in degree two.",
+    "For a field containing a square root of minus one the repeated-entry symbol does vanish."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/milnor-k-theory",
+    "K2SymbolsBrauer:T.2/symbol-consequences"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.1 (PDF p. 253)",
+     "excerpt": "Since {x_i, x_{i+1}} + {x_{i+1}, x_i} = 0 in K^M_2(F), we see that interchanging two entries in {x_1, ..., x_n} yields the inverse. It follows that these symbols are alternating.",
+     "match": "The derivation, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/milnor-examples",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Milnor K-theory in the standard examples",
+   "kind": "lemma",
+   "statement": "For a finite field the Milnor K-groups vanish in every degree at least two, and for a field of transcendence degree one over a finite field they vanish in every degree at least three. For an algebraically closed field they are uniquely divisible. For the real numbers each group is the direct sum of a cyclic group of order two generated by the symbol with every entry minus one and a divisible subgroup, and the quotient by twice the group is the polynomial ring over the field with two elements on the class of minus one. For a number field with r_1 real embeddings the group in every degree at least three is the elementary abelian two-group of rank r_1.",
+   "hypotheses": [
+    "The field is as named in each clause."
+   ],
+   "proofSteps": [
+    "For a finite field use that the degree-two group vanishes, and that the ring is generated in degree one, so every higher degree vanishes; cite Bass and Tate for the transcendence-degree-one statement.",
+    "For an algebraically closed field prove divisibility from divisibility of the unit group, and cite the source for the absence of torsion.",
+    "For the real numbers construct the graded ring map to the polynomial ring over the field with two elements sending the class of a negative number to the indeterminate and of a positive number to zero, check that it kills the Steinberg elements, and read off the splitting by induction.",
+    "For a number field construct the map to the product of the real groups over the real embeddings and cite Bass and Tate for the isomorphism in degree at least three."
+   ],
+   "acceptance": [
+    "For a finite field every degree at least two vanishes.",
+    "For the real numbers the symbol with every entry minus one is nonzero, which is the generator of the two-torsion.",
+    "For a number field the answer in degree at least three is elementary abelian of rank r_1, which K3BlochGroups V.2 uses in degree three."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/milnor-k-theory",
+    "K2SymbolsBrauer:T.2/k2-finite-field",
+    "mathlib:NumberField.InfinitePlace.nrRealPlaces"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.2 (PDF pp. 253-254)",
+     "excerpt": "Examples 7.2. (a) If F_q is a finite field, then K^M_n(F_q) = 0 for all n >= 2 ... (d) When F is a number field, let r_1 be the number of embeddings of F into R. ... Bass and Tate proved that this map is an isomorphism for all n >= 3: K^M_n(F) = (Z/2)^{r_1}.",
+     "match": "The four examples, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/tame-symbols",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Higher tame symbols and specialisation maps",
+   "kind": "construction",
+   "statement": "For every discrete valuation on F there are two surjections from the Milnor K-group in degree n: the higher tame symbol to the degree n minus one group of the residue field, and the specialisation map to the degree n group of the residue field. They are determined by their values on symbols of units times powers of a parameter, as displayed in the source. In degree two the tame symbol is the classical one and the specialisation map is the one built from the leading coefficient.",
+   "hypotheses": [
+    "F is a field with a discrete valuation, valuation ring R, parameter pi and residue field k."
+   ],
+   "proofSteps": [
+    "Form the graded algebra over the Milnor K-theory of the residue field generated by an indeterminate in degree one subject to the relation that its square is the symbol of minus one with it.",
+    "Define a group homomorphism from the unit group of F to the degree-one part by sending a unit times the i-th power of the parameter to the class of the reduced unit plus i times the indeterminate.",
+    "Prove that this homomorphism kills the Steinberg elements, by the case analysis the source performs: on units, on elements with positive valuation, and on elements outside the valuation ring.",
+    "Conclude from the presentation of Milnor K-theory that it extends to a graded ring map, and split the target in each degree into the two summands to obtain the two maps.",
+    "Prove the displayed formulas on symbols and identify the degree-two cases with the classical tame symbol and specialisation map.",
+    "Prove surjectivity of both maps."
+   ],
+   "acceptance": [
+    "In degree two the tame symbol is the classical one.",
+    "Both maps are surjective.",
+    "The construction needs the relation on the indeterminate; without it the map does not kill the Steinberg elements."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/milnor-k-theory",
+    "K2SymbolsBrauer:T.2/symbol-consequences",
+    "K2SymbolsBrauer:T.2/rational-function-field"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.3 (PDF p. 254)",
+     "excerpt": "Theorem 7.3 (Specialization maps and higher tame symbols). For every discrete valuation v on F, there are two surjections K^M_n(F) -> K^M_{n-1}(k_v) and K^M_n(F) -> K^M_n(k_v) satisfying the following conditions.",
+     "match": "The theorem and Serre's construction, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "tameSymbol",
+     "role": "constructor",
+     "statement": "The higher tame symbol in each degree."
+    },
+    {
+     "name": "specialisation",
+     "role": "constructor",
+     "statement": "The specialisation map in each degree."
+    },
+    {
+     "name": "tameSymbol_apply",
+     "role": "simp",
+     "statement": "Its value on a symbol with a parameter in the first entry."
+    },
+    {
+     "name": "specialisation_apply",
+     "role": "simp",
+     "statement": "Its value on a symbol of units times powers of the parameter."
+    },
+    {
+     "name": "tameSymbol_surjective",
+     "role": "characterisation",
+     "statement": "Surjectivity of both maps."
+    },
+    {
+     "name": "tameSymbol_two",
+     "role": "compatibility",
+     "statement": "In degree two it is the classical tame symbol."
+    }
+   ],
+   "uses": [
+    {
+     "where": "HigherLocalFieldsAndHigherClassFieldTheory HL.1",
+     "how": "the iterated residues along a residue tower are built from these"
+    },
+    {
+     "where": "Polylogarithms P.3",
+     "how": "the residues of the weight-three polylogarithmic complex are built from the degree-three case"
+    },
+    {
+     "where": "T.2's rigidity corollary",
+     "how": "the two maps together give the finite-coefficient isomorphism"
+    }
+   ],
+   "tests": [
+    {
+     "name": "degree_two",
+     "statement": "In degree two the tame symbol is the classical one."
+    },
+    {
+     "name": "on_units",
+     "statement": "The tame symbol of a symbol of units is trivial."
+    },
+    {
+     "name": "surjective",
+     "statement": "Both maps are onto."
+    },
+    {
+     "name": "needs_relation",
+     "statement": "Without the relation on the indeterminate the construction fails: a non-example."
+    }
+   ],
+   "planet": {
+    "name": "Higher tame symbols"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/MilnorK",
+    "namespace": "TauCeti.MilnorK"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/rigidity",
+   "parentStageId": "K2SymbolsBrauer:T.2:symbols",
+   "realises": [
+    "K2SymbolsBrauer:T.2:symbols"
+   ],
+   "title": "Rigidity for a complete discretely valued field",
+   "kind": "theorem",
+   "statement": "If F is complete with respect to the valuation, with residue field k, then for every integer q prime to the characteristic of k the pair consisting of the specialisation map and the tame symbol is an isomorphism from the Milnor K-group modulo q to the direct sum of the corresponding groups of the residue field, in every degree.",
+   "hypotheses": [
+    "F is complete for the valuation; q is prime to the residue characteristic."
+   ],
+   "proofSteps": [
+    "State the map as the pair of the two maps constructed above, reduced modulo q.",
+    "Prove the isomorphism in the stated range, following the source.",
+    "Record the hypothesis: the statement fails without primality to the residue characteristic, so the wild case is excluded."
+   ],
+   "acceptance": [
+    "The statement is modulo q, not integrally.",
+    "The hypothesis on q is necessary and is recorded.",
+    "In degree one the statement reduces to the decomposition of the unit group of a complete discretely valued field modulo q."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/tame-symbols"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.3.1 (PDF p. 254)",
+     "excerpt": "Corollary 7.3.1 (Rigidity). Suppose that F is complete with respect to the valuation v, with residue field k = k_v. For every integer q prime to char(k), the maps lambda plus partial_v : K^M_n(F)/q -> K^M_n(k)/q + K^M_{n-1}(k)/q are isomorphisms for all n.",
+     "match": "The corollary, as displayed."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/graded-map",
+   "parentStageId": "K2SymbolsBrauer:T.2:graded-map",
+   "realises": [
+    "K2SymbolsBrauer:T.2:graded-map"
+   ],
+   "title": "The graded map from Milnor to Quillen K-theory",
+   "kind": "construction",
+   "statement": "Construct the natural graded ring map from Milnor K-theory of a field to Quillen K-theory, determined by the products of degree-one classes. Its degree-two component is Matsumoto's isomorphism. No isomorphism is asserted in degree three or above.",
+   "hypotheses": [
+    "F is a field."
+   ],
+   "proofSteps": [
+    "Import the products on Quillen K-theory from GeneralAlgebraicKTheory.",
+    "Define the map on the tensor algebra by sending the degree-one element attached to a nonzero x to the class of x in K_1(F) and extending multiplicatively.",
+    "Prove that it kills the Steinberg elements, using the degree-two Steinberg identity in Quillen K-theory, so that it descends to Milnor K-theory.",
+    "Prove that the result is a map of graded rings and is natural in the field.",
+    "Record what is and is not asserted: degree two is an isomorphism, by Matsumoto; degree three is a map whose cokernel defines the indecomposable K_3 in K3BlochGroups V.2; no general isomorphism is claimed."
+   ],
+   "acceptance": [
+    "Degree one is the identity on the unit group.",
+    "Degree two is an isomorphism.",
+    "Degree three is neither injective nor surjective in general; it is the map whose cokernel another roadmap studies."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/milnor-k-theory",
+    "K2SymbolsBrauer:T.2/matsumoto",
+    "GeneralAlgebraicKTheory:K.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.1 and III.6.1 (PDF pp. 239, 253)",
+     "excerpt": "By Matsumoto's Theorem 6.1 we also have K^M_2(F) = K_2(F), the elements {x, y} being the usual Steinberg symbols, except that the group operation in K^M_2(F) is written additively.",
+     "match": "The degree-two identification, which is the special degree of this graded map."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "milnorToQuillen",
+     "role": "constructor",
+     "statement": "The graded ring map."
+    },
+    {
+     "name": "milnorToQuillen_one",
+     "role": "simp",
+     "statement": "Degree one is the identity on the unit group."
+    },
+    {
+     "name": "milnorToQuillen_two",
+     "role": "characterisation",
+     "statement": "Degree two is an isomorphism, by Matsumoto."
+    },
+    {
+     "name": "milnorToQuillen_map",
+     "role": "functoriality",
+     "statement": "Naturality in the field."
+    },
+    {
+     "name": "milnorToQuillen_graded",
+     "role": "structure",
+     "statement": "It is a map of graded rings."
+    }
+   ],
+   "uses": [
+    {
+     "where": "K3BlochGroups V.2",
+     "how": "the degree-three component is the map whose cokernel is the indecomposable K_3"
+    },
+    {
+     "where": "MotivicEtaleKTheory M.5",
+     "how": "the norm-residue theorem is about the mod-m reduction of the source of this map"
+    },
+    {
+     "where": "HigherLocalFieldsAndHigherClassFieldTheory HL.1",
+     "how": "that layer imports the graded source and the map"
+    }
+   ],
+   "tests": [
+    {
+     "name": "degree_one",
+     "statement": "Degree one is the identity."
+    },
+    {
+     "name": "degree_two_iso",
+     "statement": "Degree two is an isomorphism."
+    },
+    {
+     "name": "degree_three_not_iso",
+     "statement": "Degree three is not an isomorphism in general: for a number field with a real place the source is nonzero torsion and the target has positive rank."
+    },
+    {
+     "name": "graded",
+     "statement": "The map respects the grading and the products."
+    }
+   ],
+   "planet": {
+    "name": "Milnor to Quillen graded map"
+   },
+   "library": {
+    "module": "TauCeti/Algebra/KTheory/MilnorK",
+    "namespace": "TauCeti.MilnorK"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.2/graded-map-degree-three",
+   "parentStageId": "K2SymbolsBrauer:T.2:graded-map",
+   "realises": [
+    "K2SymbolsBrauer:T.2:graded-map"
+   ],
+   "title": "The degree-three component, and what consumes it",
+   "kind": "comparison",
+   "statement": "The degree-three component of the graded map is the map from the Milnor K-group in degree three to Quillen K_3 of the field. K3BlochGroups V.2 defines the indecomposable K_3 as its cokernel and proves that it is injective for a field; this layer supplies the map and does not duplicate either statement.",
+   "hypotheses": [
+    "F is a field."
+   ],
+   "proofSteps": [
+    "Take the degree-three component of the graded map.",
+    "State the two facts the consuming layer proves: injectivity for a field, and the definition of the indecomposable quotient as the cokernel.",
+    "Record the ownership: the map is constructed here, the quotient and the injectivity theorem belong to K3BlochGroups V.2, and neither side plans the other."
+   ],
+   "acceptance": [
+    "The component sends a Milnor symbol of three units to the product of their classes.",
+    "For a finite field the source vanishes.",
+    "The injectivity theorem is not proved here; it is cited to the consuming layer."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/graded-map",
+    "K3BlochGroups:V.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.1 (PDF p. 253)",
+     "excerpt": "Definition 7.1. The graded ring K^M_*(F) is defined to be the quotient of T(F^x) by the ideal generated by the homogeneous elements l(x) tensor l(1 - x) with x not 0, 1.",
+     "match": "The graded source whose degree-three part this component starts from."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "K2SymbolsBrauer:T.1",
+   "status": "source_decomposed",
+   "note": "The umbrella stage: its two sub-stages are covered below and every node of this packet realises one of them. No node realises the umbrella directly, so its record is the aggregate of the two."
+  },
+  {
+   "stageId": "K2SymbolsBrauer:T.1:classical",
+   "status": "source_decomposed",
+   "note": "The Steinberg group in finite rank with the distinct-index hypotheses explicit, the check that the elementary matrices satisfy the relations, stabilisation and the stable group, K_2 as the kernel, Steinberg's centre theorem, the universal-central-extension theory with the Hopf formula and the Recognition Theorem, the identification of St(R) as the universal central extension, the finite-rank splitting for n at least five, and an explicit node recording what the stable theorem does not give in finite rank."
+  },
+  {
+   "stageId": "K2SymbolsBrauer:T.1:plus",
+   "status": "source_decomposed",
+   "note": "K_2(R) identified with the second homology of E(R) through the uniqueness of the universal central extension, and then with the second homotopy group of the K-theory space, importing the plus construction from StableHomotopyKTheory H.3 and the space from GeneralAlgebraicKTheory K.2."
+  },
+  {
+   "stageId": "K2SymbolsBrauer:T.2",
+   "status": "source_decomposed",
+   "note": "The umbrella stage: its two sub-stages are covered below."
+  },
+  {
+   "stageId": "K2SymbolsBrauer:T.2:symbols",
+   "status": "source_decomposed",
+   "note": "The star product, the Steinberg symbol from the diagonal lifts, the Steinberg identity in both of its forms, skew-symmetry with the correct value of the symbol of a unit with itself, the generation theorem for semilocal rings, the Dennis-Stein symbols with their three relations and the presentation of K_2 of a local ring, Matsumoto's theorem with its normal-form requirement recorded, K_2 of a finite field, the rational function field and the torsion kernel, Milnor K-theory in all degrees with the alternating property and the standard examples, and the higher tame symbols with rigidity."
+  },
+  {
+   "stageId": "K2SymbolsBrauer:T.2:graded-map",
+   "status": "source_decomposed",
+   "note": "The graded map from Milnor to Quillen K-theory with its degree-two isomorphism and the explicit statement that no isomorphism is asserted in higher degree, and the degree-three component with the ownership boundary against K3BlochGroups V.2."
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Matsumoto's theorem is stated, not decomposed",
+   "detail": "The K-book states Matsumoto's theorem and refers to Milnor's 1971 book, section 12, for a self-contained proof; that book was not obtained. The node states the theorem, records that the normal-form and presentation argument is what the proof consists of, and does not pretend that checking the relations is a proof. A continuation that obtains Milnor's book should decompose that argument."
+  },
+  {
+   "title": "Three statements are used exactly as the K-book gives them",
+   "detail": "The injectivity of the subgroup generated by the symbols x_in(r) into E(R), which the source relegates to an exercise and which the proof of Steinberg's centre theorem needs; the generation of K_2 by symbols for semilocal rings, attributed to Milnor and to Dennis and Stein; and the presentation of K_2 of a local ring by Dennis-Stein symbols, attributed to Maazen, Stienstra, van der Kallen and Keune. None of the three originals was obtained."
+  },
+  {
+   "title": "The general form of the symbol of a unit with its negative rests on a later chapter",
+   "detail": "The statement that the symbol of r with minus r is trivial for every unit, even when one minus r is not a unit, is deduced in the source from an injectivity between K_2 of two localisations proved in its chapter five, or from a direct proof in Milnor's book. Neither is decomposed here, and the node records the dependence."
+  },
+  {
+   "title": "Bass and Tate are cited for two Milnor K-theory computations",
+   "detail": "The vanishing of the Milnor K-groups in degree at least three for a global field of finite characteristic, and the isomorphism with the elementary abelian two-group of rank r_1 in degree at least three for a number field, are both attributed by the source to Bass and Tate. That paper was not obtained; the node states the results with the attribution."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.2",
+   "need": "The K-theory space and its plus-construction model, K_1 as the abelianisation of the stable general linear group, the identification of E(R) with its commutator subgroup, and the products on K-theory that the graded map uses. This layer supplies the explicit K_2 model that K.2:low-degree-comparisons assembles; the two must not both construct it."
+  },
+  {
+   "supplier": "StableHomotopyKTheory:H.3",
+   "need": "The plus construction with its universal property, its homology isomorphism and the identification of the plus construction on the classifying space of a perfect normal subgroup with the universal cover, which is what turns the second homology into the second homotopy group."
+  },
+  {
+   "supplier": "K3BlochGroups:V.2",
+   "need": "The indecomposable K_3 as the cokernel of the degree-three component of the graded map, and the injectivity of that component for a field. This layer constructs the map; that layer owns the quotient and the injectivity theorem."
+  },
+  {
+   "supplier": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+   "need": "Confirmation that the all-degree Milnor K-theory and the higher tame symbols are imported from here and assembled along a residue tower there, as the accepted restructuring RS-28 records, so that neither side rebuilds them."
+  }
+ ],
+ "restructure": [],
+ "sourceIssues": []
+}
