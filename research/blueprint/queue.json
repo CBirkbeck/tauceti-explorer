@@ -18541,8 +18541,9 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/BP-HeckeStacksAndLocalShtukas.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #750"
   },
   {
    "id": "REV-HeckeStacksAndLocalShtukas",
