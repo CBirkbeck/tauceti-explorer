@@ -15985,8 +15985,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CohomologyComparisons.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #697"
   },
   {
    "id": "REV-CohomologyComparisons",
@@ -44007,10 +44008,11 @@
     "research/blueprint/sources/SRC-LocalFieldsRamification.result.json"
    ],
    "after": [],
-   "state": "external",
+   "state": "done",
    "timeout": 21600,
    "prompt": "research/blueprint/prompts/SRC-LocalFieldsRamification.md",
-   "note": "claimed on GitHub issue #2828"
+   "note": "deliverables arrived from an external worker on issue #2828",
+   "finishedAt": "2026-09-24T15:02:30Z"
   },
   {
    "id": "REV-SRC-LocalFieldsRamification",
