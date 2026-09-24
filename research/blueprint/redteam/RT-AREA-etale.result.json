@@ -1,0 +1,380 @@
+{
+  "redteam": "RT-AREA-etale",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "area:etale",
+  "summary": "Red team of the area Étale cohomology (Algebraic geometry): AdicCoefficientsAndComparisons, ClassicalAdicEtaleCohomology, DeligneWeightsAndPurity, EtaleDualityAndPerverseSheaves, HabiroCohomologyFoundations, LefschetzPencilsAndVanishingCycles, WeightsInEtaleCohomology and WeilConjectures. That is 76 stages, the 61 paper routes into them and their Part IIs, and the eleven restructuring proposals that touch them. 40 findings: 6 high, 30 medium, 4 low. High: (1) Deligne's equidistribution theorem and Katz–Sarnak monodromy of the universal curve are planned nowhere, although an accepted route sends Schiffmann's density theorem, which needs both, into DWP.0. (2) Gabber's absolute purity is planned twice, by accepted routes into SF.2 and into a new Part II. (3) No layer plans ℓ-adic sheaf theory on Artin or DM stacks, which shtuka, Hitchin and Bun_G consumers apply EDC's outputs to. (4) de Jong's alterations in L5 need M̄_{g,n} with a projective cover, which nothing plans. (5) Huber 3.8.1 in characteristic p (H5) needs relative Poincaré duality in all dimensions, while H3 plans only curves. (6) HQ.5's Theorem 4.22 lacks both proof inputs. Medium findings include: the uniform Lang–Weil estimate and Ekedahl's Chebotarev are unowned; routes still point at owners that accepted RS-17 reassigned; the Artin–Schreier sheaf is planned three times; the IndConstructibles Part II re-plans Mathlib's Serre-class localization; missing edges L3 → EDC.6, SF.2 → L1, HR.1 → HQ.1 and HQ.5-trace → HQ.7; de Jong alterations and coherent Grothendieck duality each have two owners; characteristic-0 characteristic cycles have no accepted owner; LPV.2's algebraic Picard–Lefschetz proof lacks its source (Illusie 2002); the shared Part II ids lose one paper's brief in make_queue.py; and the Habiro family's q-de Rham–Witt theory is planned twice pending the accepted PLAN-HABIRO.",
+  "checked": [
+    "Every stage of the eight roadmaps (76 stages: AdicCoefficients 7, ClassicalAdicEtale 10, DeligneWeights 11, EtaleDuality 13, HabiroCohomologyFoundations 9, LefschetzPencils 10, WeightsInEtale 6, WeilConjectures 10), in full from data/atlas.json and the per-roadmap extracts, with every stage edge touching them and the roadmap documents under content/campaign/.",
+    "The seven reviewed decompositions (all except HabiroCohomologyFoundations): every node, link, coverage entry, gap and review note. Also the library-coverage entries for the audited layers (including AUDIT-18 and AUDIT-19).",
+    "The eleven restructuring proposals touching the area, with their review status. Accepted ones read as decisions: RS-02, RS-05, RS-06, RS-08, RS-17 (read in full: 37 layers, 300 links, 44 owners), RS-19, RS-22, RS-25. RS-10, RS-12 and RS-20 are needs_changes and were read only for context. The accepted plan research/blueprint/plans/HABIRO.md and its review were also read.",
+    "All 61 paper routes into the area, with their items, briefs and reviews (ABE-25, BHATT-ETAL-23, BINDA-KATO-VEZZANI-25, BOXER-PILLONI-26, BRESCIANI-24, BRIGHT-NEWTON-23, BROWNING-SAWIN-20, CADORET-HUI-TAMAGAWA-17, CARAIANI-SCHOLZE-17, CARO-PASTEN-23, CESNAVICIUS-19, CESNAVICIUS-SCHOLZE-24, COLMEZ-DOSPINESCU-NIZIOL-21/23, COLMEZ-NIZIOL-17, DITTMANN-POP-23, FRESAN-SABBAH-YU-22, GUO-REINECKE-24, HANSEN-KALETHA-WEINSTEIN-22, HARPAZ-WITTENBERG-16, JANNSEN-16, KISIN-PAPPAS-18, KISIN-ZHOU-25, LIU-ETAL-22, QIAN-23, SCHIFFMANN-16, SCHROER-23, SHENDE-TSIMERMAN-17, YANG-ZHAO-25, YU-23, YUN-ZHANG-17/19, ZAVYALOV-25, ZHU-17). The routes of other papers were cross-checked where they plan the same mathematics (BHATT-MATHEW-21, CLAUSEN-MATHEW-MORROW-21, LAFFORGUE-18, LAWRENCE-SAWIN-25, LANDESMAN-LITT-24, YUAN-26, LI-LIU-21/22 and others).",
+    "Draft new roadmaps QWittVectors, AnalyticHabiroStack, AnalyticStacks and RingStacksAndTransmutation in research/blueprint/roadmaps/.",
+    "Graph checks: Tarjan over all 3508 atlas stageEdges finds no cycle, and none after adding the links of the accepted restructurings. So the roadmap-level mutual prerequisites in the area are stage interleavings. Ancestor and descendant sets were computed for every edge claim and every proposed edge; each proposed edge is acyclic.",
+    "Keyword searches over all 1968 stage descriptions, all decomposition nodes and gaps, all paper routes and items. Terms: equidistribution, Katz–Sarnak, Lang–Weil, Ekedahl, absolute purity, Gabber, Fujiwara, Laszlo–Olsson, Artin/DM-stack operations, singular support, characteristic cycle, Artin–Schreier, Fourier–Deligne, Laumon, Picard–Lefschetz, M̄_{g,n}, stable pointed curves, log regularity, equivariant alterations, Vidal, Temkin, q-connection, analytic Habiro, ring stack, transmutation. The only Laszlo matches are Beauville–Laszlo gluing.",
+    "Pinned libraries (Mathlib 082e2d3, Tau Ceti f790474), via a fresh declaration index and source greps, for every missing claim: Lang–Weil, stacks, alterations, stable curves, moduli stacks, pro-étale left completion, Habiro, q-derivatives, Λ-rings. Also Mathlib's Serre-class localization (CategoryTheory/Abelian/SerreClass/*) and AlgebraicGeometry/Sites/Proetale.lean.",
+    "Public sources read (accessed 2026-09-24): Schiffmann arXiv:1406.3839v2 App. B; Deligne, Weil II (numdam PMIHES_1980__52__137_0), contents, introduction and §3.5; de Jong 1996 (numdam PMIHES_1996__83__51_0) §§2.24, 4.17, 5.13; Illusie–Laszlo–Orgogozo, Travaux de Gabber, arXiv:1207.3648v1 Exp. X; Berkovich 1993 (numdam PMIHES_1993__78__5_0) §7.5; Bhatt–Scholze arXiv:1309.1198v2; Scholze, Étale cohomology of diamonds (ECD) §§26–27; Illusie, Ann. Fac. Sci. Toulouse 30 (2021) doi:10.5802/afst.1667 §6.1; Saito arXiv:1510.03018; Wagner arXiv:2510.04782v2, 2410.23078v5, 2510.06057v1 and thesis; Meyer–Wagner arXiv:2410.23115v4; GSWZ arXiv:2412.04241; Scholze arXiv:1606.01796 §7."
+  ],
+  "findings": [
+    {
+      "id": "RT-AREA-etale/1",
+      "kind": "missing",
+      "severity": "high",
+      "where": "PAPER-SCHIFFMANN-16 route 3 (accepted) → DeligneWeightsAndPurity:DWP.0, item PAPER-SCHIFFMANN-16/36; Weil II §3.5",
+      "claim": "An accepted source route sends Schiffmann's Proposition 4.8 (the Weil numbers of genus-g curves are Zariski dense in T_g/W_g) into DWP.0, which only defines Weil q-numbers and cannot prove it. Its proof (Appendix B) needs two things no layer plans and the libraries lack: the Katz–Sarnak theorem that the geometric monodromy of R¹ρ_!Q_ℓ over an open of M_g has Zariski closure Sp_2g, and Deligne's equidistribution theorem (Weil II 3.5.3). Weil II §3.5 falls between DWP.8 (§3.4) and LPV.7:invariant-cycles (§3.6) and is in no stage's sources.",
+      "evidence": "DWP.0 (data/atlas.json): 'Sources: Weil I §§1.4–1.7/3.1; Weil II §§1.2/1.6; no general weight theorem', requiring only EDC.0. Route 3 reason: 'The statement proved in this paper's Appendix B is of the same kind'; review: 'accept … the purity/weight statement about Frobenius eigenvalues'. Schiffmann arXiv:1406.3839v2, Appendix B: 'By [KS, Thm 10.1.16, Thm. 10.2.2], the Zariski closure of ρ(π1^geom(M°_g)) is equal to Sp(2g, Ql)… By Deligne's equidistribution theorem (see [D1, 3.5.3] and [KS, Thm. 9.2.6]) …'. Weil II table of contents: '(3.5) Application : théorèmes d'équidistribution … 210'. Stage sources: DWP.7 '3.3.1–3.3.11', DWP.8 '3.4.1–3.4.13', LPV.7:invariant-cycles 'Deligne II 3.6.1'. A search of all stage descriptions finds no stage in DWP, LPV, EDC, WIC or WC mentioning equidistribution, and none mentioning Katz–Sarnak.",
+      "fix": "Add a DWP layer (e.g. DWP.8:equidistribution, requiring DWP.5, DWP.7, DWP.8) owning Weil II 3.5.1–3.5.3, with the function-field Sato–Tate statements 3.5.5–3.5.7 as acceptance and Haar probability imported from tauceti RepresentationTheory/CompactGroups. Extend the accepted Part II 'LefschetzPencilsAndVanishingCycles, Part II: universal hypersurface monodromy' (BROWNING-SAWIN-20 route 6, which owns Katz–Sarnak 11.4.9) with Katz–Sarnak 10.1.16/10.2.2 for the universal curve. Re-route SCHIFFMANN-16/36 to the new DWP layer; DWP.0 keeps only the Weil-number bookkeeping. Record Schiffmann's [D1] label ('La conjecture de Weil I', but 'Publ. Math. 52' = Weil II) as a source issue."
+    },
+    {
+      "id": "RT-AREA-etale/2",
+      "kind": "duplicate",
+      "severity": "high",
+      "where": "PAPER-CESNAVICIUS-19 route 3 (accepted source → SchemeAndStackFoundations:SF.2, item absolute-purity-input) vs PAPER-CESNAVICIUS-SCHOLZE-24 route 4 (accepted Part II EtaleDualityAbsolutePurityPartII)",
+      "claim": "Gabber's absolute purity is planned twice by two accepted routes. The Česnavičius route puts it into SF.2's blueprint (make_queue.py appends every accepted source route to the roadmap's sources), and the Česnavičius–Scholze route makes it the main theorem of a new Part II; the CS24 review accepted the Part II because purity is 'not planned by any of its stages', missing the earlier accepted CS19 route. LI-LIU-21/79 (unreviewed) routes the general form to SF.2 too. The same CS19 route also puts cohomology with supports into SF.2, which accepted RS-19 assigns to EDC.0.",
+      "evidence": "CS19 item absolute-purity-input (missing, route 3 → SF.2, accepted): 'For strictly henselian regular local R of dimension≥2 and prime ℓ invertible in R, the absolute purity theorem gives H²(U_R,μ_ℓ)=0 …'. CS24 route 4 (accepted), title 'Étale duality, cycle classes and perverse sheaves, Part II: absolute cohomological purity and Gabber's local theorems'; brief: 'Theorem 3.1.3 (absolute cohomological purity … H^i_𝔪(R, G) = 0 for i < 2 dim(R))'; its review: 'is not planned by any of its stages'. research/blueprint/make_queue.py:836–838 (ADDED_SOURCES for accepted source routes). CS19 item supports ('construct H_Z^q(X,F), its local sheaf ℋ_Z^q …') routed to SF.2; RS-19 owner 'Scheme cohomology-with-support … owner EtaleDualityAndPerverseSheaves:EDC.0'.",
+      "fix": "Make EtaleDualityAbsolutePurityPartII the single owner, stated in the general form (regular closed immersions of regular schemes; Fujiwara Thm 2.1.1 / ILO XVI 3.1.1). Re-mark CESNAVICIUS-19/absolute-purity-input (and LI-LIU-21/79 at its review) as planned there. Split SF.2 as CS19 asks (early site/Kummer prefix, Brauer-purity suffix) and link the Part II only into the suffix, which keeps the graph acyclic since the Part II imports SF.2. Re-mark CESNAVICIUS-19/supports as planned at EDC.0."
+    },
+    {
+      "id": "RT-AREA-etale/3",
+      "kind": "missing",
+      "severity": "high",
+      "where": "EtaleDualityAndPerverseSheaves (scheme-only) vs consumers on algebraic stacks: EDC.8 items YUN-ZHANG-17/35, YUN-ZHANG-19/120; LAFFORGUE-18/48; GlobalShtukas GS.1, GS.3; ET.2b; Part IIs ShtukaSpecialCyclesAndHigherSiegelWeil, RamifiedGeometricClassFieldTheory",
+      "claim": "No layer plans ℓ-adic sheaf theory on Artin or Deligne–Mumford stacks: the Laszlo–Olsson / Liu–Zheng six operations, bounded constructible categories, the perverse t-structure and IC on stacks, and correspondences and trace formulas on DM stacks. EDC is explicitly scheme-only, yet accepted routes and stages apply its EDC.5/7/8 outputs on stacks (shtuka, Hitchin, Bun_G and root-Picard stacks), and one extraction marks the stack formalism 'planned' at EDC.0/SF.1 while its own note says no stage has it. RS-22 covers only GS.3's shtuka-specific descent. The libraries have no algebraic stacks.",
+      "evidence": "EDC README: 'The principal geometric category is separated finite-type schemes over a field k'. LAFFORGUE-18/48 (status planned [EDC.0, SF.1]): 'Rf_!, Rf^!, proper base change and the bounded constructible categories [on DM and Artin stacks, LMB99, LO08]', note: 'no stage of the atlas names the Laszlo–Olsson six operations on Artin stacks'. YZ17/35 and YZ19/120 (→ EDC.8): correspondences on smooth separated DM stacks. GS.1: 'bounded Hecke stacks … rational ell-adic intersection complexes'. ET.2b: 'stack of G-bundles … perverse direct images'. EnhancedDerivedSheaves:E3: 'without assuming their Artin-stack six-operation theorem'. RS-22 link EDC.5→GS.3: 'Descent to the actual shtuka stack … remain GS.3 work'. The only 'Laszlo' matches in stage descriptions are Beauville–Laszlo gluing (BG2, GS0, RF4); no stage, decomposition node or declaration plans sheaf operations on algebraic stacks.",
+      "fix": "Plan it once, most generally: 'Étale duality, cycle classes and perverse sheaves, Part II: Artin and Deligne–Mumford stacks' covering Laszlo–Olsson I–II / Liu–Zheng enhanced operations, the perverse t-structure and IC on Artin stacks, the decomposition theorem for DM stacks, and Varshavsky/Behrend correspondences and trace formulas on DM stacks. Add edges from it to GS.1, GS.3, ET.2b and the EDC.8 stack items; make the shtuka and ramified-GCFT Part II briefs import it; correct LAFFORGUE-18/48 to missing and route it there."
+    },
+    {
+      "id": "RT-AREA-etale/4",
+      "kind": "missing",
+      "severity": "high",
+      "where": "AdicCoefficientsAndComparisons:L5 task 2 (node L5/de-jong-5-8-curve-fibration-alteration)",
+      "claim": "de Jong's proofs of his Theorems 4.1 and 5.8 (hence 6.5), which L5 plans, need the proper moduli stack M̄_{g,n} of stable n-pointed curves (n ≥ 3, all g) and a projective scheme M finite and dominant over it carrying a universal curve. No layer plans this and L5 names no supplier. Tau Ceti StableReduction stops before it, and two accepted routes plan fragments that do not cover the pointed projective cover, omit the link to L5 and overlap on M̄_g.",
+      "evidence": "de Jong 1996 §2.24 (printed p. 62, numdam PMIHES_1996__83__51_0): 'Fix g ≥ 0, n ≥ 3 and let M̄_{g,n} denote the algebraic stack over Z classifying stable n-pointed curves of genus g … M is a projective scheme over Z with a finite dominant morphism M → M̄_{g,n}'; §4.17 and §5.13 use it. L5 task 2: 'Consume a proved stable-curve supplier where its hypotheses agree; otherwise the needed curve-family theorem is a task of this stage'; its decomposition gap lists §§5.11–5.13 ('the citation of Deligne-Mumford/Knudsen') as unread. StableReduction Layer 9: 'This is the precise input a future properness proof for Mbar_{g,n} … should consume.' YUAN-26 route 10 (StableReductionPartII, accepted): 'Construct M_g, barM_g … for g>1 … projective finite scheme covers' (unpointed). LANDESMAN-LITT-24/106 → R09.4 ('M_{g,n} is not yet planned there'). No stable-curve or moduli-stack declaration in either library.",
+      "fix": "Make StableReductionPartII the single owner and widen its brief to M̄_{g,n} for 2g−2+n > 0, including de Jong 2.24's projective cover M (normalization in level-ℓ covers for two primes ℓ ≥ 3) with its universal curve and the pointed stable compactification after finite surjective base change. LANDESMAN-LITT-24/106 imports it. Add an edge from that stage to L5 (or to L5:alterations, see the finding on alterations) and rewrite L5 task 2 as an import; the edge is acyclic."
+    },
+    {
+      "id": "RT-AREA-etale/5",
+      "kind": "missing",
+      "severity": "high",
+      "where": "ClassicalAdicEtaleCohomology:H5 (Huber 3.8.1 in characteristic p) and H3",
+      "claim": "ECD 27.2 applies Huber's Theorem 3.8.1 over a characteristic-p field to affine m-space for every m, and H5 owns that case. Huber's recorded proof in characteristic p (Berkovich's comparison) needs relative Poincaré duality for smooth morphisms of every dimension. H5's only duality supplier, H3, plans duality for curves only ('Poincaré duality for curves'), and the Zavyalov route adds only the absolute smooth proper case. So H5's proof has an unplanned input.",
+      "evidence": "ECD p. 164: '… by … [Hub96, Theorem 3.8.1] … RΓ(X_C,A) → RΓ(X_C^◇, c*A) is an isomorphism' for C the completed algebraic closure of F̄p((t)). Decomposition node H5/comparison-over-nonarchimedean-fields-3-8-1: 'if char k > 0, as Berkovich's comparison [Ber1, 7.5], using cohomology with proper support … (5.7.2) and Poincaré duality (7.5.3)'. Berkovich 1993, Lemma 7.5.2 (printed p. 147): 'φ is smooth of pure dimension d … R^qφ_*(F) ≅ (R^{2d−q}φ_!(F^∨))^∨(−d)'. H3 title 'Proper support, traces and Poincaré duality for curves'; text: 'For smooth analytic curves … construct the trace and the duality pairing'. ZAVYALOV-25/2 (→ H3) is 'smooth proper … H^i ⊗ H^{2d−i} → F_ℓ perfect'.",
+      "fix": "Add a suffix H3:smooth-duality with Huber 5.7.2, 7.2.2 and 7.5.3 for smooth morphisms of pure dimension d, all d (sources Berkovich 7.2.1, 7.3.1, 7.4.9, transported by the Huber–Berkovich comparison, ZAVYALOV-25/136–139), keep the curve part as the early prefix that S4/S5 consume, and add the edge H3:smooth-duality → H5."
+    },
+    {
+      "id": "RT-AREA-etale/6",
+      "kind": "missing",
+      "severity": "high",
+      "where": "HabiroCohomologyFoundations:HQ.5 (Wagner, q-Hodge complexes over the Habiro ring, Theorem 4.22)",
+      "claim": "HQ.5 plans Theorem 4.22(a) and (b), but the inputs of both proofs are missing. Part (b) is a special case of the ku paper's Theorem 4.17 (E₁-lift, quasi-regular case, with p = 2 through Theorems 4.14 and 4.16); RT.4:q-Hodge is not upstream of HQ.5 and plans only the E₂-lift, 2-inverted case. Part (a) uses the Meyer–Wagner divided-power lifts, planned nowhere. HQ.5 also misstates hypothesis (b) as 'a spherical E₁-lift' of R, whereas Theorem 4.22(b) lifts R_∞ = (R⊗_A A_∞)^∧_p.",
+      "evidence": "Wagner arXiv:2510.04782v2 pp. 65–66: 'Then part (b) is a special case of [Wag25, Theorem 4.17]' and 'In this case the desired lifts have been constructed in [MW24, Lemma 3.17]'. Meyer–Wagner arXiv:2410.23115v4 p. 38: '3.16. Lemma. — For all primes p, there is a sequence (Γ_n) … lift of the n-fold iterated divided power' (the cited 3.17 is an auxiliary lemma). ku paper arXiv:2510.06057v1 p. 45, Theorem 4.17. RT.4:q-Hodge: 'an E₁/p=2 variant requires the source's separate even-resolution hypothesis'. HQ.5 requires only HQ.3 and HQ.4 (atlas stageEdges; RT.4:q-Hodge is not an ancestor). 'Meyer' occurs in stage descriptions only in RT.5's ku⊗ℚ computation.",
+      "fix": "Move Theorem 4.22(b) to HQ.5-trace (as the accepted PLAN-HABIRO decides), add ku Theorem 4.17 (with 4.14 and 4.16) as a named target of RT.4:q-Hodge, add Meyer–Wagner v4 Lemma 3.16 (= thesis Lemma 11.17) as a named HQ.5 target with arXiv:2410.23115v4 among HQ's sources, record the 3.16/3.17 numbering mismatch as a source issue, and restate hypothesis (b) as a lift of R_∞."
+    },
+    {
+      "id": "RT-AREA-etale/7",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "PAPER-HARPAZ-WITTENBERG-16 route 4 (items /24, /88) and PAPER-BRIGHT-NEWTON-23 route 2 (item /87), both rejected; FiniteFieldsAndCharacterSums:FF.2",
+      "claim": "Two results used by routed papers are planned nowhere. Harpaz–Wittenberg need the uniform Lang–Weil estimate (error constant depending only on the embedding data) and Ekedahl's geometric Chebotarev for finite étale covers of varieties over F_q. RS-17 moved DWP.10's point counts into WC.5, whose contract is smooth projective, so the only accepted Lang–Weil plan is the non-uniform one routed to FF.2 by BROWNING-SAWIN-20 route 2. That plan already covers Bright–Newton's need, yet their route was rejected as having 'no owner'.",
+      "evidence": "HW-16/24: 'q^d + O(q^{d−1/2}), the constant depending only on the geometry of an embedding'. HW-16 route 4 review: 'Reject … WC.5 states smooth-projective cohomological bounds, while 24/88 need uniform quasi-projective/model estimates and a constant-field Frobenius-coset condition'. BN-23 route 2 review: 'Identify or extend the genuine general owner before accepting this route'. BS-20/langweil: '#V(F_{Q^r})=Q^{re}+O_V(Q^{r(e−1/2)}) as r→∞'; its route-2 review: 'Lang–Weil belong[s] to FF.2'. RS-17 layer DWP.10: 'Point-count inequalities belong to WC.5'; WC.5: 'For a smooth projective geometrically connected d-dimensional variety…'. No stage description mentions Lang–Weil; nothing in either library.",
+      "fix": "FF.2 (already the Lang–Weil owner through the accepted BS-20 route) plans Lang–Weil in its most general required form, the uniform Theorem 1 of Lang–Weil (Amer. J. Math. 76 (1954)), and Ekedahl's Chebotarev (importing FA.5's constant-field coset convention). Mark BN-23/87 and BS-20/langweil planned at FF.2; re-route HW-16/24 and /88 as source routes to FF.2; state in WC.5 that non-smooth-projective counts are imported from FF.2."
+    },
+    {
+      "id": "RT-AREA-etale/8",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "PAPER-SHENDE-TSIMERMAN-17 routes 9–10 (items curve-zeta, curve-rh); planned fields of SKINNER-20/71, CARO-PASTEN-23/curve-weil, KISIN-ZHOU-25/P16, LI-LIU-21/73, LI-LIU-22/82, FRESAN-SABBAH-YU-22/5",
+      "claim": "Paper routes and planned fields still point at owners that accepted RS-17 reassigned, reinstating the WC.5/DWP.1 double ownership of the Riemann hypothesis for curves and misplacing other weight results.",
+      "evidence": "RS-17 owners: 'DeligneWeightsAndPurity:DWP.1 | formerly [R34.2, WC.5, WC.5:surface-alternative] | Curve and abelian all-conjugates Weil estimate and all-power curve point-bound contract'; WC.5 keeps 'Import the already-proved curve/Jacobian and elliptic bounds as compatibility cases'. ST route 10 routes curve-rh ('Every root of P_C has absolute value q^(−1/2)… |#C(F_(q^r))−(q^r+1)|≤2g q^(r/2)') to WC.5; its review accepts it because 'WC.5 explicitly owns the all-extension curve bound'. ST/curve-zeta (planned at WC.1) needs the effective-divisor identity that FA.5 plans ('prove the Riemann–Roch rationality route'; RS-17: 'FA.5 retains its independent Riemann–Roch … route'). KISIN-ZHOU/P16 note 'owner is DWP.3' vs RS-17 owner 'FunctionFieldArithmetic:FA.5 formerly [DWP.3]'. LI-LIU-21/73, LI-LIU-22/82 give proper-smooth purity to R34.5 vs RS-17 owner DWP.7 (formerly R34.5). FSY-22/5 gives sheaf-coefficient bounds to DWP.4 (Weil I, constant coefficients).",
+      "fix": "Re-point to the RS-17 owners: ST route 10 stage → DWP.1 (WC.5 as the b₁ = 2g compatibility consumer); planned = ['DeligneWeightsAndPurity:DWP.1'] for ST/curve-rh, SKINNER-20/71 and CARO-PASTEN/curve-weil; ST/curve-zeta → FA.5 with WC.1 as comparison; KISIN-ZHOU/P16 → FA.5 plus DWP.3 for the ℓ-adic passage; the two LI-LIU items → DWP.7; FSY-22/5 → DWP.6 and DWP.7."
+    },
+    {
+      "id": "RT-AREA-etale/9",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "PadicDifferentialEquationsAndRigidCohomology:RD.6 vs DeligneWeightsAndPurity:DWP.0",
+      "claim": "RD.6 re-defines Weil-number ι-weights of Frobenius eigenvalues instead of importing DWP.0; it has no edge from DWP.0, and RS-17's DWP.0 owner entry does not list it, although other accepted routes already treat DWP.0 as the owner in p-adic settings.",
+      "evidence": "RD.6 (requires only RD.5): 'define algebraic/iota weights using an embedding of algebraic coefficient eigenvalues into C … Retain algebraicity/all-conjugates restrictions where asserted'. DWP.0: 'Define Weil q-numbers … all-embeddings absolute-value property. Define the separate ι-weight predicate'. RS-17 owner: DWP.0 'Weil-number/iota-weight definitions…' formerly [R34.1, WC.2, DWP.5, R34.5] (RD.6 absent). BINDA-KATO-VEZZANI-25 route 11 (accepted): 'DWP.0 explicitly supplies coefficient-independent Weil-number and spectral weight algebra'.",
+      "fix": "Add the stage edge DWP.0 → RD.6; RD.6 imports Weil q-numbers and ι-weights and defines only pointwise purity/mixedness of overconvergent F-isocrystals; add RD.6 to the DWP.0 owner's 'formerly' list."
+    },
+    {
+      "id": "RT-AREA-etale/10",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "WeightsInEtaleCohomology:R34.4 (with R34.3)",
+      "claim": "RS-17 keeps R34.4 as a 'pencil hypothesis adapter for subsequent arithmetic cohomology', but nothing consumes it, and its kept content is the hypothesis check DWP.3 performs for the only application and LPV.5 proves. Separately, R34.3 imports no DWP stage, which contradicts §15's rule that a Part II starts where its parent stops once WIC becomes DWP's Part II.",
+      "evidence": "R34.4 has no consumers in data/atlas.json, in any RS link, in the new roadmaps, packets or decompositions. RS-17 R34.4 keeps: 'verify geometric/base-field descent, actual radical quotient, … zero quotient and open monodromy over the original Q_l model'. DWP.3 keeps: 'instantiate the actual radical quotient and open Q_l monodromy; handle zero quotient'. LPV.5: 'Keep the Q_ℓ model fixed … Treat V=0 separately'. R34.3: 'This prefix is independent of curve weights and Deligne purity', requiring only LPV stages.",
+      "fix": "Drop R34.4 (coverage closed, suppliers LPV.3–5 and DWP.3). When RS-17 is applied, the Part II introduction names R34.3 as an explicit LPV-only adapter exception, kept for RS-06's R13.6 and R14.6 links."
+    },
+    {
+      "id": "RT-AREA-etale/11",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "YANG-ZHAO-25/T16 (Part II EtaleDualityAndPerverseSheavesPartIIRelativeTraces) vs CESNAVICIUS-SCHOLZE-24/042 (Part II EtaleDualityAbsolutePurityPartII)",
+      "claim": "The fundamental (Gysin) class of a regular immersion over a general Noetherian base is planned in the relative-traces Part II, and the absolute-purity Part II states that the same class is an isomorphism, but neither names the other. The purity Part II imports only EDC.0–EDC.2 (schemes over a field), and EDC.3's class exists only for smooth pairs over a perfect field.",
+      "evidence": "YZ/T16 (route 3 accepted): 'Under B for regular η:P→Q of codimension c, construct Cl_η:Λ→η!Λ(c)[2c] … (Fujiwara Definition 1.1.2; ILO XVI 2.3.1)', convention B: 'S Noetherian'. CS24/042: 'ℋ^{2 dim R}_𝔪(−, ℤ/n) ≅ ℤ/n(−dim R) via the cycle class map'. CS24 route 4 brief imports 'EDC.0–EDC.2 (parent), SchemeAndStackFoundations SF.2, PerfectoidQuotients Q0 and PrismaticCohomology PR.0'. EDC.3: 'For a smooth closed pair Z⊂X … a regular immersion into an arbitrary singular ambient scheme does not satisfy this formula merely by analogy'.",
+      "fix": "Give ILO XVI §2 (Gysin classes of regular immersions) one owner, the first layer of EtaleDualityAbsolutePurityPartII; RelativeTraces imports it for T16/T17; the purity Part II takes the general-base exceptional pullback (YZ/B02) or the EDC.1:adjoint prefix as an explicit input."
+    },
+    {
+      "id": "RT-AREA-etale/12",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "Part II EtaleDualityAndPerverseSheavesPartIIMicrolocal (YANG-ZHAO-25 route 5 accepted; SHENDE-TSIMERMAN-17 route 14 rejected); LAWRENCE-SAWIN-25 route 2",
+      "claim": "Characteristic cycles in characteristic 0 have no accepted owner. The only accepted Microlocal brief (Yang–Zhao) is scoped to characteristic p > 0 and tells the design job to 'extend the existing Microlocal brief, preserving its characteristic-zero polar-bound branch', but that brief (Shende–Tsimerman) was rejected. Lawrence–Sawin's accepted route needs characteristic-0 characteristic cycles (Krämer's criteria) and imports no owner for them.",
+      "evidence": "YZ route 5 brief: 'Extend the existing Microlocal brief, preserving its characteristic-zero polar-bound branch … Over a perfect field of characteristic p>0 …'; YZ review: 'accepts only Yang–Zhao's separately sourced characteristic-p addition'. ST review, route 14: 'reject … original Massey and local Euler-obstruction suppliers … remain unclosed'. Saito arXiv:1510.03018 abstract: 'a cycle on the cotangent bundle of a smooth variety in positive characteristic'. LS/16 note: 'Minisculeness uses that the characteristic cycle of a smooth hypersurface is its conormal variety'; LS route 2's import list has no characteristic-cycle owner.",
+      "fix": "Add a sourced characteristic-0 branch to the Microlocal Part II (conormal characteristic cycles of constructible/perverse complexes, the Kashiwara–Schapira index formula, Krämer's Gauss-map criteria), or route it separately; make SheafConvolutionOnAbelianVarieties import it for LS/15–16; delete Yang–Zhao's reference to the rejected brief."
+    },
+    {
+      "id": "RT-AREA-etale/13",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "Part II EtaleDualityAndPerverseSheavesPartIIIndConstructibles (YUN-ZHANG-19 route 9; items 63, 64, 176)",
+      "claim": "Most of what this Part II would build is in Mathlib at the pin: the Serre quotient Ind(C)/C with its 'mc-isomorphisms' and 'mc-zero maps', two-out-of-three and exactness of the quotient functor are Mathlib's Serre-class localization. The review's reason ('Mathlib already provides Ind and abelianness, but not the paper's mc quotient interface') is false at the pin.",
+      "evidence": "Mathlib 082e2d3: CategoryTheory/Abelian/SerreClass/Basic.lean:47 IsSerreClass; SerreClass/MorphismProperty.lean:66 isoModSerre (kernel and cokernel in P), :161 HasTwoOutOfThreeProperty; SerreClass/Localization.lean:102 calculus of fractions, :141 map_eq_zero_iff (L.map f = 0 ↔ P (Abelian.image f)), :417 abelian, :429/:435 preservesFiniteLimits/Colimits, :441 isIso_map_iff. YZ19/176: 'construct Ind(C)/C … mc-isomorphisms become isomorphisms and mc-zero morphisms become zero'.",
+      "fix": "Mark items 63, 64 and 176 library/partial with these declarations, shrink the Part II (or fold it into EDC.5 as one lemma: the essential image of an essentially small finite-length abelian C is a Serre class in Ind(C), applied to C = Perv_c), and correct the route reason."
+    },
+    {
+      "id": "RT-AREA-etale/14",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "Part II LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier (ABE-25/A19, YANG-ZHAO-25/A02) vs FiniteFieldsAndCharacterSums:FF.2 (BROWNING-SAWIN-20 items schreier, fourierdeligne) vs KloostermanMomentsAndPotentialAutomorphy (FRESAN-SABBAH-YU-22/33)",
+      "claim": "The Artin–Schreier sheaf L_ψ is planned in three roadmaps, and the global one-variable Fourier–Deligne transform (→ FF.2) and Laumon's local Fourier transforms (→ GeneralBasesFourier) are split across two roadmaps with no link.",
+      "evidence": "BS20/schreier (→ FF.2, accepted): 'L_ψ is the lisse rank-one E-sheaf on A^1_{F_q} obtained from the F_q-torsor u^q − u = x'; BS20/fourierdeligne (→ FF.2): 'FT_ψ(K)=Rpr2!(pr1*K⊗L_ψ(xy))[1] … inversion'. ABE/A19: 'construct the rank-one Artin–Schreier sheaf Lψ from the finite étale torsor u↦u^p−u'. YZ/A02: 'form its rank-one Artin–Schreier sheaf Lψ'. FSY22/33: 'the Artin–Schreier sheaf AS_ψ on A¹_{F_p} and the Kloosterman sheaf Kl₂ = Rπ_! f^* AS_ψ[1]'. No stage description mentions Artin–Schreier sheaves, Fourier–Deligne or Laumon.",
+      "fix": "One owner for L_ψ (construction, trace function, additivity, pullback), e.g. FF.2 via BS20/schreier; re-mark ABE/A19, YZ/A02 and the AS_ψ part of FSY22/33 as planned there, keeping only the product kernels L_ψ(tt′) and their nearby-cycle stalks in GeneralBasesFourier; put the global and local Fourier transforms together (move BS20/fourierdeligne to GeneralBasesFourier, or add FF.2 → GeneralBasesFourier with a comparison task)."
+    },
+    {
+      "id": "RT-AREA-etale/15",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "Part II LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier (ABE-25 route 5, YANG-ZHAO-25 route 4) vs AdicCoefficientsAndComparisons:L2 and ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "claim": "The Part II re-plans general-base foundations owned elsewhere and imports neither owner: (a) Noetherian approximation and continuity of Hom and D^b_c over affine inverse limits (ABE/A10–A11), owned by L2; (b) constructibility of Rj_* over valuation bases (YZ/A07, ABE/A14), owned by H1:valuation-nearby-cycles.",
+      "evidence": "L2 plans Noetherian approximation including 'étale/cohomological continuity' and says 'Missing approximation … and derived-coefficient lemmas are owned here'. H1:valuation-nearby-cycles owns 'RΨ_L(F)=i*Rj*j*F' over valuation-ring bases with base change (4.2.4) and constructibility (4.2.5); RS-17 keeps H1's 'valuation extension' as a separate scope. Abe route 5 brief: 'Import … LPV.0, … EDC.0 … EnhancedDerivedSheaves:E1. First prove continuity of Hom and bounded constructible derived categories over affine inverse limits'; Yang–Zhao route 4 imports only LPV.0, EDC.0 and EDS E0–E3; neither names L2 or H1.",
+      "fix": "Add L2 → GeneralBasesFourier and H1:valuation-nearby-cycles / H1:valuation-exports → GeneralBasesFourier to the brief's imports; re-mark the étale-continuity base of A10 as planned at L2 and move A11 into L2; state A07/A14 as extensions of H1's valuation-base theory with a comparison obligation."
+    },
+    {
+      "id": "RT-AREA-etale/16",
+      "kind": "error",
+      "severity": "medium",
+      "where": "PAPER-ZHU-17 route 7 (source → EtaleDualityAndPerverseSheaves EDC.0–EDC.7)",
+      "claim": "A source route adds about twenty missing items outside EDC's declared scope: six operations, Verdier duality, perversity, IC and Chern classes on perfect pfp spaces; equivariant perverse sheaves and Borel equivariant cohomology; and Braden hyperbolic localization. Under §16 material that needs new layers is a Part II, not a source. Scheme-level hyperbolic localization is planned nowhere else (VS1's is for v-stacks).",
+      "evidence": "EDC README: 'The principal geometric category is separated finite-type schemes over a field k'. ZHU-17 items E01 'Constructible coefficients on perfect spaces', E02 'Six operations on perfect pfp spaces', E09 'Braden's hyperbolic localization for algebraic spaces [DG14]', E10–E13 (equivariant coefficients), equivariant-cohomology-borel, E14 'Chern classes on perfect spaces', all missing. None of EDC.0–EDC.7 mentions perfect schemes, equivariance or hyperbolic localization. GS0:Witt-geometry already 'Use[s] Zhu §§1.1–1.4 and Appendix A for the perfect-space carrier'.",
+      "fix": "Convert route 7 into a Part II ('Étale duality, cycle classes and perverse sheaves, Part II: perfect schemes, equivariant coefficients and hyperbolic localization') importing GS0:Witt-geometry's perfect-space carrier and L2's perfection invariance, and sharing its equivariant part with the stacks Part II; keep only the in-scope items (e.g. E06 on finite-type models) as sources of EDC.7."
+    },
+    {
+      "id": "RT-AREA-etale/17",
+      "kind": "error",
+      "severity": "medium",
+      "where": "EtaleDualityAndPerverseSheaves:EDC.6 ← AdicCoefficientsAndComparisons:L3 (missing stage edge)",
+      "claim": "EDC.6 uses the characteristic-p scheme/diamond comparison of ECD 27.1–27.4, which AdicCoefficientsAndComparisons:L3 owns, but L3 is not among EDC.6's ancestors; L3's only consumer is VS3. The decomposition review's orchestrator decision to add this edge has not been applied.",
+      "evidence": "EDC.6: 'Through AdicCoefficientsAndComparisons L2–L6 prove the applicable scheme/adic/diamond operation comparisons'; its requires list L2, L5 and L6 only (L4 and H5 reach it through L6/L5). Decomposition links L3/full-faithfulness-27-2 and L3/rf-shriek-comparison-27-4 → EDC.6/scheme-adic-diamond-operation-comparisons-index; gap 'Integration consequence…': 'ORCHESTRATOR DECISION: add the three edges…'. Ancestor computation over stageEdges: L3 is not an ancestor of EDC.6, and EDC.6 does not reach L3, with or without the accepted RS links.",
+      "fix": "Add the stage edge AdicCoefficientsAndComparisons:L3 → EtaleDualityAndPerverseSheaves:EDC.6, and close the decomposition gap noting that L4 and H5 are already implied."
+    },
+    {
+      "id": "RT-AREA-etale/18",
+      "kind": "error",
+      "severity": "medium",
+      "where": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "claim": "LPV.2 demands an all-characteristic algebraic proof of the odd-dimensional Picard–Lefschetz formula and calls the complex comparison 'optional', but its only source (SGA 7 XV 3.3) proves the formula transcendentally, LPV.2 has no ComplexComparison ancestor, and the purely algebraic proof in the literature (Illusie 2002) is not cited. That proof goes through the Rapoport–Zink description of N, which the atlas plans only in LPV.7:semistable-curves, downstream of LPV.2.",
+      "evidence": "LPV.2: 'The complex Milnor-fiber comparison is an optional verification … the all-characteristic algebraic proof may not assume a characteristic-zero lift'; 'Sources: SGA 7 II XII–XV; Deligne I 4.1–4.4'. Decomposition gap: 'The odd-dimensional formula is proved by reduction to the complex-analytic Picard-Lefschetz formula XIV 3.2.11 … The stage's requirement of an all-characteristic algebraic proof is therefore not met by the source as written'. Illusie, 'Grothendieck and vanishing cycles', Ann. Fac. Sci. Toulouse 30 (2021), §6.1 p. 103 (doi:10.5802/afst.1667): 'the proof given in [22, XV 3.3] is of transcendental nature … A purely algebraic proof was found later [36], as a by-product of Rapoport–Zink's description of the monodromy operator N in the semistable reduction case', [36] = Illusie, 'Sur la formule de Picard–Lefschetz', Adv. Stud. Pure Math. 36 (2002).",
+      "fix": "Add Illusie 2002 (with its erratum) as LPV.2's source for the algebraic route and move the local semistable calculation it needs (RΨ and N for the two-component model after a degree-2 base change and blowup) into a prefix before LPV.2, keeping the graph acyclic; or make the complex comparison a required edge into LPV.2 with a supplier for the topological Picard–Lefschetz formula."
+    },
+    {
+      "id": "RT-AREA-etale/19",
+      "kind": "other",
+      "severity": "medium",
+      "where": "Shared Part II ids EtaleDualityAndPerverseSheavesPartIIRelativeTraces and LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier (ABE-25 routes 4–5, YANG-ZHAO-25 routes 3–4); HANSEN-KALETHA-WEINSTEIN-22/049",
+      "claim": "Both papers send design work to the same two Part II ids, but make_queue.py keeps one prompt per job id, so the later paper's brief (Yang–Zhao, which is written as an extension of Abe's) overwrites Abe's, and Abe's final theorems (Lu–Zheng Thm 2.16, Prop. 2.26, Abe Thm 1.5 and the Laumon Fourier items) vanish from the design prompt. Separately, the generic 2-categorical trace is still a missing item in two Part IIs.",
+      "evidence": "research/blueprint/make_queue.py:720–724 (add() keys the prompt path by job id), :842 (one design per accepted route) and :851 (only the seven fixed designs are excluded); papers.json lists ABE-25 before YANG-ZHAO-25. Yang–Zhao brief: 'Extend the shared RelativeTraces brief from PAPER-ABE-25 without duplicating it'. HKW/049 'Dualizable objects and categorical traces in symmetric monoidal 2-categories' remains missing in route 2 (VStackSheavesLefschetzVerdierPartII); the Abe review names ABE/A01–A03 as 'the single shared generic prefix'.",
+      "fix": "Merge each shared id into one brief (Abe's plus Yang–Zhao's additions), or have make_queue.py concatenate briefs and item lists for equal ids (a maintainer note); re-mark HKW/049 as planned at EtaleDualityAndPerverseSheavesPartIIRelativeTraces and drop it from route 2's items."
+    },
+    {
+      "id": "RT-AREA-etale/20",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "ArcTopologyAndDescent (BHATT-MATHEW-21 route 1, BHATT-SCHOLZE-17 route 17, CLAUSEN-MATHEW-MORROW-21 route 3, CESNAVICIUS-SCHOLZE-24 route 5) vs ClassicalAdicEtaleCohomology:H1:henselian",
+      "claim": "The Gabber–Huber affine analogue of proper base change for henselian pairs and the noetherian proper-case étale GAGA over a henselian base have two owners. Accepted RS-05 makes H1:henselian their owner; four accepted paper routes after it route them again to the new roadmap ArcTopologyAndDescent and mark them missing, and the Bhatt–Mathew route's reason that no layer plans them is false.",
+      "evidence": "H1:henselian: 'prove Hub96 §§3.1–3.4's cohomology comparisons … Source: Hub96 3.2.5, 3.2.9–3.2.12'; RS-05 owner {'target':'Henselian/pro-special cohomological comparison','owner':'ClassicalAdicEtaleCohomology:H1:henselian'}. Decomposition node H1:henselian/pro-special-comparison-theorem-3-2-1: 'Lemma 3.2.5 (Gabber-type affine analogue of proper base change) …'; node relative-comparison-3-2-9-3-2-12: 'Example 3.2.11 (Fujiwara [F, 6.6.3]) …'. BHATT-MATHEW-21 route 1 brief: 'the classical applications reproved from them: the Gabber–Huber affine analogue of proper base change … GAGA for the étale cohomology of proper rigid spaces (their Corollary 6.18)', reason: 'none plans … the Gabber–Huber and Fujiwara–Gabber theorems'; items /25 and /134 missing. CLAUSEN-MATHEW-MORROW-21/113 and CESNAVICIUS-SCHOLZE-24/029: '(R,I) henselian pair ⇒ H^j(Spec R,F) ≅ H^j(Spec R/I,F|)', missing.",
+      "fix": "Set BHATT-MATHEW-21/25, CLAUSEN-MATHEW-MORROW-21/113 and CESNAVICIUS-SCHOLZE-24/029 to planned at H1:henselian, and BHATT-MATHEW-21/134 planned there for the noetherian case (Hub96 3.2.11), keeping only its strongly-noetherian-Tate case new; correct the BHATT-MATHEW-21 route-1 reason; the DESIGN-ArcTopologyAndDescent brief imports these from H1:henselian via an edge into its applications stage and keeps as genuinely new the non-noetherian Fujiwara–Gabber theorem (Bhatt–Mathew 6.11) and affinoid Artin–Grothendieck vanishing."
+    },
+    {
+      "id": "RT-AREA-etale/21",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "AdicCoefficientsAndComparisons:L5 vs SchemeAndStackFoundations:SF.4 (as narrowed by accepted RS-25) and PadicDifferentialEquationsAndRigidCohomology:RD.5",
+      "claim": "de Jong's alteration theorems have two owners that no accepted restructuring decides between: RS-25 keeps 'alterations' in SF.4 without naming L5, while L5 plans the same theorems in full, and RD.5 plans alterations with an edge to neither. Because L5 requires H1 and H5, every consumer that imports these purely schematic theorems from L5 inherits Huber's rigid-analytic theory.",
+      "evidence": "SF.4: 'formal schemes, algebraization, semistable reduction and alterations'; RS-25 SF.4 keeps 'source-scoped alterations, modifications and proved resolution settings', suppliedBy R11.1, R11.3 and StableReduction L7–L9 only. L5: 'Prove the forms of de Jong … Theorems 4.1 and 6.5'; requires H1 and H5; README: 'the purely schematic work L2 and L5 can proceed independently'. RD.5: 'then devissage and alterations/descent', requiring only RD.2 and RD.4. DITTMANN-POP-23 route 6 brief: 'Import L5 alteration … infrastructure'.",
+      "fix": "Split L5: a new stage L5:alterations takes tasks 1–3 (de Jong 1996 4.1, 5.8, 6.5 with their finite-type geometry), requiring L2, AlgebraicModuli:A0-extension and the M̄_{g,n} owner but not H1 or H5; L5 keeps tasks 4–5 and requires L5:alterations. Add an owners entry L5:alterations (formerly SF.4); SF.4 imports alterations via L5:alterations → SF.4; add L5:alterations → RD.5 (RD.5 keeps rigid-cohomology descent) and → PrimeToDegreeAlterations. Acyclicity was checked."
+    },
+    {
+      "id": "RT-AREA-etale/22",
+      "kind": "error",
+      "severity": "medium",
+      "where": "Part II PrimeToDegreeAlterations (DITTMANN-POP-23 route 6, accepted; JANNSEN-16 route 7, extraction still 'revise')",
+      "claim": "(a) The two briefs describe different theorems: Jannsen's claim to be 'the same theorem' is false, since the field theorem does not give Dittmann–Pop's regular model over a DVR. (b) Both briefs point the proof at L5's de Jong 1996 alterations, but ILO proves both theorems by methods de Jong 1996 cannot supply (Gabber–Vidal equivariant alterations, log regularity), and no layer plans those methods.",
+      "evidence": "DITTMANN-POP-23 brief: 'ILO Exposé X Theorem 2.4: for an excellent henselian DVR R … projective regular integral alteration … odd … Import L5 alteration/model/boundary infrastructure'. JANNSEN-16 brief: 'Jannsen Theorem 2.11 … over [a field] L', reason 'The same theorem as Dittmann–Pop's route, at a general prime ℓ'. ILO, Travaux de Gabber (arXiv:1207.3648v1), X Thm 2.1 (field, printed p. 149) and Thm 2.4 (one-dimensional excellent regular base, printed p. 152); X introduction (printed p. 135): '… the results of [de Jong, 1996] do not provide equivariant alterations … [Temkin, 2010] resolves this issue'; the proof of 2.1 uses the Gabber–Vidal Lemma 2.2. No stage or paper item mentions log regularity, equivariant alterations, Vidal or Temkin.",
+      "fix": "The design brief states ILO X 2.1 (field; Jannsen 2.11) and ILO X 2.4 (one-dimensional base), both at general ℓ, with Dittmann–Pop's statement as 2.4 with ℓ = 2 and Z = ∅ plus a projectivity step; correct the JANNSEN-16 route-7 reason; add layers for log regularity and Kummer-étale covers (ILO VI), functorial resolution of log-regular schemes (ILO VIII §§2–3), the log-smooth modification theorem (ILO X.1.1), and Gabber–Vidal equivariant pluri-nodal alterations (ILO X 2.2) or the Temkin route; import only the de Jong 1996 parts from L5:alterations."
+    },
+    {
+      "id": "RT-AREA-etale/23",
+      "kind": "error",
+      "severity": "medium",
+      "where": "AdicCoefficientsAndComparisons:L1 (also L3) — missing prerequisite",
+      "claim": "L1 and L3 work in D(X_proét, Λ) and use Bhatt–Scholze's identification of the left-completed étale derived category inside the pro-étale one, but have no edge from SF.2, which claims the pro-étale site comparisons; no SchemeAndStackFoundations stage is an ancestor of L1 or L3, and Mathlib has only the site.",
+      "evidence": "L1: 'Construct the étale/pro-étale comparison morphisms of sites'. ECD p. 163: 'D_ét(X,Λ) ⊂ D(X_proét,Λ) … left-completion D̂(X_et,Λ) ⊂ D(X_proét,Λ)' (Bhatt–Scholze arXiv:1309.1198v2 Prop. 5.3.2). SF.2: 'Own Zariski, etale, fppf and pro-etale site comparisons at the appropriate coefficient level'. Mathlib/AlgebraicGeometry/Sites/Proetale.lean:52–151 defines only the site and topology; no left-completion theorem in either library.",
+      "fix": "Add SF.2 → L1 (acyclic) and make SF.2's pro-étale export name Bhatt–Scholze §§4–5 (repleteness, Prop. 5.2.6, Prop. 5.3.2) on top of Mathlib's Scheme.ProEt."
+    },
+    {
+      "id": "RT-AREA-etale/24",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "AdicCoefficientsAndComparisons:L0 vs EnhancedDerivedSheaves:E4",
+      "claim": "Three pieces of generic mathematics are planned both in E4 and in L0, although E4 already feeds L0: the reconstruction D_comp ≃ lim_n D(Λ/I^n) (including the non-noetherian regular-sequence case, Bhatt–Scholze 3.5.7), completed tensor products and colimits, and the dévissage showing that reduction mod I commutes with the operations. No restructuring proposal covers E4.",
+      "evidence": "E4: 'prove the reconstruction theorem … Include nonnoetherian rings allowed by the regular-sequence hypothesis. Apply DD.1's completed tensor products and completed colimits in this sheaf setting. Prove reduction … commute with the eligible operations, including the devissage from I to I^n … L0 applies this to étale objects'. L0: 'equivalence with the inverse limit of the categories for Λ/I^n. Construct the completed tensor product and completed colimits … the regular-sequence/devissage argument'. L0 decomposition gap: 'Bhatt-Scholze Lemma 3.5.5 and the non-noetherian extension of 3.5.7 …'.",
+      "fix": "Narrow L0 to the étale subcategory (ECD 26.1), its limit description, the six operations and the detection principle of Remark 26.3; L0 imports the reconstruction theorem, completed ⊗/colimits and the dévissage from E4; move the Bhatt–Scholze 3.5.5/3.5.7 gap from L0 to E4."
+    },
+    {
+      "id": "RT-AREA-etale/25",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "ZAVYALOV-25 route 2 (AnalyticStacks:AS.1) vs AlgebraicModuliForArithmeticGeometry:A0-extension",
+      "claim": "Classical coherent Grothendieck duality for schemes (f^!, Rf_* ⊣ f^! for proper f, f^!O ≅ Ω^d[d] or ω[n], traces of finite maps) is owned twice: three accepted routes make A0-extension its owner, while three accepted routes and AS.1's own text make AS.1 its owner, and the ClassicalAdicEtaleCohomology mod-p Part II imports it from AS.1.",
+      "evidence": "ZAVYALOV-25 route 2 reason: 'AS.1 owns the quasi-coherent Grothendieck duality formalism', items /14, /21, /25. AS.1 (research/blueprint/roadmaps/AnalyticStacks.json): 'Grothendieck–Serre duality for proper smooth maps (Theorem 8.1)'. BOXER-CALEGARI-GEE-PILLONI-21 route 11 reason: 'A0-extension … already receives Hartshorne's duality for embeddable morphisms, f^!O_Y for lci morphisms and fundamental classes from Pilloni (2020), Grothendieck–Serre duality with trace from Calegari–Geraghty (2018)'. The ZAVYALOV-25 Part II brief imports 'AnalyticStacks AS.1 … Grothendieck duality'.",
+      "fix": "Make A0-extension (classical, more foundational) the single owner, covering the noetherian case and Zavyalov's universally-coherent extension (move ZAVYALOV-25/12–30 there with the classical items of BHATT-ETAL-23 route 5 and HACON-WITASZEK-23 route 5); AS.1 keeps the D_qc/solid formalism plus a comparison theorem; the mod-p Part II imports A0-extension."
+    },
+    {
+      "id": "RT-AREA-etale/26",
+      "kind": "error",
+      "severity": "medium",
+      "where": "ClassicalAdicEtaleCohomology:H1:henselian (CESNAVICIUS-19 route 14) — missing prerequisite",
+      "claim": "The accepted Česnavičius route adds a perfectoid-limit extension of Huber 3.2.9 to H1:henselian, to be proved 'through P5', but H1:henselian has no P5 edge; adding P5 to the whole stage would make every early H1 consumer wait on perfectoid limits.",
+      "evidence": "CESNAVICIUS-19 route 14 reason: 'Extend from the verified Noetherian specialization through P5/H0/L2 to the perfectoid limit'; item perfectoid-huber (missing): 'H^i_et(Spec A,G) ≅ H^i_et(Spa(A,R),G)' for the perfectoid pair of Theorem 4.10. H1:henselian requires L2, A2 and H0 (plus RS-05 F0, R0–R2, D0, E1); P5 is not an ancestor.",
+      "fix": "Create a suffix H1:henselian:perfectoid-limit holding perfectoid-huber, requiring H1:henselian and P5 (acyclic: P5 has no ClassicalAdic ancestor)."
+    },
+    {
+      "id": "RT-AREA-etale/27",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.4, HQ.3; HabiroRings:HR.4, HR.1 vs draft QWittVectors:QW.1–QW.5, QW.7",
+      "claim": "The q-Witt / q-de Rham–Witt theory is planned twice: in the atlas stages HQ.4, HQ.3, HR.4, HR.1 and in the draft roadmap QWittVectors. The accepted plan PLAN-HABIRO (§6.5) moves this material to QW, but its moves are not applied in the atlas, CR.4 still names HQ.4 as owner, and RS-10 (which would apply them) is needs_changes, so no accepted restructuring resolves the double plan.",
+      "evidence": "HQ.4: 'Own the positive-degree q-de Rham–Witt complex, its differential, truncation sets, Frobenius/Verschiebung extensions … (q-Witt v5 §3.11); the V/FV systems in Definitions 3.1, 3.6 and 3.9 … Prove the smooth derived-to-underived q-Witt-form comparison of q-Hodge v2 Corollary 3.31'. QW.5 targets 'q-V-systems (Definition 3.1)', 'q-FV-systems (Definition 3.6)', 'Torsion-free q-V-systems (Definition 3.9)', 'No restriction maps (3.11)', 'Langer–Zink comparison (Remark 3.18)'; QW.7: 'Corollary 3.31: … q-W_m dR^n ≃ Σ^{−n} q-W_m Ω^n'. HR.4 vs QW.2–QW.4 (degree-zero q-W_m(R/A), ghost maps, restriction obstruction); HR.1 vs QW.1 (Λ-rings, 'perfectly covered'). RS-10 review: HQ.1/HQ.4/HR.1/HR.2/HR.4 'hand theory to the draft roadmaps QWittVectors and SolidAnalyticRings, which are not yet in the atlas, so their 26 links are skipped'. PLAN-HABIRO §6.5, HQ.4 row: 'out: positive-degree q-dRW, F/V systems, CR.4 specialisations, Cor 3.31 → QW.5, QW.7'. CR.4: 'Habiro HQ.4 owns the q-deformation and specialization maps into these objects'.",
+      "fix": "Apply PLAN-HABIRO §6.5 when QWittVectors is promoted: QW.1/QW.2–QW.4/QW.5/QW.7 own this material (owners entries); narrow HQ.4 to the framed Habiro ring and q-Habiro–Hodge complex, HR.4 to H_{R/A,m} and Theorem 2.9, HR.1 to étale Frobenius lifts; add QW.5 → HQ.3, QW.7 → HQ.2/HQ.3/HQ.4/HQ.5/HQ.8/HR.6, QW.1 → HR.1/HQ.1, QW.2–QW.4 → HR.4 (acyclic, PLAN-HABIRO §6.8); remove CR.4 → HQ.4, HR.4 → HQ.4 and HQ.4 → HQ.3 so HQ.3 → HQ.4 becomes possible (RS-10 review point 1); change CR.4's sentence to name QW.5."
+    },
+    {
+      "id": "RT-AREA-etale/28",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "PrismaticCohomology:PR.6 vs draft QWittVectors:QW.6 (import pointer in HabiroCohomologyFoundations:HQ.1)",
+      "claim": "The framed q-de Rham machinery (automorphisms γ_i lifting T_i ↦ qT_i along an étale framing, q-derivatives, twisted Leibniz rule, the framed q-de Rham Koszul complex and its reduction mod q−1) is built twice, in PR.6 (p-complete) and QW.6 (over a Λ-ring, (q−1)-complete); QWittVectors says PR.6 builds it without importing QW, and HQ.1 imports it from PR.6 whereas PLAN-HABIRO has HQ.1 import it from QW.6.",
+      "evidence": "QW.6: 'γ_i of R[[q−1]] that lift T_j↦q^{δij}T_j … q-∂_i f=(γ_i f−f)/(qT_i−T_i) … twisted Leibniz rule … q-Ω*_{R/A,□} is the Koszul complex … q-Ω/(q−1)≅Ω'. QWittVectors boundary: 'Its p-complete framed complexes over ℤ_p[[q−1]] are the completed base changes of QW.6's framed complexes for A=ℤ; PR.6 builds them without importing QW'. PR.6: 'framed polynomial computation, change of framing and cocycle descent … the p-completed framed q-de Rham complex'. HQ.1: 'Import … framed q-difference complex … from PrismaticCohomology PR.6'.",
+      "fix": "Record one owner for framed q-derivatives and the framed q-de Rham/q-Hodge Koszul complexes in the general form over an I-completely étale framing (I = (q−1) or (p, q−1)): split QW.6's framing prefix into a stage not needing QW.5 and have PR.6 import and p-complete it; PR.6 keeps q-PD envelopes (BS22 Lemma 16.21), the q-crystalline site and the prismatic comparison; HQ.1 imports from the single owner."
+    },
+    {
+      "id": "RT-AREA-etale/29",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.1 / HQ.3–HQ.4 (consumers: draft AnalyticHabiroStack HS.1, HS.3; HQ.6)",
+      "claim": "Two pieces of mathematics that other plans expect HQ to own are planned nowhere: q-connections and modified q-connections with the identification of modified q-connections on the torus with QCoh((G_m/q^ℤ)^d); and the framed Habiro ring H_{S/A[x]} with automorphisms γ_i and its Koszul complex representing q-𝓗dg_{S/A,□} (Wagner v2 Example 3.12). No HQ stage mentions connections and the libraries have nothing.",
+      "evidence": "AnalyticHabiroStack HS.1: 'Modified q-connections (Examples 2.25, 6.10–6.11). The algebraic identification of D_qc(G_{m,H}/q^ℤ) with modules with modified q-connection, imported from HQ.1'; its boundary: 'HabiroCohomologyFoundations owns … q-connections and modified q-connections'. QWittVectors boundary: 'HQ.1–HQ.4 own … q-connections; the framed Habiro ring H_(R,□) with its q-Habiro–Hodge complex'. Scholze arXiv:1606.01796 §7 'q-connections'. Wagner arXiv:2510.04782v2 p. 26, Example 3.12: 'the Koszul complex of the commuting endomorphisms q-∂̃_i … is an explicit complex representing q-𝓗dg_{S/A,□}'. A search of all stage descriptions finds no HQ stage mentioning 'connection'.",
+      "fix": "Add to HQ.1 the targets of PLAN-HABIRO §6.5's HQ.1 row (q-connections and modified q-connections, with Scholze 1606.01796 §7 as a public source); add to HQ.4 (narrowed) or HQ.3 the γ_i on HR.5's H_{S/A[x]}, the Koszul complex and its identification with q-𝓗dg_{S/A,□} (Example 3.12, Corollary 3.54); have HQ.3 name the twisted q-de Rham complexes q-dR^(m) (v2 3.14–3.19, 3.22, 3.29)."
+    },
+    {
+      "id": "RT-AREA-etale/30",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.6",
+      "claim": "HQ.6's analytic side has no supplier: HQ.6 requires only HQ.5, no atlas stage plans the analytic Habiro ring or stack, ring stacks, transmutation or analytic stacks, and the 'owners' HQ.6 cites do not exist in the atlas; the draft AnalyticHabiroStack HS.3 is the intended supplier but the RS-10 link HS.3 → HQ.6 was skipped. Its analytic source line is also out of date.",
+      "evidence": "HQ.6: 'The campaign's condensed/analytic stack and six-operation owners supply a language for a future analytic comparison.' Searches of stage descriptions: 'analytic Habiro' and 'analytic stack' match only HQ.6; 'Habiro stack', 'ring stack', 'transmutation' match nothing. HS.3: 'its comparison with the q-Hodge and Habiro–Hodge complexes is owned by HabiroCohomologyFoundations HQ.6'. README: 'Scholze's course description motivates the analytic direction', while Aoki arXiv:2603.01877v1 (Habiro realisation via normed ring stacks) and Wagner's thesis 1.45 exist.",
+      "fix": "Add AnalyticHabiroStack:HS.3 → HQ.6 when the draft is promoted (acyclic); until then HQ.6 says its analytic half has no atlas owner; replace 'condensed/analytic stack and six-operation owners' by SolidAnalyticRings, AnalyticStacks and RingStacksAndTransmutation; cite Aoki 2603.01877 and the thesis 1.45, which confirms the comparison is still open."
+    },
+    {
+      "id": "RT-AREA-etale/31",
+      "kind": "error",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.3",
+      "claim": "HQ.3 puts Wagner v2 Theorem 3.11(b) on the wrong object. The atlas says the ascending filtration with gr ≃ Σ^{−i} q-W_m dR^i lives on qHdg/(q^m−1), with qHdg the (q−1)-completed colimit; in the source it lives on q-𝓗dg/(q^m−1), the Habiro–Hodge complex. On the (q−1)-complete object only (q−1)-completed graded pieces are obtained, so for m > 1 the statement as written is false.",
+      "evidence": "Wagner arXiv:2510.04782v2 p. 25 (rendered): '(b) For all m ∈ ℕ, the quotient q-𝓗dg_{−/A}/(q^m−1) admits an exhaustive ascending filtration'; p. 6: for the (q−1)-complete version 'H*(q-Hdg_{S/ℤ,□}/(q^m−1)) ≅ (q-W_mΩ*)^∧_(q−1)'; p. 7: the result 'holds true, even without the (q−1)-completion'. HQ.3's text places the filtration on the (q−1)-completed colimit.",
+      "fix": "Rewrite HQ.3: construct q-𝓗dg_{R/A} = lim_m q-𝓗dg_{R/A,m} (from 3.42–3.45) and put the filtration on q-𝓗dg_{R/A}/(q^m−1); state that for the (q−1)-complete qHdg only the (q−1)-completed version holds."
+    },
+    {
+      "id": "RT-AREA-etale/32",
+      "kind": "error",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.1 (and HQ.2) — missing prerequisite",
+      "claim": "HQ.1 works over Λ-rings but has no edge to their atlas owner HR.1; derived q-dR in HQ.2 is defined only over Λ-rings. HR.1 is not an ancestor of HQ.1 or HQ.2, although HQ's README says the early ring inputs are HabiroRings HR.1–5.",
+      "evidence": "HQ.1: 'Own the global arithmetic gluing over a perfectly covered Λ-ring A'. HR.1: 'Construct the category of torsion-free Λ-rings A with commuting Adams operations ψ^m … perfectly covered'. Ancestor computation over stageEdges: HR.1 is not upstream of HQ.1 or HQ.2. HQ README: 'The early ring/derived-coefficient inputs are HabiroRings HR.1–5'.",
+      "fix": "Add HR.1 → HQ.1 (acyclic: HR.1 requires only PR.0); once QWittVectors is promoted use QW.1 → HQ.1 instead."
+    },
+    {
+      "id": "RT-AREA-etale/33",
+      "kind": "error",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.7 / HQ.5-trace — missing prerequisite",
+      "claim": "HQ.7 tests 'a 2-inverted trace-theoretic input with an explicit spherical lift', which is HQ.5-trace's theorem, but HQ.7 requires only HQ.6; neither HQ.5-trace nor RT.4:q-Hodge is an ancestor of HQ.7, and HQ.5-trace has no consumers at all.",
+      "evidence": "HQ.7 text as quoted; atlas stageEdges: HQ.7 requires HQ.6 only; HQ.5-trace has no outgoing edges.",
+      "fix": "Add HQ.5-trace → HQ.7 (acyclic: HQ.7 has no consumers)."
+    },
+    {
+      "id": "RT-AREA-etale/34",
+      "kind": "error",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.2 — edge to the wrong layer",
+      "claim": "HQ.2's only DerivedDeRham edge points at the wrong layer: HQ.2 imports 'ordinary derived de Rham and the Hodge filtration' (DD.2), but its actual edge is DD.6 ('Logarithmic extension and acceptance boundary'), which makes log-crystalline geometry (CR.5, CR.5:log-algebra, DD.3, DD.6) a critical-path ancestor of HQ.2–HQ.8. HQ.2 also attributes complete filtered modules to EnhancedDerivedSheaves, whereas DD.1 owns them.",
+      "evidence": "HQ.2: 'Import ordinary derived de Rham and the Hodge filtration from DerivedDeRhamCohomology'; DD.2: 'Hodge specialization used by Habiro HQ.2 must refer to this filtered object'. HQ.2's stage edge from DerivedDeRham is DD.6 only; the DD.6 → HQ.2 edge is the only route by which CR.5, CR.5:log-algebra, DD.3 and DD.6 enter HQ.2's ancestry (computed). DD.1: 'Construct filtered enhanced modules, … completed filtered tensor products, graded pieces, Hodge completion'.",
+      "fix": "Add DD.2 → HQ.2 and DD.1 → HQ.2; the maintainer removes DD.6 → HQ.2; change 'from EnhancedDerivedSheaves' to 'from DerivedDeRhamCohomology DD.1'."
+    },
+    {
+      "id": "RT-AREA-etale/35",
+      "kind": "other",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.5 — targets without a proof in the source",
+      "claim": "HQ.5 treats two statements as results although its sources prove neither: 'Extend to smooth schemes by descent; for smooth proper schemes retain the perfectness result over the Habiro completion of the localized ring'. In Wagner v2 both appear only in introduction 1.16 (p. 8); the body has no scheme-level statement or perfectness theorem, and the thesis (1.45(c)) adds none.",
+      "evidence": "HQ.5 text as quoted. Wagner arXiv:2510.04782v2 introduction 1.16 (p. 8); 'perfect complex' occurs only at 1.16.",
+      "fix": "Record both as proof obligations of HQ.5 with their own arguments (Zariski descent of q-𝓗dg on Sm_{A[dim!⁻¹]}; perfectness via Habiro-complete detection, App. B, B.2–B.4, plus Theorem 3.11(b)), or label them 'stated in 1.16 without proof' and log a source issue (kind gap)."
+    },
+    {
+      "id": "RT-AREA-etale/36",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "HabiroCohomologyFoundations:HQ.5 vs HabiroRings:HR.6",
+      "claim": "The (q−1)-completion comparison for étale inputs is assigned to two stages; AUDIT-19 flags the pair and no accepted restructuring resolves it.",
+      "evidence": "HQ.5: 'export the completed cohomology object to HR.6, which owns its degree-zero comparison … Prove the q−1 completion comparison and carry its actual Frobenius-glued Taylor maps'. HR.6: 'prove the étale degree-zero identification … (Wagner Corollary 3.13), including multiplication, every cyclotomic specialization, the q−1 completion'.",
+      "fix": "HR.6 owns the comparison; HQ.5 keeps only the export; the Taylor maps stay HR.5's."
+    },
+    {
+      "id": "RT-AREA-etale/37",
+      "kind": "error",
+      "severity": "low",
+      "where": "data/decompositions/WeilConjectures.json, node WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality",
+      "claim": "WC.2's only node decomposes a theorem WC.2 does not use (SGA 4½ [Cycle] 3.3–3.8, the Lefschetz fixed-point formula via Künneth and cycle classes, which is EDC.8's correspondence-trace material), while WC.2's actual target, the functional equation, has no node.",
+      "evidence": "The node has an incoming link from EDC.2 and no outgoing link; coverage: 'only the duality-based Lefschetz formula of [Cycle] Section 3 was read'. RS-17 WC.2 keeps: 'Assemble the signed zeta functional equation from the actual graded Poincare/Frobenius pairing'. EDC.8: 'Construct cohomological correspondences … and the trace class on the fixed-point scheme'.",
+      "fix": "Move the node to EDC.8's packet (or replace it with an import link), and add a WC.2 node deriving Z(X, 1/(q^dT)) = (−1)^χ Δ T^χ Z(X,T) from EDC.8's determinant relation."
+    },
+    {
+      "id": "RT-AREA-etale/38",
+      "kind": "error",
+      "severity": "low",
+      "where": "Stage edge DeligneWeightsAndPurity:DWP.4 → DWP.5",
+      "claim": "DWP.5 lists DWP.4 as a prerequisite, but nothing in it uses Weil I's dimension induction (Weil II replaces the Cartesian-power step); the edge makes the Weil II track wait for all of Weil I §7 and its pencils.",
+      "evidence": "DWP.5: 'Dependencies: DWP.0/DWP.2/DWP.4'; its content is local weights, the generalized fundamental estimate from DWP.2 and the Hadamard–de la Vallée-Poussin argument. RS-17 DWP.5 suppliedBy lists [DWP.0, LPV.1, ADS layer 8], not DWP.4. Weil II introduction p. 140: 'Cette itération remplace l'usage de grandes puissances cartésiennes'.",
+      "fix": "Remove the stage edge DWP.4 → DWP.5 and 'DWP.4' from DWP.5's Dependencies line."
+    },
+    {
+      "id": "RT-AREA-etale/39",
+      "kind": "other",
+      "severity": "low",
+      "where": "Part II metadata: EtaleDualityAndPerverseSheavesPartIIRelativeTraces, LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier, EtaleDualityAndPerverseSheavesPartIIMicrolocal, EtaleDualityAndPerverseSheavesPartIIIndConstructibles, LefschetzFiniteFieldBertiniPartII, SemistablePotentialMaps",
+      "claim": "Several Part II routes have invalid or wrong areas, the Microlocal title does not reproduce its parent's, and the SemistablePotentialMaps brief imports the aggregate LPV.7 contrary to RS-17.",
+      "evidence": "RelativeTraces and GeneralBasesFourier use area 'cohomology', which is not a galaxy id (data/galaxies.json has 'etale', 'Étale cohomology … vanishing cycles and perverse sheaves'); Microlocal and IndConstructibles use 'arithmeticgeometry'; LefschetzFiniteFieldBertiniPartII uses 'algebraicgeometry'. Microlocal title: 'Étale Duality and Perverse Sheaves, Part II: characteristic cycles and polar bounds' vs parent 'Étale duality, cycle classes and perverse sheaves'. SemistablePotentialMaps brief imports 'LefschetzPencilsAndVanishingCycles LPV.7 (weight spectral sequence and monodromy)'; RS-17 LPV.7: 'Consumers asking only for curve monodromy import the early child, never the whole late aggregate'.",
+      "fix": "Set these routes' area to 'etale', retitle Microlocal with the parent's exact title, and change the SemistablePotentialMaps import to LPV.7:semistable-curves (with its retained higher-dimensional SNC weight-spectral-sequence extension)."
+    },
+    {
+      "id": "RT-AREA-etale/40",
+      "kind": "other",
+      "severity": "low",
+      "where": "HabiroCohomologyFoundations:HQ.5-trace",
+      "claim": "HQ.5-trace's description is byte-identical to HQ.5's (both 2461 characters, both containing the HQ.5-trace anchor), and in the README the paragraph exporting to HR.6 sits under the HQ.5-trace anchor, although HR.6 consumes HQ.5, not HQ.5-trace.",
+      "evidence": "data/atlas.json descriptions of HabiroCohomologyFoundations:HQ.5 and HQ.5-trace are identical; content/campaign/HabiroCohomologyFoundations/README.md places 'For finite étale arithmetic inputs export … to HR.6' under the HQ.5-trace anchor.",
+      "fix": "Give HQ.5 only its own two paragraphs and HQ.5-trace only the anchored trace paragraph; move the HR.6 export paragraph above the anchor."
+    }
+  ]
+}
