@@ -27409,7 +27409,8 @@
     "REV-AUDIT-12"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1573"
   },
   {
    "id": "RT-AUDIT-13",
@@ -28741,8 +28742,9 @@
     "RT-AREA-algebraicnt-1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-algebraicnt-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1478"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1478",
+   "finishedAt": "2026-09-24T04:19:20Z"
   },
   {
    "id": "RT-AREA-algebraicnt-2",
