@@ -1,0 +1,105 @@
+{
+  "redteam": "RT-AUDIT-07",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-07/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. NumberField.finite_setOfPred_mulHeight₁_le (Height/NumberField.lean:411) fixes one number field; finite_of_discr_bdd (Discriminant/Basic.lean:496) counts number fields, and Affine.finite_naiveHeight_le (NaiveHeight.lean:186) counts points on a fixed curve. None proves the curve/form-family target. The audit marks only this ST.0 target fully present, so its own stated aggregation convention gives not built after changing it to partial. Correct the proposed fix to retain the intended nondegenerate/irreducible quartic family, or at least (I,J)≠(0,0): all nX⁴ have I=J=0 and distinct contents, hence distinct GL₂(Z)-orbits of height zero. Bhargava–Shankar v3 p.4 expressly excludes (0,0) in the cited finiteness statement. Keep minimal-pair curve finiteness with the existing EllipticCurves Layer 8 owner."
+    },
+    {
+      "finding": "RT-AUDIT-07/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. At the pin, NumberField.absMulHeight₁ and absLogHeight₁ occur only in their two definitions (NumberField.lean:137,146–147); there is no extension-invariance API. Projectivization.mulHeight (Projectivization.lean:46) uses a fixed field and AdmissibleAbsValues instance. Northcott at NumberField.lean:411 fixes K; Polynomial.finite_mahlerMeasure_le (MahlerMeasure.lean:107) concerns integer polynomials, with no height comparison supplied. The audit’s full-presence label therefore exceeds its evidence. Apply partial, qualify the summary and distinguish relative projective heights from absolute heights and their extension invariance; preserve the existing rational formula and product-formula results."
+    },
+    {
+      "finding": "RT-AUDIT-07/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. SelmerGroup.lean:104 defines the explicit local-condition subgroup and :120 contains the descent image in it. The bound at :142 requires [Finite S]; no occurrence elsewhere in either pinned tree supplies Finite selmerGroup₂. The module docstring also explicitly leaves that theorem open. The audit’s compound Mordell–Weil/Selmer-finiteness target is only partial, even though its Mordell–Weil component is proved. Qualify the summary and the rank-bound note exactly as proposed. EllipticCurves Layer 7 already owns the missing finiteness/comparison work; do not duplicate it in ArithmeticStatistics."
+    },
+    {
+      "finding": "RT-AUDIT-07/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. SelbergSieve.lean:77–82 adds only level and one_le_level; :105 merely reexports the lower bound. Neither lambdaSquared (:236) nor upperMoebius_lambdaSquared (:250) has a support cutoff. Searches found no external SelbergSieve consumer supplying the missing use of level. The level-of-distribution target should be absent and SelbergSieve related. BoundingSieve.errSum (:177) is the weighted divisor remainder sum, not a distribution-level hypothesis. Keep the genuinely built sieve-data and upper-bound targets."
+    },
+    {
+      "finding": "RT-AUDIT-07/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Under the scoped Matrix.Norms.L2Operator norm, Matrix.l2_opNorm_conjTranspose (Matrix.lean:204) gives the adjoint norm identity, and l2_opNorm_mulVec (:222) bounds multiplication on EuclideanSpace. ContinuousLinearMap.adjoint (Adjoint.lean:114), with the Hilbert-space completeness assumptions, is a conjugate-linear isometric equivalence. This proves the operator form of the duality mechanism, so absent is too strong. Use partial/more general as proposed; the large-sieve matrix and its inequalities remain to be instantiated. In the squared-inequality adapter state the nonnegative bound D explicitly, with the Euclidean norm and conjugate transpose, not an entrywise matrix norm."
+    },
+    {
+      "finding": "RT-AUDIT-07/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The roadmap file’s LV.6 explicitly plans Lawrence–Venkatesh Theorem 4.1. In arXiv:1807.02721v3 p.20 this is finiteness of t with t and 1−t both S-units, exactly the two-variable part of DT.2’s target. DT.2 currently lists only ED.2 and RP.4. The file exists at f66d8b51, before the accepted audit’s 2026-09-16T22:29:53Z commit. Add the LV.6 cross-reference and share the theorem statement while allowing the distinct proof route; do not identify this special equation with all higher-variable nondegenerate S-unit equations."
+    },
+    {
+      "finding": "RT-AUDIT-07/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted reusable carrier/API, not as a completed equidistribution theorem. EmpiricalMeasure.lean:54,80,128 provides finite-population and sequence probability measures, including the uniform-pushforward identity; the sequence uses n+1 terms. WeakConvergence.lean:75 proves almost-sure convergence for a conditionally i.i.d. process under its second-countability/measurability assumptions. Add the related citations to PM.0 and PM.2 as proposed. Keep Weyl’s criterion absent and retain that no dedicated equidistribution predicate was found; the stochastic theorem does not prove deterministic arithmetic equidistribution."
+    },
+    {
+      "finding": "RT-AUDIT-07/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. NumberField.Set.HasDirichletDensity (DirichletDensity.lean:82) and dirichletDensity (:90) are defined for sets of nonzero prime ideals of a number field. The audit’s only clause omits this available notion. Add the related citation and amend the note. This remains a different ordering/limiting process from height densities of curves or forms, so the target’s partial status should not be upgraded."
+    },
+    {
+      "finding": "RT-AUDIT-07/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with the coefficient and nonsingularity boundaries retained. WeierstrassCurve.shortCurve (ShortWeierstrass.lean:81) supplies the parameterized equation; exists_variableChange_isShortNF (NormalForms.lean:274) requires 2 and 3 invertible. It does not produce an integral minimal pair by itself. quadraticTwist (QuadraticTwist.lean:451) takes a separable quadratic field extension, and its ellipticity instance (:470) requires the original curve elliptic. Add these as related carriers. Keep minimal-pair existence/uniqueness, integral orbit normalization and Selmer statistics as additional obligations, rather than claiming all arithmetic-family work follows from a short equation."
+    },
+    {
+      "finding": "RT-AUDIT-07/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The cited finite_setOfPred_mulHeight_nat_le fixes a nonzero natural denominator and bounds integral numerators (NumberField.lean:374). The stronger :411 is the appropriate related element-height theorem. Height/Northcott.lean explicitly leaves projective-space instances as TODOs, and searches found no replacement at either pin. Replace the misleading general points phrasing by fixed-field elements and the separately available elliptic-curve point result; keep general projective/variety counting absent. The proposed change does not assert that the missing projective Northcott theorem is mathematically false."
+    },
+    {
+      "finding": "RT-AUDIT-07/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the overbroad no-random-matrix-models note. wishartGramMeasure (Wishart/Basic.lean:160) is a real matrix-valued probability law, with the probability instance at :172. It does not supply Cohen–Lenstra or arithmetic matrix statistics. Qualify the note and cite this related construction. Do not adopt the stronger assertion that this is the only possible random-matrix law, or that Haar measure itself is absent: Mathlib has the general Haar construction. SU2/Weyl/Orthogonality.lean:33–38 leaves the group-to-Weyl-density integration formula open, a distinct issue from existence of Haar measure. The arithmetic-statistics target remains absent."
+    },
+    {
+      "finding": "RT-AUDIT-07/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Nat.filter_coprime_Ico_eq_totient (Totient.lean:80) counts a full interval of length a exactly, and Ico_filter_coprime_le (:85) bounds an arbitrary interval when a≠0. These supply concrete elementary sieve special cases absent from the note. Add the two related citations without claiming a general lower-bound sieve or fundamental lemma. An exact full-period identity is not the general lower-bound counterpart of BoundingSieve’s weighted upper bound."
+    },
+    {
+      "finding": "RT-AUDIT-07/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Complex.exp_eq_one_iff (Log.lean:142), exp_eq_exp_iff_exists_int (:172), log_exp_exists (:180), and log_mul_eq_add_log_iff (:94) provide the elementary branch arithmetic omitted from the note. In the corrected description retain x≠0 and y≠0 for logarithm additivity, and the principal-argument interval (−π,π]. They do not supply the height/degree estimates of Baker applications or a p-adic logarithm. The target remains partial."
+    },
+    {
+      "finding": "RT-AUDIT-07/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed under this audit’s target-level convention. AlgebraicIndependent (Defs.lean:54), hausdorffMeasure (Hausdorff.lean:535), and dimH (HausdorffDimension.lean:97) define the language, not the named transcendence or metric-approximation theorems. The audit already labels similarly unsupported arithmetic independence and Gauss-map ergodicity absent despite citing their generic definitions. Searches for the named missing results found no such theorem. Mark both theorem targets absent, retain the definitions as related, and leave the layer verdicts unchanged."
+    },
+    {
+      "finding": "RT-AUDIT-07/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing audit overlap metadata, with a narrower note. ES.1 lists AC.0 but not FF.1; FF.1’s character normalization is relevant, and AddChar.sum_eq_ite (AddChar.lean:329) already gives finite additive-character orthogonality. Accepted RS-03 assigns generic finite-abelian Fourier interfaces to AC.0 and makes FF.1 import them, retaining field-specific comparisons. Add FF.1 as a specialization/import cross-reference, explicitly citing that resolution. Do not imply a second generic orthogonality construction or that finite-field characters cover every composite-modulus adapter."
+    },
+    {
+      "finding": "RT-AUDIT-07/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted consumer cross-reference, not an unresolved second owner. The original CA.1 and ES.0 descriptions both use Gauss/Jacobi interfaces, and gaussSum/JacobiSum are already in Mathlib (GaussSum.lean:72; JacobiSum/Basic.lean:47). Accepted RS-03 narrows CA.1 to import FF.1 and the built arithmetic baseline; its FF.1→CA.1 link is in the assembled graph. Add a note recording that shared import, rather than the proposed unqualified wording that CA.1 independently plans these constructions. No ownership or graph change is needed."
+    },
+    {
+      "finding": "RT-AUDIT-07/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the shared local-count/measure interface. ES.3’s normalized local densities and LD.2’s Poincaré/Igusa series both consume counts of congruence solutions, with different endpoint theorems. Add the LD.2 cross-reference, retaining normalization and convergence restrictions and distinguishing a generating series from existence or positivity of a density limit. Do not repeat the blanket claim that Haar measure on Z_p^n is unavailable: Measure.addHaarMeasure and PadicInt.compactSpace provide general infrastructure at the pin. The arithmetic cylinder-count comparison and definable integration remain separate obligations."
+    },
+    {
+      "finding": "RT-AUDIT-07/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed only as a scoped, conditional overlap note. QT.6 explicitly offers a controlled stationary-phase OR q-asymptotic route for a selected state integral/sum; ES.0 plans stationary-phase estimates. Record the common analytic-estimate interface when the stationary-phase route is chosen. Keep contour, branch, convergence, critical-point and remainder hypotheses visible; no evidence establishes that ES.0’s real-variable estimate directly proves the complex state-integral result, or that a formal q-asymptotic expansion is the same theorem. The correction is an audit cross-reference, not a new dependency or a whole-layer merger."
+    },
+    {
+      "finding": "RT-AUDIT-07/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed. GZ.1 explicitly includes finite-extension normalization and missing projective-height lemmas, while DT.0’s duplicate list omits GZ.1. Add the cross-reference. Respect GZ.1’s own import boundary to ArithmeticHeights and EllipticCurves: the common general height/extension-invariance API should be supplied once by its existing owner, and GZ.1 should retain its abelian-variety/Poincaré specialization. This corroborates finding 2 without authorizing a second public height definition."
+    },
+    {
+      "finding": "RT-AUDIT-07/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an audit cross-reference, with the existing resolution recorded. SV.1’s duplicate list is empty, while AUDIT-16 AC.4 and AUDIT-07 SV.4 both identify the Selberg/truncated-divisor-weight overlap. Accepted RS-07 already installs SV.1→AC.4 for that machinery and leaves pseudorandomness, linear-forms conditions and transference in AC.4; the edge is present in the assembled graph. Add the symmetric audit note explicitly as this supplier/consumer relationship, not as a request to rebuild the weights or rerun restructuring."
+    }
+  ]
+}
