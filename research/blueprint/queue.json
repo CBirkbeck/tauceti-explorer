@@ -25754,7 +25754,8 @@
     "REV-PAPER-BURUNGALE-TIAN-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1893"
   },
   {
    "id": "REV-RT-PAPER-BURUNGALE-TIAN-26",
@@ -25865,8 +25866,9 @@
     "REV-PAPER-BENNETT-SIKSEK-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1732"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1732",
+   "finishedAt": "2026-09-24T01:54:29Z"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -25911,7 +25913,8 @@
     "REV-PAPER-COUVEIGNES-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-COUVEIGNES-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1734"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -26000,7 +26003,8 @@
     "REV-PAPER-MARTIN-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1738"
   },
   {
    "id": "RT-PAPER-HARPAZ-WITTENBERG-23",
@@ -26613,8 +26617,9 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-30.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1628"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1628",
+   "finishedAt": "2026-09-24T01:54:31Z"
   },
   {
    "id": "RT-RS-31",
@@ -28016,7 +28021,8 @@
     "REV-AUDIT-24"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1598"
   },
   {
    "id": "REV-RT-AUDIT-24",
@@ -29948,8 +29954,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-grouptheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1529"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1529",
+   "finishedAt": "2026-09-24T01:54:34Z"
   },
   {
    "id": "REV-RT-AREA-grouptheory",
@@ -30441,7 +30448,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-diffgeom.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1549"
   },
   {
    "id": "REV-RT-AREA-diffgeom",
