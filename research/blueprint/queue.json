@@ -28315,8 +28315,9 @@
     "REV-AUDIT-29"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-29.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1608"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1608",
+   "finishedAt": "2026-09-24T02:27:13Z"
   },
   {
    "id": "REV-RT-AUDIT-29",
@@ -30508,7 +30509,8 @@
     "RT-AREA-diffgeom"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-diffgeom.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1548"
   },
   {
    "id": "ERRATA-PAPER-BURUNGALE-TIAN-26",
