@@ -26087,8 +26087,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1740"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1740",
+   "finishedAt": "2026-09-24T01:15:16Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -26290,7 +26291,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1748"
   },
   {
    "id": "RT-RS-07",
@@ -26664,8 +26666,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-32.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1633"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1633",
+   "finishedAt": "2026-09-24T01:15:19Z"
   },
   {
    "id": "REV-RT-RS-32",
@@ -27099,7 +27102,8 @@
     "REV-AUDIT-08"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1566"
   },
   {
    "id": "REV-RT-AUDIT-08",
@@ -27671,7 +27675,8 @@
     "REV-AUDIT-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1585"
   },
   {
    "id": "RT-AUDIT-19",
