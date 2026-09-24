@@ -1,0 +1,10 @@
+{
+ "redteam": "RT-AREA-grouptheory",
+ "findings": [
+  {
+   "finding": "RT-AREA-grouptheory/1",
+   "verdict": "confirmed",
+   "reason": "Checked at the pins. content/tau-ceti/ProfiniteProPGroups/README.md line 326 reads '*Needs:* M `frattini`, M `IsPGroup.exists_maximal_subgroup_normal` and the finite Frattini lemmas'. There is no declaration of that name in Mathlib 082e2d3 (grep over Mathlib/ finds zero occurrences) nor in Tau Ceti f790474 (git grep finds none). Mathlib's Frattini file (Mathlib/GroupTheory/Frattini.lean) has frattini at line 24 and the lemmas the finding lists, none of which states normality of maximal subgroups. The route the finding proposes exists exactly as cited: IsPGroup.isNilpotent (Mathlib/GroupTheory/Nilpotent.lean:1247, 'A p-group is nilpotent', for finite G), Group.normalizerCondition_of_isNilpotent (Nilpotent.lean:1201, in namespace Group) and Subgroup.NormalizerCondition.normal_of_coatom (Mathlib/Algebra/Group/Subgroup/Order.lean:47, 'every maximal subgroup is normal'). Medium severity is right: the named prerequisite of a layer does not exist, and a builder following the line would find nothing, although the mathematics is available. The fix is right. Because ProfiniteProPGroups is a Tau Ceti roadmap, it is a note for its maintainer: replace the name by the three-declaration route, or contribute the two-line composite upstream under the cited name."
+  }
+ ]
+}
