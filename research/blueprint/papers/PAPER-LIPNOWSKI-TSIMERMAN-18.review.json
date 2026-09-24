@@ -1,0 +1,72 @@
+{
+ "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "A2 owns duals, Poincare bundles, polarizations and the Rosati involution, and the sixteen items are exactly that material with the normalisations this paper needs. The corrected forms the route carries (the Poincare pullback of E8 and the rationalised Neron-Severi map of E9) are the ones I verified at their locators, so what lands in A2 is the repaired statement and not the printed one."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "A4 already targets Tate-module realizations, and the single item is the finite-field full-faithfulness consumer, which is properly separated from the construction."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "A6 owns endomorphism algebras with their arithmetic and the Rosati cone. The route correctly carries the corrected Remark 4.8 (the trace is the Tate-representation trace, not the bare reduced trace of E10), and the case of Albert's classification the paper uses."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "R07.2 is the Dieudonne-theory stage, and the seven items are Dieudonne linear algebra over a finite field. Folding the Witt-vector coefficient descent in here, rather than into a separate local-fields Part II, is the right call: it is a statement about an integral semilinear Frobenius, not about ramification theory."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "GN.2 owns integral and hermitian lattices with their local invariants, genera and local-global theory, and the eighteen items are lattice arithmetic of that kind. The route is explicit that the O_L-projective lattices and the dyadic norm ideals are new rather than already built."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "GN.3 owns arithmetic quotient counts, local densities and mass formulas, which is where the mass computation and the orbit counts belong. The route carries the corrected leading coefficient one half of E13 rather than the printed one, which is what makes it safe to build on."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "AA.4 owns nested compact-level maps and stabilizer-sensitive degree comparisons, and the five items ask only for group-generic coarse maps and finite-index inequalities on that carrier. The route is careful not to invent a second double-coset object and to keep strong approximation as an import with its stated restrictions."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "ST.0 owns arithmetic families with weighted and unweighted measures, and the three items define the counting functions on actual isomorphism classes over a prime field."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "ST.5 owns random-matrix laws and function-field statistics, which is where the conditional and heuristic statements belong. The route keeps the conjectures as hypotheses, does not route the disputed endpoint, and carries the corrected forms of E14, E15 and E17, so nothing conditional is imported as proved."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Nothing in the atlas plans Honda-Tate or Waterhouse: I searched every stage description and neither name occurs anywhere, and the parent's A1-A6 build abelian schemes, duals, polarizations and realizations without any finite-field classification or counting. The brief states its final theorems as corrected, with the Lee corrections and this paper's sourceIssues named, and says what it imports from A1-A6, GN.2-GN.3, AA.3-AA.4, R07.2 and PELModuli M6. One correction made in place: the title now reproduces the parent's atlas title exactly, 'Abelian Schemes And Arithmetic Moduli, Part II: finite-field isogeny classes', as PROTOCOL section 15 requires; it previously lower-cased 'And'. The area is a galaxy id and the roadmap id is free."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "M6 owns the comparison between rational families and isomorphism classes at fixed polarized moduli data, which is exactly the fixed-degree finiteness adapter the single item asks for. The route is explicit that no second moduli stack is to be built and that the unpolarized counting result is not assumed."
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "AN.4 owns the Dedekind zeta interfaces and residue constants, so Louboutin's explicit residue bound belongs there, and the lower control that E12 asks for is the same kind of statement. Routing it once, with the Part II and GN.3 importing it, avoids a second residue bound."
+  },
+  {
+   "route": 13,
+   "verdict": "accept",
+   "reason": "Lang's theorem is planned by no stage of the atlas: I searched every stage description and the name does not occur. RG2.3 constructs smooth group schemes with connected special fibres and their reduction maps, whose surjectivity on points is exactly what the theorem gives, so it is the right owner, and GN.3's local densities import it from there."
+  }
+ ],
+ "notes": "Accept. All 184 items check out at their locators: the 65 locators naming a statement of Lipnowski-Tsimerman resolve to a statement of the right kind in arXiv:1511.02212v1, once the paper's own section numbering is used (its preamble sets the section counter to -1, so the introduction is section 0 and its results are Theorems 0.1-0.3), and the other 20 numbered locators are citations into Conrad, Yun, DiPippo-Howe, Scharlau, Waterhouse and Gan-Yu, each correctly attributed. Of the 61 library citations, 59 resolve in the pinned declaration index; the two that do not, IsAdicComplete.henselianRing and HenselianRing.is_henselian, are present in Mathlib at 082e2d3 (Mathlib/RingTheory/Henselian.lean, line 170 as a prioritised instance and line 96 as a class field) and are missing from the index only because it omits prioritised instances and class projections. They are correct citations and were not flagged. All 13 routes are accepted. All 22 sourceIssues are confirmed; each carries a verdict recording what I checked. Two corrections were made in place: the Part II title now reproduces the parent's atlas title exactly, and the quotation of Lee in E6 is now verbatim. The recorded hash of the paper reproduces byte for byte (sha256 5ceed816..., 394120 bytes, 38 pages). The published Duke text remains unobtainable here, as the extraction says; every locator and every error report is against v1, and the corrections of Lee 2022 are recorded as known where they apply."
+}

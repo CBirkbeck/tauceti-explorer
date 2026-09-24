@@ -3098,7 +3098,7 @@
    "route": "part-ii",
    "parent": "AbelianSchemesAndArithmeticModuli",
    "roadmap": "AbelianSchemesAndArithmeticModuliPartIIFiniteFields",
-   "title": "Abelian Schemes and Arithmetic Moduli, Part II: finite-field isogeny classes",
+   "title": "Abelian Schemes And Arithmetic Moduli, Part II: finite-field isogeny classes",
    "area": "arithmeticgeometry",
    "items": [
     "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
@@ -3207,7 +3207,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator. The display labelled finalisotypiclocalestimate in v1 contains the step 'sum over a_1 + ... + a_n <= delta n of 1 <= (n delta)^n / n!', and the inequality is false: the left side counts the n-tuples of non-negative integers of sum at most delta n, which is the binomial coefficient of (floor(delta n) + n) over n, so at n = 1, delta = 0 it is 1 against 0, and at n = 1, delta = 1 it is 2 against 1. The later step (n delta)^n / n! <= e^n delta^n is sound, so the defect is the first inequality alone, exactly as the finding says.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E2",
@@ -3227,7 +3232,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The counterexample is correct as arithmetic: with l = 3, F = Q_3(i), R = Z_3[3i], S = Z_3[i], M = S and n = 1, both 1 and -1 lie in GL_1(R) and M = (-1)M, while the two proposed images of i differ by 2i, which is not in Z_3[3i] since that would need 2/3 in Z_3. So the displayed formula does not descend to orbits. I did not re-read the v1 orbit-map display on the page image; the algebra is decisive on its own.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E3",
@@ -3247,7 +3257,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The direction is as the finding says: F(M') is contained in F(M), which is contained in M', so passing to quotients gives a surjection from M'/F(M') onto M'/F(M) and not the printed inclusion, and the intersection in the denominator is redundant. The cardinality bound the proof wants survives through that surjection, which is why this is a misprint rather than an error in the result.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E4",
@@ -3267,7 +3282,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+   "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator. The paper writes verbatim: 'A keen insight of Yun is that #Hilb_R^j <= #Hilb_{Z_l[[x]]}^j because R is a quotient of the power series ring Z_l[[x]].' The objection is right: Z_l[[x]] is local with residue field F_l, so every quotient of it has residue field F_l, while an order in the unramified quadratic extension of Q_l has residue field F_{l^2} and is therefore not such a quotient. The repair, passing first to the unramified coefficient ring and writing R as a quotient of O_0[[T]], is the standard one and keeps Yun's bound.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E5",
@@ -3287,7 +3307,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator and recomputed. Lemma 2.1 of v1 reads verbatim 'The number of degree 2g monic integer polynomials p(x) all of whose roots have absolute value sqrt(q) is at most (2g)^g q^{(1/4)g(g+1)}', and at g = 1, q = 2 the bound is 2 sqrt 2, about 2.83, while X^2 - aX + 2 has all roots of absolute value sqrt 2 for every a with -2 <= a <= 2, which is five polynomials, and X^2 - 2 is a sixth. The proof's functional equation q^g f(x) = x^{2g} f(q/x) presupposes the constant term q^g, which X^2 - q violates, so the second half of the finding is right as well. This is a stated result, and the corrected bound (4g+1)^g q^{(1/4)g(g+1)} with reciprocity imposed explicitly is the right repair.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E6",
@@ -3297,7 +3322,7 @@
    "correction": "The elementary discriminant bound has exponent d(d−1).",
    "reason": "The discriminant is the square of the Vandermonde product. Each unordered pair contributes two differences, so the displayed argument loses a square. The corrected bound is retained by weil-discriminant-bound; the sharp main constant is not certified.",
    "affects": "the proof",
-   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(2): \"The upper bound in the inequality (31) of [7] should be corrected to (2√p)^(2·C(d,2))\" (published (31) = v1 (26)).",
+   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(2): \"The upper bound in the inequality (31) of [7] should be corrected to (2√p)^(2·C(2d,2))\" (Lee prints C(2d,2); his own corrected display (32) uses the square root (2√p)^(C(d_i,2)) for each field of degree d_i, which is the exponent d(d−1) recorded here) (published (31) = v1 (26)).",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
@@ -3307,7 +3332,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator and against the correcting paper. The display labelled smalldiscriminant in v1 reads '|D_K| <= disc(some p-Weil number of degree d) <= (2 sqrt p)^{C(d,2)}', and the discriminant is the square of the Vandermonde product, so with |alpha_i - alpha_j| <= 2 sqrt p the correct exponent is 2 C(d,2) = d(d-1), as the finding says. Lee 2022 records the correction. One repair made in place: the quotation of Lee now reproduces his printed exponent C(2d,2) rather than silently normalising it, with a note that his own corrected display uses the square root (2 sqrt p)^{C(d_i,2)} for a field of degree d_i, which is the exponent this finding records.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E7",
@@ -3327,7 +3357,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The observation is elementary and right: for fixed p the quantity log_p 2 is a positive constant, so a factor 2^{Cg^2} is p^{C g^2 log_p 2}, which is not p^{o(g^2)}, and an asymptotic stated as p^{(33/4) g^2 (1+o(1))} cannot absorb it. Lee's corrected Theorem 1.1, which keeps the factor 2^{34 g^2} explicitly outside the p-power, confirms that this is how the published argument has to be stated.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E8",
@@ -3347,7 +3382,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The mathematics is standard and the finding states it correctly: for a line bundle L on A the pullback of the Poincare bundle along (1, phi_L) is the Mumford bundle Lambda(L), whose restriction along the diagonal is [2]^* L tensor L^{-2}, with Neron-Severi class twice that of L; it is not L. Limit of this check: the primary evidence the extraction cites is Conrad's notes, which I did not read, and I did not locate the printed sentence on the v1 page image; I confirm the mathematical content and the correction, which is what the fix records.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E9",
@@ -3367,7 +3407,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator. The paper writes verbatim 'Phi_f: NS(A) = Pic(A)/Pic^0(A) -> S^0(A), L -> (1/2) f^{-1} phi_L' and 'D_f: End^0(A) x End^0(A) -> NS(A)'. The first has an integral source and a rational target and carries a factor one half, and the second has a rational source and an integral target, so neither is an isomorphism of the kind the later argument uses without rationalising NS(A). The correction is the right one and does not change any result.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E10",
@@ -3387,7 +3432,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator. Remark 4.8 of v1 reads verbatim 'If A/k is simple with endomorphism algebra D, then t = reduced trace_{D/Q}', and the counterexample is decisive: for a simple abelian variety of dimension g with End^0(A) = Q the trace defined in the preceding definition has t(1) = 2g while the reduced trace of 1 is 1. The identity holds only after the multiplicity of the Tate representation is restored, as the correction says.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E11",
@@ -3407,7 +3457,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator. The v1 sentence reads verbatim 'The discriminant of the ring extension O_K[w]/O_K equals p sin^2 theta_0', and with w = sqrt p exp(i theta) one has (w - conjugate w)^2 = -4 p sin^2 theta, so the factor 4 is missing. As the finding says, restoring it does not change the logarithmic bound that the next display draws.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E12",
@@ -3427,7 +3482,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The finding is stated as a gap rather than a falsity, and that is the right reading: the cited display supplies upper bounds for each residue, and the difference of two logarithms is not bounded by upper bounds alone. The correction asks for the missing lower control rather than asserting that the displayed estimate fails, which is the honest form of this finding.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E13",
@@ -3447,7 +3507,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator and recomputed. The Gan-Yu volume constant in v1 carries the factor (product over d from 1 to n of (d-1)!/(2 pi)^d)^{[K:Q]}, and the sum of log((d-1)!) for d up to n is (1/2) n^2 log n + O(n^2), since it equals the sum over j < n of (n-j) log j. So a printed leading term [K:Q] n^2 log n has twice the correct coefficient, and for fixed K a missing half of n^2 log n is not absorbed by O(n^2 [K:Q]^2). The correction, leading coefficient one half throughout, follows.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E14",
@@ -3467,7 +3532,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The finding is right that Conjecture 5.2 as stated concerns products of matrix algebras over CM fields, so the family with real Frobenius sqrt p and quaternionic endomorphism algebra, which the paper itself separates earlier, is not covered by it; and it is right to record this as a gap in the deduction rather than as a false statement. The corrected conclusion, which allows the alternative large factor, is the conservative one.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E15",
@@ -3487,7 +3557,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Recomputed. Among the 2g cyclic gaps of the argument, a root repeated h times contributes h - 1 zero gaps, so the zero mass is at least (2h-2)/(2g) = h/g - 1/g; at g = h with two distinct roots each repeated h times it is exactly 1 - 1/g and not 1. The printed conclusion therefore overstates the discrepancy by the missing 1/g, and the correction states the limiting form that survives.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E16",
@@ -3507,7 +3582,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The finding is a gap and correctly stated as one: a definition by a limit needs that limit to exist, a uniform positive lower bound gives only a positive lower limit, and pointwise convergence does not by itself preserve total mass without tightness. The correction asks for exactly those two statements.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E17",
@@ -3527,7 +3607,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+   "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Recomputed the counterexample. Over F_2 the curve y^2 + xy = x^3 + x^2 + 1 has the single affine point (0,1) together with the point at infinity, so it has 2 points over F_2, whence a = 1 and it has 2^2 + 1 - (a^2 - 2 p) = 8 points over F_4. Both are 2-groups, so the printed lemma fails at p = 2, and the extraction's corrected statement, that the lemma holds exactly for odd p, is right. The correction to Corollary 5.20 follows.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E-MILNE68-NEWTON-ABSCISSA",
@@ -3546,7 +3631,12 @@
     "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The mathematics is not in doubt: the abscissa of a Newton-polygon vertex is the exponent i, not the coefficient c_i, which in general lies in a p-adic field and has no canonical real value; and for 1 + F the printed point set would be a single point where the polygon has two endpoints. Limit of this check: I did not read the page image of Milne 1968, so the printed form is the extraction's reading; the correction is the only sensible reading of the formula that follows it.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E18",
@@ -3564,7 +3654,12 @@
     "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Recomputed the counterexample. For E over F_5 given by y^2 = x^3 + 1 the affine point count is 2 + 0 + 2 + 0 + 1 = 5, so with the point at infinity there are 6 points, a = 0, the curve is supersingular and its characteristic polynomial is X^2 + 5, whose field Q(sqrt(-5)) has no real place. So a Frobenius centralizer can be a field, and the printed inference that it is not a division algebra does not follow. The correction, to argue splitting from the local invariants already computed, is the right repair.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E19",
@@ -3580,7 +3675,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16."
+   "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against the correcting paper directly. Lee 2022, section 3.1, writes of the bound quoted from Corollary 3.18: 'The bound is written in [LT18] as (2 sqrt p)^{4 C(2g,2)}, but it should be corrected to (2 sqrt p)^{4 C(2g,2) 2}', which is the factor two in the exponent this finding records, and he states the same correction for the second occurrence in the proof of Corollary 3.22. The extraction's corrected exponent 8 C(2g,2) is exactly Lee's.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E20",
@@ -3596,7 +3696,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16."
+   "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against the correcting paper directly. Lee 2022, section 3.1, gives the corrected class-number product as (2 sqrt p)^{2 g^2 (1+o(1))}, which is the extraction's correction verbatim, and his corrected display uses (2 sqrt p)^{C(d_i,2)} for each field of degree d_i, which is the square root of the corrected discriminant bound of E6.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E21",
@@ -3612,7 +3717,12 @@
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
     "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
    ],
-   "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16."
+   "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against the correcting paper directly. Lee 2022 states as his Theorem 1.1, attributed to Lipnowski-Tsimerman Theorem 0.1 as corrected, the bound B(p,g) <= 2^{34 g^2} p^{(69/4) g^2 (1+o(1))}, and as his Theorem 1.4 the improved bound B(p,g) <= p^{(45/4) g^2 (1+o(1))}. Both are exactly as the extraction records them, including the theorem numbers, which I recomputed from Lee's own counter, where a remark shares the theorem numbering. The printed exponent 17/2 is therefore not established, and the extraction is right to say so.",
+    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   }
   }
  ],
  "verification": {
