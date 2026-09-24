@@ -1528,8 +1528,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-SCHOLZE-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-SCHOLZE-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1104"
+   "state": "external",
+   "note": "claimed on GitHub issue #1104"
   },
   {
    "id": "PAPER-FINTZEN-21",
