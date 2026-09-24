@@ -29185,8 +29185,9 @@
     "RT-AREA-automorphic-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-automorphic-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1492"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1492",
+   "finishedAt": "2026-09-24T06:37:43Z"
   },
   {
    "id": "RT-AREA-iwasawa-1",
@@ -29804,7 +29805,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-etale.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1517"
   },
   {
    "id": "REV-RT-AREA-etale",
