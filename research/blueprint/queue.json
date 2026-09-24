@@ -4291,8 +4291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -26060,8 +26060,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1741"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1741",
+   "finishedAt": "2026-09-24T01:01:12Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -26108,8 +26109,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1743"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1743",
+   "finishedAt": "2026-09-24T01:01:14Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -26257,7 +26259,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1749"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -26356,8 +26359,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1621"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1621",
+   "finishedAt": "2026-09-24T01:01:15Z"
   },
   {
    "id": "REV-RT-RS-15",
@@ -30235,8 +30239,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-probability.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1543"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1543",
+   "finishedAt": "2026-09-24T01:01:16Z"
   },
   {
    "id": "REV-RT-AREA-probability",
