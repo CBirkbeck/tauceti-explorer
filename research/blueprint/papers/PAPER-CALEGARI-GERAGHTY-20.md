@@ -282,3 +282,35 @@ Proposed items that were proof steps were dropped, and 13 were kept. A de-duplic
 - `python3 research/blueprint/intake.py check-files` passes on the two deliverables.
 - No Lean was written. A paper extraction has no Lean deliverable, and nothing is claimed to be formalised.
 
+
+## Review (REV-PAPER-CALEGARI-GERAGHTY-20, 24 September 2026)
+
+The review accepted the extraction after corrections made in place; all 27 routes stand. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-CALEGARI-GERAGHTY-20.md`. Eight checkers read the published article against its page images and the arXiv TeX of the main text and the appendix. They opened every cited declaration, read every cited layer and checked every recorded mistake. The coordinator re-derived the substantive new findings.
+
+- **Corrected: 66 items.** The material ones:
+  - the Hasse-power surjections of Theorems 6.13 and 6.17 target the quotient by the annihilator of the β- or (α,β)-part (E160);
+  - Definition 6.15 needs η ≠ 0 (E158);
+  - the Taylor–Wiles labelling α_xδ_x = β_xγ_x is imposed, not deduced (E159);
+  - Theorem 7.11's bound is p > a − 2 (E161);
+  - the operators at p are flagged with E52 and E53;
+  - Lemma 8.24 holds mod p with j > 2 (E164);
+  - Assumption 4.2 (neatness) follows from Assumption 4.1(H1).
+
+  SL₂(F_p) perfect and PSL₂(F_p) simple are in Mathlib at the pin, so that half of ext-group-theory-SL2-PGL2 became a library item.
+- **New: 18 items** (1 library, 4 planned, 13 missing), 415 in total. Among them:
+  - Theorem 1.2;
+  - Assumptions 6.12(2) and 6.16;
+  - the non-simple-generic case of Proposition 6.8;
+  - the injectivity of the secondary Hasse invariant on S;
+  - the archimedean transfer to GL₄(R);
+  - Ribet's semistable-endomorphism bridge.
+- **Source issues:** of E1–E156 (E124 was withdrawn by the extraction), 146 are confirmed and 9 are rejected.
+  - Seven rejected entries duplicate others.
+  - E75's headline claim is withdrawn by its own correction.
+  - E104 is standard notation.
+  - E17 became an error.
+
+  E157–E165 are new:
+  - E160 is a gap in a proof, with a direct repair;
+  - the rest are misprints;
+  - no main theorem changes.

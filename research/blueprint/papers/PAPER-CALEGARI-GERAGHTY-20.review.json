@@ -1,0 +1,142 @@
+{
+  "paper": "PAPER-CALEGARI-GERAGHTY-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "No atlas roadmap proves GSp₄ modularity lifting, constructs GSp₄-valued Galois representations over torsion Hecke algebras, or does local–global compatibility at p for Siegel forms, so a new roadmap is justified; area langlands is a galaxy id. The review added Theorem 1.2, Assumptions 6.12(2)/6.16, the non-simple-generic case of Proposition 6.8, the injectivity of the secondary Hasse invariant on S, and hypothesis (6) of Theorem 9.1 for a ≥ 4. An addendum to the reason records E158–E161 for the design job."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "AlgebraicModularFormsAndSerreWeights stops at algebraic modular forms and Serre weights; Siegel forms of genus two modulo pⁿ, their q-expansions and theta operators are planned nowhere. The review added the irreducibility of Sym^n under SL₂(F_p)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AutomorphicBundles stops at characteristic-zero sections; the integral coherent complexes are new in its direction. The review added the 'contributes'/isotypic definition. CG18 routes to the same id, and make_queue.py does not merge same-id routes, so the maintainer merges the two design jobs."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "SelmerIwasawaCohomology plans Selmer groups but not their vanishing from R = T; the appendix's argument is new in its direction. The review added the large-p finiteness step of Lemma A.5."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "FaltingsFinitenessAndIsogenyTheorems plans Faltings's theorems but not Serre's open-image results for abelian surfaces. The review added Ribet's semistable-endomorphism bridge, which the use of Serre's corollary needs."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "The additions are the GL_n parts of the appendix (Theorem A.2), which belong with CG18's conditional theory. It joins CG18's route of the same id; the maintainer merges the design jobs."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The single weight-one item belongs with CG18's defect-one GL₂ theory. It joins CG18's route of the same id; the maintainer merges the design jobs."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "GlobalGaloisDeformations owns the cited stages (G7, R04.3, R04.4). The checkers read those stage descriptions for the items on this route and found none misrouted. The review added r̄ ≇ r̄ ⊗ ε̄ (asserted in Proposition 4.9)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "ArithmeticGaloisRepresentations owns the cited stages (G7, R01.1, R01.2, R01.4, R01.5). The checkers read those stage descriptions for the items on this route and found none misrouted. The review added the image over Q(ζ_{p^m}) in Example 4.11(1)."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "AutomorphicFormsOnReductiveGroups owns the cited stages (AF.1, AF.3, AF.4). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "AutomorphicGaloisRepresentationsPartII owns the cited stages (AG2.2, AG2.5, AG2.6). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "LocalGaloisDeformationRings owns the cited stages (L7, R08.2). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "ShimuraData owns the cited stages (D5). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "ShimuraCompactifications owns the cited stages (C3, C4, C5). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "ModularityAndLanglandsExtensions owns the cited stages (ML.0, ML.4). The checkers read those stage descriptions for the items on this route and found none misrouted. The review added the archimedean transfer to GL₄(R) and the unitary descent of Lemma 6.9, whose natural owner is ML.4."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "SmoothRepresentationsOfLocalGroups owns the cited stages (SR.2, SR.3, SR.4). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "IntegralHeckeAndGaloisDeterminants owns the cited stages (IHG.1, IHG.2, IHG.3). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 18,
+      "verdict": "accept",
+      "reason": "ArithmeticLocallySymmetricSpaces owns the cited stages (ALS.0, ALS.3, ALS.4, ALS.6). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 19,
+      "verdict": "accept",
+      "reason": "AutomorphicSpectralTheory owns the cited stages (AS.4, AS.5). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 20,
+      "verdict": "accept",
+      "reason": "SelmerIwasawaCohomology owns the cited stages (L2, L4). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 21,
+      "verdict": "accept",
+      "reason": "GL2AutomorphicRepresentationsAndTransfer owns the cited stages (R16.2). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 22,
+      "verdict": "accept",
+      "reason": "AlgebraicModularFormsAndSerreWeights owns the cited stages (R15.3). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 23,
+      "verdict": "accept",
+      "reason": "ClassicalArithmeticCompletion owns the cited stages (CA.1). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 24,
+      "verdict": "accept",
+      "reason": "DeformationAndDerivedPatchingAlgebra owns the cited stages (R03.5). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 25,
+      "verdict": "accept",
+      "reason": "AutomorphicLFunctionsAndLocalFactors owns the cited stages (AL.3). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 26,
+      "verdict": "accept",
+      "reason": "NeronModelsAndSemistableAbelianVarieties owns the cited stages (R11.5). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    },
+    {
+      "route": 27,
+      "verdict": "accept",
+      "reason": "SerreWeightAndLevelOptimisation owns the cited stages (R20.3). The checkers read those stage descriptions for the items on this route and found none misrouted."
+    }
+  ],
+  "notes": "Accept after corrections made in place. The review was done by Claude Code (session cc-38267a) against the author copy of the published article (Siegel.pdf, SHA-256 fff30587…) and the arXiv TeX of the main text (1907.08691v1) and appendix (1907.08694v1), with eight checkers splitting pp. 800–896; they opened every cited declaration, read every cited layer description and checked every recorded mistake on the page image. The coordinator re-derived the substantive new findings in the TeX. Items: 66 corrected and 18 added (1 library, 4 planned, 13 missing), giving 415 (6 library, 82 planned, 327 missing). Mathlib at the pin already has SL₂(F_p) perfect and PSL₂(F_p) simple, which the extraction called missing; the item was split. Source issues: of E1–E156 (E124 withdrawn by the extraction), 146 are confirmed and 9 rejected: E39, E46, E47, E69, E106, E117 and E120 duplicate other entries; E75's headline claim is withdrawn by its own correction; E104's 'U² − TU + ⟨p⟩' is the standard Hecke-polynomial notation. E17 became an error. Several reasons were corrected in the verdicts (E4, E36, E57, E72, E73, E91, E115, E125, E139, E142, E145, E152). E157–E165 are new:\n- E160 (gap, the proof): the Hasse-power surjections in the proofs of Theorems 6.13 and 6.17 must target the quotient by the annihilator of the β- (or (α,β)-) part, not of the whole space; trivially repaired.\n- E158: Definition 6.15(2) needs η ≠ 0. E159: the Taylor–Wiles labelling α_xδ_x = β_xγ_x does not follow from isotropy. E161: Theorem 7.11's bound is p > a − 2.\n- The rest are misprints.\nNeatness (Assumption 4.2) follows from Assumption 4.1(H1). No main theorem changes. All 27 routes are accepted."
+}
