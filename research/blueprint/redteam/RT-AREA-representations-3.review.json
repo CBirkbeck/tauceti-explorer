@@ -1,0 +1,84 @@
+{
+  "redteam": "RT-AREA-representations-3",
+  "findings": [
+    {
+      "finding": "RT-AREA-representations-3/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed, medium, with a corrected fix. RootSystems lines 45–50 assign the general lattice apparatus to LieHighestWeight, whereas LieHighestWeight lines 165–168 and 199–203 send the same package back. LieHighestWeight lines 114–118 promise a construction of the integral-weight submodule of the Cartan dual, but Layer 1 (352–355) and Layer 2 (384–389) still import it from RootSystems. This is an actionable ownership contradiction, not evidence that the complete interface is already consistently planned. RootSystems Layer 6 (377–386) supplies a particular numbered simply connected integral root datum for each valid Dynkin type, not the general lattice in an arbitrary semisimple Lie algebra's Cartan dual. Its blanket introductory exclusion also needs that explicit exception. The accepted RootSystems link map, overlaps[0], already records this exact conflict and the sound resolution: retain finite-type coordinate data in RootSystems, the general highest-weight lattice dictionary in LieHighestWeight, and explicit comparison rather than a second definition. The red team's blanket claim that RootSystems supplies the abstract lattice must therefore be replaced with this precise contract. Reuse Mathlib RootPairing.rootSpan/corootSpan at Z, Base.toWeightBasisInt (a root-span basis, not fundamental weights), RootDatum and weylGroupRootRep; reuse TauCeti.DynkinType.simplyConnectedRootDatum/simplyConnectedBase and TauCeti.IsIntegralWeight with its closure API at the programme pins. Correct all inconsistent handoffs in LieHighestWeight (64–67, 114–118, 165–168, 199–203, 352–355 and 384–389), identify its lattice/remaining comparison milestone, and preserve its Layer 6 ownership of the Weyl formulas. Do not infer either a new construction or complete coverage from the cited promise. ClassicalGroups lines 294–303 do misattribute the formulas, as the earlier confirmed finding says, but these texts do not establish why that error was written; the claimed causal explanation remains speculative. This verdict verifies the extant contradiction, not the red team's other area-wide clean claims. Both roadmaps are existing tauceti anchors: under PROTOCOL section 15 the fix should record the concrete upstream/maintainer correction and supplier contracts, not re-plan or silently widen those anchors."
+    }
+  ],
+  "reviewer": {
+    "agent": "Codex",
+    "session": "codex-7e92bd",
+    "job": "REV-RT-AREA-representations-3",
+    "date": "2026-09-24"
+  },
+  "snapshot": {
+    "atlasCommit": "484485ee359918e196c3bc0a09cd82dc38adf47a",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "sources": [
+    {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/content/tau-ceti/RepresentationTheory/RootSystems/README.md#L45",
+      "read": "Complete RootSystems README, including all six layers and Layer 6 coordinate datum."
+    },
+    {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md#L107",
+      "read": "Introduction and conventions; ownership/import passages; Layers 1–2 and Layer 6 character/dimension targets."
+    },
+    {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md#L272",
+      "read": "Layers 4–5 citations of the Weyl formulas."
+    },
+    {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+      "read": "Accepted review metadata and overlaps, particularly overlap 0; corroborating earlier issue, not replacement for source reading."
+    },
+    {
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/484485ee359918e196c3bc0a09cd82dc38adf47a/research/blueprint/redteam/RT-AREA-representations-1.result.json",
+      "read": "Finding 1, its verification and corresponding report discussion."
+    },
+    {
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+      "sha256": "26c2d862280f432882f01d3f1fdf635569f38e7c3a7ca3fb5051ca54c562ff00",
+      "read": "Relevant declarations and surrounding hypotheses; local file byte-matched pinned Git blob."
+    },
+    {
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/IsValuedIn.lean",
+      "sha256": "446a94315e187517a72c3cdd5d56c66091b5a523e8878808e3fac553aec37e1b",
+      "read": "Relevant declarations and surrounding hypotheses; local file byte-matched pinned Git blob."
+    },
+    {
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean",
+      "sha256": "496902733973c72b49a1fe75cb6b995a4d6a181951dd09c4c597a4c039471292",
+      "read": "Relevant declarations and surrounding hypotheses; local file byte-matched pinned Git blob."
+    },
+    {
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean",
+      "sha256": "64f16678a7066741fc935f7f02e1aae2f22e74ddce6f580fa7b1c84a5f867fba",
+      "read": "Relevant declarations and surrounding hypotheses; local file byte-matched pinned Git blob."
+    },
+    {
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+      "sha256": "c414dd8e9f9b2068d42289c2354eb8f3aa86b3eafd66d8fa39d91c9f1ffee004",
+      "read": "Relevant declarations and surrounding hypotheses; local file byte-matched pinned Git blob."
+    },
+    {
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/Weights/Integrality.lean",
+      "sha256": "bc0c15b4400395af0cdffa2bae1ac23018b849aea19f16eaf9668a4c8a1abbe3",
+      "read": "Relevant declarations and surrounding hypotheses; local file byte-matched pinned Git blob."
+    }
+  ],
+  "validation": {
+    "status": "pass",
+    "leanCompiled": false,
+    "scope": "One submitted finding; no fresh audit of all 46 stages or of red-team clean claims.",
+    "redteamChecker": "pass",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "484485ee359918e196c3bc0a09cd82dc38adf47a",
+    "unchangedInputBlobs": 18,
+    "claimComment": 5806810272,
+    "claimConfirmation": 5806811561
+  }
+}
