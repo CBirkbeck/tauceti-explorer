@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-DISEGNI-LIU-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of Gross-Zagier formulas and arithmetic heights, 18 items. Accepted. The title is an exact prefix extension of the parent's atlas title and the id is free. The content is the paper's own theorem - Selmer theta lifts, the p-adic arithmetic inner product formula relating the p-adic height of a Selmer theta lift to the derivative of the cyclotomic p-adic L-function, and the modularity of the generating function in Selmer groups - which is a new layer in the Gross-Zagier direction rather than a restatement of it. The parent supplies the archimedean-height Gross-Zagier machinery that this p-adic analogue is modelled on."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Part II of Selmer groups, continuous integral cohomology, and Iwasawa cohomology, 14 items. Accepted. Exact prefix extension, id free. This is where Appendix A belongs: bi-extensions of cycles, the decomposition of the p-adic height pairing into local terms, and the crystalline property that makes the decomposition work. Splitting it from route 1 is right - the height machinery is reusable and the arithmetic inner product formula is not - and it is also where four of the seven findings (E4, E5, and the Lemma A.4 hypothesis inside E7) live, so the design job inherits them."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source route into AutomorphicPadicLFunctions L4 and L5, 15 items - the largest source route. Accepted. L4 is 'Ordinary unitary groups and the doubling method' and L5 'Comparison and generalized statements', which is exactly section 3: the doubling space and degenerate principal series, Siegel Hermitian Eisenstein series, the local doubling zeta integral, and the construction of the cyclotomic p-adic L-function by interpolation. E1, E2 and E3 all live in this material."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source route into MetaplecticAutomorphicForms MP.2 and MP.3, 2 items. Accepted. MP.2 is 'Weil index and explicit operator formulas' and MP.3 'Dual pairs and local theta modules'; the two items are the Weil representation and the local theta correspondence that section 4.1 uses as given."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source route into PadicDifferentialEquationsAndRigidCohomology RD.4, 2 items. Accepted. RD.4 is 'Rigid cohomology and compact support', which owns the log rigid cohomology with proper support of Appendix B.3 and the Abel-Jacobi map computed through it in B.4."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source route into CrystallineCohomology CR.4, CR.5 and CR.6, 1 item. Accepted. The three stages are 'Ordinary and relative de Rham-Witt complexes', 'Logarithmic geometry and log-crystalline cohomology' and 'Hyodo-Kato complexes and semistable structure' - precisely the rigid de Rham-Witt apparatus of Appendix B.2. One item across three stages is the right weight for something the paper builds on rather than develops."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source route into PadicHodgeTheory R06.1, 1 item. Accepted. R06.1 is 'Period rings', the owner of the B_st and B_cris period rings that Appendix B.5 reviews; the review of those rings on p. 348 is where E7's 'R_l-ring wit a discrete action' typo sits."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, for issue 1229, 23 September 2026. Verdict: accept.\n\nSOURCE, WITH A LIMITATION. The paper is open access and the extraction records the published PDF's SHA-256. As with every Springer-published paper I have reviewed today, that hash could not be re-verified here: the PDF endpoint returns a JavaScript challenge page to every request. I read the published text through a rendering proxy and rebuilt the journal page map from the running heads - 146 marks running from p. 220 to p. 371, consistent with the stated 219-371 - and checked every finding at its recorded page. Crossref records no correction.\n\nMISTAKES. All seven findings were checked at their locators and all seven are confirmed. Every one is a misprint that affects nothing, and the record is honest about that: this is a long and careful paper, and what the extraction found is a handful of notational slips, not defects.\n\nMost are settled by their own neighbourhood. E2: Definition 3.21 names the property 'Panchishkin' while Lemma 3.22, the next statement on the same page, says 'Panchishkin unramified', and Lemma 4.14 on p. 281 cites this very definition by the fuller name. E4: the lemma on p. 323 fixes the element a and the proof immediately says 'does not depend on the choice of x'; on p. 324 the proof introduces b^q, then writes nu^q(y^q) with y^q undefined, and uses nu^q(b^q) correctly two words later. E5: the source of kappa_{c'} carries the twist L(d-1) while the vanishing clause is written with L(d), and the next sentence shows that it is kappa_{c'}(1) that meets the L(d) of diagram (A.2). E6: Proposition B.11 on p. 344 concludes over U-bar, and its third application on p. 347 writes U-bar_t, where the subscript also collides with the t defined in the same sentence. E7: 'the corresponding edges maps' is followed four words later by 'the corresponding edge maps'.\n\nTHE ONE SUBSTANTIVE ITEM inside E7 is worth separating from the typography: Lemma A.4 is stated for C in D^+_G(S, Z_{p-bullet}) while Definition A.3 and Lemma A.5 are over W_bullet and the lemma is applied on p. 363 to an object of D^+_{G_K}(X_et, W_bullet), so its hypothesis as printed is narrower than its use. The extraction is right that the proof works verbatim over W_bullet. Grouping that with six typographical slips in a single entry is defensible but makes the register entry harder to read than it needs to be; I have confirmed it as recorded rather than splitting it, since splitting would renumber the findings.\n\nITEMS AND ROUTES. 62 items: no library items, 14 planned targets and 53 missing, each missing item routed exactly once, all dependencies resolving. That there is no library item is plausible for this paper: p-adic height pairings on unitary Shimura varieties, log rigid cohomology and the doubling method have no counterpart at the pins. All ten stage ids cited by the routes and all fourteen planned targets exist in the atlas index. Seven routes, all accepted; both Part II titles are exact prefix extensions and both ids are free.\n\nCHECKS. scripts/check_paper.py: ok. intake.py check-files: 4 files, 0 problems. No Lean was written or compiled."
+}
