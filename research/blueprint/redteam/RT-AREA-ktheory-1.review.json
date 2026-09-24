@@ -1,0 +1,250 @@
+{
+  "redteam": "RT-AREA-ktheory-1",
+  "findings": [
+    {
+      "finding": "RT-AREA-ktheory-1/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with an essential correction to the proposed duality statement. K-book IV.6.9 (p.59), the building/Steinberg discussion in Church–Farb–Putman §1.4, and R.1/N.3:finite-generation expose the missing rank-filtration and Steinberg-coefficient finiteness inputs; ALS.2's compactification alone is not that package. But the untwisted Steinberg module is NOT always the GL_n(O) dualizing module. Putman–Studenmund, arXiv:1909.01217v4, Theorem C (p.4), gives D = St_n(F) tensor (Z_chi)^(tensor(n−1)), chi = Norm(F/Q) composed with determinant. Use this twist, or first pass to a torsion-free finite-index subgroup in ker chi and prove descent. Their p.2 permits integral coefficients for torsion-free groups; rational duality alone does not prove integral finite generation. Put building, Solomon–Tits and the correctly twisted arithmetic duality/finiteness interface in R.1, importing ALS.2/its early finite-level cohomology. N.3 owns the Q-rank filtration and the assembly for Aut(P), including nonfree projectives, low ranks and the finite-S localization step. Do not duplicate the arithmetic finiteness proof there. Pinned searches found no supplier of this building/duality package; the named Steinberg files concern different objects."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. M.5's field diagonal norm-residue isomorphism does not itself state the truncated motivic-complex comparison consumed by M.6/M.7. K-book VI.4.1–4.2 (p.16) distinguishes the Beilinson–Lichtenbaum comparison from the diagonal symbol theorem and then uses it for the spectral sequence. PAPER-CLAUSEN-MATHEW-21/166 explicitly routes the truncated comparison to M.5/M.7 without supplying its missing node. Add a source-level Beilinson–Lichtenbaum node after the norm-residue engine: specify the morphism from the motivic complex modulo an invertible prime power to the truncated derived pushforward of the étale Tate twist, its topology, naturality and degree conventions, and prove the passage from fields to the smooth schemes actually used. Treat the Dedekind-base arithmetic version and localization separately. M.7 imports this comparison before deriving Quillen–Lichtenbaum; it must not infer it merely from the diagonal equality."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. K-book VI.3.1 (p.12) supplies Suslin's finite-coefficient comparison with BO for the real field, and VI.9.1–9.4 (pp.50–52) uses real-place information in the dyadic calculation. The existing RT.4:topological contract supplies complex topological K-theory, not a real KO/BO package; Tau Ceti's Clifford-algebra Bott periodicity is not topological Bott periodicity. Extend that shared topological owner with real K-theory, its periodicity and complexification/realification comparisons, then give the algebraic-to-real comparison a theorem node feeding M.7. State the comparison's degree and coefficient hypotheses (the cited positive-degree theorem starts at n ≥ 1; degree zero needs its own identification), and preserve the real-place maps and extensions used by N.5. No second dyadic calculation belongs in N.5."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The integrated K.4 additivity/relative-S nodes and H.5:S-delooping node explicitly say that the latter proof uses K-book V.1.7 (p.8), which in turn uses additivity. The stage ordering places the full K.4 after this delooping although the packet supplies a reverse node link. Move the additivity theorem and the relative-S fibration/delooping proof into the early K.4:construction prefix; H.5:S-delooping then assembles the iterated connective spectrum from that proof, and later K.4 retains fibration, approximation and comparison results needing it. Move K-theory-specific biexact products/coherence to K.7; keep generic smash-product infrastructure in H.5:spectra. Update both packet parents/links and stage dependencies together. A pending restructuring proposal is not an applied repair."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed with scope restrictions. K-book IV Ex.1.3 and §4 (pp.14,38–45), Hatcher Prop.4.72–4.74 (printed pp.416–418), and the H.3/H.4 proof steps require obstruction theory and homological Whitehead for simple or connected H-spaces. Upstream AlgebraicTopology Stage 8 only promises the simply connected homological version; the pinned HSpace structure is not itself a theorem of simplicity or homotopy associativity. Put the required simple-space/CW-type theorem, the H-space simplicity bridge and the scoped extension/uniqueness obstruction argument in H.3, with explicit fundamental-group action hypotheses. Add H.3 → H.4 for its plus comparison. Coordinate the rational Hurewicz requirement with finding 33: one Cartan–Serre owner in H.6, not two unrelated versions. A homology isomorphism of arbitrary spaces, or an arbitrary fibration over a simply connected base, is not enough."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed, narrowing the negative search and the requested theorem. Borel 1977 §§2.2–2.4 (printed pp.617–619; formulas checked visually) constructs an inner form SL_1(D), uses compactness/strong approximation and its Tamagawa volume to obtain the zeta-factor volume formula needed by R.5. R.1/AA.2's general measure construction and Borel 1974's stable-cohomology theorem do not supply this arithmetic volume computation. Add the split-at-infinity division-algebra existence and the normalized SL_1(D) strong-approximation/Tamagawa input, importing AA.3's quotient/reduction machinery and the established Brauer/class-field interfaces rather than rebuilding them. Prove the local Euler-factor calculation and the measure comparison; tau=1 is a sufficient sourced theorem, with rational nonzero proportionality the actual regulator requirement. Do not claim every pinned strong-approximation result concerns function fields: Tau Ceti also has surjectivity of SL_2(Z) reduction modulo d. Neither that special case nor the atlas's PGL_2/Q Tamagawa computation supplies arbitrary SL_1(D). AA.2 excludes computing every Tamagawa number, not all particular computations."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an ownership/order defect. R.3 and N.3:ranks both include the S-integer rank conclusion, while R.3 lacks the localization/finite-residue-field route needed to extend the order calculation. Keep R.3's arithmetic-order stable-cohomology/rank theorem, and let N.3:ranks derive the finite-S extension using N.2 and L.1 (with the degree-one S-unit exception). This removes the need to add N.2/L.1 backwards into R.3. Preserve n ≥ 2 for the higher rank pattern and use finite generation only for the S-integer even-group finiteness conclusion. K-book VI.8.1 (p.47) prints Kn(F) where the finiteness assertion needs the integer ring; do not copy that field-finiteness claim into the repair."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The actual M.3 and T.7 contracts both construct the degree-two Galois symbol, identify its Chern interpretation and prove the arithmetic Tate comparison. Give the symbol map, its cohomological Steinberg relation and Tate's local/global/S-integer theorem one owner, M.3, with its invertibility and localization hypotheses. T.7 imports that map and retains the comparison with the named local Hilbert/invariant normalization, primitive-root change law and reciprocity adapters. Its Chern clause may remain only as compatibility with the imported map/classes, not a second construction or Tate proof. This also fixes the conflict between removing all Chern language here and retaining a comparison in finding 27. The general-field symbol needed by finding 14 must be isolated before M.3's arithmetic specialization."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed; use one consistent certificate owner across the repairs. The T.5, N.2, N.6 and N.8 text duplicates the degree-two localization sequence, certificate work and low-degree examples. T.5 should own the tame-kernel identification/degree-two exact sequence and the elementary K2(Z), K2(Q), K2(F_q) calculations, importing finding 26's prerequisites. N.2 specializes its general localization maps to that already proved degree-two row. Keep the certificate engine and its independent upper/lower bounds in N.6, and remove the competing certificate-proof obligation from T.5; N.8 then instantiates N.6 and imports T.5's K2 examples plus Z.6/U.6 for K0/K1. T.5 → N.6 supplies the group/sequence, not a second certificate engine. An unchecked presentation or a computation inferred from Birch–Tate is not a certificate."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. B.1 explicitly refers to N's cyclotomic module but has neither N.4 nor N.3:ranks in its assembled ancestry. Add N.4 → B.1 for W2, its finiteness/positivity and cyclotomic computation, and N.3:ranks → B.1 for finiteness of K2(O_F). Replace B.1's repeated constructions/proofs by those imports while retaining the totally real Birch–Tate proposition and the correct sign. W2 is the invariants of Q/Z(2), not the ordinary roots of unity. These additions are acyclic in the combined dependency check."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. N.8 and B.3 both request the real-quadratic tame-kernel certificate, but the assembled graph does not make N.8 available to B.3. Keep the independently verified arithmetic/certificate example in N.8, using N.6's engine, and add N.8 → B.3. B.3 combines that result with the independently computed w2 and zeta value and checks the Birch–Tate equality. It must not supply the order bound needed to certify the tame kernel itself. The combined graph remains acyclic."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a field-scope obligation in the fix. Totaro, Milnor K-theory is the simplest part of algebraic K-theory, printed pp.183–184, constructs the inverse diagonal cycle map using norms and kills boundaries by Suslin reciprocity. M.4 neither imports T.4 nor plans this higher-degree reciprocity input. Add T.4 → M.4; T.4 owns the all-degree norms and the precise norm/residue reciprocity theorem needed by the cycle argument, and M.4 owns the two inverse maps and boundary calculation. Do not silently identify normalization with smoothness over an imperfect field: use regular proper normalizations with the required finite residue extensions and inseparable norm compatibility, or explicitly prove the reduction to a scope where smoothness holds. Degree-two Weil reciprocity alone is not the all-degree input."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Bloch–Kato 1986 §2, Thm.2.1 and Lemma2.3 (printed pp.113–114), uses the differential symbol and the Cartier operator; the formula on p.113 was visually checked. M.5d names Bloch–Gabber–Kato but has no DD.3/CR.4 import. Add an early differential-symbol/BGK subnode with its own prerequisites: classical Cartier from the DD.3 owner and dlog/de Rham–Witt from CR.4 where the prime-power statement needs it. For mod p define the logarithmic differential subgroup as the kernel of 1−C⁻¹ into differentials modulo exact forms, and prove the symbol isomorphism. Explain the extension from smooth characteristic-p algebras to arbitrary fields, including imperfect fields; the smooth/perfect-field contract alone is insufficient. Separate the mod-p proof from the Witt/prime-power extension and from M.5a–c's invertible-prime motivic engine."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed, correcting the generality of the proposed import. The assembled graph lacks the ProfiniteCohomology Layer 9 Kummer input to M.5c; the cup-product input does not replace it. K-book III.6.10.3 (p.59) proves the cohomological Steinberg relation needed to descend the symbol for any field with m invertible. Add the upstream Kummer import and a shared early general-field Galois-symbol node, including Tate-twist tensor coefficients, Steinberg descent, naturality and norm compatibility; M.3's arithmetic theorem and M.5c both consume it. Merely adding the present arithmetic M.3 theorem would not justify M.5c's all-field statement. Do not use multiplication of roots of unity as a biadditive tensor pairing."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed. H.2's diagonal/iterated-realization and quasifibration nodes do not supply the theorem that realizes the levelwise fibration in K-book V.1.7 (p.8); the K.4 proof invokes that additional input. Add the exact realization-of-fibrations theorem in H.2, with a sourced model and its properness/cofibration and connectivity or simplicial-fibration hypotheses, and verify them for the relative S-construction. Its conclusion must identify the realized fibre map and basepoint, not merely give an abstract equivalence of spaces. Do not assert that arbitrary levelwise fibrations of arbitrary simplicial spaces realize to fibrations, or equate the levelwise-equivalence theorem with this stronger assertion."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing decomposition, not as absence of all planning text. H.5's roadmap promises Eilenberg–Mac Lane spectra of complexes and truncations, but the integrated omega-spectra-and-eilenberg-maclane node only iterates the bar construction of an abelian group A. Add the chain-complex Eilenberg–Mac Lane functor, pi_n(HC)=H_n(C) with the chosen grading, its HR/module and monoidal comparisons, ordinary-cohomology representability and the truncation/connective-cover API required by RT and EDS. Reuse existing chain complexes and Dold–Kan where applicable. Put these generic constructions in H.5:spectra, so finding 44 can remove the irrelevant Waldhausen dependency without losing the actual comparison input."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. K-book V.1.5.4 and V.8.1 (pp.6,60) explicitly use the projective-line splitting in the Laurent/Nil argument. K.6's agreement node also admits unread projective-bundle inputs and includes scheme-level comparisons whose carriers belong to S.1/S.2. Adding S.5 → K.6 would create a cycle, since K.6 already precedes S.5. Put the ring-level projective-line category/splitting and Bass fundamental theorem with Nil terms in the early K/K.6 development, and make S.5 import the ring theorem. Over noncommutative rings use the gluing category of projective modules in V.1.5.4, not a nonexistent ordinary scheme Spec(R). Move scheme-specific agreement/comparison obligations to the scheme owner after S.1/S.2, retaining their qcqs hypotheses and an explicit comparison to the ring model."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. K.5's warning against unconditional excision and K.6's negative-theory agreement do not decompose Bass's low-degree excision for a Milnor square. PAPER-CLAUSEN-MATHEW-MORROW-21/076 calls that result planned there, and the proof of CMM Prop.4.34 (p.35) genuinely uses it. K-book III.2.6 and III.4.3 (pp.15,31) give the low-degree Mayer–Vietoris progression. Add K.5 nodes for Milnor patching, relative K0/K1 and the boundary, and K.6 nodes for Bass's contracted negative groups and extension of the exact sequence, comparing them to the chosen nonconnective theory. State the pullback/surjectivity hypotheses of a Milnor square, the n≤0 excision isomorphism and degree-one surjectivity. Do not strengthen this to unrestricted higher K-excision."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The K.1 K-groups node contains ring-valued statements, while the stage-level ring functor is introduced only in K.2:plus; K.5's relative ring theory and K.6/K.7 do not import that stage. Add the early ring-model/scalar-extension interface from K.2:plus (and Z.1 where required) before K.5. Move ring-specific clauses out of the generic K.1 contract and give elementary exact-equivalence/product/filtered-colimit facts a single owner, with K.7 importing them for its enhanced and product refinements. Tau Ceti CartanMap already supplies the essentially small finite-projective exact category over a ring; it does not supply the absent higher K functor or arbitrary-ring scalar-extension comparison. Preserve that distinction and the noncommutative-ring scope."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The K.3 cofinality node actually uses Waldhausen results, but Quillen additivity, resolution, dévissage and abelian localization have earlier Q-construction routes; K-book V.3.1–3.1.1 (pp.20–21) gives the resolution argument through Theorem A. Split an early K.3 prefix from the late cofinality/Waldhausen portion, with dependencies on the precise constructions each proof uses. Consumers of early exact-category localization should not inherit the full enhanced-spectrum development through the current aggregate. When removing the present K.4 → K.3 dependency, explicitly retain K.4 → K.5 for the relative/support Waldhausen results used there. Remove EDS dependencies only from genuinely classical construction nodes; later enhanced/derived invariance still requires its models and comparisons."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. At the pinned commit ExactStructure.lean:231, GrothendieckGroup/Exact.lean:162 and CartanMap.lean:195 already provide the exact structure, ExactK0 and the finite-projective exact structure. The K.1/K.2 nodes still treat those checks as unchecked or plan their carriers anew. Import them, match the admissible-span conventions, and prove pi1(BQ) ≅ ExactK0 via its universal property. Prove the needed axiom dictionary instead of defining a competing exact category: Bühler Prop.2.16 (pp.10–11) derives the obscure axiom only with the stated kernel/cokernel existence assumption (for the monic form, i has a cokernel). Preserve the essentially-small/universe hypotheses in ExactK0 and the finite-projective category. Existing K0 does not prove the higher Q construction or its comparison theorem."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a narrower residual gap. The pinned nerve, geometric realization and TauCeti.LocalCoefficientSystem definitions are present; import them in H.1 and retain the classifying-space/bar and twisted-chain comparisons as new work. Upstream AlgebraicTopology Stage 8 owns the Kan/cubical comparison and integral Hurewicz, so H.2/H.3 need its imports. Stage 5 explicitly plans the Serre spectral sequence with fibre-homology monodromy, contrary to the packet's blanket 'no supplier' gap. Import that theorem and state only what remains: a version with arbitrary twisted coefficients on the total space, if the plus/acyclic proof needs it, along with convergence/finite-base hypotheses. The existing Stage 5 constant-total-coefficient theorem is not automatically that fully twisted theorem. Pending RS-33 does not itself update the accepted packet."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. S.4 constructs descent and coniveau exact couples and spectral sequences, while H.6 is the shared filtered-spectrum/exact-couple/convergence owner and is not in S.4's assembled ancestry. Add H.6 → S.4 and replace the generic construction with an import. S.4 still constructs its geometric filtrations, identifies residue-field pages through dévissage, and proves the applicable boundedness/completeness conditions. Generic convergence must not be inferred for every Gersten or mixed-characteristic situation. The edge is acyclic together with the other checked repairs."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The pinned SInteger/Unit file proves finite generation and identifies the valuation kernel; Mathlib's Dirichlet theorem identifies the ordinary-unit rank. Neither supplies the |S| correction. In U.4 add the finite-S rank proof: use the valuation map to Z^S, identify its kernel with ordinary units, and use finiteness of the number-field ideal class group to show its image has finite index. Deduce rank r1+r2+|S_f|−1 and torsion mu(F), then give a noncanonical splitting/basis if desired. Here S_f is the finite set of inverted finite primes; account separately for a notation in which S also contains infinity. Reuse the existing unit/valuation maps, and do not promote an unmerged rank PR into the pinned baseline."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the selected number-field proof. BMS pp.72–73 and 77 use arithmetic prime selection and power-residue arguments; Appendix A.5–A.11 (pp.82–84) makes global class-field existence, abelian Chebotarev and the required ray-class/Dirichlet form explicit; Cor.4.3 (p.95) supplies SL_n=E_n for n≥3. U.4's Mennicke-symbol proof lacks these upstream dependencies. Add CFT Layer 12 and Chebotarev Layer 10, plus the source-scoped higher power-reciprocity package at CA.1, with exact symbol and archimedean/dyadic normalizations. PAPER-CALEGARI-GERAGHTY-18's U.4 route reinforces this proof obligation, not an already available theorem. CFT's current global roadmap is number-field-only; do not claim it supplies BMS's function-field variant or arbitrary rank-two cases."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed, correcting the indexing in the fix. T.5 needs the comparison between tame residues and Quillen localization (T.3:localization-comparison) and U.4's SK1(O_{F,S})=0 to obtain its surjectivity conclusion; neither is currently an ancestor. Add both imports and derive the exact sequence through those actual maps. For 0 → K2(O_{F,S}) → K2(F) → directSum k(p)^× → 0 the sum is over finite primes p OUTSIDE S. The relative sequence comparing O_F with O_{F,S} has the residue terms at primes IN S. State both separately if both are needed. K-book III.6.5 (p.52) supplies the localization contract; the explicit degree-two boundary comparison is not supplied merely by naming general K.3."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for the remaining ownership/comparison gaps. The assembled atlas already has promoted CFT Layer 5 → T.7 and CFT Layer 10 → T.7 links; the assertion that all CFT input is absent is false. Preserve those imports. Add the missing CFT Layer 14 reciprocity interface and QFI 6E/7 comparison with the quaternion/norm-equation symbol, keeping primitive-root choices and the Tate-twist pairing explicit. General higher power reciprocity needs CA.1's separately sourced result; CFT Layer 14 owns the quadratic law only. M.3 remains the single degree-two Tate/Galois-symbol owner from finding 8, and T.7 retains its map-level Hilbert/Chern compatibility. Do not add L.3 → T.7: L.3 already consumes T.7, so local divisible-kernel structure stays in L.3 after this adapter."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. T.4 constructs Bass–Tate Milnor norms and transitivity, but the residue/norm compatibility assigned to the later T.3:localization-comparison is an input to that construction; K-book III.7.6.1–7.6.4 (pp.64–65) exhibits the simple-extension norm and residue identities. Put the elementary all-degree Milnor norm/residue identities inside T.4 before the transitivity proof, then link T.4 → T.3:localization-comparison for comparison with Quillen restriction-of-scalars transfer. Keep ramification and residue-degree factors in their correct restriction/transfer identities. A generic exact-category transfer is not a substitute for constructing the Bass–Tate Milnor norm and proving the comparison."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed. V.1 reproves superperfectness of the stable Steinberg group although T.1:classical owns its universal central extension. K-book III.5.4–5.5 (pp.37–38) supplies the group-theoretic criterion and Steinberg application; the plus-construction consequence is IV.1.7 and Ex.1.9. Add T.1:classical → V.1, import the central-extension/superperfectness result, and leave V.1 the connected-cover comparison, Hurewicz identification and natural bar-cycle model for K3. Finding 30 gives the shared group-theoretic foundation used by both T.1 and H.3; do not create a second proof in V.1."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed. H.3/plus-pi2-universal-central-extension explicitly invokes an unread recognition theorem and the identification of its kernel with H2. K-book III.5.4 (p.37) is real group-homology content, not a consequence of merely having a group-extension carrier. Decompose the perfect-group universal central extension, Hopf formula/kernel description, recognition by H1=H2=0, and their naturality in the early classical T.1 owner, independently of plus constructions. H.3 imports that algebraic package (T.1:classical → H.3) and supplies the topological acyclic-fibre argument; T.1:plus and V.1 consume the resulting comparisons. Preserve perfectness and centrality hypotheses rather than recognizing arbitrary extensions by a kernel cardinality."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The integrated resolution acceptance test literally says affine LINE with doubled origin and K0VB=Z. Gluing line bundles across Spec(k[t,t⁻¹]) gives Pic(X)=k[t,t⁻¹]^×/k^×=Z; rank and determinant therefore give a surjection K0VB(X) → Z², contradicting K0VB=Z. K-book V.3.4.2 (p.22) has the same error, but II.8.2.4 (p.77) requires dimension ≥2 and II Ex.9.10(d) (p.100) explicitly uses the affine PLANE. Replace the example by that plane, retain the original resolution theorem's hypotheses, and record the source discrepancy under sourceIssues as required by §18. The author's errata URL also returned 404 in this verification; this is a proved discrepancy between the downloaded chapter versions, not a claim about every published edition."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for the remaining compatibility/ownership obligation. AlgebraicCurves Layer 12 → T.4 already exists as promoted link AC-L40, so no new edge is needed for that dictionary. Import its closed-point/place, residue-field and divisor-order comparisons explicitly, preserving the regular-versus-smooth distinction. EllipticCurves Layer 2 does separately plan disjoint-support Weil reciprocity, and T.4 still lacks a comparison to it. Add the elliptic supplier/comparison dependency and prove that the symbol product specializes to f(div g)=g(div f), with residue-field norms and the chosen tame-symbol sign. The elliptic theorem is a special case, not a proof of reciprocity for every proper regular curve; T.4 retains the general theorem and the higher-degree input of finding 12. Thus the core §15 defect survives, but half the asserted missing ancestry does not."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Borel 1974 §10.6 and §12.1 (pp.265–266,270), and Burgos Thm.3.17 (p.21), use rational Hurewicz onto primitive homology of a connected associative H-space. Upstream Stage 8's integral first-nonzero-degree theorem does not supply this. Mathlib Primitive.lean defines primitive elements but lists Milnor–Moore as a TODO. Give Cartan–Serre and the required Hopf/Samelson comparison one owner in H.6, coordinated with finding 5, and add its import to R.3. State path connectivity, the relevant CW/homotopy-associativity assumptions and the degreewise finite-type hypothesis used to dualize primitives to cohomological indecomposables. Add AlgebraicTopology Stage 5's Serre spectral-sequence import for the compact-dual calculation. Neither addition may be replaced by dimension counting without the comparison map."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. R.4 promises higher Adams-weight compatibility, but S.6 is not in its ancestry; Z.3 deliberately stops at the low-degree theory. Add S.6 → R.4 and import its actual operations on higher algebraic K-groups. K-book IV.5.7.1–5.9.2 (pp.50–51) identifies the additional change-of-topology/Adams compatibility needed for the regulator. RT.4:topological does not currently spell out that Adams API, so the fix must explicitly add the required topological operations and compatibility theorem there (also used in finding 37), rather than claim they already exist. R.4 then proves the weight-j regulator equation using the chosen Borel-class normalization."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed with an early interface. R.2's arithmetic-quotient comparison overlaps ALS.5's Betti/de Rham/relative-Lie comparison, and ALS.5 is not an ancestor. Borel 1974 §10.2 (p.263) distinguishes the invariant-form/Lie-cohomology identification from restriction to the arithmetic subgroup. Extract ALS.5's finite-level characteristic-zero quotient comparison before its AS.5-dependent automorphic comparison, and import that early node in R.2. Keep R.2's specific restriction map, constants, block inclusions, primitive classes and coefficient-extension compatibilities. Do not force the later automorphic-form comparison into this prerequisite or rebuild de Rham theory inside R.2."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The R.7 handoff tries to determine all regulator scalars from weight two; that test does not establish any higher-weight scalar. Burgos, The Regulators of Beilinson and Borel, introduction p.3 and Thm.10.9 (p.95), proves the equality of universal classes in each weight in his explicit normalization. Replace the handoff with the all-weight comparison route through Chern–Weil and van Est representatives, importing the shared van Est and Deligne/motivic Chern-class owners. Derive r_Bo=2 r_Be in that normalization and the factor 2^d on the rank-d determinant, with any chosen normalization conversion proved. Keep Bloch–Wigner solely as the weight-two regression test. Add Burgos to the actual source register; Rapoport's rational agreement alone does not pin the factor."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed with shared owners and hypotheses. Haine §5.8 and §6.5–6.10 (pp.9–10) explicitly uses Green's Brauer lifting, homological Whitehead for simple spaces and the Atiyah–Segal completion input. TauCeti.virtualCharacters is only the virtual-character subgroup. Import InductionRestriction Layer 6's character theory, then plan the Green lifting and its root-of-unity embedding dependence in L.1. Put topological Adams operations and the finite-group completion theorem, including K^(−1)(BG)=0 and the augmentation-ideal completion of R(G), in the shared topological owner before L.1. Verify the lifting statement for the chosen homotopy fibre of 1−psi^q. Import finding 5's simple-space Whitehead theorem after proving simplicity of both spaces. Do not infer simplicity of a general fibre merely from a simply connected base, and do not declare the Brauer lift canonical without its chosen embedding."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/38",
+      "verdict": "rejected",
+      "reason": "Rejected. The mathematics names valid inputs, but the alleged missing ancestry is an artifact of using raw data/atlas.json alone. The assembled accepted atlas has CFT Layer 5 → T.7 (promoted CFT-L68) → L.3. It also has CFT Layer 5 → ArithmeticGaloisDuality:D7 (CFT-L57) → M.7 (accepted RS-08 forwarding link) → L.6. CFT Layer 5 explicitly exports the mixed-characteristic named Hilbert pairing/Steinberg law, local finite-module duality and Euler characteristic; D7 transports finite inputs to the compact/derived setting. I checked these provider contracts, promoted link files and paths, as well as K-book III.6.2.3–6.2.4 and AMMN Ex.7.2. Thus 'no direct CFT use' for L is consistent with an existing indirect import. Extra direct edges would be optional redundancy, not the claimed medium-severity missing supplier. Finding 27 separately retains the genuinely missing symbol-normalization comparisons; equal-characteristic L.3 still uses its own stated route."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a model-comparison boundary. Hesselholt–Madsen pp.4–5 and Def.3.2.1/Prop.3.2.2 (pp.47–48) build the universal log Witt complex; CR.4's ordinary theory does not supply the log structure needed by L.5. Add CR.5:log-algebra → L.5 and place the general log Witt-complex construction beside CR.4/CR.5, before its uses by L.5 and CR.6. L.5 retains the canonical DVR log structure, ramification-dependent calculation and comparison to TR; CR.6 retains the comparison with the Hyodo–Kato model. Preserve the source's odd-p, Z_(p)-algebra hypotheses and source any p=2 extension separately. The universal prelog-ring complex, its associated-log/sheaf version and the Hyodo–Kato construction are not interchangeable without proved comparisons."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a wording/ownership repair. M.7's instruction to prove the relevant rigidity theorems overlaps L.2's henselian-pair finite-coefficient rigidity, which is already an input through the roadmap ordering. Make M.7 explicitly import that theorem, with the coefficient order invertible in the residue ring, and retain only any additional rigidity or descent comparison whose hypotheses are actually different. Do not collapse every result called Suslin rigidity into the henselian-pair statement or remove the separate real-field comparison required by finding 3."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed as scope clarification, not a missing edge. M.7 already precedes N.5. K-book VI.9.4 and VI.9.5 (pp.52–53) distinguish the real-place finite-coefficient/extension calculation from the abstract integral odd-group classification after rank and torsion inputs. M.7 should export those cohomological comparison maps and dyadic extension data once; N.5 imports them and assembles the integral group structure and its stated noncanonical splitting. Keep maps and kernels distinct from an abstract decomposition and preserve the real-place exceptions. Delete N.5 wording that invites reproving the same dyadic theorem."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed as deduplication wording. N.1 already imports the low-degree owners; its norms/pullback sentence should require compatibility with the S-integer arithmetic model, not another construction of K0/K1 transfer or determinant/norm formulas. Z.4 owns the Dedekind K0 maps and U.5 the K1 transfer interface. N.1 retains localization-presentation independence and the comparison to its actual ring of S-integers. Existing ideal norms or extension maps alone do not constitute those K-theory comparisons; preserve the appropriate finite-flat/projective transfer hypotheses."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed. N.7 uses Vandiver-conditional conclusions without the predicate's owner in its ancestry. IntegralIwasawaTheory L3 defines Vandiver(p) by the real cyclotomic class number condition, before the much stronger control/main-conjecture deductions in that stage. Import an early definition-only interface from L3 into N.7, retaining odd-prime and character/twist conventions; do not redeclare the predicate or require the whole conditional Iwasawa proof just to state it. The coarse L3 → N.7 candidate is acyclic, but a fine-grained early interface gives the appropriate dependency."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed conditionally on the companion generic-spectrum repair. E5:spectra-comparison currently depends on aggregate H.5 and consequently inherits Waldhausen algebraic K-theory that its abstract-to-concrete spectral comparison does not use. After the generic smash-product/module, Eilenberg–Mac Lane and truncation APIs are all placed in H.5:spectra (finding 16 and the generic part of finding 4), replace the aggregate dependency by that prefix. Retain E5:abstract and the actual monoidal/action comparison hypotheses. Merely changing the edge while leaving needed generic constructions under S-delooping would leave a new gap."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed. U.2's projective-automorphism K1 class uses a complement making the module free, but Z.1's projective/splitting interface is absent from its ancestry. Add Z.1 → U.2 and import its complements and comparison lemmas. Mathlib Finiteness/Projective.lean:28 already gives a finite-free retraction for a finite projective module, so reuse that foundation. The remaining work is the stable K1 construction, complement independence and direct-sum/scalar-extension compatibility, not another proof that a finite projective is a summand of a finite free module."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed at the pinned baseline. TauCeti LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean:584 and :595 prove finite-index-type SL over Z and a field is generated by transvections; Mathlib's matrix factorization at Transvection.lean:676 is also present. U.3/U.6 should import these and prove their passage to stable GL/E, determinant and the K1 comparison. Keep the commutative semilocal-ring case as new work: neither cited theorem covers it. A finite-rank elementary-generation theorem is not already a definition or computation of stable K1."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed. D.3 already depends on L.6 and uses H's derived p-completion to define its completed K3 input; L.7 cannot truthfully claim to construct that input later. Rewrite L.7 to import the completed carrier from H/L.6 and supply its functorial completion/restriction/transfer comparisons. D.4 can consume L.7's general comparison via an explicit edge when its norm/completion proof uses it, while retaining the p>3 unramified K3 regulator specialization from D.3. The candidate L.7 → D.4 edge is acyclic. Do not broaden D.3's theorem to ramified fields, small primes or uncompleted K3."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed. L.1's degree-zero, determinant and K2 tests overlap Z.2, U.6 and T.5, none of which is currently in its ancestry. Import those elementary cases and prove agreement with Quillen's all-degree finite-field model rather than redoing the calculations. The three candidate edges are jointly acyclic with the other checked repairs, including T.5's new prerequisites. TauCeti SplitK0.finrankEquiv (FiniteDimensionalVectorSpace.lean:148) already computes the split K0 of finite-dimensional modules over a division ring with its smallness assumption; identify that carrier with the selected ring/ExactK0/higher K model. It is not by itself an already proved pi0 statement for the absent higher spectrum."
+    },
+    {
+      "finding": "RT-AREA-ktheory-1/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an import/API repair. Mathlib ZLattice.covolume (Covolume.lean:72) and its measure/determinant formulas (:115 and :125) already provide the general lattice-covolume infrastructure, and NumberField.Units.regulator (:266) is its degree-one arithmetic application. R.4 should reuse that carrier and its basis independence after proving the higher regulator image is a discrete full Z-lattice in the specified finite-dimensional real target. Keep the new Borel classes, regulator map, full-lattice theorem and determinant-line comparison. Distinguish positive covolume from an oriented determinant; the general formula uses the chosen Haar measure, and the explicit determinant-coordinate formula adds its normalization. Existing unit regulators do not supply the higher regulator theorem."
+    }
+  ]
+}
