@@ -1,7 +1,64 @@
 # Handoff — BP-Polylogarithms
 
 **Job** `BP-Polylogarithms` (issue #73) · Claude Code, session `cc-7b31c4` · 24 September 2026 ·
-packet status **partial**: P.1, P.2, P.3, P.4 and P.6 `source_decomposed`, P.5 `partial`.
+packet status **partial**; **all six layers are now `source_decomposed`**. The first pass left P.5
+`partial`; the continuation below decomposes it. The sections after the continuation are the first
+pass's note, kept as written.
+
+## Continuation: P.5 decomposed against the source it was already citing
+
+The first pass cited Goncharov's *Polylogarithms, regulators, and Arakelov motivic complexes* from
+its **abstract and first page**. This pass read the arXiv e-print LaTeX source of the same file —
+the PDF hash `ac729924…bd3440db` is unchanged, the source archive is
+`fa6ea8977eb6e95d07110f170e158511cde856fb40d2c3f05e350206978432be` — and decomposed **sections 1, 2,
+3 and 6 in full**. P.5 goes from 4 nodes to **12**, and the packet from 29 nodes to **37** (101 API
+items, 74 unit tests, 20 planets, 26 baseline declarations, 15 requests, 6 gaps). Eight new nodes:
+
+- `r-forms-and-distributions` — the forms `r_{m−1}` (equation (1wq)) and Theorem 2.4: the integral
+  against a test form converges, so they define distributions and a homomorphism out of `Λ^m F^*`.
+  This is what makes the whole regulator exist, and the first pass did not have it.
+- `regulator-map-on-higher-chow` ★ — Theorem-Construction 2.3: the canonical map of complexes from
+  Bloch's weight `n` higher Chow complex to the weight `n` real Deligne complex, **with** the
+  statement that over the reals the image lies in the subcomplex fixed by the De Rham involution.
+  That is the stage text's "retain real/complex conjugation".
+- `chow-polylogarithm-forms` ★ — Theorem-Construction 3.1: the chain of distributions `ω^q_p` with
+  its three identities, built as a Radon transform; the cocycle interpretation; Theorem 3.2, the
+  torus invariance of the **top** member, with the source's remark that it fails below the top.
+- `arakelov-motivic-complex` — the cone shifted by −1, its real and number-field variants,
+  Definition 2.11 and Proposition 2.12 (degree zero is the Gillet–Soulé arithmetic Chow group).
+- `chern-character-comparison-problem` — **the first remaining item**. The stage asks to compare the
+  regulator with M's higher Chern character. The source poses exactly that as **Problem a)** of its
+  introduction, through the Bloch–Levine isomorphism, and does not prove it. The node states the
+  comparison with its two inputs and records that it is open, so that nothing assumes it.
+- `strong-reciprocity-law` ★ — Conjecture 6.2 with its two conditions, the remark explaining why it
+  is stronger than Suslin's law (the kernel of `δ₂` is non-trivial, so the lift is not formal), and
+  the three cases the source proves: Theorem 6.5 (the projective line, modulo 6-torsion, with the
+  explicit cross-ratio formula), Theorem 6.14 (an elliptic curve), Theorem 6.12 (any curve over the
+  algebraic numbers, rationally), plus Theorem 6.10, the family version and its differential
+  identity.
+- `chow-dilogarithm-on-elliptic-curves` — Theorem 6.14 with Lemma 6.16 and Proposition 6.18: the
+  explicit formula for `h` on four linear functions, and the integral formula with the factor `2π`.
+- `weight-three-curve-regulator` ★ — **the second remaining item**. The weight-three regulator is the
+  case `q = 3` of the Chow polylogarithm; the general-weight reciprocity statement is Conjecture 6.3
+  of the source and is recorded as a conjecture; and the **Eisenstein–Kronecker expression is stated
+  as a target**, conditional on the analytic result `EllipticRegulators:ER.3` owns, with the explicit
+  record that the elliptic weight-three special-value conjecture does **not** follow from the
+  weight-two argument. That is what the stage text asks for, in the words it asks for it.
+
+Two new requests and two new gaps come with it: `EllipticRegulators:ER.3` for the elliptic
+dilogarithm and its Kronecker–Eisenstein description; the sentence added to `K2SymbolsBrauer:T.4`
+recording that the reciprocity proof reduces to the projective line **by the transfer on Milnor
+`K₃`**; the gap for Goncharov's sections 4, 5 and 7, which build the Grassmannian polylogarithm and
+the Borel regulator and are `BorelRegulators`' material; and the gap recording that the Beilinson
+comparison is open in the source.
+
+What still has no owner is unchanged and is not a decomposition gap: the real Deligne–Beilinson
+cohomology of a curve, requested from `MotivicEtaleKTheory:M.8`, as two confirmed red-team findings
+ask. Every statement in P.5 that mentions a Deligne class is conditional and says so.
+
+Checks after the continuation: `scripts/check_blueprint.py --index …` → **0 errors, 0 warnings**;
+`python3 -m unittest discover -s tests` → 273 tests, OK; `intake.py check-files` → 0 problems. The
+Lean file is now 318 lines with 70 `sorry`s and was **not compiled**.
 
 ## What is closed
 

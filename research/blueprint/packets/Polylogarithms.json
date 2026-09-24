@@ -125,6 +125,26 @@
     "ref": "mathlib:Units",
     "module": "Mathlib/Algebra/Group/Units/Defs.lean",
     "provides": "The unit group of a field, the second factor of every term of the complexes."
+   },
+   {
+    "ref": "mathlib:MeasureTheory.integral",
+    "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+    "provides": "The Bochner integral, the carrier of the convergent integrals that define the regulator distributions and the Chow polylogarithm."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme",
+    "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+    "provides": "Schemes, the setting of the cycles and of the curve the regulator is constructed on."
+   },
+   {
+    "ref": "mathlib:CochainComplex",
+    "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+    "provides": "Cochain complexes, the shape of both the higher Chow complex and the Deligne complex, and of the map between them."
+   },
+   {
+    "ref": "mathlib:HomologicalComplex",
+    "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+    "provides": "Homological complexes with their cones, in which the Arakelov motivic complex is formed."
    }
   ]
  },
@@ -150,7 +170,12 @@
    "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db",
    "accessed": "2026-09-24",
    "readSections": [
-    "Abstract and the introduction, on the weight-n regulator to the Deligne complex, the Grassmannian polylogarithms, the recovery of Lobachevsky's volume formula at n = 2 and the Chow dilogarithm with its reciprocity law strengthening Suslin's for Milnor K_3 on curves (PDF p. 1)"
+    "Abstract and the introduction, on the weight-n regulator to the Deligne complex, the Grassmannian polylogarithms, the recovery of Lobachevsky's volume formula at n = 2 and the Chow dilogarithm with its reciprocity law strengthening Suslin's for Milnor K_3 on curves (PDF p. 1)",
+    "Section 1 (Introduction) read in full from the arXiv e-print LaTeX source, whose SHA-256 is fa6ea8977eb6e95d07110f170e158511cde856fb40d2c3f05e350206978432be and whose PDF hash is the one recorded above: Beilinson's conjectures and the one case in which the regulator comparison is known; the regulator map on motivic complexes, the Arakelov motivic complex in its complex, real and number-field forms, the higher Arakelov Chow groups and the two Problems, of which the first is the comparison with Beilinson's regulator; the Chow n-logarithm function; the Chow dilogarithm with the explicit cross-ratio formula on the projective line and the functional equations from the boundary; and the Grassmannian n-logarithm.",
+    "Section 2 (Arakelov motivic complexes): Theorem-Construction 2.3 (the canonical map of complexes and its real form), the definition of the forms r_{m-1} in item 4, Theorem 2.4 with Lemma 2.5 (convergence and the distribution homomorphism), Definition 2.11 (the higher Arakelov Chow groups) and Proposition 2.12 with its proof (the identification with the Gillet-Soule arithmetic Chow group).",
+    "Section 3 (The Chow polylogarithms) read in full: the spaces of cycles with their face and vertex maps, Theorem-Construction 3.1 with the three identities and the Radon-transform proof, the cocycle interpretation, Theorem 3.2 (torus invariance of the top member) with the remark that it fails below the top, and its reformulation.",
+    "Section 6 (The Chow dilogarithm and a reciprocity law) read in full: the polylogarithmic complexes and their residues, Proposition 6.1, Conjecture 6.2 with its two conditions and the remark comparing it with Suslin's law, Conjecture 6.3 in general weight, Theorem 6.5 and Proposition 6.6 (the projective line, modulo 6-torsion), Theorem 6.10 (families of curves and the differential identity), Theorem 6.12 (an arbitrary curve over the algebraic numbers) with Lemma 6.13, and Theorem 6.14 with Lemmas 6.15 and 6.16 and Propositions 6.17 and 6.18 (the elliptic curve, explicitly).",
+    "Not read: Sections 4 and 5 (the Grassmannian polylogarithms and their relation with the symmetric space of the special linear group, through which the source constructs the Borel regulator) and Section 7 (the appendix on volumes of simplices in symmetric spaces). Those are the content of BorelRegulators and are recorded as a gap."
    ]
   },
   {
@@ -2173,6 +2198,709 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "Polylogarithms:P.5/r-forms-and-distributions",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The forms r_{m-1} and the distributions they define",
+   "kind": "theorem",
+   "statement": "For rational functions f_1, ..., f_m on a complex variety, define the real (m-1)-form r_{m-1}(f_1,...,f_m) as the alternation, over the permutations of the functions, of the sum over j of c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2} wedge ... wedge d i arg f_m, with c_{j,m} = 1/((2j+1)!(m-2j-1)!). Then for any irreducible subvariety Y of a smooth complex variety X and any smooth compactly supported form on X, the integral of this form against the restriction converges over the smooth locus of Y. Hence the form defines a distribution on X(C), and the assignment is a group homomorphism from the m-th exterior power of the multiplicative group of the function field of Y into the degree m-1 distributions.",
+   "hypotheses": [
+    "X is a smooth complex variety and Y an irreducible subvariety; the functions are nonzero rational functions on Y.",
+    "The form is taken on the complement of the zeros and poles; the convergence statement is what allows it to be extended across them as a distribution and is the only reason the regulator is defined at all.",
+    "For m = 3 the form is the one used for the Chow dilogarithm, and for m = 2 the alternation gives the weight-two regulator form of a curve up to the normalisation."
+   ],
+   "proofSteps": [
+    "Define the form by the displayed alternating sum and check that it is real.",
+    "Prove the convergence of the integral over the smooth locus of Y against a smooth compactly supported test form; the source reduces this to a lemma on a smooth projective Y, where the integral is estimated by the logarithmic growth of the factors.",
+    "Conclude that the form defines a distribution by pairing with test forms.",
+    "Prove that the assignment kills the Steinberg-type relations needed to descend to the exterior power, and that it is additive in each argument.",
+    "Record the special cases m = 2 and m = 3 and their agreement with the forms already constructed in this layer."
+   ],
+   "acceptance": [
+    "For m = 2 the form is the weight-two regulator form of a curve up to the normalisation fixed in this layer.",
+    "For m = 3 the form is the one integrated in the definition of the Chow dilogarithm.",
+    "For a constant function the form vanishes, which is the statement that makes the torus invariance of the Chow polylogarithm possible."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/weight-two-regulator-form",
+    "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+    "mathlib:Complex.log",
+    "mathlib:Complex.arg",
+    "mathlib:MeasureTheory.integral",
+    "mathlib:exteriorPower.map"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 2, item 4, equation (1wq)",
+     "excerpt": "r_{m-1}(f_1,..., f_m) := Alt_m sum_{j>=0, 2j+1<=2m+1} c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2} wedge ... wedge d i arg f_m, where c_{j,m} = 1/((2j+1)!(m-2j-1)!) and Alt_m is the operation of alternation.",
+     "match": "The definition of the form, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem 2.4",
+     "excerpt": "Let Y be an arbitrary irreducible subvariety of a smooth complex variety X and f_1, ..., f_m in C^*(Y). Then for any smooth differential form omega with compact support on X(C) the following integral is convergent ... It provides a group homomorphism r_{m-1}: Lambda^m C(Y)^* -> D^{m-1}_{X(C)}(m-1).",
+     "match": "The convergence and the homomorphism, verbatim."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "Polylogarithms:P.5/regulator-map-on-higher-chow",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "Goncharov's regulator map from the higher Chow complex to the Deligne complex",
+   "kind": "construction",
+   "statement": "For a regular complex projective variety X there is a canonical homomorphism of complexes from Bloch's weight n higher Chow group complex of X to the weight n real Deligne complex of X, the latter being the truncation in degrees at most 2n of Deligne's complex. Its components are built from the distributions of the previous node by pushing forward along the cycle. If X is defined over the reals the image lies in the subcomplex fixed by the De Rham involution induced by complex conjugation. This is the object the roadmap calls the regulator on the curve complexes; the present layer needs it only for a curve, but the source constructs it in general and this packet states it as the source does.",
+   "hypotheses": [
+    "X is a regular complex projective variety; n is a positive integer.",
+    "The target is the truncation in degrees at most 2n of Deligne's complex; the packet does not construct that complex and requests it from MotivicEtaleKTheory M.8, so every statement about the target is conditional and says so.",
+    "Over the reals the relevant subcomplex is the one fixed by the De Rham involution given by complex conjugation, which is what the stage text means by retaining real and complex conjugation."
+   ],
+   "proofSteps": [
+    "Attach to a cycle in the higher Chow complex the rational functions obtained by restricting the coordinate functions of the simplex.",
+    "Apply the distribution-valued homomorphism of the previous node to those functions, obtaining a distribution on X(C) attached to the cycle.",
+    "Push forward along the projection and check the degrees, so that the assignment lands in the required component of the Deligne complex.",
+    "Prove that the assignment commutes with the differentials: the boundary of a cycle is the alternating sum of its intersections with the codimension-one faces, and the differential of the distribution is computed by the corresponding Stokes argument.",
+    "Prove that for X over the reals the image is fixed by the De Rham involution, by conjugating the defining integrals.",
+    "Record what is NOT proved here: that the induced map on cohomology agrees with Beilinson's regulator. The source states that as a problem, and the next node records it."
+   ],
+   "acceptance": [
+    "For X a point the map reduces to the Chow n-logarithm function, which is the next node.",
+    "For n = 2 and a curve the map is the weight-two regulator form of this layer, integrated against the cycle.",
+    "The map is a map of complexes, not merely of cohomology groups, which is the point of the construction and what makes the Arakelov cone available."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/r-forms-and-distributions",
+    "Polylogarithms:P.5/curve-polylogarithmic-complex",
+    "MotivicEtaleKTheory:M.8",
+    "mathlib:CochainComplex",
+    "mathlib:AlgebraicGeometry.Scheme"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem-Construction 2.3",
+     "excerpt": "Let X be a regular complex projective variety. Then there exists a canonical homomorphism of complexes P^bullet(n): Z^bullet(X; n) -> C^bullet_D(X; n). If X is defined over R then the image of the map P^bullet(n) lies in the subcomplex C^bullet_D(X_{/R}; n).",
+     "match": "The construction, verbatim, including the real statement."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 1, item 2",
+     "excerpt": "In Chapter 2 we construct a homomorphism of complexes: Bloch's weight n Higher Chow group complex Z^bullet(X; n) of X -> the weight n real Deligne complex C^bullet_D(X(C); n) of X. This construction is a version of the one given in [G5]. The complex C^bullet_D(X(C); n) is the truncation tau_{<= 2n} of the complex proposed by Deligne.",
+     "match": "The same map described in the introduction, with the truncation made explicit."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Regulator on the higher Chow complex"
+   },
+   "api": [
+    {
+     "name": "chowRegulator",
+     "role": "data",
+     "statement": "The homomorphism of complexes from the weight n higher Chow complex to the weight n real Deligne complex."
+    },
+    {
+     "name": "chowRegulator_chainMap",
+     "role": "characterisation",
+     "statement": "It commutes with the differentials."
+    },
+    {
+     "name": "chowRegulator_real",
+     "role": "characterisation",
+     "statement": "For a variety over the reals the image lies in the subcomplex fixed by the De Rham involution."
+    },
+    {
+     "name": "chowRegulator_point",
+     "role": "example",
+     "statement": "At a point the map is the Chow n-logarithm function."
+    },
+    {
+     "name": "chowRegulator_natural",
+     "role": "functoriality",
+     "statement": "Naturality in the variety for a map of regular projective varieties."
+    }
+   ],
+   "uses": [
+    {
+     "where": "P.5's Arakelov complex",
+     "how": "The Arakelov motivic complex is the cone of this map shifted by one, so the construction is its input."
+    },
+    {
+     "where": "P.5's comparison problem",
+     "how": "The comparison with the higher Chern character is a statement about the map induced on cohomology by this map."
+    },
+    {
+     "where": "EllipticRegulators ER.2",
+     "how": "The elliptic weight-two regulator is the specialisation of this map to a curve in weight two, in the normalisation ER.2 fixes."
+    }
+   ],
+   "tests": [
+    {
+     "name": "point_case",
+     "statement": "For a point the map is the Chow n-logarithm function of the next node."
+    },
+    {
+     "name": "chain_map",
+     "statement": "The composition with the boundary of the higher Chow complex is the differential of the Deligne complex applied to the map."
+    },
+    {
+     "name": "real_variety",
+     "statement": "For a variety defined over the reals the image is fixed by the De Rham involution."
+    },
+    {
+     "name": "not_the_class",
+     "statement": "The map produces a class in the Deligne complex only once that complex is constructed; the packet requests it and states every consequence conditionally."
+    }
+   ]
+  },
+  {
+   "id": "Polylogarithms:P.5/chow-polylogarithm-forms",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The Chow polylogarithm: a chain of distributions on the spaces of cycles",
+   "kind": "construction",
+   "statement": "Fix a simplex L in projective space of dimension p+q and a hyperplane H in general position. On the variety of codimension q effective cycles meeting all faces of L properly there is an explicitly constructed chain of distributions omega^q_p, defined as the Radon transform of the distribution r_{p+q-1}(L;H) along the incidence variety, satisfying three identities: the differential of omega^q_0 is the pullback of the standard form; the differential of omega^q_p is the alternating sum of the pullbacks of omega^q_{p-1} along the face maps; and the alternating sum of the pullbacks of omega^q_p along the projections from the vertices vanishes. On smooth cycles in general position the distribution is a real-analytic form. The collection is the q-th Chow polylogarithm, and the first two identities say exactly that it is a cocycle computing the Deligne cohomology of the truncated simplicial variety of cycles.",
+   "hypotheses": [
+    "L is a simplex in projective space of dimension p+q and H a hyperplane in general position with respect to it.",
+    "The face maps are the intersections with the codimension-one faces and the vertex maps are the projections from the vertices, both defined on the open part where the projection keeps the codimension.",
+    "The Radon transform is the push-forward along the second projection of the restriction to the incidence variety of the pull-back of the distribution; the push-forward is defined because that projection is proper."
+   ],
+   "proofSteps": [
+    "Form the incidence variety of pairs of a point and a cycle containing it, with its two projections.",
+    "Pull back the distribution r_{p+q}(L;H), restrict it to the incidence variety, which is legitimate by the convergence theorem, and push it forward along the proper projection; normalise by the power of 2 pi i.",
+    "Prove identity (i) by the definition.",
+    "Prove identity (iii) from the identity satisfied by the alternating sum of the wedge of the coordinate ratios, which is the lemma the source isolates.",
+    "Prove identity (ii) from the fact that the push-forward of distributions commutes with the De Rham differential.",
+    "Prove the real-analyticity of the restriction to smooth cycles in general position.",
+    "Record the interpretation: (i) and (ii) say that the chain is a 2q-cocycle in the complex computing the Deligne cohomology of the simplicial variety of cycles."
+   ],
+   "acceptance": [
+    "For q = 2 and p = 1 the top distribution is the Chow dilogarithm function of this layer.",
+    "For a point of the component parametrising points, the construction reduces to the standard form of the simplex.",
+    "Identity (iii) fails for the forms with p < q - 1; only the top one, the Chow q-logarithm function, is torus invariant, which the source records as a remark."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/r-forms-and-distributions",
+    "Polylogarithms:P.5/regulator-map-on-higher-chow",
+    "Polylogarithms:P.3/polylogarithmic-complex",
+    "mathlib:MeasureTheory.integral"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem-Construction 3.1, identities (i), (ii), (iii)",
+     "excerpt": "For given q >= 0 there is an explicitly constructed chain of (q-p-1)-distributions omega^q_p = omega^q_p(L; H) on Z^q_p(L) such that i) d omega^q_0(L,H) = pi_q(Omega_L); ii) d omega^q_p(L; H) = sum_i (-1)^i a_i^* omega^q_{p-1}(L; H_i); iii) sum_j (-1)^j b_j^* omega^q_p(L; H) = 0. The restriction of omega^q_p to the subvariety of smooth cycles in generic position with respect to the ...",
+     "match": "The construction with its three identities, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 3, after Theorem-Construction 3.1",
+     "excerpt": "The varieties Z^q_p(L) for p >= 0 form a truncated simplicial variety Z^q_bullet(L). The conditions i) and ii) just mean that the sequence of forms omega^q_p is a 2q-cocycle in the complex computing the Deligne cohomology H^{2q}(Z^q_bullet(L), R_D(q)).",
+     "match": "The cocycle interpretation, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem 3.2 and the remark after it",
+     "excerpt": "The Chow polylogarithm function is invariant under the natural action of the torus on Z^q_p(C). In particular it does not depend on the choice of the hyperplane H. Remark. The statements of Theorem 3.2 are no longer true for the forms omega^q_p for p < q-1.",
+     "match": "The torus invariance of the top function and the warning that it is special to it, verbatim."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Chow polylogarithm"
+   },
+   "api": [
+    {
+     "name": "chowPolylog",
+     "role": "data",
+     "statement": "The chain of distributions omega^q_p on the spaces of cycles."
+    },
+    {
+     "name": "chowPolylog_d_zero",
+     "role": "characterisation",
+     "statement": "The first identity, for p = 0."
+    },
+    {
+     "name": "chowPolylog_d",
+     "role": "characterisation",
+     "statement": "The second identity, relating the differential to the face maps."
+    },
+    {
+     "name": "chowPolylog_vertex",
+     "role": "characterisation",
+     "statement": "The third identity, for the projections from the vertices."
+    },
+    {
+     "name": "chowPolylog_analytic",
+     "role": "characterisation",
+     "statement": "Real-analyticity on smooth cycles in general position."
+    },
+    {
+     "name": "chowPolylogFunction",
+     "role": "projection",
+     "statement": "The top member, the Chow q-logarithm function."
+    },
+    {
+     "name": "chowPolylogFunction_torus_invariant",
+     "role": "characterisation",
+     "statement": "Torus invariance of the top member, hence independence of the hyperplane."
+    }
+   ],
+   "uses": [
+    {
+     "where": "P.5's Chow dilogarithm",
+     "how": "The Chow dilogarithm is the case q = 2 of the top member and every functional equation it satisfies comes from the identities here."
+    },
+    {
+     "where": "P.5's weight-three regulator",
+     "how": "The weight-three curve regulator is the case q = 3, and its functional equations are the same identities."
+    },
+    {
+     "where": "BorelRegulators",
+     "how": "Restricting the top member to the planes in general position gives the Grassmannian polylogarithm, through which the source builds the Borel regulator; that construction is not planned here."
+    }
+   ],
+   "tests": [
+    {
+     "name": "q_two_is_chow_dilogarithm",
+     "statement": "For q = 2 the top member is the Chow dilogarithm."
+    },
+    {
+     "name": "torus_invariance",
+     "statement": "The top member is invariant under the torus action and independent of the hyperplane."
+    },
+    {
+     "name": "not_invariant_below_top",
+     "statement": "For p < q - 1 the torus invariance fails, so the statement is about the top member only."
+    },
+    {
+     "name": "cocycle",
+     "statement": "The first two identities make the chain a cocycle in the complex computing the Deligne cohomology of the simplicial variety of cycles."
+    }
+   ]
+  },
+  {
+   "id": "Polylogarithms:P.5/arakelov-motivic-complex",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The Arakelov motivic complex and the higher Arakelov Chow groups",
+   "kind": "construction",
+   "statement": "The weight n Arakelov motivic complex of a regular complex projective variety is the cone of the regulator map, shifted by minus one. Over the reals the same definition is taken with the subcomplex fixed by the De Rham involution, giving the real Arakelov motivic complex; over a number field one views the variety over the rationals and takes the Deligne complex of the corresponding real variety. Replacing the last group of the Deligne complex by its quotient modulo smooth closed forms of the same type gives the higher Arakelov Chow group complex, whose cohomology in the appropriate degree is the arithmetic Chow group of Gillet and Soule.",
+   "hypotheses": [
+    "X is a regular projective variety over the complex numbers, over the reals or over a number field, as stated in each case.",
+    "The Deligne complex and its quotient by the smooth closed forms are requested from MotivicEtaleKTheory M.8; this node constructs only the cone and its variants.",
+    "The identification with the Gillet-Soule group is in the degree the source specifies and uses the identification of the last two cohomology groups of the Gersten complex with those of the cycle complex."
+   ],
+   "proofSteps": [
+    "Form the cone of the regulator map and shift it by minus one; record the three variants, complex, real and over a number field.",
+    "Define the quotient complex in which the last group of the Deligne complex is replaced by its quotient modulo smooth closed forms, and the corresponding higher Arakelov Chow group complex.",
+    "Define the higher Arakelov Chow groups as its cohomology.",
+    "Prove the identification in degree zero with the Gillet-Soule arithmetic Chow group: map the end of the Gersten complex into the cycle complex by sending a pair of a subvariety and a rational function to the graph cycle, and a wedge of two functions to the corresponding cycle in the product with the affine plane; compute the composition with the regulator and recognise the denominator of the Gillet-Soule presentation.",
+    "Record that the construction works equally for the Suslin-Voevodsky versions of the motivic complexes, as the source states."
+   ],
+   "acceptance": [
+    "In degree zero the group is the arithmetic Chow group of Gillet and Soule, which is the source's Proposition 2.12.",
+    "The construction is a cone, so it fits into the expected long exact sequence relating motivic cohomology, Deligne cohomology and the Arakelov groups.",
+    "The complex depends on the choice of motivic complex; the source records that the objects built from different motivic complexes are supposed to agree in the derived category and that the precise relation with an earlier construction is not clear."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/regulator-map-on-higher-chow",
+    "MotivicEtaleKTheory:M.8",
+    "mathlib:CochainComplex",
+    "mathlib:HomologicalComplex"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 1, item 2, equations (6.11.02.14), (6.11.02.4) and (6.11.02.4q)",
+     "excerpt": "The weight n Arakelov motivic complex Gamma_A^bullet(X; n) is the cone of the map (4.29.02.2), shifted by -1 ... For a regular projective variety X over R the image of map (4.29.02.2) lies in the subcomplex C^bullet_D(X_{/R}; n) := C^bullet_D(X(C); n)^{bar F_infinity} where bar F_infinity is the De Rham involution provided by the action of complex conjugation.",
+     "match": "The three variants of the definition, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Definition 2.11 and Proposition 2.12",
+     "excerpt": "The Higher Arakelov Chow groups are CH-hat^n(X; i) := H^{2n-i}(Z-hat^bullet(X; n)). ... Proposition. CH-hat^n(X; 0) = CH-hat^n(X).",
+     "match": "The definition and the identification with the Gillet-Soule group, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 1, item 2, the remark on other motivic complexes",
+     "excerpt": "Our construction works equally well for the Suslin-Voevodsky versions of the motivic complexes. ... The Arakelov motivic complexes constructed using regulator maps on different motivic complexes are supposed to lead to the same object of the derived category. However a precise relationship between the construction given in [G7] and the one in Chapter 2 is not clear.",
+     "match": "The source's own caveat about the dependence on the choice of motivic complex, verbatim."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "arakelovComplex",
+     "role": "data",
+     "statement": "The cone of the regulator map shifted by minus one."
+    },
+    {
+     "name": "arakelovComplex_real",
+     "role": "data",
+     "statement": "The real variant, taken with the involution-fixed subcomplex."
+    },
+    {
+     "name": "arakelovComplex_numberField",
+     "role": "data",
+     "statement": "The variant over a number field."
+    },
+    {
+     "name": "higherArakelovChow",
+     "role": "data",
+     "statement": "The higher Arakelov Chow groups as the cohomology of the quotient complex."
+    },
+    {
+     "name": "higherArakelovChow_zero",
+     "role": "characterisation",
+     "statement": "In degree zero the group is the Gillet-Soule arithmetic Chow group."
+    },
+    {
+     "name": "arakelovComplex_triangle",
+     "role": "compatibility",
+     "statement": "The distinguished triangle relating the motivic complex, the Deligne complex and the Arakelov complex."
+    }
+   ],
+   "uses": [
+    {
+     "where": "P.5's comparison problem",
+     "how": "The source poses the comparison with Beilinson’s regulator as a problem about the cohomology of the map whose cone this is."
+    },
+    {
+     "where": "MotivicEtaleKTheory M.8",
+     "how": "The construction is a consumer of the Deligne complex that M.8 owns, and its statements are conditional on it."
+    },
+    {
+     "where": "Arithmetic intersection theory",
+     "how": "The degree-zero identification is what ties the construction to the arithmetic Chow groups, and the source asks for an arithmetic Riemann-Roch theorem in this generality as a further problem."
+    }
+   ],
+   "tests": [
+    {
+     "name": "degree_zero",
+     "statement": "The degree-zero higher Arakelov Chow group is the Gillet-Soule arithmetic Chow group."
+    },
+    {
+     "name": "cone_triangle",
+     "statement": "The complex sits in the distinguished triangle of a cone."
+    },
+    {
+     "name": "real_variant",
+     "statement": "Over the reals the construction uses the involution-fixed subcomplex."
+    },
+    {
+     "name": "depends_on_motivic_complex",
+     "statement": "The construction takes the motivic complex as an input and is not claimed to be independent of that choice."
+    }
+   ]
+  },
+  {
+   "id": "Polylogarithms:P.5/chern-character-comparison-problem",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The comparison with the higher Chern character, as the source states it",
+   "kind": "comparison",
+   "statement": "The roadmap asks that the regulator be compared with the higher Chern character of MotivicEtaleKTheory in the degrees established by the source. What the source establishes is the construction of the regulator as a map of complexes; the comparison itself it poses as a PROBLEM: show that taking cohomology of the regulator map and using the isomorphism between the rational higher Chow groups of a variety and the corresponding part of its rational K-theory gives a non-zero rational multiple of Beilinson's regulator map. This node states that comparison precisely, with the two inputs it needs — the Bloch-Levine isomorphism and M.8's higher Chern character — and records that it is open in the source. Nothing in this packet assumes it.",
+   "hypotheses": [
+    "X is a regular projective variety over the complex numbers, or over the reals or a number field in the corresponding variants.",
+    "The Bloch-Levine isomorphism between rational higher Chow groups and the weight-graded pieces of rational K-theory is imported, not proved here; MotivicEtaleKTheory M.7 owns the Adams filtration and M.8 the Chern character.",
+    "The expected comparison is up to a non-zero rational factor, and the source does not pin the factor."
+   ],
+   "proofSteps": [
+    "State the composition: rational K-theory in the relevant degree, the Bloch-Levine isomorphism to the rational higher Chow group, the map induced on cohomology by the regulator, and the resulting map to real Deligne cohomology.",
+    "State Beilinson's regulator as the composition of the higher Chern character with the Deligne cycle class, as M.8 constructs it.",
+    "State the comparison: the two agree up to a non-zero rational factor, in the degrees where both are defined.",
+    "Record the status: the source states this as Problem a) of its introduction, so the atlas must not treat it as proved; every statement in this layer that mentions Beilinson's regulator is conditional on it.",
+    "Record what IS proved and can be used unconditionally: the regulator is a map of complexes, lands in the real subcomplex over the reals, and induces the Gillet-Soule arithmetic Chow group in degree zero."
+   ],
+   "acceptance": [
+    "For the spectrum of a number field the comparison is known in the form that Beilinson's regulator agrees with Borel's up to a non-zero rational factor, which BorelRegulators R.7 owns; the statement here is the general one and is open.",
+    "The factor is not pinned by the source, so no formalisation may assume a specific normalisation.",
+    "A formalisation that assumed the comparison would be assuming an open problem; the node exists so that this cannot happen silently."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/regulator-map-on-higher-chow",
+    "Polylogarithms:P.5/arakelov-motivic-complex",
+    "MotivicEtaleKTheory:M.8",
+    "MotivicEtaleKTheory:M.7",
+    "BorelRegulators:R.7"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 1, item 2, Problems a) and b)",
+     "excerpt": "Problems. a) Show that taking cohomology of the map (4.29.02.2) and using the isomorphism between the rational Bloch's Higher Chow groups of X and the corresponding part of the rational K-theory of X ([Bl2], [Lev]) we get a non-zero rational multiple of the Beilinson's regulator map. b) To generalize the arithmetic Riemann-Roch theorem proved by Gillet and Soule to the case of Higher ...",
+     "match": "The comparison, stated by the source as an open problem; this is the precise status of the stage target."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 1, item 1",
+     "excerpt": "This conjecture is fully established only when X = Spec(F) where F is a number field. In this case the regulator map r_B coincides, up to a non-zero rational factor, with the Borel regulator ([B1]), and the relation with special values of the Dedekind zeta-function of F was given by the Borel theorem [Bo].",
+     "match": "The one case in which the comparison is known, which is the case BorelRegulators R.7 owns."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "Polylogarithms:P.5/strong-reciprocity-law",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The strong reciprocity law on a curve, and the three cases in which it is proved",
+   "kind": "theorem",
+   "statement": "Let X be a regular projective curve over an algebraically closed field k with function field F. The strong reciprocity law asserts that there is a canonical homomorphism h from the third exterior power of the multiplicative group of F to the second Bloch group of k which kills the wedge of a constant with anything, makes the residue square commute, that is Res equals delta_2 composed with h, and, when k is the complex numbers, computes the Chow dilogarithm: the integral of r_2 over X(C), divided by 2 pi i, equals the Bloch-Wigner value of h. The source proves it in three cases: for the projective line, where h is given explicitly by the sum over triples of points of the product of the orders against the class of the cross-ratio, modulo 6-torsion; for an elliptic curve over an algebraically closed field, explicitly; and for an arbitrary curve over the algebraic numbers, after tensoring with the rationals.",
+   "hypotheses": [
+    "X is a regular projective curve over an algebraically closed field; F is its function field; the second Bloch group is Goncharov's group B_2, and the more explicit variant B_2 with the five-term relations is compared with it.",
+    "The law strengthens Suslin's reciprocity law for Milnor K_3: Suslin's says that the projection of the image of the residue to K_2 vanishes, hence that the image lies in the image of delta_2; the strong law asks for a natural lift, which is not formal because the kernel of delta_2 is non-trivial.",
+    "In the projective line case the statement holds modulo 6-torsion; in the number-field case it is after tensoring with the rationals."
+   ],
+   "proofSteps": [
+    "State the law as the source does, with its two conditions, and record that the second is the analytic statement about the Chow dilogarithm.",
+    "Prove the case of the projective line: define h by the displayed sum over triples of points, show it is independent of the auxiliary point by the five-term relation together with the vanishing of the total order of a rational function, and check the two conditions modulo 6-torsion.",
+    "Prove the case of an elliptic curve by the explicit formula of the following node.",
+    "Prove the case of an arbitrary curve over the algebraic numbers: choose a projection to the projective line, reduce to a Galois covering, use the transfer on Milnor K_3 to write the sum over the Galois group as a pull-back plus a sum of Steinberg terms, and define h by the resulting formula; the well-definedness is the source's lemma on the vanishing of the corresponding sum of classes.",
+    "Record the family version: for a family of curves the Chow dilogarithm is a sum of Bloch-Wigner values of rational functions on the base, and, given h with Res equal to delta_2 composed with h, the differentials of the two sides of the analytic statement agree.",
+    "Record what remains conjectural: the general case, and the general-weight version for the polylogarithmic complexes."
+   ],
+   "acceptance": [
+    "For the projective line the explicit formula reproduces the classical expression of the Chow dilogarithm as a sum of Bloch-Wigner values at cross-ratios, which is the formula quoted in the introduction of the source.",
+    "For the five lines in the plane the functional equation of the Chow dilogarithm, together with that formula, is equivalent to Abel's five-term equation.",
+    "Suslin's reciprocity law alone does not give the lift: the kernel of delta_2 is non-trivial, so the existence of h is not formal, and the source says so."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/chow-dilogarithm-reciprocity",
+    "Polylogarithms:P.5/curve-polylogarithmic-complex",
+    "Polylogarithms:P.1/bloch-wigner-five-term",
+    "K3BlochGroups:V.3/five-term-relation",
+    "K3BlochGroups:V.3/bloch-group",
+    "K3BlochGroups:V.4/suslin-exact-sequence",
+    "K2SymbolsBrauer:T.4"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Conjecture 6.2",
+     "excerpt": "Let X be a regular projective curve over an algebraically closed field k and F := k(X)^*. Then there exists a canonical homomorphism of groups h: Lambda^3 F^* -> B_2(k) satisfying the following two conditions: a) h(k^* wedge Lambda^2 F^*) = 0 and the diagram is commutative. b) If X is a curve over C then (1/(2 pi i)) integral_{X(C)} r_2(f_1 wedge f_2 wedge f_3) = L_2(h(f_1 wedge f_2 wedge f_3)).",
+     "match": "The law, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 6, remark 2 after Conjecture 6.2",
+     "excerpt": "According to Suslin's reciprocity law for the Milnor group K^M_3(F) the projection of Res(Lambda^3 F^*) in Lambda^2 k^* to K_2(k) is zero. Since by Matsumoto's theorem K_2(k) = Coker(delta_2), one has Res(Lambda^3 F^*) contained in Im(delta_2). However Ker(delta_2) is nontrivial, so it is a priori unclear that we can lift naturally the map Res to a map h.",
+     "match": "Why the law is stronger than Suslin’s, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem 6.5",
+     "excerpt": "Assume that k = k-bar. Then the map h: Lambda^3 k(P^1)^* -> B_2(k) given by the formula h(f_1 wedge f_2 wedge f_3) := sum v_{x_1}(f_1) v_{x_2}(f_2) v_{x_3}(f_3) {r(x_1, x_2, x_3, infinity)}_2 satisfies all the conditions of conjecture 6.2 modulo 6-torsion.",
+     "match": "The projective line case with its explicit formula and its torsion caveat, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem 6.12",
+     "excerpt": "Let X be a regular projective curve over Q-bar and F := Q-bar(X). Then there exists a homomorphism h: Lambda^3 F^* -> B_2(Q-bar) tensor Q as in conjecture 6.2 such that for any embedding sigma one has (1/(2 pi i)) integral_{X(C)} r_2(sigma(f_1 wedge f_2 wedge f_3)) = L_2(sigma(h(f_1 wedge f_2 wedge f_3))).",
+     "match": "The case of an arbitrary curve over the algebraic numbers, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem 6.10",
+     "excerpt": "a) Let pi: Y -> S be a family of curves over a base S over C. Then there are rational functions phi_i on S such that P_2(Y -> S; f_1, f_2, f_3) = sum_i L_2(phi_i(s)). b) ... Suppose that there exists a map h with Res = delta_2 composed with h. Then d P_2(Y -> S; f_1, f_2, f_3) = d L_2(h(f_1, f_2, f_3)).",
+     "match": "The family version and the differential identity, verbatim."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Strong reciprocity law"
+   }
+  },
+  {
+   "id": "Polylogarithms:P.5/chow-dilogarithm-on-elliptic-curves",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The Chow dilogarithm of an elliptic curve, explicitly",
+   "kind": "theorem",
+   "statement": "For an elliptic curve E over an algebraically closed field, presented as a plane curve, there is an explicit reciprocity homomorphism h. Writing a rational function as a ratio of products of linear homogeneous functions reduces everything to four linear functions l_0, ..., l_3; with L_i the line they cut, D_i the divisor of its intersection with the curve and l_{ij} the intersection point of two of the lines, the value of h on the wedge of the three ratios l_i/l_0 is minus the alternating sum over i of the class of the cross-ratio of the three points l_{ij} with j different from i against the divisor D_i. It satisfies every condition of the strong reciprocity law, so over the complex numbers the Chow dilogarithm of E equals the Bloch-Wigner value of h. The same formula computes the integral for an arbitrary plane curve, with the factor 2 pi.",
+   "hypotheses": [
+    "E is an elliptic curve over an algebraically closed field, realised as a plane curve; l_0, ..., l_3 are linear homogeneous functions in the coordinates.",
+    "The class of a cross-ratio against a divisor means the corresponding integer combination of classes, as the source defines it.",
+    "The decomposition of a rational function into a ratio of products of linear functions uses the group law: the divisor of the ratio of the line through two points to the line through their sum and its negative is the displayed one."
+   ],
+   "proofSteps": [
+    "Reduce to four linear functions by decomposing a rational function into a ratio of products of linear ones, using the group law step described by the source.",
+    "Prove the two elementary identities for the canonical functions attached to a pair of lines: on the third line the two ratios sum to one, and the quotient of two of them is minus the third ratio.",
+    "Compute the total residue of the wedge of the three ratios by evaluating the residues at the three divisors with the first identity, and reducing the residues on the remaining line by the second; the result is minus delta_2 of the displayed class.",
+    "Prove that the formula gives a well-defined homomorphism: the relations between the functions attached to pairs of points are generated by the displayed one, its image has vanishing delta_2 by the previous step, and one checks the value at a degenerate triple where the first factor is constant.",
+    "Prove the analytic statement for an arbitrary plane curve: both sides have the same differential by the residue computation and the family version of the reciprocity law, so they differ by a constant, and the constant vanishes by deforming the curve to a union of lines."
+   ],
+   "acceptance": [
+    "For a line in the plane the formula is checked directly and is the base of the deformation argument.",
+    "For the projective line the formula reduces to the cross-ratio formula of the previous node.",
+    "The formula is the input for the elliptic dilogarithm: EllipticRegulators ER.3 owns the elliptic dilogarithm and its Kronecker-Eisenstein description, and this node is what connects the Chow dilogarithm of an elliptic curve to it."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/strong-reciprocity-law",
+    "Polylogarithms:P.5/chow-dilogarithm-reciprocity",
+    "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+    "EllipticRegulators:ER.2",
+    "EllipticRegulators:ER.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Theorem 6.14, equations (hrule) and (homot1)",
+     "excerpt": "Let E be an elliptic curve over an algebraically closed field k. Then there exists a homomorphism of groups h: Lambda^3 F^* -> B_2(k) such that for any linear homogeneous functions l_0,...,l_3 one has h(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = -sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)}_2 and which satisfies all the properties of conjecture 6.2. In particular, if k = C then ...",
+     "match": "The theorem with its explicit formula, verbatim."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Proposition 6.18, equation (elfo)",
+     "excerpt": "Let X be an algebraic curve in P^2 over C and l_0,...,l_3 linear homogeneous functions on C^3. Then integral_{X(C)} r_2(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = 2 pi sum_i (-1)^i L_2(r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)).",
+     "match": "The explicit integral formula for a plane curve, verbatim, with the factor 2 pi."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Lemma 6.16",
+     "excerpt": "For any plane curve X one has sum_x res_x((l_1/l_0) wedge (l_2/l_0) wedge (l_3/l_0)) = -delta_2(sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)}_2).",
+     "match": "The residue computation behind the formula, verbatim."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "Polylogarithms:P.5/weight-three-curve-regulator",
+   "parentStageId": "Polylogarithms:P.5",
+   "realises": [
+    "Polylogarithms:P.5"
+   ],
+   "title": "The weight-three curve regulator, and the Eisenstein-Kronecker expression as a target",
+   "kind": "construction",
+   "statement": "In weight three the curve regulator is the case q = 3 of the Chow polylogarithm: the top member of the chain, restricted to the cycles attached to a curve, together with the residue map from the weight-three polylogarithmic complex of the function field to the weight-two complex of the base field. The general-weight reciprocity conjecture of the source asserts that this residue map admits a lift analogous to h, and the source does not prove it. Separately the roadmap asks for the Eisenstein-Kronecker expression as a TARGET: for an elliptic curve the weight-two value has an expression through the elliptic dilogarithm whose Kronecker-Eisenstein description EllipticRegulators ER.3 owns, and the weight-three analogue is stated here as a target conditional on that analytic result, never as a theorem.",
+   "hypotheses": [
+    "X is a regular projective curve over an algebraically closed field with function field F; the weight-three polylogarithmic complex and its residues are those of P.3.",
+    "The weight-three regulator lands in the real Deligne complex in the degrees fixed by the Chow polylogarithm construction; the target itself is requested from MotivicEtaleKTheory M.8.",
+    "The Eisenstein-Kronecker expression is a target and not a theorem: ER.3 is the owner of the elliptic dilogarithm and of the justification of the interchange of sums and integrals that its Fourier and Kronecker-Eisenstein descriptions need, and that justification is a hypothesis here."
+   ],
+   "proofSteps": [
+    "Take the case q = 3 of the Chow polylogarithm and restrict it to the cycles attached to a curve with three rational functions, obtaining the weight-three regulator on the curve complex.",
+    "Record the functional equations it satisfies: they are the identities (ii) and (iii) of the Chow polylogarithm in that case.",
+    "State the general-weight reciprocity conjecture of the source for the residue map from the weight n complex of the function field to the weight n-1 complex of the base, and record that the source states it as a conjecture and proves only the weight-two cases.",
+    "State the Eisenstein-Kronecker target: for an elliptic curve, the value of the weight-two regulator is expressed by the elliptic dilogarithm, whose Kronecker-Eisenstein series description is ER.3's; the weight-three analogue is stated with the same shape, conditional on that description and on the analytic justification ER.3 must supply.",
+    "Record explicitly that the elliptic weight-three special-value conjecture is NOT included among the theorems obtained by the weight-two argument, which is what the stage text demands."
+   ],
+   "acceptance": [
+    "In weight two the construction reduces to the Chow dilogarithm and its reciprocity law, which are theorems.",
+    "In weight three the reciprocity statement is a conjecture in the source, and this packet states it as such.",
+    "The Eisenstein-Kronecker expression is conditional on ER.3's analytic result; a statement that asserted it unconditionally would be claiming an analytic theorem that no source read here proves."
+   ],
+   "prerequisites": [
+    "Polylogarithms:P.5/chow-polylogarithm-forms",
+    "Polylogarithms:P.3/weight-three-complex",
+    "Polylogarithms:P.3/residues-and-transfers",
+    "Polylogarithms:P.5/chow-dilogarithm-on-elliptic-curves",
+    "EllipticRegulators:ER.3",
+    "MotivicEtaleKTheory:M.8"
+   ],
+   "sources": [
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Conjecture 6.3",
+     "excerpt": "Let X be a projective regular curve over an algebraically closed field k and F := k(X). Then the homomorphism Res: Gamma(F;n) -> Gamma(k;n-1)[-1] ...",
+     "match": "The general-weight reciprocity conjecture, stated by the source as a conjecture; the weight-three case is the one this node records."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 6, the list of proved cases",
+     "excerpt": "We prove this conjecture in the following cases: a) X = P^1 ... b) X is an elliptic curve over an algebraically closed field ... c) k = Q-bar, X is any curve.",
+     "match": "Exactly which cases are theorems; everything else, and in particular every weight above two, is conjectural."
+    },
+    {
+     "sourceId": "Gonch.Arakelov.2004",
+     "locator": "Section 1, item 4",
+     "excerpt": "A formula for the Chow dilogarithm on elliptic curves is given in Chapter 6.",
+     "match": "The elliptic formula that the Eisenstein-Kronecker target is built on."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Weight-three curve regulator"
+   },
+   "api": [
+    {
+     "name": "weightThreeCurveRegulator",
+     "role": "data",
+     "statement": "The weight-three regulator on the curve complex, as the case q = 3 of the Chow polylogarithm."
+    },
+    {
+     "name": "weightThreeCurveRegulator_functional",
+     "role": "characterisation",
+     "statement": "Its two functional equations, from the identities of the Chow polylogarithm."
+    },
+    {
+     "name": "weightThreeReciprocity",
+     "role": "data",
+     "statement": "The general-weight reciprocity statement, recorded as a conjecture with its hypotheses."
+    },
+    {
+     "name": "eisensteinKroneckerTarget",
+     "role": "data",
+     "statement": "The Eisenstein-Kronecker expression, stated as a target conditional on the analytic result of EllipticRegulators ER.3."
+    },
+    {
+     "name": "weightThree_not_special_value",
+     "role": "compatibility",
+     "statement": "The record that the elliptic weight-three special-value conjecture does not follow from the weight-two argument."
+    }
+   ],
+   "uses": [
+    {
+     "where": "EllipticRegulators ER.3",
+     "how": "The elliptic dilogarithm and its Kronecker-Eisenstein description are the analytic input of the target stated here."
+    },
+    {
+     "where": "P.3",
+     "how": "The weight-three complex and its residues are the algebraic input."
+    },
+    {
+     "where": "The atlas",
+     "how": "The node exists so that the weight-three statements are visible as conjectures and targets rather than being mistaken for theorems of the weight-two argument."
+    }
+   ],
+   "tests": [
+    {
+     "name": "weight_two_case",
+     "statement": "In weight two the construction is the Chow dilogarithm with its proved reciprocity law."
+    },
+    {
+     "name": "conjectural_in_weight_three",
+     "statement": "The weight-three reciprocity statement is recorded as a conjecture and no proof is claimed."
+    },
+    {
+     "name": "conditional_eisenstein_kronecker",
+     "statement": "The Eisenstein-Kronecker expression carries the hypothesis that ER.3 supplies its analytic justification."
+    },
+    {
+     "name": "no_special_value",
+     "statement": "The elliptic weight-three special-value conjecture is not asserted."
+    }
+   ]
+  },
+  {
    "id": "Polylogarithms:P.6/leopoldt-statement",
    "parentStageId": "Polylogarithms:P.6",
    "realises": [
@@ -2341,12 +3069,9 @@
   },
   {
    "stageId": "Polylogarithms:P.5",
-   "status": "partial",
-   "note": "The curve complexes, the general weight-two regulator form with the Steinberg relation through the Bloch-Wigner function, and the Chow dilogarithm reciprocity law are decomposed. The target of the regulator is not: the real Deligne-Beilinson cohomology of a curve is constructed by no stage of the atlas, and the packet requests it rather than inventing a second one. Every statement that mentions a Deligne class is conditional and says so.",
-   "remaining": [
-    "The comparison of the curve regulator with the higher Chern character, which needs the requested Deligne complex.",
-    "The weight-three curve regulator and its Eisenstein-Kronecker expression, which needs the same input and the elliptic material of EllipticRegulators ER.3."
-   ]
+   "status": "source_decomposed",
+   "note": "Twelve nodes. The curve complexes from the function field and its residues; the general weight-two regulator form with its Steinberg relation through the Bloch-Wigner function, which EllipticRegulators ER.2 specialises rather than owns; the forms r_{m-1} with the convergence theorem that makes them distributions; Goncharov's canonical map of complexes from the weight n higher Chow complex to the weight n real Deligne complex, with the De Rham involution statement that the stage text asks for; the Chow polylogarithm as a chain of distributions on the spaces of cycles, with its three identities, its cocycle interpretation and the torus invariance of its top member; the Arakelov motivic complex with its real and number-field variants and the identification of its degree-zero cohomology with the Gillet-Soule arithmetic Chow group; the comparison with the higher Chern character, stated exactly as the source states it, namely as an open Problem, so that no later work can assume it; the Chow dilogarithm with the strong reciprocity law and the three cases in which the source proves it, projective line modulo 6-torsion, elliptic curve explicitly and arbitrary curve over the algebraic numbers rationally, together with the family version; the explicit elliptic formula; and the weight-three regulator with the general-weight reciprocity conjecture and the Eisenstein-Kronecker expression recorded as a target conditional on EllipticRegulators ER.3, never as a theorem. The target of the regulator, the real Deligne-Beilinson cohomology of a curve, is still owned by no stage of the atlas: it is requested from MotivicEtaleKTheory M.8, as two confirmed red-team findings ask, and every statement that mentions a Deligne class is conditional and says so.",
+   "remaining": []
   },
   {
    "stageId": "Polylogarithms:P.6",
@@ -2370,6 +3095,21 @@
   {
    "title": "The proof of the weight-four theorem is not planned anywhere",
    "detail": "Goncharov and Rudenko's theorem is recorded here as a theorem, and its statement infrastructure is built, but no roadmap plans its proof, which needs motivic correlators and cluster polylogarithms. The restructure list proposes the Part II that would own it."
+  },
+  {
+   "title": "The Grassmannian half of Goncharov's paper was not read",
+   "neededBy": [
+    "Polylogarithms:P.2",
+    "Polylogarithms:P.5"
+   ],
+   "detail": "Sections 4 and 5 of Polylogarithms, regulators, and Arakelov motivic complexes construct the Grassmannian n-logarithm as the restriction of the Chow n-logarithm to the planes in general position, relate it to the geometry of the symmetric space of the special linear group, recover Lobachevsky's volume formula in weight two and build the Borel regulator on the odd K-groups of the complex numbers from it; Section 7 is the appendix on volumes of simplices in symmetric spaces that the construction rests on. None of it was read for this packet, because it is the content of BorelRegulators rather than of this roadmap. NEXT SOURCE ACTION: read Sections 4, 5 and 7 when BorelRegulators R.3 and R.7 are planned; the Chow polylogarithm node of P.5 records the restriction that produces the Grassmannian function, so the interface is already in place."
+  },
+  {
+   "title": "The comparison of Goncharov's regulator with Beilinson's is open in the source",
+   "neededBy": [
+    "Polylogarithms:P.5"
+   ],
+   "detail": "The stage text asks that the regulator be compared with MotivicEtaleKTheory's higher Chern character in the degrees established by the source. The source establishes the construction as a map of complexes and poses the comparison as Problem a) of its introduction: that taking cohomology and using the isomorphism between rational higher Chow groups and the corresponding part of rational K-theory gives a non-zero rational multiple of Beilinson's regulator. It is not proved there, and no other source read here proves it. The packet therefore states the comparison with its two inputs and records its status, and every statement mentioning Beilinson's regulator is conditional on it. NEXT SOURCE ACTION: obtain Bloch's and Levine's papers for the higher Chow to K-theory isomorphism, and a source that establishes the comparison, if one exists; the only case known to the source is the spectrum of a number field, where Beilinson's regulator agrees with Borel's up to a non-zero rational factor."
   }
  ],
  "requests": [
@@ -2411,7 +3151,7 @@
   },
   {
    "supplier": "K2SymbolsBrauer:T.4",
-   "need": "Weil reciprocity and the Bass-Tate transfers on a curve, the weight-two analogue of the reciprocity law P.5 states in weight three."
+   "need": "Weil reciprocity and the Bass-Tate transfers on a curve, the weight-two analogue of the reciprocity law P.5 states in weight three. The proof of the strong reciprocity law for a curve over the algebraic numbers reduces to the projective line by the transfer on Milnor K_3, so the transfer is an input of P.5 and not only of the complexes."
   },
   {
    "supplier": "IntegralIwasawaTheory:L4",
@@ -2428,6 +3168,10 @@
   {
    "supplier": "SpecialValuesBirchTate:B.8",
    "need": "The statement infrastructure for higher regulator formulas with complex places, whose normalised covolume pattern P.4's determinant follows; the two should agree on the normalisation."
+  },
+  {
+   "supplier": "EllipticRegulators:ER.3",
+   "need": "The elliptic dilogarithm with its convergence, its invariance and its Fourier and Kronecker-Eisenstein descriptions, with the interchange of sums and integrals justified. P.5's weight-three node states the Eisenstein-Kronecker expression as a target conditional on exactly that analytic result, and the elliptic weight-two formula of P.5 is what it is stated for."
   }
  ],
  "restructure": [
