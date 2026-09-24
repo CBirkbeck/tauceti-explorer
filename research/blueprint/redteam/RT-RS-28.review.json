@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-RS-28",
+ "findings": [
+  {
+   "finding": "RT-RS-28/1",
+   "verdict": "rejected",
+   "reason": "The claimed error is a cycle, and there is none in the protocol's sense. PROTOCOL.md §3 and §10 require the node-prerequisite graph and the stage links to be acyclic ('Links must not create a cycle with the recorded stage links'); the finding itself states that the stage graph stays acyclic after RS-28, and a reachability check over the atlas stage edges plus RS-28's 59 links confirms it. What RS-28 creates is a mutual dependency between two roadmaps at roadmap level, which the atlas already has in 73 other pairs (data/atlas.json edges, e.g. AInfCohomology ↔ CrystallineCohomology, ArithmeticGaloisDuality ↔ SelmerIwasawaCohomology); roadmaps are built stage by stage, so 'neither can be built before the other' does not follow. The substance behind the link HL.3 → FunctionFieldArithmetic:FA.4 is the ownership transfer of owners row 16, which RT-RS-28/2 (confirmed) addresses; its fix removes that link, and with it the mutual listing, so nothing further is needed under this finding."
+  },
+  {
+   "finding": "RT-RS-28/2",
+   "verdict": "confirmed",
+   "reason": "Checked in research/blueprint/restructure/RS-28.json: the family's members are ['HigherLocalFieldsAndHigherClassFieldTheory'] and its anchor is tauceti:TauCetiRoadmap/ClassFieldTheory; FunctionFieldArithmetic is neither. RS-28.result.json lists FunctionFieldArithmetic:FA.4 under 'formerly' in owners rows 13–15 and moves 'Equal-characteristic p-primary local existence and resulting injectivity/completion of the existing Artin map' from FA.4 to HL.3 (row 16), with links 7, 34, 38 and 42 ending at FA.4, but it has no 'layers' entry for FA.4. By PROTOCOL §15 'A layer the proposal does not list keeps its place unchanged', and scripts/restructure.py never reads 'owners', so FA.4's description (data/atlas.json: 'Specialize and prove the local reciprocity construction for F_{q^d}((t)); then construct the global reciprocity map …') still plans the local theory: the mathematics of row 16 ends with two owners, against §15. High is right: it changes what gets built. The RS-04 proposal (whose family contains FunctionFieldArithmetic) assigns 'Full equal-characteristic p-primary local and global function-field reciprocity' to FA.4 with an empty 'formerly'; RS-04 has no review yet, so this is a contradiction with a pending proposal, which the fix should keep in view. The fix is right as stated: keep rows 13–15 only as a record of overlap without 'formerly', drop row 16 and the link HL.3 → FA.4, and let HL.3 import the equal-characteristic local existence from FA.4 by a link FA.4 → HL.3. That link creates no cycle: after removing HL.3 → FA.4, neither HL.3 reaches FA.4 nor FA.4 reaches HL.3 through the atlas stage edges and RS-28's links."
+  },
+  {
+   "finding": "RT-RS-28/3",
+   "verdict": "confirmed",
+   "reason": "Checked in data/library-coverage.json: layer HigherLocalFieldsAndHigherClassFieldTheory:HL.2 lists the duplicate KTheoryFiniteLocalFields:L.5 ('Owns the logarithmic/DVR de Rham-Witt comparison for complete discrete valuation rings, overlapping with this layer's wild coefficients'), and L.5 lists HL.2 back. L.5's stage text (data/atlas.json) reads 'own the logarithmic/DVR comparison needed by the calculation here'. RS-28.result.json never mentions KTheoryFiniteLocalFields:L.5 (only L.3, in links to HL.4 and HL.7), while HL.2's 'keeps' retains 'local Artin–Schreier–Witt/logarithmic coefficient interfaces and wild pairings not supplied by the cited regimes', and L.5 is not among the cited regimes. So the comparison has two owners. Medium is right. The fix is right: an owners row for the logarithmic/DVR de Rham–Witt comparison with owner L.5 and formerly HL.2, L.5 added to HL.2's suppliedBy, the link L.5 → HL.2 (acyclic: HL.2 does not reach L.5 through the atlas stage edges and RS-28's links), and HL.2's 'keeps' narrowed to the higher-field Artin–Schreier–Witt pairing built on L.5's comparison."
+  },
+  {
+   "finding": "RT-RS-28/4",
+   "verdict": "confirmed",
+   "reason": "Checked in data/atlas.json: MotivicEtaleKTheory:M.5d reads 'Keep the residue-characteristic Bloch–Gabber–Kato differential theorem separate', and M.5 reads 'At the residue characteristic use the separate Bloch–Gabber–Kato logarithmic differential statement where L requires it. This is not an instance of the prime-to-characteristic theorem.' A search of all stage descriptions finds 'Bloch–Gabber–Kato' only in those two places (the other 'Gabber' occurrences are Gabber's purity, Gabber–Ramero and Conrad–Gabber–Prasad). RS-28's HL.2 'keeps' builds the wild coefficients on 'the M.5d differential theorem', and owners row 12 gives M.5d 'Prime-power norm-residue and characteristic-p differential comparison'; so the theorem under HL.2's wild pairings, and under HL.3's equal-characteristic p-primary existence, has no supplier. Medium is right. The fix is right: narrow row 12 to what M.5d owns (the prime-power Bockstein induction and the filtered-colimit and characteristic reductions) and name a supplier for the Bloch–Gabber–Kato theorem. One precision: L.5 owns the logarithmic/DVR de Rham–Witt comparison, which is an input to, not the same statement as, the Bloch–Gabber–Kato identification K^M_n(F)/p^r ≅ W_rΩ^n_{F,log}; so the fix should record the theorem as a request against the layer chosen to own it (L.5 widened, or a new layer), not treat L.5 as already owning it."
+  },
+  {
+   "finding": "RT-RS-28/5",
+   "verdict": "confirmed",
+   "reason": "Checked in scripts/blueprints.py, refresh_roadmap_links (line 57): 'roadmap[\"prerequisites\"] = sorted({s for s, t in map_edges if t == roadmap[\"id\"]})', so the build sorts prerequisites alphabetically and the base cannot be 'first'. RS-28 does set 'extends' to tauceti:TauCetiRoadmap/ClassFieldTheory, which is how the atlas records the base. Low is right: presentation only. The fix (say that the base is recorded as the declared base, 'extends') is right."
+  }
+ ]
+}
