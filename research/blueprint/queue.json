@@ -15029,9 +15029,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #677"
+   "note": "deliverables arrived from an external worker on issue #677",
+   "finishedAt": "2026-09-24T23:28:41Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.1",
@@ -16866,8 +16867,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-EllipticKTheory.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #715"
   },
   {
    "id": "REV-EllipticKTheory",
