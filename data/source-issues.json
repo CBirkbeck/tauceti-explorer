@@ -140504,6 +140504,7 @@
  "unchecked": [
   "ClassicalArithmeticCompletion",
   "CohomologyComparisons",
+  "GeometricSatakeAndFusion",
   "HeckeStacksAndLocalShtukas",
   "KatoEulerSystems",
   "PerfectoidSpaces",
