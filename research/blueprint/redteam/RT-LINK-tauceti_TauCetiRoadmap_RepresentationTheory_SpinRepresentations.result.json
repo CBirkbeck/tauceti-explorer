@@ -1,0 +1,85 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+  "worker": "Codex — codex-a71f92",
+  "date": "2026-09-24",
+  "inputRevision": "7bbf98a6673dd453a97c3287c71a580ee7258821",
+  "summary": "No substantiated new finding in the accepted Spin link map. Rechecked all 20 links, 42 quoted evidence records, six overlap judgments and seven unresolved interfaces against the complete Spin document and all 20 external endpoint/overlap stages. An independent 218-roadmap/2,007-stage search and graph check found no justified missing direct link. This result concerns the delimited roadmap contracts, not proof completion, every upstream assertion or library-absence certification.",
+  "checked": [
+    "Read the full 719-line Spin README, all ten Spin stage contracts, the accepted link rows and overlap/interface records, and the independent review. Confirmed author cgp-797896f1d145 and reviewer codex-c83e7a are distinct from this worker.",
+    "Read all twenty external endpoint/overlap stage descriptions: GN.2; CFSG L0/L1; GlobalQuadraticForms 1; QFI 0/1/5; ReductiveGroups 9; ClassicalGroups 0/1/3/6; LieHighestWeight 1/3/4/6/8/9; RootSystems 6; UniversalCovers 0.",
+    "Checked every one of the forty-two evidence records against the exact raw source-file line range, without whitespace normalization. Forty quotes lie in their stage descriptions; two use valid wider-document passages: the Spin ordering discussion at line 675 and the general-field standing convention at line 93.",
+    "Checked supply/use direction, characteristic, regularity, finite dimension and real/complex/integral boundaries for all twenty links. The general-field spinor-norm image statement is not replaced by complex pointwise surjectivity; QFI's central-simple/Brauer output is not inferred from the complex matrix model.",
+    "Checked the Fock-before-structure-theorem direction, odd-dimensional nonfaithfulness of a single full-Clifford module, polar normalization, Lie-versus-group highest weights, valid B/D ranks and low-rank adapters. The existing two added links correctly supply square-class interoperation and direct complex normal forms; neither claims a newly proved library theorem.",
+    "Checked both actions in the Kostant/CAR application, the trace rather than Killing form for gl_n, the normal-ordering central shift and the central-semisimplicity qualification. The generic HighestWeight9 -> Spin9 edge remains one-way; independently adding its reverse fails the cycle control.",
+    "Rechecked all six overlap judgments. Shared D4 numbering and root-datum extension are not confused with integral pinned-group lifting or the complex Clifford/Chevalley comparison. Complex irreducibility does not supply integral all-characteristic faithful CFSG carriers. Both Spin-branching parity steps and the group/GT comparison remain explicit unresolved work.",
+    "Independently searched 1,968 native and 39 new stage descriptions across 218 roadmap records for Clifford, Spin/spinor, half-spin, triality, octonions, CAR, Kostant, Cartan-Dieudonne, Bott, universal covers and isotypy; screened the 47 additional native lexical candidates. Read all six new-roadmap summaries and the matching LV.3 period-map contract. This was a targeted catalogue screen, not full reading of every roadmap.",
+    "Deepened the omission check at LieGroups 1/3/5, RootSystems 5, SemisimpleAlgebras 1/2, IntegralLattices 5, AlgebraicCodingTheory 7, GlobalQuadraticForms 8 and CombinatorialHeegaardFloer G12. Rejected optional/unselected Gallais-to-Pin comparison, discriminant spinor cosets, topological K-theory Bott and unrelated Clifford theorems as grounds for unqualified direct links.",
+    "Verified that exactly three additional Spin-touching arrows already occur in other packets: LieGroups 1 -> Spin3, LieGroups 3 -> Spin3, RootSystems 5 -> Spin5. Read those contracts. They are qualified inputs, not missing arrows or proof of the still-unresolved carrier/differentiation interface.",
+    "Confirmed 217 unique examined partners cover the 218-roadmap catalogue minus Spin. All twenty links have known endpoints and are distinct from native edges and every other link packet. The 3,508-edge native graph, 4,213-edge union with all link packets, and 4,440-edge union also including new-roadmap requires are acyclic.",
+    "Read data/library-coverage.json for the target: it contains no Spin-owned entry. No new library availability/absence verdict is inferred from that omission; the task maps roadmap outputs, and unchanged upstream implementation claims are not certified. Baselines remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.",
+    "Ran check_links.py with zero errors and warnings, independent quote/catalogue/duplicate/graph checks, check_redteam.py, the two-file intake check and 44 red-team/intake/queue regression tests. Lean was not run; there is no Lean deliverable. No upstream file was modified."
+  ],
+  "findings": [],
+  "validation": {
+    "roadmaps": 218,
+    "stages": 2007,
+    "examinedPartners": 217,
+    "links": 20,
+    "incoming": 18,
+    "outgoing": 2,
+    "overlaps": 6,
+    "unresolvedInterfaces": 7,
+    "evidenceQuotes": 42,
+    "wholeDocumentEvidence": [
+      {
+        "stage": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-9-lie-algebras-acting-through-the-clifford-algebra-and-kostants-isotypy-corollary",
+        "line": 675
+      },
+      {
+        "stage": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers",
+        "line": 93
+      }
+    ],
+    "externalEndpointStages": 20,
+    "baseEdges": 3508,
+    "allLinkUnionEdges": 4213,
+    "withNewRoadmapRequiresEdges": 4440,
+    "additionalLexicalCandidates": 47,
+    "elsewhere": [
+      {
+        "packet": "tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json",
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra"
+      },
+      {
+        "packet": "tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json",
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra"
+      },
+      {
+        "packet": "tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ"
+      }
+    ],
+    "sha256": {
+      "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md": "57f8b849bc9b1f57959720e5c79db4ccb1c3d95305b455aa91f3e03029731398",
+      "content/tau-ceti/CFSGStatement/README.md": "1cd437a41f474df235aafeb68231d372f166104715e80860f39e2b0e28b9efdd",
+      "content/tau-ceti/GlobalQuadraticForms/README.md": "7ed02427b487abf0507320c21d9fd97a5baefe0eb09b350f278cb6d88340d0fe",
+      "content/tau-ceti/QuadraticFormInvariants/README.md": "9cf19bcdbccf3c40b721ebe327da78c0cb301cca3ec02fb4237c4730b4d60d63",
+      "content/tau-ceti/ReductiveGroups/README.md": "b6888bb0f65d0f4a7686c047ee2d3204d019fb3e6c35fc0bd83b531ef10b4c1b",
+      "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md": "9bfaeef36584d5bf627e5df74a637abcc0620da5e1f0459460282f4741141622",
+      "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md": "bae7b8e787f0aa2e6f952bceca0dc43be2e7fdc6c6ca5cee5b954476ea69434d",
+      "content/tau-ceti/RepresentationTheory/RootSystems/README.md": "b36938dae9a4d3f9e761991ff0bb8092c2c004533b87ad7906ab3b140eef7335",
+      "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md": "7cc5096a10684cd9cf1ef6069c12d9eb8de034fd032900cfef1c33267732221d",
+      "content/tau-ceti/UniversalCovers/README.md": "fbe227b0c3a1c352d6058e216db431c69444affe6b5f2ee0aa352909a751ddb6",
+      "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
+      "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
+      "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json": "962fbed050164d112342726430e5097e0659bdce5cad310f0537cc2534375a3f",
+      "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md": "d548b1b8b3dd7a1ddce6953ab0f34d9d655cbb8f7ef2085d5f28568be052395e"
+    }
+  }
+}
