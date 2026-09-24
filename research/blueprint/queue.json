@@ -27017,8 +27017,9 @@
     "REV-AUDIT-05"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1559"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1559",
+   "finishedAt": "2026-09-24T02:47:30Z"
   },
   {
    "id": "RT-AUDIT-06",
@@ -27043,8 +27044,9 @@
     "REV-AUDIT-06"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1562"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1562",
+   "finishedAt": "2026-09-24T02:47:33Z"
   },
   {
    "id": "REV-RT-AUDIT-06",
@@ -27478,8 +27480,9 @@
     "REV-AUDIT-14"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1578"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1578",
+   "finishedAt": "2026-09-24T02:47:34Z"
   },
   {
    "id": "REV-RT-AUDIT-14",
@@ -30519,8 +30522,9 @@
     "RT-AREA-diffgeom"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-diffgeom.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1548"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1548",
+   "finishedAt": "2026-09-24T02:47:36Z"
   },
   {
    "id": "ERRATA-PAPER-BURUNGALE-TIAN-26",
