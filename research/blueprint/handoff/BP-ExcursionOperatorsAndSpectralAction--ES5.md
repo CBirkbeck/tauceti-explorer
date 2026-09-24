@@ -2,6 +2,34 @@
 
 Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-es5`.
 
+## Correction, made on the same branch before review
+
+The first version of this packet said there is "no reviewed audit in
+`data/library-coverage.json`" for this roadmap. **That is wrong.** `AUDIT-20`, reviewed
+as `REV-AUDIT-20` on 17 September 2026 with 240 targets checked and 89 corrections,
+covers all seventeen layers and returns **not built** for every one. No node here
+duplicates a built target, so nothing planned is overturned, but four of the audit's
+notes change what the packet cites, and all four are applied:
+
+- Mathlib's `CategoryTheory.CatCenter = End (𝟭 C)` is the Bernstein centre of a
+  category and is now cited (the audit records `ES0`'s centre target as *partial*).
+- Mathlib **has** the Nielsen–Schreier theorem — a subgroup of a free group is free,
+  which is exactly what `F_n ×_W W'` needs in FS IX.6.3 — and **has** abelian Shapiro's
+  lemma in all degrees (`groupCohomology.coindIso`), while the **nonabelian** Shapiro
+  equivalence that proposition proves is absent. Both are cited, so the boundary is
+  exact, and the missing **Schreier index formula** is recorded as its own gap.
+- Tau Ceti's `ClassFieldTheory.Formation` and its Tate cohomology are the *carriers* of
+  class field theory; a direct search confirms there is no Artin map and no reciprocity
+  map anywhere in either library. Cited, so that the torus gap says precisely what is
+  missing rather than "absent".
+- The audit's duplicate records for `ES5` name
+  `GlobalShtukasAndFunctionFieldLanglands:GS.5` and
+  `LanglandsParameterStacks:LP2:semisimple-characters`. The second was already
+  requested; a request to the first is added.
+
+The packet now has 27 baseline declarations, 13 gaps and 22 requests; nodes (16),
+planets (14), sources and locators are unchanged.
+
 ## Deliverables
 
 - `research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json` — 16 nodes
