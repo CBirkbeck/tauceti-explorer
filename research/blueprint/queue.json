@@ -27158,8 +27158,9 @@
     "REV-AUDIT-08"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1565"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1565",
+   "finishedAt": "2026-09-24T01:47:19Z"
   },
   {
    "id": "RT-AUDIT-09",
