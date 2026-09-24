@@ -26503,8 +26503,9 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-29.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1627"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1627",
+   "finishedAt": "2026-09-24T00:50:15Z"
   },
   {
    "id": "REV-RT-RS-29",
