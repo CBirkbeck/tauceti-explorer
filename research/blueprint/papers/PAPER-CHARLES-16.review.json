@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-CHARLES-16",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject activation. Correct K3/IHS owner direction, but items12,16,21–29,49–50,65–66,74–85,100–105,127–129,143 still depend on unexpanded source interiors. G1/G3/G4/G6 are open; source E21 is not discharged by a Tate-dependent rank assertion. Conditional item113 and the p≥5 prime-choice composition do not close the all-characteristic or partner hypotheses."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Reject activation. Correct Part II parent and fixed-determinant/sign interface, with E15 rejected. The GIT/boundedness, period-index existence, K₀ realization, nonemptiness and twisted universal-family proof leaves have not been extracted from Langer/Lieblich/Yoshioka. Endpoint statements plus a future-reading instruction are not a closed brief."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "Reject activation. Correct generic-fiber parent and good-prime restriction; PEL normalization is not a substitute. Kisin/Deligne/André/Rizov and the corrected 2013 argument still require source-level proof decomposition and actual primitive filtered-lattice comparisons. The two-page erratum alone does not supply these proofs."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject activation as a complete source packet. GN.2/GN.3 are the right owners beyond the completed lattice API, and the explicit primitive plane and local norm adapters are sound targets. G5 still defers the Nikulin genus/embedding proof interior; Cassels finiteness and local integral-lattice proof leaves remain unexpanded. No new copy of completed gluing or of Chebotarev is needed."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept as a source route for the three scoped contracts: the zero-cycle Brauer obstruction in R09.3, and the stated K=0/fiberwise-big boundedness inputs in R09.1. The owner documents and AUDIT-01 distinguish these planned targets from the existing lower-level library API. This does not accept the K3 geometric route."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept as a source route into V2/V3. These stages explicitly own Baily–Borel algebraicity and Borel algebraicity; the K3 period-map construction remains in rejected route1. AUDIT-11 records the general theorems as not built."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Reject activation until early (1,1)/trace-descent leaves and late K3 Tate applications have explicit separate owner/dependency contracts. The proposed owner MC.7 is correct, but importing the whole stage into the K3 proof would create a cycle. The late endpoints also retain the unclosed route1 hypotheses."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accept as a source route: SF.5 explicitly owns intersection products, surface RR, adjunction and Hodge index. These are imports for the K3 application. AUDIT-01 does not credit the full target statements as implemented."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept as a source route: A5 explicitly owns the complex abelian/integral Hodge comparison and its Hom identification. The application uses that comparison for endomorphisms of H¹; it does not require the general Hodge conjecture. AUDIT-08 records the target as not built."
+    }
+  ],
+  "notes": "Codex — codex-hjdg0j, independent reviewer REV-PAPER-CHARLES-16. Reviewed all 173 items, 26 cited declarations at both pinned commits, all planned owner contracts and all 140 missing-item routes. Corrected clear statements in place and marked the extraction partial. All 26 source findings have verdicts: E3/E15 rejected, the other 24 confirmed with the stated scope. Main Charles published PDF and full LMS arXiv v5 independently read; unread prerequisite interiors remain explicit. No Lean file is required for this review and no Lean compilation is claimed. See research/blueprint/reviews/REV-PAPER-CHARLES-16.md."
+}

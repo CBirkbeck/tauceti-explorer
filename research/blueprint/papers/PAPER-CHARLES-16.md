@@ -1,3 +1,17 @@
+# PAPER-CHARLES-16 — current reviewed disposition
+
+**Independent review REV-PAPER-CHARLES-16 (Codex — codex-hjdg0j, 24 September 2026): revise; extraction partial.** The 173-item inventory has 16 library, 17 planned and 140 missing items. All missing items are routed exactly once, but cited supplier proof leaves and the partner/characteristic-two hypotheses remain open. Numbered-statement coverage is not Protocol §0/§16 closure.
+
+Routes 5,6,8,9 are accepted as scoped sources for the existing moduli, Shimura, surface-intersection and abelian-Hodge owners. Routes 1–4 and 7 require revision. See [the independent review](../reviews/REV-PAPER-CHARLES-16.md) and [machine-readable verdicts](PAPER-CHARLES-16.review.json).
+
+There are 26 reviewed source findings: 24 confirmed, E3 and E15 rejected. In E3's double-curve branch, r=4(C_red)² is already a positive multiple of four, so r=2 is not a counterexample. For E15, Charles explicitly imports LMS's determinant-rigidified stack. New findings E22–E26 concern the deformation obstruction tensor, Poincaré-dual degree/twist, the Hilbert–Chow open stratum, completed cycle maps, and moduli-carrier misprints. A confirmed source gap is not a claim that the main theorem is false.
+
+The result JSON has the clear local fixes, scoped conditional statements, all source verdicts, and open gaps G1/G3–G6. G2's conditional Cayley repair does not establish the printed original-field assertion. The new item132 imports generic rational descent and owns only the additional K3 integral saturation step. No Lean compilation is claimed by this review.
+
+## Historical extraction and continuation record
+
+The following earlier reports are retained for provenance. Their `complete`, `resolved`, source-reading and E3/E15 claims are superseded by the current review above and the reviewed JSON. In particular, an earlier worker's supplier-read or published-LMS comparison is not attributed to this reviewer.
+
 # Charles (2016): extraction and routing
 
 Issue [#1188](https://github.com/CBirkbeck/tauceti-explorer/issues/1188). Status: **complete**. Implementation and proof closure are not claimed.
