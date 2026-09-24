@@ -6291,8 +6291,8 @@
    ],
    "avoidAccountOf": "PAPER-IM-KIM-LE-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1359"
+   "state": "external",
+   "note": "claimed on GitHub issue #1359"
   },
   {
    "id": "PAPER-VANHOFTEN-24",
@@ -8698,8 +8698,8 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #2185"
+   "state": "external",
+   "note": "claimed on GitHub issue #2185"
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -23295,11 +23295,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1027"
+   "note": "released on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
@@ -30101,8 +30101,9 @@
     "RT-AREA-geomlanglands"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-geomlanglands.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1524"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1524",
+   "finishedAt": "2026-09-24T11:31:45Z"
   },
   {
    "id": "RT-AREA-commutative",
