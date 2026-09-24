@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-RS-28",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-28",
+  "summary": "No substantiated new finding in the accepted restructuring. All eight HL stages survive; the 24 ownership assignments match their actual suppliers and all 59 links preserve the retained interfaces without new cycles. In particular, the equal-characteristic p-primary extension, higher topology and separate function-field global branch remain explicit work. This is structural assurance, not proof closure or a new exhaustive library audit.",
+  "checked": [
+    "Read the entire family, accepted proposal, original report and REV-RS-28. Independent of original worker codex-c83e7a and reviewer codex-a71f92; claim confirmed before work.",
+    "Read the complete eight-stage member and FunctionFieldArithmetic documents; read ClassFieldTheory scope/ownership/exclusions and complete supplier Layers 5, 6, 7, 8, 10, 11 and 12. Tracked every changed member target, acceptance example and characteristic/topological qualification through the keeps/supplier decisions.",
+    "Read all 24 owner-stage descriptions, including K2SymbolsBrauer symbol/residue/transfer substages, ProfiniteCohomology Layers 1/10/11/12, CR.4, M.5d, L.3, GlobalNumberFields Layer 6, LocalFieldsRamification Layers 0/3 and FA.2/FA.4. All 24 descriptions match their roadmap documents after whitespace normalization. Also checked M.5, L.5 and the ClassFieldTheory link packet for the nearby ownership boundaries.",
+    "Read all 29 targets, notes, evidence and duplicate leads in the eight integrated reviewed AUDIT-03 member records. The positive Laurent-series baseline was checked independently; broader audit absence claims are not newly certified.",
+    "Read LaurentSeries.valued at line 504 and instLaurentSeriesComplete at line 824 with Field K assumptions, at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Fresh remote source matches the read copy and the reported SHA-256 dc23d8c6ba668df50051223d9099a8f0ce0e7a12385cfeb250bf2cc88f403ad9. These are one-step X-adic structures, not higher topology.",
+    "Read Kato, arXiv:math/0012150v1, introduction and Theorems 1-3, printed pages 165-167, accessed 2026-09-24. Checked finite abelian/open finite-index norm correspondence and its pro-ind openness convention. Did not audit proof interiors or promote this local theorem to a global one.",
+    "Checked exactly eight member actions (seven narrow, one keep), exact extension title/anchor-first instruction, anchor immutability, 24 unique owners, 59 unique non-self links, live endpoints and every owner/former-owner handoff. Matched all eight member and fifteen anchor descriptions to the documents.",
+    "Preserved nine original internal dependencies; no original external outgoing HL edge in the reconstructed baseline. Every narrowed supplier reaches its stage and each immediate consumer directly, including all three CFT suppliers to the newly explicit FA.4 consumer. Checked HL.3 to FA.4 to HL.6 direction and the retired LI.4 exclusion.",
+    "Reconstructed 4440 baseline pairs from atlas, roadmap requirements/consumers, proposed roadmaps and link packets; five proposed pairs already exist and 54 are new, yielding 4494. No proposed edge has a return path. The union including all accepted restructuring links has 7053 pairs and still no return path for an RS-28 edge. Reverse HL.6 to FA.4 is a positive cycle-detection control.",
+    "Screened campaign documents, packet/decomposition references and reserved IDs for member references and higher-local/Parshin/topological-Milnor/Kato-complex overlap leads; searched both full pinned source trees for the corresponding concept names without claiming exhaustive absence. Ran restructuring, red-team and intake checks."
+  ],
+  "findings": []
+}
