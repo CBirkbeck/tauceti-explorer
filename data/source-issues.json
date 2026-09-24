@@ -35327,9 +35327,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E2",
@@ -35349,9 +35349,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E3",
@@ -35371,9 +35371,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E4",
@@ -35393,9 +35393,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. The reason text is corrected by the review: its point (4), 'Neatness … is not implied by Assumption 4.1', is withdrawn by its own 'REFUTED PART' and is wrong (H1 implies neatness); the type-H example is not of type H (r̄|I_x is reducible), so only the type-P argument supports that claim; the 'Section 5' pointer duplicates E2."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E5",
@@ -35415,9 +35415,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E6",
@@ -35437,9 +35437,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E7",
@@ -35459,9 +35459,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. Part (2), 'weight N', is E6 verbatim; E7 is restricted to part (1)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E8",
@@ -35481,9 +35481,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E9",
@@ -35503,9 +35503,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E10",
@@ -35525,9 +35525,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. The longest element of W_G is (a,b;c) ↦ (−a,−b;a+b+c); −s₀ sends C₀ to C₃ and C₁ to C₂, as later uses need."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E11",
@@ -35547,9 +35547,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. Its remark about K_{1,∞} is E12."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E12",
@@ -35569,9 +35569,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E13",
@@ -35591,9 +35591,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E14",
@@ -35613,9 +35613,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. exp h(π,π;πi) = I was checked numerically; the correction's re-fixes of 't → z' and 'K_{1,C}' are E13 and E15."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E15",
@@ -35635,9 +35635,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E16",
@@ -35657,13 +35657,13 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E17",
-   "kind": "misprint",
+   "kind": "error",
    "locator": "§4, Assumption 4.3(1) (U3), p. 813; also Def. 4.6(3), p. 815, and the paragraph after Remark 4.4, p. 814; arXiv:1907.08691v1 has the same text on pp. 11–12",
    "printed": "(1) U3: r̄ | I_x has unipotent image, and r̄ | I_x is conjugate to the group generated by exp(N_3), where N_3 = (0 1 0 0 / 0 0 1 0 / 0 0 0 −1 / 0 0 0 0).  [p. 815, Def. 4.6(3):] If x ∈ S(r̄) is of type U1, U2, or U3, then r | I_x has unipotent image and its image is topologically generated by an element exp(N) where N is nilpotent of rank 1, 2, or 3, respectively.",
    "correction": "For rank 3, exp(N) = 1 + N + N²/2 + N³/6 needs 6 to be invertible. U3 and the rank-3 case should read 'generated by a unipotent element u with u − 1 nilpotent of rank 3' (a single Jordan block), or p ≥ 5 should be assumed.",
@@ -35679,9 +35679,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. The review changed the kind to 'error': nothing is mistyped; exp(N₃) needs 1/6 (N₃³ = −E₁₄ ≠ 0) while §4 allows p = 3."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E18",
@@ -35701,9 +35701,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K1): checked at the locator on the page image of the published version and in the arXiv TeX. 𝔤 = 𝔰𝔭₄ ⊕ k·I₄ for p > 2, and Ad fixes the scalars."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E19",
@@ -35723,9 +35723,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E20",
@@ -35745,9 +35745,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E21",
@@ -35767,9 +35767,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX. Its last sentence, on Proposition 4.10(4), is E26."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E22",
@@ -35789,9 +35789,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX. Every root character is unramified and non-trivial, so H¹(G_x, ad⁰) = H¹(G_x, 𝔱⁰) of dimension 4; the corrected L_{Q,x} has dimension 3 and h⁰ = 2, matching [31]."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E23",
@@ -35811,9 +35811,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E24",
@@ -35833,9 +35833,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E25",
@@ -35855,9 +35855,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX. The same looseness recurs on p. 820 (ρ̄_p and ρ̄_p^c 'finite flat'), recorded as E157."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E26",
@@ -35877,9 +35877,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E27",
@@ -35899,9 +35899,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX. Part (b), the '1 and −1 are always eigenvalues' sentence, is E29; E27 is restricted to part (a)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E28",
@@ -35921,9 +35921,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX. The repair A = diag(x, (−1)^{k−1}x⁻¹), B = diag(y, (−1)^{k−1}y⁻¹) was verified."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E29",
@@ -35943,9 +35943,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E30",
@@ -35965,9 +35965,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E31",
@@ -35987,9 +35987,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E32",
@@ -36009,9 +36009,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E33",
@@ -36031,9 +36031,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX. Its correction item 2 is E32, and its side note repeats E30/E31."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E34",
@@ -36053,9 +36053,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E35",
@@ -36075,9 +36075,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K2): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E36",
@@ -36097,9 +36097,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX. The review corrected the reason text: 'V_(b,a;a+b+2c)' should be V_(−b,−a;a+b+2c), 'W_(1,0;0) = V_(0,1;1)' should be V_(0,−1;1), and 'its parallel on p. 823' is p. 826."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E37",
@@ -36119,9 +36119,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E38",
@@ -36141,9 +36141,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E39",
@@ -36163,9 +36163,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K3), after checking the locator on the page image and in the arXiv TeX: a duplicate: E49 already records 'Lie P⁻' for 'Lie Q⁻' on pp. 828, 829, 854 and 855 and the doubled ')' on p. 828; the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E40",
@@ -36185,9 +36185,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX. Its part (2) is also recorded as E47, which the review rejected as a duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E41",
@@ -36207,9 +36207,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E42",
@@ -36229,9 +36229,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E43",
@@ -36251,9 +36251,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E44",
@@ -36273,9 +36273,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX. Both (1234) and (1234)(56) give rank profile 3, 2, 1, 0 for (σ − 1)^k on F₂⁴; the Jacobian example's Galois group and inertia at 5 were recomputed. E46 is its duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E45",
@@ -36295,9 +36295,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E46",
@@ -36317,9 +36317,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K3), after checking the locator on the page image and in the arXiv TeX: a duplicate of E44(ii), which records the same conjugacy-class correction for the Jacobian example; the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E47",
@@ -36339,9 +36339,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K3), after checking the locator on the page image and in the arXiv TeX: a duplicate of E40(2) ('for any p' in Theorem 5.9); the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E48",
@@ -36361,9 +36361,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E49",
@@ -36383,9 +36383,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX. E39 is its duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E50",
@@ -36405,9 +36405,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E51",
@@ -36427,9 +36427,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E52",
@@ -36449,9 +36449,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX. T₂/p^{k+j−6} = U₂ + p^{3−j}Z₂ + p^kV₂ with U₂ = −1 + pX₂ (pp. 858–859)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E53",
@@ -36471,9 +36471,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K3): checked at the locator on the page image of the published version and in the arXiv TeX. At (3, 3) the S-term is a unit in the source weight and 0 in weight (p+2, p+2); Lemma 8.12 gives Q₂ ≡ Z₂ there too, so the statement survives."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E54",
@@ -36493,9 +36493,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E55",
@@ -36515,9 +36515,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E56",
@@ -36537,9 +36537,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E57",
@@ -36559,9 +36559,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. The review corrected a slip in the reason's defence (2): λ(−I) = −1 (λ is the top-left Klingen entry, p. 821), so −1 is not in Π(x)^+; harmless, since type P never occurs and the diag(1,−1,−1,1) argument covers it."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E58",
@@ -36581,9 +36581,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. The correction's sentence 'for M = O/ϖ^m the image is T_μ(Q)^β/I_{μ,m}' is inaccurate: the image is the quotient by the annihilator of the β-part (E160)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E59",
@@ -36603,9 +36603,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. 'Misprint' would also be defensible, since every use follows the intended meaning."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E60",
@@ -36625,9 +36625,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. The GL₂ check (11a, p = 3) was recomputed. Its correction should target the quotient by the β-part annihilator (E160), and its closing paragraphs on the (3) identity are E61."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E61",
@@ -36647,9 +36647,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E62",
@@ -36669,9 +36669,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. Sorensen's own wording was not checked."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E63",
@@ -36691,9 +36691,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E64",
@@ -36713,9 +36713,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E65",
@@ -36735,9 +36735,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E66",
@@ -36757,9 +36757,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E67",
@@ -36779,9 +36779,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. The algebra and the F₇ example were verified; the Genestier–Tilouine quotation was not checked."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E68",
@@ -36801,9 +36801,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E69",
@@ -36823,9 +36823,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K4), after checking the locator on the page image and in the arXiv TeX: a duplicate: E70's correction already fixes the surjections' μ, μ′ and italic m; the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E70",
@@ -36845,9 +36845,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX. It also covers E69, which the review rejected as a duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E71",
@@ -36867,9 +36867,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K4): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E72",
@@ -36889,9 +36889,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX. The GL₂ check and the four-labelling argument (b) were redone; (b) covers every p. The reason's 'for p ≥ 5 the claimed inverse acts as ≡ 4^{−#Q} ≠ 1' is imprecise: 4^{−#Q} ≡ 1 mod p when ord_p(4) divides #Q."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E73",
@@ -36911,9 +36911,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX. The reason calls K_{x,0} = Π(x) the Siegel parahoric; it is the Klingen parahoric (§5.2, p. 852). The conclusion is unchanged."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E74",
@@ -36933,9 +36933,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E75",
@@ -36955,9 +36955,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K5), after checking the locator on the page image and in the arXiv TeX: its headline claim ('co-Cartesian') is withdrawn by its own correction, correctly (with one vertical map an isomorphism the square is a pushout iff the other is epi); its two real points are E76 and E77; and its reason asserts that τ = d_Q⁻¹tr inverts ψ, which contradicts the confirmed E72."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E76",
@@ -36977,9 +36977,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX. It also covers the 'smooth (and in particular irreducible)' point of the rejected E75."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E77",
@@ -36999,9 +36999,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E78",
@@ -37021,9 +37021,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E79",
@@ -37043,9 +37043,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX. The repair (i)–(iv) was checked."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E80",
@@ -37065,9 +37065,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E81",
@@ -37087,9 +37087,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E82",
@@ -37109,9 +37109,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E83",
@@ -37131,9 +37131,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E84",
@@ -37153,9 +37153,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E85",
@@ -37175,9 +37175,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E86",
@@ -37197,9 +37197,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E87",
@@ -37219,9 +37219,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E88",
@@ -37241,9 +37241,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E89",
@@ -37263,9 +37263,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K5): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E90",
@@ -37285,9 +37285,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. The U₂ sum was recomputed: −(p+1) + p·#{zeros} = −1 + p((r² − 4mn)/p)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E91",
@@ -37307,9 +37307,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. The reason uses the discriminant where the matrix determinant is meant; det(R) = p²det(Q) holds either way."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E92",
@@ -37329,9 +37329,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E93",
@@ -37351,9 +37351,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E94",
@@ -37373,9 +37373,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E95",
@@ -37395,9 +37395,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. In Yamauchi v5 (proof of Prop. 3.12) θ₁ is linear in T; only Θ carries det(T). Transvectant covariance gives θ₁∘Z ≡ 0 mod p."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E96",
@@ -37417,9 +37417,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E97",
@@ -37439,9 +37439,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E98",
@@ -37461,9 +37461,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E99",
@@ -37483,9 +37483,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E100",
@@ -37505,9 +37505,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E101",
@@ -37527,9 +37527,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E102",
@@ -37549,9 +37549,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E103",
@@ -37571,9 +37571,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E104",
@@ -37593,9 +37593,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K6), after checking the locator on the page image and in the arXiv TeX: 'U² − TU + ⟨p⟩ = 0' is the standard way to write the Hecke polynomial with the weight-one T as coefficient, and the only defined reading is U² F − U(TF) + ⟨p⟩F = 0; the printed text is not a misprint."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E105",
@@ -37615,9 +37615,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. It also covers E106, which the review rejected as a duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E106",
@@ -37637,9 +37637,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K6), after checking the locator on the page image and in the arXiv TeX: a duplicate of E105, which covers the same display and sentence on p. 866; the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E107",
@@ -37659,9 +37659,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. The replacement argument (W = ΣUⁱM, Z₂ⁿW ⊂ UⁿW) was verified. The entry's worked example (p = 5, j = 3) is outside the theorem's range (Remark 8.2 excludes j = 3)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E108",
@@ -37681,9 +37681,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E109",
@@ -37703,9 +37703,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E110",
@@ -37725,9 +37725,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E111",
@@ -37747,9 +37747,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E112",
@@ -37769,9 +37769,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E113",
@@ -37791,9 +37791,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E114",
@@ -37813,9 +37813,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E115",
@@ -37835,9 +37835,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. The review notes that the proposed fix for weight (j, 2), 'both operators multiply the Q-th coefficient by det(Q)', is false for θ₁ by E95; the correct route is θ₁F = β⁻¹θ₁(ZF) ≡ 0 and then Theorem 8.11. The Θ route for (2, 2) is fine."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E116",
@@ -37857,9 +37857,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX. E117 is its duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E117",
@@ -37879,9 +37879,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K7), after checking the locator on the page image and in the arXiv TeX: a duplicate of E116 (the same sentence 'ZF = βZ' and the same correction); the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E118",
@@ -37901,9 +37901,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E119",
@@ -37923,9 +37923,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX. Its part (2), and the Lemma 8.4/Definition 8.5 remarks, repeat E90; E120 is its duplicate."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E120",
@@ -37945,9 +37945,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Rejected by the review (checker K7), after checking the locator on the page image and in the arXiv TeX: a duplicate of E119(2) and of E90's §8.8 sentence (det(Q) for the discriminant); the mistake is confirmed there."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E121",
@@ -37967,9 +37967,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX. The repair (Q₂ ≡ Z₂ in weight (p+1, p+1), p ∤ (p+1)(2p+1)) was checked. Its trailing 'unrelated misprint' is E119(1)."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E122",
@@ -37989,9 +37989,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E123",
@@ -38011,9 +38011,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E125",
@@ -38033,9 +38033,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX. It is conditional on E95 and overlaps E95's 'Consequence/Fix'; 'cannot be closed from the printed text' is overstated, since transvectant equivariance gives θ₁∘Z ≡ 0 mod p."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E126",
@@ -38055,9 +38055,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX. The printed range is empty for j = 4, which contradicts con(Q ⊗ Q^∨) = r² − 4mn."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E127",
@@ -38077,9 +38077,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E128",
@@ -38099,9 +38099,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E129",
@@ -38121,9 +38121,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E130",
@@ -38143,9 +38143,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E131",
@@ -38165,9 +38165,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E132",
@@ -38187,9 +38187,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E133",
@@ -38209,9 +38209,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E134",
@@ -38231,9 +38231,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E135",
@@ -38253,9 +38253,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E136",
@@ -38275,9 +38275,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E137",
@@ -38297,9 +38297,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E138",
@@ -38319,9 +38319,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E139",
@@ -38341,9 +38341,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K7): checked at the locator on the page image of the published version and in the arXiv TeX. The review corrected the reason: the S₃ example gives H¹_f(Q, ad⁰ρ ⊗ Q₃/Z₃) = 0, so the defence sentence 'in the S₃ example both sides are nonzero' is withdrawn; and p. 882 prints 'the representations r_λ are irreducible', not r̄."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E140",
@@ -38363,9 +38363,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E141",
@@ -38385,9 +38385,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E142",
@@ -38407,9 +38407,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX. One place in the reason cites '[16] §9.3' for the Galois group; it is §9.5."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E143",
@@ -38429,9 +38429,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E144",
@@ -38451,9 +38451,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E145",
@@ -38473,9 +38473,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX. '(§7.3)' should read §7.2 (p. 851); the reason's point 3 is withdrawn later in the entry, and only the final conclusion stands."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E146",
@@ -38495,9 +38495,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E147",
@@ -38517,9 +38517,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E148",
@@ -38539,9 +38539,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E149",
@@ -38561,9 +38561,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E150",
@@ -38583,9 +38583,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E151",
@@ -38605,9 +38605,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E152",
@@ -38627,9 +38627,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX. The reason's 'density-1 claim of Theorem A.4' should be Theorem A.1."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E153",
@@ -38649,9 +38649,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX. The p = 7 example (a_p = −4, b_p = 3) checks out."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E154",
@@ -38671,9 +38671,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX. Crossref for the DOI gives Invent. Math. 217 (2019), no. 3, 887–984."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E155",
@@ -38693,9 +38693,9 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K8): checked at the locator on the page image of the published version and in the arXiv TeX. The page prints the back-reference as '(81)', not '(881)'."
   },
   {
    "id": "PAPER-CALEGARI-GERAGHTY-20/E156",
@@ -38715,9 +38715,207 @@
    "owner": "PAPER-CALEGARI-GERAGHTY-20",
    "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
    "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "Confirmed by the review (checker K6): checked at the locator on the page image of the published version and in the arXiv TeX. p. 805 attributes the construction on higher cohomology to [58]."
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E157",
+   "kind": "misprint",
+   "locator": "§4, pp. 816, 820, 821 (published version)",
+   "printed": "p. 820 (Remark 4.12): \"Then ρ̄_p and ρ̄^c_p are both finite flat at v | p\"; p. 816: \"If x ∉ Q ∪ p\"; p. 821: \"K_{x,1} = Π^+(x)\" against \"Π(x)^+\" in §5.1",
+   "correction": "'ρ̄_p^∨ and (ρ̄_p^c)^∨ (that is, E[p] and E^c[p]) are finite flat at v | p'; 'Q ∪ {p}'; Π(x)^+.",
+   "reason": "ρ̄_p is the dual of E[p], whose inertia characters at p (ω⁰ and ω^{p−2} at ordinary v; ω₂ with digits (p−2, p−1) at supersingular v) are not those of a finite flat group scheme for p ≥ 5; the Raynaud argument applies to the duals unchanged. The rest are notational.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K2) on the page image; the arXiv text is the same"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E158",
+   "kind": "misprint",
+   "locator": "§6.4, Definition 6.15(2), p. 844 (published version)",
+   "printed": "\"(2) There exists a form η ∈ H⁰(X, ω(a,2)_{K/O})[m_∅] such that T_{p,1}(η) = (α+β)η, Q_{p,2}(η) = (αβ)η.\"",
+   "correction": "\"(2) There exists a nonzero form η …\"",
+   "reason": "η = 0 satisfies (2) for every m_∅, so Katz modularity would collapse to (1); both 'eigenform η' (Assumption 6.16(1)) and 'this space is nonzero after localization at m' (p. 845) need η ≠ 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K4) on the page image; the arXiv text is the same; the coordinator checked the TeX (l. 2591ff)"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E159",
+   "kind": "misprint",
+   "locator": "§6.3, Assumption 6.12(2), p. 841; §6.4, Assumption 6.16(2), p. 845; §7.1, Assumption 7.1, p. 846 (published version)",
+   "printed": "\"labeled so that the plane λ(α_x) ⊕ λ(β_x) is isotropic, and hence α_xδ_x = β_xγ_x.\"",
+   "correction": "\"… is isotropic and α_xδ_x = β_xγ_x\", the labelling §4 imposes explicitly on p. 815.",
+   "reason": "With four distinct characters, isotropy of ⟨α, β⟩ only forces the symplectic partner of α to be γ or δ; the labelling αγ = βδ = ν is equally compatible, and both hold only if α = −β and γ = −δ. The relation matters: R_x in Theorem 7.2 uses α′γ′ and β′δ′ as the other Lagrangian eigenvalues.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K4) on the page image; the arXiv text is the same; the coordinator checked the three places in the TeX (ll. 2396, 2615, 2727)"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E160",
+   "kind": "gap",
+   "locator": "§6.3, proof of Theorem 6.13, p. 843; §6.4, proof of Theorem 6.17, p. 846 (published version)",
+   "printed": "\"This in turns gives rise to a surjective map T_{μ′}(Q)^β_𝔪 ↠ T_μ(Q)^β_m/I_{μ,m}\", where I_{μ,m} is \"the annihilator of H⁰(X_1(Q), ω(a,b)(−∞)_{O/ϖ^m}) in T_μ(Q)\" (p. 842); p. 846 has the (α,β) analogue",
+   "correction": "The target is T_μ(Q)^β_𝔪/J_{μ,m} with J_{μ,m} = Ann_{T^β_𝔪}(H⁰(…_{O/ϖ^m})^β_𝔪) (and the (α,β) analogue); T^β_𝔪 = lim T^β_𝔪/J_{μ,m} still holds, since J ⊇ ϖ^m and ∩J = 0.",
+   "reason": "T_{μ′}(Q)^β_𝔪 acts on the image of the injection e′_β∘A^s, so it lands in End(H[ϖ^m]^β_𝔪), whose image is T^β/J; because e_β ∉ T_μ(Q), the image of I can be strictly smaller than J (toy example: T = O[t] on (K/O)³, t = diag(0, ϖ², ϖ), e = diag(1, 1, 0), m = 2). Trivially repaired; no stated result changes.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K4); the coordinator checked the proof in the TeX (ll. 2470–2490)"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E161",
+   "kind": "misprint",
+   "locator": "§7.2, Theorem 7.11, p. 853 (published version)",
+   "printed": "\"As above, let μ = (a,2) with p − 2 > a\"",
+   "correction": "\"with p > a − 2\", as 'above' (§7.2, p. 851: 'where p > a − 2').",
+   "reason": "The only use of the bound in §7.2 is (Sym^{a−2})^∨ ≅ Sym^{a−2} ⊗ det^{2−a} over O, which needs p > a − 2. Read literally, the printed bound excludes a = p − 2, which Theorem 9.1 (p − 1 > a) needs in step (c).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checkers K5 and K7); the coordinator checked the TeX (ll. 3014, 3126, 4158)"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E162",
+   "kind": "misprint",
+   "locator": "§8.6, proof of Lemma 8.15, p. 867; §8.7, after Definition 8.19, p. 872 (published version)",
+   "printed": "p. 867: \"Now Q₂ acts in weight N by Z₂, so certainly Z₂M ⊂ N.\"; p. 872: \"In particular, F(Q) is empty if Q does not represent zero.\"",
+   "correction": "'Q₂ acts on N (weight τ) by Z₂'; '… if Q has no zero in P¹(F_p), i.e. does not represent zero mod p'.",
+   "reason": "N is a space, not a weight; a positive definite Q never represents 0 over Q, so the literal reading makes F(Q) empty for every positive definite Q, contradicting Lemma 8.21(2)–(3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K6) on the page image; the arXiv text is the same"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E163",
+   "kind": "misprint",
+   "locator": "§8.9, proof of Proposition 8.25, p. 876 (published version)",
+   "printed": "\"con: Sym^{j−2} ⊗ Sym² → Sym^{j−4} ⊗ det\"",
+   "correction": "\"… → Sym^{j−4} ⊗ det²\" (for Sym² of the standard representation).",
+   "reason": "Comparing central characters (t^{j−2}·t² = t^{j−4}·t^{2m}) forces m = 2 for a non-zero GL₂-equivariant map (m = 0 if Sym² is of V^∨); det¹ is impossible. det² matches θ₁'s weight shift. contraction-map-con records this, but no issue did.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K7) on the page image; the arXiv text is the same; the coordinator checked the TeX (l. 4080) and the central characters"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E164",
+   "kind": "misprint",
+   "locator": "§8.9, Lemma 8.24, p. 875; §9, p. 878; §A.2, p. 883 (published version)",
+   "printed": "p. 875: Lemma 8.24 is stated without 'modulo p' and 'j > 2' ('ρ(MN) = 0 requires the assumption that j > k', with k undefined in §8.9); p. 878: \"for any set of primes Q disjoint from S(r̄) ∪ {p}\"; p. 883: \"congruences between the modular form f and other Katz modular forms of weight 1\"",
+   "correction": "add 'modulo p' and 'j > 2' to Lemma 8.24; 'disjoint from S ∪ {p}, S = S(r̄) ∪ {q}'; f is the weight-one newform attached to ρ.",
+   "reason": "p. 874 says ρ(pI) is the identity in weight (2, 2), so Lemma 8.24 is false for j = 2 and in characteristic 0; §6.3 (p. 840) requires Q disjoint from S ∪ {p}; f is never introduced in §A.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K7) on the page image; the arXiv text is the same"
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20/E165",
+   "kind": "misprint",
+   "locator": "Appendix, pp. 886, 889, 896 (published version)",
+   "printed": "p. 896: \"Harris / Department of Mathematics, University of Chicago, Chicago, Illinois, USA; harris@math.columbia.edu\"; p. 889: \"essentially an observation of Deligne, Milne, Ogus, and Shih [22, Proposition 2.7(1)]\"; p. 886: \"Let π: A → Y denote the universal abelian variety, let E = π_*Ω^1_{A/X}\"; p. 889: \"(for p not dividing the discriminant on the étale cohomology V_ℓ = H^1(A, Q̄_ℓ) at any prime ℓ ≠ p)\"",
+   "correction": "Harris: Department of Mathematics, Columbia University, New York; 'an observation of Ogus ([22], article VI, 2.7.1)'; π: A → X (the semi-abelian extension, as on p. 821) or Ω^1_{A/Y}; '(for p ∤ N) on V_ℓ = H^1(A, Q̄_ℓ), ℓ ≠ p'.",
+   "reason": "Calegari's address was duplicated for Harris, whose e-mail is Columbia's; arXiv v1 reads 'Ogus (2.7.1 of [DMOS82])'; the bases of A and of the differentials do not match; 'discriminant' is undefined for an abelian surface, which has conductor N, and the parenthesis is misplaced.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The published article as typeset by Duke (the advance-publication PDF hosted on F. Calegari's page, math.uchicago.edu/~fcale/papers/Siegel.pdf, 96 pages, SHA-256 fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5; its page n is published page 800 + n) and the arXiv preprints at the same place: arXiv:1907.08691v1 (main text) and arXiv:1907.08694v1 (appendix), the only versions",
+    "Crossref for doi:10.1215/00127094-2019-0044 (no relation, update-to or updated-by record, and no update records), Duke Math. J.'s list of errata and addenda since June 2019, the Project Euclid article page (Wayback snapshot of 11 June 2023) and zbMATH (Zbl 1441.11133): no erratum or correction",
+    "F. Calegari's research page and blog, and M. Harris's annotated errata list of 7 December 2021: nothing on this paper or its appendix; D. Geraghty's page did not resolve",
+    "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Pilloni (Duke Math. J. 169 (2020) 1647–1807), Calegari's ICM 2022 survey (arXiv:2109.14145), Calegari's 'Motives and L-functions' (CDM 2018), Caraiani–Shin (arXiv:2311.13382), Caraiani et al. (arXiv:1804.00136v2), A'Campo (arXiv:2202.14022), Loeffler–Zerbes (arXiv:2110.13102), Boxer–Pilloni (arXiv:2110.10251) and the citing works listed by Semantic Scholar and OpenCitations; none reports a mistake in the paper"
+   ],
+   "owner": "PAPER-CALEGARI-GERAGHTY-20",
+   "file": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CALEGARI-GERAGHTY-20",
+   "reviewReason": "found by the review (checker K8) on the page image; the arXiv text is the same"
   },
   {
    "id": "PAPER-CALMES-ETAL-26/E1",
