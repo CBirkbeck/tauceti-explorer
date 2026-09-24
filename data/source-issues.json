@@ -123267,6 +123267,946 @@
    "reviewReason": "The page image (p. 491) reads 'Inst. Hautes Études Sci. Publ. Math. 7 (1960), 567.' Serre's 'Groupes proalgébriques' occupies pp. 5–67. arXiv v2 and v3 both print 'p. 5-67', and the Numdam id printed in the same entry (PMIHES_1960__7__5_0) gives start page 5. The dash was lost in production. The [Gro66] '255' and [Gro67] '361' entries follow the MR total-pages style and are harmless."
   },
   {
+   "id": "ArithmeticDynamics/E101",
+   "kind": "misprint",
+   "locator": "Appendix C, fixed point normal form (22), p. 42 of arXiv math/9209221v1",
+   "printed": "Here the origin is a fixed point of multiplicity µ1 , and infinity is a fixed point of multiplicity µ2 .",
+   "correction": "Here the origin is a fixed point of multiplier µ1, and infinity is a fixed point of multiplier µ2.",
+   "reason": "For f(z) = z(z + µ1)/(µ2 z + 1) the derivative at 0 is µ1 and, in the coordinate w = 1/z, the conjugate w(w + µ2)/(1 + µ1 w) has derivative µ2 at 0; both are simple fixed points (multiplicity 1) unless µ1 = 1 or µ2 = 1. The same text in §3 (3) says 'multipliers'.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page of math/9209221 (single version v1)",
+    "Project Euclid page of Experiment. Math. 2(1) (1993) — access refused to this worker, so the published text could not be compared"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "John Milnor (Appendix F with Tan Lei), Geometry and dynamics of quadratic rational maps (arXiv title: Remarks on quadratic rational maps), Experiment. Math. 2 (1993) 37–83; read in arXiv math/9209221v1 (Stony Brook IMS preprint 1992/14), the published version not being accessible to this worker; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E102",
+   "kind": "misprint",
+   "locator": "Appendix C, proof outline of Lemma C.1, p. 44 of arXiv math/9209221v1",
+   "printed": "On the other hand, if we use the normal form (4), then computation shows that the critical points and critical values are given by",
+   "correction": "'normal form (4)' should read 'normal form (3)'.",
+   "reason": "The computation that follows uses b = µ1, c = µ2 and ω± = (−1 ± √(1 − bc))/c, which are the parameters and critical points of (3) f(z) = z(z + b)/(cz + 1); normal form (4) is f(z) = z + 1/z, which has no parameters b, c.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page of math/9209221 (single version v1)",
+    "Project Euclid page of Experiment. Math. 2(1) (1993) — access refused to this worker"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "John Milnor (Appendix F with Tan Lei), Geometry and dynamics of quadratic rational maps (arXiv title: Remarks on quadratic rational maps), Experiment. Math. 2 (1993) 37–83; read in arXiv math/9209221v1 (Stony Brook IMS preprint 1992/14), the published version not being accessible to this worker; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E103",
+   "kind": "misprint",
+   "locator": "Appendix B, (18), p. 40 of arXiv math/9209221v1",
+   "printed": "q(z) = b0 z^d + · · · + b0 (18)",
+   "correction": "q(z) = b0 z^d + · · · + bd.",
+   "reason": "The ratio (a0 : … : ad : b0 : … : bd) ∈ ℂP^{2d+1} in the next sentence shows the constant coefficient of q is bd; the printed b0 repeats the leading coefficient.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page of math/9209221 (single version v1)",
+    "Project Euclid page of Experiment. Math. 2(1) (1993) — access refused to this worker"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "John Milnor (Appendix F with Tan Lei), Geometry and dynamics of quadratic rational maps (arXiv title: Remarks on quadratic rational maps), Experiment. Math. 2 (1993) 37–83; read in arXiv math/9209221v1 (Stony Brook IMS preprint 1992/14), the published version not being accessible to this worker; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E104",
+   "kind": "misprint",
+   "locator": "§3, p. 7 (version of February 8, 2010)",
+   "printed": "ϕ^n(z) = α + λα(ϕ)(z − a) + O((z − α)²)",
+   "correction": "ϕ^n(z) = α + λα(ϕ)(z − α) + O((z − α)²).",
+   "reason": "This is the Taylor expansion of ϕ^n at the fixed point α (it is so described in the preceding sentence); the variable a does not occur elsewhere.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "Arizona Winter School 2010 page (only the February 8, 2010 notes are posted)",
+    "Silverman's ADS errata list of May 8, 2014 (covers the book, not the notes)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Joseph H. Silverman, Lecture Notes on Arithmetic Dynamics (Arizona Winter School 2010), Version of February 8, 2010, 39 pp.; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E301",
+   "kind": "misprint",
+   "locator": "§2.2, (2.3), p. 7 (arXiv v2; the same text is on pp. 955–956 of the published version)",
+   "printed": "where ∥(z, w)∥v = max{|x|v, |y|v}",
+   "correction": "∥(z, w)∥_v = max{|z|_v, |w|_v}.",
+   "reason": "The norm is of the vector (z, w); x and y are not in scope.",
+   "affects": "nothing",
+   "known": "recorded and confirmed as PAPER-DEMARCO-KRIEGER-YE-20/E1 (paper extraction and its review)",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 is the latest)",
+    "the paper extraction's collation with the Annals text",
+    "no erratum on the Annals article page (as recorded in PAPER-DEMARCO-KRIEGER-YE-20)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E302",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.21, fact (a), p. 12 (arXiv v2)",
+   "printed": "(a) ĤγF,v(z) = ĤF,v(z) + 1/(d−1) log |α|v.",
+   "correction": "Ĥ_{γF,v}(z) = Ĥ_{F,v}(z) + (1/(d − 1))·log|γ|_v.",
+   "reason": "The scalar multiplying the lift is γ; α is the scalar of part A) and does not occur in part B). (γF)ⁿ = γ^{(dⁿ−1)/(d−1)}Fⁿ gives the corrected formula.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv math/0407426 v1 and v2 listings (v2 is the latest)",
+    "the published version (Ann. Inst. Fourier 56 (2006)) was not accessible for collation"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Matthew Baker; Robert Rumely, Equidistribution of small points, rational dynamics, and potential theory, arXiv:math/0407426v2 (27 July 2005), 50 pp., read 2026-09-24; published Ann. Inst. Fourier 56 (2006) 625–688 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E303",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.6, p. 5 (notes of 9 March 2010)",
+   "printed": "Clearly, the residue at xi is φ′(xi) −1 = λi.",
+   "correction": "The residue of dz/(φ(z) − z) at x_i is 1/(φ′(x_i) − 1) = 1/(λ_i − 1).",
+   "reason": "φ(z) − z = (φ′(x_i) − 1)(z − x_i) + O((z − x_i)²) at a simple fixed point; the proof's next display 1 + Σ 1/(λ_i − 1) = 0 uses the corrected residue, and φ′(x_i) − 1 ≠ λ_i anyway.",
+   "affects": "nothing",
+   "known": "none found (the notes are a draft superseded by Benedetto's book Dynamics in One Non-Archimedean Variable, AMS GSM 198, 2019, which is not public)",
+   "searched": [
+    "the AWS 2010 page (only the 9 March 2010 notes and the four lecture handouts are posted)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Robert L. Benedetto, Non-archimedean dynamics in dimension one: lecture notes, Arizona Winter School 2010, notes dated 9 March 2010, 87 pp., read 2026-09-24. Printed page numbers equal PDF page numbers.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E304",
+   "kind": "gap",
+   "locator": "Theorem 25 and its proof, pp. 19–21; Corollary 26, p. 21 (draft of 8 February 2010)",
+   "printed": "Then n has one of the following forms: n = m or n = mr or n = mrp. (If p ≥5, then only the first two are possible.)",
+   "correction": "The proof establishes n = m or n = m·r·p^k (k ≥ 0); the restriction k ≤ 1 (and k = 0 for p ≥ 5), on which Corollary 26's bound n ≤ p³ − p rests, needs a separate argument: Zieve's bound (Theorem 27 of the notes, with e = 1), or Hutz's bound, which gives k ≤ 1 for odd p but only k ≤ 3 for p = 2.",
+   "reason": "The proof reduces to λ ≡ 1 and shows p | n repeatedly; nothing in it bounds the number of repetitions. The notes refer to [22, Theorem 2.31] for p ≥ 5 and leave p = 2, 3 to the reader.",
+   "affects": "the proof",
+   "known": "The complete statement is proved in Silverman, The Arithmetic of Dynamical Systems (GTM 241, 2007) (Theorem 2.31 as cited in the notes; Hutz, arXiv:1210.6246, cites Theorem 2.21 for the collected P¹ statement) and in Zieve's thesis (1996); neither is public.",
+   "searched": [
+    "the AWS 2010 page (only this draft is posted)",
+    "Silverman's list of errata for the book is not relevant to the notes"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Joseph H. Silverman, Lecture Notes on Arithmetic Dynamics (Arizona Winter School 2010), Version of February 8, 2010, 39 pp.; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E305",
+   "kind": "misprint",
+   "locator": "Definition 21 and Lemma 22, p. 16 (arXiv v3; the same in v2, p. 13)",
+   "printed": "Define x0 = (0, . . . , 0) and xk = f pk(x0) = Fk(x0) = f p(xk−1) = F p k−1(x0).",
+   "correction": "x_k = f^{p^k}(0) = F_{k−1}^p(0) for k ≥ 0 (so x₀ = f(0), not 0), and Lemma 22's recursion holds for 0 ≤ k ≤ e − 2 with its final assertion at k = e − 1 only.",
+   "reason": "With x₀ = 0 the formula x_k = f^{p^k}(x₀) at k = 0 gives f(0) ≠ 0, and f^p(x_{k−1}) = f^{p + p^{k−1}}(0) ≠ f^{p^k}(0) for k ≥ 2; the proof of Lemma 22 uses x_{k+1} = F_k^p(x₀), and the base case b₁ ≥ 2 of Lemma 23 needs b₀ = v(f(0)) ≥ 1. The final assertion min(b_k, c_k) ≤ v(p) is proved only for k = e − 1 ('consider (6) with k = e − 1').",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv 0801.3645 v1–v3 (v2 and v3 read at this place)",
+    "the Illinois J. Math. version was not accessible"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Benjamin Hutz, Good reduction of periodic points on projective varieties, arXiv:0801.3645v3 (12 March 2010), 18 pp., read 2026-09-24 (v2 of 19 March 2009, SHA-256 9e1d87cce1ec15317ec6d531b38f6c2dc11c00ea57f79c7b0c03511ca4b57633, compared at Lemma 23); published Illinois J. Math. 53 (2009) (not collated).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E306",
+   "kind": "gap",
+   "locator": "Proof of Lemma 23, p. 17 (arXiv v3; the same in v2, p. 13)",
+   "printed": "If bk > v(p), then from Lemma 22 we have ck+1 ≥pck ≥3 · 2k−1, establishing the lemma for p̸ = 2.",
+   "correction": "Lemma 22 gives only c_{k+1} ≥ min(b_k, c_k + v(p), p·c_k), which does not imply c_{k+1} ≥ p·c_k. Theorem 2 still holds: if b_{e−1} > v(p) then (p − 1)c_{e−1} ≤ v(p); since the b_k increase, b_k ≥ v(p) + 1 from the first index k₀ with b_{k₀} > v(p) on, so c_{k+1} ≥ min(v(p) + 1, p·c_k) there, and c_{e−1} ≤ v(p)/(p − 1) < v(p) + 1 forces c_{k+1} ≥ p·c_k along k₀ ≤ k < e − 1; with c_{k₀} ≥ 2^{k₀−1} from the regime b_k ≤ v(p) this gives c_{e−1} ≥ 2^{e−2} and 2^{e−1} ≤ v(p) (the same argument with Fibonacci numbers for p = 2).",
+   "reason": "Example of the unjustified step: v(p) = 1, k = 3, b₃ = 2 > v(p); Lemma 22 yields only c₄ ≥ min(2, c₃ + 1, p·c₃) ≥ 2, not c₄ ≥ 8. The unconditional claim c_k ≥ 2^{k−1} of Lemma 23 is therefore not established; the repaired argument in DY.2/period-exponent-bound avoids it.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "arXiv 0801.3645 v1–v3 (the same text in v2 and v3)",
+    "no erratum found on the arXiv listing",
+    "the Illinois J. Math. version was not accessible"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Benjamin Hutz, Good reduction of periodic points on projective varieties, arXiv:0801.3645v3 (12 March 2010), 18 pp., read 2026-09-24 (v2 of 19 March 2009, SHA-256 9e1d87cce1ec15317ec6d531b38f6c2dc11c00ea57f79c7b0c03511ca4b57633, compared at Lemma 23); published Illinois J. Math. 53 (2009) (not collated).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E307",
+   "kind": "misprint",
+   "locator": "Theorem 25, p. 20 (draft of 8 February 2010)",
+   "printed": "r = the smallst integer such that λ ˜ϕ(˜α)r = 1,",
+   "correction": "r = the smallest positive integer such that λ_{ϕ̃}(α̃)^r = 1.",
+   "reason": "Spelling, and 'positive' is needed (r = 0 trivially satisfies λ^0 = 1).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the AWS 2010 page"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Joseph H. Silverman, Lecture Notes on Arithmetic Dynamics (Arizona Winter School 2010), Version of February 8, 2010, 39 pp.; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E308",
+   "kind": "misprint",
+   "locator": "§3, p. 7 (draft of 8 February 2010)",
+   "printed": "ϕn(z) = α + λα(ϕ)(z −a) + O((z −α)2).",
+   "correction": "ϕⁿ(z) = α + λ_α(ϕ)(z − α) + O((z − α)²).",
+   "reason": "The expansion is about the periodic point α; a is not defined.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the AWS 2010 page"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Joseph H. Silverman, Lecture Notes on Arithmetic Dynamics (Arizona Winter School 2010), Version of February 8, 2010, 39 pp.; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E309",
+   "kind": "misprint",
+   "locator": "Corollary 26, p. 21 (draft of 8 February 2010)",
+   "printed": "let p be the smallest primes for which ϕ(z) has good reduction.",
+   "correction": "Let p be a prime (for instance the smallest prime) at which ϕ has good reduction.",
+   "reason": "'primes' should be singular, and the proof uses only that p is a prime of good reduction.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the AWS 2010 page"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Joseph H. Silverman, Lecture Notes on Arithmetic Dynamics (Arizona Winter School 2010), Version of February 8, 2010, 39 pp.; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E401",
+   "kind": "misprint",
+   "locator": "§2, display (2), p. 3 (arXiv:math/9508211v1)",
+   "printed": "Φd(z, c) = ∏_{m|d} (g∘m(z) − z)^{µ(m)} ∈ Z[z, c]",
+   "correction": "The exponent is µ(d/m): Φ_d(z, c) = ∏_{m∣d} (g^{∘m}(z) − z)^{µ(d/m)}.",
+   "reason": "For d = 2 the printed formula gives (g(z) − z)/(g²(z) − z), not a polynomial, whereas the preceding factorisation g^{∘N}(z) − z = ∏_{d∣N} Φ_d(z, c) and the stated degree ν₂(N) = Σ_{d∣N} 2^d µ(N/d) require (g²(z) − z)/(g(z) − z) = z² + z + c + 1.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page (only v1 exists)",
+    "Poonen's 'Remarks and errata' list (dated 14 August 2025), which has no entry for this paper"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "E. V. Flynn, Bjorn Poonen and Edward F. Schaefer, Cycles of quadratic polynomials and rational points on a genus-2 curve, arXiv:math/9508211v1 (4 August 1995; the only arXiv version); published Duke Math. J. 90 (1997) 435–463; arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E402",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3(2), p. 9 (arXiv:math/9512217v1)",
+   "printed": "E24(Q) = {O, (0, 0), (1, 1), (−1, 1)}",
+   "correction": "E24(ℚ) = {O, (0, 0), (1, 1), (1, −1)}.",
+   "reason": "E24 is y² = x³ − x² + x; at x = −1 the right side is −3, so (−1, 1) is not on the curve, while (1, −1) is. The printed correspondence (η, t) = (1, −2) for the fourth point is the image of (1, −1) under Poonen's inverse map (checked by computer algebra).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "Poonen's 'Remarks and errata' list (dated 14 August 2025), which lists two other corrections to this paper but not this one",
+    "arXiv abstract page (only v1 exists)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Bjorn Poonen, The complete classification of rational preperiodic points of quadratic polynomials over Q: a refined conjecture, arXiv:math/9512217v1 (11 December 1995; the only arXiv version); published Math. Z. 228 (1998) 11–29; arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E403",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3(5), pp. 10–11 (arXiv:math/9512217v1)",
+   "printed": "These correspond to the points (µ, t) = (1, 4), (1, −4), (−1, 4), (−1, 4), respectively.",
+   "correction": "The images of O, (0, 0), (−1, 0), (0, −1) ∈ E15(ℚ) are (1, 4), (1, −4), (−1, −4), (−1, 4).",
+   "reason": "Evaluating Poonen's map (x, y) ↦ ((x² − 2y + x − 1)/(x² − x − 1), (4x⁴ − 12x²y + 8x³ − 8xy + 8x² + 4x − 8y − 4)/(x² − x − 1)²) at (−1, 0) gives (−1, −4); the printed list repeats (−1, 4).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "Poonen's 'Remarks and errata' list (dated 14 August 2025)",
+    "arXiv abstract page"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Bjorn Poonen, The complete classification of rational preperiodic points of quadratic polynomials over Q: a refined conjecture, arXiv:math/9512217v1 (11 December 1995; the only arXiv version); published Math. Z. 228 (1998) 11–29; arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E404",
+   "kind": "error",
+   "locator": "§4, proof of Proposition 1, p. 15 (arXiv:math/9512217v1)",
+   "printed": "Since the Legendre symbol (33/743) is 1, Hensel's Lemma implies that (2, √33) ∈ C(Q743).",
+   "correction": "The point is (−2, √33) (g(−2) = 33, g(2) = 73); with this point the 743-adic information no longer suffices and the 2-adic information is needed to complete the 2-descent, which still gives J(ℚ) ≅ ℤ.",
+   "reason": "g(x) = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1 has g(2) = 73 and g(−2) = 33 (direct evaluation).",
+   "affects": "the proof",
+   "known": "Poonen, 'Remarks and errata' (author's page, dated 14 August 2025), §2: 'the point (2, √33) is not on C! Instead (−2, √33) is ... To complete the 2-descent correctly one must use also the 2-adic information. The end result of the computation is the same as before'",
+   "searched": [
+    "Poonen's 'Remarks and errata' list (dated 14 August 2025)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Bjorn Poonen, The complete classification of rational preperiodic points of quadratic polynomials over Q: a refined conjecture, arXiv:math/9512217v1 (11 December 1995; the only arXiv version); published Math. Z. 228 (1998) 11–29; arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E405",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3(5), map to E17, p. 11 (arXiv:math/9512217v1; p. 22 of the published version)",
+   "printed": "(µ, t) ↦ ((t + µ² + 3)/(2(µ − 1)²), (−3µ³ + µt − 5µ² + 9µ + 1)/(2(µ − 1)³))",
+   "correction": "Poonen's erratum: the y-numerator is −3µ³ + µt + t − 5µ² + 9µ + 1.",
+   "reason": "Recorded from the author's erratum. Our check confirms that the inverse map (x, y) ↦ (µ, t) sends E17(ℚ) to (µ, t) = (±1, ±4), which is all the proof uses; the forward map was not re-derived.",
+   "affects": "nothing",
+   "known": "Poonen, 'Remarks and errata' (author's page, dated 14 August 2025), §2: 'There is typo in the third displayed equation on page 22 ... which includes a missing +t in the numerator of the y-coordinate.'",
+   "searched": [
+    "Poonen's 'Remarks and errata' list (dated 14 August 2025)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Bjorn Poonen, The complete classification of rational preperiodic points of quadratic polynomials over Q: a refined conjecture, arXiv:math/9512217v1 (11 December 1995; the only arXiv version); published Math. Z. 228 (1998) 11–29; arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E406",
+   "kind": "misprint",
+   "locator": "§4, Theorem 4.3(b), p. 7 (arXiv:1806.04980v2)",
+   "printed": "(Morton, 1992, [172]; Flynn–Poonen–Schaefer, 1997, [80]; Stoll, 2008, [222]) For N ∈ {4, 5, 6}, there are no values of c ∈ Q such that fc(x) has a periodic point α ∈ Q of exact period N",
+   "correction": "The case N = 4 is Morton, 'Arithmetic properties of periodic points of quadratic maps, II', Acta Arith. 87 (1998) 89–102, Theorem 4; reference [172] (Acta Arith. 62 (1992)) treats period 3.",
+   "reason": "Morton 1998 opens 'In this paper we prove that the quadratic map x ↦ x² + c ... has no rational 4-cycles' (p. 89); Morton 1992's Theorem 3 concerns Φ₃. FPS (§1) cite the 4-cycle result to 'Arithmetic properties of periodic points of quadratic maps, II'.",
+   "affects": "nothing",
+   "known": "none found (the published Bull. AMS text could not be retrieved; the finding is scoped to arXiv v2)",
+   "searched": [
+    "arXiv abstract page (v1, v2)",
+    "the American Mathematical Society's page for the published article (refused automated access)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Robert Benedetto, Patrick Ingram, Rafe Jones, Michelle Manes, Joseph H. Silverman and Thomas J. Tucker, Current trends and open problems in arithmetic dynamics, arXiv:1806.04980v2 (2 July 2018); published Bull. Amer. Math. Soc. 56 (2019) 611–685 (the publisher's page refused automated access); arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E407",
+   "kind": "misprint",
+   "locator": "Introduction, p. 1 (arXiv:1210.6246v3), citation [Mor96]",
+   "printed": "For n = 4 [Mor96] and n = 5 [FPS97] it is known that there are no Q rational periodic points of minimal period n.",
+   "correction": "The n = 4 result is Morton, Acta Arith. 87 (1998), Theorem 4; [Mor96] (Compositio Math. 103 (1996)) only mentions it, citing that paper.",
+   "reason": "Morton 1996, p. 322, attributes the absence of rational 4-cycles to '[12]' rather than proving it; the proof (via X₁(16)) is Morton 1998, §2.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page (v1–v3)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Benjamin Hutz, Determination of all rational preperiodic points for morphisms of PN, arXiv:1210.6246v3 (3 July 2013); published Math. Comp. 84 (2015); arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E408",
+   "kind": "gap",
+   "locator": "§4.1, Lemma 7 and the sentence after it, p. 13 (arXiv:1210.6246v3)",
+   "printed": "Suppose that zd + c has a periodic point α ∈ AN(K).",
+   "correction": "State the lemma for α ∈ K (= A¹(K)) preperiodic for z^d + c; the proof applies unchanged, since in each excluded case it shows v(fⁿ(α)) → −∞.",
+   "reason": "The next sentence uses the lemma to reduce the search for all rational preperiodic points ('The previous lemma greatly reduces the search space'), which needs the preperiodic form; the printed hypothesis covers only periodic points (and writes A^N for the affine line).",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page (v1–v3)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Benjamin Hutz, Determination of all rational preperiodic points for morphisms of PN, arXiv:1210.6246v3 (3 July 2013); published Math. Comp. 84 (2015); arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E409",
+   "kind": "gap",
+   "locator": "§1, proof of Proposition 3, pp. 5–6 (arXiv:1210.6246v3)",
+   "printed": "H(P)^D = max(|x_j|)^D = max|Σ f_i g_{i,j}| ≤ (N + 1) max|f_i g_{i,j}| ≤ (N + 1)(N+D−d choose D−d)(max H(g_i)) H(P)^{D−d} H(f(P)) ... where C3 = (N+D−d choose D−d)(max_i h(g_i))",
+   "correction": "With Σᵢ fᵢg_{i,j} = Res·x_j^D (as stated just before), one has |Res|·H(P)^D ≤ (N + 1)·binom(N+D−d, D−d)·max H(gᵢ)·H(P)^{D−d}·max|fᵢ(x)|, and max|fᵢ(x)| ≤ |Res|·H(f(P)) because gcd(fᵢ(x)) divides Res·x_j^D for all j; the factors |Res| cancel. The constant is C₃ = (N + 1)·binom(N+D−d, D−d)·max H(gᵢ) (multiplicative heights), matching the statement's log((N + 1) binom(…)) + max h(gᵢ).",
+   "reason": "The printed chain drops the resultant on the left and replaces max|fᵢ(x)| by H(f(P)) on the right (two compensating omissions), and the displayed C₃ omits the factor N + 1 and mixes h with H; the statement of Proposition 3 is consistent with the corrected constant.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "arXiv abstract page (v1–v3)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Benjamin Hutz, Determination of all rational preperiodic points for morphisms of PN, arXiv:1210.6246v3 (3 July 2013); published Math. Comp. 84 (2015); arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E501",
+   "kind": "error",
+   "locator": "(32)–(33) and Remarque 5.6, p. 36–37; Théorème 7 (34), p. 37; Théorème 3 and Corollaire 1.4, p. 5; Corollaire 1.6 and Théorème 5, p. 8 (arXiv v2)",
+   "printed": "\"On en déduit donc l'inégalité de Cauchy-Schwartz |∫_{P¹(C_v)} ϕ dρ| ≤ ⟨ϕ, ϕ⟩(ρ, ρ)\"; (34): \"≤ Lip(ϕ)/|F|^{1/κ} + (h_ρ(F) + C log|F|/|F|) ⟨ϕ, ϕ⟩\"; Remarque 5.6: \"ce qui implique ⟨ϕ, ϕ⟩ ≤ Lip(ϕ)\"",
+   "correction": "|∫ ϕ dρ| ≤ ⟨ϕ, ϕ⟩^{1/2} (ρ, ρ)^{1/2}; accordingly (34), Theorem 3, Corollaries 1.4 and 1.6 and Theorem 5 hold with the square root of the bracket (e.g. (h_ρ(F) + C log|F|/|F|)^{1/2} Lip(ϕ) in Theorem 3), and Remarque 5.6 should read ⟨ϕ, ϕ⟩ ≤ C Lip(ϕ)².",
+   "reason": "Homogeneity: replacing ρ by tρ multiplies the left side of (32) by |t| and the right side by t², so the printed inequality fails for small t (take ρ = t(δ_{ζ_{0,1}} − δ_{ζ_{0,2}}) and a test function with ∫ϕ d(δ_{ζ_{0,1}} − δ_{ζ_{0,2}}) ≠ 0). Likewise ⟨ϕ, ϕ⟩ is quadratic in ϕ and Lip(ϕ) linear. The proof of Theorem 7 gives the square-root form.",
+   "affects": "a stated result",
+   "known": "A corrigendum exists (C. Favre, J. Rivera-Letelier, Math. Ann. 339 (2007), 799–801, doi:10.1007/s00208-007-0130-2); its text is behind a paywall and was not read, so whether it treats this point is not established here.",
+   "searched": [
+    "arXiv math/0407471 versions v1 and v2 (v2 is the latest)",
+    "Crossref metadata for 10.1007/s00208-006-0751-x (no update relation) and a Crossref search, which found the corrigendum 10.1007/s00208-007-0130-2",
+    "Springer article page of the corrigendum (blocked by a client challenge; not read)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E502",
+   "kind": "error",
+   "locator": "proof of Théorème 7, p. 37 (arXiv v2)",
+   "printed": "\"(( [F]_ε − ρ_{v0}, [F]_ε − ρ_{v0} ))_{v0} ≤ h_ρ(F) + M (2η(ε) + |F|^{−1}(C + log ε^{−1}))\" followed by Cauchy–Schwarz with the unweighted pairing (·,·)",
+   "correction": "The bound is 2h_ρ(F) + M(…) (h_ρ is half the sum of the weighted local energies), and passing to (·,·)_{v0} divides by N_{v0}; so (34) should read |…| ≤ Lip(ϕ)|F|^{−1/κ} + (⟨ϕ, ϕ⟩ N_v^{−1} (2h_ρ(F) + C log|F|/|F|))^{1/2}.",
+   "reason": "By (28), Σ_v ((·,·))_v = 2h_ρ(F); the other local terms are ≥ 0 (Lemma 5.4 and positivity), which bounds the v₀-term by 2h_ρ(F) + error, not h_ρ(F); and ((·,·))_{v0} = N_{v0}(·,·)_{v0}.",
+   "affects": "a stated result",
+   "known": "Not checked against the corrigendum (not accessible; see E501).",
+   "searched": [
+    "arXiv math/0407471 v2",
+    "Crossref record of the corrigendum 10.1007/s00208-007-0130-2"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E503",
+   "kind": "error",
+   "locator": "Lemme 6.3 and its proof, p. 42; Lemme 6.4, p. 43 (arXiv v2)",
+   "printed": "\"De plus, pour toute place v, on a ρ_v = lim_{n→∞} D^{−n}∆ log⁺ |P_c^n(0)|.\" … \"Lorsque |c| > 1, on vérifie par récurrence que |P_c^n(0)| = |c|^{D^n}.\" … \"Pour tout c ∈ Q̄, on a h_{M_D}(c) = D^{−1}h_{P_c}(c).\"",
+   "correction": "|P_c^n(0)| = |c|^{D^{n−1}}, so the harmonic measure is ρ_v = lim D^{−(n−1)} ∆ log⁺|P_c^n(0)|, and with this probability normalisation h_{M_D}(c) = h_{P_c}(c) = D·ĥ_{P_c}(0).",
+   "reason": "For n = 1, P_c(0) = c has |c|, not |c|^D; inductively |P_c^n(0)| = |c|^{D^{n−1}}. Hence D^{−n} log⁺|P_c^n(0)| → D^{−1} log⁺|c|_p at a finite place and D^{−1}G_M(c) at the infinite place, whose Laplacian has mass 1/D, not a probability measure. Baker–DeMarco Proposition 3.3 gives the Green function G_c(c) = D·lim D^{−n} log⁺|P_c^n(0)|. Theorem 5 is unaffected (only the zero set of the height is used).",
+   "affects": "a stated result",
+   "known": "Not checked against the corrigendum (not accessible; see E501).",
+   "searched": [
+    "arXiv math/0407471 v2",
+    "Baker–DeMarco arXiv:0911.0918v3 Proposition 3.3 (the correct normalisation)",
+    "Baker–Hsia arXiv:math/0305181v2 §8.2 (normalisation 2^{−(n−1)})"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E504",
+   "kind": "misprint",
+   "locator": "§6.7, (42), p. 44 (arXiv v2)",
+   "printed": "\"([F_n] − ρ_{P,v}, [F_n] − ρ_{P,v})_v = −n/2^{2n} log √|C| < 0\"",
+   "correction": "([F_n] − ρ_{P,v}, [F_n] − ρ_{P,v})_v = −(n/2^n) log √|C|_v.",
+   "reason": "With r = √|C|_v and the coding of the paper, the number of ordered pairs of fixed points of Pⁿ first differing at index k is 2ⁿ·2^{n−1−k}, so 2^{2n}([F_n], [F_n]) = −Σ_{k<n} 2ⁿ 2^{n−1−k}(1 − k) log r and ([F_n], [F_n]) = −Σ_{k<n} 2^{−1−k}(1 − k) log r = −n2^{−n} log r. For n = 1 the two fixed points are at distance r, giving −½ log r, not −¼ log r. The sign, which is the point of the example, is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0407471 v1–v2",
+    "Crossref record of the corrigendum (text not accessible)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E505",
+   "kind": "gap",
+   "locator": "§1.3, after Corollaire 1.5, p. 7 (arXiv v2)",
+   "printed": "\"Lorsque S(z) = z, l'ensemble F_n est égal à l'ensemble des points périodiques de R dans K̄, de période n. Dans ce cas les ensembles F_n sont distincts deux à deux (pour n grand)\"",
+   "correction": "Either restrict to subsequences along which the sets Fix(Rⁿ) are pairwise distinct (as in DY.4/equidistribution-of-periodic-points), or cite the theorem that a rational map of degree ≥ 2 has periodic points of exact period n for all but finitely many n.",
+   "reason": "Fix(Rⁿ) = Fix(R^m) can occur (for R(z) = z² − 3/4 there is no cycle of exact period 2, so Fix(R²) = Fix(R)); pairwise distinctness for large n requires the existence of points of every large exact period, which is not proved or cited.",
+   "affects": "the proof",
+   "known": "The missing input is I. N. Baker's theorem on periodic points of prescribed exact period (J. London Math. Soc. 39 (1964)); the paper does not cite it.",
+   "searched": [
+    "arXiv math/0407471 v2",
+    "Petsche–Szpiro–Tucker arXiv:0911.1875 Example 2 (cites Lyubich and Favre–Rivera-Letelier for periodic points with multiplicity)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E506",
+   "kind": "misprint",
+   "locator": "proof of Proposition 4.12, p. 30; proof of Proposition 4.9, p. 30 (arXiv v2)",
+   "printed": "\"De (25), on tire ∫ f²_{n,ε} dλ = ([F_n]_ε−ρ, [F_n]_ε−ρ) ≤ ([F_n]−ρ, [F_n]−ρ)+η(ε)+|F_n|^{−1} log ε^{−1}\"; \"Le Lemme 4.5 implique alors\"",
+   "correction": "2η(ε) in place of η(ε), as in (25); 'La Proposition 4.5' in place of 'Le Lemme 4.5'.",
+   "reason": "(25) has the term 2η(ε); there is no Lemma 4.5 (the positivity statement is Proposition 4.5). The conclusion (27) is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0407471 v1–v2"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E507",
+   "kind": "misprint",
+   "locator": "(2.16), p. 12 (arXiv v2; p. 961 of the published version)",
+   "printed": "\"Σ_v r_v ([F]_v, [F]_v)_v = Σ_v r_v 1/|F|² Σ_{i≠j} log |x_i − x_j|_v = 0\"",
+   "correction": "The middle expression needs a minus sign: −Σ_v r_v |F|^{−2} Σ_{i≠j} log|x_i − x_j|_v; both sides are 0 by the product formula.",
+   "reason": "By (2.13)–(2.14) the mutual energy is minus the integral of log|z − w|.",
+   "affects": "nothing",
+   "known": "Recorded and confirmed in the atlas extraction as PAPER-DEMARCO-KRIEGER-YE-20/E2 (review REV-PAPER-DEMARCO-KRIEGER-YE-20); no published erratum.",
+   "searched": [
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.result.json and its review",
+    "arXiv 1901.09945v2"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E508",
+   "kind": "gap",
+   "locator": "Corollaire 1.6, p. 8 (arXiv v2)",
+   "printed": "\"|1/D^n Σ_{α∈R^{−n}{z}} ϕ(α) − ∫ ϕ dρ_R| ≤ (h_R(z) + Cn)/D^n × Lip(ϕ)\" for every non-exceptional z",
+   "correction": "Theorem 7 applies to the set F = R^{−n}{z} with the uniform measure [F]; this equals the Dⁿ-point average only when z is not a critical value of Rⁿ (z outside the forward critical orbits). For such z the corrected bound is C Lip(ϕ)((h_R(z) + n)/Dⁿ)^{1/2} (with E501).",
+   "reason": "For R(z) = z² − 1 and z = 0 (a point of the superattracting 2-cycle, not exceptional), R^{−2}{0} = {±√2, 0} has 3 points while the multiset has 4; a positive proportion of the Dⁿ preimages is repeated for all n, so neither |F| = Dⁿ nor [F] = D^{−n}(Rⁿ)*δ_z holds.",
+   "affects": "the proof",
+   "known": "Not checked against the corrigendum (not accessible; see E501).",
+   "searched": [
+    "arXiv math/0407471 v2"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Charles Favre; Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective, arXiv:math/0407471v2 (24 January 2006), 46 pp., read 2026-09-24; published Math. Ann. 335 (2006) 311–361 (not collated). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E509",
+   "kind": "misprint",
+   "locator": "§2.7, p. 12 (arXiv v2; p. 961 of the published version)",
+   "printed": "\"Further, (ν₁, ν₂)_v ≥ 0 with equality if and only if ν₁ = ν₂ [FRL1, Propositions 2.6 and 4.5].\"",
+   "correction": "(ν, ν)_v ≥ 0 for ν of total mass 0 with continuous potential, with equality iff ν = 0; equivalently (µ₁ − µ₂, µ₁ − µ₂)_v ≥ 0 with equality iff µ₁ = µ₂. The TB.6 request of this packet uses the corrected form.",
+   "reason": "As printed it fails: at a finite place ν = δ_{ζ_{0,1}} − δ_{ζ_{0,r}} gives (ν, −ν)_v = −log(1/r) < 0.",
+   "affects": "nothing",
+   "known": "Recorded and confirmed in the atlas extraction as PAPER-DEMARCO-KRIEGER-YE-20/E9; no published erratum.",
+   "searched": [
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.result.json and its review",
+    "arXiv 1901.09945v2"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E601",
+   "kind": "error",
+   "locator": "Proposition 3.2, p. 9 (arXiv v1, the only arXiv version; published version not consulted)",
+   "printed": "D_{n+1} = A^{d^n} D_n^d ∏_{r∈R_ϕ} Φ_{n+1}(r, t)^{m_r}, with A = (−1)^{d(d−1)/2} d^d a_d^{d−1}",
+   "correction": "D_{n+1} = A^{d^n} · a_d^{(d^n − 1)(d^{n+1} + 1)} · D_n^d ∏_{r∈R_ϕ} Φ_{n+1}(r, t)^{m_r}; the printed recurrence is correct for monic ϕ (a_d = 1) and for n = 0.",
+   "reason": "Φ_n = ϕ^{∘n}(x) − t has leading coefficient ℓ_n = a_d^{(d^n−1)/(d−1)} ≠ 1 when a_d ≠ 1, and Disc(P) = (−1)^{m(m−1)/2} ℓ^{m−2} ∏ P'(ζ); tracking ℓ_n through ∏ ζ of Φ'_{n+1} = ϕ'·(Φ'_n ∘ ϕ) gives the extra power. Computer-algebra check with the standard discriminant: ϕ = 3x² + x + 2, n = 1: the ratio of disc_x(ϕ^{∘2}(x) − t) to the printed right-hand side is 3⁵; n = 2: 3²⁷; ϕ = 2x³ + x² + 1, n = 1: 2²⁰, all matching a_d^{(d^n−1)(d^{n+1}+1)}.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of math/0408170 (only v1)",
+    "Jones's survey arXiv:1402.6018, which cites [2] only for the finite-ramification consequence",
+    "The proof of AHM Theorem 1.1 is unaffected: primes dividing a_d are placed in S_{ϕ,t0} (Definition 3.3)."
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Wayne Aitken, Farshid Hajir, Christian Maire, Finitely ramified iterated extensions, arXiv:math/0408170v1 (12 August 2004), 19 pp. Version read: arXiv v1 (the only arXiv version; the published version was not consulted), read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E602",
+   "kind": "error",
+   "locator": "Lemma 2.8, p. 8 (arXiv v1; the J. Lond. Math. Soc. version was not consulted)",
+   "printed": "∆n = ∆d n−1((−1)d−1da)dn·deg g ∏d−1 i=1 g(f n(γi)), with R(h1, h2) := ∏_{h1(α)=0} h2(α) and ∆n = R(g ◦ fⁿ, (g ◦ fⁿ)′)",
+   "correction": "Multiply the right-hand side by lc(g ∘ fⁿ)^{−(d−1)} = (lc(g) · a^{deg g (dⁿ−1)/(d−1)})^{−(d−1)}; the printed formula holds when f and g are monic.",
+   "reason": "In the proof, ∏_{g(fⁿ(α))=0} (γ_i − α) equals g(fⁿ(γ_i))/lc(g ∘ fⁿ), not g(fⁿ(γ_i)). Computer-algebra check with the paper's own convention ∆ = ∏ h'(α): f = 3x² + x + 2, g = x, n = 1 gives ∆_1 equal to 1/3 of the printed right-hand side; f = 2x³ + x + 1, g = x, n = 2 gives 1/256.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of math/0612415 (only v1)",
+    "Jones's survey arXiv:1402.6018, (9), which restates the recursion only for monic quadratic f (correct there)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Rafe Jones, The density of prime divisors in the arithmetic dynamics of quadratic polynomials, arXiv:math/0612415v1 (14 December 2006); journal reference: J. Lond. Math. Soc. (2) 78 (2008), no. 2, 523–544. Version read: arXiv v1 (the published version was not consulted), read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E603",
+   "kind": "error",
+   "locator": "Proposition 4.3, p. 13 (arXiv v1)",
+   "printed": "Then g ◦f n is irreducible over K if g(f n(γ)) is not a square in K.",
+   "correction": "Replace g(fⁿ(γ)) by lc(g) · a^{deg g} · g(fⁿ(γ)); for monic f and g (the survey's Theorem 5.1) the printed statement is correct.",
+   "reason": "Counterexample: K = ℚ, g = x, f = 2x² − 2/3 (γ = 0), n = 2: f is irreducible, f²(0) = 2/9 is not a square, but f² = (2/9)(6x² − 6x + 1)(6x² + 6x + 1). In the proof, N_{K(β)/K}(b² − 4ac + 4aβ) = (−4a)^D · g(fⁿ(γ)) / lc(g ∘ f^{n−1}) (the product over the roots of the non-monic g ∘ f^{n−1} omits the leading coefficient), and lc(g ∘ f^{n−1}) = lc(g) a^{deg g (2^{n−1}−1)} ≡ lc(g) a^{deg g} modulo squares; here a f²(0) = 4/9 is a square.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of math/0612415 (only v1)",
+    "Jones's survey arXiv:1402.6018, Theorem 5.1, which states the monic case only"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Rafe Jones, The density of prime divisors in the arithmetic dynamics of quadratic polynomials, arXiv:math/0612415v1 (14 December 2006); journal reference: J. Lond. Math. Soc. (2) 78 (2008), no. 2, 523–544. Version read: arXiv v1 (the published version was not consulted), read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E604",
+   "kind": "gap",
+   "locator": "Lemma 3.2, proof, pp. 9–10 (arXiv v1)",
+   "printed": "Since n ≥2, we have d even, and thus Hn(f, g) is maximal if and only if ∏d j=1 αj −b2 4 + c is a square in Kn−1.",
+   "correction": "b² − 4ac + 4aα_j = 4a(α_j − f(γ)), so the product is (4a)^d ∏_j (α_j − f(γ)) = (4a)^d g(fⁿ(γ)) / lc(g ∘ f^{n−1}); the argument proves the criterion with lc(g) · a^{deg g} · g(fⁿ(γ)) in place of g(fⁿ(γ)), which agrees with the printed one for monic f and g.",
+   "reason": "The printed identity b² − 4ac + 4aα_j ∝ α_j − b²/4 + c holds only for a = 1, and the final step inherits the leading-coefficient omission of Proposition 4.3 (E603). Whether the printed statement fails for some non-monic f, g satisfying the lemma's hypotheses (all g ∘ fⁿ irreducible) was not tested. Theorem 3.3 is unaffected for monic g, which covers every application in the paper.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of math/0612415 (only v1)",
+    "Jones's survey arXiv:1402.6018, (8), which states the monic case"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Rafe Jones, The density of prime divisors in the arithmetic dynamics of quadratic polynomials, arXiv:math/0612415v1 (14 December 2006); journal reference: J. Lond. Math. Soc. (2) 78 (2008), no. 2, 523–544. Version read: arXiv v1 (the published version was not consulted), read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E605",
+   "kind": "misprint",
+   "locator": "§2, definition of a complete rooted forest, p. 6 (arXiv v1)",
+   "printed": "We say a rooted forest is complete of degree d if each vertex is connected to precisely d others",
+   "correction": "each vertex below the top level has exactly d children (a non-root vertex is also connected to its parent, and top-level vertices of a finite-height forest have no children).",
+   "reason": "In the binary tree of fⁿ the vertex β at level n − 1 is adjacent to its two children and to f(β); the intended meaning (d children) is clear from the construction that follows.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "arXiv listing of math/0612415 (only v1)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Rafe Jones, The density of prime divisors in the arithmetic dynamics of quadratic polynomials, arXiv:math/0612415v1 (14 December 2006); journal reference: J. Lond. Math. Soc. (2) 78 (2008), no. 2, 523–544. Version read: arXiv v1 (the published version was not consulted), read 2026-09-24.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E701",
+   "kind": "misprint",
+   "locator": "(3.5), Proposition 3.6, p. 17 (arXiv v2); p. 965 of the published version",
+   "printed": "\"½(log²|4z/t|_v / log|16/t|_v + log|t|_v) for |4|_v < |z|_v < |t/4|_v … for t with |t|_v ≤ |16|_v\"",
+   "correction": "The middle range is |t/4|_v < |z|_v < |4|_v.",
+   "reason": "For |t|_v ≤ |16|_v one has |t/4|_v ≤ |4|_v, so the printed range is empty; the other two ranges (|z| ≥ |4|, |z| ≤ |t/4|) leave exactly the corrected gap, and the corrected formula is continuous at both ends (checked on the arXiv text).",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E12 in the atlas paper extraction and confirmed by its review; no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E702",
+   "kind": "misprint",
+   "locator": "(5.4)–(5.5), proof of Theorem 5.2, p. 29 (arXiv v2); p. 978 of the published version",
+   "printed": "\"for all |t| < δ₂ and each i = 0, . . . , n\"",
+   "correction": "i = 0, …, n − 1, as in Lemma 4.1.",
+   "reason": "For i = n the annulus {|t|^{(n+1)/n} ≤ |z| ≤ |t|} lies in {|z| ≤ |t|}, whose μ_t-mass tends to 0 by (4.4); the next line of the paper uses only i ≤ n − 1.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E13 and confirmed by its review; no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E703",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.5, p. 37 (arXiv v2); p. 986 of the published version (Theorem 1.6)",
+   "printed": "\"We conclude by the product formula that max{h(s_n − t_n), h(s_n, t_n), h(s_n − 1, t_n − 1)} > (1/8) log(1/δ).\"",
+   "correction": "The bound is (1/16) log(1/δ).",
+   "reason": "In the case where the small coordinate alternates between places of total weight ≥ 1/8, h(s_n, t_n) ≥ max{h(s_n), h(t_n)} gives only (1/16) log(1/δ); the argument needs only a bound tending to ∞.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E4 (with an explicit instance by its review); no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E704",
+   "kind": "misprint",
+   "locator": "(7.5), proof of Theorem 7.1, p. 41 (arXiv v2); p. 990 of the published version",
+   "printed": "\"Σ_{v∈M_K} −r_v log η_v ≤ 2 (h(t₁) + h(1 − t₁) + h(t₂) + h(1 − t₂)) − ½ log c(ε′).\"",
+   "correction": "Σ_v −r_v log η_v ≤ 4(h(t₁) + h(1 − t₁) + h(t₂) + h(1 − t₂)) − log c(ε′) (plus log 2 with the repaired η_v above 2, ArithmeticDynamics/E705).",
+   "reason": "Place by place: −log η_v ≤ Σ_i (log⁺|1/t_i|_v + log⁺|1/(t_i − 1)|_v) at finite v and ≤ −log c(ε′) + 2Σ_i(log⁺|t_i| + log⁺|1/t_i| + log⁺|1/(t_i − 1)|) at archimedean v; summing with Σ_v r_v(log⁺|x|_v + log⁺|1/x|_v) = 2h(x) gives coefficient 4. The next display (divided by 2|F|) is right as printed.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E5 (correction revised by its review); no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E705",
+   "kind": "error",
+   "locator": "Proof of Theorem 7.1, choice of η_v at finite places, p. 41 (arXiv v2); p. 990 of the published version",
+   "printed": "\"At each non-archimedean place v of K, we set η_v := min{1, |t₁(t₁ − 1)|_v, |t₂(t₂ − 1)|_v}. … because the potentials for µ_{t_i,v} are constant on disks of radius η_v.\"",
+   "correction": "At places v | 2 take η_v := |2|_v · min{1, |t₁(t₁ − 1)|_v, |t₂(t₂ − 1)|_v}; then the potentials are constant on η_v-discs and all subsequent statements of the paper stand.",
+   "reason": "At v | 2 with |t_i(t_i − 1)|_v = 1, μ_{t_i,v} is a point mass at a type II point of diameter |2|_v^{2/3} < 1 (DY.6/legendre-canonical-measure-above-two), so the potential is not constant on the unit discs; the review of the extraction built an explicit instance with a common 3-torsion image and showed the loss is a constant (1/3) log 2, not O(1/|F|).",
+   "affects": "the proof",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E7 and confirmed by its review as an error that needs this repair; no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E706",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7.1, p. 41 (arXiv v2); p. 990 of the published version",
+   "printed": "\"… ≤ ε′ log max{|t_i|_v, |t_i|_v⁻¹, |t_i − 1|_v⁻¹} for i = 1, 2 by Proposition 4.4.\"",
+   "correction": "The bound is ε′ max{log|t_i|_v, log|t_i|_v⁻¹, log|t_i − 1|_v⁻¹, 1}, as in Proposition 4.4; this adds 4ε′ to (7.6), absorbed by the paper's choice ε′ < ε/16.",
+   "reason": "Proposition 4.4 includes 1 in the maximum; at t = e^{iπ/3} the printed right side is 0 while the left side is positive.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E6 and confirmed by its review; no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E707",
+   "kind": "misprint",
+   "locator": "(4.1), p. 19 (arXiv v2); p. 967 of the published version",
+   "printed": "\"G_{F_t}(z, w) := lim_{t→∞} (1/4ⁿ) log ∥Fⁿ_t(z, w)∥\"",
+   "correction": "lim_{n→∞}.",
+   "reason": "The limit is over the iterate n, as in (2.3); t is the fixed parameter.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-DEMARCO-KRIEGER-YE-20/E3 and confirmed by its review; no published correction.",
+   "searched": [
+    "arXiv 1901.09945 versions (v2 of 3 December 2019 is the latest)",
+    "Annals of Mathematics 191 (2020) 949–1001, the published PDF (same text at this place); no erratum on the article page",
+    "the atlas extraction PAPER-DEMARCO-KRIEGER-YE-20 and its review"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco; Holly Krieger; Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, arXiv:1901.09945v2 (3 December 2019), 49 pp., read 2026-09-24; published Ann. of Math. 191 (2020) 949–1001 (the published text was collated by the paper extraction PAPER-DEMARCO-KRIEGER-YE-20, not for this layer). Locators are to arXiv v2.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E708",
+   "kind": "misprint",
+   "locator": "Definition 9.1, p. 17 (arXiv v2; the same in arXiv v1)",
+   "printed": "\"Φ_n(X, Y) := ∏_{d|n} (Y F_n(X, Y) − X G_n(X, Y))^{µ(n/d)}\"",
+   "correction": "Φ_n(X, Y) := ∏_{d|n} (Y F_d(X, Y) − X G_d(X, Y))^{µ(n/d)}: the d-th iterate inside the product.",
+   "reason": "As printed the factor does not depend on d, so the product is (Y F_n − X G_n)^{Σ_{d|n} µ(n/d)} = 1 for n > 1; the inclusion–exclusion described in the preceding sentence (\"modeled after the construction of the classical cyclotomic polynomials\") requires F_d, G_d. Checked on the rendered page.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1806.04980 v1 (13 June 2018) and v2 (2 July 2018): both print F_n, G_n",
+    "the published Bull. Amer. Math. Soc. 56 (2019) version was not retrieved (the publisher served HTML only)"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Robert Benedetto, Patrick Ingram, Rafe Jones, Michelle Manes, Joseph H. Silverman and Thomas J. Tucker, Current trends and open problems in arithmetic dynamics, arXiv:1806.04980v2 (2 July 2018); published Bull. Amer. Math. Soc. 56 (2019) 611–685 (the publisher's page refused automated access); arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E709",
+   "kind": "misprint",
+   "locator": "Introduction, property A, p. 1 (arXiv v3)",
+   "printed": "\"A. ĥ_f(f(P)) = dĥ(f),\"",
+   "correction": "A. ĥ_f(f(P)) = d ĥ_f(P).",
+   "reason": "The functional equation of the canonical height; ĥ(f) is not defined, and property A′ below is stated correctly for ĥ_crit. Checked on the rendered page.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1610.07904 v1–v3 abstract pages (v3 of 15 October 2017 read)",
+    "the published Duke Math. J. 167 (2018) version was not accessible"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Patrick Ingram, The critical height is a moduli height, arXiv:1610.07904v3 (15 October 2017); published Duke Math. J. 167 (2018), 1311–1346; read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E710",
+   "kind": "gap",
+   "locator": "Conjecture 11.6, p. 25 (arXiv v2)",
+   "printed": "\"Let T be a non-singular algebraic curve, and let T → M^crit_d, t ↦ (f_t, P_{1,t}, . . . , P_{2d−2,t}) be a family of rational maps with marked critical points. Then the following are equivalent\"",
+   "correction": "Add the hypothesis that the family is not isotrivial (the map T → M_d is non-constant), as for the non-constant families (11.1) that precede Conjecture 11.3.",
+   "reason": "For the constant family f_t = z² + 1 with marked critical points 0 and ∞, ∞ is fixed, so every pair of critical points is f-dynamically related (Definition 11.2 with the curve ℙ¹ × {∞}), i.e. (b) holds, while no f_t is PCF, so (a) fails.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1806.04980 v1 and v2",
+    "the published Bull. Amer. Math. Soc. version was not retrieved"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Robert Benedetto, Patrick Ingram, Rafe Jones, Michelle Manes, Joseph H. Silverman and Thomas J. Tucker, Current trends and open problems in arithmetic dynamics, arXiv:1806.04980v2 (2 July 2018); published Bull. Amer. Math. Soc. 56 (2019) 611–685 (the publisher's page refused automated access); arXiv version read 24 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E711",
+   "kind": "misprint",
+   "locator": "§2.2, p. 8 (arXiv v3)",
+   "printed": "\"From Thurston's rigidity theorem [?], we may deduce that any postcritically finite map which is not flexible Lattès is Möbius-conjugate to a map f : P1 → P1 defined over Q̄.\"",
+   "correction": "The citation is Douady–Hubbard's proof of Thurston's characterisation [DH2].",
+   "reason": "The bibliography key is unresolved in the arXiv v3 PDF (checked on the rendered page).",
+   "affects": "nothing",
+   "known": "The published version (Forum Math. Pi 14 (2026) e4) cites Douady–Hubbard [DH2] at this place, according to the atlas extraction PAPER-DEMARCO-MAVRAKI-YE-26 (item 5).",
+   "searched": [
+    "arXiv 2405.17343v3",
+    "the atlas extraction PAPER-DEMARCO-MAVRAKI-YE-26, which read the published version"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics.json",
+   "citation": "Laura DeMarco, Niki Myrto Mavraki and Hexi Ye, Bounded geometry for PCF-special subvarieties, Forum Math. Pi 14 (2026) e4; read in arXiv:2405.17343v3 (the accepted version); read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticStatistics/E101",
    "kind": "misprint",
    "locator": "§3 opening, definition of a family defined by congruence conditions, printed p. 22 of arXiv:1006.1002v3 (the version read; the Annals version was not read)",
