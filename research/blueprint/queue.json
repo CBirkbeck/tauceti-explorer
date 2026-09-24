@@ -29099,7 +29099,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-automorphic-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1491"
   },
   {
    "id": "REV-RT-AREA-automorphic-1",
@@ -30026,8 +30027,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-geomlanglands.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1525"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1525",
+   "finishedAt": "2026-09-24T07:32:35Z"
   },
   {
    "id": "REV-RT-AREA-geomlanglands",
