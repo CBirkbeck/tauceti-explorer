@@ -18100,8 +18100,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #741"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS0",
@@ -18541,9 +18542,9 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/BP-HeckeStacksAndLocalShtukas.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #750"
+   "note": "released on GitHub issue #750"
   },
   {
    "id": "REV-HeckeStacksAndLocalShtukas",
