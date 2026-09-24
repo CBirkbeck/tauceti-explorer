@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AREA-arithmeticgeometry-3",
+  "findings": [
+    {
+      "finding": "RT-AREA-arithmeticgeometry-3/1",
+      "verdict": "rejected",
+      "reason": "Rejected. The empty prerequisites/consumers and absent arrows are properties of the immutable data/atlas.json snapshot and its browser extracts, not the assembled atlas. The already accepted and promoted data/links/tauceti_TauCetiRoadmap_ModularCurves.json records canonical upstream stage IDs with two-sided evidence: links 13 and 14 import 5C and 5B into R12.4, and links 16 and 17 import Layer 10 and 9D into R13.4a. Their evidence explicitly contains #81/PR81, so the claim that those references cannot be resolved anywhere is false. scripts/build.py applies accepted restructurings and link packets; scripts/decompositions.py recomputes both roadmap prerequisite and consumer lists from the resulting stage edges. Running build.assemble(require_distances=False) at c72bce3 gives ModularCurves 46 consumers, including ModularCurvesPartII, and gives that Part II its canonical upstream prerequisite. Eleven of the alleged twelve consumers already have that prerequisite. The exception, ComplexComparisonPartII, is not evidence of an omission: C4 exports smooth-affine-curve connectedness, consumed by R12.4 to discharge the upstream conditional input, and the built graph has C4 -> R12.4. Its mention of PR81 does not make PR81 a prerequisite of C4. The source 5C construction deliberately keeps connectedness as a hypothesis, so do not add a return edge into the conditional construction. Reject the blanket twelve-roadmap repair and its zero-prerequisite/no-cycle justification. More explicit prose hyperlinks could improve navigation, but they do not establish the submitted high-severity missing-dependency finding. Preserve the accepted imports and the generated-snapshot/build distinction."
+    }
+  ]
+}
