@@ -21971,9 +21971,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1002"
+   "note": "released on GitHub issue #1002"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB0",
@@ -22019,8 +22019,9 @@
     "REV-RS-15"
    ],
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB3.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #1003"
   },
   {
    "id": "REV-VectorBundlesAndIsocrystals--VB3",
