@@ -1,0 +1,112 @@
+{
+  "paper": "PAPER-LIU-ETAL-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source route into SelmerIwasawaCohomology (L0, L1, L2, L4), 29 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source route into EulerSystemsAndKolyvaginSystems (ES.1, ES.4), 38 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source route into GlobalGaloisDeformations (G7), 5 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source route into LocalGaloisDeformationRings (R08.2, L7), 8 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source route into AutomorphicGaloisRepresentationsPartII (AG2.0, AG2.1b, AG2.2, AG2.5, AG2.6, AG2.7), 16 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source route into SmoothRepresentationsOfLocalGroups (SR.4), 49 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source route into PELModuli (M0, M1, M2, M3, M4), 43 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Source route into IgusaVarietiesAndTorsionConcentration (IG.5, IG.7), 8 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Source route into QSeriesPartitionsAndMockModularForms (QM.0), 6 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Source route into LefschetzPencilsAndVanishingCycles (semistable-curves), 6 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Source route into MotivesAndAlgebraicCycles (MC.2), 1 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Source route into EndoscopicTransferAndUnitaryTraceComparison (ET.4, ET.7a), 37 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Part II of PELModuli as UnitaryRapoportZinkSpacesAndRSZModels, 213 items. Accepted. The id is free and, after the correction recorded below where needed, the title is an exact prefix extension of the parent's atlas title. The content extends the parent's direction rather than restating it."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Part II of SmoothRepresentationsOfLocalGroups as UnitaryLevelRaisingTypesAndHeckeOperators, 49 items. Accepted. The id is free and, after the correction recorded below where needed, the title is an exact prefix extension of the parent's atlas title. The content extends the parent's direction rather than restating it."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Part II of PotentialAutomorphyInfrastructure as PolarizedAutomorphyLifting, 3 items. Accepted. The id is free and, after the correction recorded below where needed, the title is an exact prefix extension of the parent's atlas title. The content extends the parent's direction rather than restating it."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "Part II of Lefschetz pencils, nearby cycles and vanishing cycles as SemistablePotentialMaps, 9 items. Accepted, with its title corrected in place. As recorded it read 'Lefschetz pencils and vanishing cycles, Part II: Semistable potential maps', dropping 'nearby cycles and' from the parent's atlas title, so it was not the exact prefix extension PROTOCOL section 15 requires; no other extraction proposes this roadmap, so correcting it disturbs no coalescence. The mathematics is apt: semistable potential maps and the nearby-cycle analysis of the special fibre extend that roadmap's direction."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "New roadmap GanGrossPrasadConjecturesForClassicalGroups, 3 items. Accepted. The id is free in the atlas and 'automorphic' is a galaxy id. The coalescence block records the identity (title and area) under which other extractions are expected to join it, which is the right way to manage a roadmap this central: relevant pairs, Vogan packets, Bessel models and periods are what several papers in the corpus will need."
+    },
+    {
+      "route": 18,
+      "verdict": "accept",
+      "reason": "Part II of Selmer groups, continuous integral cohomology, and Iwasawa cohomology as ArithmeticLevelRaisingAndBipartiteEulerSystems, 198 items. Accepted, with its title corrected in place. As recorded it read 'Selmer and Iwasawa cohomology, Part II: ...', a shortened form of the parent's atlas title, so it was not an exact prefix extension; the coalescence block carried the same shortened title, sourced from this paper's own earlier checkpoint (PR #2181), and was updated with it. No other extraction proposes this roadmap. The corrected form also matches what PAPER-DISEGNI-LIU-24 uses for the same parent, which this session reviewed today, so the two Part IIs of that roadmap are now named consistently."
+    },
+    {
+      "route": 19,
+      "verdict": "accept",
+      "reason": "Source route into EtaleDualityAndPerverseSheaves (EDC.4), 1 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 20,
+      "verdict": "accept",
+      "reason": "Source route into AutomorphicLFunctionsAndLocalFactors (AL.3), 1 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    },
+    {
+      "route": 21,
+      "verdict": "accept",
+      "reason": "Source route into PeriodsAndSpecialValues (PS.6), 1 items. Accepted. The stage ids exist and own the material routed to them, and the route imports rather than re-plans: this paper's own contribution is the level-raising and Euler-system machinery, not the foundations it consumes."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, for issue 1281, 24 September 2026. Verdict: accept. This is the largest extraction in the corpus - 739 items, 21 routes and 126 recorded mistakes for a 269-page paper - so this note is explicit about what was checked and how deeply.\n\nSOURCE. The published text was re-fetched from the NSF public-access mirror the source block names and hashed to dd821abd...9d97: 269 pages, printed page = PDF page + 106, pp. 107-375, which matches the journal pagination. That mirror serves the published article itself, so unlike the Springer-hosted papers I reviewed yesterday the text could be read directly rather than through a proxy.\n\nMISTAKES: ALL 126 LOCATED AND CONFIRMED. Every finding was checked at its recorded page: 99 by an automatic prose match against that page, and the remaining 27 - whose quotations are displayed formulas that no prose matcher can find - by hand, one at a time. Not one locator was wrong, which for 126 findings spread over 269 pages is itself worth recording.\n\nEIGHT OF THE TWENTY-NINE that reach a proof or a stated result were examined in depth, and five of those I re-derived independently. E2: over O_lambda/lambda^n with n >= 2 the matrix [[lambda,1],[0,lambda]] has image of index |k|^2 while its coordinate projections have indices 1 and |k|, so no change of basis diagonalises it and 'the first part is obvious from Definition 2.6.5' does not follow. E4: condition (a) of (GI^1) asks for P(xi) invertible, which is unsatisfiable for P = 0, and the proof's step 'such pair (a,b) always exists' is where it breaks. E8: for a procyclic group acting trivially - which the proof has just established - H^1_cont(Zhat, M) = M, so the asserted vanishing is equivalent to the module vanishing and the invertibility of p^2-1 is irrelevant. E10: at N = 2 the space is q+1 points, so H^2 = 0 and the printed kernel is all of H^0, a permutation representation 1 + St that is not irreducible, exactly as the paper's own formula (C.1) implies. E13: torsion-free O_lambda[Gamma]-modules with isomorphic rationalisations need not be isomorphic. For E1, E3 and E9 I verified the printed statements and the quoted steps and the shape of the repairs, but did not re-derive the Kummer-class computation (E1) or the verification that the Shimura link fibres carry the added descent hypothesis (E9); the extraction records both as re-derived on page images, and I have said in those verdicts which part rests on its work rather than mine.\n\nTHE RECORD ITSELF IS OF UNUSUAL QUALITY. Every `printed` field is a real quotation (median 158 characters), the classifications are honest - 97 of 126 affect nothing and they genuinely do not - and several entries carry the extraction's own revisions on re-checking, including two that were promoted from gap to error (E2, E8) and one whose locator was relabelled (E10). That is what a reviewable record looks like.\n\nCORRECTED IN PLACE. Two Part II titles were not exact prefix extensions of their parents' atlas titles, which PROTOCOL section 15 requires. 'Lefschetz pencils and vanishing cycles, Part II: Semistable potential maps' dropped 'nearby cycles and'; 'Selmer and Iwasawa cohomology, Part II: Arithmetic level raising and Rankin-Selberg Selmer annihilators' used a shortened form of 'Selmer groups, continuous integral cohomology, and Iwasawa cohomology'. Neither roadmap is proposed by any other extraction, so no coalescence with another paper is disturbed; the second one's identity in the `coalescence` block carried the same shortened title, sourced from this paper's own earlier checkpoint (PR #2181), and was updated with it. The corrected second title now matches the form PAPER-DISEGNI-LIU-24 uses for the same parent, which this session reviewed today. Separately, three item ids appeared twice inside a single route's `items` array and were de-duplicated; no item gained or lost a route, and every missing item is still routed exactly once.\n\nITEMS AND ROUTES. 739 items: 12 library, 32 planned, 695 missing, each missing item routed exactly once, all dependencies resolving. All stage ids cited by the 21 routes and all 27 planned targets exist in the atlas index. Twenty-one routes, all accepted: fifteen source routes, five Part IIs and one new roadmap, whose identity the coalescence block records for other extractions to join.\n\nCHECKS. scripts/check_paper.py: ok. intake.py check-files: 4 files, 0 problems. No Lean was written or compiled."
+}
