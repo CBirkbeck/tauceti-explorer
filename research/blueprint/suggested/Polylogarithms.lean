@@ -22,8 +22,11 @@ packet requests from MotivicEtaleKTheory M.8.
 Written out here: the classical n-logarithm on its cut domain, Zagier's
 single-valued L_n with the Bernoulli coefficients, the Bloch-Wigner function and
 its five-term relation, the map delta_n, the higher Bloch groups, the condition
-o_n, the polylogarithmic complexes, the Zagier determinant and the weight-two
-regulator form of a curve.
+o_n, the polylogarithmic complexes, the Zagier determinant, the weight-two
+regulator form of a curve, the forms r_(m-1) with their convergence, Goncharov's
+regulator map to the Deligne complex, the Chow polylogarithm, the Arakelov
+motivic complex, the strong reciprocity law with its three proved cases, and
+the weight-three regulator with its conjectural statements marked as such.
 -/
 import Mathlib.Analysis.Analytic.Basic
 import Mathlib.Analysis.Complex.Basic
@@ -230,6 +233,72 @@ theorem regulatorForm_steinberg (X : Type) (f : X → ℂ) : True := by sorry
 
 /-- P.5/chow-dilogarithm-reciprocity. -/
 theorem chowDilogarithm_reciprocity (X : Type) : True := by sorry
+
+/-- P.5/r-forms-and-distributions: the form `r (m-1) (f 1) ... (f m)`, an alternating sum of
+`log |f i|` against `d log` and `d i arg` of the others, and the convergence theorem that
+turns it into a distribution. -/
+def rForm (X : Type) (m : ℕ) (f : Fin m → X → ℂ) : Type := by sorry
+
+theorem rForm_integrable (X : Type) (m : ℕ) (f : Fin m → X → ℂ) : True := by sorry
+
+/-- The induced homomorphism out of the `m`-th exterior power of the function field. -/
+def rFormHom (X : Type) (m : ℕ) : Type := by sorry
+
+/-- P.5/regulator-map-on-higher-chow: Goncharov's canonical map of complexes from the weight
+`n` higher Chow complex to the weight `n` real Deligne complex. The target is owned by
+MotivicEtaleKTheory M.8 and appears here as a variable. -/
+def chowRegulator (X : Type) (n : ℕ) : Type := by sorry
+
+theorem chowRegulator_chainMap (X : Type) (n : ℕ) : True := by sorry
+
+/-- Over the reals the image lies in the subcomplex fixed by the De Rham involution. -/
+theorem chowRegulator_real (X : Type) (n : ℕ) : True := by sorry
+
+/-- P.5/chow-polylogarithm-forms: the chain of distributions on the spaces of cycles, with the
+three identities; the top member is the Chow `q`-logarithm function. -/
+def chowPolylog (p q : ℕ) : Type := by sorry
+
+theorem chowPolylog_d (p q : ℕ) : True := by sorry
+
+theorem chowPolylog_vertex (p q : ℕ) : True := by sorry
+
+/-- The top member, torus invariant and independent of the auxiliary hyperplane. -/
+def chowPolylogFunction (q : ℕ) : Type := by sorry
+
+theorem chowPolylogFunction_torus_invariant (q : ℕ) : True := by sorry
+
+/-- P.5/arakelov-motivic-complex: the cone of the regulator map, shifted by minus one, and the
+higher Arakelov Chow groups; in degree zero the Gillet-Soule arithmetic Chow group. -/
+def arakelovComplex (X : Type) (n : ℕ) : Type := by sorry
+
+theorem higherArakelovChow_zero (X : Type) (n : ℕ) : True := by sorry
+
+/-- P.5/chern-character-comparison-problem: the comparison with the higher Chern character is
+Problem a) of the source and is NOT proved; it is stated here so that nothing assumes it. -/
+theorem chowRegulator_vs_beilinson (X : Type) (n : ℕ) : True := by sorry
+
+/-- P.5/strong-reciprocity-law: the reciprocity homomorphism `h` with `Res = delta 2 . h` and
+the analytic identity for the Chow dilogarithm. Proved for the projective line modulo
+6-torsion, for an elliptic curve, and for a curve over the algebraic numbers rationally. -/
+def reciprocityHom (X : Type) : Type := by sorry
+
+theorem reciprocity_projectiveLine : True := by sorry
+
+theorem reciprocity_ellipticCurve : True := by sorry
+
+theorem reciprocity_algebraicNumbers : True := by sorry
+
+/-- P.5/chow-dilogarithm-on-elliptic-curves: the explicit formula, with the factor `2 pi`. -/
+theorem chowDilogarithm_elliptic : True := by sorry
+
+/-- P.5/weight-three-curve-regulator: the case `q = 3` of the Chow polylogarithm, the
+general-weight reciprocity conjecture, and the Eisenstein-Kronecker expression as a target
+conditional on EllipticRegulators ER.3. Neither of the last two is a theorem. -/
+def weightThreeCurveRegulator (X : Type) : Type := by sorry
+
+theorem weightThreeReciprocity_conjecture (X : Type) : True := by sorry
+
+theorem eisensteinKronecker_target (X : Type) : True := by sorry
 
 /-! ## P.6 Leopoldt and the tests -/
 
