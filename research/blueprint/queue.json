@@ -27373,8 +27373,9 @@
     "REV-AUDIT-11"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-11.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1571"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1571",
+   "finishedAt": "2026-09-24T06:15:20Z"
   },
   {
    "id": "RT-AUDIT-12",
@@ -29743,7 +29744,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-padic-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1515"
   },
   {
    "id": "REV-RT-AREA-padic-3",
@@ -29847,7 +29849,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-motives.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1519"
   },
   {
    "id": "REV-RT-AREA-motives",
@@ -29896,7 +29899,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-ktheory-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1521"
   },
   {
    "id": "REV-RT-AREA-ktheory-1",
@@ -29951,8 +29955,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-ktheory-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1523"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1523",
+   "finishedAt": "2026-09-24T06:15:23Z"
   },
   {
    "id": "REV-RT-AREA-ktheory-2",
@@ -30399,8 +30404,9 @@
     "RT-AREA-analysis"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-analysis.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1538"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1538",
+   "finishedAt": "2026-09-24T06:15:24Z"
   },
   {
    "id": "RT-AREA-pde",
