@@ -1,0 +1,55 @@
+{
+  "redteam": "RT-AREA-arithmeticgeometry-2",
+  "reviewer": "independent-review-REV-RT-AREA-arithmeticgeometry-2",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-24",
+  "status": "complete",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "atlasSnapshot": "f5284ee51da124df1ab9e01291dc4998eecc100e",
+  "findings": [
+    {
+      "finding": "RT-AREA-arithmeticgeometry-2/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing ownership contract, with a mandatory correction to the proposed mathematics. IG.0 specifies finite-cover/profinite Galois theory, while the accepted Caraiani–Scholze item /125 and its IG.0 route require the different fundamental group used at published pp. 656–657 and 721. No stage or proposed-roadmap record found in the frozen ownership search supplies it. Bhatt–Scholze Definition 7.1.1 and its footnote, Theorem 7.2.5 and Definition 7.4.2 give a Noohi group, not generally an inverse limit of discrete groups; Example 7.4.9 distinguishes its pro-discrete completion. Plan tame infinite Galois categories and the fiber-functor group for connected locally topologically noetherian schemes. Include the profinite-completion comparison; geometric unibranchness is a sufficient hypothesis for agreement with the usual étale group, not a hypothesis for constructing the general group. State the J_b(Q_p)-torsor correspondence as a groupoid equivalence with conjugation on continuous homomorphisms (or a pointed version after a chosen fiber trivialization). Do not claim a canonical bare homomorphism from an unframed torsor. Reuse Mathlib Scheme.ProEt, proetaleTopology and ProEt.topology at the pin, and SF.2’s comparison interface. E2 supplies repleteness/descent only where needed. Add a named extension/request following IG.0, without rebuilding the site or silently treating the finite-cover construction as the general one.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/content/campaign/InverseGaloisAndArithmeticFundamentalGroups/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/content/campaign/EnhancedDerivedSheaves/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.result.json",
+        "https://people.mpim-bonn.mpg.de/scholze/proetale.pdf",
+        "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
+        "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/Proetale.lean"
+      ]
+    },
+    {
+      "finding": "RT-AREA-arithmeticgeometry-2/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an unresolved ownership/source request, not as an error in an accepted extraction. IG.2 specifies ordinary Hilbert irreducibility, regular-cover specialization and avoidance, while Schmidt–Stix Theorem 7.1 uses the topologically finitely generated closed-normal-subgroup assertion on published p. 850. The atlas/proposal search finds no stage explicitly supplying that assertion. Correct the finding’s premise: the extraction is partial, its independent review verdict is revise, route 3 is rejected, and G2 plus the handoff already record this exact obligation. Coordinate the fix with that existing gap instead of treating it as newly discovered or automatically accepting the route when an owner is named. The other extraction is Bresciani /119: it plans Hilbertian fields and thin subsets, not the stronger normal-subgroup theorem, so its valid narrow tag should be preserved. The checked Mochizuki 2006 Theorem 2.4, pp. 62–63, proves the number-field Galois-extension version under its no-cyclic-degree-p-extension hypothesis and gives the Weissauer-based argument. This review did not read Fried–Jarden 16.11.6 itself and does not certify the unrestricted Hilbertian-field formulation. A source-checked supplier contract, covering at least the finitely generated characteristic-zero fields actually used by Schmidt–Stix, must settle hypotheses and ownership before route acceptance; a new stage or Part II is an option for the maintainer, not an already-established owner. Replace the logical claim that Hilbert irreducibility does not imply the theorem with the precise fact that IG.2’s current contract does not supply this additional consequence and its proof.",
+      "sources": [
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/content/campaign/InverseGaloisAndArithmeticFundamentalGroups/README.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/research/blueprint/papers/PAPER-SCHMIDT-STIX-16.review.json",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/research/blueprint/handoff/REV-PAPER-SCHMIDT-STIX-16.md",
+        "https://github.com/CBirkbeck/tauceti-explorer/blob/f5284ee51da124df1ab9e01291dc4998eecc100e/research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+        "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
+        "https://www.math.okayama-u.ac.jp/mjou/mjou48/_07_mochizuki.pdf"
+      ]
+    }
+  ],
+  "summary": "Both medium ownership findings confirmed with corrected fixes. Finding 1 needs Noohi groups, a conjugation-aware torsor correspondence and reuse of the existing site. Finding 2 is a pre-existing gap in a partial, unaccepted extraction, whose source and ownership quarantine must remain.",
+  "validation": {
+    "status": "pass",
+    "leanCompiled": false,
+    "redteamChecker": "pass",
+    "findingCoverage": "2 of 2, exactly one verdict each",
+    "intake": "2 files, 0 problems",
+    "publicationBase": "826765c833afd82f815bfa6a3cc84aea54278916",
+    "unchangedInputBlobs": 28,
+    "claimComment": 5808288914,
+    "claimConfirmation": 5808290832,
+    "sourceIntegrity": "Four public PDF SHA-256 hashes recorded; cited Mathlib site file matches pinned Git blob"
+  }
+}
