@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-AUDIT-21",
+  "findings": [
+    {
+      "finding": "RT-AUDIT-21/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The pinned Tau Ceti file defines IsSmoothDiscrete by discrete topology and open point stabilizers (line 254), its full subcategory SmoothDiscreteTopRep (537), and DiscreteRep (550), with equivariant linear maps as morphisms. The equivalence discreteRepEquivSmoothTopRep (678) assumes an arbitrary topological group, not compactness or profiniteness. It supplies the ordinary smooth discrete coefficient category relevant to locally pro-p groups. DiscreteRep requires continuous scalar multiplication; for the discrete coefficient ring and module used here that follows from discreteness of their product. This contradicts both blanket absence notes and the VS summary, but does not provide the enhanced derived category or v-stack comparison. Replace those absence claims and cite IsSmoothDiscrete, SmoothDiscreteTopRep and discreteRepEquivSmoothTopRep as related declarations; DiscreteRep may also be cited. Keep HS3 targets[2] absent, VS4 targets[0] partial and both layers not built. The file explicitly leaves products/subobjects/quotients unfinished; no abelian or derived/enhanced API, compact induction, admissibility or geometric comparison follows from this dictionary."
+    }
+  ]
+}
