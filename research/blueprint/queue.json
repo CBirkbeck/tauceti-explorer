@@ -16713,8 +16713,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondsAndVStacks.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #712"
   },
   {
    "id": "REV-DiamondsAndVStacks",
@@ -17053,9 +17054,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #719"
+   "note": "released on GitHub issue #719"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
