@@ -1,0 +1,1464 @@
+{
+ "purpose": "Which text each paper's findings were read from (scripts/collation.py).",
+ "provenance": {
+  "PAPER-ABDURRAHMAN-VENKATESH-25": "preprint",
+  "PAPER-ABE-18": "published",
+  "PAPER-ABE-25": "published",
+  "PAPER-ALLEN-ETAL-23": "preprint",
+  "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26": "published",
+  "PAPER-ANDRE-18": "published",
+  "PAPER-ANDRE-18-B": "published",
+  "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18": "published",
+  "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22": "published",
+  "PAPER-ANSCHUTZ-LEBRAS-23": "preprint",
+  "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22": "preprint",
+  "PAPER-ATOBE-KONDO-YASUDA-22": "preprint",
+  "PAPER-BAKKER-KLINGLER-TSIMERMAN-20": "published",
+  "PAPER-BAKKER-TSIMERMAN-16": "published",
+  "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19": "published",
+  "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23": "preprint",
+  "PAPER-BENNETT-SIKSEK-20": "published",
+  "PAPER-BENOIST-19": "published",
+  "PAPER-BENOIST-WITTENBERG-20": "published",
+  "PAPER-BETTS-STIX-25": "published",
+  "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25": "preprint",
+  "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22": "preprint",
+  "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21": "preprint",
+  "PAPER-BHARGAVA-GROSS-WANG-17": "preprint",
+  "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20": "published",
+  "PAPER-BHARGAVA-SHANKAR-WANG-22": "published",
+  "PAPER-BHARGAVA-SHANKAR-WANG-25": "published",
+  "PAPER-BHATT-18": "published",
+  "PAPER-BHATT-ETAL-23": "published",
+  "PAPER-BHATT-MATHEW-21": "preprint",
+  "PAPER-BHATT-MATHEW-23": "published",
+  "PAPER-BHATT-MORROW-SCHOLZE-18": "preprint",
+  "PAPER-BHATT-MORROW-SCHOLZE-19": "preprint",
+  "PAPER-BHATT-SCHOLZE-17": "published",
+  "PAPER-BHATT-SCHOLZE-22": "published",
+  "PAPER-BINDA-KATO-VEZZANI-25": "published",
+  "PAPER-BINYAMINI-22": "preprint",
+  "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19": "preprint",
+  "PAPER-BOCKLE-IYENGAR-PASKUNAS-23": "published",
+  "PAPER-BOXER-CALEGARI-GEE-25": "published",
+  "PAPER-BOXER-CALEGARI-GEE-ETAL-25": "preprint",
+  "PAPER-BOXER-CALEGARI-GEE-PILLONI-21": "preprint",
+  "PAPER-BOXER-CALEGARI-GEE-PILLONI-25": "preprint",
+  "PAPER-BOXER-PILLONI-26": "preprint",
+  "PAPER-BRESCIANI-24": "published",
+  "PAPER-BREUIL-ETAL-23": "preprint",
+  "PAPER-BREUIL-HELLMANN-SCHRAEN-19": "published",
+  "PAPER-BRIGHT-NEWTON-23": "published",
+  "PAPER-BROWNING-LEBOUDEC-SAWIN-23": "published",
+  "PAPER-BROWNING-SAWIN-20": "published",
+  "PAPER-BRUINIER-EHLEN-YANG-21": "published",
+  "PAPER-BURUNGALE-KOBAYASHI-OTA-21": "published",
+  "PAPER-BURUNGALE-TIAN-26": "preprint",
+  "PAPER-BUSHNELL-HENNIART-17": "published",
+  "PAPER-CADORET-HUI-TAMAGAWA-17": "published",
+  "PAPER-CAI-FRIEDBERG-KAPLAN-24": "published",
+  "PAPER-CALEGARI-DIMITROV-TANG-25": "preprint",
+  "PAPER-CALEGARI-GERAGHTY-18": "preprint",
+  "PAPER-CALEGARI-GERAGHTY-20": "preprint",
+  "PAPER-CALMES-ETAL-26": "preprint",
+  "PAPER-CANNING-LARSON-PAYNE-24": "preprint",
+  "PAPER-CARAIANI-SCHOLZE-17": "preprint",
+  "PAPER-CARAIANI-SCHOLZE-24": "preprint",
+  "PAPER-CARO-PASTEN-23": "published",
+  "PAPER-CASTELLA-ETAL-22": "preprint",
+  "PAPER-CESNAVICIUS-19": "published",
+  "PAPER-CESNAVICIUS-21": "preprint",
+  "PAPER-CESNAVICIUS-22": "published",
+  "PAPER-CESNAVICIUS-SCHOLZE-24": "published",
+  "PAPER-CHANG-CHEN-MISHIBA-23": "preprint",
+  "PAPER-CHARLES-16": "published",
+  "PAPER-CHEN-24": "published",
+  "PAPER-CHENEVIER-TAIBI-20": "preprint",
+  "PAPER-CIUBOTARU-HARRIS-26": "published",
+  "PAPER-CLAUSEN-MATHEW-21": "preprint",
+  "PAPER-CLAUSEN-MATHEW-MORROW-21": "preprint",
+  "PAPER-CLOZEL-THORNE-17": "published",
+  "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20": "published",
+  "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B": "preprint",
+  "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21": "preprint",
+  "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23": "preprint",
+  "PAPER-COLMEZ-NIZIOL-17": "published",
+  "PAPER-COLMEZ-NIZIOL-25": "preprint",
+  "PAPER-COUVEIGNES-20": "published",
+  "PAPER-DASGUPTA-KAKDE-23": "published",
+  "PAPER-DASGUPTA-KAKDE-VENTULLO-18": "published",
+  "PAPER-DEMARCO-KRIEGER-YE-20": "published",
+  "PAPER-DEMARCO-MAVRAKI-YE-26": "preprint",
+  "PAPER-DIMITROV-GAO-HABEGGER-21": "preprint",
+  "PAPER-DING-25": "preprint",
+  "PAPER-DISEGNI-22": "preprint",
+  "PAPER-DISEGNI-LIU-24": "preprint",
+  "PAPER-DITTMANN-POP-23": "published",
+  "PAPER-DOR-23": "published",
+  "PAPER-DOSPINESCU-LEBRAS-17": "preprint",
+  "PAPER-DUKE-IMAMOGLU-TOTH-16": "published",
+  "PAPER-EISCHEN-HARRIS-LI-ETAL-20": "published",
+  "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16": "published",
+  "PAPER-ESNAULT-GROECHENIG-20": "preprint",
+  "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22": "preprint",
+  "PAPER-FARB-KISIN-WOLFSON-24": "preprint",
+  "PAPER-FENG-24": "preprint",
+  "PAPER-FENG-GALATIUS-VENKATESH-22": "preprint",
+  "PAPER-FENG-YUN-ZHANG-24": "preprint",
+  "PAPER-FINTZEN-21": "published",
+  "PAPER-FRESAN-SABBAH-YU-22": "preprint",
+  "PAPER-FU-24": "published",
+  "PAPER-GAMBURD-MAGEE-RONAN-19": "preprint",
+  "PAPER-GAN-HARRIS-SAWIN-ETAL-24": "preprint",
+  "PAPER-GAN-ICHINO-18": "published",
+  "PAPER-GAN-SAVIN-23": "preprint",
+  "PAPER-GAN-SAVIN-23-B": "preprint",
+  "PAPER-GAO-GE-KUHNE-26": "preprint",
+  "PAPER-GAO-HABEGGER-19": "published",
+  "PAPER-GHOSH-SARNAK-22": "preprint",
+  "PAPER-GILLE-PARIMALA-26": "published",
+  "PAPER-GLEASON-LIM-XU-26": "preprint",
+  "PAPER-GROECHENIG-WYSS-ZIEGLER-20": "preprint",
+  "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B": "preprint",
+  "PAPER-GUO-REINECKE-24": "preprint",
+  "PAPER-HACON-WITASZEK-23": "published",
+  "PAPER-HANSEN-KALETHA-WEINSTEIN-22": "published",
+  "PAPER-HARPAZ-WITTENBERG-16": "published",
+  "PAPER-HARPAZ-WITTENBERG-20": "preprint",
+  "PAPER-HARPAZ-WITTENBERG-23": "preprint",
+  "PAPER-HE-18": "preprint",
+  "PAPER-HE-21": "published",
+  "PAPER-HE-LI-SHI-ETAL-23": "preprint",
+  "PAPER-HOWE-KLEVDAL-26": "preprint",
+  "PAPER-ICHINO-PRASANNA-23": "preprint",
+  "PAPER-IM-KIM-LE-ETAL-24": "preprint",
+  "PAPER-IYENGAR-KHARE-MANNING-24": "preprint",
+  "PAPER-JANNSEN-16": "preprint",
+  "PAPER-JIANG-ZHANG-20": "published",
+  "PAPER-KALETHA-16": "preprint",
+  "PAPER-KHAYUTIN-19": "preprint",
+  "PAPER-KINGS-SPRANG-25": "preprint",
+  "PAPER-KISIN-17": "preprint",
+  "PAPER-KISIN-MADAPUSIPERA-SHIN-22": "published",
+  "PAPER-KISIN-PAPPAS-18": "published",
+  "PAPER-KISIN-PAPPAS-ZHOU-26": "published",
+  "PAPER-KISIN-ZHOU-25": "published",
+  "PAPER-KLEVDAL-PATRIKIS-25": "published",
+  "PAPER-KOYMANS-MILOVIC-21": "preprint",
+  "PAPER-KOYMANS-PAGANO": "preprint",
+  "PAPER-LAFFORGUE-18": "published",
+  "PAPER-LAND-MATHEW-MEIER-ETAL-24": "preprint",
+  "PAPER-LANDESMAN-LITT-24": "published",
+  "PAPER-LE-LEHUNG-LEVIN-ETAL-20": "published",
+  "PAPER-LE-LEHUNG-LEVIN-ETAL-23": "published",
+  "PAPER-LEMKEOLIVER-WANG-WOOD-25": "preprint",
+  "PAPER-LESLIE-25": "preprint",
+  "PAPER-LI-23": "published",
+  "PAPER-LI-LIU-21": "preprint",
+  "PAPER-LI-LIU-22": "preprint",
+  "PAPER-LI-ZHANG-22": "preprint",
+  "PAPER-LI-ZHANG-22-B": "preprint",
+  "PAPER-LIPNOWSKI-TSIMERMAN-18": "preprint",
+  "PAPER-LIU-ETAL-22": "published",
+  "PAPER-LIU-WANG-22": "preprint",
+  "PAPER-LIU-WOOD-ZUREICKBROWN-24": "preprint",
+  "PAPER-LIU-ZHU-17": "preprint",
+  "PAPER-MAO-WAN-ZHANG-26": "preprint",
+  "PAPER-MARTIN-25": "published",
+  "PAPER-MAULIK-SHANKAR-TANG-22": "published",
+  "PAPER-MERKURJEV-SCAVIA-26": "preprint",
+  "PAPER-MOK-PILA-TSIMERMAN-19": "published",
+  "PAPER-NAKAMURA-23": "preprint",
+  "PAPER-NELSON-VENKATESH-21": "preprint",
+  "PAPER-NEWTON-THORNE-21": "preprint",
+  "PAPER-NEWTON-THORNE-21-B": "preprint",
+  "PAPER-NEWTON-THORNE-26": "published",
+  "PAPER-NGODAC-21": "published",
+  "PAPER-NIKOLAUS-SCHOLZE-18": "preprint",
+  "PAPER-PAN-26": "published",
+  "PAPER-PASKUNAS-QUAST-26": "preprint",
+  "PAPER-PILLONI-20": "preprint",
+  "PAPER-QIAN-23": "published",
+  "PAPER-RICHARD-YAFAEV-25": "preprint",
+  "PAPER-SCHIFFMANN-16": "preprint",
+  "PAPER-SCHMIDT-STIX-16": "published",
+  "PAPER-SCHOLZE-26": "preprint",
+  "PAPER-SCHROER-23": "published",
+  "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22": "preprint",
+  "PAPER-SHENDE-TSIMERMAN-17": "preprint",
+  "PAPER-SKINNER-20": "preprint",
+  "PAPER-SKOROBOGATOV-SOFOS-23": "published",
+  "PAPER-SMITH-24": "preprint",
+  "PAPER-TREUMANN-VENKATESH-16": "published",
+  "PAPER-TSIMERMAN-18": "published",
+  "PAPER-TSUZUKI-23": "published",
+  "PAPER-VANHOFTEN-24": "preprint",
+  "PAPER-VENKATESH-19": "preprint",
+  "PAPER-WEI-26": "preprint",
+  "PAPER-WITASZEK-22": "published",
+  "PAPER-WOOD-19": "published",
+  "PAPER-XU-ZHU-22": "preprint",
+  "PAPER-YANG-ZHAO-25": "preprint",
+  "PAPER-YU-23": "published",
+  "PAPER-YUAN-26": "published",
+  "PAPER-YUAN-ZHANG-18": "published",
+  "PAPER-YUN-ZHANG-17": "preprint",
+  "PAPER-YUN-ZHANG-19": "published",
+  "PAPER-ZAVYALOV-25": "preprint",
+  "PAPER-ZHANG-21": "published",
+  "PAPER-ZHU-17": "published"
+ },
+ "exposed": [
+  {
+   "paper": "PAPER-SHENDE-TSIMERMAN-17",
+   "provenance": "preprint",
+   "stated": 20,
+   "findings": 56,
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "link": "https://www.math.toronto.edu/jacobt/",
+   "blocked": false,
+   "locators": [
+    "§1, Theorem 1.3, p. 5 (arXiv v1)",
+    "§1, Theorem 1.5, p. 6, with §3, Theorem 3.11, p. 17 (arXiv v1)",
+    "§2, Proposition 2.3, p. 7 (arXiv v1)",
+    "§2, Corollary 2.4, p. 7 (arXiv v1)",
+    "§2, Proposition 2.15, p. 10 (arXiv v1)",
+    "§2, Corollary 2.18, p. 12 (arXiv v1)",
+    "§2, proof of Corollary 2.20, p. 12 (arXiv v1)",
+    "§3, proof of Theorem 3.9, pp. 16–17 (arXiv v1)",
+    "§3, Theorem 3.12 (Massey), p. 18 (arXiv v1)",
+    "§3.5, Lemma 3.22 and its proof, p. 27 (arXiv v1)",
+    "§4, proof of Theorem 4.4, Case 1, pp. 33–34 (arXiv v1)",
+    "v1 p.7 Proposition 2.3; final journal text not obtained",
+    "v1 p.7 Corollary 2.4, unrestricted characteristic reading; final journal text not obtained",
+    "v1 p.10 Proposition 2.15; final journal text not obtained",
+    "v1 p.12 Corollary 2.18; final journal text not obtained",
+    "v1 p.12 after Definition 2.19; final journal text not obtained",
+    "v1 p.18 Theorem 3.12; final journal text not obtained",
+    "v1 pp.33–34 Theorem 4.4 Case 1; final journal text not obtained",
+    "Proof of Theorem 3.9, pp. 16–17, arXiv v1 (final journal text not obtained)",
+    "Proof of Corollary 2.20, p. 12, arXiv v1 (final journal text not obtained)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-DISEGNI-22",
+   "provenance": "preprint",
+   "stated": 15,
+   "findings": 23,
+   "citation": "Disegni, \"The universal p-adic Gross–Zagier formula\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/230-2",
+   "blocked": true,
+   "locators": [
+    "Theorems A, B, B^ord, D, E and Lemma 7.1.4 in the body of arXiv:2001.00045v4; v4 Appendix B and published Correction, DOI 10.1007/s00222-025-01391-4. The original journal text was not independently accessible.",
+    "Lemma 3.3.7, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§2.2.2, algebraic weight representation W_G, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§4.1, equation (4.1.11), compared with Lemma 4.1.3(2) and proof of Proposition 4.1.8, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§4.2.1, equation (4.2.4) and the preceding duality identification, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "Corollary 5.1.4 and the spectral sequence used in Proposition 5.2.3, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§5.2.1, example of cohomological dimension, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§5.3.2, beginning of exact sequence (5.3.2), arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "Proposition 5.3.4(2), formula (5.3.7), arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§7.3.1, odd-rank Pfaffian prescription and Remark 7.3.1, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "Conjecture Pf, target following equation (7.3.3), arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "Appendix A.1.4, notation e_v and choice of uniformizer, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§4.1.4, denominator-bound footnote, and Appendix A.4.2 with the pairing (A.4.1), arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "Proposition 5.1.3 and Corollary 5.1.4, bounded derived-category targets, arXiv:2001.00045v4 (23 February 2024); collated at the same passage in the public author manuscript",
+    "§1.1.2, first derivative after equation (1.1.1), arXiv:2001.00045v4; same display in the public author manuscript"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-BOXER-PILLONI-26",
+   "provenance": "preprint",
+   "stated": 14,
+   "findings": 133,
+   "citation": "Boxer–Pilloni, \"Higher Hida theory for Siegel modular forms\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-1",
+   "blocked": true,
+   "locators": [
+    "§1.3.7, Theorem 1.3.8, p. 4. The January 2024 preprint has the same statement as Theorem 1.3.7 (§1.3.6, p. 3 of the preprint), with (𝔭, K∞) in place of (𝔭_µ, K∞). The mistake was therefore already in the preprint and was not fixed in the revision.",
+    "§1.4, Theorem 1.4.8, p. 5. The body version is Theorem 5.5.2, p. 57: \"We have a perfect pairing M^•_w ⊗ M^•_{w_{0,M}ww_0,cusp} → Λ[−d], for which the adjoint of t is w_0t^{−1}\". Here the tensor has no subscript and the Λ-structure is not specified. The 2024 preprint has the same text: Theorem 1.4.8 on p. 5, which differs only in reading \"for some prime ℓ ≠ p\", and Theorem 5.5.2 on p. 56. The mistake was therefore already in the preprint and was not fixed in the revision.",
+    "§2.2.9, Proposition 2.2.10 (second diagram of the statement) and its proof, p. 14 (the January 2024 preprint has the same text on pp. 13–14)",
+    "§2.3.12, Corollary 2.3.14 and its proof, p. 17. The 2024 preprint has the same text (Corollary 2.3.14, p. 16), written there with p⋆ₖ in place of p̄⋆ₖ, so the problem was already present in the preprint.",
+    "§2.6.12 (Second base change formula), pp. 22–23: the sentence that defines T′, just before Proposition 2.6.13 on p. 23, together with the proof of Proposition 2.6.13. The 2024 preprint has the same text word for word.",
+    "§2.9.8 and Proposition 2.9.9 with its proof, pp. 28–29 (see also Definition 2.1.8, p. 7, and §2.9.5, p. 28). The 2024 preprint has the same text, with §2.9.8, Proposition 2.9.9 and its proof all on p. 27 there.",
+    "§2.10, Lemma 2.10.1(4) and the last sentence of its proof, p. 29. The only place it is used is the last line of the proof of Proposition 2.10.3, p. 30. The January 2024 preprint has the same text word for word (Lemma 2.10.1(4) on p. 27, its proof on p. 28 there), so the problem was there from the start.",
+    "§2.11, standing hypotheses before Remark 2.11.1, p. 31",
+    "§3.1, concrete description of ᴹW, p. 34",
+    "§3.4.5, text after Lemma 3.4.8, p. 37, and Proposition 3.4.9(5), p. 37",
+    "§3.4.19 (the definition of A_{g,δ}, the decomposition 𝔄^{ord}_{g,d} = ∐_δ 𝔄^{ord}_{g,δ}, and Lemma 3.4.20), p. 40 of the author version. The 2024 preprint has the same text on p. 38.",
+    "§4.1.12, Proposition 4.1.13(2) and its proof, p. 42",
+    "Section 4.1.12, Proposition 4.1.13 (2) and its proof, p. 42. The 2024 preprint has the same statement and proof (Proposition 4.1.13, p. 40).",
+    "§4.5, Corollaries 4.5.4 and 4.5.5, p. 52"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s00222-025-01393-2",
+    "isOA": true,
+    "copy": "https://hal.science/hal-05409187v1/file/higherhidaSiegel.pdf"
+   }
+  },
+  {
+   "paper": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "provenance": "preprint",
+   "stated": 13,
+   "findings": 44,
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/228-1",
+   "blocked": true,
+   "locators": [
+    "§3, Proposition 3.8, p. 16 (arXiv v5)",
+    "§6, Corollary 6.6, p. 30 (arXiv v5)",
+    "§6, Corollary 6.6, second alternative, p. 30 (arXiv v5)",
+    "§6, Remark 6.7, second bullet, p. 31 (arXiv v5)",
+    "§6, Example 6.8, dihedral case, p. 31 (arXiv v5)",
+    "§6, Example 6.8, p. 31 (inherited from Example A.16, p. 50) (arXiv v5)",
+    "§8, Remark 8.2, p. 38 (arXiv v5)",
+    "§9, proof of Proposition 9.1, p. 42 (arXiv v5)",
+    "Appendix A.1.1, Lemma A.9, p. 46 (arXiv v5)",
+    "Appendix A.1.1, Lemma A.9(3) and its proof, p. 47 (arXiv v5)",
+    "Appendix A.1.2, proof of Lemma A.10, p. 47 (arXiv v5)",
+    "Appendix A.2, Lemma A.11(2) and item (ii) of its proof, pp. 47–48; Example A.16, p. 50 (arXiv v5)",
+    "Appendix A.2, Example A.17, p. 50 (arXiv v5)"
+   ],
+   "openAlex": {}
+  },
+  {
+   "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "provenance": "preprint",
+   "stated": 13,
+   "findings": 48,
+   "citation": "Lipnowski–Tsimerman, \"How large is A_g(F_q)?\", Duke Mathematical Journal (2018)",
+   "link": "https://www.math.toronto.edu/jacobt/",
+   "blocked": false,
+   "locators": [
+    "§2, Lemma 2.1 (statement and proof) and Corollary 2.2, p. 5 (arXiv v1)",
+    "§3.2.2, (26), p. 15 (arXiv v1)",
+    "§5.4.3, (51), p. 30; also (53)–(55), p. 31, and Lemma 5.11 with (56), p. 33 (arXiv v1)",
+    "§5.7.3, Lemma 5.19 and its proof, p. 36 (arXiv v1)",
+    "§4.3.1, Proposition 4.9(1) and (3)⇒(1), p. 19 (arXiv v1)",
+    "v1 p.5, Lemma 2.1; final 2018 text not obtained",
+    "v1 pp.17–18, §4.2 and Lemma 4.6; final 2018 text not obtained",
+    "v1 p.18, Remark 4.8; final 2018 text not obtained",
+    "v1 p.30, (51), compared with p.26 (39); final 2018 text not obtained",
+    "v1 p.33, Corollary 5.13 proof applying Conjecture 5.2; final 2018 text not obtained",
+    "v1 pp.35–36, Definition 5.16 and Example 5.17; final 2018 text not obtained",
+    "v1 p.36, Lemma 5.19 and its proof; Corollary 5.20 at p = 2",
+    "v1 p.1, Theorem 0.1, and p.16, (28); published Theorem 0.1 and Proposition 3.23"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-BINYAMINI-22",
+   "provenance": "preprint",
+   "stated": 12,
+   "findings": 23,
+   "citation": "Binyamini, \"Point counting for foliations over number fields\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
+   "blocked": true,
+   "locators": [
+    "Proposition 51 and Theorem 9, Appendix A, pp.36–37 (published version)",
+    "§2 before Proposition 7, p.9 (published version)",
+    "Lemma 11 and proof, p.10 (published version)",
+    "Proposition 22, (50), p.15; uses in §§5.2 and 6.2 (published version)",
+    "Lemma 48, (147)–(150), p.35 (published version)",
+    "§9.3 after (125), p.30 (published version)",
+    "(127), p.30, and the choice of g on p.31 (published version)",
+    "Appendix A after Theorem 9, (163), p.37 (published version)",
+    "Proposition 17, p.12, under the §3 setup of a pure m-dimensional analytic set (published version)",
+    "Lemma 27, (69), p.19 (published version)",
+    "Lemma 26, (62), p.18 (published version)",
+    "Corollary 14, (32), p.11, with the height convention of §1.1.4 (published version)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/fmp.2021.20",
+    "isOA": true,
+    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D8B743946064FC7DDE59131375AF9465/S2050508621000202a.pdf/div-class-title-point-counting-for-foliations-over-number-fields-div.pdf"
+   }
+  },
+  {
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "provenance": "preprint",
+   "stated": 12,
+   "findings": 31,
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "link": "https://people.math.harvard.edu/~kisin/preprints.html",
+   "blocked": false,
+   "locators": [
+    "Corollary 3.3.19, p. 36 (also v1); independently checked in arXiv v2 only",
+    "Theorem 4, p. 5 (arXiv v2; v1 reads 'W ⊂ X any Zariski open'); independently checked in arXiv v2 only",
+    "Proposition 3.2.14, statement, p. 28 (also v1); independently checked in arXiv v2 only",
+    "Proposition 3.2.7 (p. 25), Theorem 3.3.17 (p. 35) and Corollary 3.3.19 / Theorem 3 (pp. 36, 4) (also v1); independently checked in arXiv v2 only",
+    "Proposition 2.3.10(2) and Corollary 2.3.12, p. 19 (arXiv v2; not in this form in v1); independently checked in arXiv v2 only",
+    "§2.2.14, footnote2, p15 (arXiv v2)",
+    "Lemma3.2.12, p27 (arXiv v2)",
+    "Proposition3.2.14, p28 (arXiv v2)",
+    "§3.3.2, p30 (arXiv v2)",
+    "§3.3.9, p33 (arXiv v2)",
+    "§3.3.12, p34 (arXiv v2)",
+    "§3.3.1, p30 (arXiv v2)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.48550/arxiv.2110.05534",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/2110.05534"
+   }
+  },
+  {
+   "paper": "PAPER-CALEGARI-GERAGHTY-20",
+   "provenance": "preprint",
+   "stated": 11,
+   "findings": 164,
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "link": "https://math.uchicago.edu/~fcale/research.html",
+   "blocked": false,
+   "locators": [
+    "§1, the paragraph before Theorem 1.2 and Theorem 1.2 itself, pp. 802–803. Compare Theorem 9.1, pp. 878–879; the Koecher principle in §5.2, p. 821; Definition 5.13, pp. 834–835; Definition 6.15, p. 844; the sentence after the definition of e_{α,β}, p. 845; Lemma 7.10, p. 852. arXiv v1 (1907.08691v1) has the same text: intro p. 2–3, Definition 6.15 and the sentence \"The assumption that r̄ is Katz modular implies that this space is non-zero after localization at m\".",
+    "§1, Theorem 1.1 and the sentence after it (\"We deduce Theorem 1.1 from our main result\"), p. 802. The main result is Theorem 9.1, §9, pp. 878–880. arXiv:1907.08691v1 has the same text: Theorem 1.1 is on p. 2, and it is cited only there and in §1.2.",
+    "§1, the paragraph stating the main result (p. 802) and Theorem 1.2 (p. 803). Compare the opening of §4 (p. 812), Remark 4.4 (p. 814), Definition 4.6(1) (p. 815), the level K at the start of §6.3 (pp. 840–841) and Theorem 9.1 (pp. 878–879). arXiv 1907.08691v1 has the same text, pp. 2–3.",
+    "§5.3 (Vanishing results), Theorem 5.5, p. 828 (statement, displayed condition). Same text in arXiv:1907.08691v1, Theorem 5.5, p. 21.",
+    "§6.3, definition of e_β and H^0(...)^β before Theorem 6.13, p. 841; §6.4, definition of e_{α,β} after Assumption 6.16, p. 845. These superscripts are used in Theorems 1.2, 6.13, 6.17, 8.13 and 9.1.",
+    "§6.3, Theorem 6.13(3), p. 842, and its proof, pp. 842–843. The relevant definitions are Definition 5.13 (pp. 834–835), Definition 6.7 (p. 838) and Lemmas 6.2 and 6.4 (pp. 836–837). arXiv v1 (1907.08691v1, pp. 31–32) has identical text.",
+    "§7.1, Assumption 7.1, p. 846; Theorem 7.2 (definition of R_x, pr_x) and Theorem 7.3, p. 847. The same text is in arXiv:1907.08691v1, pp. 34–35.",
+    "§7.1, Theorem 7.3, p. 847 (the \"explicit inverse\" sentence and the proof's K to K/O step); also Lemma 7.4 and its proof, p. 848; Lemma 7.5, pp. 849–850; Lemma 7.6, p. 850",
+    "§8.4, Theorem 8.10 and its proof, pp. 861–862; arXiv:1907.08691v1 Theorem 8.10, p. 45",
+    "§8.4, Proposition 8.9(2), p. 861; used in the proof of Proposition 8.25, §8.9, pp. 876–877",
+    "§8.4, Proposition 8.9 (1) and (2), p. 861; also the statements of Theorem 8.10 (p. 861) and Theorem 8.11 (p. 862). arXiv:1907.08691v1 has the same text (Prop. 8.9, Thms 8.10–8.11, pp. 44–46, citing [Yam16])."
+   ],
+   "openAlex": {}
+  },
+  {
+   "paper": "PAPER-WEI-26",
+   "provenance": "preprint",
+   "stated": 11,
+   "findings": 23,
+   "citation": "Wei, \"Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-3",
+   "blocked": true,
+   "locators": [
+    "Published Lemma 4.1.2(1), p.842; Proposition 4.1.5(1)–(3), p.843; Remark 4.1.6(3), p.844; same issue in arXiv:2207.01165v2.",
+    "Published Proposition 4.2.4(1),(3), p.848; (4.2.8), p.850; Corollaries 4.3.3 and 4.3.13, pp.852,855; Lemma 6.3.2, p.874; same issue in arXiv:2207.01165v2.",
+    "Published Remark 4.2.3(4), p.847; definition of Γ-tilde_geo before Theorem 5.4.5, p.868; same issue in arXiv:2207.01165v2.",
+    "Published Lemma 5.1.2, p.859, and Lemma 5.3.1, p.863; same issue in arXiv:2207.01165v2.",
+    "Published Proposition 5.3.4, p.864; same issue in arXiv:2207.01165v2.",
+    "Published Proposition 5.4.2(1), p.866; same issue in arXiv:2207.01165v2.",
+    "Published Remark 7.3.3, p.893; same issue in arXiv:2207.01165v2.",
+    "Published §3.4, (3.4.2), p.840, and §5.1 point count, p.856; same issue in arXiv:2207.01165v2.",
+    "Published Example 6.3.9, p.878; same issue in arXiv:2207.01165v2.",
+    "Published Example 6.3.11, pp.879–880; same issue in arXiv:2207.01165v2.",
+    "Published Remark 7.2.5, p.889; same issue in arXiv:2207.01165v2."
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-KISIN-17",
+   "provenance": "preprint",
+   "stated": 9,
+   "findings": 107,
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "link": "https://people.math.harvard.edu/~kisin/preprints.html",
+   "blocked": false,
+   "locators": [
+    "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (1.5.2)–(1.5.4)",
+    "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (3.3.9), used in (3.4.11)",
+    "Moonen, Models of Shimura varieties in mixed characteristics (1998), 3.21.1, cited as [Mo, 3.21.1] in Errata E.5",
+    "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010), (1.4.2), (1.4.3), (1.5.11); corrected in footnote 8, p. 7, of this paper",
+    "Proposition (1.1.13), last sentence (isomorphism (1.1.14)), p. 9; proof of Proposition (1.1.19), pp. 11–12",
+    "Corollary (2.3.5), p. 34",
+    "§3.6.1 (definition of X̃^p(φ), p.52) and proof of Lemma 3.6.2(2), p.54",
+    "Corollary 3.8.6, p.65",
+    "Theorem 4.6.7 and its proof, p.95"
+   ],
+   "openAlex": {}
+  },
+  {
+   "paper": "PAPER-LIU-WANG-22",
+   "provenance": "preprint",
+   "stated": 9,
+   "findings": 36,
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/230-2",
+   "blocked": true,
+   "locators": [
+    "arXiv v4 Definition3.20,p18",
+    "arXiv v4 §4,p22",
+    "arXiv v4 Lemma6.11(2),p35",
+    "arXiv v4 §5,p30 and §6,p35",
+    "arXiv v4 Propositions6.32,6.43 and Lemma6.36,pp40–45",
+    "arXiv v4 Propositions6.32 and6.43,pp40,45",
+    "arXiv v4 Lemmas6.19–6.20,pp37–38; Lemma8.2 and Proposition8.4,pp50–51; compare Lemma8.13 proof,p55",
+    "arXiv v4 Lemma6.12 and proof,p36; diagrams6.6,6.14,pp33,36",
+    "arXiv v4 §8 after Remark8.17,p57"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s00222-022-01134-9",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-PILLONI-20",
+   "provenance": "preprint",
+   "stated": 9,
+   "findings": 175,
+   "citation": "Pilloni, \"Higher coherent cohomology and p-adic modular forms of singular weights\", Duke Mathematical Journal (2020)",
+   "link": "https://projecteuclid.org/journals/duke-mathematical-journal/volume-169/issue-9/Higher-coherent-cohomology-and-p--adic-modular-forms-of/10.1215/00127094-2019-0075.full",
+   "blocked": false,
+   "locators": [
+    "§5.1.7, Theorem 5.1.7.1, item 5, p. 23 (with Remark 5.1.7.1, p. 23). HAL v3: Theorem 5.1.5.1, item 5, printed p. 19 (PDF p. 20).",
+    "§6.1.5.4, Theorem 6.1.5.1, point 2, p. 29 (author version). HAL v3 has the same theorem number and the same wording on printed p. 24 (PDF p. 25).",
+    "§6.3.3, author version pp. 31–33: the standing hypotheses (p. 31), Lemma 6.3.3.3 and its proof (p. 33), and Lemma 6.3.3.5 (p. 33). HAL v3 has the same problem in §6.2.3 (printed pp. 25–27). There the hypothesis is even weaker: \"We assume that over a dense open subscheme S' of S, G has étale rank one and multiplicative rank one.\" Lemmas 6.2.3.3 and 6.2.3.5 have the same statements and the same proof.",
+    "§11.1.1, Lemma 11.1.1.4, p. 68 (author version, 17 June 2019)",
+    "§13.3.3, Proposition 13.3.3.1 (diagram, bottom horizontal arrow), p. 90; used in the proof of Corollary 13.3.3.1, pp. 90–91. HAL v3: Proposition 13.3.3.1, p. 78.",
+    "§14.4.2 (p. 95); Lemma 14.6.1 and Proposition 14.6.1 (p. 97); Corollary 14.6.1, Remark 14.6.1, Corollary 14.6.2 (pp. 97–99); Theorem 14.7.1 (p. 99); Corollary 14.7.1 (p. 100). The r ≥ 0 hypothesis is stated only at the start of §13.3 (p. 88).",
+    "§14.6, Corollary 14.6.1 (statement p. 97, proof p. 98), author version of 17 June 2019. The same missing restriction on ε appears in Corollary 14.6.2 and Lemma 14.7.1 (p. 99). HAL v3 has the same text: Cor. 14.6.1 \"Let ε > 0\" and Cor. 14.6.2 / Lemma 14.7.1 with no restriction on ε, on printed pp. 85–86. In HAL v3, Thm 14.7.1 has no ε-range at all.",
+    "§14.9 (Estimates on Satake parameters), Proposition 14.9.1, p. 102 (proof §14.9.1, p. 103)",
+    "§14.9: Proposition 14.9.1, statement p. 102; its proof in §14.9.1, pp. 103–104 (the quoted sentence is on p. 103); Lemma 14.9.2, p. 103 (author version, 17 June 2019)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1215/00127094-2019-0075",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-XU-ZHU-22",
+   "provenance": "preprint",
+   "stated": 7,
+   "findings": 30,
+   "citation": "Xu–Zhu, \"Bessel F-isocrystals for reductive groups\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/227-3",
+   "blocked": true,
+   "locators": [
+    "§1.2.9(i), (1.2.9.1), p = 2 line, p. 6",
+    "§1.2.9(ii), (1.2.9.2), p. 7",
+    "§5.3.9, (5.3.9.1), p. 61; Corollary 5.3.11(i), (5.3.11.1), p. 61",
+    "§5.3.5, Proposition 5.3.5(ii), (5.3.5.2), and its proof, pp. 59–60",
+    "§4.5, Theorem 4.5.2(i), first bullet, p. 51",
+    "§3.4, Proposition 3.4.2(ii), p. 31",
+    "§2.4, Corollary 2.4.3 and §2.4.1(iii), p. 16; used in Proposition 3.4.3(ii), p. 31"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-ALLEN-ETAL-23",
+   "provenance": "preprint",
+   "stated": 6,
+   "findings": 108,
+   "citation": "Allen et al., \"Potential automorphy over CM fields\", Annals of Mathematics 197 (2023), no. 3",
+   "link": "https://annals.math.princeton.edu/2023/197-3/p02",
+   "blocked": false,
+   "locators": [
+    "§2.4.9, Theorem 2.4.11 (p. 951) and its proof (p. 953); Theorem 2.3.3 (p. 935) (also in arXiv v2)",
+    "§4.3, Proposition 4.3.4 and its proof, pp. 973–974 (also in arXiv v2)",
+    "§4.4, Proposition 4.4.6(c), pp. 979–980 (also in arXiv v2)",
+    "§5.4, Theorem 5.4.3 and its proof, pp. 1013–1015, and its use in the proof of Proposition 5.4.18, pp. 1023 and 1025 (also in arXiv v2)",
+    "§5.4, Lemma 5.4.8 and Proposition 5.4.13, pp. 1015–1018, with §5.1 fixing 'an integer n ≥ 1' (p. 989) (also in arXiv v2)",
+    "§7.1, Lemma 7.1.8(2) and its proof, pp. 1091–1092 (also in arXiv v2)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.4007/annals.2023.197.3.2",
+    "isOA": true,
+    "copy": "https://doi.org/10.17863/cam.86054"
+   }
+  },
+  {
+   "paper": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "provenance": "preprint",
+   "stated": 6,
+   "findings": 26,
+   "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/233-3",
+   "blocked": true,
+   "locators": [
+    "Theorem 7, p. 13 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+    "Theorem 8, condition (b), p. 16 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+    "Corollary 2, p. 5 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+    "proof of Theorem 2, §3.5, p. 25 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+    "Remark 3.2, p. 23 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+    "Remark 2.2(b), p. 14 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-JANNSEN-16",
+   "provenance": "preprint",
+   "stated": 6,
+   "findings": 23,
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "link": "https://annals.math.princeton.edu/2016/183-1/p01",
+   "blocked": false,
+   "locators": [
+    "Statement of Theorem 0.11, p. 7 (published); arXiv v2 Theorem 0.7 likewise",
+    "Proposition 5.4, pp. 53–54; same statement in arXiv v2 §5",
+    "Condition (∗), p. 43, compared with Lemma 4.23(a), p. 51",
+    "Case 3.17.B, p. 37, and Lemma 4.20 proof, p. 49; same broad assertion in v2",
+    "Proof of Theorem 5.10, p. 57",
+    "Isolated statement of Theorem 3.17, p. 35"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.4007/annals.2016.183.1.1",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/0910.2803"
+   }
+  },
+  {
+   "paper": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "provenance": "preprint",
+   "stated": 6,
+   "findings": 29,
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/237-1",
+   "blocked": true,
+   "locators": [
+    "Theorem 4.12, (4.14), p. 24, and its proof, (4.17), p. 25; (5.13) in the proof of Theorem 1.2, p. 30; Theorem 5.15, p. 31 (arXiv v2)",
+    "Theorem 1.4, p. 3, and the end of its proof, p. 41 (arXiv v2); also Corollary 1.5, p. 4",
+    "Lemma 9.3, p. 38, with the definition of E_Γ(D, Q), p. 3, and the second display of the proof of Theorem 1.4, p. 40 (arXiv v2)",
+    "Lemma 12.8, pp. 51–52 (arXiv v2)",
+    "§3.1, the paragraph before Lemma 3.4 and Corollary 3.8, pp. 13–14; Remark 3.2(3), p. 13 (arXiv v2)",
+    "Proposition 12.7, p. 50 (arXiv v2); also Corollary 12.9, p. 52"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.48550/arxiv.1907.05002",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/1907.05002"
+   }
+  },
+  {
+   "paper": "PAPER-YUN-ZHANG-17",
+   "provenance": "preprint",
+   "stated": 6,
+   "findings": 37,
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "link": "https://annals.math.princeton.edu/2017/186-3/p02",
+   "blocked": false,
+   "locators": [
+    "Proposition 2.4 (2.18), p. 787, and its proof, p. 788; Corollary 2.5, p. 788; Theorem 1.8, p. 775; §9.1.1, p. 876 (published version; also arXiv v3 unless stated)",
+    "Corollary 3.3, p. 797 (published version; also arXiv v3 unless stated)",
+    "§B.2, Theorem B.2 and its proof, p. 904 (published version; also arXiv v3 unless stated)",
+    "Proposition B.1, p. 902; proof p. 903 (published version; also arXiv v3 unless stated)",
+    "Remark B.5, p. 906 (published version; also arXiv v3 unless stated)",
+    "Lemma 6.4, p. 827 (published version; also arXiv v3 unless stated)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.4007/annals.2017.186.3.2",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-CARAIANI-SCHOLZE-17",
+   "provenance": "preprint",
+   "stated": 5,
+   "findings": 100,
+   "citation": "Caraiani–Scholze, \"On the generic part of the cohomology of compact unitary Shimura varieties\", Annals of Mathematics 186 (2017), no. 3",
+   "link": "https://annals.math.princeton.edu/2017/186-3/p01",
+   "blocked": false,
+   "locators": [
+    "§4.2, the paragraph before Proposition 4.2.14, Proposition 4.2.14 and the first line of its proof, p. 709 (also in arXiv v1)",
+    "§4.2, Remark 4.2.17, p. 710 (used in the proof of Lemma 4.3.15, p. 722; same text in arXiv v1)",
+    "§5.4: definition of Red^b_n⃗ (p. 739), Remark 5.4.1 and Lemma 5.4.2 (p. 740), identical in arXiv v1; inherited by Lemma 5.5.1 (p. 741), and by the identity before Corollary 5.6.2 and Corollary 5.6.2 itself (p. 749)",
+    "§5.5, Lemma 5.5.1, p. 742: the last clause of the statement and the sentence of the proof beginning “To check that Π^n⃗_∞ is cohomological” (the same wording is in arXiv v1)",
+    "Corollary 5.5.2 (first assertion) and its proof, p. 743 (added in the published version; arXiv v1 has only Remark 5.5.2, the converse direction)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "provenance": "preprint",
+   "stated": 5,
+   "findings": 26,
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34",
+   "blocked": true,
+   "locators": [
+    "§7.2, Theorem 7.12, p. 23 (Theorem 1.5, p. 4); §10.4, Lemma 10.7 and Proposition 10.10, pp. 32–35",
+    "§11, Corollary 11.8, p. 37",
+    "Definition 2.5 pp.7–8 and Definition 3.3(b) p.8; published 2024 version",
+    "Lemma 4.7 p.14; published 2024 version",
+    "Proposition 10.5 p.30; interpretation of Corollary 10.11 p.35; published 2024 version"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/fmp.2024.10",
+    "isOA": true,
+    "copy": "https://doi.org/10.1017/fmp.2024.10"
+   }
+  },
+  {
+   "paper": "PAPER-HE-18",
+   "provenance": "preprint",
+   "stated": 5,
+   "findings": 13,
+   "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/01F1E9B6DCF4D2EE542DC17AC8197077",
+   "blocked": true,
+   "locators": [
+    "§2.1(a), p. 9, with Corollary 9, p. 12, Theorem A/§0.3, p. 3, and §5.2, p. 20 (both versions)",
+    "§5.2, p. 20, and Theorem 22, p. 23 (both versions)",
+    "Theorem 20, pp. 20–21, and through it Theorem 18/Theorem D, p. 20, over the printed coefficient ring (both versions)",
+    "§6.4, p. 24, the definition of the (P,Q,x)-graph, and through it Theorem 23 (both versions)",
+    "proof of Theorem 23, pp. 25–26, over the printed coefficient ring (both versions)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 400: Bad Request"
+   }
+  },
+  {
+   "paper": "PAPER-KHAYUTIN-19",
+   "provenance": "preprint",
+   "stated": 5,
+   "findings": 34,
+   "citation": "Ilya Khayutin, \"Joint equidistribution of CM points\", Annals of Mathematics 189 (2019), no. 1",
+   "link": "https://annals.math.princeton.edu/2019/189-1/p04",
+   "blocked": false,
+   "locators": [
+    "§5.3.2, Proposition 5.17, p. 188, and §5.3.3, Proposition 5.19, p. 189 (arXiv v3: Propositions 50 and 52)",
+    "Appendix B.4, Lemma B.4 (p. 266) and Case II of its proof (p. 267) (arXiv v3: Lemma 171)",
+    "Appendix B.4, Proposition B.5, the value of ρ^0_Q(p) (p. 268), and its proof, equation (68) (p. 268); Proposition B.8, the function f in the statement and V in the proof (p. 270) (arXiv v3: Propositions 172 and 175)",
+    "Appendix B.4, Proposition B.5, first clause (p. 268), and Corollary B.7, first clause (p. 269) (arXiv v3: Proposition 172 and Corollary 174)",
+    "Appendix B.4, proof of Proposition B.5, equation (68) and the case p | 4ω with l odd, pp. 268–269; the statement of Proposition B.5 for p > 2, n > l, p | ω, p. 268 (arXiv v3: Proposition 172)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 19,
+   "citation": "Antieau–Mathew–Morrow–Nikolaus, \"On the Beilinson fiber square\", Duke Mathematical Journal (2022)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "blocked": false,
+   "locators": [
+    "Lemma3.12 final clause and its use in Section3.3, arXivv2 pp18–19; published pp3733–3734",
+    "Construction4.8, arXivv2 p21; published p3737",
+    "Proposition5.27, arXivv2 p32; published p3753",
+    "CorollaryH and Corollary6.23, arXivv2 pp6,47; published pp3715,3776"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 32,
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "blocked": true,
+   "locators": [
+    "§4.2, Lemma 4.2.4 and its proof, p. 37",
+    "Definition 4.4.1 and Proposition 4.4.2, pp. 41–42",
+    "Lemma 5.2.6, hypothesis 2 (p. 48), and Proposition 6.2.3(13) (p. 55)",
+    "Proposition 6.2.3, hypotheses (7)–(17) and proof, pp. 55–56"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/fmp.2024.29",
+    "isOA": true,
+    "copy": "https://doi.org/10.1017/fmp.2024.29"
+   }
+  },
+  {
+   "paper": "PAPER-COLMEZ-NIZIOL-25",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 36,
+   "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
+   "link": "https://webusers.imj-prg.fr/~wieslawa.niziol/",
+   "blocked": false,
+   "locators": [
+    "Corollary 3.21(iv), p. 18",
+    "§3.2.2, fourth bulleted consequence, p. 14",
+    "Lemma 4.24(i), p. 28",
+    "Corollary 3.20(b), p. 18"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 400: Bad Request"
+   }
+  },
+  {
+   "paper": "PAPER-DOSPINESCU-LEBRAS-17",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 42,
+   "citation": "Dospinescu–Le Bras, \"Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique\", Annals of Mathematics 186 (2017), no. 2",
+   "link": "https://annals.math.princeton.edu/2017/186-2/p01",
+   "blocked": false,
+   "locators": [
+    "§1.3, Théorème 1.10, p. 11; §12.1, Démonstration du théorème 1.10, p. 66; also §1.3, Théorème 1.10, p. 11; proof §12.1, p. 66",
+    "§7.4, Proposition 7.7 b), p. 38",
+    "§10, after Théorème 10.1, p. 52",
+    "§12.1, Démonstration du théorème 1.10, p. 66; §1.1, Remarque 1.3(a), p. 4"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.48550/arxiv.1509.00606",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/1509.00606"
+   }
+  },
+  {
+   "paper": "PAPER-GHOSH-SARNAK-22",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 20,
+   "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/229-2",
+   "blocked": true,
+   "locators": [
+    "§7, Lemmas 7.1–7.2, pp.21–22 (arXiv v3)",
+    "Theorem 1.2(i), p.5 (arXiv v3)",
+    "Proposition B.1(b) and Proposition B.2(d) for every p ≡ 3 (mod 4), pp.46–47; Remark B.3 (arXiv v3)",
+    "Proposition B.12, p.50 (arXiv v3)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-HOWE-KLEVDAL-26",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 48,
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-2",
+   "blocked": true,
+   "locators": [
+    "arXiv v1 (21 August 2023), Lemma 4.1.1, p. 20, and the bijection B(G) ≅ Bun_G(C)/≅ for non-reductive G deduced from it on the same page",
+    "Remark 7.5.3, p. 47 (arXiv v2)",
+    "Section 7.5, p. 46, and Lemma 7.5.1, pp. 46–47 (arXiv v2)",
+    "Lemma 9.3.3, p. 59 (arXiv v2)"
+   ],
+   "openAlex": {}
+  },
+  {
+   "paper": "PAPER-IYENGAR-KHARE-MANNING-24",
+   "provenance": "preprint",
+   "stated": 4,
+   "findings": 65,
+   "citation": "Iyengar–Khare–Manning, \"Congruence modules and the Wiles-Lenstra-Diamond numerical criterion in higher codimensions\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/238-3",
+   "blocked": true,
+   "locators": [
+    "Theorem 7.4, p. 32, and Theorem E, p. 6 (last sentence of each)",
+    "Theorem 14.5(ii), p. 70; Theorem 14.6(1)–(2), p. 72; with the level subgroups K_0^𝔇, K_1^𝔇, K_Δ^𝔇 of p. 71",
+    "Theorem G, Introduction p. 7 (and footnote 1), and the sentence before Conjecture A, p. 60",
+    "Proposition 13.6, p. 62, with 13.1, p. 58 (K∞ ⊆ PGL_2(F ⊗ R) maximal compact); used in Propositions 13.7, 13.10, Lemma 15.3 and Theorem F"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 19,
+   "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70?pageNum=2",
+   "blocked": true,
+   "locators": [
+    "Published Theorem 9.1/Definition 9.2 pp48–50; arXiv v4 pp52–54",
+    "Published proof of Lemma 8.10 p47; v4 corresponding proof",
+    "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-CASTELLA-ETAL-22",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 41,
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/227-2",
+   "blocked": true,
+   "locators": [
+    "§5.2, Corollary 5.2.3 and its proof, p. 32",
+    "Remark 5.2.4, p. 32 (arXiv v2)",
+    "Corollary D, Introduction, p. 3 (arXiv v2)"
+   ],
+   "openAlex": {}
+  },
+  {
+   "paper": "PAPER-DING-25",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 24,
+   "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2025__142_/",
+   "blocked": false,
+   "locators": [
+    "Proposition 3.8 (1), p. 38, display (3.12); the same index set recurs in the diagram (3.15) on p. 39, in Proposition 3.18 (1) on p. 46 and in (4.11) on p. 66",
+    "§3.2.1, p. 51, the sentence before Proposition 3.26",
+    "Lemma 3.2 (1) and its proof, pp. 34–35"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 20,
+   "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
+   "link": "https://link.springer.com/article/10.1007/s00222-020-00957-8",
+   "blocked": true,
+   "locators": [
+    "§2.5, Lemma 2.17 and its proof, pp. 525–526",
+    "§3.2, Lemma 3.12 (second assertion) and Corollary 3.13, p. 534",
+    "§5.1, Lemma 5.1 (a), (c), (d) and the proof of (b), pp. 548–549"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-HARPAZ-WITTENBERG-23",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 16,
+   "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
+   "link": "https://www.math.univ-paris13.fr/~wittenberg/",
+   "blocked": false,
+   "locators": [
+    "Lemma 4.7 and its proof, p.14 (with Definition 3.2, p.9), in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+    "Lemma 5.5, p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+    "Proposition 7.3, p.26, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-KINGS-SPRANG-25",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 8,
+   "citation": "Kings–Sprang, \"Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation\", Annals of Mathematics 202 (2025), no. 1",
+   "link": "https://annals.math.princeton.edu/2025/202-1/p01",
+   "blocked": false,
+   "locators": [
+    "Lemma 3.16, p. 37 (parts (b) and (c) and the proof of (c), pp. 37–38); Proposition 3.17, p. 38, equation (3.4.2)",
+    "proof of Theorem 3.20, p. 39 (the binomial series, p. 41); Definition 3.15, p. 37",
+    "Corollary 4.15, p. 54; Remark 4.16, p. 54"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 400: Bad Request"
+   }
+  },
+  {
+   "paper": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 16,
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "blocked": true,
+   "locators": [
+    "Lemma 3.11, p.14 (published version)",
+    "Lemma 3.13, p.16, and its use on p.18 (published version)",
+    "§7.2, the general prediction for h₃(K/k), p.39 (published version)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/s2050508625000009",
+    "isOA": true,
+    "copy": "https://doi.org/10.1017/s2050508625000009"
+   }
+  },
+  {
+   "paper": "PAPER-SKINNER-20",
+   "provenance": "preprint",
+   "stated": 3,
+   "findings": 11,
+   "citation": "Christopher Skinner, \"A converse to a theorem of Gross, Zagier, and Kolyvagin\", Annals of Mathematics 191 (2020)",
+   "link": "https://arxiv.org/abs/1405.7294",
+   "blocked": false,
+   "locators": [
+    "arXiv:1405.7294v1 (28 May 2014), §§2.6 and 2.7: the definition of the anticyclotomic p-adic L-function, the definition of Λ, Conjecture 2.7.1 and Proposition 2.7.2",
+    "§2.2, Lemma 2.2.2 and the sentence introducing it, published p. 338 (page image checked); arXiv v1 p. 9. It propagates to §3, 'By Lemma 2.2.2, hypothesis (e) of Theorem B then also holds' (p. 351), and to §4 (Theorem E, p. 352), when [M_f:Q] > 1",
+    "§2.6, Corollary 2.6.2 and the sentence before it, published p. 344 (page image checked); arXiv v1 p. 14"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 400: Bad Request"
+   }
+  },
+  {
+   "paper": "PAPER-ABDURRAHMAN-VENKATESH-25",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 25,
+   "citation": "Abdurrahman–Venkatesh, \"Symplectic L-functions and symplectic Reidemeister torsion (mod squares)\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/241-3",
+   "blocked": true,
+   "locators": [
+    "§5.1, Lemma 5.1.1 and its proof, p. 40; hence §5.3 (Lemma 5.3.1), §5.6 and Theorem 3.1 in the case r = 1, #ℓ = 9",
+    "Appendix B.10, the functoriality statement and its proof, and the Claim's proof, pp. 85–86"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.48550/arxiv.2303.13436",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/2303.13436"
+   }
+  },
+  {
+   "paper": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 19,
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "blocked": true,
+   "locators": [
+    "Proposition A.0.2.1(1), p.95, and Corollary A.0.2.2, pp.95–96; arXiv v1 pp.84–85",
+    "Corollary A.0.2.2, p.95; arXiv v1 p.85"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 47,
+   "citation": "Beuzart-Plessis–Liu–Zhang–Zhu, \"Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture\", Annals of Mathematics 194 (2021), no. 2",
+   "link": "https://annals.math.princeton.edu/2021/194-2/p05",
+   "blocked": false,
+   "locators": [
+    "§2.3, Remark 2.16, p. 12",
+    "§4.3, Theorem 4.14(4), p. 39 (proof p. 40)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 6,
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878",
+   "blocked": true,
+   "locators": [
+    "Théorème 5.15, p. 55",
+    "Théorème 5.24 (ii), p. 59 (and Théorème 5.15, p. 55)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/fmp.2023.15",
+    "isOA": true,
+    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/div-class-title-factorisation-de-la-cohomologie-etale-span-class-italic-p-span-adique-de-la-tour-de-drinfeld-div.pdf"
+   }
+  },
+  {
+   "paper": "PAPER-GAN-SAVIN-23",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 52,
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/232-1",
+   "blocked": true,
+   "locators": [
+    "§8.1, p. 24 (arXiv v1); checked on the page image",
+    "§8.3, Theorem 8.2(i), p. 25, and §8.5, Theorem 8.5(iii), p. 27 (arXiv v1); checked on the page images"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s00222-022-01165-2",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-GLEASON-LIM-XU-26",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 17,
+   "citation": "Gleason–Lim–Xu, \"The connected components of affine Deligne–Lusztig varieties\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/243-2",
+   "blocked": true,
+   "locators": [
+    "Lemma3.2,p820;arXivv3PDF16–17; published57-page version, rendered page inspected unless stated otherwise",
+    "Proposition5.7,(5.18)–(5.19),pp840–841;use(5.26); published57-page version, rendered page inspected unless stated otherwise"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1112/s0010437x15007253",
+    "isOA": true,
+    "copy": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2955973870753861AB1D727CF6AACA34/S0010437X15007253a.pdf/div-class-title-connected-components-of-affine-deligne-lusztig-varieties-in-mixed-characteristic-div.pdf"
+   }
+  },
+  {
+   "paper": "PAPER-GUO-REINECKE-24",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 36,
+   "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/236-1",
+   "blocked": true,
+   "locators": [
+    "Proposition 2.29, Corollary 2.30 and Corollary 2.35, pp. 20–24 (arXiv 2203.09490v3)",
+    "Proposition 3.7, p. 30, with the §3 standing hypothesis on p. 27 (arXiv 2203.09490v3)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s00222-024-01238-4",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-KALETHA-16",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 15,
+   "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
+   "link": "https://annals.math.princeton.edu/2016/184-2/p06",
+   "blocked": false,
+   "locators": [
+    "Corollary5.4,printed598;published74-page version",
+    "§3.4,printed577;arXivv5 andauthor ri4 PDF16"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.4007/annals.2016.184.2.6",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/1304.3292"
+   }
+  },
+  {
+   "paper": "PAPER-LI-LIU-21",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 11,
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups\", Annals of Mathematics 194 (2021), no. 3",
+   "link": "https://annals.math.princeton.edu/2021/194-3/p06",
+   "blocked": false,
+   "locators": [
+    "Theorem 1.7(1), p.7, and Proposition 3.7 with its proof, p.17, in arXiv v5 (2006.06139v5); the final version differs",
+    "Proof of Proposition 9.1, p.45 (final version; the same in arXiv v5, p.44)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-MAO-WAN-ZHANG-26",
+   "provenance": "preprint",
+   "stated": 2,
+   "findings": 18,
+   "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/243-3",
+   "blocked": true,
+   "locators": [
+    "§5.2, (5.13) p. 21, the unfolding pp. 22–23, Proposition 5.7 p. 25 and footnote 11 p. 29",
+    "Author April 2025 Table 3, p. 13; same first row in arXiv v3 p. 11"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s00222-025-01388-z",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 5,
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "link": "https://collaborate.princeton.edu/en/publications/a-positive-proportion-of-locally-soluble-hyperelliptic-curves-ove/",
+   "blocked": false,
+   "locators": [
+    "Theorem 44, pp.34–35 (arXiv v2)"
+   ],
+   "openAlex": {}
+  },
+  {
+   "paper": "PAPER-BHATT-MATHEW-21",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 3,
+   "citation": "Bhatt–Mathew, \"The arc-topology\", Duke Mathematical Journal (2021)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "blocked": false,
+   "locators": [
+    "Theorem 1.19 of the introduction (= Theorem 7.3), and Remark 7.4(2) (arXiv v4, the version read)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1215/00127094-2020-0088",
+    "isOA": false,
+    "copy": null
+   }
+  },
+  {
+   "paper": "PAPER-BURUNGALE-TIAN-26",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 15,
+   "citation": "Burungale–Tian, \"A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin\", Annals of Mathematics 203 (2026), no. 1",
+   "link": "https://annals.math.princeton.edu/2026/203-1/p01",
+   "blocked": false,
+   "locators": [
+    "Theorem 2.1 and footnote 3, p.4, in arXiv 2506.03465v2 (11 October 2025), the version read; the passage is the same in v1 (4 June 2025)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 400: Bad Request"
+   }
+  },
+  {
+   "paper": "PAPER-CALMES-ETAL-26",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 5,
+   "citation": "Calmès et al., \"Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings\", Annals of Mathematics 204 (2026), no. 1",
+   "link": "https://annals.math.princeton.edu/2026/204-1/p02",
+   "blocked": false,
+   "locators": [
+    "Proposition 1.3.1, parts (i) and (ii), p. 27"
+   ],
+   "openAlex": {
+    "doi": null,
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/2009.07225"
+   }
+  },
+  {
+   "paper": "PAPER-CHENEVIER-TAIBI-20",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 11,
+   "citation": "Chenevier–Taïbi, \"Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms\", Publications Mathématiques de l'IHÉS (2020)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2020__131_/",
+   "blocked": false,
+   "locators": [
+    "Section 2.4.2, the paragraph before Corollary 2.9 and Corollary 2.9, pp. 280–281; Section 2.4.5, 'Output', p. 283; the elements x displayed in Section 2.4.6 (Step 3, p. 284) and Section 4.1 (p. 296). Published version; the same in arXiv v1"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-FENG-GALATIUS-VENKATESH-22",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 17,
+   "citation": "Feng–Galatius–Venkatesh, \"The Galois action on symplectic K-theory\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/230-1",
+   "blocked": true,
+   "locators": [
+    "§8, Theorem 8.1 and the first step of its proof, p. 296"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-FENG-YUN-ZHANG-24",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 28,
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/235-2",
+   "blocked": true,
+   "locators": [
+    "Lemma 10.5 and its proof (arXiv v4 p. 61), published version not re-read (see searched)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s00222-023-01228-y",
+    "isOA": true,
+    "copy": "https://link.springer.com/content/pdf/10.1007/s00222-023-01228-y.pdf"
+   }
+  },
+  {
+   "paper": "PAPER-GAN-SAVIN-23-B",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 15,
+   "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878?pageNum=2",
+   "blocked": true,
+   "locators": [
+    "§9, Theorem 9.1(ii), p. 27"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.48550/arxiv.2209.07346",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/2209.07346"
+   }
+  },
+  {
+   "paper": "PAPER-HARPAZ-WITTENBERG-20",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 4,
+   "citation": "Harpaz–Wittenberg, \"Zéro-cycles sur les espaces homogènes et problème de Galois inverse\", Journal of the American Mathematical Society (2020)",
+   "link": "https://www.math.univ-paris13.fr/~wittenberg/",
+   "blocked": false,
+   "locators": [
+    "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1090/jams/943",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/1802.09605"
+   }
+  },
+  {
+   "paper": "PAPER-IM-KIM-LE-ETAL-24",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 36,
+   "citation": "Im–Kim–Le–Ngo Dac–Pham, \"Zagier–Hoffman's Conjectures in Positive Characteristic\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34?pageNum=2",
+   "blocked": true,
+   "locators": [
+    "arXiv:2205.07165v2 (10 June 2024), Section 2.2.1, Condition (2.1) and the matrix Ψ_{s,Q}, pp. 27–28 (published: Section 3.2.1, Condition (3.1))"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-LI-LIU-22",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 5,
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
+   "blocked": true,
+   "locators": [
+    "Proposition 4.27(2) and its proof, p.64"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 400: Bad Request"
+   }
+  },
+  {
+   "paper": "PAPER-LI-ZHANG-22-B",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 5,
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "link": "https://www.math.columbia.edu/~chaoli/",
+   "blocked": false,
+   "locators": [
+    "§6.4, display before Definition 6.4.3 (p.38); proof of Lemma 6.4.5 (p.40); Lemmas 6.4.6–6.4.7 (pp.40–42); proof of Theorem 6.4.9 (p.42)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-LIU-ZHU-17",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 12,
+   "citation": "Ruochuan Liu–Xinwen Zhu, \"Rigidity and a Riemann–Hilbert correspondence for p-adic local systems\", Inventiones Mathematicae (2017)",
+   "link": "https://link.springer.com/article/10.1007/s00222-016-0671-7",
+   "blocked": true,
+   "locators": [
+    "arXiv1602.06282v3; Lemma3.10 statement and proof,PDF25; repeated in Lemma3.11,PDF27"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-MERKURJEV-SCAVIA-26",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 15,
+   "citation": "Merkurjev–Scavia, \"Galois representations modulo p that do not lift modulo p^2\", Journal of the American Mathematical Society (2026)",
+   "link": "https://www.math.univ-paris13.fr/~scavia/",
+   "blocked": false,
+   "locators": [
+    "Lemma 4.1, p. 12 of arXiv:2410.12560v1 and of the author manuscript (§4; journal pp. 73–94 not read)"
+   ],
+   "openAlex": {
+    "error": "HTTP Error 429: Too Many Requests"
+   }
+  },
+  {
+   "paper": "PAPER-NEWTON-THORNE-21",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 26,
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms\", Publications Mathématiques de l'IHÉS (2021)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2021__134_/",
+   "blocked": false,
+   "locators": [
+    "§5, Corollary 5.4, p. 80"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1007/s10240-021-00127-3",
+    "isOA": true,
+    "copy": "https://link.springer.com/content/pdf/10.1007/s10240-021-00127-3.pdf"
+   }
+  },
+  {
+   "paper": "PAPER-PASKUNAS-QUAST-26",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 2,
+   "citation": "Paškūnas–Quast, \"On local Galois deformation rings: generalised reductive groups\", Forum of Mathematics, Pi (2026)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/D7BB6DF57326F5ED06ABCA47A3819432",
+   "blocked": true,
+   "locators": [
+    "§11, Proposition 11.5 and its proof, pp. 55–56 (published version; arXiv v2, Proposition 11.5, p. 62)"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/fmp.2026.10030",
+    "isOA": true,
+    "copy": "https://doi.org/10.1017/fmp.2026.10030"
+   }
+  },
+  {
+   "paper": "PAPER-VANHOFTEN-24",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 35,
+   "citation": "van Hoften, \"Mod p points on Shimura varieties of parahoric level\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34?pageNum=2",
+   "blocked": true,
+   "locators": [
+    "Published2024 §4.3.12–Proposition4.3.13 p47"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.1017/fmp.2024.22",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/2010.10496"
+   }
+  },
+  {
+   "paper": "PAPER-YANG-ZHAO-25",
+   "provenance": "preprint",
+   "stated": 1,
+   "findings": 9,
+   "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/240-1",
+   "blocked": true,
+   "locators": [
+    "Lemma3.2, p.15, final specialization, arXiv v4"
+   ],
+   "openAlex": {
+    "doi": "https://doi.org/10.48550/arxiv.2209.11086",
+    "isOA": true,
+    "copy": "https://arxiv.org/pdf/2209.11086"
+   }
+  }
+ ]
+}

@@ -698,6 +698,31 @@ found in their sources under `sourceIssues`:
 }]
 ```
 
+Say which text you read. A published paper and its preprint are different
+documents, and a sentence quoted from one may not be in the other: BSTTTZ's
+Theorem 1.3(a) gained a factor `|Disc(C)|^ε` between arXiv v1 and the Journal of
+the AMS, and a finding written against the preprint accused the published theorem
+of needing to be withdrawn. The file therefore records what was read, alongside
+`sourceIssues`, and `scripts/check_errata.py` requires it as soon as any finding
+quotes a stated result:
+
+```json
+"sourceVersions": [{
+  "kind": "published | preprint | author copy",
+  "url": "<what you opened>",
+  "citation": "<when there is no url>",
+  "read": "<date>",
+  "sha256": "<of the file you read, when you have it>"
+}]
+```
+
+A finding that quotes a stated result belongs against the version of record. When
+the publisher refuses to serve the text — several do, to anything that is not a
+browser — read what you can, say so in `sourceVersions`, and scope the finding to
+that text rather than to the published paper. `python3 scripts/collation.py`
+lists the papers whose quoted statements still rest on a preprint, and
+`research/blueprint/collation/REQUESTS.md` is the worklist that follows from it.
+
 - A **misprint** is a slip whose intended meaning is clear from the context (an
   index, a sign, a name); an **error** is a false statement or a step that
   fails; a **gap** is a step asserted without an adequate proof. `affects` says
