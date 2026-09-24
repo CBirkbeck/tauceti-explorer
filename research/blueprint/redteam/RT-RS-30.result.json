@@ -1,0 +1,21 @@
+{
+  "redteam": "RT-RS-30",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-30",
+  "summary": "No substantiated finding in the accepted restructuring. The twelve stages, eleven owners and 86 links preserve the distinction between elliptic foundations, quadratic/BSD comparisons, independently proved prime branches and all-prime certificates; the normalization bridge remains explicit. All tested supplier handoffs are present and no proposal edge creates a cycle. This is a structural result, not BSD proof closure.",
+  "checked": [
+    "Read the complete accepted RS-30 result, original report, family specification and REV-RS-30 review; checked independence using original PR901 (gpt-20260921-c74f2a) and review PR1039 (codex-a71f92).",
+    "Read the complete RankZeroOneBSD document, all twelve stage descriptions, source-readiness gates and implementation/acceptance contracts; compared every target with the retained work and named suppliers.",
+    "Reused this session’s complete EllipticCurves-anchor reading from RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves after verifying the document blob is unchanged (e8d4cabfb37922b00a582aaf623102876c77f33e); reread the load-bearing Mordell-Weil, height/regulator, Selmer/Sha, Cassels, rational-period and actual-analytic-function contracts for this job.",
+    "Read all eleven ownership rows and all 86 link reasons; checked actual R29.3/R29.6 and GZ.0 supplier statements and the complete HE.8b, MIMC:L6 and PS.6 consumer descriptions. Verified all 22 endpoint/member/consumer descriptions literally occur in their source documents.",
+    "Read all 57 target records and qualification/duplication notes in the twelve integrated reviewed AUDIT-27 member layers; retained the distinction between reviewed audit evidence and independently verified pinned declarations.",
+    "Independently read the relevant declarations and surrounding hypotheses in FinitelyGenerated.lean, Regulator.lean, CanonicalHeight.lean and QuadraticTwist.lean at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; verified all four source files byte-for-byte against the pinned remote files.",
+    "Attacked arbitrary-model versus short-model Mordell-Weil, finite-index versus basis-change regulator formulas, quadratic point equivariance versus integral/2-primary descent, Q-only real periods versus quadratic-field comparisons, actual pairing versus prose normalization, and general isogeny invariance versus the rational BSD defect.",
+    "Screened all current content README documents for RankZeroOneBSD and BSD-stage references and read all 20 resulting external line contexts. Checked the four existing external exports to HE.8b, MIMC:L6 and PS.6 and their prohibition on reverse proof/reexport dependencies.",
+    "Checked stage inventory, unique ownership, owner-to-former-stage links, exact Part II title/first anchor, live non-retired endpoints and all supplier-to-consumer handoffs: BSD.0 has five direct consumers, BSD.1 nine, BSD.5 six and BSD.9 none; zero missing handoffs.",
+    "Graph check: 4,440 baseline pairs, 86 proposal pairs (25 already present), 4,501 in the union; no proposed edge has a return path. Adding every other accepted restructuring gives 7,053 pairs and still no return path for an RS-30 edge.",
+    "Ran check_restructure.py, check_redteam.py and intake.py check-files; checked input immutability and the two-file submission scope. The final input refresh found no changes. No Lean file was required or compiled."
+  ],
+  "findings": []
+}
