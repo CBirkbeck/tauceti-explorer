@@ -36,7 +36,14 @@ pins. Eleven gaps, each with a next source action; the deepest are that the STAT
 Proposition VIII.3.8 is damaged in the extraction and is therefore requested rather than
 restated, that V. Lafforgue's continuity argument was not read, and that local class
 field theory is in NEITHER pinned library although the whole torus case rests on it.
-Twenty-one requests. Three structural findings.
+Twenty-one requests. Three structural findings. A reviewed library audit DOES exist for
+this roadmap: AUDIT-20, reviewed as REV-AUDIT-20 on 17 September 2026 (240 targets
+checked, 89 corrections), covers every layer and returns NOT BUILT for each. Its target
+notes are acted on here: Mathlib's CategoryTheory.CatCenter is cited rather than re-
+planned, the Nielsen-Schreier theorem and abelian Shapiro's lemma are cited to mark
+exactly where the nonabelian Shapiro equivalence of Proposition IX.6.3 begins, and Tau
+Ceti's class formations are cited to show that local class field theory has carriers but
+no reciprocity map at the pins.
 
 Nothing here is formalised. Every node carries `implementationStatus: "unchecked"`,
 no Lean was compiled for this job, and the suggested file is a set of signatures and
@@ -653,7 +660,7 @@ diagram without it, which yields the field-valued statements for all l different
 - Check that no parameter-level statement carries it
 - Check that the excursion-algebra variants are restated rather than quoted
 
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `ExcursionOperatorsAndSpectralAction:ES0`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `LanglandsParameterStacks:LP2:semisimple-characters`, `mathlib:CommRing`, `mathlib:FreeGroup`
+**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `ExcursionOperatorsAndSpectralAction:ES0`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `LanglandsParameterStacks:LP2:semisimple-characters`, `mathlib:CommRing`, `mathlib:FreeGroup`, `mathlib:CategoryTheory.CatCenter`
 
 **Sources.**
 
@@ -846,6 +853,12 @@ compatible with Weil restriction.
 - V' is inflated from a representation of (G-hat' semidirect W_{E'})^I to (G-hat
   semidirect W_{E'})^I and then INDUCED to (G-hat semidirect W_E)^I; that is the
   nonabelian Shapiro step
+- At the pins Mathlib HAS the Nielsen-Schreier theorem - a subgroup of a free group is
+  free - which is exactly what is needed for F_n x_W W', and it HAS abelian Shapiro's
+  lemma in all degrees as groupCohomology.coindIso. What it does NOT have is the
+  Schreier index formula for the rank, nor the NONABELIAN Shapiro equivalence for
+  1-cocycles with values in a nonabelian group, which is what this proposition actually
+  proves. The reviewed audit AUDIT-20 records exactly this boundary.
 
 **Proof outline.**
 
@@ -869,7 +882,7 @@ compatible with Weil restriction.
 - Check that the Weil embedding is chosen and that the projection G-hat -> G-hat' depends on it
 - Check the closed-immersion claim for the Hecke stacks
 
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP0`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `ReductiveGroupsPartII:RG2.5`, `HeckeStacksAndLocalShtukas:HS4`, `BunGAndNewtonStrata:BG0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:FreeGroup`, `mathlib:Subgroup`, `mathlib:Representation`, `mathlib:AlgebraicGeometry.Scheme`
+**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP0`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `ReductiveGroupsPartII:RG2.5`, `HeckeStacksAndLocalShtukas:HS4`, `BunGAndNewtonStrata:BG0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:FreeGroup`, `mathlib:Subgroup`, `mathlib:Representation`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:IsFreeGroup`, `mathlib:groupCohomology.coindIso`
 
 **Sources.**
 
@@ -928,7 +941,7 @@ Z^spec(T,Lambda) = lim over K inside T(E) of Lambda[T(E)/K].
 - Check that local class field theory is the input in the G_m case and that it is not available in the pinned libraries
 - Check that Z^geom(T,Lambda) is a product over B(T) and not a single copy
 
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `LanglandsParameterStacks:LP0`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `BunGAndNewtonStrata:BG2`, `SmoothRepresentationsOfLocalGroups:SR.0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:MonoidHom`, `mathlib:MulChar`, `mathlib:MonoidAlgebra`, `mathlib:CommRing`, `mathlib:Units.map`
+**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams`, `LanglandsParameterStacks:LP0`, `LanglandsParameterStacks:LP2:excursion-presentation`, `LanglandsParameterStacks:LP2:integral-invariants`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `BunGAndNewtonStrata:BG2`, `SmoothRepresentationsOfLocalGroups:SR.0`, `VStackSheavesAndLisseCategories:VS4`, `mathlib:MonoidHom`, `mathlib:MulChar`, `mathlib:MonoidAlgebra`, `mathlib:CommRing`, `mathlib:Units.map`, `tauceti:TauCeti.ClassFieldTheory.Formation`
 
 **Sources.**
 
@@ -986,7 +999,7 @@ chi, with the fixed geometric-Frobenius normalisation.
 - Check that the geometric-Frobenius normalisation is fixed and used
 - Check that Section II.2.1 is the input for the G_m case
 
-**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `LanglandsParameterStacks:LP0`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:MonoidHom`, `mathlib:MulChar`, `mathlib:MonoidAlgebra`, `mathlib:LinearMap.trace`
+**Prerequisites.** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/products`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction`, `ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center`, `LanglandsParameterStacks:LP0`, `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:MonoidHom`, `mathlib:MulChar`, `mathlib:MonoidAlgebra`, `mathlib:LinearMap.trace`, `tauceti:TauCeti.ClassFieldTheory.Formation`
 
 **Sources.**
 
@@ -1302,8 +1315,12 @@ independent, and the general statement is a LATE RETURN in the roadmap's sense.
 
 ## Baseline: what the pinned libraries already have
 
-Mathlib `082e2d3`, Tau Ceti `f790474`. `data/library-coverage.json` has no reviewed entry for
-this roadmap, so the pinned declaration index was searched directly and each
+Mathlib `082e2d3`, Tau Ceti `f790474`. The reviewed audit **AUDIT-20** (reviewed as
+`REV-AUDIT-20`, 17 September 2026, 240 targets checked, 89 corrections) covers every
+layer of this roadmap and returns **not built** for each. Its target notes are acted
+on below: `CategoryTheory.CatCenter`, the Nielsen–Schreier theorem, abelian Shapiro
+and Tau Ceti's class formations are cited rather than re-planned, which fixes exactly
+where the nonabelian Shapiro equivalence and the local reciprocity map begin. Every
 declaration below was read at the pins before being cited.
 
 | Declaration | Module | Why it is baseline |
@@ -1331,6 +1348,10 @@ declaration below was read at the pins before being cited.
 | `mathlib:AlgebraicGeometry.Scheme` | `Mathlib/AlgebraicGeometry/Scheme.lean` | Schemes. Z^1(F_n,G-hat) and its quotients Z^1(F_n,G-hat)//G-hat are affine schemes, and the Weil-restriction comparison is an isomorphism of affine schemes. |
 | `tauceti:TauCeti.IsSmoothDiscrete` | `TauCeti/RepresentationTheory/SmoothDiscrete.lean` | Smooth discrete actions. The irreducible smooth representations of G_b(E) to which parameters are attached are of this kind at the pins. This is a genuine baseline and is NOT the equivalence with sheaves on a stratum, which is VStackSheavesAndLisseCategories:VS4's. |
 | `tauceti:TauCeti.SmoothDiscreteTopRep` | `TauCeti/RepresentationTheory/SmoothDiscrete.lean` | The category of smooth discrete representations. The Bernstein centre of a torus, and the categories D(G_b(E),Lambda) that the strata are identified with, live over this category. |
+| `mathlib:CategoryTheory.CatCenter` | `Mathlib/CategoryTheory/Center/Basic.lean` | `abbrev CatCenter := End (1_C)`, ALREADY IN MATHLIB: the Bernstein centre of a category, which the reviewed audit AUDIT-20 records as a PARTIAL target of ES0. Every square of Section IX.6 has a centre at one corner, and the 1-categorical notion is this declaration. |
+| `mathlib:IsFreeGroup` | `Mathlib/GroupTheory/FreeGroup/IsFreeGroup.lean` | Free groups as a property. AUDIT-20 records that Mathlib HAS the Nielsen-Schreier theorem, that a subgroup of a free group is free - which is exactly what the Weil-restriction comparison of Proposition IX.6.3 needs for F_n x_W W' - but NOT the Schreier index formula for its rank. The comparison uses only freeness, so this is a genuine baseline citation, and the missing rank formula is recorded as a gap. |
+| `mathlib:groupCohomology.coindIso` | `Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean` | ABELIAN SHAPIRO'S LEMMA in all degrees, at the pins. Proposition IX.6.3's comparison is the NONABELIAN Shapiro equivalence for Z^1 with coefficients in a nonabelian group, which is absent; the pinned abelian statement is its degree-one shadow and is cited to mark the boundary precisely. |
+| `tauceti:TauCeti.ClassFieldTheory.Formation` | `TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean` | CLASS FORMATIONS, at the pins, together with Tau Ceti's Tate cohomology. AUDIT-20 records these as the only class-field-theory content in either library: the CARRIERS exist, the local reciprocity map does not. A direct search confirms it - there is no Artin map and no reciprocity map anywhere in either library - so Proposition IX.6.4's appeal to local class field theory has, at the pins, a formulation but no right-hand side. |
 
 Confirmed **absent** at both pins, and therefore not cited: **local class field theory**
 in any form — a search of the pinned index found no Artin map, no local reciprocity map
@@ -1342,21 +1363,43 @@ requested from another roadmap rather than cited as baseline.
 
 ## Gaps
 
-Eleven, each with a next source action.
+Thirteen. The first two are the standing caveats on this packet; the rest each carry
+a next source action.
 
 ### 1. This roadmap has no integrated decomposition; every node was written from the source read in this session
 
 There is no file for ExcursionOperatorsAndSpectralAction in data/decompositions/, no
-draft in research/expansion/drafts/, no external contribution and no reviewed audit in
-data/library-coverage.json. All sixteen nodes of this packet were written from Fargues-
-Scholze read directly, from Geometrization.pdf whose SHA-256 reproduces the recorded
-value byte for byte; the text was extracted by inflating the PDF's object streams and
-reading its text operators, and every printed page was read off the running heads. The
-companion part of this roadmap, covering ES0 to ES4, was written in the same session
-from the same reading. A reviewer of this packet is checking a first reading and not a
-refinement of a reviewed one.
+draft in research/expansion/drafts/, no external contribution. All sixteen nodes of this
+packet were written from Fargues-Scholze read directly, from Geometrization.pdf whose
+SHA-256 reproduces the recorded value byte for byte; the text was extracted by inflating
+the PDF's object streams and reading its text operators, and every printed page was read
+off the running heads. The companion part of this roadmap, covering ES0 to ES4, was
+written in the same session from the same reading. A reviewer of this packet is checking
+a first reading and not a refinement of a reviewed one.
 
-### 2. The statement of Proposition VIII.3.8 is damaged in the text extraction, so this packet requests it rather than restating it
+### 2. CORRECTION: this roadmap does have a reviewed library audit, and the first version of this packet said it did not
+
+The first version of this packet said there is 'no reviewed audit in data/library-
+coverage.json' for this roadmap. That is wrong. AUDIT-20, reviewed as REV-AUDIT-20 on 17
+September 2026 with 240 targets checked and 89 corrections, covers all seventeen layers
+and returns NOT BUILT for every one. No node here duplicates a built target, so nothing
+planned is overturned; but four of the audit's notes change what this packet cites, and
+all four are applied. (1) ES0's centre target is PARTIAL because Mathlib has
+CategoryTheory.CatCenter = End(1_C); it is now cited. (2) ES6:functoriality's Weil-
+restriction target records that Mathlib HAS the Nielsen-Schreier theorem - a subgroup of
+a free group is free, which is precisely what F_n x_W W' needs - but NOT the Schreier
+index formula for its rank, and HAS abelian Shapiro's lemma in all degrees
+(groupCohomology.coindIso) while the NONABELIAN Shapiro equivalence this proposition
+proves is absent. Both pinned declarations are now cited, so the boundary is exact. (3)
+ES6's torus target records that local class field theory is not proved and that Tau Ceti
+has only the class-formation carriers and Tate cohomology;
+TauCeti.ClassFieldTheory.Formation is now cited, and a direct search of the index
+confirms there is no Artin map and no reciprocity map anywhere in either library. (4)
+The audit's duplicate records for ES5 name GlobalShtukasAndFunctionFieldLanglands:GS.5
+and LanglandsParameterStacks:LP2:semisimple-characters; the second was already requested
+and a request to the first is now added.
+
+### 3. The statement of Proposition VIII.3.8 is damaged in the text extraction, so this packet requests it rather than restating it
 
 Proposition VIII.3.8 is the statement that turns an excursion character into a
 semisimple parameter, and the whole of ES5 rests on it. On printed pages 289 and 290 the
@@ -1372,7 +1415,7 @@ proposition as a request to LanglandsParameterStacks:LP2:semisimple-characters, 
 owns it. NEXT SOURCE ACTION: read printed pages 289-290 of Geometrization.pdf in a
 viewer and record the three items verbatim.
 
-### 3. V. Lafforgue's continuity argument was not read
+### 4. V. Lafforgue's continuity argument was not read
 
 The proof of Proposition VIII.3.8 establishes continuity of the resulting cocycle by
 citing 'the proof of [Laf18, Proposition 11.7], in particular the choice of finitely
@@ -1385,7 +1428,7 @@ reason for carrying the condensed structure through ES5, this is the deepest unr
 dependence of this part. NEXT SOURCE ACTION: read [Laf18] Section 11, in particular
 Proposition 11.7 and Lemma 11.10.
 
-### 4. Local class field theory is in neither pinned library, and the whole torus case rests on it
+### 5. Local class field theory is in neither pinned library, and the whole torus case rests on it
 
 The proof of Proposition IX.6.4 reduces to T = G_m and then says 'In that case
 Z^1(W_E,G_m) = Hom(E^times,G_m) by local class field theory, giving the result.' A
@@ -1398,7 +1441,7 @@ request to the upstream Tau Ceti class-field-theory roadmap. NEXT SOURCE ACTION:
 this source; the statement must come from tauceti:TauCetiRoadmap/ClassFieldTheory layers
 8 and 9, with the geometric-Frobenius normalisation fixed.
 
-### 5. FS Section II.2.1, which finishes the G_m case of Proposition IX.6.5, was not read
+### 6. FS Section II.2.1, which finishes the G_m case of Proposition IX.6.5, was not read
 
 The proof of Proposition IX.6.5 reduces to computing the excursion operator for I of
 size two with V = std tensor std-dual and the tautological unit and counit, and
@@ -1410,7 +1453,7 @@ place where the layer's own text names a calculation that this packet cannot yet
 exhibit. NEXT SOURCE ACTION: read FS Section II.2.1, printed pages in Chapter II; it is
 also RelativeFarguesFontaine's and BunGAndNewtonStrata's material.
 
-### 6. Kaletha's Section 5, from which the z-embedding apparatus is quoted, was not read
+### 7. Kaletha's Section 5, from which the z-embedding apparatus is quoted, was not read
 
 Both the existence of a z-embedding G -> G' with connected centre and torus quotient,
 and the surjectivity Z'(E) -> D(E) quoted as Fact 5.5, come from T. Kaletha, Regular
@@ -1421,7 +1464,7 @@ node for them records exactly which properties are used and which are external. 
 SOURCE ACTION: read [Kal18] Section 5 and Fact 5.5 and decide whether to plan them here
 or route them to ReductiveGroupsPartII.
 
-### 7. Proposition VI.12.1 was not read, and it is the only substantive input to the duality statements
+### 8. Proposition VI.12.1 was not read, and it is the only substantive input to the duality statements
 
 The involution D^spec is defined using the Chevalley involution 'after passing to the
 quotient by the conjugation action of G-hat, we can also forget about the inner
@@ -1432,7 +1475,7 @@ Rep(G-hat^I) given by Proposition VI.12.1'. Proposition VI.12.1 lives in the geo
 Satake chapter, belongs to GeometricSatakeAndFusion, and was not read. NEXT SOURCE
 ACTION: read FS VI.12.
 
-### 8. The Schur condition for an irreducible smooth representation is nowhere stated in the source
+### 9. The Schur condition for an irreducible smooth representation is nowhere stated in the source
 
 ES5's own text requires: 'Prove the Schur/condensed scalar-endomorphism fact on the
 actual representation category and independence of the eligible embedding at the center
@@ -1445,7 +1488,7 @@ open obligations of this layer with no locator. NEXT SOURCE ACTION: none in this
 the statements have to be formulated against VStackSheavesAndLisseCategories:VS4's
 identification and proved.
 
-### 9. The roadmap's demand to compare kernels before evaluating characters has no counterpart in the source
+### 10. The roadmap's demand to compare kernels before evaluating characters has no counterpart in the source
 
 ES6:functoriality's text opens: 'Construct the actual maps of Bun/Hecke correspondences
 and compare their kernels before evaluating any character.' The proofs of IX.6.1, IX.6.2
@@ -1454,7 +1497,7 @@ chase, and a closed immersion of Hecke stacks - but none of them discusses kerne
 no statement in anything read compares them. This is an obligation the roadmap adds; the
 packet records it rather than inventing a statement to satisfy it.
 
-### 10. The excursion-algebra variants of Section IX.6 are not written out anywhere
+### 11. The excursion-algebra variants of Section IX.6 are not written out anywhere
 
 The head of IX.6 says all its results 'admit an obvious variant replacing the spectral
 Bernstein center by an excursion algebra when this assumption is omitted'. Not one of
@@ -1463,7 +1506,7 @@ algebra versions without that restriction, yielding the field-valued statements 
 l not equal to p.' This packet records which statements need a variant and does not
 manufacture the variants; a continuation must state and prove each one.
 
-### 11. The display in Proposition IX.6.2 is misprinted in the extraction
+### 12. The display in Proposition IX.6.2 is misprinted in the extraction
 
 The extraction used here renders the upper-right corner of the square in Proposition
 IX.6.2 as Z^geom(G_1,Lambda) tensor Z^geom(G_1,Lambda), with the first factor repeated.
@@ -1471,6 +1514,18 @@ The second factor is plainly Z^geom(G_2,Lambda), and the packet states it that w
 is recorded as an artefact of the extraction rather than an error in the source; a
 reviewer should confirm against the printed page. Nothing else in the node depends on
 it.
+
+### 13. The Schreier index formula, which the rank of F_n x_W W' would need, is not at the pins
+
+The Weil-restriction comparison of Proposition IX.6.3 uses that F_n x_W W' is a subgroup
+of finite index in F_n and is therefore itself a finitely generated free group. Mathlib
+at the pinned commit proves the Nielsen-Schreier theorem, so the freeness is available;
+AUDIT-20 records that the SCHREIER INDEX FORMULA for the rank of a finite-index subgroup
+of a free group is NOT. The proof as Fargues-Scholze write it needs only freeness and
+finite generation, so nothing here is blocked, but a formalisation that wants to name
+the rank - for instance to bound the index set of the colimit - would have to prove the
+index formula first. NEXT SOURCE ACTION: none in Fargues-Scholze; this is a Mathlib gap
+and should be recorded as such by a kind:link or library job.
 
 ## Requests to other roadmaps
 
@@ -1497,6 +1552,7 @@ it.
 | `EnhancedDerivedSheaves:E5:abstract` | Small idempotent-complete Lambda-linear stable infinity-categories and their endofunctor categories, over which the abstract statement of Corollary VIII.4.3 quantifies. |
 | `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence` | LOCAL CLASS FIELD THEORY, in the form the identification Z^1(W_E,G_m) = Hom(E^times,G_m) of Proposition IX.6.4 needs, with the GEOMETRIC-FROBENIUS normalisation that Proposition IX.6.5 and the degree map of Section IX.7.1 both use. A direct search of the pinned declaration index found no Artin map and no local reciprocity map in either Mathlib 082e2d3 or Tau Ceti f790474, so the whole torus case of this layer rests on this request. |
 | `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group` | The local Weil group W_E as a topological group, with its inertia and wild inertia subgroups and the normalised degree map sending geometric Frobenius to 1. Every parameter in this packet is a continuous cocycle on it, and the pinned libraries have no Weil group. |
+| `GlobalShtukasAndFunctionFieldLanglands:GS.5` | The GLOBAL reconstruction of semisimple L-parameters from excursion characters, over the function field of a curve, with the same uniqueness-up-to-conjugacy caveat. The reviewed audit AUDIT-20 records GS.5 as a duplicate of ES5 for exactly this reason. The two differ in the group - the Galois group of a function field against the local Weil group - and in the enhancement - a global Hecke stack against the condensed D_lis(Bun_G) - but the reconstruction argument is the same one, and PROTOCOL.md section 15 says it is planned once. A restructuring job should decide which layer owns it. |
 
 ## Structural findings
 

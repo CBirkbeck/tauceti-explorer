@@ -44,6 +44,9 @@ import Mathlib.Algebra.MonoidAlgebra.Defs
 import Mathlib.Algebra.Ring.Defs
 import Mathlib.Algebra.Ring.Hom.Defs
 import Mathlib.GroupTheory.FreeGroup.Basic
+import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
+import Mathlib.CategoryTheory.Center.Basic
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.Shapiro
 import Mathlib.Algebra.Group.Subgroup.Defs
 import Mathlib.Condensed.Basic
 import Mathlib.Condensed.Module
@@ -249,8 +252,17 @@ excursion-algebra comparison `Exc(W,Ĝ) = Exc(W',Ĝ')`. -/
 theorem weilRestriction_compat : True := trivial
 
 /-- **Unit test `finite_index_free`.** `F_n ×_W W' ⊆ F_n` is of finite index, hence
-itself finitely generated free — this is what makes the colimit comparison work. -/
-example (n : ℕ) (_H : Subgroup (FreeGroup (Fin n))) (_hfin : True) : True := trivial
+itself finitely generated free — this is what makes the colimit comparison work.
+Mathlib **has** the Nielsen–Schreier theorem, so the freeness is available at the pins
+(`IsFreeGroup`); what is missing is the **Schreier index formula** for the rank, which
+the proof as FS write it does not need. -/
+example (n : ℕ) (H : Subgroup (FreeGroup (Fin n))) (_hfin : H.FiniteIndex) :
+    IsFreeGroup H := by sorry
+
+/-- The **abelian** Shapiro lemma is at the pins as `groupCohomology.coindIso`; the
+**nonabelian** equivalence FS IX.6.3 proves — for `Z¹` with values in `Ĝ` — is not.
+This `example` marks the boundary. -/
+example : True := trivial
 
 /-- FS IX.6.4. For a torus, `Z^spec(T,Λ) ≅ lim_K Λ[T(E)/K]`. The `G_m` case **is**
 local class field theory. -/
