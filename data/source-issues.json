@@ -10407,22 +10407,23 @@
    "kind": "gap",
    "locator": "Proof of Lemma 7.1.7.1, assertion 2, p. 67",
    "printed": "Let (M_Q, ρ) be a representative of an element in 𝔛^h_Π. We claim that Ind^{U_h}_Q(ρ) and Ind^{U_{h♭}}_{P_{h♭}}(σ♭_{bc(λ)}) have the same Archimedean infinitesimal character … The former condition follows from [BLZZ21, Theorem 4.14 (4)] (applied to ρ) and the fact that the base change map is injective at the level of archimedean infinitesimal characters.",
-   "correction": "The claim is true, but the cited proof does not give it here. Take the compatibility of archimedean infinitesimal characters for the unitary part ρ_0 from Beuzart-Plessis–Liu–Zhang–Zhu Theorem 4.14(4) with its Proposition 4.13(1) repaired by isolating with Theorem 3.19 (PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1), or from Mok and Kaletha–Mínguez–Shin–White (strong base change is compatible at archimedean places; BPLZZ Remark 4.15), stating that dependence.",
-   "reason": "BPLZZ Theorem 4.14(4) rests on its Proposition 4.13(1), whose argument by contradiction reaches the archimedean component only when the base change is cuspidal. Here ρ = ρ♯ ⊠ ρ_0 with ρ_0 cuspidal on a unitary group whose weak base change is the discrete component Π_0 of Π, a discrete Hermitian Arthur parameter that is not cuspidal in the endoscopic cases the paper covers (this is the same step as in PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E1). Assertion 2, μ^h(Ind(σ_{bc(λ)})) = 1 on all of 𝔛^h_Π, is used to identify J^h_Π(λ_0, μ^h ∗ f^h) with J^h_Π(λ_0, f^h) at the end of the proof of Theorem 7.1.6.1. The theorems remain true by the repaired argument, so only the proof is affected.",
+   "correction": "Supply the archimedean compatibility proof for the endoscopic discrete base-change component. BPLZZ Theorem 4.14(4) states the needed result, but its printed proof goes through Proposition 4.13(1). That proof’s final nonemptiness assertion needs an additional argument in case (a). Theorem 3.19 is a possible repair tool, not a repair certified here. Alternatively, extract and verify the exact Mok/KMSW theorem and hypotheses indicated by BPLZZ Remark 4.15. Also retain the bc(λ) twist when comparing the induced representations.",
+   "reason": "Read BPLZZ Annals 194 (2021), Definition 3.16 p.556, Theorem 3.19 p.558, Proposition 4.13 pp.569–571 and Theorem 4.14 with Remark 4.15 pp.572–573. Definition 3.16 requires equality of the archimedean infinitesimal character as well as finite-place data. The contradiction in Proposition 4.13 assumes that weak base change does not exist and proves that this assumption fails; it does not establish D(G′,1)^heart_{χ′}≠∅ once an endoscopic weak base change exists with archimedean compatibility still to prove. Theorem 4.14(4) then cites precisely Proposition 4.13(1). Thus the confirmed issue is an inherited proof obligation, not a claim that Theorem 4.14 has a cuspidality hypothesis or that the BPC25 theorem is false. The original assertion that Theorem 3.19 already repairs all steps has been withdrawn.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-    "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1 and PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E1 (this atlas's extractions); source of BPLZZ Proposition 4.13 and Theorem 4.14 in arXiv 1912.07169v3"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed in the narrower inherited-proof sense stated above; no completed repair or false-main-theorem claim."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E2",
@@ -10434,17 +10435,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-    "page image of the published PDF checked"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed on the published p.5 image; the Laurent monomial (s−1)^{-d} requires multiplication by (s−1)^d, not its inverse."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E3",
@@ -10456,17 +10458,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-    "page image of the published PDF checked"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed p.7 against the ranks m and n+1 of the two unitary factors and §1.3.4."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E4",
@@ -10478,16 +10481,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed p.7: the r=0 reduction is the earlier corank-one theorem; the printed self-reference supplies no reduction."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E5",
@@ -10499,16 +10504,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed p.20 against (3.1.4.1) and the embedding U′⊂U″."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E6",
@@ -10520,16 +10527,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed p.26 in the unitary section; the test function and all three kernels live on U."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E7",
@@ -10537,21 +10546,22 @@
    "locator": "(4.2.8.1), p. 46, and the display in §1.4.3, p. 11",
    "printed": "I_{Π_λ}(f) = Σ_{φ∈ℬ_{P,π}} Z^RS(0, W(I_P(λ, f)φ, λ))\\overline{β_η(W(φ, λ))}/⟨W(φ, λ), W(φ, λ)⟩_Pet",
    "correction": "The denominator is ⟨W(φ, λ), W(φ, λ)⟩_Whitt.",
-   "reason": "W(φ, λ) is a Whittaker function, on which only the Whittaker inner product of §4.2.4 is defined; Proposition 4.2.6.1, used in the term-by-term proof of Theorem 4.2.8.1, identifies ⟨φ, φ⟩_Pet with ⟨W(φ, λ), W(φ, λ)⟩_Whitt, and (7.3.2.1) uses ⟨·,·⟩_Whitt locally.",
+   "reason": "Confirmed as a notation discrepancy with the form explicitly defined in §4.2.4. Proposition 4.2.6.1 identifies that Whittaker form with the transported Petersson form, so the printed Pet can be interpreted by transport; this is not a false numerical identity or a proof gap. Writing Whitt fixes the convention without changing the scalar.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-    "page image of the published PDF checked"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed as notation only; the transported Petersson form makes the intended expression meaningful."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E8",
@@ -10559,20 +10569,22 @@
    "locator": "Remarks 7.1.5.1, second paragraph, p. 65",
    "printed": "We warn also the reader that the map (7.1.5.1) does not preserve the various choices of Haar measures. In fact, the pullback of the measure on 𝔞*_{M_h} is 2^{dim(𝔞^L_M)} times the measure on 𝔞^{L,*}_M.",
    "correction": "The pullback of the measure on 𝔞*_{M_h} by bc is 2^{−dim(𝔞^L_M)} times the measure on 𝔞^{L,*}_M.",
-   "reason": "The second equality of (7.1.7.3) changes variables with exactly this factor, ∫_{i𝔞*_{M_h}}F = 2^{−dim 𝔞^L_M}∫_{i𝔞^{L,*}_M}F∘bc, and only then does (7.1.6.1) come out with |S_Π|^{−1} = 2^{dim 𝔞^L_M − dim 𝔞_L} (7.1.4.1). Direct check for one pair (σ, σ*), M = G_m × G_m, L = G_{2m}, M_h = Res_{E/F}GL_m: bc(z) = (z, −z), so in the coordinate u = x − y on 𝔞*_M/𝔞*_L (quotient measure du) one has u = 2z and dz = du/2.",
+   "reason": "The second equality of (7.1.7.3) changes variables with exactly this factor, ∫_{i𝔞*_{M_h}}F = 2^{−dim 𝔞^L_M}∫_{i𝔞^{L,*}_M}F∘bc, and only then does (7.1.6.1) come out with |S_Π|^{−1} = 2^{dim 𝔞^L_M − dim 𝔞_L} (7.1.4.1). Direct check for one pair (σ, σ*), M = G_m × G_m, L = G_{2m}, M_h = Res_{E/F}GL_m: bc is the inverse of z ↦ (z, −z), so in the coordinate u = x − y on 𝔞*_M/𝔞*_L (quotient measure du) one has u = 2z and dz = du/2.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed p.65 image, §2.1.8 measure convention and (7.1.7.3). In one pair u=x−y=2z and bc(u)=u/2, so the pullback is du/2."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E9",
@@ -10584,17 +10596,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-    "page image of the published PDF checked"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed p.71 image against §1.2.4 and the starred coefficient in (7.3.2.1)."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E10",
@@ -10602,42 +10615,229 @@
    "locator": "Lead-in to Lemmas 7.1.7.1–7.1.7.2, p. 66; proofs of Proposition 3.5.6.4 and Theorem 3.5.7.1, pp. 35–36",
    "printed": "The following two lemmas are based on [BLZZ21, theorem 3.17] … It follows from [BPCZ22, Proposition 2.8.41] … by [BPCZ22, Proposition 2.8.41]",
    "correction": "[BLZZ21, Theorem 3.19] (as the proof of Lemma 7.1.7.1 itself cites) and [BPCZ22, Proposition 2.8.4.1].",
-   "reason": "3.17 is the arXiv v1 number of the isolation theorem, which is Theorem 3.19 of the Annals paper cited in the bibliography (3.17 is there a proposition); BPCZ has no Proposition 2.8.41, and Proposition 2.8.4.1 is its relative-character convergence statement.",
+   "reason": "The published BPLZZ source has Proposition 3.17 (annihilating one component) and Theorem 3.19 (the full isolation statement) on pp.556–558. The later proof in BPC25 itself cites Theorem 3.19. BPCZ2022, printed pp.227–228, has Proposition 2.8.4.1, with the absolute convergence, basis independence and uniform distribution bounds used here. This review does not rely on the original extraction’s claim about the v1 numbering.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice",
-    "arXiv 1912.07169 v1 and v3 compared (numbering of Beuzart-Plessis–Liu–Zhang–Zhu)"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed both primary published locators: BPLZZ p.558 and BPCZ pp.227–228."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E11",
    "kind": "misprint",
-   "locator": "Lemma 7.1.7.2(1), p. 67; §7.3.1, p. 71; §8.2.1, p. 74; §4.1.5, p. 38",
-   "printed": "For all f ∈ 𝒮(G(A), K^∞_{h,1}) … f^h ∈ 𝒮(U_{h_0}(A)) … for each G ∈ {U_m, U_n, U_{n+1}, U_{n+2}, G_r, V_n} … the Haar measure we have fixed on G_r(F_v) … Levi factor L′ = L ∩ G",
-   "correction": "𝒮(G(A), K^∞_1); 𝒮(U_h(A)); U_{m+1} for U_{n+2} and G_k(F_v) for G_r(F_v) in the definition of ν(G_{k,v}); L′ = L ∩ G′.",
-   "reason": "Index slips: K^∞_{h,1} is the unitary-side level; §7.3 fixes h (h_0 is the rank-one form); only U_m, U_{m+1}, U_n, U_{n+1} are defined in §8.1.3; ν(G_{k,v}) compares measures on G_k; L′ is the Levi of Q′ = Q ∩ G′.",
+   "locator": "Lemma 7.1.7.2(1), p. 67; §7.3.1, p. 71; §8.2.1, p. 74; §4.1.5, p. 38; §5.4.2 p.51; end of proof of Lemma 7.1.7.1 p.67; (8.6.2.5) p.84; display before (8.7.2.8) p.89; §8.8.3 p.92",
+   "printed": "For all f ∈ 𝒮(G(A), K^∞_{h,1}) … f^h ∈ 𝒮(U_{h_0}(A)) … for each G ∈ {U_m, U_n, U_{n+1}, U_{n+2}, G_r, V_n} … the Haar measure we have fixed on G_r(F_v) … Levi factor L′ = L ∩ G; 𝒫_{2n}=B_{2n}; Ind_Q^{U_h}(ρ) compared with Ind_{P_{h♭}}^{U_{h♭}}(σ♭_{bc(λ)}); ν(G_{k,v}) in (8.6.2.5); a tensor-product sign between the second and third summands of S_{τ,s} ⊗^I wS_{n+1}; the local Bessel form on σ_{m,v}⊠σ_{n,v}",
+   "correction": "𝒮(G(A), K^∞_1); 𝒮(U_h(A)); U_{m+1} for U_{n+2} and G_k(F_v) for G_r(F_v) in the definition of ν(G_{k,v}); L′ = L ∩ G′. Also 𝒫_{2n}=N_{2n}; compare Ind_Q^{U_h}(ρ_{bc(λ)}); use ν(G_{r,v}) in (8.6.2.5); use a direct-sum sign between all three summands in the displayed decomposition; the Bessel form acts on σ_{m,v}⊠σ_{n+1,v}.",
+   "reason": "Index slips: K^∞_{h,1} is the unitary-side level; §7.3 fixes h (h_0 is the rank-one form); only U_m, U_{m+1}, U_n, U_{n+1} are defined in §8.1.3; ν(G_{k,v}) compares measures on G_k; L′ is the Levi of Q′ = Q ∩ G′. The block definition of 𝒫_i has lower block N_i, hence 𝒫_{2n}=N_{2n}. The representations in assertion 2 both carry the bc(λ) twist. The Fourier inversion is applied to G_r in (8.6.2.5). The three restrictions of the tensor representation on the Levi are a direct sum, as the next determinant factorization requires. The Bessel group is U_m×U_{n+1}, not U_m×U_n.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2025.8: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
-    "arXiv 2302.12331: only v1 (23 February 2023); the 2025 published version, read here, is the latest text",
-    "Cambridge Core article page (doi.org/10.1017/fmp.2025.8), 23 September 2026: no correction or erratum notice"
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
    ],
    "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
    "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
    "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Confirmed each listed index against the surrounding definitions on pp.38, 67, 71, 74. Also independently checked the additional cited displays and their adjacent definitions."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E12",
+   "kind": "error",
+   "locator": "Proposition A.0.2.1(1), p.95, and Corollary A.0.2.2, pp.95–96; arXiv v1 pp.84–85",
+   "printed": "for every regular S ∈ ^LT",
+   "correction": "Restrict both assertions to regular S∈T̂F where F generates Γ, as in the proof and in Proposition A.0.2.1(2). For the split local application use Γ_v={1}. An all-component theorem would require component-dependent Weyl data and a separate statement.",
+   "reason": "Take Ĝ=SL₂×SL₂, Γ=C₂ swapping the factors and upper triangular Borels. Then W=Ŵ^Γ is the diagonal two-element Weyl group. In the identity component take S=(diag(a,a^{-1}),diag(b,b^{-1})), a=2,b=3. It is regular. For χ=(-1,-1)=-ρ, χ+ρ is singular, but the two-term sum is 2ab/((a²−1)(b²−1))=1/2, not zero. With χ=0 and Q̂=Ĝ, the denominator sum, even with corrected W_L=W, is 37/24, not 1. On the generator component the analogous two sums are 0 and 1. Exact rational checks for all a,b∈{2,3,4,5} reproduce these values and boundaries. The proof on p.95 expressly fixes S∈T̂F.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; the published/preprint Appendix A comparison also retains this problem."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E13",
+   "kind": "misprint",
+   "locator": "Corollary A.0.2.2, p.95; arXiv v1 p.85",
+   "printed": "W_L = Norm_{^LL}(T̂)/T̂ ⊂ W",
+   "correction": "Use W_L=Ŵ_L^Γ=Norm_{L̂}(^LT)/T̂, consistent with the definition of W in A.0.2.",
+   "reason": "The printed quotient includes Γ and in general the full Weyl group of L̂, rather than its Γ-fixed subgroup. Take Ĝ=L̂=Q̂=B̂=T̂=G_m and Γ=C₂ acting trivially. The printed quotient is C₂, while W=1; every determinant on the zero tangent quotient is 1. Its sum is 2 instead of 1, even on the generator component. The corrected fixed Weyl group has one element.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; the published/preprint Appendix A comparison also retains this problem."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E14",
+   "kind": "misprint",
+   "locator": "Proof of Proposition A.0.2.1, p.95; arXiv v1 pp.84–85",
+   "printed": "Σ_{w∈W} χ(wS)/D_{Ĝ/B̂}(wS) = Tr(S|H^i(X,ℒχ))",
+   "correction": "Insert (−1)^i in front of the trace, and include it in εχ. For trivial Γ this gives εχ=(−1)^ℓ(wχ), not always 1.",
+   "reason": "Atiyah–Bott Theorem 4.12 uses the alternating sum defined in its (4.11), printed pp.458–459. For connected SL₂, Γ=1 and weight χ=-2, the two Weyl terms are a^{-2}/(1−a^{-2}) + a²/(1−a²) = -1 for a²≠1. The dominant dot translate is 0 and its character is 1. The missing sign is therefore visible without any analytic approximation. The proposition’s unspecified root of unity can absorb it; the printed proof and the extraction’s trivial-Γ test cannot omit it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; the published/preprint Appendix A comparison also retains this problem."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E15",
+   "kind": "error",
+   "locator": "Proof of Proposition 8.6.1.1, p.82",
+   "printed": "for every f ∈ C_c^∞(N_{r−1}(F_v)∖G_{r−1}(F_v))",
+   "correction": "Use smooth functions compact modulo N_{r−1} satisfying f(uh)=ψ_{−r}(u)f(h). Additionally verify the precise local-field and unitarity hypotheses of the cited Kirillov theorem before applying it to arbitrary generic τ.",
+   "reason": "A Whittaker functional satisfies L_W(τ(u)τ(h)φ)=ψ_{−r}(u)L_W(τ(h)φ). For r≥3 and ψ_{−r}(u)≠1, a nonzero ordinary left-N-invariant function cannot equal this restriction. Kemarsky’s primary Theorem 1, printed p.580, explicitly uses the twisted compact-modulo-N space and assumes generic unitary irreducible representations of GL_n(C); its introduction separately attributes real and p-adic analogues to Jacquet and Gelfand–Kazhdan. The equivariance error is confirmed. The arbitrary nonunitary complex extension remains a proof obligation, not a claimed counterexample to the main proposition.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E16",
+   "kind": "misprint",
+   "locator": "Equation (8.8.3.2), p.93",
+   "printed": "P_{ℬ_L,ψ^L_ℬ,v}(φ_{n,s,v}(h1)⊗σ_{n+1,v}(h2)φ_{n+1,v}, φ_{n,s,v}(h1)⊗σ_{n+1,v}(h2)φ_{n+1,v})",
+   "correction": "The two slots must be a(h1) and a(h2), where a(h)=φ_{n,s,v}(h)⊗σ_{n+1,v}(h)φ_{n+1,v}.",
+   "reason": "The published image repeats the same crossed tensor in both slots. Proposition 8.6.2.1, equation (8.6.2.1) on p.82, supplies the sesquilinear double integral with the two matched slots. The preceding global expression (8.8.3.1) likewise has a(h1) and the conjugate a(h2). Substitution of that cited proposition gives the correction directly.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E17",
+   "kind": "misprint",
+   "locator": "After equation (3.3.4.4), p.24",
+   "printed": "σ_1^2(H_1) ≠ 1",
+   "correction": "Use σ_1^2(H_1) ≠ 0 (equivalently =1 for the characteristic function).",
+   "reason": "The bound is needed on the support of the chamber characteristic function. The very next assumption (3.3.4.5) makes F·σ nonzero. The printed condition excludes that support, so the bound cannot be applied in the following sentence. This is the support-condition correction; no new proof of the cited Arthur estimate is claimed.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E18",
+   "kind": "misprint",
+   "locator": "Final estimate on p.29 in the proof following Lemma 3.4.5.2",
+   "printed": "d_{P′_1}(−α,y)",
+   "correction": "Use d_{P′_1}(−λ,y).",
+   "reason": "The estimate is stated for any n1,n2,r and uses the chosen λ in Lemma 3.4.5.2. Its next sentence explicitly refers to this same factor as d_{P′_1}(−λ,y) and its expansion in simple roots. The earlier α belongs to a preceding proof and is not the parameter of this estimate.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search."
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25/E19",
+   "kind": "misprint",
+   "locator": "Local Jacquet integral (5.4.4.1), p.51",
+   "printed": "∫_{(N_{2n}∩M)(F_S)∖N_{2n}(F_S)} W^ψ_{M,S}(Π_λ(ξ_0 u g_S)φ) du",
+   "correction": "Insert ψ(u)^{-1} in the integrand, as in the global integral in §5.4.3 immediately above.",
+   "reason": "The global definition on the same page includes this character factor. Without it the local expression fails the Whittaker transformation law: already for n=1, right translation of g_S by u0∈N_2 changes variables u↦u u0 and leaves the unweighted integral invariant, whereas a ψ-Whittaker function must gain ψ(u0). The factor ψ(u)^{-1} yields exactly that transformation. The factorization (5.4.4.2) requires this Whittaker functional.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Checked 2026-09-24: Cambridge Core article page for DOI 10.1017/fmp.2025.8; no article-specific erratum or corrigendum found.",
+    "Crossref works/10.1017/fmp.2025.8: no update-to/updated-by/relation correction found in the fetched record; this is not an exhaustive absence assertion.",
+    "arXiv https://arxiv.org/abs/2302.12331 submission history lists v1 (2023-02-23); compared the published Appendix A with v1 pp.84–85.",
+    "Author pages https://webusers.imj-prg.fr/~pierre-henri.chaudouard/ and https://www.i2m.univ-amu.fr/user/raphael.beuzart-plessis/; no separate correction to these findings located. Chaudouard links the 2025 journal article.",
+    "Title/DOI searches for erratum and corrigendum on 2026-09-24 found no correction to these findings. The publication acknowledges a correction to an earlier Proposition 8.7.2.1; no claim is made that every preprint difference is a new error."
+   ],
+   "owner": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "file": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "reviewReason": "Independently checked against the published source and the explicit argument in reason; no separate correction was located in the listed search."
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/E1",
