@@ -26060,7 +26060,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1741"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -26154,8 +26155,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1745"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1745",
+   "finishedAt": "2026-09-24T00:40:15Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -26398,7 +26400,8 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1623"
   },
   {
    "id": "REV-RT-RS-26",
@@ -26494,7 +26497,8 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-29.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1627"
   },
   {
    "id": "REV-RT-RS-29",
@@ -27884,8 +27888,9 @@
     "REV-AUDIT-23"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1596"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1596",
+   "finishedAt": "2026-09-24T00:40:16Z"
   },
   {
    "id": "REV-RT-AUDIT-23",
