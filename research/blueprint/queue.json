@@ -12260,9 +12260,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-Polylogarithms.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #73"
+   "note": "deliverables arrived from an external worker on issue #73",
+   "finishedAt": "2026-09-24T21:52:15Z"
   },
   {
    "id": "REV-Polylogarithms",
@@ -22612,13 +22613,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-MotivesAndAlgebraicCycles.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-MotivicEtaleKTheory--M.1",
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1014"
+   "note": "claimed on GitHub issue #1014"
   },
   {
    "id": "REV-MotivesAndAlgebraicCycles",
