@@ -1,0 +1,105 @@
+{
+  "redteam": "RT-AREA-finitefields",
+  "findings": [
+    {
+      "finding": "RT-AREA-finitefields/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed: the graph contains FF.2 -> FF.3 -> CN.1, and FF.4 inherits the same cohomological prerequisites. The factorization node uses the FF.0 census, not Weil II. Correct the fix: split the elementary factorization/Hensel export from point counting, and split FF.4's elementary constructions from bound-dependent applications. Merely removing FF.2 -> FF.3 and adding WC.5 -> FF.3 still leaves WC.3 -> WC.5 -> FF.3 -> CN.1; this was checked explicitly. CN.1 must import the elementary component rather than the whole point-counting stage. Keep the general point-count and correlation targets, with their actual suppliers, and register any stage refinement before regenerating the graph. CN.0 already has an early FF.0 input; do not claim it shares CN.1's present obstruction. Do not categorically forbid an algorithmic FF.4 consumer from importing a particular FF.3 algorithm."
+    },
+    {
+      "finding": "RT-AREA-finitefields/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an absent explicit supplier for general certified point counts. WC.5 states the all-extension curve and Betti-number bounds; no path from WC.5 to FF.3 was found in the exported graph plus accepted restructuring/link edges. RS-03 supplies the elliptic case only. Import WC.5 into the point-counting component identified in /1, retaining smoothness, projectivity, geometric connectedness and the dimensional/coefficient conventions of each theorem. The curve statement is |#C(F_{q^r})-(q^r+1)| <= 2g q^{r/2}. Open or singular varieties need their own applicable statement. The pinned elliptic point-count and Frobenius-degree identities are structural ingredients, not inequalities. Do not silently delete the nonelliptic targets by taking the proposed scope-restriction alternative."
+    },
+    {
+      "finding": "RT-AREA-finitefields/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. SGA 4½ [Sommes trig.] 3.2–3.3, printed pp. 189–191, supplies precisely the missing Euler-characteristic and conductor inputs; 3.4 shows how they determine the dimension used by the bound. EDC.2/4 and R01.3 do not currently specify this full contract. Correct the formula to chi_c(U,F) = rank(F)(2-2g-|D|) - sum_{x in D} Sw_x(F), for U = C minus D over an algebraically closed field, C smooth projective connected, and lisse l-adic F with l different from the characteristic. Request one general owner in the étale-duality direction and an equal-characteristic local-conductor supplier; a new stage requires registration, not an invented prerequisite. For Artin–Schreier sheaves the Swan conductor is the reduced pole order v*, after f -> f+h^p-h; it equals the original positive pole order when that order is prime to p. The polynomial degree-(d-1) alternative does not cover the Kloosterman rational function x+a/x: retain its two-pole conductor calculation."
+    },
+    {
+      "finding": "RT-AREA-finitefields/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Weil I 8.4–8.13, printed pp. 302–306, distinguishes the (d-1)^n q^{n/2} theorem from [Sommes trig.] 3.8's weaker estimate. State q=p^a, n>=1, nontrivial additive psi, degree d>=1 prime to p, and smooth projective leading-form hypersurface. Add the nontrivial-character cohomology concentration/dimension of 8.5(i), but also the comparison/perfect-pairing and smooth proper compactification inputs of 8.5(ii)–(iii). The proof uses local models, resolution for the relevant surface singularities, a family argument, Künneth, and the one-variable conductor calculation (8.6–8.13). WC.3 and a numerical dimension formula alone do not close this construction. Route shared geometric inputs to their owners, recording requests where no node supplies them; retain the weaker companion theorem."
+    },
+    {
+      "finding": "RT-AREA-finitefields/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an imprecise and mathematically misleading degeneracy test. Fix an exact character order d>1, zero-extension convention and nonzero polynomial f. The exceptional condition is f=c g^d geometrically, with c nonzero; it is not being an arbitrary perfect power. For a cubic character on F_7, x^2 is a square and the character sum is zero: exact exponent counts are (2,2,2). Conversely 3x^3 for that character has six equal nonzero character values, despite not being a cube over F_7. Distinguish base-field powers from geometric powers and specify the field of g. The usual multiplicative bound with m distinct geometric roots has constant m-1 under this order-specific exclusion. A mixed multiplicative/additive sum needs its own nontriviality and conductor hypotheses, not this test copied unchanged."
+    },
+    {
+      "finding": "RT-AREA-finitefields/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed for baseline portions of the EXT-08 nodes, with a narrower repair. At the pins, FiniteField.orderOf_frobeniusAlgHom, Extension.exists_frob_pow_eq, nonempty_algHom_iff_finrank_dvd, algEquivOfCardEq, algebraMap_trace_eq_sum_pow, algebraMap_norm_eq_prod_pow, norm_surjective, Algebra.trace_surjective and IsGalois.normalBasis supply the claimed structural facts with their stated finite-extension hypotheses. Cite those statements and the fixed-subfield comparisons rather than reprove them from Shoup. Do not replace each bundled EXT node wholesale: the explicit intermediate-field/divisor order correspondence, conjugacy/minimal-polynomial adapters where needed, and computable inverse-map/normal-basis certificates require their own comparison or construction statements. Preserve the census and tensor-product targets. An existential or noncomputable library construction is not a certified algorithm. Shoup 19.11–19.12, printed p. 514, confirms the positive-degree census bounds; their exact finite counting theorem was not found by the scoped searches."
+    },
+    {
+      "finding": "RT-AREA-finitefields/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the elementary identities, not the entire cohomological node. Read the pinned GaussSum and JacobiSum statements, including gaussSum_mul_gaussSum_eq_card, gaussSum_sq, jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum, jacobiSum_mul_jacobiSum_inv and gaussSum_pow_eq_prod_jacobiSum. Preserve each hypothesis: the square identity is quadratic, the Jacobi quotient needs the stated nontrivial characters/product, and the power formula needs finite order at least two. Primitive additive characters, coefficient-characteristic restrictions and trivial-character exceptions remain explicit. Reuse these algebraic results and the quadratic reciprocity comparison; keep the convention dictionary and complex-conjugation/modulus adapter. Correct the proposed deletion: SGA 4½ 4.2–4.4 also constructs Frobenius realizations and a duality compatibility. A scalar product identity does not supply those data. Retain that geometric content under FF.2, as in /9, while removing its duplicate elementary proof obligation."
+    },
+    {
+      "finding": "RT-AREA-finitefields/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the missing explicit lifting theorem and locator, with credit for the existing partial node. SGA 4½ [Sommes trig.] Theorem 1.15, printed p. 177, already states and proves the lifting formula; 4.5, pp. 197–198, discusses the split étale-algebra identity and points to the later twisted-form interpretation. The reviewed EXT node explicitly stops short of that proof. Complete/link it rather than create a competing theorem. For extension degree n>=1 and nontrivial additive psi, Mathlib's convention gives g(chi o Norm,psi o Trace)=(-1)^(n-1)g(chi,psi)^n; Deligne uses tau(chi,psi)=-g(chi^-1,psi). Trivial multiplicative chi is allowed with the agreed zero extension. Keep a cohomological proof in FF.2; an elementary FF.1 proof needs its own actually read source. Do not certify the suggested Ireland–Rosen locator without reading it. A distinct product formula needs a precise statement and source if included."
+    },
+    {
+      "finding": "RT-AREA-finitefields/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The four named EXT-08 nodes use Lang/Kummer character sheaves, compact-support cohomology, Swan conductors or duality, beyond FF.1's FF.0/AC.0 inputs. SGA 4½ 4.2–4.3, pp. 196–197, explicitly invokes conductor and cohomology vanishing to obtain the Gauss realization. Put the finite-field geometric realizations and comparisons in FF.2; request shared general Lang-torsor/sheaf infrastructure from its appropriate owner, and route the general Euler-characteristic formula as in /3. Keep the elementary product/modulus comparison from /7 separate, so reciprocity consumers of FF.1 do not inherit étale cohomology. Update IDs and every internal/external consuming link consistently. Inspect the neighboring étale-algebra Gauss node as well: its elementary product-of-sums identity may stay early, whereas its geometric reinterpretation must import the later machinery."
+    },
+    {
+      "finding": "RT-AREA-finitefields/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed as stale integration/review metadata and omitted supplier decisions. Both EXT-08 packets have accepted review objects and full sections 7–8 in REVIEW-EXT-08-EXT-16-review.md; their queue entries still say unreviewed, and DECISIONS.md retains the earlier partial snapshot. The finite-fields extract has no integrated decomposition. Correct authored placement/baseline issues first, then use the supported decision/promotion pipeline and retain integrated_partial status and all genuine unread-source/closure gaps. Accepted review does not mean a complete blueprint. Feed the existing reviewed nodes to the blueprint worker; record the exact unresolved supplier questions and their present answers, including DWP.6 under /20. Do not call pending cross-packet references invalid active graph edges: scripts/decompositions.py deliberately withholds them in deferredLinks until the supplier refinement is promoted."
+    },
+    {
+      "finding": "RT-AREA-finitefields/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The integrated CN.1/polynomial-factorization-over-finite-fields node contains Shoup 20.3–20.10's theory and operation counts, while accepted RS-03 assigns certified finite-field factorization to FF.3 and narrows CN.1 to consumption. Its own placement note remains unresolved. Transfer the mathematical node, source evidence, corrected randomness claims and census dependency to the early factorization component of /1; update both the authored EXT-08 packet and the promoted copy through the supported pipeline. Leave the CN-specific checked-output/implementation adapter, with imports rather than a second factorization checker or proof. Preserve intentionally deferred refinement links during the transfer."
+    },
+    {
+      "finding": "RT-AREA-finitefields/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the factorization ownership conflict and missing certificate handoff. FA.7 and the still-unaccepted RS-04 proposal retain finite-field factorization without naming the RS-03 supplier. Import the elementary FF factorization component and relevant point-count certificates. Correct the proposed narrowing: FA.7 also owns place enumeration, Riemann–Roch computations, ray characters, conductors/local completions and other function-field certificate exports; these must not be deleted. Counts through r=g determine the curve zeta numerator only with the smooth projective geometrically connected genus-g setting, Newton identities and the functional equation with its normalization. This is not an unrestricted replacement for every Artin/ramified L-polynomial computation. Preserve those distinctions and resolve RS-04 through its review/fix route."
+    },
+    {
+      "finding": "RT-AREA-finitefields/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed for duplicate ownership of the q-linearized-polynomial interface. Assign the shared construction and comparison once, early enough for DM.0 to import without a coding/Weil dependency. Correct the baseline claim's scope: Mathlib already has SkewPolynomial, monomial_mul_monomial and X_mul_monomial in Algebra/SkewPolynomial/Basic.lean; specialize its action to the q-power Frobenius rather than rebuild the Ore carrier. The missing target is the comparison with composition of q-linearized polynomial laws and its API. Over an F_q-algebra distinguish polynomial laws/G_a morphisms from functions on finite rational points: X^q-X can be a nonzero polynomial inducing the zero function. State root/subspace-polynomial results over the appropriate field extension and finite F_q-vector subspaces, with separability where used. DM.0 keeps the Drinfeld-module-specific structure and imports this shared supplier."
+    },
+    {
+      "finding": "RT-AREA-finitefields/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing explicit code-family targets, despite the existing generic code roadmap. Add declaration-sized cyclic/BCH, Singleton, Reed–Solomon and AG-code contracts and public-source proof gates. Correct the hypotheses: ordinary evaluation RS has 1<=k<=n<=q and distinct evaluation points for d=n-k+1; k=0 is the zero code, whose upstream distance convention is 0. State the nonzero-code convention in Singleton/BCH/distance lower bounds. The cyclic-code/ideal correspondence itself only needs n>0; coprimality with q belongs to the simple-root/primitive-nth-root BCH route. AG codes require a smooth projective curve/function field with exact finite constants, distinct rational evaluation places D disjoint from supp(G), and the kernel dimension l(G)-l(G-D); qualify the distance statement for nonzero codes. AlgebraicCurves 3–5 supply the Weil-differential/local-component route. If C_Omega is expressed using Kähler residues, also import Layer 9's comparison instead of silently identifying the two formalisms. Keep generic carrier/linear algebra upstream."
+    },
+    {
+      "finding": "RT-AREA-finitefields/15",
+      "verdict": "rejected",
+      "reason": "Rejected as an alleged duplicate target. The cited baseline declarations are real: TauCeti.LinearCode is a Submodule, Matrix.generatedBy is a linear-map range, and the two finrank formulae relate matrix rank to code dimension. They do not prove the ranks/injectivity of the BCH, Reed–Solomon or AG-family encoding maps, or their distance bounds. FF.4 already explicitly connects its evaluation/residue constructions to existing AlgebraicCodingTheory and AlgebraicCurves. Its acceptance sentence is consistent with proving the family-specific results requested in /14; it does not say to reconstruct the generic carrier or minimum-distance definition. Concrete baseline citations will improve the blueprint, but these words alone do not establish duplication. Preserve those acceptance obligations, while reusing the checked generic API."
+    },
+    {
+      "finding": "RT-AREA-finitefields/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing precise target-level imports. The AC-L43–45 proposals supply the appropriate curve/function-field inputs, and CharacterTheory Layer 9 supplies GL_2(F_q) representation theory. Correct the fix: replace or retain SF.3 according to the actual construction, not by blanket deletion of a possibly used geometric interface; use the Weil-differential route or the additional Layer-9 comparison described in /14. Use the exact registered CharacterTheory endpoint ending #layer-9-the-representation-theory-of-gl₂𝔽_q, and request the particular induced-representation/Gelfand-pair results used. The model {x+y sqrt(delta): y!=0} requires odd q and nonsquare delta. For characteristic two use an irreducible separable quadratic presentation, or uniformly F_{q^2} minus F_q. State the chosen action, stabilizer, measure and spherical-function conventions before connecting the harmonic-analysis consumer."
+    },
+    {
+      "finding": "RT-AREA-finitefields/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an inadequate source route, not a claim that Shoup contributes nothing. The read Shoup contents and printed pp. 103, 351, 477 and 484 support the limited Schoof citation, square-root lifting and RS example; Chapter 18 also treats linearly generated sequences and remains useful. None of those supplies the entire declared point-counting, finite-ring, correlation, BCH/AG or homogeneous-space programme. The EXT-08 coverage honestly records the missing proofs. Register target-specific public editions and exact proof passages, retaining Shoup for finite fields, factorization and applicable sequence/RS ingredients, and Deligne for cohomological bounds. The suggested books/papers are acquisition leads until read; do not convert that list into a claim that the target proofs have been checked. Preserve the roadmap's construction scope while making the source gaps actionable."
+    },
+    {
+      "finding": "RT-AREA-finitefields/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a wrong-owner routing bundle, with two qualifications. BKK arXiv:2007.14567v3, pp. 28–33, uses F_p((1/T)), its polynomial quotient, residue characters, Haar measure and Farey-fraction separation. Route items 13/14/20/21 to FA.2; give item 15 one explicit owner for the reduced-fraction/dissection interface (FA.2, or the ES.1 consumer with imports). Item 8's characteristic function belongs to PM.0, and item 25's composite-modulus Z/P Fourier gap to AC.0 rather than a finite field. Item 73 is FF.0's irreducible census. Item 130 is a prime-distribution input: route the general Rosen theorem to FA.5, or precisely isolate the modulus-T fixed-constant special case under elementary FF.0. Do not require Weil machinery for that special case merely because the general source proves more. Preserve BKK's existing source/closure gates; changing a route does not prove the imported theorem."
+    },
+    {
+      "finding": "RT-AREA-finitefields/19",
+      "verdict": "rejected",
+      "reason": "Rejected. The observation that FF.5 is a process/handoff layer is accurate, but it is not a mathematical error. AUDIT-19 already classifies it as process, and accepted RS-03 explicitly retains specialized application/normalization handoffs while importing estimates and generic certificate discipline. Absence of a present outgoing stage edge does not show that those integration contracts are duplicates or should be removed. A blueprint should instantiate the named consumers and exact constants without inventing a new theorem merely to justify the layer. The alternative prime-power bounds would add substantive local-analysis scope not supplied by finite-field bounds alone. Neither compulsory deletion nor that enlargement is justified by the evidence."
+    },
+    {
+      "finding": "RT-AREA-finitefields/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an available planned supplier, with a narrower gap closure. Weil II 3.2.3, printed p. 200 (proof discussed at p. 204), supplies purity of H^i(C,j_*F) for punctually pure lisse F on the open of a smooth projective curve; DWP.6 states this target, and RS-17 already links DWP.6 -> FF.2. Point the EXT-08 weight request there. Supply the rank-one Artin–Schreier construction and all-closed-point finite-order Frobenius eigenvalue argument establishing weight zero, with coefficient/embedding conventions. This closes the routing gap for the direct H^1(C,j_*F) proof, not an implementation gap: DWP.6 is planned. If the packet retains a proof using im(H_c^1 -> H^1), its comparison still needs a theorem; the DWP.6 link alone does not prove that comparison. Conductor and boundary/vanishing inputs remain separate."
+    }
+  ]
+}
