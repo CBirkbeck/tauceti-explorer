@@ -27102,7 +27102,8 @@
     "REV-AUDIT-07"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1564"
   },
   {
    "id": "REV-RT-AUDIT-07",
@@ -27216,8 +27217,9 @@
     "REV-AUDIT-09"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-09.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1568"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1568",
+   "finishedAt": "2026-09-24T03:31:56Z"
   },
   {
    "id": "REV-RT-AUDIT-09",
@@ -28689,7 +28691,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-algebraicnt-1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1479"
   },
   {
    "id": "REV-RT-AREA-algebraicnt-1",
@@ -28743,8 +28746,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-algebraicnt-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1481"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1481",
+   "finishedAt": "2026-09-24T03:31:58Z"
   },
   {
    "id": "REV-RT-AREA-algebraicnt-2",
