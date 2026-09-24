@@ -2651,8 +2651,9 @@
    ],
    "avoidAccountOf": "PAPER-CARAIANI-SCHOLZE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-CARAIANI-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1162"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1162",
+   "finishedAt": "2026-09-24T01:32:31Z"
   },
   {
    "id": "PAPER-YUN-ZHANG-17",
@@ -26347,7 +26348,8 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1618"
   },
   {
    "id": "RT-RS-15",
@@ -26603,7 +26605,8 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-30.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1628"
   },
   {
    "id": "RT-RS-31",
