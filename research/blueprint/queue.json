@@ -27605,8 +27605,9 @@
     "REV-AUDIT-16"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1582"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1582",
+   "finishedAt": "2026-09-24T03:56:29Z"
   },
   {
    "id": "REV-RT-AUDIT-16",
@@ -30460,7 +30461,8 @@
     "RT-AREA-combinatorics"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-combinatorics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1544"
   },
   {
    "id": "RT-AREA-topology",
