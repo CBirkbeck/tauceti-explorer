@@ -194,3 +194,46 @@ results quoted from other papers were checked against the statements given here,
 which is why they appear under prerequisites. Third, the conjecture in Lemma 7.7 (3) is recorded as a conjecture, and
 the item notes that only the weakly initial statement is proved. Fourth, the claim that only four misprints exist means
 only that the checks listed above found only those.
+
+## Review (REV-PAPER-BHATT-SCHOLZE-22, 24 September 2026)
+
+The review accepted the extraction after corrections made in place. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-22.md`. Four checkers read the paper against the arXiv v4 TeX and rendered pages: §§1–6, §§7–12, §§13–18 with the prerequisites, and every status and route. The coordinator checked every new mistake in the TeX and the stage-graph cycles.
+
+Several statements above are superseded:
+
+- **Arc-topology and descendability.** The atlas is not empty of them. The accepted PAPER-BHATT-MATHEW-21 route 1 proposes ArcTopologyAndDescent. The accepted PAPER-BHATT-SCHOLZE-17 route 6 gives descendability to EnhancedDerivedSheaves E5:abstract.
+- **§8.2 and §10 cannot be sources of Q2, Q4, P0 or P3.** Their proofs need André's lemma (Q3) and Theorem 7.4 (Q4), and P0 and P3 are upstream of Q2, Q4 and PR.2.
+- **The trace comparisons are RT.6's, not RT.3's.**
+- **"Only four misprints".** The review found 26 more.
+
+The changes:
+
+- **Items: 96 became 148** (1 library, 121 planned, 26 missing).
+  - 31 items were split off from multi-part items.
+  - 21 items were added for definitions and results the extraction lacked. Among them:
+    - simplicial δ-rings;
+    - Tor-independence of perfectoid rings;
+    - the Bhatt–Mathew and Huber inputs to Theorem 9.1;
+    - the de Rham complex;
+    - Lemmas 7.8, 8.4, 13.2 and 18.3;
+    - Proposition 12.8;
+    - the syntomic complexes;
+    - the q-crystalline-to-AΩ comparison map.
+  - Planned citations were corrected on twenty items.
+  - Propositions 8.5 and Theorem 9.1 in general (items 47, 53) became missing.
+- **Routes: six, all accepted as corrected.**
+  1. **Source of PrismaticCohomology PR.0, PR.2 and PR.4**, for what those layers do not plan.
+  2. **ArcTopologyAndDescent (reused)**, for Definition 8.7 to Proposition 8.10.
+  3. **A new Part II of PerfectoidQuotients**, for Proposition 8.5, Corollaries 8.11–8.12 and §10.
+  4. **The accepted RefinedTraceMethods Part II on henselian pairs (reused)**, for Corollaries 14.2–14.3 and K ≃ TC.
+  5. **Source of DerivedDeRhamCohomology DD.1 and DD.2**, for Elkik's algebraization and the de Rham complex.
+  6. **Source of PerfectoidSpaces P0**, for Proposition 10.8.
+- **Source issues.**
+  - E1–E4 are confirmed.
+  - E5–E30 are new: 24 misprints, one error (Lemma 3.7 omits "derived (p, I)-complete") and one gap (Construction 6.1's flatness claim).
+  - No stated result changes.
+- **Prerequisites.** These are corrected:
+  - Heitmann–Ma, not Hochster–Ma;
+  - André's two papers, now separate entries;
+  - Berthelot LNM 407 and Fontaine–Messing, not Timmerscheidt and Berthelot–Ogus;
+  - missing DOIs, now added.
