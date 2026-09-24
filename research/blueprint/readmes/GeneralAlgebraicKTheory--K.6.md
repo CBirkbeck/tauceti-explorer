@@ -7,14 +7,21 @@ form and the suggested Lean file is a naming proposal, not an implementation.
 
 Pins: Mathlib `082e2d3`, Tau Ceti `f790474`.
 
-## The source
+## The sources
 
-Everything here is decomposed from one book:
+Two, both freely available:
 
 > Charles A. Weibel, *The K-book: An Introduction to Algebraic K-theory*. Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)
-> <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf>, SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`, accessed 2026-09-24.
+> <https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf>,
+> SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`, accessed 2026-09-24.
 
-Sections read:
+> Marco Schlichting, *Negative K-theory of derived categories*. Author preprint dated 16 June 2003, 28 pages; the published version (Math. Z. 253, 2006) was not compared.
+> <https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf>,
+> SHA-256 `f59620e3ba25d5a8591a108d2b9647b68b5caf04794745862d2aa71e178b5aa6`, accessed 2026-09-24.
+
+### The K-book: what was read
+
+The file was already on disk from the K2SymbolsBrauer job of this session and was re-hashed; the hash reproduces the value recorded by the packets of K2SymbolsBrauer, Polylogarithms, MotivesAndAlgebraicCycles and ArithmeticKTheory, so this is the same file those cite.
 
 - I.1.8 (PDF p. 5): the cone ring of a ring, as a direct sum ring.
 - II.2.1.2 and II.2.1.3 (PDF p. 105): the behaviour of the zeroth K-group on a finite product of rings; Karoubi's flasque rings, the Eilenberg swindle and the infinite sum rings.
@@ -27,8 +34,25 @@ Sections read:
 - IV.10.1 to IV.10.4 (PDF pp. 349 to 350): the functor LE and its desuspension with the natural cofibration sequence; the Fundamental Theorem identifying connective K-theory with the minus-one-connective cover; the iteration; and the nonconnective spectrum as the homotopy colimit.
 - V.8, V.8.1, V.8.2 and V.8.3 (PDF pp. 430 to 431): the Fundamental Theorem in every degree with the splitting by the class of the variable, the identification of the Nil groups with the N-groups one degree up, the degenerate form for a regular noetherian ring, and the version for quasi-projective schemes.
 - II.6.5 and I.3.7.1 (PDF pp. 132 and 24): the definition of a regular noetherian ring and the stability of regularity under localisation, used by the vanishing theorem.
+- IV.6.3.5, IV.6.4 and IV, Definition 6.6 (PDF pp. 320 to 321), and the pairing of spectra (PDF p. 342): Morita invariance in every degree for K and for G; the behaviour of K_n on finite products and on filtered colimits of exact categories, with proofs; the definition of a biexact functor of exact categories and the map out of the Q-construction; and the ring- and module-spectrum structures with their hypotheses.
 
-The file was already on disk from the K2SymbolsBrauer job of this session and was re-hashed; the hash reproduces the value recorded by the packets of K2SymbolsBrauer, Polylogarithms, MotivesAndAlgebraicCycles and ArithmeticKTheory, so this is the same file those cite.
+### Negative K-theory of derived categories: what was read
+
+Downloaded and hashed on 24 September 2026; the hash reproduces the value recorded in the reviewed integrated decomposition data/decompositions/GeneralAlgebraicKTheory.json, so this is the same file the accepted review of 15 September 2026 checked.
+
+- Introduction, pp. 1 to 3: the purpose, the summary of the results for an exact category, and the statement that no theory of negative K-groups for exact categories had been developed before.
+- §1, pp. 4 to 6, complete with proofs: Definition 1.1, Facts 1.2, Set-up 1.3, Definition 1.4, the connecting map 1.5, Lemma 1.6, Theorem 1.7 with its proof, Corollary 1.8 and Remark 1.9.
+- §2, pp. 6 to 8: c-compact objects, homotopy colimits, c-compactly generated categories, Lemma 2.6, Corollary 2.7 and the statements of Theorem 2.9 and Lemma 2.11.
+- §3, pp. 8 to 9, complete: exact categories, the embedding in left exact functors, Frobenius categories, Definitions 3.4 and 3.5.
+- §4, pp. 9 to 10, complete: countable envelopes 4.1, Lemma 4.2 with proof, Definition 4.3, Proposition 4.4 with proof, Remark 4.6, Definition 4.7 and Theorem 4.8.
+- §5, pp. 11 to 13: 5.3, Definition 5.4, §5.5 with the localisation example, 5.8, Definition 5.9 and 5.10. The proofs of 5.6 and 5.7 were read only in sketch.
+- §6, pp. 13 to 14, complete with proofs: Theorem 6.1, Corollary 6.2, Lemma 6.3 and Corollary 6.4.
+- §7, pp. 14 to 15: Theorem 7.1 with its proof, Remarks 7.2 and 7.3.
+- §8, pp. 15 to 16: Lemma 8.1 with proof, Corollary 8.2 with proof, and the explicit map of 8.3.
+- §9, pp. 16 to 17: the proof of Theorem 9.3 through the nilpotent, polynomial and Laurent categories, Lemma 9.4, Examples 9.5 and 9.6, Conjecture 9.7 and Remark 9.8. Theorem 9.1 was read as a statement, its proof was not.
+- §11, pp. 20 to 23: Definition 11.1, Remark 11.2, Lemma 11.3 with proof, Definition 11.4 with the square 11.5 and the structure map 11.6, Theorem 11.7 with proof, Theorem 11.10, §11.13 and 11.14, and the statements of Propositions 11.15 and 11.17.
+- NOT read: §10, Appendix A, and the proofs of 2.9, 9.1, 11.10, 11.15 and 11.17.
+- The scan's text layer damages ligatures and accents; every excerpt quoted in this packet was repaired character by character against the surrounding text, without changing a word, and the two places where the layer drops a clause are marked with square brackets.
 
 ## What the pinned libraries already have
 
@@ -56,10 +80,27 @@ What does not exist at either pin, and is therefore this blueprint's own work:
 spectra of any kind, homotopy colimits, connective covers, Karoubi's flasque
 rings (the pinned `IsFlasque` of both trees is the sheaf-theoretic predicate and
 is a different notion with the same name), the Eilenberg swindle, contracted
-functors, the negative K-groups, the Nil groups, the K-theory of a Waldhausen
-category, and the first K-group — which is absent from both trees, so every
-statement of this blueprint in degree one is stated against a group that has yet
-to be built.
+functors, the negative K-groups, the Nil groups, Frobenius categories and their
+stable categories, Verdier quotients of triangulated categories, the K-theory of
+a Waldhausen category, and the first K-group — which is absent from both trees,
+so every statement of this blueprint in degree one is stated against a group that
+has yet to be built.
+
+## Relation to the reviewed decomposition
+
+`data/decompositions/GeneralAlgebraicKTheory.json` carries an accepted
+independent review of 15 September 2026 and has six nodes for these two layers.
+Four of its node identifiers are kept here
+(`schlichting-set-up-and-negative-localization`,
+`frobenius-pairs-flasque-envelope-and-suspension`,
+`nonconnective-spectrum-and-derived-invariance`,
+`agreement-and-vanishing-of-negative-K`), each split where declaration
+granularity asked for it: the definitions of a Frobenius pair, of the set-up and
+of the negative groups are now their own nodes, and additivity with filtered
+colimits is a fifth. Its two K.7 nodes are not kept as nodes — their content is
+spread across the seven K.7 nodes here, at one statement per node — but every
+locator they carry is reused, and this packet adds the K-book's Bass-side
+development of K.6, which the decomposition does not have.
 
 ## Two duplications, read as boundaries
 
@@ -79,18 +120,27 @@ texts each say so in a sentence.
 
 ## K.6 — Nonconnective extension
 
-The layer builds the negative K-groups twice: once algebraically, as Bass's
-iterated contraction of the zeroth K-group, and once homotopically, as the
-negative homotopy of a spectrum obtained by iterated desuspension. The two
-agree because the Fundamental Theorem identifies connective K-theory with the
-minus-one-connective cover of the first desuspension.
+The layer builds the negative K-groups along both of the routes its stage text
+names, and proves that they agree.
 
-The stage text asks for the nonconnective extension through a flasque
-enlargement, a suspension and an idempotent completion. The source read here
-gives the Bass delooping instead. The first five nodes are the algebra, the
-next two the homotopy theory, and the axioms node is the interface through
-which the flasque route — when a source for it is read — is compared with this
-one. The first gap says exactly what to read for that.
+**The algebraic route** (eight nodes, from the K-book) is Bass's: the negative
+groups are the iterated contraction of the zeroth K-group, the Fundamental
+Theorem says that each K-group is a contracted functor, and the Bass delooping
+turns that into a spectrum whose negative homotopy groups are those contractions.
+
+**The homotopical route** (seven nodes, from Schlichting) is the flasque
+enlargement, suspension and idempotent completion the stage text asks for by
+name. It runs on Frobenius pairs rather than on rings; the countable envelope
+is flasque in exactly Karoubi's sense, with the swindle in functorial form; the
+suspension is the quotient of the enlargement by the original; and the negative
+groups are the zeroth invariant of the iterated suspension. Its localisation
+theorem holds in non-positive degrees for formal reasons, and in every degree
+once the spectrum is built.
+
+**They agree.** Schlichting's Theorem 7.1 identifies the groups of the second
+route with Bass's, Pedersen's, Karoubi's, Pedersen–Weibel's and Thomason's. So
+the independence-of-enlargement target of the stage text is met twice: by the
+model-independence of the Bass construction, and by that agreement theorem.
 
 **The trap the stage text names.** The connective model has no homotopy in
 negative degrees, for any ring at all. That absence is a property of the model
@@ -100,7 +150,7 @@ for regular noetherian rings and is proved from the Fundamental Theorem.
 
 Coverage: **source_decomposed**.
 
-Eight nodes. Karoubi's flasque rings with the Eilenberg swindle, the infinite sum rings and the cone ring, stated with the explicit warning that the pinned IsFlasque of both libraries is the sheaf-theoretic predicate and that a formalisation must not reuse the name; Bass's contracted functors, with the contraction LF defined as the cokernel of the map out of the two polynomial rings and with the splitting required natural in the variable as well as in the ring, which is the part that makes the iteration work; the negative K-groups as the iterated contraction, with the four-term decomposition of the zeroth K-group of the Laurent ring; the Fundamental Theorem in every degree with the Nil terms identified as the N-groups one degree up and the splitting given by the class of the variable; the four axioms a theory of negative K-theory must satisfy, with Bass's groups as the example that makes them non-vacuous; Mayer-Vietoris in negative degrees; the nonconnective spectrum, built as the homotopy colimit of the iterated desuspensions with each map the inclusion of a deeper connective cover, so that its homotopy groups are the K-groups above degree zero and Bass's groups below, together with the model-independence statement the stage text's 'independence of enlargement' asks for; and the vanishing theorem for regular noetherian rings, stated with the non-example the stage text names by hand. Every stage target has a node. The localisation clause of the stage text is carried by the nonconnective spectrum node and by Mayer-Vietoris rather than by a node of its own, because the source develops localisation for this roadmap in the earlier layers and the only new content here is that the sequence continues downwards; that is stated. What is not decomposed here is the alternative flasque-enlargement construction of the spectrum, which the source does not give; the axioms node records how it would be compared with this one, and the gap says so.
+Fifteen nodes, covering both of the constructions the stage text asks for. The algebraic half: Karoubi’s flasque rings with the Eilenberg swindle, the infinite sum rings and the cone ring, stated with the explicit warning that the pinned IsFlasque of both libraries is the sheaf-theoretic predicate and that a formalisation must not reuse the name; Bass’s contracted functors, with the contraction LF defined as the cokernel of the map out of the two polynomial rings and with the splitting required natural in the variable as well as in the ring; the negative K-groups as the iterated contraction, with the four-term decomposition of the zeroth K-group of the Laurent ring; the Fundamental Theorem in every degree with the Nil terms identified as the N-groups one degree up; the four axioms a theory of negative K-theory must satisfy, with Bass’s groups as the example that makes them non-vacuous; Mayer–Vietoris in negative degrees; the Bass delooping, built as the homotopy colimit of the iterated desuspensions with each map the inclusion of a deeper connective cover; and the vanishing theorem for regular noetherian rings with the non-example the stage text names by hand. The homotopical half is the flasque enlargement, the suspension and the idempotent completion the stage text asks for by name, decomposed from Schlichting: Frobenius categories, Frobenius pairs and their derived categories, with the bounded complexes over an exact category as the standing example; the countable envelope with the swindle in functorial form (Lemma 4.2), the enlargement functor F, the c-compact generation that identifies the idempotent completion of the derived category with the c-compact part of the enlargement, and the suspension S, together with the verification (Theorem 4.8) that the three axioms of the set-up hold; the axiomatic set-up itself and the negative groups it defines; localisation in non-positive degrees with the connecting map constructed by lifting, and the first negative group characterised as the obstruction to idempotent completeness of Verdier quotients; additivity and filtered colimits; the IK-theory spectrum with its homotopy groups computed in all three ranges and the localisation sequence in every degree; and the agreement with Bass’s, Pedersen’s, Karoubi’s, Pedersen–Weibel’s and Thomason’s groups, with the presentation of the first negative group, the vanishing for noetherian abelian categories, the deduction of Bass’s vanishing theorem for a regular ring, and the conjecture for a general small abelian category recorded as a conjecture. Every stage target has a node, and the independence-of-enlargement target is met twice over: by the model-independence statement of the Bass construction and by the agreement theorem, which identifies the two routes’ outputs with each other and with the classical groups. The localisation clause of the stage text is carried by the Schlichting localisation nodes in the nonconnective formulation the text asks for.
 
 ### Flasque rings, infinite sum rings and the Eilenberg swindle
 
@@ -531,6 +581,361 @@ For a regular noetherian ring the N-groups vanish in every degree, so the Fundam
 
   > A noetherian ring R is called regular if every R-module M has a finite resolution by projectives. Every localization of a regular ring is also regular.
 
+### Frobenius categories, Frobenius pairs and their derived categories
+
+`GeneralAlgebraicKTheory:K.6/frobenius-pairs` · *definition* · planet **Frobenius pair**
+
+A Frobenius category is an exact category with enough projective and enough injective objects in which the projectives and the injectives coincide; its stable category, obtained by killing the maps that factor through a projective-injective, is triangulated. A FROBENIUS PAIR is a fully faithful inclusion of one small Frobenius category in another carrying projective-injectives into projective-injectives, and its DERIVED CATEGORY is the Verdier quotient of the two stable categories. This is the category of models on which the whole nonconnective construction of this layer runs: the bounded complexes over an exact category, with degreewise split conflations and the homotopy-acyclic complexes as the subcategory, form a Frobenius pair whose derived category is the bounded derived category, and that is how an exact category enters the machine.
+
+**Hypotheses.**
+
+- The categories are small; the inclusion is fully faithful and exact and preserves projective-injective objects.
+- The stable category is triangulated, with the shift given by the cokernel of an inflation into an injective object.
+- For the example, the conflations of the complex category are the degreewise split ones, and the subcategory is the complexes homotopy equivalent to acyclic complexes; acyclic has the exact-category meaning, that each differential factors through a conflation.
+
+**Proof outline.**
+
+1. Define a Frobenius category and prove that its stable category is triangulated.
+2. Define a Frobenius pair, its maps, and its derived category as the Verdier quotient, and prove that the map of stable categories is fully faithful, which is what makes the quotient the right object.
+3. Prove the standing example: bounded complexes over an exact category with degreewise split conflations form a Frobenius category whose projective-injectives are the contractible complexes and whose stable category is the homotopy category, and the homotopy-acyclic complexes form a Frobenius pair with it whose derived category is the bounded derived category.
+4. Record the other examples the source gives, so that the scope of the machine is visible: complicial biWaldhausen categories, cell modules over a differential graded algebra, and small triangulated subcategories of the derived category of a Grothendieck abelian category.
+5. Record the relation to the pinned libraries: Tau Ceti's exact structures supply the exact-category input, and neither library has Frobenius categories, stable categories or Verdier quotients of them.
+
+**Acceptance.**
+
+- Bounded complexes over an exact category form a Frobenius pair with derived category the bounded derived category.
+- A map of Frobenius pairs induces a triangle functor of derived categories.
+- The stable category of a Frobenius category is triangulated; without the coincidence of projectives and injectives it is not.
+
+**Prerequisites.** `tauceti:TauCeti.ExactK0`, `mathlib:CategoryTheory.Idempotents.Karoubi`
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `FrobeniusCategory` | structure | An exact category with enough projectives and injectives, which coincide. |
+| `FrobeniusCategory.stable` | data | The stable category, with its triangulated structure. |
+| `FrobeniusPair` | structure | A fully faithful inclusion of small Frobenius categories preserving projective-injectives. |
+| `FrobeniusPair.derived` | data | The derived category, the Verdier quotient of the stable categories. |
+| `FrobeniusPair.map` | functoriality | A map of pairs induces a triangle functor of derived categories. |
+| `FrobeniusPair.ofExact` | example | The bounded complexes over an exact category, with the homotopy-acyclic ones. |
+
+**Used by.**
+
+- *K.6, the flasque envelope* — The functors F and S are endofunctors of the category of Frobenius pairs; the whole construction lives there.
+- *K.6, the IK-spectrum* — The K-theory space is that of the Waldhausen category attached to a Frobenius pair, inflations as cofibrations and derived isomorphisms as weak equivalences.
+- *K.7, derived invariance* — The correct hypothesis of derived Morita invariance is a map of Frobenius pairs inducing an equivalence of derived categories.
+
+**Unit tests.**
+
+- `complexes_are_a_pair` — The bounded complexes over an exact category form a Frobenius pair.
+- `derived_is_bounded_derived` — Its derived category is the bounded derived category of the exact category.
+- `stable_is_triangulated` — The stable category of a Frobenius category is triangulated.
+- `projinj_coincide` — Dropping the coincidence of projectives and injectives breaks the triangulation; an exact category with enough projectives only is not a Frobenius category.
+
+**Sources.**
+
+- §3.3 to 3.5, pp. 8 to 9, The definitions, verbatim; the ligature and accent damage of the scan has been repaired without changing a word.
+
+  > Recall that a Frobenius category is an exact category with enough injectives and projectives, and where injectives and projectives coincide. Its stable category is a triangulated category. 3.4 Definition. A Frobenius pair A = (A, A_0) is a fully faithful inclusion A_0 -> A of small Frobenius categories. ... 3.5 Definition. If A = (A, A_0) is a Frobenius pair, then the map of small ...
+
+- §5.3 and Definition 5.4, p. 11, The standing example and the definition it feeds, verbatim.
+
+  > Declare a sequence in Ch E to be a conflation if it is isomorphic to the split conflation in each degree. This makes Ch E into an exact category. One checks that Ch E is a Frobenius category whose projective-injective objects are the contractible chain complexes. Its stable category is the usual homotopy category K(E). Let Ac(E) be the full subcategory of chain complexes which are ...
+
+### The countable flasque envelope and the suspension of a Frobenius pair
+
+`GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension` · *construction* · planet **The countable flasque envelope**
+
+The COUNTABLE ENVELOPE of a small exact category has as objects the sequences of inflations, with morphism groups the limit over the source index of the colimit over the target index; it is exact, has exact countable coproducts, and is FLASQUE: the functor sending a sequence to the countable sum of its shifts satisfies the direct sum of the identity with it being naturally isomorphic to it, which is the Eilenberg swindle in functorial form. Applied to a Frobenius pair this gives an endofunctor F of Frobenius pairs whose derived category has countable coproducts and is c-compactly generated by the original, so that the idempotent completion of the original derived category is the c-compact part of the enlarged one. The SUSPENSION S of a pair is the enlarged Frobenius category together with the objects that vanish in the quotient of the enlarged derived category by the original, so that the derived category of the suspension is exactly that quotient. The natural transformations from the identity through F to S then satisfy the axioms of the model set-up, and this is the flasque enlargement and suspension the stage text asks for.
+
+**Hypotheses.**
+
+- The exact category and the Frobenius pairs are small; the envelope is taken with the source's morphism formula, not with a naive colimit.
+- Flasque is used in Karoubi's sense of the earlier node, a functor T with the identity plus T naturally isomorphic to T, and has nothing to do with the sheaf-theoretic predicate the pinned libraries call by that name.
+- c-compact means that the represented functor commutes with countable coproducts; the generation statement is by countable homotopy colimits.
+
+**Proof outline.**
+
+1. Construct the countable envelope and prove that it is exact with exact countable coproducts.
+2. Prove the flasqueness lemma by constructing the shift functor on sequences and the natural isomorphism, which is the swindle.
+3. Define F on Frobenius pairs, prove that the enlarged pair is a Frobenius pair and that the derived category embeds fully faithfully in the enlarged one.
+4. Prove that the enlarged derived category has countable coproducts and is c-compactly generated by the original, and deduce that the idempotent completion of the original is the c-compact part of the enlargement.
+5. Define the suspension as the enlarged category together with the objects vanishing in the quotient, and prove that its derived category is that quotient.
+6. Prove that the identity, F and S satisfy the three conditions of the model set-up: the functors preserve exact sequences, the zeroth group of an enlargement vanishes, and the sequence from a pair through its enlargement to its suspension is exact.
+
+**Acceptance.**
+
+- The countable envelope is flasque, so the zeroth group of an enlarged pair vanishes; this is the swindle in the form the construction needs.
+- The derived category of the suspension is the quotient of the enlarged derived category by the original.
+- The three conditions of the set-up hold for the category of Frobenius pairs, which is what makes the negative groups of the next node well defined.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.6/frobenius-pairs`, `GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle`, `mathlib:CategoryTheory.Idempotents.Karoubi`
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `countableEnvelope` | data | The countable envelope of a small exact category. |
+| `countableEnvelope_isFlasque` | characterisation | The envelope is flasque, with the shift functor as witness. |
+| `FrobeniusPair.enlarge` | data | The endofunctor F of Frobenius pairs. |
+| `FrobeniusPair.enlarge_generates` | characterisation | The enlarged derived category is c-compactly generated by the original. |
+| `FrobeniusPair.suspension` | data | The suspension endofunctor S. |
+| `FrobeniusPair.setup` | compatibility | The identity, F and S satisfy the three conditions of the model set-up. |
+
+**Used by.**
+
+- *K.6, the negative groups of a model* — The groups are defined as the zeroth group of an iterated suspension.
+- *K.6, the IK-spectrum* — The structure maps of the spectrum come from the square built out of the enlargement and the suspension.
+- *K.6, the axioms* — The vanishing of the zeroth group on an enlargement is the flasqueness axiom, here proved rather than assumed.
+
+**Unit tests.**
+
+- `envelope_flasque` — The countable envelope is flasque.
+- `IK0_of_enlargement_vanishes` — The zeroth group of an enlarged pair is zero.
+- `suspension_derived` — The derived category of the suspension is the quotient of the enlarged derived category by the original.
+- `not_sheaf_flasque` — Flasque here is the swindle condition on a functor, not the sheaf-theoretic predicate of the pinned libraries.
+
+**Sources.**
+
+- Lemma 4.2, p. 9, The flasqueness of the envelope with its proof, verbatim.
+
+  > The countable envelope FE of an exact category E is flasque, i.e., there is an exact functor T : FE -> FE and a natural equivalence T (+) id = T of functors. Proof. Countable direct sums exist in FE and are exact, so the functor sending E to the countable sum and the natural equivalence make FE into a flasque exact category. ... Now the functor A -> TA = sum of the t^i A makes sense and ...
+
+- §4.1, Definition 4.3, Proposition 4.4 and Definition 4.7, pp. 9 to 10, The envelope, the functor F, its properties and the suspension, verbatim.
+
+  > The category FE is an exact category whose objects are sequences of inflations in E. The morphism set from a sequence A to B is lim_i colim_j hom(A_i, B_j). ... 4.4 Proposition. Let A be a Frobenius pair. Then the map A -> F A induces a fully faithful map D A -> D F A of triangulated categories. Moreover, D F A has countable coproducts, and it is c-compactly generated by D A. ... 4.7 ...
+
+- Theorem 4.8, p. 10, The verification that the flasque route satisfies the axioms, verbatim.
+
+  > If we take M to be the category of Frobenius pairs, then the sequence id -> F -> S of functors from Frobenius pairs to Frobenius pairs satisfies the hypothesis of the set-up (1.3).
+
+### The set-up: negative K-groups of a triangulated category with models
+
+`GeneralAlgebraicKTheory:K.6/schlichting-set-up` · *definition*
+
+For a small triangulated category the zeroth invariant is the zeroth K-group of its idempotent completion. A SET-UP consists of a category of models with a functor to small triangulated categories, together with endofunctors F and S and natural transformations from the identity through F to S, such that both preserve exact sequences, the zeroth invariant of an enlargement vanishes, and the sequence from a model through its enlargement to its suspension is exact; a sequence of small triangulated categories is EXACT when the composite is zero, the first functor is fully faithful and the induced functor from the Verdier quotient to the third is cofinal. The negative groups of a model are then the zeroth invariant of its iterated suspension. Taking the models to be Frobenius pairs and the functors of the previous node gives the negative K-groups of an exact category, of a ring, of a scheme and of a differential graded algebra.
+
+**Hypotheses.**
+
+- The categories are small; cofinal means fully faithful with every object a direct summand of one in the image.
+- The idempotent completion carries a canonical triangulated structure, which is what makes the zeroth invariant well defined.
+- The axiomatic form is deliberate: the source records that it allows models other than Frobenius pairs, which it does not develop.
+
+**Proof outline.**
+
+1. Define an exact sequence of small triangulated categories, and record the three elementary facts the construction uses: the idempotent completion is triangulated, the zeroth K-group classifies dense triangulated subcategories, and an exact sequence induces an exact sequence of zeroth invariants.
+2. State the three conditions of the set-up and define the negative groups as the zeroth invariant of the iterated suspension.
+3. Instantiate at Frobenius pairs and record the resulting definitions for an exact category, for a ring through its finitely generated projectives, for a quasi-compact quasi-separated scheme and for a differential graded algebra.
+4. Record the source's observation about the zeroth invariant: if the exact category is idempotent complete the zeroth invariant is the usual zeroth K-group, and otherwise it is that of the idempotent completion, which is where the degree-zero correction of this theory sits.
+5. Record the two maps of the classical five-term sequence that this construction extends, and that neither is injective or surjective in general, which is the reason the theory exists.
+
+**Acceptance.**
+
+- For a ring the construction gives groups in every non-positive degree, with the zeroth one the zeroth K-group of the idempotent completion.
+- The set-up is satisfied by Frobenius pairs, which is the previous node's theorem, so the definition is non-vacuous.
+- A quasi-isomorphism of differential graded algebras induces isomorphisms of all these groups, because it induces an equivalence of derived categories.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension`, `mathlib:CategoryTheory.Idempotents.Karoubi`
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `IsExactSequence` | structure | An exact sequence of small triangulated categories, with the cofinality condition. |
+| `IK0` | data | The zeroth invariant, the K-group of the idempotent completion. |
+| `NegativeKSetup` | structure | A category of models with F, S and the three conditions. |
+| `negativeIK` | data | The negative groups of a model. |
+| `negativeIK_frobenius` | example | The instance at Frobenius pairs. |
+| `IK0_eq_K0_of_idempotentComplete` | compatibility | For an idempotent complete exact category the zeroth invariant is the usual zeroth K-group. |
+
+**Used by.**
+
+- *K.6, the localisation theorem* — The long exact sequence is a statement about these groups and uses only the three conditions.
+- *K.6, agreement* — The comparison with Bass’s groups is a statement about this definition.
+- *K.7* — The filtered-colimit statement in non-positive degrees is proved at this level of generality.
+
+**Unit tests.**
+
+- `idempotent_complete_case` — For an idempotent complete exact category the zeroth invariant is the usual zeroth K-group.
+- `frobenius_instance` — Frobenius pairs with the envelope and the suspension satisfy the set-up.
+- `quasi_iso_invariance` — A quasi-isomorphism of differential graded algebras induces isomorphisms of all the groups.
+- `cofinal_not_equivalence` — The third functor of an exact sequence is required to be cofinal, not an equivalence; requiring an equivalence would exclude the intended examples.
+
+**Sources.**
+
+- Definition 1.1, Facts 1.2, Set-up 1.3 and Definition 1.4, pp. 4 to 5, The set-up and the definition, verbatim.
+
+  > 1.1 Definition. Call a sequence of small triangulated categories A -> B -> C exact if the composition is zero, the map A -> B is fully faithful and the map from B/A to C is cofinal, i.e., it is fully faithful, and every object of C is a direct summand of an object of B/A. ... We define IK_0(T) = K_0 of the idempotent completion. ... 1.3 Set-up. ... We suppose that there are two ...
+
+- §5.5, p. 11, The degree-zero identification, verbatim.
+
+  > If E is idempotent complete, then so is D^b(E). In this case IK_0(E) is the usual K_0(E). If E is not idempotent complete, then IK_0(E) = K_0 of the idempotent completion.
+
+### Localisation in negative degrees, and the first negative group as an obstruction
+
+`GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization` · *theorem*
+
+An exact sequence of models induces a long exact sequence of the negative groups in every non-positive degree, with a connecting map constructed by lifting an object through the enlargement; a map whose derived functor is cofinal, in particular an equivalence, induces isomorphisms in all those degrees. The first negative group has an exact meaning: it vanishes for a model exactly when, for every exact sequence out of that model, the Verdier quotient of the idempotent completions is again idempotent complete. So the negative groups are the obstruction to the classical five-term sequence continuing, and the first of them is the obstruction to idempotent completeness of quotients. This is the localisation clause of the stage text in the nonconnective formulation.
+
+**Hypotheses.**
+
+- The sequence is exact in the sense of the previous node, so the third functor is only required to be cofinal.
+- The long exact sequence is asserted in degrees at most zero; its continuation to all degrees is the spectrum-level statement of a later node.
+- The connecting map is defined on objects by choosing a lift through the enlargement and is proved independent of the lift.
+
+**Proof outline.**
+
+1. Construct the connecting map: lift an object of the third derived category to the enlargement of the second, observe that its image in the third suspension vanishes, and take the class of its image in the first suspension.
+2. Prove independence of the lift, using that the difference of two lifts has cone in the enlargement of the first, whose zeroth invariant vanishes.
+3. Prove that the map respects distinguished triangles, so that it is defined on the group, and iterate to every non-positive degree.
+4. Prove exactness at the three places, which the source does by a diagram chase using the classification of dense subcategories.
+5. Deduce the cofinality corollary by applying the theorem to the sequence with zero first term.
+6. Prove the obstruction characterisation of the first negative group in both directions.
+
+**Acceptance.**
+
+- An exact sequence of exact categories whose bounded derived categories form an exact sequence gives a long exact sequence of negative groups.
+- A derived equivalence induces isomorphisms in all non-positive degrees, so resolution gives an isomorphism.
+- The first negative group vanishes exactly when the relevant Verdier quotients of idempotent completions are idempotent complete.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.6/schlichting-set-up`, `GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension`
+
+**Sources.**
+
+- Lemma 1.6, Theorem 1.7, Corollary 1.8 and Remark 1.9, pp. 5 to 6, The localisation theorem with its corollary and the obstruction remark, verbatim.
+
+  > 1.6 Lemma. The map delta yields a well defined map IK_i(C) -> IK_{i-1}(A) of abelian groups, i <= 0. 1.7 Theorem. Let A -> B -> C be a short exact sequence in M. Then the sequence of abelian groups ... IK_i(A) -> IK_i(B) -> IK_i(C) -> IK_{i-1}(A) -> ... is exact, i <= 0. ... 1.8 Corollary. Let f : A -> B be a map in M such that D(f) is cofinal, e.g. an equivalence of categories. Then ...
+
+- §5.5, p. 11, The instance for exact categories and the localisation example, verbatim.
+
+  > Given a sequence A -> B -> C of exact categories such that D^b A -> D^b B -> D^b C is exact, Theorem 1.7 yields a long exact sequence IK_0(A) -> IK_0(B) -> IK_0(C) -> IK_{-1}(A) -> IK_{-1}(B) ... For example, let R be a ring, and let S be a multiplicative set of central non-zero-divisors.
+
+### Additivity and filtered colimits for the negative groups
+
+`GeneralAlgebraicKTheory:K.6/additivity-and-colimits-for-negative-K` · *theorem*
+
+If a natural transformation of maps of models is objectwise an inflation then the quotient is again a map of models and the induced maps in every non-positive degree add: the middle one is the sum of the outer two. For exact categories this gives the usual additivity of a short exact sequence of exact functors. The negative groups also commute with filtered colimits of models, and hence with filtered colimits of exact categories, because the colimit of the enlargements is again flasque and additivity makes its groups vanish. Both statements are proved directly from the axioms of the set-up, and both are needed by the vanishing theorem.
+
+**Hypotheses.**
+
+- The index category of the colimit is small and filtered.
+- The additivity hypothesis is that the transformation is objectwise an inflation, not merely a natural transformation.
+- The statements are for degrees at most zero; the source does not treat positive degrees here, and the corresponding positive statement belongs to the connective theory.
+
+**Proof outline.**
+
+1. Prove additivity in degree zero and propagate it to every degree by applying it to the iterated suspension.
+2. Deduce the exact-functor form: a short exact sequence of exact functors gives additivity of the induced maps, using that a map factoring through the subcategory induces zero and that the cone of the canonical map is acyclic.
+3. Prove that a filtered colimit of models is a model and that the colimit of the enlargements is flasque, so its groups vanish by additivity.
+4. Compare the two long exact sequences, of the colimit of the sequences and of the sequence of the colimits, and conclude by iteration.
+5. Record the corollary for exact categories, obtained from the equivalence of the colimit of the complex categories with the complex category of the colimit.
+
+**Acceptance.**
+
+- A short exact sequence of exact functors gives additivity in every non-positive degree.
+- The negative groups of a filtered colimit of exact categories are the colimit of the negative groups.
+- The proofs use only the axioms of the set-up, so they apply to any model category satisfying them.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization`
+
+**Sources.**
+
+- Theorem 6.1, Corollary 6.2, Lemma 6.3 and Corollary 6.4, pp. 13 to 14, Additivity and the colimit statements, verbatim.
+
+  > 6.1 Theorem (Additivity). Let F -> G : A -> B be a natural transformation of maps between Frobenius pairs. If F(A) -> G(A) is an inflation for all objects A of A, then G/F is a map of Frobenius pairs and IK_i(F) + IK_i(G/F) = IK_i(G) for all i <= 0. 6.2 Corollary. Let 0 -> F -> G -> H -> 0 be an exact sequence of exact functors between exact categories. Then IK_i(F) + IK_i(H) = IK_i(G) ...
+
+### The IK-theory spectrum of a Frobenius pair, and what it computes
+
+`GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance` · *theorem* · planet **Schlichting's IK-theory spectrum**
+
+A Frobenius pair is a Waldhausen category with the inflations as cofibrations and the maps inverted in the derived category as weak equivalences, so it has a K-theory space. The enlargement has a contractible K-theory space, functorially, because the flasqueness of the envelope gives a functorial homotopy from the identity to a self-map; the square built from the pair, its enlargement and its suspension then yields a natural map from the K-theory space to the loop space of the suspension's, and the sequence of these spaces is the IK-THEORY SPECTRUM. Its loop spectrum is an omega-spectrum; its homotopy groups are the Quillen K-groups in positive degrees, the zeroth K-group of the idempotent completion of the derived category in degree zero, and the negative groups of the earlier nodes below. An exact sequence of pairs gives a homotopy cartesian square and a long exact sequence in ALL degrees, and a map inducing an equivalence of derived categories induces a homotopy equivalence of K-theory spaces. This is the nonconnective spectrum of the stage text, built by flasque enlargement and suspension.
+
+**Hypotheses.**
+
+- The Waldhausen structure is the one named: inflations as cofibrations, derived isomorphisms as weak equivalences.
+- The construction needs a factorisation of every map into a cofibration followed by a weak equivalence, which the source supplies without functoriality; the appendix replaces Waldhausen's cylinder functor by that weaker hypothesis.
+- The degree-zero value is the group of the idempotent completion, which differs from the K-group of the category itself when that is not idempotent complete.
+
+**Proof outline.**
+
+1. Attach the Waldhausen category to a Frobenius pair and define its K-theory space as the loop space of the realisation of the weak-equivalence S-construction.
+2. Prove that the K-theory space of an enlargement is contractible, functorially: the flasqueness isomorphism gives a functorial homotopy between a self-map and the sum of it with the identity, and an H-space inverse then contracts.
+3. Build the commutative square from the pair, its enlargement, its suspension and the pair regarded as a pair with itself, whose two corners are contractible, and take the resulting map to the loop space.
+4. Define the spectrum as the sequence of K-theory spaces of the iterated suspensions with these structure maps.
+5. Prove that the loop spectrum is an omega-spectrum, using cofinality and the fibration property, and compute the homotopy groups in the three ranges.
+6. Prove the localisation statement at the spectrum level and deduce the long exact sequence in all degrees, which extends the non-positive sequence of the earlier node.
+7. Record the derived-invariance statement and the cofinality statement, which are the two comparison tools the layer exports.
+
+**Acceptance.**
+
+- The homotopy groups are the Quillen K-groups above degree zero, so the spectrum extends the connective theory rather than replacing it.
+- In negative degrees they are the groups defined from the set-up, so the two constructions of the layer agree.
+- For an exact category the resulting groups agree with Bass's and Thomason's, which is the next node.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension`, `GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization`, `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum`
+
+**Sources.**
+
+- Definitions 11.1 and 11.4, Lemma 11.3, pp. 20 to 21, The construction of the spectrum, verbatim.
+
+  > 11.1 Definition. Let A be a Frobenius pair. Its associated category with cofibrations and weak equivalences has as cofibrations the inflations in A and as weak equivalences the maps in A which are isomorphisms in D A. The K-theory space of A is K(A) = Omega |wS.A|. ... 11.3 Lemma. There is a contraction of K(F A), functorial in the Frobenius pair A. ... 11.4 Definition (The IK-theory ...
+
+- Theorem 11.7, p. 21, The computation of the homotopy groups, verbatim.
+
+  > 11.7 Theorem. Let A be a Frobenius pair. Then the spectrum Omega IK(A) is an Omega-spectrum. The homotopy groups of IK(A) are given by pi_i IK(A) = pi_i K(A) for i > 0 as defined in 11.1, IK_0(A) = K_0 of the idempotent completion of D(A) for i = 0, and IK_i(A) for i < 0 as defined in sections 1 and 4.
+
+- Theorem 11.10 and §11.13, pp. 22 to 23, Localisation at the spectrum level and the instance for exact categories, verbatim.
+
+  > 11.10 Theorem. Let A -> B -> C be an exact sequence of Frobenius pairs. Then, applying the IK-theory functor yields a homotopy cartesian square. ... 11.13. IK(E), E an exact category. As in 5.4 we define the IK-theory spectrum of an exact category E. ... a sequence A -> B -> C of exact categories induces a long exact sequence.
+
+- Proposition 11.15, p. 23, The derived-invariance statement, with the bracketed words supplying from the surrounding text what the scan drops.
+
+  > 11.15 Proposition. Let F : A -> B be a map of Frobenius pairs [inducing an equivalence of derived categories; then it induces a homotopy equivalence of K-theory spaces].
+
+### Agreement with Bass, Karoubi and Thomason, and the vanishing theorems
+
+`GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K` · *theorem*
+
+The groups this layer constructs are the classical ones: for a ring they are Bass's and Pedersen's negative K-groups, for a quasi-compact quasi-separated scheme they are Thomason's, and for an additive category they are Karoubi's and Pedersen and Weibel's, in every non-positive degree. The first negative group of an exact category has a presentation: it is the monoid of isomorphism classes of idempotents of the unbounded derived category under direct sum, modulo those that split, so it vanishes exactly when that category is idempotent complete. It vanishes for every small abelian category, and every negative group vanishes for a small noetherian abelian category; the vanishing for a regular ring follows, because the inclusion of the finitely generated projectives into the finitely generated modules is then a derived equivalence and the latter category is abelian. Negative G-theory of a noetherian scheme is therefore trivial. Whether all negative groups of an arbitrary small abelian category vanish is stated by the source as a conjecture, and this packet states it as such.
+
+**Hypotheses.**
+
+- The ring is arbitrary; the scheme is quasi-compact and quasi-separated, and for the comparison with vector bundles it admits an ample family of line bundles.
+- Noetherian abelian means every object is noetherian; the proof runs through the categories of objects with an endomorphism and the nilpotent ones.
+- The vanishing for a regular ring is deduced, not assumed, and is the theorem of Bass that the stage text names.
+
+**Proof outline.**
+
+1. Prove the agreement for schemes by the projective-line bundle theorem and the resulting four-term sequence, and deduce the ring case.
+2. Prove the agreement with Karoubi's and Pedersen and Weibel's groups through the cone and suspension categories of an additive category, using that the cone is flasque.
+3. Prove the presentation of the first negative group: identify it with the zeroth group of the unbounded derived category by the Eilenberg swindle on bounded-above and bounded-below complexes, then apply the classification of dense subcategories.
+4. Prove the vanishing of the first negative group of a small abelian category, and then the vanishing of all of them for a noetherian abelian category by descending induction, using the sequence of the nilpotent endomorphism category, the polynomial category and the Laurent category together with additivity.
+5. Deduce the vanishing for a regular ring and for negative G-theory of a noetherian scheme.
+6. State the conjecture for a general small abelian category as a conjecture, together with the remark that commuting with filtered colimits does not reduce it to the noetherian case.
+
+**Acceptance.**
+
+- For a regular ring the negative K-groups vanish, which reproves Bass's theorem from this construction.
+- The first negative group of an exact category vanishes exactly when its unbounded derived category is idempotent complete.
+- The vanishing for a general small abelian category is a conjecture of the source and is recorded as one, not as a theorem.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`, `GeneralAlgebraicKTheory:K.6/additivity-and-colimits-for-negative-K`, `GeneralAlgebraicKTheory:K.6/negative-k-groups`, `GeneralAlgebraicKTheory:K.6/vanishing-for-regular-noetherian-rings`
+
+**Sources.**
+
+- Theorem 7.1 and Remark 7.3, pp. 14 to 15, The agreement theorem, verbatim.
+
+  > 7.1 Theorem. Let R be a ring. Then there are natural isomorphisms between Bass' and Pedersen's groups K_i(R) and the groups IK_i(R) defined in 5.4 for i <= 0. Let X be a quasi-compact and quasi-separated scheme, then there are natural isomorphisms between Thomason's groups K^B_i(X) and the groups IK_i(X) defined in 5.10 for i <= 0. Let A be an additive category, then there are natural ...
+
+- Lemma 8.1 and Corollary 8.2, p. 15, The presentation of the first negative group, verbatim.
+
+  > 8.1 Lemma. Let E be an exact category and D(E) its unbounded derived category. Then IK_{n-1}(E) = IK_n(Ch E, Ac E), n <= 0. In particular, IK_{-1}(E) = K_0(D(E)). ... 8.2 Corollary. The group IK_{-1}(E) is the quotient of the abelian monoid of isomorphism classes of idempotents in D(E), under direct sum operation, modulo the submonoid of those idempotents which split in D(E). In ...
+
+- §9, Examples 9.5 and 9.6, Conjecture 9.7 and Remark 9.8, pp. 16 to 17, The vanishing theorems, the regular case and the conjecture, verbatim.
+
+  > Descending induction on n starting with n = -1 (9.1) shows that IK_n(A) = 0, n < 0, for any noetherian abelian category A. ... 9.5 Example. Regular rings. Let R be a regular ring. Then the inclusion of the category of finitely generated projective R-modules into the category of all finitely generated R-modules induces an equivalence of bounded derived categories. As the latter category is ...
+
 ## K.7 — Invariance, products and universal interfaces
 
 Three invariance statements and a product structure, with their compatibilities.
@@ -551,7 +956,7 @@ not built the product; the API of the product node lists them as items.
 
 Coverage: **source_decomposed**.
 
-Seven nodes. Morita invariance with the Structure Theorem, the matrix instance and the compatibility with products, resting on the three pinned Mathlib declarations the audit names; the derived statement as a comparison node, which states the enhancement hypothesis, records that the K-theory construction consumes a category with cofibrations and weak equivalences rather than a homotopy category, and gives the failure of a naked triangulated equivalence as a non-example, exactly as the stage text demands, while keeping the degree-zero part that does survive and citing Tau Ceti's pinned exact-equivalence invariance for it; compatibility with filtered colimits and with finite products, in both the connective and the nonconnective theory; the external products from biexact functors, with the associativity, unit and symmetry homotopies carried as transported data rather than asserted, and with the pinned Tau Ceti degree-zero product cited; graded commutativity of the total K-group, with the degree-one specialisation and the link to the splitting of K.6's fundamental theorem; the compatibilities with relative groups, localisation boundaries and transfers, each stated as a separate assertion with its own proof obligation; and the two unit tests the stage text names. Every stage target has a node. The higher-degree product statements rest on the source's spectrum-level pairing, which is stated but whose construction the source defers to Waldhausen's paper; the gap records that and names the next source action.
+Seven nodes. Morita invariance with the Structure Theorem, the matrix instance and the compatibility with products, resting on the three pinned Mathlib declarations the audit names and on the K-book’s statement in every degree for K and for G; the derived statement as a comparison node, which states the enhancement hypothesis in Schlichting’s precise form — a map of Frobenius pairs inducing an equivalence of derived categories, not an equivalence of triangulated categories — records that the K-theory construction consumes a category with cofibrations and weak equivalences rather than a homotopy category, and gives the failure of the naked form as a non-example, while keeping the degree-zero part that does survive and citing Tau Ceti’s pinned exact-equivalence invariance for it; compatibility with filtered colimits and with finite products, with the K-book’s proof for every degree of the connective theory and Schlichting’s for the non-positive range of the nonconnective one; the external products from biexact functors, with the definition for exact categories, the map out of the Q-construction, the spectrum-level pairing and its ring- and module-spectrum hypotheses stated as natural isomorphisms of functors, and with the associativity, unit and symmetry homotopies carried as transported data rather than asserted; graded commutativity of the total K-group, with the degree-one specialisation and the link to the splitting of K.6’s fundamental theorem; the compatibilities with relative groups, localisation boundaries and transfers, each stated as a separate assertion with its own proof obligation; and the two unit tests the stage text names. Every stage target has a node. What is stated rather than proved is the construction of the spectrum-level pairing, which the K-book attributes to Waldhausen; the gap records that and names the next source action.
 
 ### Morita invariance
 
@@ -619,6 +1024,10 @@ Two rings are Morita equivalent when their module categories are equivalent; the
 
   > Example 2.7.2. R is Morita equivalent to the matrix ring M_n(R) for every n, since the free module R^n is a projective generator with endomorphism ring M_n(R).
 
+- IV.6.3.5 (PDF p. 320), The statement in every degree, for K-theory and for G-theory, verbatim.
+
+  > Morita Invariance 6.3.5. Recall from II.2.7 that if two rings R and S are Morita equivalent then there are equivalences P(R) = P(S) and M(R) = M(S). It follows that K_n(R) = K_n(S) and G_n(R) = G_n(S) for all n.
+
 ### Derived invariance needs an enhancement, not a triangulated equivalence
 
 `GeneralAlgebraicKTheory:K.7/derived-morita-and-enhancements` · *comparison*
@@ -657,6 +1066,10 @@ At the derived level the invariance statement is about enhanced categories: K-th
 
   > If F from C to D is an exact functor which is an equivalence of Waldhausen categories, then it induces an isomorphism on K_0 and a homotopy equivalence of K-theory spectra.
 
+- Proposition 11.15 with Definition 11.1, pp. 20 and 23, The enhanced statement in the precise form this node asks for: the hypothesis is a map of MODELS inducing an equivalence of derived categories, not an equivalence of the derived categories alone. The bracketed words supply from the surrounding text what the scan drops.
+
+  > 11.1 Definition. Let A be a Frobenius pair. Its associated category with cofibrations and weak equivalences has as cofibrations the inflations in A and as weak equivalences the maps in A which are isomorphisms in D A. ... 11.15 Proposition. Let F : A -> B be a map of Frobenius pairs [inducing an equivalence of derived categories; then it induces a homotopy equivalence of K-theory spaces].
+
 ### Compatibility with filtered colimits and with finite products
 
 `GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products` · *theorem*
@@ -691,9 +1104,13 @@ K-theory commutes with filtered colimits of rings: the natural map from the coli
 
   > If R = R_1 x R_2, then every finitely generated projective R-module is a product P_1 x P_2, and K_0(R) is isomorphic to K_0(R_1) x K_0(R_2).
 
-- II.2.1 and V.1, on filtered colimits (PDF pp. 104 and 374), The colimit statement, verbatim.
+- IV.6.4 (PDF p. 320), Both statements in every degree, with the proofs, verbatim from the Q-construction chapter.
 
-  > K_0 commutes with filtered colimits of rings: if R is the colimit of a filtered system R_i then K_0(R) is the colimit of the K_0(R_i). The same holds for K_n for all n.
+  > The product or direct sum of two exact categories is exact, and Q(A + A') = QA x QA'. Since the geometric realization preserves products, we have BQ(A + A') = BQA x BQA' and hence K_n(A + A') = K_n(A) + K_n(A'). For example, if R_1 and R_2 are rings then P(R_1 x R_2) = P(R_1) + P(R_2) and we have K_n(R_1 x R_2) = K_n(R_1) + K_n(R_2). ... Finally, suppose that i -> A_i is a functor from ...
+
+- Lemma 6.3 and Corollary 6.4, pp. 13 to 14, The same statement in non-positive degrees, verbatim; the two together cover every degree.
+
+  > 6.3 Lemma. Let i -> A_i be a functor from a small, filtered index category I to the category of Frobenius pairs. Then colim A_i is a Frobenius pair and the natural map colim IK_n(A_i) -> IK_n(colim A_i) is an isomorphism for n <= 0. 6.4 Corollary. Let E_i be a diagram of exact categories and exact functors indexed over a filtered category I. Then the natural map colim IK_n(E_i) -> ...
 
 ### External products from biexact functors
 
@@ -761,6 +1178,14 @@ A functor of two variables that is exact in each variable separately induces a b
 - II.7.4.1 (PDF p. 146), The instance that gives the ring structure, verbatim.
 
   > Application 7.4.1. The tensor product of modules over a commutative ring R is biexact on finitely generated projective modules, and the induced product makes K_0(R) a commutative ring.
+
+- IV, Definition 6.6 (PDF p. 321), The definition for exact categories and the map out of the Q-construction that produces the higher product, verbatim.
+
+  > Definition 6.6. If A, B and C are exact categories, a functor from A x B to C is called biexact if (i) each partial functor is exact, and (ii) A (x) 0 = 0 (x) B = 0 for the distinguished zero objects. ... Given such a biexact functor, the bicategory map QA (x) QB -> bi(QC) factors through the forgetful functor QQC -> bi(QC).
+
+- IV, the pairing of spectra (PDF p. 342), The spectrum-level pairing with the associativity and commutativity hypotheses stated as natural isomorphisms of functors, verbatim.
+
+  > It also induces a morphism of bisimplicial bicategories wS.A x wS.B -> wwS.S.C ... K(A) ^ K(B) -> K(C) of spectra. If A x A -> A is not only biexact but associative up to natural isomorphism, the pairing makes K(A) into a ring spectrum; it is a commutative ring spectrum if the pairing is commutative up to natural isomorphism. If in addition, A x B -> B is biexact and A x A x B -> B is ...
 
 ### The total K-group is a graded-commutative ring
 
@@ -878,23 +1303,29 @@ Two concrete consequences of the product structure serve as the unit tests of th
 
 ## Gaps
 
-### The flasque-enlargement construction of the nonconnective spectrum has no source here
+### Schlichting section 10 and Appendix A were not read
 
 Needed by: `GeneralAlgebraicKTheory:K.6`.
 
-The stage text asks for the nonconnective extension through a flasque enlargement, a suspension and an idempotent completion, which is the Pedersen-Weibel and Thomason route. The K-book gives the Bass delooping instead: the functor LE, its desuspension, the identification with the connective cover and the homotopy colimit. This packet decomposes that route in full and states the four axioms as the interface through which a second construction would be compared with it, but it does not decompose the flasque route, because no source for it was read. NEXT SOURCE ACTION: obtain Pedersen and Weibel, 'A nonconnective delooping of algebraic K-theory' (Lecture Notes in Mathematics 1126, 1985), and Thomason and Trobaugh section 6, and decompose the flasque enlargement, the suspension and the proof that the resulting spectrum satisfies the four axioms; the comparison with the Bass spectrum is then a theorem rather than an assumption.
+The IK-spectrum node rests on the fact that the Waldhausen category attached to a Frobenius pair admits a factorisation of every map into a cofibration followed by a weak equivalence, which the source supplies in Appendix A in place of Waldhausen’s cylinder functor, and on the fibration and approximation theorems proved there. Appendix A was not read, so the node records the hypothesis and its role but does not decompose its proof. Section 10, on exact versus additive K-theory and the homotopy fibre of the map from the split exact category, was also not read; it is what would justify the source’s remark that the conjecture of section 9 would give an isomorphism between the split and the ambient negative groups. NEXT SOURCE ACTION: read Appendix A (pp. 24 to 27) and decompose the non-functorial factorisation together with the approximation and fibration theorems it proves; then read section 10 (pp. 18 to 19).
+
+### The proofs of the spectrum-level localisation and cofinality statements were not read
+
+Needed by: `GeneralAlgebraicKTheory:K.6`.
+
+Theorem 11.10 (the homotopy cartesian square and the long exact sequence in all degrees), Proposition 11.15 (derived invariance) and Proposition 11.17 (cofinality) were read as statements and are quoted as such; their proofs, which occupy pp. 22 to 24 and use the approximation property, were not read. The proof of Theorem 11.7, which computes the homotopy groups, was read. NEXT SOURCE ACTION: read pp. 22 to 24 in full and decompose the three proofs, which will also settle the saturation hypothesis the source mentions in passing at 11.13.
 
 ### The construction of the spectrum-level product is deferred by the source
 
 Needed by: `GeneralAlgebraicKTheory:K.7`.
 
-II.9.5.2 states that a biexact functor of Waldhausen categories induces a pairing of K-theory spectra, and the source refers to Waldhausen for the construction. The bilinear pairing on the zeroth groups is constructed in full at II.7.4 and is decomposed here; the higher-degree pairing is stated with its attribution and its coherence is listed as data to be carried, not as something proved. NEXT SOURCE ACTION: read Waldhausen, 'Algebraic K-theory of spaces' section 1.5, for the construction of the pairing and for the associativity and unit coherence, and decompose the proof that the pairing is well defined on the K-theory of a Waldhausen category.
+The K-book gives the definition of a biexact functor for exact categories and for Waldhausen categories, the map out of the Q-construction, and the resulting pairing of spectra with the hypotheses under which it makes K a ring spectrum, but refers to Waldhausen for the construction of the pairing itself. The bilinear pairing on the zeroth groups is constructed in full at II.7.4 and is decomposed here; the higher-degree pairing is stated with its attribution and its coherence is listed as data to be carried, not as something proved. NEXT SOURCE ACTION: read Waldhausen, ‘Algebraic K-theory of spaces’ section 1.5, for the construction of the pairing and for the associativity and unit coherence.
 
-### No source was read for the enhanced form of derived Morita invariance
+### No counterexample was read for the failure of naked triangulated invariance
 
 Needed by: `GeneralAlgebraicKTheory:K.7`.
 
-The comparison node states the correct hypothesis, that the equivalence is of enhancements rather than of triangulated categories, and supports it with the source's own definition of a Waldhausen category and with the invariance under an exact equivalence of Waldhausen categories. The differential graded and stable infinity-categorical formulations, and the counterexamples showing that a triangulated equivalence is genuinely insufficient, were not read. NEXT SOURCE ACTION: read Toen, 'The homotopy theory of dg-categories and derived Morita theory', and Schlichting's 'A note on K-theory and triangulated categories', the latter for the failure; decompose the statement that K-theory is invariant under a quasi-equivalence of dg-categories and record the counterexample explicitly as a non-example node.
+The comparison node now states the correct hypothesis in two forms — an exact equivalence of Waldhausen categories, and a map of Frobenius pairs inducing an equivalence of derived categories — and supports the second with Schlichting’s Proposition 11.15. What is still asserted without a source is the negative half: that an equivalence of triangulated categories alone does not suffice. The node argues it from the fact that the construction consumes the weak equivalences rather than the homotopy category, which is a reason but not a counterexample. NEXT SOURCE ACTION: read Schlichting’s ‘A note on K-theory and triangulated categories’ (Invent. Math. 150, 2002) for the counterexample, and record it as its own non-example node.
 
 ### The proof of the Fundamental Theorem was not read, only its statement
 
@@ -942,6 +1373,6 @@ dependency modules. Every `implementationStatus` is `unchecked`, the suggested
 Lean file is a naming proposal whose proofs are all `sorry`, and nothing here is
 claimed to be formalised.
 
-Three excerpts ran past four hundred characters and were elided at a word
+Seventeen excerpts ran past four hundred characters and were elided at a word
 boundary, marked with an ellipsis; the locators name the pages so the full text
 can be read in the source.
