@@ -25934,8 +25934,9 @@
     "REV-PAPER-BAKKER-TSIMERMAN-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1737"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1737",
+   "finishedAt": "2026-09-24T01:56:27Z"
   },
   {
    "id": "REV-RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -26916,8 +26917,9 @@
     "REV-AUDIT-04"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-04.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1558"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1558",
+   "finishedAt": "2026-09-24T01:56:28Z"
   },
   {
    "id": "REV-RT-AUDIT-04",
@@ -28405,7 +28407,8 @@
     "REV-AUDIT-31"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-31.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1613"
   },
   {
    "id": "REV-RT-AUDIT-31",
@@ -29909,7 +29912,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-commutative.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1527"
   },
   {
    "id": "REV-RT-AREA-commutative",
@@ -29980,7 +29984,8 @@
     "RT-AREA-grouptheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-grouptheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1528"
   },
   {
    "id": "RT-AREA-representations-1",
@@ -30259,8 +30264,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-pde.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1541"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1541",
+   "finishedAt": "2026-09-24T01:56:29Z"
   },
   {
    "id": "REV-RT-AREA-pde",
