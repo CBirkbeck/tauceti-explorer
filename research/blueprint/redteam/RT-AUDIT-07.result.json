@@ -1,0 +1,197 @@
+{
+  "redteam": "RT-AUDIT-07",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "AUDIT-07",
+  "summary": "Red team of the accepted library audit AUDIT-07. It covers five roadmaps (ArithmeticStatistics, DiophantineApproximationAndTranscendence, ExponentialSumsAndCircleMethod, ProbabilisticAndMetricNumberTheory, SieveMethodsAndPrimePatterns), with 30 layers, 141 targets (81 absent, 41 partial, 19 fully present), 193 cited declarations and 70 duplicate entries. 20 findings: 2 high, 5 medium, 13 low. All 193 citations exist at the cited file and line. Both high findings are targets marked fully present that are not. ST.0's 'finiteness at bounded height' holds only for field elements, number fields and points, not for the curves and forms the stage orders; it is ST.0's only present target, so the layer becomes 'not built'. DT.0's 'Weil heights of algebraic numbers and points' holds only for relative heights over a fixed field: the absolute height is a bare definition with no extension invariance, and there are no absolute heights of points. Medium: finiteness of Sel₂ is claimed under ST.4 and in the summary but proved nowhere; SV.0's note says SelbergSieve's level truncates the weights, but nothing uses it; SV.2's duality principle is in Mathlib in operator form; DT.2 misses the S-unit theorem of the new MordellLawrenceVenkatesh roadmap (LV.6); PM.2/PM.0 miss Tau Ceti's empirical measures. The low findings are further uncited declarations, two inconsistent status labels and six missed duplicates.",
+  "checked": [
+    "Every cited declaration: all 193 citations (177 distinct declarations) were resolved against a fresh declaration index of the pinned trees (Mathlib 082e2d3, 246,008 declarations; Tau Ceti f790474, 70,802), built with research/blueprint/index_declarations.py; all exist at the cited file within three lines of the cited line. Three checkers then opened every citation with its section variable lines and docstrings, and some seventy further declarations to test the notes (among them the whole of Mathlib's SelbergSieve.lean, the Height directory and DirichletDensity, and Tau Ceti's Mordell–Weil, empirical-measure and Wiener–Ikehara files).",
+    "All 19 targets marked fully present were checked against their stage text, hypotheses and generality: the uniform measure and moments/characteristic functions (PM.0), Borel–Cantelli (PM.3), the product formula, continued fractions/Legendre and Dirichlet (DT.0), Liouville's inequality and Siegel's lemma (DT.1), sieve data, Λ² weights, conductors/primitive characters and orthogonality (SV), additive-character orthogonality (ES.1), and the ST.4 Selmer targets. All hold except the two high findings and the ST.4 finiteness claim.",
+    "Every layer: all 30 stage descriptions were read in data/atlas.json and each target list and verdict was compared with them. Both reviewed decompositions (data/decompositions/ArithmeticStatistics.json and DiophantineApproximationAndTranscendence.json) were compared by content; their nodes cite no declarations.",
+    "Every absent target was searched by concept and synonym in the index (grep -i -P) and in both source trees (grep -rn -i). The terms included: binary forms and their invariants, Delone–Faddeev, Bhargava, Davenport's lemma, Ekedahl, Cohen–Lenstra, Malle, Tamagawa and Sha; Weyl sums and differencing, van der Corput, Kloosterman and the Weil bound, Pólya–Vinogradov, Farey arcs and the circle method, Vinogradov mean values, decoupling, Hua, Waring, Goldbach and singular series, Haar measure on ℤ_p, Hasse–Minkowski, Bombieri–Pila and Schanuel; irrationality exponents, Thue–Roth–Schmidt, S-units, Gelfond–Schneider, Baker/Matveev, Lindemann–Weierstrass, e and π, Schanuel's conjecture and Nesterenko, absolute heights and Mahler measure; Erdős–Kac, Turán–Kubilius, Mertens, equidistribution, discrepancy, normal numbers, Khintchine, Duffin–Schaeffer, the Gauss map and Gauss–Kuzmin, pointwise Birkhoff and homogeneous dynamics; the large sieve and Montgomery duality, Brun, the fundamental lemma, Vaughan and Heath-Brown identities, Bombieri–Vinogradov, Siegel–Walfisz and Siegel zeros, admissible tuples and Maynard weights, Chen, the beta sieve, and expanders for the affine sieve. Only the findings above change a note or status.",
+    "Every duplicate entry (70) was checked: each named layer exists in data/atlas.json and its description was read. Missed duplicates were searched by keyword over all 1968 atlas stage descriptions and the six new roadmaps in research/blueprint/roadmaps/*.json; the git history shows MordellLawrenceVenkatesh.json existed before the audit's last commit. The candidates rejected (AN.2/AN.3 and the Chebotarev layers as SV.3 duplicates, FF.1 for SV.2, NumberFieldArithmetic layer 5, StandardDistributions layer 0, LD.2 for SV.0, and others) are listed in the report.",
+    "data/library-coverage.json was read only for comparison; the findings are stated against the audit file, which the fixer edits."
+  ],
+  "findings": [
+    {
+      "id": "RT-AUDIT-07/1",
+      "kind": "library-claim",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ArithmeticStatistics:ST.0, target 'Finiteness at bounded height (Northcott property) before forming densities' (library 'both'); layer verdict 'partly built'",
+      "claim": "The target is marked fully present in both libraries, but the stage asks for finiteness at bounded height for its own families: elliptic curves ordered by naive height, and GL₂(ℤ)-classes of integral binary quartic forms ordered by H(I,J). Neither exists in either library. The citations cover field elements (Mathlib Northcott), number fields (Hermite, with Tau Ceti's count) and points on a fixed curve (finite_naiveHeight_le), none of which is about curves or forms. The note admits the gap but calls it 'elementary once those heights are defined'. That is false for forms: finiteness of GL₂(ℤ)-classes needs reduction theory, which the reviewed decomposition quotes from Borel–Harish-Chandra. This is ST.0's only target marked fully present, so the layer's 'partly built' verdict rests on it; by the audit's own convention (partly built exactly when a target is fully present), ST.0 becomes 'not built'. A planner reading 'both' would plan nothing for this step.",
+      "evidence": "Stage ArithmeticStatistics:ST.0 (data/atlas.json): 'Define arithmetic families, equivalence relations, height/discriminant orderings … Prove finiteness at bounded height before forming asymptotic densities.' The target's note: 'Finiteness of curves or integral forms of bounded height is not stated, though it is elementary once those heights are defined.' data/decompositions/ArithmeticStatistics.json (ST.0 coverage): 'the finiteness of GL_2(Z)-classes with fixed (I,J) != (0,0) is quoted from Borel-Harish-Chandra [10, Theorem 6.9]'. The audit's own review note says the curve case is planned by tauceti:EllipticCurves Layer 8 and 'Neither library has it yet (no shortEquationHeight or IsMinimalPairNF in the baseline)'. Cited statements: Mathlib Height/NumberField.lean:411 'theorem finite_setOfPred_mulHeight₁_le (B : ℝ) : {x : K | mulHeight₁ x ≤ B}.Finite'; Tau Ceti MordellWeil/NaiveHeight.lean:186 'finite_naiveHeight_le (B : ℝ) : {P : W.Point | P.naiveHeight ≤ B}.Finite'. The other five ST.0 targets are all 'partial' or 'absent'.",
+      "fix": "Set library to 'partial' and change the fit of NumberField.finite_setOfPred_mulHeight₁_le and NumberField.finite_of_discr_bdd from 'exact' to 'special case'. New note: 'Mathlib's Northcott class, Northcott for number-field elements and Hermite's theorem (with Tau Ceti's explicit count), and Tau Ceti's finiteness of points of bounded naive height are present. Finiteness of ℚ-isomorphism classes of elliptic curves of bounded naive height (on the minimal-pair model, planned in tauceti:EllipticCurves Layer 8) and of GL₂(ℤ)-classes of integral binary quartic forms of bounded H(I,J) are absent; the latter needs reduction theory (Bhargava–Shankar quote Borel–Harish-Chandra, Theorem 6.9).' Change ST.0's verdict to 'not built'."
+    },
+    {
+      "id": "RT-AUDIT-07/2",
+      "kind": "library-claim",
+      "severity": "high",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — DiophantineApproximationAndTranscendence:DT.0, target 'Weil heights of algebraic numbers and points, normalized compatibly with the product formula and the denominator convention H(p/q) = max(|p|,|q|)' (library 'mathlib'); roadmap summary",
+      "claim": "The target is marked fully present, but only relative heights over a fixed field K exist. (a) The absolute height of an algebraic number, NumberField.absMulHeight₁, is a bare definition with no API: across both libraries it occurs only at its definition and in absLogHeight₁'s. Nothing states that it restricts to H_K(x)^{1/[K:ℚ]} on a number field K, i.e. that the normalization is independent of the field, which is what 'normalized compatibly with the product formula' requires. (b) No absolute height of points of Pⁿ(ℚ̄) exists. Height.mulHeight and Projectivization.mulHeight are relative to K. (c) Northcott is proved only for a fixed K; Mathlib's bounded-degree Northcott is for the Mahler measure of integer polynomials, and nothing relates Mahler measure to heights. The note's 'the absolute height of an algebraic number …, Northcott, and the rational formula are all present' therefore overstates. The consumer RP.0 needs exactly the missing invariance, and the reviewed decomposition records it as unverified.",
+      "evidence": "Mathlib 082e2d3, NumberTheory/Height/NumberField.lean:137 'noncomputable def absMulHeight₁ … := if hx : IsIntegral ℚ x then … (Height.mulHeight₁ (AdjoinSimple.gen ℚ x)) ^ (Module.finrank ℚ ℚ⟮x⟯ : ℝ)⁻¹ else 1'. grep -rn 'absMulHeight\\|absLogHeight' over both pinned trees returns only NumberField.lean:137, 146 and 147. The same file, line 411: 'theorem finite_setOfPred_mulHeight₁_le (B : ℝ) : {x : K | mulHeight₁ x ≤ B}.Finite' (fixed K). Mathlib/NumberTheory/MahlerMeasure.lean:107 'theorem finite_mahlerMeasure_le … {p : ℤ[X] | p.natDegree ≤ n ∧ (p.map (castRingHom ℂ)).mahlerMeasure ≤ B}'. Stage DT.0: 'Define … Weil heights and local absolute values … Acceptance. Height normalization agrees with the product formula and denominator conventions'. Consumer HeightsRationalPointsAndObstructions:RP.0: 'Import normalized absolute heights, product formula and Northcott … Acceptance: Test independence of projective coordinates and field extension.' data/decompositions/DiophantineApproximationAndTranscendence.json gap 'Height normalization …': 'Not verified: the absolute Weil height and its product-formula normalization, which is what DT.0's acceptance condition … actually requires'.",
+      "fix": "Set library to 'partial'. Change the fit of NumberField.absMulHeight₁ to 'related'. Add {NumberField.finite_setOfPred_mulHeight₁_le, mathlib, Mathlib/NumberTheory/Height/NumberField.lean, 411, special case}, {Projectivization.mulHeight, mathlib, Mathlib/NumberTheory/Height/Projectivization.lean, 46, special case} and {Polynomial.finite_mahlerMeasure_le, mathlib, Mathlib/NumberTheory/MahlerMeasure.lean, 107, related}. New note: 'Relative heights over any field with admissible absolute values (elements, tuples, projective points, with projective invariance), Northcott for a fixed number field, and H(p/q) = max(|p|,|q|) are present. The absolute height absMulHeight₁ is only defined, via ℚ(x): there is no invariance under finite extension (H_K(x) = H(x)^[K:ℚ]), no absolute height of algebraic points, and no bounded-degree Northcott for heights (Mathlib's bounded-degree Northcott is for Mahler measure, not related to heights).' In the roadmap summary, replace 'Weil heights with the product formula and Northcott' by 'relative Weil heights over a number field with the product formula and fixed-field Northcott', and add 'extension-invariance of the absolute height and absolute heights of points' to the missing list. The verdict stays 'partly built' (three other DT.0 targets are present)."
+    },
+    {
+      "id": "RT-AUDIT-07/3",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ArithmeticStatistics:ST.4, targets 'Weak Mordell-Weil and Mordell-Weil over number fields; finiteness of the Selmer-type groups' (library 'tauceti') and 'Rank bound from the Selmer group …'; roadmap summary",
+      "claim": "Finiteness of the 2-Selmer group selmerGroup₂ is proved nowhere. Only A(S,2) and K(S,n) are shown finite. Yet the target that includes 'finiteness of the Selmer-type groups' is marked fully present, although its own note concedes this. The roadmap summary's 'Tau Ceti supplies … the rank bound 2^r * #E(K)[2] <= #Sel' is false as written: pow_rank_le_card_of_range_μ_le needs [Finite S], so it does not apply to S = Sel₂ until finiteness is proved. The rank-bound target is correctly stated for a finite S, but its note should say it does not yet reach Sel₂.",
+      "evidence": "Tau Ceti f790474, TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean:25–26: 'Nothing here establishes that the Selmer group is finite, over the arbitrary Dedekind domain and auxiliary fields used below or otherwise; that is a separate result'; :142 'theorem pow_rank_le_card_of_range_μ_le [AddGroup.FG W.Point] {S : Subgroup W.M} [Finite S] (h : (μ (W := W)).range ≤ S) : 2 ^ finrank ℤ W.Point * Nat.card (nsmulAddMonoidHom (α := W.Point) 2).ker ≤ Nat.card S'. grep over Tau Ceti finds selmerGroup₂ in no file but SelmerGroup.lean, so neither Sel₂ ≤ A(S,2) nor Finite Sel₂ is stated. The target's note: '… the inclusion of selmerGroup₂ in A(S,2), hence finiteness of selmerGroup₂ itself, is not stated.'",
+      "fix": "Set the 'Weak Mordell-Weil …; finiteness of the Selmer-type groups' target to 'partial', and append to its note: 'Finiteness of Sel₂ (selmerGroup₂) is absent; it is owned by tauceti:EllipticCurves Layer 7 (AEC X.4.2).' Rank-bound target note: 'Proved for every finite subgroup S containing im μ (e.g. A(S,2)); it gives 2^r·#E(K)[2] ≤ #Sel₂ only once Finite (selmerGroup₂ R Loc) is proved, which neither library states; the averaged form is absent.' Summary: replace 'and the rank bound 2^r * #E(K)[2] <= #Sel' by 'and the rank bound 2^r·#E(K)[2] ≤ #S for any finite subgroup S containing the descent image (finiteness of Sel₂ itself is not proved)'. ST.4's verdict stays 'partly built' (the 2-Selmer-group definition target is present)."
+    },
+    {
+      "id": "RT-AUDIT-07/4",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — SieveMethodsAndPrimePatterns:SV.0, target 'Level of distribution: control of sum_{d <= D} |R_d|' (library 'partial')",
+      "claim": "The note says 'SelbergSieve carries a level parameter used to truncate the weights'. Nothing at the pin uses level. It is a structure field with a lower bound, read only by a one-line lemma. The Λ² weights take arbitrary coefficients with no support condition, and no file outside SelbergSieve.lean imports it. So nothing about level of distribution exists, and 'partial' overstates what is built.",
+      "evidence": "Mathlib 082e2d3, NumberTheory/SelbergSieve.lean:77–82 'structure SelbergSieve extends BoundingSieve where … level : ℝ; one_le_level : 1 ≤ level'. The only other occurrences of 'level' in the file are the docstrings (75, 78–79) and :105 'theorem one_le_y {s : SelbergSieve} : 1 ≤ s.level := s.one_le_level'. :236 'def lambdaSquared (weights : ℕ → ℝ) : ℕ → ℝ' and :250 'upperMoebius_lambdaSquared (weights : ℕ → ℝ) (hw : weights 1 = 1)' impose no truncation. grep -rl SelbergSieve over both pinned trees returns only this file.",
+      "fix": "Set library to 'absent'. Keep SelbergSieve with fit 'related', and add {BoundingSieve.errSum, mathlib, Mathlib/NumberTheory/SelbergSieve.lean, 177, related}. New note: 'SelbergSieve only adds a real parameter level with 1 ≤ level, which no definition or theorem uses (the Λ² weights carry no support condition); the only remainder-sum object is errSum = Σ_{d|P} |μ⁺(d)||R_d|. No level-of-distribution hypothesis or estimate is defined.' SV.0's verdict is unaffected (its sieve-data target is present)."
+    },
+    {
+      "id": "RT-AUDIT-07/5",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — SieveMethodsAndPrimePatterns:SV.2, target 'Duality principle for bilinear forms' (library 'absent')",
+      "claim": "The target is marked absent, with Matrix.l2_opNorm_conjTranspose as 'related'. But that lemma is the duality principle in operator-norm form. The best constant D in Σ_m |Σ_n a_mn x_n|² ≤ D Σ|x_n|² is ‖A‖², and ‖Aᴴ‖ = ‖A‖ is exactly the statement that the dual inequality holds with the same constant. Mathlib also has the Hilbert-space version (the adjoint is a linear isometric equivalence). Only its restatement as the equivalence of two quadratic-form inequalities is missing. The audit marks other targets 'partial' on a more general citation (e.g. SV.0's inclusion–exclusion), so by its own convention this is partial.",
+      "evidence": "Mathlib 082e2d3, Analysis/CStarAlgebra/Matrix.lean:204 'lemma l2_opNorm_conjTranspose [DecidableEq m] (A : Matrix m n 𝕜) : ‖Aᴴ‖ = ‖A‖' (section variables :95–96 '[RCLike 𝕜] [Fintype m] [Fintype n]', the scoped Matrix.Norms.L2Operator norm, l2_opNorm_def :198); :222 'l2_opNorm_mulVec : ‖(EuclideanSpace.equiv m 𝕜).symm <| A *ᵥ x‖ ≤ ‖A‖ * ‖x‖'. Analysis/InnerProductSpace/Adjoint.lean:114 'def adjoint : (E →L[𝕜] F) ≃ₗᵢ⋆[𝕜] F →L[𝕜] E'.",
+      "fix": "Set library to 'partial'. Change the fit of Matrix.l2_opNorm_conjTranspose to 'more general', and add {ContinuousLinearMap.adjoint, mathlib, Mathlib/Analysis/InnerProductSpace/Adjoint.lean, 114, more general} and {Matrix.l2_opNorm_mulVec, mathlib, Mathlib/Analysis/CStarAlgebra/Matrix.lean, 222, related}. New note: 'The duality principle is in Mathlib in operator form: ‖Aᴴ‖ = ‖A‖ for the l2 operator norm of a finite matrix over ℝ or ℂ, and ‖T†‖ = ‖T‖ for bounded operators between Hilbert spaces; only its restatement as the equivalence of the two quadratic-form inequalities used in large-sieve proofs is missing.' SV.2's verdict is unaffected."
+    },
+    {
+      "id": "RT-AUDIT-07/6",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — DiophantineApproximationAndTranscendence:DT.2, target 'S-unit equations: finiteness of solutions of x + y = 1…'",
+      "claim": "The layer's duplicates list ED.2 and RP.4 but miss MordellLawrenceVenkatesh:LV.6. LV.6 proves exactly this finiteness theorem, by the Lawrence–Venkatesh p-adic period-map method rather than by Diophantine approximation. The roadmap file predates the audit.",
+      "evidence": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json, stage LV.6 'The S-unit theorem': 'The first worked instance of the method (LV §4, Theorem 4.1) … LV Lemma 4.2 (finiteness in a residue disk) and LV Theorem 4.1. Acceptance. K=ℚ, S={2,∞} gives U={−1,2,1/2}', i.e. the t with t and 1 − t both S-units. The roadmap's readme: 'Along the way it proves the S-unit theorem (LV Theorem 4.1)'. The file is present at commit f66d8b51 (2026-09-16 13:27), before the audit's last commit (2026-09-16 22:29).",
+      "fix": "Add to DT.2 duplicates {\"layer\": \"MordellLawrenceVenkatesh:LV.6\", \"note\": \"LV.6 proves the S-unit theorem (Lawrence–Venkatesh Theorem 4.1: finitely many t with t and 1 − t in O_{K,S}^×) by the p-adic period-map method, the same finiteness statement as this layer's unit-equation target by an independent proof; the statements should be shared.\"}"
+    },
+    {
+      "id": "RT-AUDIT-07/7",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ProbabilisticAndMetricNumberTheory:PM.2, target 'Weyl's criterion for uniform distribution modulo 1'; PM.0, target 'Weak convergence and the link from counting limits…'",
+      "claim": "The PM.2 note says 'No notion of equidistributed sequence in either library'. But Tau Ceti defines the empirical probability measure of a sequence and proves weak convergence of empirical measures in the ProbabilityMeasure topology. Equidistribution of (xₙ) with respect to μ is Tendsto (empiricalMeasure x) atTop (𝓝 μ). Tau Ceti also identifies the empirical measure of a finite population with the push-forward of uniformOn, which is the counting-to-distribution link PM.0's target asks for. Neither note cites these, so a planner would redefine the carrier. The statuses stand (the Weyl criterion is absent).",
+      "evidence": "TauCeti f790474, Probability/Process/EmpiricalMeasure.lean:128 'def empiricalMeasure (x : ℕ → α) (n : ℕ) : ProbabilityMeasure α := empiricalMeasureOfFintype (fun i : Fin (n + 1) => x i)'; :80 'theorem empiricalMeasureOfFintype_eq_map_uniformOn … (empiricalMeasureOfFintype x : Measure α) = (ProbabilityTheory.uniformOn (Set.univ : Set κ)).map x'; Probability/Exchangeability/ConditionallyIID/WeakConvergence.lean:75 'ConditionallyIIDWith.tendsto_empiricalMeasure_ae … ∀ᵐ ω ∂μ, Tendsto (fun n => empiricalMeasure (fun i => X i ω) n) atTop (𝓝 (ν ω))'.",
+      "fix": "PM.2 Weyl-criterion target: add {TauCeti.Probability.empiricalMeasure, tauceti, TauCeti/Probability/Process/EmpiricalMeasure.lean, 128, related}; note: 'No equidistribution predicate or Weyl criterion; Tau Ceti's empirical measures of sequences, with weak-convergence results for conditionally i.i.d. sequences, are the carrier for one.' PM.0 weak-convergence target: add {TauCeti.Probability.empiricalMeasureOfFintype_eq_map_uniformOn, tauceti, same file, 80, related}; append: 'Tau Ceti's empirical measures identify the law of a function on a finite uniform population with a ProbabilityMeasure.'"
+    },
+    {
+      "id": "RT-AUDIT-07/8",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ArithmeticStatistics:ST.0, target 'Asymptotic densities of subfamilies ordered by height'",
+      "claim": "The note says 'Only the natural density of sets of prime ideals (Tau Ceti) and the Schnirelmann density of subsets of N (Mathlib) are defined'. Mathlib also defines the Dirichlet density of sets of prime ideals.",
+      "evidence": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean:82 'def HasDirichletDensity (δ : ℝ) : Prop := Tendsto (fun s : ℝ ↦ S.primeIdealZetaSum s / primeIdealZetaSum (univ : Set (HeightOneSpectrum (𝓞 K))) s) (𝓝[>] 1) (𝓝 δ)'; dirichletDensity at :90.",
+      "fix": "Add {NumberField.Set.HasDirichletDensity, mathlib, Mathlib/NumberTheory/NumberField/DirichletDensity.lean, 82, related}. Note opening: 'Only densities of sets of prime ideals (Mathlib's Dirichlet density, Tau Ceti's natural density) and the Schnirelmann density of subsets of N are defined.' Status stays partial."
+    },
+    {
+      "id": "RT-AUDIT-07/9",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ArithmeticStatistics:ST.0, target 'Arithmetic families up to isomorphism (elliptic curves under admissible changes…)'; ST.5, target '…2-Selmer distributions in quadratic twist families'",
+      "claim": "The ST.0 note says 'no family of curves or forms indexed by integral coefficients with its equivalence relation, is defined'. But Tau Ceti defines the family E_{A,B} over any ring including ℤ, and Mathlib proves that every Weierstrass curve with 2 and 3 invertible is isomorphic to a short one. Only the minimal-pair normalization and its uniqueness are missing. Likewise ST.5's 'Nothing beyond the per-curve Selmer theory' misses Tau Ceti's quadratic-twist construction, the carrier of twist families.",
+      "evidence": "TauCeti/AlgebraicGeometry/EllipticCurve/ShortWeierstrass.lean:81 'def shortCurve : WeierstrassCurve R where a₁ := 0 a₂ := 0 a₃ := 0 a₄ := A a₆ := B' (variables line 76 '{R : Type*} [Zero R] (A B : R)'); Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.lean:274 'theorem exists_variableChange_isShortNF : ∃ C : VariableChange R, (C • W).IsShortNF' under [Invertible (2 : R)] [Invertible (3 : R)]; TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean:451 'noncomputable def quadraticTwist (E : WeierstrassCurve K) (L : Type*) … [Algebra.IsQuadraticExtension K L] [Algebra.IsSeparable K L] : WeierstrassCurve K'.",
+      "fix": "ST.0: add {WeierstrassCurve.shortCurve, tauceti, TauCeti/AlgebraicGeometry/EllipticCurve/ShortWeierstrass.lean, 81, related} and {WeierstrassCurve.exists_variableChange_isShortNF, mathlib, Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.lean, 274, related}; note: '… the family E_{A,B} and the reduction to short form exist; the minimal-pair normalization (p⁴ ∣ A ⇒ p⁶ ∤ B) with uniqueness of the representative, and families of forms with their GL₂ action, are absent.' ST.5: add {WeierstrassCurve.quadraticTwist, tauceti, TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean, 451, related}; note: 'Quadratic twists are constructed; no Selmer statistics over twist families.' Statuses unchanged."
+    },
+    {
+      "id": "RT-AUDIT-07/10",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ExponentialSumsAndCircleMethod:ES.5, target 'Counting rational points of bounded height by arithmetic-geometric comparison…'",
+      "claim": "The note says 'Finiteness of points of bounded height … exist[s]', but Northcott for points of Pⁿ(K) is an explicit Mathlib TODO. The cited finite_setOfPred_mulHeight_nat_le is an auxiliary lemma about integers of 𝓞_K with a fixed denominator n, not points of bounded height.",
+      "evidence": "Mathlib/NumberTheory/Height/Northcott.lean:15–23: 'We provide instances showing that K also satisfies the Northcott property * for logHeight₁, * (TODO) for Projectivization.mulHeight, * (TODO) for Projectivization.logHeight.' Height/NumberField.lean:374: '{a : 𝓞 K | mulHeight ![(a : K), n] ≤ B}.Finite'.",
+      "fix": "Replace the citation by {NumberField.finite_setOfPred_mulHeight₁_le, mathlib, Mathlib/NumberTheory/Height/NumberField.lean, 411, related}. Note: 'Northcott holds for elements of K (height on P¹) and for points of an elliptic curve (Tau Ceti); Northcott for Pⁿ(K) is a Mathlib TODO; lattice-point asymptotics exist; no counting theorem for points on varieties (not even Schanuel).'"
+    },
+    {
+      "id": "RT-AUDIT-07/11",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ArithmeticStatistics:ST.5, target 'Random-matrix and Cohen-Lenstra-type limiting distributions, with the measure…'",
+      "claim": "The note says 'no random-matrix models', but Tau Ceti defines the Wishart random-matrix law. What is missing is any arithmetic random-matrix model: Haar measure on compact classical groups or on matrices over ℤ_p. Even the SU(2) Weyl integration formula is unproved.",
+      "evidence": "TauCeti/Probability/Distributions/Wishart/Basic.lean:160 'def wishartGramMeasure (ν : ℕ) (S : Matrix (Fin p) (Fin p) ℝ) : Measure (selfAdjoint.submodule ℝ (Matrix (Fin p) (Fin p) ℝ)) := (Measure.pi fun _ : Fin ν => multivariateGaussian 0 S).map wishartGram'. TauCeti/RepresentationTheory/SU2/Weyl/Orthogonality.lean docstring: 'the Weyl integration formula itself … is the missing input'.",
+      "fix": "Note: 'No Cohen–Lenstra measure on finite abelian p-groups and no arithmetic random-matrix model (Haar measure on compact classical groups or on matrices over ℤ_p); the only random-matrix law is Tau Ceti's real Wishart law (TauCeti.wishartGramMeasure), and the SU(2) Weyl integration formula is unproved.' Status stays absent."
+    },
+    {
+      "id": "RT-AUDIT-07/12",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — SieveMethodsAndPrimePatterns:SV.0, target 'Elementary upper and lower bounds for the sifted sum'",
+      "claim": "The note lists only the upper-Möbius bound and the rough-number union bound. Mathlib also has the classical elementary interval sieve by the primes dividing a: an exact count over each full period and an upper bound. These are closer to the target than rough numbers, and the audit's own SV.1 citation primeCounting_add_le is built on them.",
+      "evidence": "Mathlib/Data/Nat/Totient.lean:80 'theorem filter_coprime_Ico_eq_totient (a n : ℕ) : #{x ∈ Ico n (n + a) | a.Coprime x} = totient a'; :85 'theorem Ico_filter_coprime_le {a : ℕ} (k n : ℕ) (a_ne_zero : a ≠ 0) : #{x ∈ Ico k (k + n) | a.Coprime x} ≤ totient a * (n / a + 1)'.",
+      "fix": "Add {Nat.Ico_filter_coprime_le, mathlib, Mathlib/Data/Nat/Totient.lean, 85, related} and {Nat.filter_coprime_Ico_eq_totient, mathlib, Mathlib/Data/Nat/Totient.lean, 80, related}. Append to the note: 'for the interval sieve by the primes dividing a, the exact count φ(a) over each full period and the bound #{x ∈ [k, k+n) : (a,x) = 1} ≤ φ(a)(⌊n/a⌋ + 1) are present; no lower bound is stated.' Status stays partial."
+    },
+    {
+      "id": "RT-AUDIT-07/13",
+      "kind": "library-claim",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — DiophantineApproximationAndTranscendence:DT.4, target 'Height, degree and branch conversion lemmas'",
+      "claim": "The note says 'the branch conversions … are not present'. Mathlib has the elementary branch facts for the principal complex logarithm that turn a multiplicative relation into a linear form with a 2πi·b₀ term. The status (partial) is unchanged.",
+      "evidence": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean:142 'theorem exp_eq_one_iff {x : ℂ} : exp x = 1 ↔ ∃ n : ℤ, x = n * (2 * π * I)'; :172 exp_eq_exp_iff_exists_int; :180 'log_exp_exists (z : ℂ) : ∃ n : ℤ, log (exp z) = z + n * (2 * π * I)'; :94 'log_mul_eq_add_log_iff … log (x * y) = log x + log y ↔ arg x + arg y ∈ Set.Ioc (-π) π'.",
+      "fix": "Add {Complex.exp_eq_one_iff, mathlib, Mathlib/Analysis/SpecialFunctions/Complex/Log.lean, 142, related} and {Complex.log_mul_eq_add_log_iff, mathlib, same file, 94, related}. Note: 'Mathlib has the height inequalities for sums, products and polynomial values, and the elementary branch facts for the principal complex logarithm (exp x = 1 iff x ∈ 2πiℤ; additivity of log exactly when the arguments sum into (−π, π]); the degree/height conversions and the estimates that feed Baker bounds into equations are not present.'"
+    },
+    {
+      "id": "RT-AUDIT-07/14",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — DiophantineApproximationAndTranscendence:DT.5, target 'Algebraic independence theorems (e.g. Nesterenko)'; ProbabilisticAndMetricNumberTheory:PM.3, target 'Hausdorff-measure versions (Jarnik-Besicovitch, mass transference)'",
+      "claim": "Both theorem targets are marked 'partial', although their only citations are the generic definitions they would be stated in. The same audit marks targets in exactly this situation 'absent': PM.0's independence target (only iIndepFun) and PM.4's ergodicity target (only Ergodic). The notes are accurate, but the labels overstate and are inconsistent.",
+      "evidence": "DT.5 target: library 'partial', declarations [AlgebraicIndependent (related)], note 'Only the definition of algebraic independence is present.' (Mathlib/RingTheory/AlgebraicIndependent/Defs.lean:54 'def AlgebraicIndependent'). PM.3 target: 'partial', [MeasureTheory.Measure.hausdorffMeasure, dimH (related)], note 'Hausdorff measure and dimension exist; no dimension computation for sets of well-approximable numbers.' Compare PM.0 'Independence of divisibility events …' 'absent' with [ProbabilityTheory.iIndepFun (related)], and PM.4 'Ergodicity and mixing of the Gauss map' 'absent' with [Ergodic (related)].",
+      "fix": "Set both targets to 'absent', keeping their citations as related. The verdicts of DT.5 and PM.3 are unchanged."
+    },
+    {
+      "id": "RT-AUDIT-07/15",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ExponentialSumsAndCircleMethod:ES.1, target 'Finite orthogonality of additive characters modulo q'",
+      "claim": "FiniteFieldsAndCharacterSums:FF.1 also plans additive characters and their orthogonality, but ES.1's duplicates list only AC.0. The audit lists FF.1 only under ES.0.",
+      "evidence": "FiniteFieldsAndCharacterSums:FF.1 (data/atlas.json): 'Construct additive and multiplicative characters, orthogonality, Gauss and Jacobi sums…'.",
+      "fix": "Add to ES.1 duplicates {\"layer\": \"FiniteFieldsAndCharacterSums:FF.1\", \"note\": \"FF.1 also constructs additive characters and their orthogonality relations, which Mathlib already supplies (AddChar.sum_eq_ite).\"}"
+    },
+    {
+      "id": "RT-AUDIT-07/16",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ExponentialSumsAndCircleMethod:ES.0, target 'Interface to finite-field character sums: Gauss and Jacobi sums…'",
+      "claim": "ClassicalArithmeticCompletion:CA.1 also plans Gauss and Jacobi sums, and it is missing from ES.0's duplicates.",
+      "evidence": "ClassicalArithmeticCompletion:CA.1 (data/atlas.json): 'Integrate finite cyclic groups, power residues, Gauss/Jacobi sums and quadratic reciprocity…'.",
+      "fix": "Add to ES.0 duplicates {\"layer\": \"ClassicalArithmeticCompletion:CA.1\", \"note\": \"CA.1 also integrates Gauss and Jacobi sums, which Mathlib already has.\"}"
+    },
+    {
+      "id": "RT-AUDIT-07/17",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ExponentialSumsAndCircleMethod:ES.3, target 'p-adic local densities as limits of solution counts modulo p^k, with Haar…'",
+      "claim": "LogicAndDefinabilityInNumberTheory:LD.2 plans the same local data: its Igusa/Poincaré series is the generating function of the solution counts modulo p^k. Both need the Haar measure on ℤ_pⁿ that, as the audit notes, neither library has. LD.2 is missing from ES.3's list.",
+      "evidence": "LogicAndDefinabilityInNumberTheory:LD.2 (data/atlas.json): 'Construct definable cells and measures, rationality of local Poincare/Igusa series in selected settings'.",
+      "fix": "Add to ES.3 duplicates {\"layer\": \"LogicAndDefinabilityInNumberTheory:LD.2\", \"note\": \"LD.2 builds p-adic measures and the Igusa/Poincaré series of solution counts modulo p^k, the same Haar-normalized local data as the p-adic local densities.\"}"
+    },
+    {
+      "id": "RT-AUDIT-07/18",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — ExponentialSumsAndCircleMethod:ES.0, target 'Stationary phase and first/second derivative bounds for exponential integrals'",
+      "claim": "ArithmeticQuantumTopology:QT.6 also plans a controlled stationary-phase estimate with an error term, and it is not listed.",
+      "evidence": "ArithmeticQuantumTopology:QT.6 (data/atlas.json): 'relate critical points to gluing equations and derive a controlled stationary-phase or q-asymptotic expansion', with acceptance 'an error estimate where analytic asymptotics are claimed'.",
+      "fix": "Add to ES.0 duplicates {\"layer\": \"ArithmeticQuantumTopology:QT.6\", \"note\": \"QT.6 also needs a controlled stationary-phase expansion with error estimate, for state integrals.\"}"
+    },
+    {
+      "id": "RT-AUDIT-07/19",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — DiophantineApproximationAndTranscendence:DT.0 (layer duplicates)",
+      "claim": "GrossZagierAndArithmeticHeights:GZ.1 explicitly plans the projective-height lemmas missing from the height owners, including independence under finite extension, the missing part of DT.0's height target (finding 2). It is not listed.",
+      "evidence": "GrossZagierAndArithmeticHeights:GZ.1 (data/atlas.json): 'Construct Weil heights … and independence under finite extension with the specified arithmetic-degree normalization … General Mordell–Weil or projective-height lemmas absent from the imported owners are construction targets here'.",
+      "fix": "Add to DT.0 duplicates {\"layer\": \"GrossZagierAndArithmeticHeights:GZ.1\", \"note\": \"GZ.1 schedules projective-height lemmas absent from the height owners and the independence of heights under finite extension; coordinate with DT.0's absolute-height target so that it is planned once.\"}"
+    },
+    {
+      "id": "RT-AUDIT-07/20",
+      "kind": "duplicate",
+      "severity": "low",
+      "where": "research/blueprint/audit/AUDIT-07.result.json — SieveMethodsAndPrimePatterns:SV.1 (layer duplicates, empty)",
+      "claim": "SV.1's duplicates list is empty, but AdditiveCombinatorics:AC.4 builds the Goldston–Yildirim majorant, a square of truncated Möbius divisor sums, which are one-dimensional Selberg Λ²-type weights. This audit itself describes AC.4 that way under SV.4, and AUDIT-16 records the same overlap from AC.4's side, pointing to SV.1.",
+      "evidence": "AdditiveCombinatorics:AC.4: 'Construct pseudorandom majorants, dense-model and relative counting theorems, then implement the Green-Tao prime-progression proof.' AUDIT-16, AC.4 duplicates: {\"layer\": \"SieveMethodsAndPrimePatterns:SV.1\", \"note\": \"Selberg sieve weights, of which the Goldston-Yildirim truncated divisor sum used for the majorant is a variant.\"}. AUDIT-07, SV.4 duplicates: 'AC.4 constructs the Goldston-Yildirim truncated divisor-sum majorant, the one-dimensional ancestor of these sieve weights.'",
+      "fix": "Add to SV.1 duplicates {\"layer\": \"AdditiveCombinatorics:AC.4\", \"note\": \"AC.4 constructs the Goldston–Yildirim majorant, a square of truncated Möbius divisor sums, which are Selberg Λ²-type weights; AUDIT-16 records the same overlap from AC.4.\"}"
+    }
+  ]
+}
