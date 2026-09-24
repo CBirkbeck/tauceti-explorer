@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-DISEGNI-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The Part II direction beyond GZ.9 is plausible, but the brief lists names instead of the exact corrected final statements and imports an unreviewed Selmer proposal as if available. Shared Azumaya, continuous-cochain and Pfaffian foundations need their owners; multipart results, source E17/E20 and exact external hypotheses remain open. Reject as a design instruction, not the research direction."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Family Selmer heights belong beyond the current lattice-level owner, but this brief treats the unreviewed PAPER-DISEGNI-LIU-24 proposal as established and privately repackages D7/Selmer L2/L3 foundations. Corrected base change, full LES and duality-compatible transport need atomic statements and APIs. No second foundational implementation is approved."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "PadicFamilies L0/L5 cover ordinary families, not automatically this whole bundle of no-residual-irreducibility Galois reconstruction and family Jacquet–Langlands. Items 29 and 135 are now missing. Split in-scope sources from genuinely new family layers and give exact hypotheses before acceptance."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "R19.6 plans residual-absolutely-irreducible reconstruction over a completed Hecke algebra, not the general Azumaya-sheaf and line-bundle uniqueness theorem. Mathlib has Azumaya carriers and matrix examples; item 38 still needs the fibre/determinant bridge. Generic algebra needs its shared owner, not an undifferentiated source addition here."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "R16.2/R16.3 are pointwise local representation theory/LLC, while SR.5's Helm family theory is not Disegni's analytic correspondence. The recognition/open-locus theorem requires a separate family extension, reuse of SR.5 and the supplier's Laurent-polynomial erratum. Reject the present scope."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "L0/L1/L5 give character spaces, cohomological input and conditional comparison principles, not automatically the unconditional GL₂×GU(1) family construction and Katz normal-derivative nonvanishing. Separate those new layers, exact interpolation hypotheses and owners; a worked instance is not evidence of existing scope."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "HE.8's Q-based Howard/BCGS branch does not contain Fouquet's full totally real nearly ordinary quaternionic theorem. Item 129 suppresses substantive residual and ramification hypotheses. Extract the actual supplier theorem and route its extension before acceptance."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "L6 is the main-conjecture interface, not a proof owner. The self-dual CM-character branch and its Katz μ-nonvanishing need exact hypotheses and suppliers. Item 133 is no longer falsely claimed covered by the GL₂ square-root theorem at APL L3h. Reject pending a branch-owner decision."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept corrected items 56,60,62 as local normalization and toric/Kirillov computations within GZ.4/GZ.5. Item 60 now uses the inverse character in the contragredient zeta factor and the correct dual twist, with the source's fixed-measure scalar convention. This adds local proof tasks, not a height-family design or a claim of formalization."
+    }
+  ],
+  "notes": "Finished independent review by Codex — codex-a71f92 of the 153-item extraction by Claude Code cc-7b31c4 (PR #2177), all nine routes, all input findings, and the complete public v4 source. Corrected extraction remains partial: 153 items, 0 library, 17 planned, 136 missing. Only corrected route 9 is accepted. All 23 source findings have verdicts: 22 confirmed (three already in the published correction), E6 rejected. Exact source/version boundaries, elementary witnesses, pinned checks and unresolved foundational/API/hypothesis gaps are recorded in the report. No access to the original subscription journal text and no Lean compilation are claimed."
+}
