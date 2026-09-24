@@ -29948,8 +29948,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-representations-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1531"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1531",
+   "finishedAt": "2026-09-24T01:05:18Z"
   },
   {
    "id": "REV-RT-AREA-representations-1",
