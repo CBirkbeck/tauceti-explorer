@@ -48328,9 +48328,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed, and I reproduced the decisive computation. Both displays on p. 32 print deg(M) := t_N(M) - t_H(M). Three things fix the other sign. Section 3.2.2 on p. 14 defines semistability as mu(E') <= mu(E) for strict subobjects, and Definition 5.1 defines weakly admissible as semistable of slope 0, so weak admissibility must read deg(M') <= 0 on subobjects; Fontaine's condition is t_H(M') <= t_N(M'), which is deg <= 0 only for deg = t_H - t_N. Remark 5.5(ii) says the bundle E(M,Fil) has vanishing H^1 exactly when (M,Fil) is acyclic, and Definition 5.1 makes acyclic mean HN slopes >= 0. And the rank-one example settles it: for M = F with phi(e) = pe and a single jump at 0, X_st(M) = (M tensor B_st)^{N=0,phi=1} = B_cris^{phi=p^{-1}} = 0 while X_dR is nonzero, so H^0 = 0, H^1 is nonzero and M is not acyclic - whereas the printed formula gives deg = 1 - 0 = +1 >= 0 and would call it acyclic. The correction is right; the extraction's classification as affecting nothing is also right, since Definition 5.13 fixes the intended sign on the bundle."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E2",
@@ -48350,9 +48350,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Page 17 states the goal of the proof as 'This amounts to showing that, if f : U_lambda -> V_N is an injective map then h > d' and then ends 'the existence of an injection implies h < d, as wanted'. The lemma asserts dim(W) < ht(W)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E3",
@@ -48372,9 +48372,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed, and the paper refutes it on the same page. Corollary 3.21(iv) reads 'A quotient of height 0 of a BC of curvature >= 0 has curvature 0', and footnote 9 on p. 18 records that for x different from infinity, ht(U_1/Q_p t_x) = 0 while the curvature of U_1/Q_p t_x is > 0. That object is a quotient of itself and has curvature >= 0 (curvature > 0 implies curvature >= 0, since B^+_dR is a successive extension of copies of V_1), so (iv) would give it curvature 0; but curvature 0 means a successive extension of V_1 (Definition 3.5), which for a nonzero object admits a nonzero map to V_1, while section 3.2.7 computes Hom_BC(U_1/Q_p t_x, V_1) = 0 for x different from infinity. The two are incompatible."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E4",
@@ -48394,9 +48394,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Page 14 prints 'Il lambda_1 <= lambda_2, if E_1 is of slopes >= lambda_1 and E_2 of slopes <= lambda_2, then an extension of E_2 by E_1 has slopes in [lambda_1, lambda_2]', with the untranslated French 'Il'. The counterexample is immediate on the Fargues-Fontaine curve: lambda_1 = 0, lambda_2 = 1, E_1 = O(5), which has slopes >= 0, and E_2 = O, which has slopes <= 1; the split extension has a slope 5 outside [0,1]. The intended statement is the conjunction of the two preceding bullets, which do hold."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E5",
@@ -48416,9 +48416,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed, and the proof contradicts the statement. Lemma 4.24(i) asserts Ext^1_TVS(U_d, W) isomorphic to W, while its own proof sets h^1(-) := Ext^1_TVS(-, W) and concludes 'h^1(Q_p t^d) = 0 and h^0(t^d B_m) -> h^0(Q_p t^d) is an isomorphism. Hence h^0(Q_p t^d) -> h^1(B_d) is surjective, and h^1(U_d) = 0.' Part (ii), which the paper calls a direct consequence of (i) and the exact sequence of Ext's, also needs the vanishing."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E6",
@@ -48438,9 +48438,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Lemma 5.3 on p. 32 states the equivalence the proof is invoking: (M,Fil) is acyclic if and only if there is a filtration Fil_1 with Fil_1^i M_K contained in Fil^i M_K for all i and (M,Fil_1) weakly admissible. So acyclicity supplies a weakly admissible lattice contained in the given one, while the proof of Proposition 5.20 asks for one containing it."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E7",
@@ -48460,9 +48460,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. As printed, the source of the map is (M tensor B_st)^{N=0,phi=p^r} and its target is (M tensor B^+_dR)/t^r M^+_dR, which is not defined for B_st, and the proof's own exact sequence 0 -> V^r_st -> X^r_st(M) -> X^r_dR(M) -> 0 identifies the source with X^r_st(M) = (M tensor B^+_st)^{N=0,phi=p^r}."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E8",
@@ -48482,9 +48482,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed, and decisively: I counted the natural-sign superscript in the whole 61-page text and it occurs exactly once, at this spot. The results cited for the vanishing, Corollary 3.18 and Lemma 3.26, are about plain Ext^1_VS."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E9",
@@ -48504,9 +48504,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Example 5.11 prints the second isomorphism as Hom_{G_K}(X^r_st(M), t^j B^+_dR) = M_K for j <= 0, while the first line of the same display correctly has M^* and the corollary it specialises, Corollary 5.10, gives D^*_dR(V^r_st) = (M^*_K, Fil_perp{r})."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E10",
@@ -48526,9 +48526,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Page 52 prints '(8.7) 0 -> H^{r,i} -> X^{r,i} + F^{r,i}_n -> F^{0,i} -> 0' as the sequence 'we want to prove the exactness of', with a stray tower subscript on the third term while the other three carry none, and the fully indexed version is displayed immediately after as (8.8)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E11",
@@ -48548,9 +48548,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Remark 8.9(iii) on p. 53 says 'Applying lim_n to (6.11)' and then displays the six-term sequence in the tower-indexed objects lim_n H^{r,i}_n, lim_n X^{r,i}_n, lim_n F^{r,i}_n and R^1 lim_n. Equation (6.11) carries no tower index, so lim_n cannot be applied to it; the tower sequence is (8.8)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E12",
@@ -48570,9 +48570,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Page 54 reads 'we use the fact that the complex RGamma_et(T, RGamma_et(Y, Z_p)) is perfect and get a quasi-isomorphism RGamma_et(T, RGamma_et(Y,Z_p)) = RGamma_et(T,Z_p) tensor^L RGamma_et(Y,Z_p)'. The fact being used is the projection formula for a perfect coefficient complex, applied with M = RGamma_et(Y,Z_p), which is perfect because Y is proper; perfectness of the outer complex is neither available nor what the displayed conclusion needs."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E13",
@@ -48592,9 +48592,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed by a count over the whole text: 'spherically closed' occurs exactly once, in the statement of Proposition A.4, while 'spherically complete' occurs four times, including in the proof of that very proposition."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E14",
@@ -48614,9 +48614,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Theorem 9.8 is stated for a smooth dagger variety X over C, so X_C is meaningless, and the proof's display sets H^{r,i} := H^i_proet(X_C, Q_p(r)) and X^{r,i} := (H^i_HK(X_C) tensor B^+_st)^{N=0,phi=p^r} while its two companions, F^{r,i} and B^i, correctly use X."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E15",
@@ -48636,9 +48636,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed by a count: 'Topological Pair' occurs exactly once, in this sentence, against thirteen occurrences of 'Topological Vector Space', which is Definition 4.1 and is what h(-) = Hom_TVS(-, B_dR) is defined on."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E16",
@@ -48658,9 +48658,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Two lines earlier the same proof has a_k = i!/(k(k-1)...(k-i+1)) b_{i,k-i} for any i in {1,...,k-1}, and the sentence in question substitutes particular choices of i; the printed second index k-1 should be k-i."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E17",
@@ -48680,9 +48680,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Corollary 6.19 is stated for a smooth dagger Stein variety or a smooth dagger affinoid over C, neither of which is proper, and (6.20) puts H^r_et(X, Q_p(r)) in the corner where Theorem 6.14 has H^r_proet. The neighbouring Corollary 6.15, which is for proper X, legitimately uses H^r_et."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E18",
@@ -48702,9 +48702,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The display in the proof of Lemma 7.13 maps the sum over j in J_j, with j the running index; the index set fixed on the preceding page by Dieudonne-Manin is J_i."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E19",
@@ -48724,9 +48724,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Remark 7.14 describes the element lambda e_j + p^{-r}phi(lambda e_j) + ... + p^{-r(h_j-1)}phi^{h_j-1}(lambda e_j), with h_j throughout, and then lets lambda range over Q_{p^{h_i}}; the height attached to the summand D_j is h_j."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E20",
@@ -48746,9 +48746,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The map is introduced two sentences earlier as f_r and the next sentence returns to it; the sentence in question writes 'the cokernel of f_i ... is of Dimension (0, d_i)'."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E21",
@@ -48768,9 +48768,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The same proof writes the pair as (H^r_HK(X), H^r_dR(X_K)) immediately before and after, and the displayed application of V_st mixes the superscripts as V_st(H^r_HK(X), H^i_dR(X_K))."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E22",
@@ -48790,9 +48790,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The second argument of E(-,-) must be a B^+_dR-lattice, and the proof of Theorem 6.8, which Remark 6.13(i) restates, takes M^+ = F^0(H^r_dR(X/B^+_dR) tensor B_dR) - the last line of that proof says so explicitly."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E23",
@@ -48812,9 +48812,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The printed range '0 <= j <= j - 1' is unsatisfiable, and the companion clause of the same sentence gives the vanishing range as j <= -1 or j >= k, so the nonvanishing range is 0 <= j <= k - 1."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E24",
@@ -48834,9 +48834,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The sentence gives a reason about V_1 ('Since the Hodge-Tate weights of V_1 are <= r') and draws the conclusion for V; the vanishing for V then follows from the exact sequence two lines earlier together with the vanishing already proved for W."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E25",
@@ -48856,9 +48856,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The left-hand side is the case m = 1, U_1/Q_p t_x, and the display writes both sheaves with index m; under the identification displayed just above, H^0(X, i_{x,*}B_m) = U_m/Q_p t_x^m, so both should be B_1."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E26",
@@ -48878,9 +48878,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Remark 4.20 introduces the sequence as 0 -> W_1 -> W_2 -> W_3 -> 0 and then displays 0 -> B_m(Lambda) tensor W_1 -> B_m(Lambda) tensor W -> B_m(Lambda) tensor W_2 -> 0 for sympathetic Lambda; the indices do not match."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E27",
@@ -48900,9 +48900,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed, two defects in one clause: the proof of Lemma 5.4 prints 'Fil^i_1 M_K = Fil^i M_K is i not equal to 0', with 'is' for 'if' and 0 for i_0, the index the preceding clause has just defined as the largest integer with Fil^{i_0}M_K nonzero."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E28",
@@ -48922,9 +48922,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The proof writes 'f_j = sum_i a_{i,j} e_i and v_i = sum_i a_{i,j} w_j'; the second sum must be over j, as the computation three lines later, sum_i l_{sum_j a_{i,j} w_j}(e_i), confirms."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E29",
@@ -48944,9 +48944,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The top row of the diagram begins and ends with M^* tensor (t^r B^+_dR/t^k), while the sentence immediately after it says 'the composed map M^* tensor (B^+_dR/t^k) -> M^* tensor (t^r B^+_dR/t^k) is multiplication by t^r', which fixes the leftmost entry as M^* tensor (B^+_dR/t^k)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E30",
@@ -48966,9 +48966,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The proof of Proposition 4.10 introduces h_sigma := (sigma-1)h for sigma in H_{C{X}} and then bounds the norm of g by p sup over tau in T_C of the norm of h_sigma, mixing a bound variable tau with a free sigma; the statement of the proposition writes the corresponding bound in terms of tau(h) - h - h(tau)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E31",
@@ -48988,9 +48988,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed, as a degenerate case. Corollary 3.20(b) says 'curvature < 0 implies height > 0', and by Definition 3.5 curvature < 0 means injecting into a power of B_dR, which the zero object does, with height 0. The extraction is right to record it: a formalisation must carry the nonvanishing hypothesis, and Corollary 3.19(i) with Remark 3.11 gives ht(W) = rk(E), positive exactly when W is nonzero."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E32",
@@ -49010,9 +49010,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The reduction on p. 17 says 'it suffices to prove the statement for U_lambda, with lambda = d/h > 0 (here we used the fact that W does not contain V_1)'. Not containing V_1 does not exclude a U_0 = Q_p summand, since Q_p is a subobject of V_1 rather than a quotient of it, so the case lambda = 0 has to be treated separately."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E33",
@@ -49032,9 +49032,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Corollary 2.9 is stated for 1 <= i < j with target t^{-N}B^+_dR/t^j, and its proof twists by chi^{-j} 'for 0 <= j <= i - 1', which both rebinds j and contradicts i < j."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E34",
@@ -49054,9 +49054,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The sentence covers (phi,N,G_K)-modules over F and over F^nr and defines the dual only as Hom_F(M,F); over F^nr the module is a finite dimensional F^nr-module and the dual meant, as every later use shows, is Hom_{F^nr}(M,F^nr)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E35",
@@ -49076,9 +49076,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. The data of Proposition 8.4 are the projective space X, the subvariety Z, the hypersurfaces Z_i and the tubular neighbourhood Z(epsilon); the proof's 'locally, we have an isomorphism Y(epsilon) = Y times_K B(epsilon)^c' introduces a symbol Y that appears nowhere else in the statement or its setup."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E36",
@@ -49098,9 +49098,9 @@
    "owner": "PAPER-COLMEZ-NIZIOL-25",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
    "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-25",
+   "reviewReason": "Confirmed. Lemma 4.29 asserts C-linearity 'for all c in O_C', and its proof opens the second half with 'let c in O_C^*', choosing an isomorphism of Lambda{X} sending X to cX, which needs c invertible. The lemma is used only for units in the sequel, as the extraction says, so the gap is in the statement rather than in the argument that follows."
   },
   {
    "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E1",
