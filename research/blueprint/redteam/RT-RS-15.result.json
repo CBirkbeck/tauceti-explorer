@@ -1,0 +1,101 @@
+{
+  "redteam": "RT-RS-15",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-15",
+  "worker": "Codex — codex-a71f92",
+  "date": "2026-09-24",
+  "inputRevision": "aac7b75b017eb9816b8d079e6b2e3eb1f04eee74",
+  "summary": "One medium integration finding: the already-promoted RS-15 narrowing is applied while its mandatory prerequisite reversal is skipped. The accepted ownership split and all retained targets remain justified; the actual build does not execute the atomic replacement on which acceptance depends. This is a bounded restructuring red team, not certification of the inherited decomposition or full source-proof closure.",
+  "checked": [
+    "Read both member README documents, RS-15.json, RS-15.result.json, RS-15.md and REV-RS-15.md. Author astra-20260921-f6b2d8 and reviewer cg-6b83f1 are independent of this worker. Rechecked all 20 family leads as eight unordered pairs.",
+    "Inventoried all 17 stage identities, ten explicit layer decisions and seven implicitly retained stages. Read all 23 inherited node statements; examined the changed properness, family-resolution, two-term Banach-Colmez, HN and local-system proof interfaces. No claim of rereading every inherited proof or closing its recorded gaps.",
+    "Checked both unique owners against their actual source contracts. Ordinary-bundle properness, its HN application and the stronger two-term theorem remain distinct. The reductive torsor, invariant, moduli, nonbasic kernel and stack-chart constructions are not replaced by their linear inputs.",
+    "Read all seven direct external consumer descriptions: ES7:parabolic, GS0:loop-geometry, HS0, HS2, RF4:G-torsors, VS1 and VS4. Verified the twelve native exports and seven non-self forwarding obligations for the two transferred packages in the intended corrected graph.",
+    "Reconstructed native dependencies independently from stageEdges and stages[].requires and checked equality. The native graph has 1,968 stage records, 51 external vertices and 3,508 edges. The specified one deletion plus six new links gives 3,513 edges and is acyclic; the additive union fails the negative control. Checked early properness independence and absence of the RF4:G-torsors/VS4 returns into BG0.",
+    "Executed apply_restructurings both with RS-15 alone and with every promoted proposal, then executed the read-only build.assemble(require_distances=False). In all three cases the obsolete edge survives and VB4 -> general-BC is absent, while the general-BC narrowing remains applied. The two restructuring runs record exactly that skipped RS-15 link and five additions.",
+    "Verified both roadmap identities, all 17 stage descriptions and all 23 inherited node statements survive assembly; checked that the single-proposal application does not mutate its input or Tau Ceti stage records. The accepted and promoted RS-15 JSON files are byte-identical.",
+    "Read the seven BG coverage records and relevant AUDIT-20 review discussion. The aggregate still lists AUDIT-39 pending and has no VB entries, but the separately stored AUDIT-39 review is accepted (2026-09-23); the older RS-15 review's pending status is not treated as current proof of an unreviewed audit. No broad library-absence claim is made.",
+    "Read the complete pinned Mathlib RingTheory/WittVector/Isocrystal.lean, including the carrier's surrounding variables, standard block, maps and rank-one theorem. Matched its Git blob cfe4966b0359b5af9d4fa01b62a89185e7bf8fe6 against GitHub at 082e2d37e8b0463410cdb532e111cd43d5a66174. Finite dimensionality is not imposed by the class and the cited theorem is not higher-rank classification.",
+    "Freshly read the author-hosted Fargues-Scholze PDF at the affected proof interfaces: II.2.16-20, II.3.1, the HN-dependent part of II.3.2, II.3.3-5, the coefficient/sign convention on p.58 and III.5.1/III.5.3. Visually checked printed p.75. Rechecked, without re-reporting as new, the four corrections already accepted by REV-RS-15.",
+    "Ran check_restructure.py successfully, the independent conservation/graph/build reproducer and 58 tests covering restructuring, red-team validation, intake and queue logic. Ran check_redteam.py and the two-file intake scope check successfully. Lean was not run; there is no Lean deliverable."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-15/1",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-15.result.json: layers[VectorBundlesAndIsocrystals:VB3:general-BC], layers[VectorBundlesAndIsocrystals:VB4], links[1]; promoted data/restructure/RS-15.result.json; scripts/restructure.py:71-101; scripts/build.py:60",
+      "claim": "The accepted atomic prerequisite replacement has already been partially integrated. The build narrows general-BC and names VB4 as its supplier, but retains general-BC -> VB4 and omits VB4 -> general-BC. Consequently the live dependency data contradict the accepted supplier contract. This is not a claim that the resulting graph contains a cycle: the cycle guard skips the necessary edge instead.",
+      "evidence": "At input revision aac7b75b017eb9816b8d079e6b2e3eb1f04eee74 the accepted and promoted RS-15 files have identical SHA-256 7ead28fbb6636ace04c2cad7b3295c91206492024fe5585e41ca1cafdf61a582. The link reason requires 'ADD ONLY AFTER deleting general-BC -> VB4'. restructure.py writes stage['restructured'] at lines 79-82 before processing links; lines 94-96 record and skip a cycle-closing edge without rollback. It never interprets the deletion prose. Executing it with RS-15 alone or all promoted proposals records links=5 and skippedLinks=[[VectorBundlesAndIsocrystals:VB4, VectorBundlesAndIsocrystals:VB3:general-BC]]. Full assemble also returns old edge present/new edge absent, old requires/consumers intact, and action=narrow with VB4 in suppliedBy. Fargues-Scholze II.2.19 (pp.74-75), II.3.1 (pp.75-76) and II.3.5 (pp.79-81) confirm why the required ordering matters; the report includes a source quotation and an executable read-only reproducer.",
+      "fix": "Do not treat the partial promotion as implementation of RS-15. Through a maintainer-authorized integration/fix, atomically remove general-BC -> VB4 and its mirrored requires/consumers, retain early properness -> VB4, then add VB4 -> general-BC together with the accepted narrowing and other links. Use an actual supported graph correction or implement/validate transactional edge replacement; do not invent an ignored JSON deletion key. Until that is executable, reject or defer the whole dependent narrowing rather than silently accepting skipped supplier links. Add regression tests of the real apply_restructurings and assemble paths asserting old-edge absence, new-edge presence, reciprocal requires/consumers, no RS-15 skipped links, all 17 stages/23 nodes/twelve external exports retained, and acyclicity. The two-file red-team scope does not authorize those integration edits."
+    }
+  ],
+  "validation": {
+    "memberStages": 17,
+    "inheritedNodes": 23,
+    "familyLeads": 20,
+    "overlapPairs": 8,
+    "owners": 2,
+    "links": 15,
+    "newLinks": 6,
+    "baseStages": 1968,
+    "externalVertices": 51,
+    "baseEdges": 3508,
+    "idealEdges": 3513,
+    "externalExports": 12,
+    "externalConsumers": 7,
+    "forwardingObligations": 7,
+    "actualIntegration": {
+      "single": {
+        "proposal": "RS-15",
+        "roadmaps": {
+          "BunGAndNewtonStrata": "keep",
+          "VectorBundlesAndIsocrystals": "keep"
+        },
+        "layers": {
+          "VectorBundlesAndIsocrystals:VB3:general-BC": "narrow"
+        },
+        "links": 5,
+        "skippedLinks": [
+          [
+            "VectorBundlesAndIsocrystals:VB4",
+            "VectorBundlesAndIsocrystals:VB3:general-BC"
+          ]
+        ],
+        "unchanged": []
+      },
+      "all_promoted": {
+        "proposal": "RS-15",
+        "roadmaps": {
+          "BunGAndNewtonStrata": "keep",
+          "VectorBundlesAndIsocrystals": "keep"
+        },
+        "layers": {
+          "VectorBundlesAndIsocrystals:VB3:general-BC": "narrow"
+        },
+        "links": 5,
+        "skippedLinks": [
+          [
+            "VectorBundlesAndIsocrystals:VB4",
+            "VectorBundlesAndIsocrystals:VB3:general-BC"
+          ]
+        ],
+        "unchanged": []
+      }
+    },
+    "assembledOldEdge": true,
+    "assembledNewEdge": false,
+    "sha256": {
+      "research/blueprint/restructure/RS-15.result.json": "7ead28fbb6636ace04c2cad7b3295c91206492024fe5585e41ca1cafdf61a582",
+      "data/restructure/RS-15.result.json": "7ead28fbb6636ace04c2cad7b3295c91206492024fe5585e41ca1cafdf61a582",
+      "research/blueprint/reviews/REV-RS-15.md": "7ccffa7c0a08a02e325c4d274cf5bf1c778df0a05dfb7430d19ef4b71cc6b925",
+      "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
+      "data/decompositions/VectorBundlesAndIsocrystals.json": "fdbac76db40806c39866334c8b06f46f938a7c806c886caa06b0020a8172dd9f",
+      "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
+      "scripts/restructure.py": "c45d2fba4500c6078efcd7ad3f63cdb07014a514da4a5b76e69eb7db46a88a43",
+      "scripts/build.py": "dd3a3cb610033aa4bb1d3eb08dd42279b1df86c28675237de495bcd98d259156",
+      "fs-geometrization.pdf": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
+    }
+  }
+}
