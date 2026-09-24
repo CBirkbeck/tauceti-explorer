@@ -29355,7 +29355,8 @@
     "RT-AREA-iwasawa-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-iwasawa-3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1498"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -29808,8 +29809,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-etale.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1517"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1517",
+   "finishedAt": "2026-09-24T07:18:59Z"
   },
   {
    "id": "REV-RT-AREA-etale",
