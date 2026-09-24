@@ -21209,8 +21209,9 @@
     "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #986"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF4",
@@ -44690,9 +44691,11 @@
     "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "done",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md"
+   "prompt": "research/blueprint/prompts/COL-ATOBE-KONDO-YASUDA-22.md",
+   "note": "deliverables arrived from an external worker on issue #2856",
+   "finishedAt": "2026-09-24T16:35:53Z"
   },
   {
    "id": "REV-COL-ATOBE-KONDO-YASUDA-22",
@@ -44723,9 +44726,11 @@
     "research/blueprint/papers/PAPER-BINYAMINI-22.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "done",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-BINYAMINI-22.md"
+   "prompt": "research/blueprint/prompts/COL-BINYAMINI-22.md",
+   "note": "deliverables arrived from an external worker on issue #2853",
+   "finishedAt": "2026-09-24T16:35:55Z"
   },
   {
    "id": "REV-COL-BINYAMINI-22",
@@ -44756,9 +44761,11 @@
     "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "done",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md"
+   "prompt": "research/blueprint/prompts/COL-BOXER-CALEGARI-GEE-ETAL-25.md",
+   "note": "deliverables arrived from an external worker on issue #2855",
+   "finishedAt": "2026-09-24T16:35:57Z"
   },
   {
    "id": "REV-COL-BOXER-CALEGARI-GEE-ETAL-25",
@@ -44789,9 +44796,11 @@
     "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "done",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md"
+   "prompt": "research/blueprint/prompts/COL-GAN-HARRIS-SAWIN-ETAL-24.md",
+   "note": "deliverables arrived from an external worker on issue #2854",
+   "finishedAt": "2026-09-24T16:35:58Z"
   },
   {
    "id": "REV-COL-GAN-HARRIS-SAWIN-ETAL-24",
@@ -44822,9 +44831,11 @@
     "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "done",
    "timeout": 18000,
-   "prompt": "research/blueprint/prompts/COL-LEMKEOLIVER-WANG-WOOD-25.md"
+   "prompt": "research/blueprint/prompts/COL-LEMKEOLIVER-WANG-WOOD-25.md",
+   "note": "deliverables arrived from an external worker on issue #2857",
+   "finishedAt": "2026-09-24T16:36:01Z"
   },
   {
    "id": "REV-COL-LEMKEOLIVER-WANG-WOOD-25",
