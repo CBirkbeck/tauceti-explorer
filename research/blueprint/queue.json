@@ -27142,7 +27142,8 @@
     "REV-AUDIT-07"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1563"
   },
   {
    "id": "RT-AUDIT-08",
@@ -29323,8 +29324,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-iwasawa-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1499"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1499",
+   "finishedAt": "2026-09-24T06:50:07Z"
   },
   {
    "id": "REV-RT-AREA-iwasawa-3",
