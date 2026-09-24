@@ -1,0 +1,92 @@
+{
+  "redteam": "RT-AREA-iwasawa-3",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "area:iwasawa-3",
+  "summary": "Eight findings: five high and three medium. Correct the CM-product good-reduction contract, four Kato normalization/type errors, two Kato proof errors, and the formal-period Tate localization omission. No unresolved duplication or graph-cycle finding is asserted after checking accepted restructuring boundaries.",
+  "checked": [
+    "Repository snapshot 7c9bbba2668f6108bd9e65fae6731e3e9bd7f210, read 2026-09-24; WORKERS, PROTOCOL (especially §17), expansion PROTOCOL, UPSTREAM_GUIDE and BROWSER_AGENTS. Claim confirmed for Codex — codex-hjdg0j on #1499.",
+    "All six focal roadmap documents and all 41 stage descriptions: ColemanIntegration, GeneralizedHeegnerCycles, KatoEulerSystems, ModularSymbolsPadicLFunctions, NoncommutativeAndEquivariantIwasawa, PeriodsAndSpecialValues. No focal blueprint packet was present. Both integrated decompositions: all 28 node contracts (statements, hypotheses, proof steps, acceptance), all 21 links, 14 coverage records and 13 explicit gaps; source excerpts selectively checked as identified in the report.",
+    "All 163 reviewed coverage targets for the focal stages in data/library-coverage.json, including evidence and duplication notes; these are comparison inputs, not a re-review of this worker’s own earlier audit verifications.",
+    "Other area parts: full stage titles and descriptions for AutomorphicCongruences, AutomorphicPadicLFunctions, EulerSystemsAndKolyvaginSystems, GrossZagierAndArithmeticHeights, HeegnerPointEulerSystems, ModularIwasawaMainConjectures, RankZeroOneBSD, SelmerIwasawaCohomology, ColemanPowerSeries, DirichletPadicLFunctions, EulerSystemsCyclotomicMainConjecture, IntegralIwasawaTheory, LocallyAnalyticDistributions, PadicHodgeRegulators, PadicMeasuresIwasawaAlgebras, SpecialValuesBirchTate. Also MC.4–MC.6 in MotivesAndAlgebraicCycles for the period-algebra supplier boundary.",
+    "Focal records in RS-04, RS-06, RS-07, RS-08, RS-11, RS-13, RS-14, RS-16, RS-26 and RS-30; integrated and proposed links were distinguished. Relevant items in touching GeneralAlgebraicKTheory, GrossZagierAndArithmeticHeights and EulerSystemsCyclotomicMainConjecture decompositions were read.",
+    "Eight focal paper routes across BINYAMINI22, BCGP21, BT26, CDT25, FU24, LIU-ETAL22 and NAKAMURA23, together with review status. Binyamini’s revise-status route and the worker’s prior Liu/errata and RT-AUDIT-23/25/RS-26 reviews are context only; none is attacked here.",
+    "Seven actual touching link-map files (ModularCurves, EllipticCurves, ClassFieldTheory, AlgebraicCurves, AdicSpaces, LocalFieldsRamification, ProfiniteProPGroups): seven links and two overlap recommendations. Other string matches were examined-roadmap catalog entries. Built the assembled atlas with scripts.build.assemble(require_distances=False): 2608 stages, 69 focal stages including decomposition nodes, 239 touching edges; screened focal supplier/consumer edges after accepted restructuring overlays.",
+    "Pinned library inventory and blob hashes reverified: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (8482 Lean files), TauCeti f790474821cf4256814db967cb154e7af3d0c369 (5477 Lean files). Whole-tree name and semantic searches; actual declarations read in Mathlib RingTheory/Localization/Away/Basic.lean, RingTheory/OreLocalization/Ring.lean, RingTheory/Perfectoid/BDeRham.lean and TauCeti Geometry/Hodge/Tate/Twist.lean, Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean. These are infrastructure, not completed arithmetic comparison theorems.",
+    "Public primary sources accessed 2026-09-24: BDP published PDF pp.1034–1035,1054,1067,1139–1140; Kato 2004 printed pp.124,182–189,221,272 (key formulas checked on rendered pages); Huber–Müller-Stach arXiv:1105.0865v5 pp.2–3; Ritter–Weiss arXiv:2608.22601 metadata/abstract only. Source versions, hashes and limits are recorded in the report."
+  ],
+  "findings": [
+    {
+      "id": "RT-AREA-iwasawa-3/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "data/decompositions/GeneralizedHeegnerCycles.json; GeneralizedHeegnerCycles:GH.0/the-variety-X-r-and-its-smooth-proper-model; its GH.1 consumer link",
+      "claim": "The contract attributes a smooth proper model of the CM product X_r=W_r×A^r over Spec Z[1/N] to Conrad’s appendix, and makes p∤N alone ensure its good reduction. A is specified only over H. The appendix constructs the Kuga–Sato factor; the CM factor requires its own field of definition and good model. The technical local comparison assumptions have disappeared.",
+      "evidence": "BDP, §3.2, printed p.1067 (PDF p.35), assumption (1): “finite unramified extension of Q_p”; assumption (2) requires models of C and X_r over O_F. The application specifies p∤cNd_K. Appendix opening, pp.1139–1140 (PDF pp.107–108), constructs compactifications of universal elliptic-curve fibre powers; §1.5, p.1054, separately chooses a good integral model of A. https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf . The introductory sentence on p.1035 really does contain the stronger wording quoted by the decomposition; its quotation is not fabricated, but it does not discharge the technical hypotheses. For r≥1, ramified quadratic twisting of A at a previously good prime away from N preserves CM and its H-definition while destroying good reduction; H¹(A) is a summand of H¹(X_r).",
+      "fix": "In GH.0 distinguish W_r over Z[1/N] from its product with A over a field defining A. Construct the product model after base change and verification that A extends to an elliptic scheme. For the BDP §3.2 comparison export the finite unramified F, models over O_F, and the stated p∤cNd_K application; carry those data into GH.1 and the source/review annotations. Do not claim that unramifiedness is necessary for every possible Bloch–Kato containment theorem. Add a negative test rejecting p∤N as a sufficient certificate for arbitrary CM twists, and a positive product-model test with good reduction supplied."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "data/decompositions/KatoEulerSystems.json; KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system, statement step (iii), hypothesis 3 and proof step 3",
+      "claim": "The node says T_pE=H_p(1), then identifies Sym^(k−2)(T_pE) with Sym^(k−2)(H_p)(2−k). It has reversed the sides of the source identity without reversing the twist. Its composite has twist 4−k−r instead of the declared k−r.",
+      "evidence": "Kato §8.4, printed p.182 (PDF p.67), (8.4.1)–(8.4.3): “T_pE ≅ H_p¹(1)”; the next displayed isomorphism places Sym^(k−2)(H_p¹) on the left and Sym^(k−2)(T_pE)(2−k) on the right. The displayed composite passes from the Tate-module symmetric power with twist 2−r to the H_p¹ symmetric power with twist k−r. https://www.numdam.org/item/AST_2004__295__117_0.pdf . Substituting k=4,r=1 into the node gives −1 instead of 3.",
+      "fix": "Use Sym^(k−2)(T_pE)≅Sym^(k−2)(H_p)(k−2), or retain Kato’s original orientation with 2−k on the Tate-module side. Correct all three occurrences and the associated review note. Make acceptance compute 2−r+(k−2)=k−r, with both k=2 and k=4 tests; weight two alone masks the error."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "data/decompositions/KatoEulerSystems.json; KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations; KatoEulerSystems:L3/generalised-explicit-reciprocity-law-for-zeta-elements; equivariance-to-norm link reason",
+      "claim": "Both Euler operators omit the scalar on their linear Hecke term. The norm relation lacks ell^(−r); the reciprocity formula lacks p^(−r). The quadratic coefficients are present, so this is not a uniform rescaling of the operator.",
+      "evidence": "Kato Prop.8.7(2), printed p.184 (PDF p.69), and Thm.9.5, p.188 (PDF p.73), display “ell^(−r)” and “p^(−r)” respectively multiplying T′ times diag(1/ell,1)* or diag(1/p,1)*. These factors occur in both the two-term and three-term cases. The page images, rather than the defective text extraction, were checked. https://www.numdam.org/item/AST_2004__295__117_0.pdf . At k=2,r=1 the missing multiplier is 1/ell (respectively 1/p), already nontrivial.",
+      "fix": "Replace the linear term by −T′(ell) diag(1/ell,1)* ell^(−r) in both norm cases and by −T′(p) diag(1/p,1)* p^(−r) in the two nontrivial reciprocity cases. Correct the link’s displayed operator and proof/acceptance/review annotations. Retain the quadratic exponent k−1−2r and the trivial factor when p divides M. Test all prime-divisibility cases and r=1; use Lemma 8.8’s declared normalization, without silently redefining T′."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "data/decompositions/KatoEulerSystems.json; KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system and the reciprocity node’s acceptance item 3",
+      "claim": "The modular-form target is repeatedly called an associated graded piece in every degree 1≤i≤k−1. It is a filtration step. Interior associated graded pieces vanish because consecutive filtration steps agree. The node also weakens the upper vanishing endpoint from i≥k to i>k.",
+      "evidence": "Kato (9.2.2), printed p.187 (PDF p.72), states “D_dR^i(V)=0” for i≥k and identifies D_dR^i(V) with M_k(X)⊗Q_p for 1≤i≤k−1; §9.2 explicitly defines a descending filtration. Section 9.4, p.188, uses F⁰D_dR(V(i))=F^iD_dR(V), not gr^i. https://www.numdam.org/item/AST_2004__295__117_0.pdf . If k>2 and 1≤i<k−1 then gr^i=F^i/F^(i+1)=0, which cannot be identified with nonzero M_k(X).",
+      "fix": "Use filtration-step terminology and types throughout the dual-exponential node and its reciprocity acceptance. Set the endpoint to i≥k. Keep the target exp*:H¹(Q_p,V(i))→F⁰D_dR(V(i))≅F^iD_dR(V)≅M_k(X)⊗Q_p. Add an interior-degree test distinguishing F^i from gr^i and a test at i=k; update the review annotations consistently."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/5",
+      "kind": "error",
+      "severity": "high",
+      "where": "data/decompositions/KatoEulerSystems.json; KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values, statement composite",
+      "claim": "The interpolation composite starts from Iwasawa cohomology of the untwisted V_f but multiplies by compatible roots of unity to power −r after specialization. Kato’s theorem first twists the Iwasawa class by k−r. Thus the node feeds exp* a different representation; a finite-level root alone does not implement the required twist of Q_p representations.",
+      "evidence": "Kato Thm.12.5(1), printed p.221 (PDF p.106), has first arrow “H¹(V_f) ≅ H¹(V_f(k−r))”, followed by specialization/localization and exp*. The parenthetical immediately below specifies the compatible roots to tensor power k−r. The display was read visually. https://www.numdam.org/item/AST_2004__295__117_0.pdf . For weight k=2 and r=1 the required local representation is V_f(1), whereas the node prescribes V_f(−1).",
+      "fix": "State the twisting isomorphism on Iwasawa cohomology first, with exponent k−r, then specialize to level n and localize at p before exp*. Record the induced cyclotomic twist of the Iwasawa action. Keep the correctly recorded dual form f*, p-imprimitive value, F-rational gamma and sign rule. Add a k=2,r=1 target-type test and correct the associated source/review annotation."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/6",
+      "kind": "error",
+      "severity": "medium",
+      "where": "data/decompositions/KatoEulerSystems.json; KatoEulerSystems:L2/integrality-of-the-cyclotomic-limit-in-S-integral-cohomology, proof steps 3–4",
+      "claim": "The proof replaces inertia-cohomology invariants by residue-field H¹, then loses a Pontryagin dual and reverses a direct limit. The quoted cohomological-dimension argument therefore does not prove the asserted vanishing of an inverse limit of undualized H¹ groups.",
+      "evidence": "Kato Lemma8.5 proof, printed p.184 (PDF p.69), first displays “H⁰(Gal(K_v^ur/K_v),H¹(K_v^ur,T))” as the cokernel. It identifies this with the dual of H¹(F_v,H⁰(K_v^ur,T^∨(1))). The following display factors through the dual of the DIRECT limit of those H¹ groups over F_v(zeta_(p^n)). https://www.numdam.org/item/AST_2004__295__117_0.pdf . The node instead writes H¹(Gal(...),H¹(I_v,T)), a dual of H⁰, and an inverse limit without duals.",
+      "fix": "Replace proof steps 3–4 by the invariants group, its stated local-duality identification, and the dual of the direct limit under restriction; corestriction on the original inverse system must correspond to these restriction maps. Apply p-cohomological dimension zero to the direct limit over the residue-field union. Preserve the theorem statement and test the variance of each transition map, rather than treating lim← and lim→ interchangeably."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/7",
+      "kind": "error",
+      "severity": "medium",
+      "where": "data/decompositions/KatoEulerSystems.json; KatoEulerSystems:L0/theta-function-c-normalised, proof step 2",
+      "claim": "The existence proof says multiplication-by-a pullback fixes the divisor D=c²[0]−E[c]. It is pushforward that fixes D. Pullback creates additional torsion support, so the planned proof contains a false divisor identity.",
+      "evidence": "Kato §1.10, printed p.124 (PDF p.9), uses “a_*” on Pic(E) of degree zero and the image of the divisor under multiplication by a. https://www.numdam.org/item/AST_2004__295__117_0.pdf . Over an algebraically closed characteristic-zero field, with c=5,a=2, [2]*D=25E[2]−E[10] as a pullback. A nonzero 2-torsion point has coefficient 24 there and coefficient 0 in D. In contrast [2]_*D=D, since [2] permutes E[5].",
+      "fix": "Change a^* to divisor pushforward a_* in proof step 2 and explain its compatibility with [a] under Pic⁰(E)≅E. Then [a]x=x and a=2 imply x=0, as required by the existing proof. Tie this to div(N_a f)=a_*div(f). Add the c=5,a=2 pullback countercheck so a future implementation does not introduce the false lemma."
+    },
+    {
+      "id": "RT-AREA-iwasawa-3/8",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "content/campaign/PeriodsAndSpecialValues/README.md, PS.2; research/blueprint/atlas/roadmaps/PeriodsAndSpecialValues.json, PS.2 (and corresponding stage text); supplier boundary MotivesAndAlgebraicCycles:MC.5–MC.6",
+      "claim": "PS.2 lists the effective integration-symbol relations and product but omits localization at the Tate period before comparison with the full Nori tensor-isomorphism torsor. Merely representing 2πi, the current acceptance test, does not supply an inverse or extend evaluation across the localization.",
+      "evidence": "Huber–Müller-Stach, arXiv:1105.0865v5, Definition0.1 and Theorem0.2, p.2: “The space of formal periods is the localization P of P+”. The element inverted is the symbol of (G_m,{1},dX/X,S¹); the torsor theorem concerns Spec(P). https://arxiv.org/pdf/1105.0865v5 . MC.4 plans categorical Tate stabilization; MC.5–MC.6 plan Nori tensor/duality and the torsor, but none explicitly supplies this algebra localization. Full pinned-tree searches found no Nori formal-period algebra. Mathlib IsLocalization.Away.lift and TauCeti.Tannaka.fgPointTensorIsoEquiv were read: they provide general infrastructure, not this integration-symbol construction.",
+      "fix": "PS.2 owns P_eff, its distinguished Tate symbol L, P=P_eff[L⁻¹], and evaluation extending through L↦2πi≠0. Reuse Mathlib localization and import the MC.5–MC.6 category/torsor rather than re-planning them. Make the comparison use P, or explicitly prove the equivalent unit property if choosing a presentation with Tate inverses already built in. Test L·L⁻¹=1, evaluation of the inverse, and the rank-one Tate torsor Q[t,t⁻¹]. This finding does not assert that 1/π is not an effective numerical period."
+    }
+  ]
+}
