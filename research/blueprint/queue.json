@@ -26136,7 +26136,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1742"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -26236,8 +26237,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1746"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1746",
+   "finishedAt": "2026-09-24T01:03:24Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -26609,7 +26611,8 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-31.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1631"
   },
   {
    "id": "REV-RT-RS-31",
@@ -26656,7 +26659,8 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-32.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1633"
   },
   {
    "id": "REV-RT-RS-32",
