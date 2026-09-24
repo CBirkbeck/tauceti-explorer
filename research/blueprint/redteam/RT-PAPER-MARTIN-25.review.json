@@ -1,0 +1,79 @@
+{
+  "redteam": "RT-PAPER-MARTIN-25",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "status": "complete",
+  "summary": "The sole medium finding is confirmed: actual queue regeneration duplicates the shared design/review IDs and overwrites Martin’s accepted brief. The live issue still retains Martin’s brief. No mathematical correction to the extraction is established.",
+  "findings": [
+    {
+      "finding": "RT-PAPER-MARTIN-25/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed by reading the unmodified make_queue.py and independently executing its actual main with --dry-run in a disposable public-repository input snapshot. accepted_routes selects all four accepted routes to ArithmeticDynamicsPartIIMarkoff: Chen route 2 (13 references), Gamburd–Magee–Ronan route 2 (18), Martin route 2 (35), and Ghosh–Sarnak route 5 (5). Their route kind, parent, title and area agree; all 71 source-qualified references are distinct. The generator appends a design tuple per route. Its list-comprehension filter checks only the pre-existing built-in designs, not earlier members of paper_designs; add then appends each job while replacing prompts[path]. The completed dry run therefore has four copies of DESIGN-ArithmeticDynamicsPartIIMarkoff and four copies of its review. The final prompt contains the complete Ghosh–Sarnak brief and five references, no item references from the other three routes, and neither PAPER-MARTIN-25/20 nor the extended-Penner-weight instruction. Repeated after refreshing the changed queue input at e056b0d0a8966511f4da3b48457296585777758a with the same result. Live issue #1700 still contains Martin’s complete brief and 35 references; this is a regeneration defect, not evidence that that live issue or an implemented blueprint has already lost them. Medium severity and the proposed coalescing fix are appropriate: create one design/review pair per destination, validate compatible metadata, retain every source-qualified brief and item list, and add a regression asserting both unique job IDs and preservation of all 71 references. Preserve common-carrier and convention distinctions rather than creating competing roadmap IDs. The repair belongs in the queue generator and its regression tests, followed by normal prompt/issue regeneration; no mathematical extraction rewrite is justified by this finding."
+    }
+  ],
+  "sourceSnapshot": "c32d613232d8ba5593d05ad592a45ce769f844fe",
+  "reproduction": {
+    "snapshot": "e056b0d0a8966511f4da3b48457296585777758a",
+    "jobCounts": {
+      "DESIGN-ArithmeticDynamicsPartIIMarkoff": 4,
+      "REV-DESIGN-ArithmeticDynamicsPartIIMarkoff": 4
+    },
+    "routes": [
+      {
+        "paper": "PAPER-CHEN-24",
+        "route": 2,
+        "items": 13,
+        "completeBriefPresent": false,
+        "allIdsPresent": false,
+        "idsPresent": []
+      },
+      {
+        "paper": "PAPER-GAMBURD-MAGEE-RONAN-19",
+        "route": 2,
+        "items": 18,
+        "completeBriefPresent": false,
+        "allIdsPresent": false,
+        "idsPresent": []
+      },
+      {
+        "paper": "PAPER-MARTIN-25",
+        "route": 2,
+        "items": 35,
+        "completeBriefPresent": false,
+        "allIdsPresent": false,
+        "idsPresent": []
+      },
+      {
+        "paper": "PAPER-GHOSH-SARNAK-22",
+        "route": 5,
+        "items": 5,
+        "completeBriefPresent": true,
+        "allIdsPresent": true,
+        "idsPresent": [
+          "PAPER-GHOSH-SARNAK-22/18",
+          "PAPER-GHOSH-SARNAK-22/19",
+          "PAPER-GHOSH-SARNAK-22/20",
+          "PAPER-GHOSH-SARNAK-22/21",
+          "PAPER-GHOSH-SARNAK-22/22"
+        ]
+      }
+    ],
+    "distinctSourceQualifiedItems": 71,
+    "matchingRouteParentTitleArea": true,
+    "martin20Present": false,
+    "extendedPennerWeightsPresent": false,
+    "liveIssue1700RetainsFullMartinBriefAndItems": true,
+    "byteMatchedReadFiles": 585
+  },
+  "validation": {
+    "redteamChecker": "pass",
+    "exactFindingCoverage": "1 supplied finding ID, 1 verdict, no extras",
+    "intake": "2 files, 0 problems",
+    "leanCompiled": false,
+    "publicationBase": "e056b0d0a8966511f4da3b48457296585777758a",
+    "unchangedControlBlobs": 414,
+    "allPaperInputPathsUnchanged": true,
+    "claimComment": 5806041220,
+    "claimConfirmation": 5806042266
+  }
+}
