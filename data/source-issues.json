@@ -12268,10 +12268,10 @@
    "kind": "error",
    "locator": "Author copy Theorem 1.3 and the paragraph before it, pp.2–3; same statement in arXiv v1",
    "printed": "|Sel_2(Jac(C))| = O_ε(|Disc(K)|^ε h_2(K)); (a) |Sel_2(Jac(C))| = O_ε(|Disc(K)|^{1/2−δ_n+ε}); (b) rank(Jac(C)) < c_ε + (1/2−δ_n+ε) log_2|Disc(K)|",
-   "correction": "Withdraw the field-discriminant-only Selmer bound as a uniform statement over these models. A corrected theorem must retain model bad primes/twist data and prove the exact descent comparison. The proposed Disc(C) estimate is an open G5 target; this review proves neither that replacement nor a counterexample to the rank assertion.",
-   "reason": "Confirmed for the printed Selmer assertion, with the correction narrowed. Kane, published ANT 7 (2013), pp.1253–1254, Theorems 2–3, applies to roots 0,1,-1: the three products are -1,2,2, all nonsquares. Every Selmer rank d>=2 has positive limiting density among squarefree twists, hence the groups are unbounded while Q[X]/(X^3-N^2 X)=Q^3 has discriminant and h_2 equal to one. This disproves part (a), not boundedness of Mordell–Weil ranks, and does not prove the proposed arbitrary-model replacement.",
+   "correction": "None against the published text. The preprint statement needs exactly the |Disc(C)|^ε factor the published version carries.",
+   "reason": "Holds against arXiv v1 and the author copy; withdrawn against the published paper. The counterexample takes f(x) = x³ − N²x, which is reducible, so K = Q[x]/(f) ≅ Q³ has Disc(K) = 1, while Kane (ANT 7 (2013), Theorems 2–3) makes the 2-Selmer groups of that family unbounded: that refutes a bound of O_ε(|Disc(K)|^{1/2−δ_n+ε}) = O_ε(1). The published bound also carries |Disc(C)|^ε, and there Disc(C) ≍ N⁶ while the 2-Selmer rank is O(ω(N)), so |Sel_2| = N^{o(1)} ≪_ε |Disc(C)|^ε. The example is consistent with the published statement.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "Corrected in print. The published Theorem 1.3(a) reads |Sel_2(Jac(C))| = O_ε(|Disc(C)|^ε |Disc(K)|^{1/2−δ_n+ε}) (JAMS 33 (2020) no. 4, DOI 10.1090/jams/945), where arXiv v1 and the author copy carry no |Disc(C)|^ε factor. Read from the AMS text by the maintainer, 2026-09-24; the AMS server refuses automated fetches, which is why the extraction and its review worked from the preprint.",
    "searched": [
     "The JAMS version could not be collated (G0); a later revision may state the Disc(C) form.",
     "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
@@ -12284,7 +12284,7 @@
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
    "status": "confirmed",
    "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
-   "reviewReason": "Confirmed for the printed Selmer assertion, with the correction narrowed. Kane, published ANT 7 (2013), pp.1253–1254, Theorems 2–3, applies to roots 0,1,-1: the three products are -1,2,2, all nonsquares. Every Selmer rank d>=2 has positive limiting density among squarefree twists, hence the groups are unbounded while Q[X]/(X^3-N^2 X)=Q^3 has discriminant and h_2 equal to one. This disproves part (a), not boundedness of Mordell–Weil ranks, and does not prove the proposed arbitrary-model replacement."
+   "reviewReason": "Confirmed against the preprint. Superseded 2026-09-24: the published Theorem 1.3(a) carries a |Disc(C)|^ε factor the preprint lacks, so this is a preprint-only defect that the published paper already corrects."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E10",
