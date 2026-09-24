@@ -130432,6 +130432,406 @@
    "reviewReason": null
   },
   {
+   "id": "Polylogarithms/E1",
+   "kind": "misprint",
+   "locator": "1.1, item 1, (1), PDF p. 3 (arXiv v3; unchanged in v5, p. 3)",
+   "printed": "pi_n : C -> (2 pi i)^{n-1} R, z |-> Re(z) for n = 2k + 1, Im(z) for n = 2k.",
+   "correction": "pi_n : C -> R, z |-> Re z for n odd and Im z for n even; or keep the codomain (2 pi i)^{n-1} R and send z |-> i Im z for n even.",
+   "reason": "For even n, (2 pi i)^{n-1} R = iR, but Im z is real. With the reading z |-> i Im z, L_2 would be i D, contradicting 'L_2(z) is the Bloch-Wigner dilogarithm' and (7), which treat L_n as real.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.",
+    "arXiv v1 writes pi_n : C -> C/R(n) = R(n - 1), a different convention."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v3, 26 April 2022",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked in the v3 and v5 PDFs by two review checkers independently; the node now uses the real-valued reading."
+  },
+  {
+   "id": "Polylogarithms/E2",
+   "kind": "error",
+   "locator": "Theorem 1.2, (7), PDF p. 5 (arXiv v5); Theorem 1.1 and the abstract (v3, pp. 2-3)",
+   "printed": "Then there exist elements y1, ..., yr2 in Ker delta4 in B4(F) such that zetaF(4) = pi^{4(r1+r2)} |dF|^{-1/2} det(L4(sigma_{r1+i}(yj))), 1 <= i, j <= r2.",
+   "correction": "... such that zeta_F(4) = q pi^{4(r_1+r_2)} |d_F|^{-1/2} det(...) for some q in Q^x; when r_2 >= 1 one may take q = 1 by rescaling y_1, and when r_2 = 0 the statement is zeta_F(4) in Q^x pi^{4 r_1} |d_F|^{-1/2}.",
+   "reason": "For r_2 = 0 the determinant is empty, equal to 1, and the display reads zeta_F(4) = pi^{4 r_1} |d_F|^{-1/2}. For F = Q this says zeta(4) = pi^4, but zeta(4) = pi^4/90.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v5, 15 July 2026, final version, accepted for publication in Annals of Mathematics",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator in v3 and v5; the review recomputed zeta(4) = pi^4/90 and checked the case F = Q(i), where the display holds up to the rational 45."
+  },
+  {
+   "id": "Polylogarithms/E3",
+   "kind": "misprint",
+   "locator": "1.1, item 4, the display of delta_n, PDF p. 4 (v3; the same in v5, p. 4)",
+   "printed": "{x} |-> {x}_{n-1} tensor x for n > 2 ... delta_2{1} = delta_2{0} = 0",
+   "correction": "Also set delta_n{0} = 0 for n > 2: 0 is not in F^x, so {0}_{n-1} tensor 0 is undefined.",
+   "reason": "The generator {0} is in Q[F] and is killed in R_n(F), but delta_n{0} must be defined before R_n(F) is; the display fixes it only for n = 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v3, 26 April 2022",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator in v3 and v5 by the review."
+  },
+  {
+   "id": "Polylogarithms/E4",
+   "kind": "misprint",
+   "locator": "Definition 1.10 (p. 12), Theorem 1.14(c) (p. 15) and (43) (p. 16), arXiv v3",
+   "printed": "0 -> B4(F) -> L4(F) -> L2(F) wedge L2(F) -> 0, where B4(F) is also Q[F]/R4(F) (item 4).",
+   "correction": "The left term is the span B_4(F) of the {x}_4 inside the combinatorial L_4(F), not the inductive B_4(F).",
+   "reason": "The same symbol denotes two groups whose identification is only conjectured.",
+   "affects": "nothing",
+   "known": "Corrected in arXiv v5 (Definition 1.11, p. 12: 'Conjecturally, the natural map B4(F) -> B4(F) is an isomorphism'; Theorem 1.14(c), p. 16)",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v3, 26 April 2022",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked in v5 by the review; recorded as known."
+  },
+  {
+   "id": "Polylogarithms/E5",
+   "kind": "error",
+   "locator": "Theorem 1.3(i), PDF p. 6 (arXiv v3)",
+   "printed": "Let F be any field.",
+   "correction": "Let F be an infinite field.",
+   "reason": "The constructions use results valid for infinite fields; the final version works everywhere with infinite fields (v5 Conventions, p. 4).",
+   "affects": "a stated result",
+   "known": "Corrected in arXiv v5 (Theorem 1.3(i), p. 6: 'Let F be an infinite field', and the Conventions, p. 4)",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v3, 26 April 2022",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked in v3 and v5 by the review; recorded as known."
+  },
+  {
+   "id": "Polylogarithms/E6",
+   "kind": "misprint",
+   "locator": "(5) and (6), PDF p. 5 (arXiv v5)",
+   "printed": "delta_n : B_n(F) -> ... Lambda^2 F for n = 2 (5); the differential ... sends {x}_k wedge x_1 wedge ... wedge x_{n-k} to delta_k({x}_k) wedge x_1 wedge ... wedge x_k (6).",
+   "correction": "Lambda^2 F^x in (5); {x}_k tensor x_1 wedge ... wedge x_{n-k} |-> delta_k({x}_k) wedge x_1 wedge ... wedge x_{n-k} in (6).",
+   "reason": "The target of delta_2 is Lambda^2 F^x (item 4 and the first four complexes on the same page); the source of the differential is B_k(F) tensor Lambda^{n-k} F^x, so the element is a tensor and the wedge runs to x_{n-k}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v5, 15 July 2026, final version, accepted for publication in Annals of Mathematics",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked on the page image of v5 p. 5 by the review."
+  },
+  {
+   "id": "Polylogarithms/E7",
+   "kind": "misprint",
+   "locator": "Conjecture 1.4, PDF p. 6 (arXiv v3)",
+   "printed": "The maps (12) are isomorphisms modulo torsion.",
+   "correction": "The maps (12) are isomorphisms.",
+   "reason": "Both sides are Q-vector spaces, so 'modulo torsion' is vacuous.",
+   "affects": "nothing",
+   "known": "Corrected in arXiv v5 (Conjecture 1.4, p. 7: 'The maps (12) are isomorphisms')",
+   "searched": [
+    "2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander Goncharov and Daniil Rudenko, Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4), arXiv:1803.08585v3, 26 April 2022",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked in v5 by the review; recorded as known."
+  },
+  {
+   "id": "Polylogarithms/E8",
+   "kind": "error",
+   "locator": "Lemma VI.5.4(c) and the sentence before it, PDF p. 496",
+   "printed": "The elements c = [x] + [1 - x] and <x> = [x] + [x^{-1}] of B(F) play an important role ... (c) There is a homomorphism F^x -> B(F) sending x to <x>.",
+   "correction": "<x> lies in P(F), with boundary x wedge (-x); the homomorphism is F^x -> P(F), with 2-torsion image, and <x> lies in B(F) iff x wedge (-x) = 0.",
+   "reason": "Over F_5 the boundary of <2> is 2 wedge 3, the nonzero element of the antisymmetric square.",
+   "affects": "a stated result",
+   "known": "K3BlochGroups/E9 (the K3BlochGroups blueprint, confirmed by REV-K3BlochGroups)",
+   "searched": [
+    "2026-09-24: the K3BlochGroups packet's sourceIssues; the K-book author-hosted draft of 29 August 2013."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Re-read at the locator by this review; the entry records a correction already made in the atlas."
+  },
+  {
+   "id": "Polylogarithms/E9",
+   "kind": "misprint",
+   "locator": "Corollary VI.5.4.1, PDF p. 497",
+   "printed": "If char(F) = 2 or sqrt(-1) in F then 3c = 0 in B(F); if char(F) = 3 or cuberoot(-1) in F then 2c = 0 in B(F).",
+   "correction": "Read 'cuberoot(-1) in F' as 'F contains a root of t^2 - t + 1'.",
+   "reason": "-1 is always a cube root of -1, yet c has order 6 in B(F_11). With the corrected reading, C has both roots, so c = 0 in B(C), which P.2/bloch-wigner-descent uses.",
+   "affects": "nothing",
+   "known": "K3BlochGroups/E10 (the K3BlochGroups blueprint, confirmed by REV-K3BlochGroups)",
+   "searched": [
+    "2026-09-24: the K3BlochGroups packet's sourceIssues; the K-book author-hosted draft of 29 August 2013."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Re-read at the locator by this review; the entry records a correction already made in the atlas."
+  },
+  {
+   "id": "Polylogarithms/E10",
+   "kind": "misprint",
+   "locator": "(13), PDF p. 14 (arXiv v3); JAMS p. 12",
+   "printed": "sum_{j >= 0, 2j+1 <= 2m+1}",
+   "correction": "sum_{j >= 0, 2j+1 <= m}",
+   "reason": "c_{j,m} = 1/((2j+1)!(m-2j-1)!) needs m - 2j - 1 >= 0; the displayed r_2 of Section 1, item 4 has only j = 0, 1; Burgos Gil-Feliu-Takeda Section 5.2 print '0 <= 2j+1 <= m' without comment.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator in v3 and JAMS by the review."
+  },
+  {
+   "id": "Polylogarithms/E11",
+   "kind": "misprint",
+   "locator": "Lemma 6.9, PDF p. 57 (arXiv v3); JAMS p. 49",
+   "printed": "integral_{X(C)} r2((1 - f) wedge f wedge g) = - sum_x vx(g) L2(f(x))",
+   "correction": "integral_{X(C)} r_2((1 - f) wedge f wedge g) = -2 pi sum_x v_x(g) L_2(f(x))",
+   "reason": "The proof's (84) has 2 pi L_2(f) delta(g) and Proposition 6.18 has 2 pi; the review's quadrature gives ratios -6.28344 at a = 0.3 + 0.8i and -6.28355 at a = -0.45 + 0.6i for f = z, g = z - a.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "The review read the printed lemma and (84) side by side (PDF p. 57) and reproduced the quadrature."
+  },
+  {
+   "id": "Polylogarithms/E12",
+   "kind": "error",
+   "locator": "(6) and (7), PDF p. 5; (74), p. 52; Conjecture 6.2(b), (78), p. 54; Theorem 6.12, p. 59; (94), p. 62 (arXiv v3); JAMS (79)-(80), p. 46",
+   "printed": "The Chow dilogarithm is a real function on its complex points defined by the formula P2(X; f1, f2, f3) := 1/(2 pi i) integral_{X(C)} r2(f1, f2, f3); (1/(2 pi i)) integral r2(f1 wedge f2 wedge f3) = L2(h(f1 wedge f2 wedge f3))",
+   "correction": "P_2 := -(2 pi)^{-1} integral_{X(C)} r_2, so -(2 pi)^{-1} integral r_2 = L_2(h); equivalently (2 pi i)^{-1} integral r_2 = i L_2(h), an element of R(1).",
+   "reason": "r_2 is real by (13) (the j = 0 term has i^2 = -1), so the printed left side is purely imaginary while L_2 is real; (93) with Proposition 6.18, and the corrected Lemma 6.9 with Proposition 6.6, both force -(2 pi)^{-1}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "The review checked the reality of r_2 from (13) and the constant from (93) and Proposition 6.18."
+  },
+  {
+   "id": "Polylogarithms/E13",
+   "kind": "misprint",
+   "locator": "proof of Theorem-Construction 3.1, PDF p. 27 (arXiv v3); JAMS p. 23",
+   "printed": "omega^q_p := pi2* Res_{Gamma_p} pi1* (2 pi i)^{-q} r_{p+q}(L; H)",
+   "correction": "The index is p + q - 1, and the constant is 1 if identity (i) is to hold as printed.",
+   "reason": "The same proof says 'Radon transform of the distribution r_{p+q-1}(L; H)'; a (q-p-1)-distribution needs r_{p+q-1}; at p = 0, omega^q_0 = c r_{q-1}(L; H) and d r_{q-1}(L; H) = pi_q(Omega_L), so (i) forces c = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review."
+  },
+  {
+   "id": "Polylogarithms/E14",
+   "kind": "misprint",
+   "locator": "Theorem 2.4, (18), PDF p. 15 (arXiv v3)",
+   "printed": "r_{m-1}: Lambda^m C(Y)* -> D^{m-1}_{X(C)}(m - 1)",
+   "correction": "D^{m-1+2 codim_X Y}_{X(C)}(m - 1)",
+   "reason": "The current <r delta_Y, omega> = integral_{Y^0} r wedge omega pairs with forms of degree 2 dim Y - m + 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review."
+  },
+  {
+   "id": "Polylogarithms/E15",
+   "kind": "misprint",
+   "locator": "Section 6.1 and Conjecture 6.2, PDF pp. 52-53 (arXiv v3)",
+   "printed": "F := k(X)*",
+   "correction": "F := k(X)",
+   "reason": "Lambda^3 F^* is taken of F; Conjecture 6.3 writes F := k(X).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review."
+  },
+  {
+   "id": "Polylogarithms/E16",
+   "kind": "error",
+   "locator": "Abstract, PDF p. 1 (arXiv v3)",
+   "printed": "We study the Chow dilogarithm and prove a reciprocity law which strengthens Suslin's reciprocity law for Milnor's group K^M_3 on curves.",
+   "correction": "... and prove, for P^1 (modulo 6-torsion), elliptic curves and curves over Q-bar (after tensoring with Q), a reciprocity law (Conjecture 6.2) ...",
+   "reason": "Section 6 states the law as Conjecture 6.2 and proves only the cases a) to c) (p. 54: 'We prove this conjecture in the following cases').",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked against Section 6 by the review."
+  },
+  {
+   "id": "Polylogarithms/E17",
+   "kind": "gap",
+   "locator": "proof of Proposition 6.17, PDF p. 63 (arXiv v3)",
+   "printed": "One can prove that they generate all the relations between the functions l_{x,y}/l_{x+y}.",
+   "correction": "A proof or a reference; also h(k^* wedge Lambda^2 F^*) = 0, needed for 'all the properties of conjecture 6.2' in Theorem 6.14, is used ('the first factor in F is a constant') but not shown.",
+   "reason": "An unproved step in the proof of the elliptic case.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review."
+  },
+  {
+   "id": "Polylogarithms/E18",
+   "kind": "gap",
+   "locator": "Theorem 6.14, Lemma 6.16 and Proposition 6.18, PDF pp. 62-64 (arXiv v3)",
+   "printed": "for any linear homogeneous functions l0, ..., l3",
+   "correction": "for l_0, ..., l_3 defining distinct lines, no three concurrent, none a component of X",
+   "reason": "r(l_{i0}, ..., l_{ii}-hat, ..., l_{i3}, x) needs three distinct points l_{ij} on L_i; the proof assumes 'four generic lines'.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review."
+  },
+  {
+   "id": "Polylogarithms/E19",
+   "kind": "misprint",
+   "locator": "proof of Lemma 6.13, PDF p. 60 (arXiv v3)",
+   "printed": "is equal to 2 pi integral_{CP^1} r2(sum_i (1 - fi) wedge fi wedge gi)",
+   "correction": "-(2 pi)^{-1} integral_{X(C)} r_2(...)",
+   "reason": "With Lemma 6.9 corrected (E11), and since the integral is over X.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review; the value is 0 either way."
+  },
+  {
+   "id": "Polylogarithms/E20",
+   "kind": "misprint",
+   "locator": "Section 3.1, the maps b_j and (39), PDF p. 26 (arXiv v3)",
+   "printed": "b_j : Z^q_p(L)^0 -> Z^{q-1}_p(L-hat_j), 0 <= i <= p + q, with iii) sum_{j=0}^{p+q+1} (-1)^j b_j^* omega^q_p(L; H) = 0",
+   "correction": "(iii) is an identity on Z^{q+1}_p(L') for a simplex L' in P^{p+q+1}: sum_{j=0}^{p+q+1} (-1)^j b_j^* omega^q_p(L-hat'_j; H'_j) = 0.",
+   "reason": "b_j^* omega^q_p needs omega^q_p on the target; the range 0..p+q+1 counts the vertices of a simplex in P^{p+q+1}; Lemma 3.2 (points of P^{n+1} to P^n) matches this reading.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "Checked at the locator by the review."
+  },
+  {
+   "id": "Polylogarithms/E21",
+   "kind": "error",
+   "locator": "Proposition 2.8, (24), PDF p. 19, with the residue convention of Section 2, item 6, p. 18 (arXiv v3)",
+   "printed": "drn-1(f1 wedge ... wedge fn) = pi_n(d log f1 wedge ... wedge d log fn) + 2 pi i (rn-2 o Res)(f1 wedge ... wedge fn), with resv(pi wedge u1 wedge ...) = u1 wedge ...",
+   "correction": "The residue term needs the sign -1 at n = 2 with this convention (equivalently, put the uniformiser last); the sign for general n is to be fixed against Burgos Gil-Feliu-Takeda.",
+   "reason": "n = 2, X = P^1, f = z, g = c constant: by (13), r_1(z wedge c) = -i log|c| d arg z, and with the source's d(d i arg z) = 2 pi i (delta_0 - delta_infinity) (p. 20), d r_1 = -2 pi i log|c| (delta_0 - delta_infinity); the printed right side is +2 pi i log|c| (delta_0 - delta_infinity), since res_0(z wedge c) = c and res_infinity(z wedge c) = c^{-1}. Burgos Gil-Feliu-Takeda Remark 5.12 record a sign discrepancy (-1)^m.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found."
+   ],
+   "owner": "Polylogarithms",
+   "file": "research/blueprint/packets/Polylogarithms.json",
+   "citation": "Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes, arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-Polylogarithms",
+   "reviewReason": "The review redid the n = 2 computation from (13) and the residue convention."
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
