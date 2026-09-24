@@ -17540,7 +17540,8 @@
    ],
    "avoidAccountOf": "BP-FaltingsFinitenessAndIsogenyTheorems",
    "prompt": "research/blueprint/prompts/REV-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #406"
   },
   {
    "id": "BP-FarguesFontaineDiamonds",
