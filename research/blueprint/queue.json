@@ -12260,9 +12260,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-Polylogarithms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #73"
+   "note": "claimed on GitHub issue #73"
   },
   {
    "id": "REV-Polylogarithms",
@@ -22443,13 +22443,14 @@
     "REV-PLAN-HABIRO"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroNahmSeries.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-HabiroNumberFields",
     "BP-Polylogarithms",
     "BP-StableHomotopyKTheory"
    ],
-   "note": "claimed on GitHub issue #1011"
+   "note": "deliverables arrived from an external worker on issue #1011",
+   "finishedAt": "2026-09-24T21:40:35Z"
   },
   {
    "id": "REV-HabiroNahmSeries",
