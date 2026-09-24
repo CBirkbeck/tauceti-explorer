@@ -3112,8 +3112,8 @@
    ],
    "avoidAccountOf": "PAPER-CHARLES-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHARLES-16.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1189"
+   "state": "external",
+   "note": "claimed on GitHub issue #1189"
   },
   {
    "id": "PAPER-KALETHA-16",
@@ -19247,9 +19247,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #765"
+   "note": "released on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
