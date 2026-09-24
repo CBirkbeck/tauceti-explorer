@@ -14205,8 +14205,9 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #554"
   },
   {
    "id": "REV-HabiroCyclotomicCompletions",
@@ -16919,9 +16920,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #716"
+   "note": "deliverables arrived from an external worker on issue #716",
+   "finishedAt": "2026-09-24T23:59:14Z"
   },
   {
    "id": "REV-EllipticRegulators",
