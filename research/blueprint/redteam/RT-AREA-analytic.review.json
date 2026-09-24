@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-AREA-analytic",
+  "findings": [
+    {
+      "finding": "RT-AREA-analytic/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an unresolved supplier/scope gap, with corrections to the proposed fix. AN.4 and accepted RS-07 concern number-field analytic interfaces; the upstream Chebotarev roadmap also has a number-field carrier. Schmidt–Stix route 4 is explicitly rejected, gap G4 remains open, and its whole extraction has verdict revise, so it is inaccurate to call both extractions accepted. Abdurrahman–Venkatesh route 4 is accepted, but its review reason discusses unrelated slicing/weights rather than its actual arithmetic-scheme item /20; that acceptance does not establish a fitting supplier. The primary consumer passages confirm the need. Supply a source-qualified Chebotarev Part II (or justified extension in an existing direction), importing the existing number-field and étale-cover interfaces, and reconcile both routes with that owner. Do not add new layers directly to the Tau Ceti roadmap: section 15 requires a Part II. Also do not adopt the proposed unrestricted normal-integral-finite-type-over-Z formulation: Spec F_p has one closed point, and its connected constant cover of degree two does not realize both Frobenius classes. Start with the characteristic-zero/dominant arithmetic models actually used, state the connected Galois-cover and conjugacy-invariant-subset hypotheses and the exact density convention, and separately source any positive-characteristic extension. Preserve the quantitative normalization check and full primary Serre proof extraction as explicit obligations; choosing an owner does not by itself accept the currently rejected route."
+    },
+    {
+      "finding": "RT-AREA-analytic/2",
+      "verdict": "rejected",
+      "reason": "Rejected as an omission of planning. The native SV.2 paragraph is generic, but protocol section 16 makes accepted source routes part of its blueprint instructions. PAPER-KOYMANS-PAGANO route 5, accepted by its independent review, explicitly sends item /189 (Smith Proposition 6.6 and equation (7.11)) to SV.2; PAPER-SKOROBOGATOV-SOFOS-23 route 6, also accepted, sends /72 and /heath-brown-1995-cor4 there. Those items name the sharper quadratic-character/Jacobi-symbol bounds, the exact coefficient norms and the denominator-two correction. Executing the queue generator's actual accepted_routes function returns both routes. Thus the proposed addition is already assigned by reviewed source routing; absence from the short native paragraph is not absence from the effective work specification. The mathematical warning about substituting generic orthogonality is sound and already explicit in the accepted route. Keep original-source proof extraction as unfinished work, and consume these routes in SV.2; no additional omission fix is justified."
+    },
+    {
+      "finding": "RT-AREA-analytic/3",
+      "verdict": "rejected",
+      "reason": "Rejected. The accepted Koymans–Pagano extraction explicitly names Stevenhagen in item /8 (Theorem 1.1), in the ArithmeticStatistics source route 3 for prior bounds, and in the accepted Part II route 1 for ArithmeticStatisticsPartIISmithMethod. Its brief gives the density theorem, constants, six layers and imports, including CA.4 for the negative Pell equation. The primary paper's Theorem 1.1 proves the specified density result; treating it only as a conjecture whose provable content consists of prior bounds would regress that accepted plan. The literal lack of the name in a native ST.3 paragraph does not show a missing owner or target once accepted paper routes and design briefs are included. Preserve the division: CA.4 owns Pell arithmetic, ST.0/ST.3/ST.5 the routed family/background/distribution components, and the Part II the main theorem and Smith-method machinery. Any historical conjecture label must distinguish the theorem's exact family and ordering and any still-conjectural variants."
+    }
+  ]
+}
