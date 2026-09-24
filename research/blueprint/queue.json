@@ -5282,8 +5282,9 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-NIZIOL-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-NIZIOL-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1307"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1307",
+   "finishedAt": "2026-09-24T09:36:01Z"
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24",
@@ -29275,7 +29276,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-iwasawa-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1497"
   },
   {
    "id": "REV-RT-AREA-iwasawa-2",
