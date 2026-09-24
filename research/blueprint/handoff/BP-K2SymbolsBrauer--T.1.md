@@ -5,8 +5,8 @@ packet status **partial**, all six stages in scope `source_decomposed`.
 
 ## What is closed
 
-32 nodes (7 definitions, 4 constructions, 7 lemmas, 13 theorems, 1 comparison), 60 API items, 42 unit
-tests, 14 planets, 23 pinned baseline declarations, 4 requests, 4 gaps. `scripts/check_blueprint.py`
+30 nodes (7 definitions, 3 constructions, 7 lemmas, 12 theorems, 1 comparison), 54 API items, 38 unit
+tests, 13 planets, 23 pinned baseline declarations, 4 requests, 4 gaps. `scripts/check_blueprint.py`
 reports **0 errors and 0 warnings**.
 
 - **T.1:classical** — `St_n(R)` for `n ≥ 3` with the distinct-index hypotheses attached to each of the
@@ -25,9 +25,12 @@ reports **0 errors and 0 warnings**.
   **correct** value `{a,a} = {a,−1}`, which is not trivial in general; the generation theorem for
   semilocal rings; Dennis–Stein symbols with their three relations, the modern sign convention and the
   presentation of `K₂` of a local ring; Matsumoto's theorem as a presentation; `K₂(𝔽_q) = 1` with the
-  counting argument; the rational function field and the torsion kernel; Milnor K-theory in all
-  degrees with the alternating property and the four standard examples; the higher tame symbols by
-  Serre's construction; and rigidity.
+  counting argument; the rational function field and the torsion kernel; and Milnor K-theory in all
+  degrees with the alternating property and the four standard examples. The **higher tame symbols and
+  rigidity are not here**: the roadmap assigns higher Milnor residues, specialisation and their product
+  signs to `T.3:localization-comparison`, so the companion packet for that part owns them. An earlier
+  revision of this packet placed them here; they were moved before review rather than left as a
+  duplication for a reviewer to find.
 - **T.2:graded-map** — the graded map, its degree-two isomorphism, and the degree-three component with
   the ownership boundary against `K3BlochGroups:V.2` stated explicitly.
 
@@ -69,7 +72,8 @@ them directly.
 
 ## The suggested Lean file
 
-`research/blueprint/suggested/K2SymbolsBrauer--T.1.lean`, 227 lines, **not compiled**: no toolchain at
+`research/blueprint/suggested/K2SymbolsBrauer--T.1.lean`, 227 lines (the tame-symbol signatures are
+retained there as comments on what the companion part owns), **not compiled**: no toolchain at
 the pinned commits. The generators carry their distinctness as data, not as a forgettable side
 condition; the centrality predicate is written out; and the K-theory space and the indecomposable `K₃`
 appear as imports, never as invented definitions.

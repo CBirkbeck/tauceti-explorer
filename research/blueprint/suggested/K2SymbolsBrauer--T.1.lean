@@ -206,13 +206,9 @@ theorem MilnorK.symbol_alternating {n : ℕ} (x : Fin n → Fˣ) (sigma : Equiv.
 /-- T.2/milnor-examples: a finite field has no higher Milnor K-theory. -/
 theorem MilnorK.finiteField [Fintype F] (n : ℕ) (hn : 2 ≤ n) : True := by sorry
 
-/-- T.2/tame-symbols. -/
-def tameSymbol (n : ℕ) : MilnorK.grade F n → MilnorK.grade F (n - 1) := by sorry
-
-def specialisation (n : ℕ) : MilnorK.grade F n → MilnorK.grade F n := by sorry
-
-/-- T.2/rigidity. -/
-theorem rigidity (n : ℕ) (q : ℕ) : True := by sorry
+/- The higher tame symbols and the specialisation maps are **not** in this part:
+the roadmap assigns higher Milnor residues, specialisation with a uniformiser and
+their product signs to `T.3:localization-comparison`, whose packet owns them. -/
 
 /-- T.2/graded-map: to Quillen K-theory. Its degree-two part is Matsumoto's
 isomorphism; no isomorphism is asserted in higher degree. -/
