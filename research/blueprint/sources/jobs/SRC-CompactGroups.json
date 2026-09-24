@@ -1,0 +1,23 @@
+{
+ "id": "SRC-CompactGroups",
+ "roadmap": "CompactGroups",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+ ],
+ "title": "Representations of compact groups and the Peter-Weyl theorem",
+ "books": [
+  {
+   "id": "FOLLAND-COURSE-ABSTRACT-HARMONIC-ANALYSIS",
+   "title": "G. B. Folland, A Course in Abstract Harmonic Analysis",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/CompactGroups/README.md",
+     "line": 493,
+     "text": "- G. B. Folland, *A Course in Abstract Harmonic Analysis*, 2nd ed., CRC (2016) - the Haar-analytic"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

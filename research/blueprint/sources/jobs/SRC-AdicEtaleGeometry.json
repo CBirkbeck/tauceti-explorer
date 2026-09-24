@@ -1,0 +1,33 @@
+{
+ "id": "SRC-AdicEtaleGeometry",
+ "roadmap": "AdicEtaleGeometry",
+ "roadmapIds": [
+  "AdicEtaleGeometry"
+ ],
+ "title": "Analytic adic geometry required for diamonds",
+ "books": [
+  {
+   "id": "HUBER96",
+   "title": "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)",
+   "note": "Out of print and not online. Wedhorn's Adic Spaces (arXiv, free) covers the foundations, but not the etale cohomology results these roadmaps cite, so this book is still needed.",
+   "citations": [
+    {
+     "file": "content/campaign/AdicEtaleGeometry/README.md",
+     "line": 12,
+     "text": "*Étale cohomology of rigid analytic varieties and adic spaces* (Hub96), ECD §§3, 5–6, 15, and the"
+    },
+    {
+     "file": "content/campaign/AdicEtaleGeometry/README.md",
+     "line": 106,
+     "text": "qcqs étale space. It cites Hub96 1.7.1, the pseudocoherent sheaf theory of KL16, and"
+    },
+    {
+     "file": "content/campaign/AdicEtaleGeometry/README.md",
+     "line": 177,
+     "text": "**Source route:** ECD 6.4(iv), 15.3–15.6; Hub96 1.7.1; KL16 pseudocoherent approximation; Scholze corrigendum. The revision source ledger distinguishes freshly inspected passages from inherited locators and pending proof-interior checks. Before implementing a leaf, record its exact source statement, proof dependencies and comparison with the current Tau Ceti/Mathlib types; do not replace a missing"
+    }
+   ]
+  }
+ ],
+ "citationCount": 3
+}

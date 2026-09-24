@@ -1,0 +1,23 @@
+{
+ "id": "SRC-HeegaardFloer",
+ "roadmap": "HeegaardFloer",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/HeegaardFloer"
+ ],
+ "title": "Heegaard Floer homology, analytically",
+ "books": [
+  {
+   "id": "OH-SYMPLECTIC-TOPOLOGY-FLOER-HOMOLOGY",
+   "title": "Y.-G. Oh, Symplectic Topology and Floer Homology",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/HeegaardFloer/README.md",
+     "line": 311,
+     "text": "2–4, 10); Y.-G. Oh, *Symplectic Topology and Floer Homology* I–II, Cambridge,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

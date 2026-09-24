@@ -1,0 +1,47 @@
+{
+ "id": "SRC-NumberFieldArithmetic",
+ "roadmap": "NumberFieldArithmetic",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+ ],
+ "title": "Number fields, ramification, Frobenius, and the LMFDB invariants",
+ "books": [
+  {
+   "id": "COHEN-COURSE-COMPUTATIONAL-ALGEBRAIC-NUMBER",
+   "title": "H. Cohen, A Course in Computational Algebraic Number Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/NumberFieldArithmetic/README.md",
+     "line": 2545,
+     "text": "**H. Cohen, *A Course in Computational Algebraic Number Theory*, GTM 138.**"
+    }
+   ]
+  },
+  {
+   "id": "NARKIEWICZ-ELEMENTARY-ANALYTIC-THEORY-ALGEBRAIC",
+   "title": "W. Narkiewicz, Elementary and Analytic Theory of Algebraic Numbers",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/NumberFieldArithmetic/README.md",
+     "line": 2550,
+     "text": "**W. Narkiewicz, *Elementary and Analytic Theory of Algebraic Numbers*, 3rd ed.**"
+    }
+   ]
+  },
+  {
+   "id": "WASHINGTON-INTRODUCTION-CYCLOTOMIC-FIELDS",
+   "title": "L. Washington, Introduction to Cyclotomic Fields",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/NumberFieldArithmetic/README.md",
+     "line": 2555,
+     "text": "**L. C. Washington, *Introduction to Cyclotomic Fields*, GTM 83.**"
+    }
+   ]
+  }
+ ],
+ "citationCount": 3
+}

@@ -1,0 +1,52 @@
+{
+ "id": "SRC-InductionRestriction",
+ "roadmap": "InductionRestriction",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+ ],
+ "title": "Induction, restriction, and Mackey theory for finite groups",
+ "books": [
+  {
+   "id": "ALPERIN-GROUPS-REPRESENTATIONS",
+   "title": "Alperin, R. B. Bell, Groups and Representations",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+     "line": 550,
+     "text": "- J. L. Alperin, R. B. Bell, *Groups and Representations*, Springer GTM 162 (1995) -- Ch. 8 (induced"
+    }
+   ]
+  },
+  {
+   "id": "CURTIS-METHODS-REPRESENTATION-THEORY-VOL",
+   "title": "W. Curtis, I. Reiner, Methods of Representation Theory, Vol. I",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+     "line": 545,
+     "text": "- C. W. Curtis, I. Reiner, *Methods of Representation Theory, Vol. I*, Wiley (1981) -- §10–11 (induction and"
+    }
+   ]
+  },
+  {
+   "id": "ISAACS-CHARACTER-THEORY-FINITE-GROUPS",
+   "title": "I. M. Isaacs, Character Theory of Finite Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+     "line": 542,
+     "text": "- I. M. Isaacs, *Character Theory of Finite Groups*, AMS Chelsea (1976) -- Ch. 5 (induced characters, the"
+    },
+    {
+     "file": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+     "line": 560,
+     "text": "- I. M. Isaacs, *Character Theory of Finite Groups*, AMS Chelsea (1976) -- Ch. 8 (the Schur multiplier,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 4
+}

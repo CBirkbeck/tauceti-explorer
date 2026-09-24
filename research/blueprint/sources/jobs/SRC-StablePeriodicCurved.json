@@ -1,0 +1,23 @@
+{
+ "id": "SRC-StablePeriodicCurved",
+ "roadmap": "StablePeriodicCurved",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+ ],
+ "title": "Stable, periodic, and curved homological algebra",
+ "books": [
+  {
+   "id": "HAPPEL",
+   "title": "Happel, Triangulated Categories in the Representation Theory of Finite Dimensional Algebras (CUP)",
+   "note": "",
+   "citations": [
+    {
+     "file": "content/tau-ceti/StablePeriodicCurved/README.md",
+     "line": 662,
+     "text": "Algebras*](https://doi.org/10.1017/CBO9780511629228), LMS Lecture Note Series 119, Cambridge"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

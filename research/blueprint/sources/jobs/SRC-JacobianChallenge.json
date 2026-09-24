@@ -1,0 +1,23 @@
+{
+ "id": "SRC-JacobianChallenge",
+ "roadmap": "JacobianChallenge",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/JacobianChallenge"
+ ],
+ "title": "The Jacobian challenge (Christian Merten's AG version)",
+ "books": [
+  {
+   "id": "BLR-NERON",
+   "title": "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)",
+   "note": "Cited for the Picard functor and semistable reduction (Ch. 8-9).",
+   "citations": [
+    {
+     "file": "content/tau-ceti/JacobianChallenge/README.md",
+     "line": 186,
+     "text": "- Bosch–Lütkebohmert–Raynaud, *Néron Models*, Ch. 8–9: the Picard functor and its"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

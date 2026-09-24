@@ -42761,6 +42761,1947 @@
    "timeout": 21600,
    "state": "pending",
    "avoidAccountOf": "AUDIT-45"
+  },
+  {
+   "id": "SRC-AbelianSchemesAndArithmeticModuli",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "AbelianSchemesAndArithmeticModuli",
+   "roadmapIds": [
+    "AbelianSchemesAndArithmeticModuli"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AbelianSchemesAndArithmeticModuli.json",
+    "content/campaign/AbelianSchemesAndArithmeticModuli/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AbelianSchemesAndArithmeticModuli.md"
+  },
+  {
+   "id": "REV-SRC-AbelianSchemesAndArithmeticModuli",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "AbelianSchemesAndArithmeticModuli",
+   "roadmapIds": [
+    "AbelianSchemesAndArithmeticModuli"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AbelianSchemesAndArithmeticModuli.md"
+   ],
+   "after": [
+    "SRC-AbelianSchemesAndArithmeticModuli"
+   ],
+   "avoidAccountOf": "SRC-AbelianSchemesAndArithmeticModuli",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AbelianSchemesAndArithmeticModuli.md"
+  },
+  {
+   "id": "SRC-AdicEtaleGeometry",
+   "kind": "sources",
+   "priority": 2,
+   "order": 897,
+   "name": "AdicEtaleGeometry",
+   "roadmapIds": [
+    "AdicEtaleGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AdicEtaleGeometry.json",
+    "content/campaign/AdicEtaleGeometry/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AdicEtaleGeometry.md"
+  },
+  {
+   "id": "REV-SRC-AdicEtaleGeometry",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "AdicEtaleGeometry",
+   "roadmapIds": [
+    "AdicEtaleGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AdicEtaleGeometry.md"
+   ],
+   "after": [
+    "SRC-AdicEtaleGeometry"
+   ],
+   "avoidAccountOf": "SRC-AdicEtaleGeometry",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AdicEtaleGeometry.md"
+  },
+  {
+   "id": "SRC-AdicSpaces",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "AdicSpaces",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AdicSpaces.json",
+    "content/tau-ceti/AdicSpaces/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AdicSpaces.md"
+  },
+  {
+   "id": "REV-SRC-AdicSpaces",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "AdicSpaces",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AdicSpaces.md"
+   ],
+   "after": [
+    "SRC-AdicSpaces"
+   ],
+   "avoidAccountOf": "SRC-AdicSpaces",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AdicSpaces.md"
+  },
+  {
+   "id": "SRC-AdicSpacesPartII",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "AdicSpacesPartII",
+   "roadmapIds": [
+    "AdicSpacesPartII"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AdicSpacesPartII.json",
+    "content/campaign/AdicSpacesPartII/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AdicSpacesPartII.md"
+  },
+  {
+   "id": "REV-SRC-AdicSpacesPartII",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "AdicSpacesPartII",
+   "roadmapIds": [
+    "AdicSpacesPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AdicSpacesPartII.md"
+   ],
+   "after": [
+    "SRC-AdicSpacesPartII"
+   ],
+   "avoidAccountOf": "SRC-AdicSpacesPartII",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AdicSpacesPartII.md"
+  },
+  {
+   "id": "SRC-AdoIwasawa",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "AdoIwasawa",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AdoIwasawa.json",
+    "content/tau-ceti/RepresentationTheory/AdoIwasawa/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AdoIwasawa.md"
+  },
+  {
+   "id": "REV-SRC-AdoIwasawa",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "AdoIwasawa",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AdoIwasawa.md"
+   ],
+   "after": [
+    "SRC-AdoIwasawa"
+   ],
+   "avoidAccountOf": "SRC-AdoIwasawa",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AdoIwasawa.md"
+  },
+  {
+   "id": "SRC-AlgebraicCodingTheory",
+   "kind": "sources",
+   "priority": 2,
+   "order": 896,
+   "name": "AlgebraicCodingTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AlgebraicCodingTheory.json",
+    "content/tau-ceti/AlgebraicCodingTheory/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AlgebraicCodingTheory.md"
+  },
+  {
+   "id": "REV-SRC-AlgebraicCodingTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "AlgebraicCodingTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AlgebraicCodingTheory.md"
+   ],
+   "after": [
+    "SRC-AlgebraicCodingTheory"
+   ],
+   "avoidAccountOf": "SRC-AlgebraicCodingTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AlgebraicCodingTheory.md"
+  },
+  {
+   "id": "SRC-AlgebraicCurves",
+   "kind": "sources",
+   "priority": 2,
+   "order": 850,
+   "name": "AlgebraicCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AlgebraicCurves.json",
+    "content/tau-ceti/AlgebraicCurves/PROGRESS.md",
+    "content/tau-ceti/AlgebraicCurves/README.md",
+    "content/tau-ceti/AlgebraicCurves/STATUS.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AlgebraicCurves.md"
+  },
+  {
+   "id": "REV-SRC-AlgebraicCurves",
+   "kind": "review",
+   "priority": 3,
+   "order": 850,
+   "name": "AlgebraicCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AlgebraicCurves.md"
+   ],
+   "after": [
+    "SRC-AlgebraicCurves"
+   ],
+   "avoidAccountOf": "SRC-AlgebraicCurves",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AlgebraicCurves.md"
+  },
+  {
+   "id": "SRC-AlgebraicTopology",
+   "kind": "sources",
+   "priority": 2,
+   "order": 887,
+   "name": "AlgebraicTopology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AlgebraicTopology.json",
+    "content/tau-ceti/AlgebraicTopology/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AlgebraicTopology.md"
+  },
+  {
+   "id": "REV-SRC-AlgebraicTopology",
+   "kind": "review",
+   "priority": 3,
+   "order": 887,
+   "name": "AlgebraicTopology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AlgebraicTopology.md"
+   ],
+   "after": [
+    "SRC-AlgebraicTopology"
+   ],
+   "avoidAccountOf": "SRC-AlgebraicTopology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AlgebraicTopology.md"
+  },
+  {
+   "id": "SRC-AnalyticToricGeometry",
+   "kind": "sources",
+   "priority": 2,
+   "order": 897,
+   "name": "AnalyticToricGeometry",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AnalyticToricGeometry.json",
+    "content/tau-ceti/AnalyticToricGeometry/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AnalyticToricGeometry.md"
+  },
+  {
+   "id": "REV-SRC-AnalyticToricGeometry",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "AnalyticToricGeometry",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AnalyticToricGeometry.md"
+   ],
+   "after": [
+    "SRC-AnalyticToricGeometry"
+   ],
+   "avoidAccountOf": "SRC-AnalyticToricGeometry",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AnalyticToricGeometry.md"
+  },
+  {
+   "id": "SRC-AutomorphicFormsOnReductiveGroups",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "AutomorphicFormsOnReductiveGroups",
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-AutomorphicFormsOnReductiveGroups.json",
+    "content/campaign/AutomorphicFormsOnReductiveGroups/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-AutomorphicFormsOnReductiveGroups.md"
+  },
+  {
+   "id": "REV-SRC-AutomorphicFormsOnReductiveGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "AutomorphicFormsOnReductiveGroups",
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-AutomorphicFormsOnReductiveGroups.md"
+   ],
+   "after": [
+    "SRC-AutomorphicFormsOnReductiveGroups"
+   ],
+   "avoidAccountOf": "SRC-AutomorphicFormsOnReductiveGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-AutomorphicFormsOnReductiveGroups.md"
+  },
+  {
+   "id": "SRC-BelyiMaps",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "BelyiMaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/BelyiMaps"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-BelyiMaps.json",
+    "content/tau-ceti/BelyiMaps/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-BelyiMaps.md"
+  },
+  {
+   "id": "REV-SRC-BelyiMaps",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "BelyiMaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/BelyiMaps"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-BelyiMaps.md"
+   ],
+   "after": [
+    "SRC-BelyiMaps"
+   ],
+   "avoidAccountOf": "SRC-BelyiMaps",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-BelyiMaps.md"
+  },
+  {
+   "id": "SRC-CharacterTheory",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "CharacterTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-CharacterTheory.json",
+    "content/tau-ceti/RepresentationTheory/CharacterTheory/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-CharacterTheory.md"
+  },
+  {
+   "id": "REV-SRC-CharacterTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "CharacterTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-CharacterTheory.md"
+   ],
+   "after": [
+    "SRC-CharacterTheory"
+   ],
+   "avoidAccountOf": "SRC-CharacterTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-CharacterTheory.md"
+  },
+  {
+   "id": "SRC-Chebotarev",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "Chebotarev",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Chebotarev"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-Chebotarev.json",
+    "content/tau-ceti/Chebotarev/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-Chebotarev.md"
+  },
+  {
+   "id": "REV-SRC-Chebotarev",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "Chebotarev",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Chebotarev"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-Chebotarev.md"
+   ],
+   "after": [
+    "SRC-Chebotarev"
+   ],
+   "avoidAccountOf": "SRC-Chebotarev",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-Chebotarev.md"
+  },
+  {
+   "id": "SRC-ClassFieldTheory",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "ClassFieldTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ClassFieldTheory.json",
+    "content/tau-ceti/ClassFieldTheory/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ClassFieldTheory.md"
+  },
+  {
+   "id": "REV-SRC-ClassFieldTheory",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "ClassFieldTheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ClassFieldTheory.md"
+   ],
+   "after": [
+    "SRC-ClassFieldTheory"
+   ],
+   "avoidAccountOf": "SRC-ClassFieldTheory",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ClassFieldTheory.md"
+  },
+  {
+   "id": "SRC-ClassicalAdicEtaleCohomology",
+   "kind": "sources",
+   "priority": 2,
+   "order": 890,
+   "name": "ClassicalAdicEtaleCohomology",
+   "roadmapIds": [
+    "ClassicalAdicEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ClassicalAdicEtaleCohomology.json",
+    "content/campaign/ClassicalAdicEtaleCohomology/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ClassicalAdicEtaleCohomology.md"
+  },
+  {
+   "id": "REV-SRC-ClassicalAdicEtaleCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 890,
+   "name": "ClassicalAdicEtaleCohomology",
+   "roadmapIds": [
+    "ClassicalAdicEtaleCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ClassicalAdicEtaleCohomology.md"
+   ],
+   "after": [
+    "SRC-ClassicalAdicEtaleCohomology"
+   ],
+   "avoidAccountOf": "SRC-ClassicalAdicEtaleCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ClassicalAdicEtaleCohomology.md"
+  },
+  {
+   "id": "SRC-ClassicalGroups",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "ClassicalGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ClassicalGroups.json",
+    "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ClassicalGroups.md"
+  },
+  {
+   "id": "REV-SRC-ClassicalGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "ClassicalGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ClassicalGroups.md"
+   ],
+   "after": [
+    "SRC-ClassicalGroups"
+   ],
+   "avoidAccountOf": "SRC-ClassicalGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ClassicalGroups.md"
+  },
+  {
+   "id": "SRC-CombinatorialHeegaardFloer",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "CombinatorialHeegaardFloer",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-CombinatorialHeegaardFloer.json",
+    "content/tau-ceti/CombinatorialHeegaardFloer/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-CombinatorialHeegaardFloer.md"
+  },
+  {
+   "id": "REV-SRC-CombinatorialHeegaardFloer",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "CombinatorialHeegaardFloer",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-CombinatorialHeegaardFloer.md"
+   ],
+   "after": [
+    "SRC-CombinatorialHeegaardFloer"
+   ],
+   "avoidAccountOf": "SRC-CombinatorialHeegaardFloer",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-CombinatorialHeegaardFloer.md"
+  },
+  {
+   "id": "SRC-CompactGroups",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "CompactGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-CompactGroups.json",
+    "content/tau-ceti/RepresentationTheory/CompactGroups/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-CompactGroups.md"
+  },
+  {
+   "id": "REV-SRC-CompactGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "CompactGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-CompactGroups.md"
+   ],
+   "after": [
+    "SRC-CompactGroups"
+   ],
+   "avoidAccountOf": "SRC-CompactGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-CompactGroups.md"
+  },
+  {
+   "id": "SRC-ContourIntegration",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "ContourIntegration",
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ContourIntegration.json",
+    "content/tau-ceti/Completed/ContourIntegration/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ContourIntegration.md"
+  },
+  {
+   "id": "REV-SRC-ContourIntegration",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "ContourIntegration",
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ContourIntegration.md"
+   ],
+   "after": [
+    "SRC-ContourIntegration"
+   ],
+   "avoidAccountOf": "SRC-ContourIntegration",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ContourIntegration.md"
+  },
+  {
+   "id": "SRC-DenseGraphLimits",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "DenseGraphLimits",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-DenseGraphLimits.json",
+    "content/tau-ceti/DenseGraphLimits/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-DenseGraphLimits.md"
+  },
+  {
+   "id": "REV-SRC-DenseGraphLimits",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "DenseGraphLimits",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-DenseGraphLimits.md"
+   ],
+   "after": [
+    "SRC-DenseGraphLimits"
+   ],
+   "avoidAccountOf": "SRC-DenseGraphLimits",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-DenseGraphLimits.md"
+  },
+  {
+   "id": "SRC-EllipticCurves",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "EllipticCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-EllipticCurves.json",
+    "content/tau-ceti/EllipticCurves/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-EllipticCurves.md"
+  },
+  {
+   "id": "REV-SRC-EllipticCurves",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "EllipticCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-EllipticCurves.md"
+   ],
+   "after": [
+    "SRC-EllipticCurves"
+   ],
+   "avoidAccountOf": "SRC-EllipticCurves",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-EllipticCurves.md"
+  },
+  {
+   "id": "SRC-Exchangeability",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "Exchangeability",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Exchangeability"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-Exchangeability.json",
+    "content/tau-ceti/Exchangeability/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-Exchangeability.md"
+  },
+  {
+   "id": "REV-SRC-Exchangeability",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "Exchangeability",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Exchangeability"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-Exchangeability.md"
+   ],
+   "after": [
+    "SRC-Exchangeability"
+   ],
+   "avoidAccountOf": "SRC-Exchangeability",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-Exchangeability.md"
+  },
+  {
+   "id": "SRC-FuchsianOrbifolds",
+   "kind": "sources",
+   "priority": 2,
+   "order": 894,
+   "name": "FuchsianOrbifolds",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-FuchsianOrbifolds.json",
+    "content/tau-ceti/FuchsianOrbifolds/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-FuchsianOrbifolds.md"
+  },
+  {
+   "id": "REV-SRC-FuchsianOrbifolds",
+   "kind": "review",
+   "priority": 3,
+   "order": 894,
+   "name": "FuchsianOrbifolds",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-FuchsianOrbifolds.md"
+   ],
+   "after": [
+    "SRC-FuchsianOrbifolds"
+   ],
+   "avoidAccountOf": "SRC-FuchsianOrbifolds",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-FuchsianOrbifolds.md"
+  },
+  {
+   "id": "SRC-GeometricTopology",
+   "kind": "sources",
+   "priority": 2,
+   "order": 883,
+   "name": "GeometricTopology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GeometricTopology"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-GeometricTopology.json",
+    "content/tau-ceti/GeometricTopology/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-GeometricTopology.md"
+  },
+  {
+   "id": "REV-SRC-GeometricTopology",
+   "kind": "review",
+   "priority": 3,
+   "order": 883,
+   "name": "GeometricTopology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GeometricTopology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-GeometricTopology.md"
+   ],
+   "after": [
+    "SRC-GeometricTopology"
+   ],
+   "avoidAccountOf": "SRC-GeometricTopology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-GeometricTopology.md"
+  },
+  {
+   "id": "SRC-GlobalQuadraticForms",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "GlobalQuadraticForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-GlobalQuadraticForms.json",
+    "content/tau-ceti/GlobalQuadraticForms/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-GlobalQuadraticForms.md"
+  },
+  {
+   "id": "REV-SRC-GlobalQuadraticForms",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "GlobalQuadraticForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-GlobalQuadraticForms.md"
+   ],
+   "after": [
+    "SRC-GlobalQuadraticForms"
+   ],
+   "avoidAccountOf": "SRC-GlobalQuadraticForms",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-GlobalQuadraticForms.md"
+  },
+  {
+   "id": "SRC-HeegaardFloer",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "HeegaardFloer",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HeegaardFloer"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-HeegaardFloer.json",
+    "content/tau-ceti/HeegaardFloer/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-HeegaardFloer.md"
+  },
+  {
+   "id": "REV-SRC-HeegaardFloer",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "HeegaardFloer",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HeegaardFloer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-HeegaardFloer.md"
+   ],
+   "after": [
+    "SRC-HeegaardFloer"
+   ],
+   "avoidAccountOf": "SRC-HeegaardFloer",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-HeegaardFloer.md"
+  },
+  {
+   "id": "SRC-HeegnerPointEulerSystems",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "HeegnerPointEulerSystems",
+   "roadmapIds": [
+    "HeegnerPointEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-HeegnerPointEulerSystems.json",
+    "content/campaign/HeegnerPointEulerSystems/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-HeegnerPointEulerSystems.md"
+  },
+  {
+   "id": "REV-SRC-HeegnerPointEulerSystems",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "HeegnerPointEulerSystems",
+   "roadmapIds": [
+    "HeegnerPointEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-HeegnerPointEulerSystems.md"
+   ],
+   "after": [
+    "SRC-HeegnerPointEulerSystems"
+   ],
+   "avoidAccountOf": "SRC-HeegnerPointEulerSystems",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-HeegnerPointEulerSystems.md"
+  },
+  {
+   "id": "SRC-HopfRinow",
+   "kind": "sources",
+   "priority": 2,
+   "order": 896,
+   "name": "HopfRinow",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HopfRinow"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-HopfRinow.json",
+    "content/tau-ceti/HopfRinow/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-HopfRinow.md"
+  },
+  {
+   "id": "REV-SRC-HopfRinow",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "HopfRinow",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HopfRinow"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-HopfRinow.md"
+   ],
+   "after": [
+    "SRC-HopfRinow"
+   ],
+   "avoidAccountOf": "SRC-HopfRinow",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-HopfRinow.md"
+  },
+  {
+   "id": "SRC-InductionRestriction",
+   "kind": "sources",
+   "priority": 2,
+   "order": 896,
+   "name": "InductionRestriction",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-InductionRestriction.json",
+    "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-InductionRestriction.md"
+  },
+  {
+   "id": "REV-SRC-InductionRestriction",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "InductionRestriction",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-InductionRestriction.md"
+   ],
+   "after": [
+    "SRC-InductionRestriction"
+   ],
+   "avoidAccountOf": "SRC-InductionRestriction",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-InductionRestriction.md"
+  },
+  {
+   "id": "SRC-IntegralLattices",
+   "kind": "sources",
+   "priority": 2,
+   "order": 895,
+   "name": "IntegralLattices",
+   "roadmapIds": [
+    "tauceti:Completed/IntegralLattices"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-IntegralLattices.json",
+    "content/tau-ceti/Completed/IntegralLattices/PROGRESS.md",
+    "content/tau-ceti/Completed/IntegralLattices/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-IntegralLattices.md"
+  },
+  {
+   "id": "REV-SRC-IntegralLattices",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "IntegralLattices",
+   "roadmapIds": [
+    "tauceti:Completed/IntegralLattices"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-IntegralLattices.md"
+   ],
+   "after": [
+    "SRC-IntegralLattices"
+   ],
+   "avoidAccountOf": "SRC-IntegralLattices",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-IntegralLattices.md"
+  },
+  {
+   "id": "SRC-JacobianChallenge",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "JacobianChallenge",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-JacobianChallenge.json",
+    "content/tau-ceti/JacobianChallenge/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-JacobianChallenge.md"
+  },
+  {
+   "id": "REV-SRC-JacobianChallenge",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "JacobianChallenge",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-JacobianChallenge.md"
+   ],
+   "after": [
+    "SRC-JacobianChallenge"
+   ],
+   "avoidAccountOf": "SRC-JacobianChallenge",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-JacobianChallenge.md"
+  },
+  {
+   "id": "SRC-LieGroups",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "LieGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-LieGroups.json",
+    "content/tau-ceti/RepresentationTheory/LieGroups/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-LieGroups.md"
+  },
+  {
+   "id": "REV-SRC-LieGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "LieGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-LieGroups.md"
+   ],
+   "after": [
+    "SRC-LieGroups"
+   ],
+   "avoidAccountOf": "SRC-LieGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-LieGroups.md"
+  },
+  {
+   "id": "SRC-LieHighestWeight",
+   "kind": "sources",
+   "priority": 2,
+   "order": 895,
+   "name": "LieHighestWeight",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-LieHighestWeight.json",
+    "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-LieHighestWeight.md"
+  },
+  {
+   "id": "REV-SRC-LieHighestWeight",
+   "kind": "review",
+   "priority": 3,
+   "order": 895,
+   "name": "LieHighestWeight",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-LieHighestWeight.md"
+   ],
+   "after": [
+    "SRC-LieHighestWeight"
+   ],
+   "avoidAccountOf": "SRC-LieHighestWeight",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-LieHighestWeight.md"
+  },
+  {
+   "id": "SRC-LocalFieldsRamification",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "LocalFieldsRamification",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-LocalFieldsRamification.json",
+    "content/tau-ceti/LocalFieldsRamification/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-LocalFieldsRamification.md"
+  },
+  {
+   "id": "REV-SRC-LocalFieldsRamification",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "LocalFieldsRamification",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-LocalFieldsRamification.md"
+   ],
+   "after": [
+    "SRC-LocalFieldsRamification"
+   ],
+   "avoidAccountOf": "SRC-LocalFieldsRamification",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-LocalFieldsRamification.md"
+  },
+  {
+   "id": "SRC-ModularCurves",
+   "kind": "sources",
+   "priority": 2,
+   "order": 879,
+   "name": "ModularCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ModularCurves.json",
+    "content/tau-ceti/ModularCurves/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ModularCurves.md"
+  },
+  {
+   "id": "REV-SRC-ModularCurves",
+   "kind": "review",
+   "priority": 3,
+   "order": 879,
+   "name": "ModularCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ModularCurves.md"
+   ],
+   "after": [
+    "SRC-ModularCurves"
+   ],
+   "avoidAccountOf": "SRC-ModularCurves",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ModularCurves.md"
+  },
+  {
+   "id": "SRC-ModularForms",
+   "kind": "sources",
+   "priority": 2,
+   "order": 897,
+   "name": "ModularForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ModularForms.json",
+    "content/tau-ceti/ModularForms/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ModularForms.md"
+  },
+  {
+   "id": "REV-SRC-ModularForms",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "ModularForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ModularForms.md"
+   ],
+   "after": [
+    "SRC-ModularForms"
+   ],
+   "avoidAccountOf": "SRC-ModularForms",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ModularForms.md"
+  },
+  {
+   "id": "SRC-Multiquadratic",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "Multiquadratic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-Multiquadratic.json",
+    "content/tau-ceti/Multiquadratic/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-Multiquadratic.md"
+  },
+  {
+   "id": "REV-SRC-Multiquadratic",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "Multiquadratic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-Multiquadratic.md"
+   ],
+   "after": [
+    "SRC-Multiquadratic"
+   ],
+   "avoidAccountOf": "SRC-Multiquadratic",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-Multiquadratic.md"
+  },
+  {
+   "id": "SRC-NeronModelsAndSemistableAbelianVarieties",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "NeronModelsAndSemistableAbelianVarieties",
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-NeronModelsAndSemistableAbelianVarieties.json",
+    "content/campaign/NeronModelsAndSemistableAbelianVarieties/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-NeronModelsAndSemistableAbelianVarieties.md"
+  },
+  {
+   "id": "REV-SRC-NeronModelsAndSemistableAbelianVarieties",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "NeronModelsAndSemistableAbelianVarieties",
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-NeronModelsAndSemistableAbelianVarieties.md"
+   ],
+   "after": [
+    "SRC-NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "avoidAccountOf": "SRC-NeronModelsAndSemistableAbelianVarieties",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-NeronModelsAndSemistableAbelianVarieties.md"
+  },
+  {
+   "id": "SRC-NumberFieldArithmetic",
+   "kind": "sources",
+   "priority": 2,
+   "order": 897,
+   "name": "NumberFieldArithmetic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-NumberFieldArithmetic.json",
+    "content/tau-ceti/NumberFieldArithmetic/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-NumberFieldArithmetic.md"
+  },
+  {
+   "id": "REV-SRC-NumberFieldArithmetic",
+   "kind": "review",
+   "priority": 3,
+   "order": 897,
+   "name": "NumberFieldArithmetic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-NumberFieldArithmetic.md"
+   ],
+   "after": [
+    "SRC-NumberFieldArithmetic"
+   ],
+   "avoidAccountOf": "SRC-NumberFieldArithmetic",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-NumberFieldArithmetic.md"
+  },
+  {
+   "id": "SRC-OneParameterSemigroups",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "OneParameterSemigroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-OneParameterSemigroups.json",
+    "content/tau-ceti/OneParameterSemigroups/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-OneParameterSemigroups.md"
+  },
+  {
+   "id": "REV-SRC-OneParameterSemigroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "OneParameterSemigroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-OneParameterSemigroups.md"
+   ],
+   "after": [
+    "SRC-OneParameterSemigroups"
+   ],
+   "avoidAccountOf": "SRC-OneParameterSemigroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-OneParameterSemigroups.md"
+  },
+  {
+   "id": "SRC-OrthogonalL2Bases",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "OrthogonalL2Bases",
+   "roadmapIds": [
+    "tauceti:Completed/OrthogonalL2Bases"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-OrthogonalL2Bases.json",
+    "content/tau-ceti/Completed/OrthogonalL2Bases/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-OrthogonalL2Bases.md"
+  },
+  {
+   "id": "REV-SRC-OrthogonalL2Bases",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "OrthogonalL2Bases",
+   "roadmapIds": [
+    "tauceti:Completed/OrthogonalL2Bases"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-OrthogonalL2Bases.md"
+   ],
+   "after": [
+    "SRC-OrthogonalL2Bases"
+   ],
+   "avoidAccountOf": "SRC-OrthogonalL2Bases",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-OrthogonalL2Bases.md"
+  },
+  {
+   "id": "SRC-PolynomialGaloisGroups",
+   "kind": "sources",
+   "priority": 2,
+   "order": 889,
+   "name": "PolynomialGaloisGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-PolynomialGaloisGroups.json",
+    "content/tau-ceti/PolynomialGaloisGroups/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-PolynomialGaloisGroups.md"
+  },
+  {
+   "id": "REV-SRC-PolynomialGaloisGroups",
+   "kind": "review",
+   "priority": 3,
+   "order": 889,
+   "name": "PolynomialGaloisGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-PolynomialGaloisGroups.md"
+   ],
+   "after": [
+    "SRC-PolynomialGaloisGroups"
+   ],
+   "avoidAccountOf": "SRC-PolynomialGaloisGroups",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-PolynomialGaloisGroups.md"
+  },
+  {
+   "id": "SRC-ProfiniteCohomology",
+   "kind": "sources",
+   "priority": 2,
+   "order": 896,
+   "name": "ProfiniteCohomology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ProfiniteCohomology.json",
+    "content/tau-ceti/ProfiniteCohomology/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ProfiniteCohomology.md"
+  },
+  {
+   "id": "REV-SRC-ProfiniteCohomology",
+   "kind": "review",
+   "priority": 3,
+   "order": 896,
+   "name": "ProfiniteCohomology",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ProfiniteCohomology.md"
+   ],
+   "after": [
+    "SRC-ProfiniteCohomology"
+   ],
+   "avoidAccountOf": "SRC-ProfiniteCohomology",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ProfiniteCohomology.md"
+  },
+  {
+   "id": "SRC-QuadraticFormInvariants",
+   "kind": "sources",
+   "priority": 2,
+   "order": 886,
+   "name": "QuadraticFormInvariants",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-QuadraticFormInvariants.json",
+    "content/tau-ceti/QuadraticFormInvariants/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-QuadraticFormInvariants.md"
+  },
+  {
+   "id": "REV-SRC-QuadraticFormInvariants",
+   "kind": "review",
+   "priority": 3,
+   "order": 886,
+   "name": "QuadraticFormInvariants",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-QuadraticFormInvariants.md"
+   ],
+   "after": [
+    "SRC-QuadraticFormInvariants"
+   ],
+   "avoidAccountOf": "SRC-QuadraticFormInvariants",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-QuadraticFormInvariants.md"
+  },
+  {
+   "id": "SRC-QuiverRepresentations",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "QuiverRepresentations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-QuiverRepresentations.json",
+    "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-QuiverRepresentations.md"
+  },
+  {
+   "id": "REV-SRC-QuiverRepresentations",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "QuiverRepresentations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-QuiverRepresentations.md"
+   ],
+   "after": [
+    "SRC-QuiverRepresentations"
+   ],
+   "avoidAccountOf": "SRC-QuiverRepresentations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-QuiverRepresentations.md"
+  },
+  {
+   "id": "SRC-RootSystems",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "RootSystems",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-RootSystems.json",
+    "content/tau-ceti/RepresentationTheory/RootSystems/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-RootSystems.md"
+  },
+  {
+   "id": "REV-SRC-RootSystems",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "RootSystems",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-RootSystems.md"
+   ],
+   "after": [
+    "SRC-RootSystems"
+   ],
+   "avoidAccountOf": "SRC-RootSystems",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-RootSystems.md"
+  },
+  {
+   "id": "SRC-SemisimpleAlgebras",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "SemisimpleAlgebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-SemisimpleAlgebras.json",
+    "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-SemisimpleAlgebras.md"
+  },
+  {
+   "id": "REV-SRC-SemisimpleAlgebras",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "SemisimpleAlgebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-SemisimpleAlgebras.md"
+   ],
+   "after": [
+    "SRC-SemisimpleAlgebras"
+   ],
+   "avoidAccountOf": "SRC-SemisimpleAlgebras",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-SemisimpleAlgebras.md"
+  },
+  {
+   "id": "SRC-ShimuraCompactifications",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "ShimuraCompactifications",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-ShimuraCompactifications.json",
+    "content/campaign/ShimuraCompactifications/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-ShimuraCompactifications.md"
+  },
+  {
+   "id": "REV-SRC-ShimuraCompactifications",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "ShimuraCompactifications",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-ShimuraCompactifications.md"
+   ],
+   "after": [
+    "SRC-ShimuraCompactifications"
+   ],
+   "avoidAccountOf": "SRC-ShimuraCompactifications",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-ShimuraCompactifications.md"
+  },
+  {
+   "id": "SRC-SpinRepresentations",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "SpinRepresentations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-SpinRepresentations.json",
+    "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-SpinRepresentations.md"
+  },
+  {
+   "id": "REV-SRC-SpinRepresentations",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "SpinRepresentations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-SpinRepresentations.md"
+   ],
+   "after": [
+    "SRC-SpinRepresentations"
+   ],
+   "avoidAccountOf": "SRC-SpinRepresentations",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-SpinRepresentations.md"
+  },
+  {
+   "id": "SRC-StablePeriodicCurved",
+   "kind": "sources",
+   "priority": 2,
+   "order": 899,
+   "name": "StablePeriodicCurved",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-StablePeriodicCurved.json",
+    "content/tau-ceti/StablePeriodicCurved/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-StablePeriodicCurved.md"
+  },
+  {
+   "id": "REV-SRC-StablePeriodicCurved",
+   "kind": "review",
+   "priority": 3,
+   "order": 899,
+   "name": "StablePeriodicCurved",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-StablePeriodicCurved.md"
+   ],
+   "after": [
+    "SRC-StablePeriodicCurved"
+   ],
+   "avoidAccountOf": "SRC-StablePeriodicCurved",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-StablePeriodicCurved.md"
+  },
+  {
+   "id": "SRC-StandardDistributions",
+   "kind": "sources",
+   "priority": 2,
+   "order": 898,
+   "name": "StandardDistributions",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StandardDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/sources/results/SRC-StandardDistributions.json",
+    "content/tau-ceti/StandardDistributions/README.md"
+   ],
+   "after": [],
+   "state": "pending",
+   "timeout": 21600,
+   "prompt": "research/blueprint/prompts/SRC-StandardDistributions.md"
+  },
+  {
+   "id": "REV-SRC-StandardDistributions",
+   "kind": "review",
+   "priority": 3,
+   "order": 898,
+   "name": "StandardDistributions",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StandardDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-SRC-StandardDistributions.md"
+   ],
+   "after": [
+    "SRC-StandardDistributions"
+   ],
+   "avoidAccountOf": "SRC-StandardDistributions",
+   "state": "pending",
+   "timeout": 14400,
+   "prompt": "research/blueprint/prompts/REV-SRC-StandardDistributions.md"
   }
  ]
 }

@@ -1,0 +1,68 @@
+{
+ "id": "SRC-ClassicalAdicEtaleCohomology",
+ "roadmap": "ClassicalAdicEtaleCohomology",
+ "roadmapIds": [
+  "ClassicalAdicEtaleCohomology"
+ ],
+ "title": "The classical analytic cohomology inputs to diamonds",
+ "books": [
+  {
+   "id": "HUBER96",
+   "title": "Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces (Vieweg 1996)",
+   "note": "Out of print and not online. Wedhorn's Adic Spaces (arXiv, free) covers the foundations, but not the etale cohomology results these roadmaps cite, so this book is still needed.",
+   "citations": [
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 12,
+     "text": "The main source is Hub96. The precise entry points are recorded below and in the source"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 48,
+     "text": "strict localizations and pro-special subsets; prove Hub96 §§3.1–3.4's cohomology"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 52,
+     "text": "sites. Source: Hub96 3.2.5, 3.2.9–3.2.12 and their proofs in §§3.3–3.4."
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 58,
+     "text": "For a formal scheme of type (S) in Hub96 §1.9, construct the specialization morphism"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 88,
+     "text": "For a quadruple `(X,S,η,s)` of Hub96 §4.2, S is the spectrum of a valuation ring,"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 127,
+     "text": "Prove the form of Hub96 Theorem 4.1.1(c) required in ECD Lemma 16.3: for an extension of"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 157,
+     "text": "The explicit Hub96 outputs are Proposition 5.5.8 (dimension bound), Theorem 7.2.2 (trace) and"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 167,
+     "text": "Prove the instance of Hub96 Theorem 6.2.2 used for a relative ball over the finite-type bases"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 181,
+     "text": "Prove the cases of Hub96 Theorems 3.7.2 and 3.8.1, and Proposition 6.1.1, used in ECD §27:"
+    },
+    {
+     "file": "content/campaign/ClassicalAdicEtaleCohomology/README.md",
+     "line": 230,
+     "text": "**Source route:** Hub96 §§3.5/4.2, 7.2.2/7.5.3 and 6.2.2; ECD 16.3/24.1. The revision source ledger distinguishes freshly inspected passages from inherited locators and pending proof-interior checks. Before implementing a leaf, record its exact source statement, proof dependencies and comparison with the current Tau Ceti/Mathlib types; do not replace a missing producer by an assumed theorem field."
+    }
+   ]
+  }
+ ],
+ "citationCount": 10
+}

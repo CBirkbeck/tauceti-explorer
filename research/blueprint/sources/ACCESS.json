@@ -568,17 +568,6 @@
       "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
-      "id": "DAVERMAN-EMBEDDINGS-MANIFOLDS",
-      "kind": "book",
-      "title": "R. Daverman, G. Venema, Embeddings in Manifolds",
-      "match": [
-        "\\*Embeddings\\ in\\ Manifolds\\*"
-      ],
-      "access": "restricted",
-      "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
-    },
-    {
       "id": "DAVERMANVENEMA-EMBEDDINGS-MANIFOLDS",
       "kind": "book",
       "title": "Daverman–Venema, Embeddings in Manifolds",
@@ -2115,17 +2104,6 @@
         "https://doi.org/10.1006/aima.1997.1634"
       ],
       "substitute": null
-    },
-    {
-      "id": "OZSVTHSTIPSICZ-GRID-HOMOLOGY-KNOTS-LINKS",
-      "kind": "book",
-      "title": "Ozsváth–Stipsicz–Szabó, Grid Homology for Knots and Links",
-      "match": [
-        "\\*Grid\\ Homology\\ for\\ Knots\\ and\\ Links\\*"
-      ],
-      "access": "restricted",
-      "substitute": null,
-      "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists."
     },
     {
       "id": "PALAIS-EXTENDING-DIFFEOMORPHISMS",

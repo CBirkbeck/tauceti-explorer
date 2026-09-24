@@ -1,0 +1,83 @@
+{
+ "id": "SRC-FuchsianOrbifolds",
+ "roadmap": "FuchsianOrbifolds",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+ ],
+ "title": "Fuchsian groups and orbifold Riemann surfaces",
+ "books": [
+  {
+   "id": "BEARDON-GEOMETRY-DISCRETE-GROUPS",
+   "title": "Alan Beardon, The Geometry of Discrete Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/FuchsianOrbifolds/README.md",
+     "line": 417,
+     "text": "- Alan Beardon, *The Geometry of Discrete Groups*, Graduate Texts in Mathematics 91,"
+    }
+   ]
+  },
+  {
+   "id": "FARKAS-RIEMANN-SURFACES",
+   "title": "Hershel Farkas and Irwin Kra, Riemann Surfaces",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/FuchsianOrbifolds/README.md",
+     "line": 425,
+     "text": "- Hershel Farkas and Irwin Kra, *Riemann Surfaces*, Graduate Texts in Mathematics 71,"
+    }
+   ]
+  },
+  {
+   "id": "FORSTER-LECTURES-RIEMANN-SURFACES",
+   "title": "Forster, Lectures on Riemann Surfaces",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/FuchsianOrbifolds/README.md",
+     "line": 423,
+     "text": "- Otto Forster, *Lectures on Riemann Surfaces*, Graduate Texts in Mathematics 81,"
+    }
+   ]
+  },
+  {
+   "id": "KATOK-FUCHSIAN-GROUPS",
+   "title": "Svetlana Katok, Fuchsian Groups",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/FuchsianOrbifolds/README.md",
+     "line": 419,
+     "text": "- Svetlana Katok, *Fuchsian Groups*, Chicago Lectures in Mathematics, University of Chicago"
+    }
+   ]
+  },
+  {
+   "id": "SERRE-COURSE-ARITHMETIC",
+   "title": "Jean-Pierre Serre, A Course in Arithmetic",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/FuchsianOrbifolds/README.md",
+     "line": 429,
+     "text": "- Jean-Pierre Serre, *A Course in Arithmetic*, Graduate Texts in Mathematics 7,"
+    }
+   ]
+  },
+  {
+   "id": "STILLWELL-GEOMETRY-SURFACES",
+   "title": "John Stillwell, Geometry of Surfaces",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/FuchsianOrbifolds/README.md",
+     "line": 431,
+     "text": "- John Stillwell, *Geometry of Surfaces*, Universitext, Springer, 1992, Chapter 5."
+    }
+   ]
+  }
+ ],
+ "citationCount": 6
+}

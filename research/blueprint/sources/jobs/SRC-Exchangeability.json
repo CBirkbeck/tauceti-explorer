@@ -1,0 +1,35 @@
+{
+ "id": "SRC-Exchangeability",
+ "roadmap": "Exchangeability",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/Exchangeability"
+ ],
+ "title": "Exchangeability and de Finetti",
+ "books": [
+  {
+   "id": "ALDOUS-EXCHANGEABILITY-RELATED-TOPICS",
+   "title": "David Aldous, Exchangeability and related topics",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Exchangeability/README.md",
+     "line": 937,
+     "text": "* David Aldous, *Exchangeability and related topics*, École d'Été de Probabilités de"
+    }
+   ]
+  },
+  {
+   "id": "KALLENBERG-PROBABILISTIC-SYMMETRIES-INVARIANCE-PRINCIPLES",
+   "title": "Olav Kallenberg, Probabilistic Symmetries and Invariance Principles",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Exchangeability/README.md",
+     "line": 935,
+     "text": "* Olav Kallenberg, *Probabilistic Symmetries and Invariance Principles*, Springer, 2005,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

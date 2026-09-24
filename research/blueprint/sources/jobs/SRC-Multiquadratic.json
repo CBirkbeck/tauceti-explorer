@@ -1,0 +1,23 @@
+{
+ "id": "SRC-Multiquadratic",
+ "roadmap": "Multiquadratic",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/Multiquadratic"
+ ],
+ "title": "Multiquadratic fields and genus theory",
+ "books": [
+  {
+   "id": "COHEN-COURSE-COMPUTATIONAL-ALGEBRAIC-NUMBER",
+   "title": "H. Cohen, A Course in Computational Algebraic Number Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/Multiquadratic/README.md",
+     "line": 164,
+     "text": "- H. Cohen, *A Course in Computational Algebraic Number Theory* (class groups, the"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

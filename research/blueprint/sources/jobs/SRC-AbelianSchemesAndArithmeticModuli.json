@@ -1,0 +1,28 @@
+{
+ "id": "SRC-AbelianSchemesAndArithmeticModuli",
+ "roadmap": "AbelianSchemesAndArithmeticModuli",
+ "roadmapIds": [
+  "AbelianSchemesAndArithmeticModuli"
+ ],
+ "title": "Abelian Schemes And Arithmetic Moduli",
+ "books": [
+  {
+   "id": "FALTINGS-CHAI",
+   "title": "Faltings–Chai, Degeneration of Abelian Varieties (Ergebnisse 22)",
+   "note": "",
+   "citations": [
+    {
+     "file": "content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
+     "line": 17,
+     "text": "References are Mumford's *Abelian Varieties*, Faltings–Chai Chapter I, Lan's *Arithmetic Compactifications of PEL-Type Shimura Varieties* Chapters 1–2 and Appendix B, and the abelian-scheme portions of Hida's author-hosted lectures. Milne §§6–8 and 14 fix the complex comparisons."
+    },
+    {
+     "file": "content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
+     "line": 51,
+     "text": "Construct the relative degree-zero Picard functor first as an algebraic space through A0. Prove the abelian-algebraic-space-to-scheme theorem of Raynaud (Faltings–Chai I.1.9) with its actual base hypotheses, and apply it to obtain the dual abelian scheme. This passage is an explicit A2 target: it is not the false claim that every proper algebraic space is a scheme, nor an assumption that every abe"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

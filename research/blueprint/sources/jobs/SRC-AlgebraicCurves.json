@@ -1,0 +1,268 @@
+{
+ "id": "SRC-AlgebraicCurves",
+ "roadmap": "AlgebraicCurves",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/AlgebraicCurves"
+ ],
+ "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+ "books": [
+  {
+   "id": "STICHTENOTH-ALGEBRAIC-FUNCTION-FIELDS-CODES",
+   "title": "H. Stichtenoth, Algebraic Function Fields and Codes",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/PROGRESS.md",
+     "line": 10,
+     "text": "The roadmap's first report covers the function-field foundation up to the doorstep of Riemann–Roch. The **product formula** ([`TauCeti.Divisor.degree_principal`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.html#TauCeti.Divisor.degree_principal)) says every principal divisor has degree zero, via deg (z)₀ = deg (z)∞ = [F : k(z)] ([`TauCeti.D"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 36,
+     "text": "Stichtenoth: a curve *is* its field of algebraic functions, places are normalized discrete"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 78,
+     "text": "- **Zeta functions and everything over finite constant fields as such** (Stichtenoth Ch. 5:"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 82,
+     "text": "class group over a finite constant field — the zeta-free half of Stichtenoth 5.1,"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 118,
+     "text": "literature's \"`k` is the full / exact field of constants\"; Stichtenoth's standing"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 130,
+     "text": "Stichtenoth's Ch. 1 assumes nothing of `k`, and his Ch. 3's chapter-wide \"`k` perfect\""
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 161,
+     "text": "| genus | `g(F/k) := sSup (Set.range fun D => (deg D + 1 − ℓ(D)).toNat)` — Stichtenoth's definition; well-defined (bounded) by Riemann's theorem, which also pins the characterization `∃ c, ∀ D, deg D ≥ c → ℓ(D) = deg D + 1 − g`. Genus is **defined before** Riemann–Roch and never via `H¹` or differentials; the identities `ℓ(W) = g`, `deg W = 2g − 2` are theorems | Layer 3 |"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 162,
+     "text": "| repartitions / adeles | `A_F` := the restricted product `{a : Place k F → F // ∀ᶠ P in cofinite, v_P (a P) ≤ 1}` — entries in `F` itself (Chevalley's repartitions; Stichtenoth's 𝒜_F), **no completions**. The completion-level `FiniteAdeleRing` of an affine model is related by a Layer-5 comparison milestone, not used in the RR proof. `A_F(D)` := the sub-`k`-space `{a ∈ A_F ∣ ∀ P, v_P (a P) ≤ exp ("
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 308,
+     "text": "the same Stichtenoth-style route, with parts being upstreamed to Mathlib as open"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 359,
+     "text": "Stichtenoth (2nd ed., GTM 254) is the primary source; section citations are given per"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 364,
+     "text": "Stichtenoth I.1, I.3; Appendix A. (Ch. 1 of Stichtenoth carries **no** hypotheses on `k`"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 367,
+     "text": "- **The predicate.** `IsFunctionField k F` as pinned (intrinsic; Stichtenoth Def. 1.1.1 —"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 386,
+     "text": "the valuation subring `𝒪_P` (Stichtenoth's Def. 1.1.4: `k ⊊ 𝒪 ⊊ F` with"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 415,
+     "text": "Stichtenoth I.2. The base case of everything, and the first acceptance suite."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 438,
+     "text": "Stichtenoth III.2 (subrings and integral closures), placed early because it is the"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 471,
+     "text": "S-domains `𝒪_S` (holomorphy rings, Stichtenoth III.2) are then obtained through the"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 477,
+     "text": "Stichtenoth I.4. From here on the standing hypothesis `IsIntegrallyClosedIn k F` is in"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 478,
+     "text": "force (Stichtenoth's global assumption, declared at the head of §1.4)."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 529,
+     "text": "Stichtenoth I.5 — the summit of the first half."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 531,
+     "text": "- **Repartitions.** `A_F` as pinned (Def. 1.5.2 — Stichtenoth says *adeles* and notes"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 573,
+     "text": "Stichtenoth I.6–I.7."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 600,
+     "text": "points; Rem. 1.6.9) is stated in Stichtenoth **without proof** and only over"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 616,
+     "text": "Riemann–Roch; Stichtenoth 5.1, stopping strictly before zeta functions). For finite"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 655,
+     "text": "Stichtenoth III.1–III.3. `F′/k′` over `F/k`, `[F′ : F] < ∞`."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 666,
+     "text": "⚠ Stichtenoth's Ch. 3 carries a chapter-wide \"`k` perfect\" umbrella; per the audit of"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 721,
+     "text": "Stichtenoth III.4–III.5, in the book's order: the cotrace of Weil differentials proves"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 736,
+     "text": "consumes residue-separability (Stichtenoth via `k` perfect, Lemma 3.5.3); state (b)"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 778,
+     "text": "Stichtenoth III.6–III.11. The trap layer: everything here is about hypotheses."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 779,
+     "text": "Stichtenoth's §3.6 opens by declaring perfectness *\"essential for the validity of most"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 808,
+     "text": "(Stichtenoth's own text points to Deuring and gives none, so this milestone is"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 855,
+     "text": "Stichtenoth IV.1–IV.3. The layer that reconciles the formalism of record (Weil) with"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 865,
+     "text": "Stichtenoth's.)"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 870,
+     "text": "derivative calculus (Stichtenoth's derivation module: Def. 4.1.1–Lemma 4.1.6; his"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 872,
+     "text": "formal-vocabulary traps, pinned: (i) Stichtenoth *defines* `dt := 0` for"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 920,
+     "text": "Stichtenoth VI.1–VI.3; Fulton Chs. 5, 8 for the plane-curve computations."
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 922,
+     "text": "- **Elliptic function fields** (VI.1): definition of record = Stichtenoth Def. 6.1.1 —"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 955,
+     "text": "Stichtenoth's index-2 Def. 6.2.1 — that equivalence is its own milestone, and the"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 970,
+     "text": "Stichtenoth's Appendix B vocabulary): first build homogeneous coordinates, the three"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1016,
+     "text": "⚠ Sourcing honesty first: **Stichtenoth contains no numbered theorem on automorphism"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1029,
+     "text": "`Aut(k(x)/k) ≅ PGL₂(k)` holds over every `k` (Stichtenoth Ex. 1.2), and witnesses"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1047,
+     "text": "Wronskian route; Stichtenoth's Rem. 1.6.9 cites the counts without proof, so this is"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1087,
+     "text": "Stichtenoth Appendix B; Liu Ch. 7; Hartshorne I.6. The definite later layer where this"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1179,
+     "text": "positive-characteristic automorphism finiteness, the Stichtenoth/Henn bounds, and large-group"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1281,
+     "text": "- H. Stichtenoth, *Algebraic Function Fields and Codes*, 2nd ed., GTM 254, Springer,"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1316,
+     "text": "Springer, 1973 — Stichtenoth's own citation for the imperfect-constant-field"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1327,
+     "text": "Primzahlcharakteristik* (Math. Z. 117, 1970); H. Stichtenoth, *Über die"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1338,
+     "text": "sorry-free function-field Riemann–Roch by the same Stichtenoth-style route — the"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1384,
+     "text": "fundamental identity it cites as Stichtenoth 3.1.11 (Layer 6), and the invariant"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/README.md",
+     "line": 1405,
+     "text": "the function-field-level `G_i` and Hilbert's different formula (Stichtenoth 3.8.7)"
+    },
+    {
+     "file": "content/tau-ceti/AlgebraicCurves/STATUS.md",
+     "line": 16,
+     "text": "- **Riemann's theorem** — `ℓ(D) ≥ deg D + 1 − g` for Stichtenoth's supremum genus, with equality in large degree ([`TauCeti.Divisor.degree_add_one_sub_genus_le_dim`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.html#TauCeti.Divisor.degree_add_one_sub_genus_le_dim))."
+    }
+   ]
+  }
+ ],
+ "citationCount": 50
+}

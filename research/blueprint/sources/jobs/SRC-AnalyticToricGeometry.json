@@ -1,0 +1,47 @@
+{
+ "id": "SRC-AnalyticToricGeometry",
+ "roadmap": "AnalyticToricGeometry",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+ ],
+ "title": "Analytic toric geometry",
+ "books": [
+  {
+   "id": "GUNNING-ANALYTIC-FUNCTIONS-SEVERAL-COMPLEX",
+   "title": "Robert Gunning and Hugo Rossi, Analytic Functions of Several Complex Variables",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AnalyticToricGeometry/README.md",
+     "line": 334,
+     "text": "- Robert Gunning and Hugo Rossi, *Analytic Functions of Several Complex Variables*, Prentice-Hall,"
+    }
+   ]
+  },
+  {
+   "id": "LITTLE-TORIC-VARIETIES",
+   "title": "John Little, and Henry Schenck, Toric Varieties",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AnalyticToricGeometry/README.md",
+     "line": 330,
+     "text": "- David Cox, John Little, and Henry Schenck, *Toric Varieties*, Graduate Studies in Mathematics"
+    }
+   ]
+  },
+  {
+   "id": "ODA-CONVEX-BODIES-ALGEBRAIC-GEOMETRY",
+   "title": "Tadao Oda, Convex Bodies and Algebraic Geometry",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/AnalyticToricGeometry/README.md",
+     "line": 332,
+     "text": "- Tadao Oda, *Convex Bodies and Algebraic Geometry*, Ergebnisse der Mathematik 15,"
+    }
+   ]
+  }
+ ],
+ "citationCount": 3
+}

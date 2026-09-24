@@ -1,0 +1,35 @@
+{
+ "id": "SRC-SpinRepresentations",
+ "roadmap": "SpinRepresentations",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+ ],
+ "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+ "books": [
+  {
+   "id": "GOODMAN-SYMMETRY-REPRESENTATIONS-INVARIANTS",
+   "title": "Goodman, N. R. Wallach, Symmetry, Representations, and Invariants",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md",
+     "line": 690,
+     "text": "- R. Goodman, N. R. Wallach, *Symmetry, Representations, and Invariants*, Springer GTM 255 (2009),"
+    }
+   ]
+  },
+  {
+   "id": "MEINRENKEN-CLIFFORD-ALGEBRAS-LIE-THEORY",
+   "title": "E. Meinrenken, Clifford Algebras and Lie Theory",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md",
+     "line": 714,
+     "text": "- E. Meinrenken, *Clifford Algebras and Lie Theory*, Springer Ergebnisse 58 (2013), Chapters 5-10 -"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

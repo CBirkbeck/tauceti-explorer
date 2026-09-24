@@ -1,0 +1,71 @@
+{
+ "id": "SRC-LieHighestWeight",
+ "roadmap": "LieHighestWeight",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+ ],
+ "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+ "books": [
+  {
+   "id": "BAEZ-OCTONIONS",
+   "title": "J. C. Baez, The Octonions",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+     "line": 870,
+     "text": "- J. C. Baez, *The Octonions*, Bull. AMS 39 (2002), and J. M. Landsberg, L. Manivel, the"
+    }
+   ]
+  },
+  {
+   "id": "DIXMIER-ENVELOPING-ALGEBRAS",
+   "title": "J. Dixmier, Enveloping Algebras",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+     "line": 877,
+     "text": "- J. Dixmier, *Enveloping Algebras*, AMS GSM 11 (1996), reductive Lie algebras (§1.6) and the center"
+    }
+   ]
+  },
+  {
+   "id": "HUMPHREYS-REPRESENTATIONS-SEMISIMPLE-LIE-ALGEBRAS",
+   "title": "J. E. Humphreys, Representations of Semisimple Lie Algebras in the BGG Category O",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+     "line": 857,
+     "text": "- J. E. Humphreys, *Representations of Semisimple Lie Algebras in the BGG Category O*, AMS GSM 94"
+    }
+   ]
+  },
+  {
+   "id": "JACOBSON-EXCEPTIONAL-LIE-ALGEBRAS",
+   "title": "N. Jacobson, Exceptional Lie Algebras",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+     "line": 867,
+     "text": "- N. Jacobson, *Exceptional Lie Algebras*, Marcel Dekker (1971), and R. D. Schafer, *An Introduction"
+    }
+   ]
+  },
+  {
+   "id": "MOLEV-YANGIANS-CLASSICAL-LIE-ALGEBRAS",
+   "title": "A. Molev, Yangians and Classical Lie Algebras",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+     "line": 880,
+     "text": "- A. Molev, *Yangians and Classical Lie Algebras*, AMS Mathematical Surveys and Monographs 143"
+    }
+   ]
+  }
+ ],
+ "citationCount": 5
+}

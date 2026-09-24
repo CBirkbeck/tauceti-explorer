@@ -29,7 +29,8 @@ GITHUB = "https://github.com/CBirkbeck/tauceti-explorer"
 BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
               "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix", "errata": "Errata",
-              "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping"}
+              "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping",
+              "sources": "Sources"}
 
 
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}

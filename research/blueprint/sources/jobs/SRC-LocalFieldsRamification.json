@@ -1,0 +1,23 @@
+{
+ "id": "SRC-LocalFieldsRamification",
+ "roadmap": "LocalFieldsRamification",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+ ],
+ "title": "Local fields and ramification",
+ "books": [
+  {
+   "id": "SERRE-COURSE-ARITHMETIC",
+   "title": "Jean-Pierre Serre, A Course in Arithmetic",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/LocalFieldsRamification/README.md",
+     "line": 426,
+     "text": "- *Source:* Serre, *A Course in Arithmetic*, II §3, for `ℚ_2`; Neukirch ANT II §5 in general."
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

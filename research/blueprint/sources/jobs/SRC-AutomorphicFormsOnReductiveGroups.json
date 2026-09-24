@@ -1,0 +1,23 @@
+{
+ "id": "SRC-AutomorphicFormsOnReductiveGroups",
+ "roadmap": "AutomorphicFormsOnReductiveGroups",
+ "roadmapIds": [
+  "AutomorphicFormsOnReductiveGroups"
+ ],
+ "title": "Automorphic forms on reductive groups",
+ "books": [
+  {
+   "id": "BORELJACQUET-AUTOMORPHIC-FORMS-AUTOMORPHIC-REPRESENTATIONS",
+   "title": "Borel–Jacquet, Automorphic forms and automorphic representations",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md",
+     "line": 53,
+     "text": "Primary sources: Borel–Jacquet, *Automorphic forms and automorphic representations*, Corvallis I (book requested); [Langlands, *On the notion of an automorphic representation*](https://publications.ias.edu/rpl/paper/40); [Arthur](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §§2–7,12; [Franke](https://www.numdam.org/item/10.1016/s0012-9593%2898%2980015-3.pdf), §§1–2,5–7. The classical de"
+    }
+   ]
+  }
+ ],
+ "citationCount": 1
+}

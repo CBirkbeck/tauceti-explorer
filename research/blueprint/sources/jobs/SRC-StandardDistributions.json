@@ -1,0 +1,35 @@
+{
+ "id": "SRC-StandardDistributions",
+ "roadmap": "StandardDistributions",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/StandardDistributions"
+ ],
+ "title": "Standard probability distributions and their elementary theory",
+ "books": [
+  {
+   "id": "JOHNSON-KOTZ-KEMP",
+   "title": "Johnson–Kotz–Kemp, Univariate Discrete Distributions (Wiley)",
+   "note": "",
+   "citations": [
+    {
+     "file": "content/tau-ceti/StandardDistributions/README.md",
+     "line": 930,
+     "text": "- N. L. Johnson, A. W. Kemp, S. Kotz, [*Univariate Discrete Distributions*](https://onlinelibrary.wiley.com/doi/book/10.1002/0471715816), 3rd ed., Wiley, 2005 (especially chs. 3–6 for binomial, Poisson, negative-binomial, and hypergeometric laws)."
+    }
+   ]
+  },
+  {
+   "id": "MUIRHEAD",
+   "title": "Muirhead, Aspects of Multivariate Statistical Theory (Wiley)",
+   "note": "",
+   "citations": [
+    {
+     "file": "content/tau-ceti/StandardDistributions/README.md",
+     "line": 931,
+     "text": "- R. J. Muirhead, [*Aspects of Multivariate Statistical Theory*](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316559), Wiley, 1982 ([ch. 2](https://onlinelibrary.wiley.com/doi/10.1002/9780470316559.ch2) for the matrix Jacobians of Layer 6; [ch. 3](https://onlinelibrary.wiley.com/doi/10.1002/9780470316559.ch3) for multivariate Gamma, the Wishart density and moment-generating function, an"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

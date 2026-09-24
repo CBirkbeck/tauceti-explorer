@@ -1,0 +1,35 @@
+{
+ "id": "SRC-QuiverRepresentations",
+ "roadmap": "QuiverRepresentations",
+ "roadmapIds": [
+  "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+ ],
+ "title": "Quiver representations, path algebras, and Gabriel's theorem",
+ "books": [
+  {
+   "id": "REITEN-REPRESENTATION-THEORY-ARTIN-ALGEBRAS",
+   "title": "I. Reiten, S. Smalø, Representation Theory of Artin Algebras",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md",
+     "line": 489,
+     "text": "- M. Auslander, I. Reiten, S. Smalø, *Representation Theory of Artin Algebras*, CUP (1995) - almost-split"
+    }
+   ]
+  },
+  {
+   "id": "SCHIFFLER-QUIVER-REPRESENTATIONS",
+   "title": "R. Schiffler, Quiver Representations",
+   "note": "Read as restricted because it is named with a publisher or series; record a free edition here if one exists.",
+   "citations": [
+    {
+     "file": "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md",
+     "line": 499,
+     "text": "- R. Schiffler, *Quiver Representations*, CMS Books in Mathematics, Springer (2014) - a modern"
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}

@@ -1,0 +1,28 @@
+{
+ "id": "SRC-NeronModelsAndSemistableAbelianVarieties",
+ "roadmap": "NeronModelsAndSemistableAbelianVarieties",
+ "roadmapIds": [
+  "NeronModelsAndSemistableAbelianVarieties"
+ ],
+ "title": "Néron models and semistable abelian varieties",
+ "books": [
+  {
+   "id": "BLR-NERON",
+   "title": "Bosch–Lütkebohmert–Raynaud, Néron Models (Ergebnisse 21)",
+   "note": "Cited for the Picard functor and semistable reduction (Ch. 8-9).",
+   "citations": [
+    {
+     "file": "content/campaign/NeronModelsAndSemistableAbelianVarieties/README.md",
+     "line": 28,
+     "text": "Construct Néron models of abelian varieties over excellent discrete valuation rings and over the Dedekind bases used here, in particular rings of integers and rings of S-integers of number fields. Prove the local existence/smoothening theorem and the Dedekind local-to-global gluing: extend over a dense open, glue the finitely many remaining local models by the Néron mapping property, and prove the"
+    },
+    {
+     "file": "content/campaign/NeronModelsAndSemistableAbelianVarieties/README.md",
+     "line": 90,
+     "text": "BLR, FALTINGS_CHAI, GROTHENDIECK_MONODROMY. The bibliography records what was inspected and what remains to be transcribed."
+    }
+   ]
+  }
+ ],
+ "citationCount": 2
+}
