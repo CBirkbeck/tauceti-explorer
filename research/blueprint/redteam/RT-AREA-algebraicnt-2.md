@@ -20,9 +20,25 @@ No exclusion is stated on the issue. **Eligibility measured rather than assumed:
 
 Two levels to check, and they come out differently.
 
-**Stage level: no finding, because the atlas norm says so.** All 65 stages have `requires: []`, and all 65 carry `status: unknown`. That looks systematic until it is calibrated: 669 of 1962 atlas stages (34%) have empty `requires` and 656 (33%) carry `status: unknown`. 65/65 sits at the high end of a wide, populated distribution, and — as in the Representation theory area — these stages declare no stage-level prerequisites in prose either, so there is no mismatch between prose and field to report. Nothing here.
+**Stage level: no finding, and part 1 of this area explains why.** All 65 stages have `requires: []` and `status: unknown`. Atlas-wide, 669 of 1962 stages (34%) have empty `requires` and 656 (33%) carry `status: unknown`, so 65/65 sits at the high end of a wide distribution — but the mechanism is sharper than a base rate. Part 1's seven roadmaps split exactly by origin: its three **campaign**-origin roadmaps (`ArithmeticGaloisDuality`, `GeometryOfNumbersAndQuadraticArithmetic`, `HigherLocalFieldsAndHigherClassFieldTheory`) carry all **38** of that part's stage `requires` edges and status `needs_source_decomposition`, while its four **tauceti**-origin roadmaps carry **0** edges and `unknown`. All seven roadmaps of part 2 are tauceti-origin. Empty stage edges track a roadmap's origin, not the attention its area has had. These stages also declare no prerequisites in prose, so there is no prose/field mismatch to report. Nothing here.
 
-**Roadmap level: a finding.** All seven declare `prerequisites: []`, so the atlas records this area as seven mutually independent roadmaps with no build order. Their own prose states three dependencies among them, and one is at declaration level.
+**Roadmap level: a finding, but not the one I first wrote.** All seven declare `prerequisites: []`, so the atlas records this area as seven mutually independent roadmaps with no build order, while their own prose states three dependencies among them, one at declaration level.
+
+My first version of this finding rested on the calibration "76% of atlas roadmaps declare a prerequisite, 0 of these 7 do". **That argument is unsound and I withdraw it.** The 76% (161 of 211) is correct in aggregate but decomposes sharply by origin:
+
+| origin | declare ≥1 prerequisite |
+|---|---|
+| campaign | 147 / 151 (**97%**) |
+| tauceti | 14 / 60 (**23%**) |
+
+All seven roadmaps here are tauceti-origin, so against their own comparison class 0 of 7 is close to what the base rate predicts — expected count about 1.6 — and proves nothing. I found this while starting part 1 of the same area, after this red team had already been submitted; the correction is recorded here and in `checked` rather than quietly dropped.
+
+**What the finding rests on instead, and why it is stronger:** the relation is absent from the *reciprocal* field too, in a field these same roadmaps actively maintain.
+
+- `LocalFieldsRamification` has `consumers: ['ArithmeticGaloisRepresentations', 'LanglandsParameterStacks', 'LefschetzPencilsAndVanishingCycles', 'ReductiveGroupsPartII', 'RelativeFarguesFontaine', 'VectorBundlesAndIsocrystals']` — **six entries, and neither `QuadraticFormInvariants` nor `NumberFieldArithmetic`**, though both say in prose that they consume it.
+- `NumberFieldArithmetic` has `consumers: ['ArakelovGeometryAndAbelianHeights']` — and **not `GlobalNumberFields`**, whose objects are abbreviations of its declarations.
+
+So this is not a roadmap family that declines to record dependencies: it is three specific documented relations missing from both sides of a bookkeeping the suppliers otherwise keep. That argument is internal to the area and independent of any population rate.
 
 Direction is the whole game in this attack, and I established it from the sentence in every case rather than assuming that a citation means a dependency — the discipline that saved me from a bad finding in the Representation theory area, where three roadmaps citing `CharacterTheory` turned out to be naming a consumer. Four pairs here carry citations. **Three run backwards and are genuine dependencies:**
 
@@ -32,7 +48,7 @@ Direction is the whole game in this attack, and I established it from the senten
 
 **Two citations run forwards and are correctly not dependencies:** QuadraticFormInvariants naming GlobalQuadraticForms ("the resulting frozen declaration `hilbertSymbol_productFormula` **is an export to** `GlobalQuadraticForms`"), and LocalFieldsRamification naming NumberFieldArithmetic ("This is a local theorem: [the Number-Field Arithmetic roadmap] **consumes it** only after passing to a completion"). The second matters: it resolves what looks like a mutual dependency between those two roadmaps into supplier and consumer, so the fix below introduces **no cycle**.
 
-What makes the empty lists a finding rather than a convention is calibration. **161 of 211 atlas roadmaps (76%) declare at least one prerequisite**, and 0 of these 7 do. The sibling Representation theory area shows the field is used where dependencies exist — `CharacterTheory` declares three, `SpinRepresentations` three, `QuiverRepresentations`, `LieHighestWeight` and `CompactGroups` two each. Severity **medium**: it affects build order, and any consumer that computes the area's dependency graph from the atlas gets it wrong.
+Severity **medium**, and the reason is the declaration-level case rather than the bookkeeping as such: `GlobalNumberFields` cannot be elaborated before `NumberFieldArithmetic`, because its objects are *defined* as reducible abbreviations of that roadmap's declarations. A build-order or design job that computes the area's dependency graph from the atlas fields gets that wrong, and a worker starting either consumer learns of the dependency only on reading the prose.
 
 ## Attack 2 — the library boundary. Clean, and the reason is worth stating.
 
