@@ -12283,8 +12283,9 @@
    ],
    "avoidAccountOf": "BP-Polylogarithms",
    "prompt": "research/blueprint/prompts/REV-Polylogarithms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #140"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #140",
+   "finishedAt": "2026-09-24T23:47:44Z"
   },
   {
    "id": "BP-BorelRegulators",
@@ -16890,7 +16891,8 @@
    ],
    "avoidAccountOf": "BP-EllipticKTheory",
    "prompt": "research/blueprint/prompts/REV-EllipticKTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #392"
   },
   {
    "id": "BP-EllipticRegulators",
