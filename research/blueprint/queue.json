@@ -22512,8 +22512,9 @@
    ],
    "avoidAccountOf": "BP-HabiroNahmSeries",
    "prompt": "research/blueprint/prompts/REV-HabiroNahmSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #517"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #517",
+   "finishedAt": "2026-09-25T07:04:50Z"
   },
   {
    "id": "BP-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -24151,7 +24152,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticQuantumTopology",
     "BP-ClassicalArithmeticCompletion",
@@ -24164,7 +24165,7 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "released on GitHub issue #1042"
+   "note": "claimed on GitHub issue #1042"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
