@@ -20,7 +20,8 @@
 - **The three papers of Ferdinand Wagner, at their latest arXiv versions** (abstract pages checked on 25 September 2026):
   - "q-Hodge complexes over the Habiro ring" (arXiv:2510.04782v2);
   - "q-Witt vectors and q-Hodge complexes" (arXiv:2410.23078v5). Its title changed in v5, and the source record is updated.
-  - "ku and q-de Rham cohomology" (arXiv:2510.06057v1).
+  - "q-de Rham cohomology and topological Hochschild homology over ku" (arXiv:2510.06057v1). The packet recorded it as "ku and
+    q-de Rham cohomology"; the title is corrected in a follow-up.
 
   The gzipped e-prints hash to the SHA-256 values the packet records. The PDFs were read for page numbers and excerpts,
   and formulas were checked on rendered pages.
