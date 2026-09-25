@@ -16049,10 +16049,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
-   ]
+   ],
+   "note": "claimed on GitHub issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -23222,14 +23223,14 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-HabiroCyclotomicCompletions",
     "BP-HabiroNahmSeries",
     "BP-K3BlochGroups"
    ],
-   "note": "claimed on GitHub issue #1024"
+   "note": "released on GitHub issue #1024"
   },
   {
    "id": "REV-ArithmeticQuantumTopology",
