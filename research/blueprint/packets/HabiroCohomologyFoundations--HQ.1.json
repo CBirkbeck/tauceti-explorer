@@ -195,7 +195,7 @@
   },
   {
    "id": "wagner-ku-q-de-rham",
-   "title": "ku and q-de Rham cohomology",
+   "title": "q-de Rham cohomology and topological Hochschild homology over ku",
    "authors": "Ferdinand Wagner",
    "edition": "arXiv:2510.06057v1, LaTeX source, with the same per-section numbering convention as the companion papers.",
    "url": "https://arxiv.org/abs/2510.06057",
@@ -207,7 +207,8 @@
     "Section 3: the assumptions on the base and on the input, in full, with the remark motivating the one-disc condition.",
     "Section 4: the assumptions paragraph for the global case with its addendum at the prime two, the theorem giving the explicit description of the filtration in the quasi-regular case, and the global comparison theorem.",
     "Section 6: the corollary computing the Habiro ring of a number field from periodic complex K-theory.",
-    "NOT read: section 2 on the solid even filtration, the rest of section 3 on solid topological Hochschild homology, section 5 on genuine equivariant Habiro descent, the appendices, and every proof. This roadmap imports the trace-theoretic construction rather than owning it."
+    "NOT read: section 2 on the solid even filtration, the rest of section 3 on solid topological Hochschild homology, section 5 on genuine equivariant Habiro descent, the appendices, and every proof. This roadmap imports the trace-theoretic construction rather than owning it.",
+    "Title as on the arXiv abstract page of 2510.06057 (checked 2026-09-25); the packet had recorded it as \"ku and q-de Rham cohomology\"."
    ]
   },
   {
@@ -4703,7 +4704,7 @@
      "how": "the global condition defines the domain of the canonical quasi-regular section"
     },
     {
-     "where": "Wagner, ku and q-de Rham cohomology, 3.2 and 4.18",
+     "where": "Wagner, q-de Rham cohomology and topological Hochschild homology over ku, 3.2 and 4.18",
      "how": "the trace-theoretic theorems assume the same p-quasi-lci condition, and their one-disc case the same relative semiperfectness"
     }
    ],
@@ -4833,7 +4834,7 @@
      "how": "the global construction glues these p-complete filtrations with the rational combined filtration"
     },
     {
-     "where": "Wagner, ku and q-de Rham cohomology, Theorem 4.17",
+     "where": "Wagner, q-de Rham cohomology and topological Hochschild homology over ku, Theorem 4.17",
      "how": "the trace-theoretic filtration for a one-disc lift of R itself is this preimage"
     }
    ],
@@ -9888,7 +9889,7 @@
    "url": "https://arxiv.org/abs/2510.06057v1",
    "read": "2026-09-25",
    "sha256": "9a23a2b000b8eef7075efba59a1246edad4df06ab079534dd170ae3203419227",
-   "citation": "wagner-ku-q-de-rham: Ferdinand Wagner, ku and q-de Rham cohomology (no published version)"
+   "citation": "wagner-ku-q-de-rham: Ferdinand Wagner, q-de Rham cohomology and topological Hochschild homology over ku (no published version)"
   },
   {
    "kind": "preprint",
