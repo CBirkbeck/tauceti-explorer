@@ -24,19 +24,21 @@ Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-hrb`.
 
 **No Lean was compiled**; shared Mathlib cache.
 
-## The source, and a citation problem the next worker should know about
+## The source, and how to read its numbering
 
 **Ferdinand Wagner, *q-Hodge complexes over the Habiro ring*** (arXiv:2510.04782v2),
 taken as LaTeX source, SHA-256 `9c33845587…`. It is the paper the stage texts
 cite throughout.
 
-**But the stage texts' numbering does not match it.** They cite Corollary 2.4,
-Theorem 2.9, Remark 2.10, Lemma 2.12, Corollary 2.13, Remark 2.14, Corollary 3.13
-and Appendix B.2/B.3/B.4/B.8. The arXiv version numbers its statements by *label*
-and prints differently: looking up "Theorem 2.9" there does not give the étale
-lift. Every cited statement was located **by content** and the locators in the
-packet give the section and the statement's role instead of a number. A structural
-note asks that the stage texts name their version or be renumbered.
+**The stage texts' numbering does match it**, and the next worker should not
+repeat the mistake this note originally recorded. The source runs a *single
+counter per section*, shared by the numbered paragraphs (`numpar`) and the
+theorem environments alike, and letters its appendix sections. Counting that way,
+the stage texts' Corollary 2.4, Theorem 2.9, Remark 2.10, Lemma 2.12, Corollary
+2.13, Remark 2.14, Corollary 3.13 and Appendix B.2/B.3/B.4/B.8 all land on
+exactly the statements they describe — eleven citations, eleven hits. Counting
+only the theorem environments, or only the numbered paragraphs, is what makes the
+numbering look broken.
 
 **The companion q-Witt paper was not obtained** — it is where the relative q-Witt
 rings, their ghost description and the no-restriction obstruction actually live.
@@ -78,7 +80,6 @@ packet I have written in this session.
 2. **The appendix was read only at its opening** (HR.2) — the four detection
    results are stated as the stage text lists them.
 3. **The later descent sections were not read** (HR.6).
-4. **The stage texts' numbering could not be matched** (HR.3–HR.5).
 
 ## Where to resume
 
