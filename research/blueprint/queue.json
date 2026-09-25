@@ -19272,9 +19272,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #764"
+   "note": "released on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -21316,8 +21316,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #987"
   },
   {
    "id": "REV-SchemeKTheoryOperations",
