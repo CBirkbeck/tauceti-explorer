@@ -18402,8 +18402,9 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.1",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #423"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #423",
+   "finishedAt": "2026-09-25T04:42:46Z"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.8",
@@ -18451,7 +18452,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.8",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #424"
   },
   {
    "id": "BP-HabiroNumberFields",
