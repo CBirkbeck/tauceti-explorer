@@ -23331,14 +23331,15 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ComputationalNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-ModularCurvesPartII--R12.1",
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1026"
   },
   {
    "id": "REV-ComputationalNumberTheory",
@@ -23489,7 +23490,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeligneWeightsAndPurity--DWP.0",
     "BP-DeligneWeightsAndPurity--DWP.7",
@@ -23497,7 +23498,7 @@
     "BP-WeilConjectures--WC.0",
     "BP-WeilConjectures--WC.6"
    ],
-   "note": "claimed on GitHub issue #1029"
+   "note": "released on GitHub issue #1029"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums",
