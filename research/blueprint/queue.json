@@ -14228,8 +14228,9 @@
    ],
    "avoidAccountOf": "BP-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #145"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #145",
+   "finishedAt": "2026-09-25T03:52:00Z"
   },
   {
    "id": "BP-PadicMeasuresIwasawaAlgebras",
@@ -18500,7 +18501,8 @@
    ],
    "avoidAccountOf": "BP-HabiroNumberFields",
    "prompt": "research/blueprint/prompts/REV-HabiroNumberFields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #425"
   },
   {
    "id": "BP-HabiroRings",
