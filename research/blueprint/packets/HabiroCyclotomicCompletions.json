@@ -1,0 +1,1653 @@
+{
+  "roadmapId": "HabiroCyclotomicCompletions",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "status": "partial",
+  "scope": [
+    "HabiroCyclotomicCompletions:HC.1",
+    "HabiroCyclotomicCompletions:HC.2",
+    "HabiroCyclotomicCompletions:HC.3",
+    "HabiroCyclotomicCompletions:HC.4",
+    "HabiroCyclotomicCompletions:HC.5",
+    "HabiroCyclotomicCompletions:HC.6"
+  ],
+  "summary": "The blueprint for the whole of the classical Habiro-ring roadmap: the directed system and its topology (HC.1), expansions and coefficient algorithms (HC.2), root evaluation and Taylor maps (HC.3), arithmetic connectedness and rigidity (HC.4), modules and inversion of primes (HC.5), and the exported interface with its acceptance examples (HC.6). Twenty-one nodes from one source, Kazuo Habiro's 'Cyclotomic Completions of Polynomial Rings', the paper the stage texts cite by theorem number throughout. It is open access; the copy used here was obtained from the publisher by resolving the article's DOI and its hash is recorded. There is no integrated decomposition for this roadmap. The reviewed audit AUDIT-17 was read first and every claim it makes about the pinned libraries was checked against the declaration index; it records every layer as not built, and what it finds in the libraries is a striking amount of exactly the right infrastructure with nothing assembled: cyclotomic polynomials over any ring with the factorisation of q to the n minus one, division with remainder by a monic polynomial with its degree bound and uniqueness, the polynomial Taylor shift with its coefficients identified as Hasse derivatives, substitution into power series with the nilpotence hypothesis the layer insists on, adic completion, and on the Tau Ceti side complete separated topological rings with limits and executable arithmetic modulo a monic polynomial. Nothing named Habiro exists in either tree. The packet builds the completion with its universal property, the cofinality of the factorial products with the warning that this is neither the q-adic nor the q-minus-one-adic completion, the normalised expansion with its uniqueness and the algorithms with congruence correctness, evaluation and the Taylor map with the Hasse-derivative identification and its factorial warning, the adjacency relation with Habiro's two cyclotomic lemmas, and then the three rigidity theorems with their exact hypotheses: injectivity of restriction along a connected chain, injectivity of a single Taylor expansion, and evaluation uniqueness under the precise infinite-set condition. The three non-surjectivity statements are a node of their own, so that an injective Taylor map is never treated as an isomorphism. The module completion is stated with the derived-limit correction rather than an exactness assumption, the Chinese remainder decomposition with its comaximality hypothesis, and the effect of inverting a prime with the rational case, where the evaluation and Taylor maps are not injective while the map from the integral completion is.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AdjoinRoot",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "provides": "The quotient of a polynomial ring by a polynomial, the pinned carrier of the target of HC.3's evaluation."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Adic completeness, the hypothesis under which the re-expansions of HC.3 are defined."
+      },
+      {
+        "ref": "mathlib:IsPrecomplete",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "The precompleteness half of the same, used for the completion statements of HC.1."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "Primitive roots of unity, the points at which HC.3 evaluates."
+      },
+      {
+        "ref": "mathlib:LaurentPolynomial",
+        "module": "Mathlib/Algebra/Polynomial/Laurent.lean",
+        "provides": "Laurent polynomials as the localisation at the indeterminate, the comparison HC.2 makes when the indeterminate is invertible."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+        "provides": "Monicity, which is what makes division with remainder and the whole index monoid work."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "Cyclotomic polynomials over any ring, monic and defined by base change from the integers; the index set of the whole roadmap is built from them."
+      },
+      {
+        "ref": "mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "The prime-power cyclotomic polynomial as a geometric sum, the pinned half of the congruence HC.4's adjacency lemma uses."
+      },
+      {
+        "ref": "mathlib:Polynomial.hasseDeriv",
+        "module": "Mathlib/Algebra/Polynomial/HasseDeriv.lean",
+        "provides": "Hasse derivatives, which are the higher Taylor coefficients and are NOT the ordinary derivatives divided by factorials over a general ring."
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Division with remainder by a monic polynomial over any commutative ring, with its degree bound and uniqueness; this is exactly the normalisation of HC.2."
+      },
+      {
+        "ref": "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one",
+        "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+        "provides": "The factorisation of q to the n minus one into the cyclotomic polynomials of its divisors, which is the multiplicity count HC.1's cofinality proof needs."
+      },
+      {
+        "ref": "mathlib:Polynomial.taylor",
+        "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
+        "provides": "The polynomial Taylor shift, whose completed version is HC.3's Taylor map."
+      },
+      {
+        "ref": "mathlib:Polynomial.taylor_coeff",
+        "module": "Mathlib/Algebra/Polynomial/Taylor.lean",
+        "provides": "The identification of its coefficients with Hasse derivatives, which HC.3 consumes rather than reproving."
+      },
+      {
+        "ref": "mathlib:PowerSeries",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Formal power series, the target of the Taylor map."
+      },
+      {
+        "ref": "mathlib:PowerSeries.subst",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution into a power series, which requires exactly the topological nilpotence hypothesis HC.3 insists on for a re-expansion."
+      },
+      {
+        "ref": "tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated",
+        "module": "TauCeti/Topology/Category/TopCommRingCat/CompleteSeparated/Basic.lean",
+        "provides": "Complete separated topological commutative rings as a category, the target of HC.1's universal property."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Habiro.CyclotomicCompletions.2004",
+      "title": "Cyclotomic Completions of Polynomial Rings",
+      "authors": "Kazuo Habiro",
+      "edition": "Publications of the Research Institute for Mathematical Sciences 40 (2004), pp. 1127 to 1146; open access. Locators give the printed page, which the PDF carries in its headers.",
+      "url": "https://doi.org/10.2977/prims/1145475444",
+      "sha256": "f56094672ada5ba71bbce69785be8c9d1377807c937b1011b1004f51dbf3071f",
+      "accessed": "2026-09-25",
+      "readSections": [
+        "Obtained by resolving the article's DOI to the publisher's page and downloading the article file it names. The publisher's own DOI mapping for this volume is unreliable: the DOI printed in several secondary sources resolves to a different article, and the correct one was found through a bibliographic lookup by title. The hash recorded here is of the file actually read.",
+        "§1, the introduction, pp. 1127 to 1129: the two properties that justify calling the completion a ring of analytic functions on the roots of unity, the evaluation map and its injectivity, the expansion homomorphism and its injectivity, the non-injectivity over the rationals with the injectivity of the map from the integral completion, and the Kontsevich series with the isomorphism exhibiting it as an element.",
+        "§2, p. 1129: conventions, adic completion notation, separatedness and completeness, and the directed set of positive integers under divisibility.",
+        "§3.1, pp. 1130 to 1131: monic completions of polynomial rings, the directed multiplicative set, the linear topology, the completion as an inverse limit and the restriction homomorphisms.",
+        "Proposition 3.1 and Corollary 3.1, pp. 1131 to 1134: the one-step injectivity statement with its proof by reduction to a complete coefficient ring, and the connected-subset corollary.",
+        "§4 with Lemma 4.1 and Theorem 4.1, pp. 1134 to 1136: the identification of the cyclotomic completion with the monic one, the two cyclotomic lemmas, the adjacency relation and the injectivity theorem with its chain hypothesis and its two corollaries.",
+        "§5 with Lemma 5.1, Theorem 5.1, Lemma 5.2, Remark 5.1 and Theorem 5.2, pp. 1137 to 1138: the adjacency relation on roots with its three equivalent conditions, the connected-subset theorem for roots, the comparison of connectedness for roots and for orders, and the rootwise Taylor injectivity theorem with all its hypotheses.",
+        "§6, Theorem 6.1 with its proof and the consequence quoted in the introduction, pp. 1140 to 1141: evaluation uniqueness with the precise infinite-set condition.",
+        "§7.3 with Theorem 7.1, and §7.4 with Proposition 7.4, pp. 1143 to 1145: the module completion with the module form of the injectivity theorem, and the three non-surjectivity statements with the proof of the first.",
+        "NOT read in full: §3.2 and §3.3, the proofs in §5 beyond their statements and Lemma 5.1, §6.2, §7.1, §7.2 and §7.5. The statements quoted from §7.5 are the ones repeated in the introduction.",
+        "The PDF's text layer inserts spaces inside words and drops some subscripts; every excerpt quoted here was repaired character by character against the surrounding text, without changing a word, and mathematical symbols are written out in words where the layer lost them."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.1",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.1"
+      ],
+      "title": "The cyclotomic completion of a polynomial ring",
+      "kind": "construction",
+      "statement": "For a ring R and a set S of positive integers, let the index set be the multiplicative monoid generated by the cyclotomic polynomials of order in S, directed by divisibility; the CYCLOTOMIC COMPLETION is the inverse limit of the quotients of the polynomial ring by the principal ideals those products generate. The construction comes with projections to the finite quotients, a dense map from the polynomial ring, extensionality by the finite quotients, completeness and separatedness for the resulting linear topology, and the universal property for continuous maps into complete separated rings. The source defines it in the greater generality of an arbitrary set of monic polynomials, and the cyclotomic case is the instance where the set is the one of cyclotomic polynomials of order in S.",
+      "hypotheses": [
+        "R is commutative and unital; S is a set of positive integers, possibly empty or infinite.",
+        "The index monoid is directed by divisibility, which is what makes the inverse limit a limit over a directed set.",
+        "The map from the polynomial ring is NOT injective for every R and S, and no injectivity is asserted here; the hypotheses under which it is injective are the subject of HC.4."
+      ],
+      "proofSteps": [
+        "Define the monoid generated by the cyclotomic polynomials of order in S and prove that it is directed by divisibility.",
+        "Define the completion as the inverse limit of the quotients and construct the projections and the transition maps, checking compatibility.",
+        "Prove independence of the representative of a product, so that the quotient depends only on the ideal.",
+        "Prove extensionality: two elements are equal when their images in every finite quotient agree.",
+        "Prove completeness and separatedness for the linear topology the ideals define.",
+        "State and prove the universal property for continuous maps into complete separated rings.",
+        "Record the degenerate cases: the empty product is one, its quotient is the zero ring and contributes only the initial stage of the system, and the source's own notational warning about the singleton case."
+      ],
+      "acceptance": [
+        "Two elements with the same image in every finite quotient are equal.",
+        "The completion is complete and separated for its linear topology.",
+        "The map from the polynomial ring need NOT be injective; no such statement is made here.",
+        "The empty product is one and its quotient is the zero ring."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.cyclotomic",
+        "mathlib:Polynomial.Monic",
+        "mathlib:IsPrecomplete",
+        "tauceti:TauCeti.TopCommRingCat.IsCompleteSeparated"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§3.1, p. 1130 of the PDF",
+          "excerpt": "For a ring R, let M_R denote the set of the monic polynomials in R[q], which is a directed set with respect to the divisibility relation. For a subset M of M_R, let M* denote the multiplicative set in R[q] generated by M, which is a directed subset of M_R. The principal ideals (f), f in M*, define a linear topology of the ring R[q]. Let R[q]^M = lim_{f in M*} R[q]/(f) denote the completion.",
+          "match": "The construction in the generality the source uses, verbatim; the cyclotomic completion is the instance where M is the set of cyclotomic polynomials of order in S."
+        },
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§4, p. 1134 of the PDF",
+          "excerpt": "If R a ring, and S is a subset of N, then the completion R[q]^S defined in the introduction can be identified with R[q]^{Phi_S}.",
+          "match": "The identification of the cyclotomic case with the general construction, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The cyclotomic completion"
+      },
+      "api": [
+        {
+          "name": "cycloIndex",
+          "role": "data",
+          "statement": "The directed monoid of products of cyclotomic polynomials of order in S."
+        },
+        {
+          "name": "cycloCompletion",
+          "role": "data",
+          "statement": "The completion itself."
+        },
+        {
+          "name": "cycloCompletion.proj",
+          "role": "projection",
+          "statement": "The projection to a finite quotient."
+        },
+        {
+          "name": "cycloCompletion.fromPoly",
+          "role": "data",
+          "statement": "The map from the polynomial ring, with dense image."
+        },
+        {
+          "name": "cycloCompletion.ext",
+          "role": "characterisation",
+          "statement": "Extensionality by the finite quotients."
+        },
+        {
+          "name": "cycloCompletion.universal",
+          "role": "characterisation",
+          "statement": "The universal property for continuous maps into complete separated rings."
+        },
+        {
+          "name": "cycloCompletion.complete",
+          "role": "characterisation",
+          "statement": "Completeness and separatedness."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.2",
+          "how": "The expansions are computed through the projections."
+        },
+        {
+          "where": "HC.3",
+          "how": "Evaluation and the Taylor map are constructed from compatible quotient maps."
+        },
+        {
+          "where": "HC.6",
+          "how": "The completion, its projections and its universal property are what this roadmap exports."
+        }
+      ],
+      "tests": [
+        {
+          "name": "empty_product",
+          "statement": "The empty product is one and its quotient is the zero ring."
+        },
+        {
+          "name": "ext_by_quotients",
+          "statement": "Two elements agreeing in every finite quotient are equal."
+        },
+        {
+          "name": "no_injectivity",
+          "statement": "No injectivity of the map from the polynomial ring is asserted; it fails for suitable R and S."
+        },
+        {
+          "name": "universal_property",
+          "statement": "A continuous map into a complete separated ring factors uniquely through the completion."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.1",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.1"
+      ],
+      "title": "Cofinality of the factorial products, and which completion this is not",
+      "kind": "theorem",
+      "statement": "For the set of ALL positive integers the products of the first N factors of the form one minus a power of q are cofinal in the index monoid, so the completion is the inverse limit of the quotients by those products; equivalently it is the limit of the completions at the ideals generated by a power of q minus one, using divisibility in the exponent. The comparison is by exhibiting each system's ideals as cofinal in the other's, and it requires counting the multiplicity with which each cyclotomic factor occurs. This completion is neither the q-adic nor the q-minus-one-adic completion, and the node records that as a non-example.",
+      "hypotheses": [
+        "The set of orders is all of the positive integers; for a general S the factorial products are not available.",
+        "The counting uses that q to the n minus one is the product of the cyclotomic polynomials of the divisors of n, which is pinned.",
+        "Cofinality is mutual: each ideal of one system contains an ideal of the other."
+      ],
+      "proofSteps": [
+        "Record the pinned factorisation of q to the n minus one into cyclotomic factors.",
+        "Compute the multiplicity of each cyclotomic factor in the factorial product of the first N terms.",
+        "Prove that the two systems of ideals are mutually cofinal and conclude that the completions agree.",
+        "Record the source's own statement of this isomorphism in the introduction, which is where the Kontsevich series is exhibited as an element.",
+        "State the non-example: neither the q-adic nor the q-minus-one-adic topology gives this completion, since each is the completion at a single ideal and this one is not."
+      ],
+      "acceptance": [
+        "The factorial products are cofinal, so the completion is their inverse limit.",
+        "The same completion is obtained from the ideals generated by a power of q minus one.",
+        "It is not the q-adic completion and not the q-minus-one-adic completion.",
+        "The multiplicity count is part of the proof and not a formality."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion",
+        "mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "some specific elements of Z[q]^N [are given by] the series sum over n >= 0 of (1 - q)(1 - q^2) ... (1 - q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N since we have an isomorphism Z[q]^N = lim_n Z[q]/((1 - q) ... (1 - q^n)).",
+          "match": "The cofinality statement in the form the source uses it, verbatim, together with the standing example it produces."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cofinality of the factorial products"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.1",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.1"
+      ],
+      "title": "Functoriality in the coefficient ring and restriction in the order set",
+      "kind": "construction",
+      "statement": "The completion is covariant and continuous in the coefficient ring and contravariant in the set of orders: a ring map induces a continuous map of completions, and an inclusion of order sets induces a restriction map, with the identity and composition laws in both variables and with compatibility between them. Two completions attached to cofinal systems are canonically topologically isomorphic. The node also fixes the distinction the stage text insists on: base change followed by completion is not completion followed by base change, and flatness alone does not license interchanging a base change with an arbitrary infinite inverse limit.",
+      "hypotheses": [
+        "The ring maps are unital; the restriction is along an inclusion of subsets of the positive integers.",
+        "Cofinal systems give a canonical topological isomorphism, which is the general fact about inverse limits over cofinal subsets.",
+        "The interchange statement is a NON-statement: it is recorded to prevent its use, and no flatness hypothesis is offered as a substitute."
+      ],
+      "proofSteps": [
+        "Construct the induced map for a ring homomorphism and prove continuity.",
+        "Construct the restriction map for an inclusion of order sets.",
+        "Prove the identity and composition laws in both variables and their compatibility.",
+        "Prove the canonical isomorphism for cofinal systems.",
+        "State the distinction between completed base change and uncompleted base change, with the non-example that flatness does not license the interchange.",
+        "Record the source's own use of the restriction maps, which are the maps whose injectivity HC.4 studies."
+      ],
+      "acceptance": [
+        "The two functorialities commute with each other.",
+        "Cofinal systems give canonically isomorphic completions.",
+        "Completed base change is not uncompleted base change, and flatness does not repair this.",
+        "The restriction maps are the ones whose injectivity is the subject of HC.4."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§3.1, p. 1130 of the PDF",
+          "excerpt": "If M' is contained in M and both are subsets of M_R, then (M')* is a directed subset of M*, and hence the identity of R[q] induces a homomorphism rho^R_{M, M'} : R[q]^M -> R[q]^{M'}.",
+          "match": "The restriction maps, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "cycloCompletion.mapRing",
+          "role": "functoriality",
+          "statement": "The map induced by a ring homomorphism."
+        },
+        {
+          "name": "cycloCompletion.restrict",
+          "role": "functoriality",
+          "statement": "The restriction along an inclusion of order sets."
+        },
+        {
+          "name": "cycloCompletion.restrict_comp",
+          "role": "compatibility",
+          "statement": "The composition law for restrictions."
+        },
+        {
+          "name": "cycloCompletion.cofinal_iso",
+          "role": "characterisation",
+          "statement": "Cofinal systems give canonically isomorphic completions."
+        },
+        {
+          "name": "cycloCompletion.baseChange_ne",
+          "role": "relation",
+          "statement": "Completed base change is not uncompleted base change."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.4",
+          "how": "The injectivity theorems are statements about the restriction maps."
+        },
+        {
+          "where": "HC.5",
+          "how": "The module version uses the same two functorialities."
+        },
+        {
+          "where": "HC.6",
+          "how": "Both are part of the exported interface."
+        }
+      ],
+      "tests": [
+        {
+          "name": "identity",
+          "statement": "The restriction along the identity inclusion is the identity."
+        },
+        {
+          "name": "composition",
+          "statement": "Restrictions compose."
+        },
+        {
+          "name": "cofinal",
+          "statement": "A cofinal subsystem gives the same completion."
+        },
+        {
+          "name": "no_interchange",
+          "statement": "Base change does not commute with the completion; flatness alone does not license it."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.2/factorial-expansions",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.2",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.2"
+      ],
+      "title": "Factorial expansions of a compatible element",
+      "kind": "construction",
+      "statement": "Building representatives successively modulo the factorial products shows that every compatible family is the limit of a series whose N-th term is a polynomial coefficient times the N-th factorial product. The expansion is convergent in the completion's topology because the products divide one another. Unrestricted coefficient expansions are NOT unique; a normalised expansion, obtained by dividing with remainder by the monic factorial product so that each coefficient has bounded degree, exists and IS unique, and that is the form the algorithms of the next node use. Division with remainder by a monic polynomial over any commutative ring, with its degree bound and uniqueness, is pinned in Mathlib and each factorial product is monic.",
+      "hypotheses": [
+        "The order set is all the positive integers, so that the factorial products are available; for a general S the analogue uses whichever cofinal system that S provides.",
+        "Uniqueness holds only for the normalised expansion; without the degree bound the coefficients can be changed by multiples of the next factor.",
+        "Convergence is in the completion's own topology, not in any q-adic sense."
+      ],
+      "proofSteps": [
+        "Construct representatives successively modulo the factorial products from a compatible family.",
+        "Prove that the resulting series converges in the completion and represents the element.",
+        "Define the normalised expansion by division with remainder, using the pinned statement for monic divisors.",
+        "Prove existence and uniqueness of the normalised expansion.",
+        "State the non-uniqueness of unrestricted expansions, with the explicit ambiguity that the next coefficient absorbs.",
+        "Record the standing example: the Kontsevich series, whose normalised expansion has all coefficients one."
+      ],
+      "acceptance": [
+        "Every element has a normalised expansion and it is unique.",
+        "Unrestricted expansions are not unique.",
+        "The Kontsevich series is an element, with all normalised coefficients one.",
+        "Convergence is in the completion's topology and not in a q-adic one."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/cofinality-of-the-factorial-products",
+        "mathlib:Polynomial.modByMonic",
+        "mathlib:Polynomial.Monic"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "the series sum over n >= 0 of (1 - q)(1 - q^2) ... (1 - q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N",
+          "match": "The standing example of an element given by a factorial expansion, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Factorial expansions"
+      },
+      "api": [
+        {
+          "name": "factorialExpansion",
+          "role": "data",
+          "statement": "The normalised expansion of an element."
+        },
+        {
+          "name": "factorialExpansion_unique",
+          "role": "characterisation",
+          "statement": "Its uniqueness."
+        },
+        {
+          "name": "factorialExpansion_sum",
+          "role": "characterisation",
+          "statement": "The expansion converges to the element."
+        },
+        {
+          "name": "factorialExpansion_degree_bound",
+          "role": "projection",
+          "statement": "The degree bound on each coefficient."
+        },
+        {
+          "name": "unrestricted_not_unique",
+          "role": "relation",
+          "statement": "Unrestricted expansions are not unique."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.2, the algorithms",
+          "how": "The algorithms operate on normalised expansions."
+        },
+        {
+          "where": "HC.6",
+          "how": "The acceptance examples compute expansions to finite precision."
+        },
+        {
+          "where": "HabiroNumberFields",
+          "how": "The exported elements are given by their expansions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "kontsevich",
+          "statement": "The Kontsevich series has all normalised coefficients one."
+        },
+        {
+          "name": "uniqueness",
+          "statement": "The normalised expansion is unique."
+        },
+        {
+          "name": "unrestricted",
+          "statement": "Two different unrestricted expansions can represent the same element."
+        },
+        {
+          "name": "truncation",
+          "statement": "Truncating at N gives the image in the N-th finite quotient."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.2",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.2"
+      ],
+      "title": "Algorithms on normalised expansions, with congruence correctness",
+      "kind": "construction",
+      "statement": "Addition, multiplication and coefficient extraction are computed on normalised expansions by finite algorithms: a computation to precision N depends on only finitely many input coefficients, and each algorithm carries a correctness theorem stated as a congruence modulo the N-th factorial product. Tau Ceti already has executable, proved-correct arithmetic modulo a monic polynomial by synthetic division on coefficient lists, which is the layer beneath these algorithms; what is new is the bookkeeping that turns a finite computation into a statement about the completion.",
+      "hypotheses": [
+        "The expansions are the normalised ones of the previous node.",
+        "Precision N means modulo the N-th factorial product; the correctness statements are congruences at that precision.",
+        "The finiteness statement is that the first N output coefficients depend only on the first N input coefficients, which is what makes the algorithms executable."
+      ],
+      "proofSteps": [
+        "State the addition algorithm and prove its congruence correctness.",
+        "State the multiplication algorithm, with the renormalisation step, and prove its congruence correctness.",
+        "State coefficient extraction and prove that it depends on finitely many input coefficients.",
+        "Prove the finiteness statement in the form the previous point needs.",
+        "Record the pinned executable arithmetic modulo a monic polynomial that the algorithms call.",
+        "Record the acceptance example: computing a product to precision three by hand and checking it against the definition."
+      ],
+      "acceptance": [
+        "Each algorithm is correct modulo the relevant factorial product.",
+        "A computation to precision N uses only finitely many coefficients.",
+        "The algorithms agree with the ring operations of the completion.",
+        "The renormalisation step in multiplication is necessary; without it the output is an unrestricted expansion."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.2/factorial-expansions",
+        "mathlib:Polynomial.modByMonic"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§3.1, p. 1130 of the PDF",
+          "excerpt": "The principal ideals (f), f in M*, define a linear topology of the ring R[q].",
+          "match": "The topology in which the precision statements are made, verbatim; the algorithms are the computational form of working modulo those ideals."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "expansionAdd",
+          "role": "data",
+          "statement": "Addition of normalised expansions."
+        },
+        {
+          "name": "expansionMul",
+          "role": "data",
+          "statement": "Multiplication with renormalisation."
+        },
+        {
+          "name": "expansionCoeff",
+          "role": "data",
+          "statement": "Coefficient extraction."
+        },
+        {
+          "name": "expansionAdd_correct",
+          "role": "characterisation",
+          "statement": "Congruence correctness of addition."
+        },
+        {
+          "name": "expansionMul_correct",
+          "role": "characterisation",
+          "statement": "Congruence correctness of multiplication."
+        },
+        {
+          "name": "expansion_finite_dependence",
+          "role": "characterisation",
+          "statement": "Finite dependence at each precision."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.6",
+          "how": "The acceptance examples are runs of these algorithms."
+        },
+        {
+          "where": "HC.3",
+          "how": "The evaluation and Taylor maps are computed from truncated expansions."
+        },
+        {
+          "where": "ArithmeticQuantumTopology",
+          "how": "The quantum invariants are computed in this form."
+        }
+      ],
+      "tests": [
+        {
+          "name": "add_precision",
+          "statement": "Addition to precision N uses only the first N coefficients."
+        },
+        {
+          "name": "mul_renormalises",
+          "statement": "Multiplication renormalises; without it the result is not normalised."
+        },
+        {
+          "name": "agreement",
+          "statement": "The algorithms agree with the ring operations."
+        },
+        {
+          "name": "worked_product",
+          "statement": "A product computed to precision three matches the definition."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.2/invertibility-of-q",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.2",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.2"
+      ],
+      "title": "The indeterminate is invertible, and what may not be inverted",
+      "kind": "theorem",
+      "statement": "In the full completion, over the set of all positive integers, the indeterminate is a unit, and its inverse can be computed to any finite precision by the algorithms of the previous node. The polynomial and Laurent-polynomial constructions therefore give the same completion in that case. What may NOT be done is to divide formally by a cyclotomic polynomial that is not a unit: the completion is not a field, its finite quotients are not domains in general, and a formal division by a non-unit produces no element.",
+      "hypotheses": [
+        "The order set contains one, which is what makes the indeterminate invertible; for a set of orders not containing one the statement can fail.",
+        "The inverse is computed by the algorithms and its normalised expansion is exhibited to a small precision.",
+        "The comparison with the Laurent construction is an isomorphism of topological rings."
+      ],
+      "proofSteps": [
+        "Prove that the indeterminate is a unit, exhibiting the inverse as a limit of polynomial approximations.",
+        "Compute the inverse to a small precision as a worked example.",
+        "Prove that the Laurent-polynomial construction gives the same completion when the indeterminate is invertible.",
+        "State the non-example: a cyclotomic polynomial of an order in the set is not a unit, and no formal division by it is available.",
+        "Record what the pinned library supplies: the unit criteria and the Laurent polynomials as the localisation at the indeterminate."
+      ],
+      "acceptance": [
+        "The indeterminate is a unit and its inverse is computable to any precision.",
+        "The polynomial and Laurent constructions agree in that case.",
+        "A cyclotomic polynomial of an order in the set is not a unit.",
+        "No formal division by a non-unit is admitted."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions",
+        "mathlib:LaurentPolynomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§2, p. 1129 of the PDF",
+          "excerpt": "Throughout the paper, rings are unital and commutative, and homomorphisms of rings are unital.",
+          "match": "The standing convention, verbatim; the invertibility statement of this node is about units of the completion under it."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.3",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.3"
+      ],
+      "title": "Evaluation at a root of unity",
+      "kind": "construction",
+      "statement": "For a root of unity whose order lies in the set of orders, evaluation of an element of the completion at that root is well defined: the linear factor divides the cyclotomic polynomial of that order, so evaluation factors through a single finite quotient, and the result is independent of which truncation is used. Over the integers with all orders this gives a map from the completion to the functions on the roots of unity, which is the sense in which the source says that its elements are functions on the roots of unity. Mathlib's quotient by a cyclotomic polynomial as an adjoined root is the pinned carrier of the target.",
+      "hypotheses": [
+        "The order of the root lies in the set of orders; for an order outside it there is no evaluation.",
+        "The target is the ring obtained by adjoining the root to the coefficient ring, which is the pinned quotient by the cyclotomic polynomial when the polynomial is irreducible there.",
+        "Independence of the truncation is part of the construction: any quotient whose defining product is divisible by the cyclotomic polynomial computes the same value."
+      ],
+      "proofSteps": [
+        "Prove that the linear factor divides the cyclotomic polynomial of the order, so that evaluation is defined on the corresponding finite quotient.",
+        "Define evaluation as the composite of a projection with that quotient map, and prove independence of the chosen projection.",
+        "Assemble the evaluations into the map to functions on the roots of unity and record the source's own statement of it.",
+        "Record the pinned carrier of the target and the identification of the cyclotomic polynomial as the minimal polynomial of a primitive root.",
+        "Record that no evaluation exists at a root whose order is outside the set, which is what makes the set of orders meaningful."
+      ],
+      "acceptance": [
+        "Evaluation is independent of the truncation used.",
+        "Over the integers with all orders the evaluations assemble into a map to functions on the roots of unity.",
+        "There is no evaluation at a root whose order is outside the set of orders."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion",
+        "mathlib:AdjoinRoot",
+        "mathlib:IsPrimitiveRoot",
+        "mathlib:Polynomial.cyclotomic"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "If f(q) is in Z[q]^N and zeta is a root of unity, then the evaluation f(zeta) of f(q) at zeta is well defined, since q - zeta divides Phi_n(q) with n = ord zeta. Hence there is a well defined map ev : Z[q]^N -> Map(Z_N, Z[Z_N]) such that ev(f(q)) = (f(zeta))_{zeta}.",
+          "match": "The construction with the divisibility that makes it work, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Evaluation at a root of unity"
+      },
+      "api": [
+        {
+          "name": "evalAt",
+          "role": "data",
+          "statement": "Evaluation at a root of unity of order in the set."
+        },
+        {
+          "name": "evalAt_indep",
+          "role": "characterisation",
+          "statement": "Independence of the truncation."
+        },
+        {
+          "name": "evalAt_ringHom",
+          "role": "compatibility",
+          "statement": "It is a ring homomorphism."
+        },
+        {
+          "name": "evalMap",
+          "role": "data",
+          "statement": "The assembled map to functions on the roots of unity."
+        },
+        {
+          "name": "no_evalAt_outside",
+          "role": "relation",
+          "statement": "No evaluation exists at an order outside the set."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.3, the Taylor map",
+          "how": "The constant term of the Taylor map is this evaluation."
+        },
+        {
+          "where": "HC.4",
+          "how": "The evaluation uniqueness theorem is about the assembled map."
+        },
+        {
+          "where": "ArithmeticQuantumTopology",
+          "how": "The quantum invariants at a root of unity are these evaluations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "at_one",
+          "statement": "Evaluation at one sends the Kontsevich series to the expected value."
+        },
+        {
+          "name": "indep",
+          "statement": "Two truncations give the same value."
+        },
+        {
+          "name": "ring_hom",
+          "statement": "Evaluation is a ring homomorphism."
+        },
+        {
+          "name": "outside_orders",
+          "statement": "There is no evaluation at a root of unity whose order is not in the set."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.3",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.3"
+      ],
+      "title": "The Taylor map at a root of unity",
+      "kind": "construction",
+      "statement": "For a root of unity of order in the set of orders there is an expansion homomorphism from the completion into the power series over the ring obtained by adjoining the root, in the variable q minus the root, induced by the inclusion of polynomial rings and by the fact that the i-th power of the linear factor divides the i-th power of the cyclotomic polynomial. Its constant term is the evaluation of the previous node, and its higher coefficients are the HASSE derivatives, not the ordinary ones: the comparison with ordinary derivatives keeps the factorial denominators, which matters over a ring where factorials are not invertible. At the polynomial level Mathlib has exactly this, that the n-th coefficient of the Taylor expansion is the n-th Hasse derivative evaluated at the point.",
+      "hypotheses": [
+        "The order of the root lies in the set; the target is the power series ring over the ring with the root adjoined.",
+        "The divisibility that makes the map well defined is that the i-th power of the linear factor divides the i-th power of the cyclotomic polynomial, which is the source's observation.",
+        "The higher coefficients are Hasse derivatives; identifying them with ordinary derivatives divided by factorials is legitimate only where the factorials are invertible."
+      ],
+      "proofSteps": [
+        "Prove the divisibility of the powers and deduce that the expansion is compatible with the projections.",
+        "Define the Taylor map and prove that it is a ring homomorphism.",
+        "Prove that its constant term is the evaluation.",
+        "Identify the higher coefficients with the Hasse derivatives, citing the pinned polynomial-level statement.",
+        "Record the warning about factorial denominators with a concrete instance over the integers.",
+        "Record the source's own description of the map as the power series expansion at the root."
+      ],
+      "acceptance": [
+        "The constant term is the evaluation.",
+        "The higher coefficients are Hasse derivatives.",
+        "Over a ring where factorials are not invertible the identification with ordinary derivatives fails.",
+        "The map is a ring homomorphism into the power series ring."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity",
+        "mathlib:Polynomial.taylor",
+        "mathlib:Polynomial.taylor_coeff",
+        "mathlib:Polynomial.hasseDeriv",
+        "mathlib:PowerSeries"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "For zeta each root of unity, there is an expansion homomorphism sigma_zeta : Z[q]^N -> Z[zeta][[q - zeta]], induced by Z[q] -> Z[zeta][q], since (q - zeta)^i divides Phi_{ord zeta}(q)^i for i >= 0. For f(q) in Z[q]^N, sigma_zeta(f(q)) can be regarded as the power series expansion of f(q) at zeta.",
+          "match": "The construction with the divisibility it rests on, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The Taylor map"
+      },
+      "api": [
+        {
+          "name": "taylorAt",
+          "role": "data",
+          "statement": "The Taylor map at a root of unity."
+        },
+        {
+          "name": "taylorAt_constantCoeff",
+          "role": "characterisation",
+          "statement": "Its constant term is the evaluation."
+        },
+        {
+          "name": "taylorAt_coeff",
+          "role": "characterisation",
+          "statement": "Its higher coefficients are Hasse derivatives."
+        },
+        {
+          "name": "taylorAt_ringHom",
+          "role": "compatibility",
+          "statement": "It is a ring homomorphism."
+        },
+        {
+          "name": "taylorAt_factorials",
+          "role": "relation",
+          "statement": "The comparison with ordinary derivatives keeps the factorial denominators."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.4",
+          "how": "The rootwise Taylor injectivity theorem is about this map."
+        },
+        {
+          "where": "HC.6",
+          "how": "The difference between a value and a full Taylor series is one of the acceptance tests."
+        },
+        {
+          "where": "HabiroNumberFields",
+          "how": "The exported expansions are these."
+        }
+      ],
+      "tests": [
+        {
+          "name": "constant_term",
+          "statement": "The constant term is the evaluation."
+        },
+        {
+          "name": "hasse",
+          "statement": "The first higher coefficient is the first Hasse derivative, not the derivative divided by one."
+        },
+        {
+          "name": "integer_factorials",
+          "statement": "Over the integers the identification with derivatives divided by factorials fails in degree two."
+        },
+        {
+          "name": "ring_hom",
+          "statement": "The map is a ring homomorphism."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.3/naturality-and-re-expansion",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.3",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.3"
+      ],
+      "title": "Naturality of the two maps, and the re-expansion that needs nilpotence",
+      "kind": "theorem",
+      "statement": "Evaluation and the Taylor map are natural under change of the coefficient ring, under conjugation of the root, under restriction of the set of orders, and under the substitution sending the indeterminate to a power of itself whenever that substitution preserves the completion topology. What is NOT available is substitution of an arbitrary constant into a power series: a re-expansion is defined only through topological nilpotence in a coefficient ring proved complete, and Mathlib's substitution for power series requires exactly that hypothesis. The p-adic re-expansion maps are constructed under that hypothesis and satisfy a cocycle law.",
+      "hypotheses": [
+        "The index map for the power substitution must preserve the chosen topology, which is a condition on the set of orders.",
+        "The re-expansion is between Taylor expansions at different roots and is defined only when the difference of the roots is topologically nilpotent in a complete coefficient ring.",
+        "The cocycle law is the compatibility of three re-expansions among three roots."
+      ],
+      "proofSteps": [
+        "State naturality in the coefficient ring and under conjugation of the root.",
+        "State naturality under restriction of the set of orders.",
+        "State the substitution sending the indeterminate to a power, with the condition on the index map.",
+        "Construct the p-adic re-expansion maps under the nilpotence hypothesis, citing the pinned substitution statement.",
+        "Prove the cocycle law.",
+        "State the non-example: substituting a constant into a power series without the nilpotence hypothesis is not defined, and the layer forbids it."
+      ],
+      "acceptance": [
+        "The two maps are natural in all four senses listed.",
+        "The power substitution needs its condition on the index map.",
+        "Re-expansion needs topological nilpotence in a complete coefficient ring.",
+        "The re-expansions satisfy the cocycle law."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
+        "mathlib:PowerSeries.subst",
+        "mathlib:IsAdicComplete"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§5, p. 1137 of the PDF",
+          "excerpt": "1. (q - zeta) => R (q - zeta'), 2. R is (zeta - zeta')-adically separated, 3. ord(zeta^{-1} zeta') is a power of some prime p such that R is p-adically separated.",
+          "match": "The three equivalent conditions under which two roots are adjacent, verbatim; they are exactly the separatedness hypotheses this node requires for a re-expansion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Adjacency of cyclotomic orders and connectedness",
+      "kind": "definition",
+      "statement": "Two orders are ADJACENT over a coefficient ring when their ratio is an integer power of a prime for which the ring is separated in the adic topology of that prime; a set of orders is CONNECTED when any two of its elements are joined by a chain of adjacent ones inside it. The relation is the one the source defines, and its point is a pair of lemmas on cyclotomic polynomials: modulo the prime the cyclotomic polynomial of the multiplied order is a power of the original one, and the prime lies in the ideal generated by the two cyclotomic polynomials; while for a ratio that is not a prime power the two cyclotomic polynomials are comaximal.",
+      "hypotheses": [
+        "The ring is commutative; separatedness at a prime means that the intersection of the powers of that prime ideal is zero.",
+        "Adjacency is not symmetric-looking in the source's notation but is an equivalence-generating relation once chains are allowed; the packet uses chains, as the source does.",
+        "For the ring of integers every prime is separated, so any two orders with prime-power ratio are adjacent."
+      ],
+      "proofSteps": [
+        "Record the two cyclotomic lemmas with their exact statements: the congruence modulo the prime and the membership of the prime in the ideal generated by the two polynomials.",
+        "Record the comaximality lemma for a ratio that is not a prime power.",
+        "Define adjacency and connectedness.",
+        "Prove the standing instances: over the integers the set of divisors of a fixed integer is connected exactly when the ring is separated at each prime factor, which for the integers is automatic.",
+        "Record the resultant computation that the comaximality lemma rests on."
+      ],
+      "acceptance": [
+        "Over the integers any two orders with prime-power ratio are adjacent.",
+        "For a ratio that is not a prime power the two cyclotomic polynomials are comaximal, so the two completions have nothing to say to each other.",
+        "The set of divisors of an integer is connected over a ring separated at each of its prime factors.",
+        "Over the rationals no prime is separated, so no two distinct orders are adjacent; this is what makes the rational case different."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.cyclotomic",
+        "mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Lemma 4.1, p. 1134 of the PDF",
+          "excerpt": "(1) Let n be in N, p a prime, and e >= 1. Then we have Phi_{p^e n}(q) = Phi_n(q)^d (mod (p)) in Z[q], where d = deg Phi_{p^e n}(q) / deg Phi_n(q). Also, we have p in (Phi_n(q), Phi_{p^e n}(q)) in Z[q]. (2) If m, n are in N, and n/m is not an integer power of a prime, then we have (Phi_n(q), Phi_m(q)) = (1) in Z[q].",
+          "match": "The two lemmas on cyclotomic polynomials that make the adjacency relation work, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adjacency of cyclotomic orders"
+      },
+      "api": [
+        {
+          "name": "Adjacent",
+          "role": "data",
+          "statement": "The adjacency relation on orders over a ring."
+        },
+        {
+          "name": "IsConnectedSet",
+          "role": "data",
+          "statement": "Connectedness of a set of orders."
+        },
+        {
+          "name": "cyclotomic_congr_mod_p",
+          "role": "characterisation",
+          "statement": "The congruence modulo the prime."
+        },
+        {
+          "name": "prime_mem_ideal",
+          "role": "characterisation",
+          "statement": "The membership of the prime in the ideal generated by the two polynomials."
+        },
+        {
+          "name": "cyclotomic_comaximal",
+          "role": "characterisation",
+          "statement": "Comaximality for a non-prime-power ratio."
+        },
+        {
+          "name": "adjacent_over_Z",
+          "role": "example",
+          "statement": "Over the integers, prime-power ratios are adjacent."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.4, the injectivity theorems",
+          "how": "Connectedness is the hypothesis of both."
+        },
+        {
+          "where": "HC.5",
+          "how": "Inversion of a prime changes which orders are adjacent, which is the point of the module and localisation nodes."
+        },
+        {
+          "where": "HC.6",
+          "how": "The acceptance example with an inverted prime exercises this."
+        }
+      ],
+      "tests": [
+        {
+          "name": "integers",
+          "statement": "Over the integers any two orders with prime-power ratio are adjacent."
+        },
+        {
+          "name": "rationals",
+          "statement": "Over the rationals no two distinct orders are adjacent."
+        },
+        {
+          "name": "comaximal",
+          "statement": "For a ratio of six the two cyclotomic polynomials are comaximal."
+        },
+        {
+          "name": "divisors_connected",
+          "statement": "The set of divisors of an integer is connected over a ring separated at its prime factors."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Injectivity of the restriction maps along a connected chain",
+      "kind": "theorem",
+      "statement": "If every order of a set is joined to the smaller set by a chain of adjacent orders inside it, then the restriction map from the larger completion to the smaller is INJECTIVE. In particular a connected set restricts injectively onto any non-empty subset, and over the integers the completion at all orders restricts injectively onto the completion at any non-empty set of orders. This is the source's Theorem 4.1 with its full chain hypothesis, which this node keeps: it is not enough that the two sets be connected separately, the chain must run inside the larger set and reach the smaller one.",
+      "hypotheses": [
+        "The chain hypothesis is as stated: for each element of the larger set there is a chain of adjacent elements inside the larger set ending in the smaller set.",
+        "Adjacency is over the coefficient ring, so the hypothesis involves the separatedness of that ring at the relevant primes.",
+        "The conclusion is injectivity of the restriction, not surjectivity; non-surjectivity is a later node."
+      ],
+      "proofSteps": [
+        "State the theorem with its chain hypothesis.",
+        "Record the reduction to the one-step case, which is the source's Proposition on monic completions.",
+        "Record the one-step argument, which uses the congruence and the ideal membership of the previous node.",
+        "Record the two corollaries the source states: a connected set restricts injectively onto any non-empty subset, and the integral case with all orders.",
+        "State the non-example: without the chain hypothesis the restriction can fail to be injective, which is why the hypothesis is carried."
+      ],
+      "acceptance": [
+        "A connected set restricts injectively onto any non-empty subset.",
+        "Over the integers the completion at all orders restricts injectively onto any non-empty subset.",
+        "The chain must lie inside the larger set; connectedness of the two sets separately is not enough.",
+        "The theorem gives injectivity only; surjectivity is false in the cases of a later node."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders",
+        "HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Theorem 4.1, p. 1135 of the PDF",
+          "excerpt": "Let R be a ring and let S' be contained in S contained in N. Suppose that for each element n in S, there is a sequence in S' finishing at n of elements adjacent over R. Then the homomorphism rho^R_{S, S'} is injective. In particular, if S is connected over R, then for any non-empty subset S' of S the homomorphism rho^R_{S, S'} : R[q]^S -> R[q]^{S'} is injective. More particularly, for any ...",
+          "match": "The theorem with its chain hypothesis and its two corollaries, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Injectivity of restriction"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "A single Taylor expansion determines the element",
+      "kind": "theorem",
+      "statement": "For an integral domain of characteristic zero, a connected set of orders and an order in it, if the ring is separated at each odd prime factor of that order and also at two when four divides it, then the Taylor map at a primitive root of that order is INJECTIVE. In particular over the integers, with all orders, the Taylor expansion at any single root of unity determines the element completely. The hypotheses are the source's and are carried here: a domain of characteristic zero, connectedness, and the separation conditions with their asymmetry between odd primes and the prime two.",
+      "hypotheses": [
+        "The coefficient ring is an integral domain of characteristic zero; the root need not lie in it, and the target is the power series over the ring with the root adjoined.",
+        "The separation hypotheses are at each odd prime factor of the order, and at two when four divides the order; the asymmetry is the source's and is not a simplification.",
+        "Connectedness of the set of orders over the ring is assumed."
+      ],
+      "proofSteps": [
+        "State the theorem with all four hypotheses.",
+        "Record the source's proof structure: reduce to the case where the root lies in the ring, then factor the Taylor map as a restriction followed by an adic map, and apply the previous node to the first factor.",
+        "Record the integral corollary, that over the integers the expansion at any root determines the element.",
+        "Record the source's remark that the case of the expansion at one was obtained independently by Vogel.",
+        "State the non-example: injectivity fails over the rationals, where no two orders are adjacent, which the source records separately."
+      ],
+      "acceptance": [
+        "Over the integers a single Taylor expansion determines the element.",
+        "The hypotheses on separation are asymmetric between odd primes and two.",
+        "Over the rationals the analogous map is not injective.",
+        "The theorem gives injectivity only, never surjectivity."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction",
+        "HabiroCyclotomicCompletions:HC.3/the-taylor-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Theorem 5.2, p. 1138 of the PDF",
+          "excerpt": "Let R be an integral domain of characteristic 0, S a connected subset of N over R, and n in S. Assume that R is p-adically separated for each odd prime factor p of n, and also that if 4 divides n, then R is 2-adically separated. Let zeta be a primitive n-th root of unity in the algebraic closure of the quotient field of R, which may or may not be contained in R. Then the homomorphism ...",
+          "match": "The theorem with all its hypotheses and its integral corollary, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Rootwise Taylor injectivity"
+      }
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/evaluation-uniqueness-and-its-exact-hypothesis",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "Evaluation uniqueness, with the precise infinite-set condition",
+      "kind": "theorem",
+      "statement": "For a subring of the algebraic numbers, a connected set of orders and a subset of it, if for SOME order in the set there are infinitely many elements of the subset adjacent to it, then the map given by evaluating at the roots of the orders in the subset is injective. In particular for a subring of the algebraic integers, evaluation at the roots of any set containing infinitely many prime powers determines the element. The condition is the source's and it is a condition of infinitude TOGETHER with adjacency: a finite set of values never determines a general element, and infinitude alone is not a substitute for the adjacency requirement.",
+      "hypotheses": [
+        "The coefficient ring is a subring of the algebraic numbers; for the corollary it is a subring of the algebraic integers.",
+        "The condition is the existence of one order with infinitely many adjacent elements in the subset, not that the subset be infinite.",
+        "Connectedness of the ambient set of orders is assumed."
+      ],
+      "proofSteps": [
+        "State the theorem with its condition and the corollary about prime powers.",
+        "Record the source's proof: use the injectivity of the restriction to a single order, expand along the powers of its cyclotomic polynomial, and use that infinitely many adjacent orders force the leading coefficient to vanish.",
+        "State the two non-examples: a finite set of evaluations never determines a general element, and an infinite subset with no order adjacent to a common one does not satisfy the hypothesis.",
+        "Record the source's own statement in the introduction that an element vanishing at infinitely many roots of prime-power order vanishes.",
+        "Record the resulting description of the completion over the integers as a ring of functions on the roots of unity."
+      ],
+      "acceptance": [
+        "Over the integers an element vanishing at infinitely many roots of prime-power order is zero.",
+        "A finite set of evaluations does not determine a general element.",
+        "Infinitude alone is not the hypothesis; adjacency to a common order is required.",
+        "The completion over the integers embeds in the functions on the roots of unity."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction",
+        "HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Theorem 6.1, p. 1140 of the PDF",
+          "excerpt": "Let R be a subring of the algebraic numbers, S a connected subset of N over R, and T a subset of S. Suppose that for some n in S there are infinitely many elements m in T with m adjacent to n over R. Then the homomorphism ev^R_{S, T} : R[q]^S -> P_T(R) is injective. In particular, if R is a subring of the ring of algebraic integers, then, for any subset T of N containing infinitely many ...",
+          "match": "The theorem with its exact infinite-set condition and its corollary, verbatim."
+        },
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "Theorem 6.2 implies for example that f(q) in Z[q]^N vanishes if f(q) vanishes at infinitely many roots of unity of prime power order.",
+          "match": "The integral consequence, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.4/non-surjectivity",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.4",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "title": "The injective maps are not isomorphisms",
+      "kind": "comparison",
+      "statement": "Injectivity is never upgraded to an isomorphism in this roadmap, and the source proves three non-surjectivity statements that this node records: for two distinct adjacent orders the restriction between the corresponding completions is not surjective; for a proper divisor the restriction between the completions at the divisor sets is not surjective; and for every non-empty finite set of orders the restriction from the completion at all orders is not surjective. The proofs go through a commutative square in which one map is visibly not surjective, using the prime-adic quotient of the cyclotomic quotient ring.",
+      "hypotheses": [
+        "The coefficient ring is the integers in the source's statements.",
+        "The three statements are about the restriction maps of HC.1, not about the Taylor maps; the non-surjectivity of the Taylor maps is stated in the same section of the source.",
+        "The arguments use the two cyclotomic lemmas of the adjacency node."
+      ],
+      "proofSteps": [
+        "State the three non-surjectivity statements.",
+        "Record the source's proof of the first through the commutative square with the prime-adic quotient.",
+        "Record the consequence for the roadmap: the injective maps of the previous nodes give embeddings and never identifications.",
+        "State the rule this layer exports: no statement anywhere in the atlas may treat an injective Taylor or restriction map as an isomorphism.",
+        "Record the source's parallel statement that the Taylor maps are also not surjective."
+      ],
+      "acceptance": [
+        "The restriction between the completions at two distinct adjacent orders is not surjective.",
+        "The restriction from all orders to any non-empty finite set is not surjective.",
+        "An injective Taylor map is not an isomorphism.",
+        "No identification may be made anywhere on the strength of injectivity."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity",
+        "HabiroCyclotomicCompletions:HC.4/injectivity-of-restriction"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Proposition 7.4, p. 1144 of the PDF",
+          "excerpt": "We have the following. 1. If m, n are in N, m is adjacent to n over Z, and m is not n, then the homomorphism rho^Z_{{m,n}, {m}} is not surjective. 2. If m divides n and m is not n, then the homomorphism rho^Z_{div n, div m} is not surjective. 3. For each non-empty, finite subset S of N, the homomorphism rho^Z_{N, S} is not surjective.",
+          "match": "The three non-surjectivity statements, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.5/the-completed-module",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.5",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.5"
+      ],
+      "title": "The cyclotomic completion of a module",
+      "kind": "construction",
+      "statement": "For an abelian group, or a module over the coefficient ring, the same ideals define a completion of the polynomial module, and it is a complete topological module over the completed ring. The construction is functorial in the module, carries finite direct sums to direct sums, has a continuous scalar action, and is exact only under hypotheses; in general an inverse limit of exact sequences is exact only up to a derived-limit correction, and this node states that correction rather than assuming exactness. The source defines exactly this and states the module form of the injectivity theorem with the module's own separation conditions.",
+      "hypotheses": [
+        "The module is over the coefficient ring, or merely an abelian group in the source's generality.",
+        "The topology is the one defined by the same products of cyclotomic polynomials acting on the polynomial module.",
+        "Exactness of the completion functor is NOT assumed; the derived-limit term is part of the statement."
+      ],
+      "proofSteps": [
+        "Define the completion of the polynomial module by the same system of submodules.",
+        "Prove that it is a complete topological module over the completed ring, with continuous scalar action.",
+        "Prove functoriality in the module and the comparison for finite direct sums.",
+        "State the exactness question: the inverse limit of a system of short exact sequences is left exact, and the failure is measured by the first derived limit, which vanishes under the Mittag-Leffler condition.",
+        "Record the source's module form of the injectivity theorem, with the adjacency relation defined by the module's own separation and with the degenerate case of the zero module.",
+        "Record that no completion functor is assumed exact anywhere in this roadmap, which is the boundary the interface layer states."
+      ],
+      "acceptance": [
+        "The completion of a finite direct sum is the direct sum of the completions.",
+        "Exactness holds under the Mittag-Leffler condition and not in general.",
+        "The module version of the injectivity theorem uses the module's own separation, not the ring's.",
+        "For the zero module every pair of orders is adjacent, which is the degenerate case the source records."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion",
+        "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§7.3, p. 1143 of the PDF",
+          "excerpt": "We can define cyclotomic completions also for any Z-module, as follows. Let A be a Z-module, and let A[q] be the module of polynomials in q with coefficients in A. For each S contained in N, let A[q]^S denote the completion A[q]^S = lim_{f in Phi*_S} A[q]/f A[q]. If A is a ring, then this definition of A[q]^S is compatible with the previous one.",
+          "match": "The module completion, verbatim."
+        },
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Theorem 7.1, p. 1143 of the PDF",
+          "excerpt": "Let A be a Z-module, and let S' be contained in S contained in N. Suppose that for each n in S there is a sequence in S' finishing at n of elements adjacent over A. Then the homomorphism rho^A_{S, S'} : A[q]^S -> A[q]^{S'} induced by the identity of A[q] is injective.",
+          "match": "The module form of the injectivity theorem, with adjacency taken over the MODULE, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The completed module"
+      },
+      "api": [
+        {
+          "name": "cycloModuleCompletion",
+          "role": "data",
+          "statement": "The completion of a polynomial module."
+        },
+        {
+          "name": "cycloModuleCompletion.module",
+          "role": "structure",
+          "statement": "Its module structure over the completed ring, with continuous action."
+        },
+        {
+          "name": "cycloModuleCompletion.map",
+          "role": "functoriality",
+          "statement": "Functoriality in the module."
+        },
+        {
+          "name": "cycloModuleCompletion.prod",
+          "role": "compatibility",
+          "statement": "Compatibility with finite direct sums."
+        },
+        {
+          "name": "cycloModuleCompletion.exact_of_ML",
+          "role": "characterisation",
+          "statement": "Exactness under the Mittag-Leffler condition."
+        },
+        {
+          "name": "cycloModuleCompletion.derivedLimit",
+          "role": "relation",
+          "statement": "The derived-limit correction in general."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HC.5, the injectivity extension",
+          "how": "The module form of the theorem is stated for these."
+        },
+        {
+          "where": "HC.6",
+          "how": "The completed modules are part of the exported interface."
+        },
+        {
+          "where": "HabiroRings",
+          "how": "The derived Habiro completion is built on these, and no exactness is assumed here."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finite_sum",
+          "statement": "The completion of a finite direct sum is the direct sum of the completions."
+        },
+        {
+          "name": "zero_module",
+          "statement": "For the zero module every pair of orders is adjacent and the completion is zero."
+        },
+        {
+          "name": "not_exact",
+          "statement": "The functor is not exact in general; the derived-limit term is not always zero."
+        },
+        {
+          "name": "module_separation",
+          "statement": "The injectivity theorem uses the module’s separation, which can differ from the ring’s."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.5/chinese-remainder-for-disconnected-collections",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.5",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.5"
+      ],
+      "title": "Chinese remainder for a disconnected collection of orders",
+      "kind": "theorem",
+      "statement": "When two sets of orders are mutually non-adjacent, so that the corresponding cyclotomic polynomials are comaximal, the completion at their union is the product of the two completions. This is the Chinese remainder theorem in this setting and it needs exactly the comaximality hypothesis of HC.4; without it the two factors interact and the product description fails. Consequently a completion at a disconnected set of orders decomposes into components, one for each connected piece, and properties such as being a domain are properties of the pieces and not of the whole.",
+      "hypotheses": [
+        "The two sets are mutually non-adjacent, which by the comaximality lemma means that the cyclotomic polynomials of an order in one and an order in the other generate the unit ideal.",
+        "The decomposition is as topological rings, with the product topology.",
+        "The hypothesis is about the coefficient ring as well, since adjacency is defined over it."
+      ],
+      "proofSteps": [
+        "State the comaximality hypothesis and deduce the product decomposition for the finite quotients.",
+        "Pass to the limit and obtain the decomposition of the completions.",
+        "Deduce the decomposition into connected components for a general set of orders.",
+        "Record the consequence: a completion at a disconnected set is not a domain even when the coefficient ring is.",
+        "State the non-example: without comaximality the product description fails, and the injectivity theorems of HC.4 are exactly the statements that replace it in the connected case."
+      ],
+      "acceptance": [
+        "A completion at a disconnected set is a product over the connected components.",
+        "It is not a domain when there is more than one component, whatever the coefficient ring.",
+        "The decomposition needs comaximality; connectedness of the pieces is not enough by itself.",
+        "In the connected case there is no such decomposition and the injectivity theorems apply instead."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders",
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Lemma 4.1(2), p. 1134 of the PDF",
+          "excerpt": "If m, n are in N, and n/m is not an integer power of a prime, then we have (Phi_n(q), Phi_m(q)) = (1) in Z[q].",
+          "match": "The comaximality that makes the decomposition possible, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.5",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.5"
+      ],
+      "title": "Inverting a prime changes which orders are adjacent",
+      "kind": "comparison",
+      "statement": "Adjacency is defined through separatedness of the coefficient ring at a prime, so INVERTING a prime destroys adjacency across that prime: over the integers with a prime inverted, orders whose ratio is a power of that prime are no longer adjacent, and over the rationals no two distinct orders are adjacent at all. The consequences are immediate and are the two worked examples the stage text asks for: over the rationals the evaluation and Taylor maps are not injective, while the map from the integral completion to the rational one IS injective. This node records both and the rule they illustrate: properties of the completion are not inherited from properties of the coefficient ring.",
+      "hypotheses": [
+        "The coefficient rings are the rationals and the integers with a prime inverted.",
+        "Separatedness at a prime fails as soon as the prime is invertible, which is why adjacency is lost.",
+        "The injectivity of the map from the integral to the rational completion is a separate statement and is the source's."
+      ],
+      "proofSteps": [
+        "Compute the adjacency relation over the rationals and over the integers with one prime inverted.",
+        "Record the source's statement that the analogues of the evaluation and Taylor maps over the rationals are not injective.",
+        "Record the source's statement that the natural map from the integral completion to the rational one is injective.",
+        "State the rule: neither being a domain nor connectedness of the completion follows from the corresponding property of the coefficient ring.",
+        "Record the worked example the stage text asks for, with a prime inverted, and what changes in the adjacency graph."
+      ],
+      "acceptance": [
+        "Over the rationals no two distinct orders are adjacent.",
+        "Over the rationals the evaluation and Taylor maps are not injective.",
+        "The map from the integral completion to the rational one is injective.",
+        "Properties of the completion are not inherited from the coefficient ring."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.5/chinese-remainder-for-disconnected-collections",
+        "HabiroCyclotomicCompletions:HC.4/adjacency-of-orders"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "The above-mentioned properties do not hold for a general ring R. For example, the analogues of the homomorphisms ev and sigma_zeta over the rational numbers, are not injective; nevertheless, the natural homomorphism Z[q]^N -> Q[q]^N is injective. For more details, see Section 7.5.",
+          "match": "Both statements about the rational case, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.5/restricted-root-orders-versus-localisation",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.5",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.5"
+      ],
+      "title": "Restricted root orders are not a localisation",
+      "kind": "comparison",
+      "statement": "Restricting the set of orders is not the same operation as localising the completed ring, and the node makes the difference precise: the restriction map of HC.1 is injective under the connectedness hypothesis and is never surjective in the cases of HC.4, whereas a localisation is by construction surjective onto its image in a different sense and satisfies a universal property that the restriction does not. Naively localising the completed ring does not produce the completion at a smaller set of orders, and this node exhibits where the universal property fails.",
+      "hypotheses": [
+        "The restriction is along an inclusion of order sets; the localisation is at a multiplicative set of the completed ring.",
+        "The comparison is of the two universal properties, which is where the difference is visible.",
+        "The failure is exhibited concretely by the non-surjectivity statements of HC.4."
+      ],
+      "proofSteps": [
+        "State the universal property of the restriction, from HC.1.",
+        "State the universal property of the localisation.",
+        "Show that the completion at a smaller set of orders does not satisfy the localisation property, using the non-surjectivity statements.",
+        "Record the correct statement: the completion at a smaller set receives the restriction, and that is all.",
+        "Record the rule this exports to the consumer roadmaps, which is that an order-change map is not to be modelled as a localisation."
+      ],
+      "acceptance": [
+        "The completion at a smaller order set is not a localisation of the larger one.",
+        "The restriction map has its own universal property, stated in HC.1.",
+        "The non-surjectivity statements of HC.4 are what exhibit the difference."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4/non-surjectivity",
+        "HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "Proposition 7.4, p. 1144 of the PDF",
+          "excerpt": "3. For each non-empty, finite subset S of N, the homomorphism rho^Z_{N, S} is not surjective.",
+          "match": "The statement that makes the difference visible, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.6/the-exported-interface",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.6",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.6"
+      ],
+      "title": "What this roadmap exports, and to whom",
+      "kind": "comparison",
+      "statement": "The interface this roadmap exports consists of the complete topological rings with their projections, the evaluation and Taylor maps, the p-adic substitutions and the completed modules. The number-field roadmap consumes all of them; the Habiro-rings roadmap consumes the ordinary comparison objects and the order-change maps, and builds a derived completion on top using enhanced derived sheaves; the cohomology roadmap then consumes that derived interface. NO completion functor is assumed exact here, which is why the derived version is built elsewhere, and the links to the consumers do not make this roadmap depend on their theorems.",
+      "hypotheses": [
+        "The exported objects are those of HC.1 through HC.5; nothing about derived completion is asserted here.",
+        "The consumers are named in the stage text and are recorded as requests, not as dependencies of this roadmap.",
+        "The exactness question is left open on purpose: HC.5 states the derived-limit correction and the derived construction belongs to the Habiro-rings roadmap."
+      ],
+      "proofSteps": [
+        "List the exported objects with the node that supplies each.",
+        "Record each consumer and what it takes.",
+        "State that no exactness is assumed and point at HC.5's correction term.",
+        "State that the links to consumers are one-directional: this roadmap does not depend on their completed theorems.",
+        "Record the boundary with the enhanced-derived-sheaves roadmap, which supplies the machinery the derived construction needs."
+      ],
+      "acceptance": [
+        "Every exported object has a node that supplies it.",
+        "No completion functor is assumed exact.",
+        "The dependency runs from this roadmap to its consumers and not back."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion",
+        "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
+        "HabiroCyclotomicCompletions:HC.5/the-completed-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§7.3, p. 1143 of the PDF",
+          "excerpt": "If A is a ring, then this definition of A[q]^S is compatible with the previous one. Some results in the present paper can be generalized to A[q]^S.",
+          "match": "The compatibility of the module and ring constructions that makes a single interface possible, verbatim; the source is careful to say that SOME results generalise, which is the caution this node records as the absence of an exactness assumption."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.6/the-acceptance-examples",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.6",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.6"
+      ],
+      "title": "The acceptance examples",
+      "kind": "comparison",
+      "statement": "The layer is accepted when a specific list of computations has been carried out: the integers at the values one and minus one and at a primitive third root; the element given by the polynomial one minus q; the factorial series of Kontsevich; the inverse of the indeterminate; and a coefficient ring with a prime inverted. Each exercises a different part of the development, and the list is chosen so that the finite-precision algorithms, the difference between a value and a full Taylor series, and the change of adjacency under inversion are all tested. Every claimed element must carry a compatible family of quotient classes rather than a divergent formal expression.",
+      "hypotheses": [
+        "The examples are over the integers except the last, which is over the integers with a prime inverted.",
+        "A claimed element is accepted only with its compatible family; a formal series that does not converge in the completion's topology is not an element.",
+        "The third-root example is the first where the coefficient ring of the target is larger than the base."
+      ],
+      "proofSteps": [
+        "List the six examples and the node each exercises.",
+        "Record the standard for an element: a compatible family of classes, not a formal expression.",
+        "Record what the value-versus-expansion example tests, namely the difference between the constant term and the whole Taylor series.",
+        "Record what the inverted-prime example tests, namely that the adjacency graph changes.",
+        "Record the comparison the stage text asks for at the end: the map from the classical integral completion to the rational-number-field case of the neighbouring roadmap."
+      ],
+      "acceptance": [
+        "Every example has a node that supplies what it tests.",
+        "A divergent formal expression is not an element.",
+        "The value at a root and the full Taylor expansion at it are different data.",
+        "Inverting a prime changes which restriction maps are injective."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.2/algorithms-on-expansions",
+        "HabiroCyclotomicCompletions:HC.3/the-taylor-map",
+        "HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "the series sum over n >= 0 of (1 - q)(1 - q^2) ... (1 - q^n), which was introduced by Kontsevich, and which can be regarded as an element of Z[q]^N since we have an isomorphism Z[q]^N = lim_n Z[q]/((1 - q) ... (1 - q^n))",
+          "match": "The standing example, verbatim, together with the reason it IS an element: it has a compatible family of quotient classes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroCyclotomicCompletions:HC.6/the-comparison-with-the-number-field-case",
+      "parentStageId": "HabiroCyclotomicCompletions:HC.6",
+      "realises": [
+        "HabiroCyclotomicCompletions:HC.6"
+      ],
+      "title": "The comparison with the rational-number-field Habiro ring",
+      "kind": "comparison",
+      "statement": "The stage text asks for the map from the classical integral completion to the rational-number-field case of the neighbouring roadmap, which is the Habiro ring of the rationals as it is used in the Nahm-series and number-field developments. This node states the map, records that it is the instance of the coefficient functoriality of HC.1 together with the identification of the two constructions, and records what it does NOT give: the target is a different ring and the map is not surjective, so results proved there do not transfer back without a separate argument.",
+      "hypotheses": [
+        "The source of the map is the completion over the integers at all orders; the target is the neighbouring roadmap's ring for the rationals.",
+        "The map is the coefficient functoriality of HC.1 composed with the identification of the two definitions.",
+        "The source's own statement is that the map to the completion over the rationals is injective; surjectivity is not claimed and fails."
+      ],
+      "proofSteps": [
+        "Construct the map from the coefficient functoriality.",
+        "Record the identification of the neighbouring roadmap's construction with the one here.",
+        "Record the source's injectivity statement for the map to the rational completion.",
+        "State the non-example: the map is not surjective, and a theorem proved over the rationals does not transfer back.",
+        "Record the two roadmaps that consume this comparison."
+      ],
+      "acceptance": [
+        "The map exists and is the coefficient functoriality.",
+        "It is injective, by the source's statement.",
+        "It is not surjective, and results do not transfer back along it."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.5/inverting-a-prime-and-the-rational-case",
+        "HabiroCyclotomicCompletions:HC.1/functoriality-in-the-ring-and-in-the-order-set",
+        "HabiroNumberFields:HB.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Habiro.CyclotomicCompletions.2004",
+          "locator": "§1, the introduction, p. 1128 of the PDF",
+          "excerpt": "nevertheless, the natural homomorphism Z[q]^N -> Q[q]^N is injective",
+          "match": "The injectivity of exactly this comparison, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.1",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Three nodes. The completion itself, built as the inverse limit over the directed monoid of products of cyclotomic polynomials, with the projections, the dense polynomial map, extensionality by the finite quotients, completeness, separatedness and the universal property, and with the stage text's caution honoured: NO injectivity of the polynomial map is asserted, and the degenerate empty-product case is recorded. The cofinality of the factorial products for the set of all orders, with the multiplicity count and the comparison with the system of ideals generated by a power of q minus one, and with the non-example the stage text names, that this is neither the q-adic nor the q-minus-one-adic completion. And the two functorialities, covariant in the ring and contravariant in the order set, with the identity and composition laws, the canonical isomorphism for cofinal systems, and the distinction between completed and uncompleted base change with the explicit statement that flatness does not license the interchange."
+    },
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.2",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Three nodes. The factorial expansion, obtained from successive representatives, with the stage text's distinction built in: unrestricted expansions are not unique, the normalised one obtained by division with remainder by the monic factorial product exists and is unique, and Mathlib's division with remainder is cited for it. The algorithms for addition, multiplication and coefficient extraction, each with a congruence correctness theorem and with the finite-dependence statement that makes a computation to precision N use only finitely many coefficients. And the invertibility of the indeterminate with the comparison of the polynomial and Laurent constructions, together with the prohibition the stage text states, that no formal division by a cyclotomic polynomial that is not a unit is admitted."
+    },
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.3",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Three nodes. Evaluation at a root whose order lies in the set, through a single finite quotient and independent of the truncation, with the source's own assembled map to functions on the roots of unity and with the record that no evaluation exists at an order outside the set. The Taylor map, with the divisibility that makes it well defined, its constant term identified with the evaluation and its higher coefficients identified with HASSE derivatives, citing Mathlib's polynomial-level statement and carrying the stage text's warning that the comparison with ordinary derivatives keeps the factorial denominators. And naturality in all four senses the stage text lists, together with the re-expansion maps, which are constructed only under topological nilpotence in a complete coefficient ring — exactly the hypothesis Mathlib's power-series substitution requires — and their cocycle law."
+    },
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.4",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Five nodes, one per target and one for the non-surjectivity the stage text demands. The adjacency relation, defined through prime-power ratios and separatedness, with Habiro's two cyclotomic lemmas, the congruence modulo the prime with the membership of the prime in the ideal, and the comaximality for a non-prime-power ratio. Theorem 4.1 with its FULL chain hypothesis, which the node states as a hypothesis and not as a simplification. Theorem 5.2, rootwise Taylor injectivity, with the coefficient-domain hypothesis and the separation conditions including their asymmetry between odd primes and the prime two. Theorem 6.1, evaluation uniqueness, with the precise infinite-set condition and with both non-examples the stage text names: a finite set of values never determines a general element, and infinitude alone is not a substitute for adjacency. And the three non-surjectivity statements of §7.4, so that an injective Taylor or restriction map is never treated as an isomorphism anywhere."
+    },
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.5",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Four nodes. The module completion, with functoriality, the finite-direct-sum comparison, the continuous scalar action and — as the stage text requires — exactness only under a hypothesis, with the derived-limit correction stated rather than an exactness assumption, together with the source's module form of the injectivity theorem, whose adjacency is taken over the MODULE. The Chinese remainder decomposition for a disconnected collection, with the comaximality hypothesis stated exactly and with the consequence that a completion at a disconnected set is not a domain whatever the coefficient ring. The effect of inverting a prime, with the two computed cases the stage text asks for, the rationals and the integers with a prime inverted, and with the rule that properties of the completion are not inherited from the coefficient ring. And the comparison of restricted root orders with localisation, which shows where the naive localisation fails to have the universal property."
+    },
+    {
+      "stageId": "HabiroCyclotomicCompletions:HC.6",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Three nodes. The exported interface, listing each object with the node that supplies it and each consumer with what it takes, and stating that no completion functor is assumed exact here, which is why the derived construction belongs to the Habiro-rings roadmap; the acceptance examples, with the standard that an element is a compatible family of quotient classes and not a divergent formal expression; and the comparison with the rational-number-field case, which is the coefficient functoriality of HC.1 and which the source proves injective, with the explicit record that it is not surjective so that results do not transfer back along it."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Three sections of the source were not read in full",
+      "neededBy": [
+        "HabiroCyclotomicCompletions:HC.1",
+        "HabiroCyclotomicCompletions:HC.5"
+      ],
+      "detail": "§3.2 and §3.3, which develop the monic completions further, §7.1 and §7.2, and §7.5, which is where the rational case is treated in detail, were not read; the statements quoted from §7.5 are the ones the introduction repeats. The corresponding proof steps therefore record the strategy rather than the argument, and the rational-case node rests on the introduction's summary. NEXT SOURCE ACTION: read pp. 1131 to 1134 and pp. 1142 to 1146 in full, which is about nine pages, and decompose §7.5 in particular, since HC.5's rational case is currently quoted rather than proved."
+    },
+    {
+      "title": "The proofs of the three rigidity theorems were read only in outline",
+      "neededBy": [
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "detail": "Theorems 4.1, 5.2 and 6.1 were read as statements, with the opening of the proof of 6.1 and the sketch in Remark 5.1. Their full proofs, and the proof of Proposition 3.1 on which the first rests, were not read, so the proof steps of those nodes record the reductions and the inputs rather than the arguments. NEXT SOURCE ACTION: read the proofs on pp. 1131 to 1141, which is the technical core of the paper."
+    },
+    {
+      "title": "The algorithms of HC.2 are the packet's own, not the source's",
+      "neededBy": [
+        "HabiroCyclotomicCompletions:HC.2"
+      ],
+      "detail": "Habiro's paper constructs the completion and proves the rigidity theorems; it does not give algorithms for arithmetic on expansions, and the stage text asks for them. The node therefore states algorithms assembled from the normalised expansion and from division with remainder, with congruence correctness theorems that are this packet's own statements rather than quotations. NEXT SOURCE ACTION: none available in the source; the correctness statements should be proved directly, and Tau Ceti's executable arithmetic modulo a monic polynomial is the layer they should be built on."
+    },
+    {
+      "title": "The Deligne-style universal property of the completion is stated, not sourced",
+      "neededBy": [
+        "HabiroCyclotomicCompletions:HC.1"
+      ],
+      "detail": "The source constructs the completion as an inverse limit and uses its projections; it does not state a universal property for continuous maps into complete separated rings, which the stage text asks for. The node states it as the standard property of a separated completion for a linear topology and cites Tau Ceti's complete separated topological rings as the target category. NEXT SOURCE ACTION: prove it directly from the limit description, or cite the general statement in the topological-algebra roadmap that owns it."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "HabiroNumberFields:HB.1",
+      "need": "The Habiro ring of a number field, which consumes the completion, the projections, the evaluation and Taylor maps, the p-adic substitutions and the completed modules exported here, and which HC.6 compares with the classical integral case."
+    },
+    {
+      "supplier": "HabiroRings:HR.2",
+      "need": "The derived Habiro completion, which consumes the ordinary comparison objects and the order-change maps of this roadmap. No completion functor is assumed exact here, which is exactly why the derived construction lives there."
+    },
+    {
+      "supplier": "HabiroCohomologyFoundations:HQ.1",
+      "need": "The consumer of the derived interface; the link is one-directional and this roadmap does not depend on its theorems."
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E3",
+      "need": "The enhanced derived machinery that the derived completion of the Habiro-rings roadmap is built with; recorded here because HC.6's interface node names the chain."
+    },
+    {
+      "supplier": "ArithmeticQuantumTopology:QT.1",
+      "need": "The quantum invariants whose values at roots of unity are the evaluations of HC.3 and whose unified invariant is an element of the completion; this is the original motivation the source records."
+    }
+  ],
+  "restructure": [
+    {
+      "kind": "note-source-boundary",
+      "title": "HC.2's algorithms have no source and should be marked as the roadmap's own",
+      "detail": "Every other target of this roadmap is a theorem of Habiro's paper, quoted by number in the stage texts. The coefficient algorithms of HC.2 are not: the paper constructs the completion and proves rigidity, and says nothing about computing with expansions. The stage text should say so, so that a worker does not search the paper for them, and should point at the pinned executable arithmetic modulo a monic polynomial as the layer they are to be built on."
+    },
+    {
+      "kind": "note-hypothesis-boundary",
+      "title": "The separation hypotheses are hypotheses on the coefficient ring, and HC.5 makes them hypotheses on the module",
+      "detail": "Adjacency is defined through separatedness, so every rigidity theorem of HC.4 is a theorem about the coefficient ring as much as about the set of orders; and the source's module version replaces the ring's separation by the module's. The stage texts of HC.4 and HC.5 should say this in the same words, because a reader who carries the ring's hypothesis into the module statement will prove something weaker than the source does."
+    },
+    {
+      "kind": "propose-split",
+      "title": "HC.4 carries two kinds of theorem",
+      "detail": "HC.4 contains three positive rigidity theorems and the negative statements that stop them being read as isomorphisms. The positive ones share a proof strategy and a hypothesis; the negative ones are separate computations. Splitting would let the rigidity half be closed while the non-surjectivity half is still being written, and would make the stage text's warning — that injective Taylor maps are never isomorphisms — the subject of a layer rather than a sentence. The five nodes divide four to one."
+    }
+  ]
+}
