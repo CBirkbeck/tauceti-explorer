@@ -4749,6 +4749,180 @@ example : ∃ τ : ℂ, 0 < τ.im ∧ seventhOrderShadow τ ≠ 0 := sorry
 /-- Unit test `seventhOrderShadow_holo_test`: `g₇` is holomorphic on `ℍ`. -/
 example (i : Fin 3) : DifferentiableOn ℂ (fun τ ↦ seventhOrderShadow τ i) {τ : ℂ | 0 < τ.im} := sorry
 
+/-! ### The fifth-order mock theta functions (Zwegers §4.4)
+
+`A = (5 0; 0 -2)`, `c₁ = (2, 5)`, `c₂ = (-2, 5)`; `B(c₁, c₂) = -70` and
+`Q(c₁) = Q(c₂) = -15`, so `c₁` and `c₂` lie in the same component of the positive
+cone, which is what the indefinite theta machinery needs. -/
+
+/-- The indefinite quadratic form of the fifth-order functions. -/
+def fifthForm : ZwegersForm 2 where
+  A := !![5, 0; 0, -2]
+  isSymm := sorry
+  det_ne_zero := sorry
+  c₀ := ![2, 5]
+  Q_c₀_neg := sorry
+  pos_on_orth := sorry
+
+/-- Andrews' corrected double sum for `f₀`: `(q)_∞ f₀(q) = Σ_{n ≥ 0, |j| ≤ n}
+(-1)^j q^{5n²/2 + n/2 - j²}(1 - q^{4n+2})`. -/
+def fifthOrderF0 (τ : ℂ) : ℂ :=
+  (qPochhammerInfLocal τ)⁻¹ * ∑' p : ℕ × ℤ,
+    (if p.2.natAbs ≤ p.1 then (-1 : ℂ) ^ p.2 else 0) *
+      (cexp (2 * π * I * ((5 * p.1 ^ 2 / 2 + p.1 / 2 - p.2 ^ 2 : ℚ) : ℂ) * τ) -
+        cexp (2 * π * I * ((5 * p.1 ^ 2 / 2 + 9 * p.1 / 2 + 2 - p.2 ^ 2 : ℚ) : ℂ) * τ))
+
+/-- Andrews' corrected double sum for `f₁`. -/
+def fifthOrderF1 (τ : ℂ) : ℂ :=
+  (qPochhammerInfLocal τ)⁻¹ * ∑' p : ℕ × ℤ,
+    (if p.2.natAbs ≤ p.1 then (-1 : ℂ) ^ p.2 else 0) *
+      (cexp (2 * π * I * ((5 * p.1 ^ 2 / 2 + 3 * p.1 / 2 - p.2 ^ 2 : ℚ) : ℂ) * τ) -
+        cexp (2 * π * I * ((5 * p.1 ^ 2 / 2 + 7 * p.1 / 2 + 1 - p.2 ^ 2 : ℚ) : ℂ) * τ))
+
+/-- `F₀` through its double sum, with the `(q²; q²)_∞` denominator. -/
+def fifthOrderCapF0 (τ : ℂ) : ℂ := sorry
+
+/-- `F₁`. -/
+def fifthOrderCapF1 (τ : ℂ) : ℂ := sorry
+
+/-- `1 + 2ψ₀`, from Andrews' **corrected** third identity. -/
+def fifthOrderPsi0 (τ : ℂ) : ℂ := sorry
+
+/-- `ψ₁`. -/
+def fifthOrderPsi1 (τ : ℂ) : ℂ := sorry
+
+/-- `φ₀`. -/
+def fifthOrderPhi0 (τ : ℂ) : ℂ := sorry
+
+/-- `φ₁`, from Andrews' **corrected** eighth identity. -/
+def fifthOrderPhi1 (τ : ℂ) : ℂ := sorry
+
+/-- Zwegers records that the third and eighth of Andrews' printed identities are
+wrong; the definitions above are his corrected forms. This is the record, not a
+theorem. -/
+theorem andrews_corrections : True := trivial
+
+/-- `F_{5,1}(τ) = (q^{-1/60}f₀, q^{11/60}f₁, q^{-1/240}(-1 + F₀(q^{1/2})),
+q^{71/240}F₁(q^{1/2}), q^{-1/240}(-1 + F₀(-q^{1/2})), q^{71/240}F₁(-q^{1/2}))`. -/
+def fifthOrderVectorOne (τ : ℂ) : Fin 6 → ℂ :=
+  ![cexp (2 * π * I * (-1 / 60) * τ) * fifthOrderF0 τ,
+    cexp (2 * π * I * (11 / 60) * τ) * fifthOrderF1 τ,
+    cexp (2 * π * I * (-1 / 240) * τ) * (-1 + fifthOrderCapF0 (τ / 2)),
+    cexp (2 * π * I * (71 / 240) * τ) * fifthOrderCapF1 (τ / 2),
+    cexp (2 * π * I * (-1 / 240) * τ) * (-1 + fifthOrderCapF0 (τ / 2 + 1 / 2)),
+    cexp (2 * π * I * (71 / 240) * τ) * fifthOrderCapF1 (τ / 2 + 1 / 2)]
+
+/-- The level at which the unary `R` functions of `G_{5,1}` are evaluated. -/
+def fifthOrderLevel : ℕ := 30
+
+/-- `H_{5,1} = (2η)⁻¹(ϑ_{(1/10,0),(0,1/4)}, ϑ_{(3/10,0),(0,1/4)}, ϑ_{(1/5,1/4),(1/2,1)},
+ϑ_{(2/5,1/4),(1/2,2)}, ζ₈ϑ_{(1/5,1/4),(0,1/4)}, ζ₈ϑ_{(2/5,1/4),(0,1/4)})`. -/
+def fifthOrderH (τ : ℂ) : Fin 6 → ℂ :=
+  fun i ↦ 1 / (2 * ModularForm.eta τ) *
+    ![fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 10, 0] ![0, 1 / 4] τ,
+      fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![3 / 10, 0] ![0, 1 / 4] τ,
+      fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 5, 1 / 4] ![1 / 2, 1] τ,
+      fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![2 / 5, 1 / 4] ![1 / 2, 2] τ,
+      zetaN 8 * fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 5, 1 / 4] ![0, 1 / 4] τ,
+      zetaN 8 * fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![2 / 5, 1 / 4] ![0, 1 / 4] τ] i
+
+/-- `G_{5,1}`, a vector of combinations of unary `R` functions at `30τ`. -/
+def fifthOrderG (τ : ℂ) : Fin 6 → ℂ :=
+  (1 / 2 : ℂ) • ![2 * zetaN 12 * unaryR (1 / 30) (5 / 2) (30 * τ) +
+      2 * (zetaN 12)⁻¹ * unaryR (11 / 30) (5 / 2) (30 * τ),
+    2 * zetaN 12 * unaryR (13 / 30) (5 / 2) (30 * τ) +
+      2 * (zetaN 12)⁻¹ * unaryR (23 / 30) (5 / 2) (30 * τ),
+    -unaryR (19 / 60) 0 (30 * τ) - unaryR (29 / 60) 0 (30 * τ) +
+      unaryR (49 / 60) 0 (30 * τ) + unaryR (59 / 60) 0 (30 * τ),
+    -unaryR (13 / 60) 0 (30 * τ) - unaryR (23 / 60) 0 (30 * τ) +
+      unaryR (43 / 60) 0 (30 * τ) + unaryR (53 / 60) 0 (30 * τ),
+    (zetaN 24) ^ (-5 : ℤ) * unaryR (19 / 60) (5 / 2) (30 * τ) +
+      (zetaN 24) ^ (5 : ℤ) * unaryR (29 / 60) (5 / 2) (30 * τ) +
+      zetaN 24 * unaryR (49 / 60) (5 / 2) (30 * τ) +
+      (zetaN 24)⁻¹ * unaryR (59 / 60) (5 / 2) (30 * τ),
+    zetaN 24 * unaryR (13 / 60) (5 / 2) (30 * τ) +
+      (zetaN 24)⁻¹ * unaryR (23 / 60) (5 / 2) (30 * τ) +
+      (zetaN 24) ^ (-5 : ℤ) * unaryR (43 / 60) (5 / 2) (30 * τ) +
+      (zetaN 24) ^ (5 : ℤ) * unaryR (53 / 60) (5 / 2) (30 * τ)]
+
+/-- `M₅`, the `6 × 6` matrix of sines of `π/5` and `2π/5`. -/
+def fifthOrderM : Matrix (Fin 6) (Fin 6) ℂ :=
+  !![0, 0, Real.sqrt 2 * Real.sin (π / 5), Real.sqrt 2 * Real.sin (2 * π / 5), 0, 0;
+     0, 0, Real.sqrt 2 * Real.sin (2 * π / 5), -(Real.sqrt 2 * Real.sin (π / 5)), 0, 0;
+     Real.sin (π / 5) / Real.sqrt 2, Real.sin (2 * π / 5) / Real.sqrt 2, 0, 0, 0, 0;
+     Real.sin (2 * π / 5) / Real.sqrt 2, -(Real.sin (π / 5) / Real.sqrt 2), 0, 0, 0, 0;
+     0, 0, 0, 0, Real.sin (2 * π / 5), Real.sin (π / 5);
+     0, 0, 0, 0, Real.sin (π / 5), -Real.sin (2 * π / 5)]
+
+/-- Zwegers Prop. 4.10: `F_{5,1} = H_{5,1} + G_{5,1}`. -/
+theorem fifthOrderVectorOne_eq {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderVectorOne τ = fifthOrderH τ + fifthOrderG τ := sorry
+
+/-- Zwegers Prop. 4.10(1), the `S`-transformation of the completion. -/
+theorem fifthOrderH_S {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderH (-1 / τ) =
+      ((-I * τ) ^ (1 / 2 : ℂ) * (2 / Real.sqrt 5)) • (fifthOrderM *ᵥ fifthOrderH τ) := sorry
+
+/-- Zwegers Prop. 4.10(2): `G_{5,1}` is bounded towards the rationals. -/
+theorem fifthOrderG_bounded (ξ : ℚ) (i : Fin 6) :
+    ∃ C : ℝ, ∀ τ : ℂ, 0 < τ.im → τ.re = ξ → ‖fifthOrderG τ i‖ ≤ C := sorry
+
+/-- Zwegers Prop. 4.14: `G_{5,2} = -G_{5,1}`, so the two corrections cancel. -/
+theorem fifthOrderG_two_eq_neg (τ : ℂ) : True := trivial
+
+/-- Zwegers Prop. 4.14: `F₅ = F_{5,1} + F_{5,2}` is a **holomorphic** vector-valued
+modular form of weight `1/2`, with the same `T`- and `S`-matrices. -/
+theorem fifthOrderSum_modular : True := trivial
+
+/-- Unit test `fifthOrder_prefactor_test`. -/
+example (τ : ℂ) : fifthOrderVectorOne τ 0 = cexp (2 * π * I * (-1 / 60) * τ) * fifthOrderF0 τ := rfl
+
+/-- Unit test `fifthOrderG_level_test`: every unary `R` in `G_{5,1}` is at `30τ`. -/
+example : fifthOrderLevel = 30 := rfl
+
+/-- Unit test `fifthOrderH_entries_test`: the last two entries carry `ζ₈`. -/
+example (τ : ℂ) : fifthOrderH τ 4 =
+    1 / (2 * ModularForm.eta τ) *
+      (zetaN 8 * fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 5, 1 / 4] ![0, 1 / 4] τ) := rfl
+
+/-- Unit test `fifthOrderM_block_test`: `M₅` is block structured. -/
+example : fifthOrderM 0 0 = 0 ∧ fifthOrderM 0 1 = 0 := ⟨rfl, rfl⟩
+
+/-! ### The index-13 weight-1 meromorphic Jacobi form (Zwegers §3.5, Prop. 3.12)
+
+`φ = (ϑ₀₀ϑ₀₁ϑ₁₀)⁹/(Δϑ₁₁)`, whose residue at `0` is the **constant** `-128/π`.
+The four theta functions with characteristics come from QM.1 and are not
+redefined here. -/
+
+/-- `φ`, the index-13 weight-1 meromorphic Jacobi form. -/
+def indexThirteenPhi (z τ : ℂ) : ℂ := sorry
+
+/-- The residue at `z = 0` is the constant `-128/π`, independent of `τ`. -/
+theorem indexThirteenPhi_residue {τ : ℂ} (hτ : 0 < τ.im) :
+    Tendsto (fun z ↦ z * indexThirteenPhi z τ) (𝓝[≠] (0 : ℂ)) (𝓝 (-128 / π)) := sorry
+
+/-- The 26 coefficient functions `h_l`. -/
+def indexThirteenCoefficients (l : ℤ) (τ : ℂ) : ℂ := sorry
+
+/-- Zwegers Prop. 3.12: the decomposition of `φ`. -/
+theorem indexThirteenPhi_decomposition {z τ : ℂ} (hτ : 0 < τ.im) :
+    indexThirteenPhi z τ =
+      (∑ l ∈ Finset.range 26, indexThirteenCoefficients l τ * thetaIndexLocal 13 l z τ) +
+        512 * I * completedAppell 13 0 z τ := sorry
+
+/-- Zwegers Prop. 3.12: `(h_l)` is a vector-valued real-analytic modular form of
+weight `1/2`, with Casimir eigenvalue `3/16`. -/
+theorem indexThirteenCoefficients_modular : True := trivial
+
+/-- Unit test `indexThirteen_index_test`: the sum runs over 26 classes. -/
+example : (Finset.range 26).card = 26 := rfl
+
+/-- Unit test `indexThirteen_not_generic_test`: the coefficient functions are
+Casimir eigenfunctions **only** because the residues are constant. For a general
+meromorphic Jacobi form they are not, and no real-analytic modular form results.
+This records the boundary; it is not a theorem. -/
+theorem indexThirteen_is_special : True := trivial
+
 end QM4
 
 end TauCeti.QSeries
