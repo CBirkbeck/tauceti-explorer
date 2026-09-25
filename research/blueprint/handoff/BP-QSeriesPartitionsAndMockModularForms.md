@@ -119,3 +119,84 @@ All 25 arXiv numbers recorded in the packet were checked against their abstract 
 
 **Missing:** Andrews' *The Theory of Partitions*, Eichler–Zagier's *The Theory of Jacobi Forms*, Frenkel–Lepowsky–Meurman,
 Kac's *Infinite-dimensional Lie algebras*, and Rademacher–Grosswald. Public substitutes are used wherever they exist.
+
+---
+
+# Second pass, 25 September 2026 (session `cc-7b31c4`)
+
+A continuation, not a new blueprint: all 457 nodes of the first pass are kept and
+**8 are added**, closing QM.4.
+
+## QM.4 is now `source_decomposed`
+
+Three of the seven layers — QM.0, QM.3, **QM.4** — are decomposed. The two items
+QM.4 had outstanding were both in Zwegers' thesis, which the packet already held;
+the LaTeX e-print of the same version was obtained from the arXiv (SHA-256 of the
+gzipped tarball `000d13fb…`) and §3.5 and §4.4 were read in full, proofs
+included. That reading is recorded in the source's `readSections`.
+
+**§4.4, the fifth-order mock theta functions — six nodes.** The eight functions
+through Andrews' double-sum identities, with the record that **two of Andrews'
+printed identities are wrong** and that Zwegers' corrected forms are what is
+being defined. Lemma 4.8: the first six as sign-difference sums with
+`A = diag(5, −2)`, `c₁ = (2, 5)`, `c₂ = (−2, 5)`, together with `B(c₁, c₂) = −70`
+and `Q(c₁) = Q(c₂) = −15`, the computation that puts both vectors in the same cone
+component. The completion `H_{5,1}` and correction `G_{5,1}` at level 30.
+Proposition 4.10, with the **non-diagonal** T-matrix (it permutes the two
+half-argument variants), the S-matrix `M₅`, the Casimir eigenvalue 3/16 and the
+boundedness of `G_{5,1}`. Lemma 4.11 for the remaining four. And Propositions
+4.13 and 4.14, whose point is easy to lose: **`G_{5,2} = −G_{5,1}`**, so the two
+corrections cancel and `F₅ = F_{5,1} + F_{5,2}` is a genuine *holomorphic*
+vector-valued modular form of weight 1/2 — its six components being explicit
+combinations of the eight functions, the first four already known to Watson. The
+mock behaviour of each function is exactly the failure of that cancellation.
+
+**§3.5, Proposition 3.12 — two nodes.** The index-13 weight-1 meromorphic Jacobi
+form `(ϑ₀₀ϑ₀₁ϑ₁₀)⁹/(Δϑ₁₁)`, its poles, the base point reducing the singular set
+to `{0}`, and the residue there — the **constant** `−128/π` by Jacobi's
+derivative formula. The decomposition into 26 coefficient functions plus `512i`
+times the completed level-13 Appell function, and the modularity of
+`(h_l)_{l mod 26}` with eigenvalue 3/16. Zwegers' correction to the classical
+theta transformation table he cites (fourth formula on the right needs `−i`) is
+carried. The second node records the boundary Zwegers states himself: **the
+example is special** — it is built so the residues are constant, and in general
+they are not, the `h_l` are not Casimir eigenfunctions, and one obtains no
+real-analytic modular form at all.
+
+## Two process notes
+
+**Numbering.** The first pass's `remaining` list numbered these Lemma 4.8,
+Prop. 4.10, Lemma 4.11, Prop. 4.13, Prop. 4.14, and that is correct. Counting
+from the LaTeX I first got 4.9/4.11/4.13 by skipping the `remark` environments,
+which share the counter. The locators use the printed numbering.
+
+**The Lean additions were not compile-checked.** The first pass states that the
+suggested file compiles at Mathlib `082e2d3` with only `sorry` warnings. This
+pass adds about 170 lines to the QM.4 section — `fifthForm`, the fifth-order
+definitions, `fifthOrderH`/`G`/`M`, the three propositions and the index-13
+block — written in the same idiom and reusing `ZwegersForm`,
+`indefiniteThetaChar`, `unaryR`, `zetaN`, `thetaIndexLocal` and
+`completedAppell`. They are **not** verified: `lake env lean` in the local
+TauCeti checkout began cloning Mathlib and its dependencies rather than finding a
+built cache, and building Mathlib on this machine is forbidden, so the check was
+abandoned rather than pursued. **The compile claim in the first pass covers the
+file as it stood, not these additions**, and whoever next has a built toolchain
+should re-run it; the likeliest breakages are the `Matrix` literal for `M₅` and
+the `ℕ × ℤ` summation index in the two `fifthOrder` double sums.
+
+## Where the leverage is now
+
+Four layers remain `partial`, with the first pass's lists unchanged:
+
+- **QM.2** (3 items) — Lehmer 1938 §§3–4 and Whiteman 1956 §§2–6, **both already
+  held and hashed**, plus a public proof of the Dedekind-sum congruences. The
+  smallest remaining list, and two thirds of it is reading rather than
+  acquisition: this is the best next target.
+- **QM.1** (5 items) — three of them are DMZ §§4.2–4.4, and **DMZ is held**; the
+  other two (Eichler–Zagier's Jacobi–Eisenstein series with the dimension bound,
+  and Knopp–Petersson on all of `SL(2, ℤ)`) need sources that were not located.
+- **QM.5** (10 items) — the largest list, but mostly sections of Zagier and
+  Lawrence–Zagier papers that are already held.
+- **QM.6** (4 items) — the only layer whose remaining work needs sources that are
+  not held at all: a public construction of `V♮`, the Monster character-table
+  data and the Conway–Norton tables.
