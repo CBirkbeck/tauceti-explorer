@@ -16049,11 +16049,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #698"
+   "note": "released on GitHub issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -20194,10 +20194,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #964"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology",
