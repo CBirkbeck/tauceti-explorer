@@ -3,7 +3,7 @@
   "protocol": "blueprint-v1",
   "part": null,
   "status": "partial",
-  "summary": "The blueprint for the whole roadmap, in its second pass. The first pass decomposed QT.0 to QT.5 from Habiro's unified invariant paper and Neumann's extended Bloch group paper and left QT.6 and QT.7 unread. This pass keeps all of that and adds what those gaps asked for: from Habiro and Le, the abstract framework of core subalgebras and twist forms and the general simple Lie type theorem with its admissible set of orders; from Garoufalidis and Zagier, the Kashaev invariant, the conjectured asymptotic expansion and the quantum modularity conjecture with its exact normalisation, together with an example ledger and a labelling discipline. Fifty-four nodes over the eight layers, from four primary sources, all taken as LaTeX and hashed. Four of the previous pass's six gaps are closed; what remains outstanding is recorded stage by stage, and every conjectural statement is labelled as such.",
+  "summary": "The blueprint for the whole roadmap, in its second pass. The first pass decomposed QT.0 to QT.5 from Habiro's unified invariant paper and Neumann's extended Bloch group paper and left QT.6 and QT.7 unread. This pass keeps all of that and adds what those gaps asked for: from Habiro and Le, the abstract framework of core subalgebras and twist forms and the general simple Lie type theorem with its admissible set of orders; from Garoufalidis and Zagier, the Kashaev invariant, the conjectured asymptotic expansion and the quantum modularity conjecture with its exact normalisation, together with an example ledger and a labelling discipline. Fifty-four nodes over the eight layers, from four primary sources, all taken as LaTeX and hashed. Four of the previous pass's six gaps are closed; what remains outstanding is recorded stage by stage, and every conjectural statement is labelled as such. A third checkpoint does four things. It gives every unit test a kind. It renames the second pass's hyphenated API and test names to Lean identifiers. It replaces the signature sketch with a suggested Lean file that elaborates at the Mathlib pin. That file states the linking-matrix layer, the representation ring with the cyclotomic elements, the hyperbolic-geometry layer up to the extended pre-Bloch group, the figure-eight Kashaev function and the ledger, and it names the missing machinery for everything else.",
   "scope": [
     "ArithmeticQuantumTopology:QT.0",
     "ArithmeticQuantumTopology:QT.1",
@@ -255,18 +255,22 @@
       "tests": [
         {
           "name": "linkingMatrix_unknot",
+          "kind": "degenerate",
           "statement": "The linking matrix of the 0-framed unknot is the 1-by-1 zero matrix."
         },
         {
           "name": "linkingMatrix_hopf",
+          "kind": "computation",
           "statement": "The linking matrix of the 0-framed Hopf link is [[0,1],[1,0]], which is not diagonal, so the Hopf link is not algebraically split."
         },
         {
           "name": "linkingMatrix_blackboard",
+          "kind": "compatibility",
           "statement": "For a diagram with the blackboard framing, the diagonal entry of the linking matrix is the writhe of that component; this distinguishes the Seifert normalisation from the blackboard one."
         },
         {
           "name": "not_algebraicallySplit_of_det_ne",
+          "kind": "non-example",
           "statement": "A two-component link whose linking matrix has a nonzero off-diagonal entry is not algebraically split; in particular the Hopf link is a non-example."
         }
       ],
@@ -350,14 +354,17 @@
       "tests": [
         {
           "name": "surgery_empty_eq_sphere",
+          "kind": "degenerate",
           "statement": "Surgery on the empty link is the 3-sphere, so the invariant of the empty presentation must be the invariant of the 3-sphere."
         },
         {
           "name": "surgery_unknot_pm_one",
+          "kind": "computation",
           "statement": "Surgery on the plus-one-framed unknot is again the 3-sphere: a definition that gave a different manifold here would be wrong."
         },
         {
           "name": "homology_surgery_unknot_p",
+          "kind": "computation",
           "statement": "Surgery on the p-framed unknot has first homology cyclic of order the absolute value of p; for p = 0 this is infinite cyclic, so that presentation is not an integral homology sphere."
         }
       ],
@@ -435,14 +442,17 @@
       "tests": [
         {
           "name": "isAdmissible_unknot_one",
+          "kind": "computation",
           "statement": "The plus-one-framed unknot is admissible."
         },
         {
           "name": "not_isAdmissible_unknot_zero",
+          "kind": "non-example",
           "statement": "The 0-framed unknot is not admissible; this is the case that separates admissibility from the algebraically split condition alone."
         },
         {
           "name": "not_isAdmissible_hopf",
+          "kind": "non-example",
           "statement": "The unit-framed Hopf link is not admissible, since its off-diagonal linking number is 1."
         }
       ],
@@ -527,14 +537,17 @@
       "tests": [
         {
           "name": "kirbyEquiv_empty_unknot_one",
+          "kind": "computation",
           "statement": "The empty link and the plus-one-framed unknot are Kirby equivalent, since one blow-down relates them."
         },
         {
           "name": "framing_of_handleSlide",
+          "kind": "computation",
           "statement": "Sliding L_1 over L_2 in the 0-framed Hopf link changes the framing of the first component by f_2 + 2 lk = 0 + 2, which pins the sign convention."
         },
         {
           "name": "not_kirbyEquiv_of_ne_homology",
+          "kind": "non-example",
           "statement": "Two framed links whose cokernels are non-isomorphic groups are not Kirby equivalent, since surgery is invariant; the 0-framed and 3-framed unknots are a non-example pair."
         }
       ],
@@ -612,14 +625,17 @@
       "tests": [
         {
           "name": "isHosteMove_blowdown_unknot",
+          "kind": "computation",
           "statement": "Deleting a split plus-one-framed unknot from an admissible link is a Hoste move."
         },
         {
           "name": "not_isHosteMove_of_target_not_admissible",
+          "kind": "non-example",
           "statement": "A Fenn-Rourke move whose target has a component of framing 2 is not a Hoste move; this is the case that makes the refinement a genuine restriction."
         },
         {
           "name": "hosteEquiv_of_isotopy",
+          "kind": "degenerate",
           "statement": "Isotopic admissible links are Hoste equivalent."
         }
       ],
@@ -779,14 +795,17 @@
       "tests": [
         {
           "name": "basis_freeness",
+          "kind": "characterisation",
           "statement": "The listed monomials are linearly independent over the Laurent polynomial ring; a spanning claim without freeness would not pin the form down."
         },
         {
           "name": "Uqev_ne_Uq",
+          "kind": "non-example",
           "statement": "K itself lies in Uq and not in Uqev, so the two forms are different."
         },
         {
           "name": "classical_limit",
+          "kind": "compatibility",
           "statement": "Modulo h the algebra is the classical enveloping algebra of sl(2); a form with the wrong classical limit is wrong."
         }
       ],
@@ -872,14 +891,17 @@
       "tests": [
         {
           "name": "ribbon_unknot_framing",
+          "kind": "computation",
           "statement": "Changing the framing of a component by one multiplies the invariant by the scalar by which the ribbon element acts; this fixes the framing anomaly."
         },
         {
           "name": "R_matrix_classical_limit",
+          "kind": "compatibility",
           "statement": "Modulo h the R-matrix is the identity, so the braiding degenerates to the symmetry of the classical category."
         },
         {
           "name": "quantum_dimension_V1",
+          "kind": "computation",
           "statement": "The quantum dimension of the 2-dimensional module is the quantum integer [2], not 2; a definition returning the ordinary dimension is wrong."
         }
       ],
@@ -1003,14 +1025,17 @@
       "tests": [
         {
           "name": "closure_trivial",
+          "kind": "degenerate",
           "statement": "The closure of the trivial bottom tangle is the zero-framed unlink."
         },
         {
           "name": "closure_of_bottom_knot",
+          "kind": "computation",
           "statement": "A one-component bottom tangle closes to a knot; the number of components is preserved."
         },
         {
           "name": "bottomTangle_not_closed",
+          "kind": "non-example",
           "statement": "A tangle with a closed component is not a bottom tangle; this excludes the degenerate case where the universal invariant would already be a trace."
         }
       ],
@@ -1095,14 +1120,17 @@
       "tests": [
         {
           "name": "J_unknot_zero_framed",
+          "kind": "degenerate",
           "statement": "The universal invariant of the 0-framed unknotted bottom tangle is the unit."
         },
         {
           "name": "J_framing_change",
+          "kind": "computation",
           "statement": "Adding a positive kink multiplies the invariant by the ribbon element; an assignment invariant under the first Reidemeister move would be the wrong, unframed, invariant."
         },
         {
           "name": "J_hopf_nontrivial",
+          "kind": "non-example",
           "statement": "The universal invariant of the bottom tangle closing to the Hopf link is not the unit, so the invariant sees linking."
         }
       ],
@@ -1224,14 +1252,17 @@
       "tests": [
         {
           "name": "colouredJones_unknot_V1",
+          "kind": "computation",
           "statement": "The 0-framed unknot coloured by the 2-dimensional module has value the quantum integer [2], not 1; a definition returning 1 is the reduced one."
         },
         {
           "name": "colouredJones_trefoil_V1",
+          "kind": "compatibility",
           "statement": "The 2-dimensional colour on the right trefoil gives the Jones polynomial of the trefoil in the pinned variable, which fixes the chirality convention."
         },
         {
           "name": "colouredJones_split_union",
+          "kind": "characterisation",
           "statement": "For a split union the invariant is the product of the invariants, so a definition that failed multiplicativity would be wrong."
         }
       ],
@@ -1314,14 +1345,17 @@
       "tests": [
         {
           "name": "P_one",
+          "kind": "computation",
           "statement": "P 1 equals V_1 minus the quantum integer [2]; a different constant would break the vanishing of the pairing below."
         },
         {
           "name": "V_one_in_P",
+          "kind": "computation",
           "statement": "Expanding V_1 in the P basis gives P_1 plus the quantum integer [2] times P_0, the inverse of the previous test."
         },
         {
           "name": "P_change_of_basis_triangular",
+          "kind": "characterisation",
           "statement": "The change of basis is triangular with invertible diagonal, so a non-triangular family is not this one."
         }
       ],
@@ -1481,14 +1515,17 @@
       "tests": [
         {
           "name": "P_zero_eq_one",
+          "kind": "degenerate",
           "statement": "P 0 is the unit of the algebra."
         },
         {
           "name": "mul_P_one_one",
+          "kind": "computation",
           "statement": "The product of P_1 with itself expands with the stated quantum binomial coefficients; wrong constants would break the twisting theorem."
         },
         {
           "name": "twistElement_not_mem",
+          "kind": "non-example",
           "statement": "The twist element lies in the completion and not in the algebra, so the completion step is necessary."
         }
       ],
@@ -1689,14 +1726,17 @@
       "tests": [
         {
           "name": "pairing_omega_V0",
+          "kind": "computation",
           "statement": "The pairing of the twist element with the trivial colour is the invariant of the unit-framed unknot; a normalisation giving 1 here is wrong."
         },
         {
           "name": "omega_plus_mul_omega_minus",
+          "kind": "characterisation",
           "statement": "The product of the two twist elements is 1, which is the algebraic shadow of blowing up and then blowing down."
         },
         {
           "name": "omega_not_finite",
+          "kind": "non-example",
           "statement": "The twist element has infinitely many non-zero cyclotomic coefficients, so it is not an element of the uncompleted algebra."
         }
       ],
@@ -1818,14 +1858,17 @@
       "tests": [
         {
           "name": "unified_empty",
+          "kind": "degenerate",
           "statement": "The empty presentation gives 1, so the invariant of the 3-sphere is 1."
         },
         {
           "name": "unified_unknot_pm_one",
+          "kind": "computation",
           "statement": "The plus-one-framed unknot also presents the 3-sphere and must give 1; this is the first non-trivial instance of independence."
         },
         {
           "name": "unified_converges",
+          "kind": "characterisation",
           "statement": "The defining sum has terms divisible by higher and higher q-shifted factorials, so it converges in the Habiro ring; a formula without that divisibility would not define an element."
         }
       ],
@@ -2020,14 +2063,17 @@
       "tests": [
         {
           "name": "wrt_sphere_one",
+          "kind": "degenerate",
           "statement": "The invariant of the 3-sphere is 1, which pins the normalisation."
         },
         {
           "name": "wrt_lens_space",
+          "kind": "computation",
           "statement": "For a lens space the state sum evaluates to the classical Gauss-sum expression; a definition disagreeing here has the wrong normalisation."
         },
         {
           "name": "wrt_multiplicative",
+          "kind": "characterisation",
           "statement": "The invariant of a connected sum is the product of the invariants."
         }
       ],
@@ -2265,14 +2311,17 @@
       "tests": [
         {
           "name": "shape_regular",
+          "kind": "computation",
           "statement": "The regular ideal tetrahedron has shape the primitive sixth root of unity; a convention giving a different value is a different cross-ratio ordering."
         },
         {
           "name": "shape_product",
+          "kind": "computation",
           "statement": "The product of the three edge parameters is minus 1, not 1; this pins the convention."
         },
         {
           "name": "shape_excludes_degenerate",
+          "kind": "non-example",
           "statement": "Shapes 0 and 1 are excluded, so a degenerate configuration is not an ideal tetrahedron."
         }
       ],
@@ -2355,14 +2404,17 @@
       "tests": [
         {
           "name": "figure_eight_solution",
+          "kind": "computation",
           "statement": "The two-tetrahedron triangulation of the figure-eight knot complement has the solution with both shapes the primitive sixth root of unity; this is the running example."
         },
         {
           "name": "edge_equation_log_form",
+          "kind": "characterisation",
           "statement": "The logarithmic edge equation fixes the branch: the product form alone does not, and the two differ by multiples of two pi i."
         },
         {
           "name": "not_geometric_of_negative_imaginary",
+          "kind": "non-example",
           "statement": "A solution with a shape of negative imaginary part is not geometric, so the positivity condition is not redundant."
         }
       ],
@@ -2445,14 +2497,17 @@
       "tests": [
         {
           "name": "flattening_zero_zero",
+          "kind": "degenerate",
           "statement": "The flattening with both integers zero is the principal one; a different default would move the Chern-Simons term by a period."
         },
         {
           "name": "flattening_determines_shape",
+          "kind": "characterisation",
           "statement": "Two flattenings with the same log-parameters have the same shape."
         },
         {
           "name": "lifted_five_term_general",
+          "kind": "compatibility",
           "statement": "The lifted five-term relation is a lift of the classical one, so it maps onto it under forgetting; a relation that did not lift the classical one would be wrong."
         }
       ],
@@ -2568,14 +2623,17 @@
       "tests": [
         {
           "name": "blochElement_figure_eight",
+          "kind": "computation",
           "statement": "The figure-eight knot complement gives the class of twice the flattened regular simplex; a construction giving a different class has the wrong signs."
         },
         {
           "name": "blochElement_flattening_independent",
+          "kind": "characterisation",
           "statement": "Changing the flattening by an admissible amount does not change the class."
         },
         {
           "name": "blochElement_not_in_prebloch_kernel",
+          "kind": "non-example",
           "statement": "The element is non-zero for a hyperbolic manifold, since its Rogers dilogarithm has non-zero imaginary part equal to the volume."
         }
       ],
@@ -2680,32 +2738,32 @@
       "implementationStatus": "unchecked",
       "api": [
         {
-          "name": "ribbon-hopf-algebra",
+          "name": "TopologicalRibbonHopfAlgebra",
           "role": "structure",
           "statement": "A complete Hopf algebra over the power series ring with an R-matrix and a ribbon element satisfying the listed axioms."
         },
         {
-          "name": "r-matrix",
+          "name": "TopologicalRibbonHopfAlgebra.R",
           "role": "data",
           "statement": "The invertible element of the completed tensor square, with the quasi-triangularity identities."
         },
         {
-          "name": "ribbon-element",
+          "name": "TopologicalRibbonHopfAlgebra.ribbon",
           "role": "data",
           "statement": "The central invertible element with its coproduct and antipode axioms."
         },
         {
-          "name": "module-category",
+          "name": "TopologicalRibbonHopfAlgebra.moduleCategory",
           "role": "equivalence",
           "statement": "Topologically free modules form a ribbon category, with braiding from the R-matrix and twist from the ribbon element."
         },
         {
-          "name": "duals",
+          "name": "TopologicalRibbonHopfAlgebra.duals",
           "role": "structure",
           "statement": "Left and right duals on topologically free modules, with the evaluation and coevaluation maps."
         },
         {
-          "name": "convergence",
+          "name": "ZeroConvergent",
           "role": "characterisation",
           "statement": "Zero-convergent families and the sums they define, which is what makes infinite expansions meaningful."
         }
@@ -2722,19 +2780,23 @@
       ],
       "tests": [
         {
-          "name": "trivial-example",
+          "name": "trivialRibbonHopf",
+          "kind": "degenerate",
           "statement": "The ground ring itself, with trivial R-matrix and ribbon element, is a topological ribbon Hopf algebra whose universal invariant is constant; this is the degenerate case."
         },
         {
-          "name": "twist-on-the-unit",
+          "name": "twist_unit",
+          "kind": "computation",
           "statement": "The twist on the tensor unit is the identity, which is the statement that the ribbon element acts trivially on the trivial module."
         },
         {
-          "name": "braiding-is-not-symmetric",
+          "name": "braiding_not_symmetric",
+          "kind": "non-example",
           "statement": "For the quantised enveloping algebra the braiding is not a symmetry: its square on a two-dimensional module is not the identity, which is exactly what makes the invariant see the knotting."
         },
         {
-          "name": "group-algebra-non-example",
+          "name": "groupAlgebra_symmetric",
+          "kind": "non-example",
           "statement": "The completed group algebra of an abelian group with trivial R-matrix gives a symmetric, not merely braided, category; its universal invariant cannot distinguish a knot from the unknot."
         }
       ]
@@ -2789,27 +2851,27 @@
       },
       "api": [
         {
-          "name": "core-subalgebra",
+          "name": "CoreSubalgebra",
           "role": "structure",
           "statement": "A subalgebra with the stated stabilities on which the twist forms are defined."
         },
         {
-          "name": "twist-form",
+          "name": "CoreSubalgebra.twistForm",
           "role": "data",
           "statement": "The linear functional computing a plus or minus one framed surgery, possibly partially defined."
         },
         {
-          "name": "normalisation",
+          "name": "CoreSubalgebra.normalisation",
           "role": "constructor",
           "statement": "The surgery normalisation, dividing by the value of the twist form on the unit."
         },
         {
-          "name": "invertibility-hypothesis",
+          "name": "CoreSubalgebra.twistForm_one_isUnit",
           "role": "characterisation",
           "statement": "The requirement that the normalising denominator be invertible, stated as a hypothesis."
         },
         {
-          "name": "invariant",
+          "name": "CoreSubalgebra.invariant",
           "role": "universal-property",
           "statement": "The theorem that a core subalgebra with twist forms gives an invariant of integral homology spheres."
         }
@@ -2826,19 +2888,23 @@
       ],
       "tests": [
         {
-          "name": "the-integral-core-subalgebra",
+          "name": "integralCoreSubalgebra_sl2",
+          "kind": "compatibility",
           "statement": "For the quantised enveloping algebra of the three-dimensional simple Lie algebra there is an integral core subalgebra, and the resulting invariant is the one of the later layers."
         },
         {
-          "name": "denominator-at-a-root-of-unity",
+          "name": "twistForm_one_at_root",
+          "kind": "computation",
           "statement": "At a root of unity the normalising denominator is a Gauss sum, and its non-vanishing is a condition on the order; it fails for some small orders, which is the excluded case."
         },
         {
-          "name": "stability-is-needed",
+          "name": "mirror_stability_needed",
+          "kind": "non-example",
           "statement": "Without stability under the mirror automorphism the invariance under the inverse Hoste move fails; this is the non-example showing the condition is not decorative."
         },
         {
-          "name": "empty-presentation",
+          "name": "coreInvariant_empty",
+          "kind": "degenerate",
           "statement": "For the empty admissible link the construction returns the unit, which is the value on the three-sphere."
         }
       ]
@@ -2931,22 +2997,22 @@
       "implementationStatus": "unchecked",
       "api": [
         {
-          "name": "truncation",
+          "name": "cyclotomicTruncation",
           "role": "constructor",
           "statement": "The truncation of the cyclotomic expansion at a finite order, a Laurent polynomial with integer coefficients."
         },
         {
-          "name": "compatibility",
+          "name": "cyclotomicTruncation_trunc",
           "role": "compatibility",
           "statement": "The truncations at different orders are compatible under discarding terms."
         },
         {
-          "name": "evaluation-factors",
+          "name": "eval_cyclotomicTruncation",
           "role": "characterisation",
           "statement": "Evaluation at a root of unity of order at most the truncation order factors through the truncation."
         },
         {
-          "name": "order-of-operations",
+          "name": "cyclotomicTruncation_before_completion",
           "role": "relation",
           "statement": "Expand, prove integrality, truncate, complete, in that order."
         }
@@ -2963,19 +3029,23 @@
       ],
       "tests": [
         {
-          "name": "unknot-truncation",
+          "name": "cyclotomicTruncation_unknot",
+          "kind": "degenerate",
           "statement": "Every truncation of the expansion of the unknot is one, since all higher cyclotomic coefficients vanish."
         },
         {
-          "name": "evaluation-at-a-small-root",
+          "name": "eval_small_root",
+          "kind": "computation",
           "statement": "At a root of unity of order n the truncation at order n already computes the value, because the next Pochhammer factor vanishes."
         },
         {
-          "name": "compatibility",
+          "name": "cyclotomicTruncation_compat",
+          "kind": "characterisation",
           "statement": "The truncation at order n of the truncation at order m, for n at most m, is the truncation at order n."
         },
         {
-          "name": "completion-first-is-different",
+          "name": "completion_first_differs",
+          "kind": "non-example",
           "statement": "Completing the ring of Laurent polynomials first and then attempting an expansion does not give the same coefficients; the expansion is a theorem about the invariant, not about the completed ring."
         }
       ]
@@ -3252,27 +3322,27 @@
       },
       "api": [
         {
-          "name": "kashaev-invariant",
+          "name": "kashaevInvariant",
           "role": "constructor",
           "statement": "The element of the ring of integers with a root of unity adjoined attached to a knot and a positive integer."
         },
         {
-          "name": "colored-jones-identification",
+          "name": "kashaevInvariant_eq_colouredJones",
           "role": "equivalence",
           "statement": "Its identification with the evaluation of the colored Jones polynomial in the corresponding colour."
         },
         {
-          "name": "periodic-function",
+          "name": "kashaevFunction",
           "role": "constructor",
           "statement": "The one-periodic Galois-invariant function on the rationals whose value at minus one over the integer is the invariant."
         },
         {
-          "name": "uniqueness",
+          "name": "kashaevFunction_unique",
           "role": "characterisation",
           "statement": "The uniqueness of that function, from the Galois-invariance requirement."
         },
         {
-          "name": "figure-eight",
+          "name": "figureEightKashaev",
           "role": "example",
           "statement": "The closed form and the first values for the figure-eight knot."
         }
@@ -3289,19 +3359,23 @@
       ],
       "tests": [
         {
-          "name": "unknot",
+          "name": "kashaev_unknot",
+          "kind": "degenerate",
           "statement": "For the unknot the Kashaev invariant is one for every order, and the periodic function is constant."
         },
         {
-          "name": "figure-eight-small-values",
+          "name": "figureEightKashaev_small",
+          "kind": "computation",
           "statement": "The first six values for the figure-eight knot are one, five, thirteen, twenty-seven, forty-six plus twice the square root of five, and eighty-nine; a wrong normalisation would not reproduce them."
         },
         {
-          "name": "periodicity",
+          "name": "kashaevFunction_periodic",
+          "kind": "characterisation",
           "statement": "The function satisfies that its value at an argument plus one equals its value at the argument; this is what makes the statement at minus one over the integer meaningful."
         },
         {
-          "name": "galois-invariance-is-needed",
+          "name": "galoisInvariance_needed",
+          "kind": "non-example",
           "statement": "Without the Galois-invariance requirement the extension of the invariant to a function on the rationals is not unique; this is the non-example showing the requirement is not decorative."
         }
       ]
@@ -3518,27 +3592,27 @@
       },
       "api": [
         {
-          "name": "ledger",
+          "name": "Ledger",
           "role": "structure",
           "statement": "The table with one row per example and one column per kind of datum."
         },
         {
-          "name": "columns",
+          "name": "LedgerColumn",
           "role": "data",
           "statement": "The six columns: cyclotomic coefficients, Kashaev values, invariants at roots of unity, trace field and Bloch classes, volume and Chern-Simons, asymptotic series."
         },
         {
-          "name": "provenance",
+          "name": "LedgerEntry.node",
           "role": "data",
           "statement": "For each entry, the node that produces it."
         },
         {
-          "name": "status",
+          "name": "LedgerEntry.status",
           "role": "data",
           "statement": "For each entry, one of the five labels: proved, imported, computed, numerical, conjectural."
         },
         {
-          "name": "rows",
+          "name": "ledgerRows",
           "role": "example",
           "statement": "The two rows, for the figure-eight knot and for the knot five two."
         }
@@ -3555,19 +3629,23 @@
       ],
       "tests": [
         {
-          "name": "figure-eight-row",
+          "name": "ledger_figureEight_row",
+          "kind": "computation",
           "statement": "Every entry of the figure-eight row is filled, and the Kashaev column reproduces the six values of the source."
         },
         {
-          "name": "status-consistency",
+          "name": "ledger_status_consistent",
+          "kind": "characterisation",
           "statement": "No entry is labelled proved whose producing node is conjectural; the asymptotic-series column is conjectural in both rows."
         },
         {
-          "name": "trace-field-column",
+          "name": "ledger_traceField",
+          "kind": "computation",
           "statement": "The trace field of the figure-eight knot is the rationals with the square root of minus three adjoined, and of the knot five two the cubic field of the displayed polynomial."
         },
         {
-          "name": "an-empty-column-is-not-an-agreement",
+          "name": "ledger_empty_column",
+          "kind": "non-example",
           "statement": "A column that cannot be filled for a row is recorded as empty and not as agreement; this is the discipline the ledger exists to enforce."
         }
       ]
@@ -3580,11 +3658,11 @@
         "ArithmeticQuantumTopology:QT.7"
       ],
       "parentStageId": "ArithmeticQuantumTopology:QT.7",
-      "statement": "Two things are fixed here. The labelling discipline: every statement of this roadmap carries one of five labels, and the labels are visible in the packet. Proved means a primary source is named together with the exact family over which the statement holds. Imported means the statement is proved in a roadmap named in the requests and is used as a hypothesis here. Computed means a finite calculation, reproducible from the definitions. Numerical means agreement observed in examples, which is evidence and not a proof. Conjectural means the source states it as a conjecture; the volume conjecture, the quantum modularity conjecture and all its refinements, and the conjecture that the asymptotic series has algebraic coefficients are of this kind. The executable boundary: the suggested Lean file states the elementary arithmetic that the pinned libraries support, namely the quantum integer as a Chebyshev-type value and the q-Pochhammer symbol with its vanishing at roots of unity, together with the linking matrix and the homology criterion as matrix statements; everything above that, from ribbon Hopf algebras to the extended Bloch group, appears as a signature with its missing machinery named. No proposition standing for a conjecture is introduced as a hypothesis, and no axiom is used.",
+      "statement": "Two things are fixed here. The labelling discipline: every statement of this roadmap carries one of five labels, and the labels are visible in the packet. Proved means a primary source is named together with the exact family over which the statement holds. Imported means the statement is proved in a roadmap named in the requests and is used as a hypothesis here. Computed means a finite calculation, reproducible from the definitions. Numerical means agreement observed in examples, which is evidence and not a proof. Conjectural means the source states it as a conjecture; the volume conjecture, the quantum modularity conjecture and all its refinements, and the conjecture that the asymptotic series has algebraic coefficients are of this kind. The executable boundary: the suggested Lean file states what the pinned libraries support. That is:\n- the linking-matrix layer of QT.0 (algebraic splitness, admissibility, the homology of the surgered manifold as a cokernel, handle slides as unimodular congruences);\n- the quantum integers;\n- the representation ring of sl(2), with the Chebyshev colours and the cyclotomic elements P_n;\n- ideal tetrahedra, flattenings, ideal triangulations with their edge equations, and the extended pre-Bloch group;\n- the figure-eight Kashaev function;\n- the provenance ledger.\nEverything else, from ribbon Hopf algebras to the unified invariant, appears as a comment that names its missing machinery. No statement has type True. No proposition standing for a conjecture is introduced as a hypothesis, and no axiom is used.",
       "hypotheses": [
         "The five labels are exhaustive for the statements of this packet and are checkable against the node kinds and the source references.",
         "The pinned libraries contain monoidal, braided and rigid categories, Chebyshev polynomials, matrices and the complex logarithm, and nothing else relevant.",
-        "The file is not compiled."
+        "The file elaborates with the Lean toolchain of Mathlib 082e2d3 against its prebuilt library, with placeholder proofs as the only warnings."
       ],
       "proofSteps": [
         "Fix the five labels and their meanings.",
@@ -3881,6 +3959,6 @@
       "tauceti GeometricTopology layers 4 and 5",
       "FoundationsAndLibraryIntegration LI.0 and LI.4"
     ],
-    "leanStatus": "not compiled: the suggested file is a signature sketch and was not built against the pins"
+    "leanStatus": "compiled: the suggested file elaborates at Mathlib 082e2d3 with placeholder proofs as the only warnings (third checkpoint, which replaced the signature sketch)"
   }
 }
