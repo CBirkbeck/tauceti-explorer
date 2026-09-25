@@ -15055,7 +15055,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #352"
   },
   {
    "id": "BP-ArithmeticKTheory--N.7",
@@ -19174,8 +19175,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.3",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #439"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #439",
+   "finishedAt": "2026-09-25T00:45:01Z"
   },
   {
    "id": "BP-KTheoryFiniteLocalFields",
