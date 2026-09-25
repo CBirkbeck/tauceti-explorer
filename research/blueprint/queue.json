@@ -18398,7 +18398,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCohomologyFoundations--HQ.1",
    "prompt": "research/blueprint/prompts/REV-HabiroCohomologyFoundations--HQ.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #423"
   },
   {
    "id": "BP-HabiroCohomologyFoundations--HQ.8",
@@ -22668,8 +22669,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #520"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #520",
+   "finishedAt": "2026-09-25T01:33:25Z"
   },
   {
    "id": "BP-NoncommutativeAndEquivariantIwasawa",
