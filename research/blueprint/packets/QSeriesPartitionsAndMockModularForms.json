@@ -12,7 +12,7 @@
     "QSeriesPartitionsAndMockModularForms:QM.6"
   ],
   "status": "partial",
-  "summary": "Q-series, partitions, Jacobi and mock modular forms, first pass, planned from free sources against the pinned libraries. QM.0 builds the formal q-series layer on Mathlib's partitions and x-adic products: q-Pochhammer symbols, q-integers, Gaussian polynomials, the q-binomial and q-Vandermonde theorems, Euler's identities, the finite, universal and formal Jacobi triple products with the specialisations the ClassicalArithmeticCompletion packet requests, Ramanujan's congruences modulo 5 and 7 by formal dissections, the Rogers–Ramanujan identities through Bressoud's polynomial identities, and the evaluation theorem that turns an x-adic identity into an analytic one inside a disc. QM.1 plans the eta multiplier system on all of SL(2, ℤ) with Dedekind sums, the theta multiplier and eta quotients with their orders at every cusp, Zwegers' ϑ(z; τ) with its elliptic and modular laws, and Eichler–Zagier Jacobi forms with the theta decomposition. QM.2 plans Ford circles, the modified Bessel functions, the sums A_k(n), Rademacher's exact formula with an effective remainder, and the Hardy–Ramanujan asymptotic. QM.3 plans the weight-k Laplacian, harmonic Maass forms with their holomorphic and non-holomorphic parts, the ξ-operator, the Bruinier–Funke pairing and exact sequence, and Maass–Poincaré series. QM.4 plans Zwegers' Appell–Lerch sums, the functions R and E, the completion μ̃ and its transformation law, indefinite theta functions of type (n − 1, 1), and the seventh-order mock theta functions with their completion and shadow. QM.5 plans quantum modular forms, Eichler integrals, Kontsevich's strange identity, the radial limits of WRT invariants for the Poincaré sphere against ArithmeticQuantumTopology QT.4 and the Habiro ring, the Andrews–Garvan crank, and Zagier's traces of singular moduli. QM.6 plans vertex operator algebras, graded traces and McKay–Thompson series, the no-ghost theorem, the Monster Lie algebra with its twisted denominator identities, and the statement of monstrous moonshine; the Frenkel–Lepowsky–Meurman module and the identification of its automorphism group with the presented Monster are recorded gaps. Remaining work is listed per layer, with thirteen gaps and twenty-four requests to other owners.",
+  "summary": "Q-series, partitions, Jacobi and mock modular forms, first pass, planned from free sources against the pinned libraries. QM.0 builds the formal q-series layer on Mathlib's partitions and x-adic products: q-Pochhammer symbols, q-integers, Gaussian polynomials, the q-binomial and q-Vandermonde theorems, Euler's identities, the finite, universal and formal Jacobi triple products with the specialisations the ClassicalArithmeticCompletion packet requests, Ramanujan's congruences modulo 5 and 7 by formal dissections, the Rogers–Ramanujan identities through Bressoud's polynomial identities, and the evaluation theorem that turns an x-adic identity into an analytic one inside a disc. QM.1 plans the eta multiplier system on all of SL(2, ℤ) with Dedekind sums, the theta multiplier and eta quotients with their orders at every cusp, Zwegers' ϑ(z; τ) with its elliptic and modular laws, and Eichler–Zagier Jacobi forms with the theta decomposition. QM.2 plans Ford circles, the modified Bessel functions, the sums A_k(n), Rademacher's exact formula with an effective remainder, and the Hardy–Ramanujan asymptotic. QM.3 plans the weight-k Laplacian, harmonic Maass forms with their holomorphic and non-holomorphic parts, the ξ-operator, the Bruinier–Funke pairing and exact sequence, and Maass–Poincaré series. QM.4 plans Zwegers' Appell–Lerch sums, the functions R and E, the completion μ̃ and its transformation law, indefinite theta functions of type (n − 1, 1), and the seventh-order mock theta functions with their completion and shadow. QM.5 plans quantum modular forms, Eichler integrals, Kontsevich's strange identity, the radial limits of WRT invariants for the Poincaré sphere against ArithmeticQuantumTopology QT.4 and the Habiro ring, the Andrews–Garvan crank, and Zagier's traces of singular moduli. QM.6 plans vertex operator algebras, graded traces and McKay–Thompson series, the no-ghost theorem, the Monster Lie algebra with its twisted denominator identities, and the statement of monstrous moonshine; the Frenkel–Lepowsky–Meurman module and the identification of its automorphism group with the presented Monster are recorded gaps. Remaining work is listed per layer, with thirteen gaps and twenty-four requests to other owners. A later continuation adds the Bailey-chain route to the Andrews–Gordon identities for i = 1 and i = k (Warnaar; Andrews 1984), in the Nahm-sum form that HabiroNahmSeries requests.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3102,6 +3102,32 @@
         "§4 Modular functions and modular forms (Proposition 4.3, Remark 4.4, Definition 4.5, Theorem 4.22)",
         "§5 Hecke operators (Lemma 5.13, Remarks 5.14–5.15, Proposition 5.16)"
       ]
+    },
+    {
+      "id": "warnaar-bailey-2009",
+      "title": "50 years of Bailey's lemma",
+      "authors": "S. Ole Warnaar",
+      "edition": "arXiv:0910.2062v2 (14 October 2009), 16 pages; in Algebraic Combinatorics and Applications, Springer (2001)",
+      "url": "https://arxiv.org/abs/0910.2062v2",
+      "sha256": "619da622c1c77f0ac85133ff92aeabe110e7622eb5e79900b2031b9943113242",
+      "readSections": [
+        "§1 (pp. 1–3): Bailey's transform (1.1)–(1.2), Bailey pairs (1.3), the conjugate pair (1.4)–(1.5), (1.6), Rogers' pairs (1.7), (1.10) and the Rogers–Ramanujan identities (1.8)–(1.9)",
+        "§2 (pp. 3–4): Theorem 2.1, its limiting form (2.2), the unit pair (2.3), the inverse transform (2.4), the Bailey chain and the identities (2.5)",
+        "§3 opening (p. 4): the scope remark that the chain gives only i = 1 and i = k"
+      ]
+    },
+    {
+      "id": "andrews-bailey-chain-1984",
+      "title": "Multiple series Rogers–Ramanujan type identities",
+      "authors": "George E. Andrews",
+      "edition": "Pacific J. Math. 114 (1984), no. 2, 267–283; publisher scan, free at msp.org, read 2026-09-25",
+      "url": "https://msp.org/pjm/1984/114-2/p02.xhtml",
+      "sha256": "8974edd88da5b059f1e04ece77fd850575fce906d131df4f6e98ba74bc7efd2c",
+      "readSections": [
+        "§1 (pp. 267–269): (1.1)–(1.8), in particular the Andrews–Gordon identity (1.3)",
+        "§2 (pp. 269–272): Bailey's lemma (2.3)–(2.6), Theorem 1 with its proof (2.7)–(2.11), the unit pair (2.12)–(2.13) and Agarwal's identity (2.14)",
+        "§3 opening (p. 273): Theorem 2 (3.1) and its proof; formulas read on the page images"
+      ]
     }
   ],
   "nodes": [
@@ -5683,6 +5709,445 @@
           "locator": "§1, (14), p. 4",
           "excerpt": "In the same way from (12) we get the second Rogers-Ramanujan identity ∑_{k≥0} q^{k²+k}/((1 − q)(1 − q²) · · · (1 − q^k)) = 1/∏_{k≥1}(1 − q^k) ∑_{j∈Z}(−1)^j q^{j(5j−3)/2}. (14)",
           "match": "The limit step."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "Bailey pairs",
+      "kind": "definition",
+      "statement": "Let R be a commutative ring and a ∈ R⟦q⟧. Two sequences α, β : ℕ → R⟦q⟧ form a BAILEY PAIR RELATIVE TO a if β_n = Σ_{r=0}^{n} α_r/((q; q)_{n−r}(aq; q)_{n+r}) for every n ≥ 0. The divisions are by units: (q; q)_m and (aq; q)_m have constant coefficient 1, since every factor 1 − a q^{j+1} does. The relation is lower triangular with invertible diagonal 1/(aq; q)_{2n}, so each of α and β determines the other, and it is R⟦q⟧-linear in the pair. The cases used are a = 1 and a = q.",
+      "hypotheses": [
+        "R a commutative ring; a any element of R⟦q⟧ (no condition is needed for the inverses, because q^{j+1} has zero constant coefficient).",
+        "Warnaar works analytically, with 0 < |q| < 1. Here everything is formal: every sum in the definition is finite, and the relation is an identity in R⟦q⟧."
+      ],
+      "proofSteps": [
+        "Define IsBaileyPair a α β as the displayed family of identities, with the inverses taken by PowerSeries.invOfUnit (mathlib:PowerSeries.isUnit_iff_constantCoeff).",
+        "β from α: immediate from the definition.",
+        "α from β: by strong induction on n, the r = n term is α_n/(aq; q)_{2n}, and (aq; q)_{2n} is a unit.",
+        "Linearity, and the map along a ring homomorphism R → S: termwise, because PowerSeries.map commutes with finite sums, products and inverses of units (QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer, map_qPochhammerInf and its finite form)."
+      ],
+      "acceptance": [
+        "For a = 1, α₀ = 1, α₁ = −(1 + q) and β₀ = 1, the n = 1 relation gives β₁ = 1/(1 − q)² − (1 + q)/((1 − q)(1 − q²)) = 0."
+      ],
+      "uses": [
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.0/bailey-lemma",
+          "how": "the pair transformed by the lemma"
+        },
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-identities",
+          "how": "through the unit pairs and the chain"
+        },
+        {
+          "where": "Warnaar, §§1–3",
+          "how": "Bailey's lemma, the Bailey chain and the Bailey lattice all act on Bailey pairs"
+        }
+      ],
+      "tests": [
+        {
+          "name": "baileyPair_zero",
+          "kind": "degenerate",
+          "statement": "α = 0 and β = 0 form a Bailey pair relative to every a."
+        },
+        {
+          "name": "baileyPair_beta_zero",
+          "kind": "computation",
+          "statement": "For every Bailey pair relative to a, β₀ = α₀ (the n = 0 relation, since (q; q)₀ = (aq; q)₀ = 1)."
+        },
+        {
+          "name": "baileyPair_one_step",
+          "kind": "computation",
+          "statement": "For a = 1, α₀ = 1, α₁ = −(1 + q): the n = 1 relation gives β₁ = 0."
+        },
+        {
+          "name": "baileyPair_rogers",
+          "kind": "compatibility",
+          "statement": "Rogers' pair relative to 1 (Warnaar (1.7)): α₀ = 1, α_L = (−1)^L q^{L(3L−1)/2}(1 + q^L), β_L = 1/(q; q)_L, is a Bailey pair; so is Rogers' pair (1.10) relative to q, α_L = (−1)^L q^{L(3L+1)/2}(1 − q^{2L+1})/(1 − q), β_L = 1/(q; q)_L (checked by the author with PARI/GP for L ≤ 7)."
+        },
+        {
+          "name": "baileyPair_delta_alpha",
+          "kind": "non-example",
+          "statement": "α = δ_{·,0} (α₀ = 1 and all other α_r = 0) pairs with β_n = 1/((q; q)_n(aq; q)_n), not with β = δ_{·,0}: for a = 1, β₁ = 1/(1 − q)² ≠ 0."
+        }
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "mathlib:PowerSeries.map"
+      ],
+      "api": [
+        {
+          "name": "IsBaileyPair",
+          "role": "data",
+          "statement": "The predicate that (α, β) is a Bailey pair relative to a."
+        },
+        {
+          "name": "isBaileyPair_iff",
+          "role": "characterisation",
+          "statement": "Unfolding: β_n = Σ_{r ≤ n} α_r (q; q)_{n−r}⁻¹ (aq; q)_{n+r}⁻¹ for every n."
+        },
+        {
+          "name": "IsBaileyPair.beta_eq",
+          "role": "simp",
+          "statement": "β is determined by α: two Bailey pairs relative to a with the same α have the same β."
+        },
+        {
+          "name": "IsBaileyPair.alpha_eq",
+          "role": "universal-property",
+          "statement": "α is determined by β (the relation is triangular with unit diagonal (aq; q)_{2n}⁻¹)."
+        },
+        {
+          "name": "IsBaileyPair.exists_alpha",
+          "role": "constructor",
+          "statement": "Every β has an α with (α, β) a Bailey pair relative to a."
+        },
+        {
+          "name": "IsBaileyPair.add",
+          "role": "relation",
+          "statement": "Sums and R⟦q⟧-multiples of Bailey pairs relative to a are Bailey pairs relative to a."
+        },
+        {
+          "name": "IsBaileyPair.map",
+          "role": "functoriality",
+          "statement": "A ring homomorphism f : R → S carries a Bailey pair relative to a to one relative to map f a."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§1, (1.3), p. 2",
+          "excerpt": "β_L = Σ_{r=0}^{L} α_r/((q)_{L−r}(aq)_{L+r}) ... A pair of sequences that satisfies the first equation of (1.3) is called a Bailey pair relative to a.",
+          "match": "The definition."
+        },
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "§2, (2.3), p. 270",
+          "excerpt": "BAILEY'S LEMMA. If for n ≥ 0 β_n = Σ_{r=0}^{n} α_r/((q)_{n−r}(aq)_{n+r}), then",
+          "match": "The same relation in Andrews' notation (2.3)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/bailey-kernel-identity",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "The kernel identity behind the limiting Bailey lemma",
+      "kind": "lemma",
+      "statement": "For a commutative ring R, a ∈ R⟦q⟧ and 0 ≤ r ≤ n: Σ_{j=r}^{n} a^j q^{j²}/((q; q)_{n−j}(q; q)_{j−r}(aq; q)_{j+r}) = a^r q^{r²}/((q; q)_{n−r}(aq; q)_{n+r}). With m = n − r and b = aq^{2r} it is equivalent to the polynomial identity Σ_{s=0}^{m} [m, s] b^s q^{s²} (bq^{s+1}; q)_{m−s} = 1 in ℤ[b, q], where [m, s] is the Gaussian polynomial.",
+      "hypotheses": [
+        "Warnaar and Andrews obtain it as the limit ρ₁, ρ₂ → ∞ of the q-Pfaff–Saalschütz summation, which gives Bailey's conjugate pair (Warnaar (1.4); Andrews (2.4)). The proof here uses only the q-binomial theorem, applied twice, and avoids limits in the parameters.",
+        "The reduction to b = aq^{2r} uses (aq; q)_{2r+s} = (aq; q)_{2r}(aq^{2r+1}; q)_s."
+      ],
+      "proofSteps": [
+        "Substitute j = r + s and factor out a^r q^{r²}/(aq; q)_{2r}. The claim becomes Σ_{s=0}^{m} b^s q^{s²}/((q; q)_{m−s}(q; q)_s(bq; q)_s) = 1/((q; q)_m(bq; q)_m) with b = aq^{2r}. Multiply by (q; q)_m(bq; q)_m, using (q; q)_m = [m, s](q; q)_s(q; q)_{m−s} (QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient) and (bq; q)_m = (bq; q)_s(bq^{s+1}; q)_{m−s} (qPochhammer_add), to reach Σ_s [m, s] b^s q^{s²}(bq^{s+1}; q)_{m−s} = 1.",
+        "Prove that identity in ℤ[q, q⁻¹][b] (mathlib:LaurentPolynomial, q = T 1). Expand (bq^{s+1}; q)_{m−s} = Σ_t [m − s, t] q^{t(t−1)/2}(−bq^{s+1})^t by the q-binomial theorem (QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-theorem). Collect by u = s + t, using [m, s][m − s, t] = [m, u][u, s].",
+        "The coefficient of b^u is [m, u]·q^{u²}·Σ_t [u, t](−1)^t q^{t(t−1)/2}(q^{1−u})^t, which equals [m, u]·q^{u²}·∏_{i<u}(1 − q^{1−u+i}) by the q-binomial theorem at x = −q^{1−u}. For u ≥ 1 the factor i = u − 1 is 1 − 1 = 0. So only u = 0 survives, and it contributes 1.",
+        "Map the identity to R⟦q⟧ (Laurent monomials only cancel) and substitute b = aq^{2r}."
+      ],
+      "acceptance": [
+        "m = 1, cleared form: [1, 0](bq; q)₁ + [1, 1]bq = (1 − bq) + bq = 1.",
+        "Checked by the author with PARI/GP as an identity of rational functions in a and q for n ≤ 5 and all r ≤ n, and in the cleared form for m ≤ 7."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-theorem",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:LaurentPolynomial",
+        "mathlib:LaurentPolynomial.T",
+        "mathlib:PowerSeries.invOfUnit"
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§1, (1.4)–(1.5), p. 2",
+          "excerpt": "Still following Bailey, one can employ the q-Saalschütz summation [35, Eq. (II.12)] to establish that (γ, δ) with ... provides a conjugate Bailey pair.",
+          "match": "The source's route; the node is the ρ₁, ρ₂ → ∞ case with M finite, proved directly."
+        },
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "§2, (2.4), p. 270",
+          "excerpt": "Σ_{n≥0} ((ρ₁)_n(ρ₂)_n(aq/ρ₁ρ₂)^n α_n/((aq/ρ₁)_n(aq/ρ₂)_n)) 1/((q)_{N−n}(aq)_{N+n}) = Σ_{n≥0} (ρ₁)_n(ρ₂)_n(aq/ρ₁ρ₂)^n β_n (aq/ρ₁ρ₂)_{N−n}/((q)_{N−n}(aq/ρ₁)_N(aq/ρ₂)_N).",
+          "match": "Bailey's lemma in finite form; as ρ₁, ρ₂ → ∞ it becomes this node applied termwise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/bailey-lemma",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "Bailey's lemma (limiting form)",
+      "kind": "theorem",
+      "statement": "Let (α, β) be a Bailey pair relative to a ∈ R⟦q⟧ (QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair). Then so is (α′, β′) with α′_n = a^n q^{n²} α_n and β′_n = Σ_{r=0}^{n} a^r q^{r²} β_r/(q; q)_{n−r}. Iterating gives the Bailey chain (α, β) → (α′, β′) → (α″, β″) → ⋯, and after k steps α^{(k)}_n = a^{kn} q^{kn²} α_n and β^{(k)}_N = Σ_{N ≥ n_k ≥ ⋯ ≥ n_1 ≥ 0} a^{n_1+⋯+n_k} q^{n_1²+⋯+n_k²} β_{n_1}/((q; q)_{N−n_k}(q; q)_{n_k−n_{k−1}}⋯(q; q)_{n_2−n_1}).",
+      "hypotheses": [
+        "This is the case ρ₁, ρ₂ → ∞ of Andrews' Theorem 2.1 in Warnaar (Bailey's lemma with Bailey's conjugate pair). Only the limiting form is needed for the Andrews–Gordon identities.",
+        "All sums are finite, so no convergence is involved."
+      ],
+      "proofSteps": [
+        "Compute Σ_{r ≤ n} α′_r/((q; q)_{n−r}(aq; q)_{n+r}), and insert β_j = Σ_{r ≤ j} α_r/((q; q)_{j−r}(aq; q)_{j+r}) into β′_n. Exchange the two finite sums: β′_n = Σ_{r ≤ n} α_r Σ_{j=r}^{n} a^j q^{j²}/((q; q)_{n−j}(q; q)_{j−r}(aq; q)_{j+r}).",
+        "The inner sum is a^r q^{r²}/((q; q)_{n−r}(aq; q)_{n+r}) by QSeriesPartitionsAndMockModularForms:QM.0/bailey-kernel-identity, which is the defining relation for (α′, β′).",
+        "The k-fold formula follows by induction on k, reindexing the new outer variable as n_{k+1}."
+      ],
+      "acceptance": [
+        "Starting from the unit pair relative to 1 (QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs), one step gives α′_L = (−1)^L q^{L(3L−1)/2}(1 + q^L), β′_L = 1/(q; q)_L: Rogers' pair (Warnaar (1.7))."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-kernel-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer"
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "Theorem 2.1 and (2.2), p. 3",
+          "excerpt": "Again letting ρ1, ρ2 tend to infinity leads to the important special case α′_L = a^L q^{L²} α_L and β′_L = Σ_{r=0}^{L} a^r q^{r²}/(q)_{L−r} β_r, (2.2)",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§2, p. 4",
+          "excerpt": "The iteration of (2.1) or (2.2) leads to what is known as the Bailey chain [4, 46]: (α, β) → (α′, β′) → (α′′, β′′) → · · ·",
+          "match": "The iteration."
+        },
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "§2, (2.5)–(2.6), p. 270",
+          "excerpt": "The important observation is that (2.4) is again an instance of (2.3) with now α′_r = (ρ₁)_r(ρ₂)_r(aq/ρ₁ρ₂)^r α_r/((aq/ρ₁)_r(aq/ρ₂)_r),",
+          "match": "The general form, of which this node is the limit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "The unit Bailey pairs relative to 1 and to q",
+      "kind": "lemma",
+      "statement": "In R⟦q⟧, with β = δ_{·,0} (β₀ = 1, β_n = 0 for n ≥ 1): (1) relative to a = 1, α₀ = 1 and α_n = (−1)^n q^{n(n−1)/2}(1 + q^n) for n ≥ 1; (2) relative to a = q, α_n = (−1)^n q^{n(n−1)/2}(1 − q^{2n+1})/(1 − q) for n ≥ 0. Both (α, β) are Bailey pairs. They are the a = 1 and a = q cases of the pair α_n = (−1)^n q^{n(n−1)/2}(1 − aq^{2n})(a; q)_n/((1 − a)(q; q)_n), β = δ_{·,0}.",
+      "hypotheses": [
+        "The general pair has (a; q)_n/(1 − a) = (aq; q)_{n−1}. That is a polynomial, so the pair specialises to a = 1 without any limit; for a = 1 the factor becomes (1 − q^{2n})(q; q)_{n−1}/(q; q)_n = 1 + q^n."
+      ],
+      "proofSteps": [
+        "Agarwal's identity (Andrews (2.14)): Σ_{j=0}^{M} (1 − aq^{2j})(q^{−n}; q)_j(a; q)_j q^{nj}/((1 − a)(aq^{n+1}; q)_j(q; q)_j) = (aq; q)_M q^{nM}(q^{1−n}; q)_M/((q; q)_M(aq^{n+1}; q)_M). Clear the denominators (products of factors 1 − aq^i and 1 − q^i) and prove the resulting identity in ℤ[a][q, q⁻¹] (mathlib:LaurentPolynomial) by induction on M.",
+        "At M = n ≥ 1 the right side vanishes, because (q^{1−n}; q)_n contains 1 − q⁰ = 0.",
+        "Rewrite (q^{−n}; q)_j q^{nj} = (−1)^j q^{j(j−1)/2}(q; q)_n/(q; q)_{n−j} and (aq^{n+1}; q)_j = (aq; q)_{n+j}/(aq; q)_n. Then Σ_{j ≤ n} α_j/((q; q)_{n−j}(aq; q)_{n+j}) = 0 for n ≥ 1, while the n = 0 relation reads β₀ = α₀ = 1.",
+        "Specialise to a = 1 and a = q; the identities are polynomial after clearing (q; q)- and (aq; q)-factors, so they hold in ℤ[q] and map to R⟦q⟧."
+      ],
+      "acceptance": [
+        "n = 1, a = 1: 1/(1 − q)² − (1 + q)/((1 − q)(1 − q²)) = 0.",
+        "Checked by the author with PARI/GP for n ≤ 8 at a = 1 and a = q, and (2.14) at M = n for general a with n ≤ 6."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:LaurentPolynomial",
+        "mathlib:PowerSeries.map"
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§2, (2.3), p. 3",
+          "excerpt": "the Bailey pairs (1.7) and (1.10) of Rogers can be obtained from the a = 1 and a = q instances of the Bailey pair [4] α_L = (−1)^L q^{L(L−1)/2} (1 − aq^{2L})(a)_L/((1 − a)(q)_L), β_L = δ_{L,0}",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "§2, (2.12)–(2.14), p. 272",
+          "excerpt": "The fact that α_n and β_n satisfy (2.3) is immediate from the following result (with M = n) which is easily proved by mathematical induction on M.",
+          "match": "The proof: Agarwal's identity (2.14) at M = n."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "Andrews' limiting Bailey chain",
+      "kind": "theorem",
+      "statement": "Let (α, β) be a Bailey pair relative to a ∈ R⟦q⟧ and k ≥ 1. Then, in R⟦q⟧ with the coefficientwise topology, (1/(aq; q)_∞) Σ_{n≥0} a^{kn} q^{kn²} α_n = Σ_{n_k ≥ n_{k−1} ≥ ⋯ ≥ n_1 ≥ 0} a^{n_1+⋯+n_k} q^{n_1²+⋯+n_k²} β_{n_1}/((q; q)_{n_k−n_{k−1}}⋯(q; q)_{n_2−n_1}), both sums converging coefficientwise. For k = 1 this is Bailey's (1.6): (1/(aq; q)_∞) Σ a^n q^{n²} α_n = Σ a^n q^{n²} β_n.",
+      "hypotheses": [
+        "Both series converge: the n-th term on the left has order at least kn², and the term indexed by (n_1, …, n_k) on the right has order at least n_k² (mathlib:PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top).",
+        "Andrews states it for |q| < 1. The formal version needs no condition on a, and a = 1 and a = q are the cases used."
+      ],
+      "proofSteps": [
+        "Apply QSeriesPartitionsAndMockModularForms:QM.0/bailey-lemma k times. This gives the Bailey pair (α^{(k)}, β^{(k)}), with α^{(k)}_n = a^{kn}q^{kn²}α_n and the chain formula for β^{(k)}_N.",
+        "Let N → ∞ in β^{(k)}_N = Σ_{r ≤ N} α^{(k)}_r/((q; q)_{N−r}(aq; q)_{N+r}). The coefficient of q^M involves only r with kr² ≤ M. For such r, (q; q)_{N−r} → (q; q)_∞ and (aq; q)_{N+r} → (aq; q)_∞ coefficientwise (QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer, tendsto_qPochhammer), and inverses of units are continuous coefficientwise. So β^{(k)}_N → (1/((q; q)_∞(aq; q)_∞)) Σ_r α^{(k)}_r (mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto).",
+        "In the chain formula for β^{(k)}_N only chains with n_k² ≤ M contribute to q^M, and (q; q)_{N−n_k} → (q; q)_∞. So β^{(k)}_N → (1/(q; q)_∞)·(right side). Compare the two limits and cancel the unit (q; q)_∞."
+      ],
+      "acceptance": [
+        "k = 1 with Rogers' pair relative to 1 gives Σ q^{n²}/(q; q)_n = (1/(q; q)_∞) Σ_{L∈ℤ} (−1)^L q^{L(5L−1)/2}, the first step of Rogers' proof (Warnaar, p. 2)."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-lemma",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto",
+        "mathlib:PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top",
+        "mathlib:PowerSeries.coeff_of_lt_order",
+        "mathlib:PowerSeries.le_order_mul"
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "Theorem 2, (3.1), p. 273",
+          "excerpt": "THEOREM 2. Let α_n and β_n be related by (2.3). Then (1/(aq)_∞) Σ_{n≥0} q^{kn²}a^{kn}α_n = Σ_{n_k≥n_{k−1}≥···≥n_1≥0} a^{n_1+···+n_k} q^{n_1²+n_2²+···+n_k²} β_{n_1}/((q)_{n_k−n_{k−1}}(q)_{n_{k−1}−n_{k−2}}···(q)_{n_2−n_1}).",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "Theorem 2, proof, p. 273",
+          "excerpt": "Proof. Let N, b_1, b_2, ..., b_k, c_1, c_2, ..., c_k all tend to infinity in Theorem 1.",
+          "match": "The source's proof, through the finite chain (Theorem 1); the node takes the limits in the other order (first ρ → ∞, then N → ∞)."
+        },
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§1, (1.6), p. 2",
+          "excerpt": "(1/(aq)_∞) Σ_{L=0}^{∞} a^L q^{L²} α_L = Σ_{L=0}^{∞} a^L q^{L²} β_L. (1.6)",
+          "match": "The case k = 1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-identities",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "The Andrews–Gordon identities for i = 1 and i = k",
+      "kind": "theorem",
+      "statement": "For every commutative ring R, every k ≥ 1 and i ∈ {1, k}, in R⟦q⟧: Σ_{n_1 ≥ n_2 ≥ ⋯ ≥ n_{k−1} ≥ 0} q^{n_1²+⋯+n_{k−1}² + n_i+⋯+n_{k−1}}/((q; q)_{n_1−n_2}⋯(q; q)_{n_{k−2}−n_{k−1}}(q; q)_{n_{k−1}}) = (q^i; q^{2k+1})_∞(q^{2k+1−i}; q^{2k+1})_∞(q^{2k+1}; q^{2k+1})_∞/(q; q)_∞ = ∏_{n ≥ 1, n ≢ 0, ±i (mod 2k+1)} (1 − q^n)^{−1}. The exponent term n_i + ⋯ + n_{k−1} is empty when i = k. For k = 2 these are the two Rogers–Ramanujan identities, and for k = 1 both sides are 1.",
+      "hypotheses": [
+        "Andrews' identities hold for every 1 ≤ i ≤ k (Andrews 1974). The Bailey chain gives exactly i = 1 and i = k. The other i need the Bailey lattice (Warnaar §3), which is not planned here: no consumer needs them, and the HabiroNahmSeries request is for i = k.",
+        "The sum converges coefficientwise: the term indexed by (n_1, …, n_{k−1}) has order at least n_1²."
+      ],
+      "proofSteps": [
+        "Case i = k: apply QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit with a = 1 to the unit pair of QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs. Since β = δ, only chains with n_1 = 0 survive. Renaming the remaining k − 1 indices in decreasing order gives the left side, with (q; q)_{n_2 − n_1} = (q; q)_{n_2}.",
+        "The other side is (1/(q; q)_∞) Σ_{n≥0} q^{kn²} α_n = (1/(q; q)_∞) Σ_{r∈ℤ} (−1)^r q^{kr² + r(r−1)/2}, because α_n = (−1)^n q^{n(n−1)/2}(1 + q^n) splits into the terms r = n and r = −n. By QSeriesPartitionsAndMockModularForms:QM.0/universal-jacobi-triple-product with α = −q^k and β = −q^{k+1}, Σ_r (−1)^r q^{((2k+1)r² − r)/2} = (q^k; q^{2k+1})_∞(q^{k+1}; q^{2k+1})_∞(q^{2k+1}; q^{2k+1})_∞.",
+        "Case i = 1: take a = q and its unit pair. Then 1/(q²; q)_∞ = (1 − q)/(q; q)_∞ cancels the 1/(1 − q) in α_n. Combining (1 − q^{2n+1}) into a bilateral sum gives Σ_{r∈ℤ} (−1)^r q^{kr²+kr+r(r−1)/2} = (q; q^{2k+1})_∞(q^{2k}; q^{2k+1})_∞(q^{2k+1}; q^{2k+1})_∞ by the same triple product with α = −q, β = −q^{2k}. The exponent a^{n_1+⋯} = q^{n_2+⋯+n_k} after dropping n_1 = 0 is the linear term n_1 + ⋯ + n_{k−1} in the renamed indices.",
+        "The product form: multisect (q; q)_∞ modulo 2k + 1 (QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer, qPochhammerInf_X_X_eq_prod) and cancel the three classes 0, ±i."
+      ],
+      "acceptance": [
+        "k = 2, i = 2 and i = 1: QSeriesPartitionsAndMockModularForms:QM.0/rogers-ramanujan-first and QM.0/rogers-ramanujan-second.",
+        "k = 3, i = 3: Σ q^{n_1² + n_2²}/((q; q)_{n_1−n_2}(q; q)_{n_2}) = ∏_{n ≢ 0, ±3 (mod 7)} (1 − q^n)^{−1}; the coefficients agree through q⁵⁹ (checked by the author with PARI/GP, which also checked k = 2, 3, 4 with i = 1 and i = k)."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit",
+        "QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs",
+        "QSeriesPartitionsAndMockModularForms:QM.0/universal-jacobi-triple-product",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:PowerSeries.WithPiTopology.hasSum_iff_hasSum_coeff"
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§2, (2.5), p. 4",
+          "excerpt": "Using Jacobi’s triple product identity finally yields Σ q^{n_1²+···+n_{k−1}²+n_i+···+n_{k−1}}/((q)_{n_1−n_2}...(q)_{n_{k−2}−n_{k−1}}(q)_{n_{k−1}}) = (q^i, q^{2k+1−i}, q^{2k+1}; q^{2k+1})_∞/(q)_∞, (2.5) where i = 1 or i = k.",
+          "match": "The statement and its scope (i = 1 or i = k)."
+        },
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§2, p. 4",
+          "excerpt": "For k = 2 these are the Rogers–Ramanujan identities (1.8) and (1.9), whereas for k ≥ 3 they are Andrews’ analytic counterpart of Gordon’s partition theorem [3].",
+          "match": "The k = 2 compatibility and the attribution."
+        },
+        {
+          "sourceId": "andrews-bailey-chain-1984",
+          "locator": "§1, (1.3), p. 267",
+          "excerpt": "Σ_{n_{k−1}≥···≥n_1≥0} q^{n_1²+n_2²+···+n_{k−1}²}/((q)_{n_{k−1}−n_{k−2}}(q)_{n_{k−2}−n_{k−3}}···(q)_{n_1}) = ∏_{n=1, n≢0,±k(mod 2k+1)}^{∞} (1 − q^n)^{−1},",
+          "match": "The case i = k in Andrews' indexing."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-nahm-form",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.0",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.0"
+      ],
+      "title": "The Andrews–Gordon identities as Nahm sums",
+      "kind": "lemma",
+      "statement": "For r ≥ 1 let A_r = (2 min(i, j))_{1≤i,j≤r}, a symmetric positive definite integral matrix, and let B_r = (1, 2, …, r). Then in R⟦q⟧: Σ_{m ∈ ℕ^r} q^{½ mᵀA_r m}/((q; q)_{m_1}⋯(q; q)_{m_r}) = ∏_{n ≢ 0, ±(r+1) (mod 2r+3)} (1 − q^n)^{−1}, and Σ_{m ∈ ℕ^r} q^{½ mᵀA_r m + B_r·m}/((q; q)_{m_1}⋯(q; q)_{m_r}) = ∏_{n ≢ 0, ±1 (mod 2r+3)} (1 − q^n)^{−1}. These are the Nahm sums f_{A_r,0,0} and f_{A_r,B_r,0} of CGZ §7.2, and the first is the identity CGZ (45) quotes.",
+      "hypotheses": [
+        "½ mᵀA_r m = Σ_{i,j} min(i, j) m_i m_j is an integer. The change of variables n_j = m_j + m_{j+1} + ⋯ + m_r is a bijection between ℕ^r and the chains n_1 ≥ ⋯ ≥ n_r ≥ 0."
+      ],
+      "proofSteps": [
+        "Apply QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-identities with k = r + 1. Put n_j = m_j + ⋯ + m_r, so that m_j = n_j − n_{j+1} and m_r = n_r. Then the denominators become ∏_j (q; q)_{m_j} and Σ_j n_j² = Σ_{i,l} min(i, l) m_i m_l = ½ mᵀA_r m.",
+        "For i = 1 the linear term is Σ_j n_j = Σ_l l·m_l = B_r·m. For i = k = r + 1 there is no linear term.",
+        "The reindexing is a bijection of index sets under which the coefficientwise sums agree (mathlib:PowerSeries.WithPiTopology.hasSum_iff_hasSum_coeff; Equiv.hasSum_iff on each coefficient)."
+      ],
+      "acceptance": [
+        "r = 1: Σ q^{m²}/(q; q)_m and Σ q^{m²+m}/(q; q)_m are the Rogers–Ramanujan series.",
+        "r = 2: Σ q^{m_1² + 2m_1m_2 + 2m_2²}/((q; q)_{m_1}(q; q)_{m_2}) = ∏_{n ≢ 0, ±3 (mod 7)} (1 − q^n)^{−1} (checked by the author through q⁵⁹)."
+      ],
+      "uses": [
+        {
+          "where": "HabiroNahmSeries:HB.4/andrews-gordon-radial-constant",
+          "how": "part (a), f_n(q) = ∏_{k ≢ 0, ±(n−1)/2 (mod n)} 1/(1 − q^k) for A_{(n−3)/2}, which HabiroNahmSeries requested from QM.0"
+        },
+        {
+          "where": "CGZ §7.2, (45)",
+          "how": "the Andrews–Gordon identity used in the proof of CGZ Theorem 7.4"
+        }
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-identities",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "mathlib:PowerSeries.WithPiTopology.hasSum_iff_hasSum_coeff"
+      ],
+      "library": {
+        "module": "TauCeti/Combinatorics/QSeries/Bailey",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "warnaar-bailey-2009",
+          "locator": "§2, (2.5), p. 4",
+          "excerpt": "Σ q^{n_1²+···+n_{k−1}²+n_i+···+n_{k−1}}/((q)_{n_1−n_2}...(q)_{n_{k−2}−n_{k−1}}(q)_{n_{k−1}}) = (q^i, q^{2k+1−i}, q^{2k+1}; q^{2k+1})_∞/(q)_∞, (2.5)",
+          "match": "The identity before the change of variables m_j = n_j − n_{j+1}."
         }
       ],
       "implementationStatus": "unchecked"
@@ -32387,7 +32852,7 @@
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.0",
       "status": "source_decomposed",
-      "note": "Built in the pinned libraries and cited as baseline: partitions of n as a finite type with the odd, distinct, restricted and count-restricted families; the partition generating function of an arbitrary character as an x-adic product (Nat.Partition.genFun, hasProd_genFun) with the restricted and count-restricted specialisations and Glaisher's and Euler's partition theorems; coefficientwise finiteness of products whose factors have orders tending to infinity; the substitution, rescaling, expansion and evaluation maps of power series with their continuity; Euler's pentagonal number theorem formally (PowerSeries.WithPiTopology.hasProd_one_sub_X_pow, pentagonalSeries) and analytically (eulerFunction_eq_tprod); conjugation of partitions (Tau Ceti). The interface node QM.0/euler-pentagonal-number-theorem is therefore not created: consumers cite mathlib:PowerSeries.WithPiTopology.hasProd_one_sub_X_pow (with mathlib:PowerSeries.pentagonalSeries and its coefficient lemmas). Planned here from public sources read in full (Stanley EC1 §§1.1, 1.3, 1.7, 1.8 and Exercises 1.82, 1.88, 1.91, 1.100 with solutions; Gasper's minicourse §§1-2; Andrews 1965; Ramanujan 1919; Alladi–Berkovich §1; Cigler §1; Zhu; Rosengren §§1-2): the partition function; finite and infinite q-Pochhammer symbols with coefficientwise finiteness, multisection, functoriality and evaluation in the unit disc; q-integers, q-factorials and Gaussian polynomials with both q-Pascal rules; the specialisation lemmas (coefficient maps, substitution, evaluation); the q-binomial theorem, q-Vandermonde, the limits of Gaussian polynomials, Euler's two identities and Cauchy's q-binomial theorem; Euler's generating function and recurrence for p(n), partitions with at most k parts, partitions in a box and the odd–distinct product identity; MacMahon's finite triple product, the universal (two-series) triple product, the requested Jacobi triple product in R⟦x⟧ for a unit a (Laurent-polynomial coefficients for R = ℤ[a, a⁻¹]) and its four requested specialisations plus Gauss's triangular-number identity; the Frobenius congruence, the congruence criterion, the two dissection lemmas and Ramanujan's congruences modulo 5, 7 and 35; Cigler's identities, Bressoud's polynomial identities and the Rogers–Ramanujan identities in series and partition form; and the evaluation of x-adic products inside a disc of absolute convergence, which is where the acceptance distinction lives (no value at |q| = 1 without a separate argument). Not planned in QM.0, deliberately: p(11n + 6) ≡ 0 (mod 11) and the prime-power congruences (mod 25, 49), which Ramanujan 1919 states but only sketches (§4) and for which no public formal proof was retrievable (Winquist 1969, J. Combin. Theory 6, and Berndt 2007, IJNT 3, are behind publisher walls); they belong with QM.5's source-scoped congruences. Heine's 2φ1 transformations and Ramanujan's 1ψ1 sum (Gasper §§2.1, 3) are analytic in the source and consumed by no QM stage; Stanley's Durfee-square and self-conjugate identities (Proposition 1.8.4, 1.8.6(b)) are consumed by no node here."
+      "note": "Built in the pinned libraries and cited as baseline: partitions of n as a finite type with the odd, distinct, restricted and count-restricted families; the partition generating function of an arbitrary character as an x-adic product (Nat.Partition.genFun, hasProd_genFun) with the restricted and count-restricted specialisations and Glaisher's and Euler's partition theorems; coefficientwise finiteness of products whose factors have orders tending to infinity; the substitution, rescaling, expansion and evaluation maps of power series with their continuity; Euler's pentagonal number theorem formally (PowerSeries.WithPiTopology.hasProd_one_sub_X_pow, pentagonalSeries) and analytically (eulerFunction_eq_tprod); conjugation of partitions (Tau Ceti). The interface node QM.0/euler-pentagonal-number-theorem is therefore not created: consumers cite mathlib:PowerSeries.WithPiTopology.hasProd_one_sub_X_pow (with mathlib:PowerSeries.pentagonalSeries and its coefficient lemmas). Planned here from public sources read in full (Stanley EC1 §§1.1, 1.3, 1.7, 1.8 and Exercises 1.82, 1.88, 1.91, 1.100 with solutions; Gasper's minicourse §§1-2; Andrews 1965; Ramanujan 1919; Alladi–Berkovich §1; Cigler §1; Zhu; Rosengren §§1-2): the partition function; finite and infinite q-Pochhammer symbols with coefficientwise finiteness, multisection, functoriality and evaluation in the unit disc; q-integers, q-factorials and Gaussian polynomials with both q-Pascal rules; the specialisation lemmas (coefficient maps, substitution, evaluation); the q-binomial theorem, q-Vandermonde, the limits of Gaussian polynomials, Euler's two identities and Cauchy's q-binomial theorem; Euler's generating function and recurrence for p(n), partitions with at most k parts, partitions in a box and the odd–distinct product identity; MacMahon's finite triple product, the universal (two-series) triple product, the requested Jacobi triple product in R⟦x⟧ for a unit a (Laurent-polynomial coefficients for R = ℤ[a, a⁻¹]) and its four requested specialisations plus Gauss's triangular-number identity; the Frobenius congruence, the congruence criterion, the two dissection lemmas and Ramanujan's congruences modulo 5, 7 and 35; Cigler's identities, Bressoud's polynomial identities and the Rogers–Ramanujan identities in series and partition form; and the evaluation of x-adic products inside a disc of absolute convergence, which is where the acceptance distinction lives (no value at |q| = 1 without a separate argument). Not planned in QM.0, deliberately: p(11n + 6) ≡ 0 (mod 11) and the prime-power congruences (mod 25, 49), which Ramanujan 1919 states but only sketches (§4) and for which no public formal proof was retrievable (Winquist 1969, J. Combin. Theory 6, and Berndt 2007, IJNT 3, are behind publisher walls); they belong with QM.5's source-scoped congruences. Heine's 2φ1 transformations and Ramanujan's 1ψ1 sum (Gasper §§2.1, 3) are analytic in the source and consumed by no QM stage; Stanley's Durfee-square and self-conjugate identities (Proposition 1.8.4, 1.8.6(b)) are consumed by no node here. Continuation (Bailey chain): Warnaar's survey §§1–2 and Andrews 1984 §§1–3 were read, and the Andrews–Gordon identities for i = 1 and i = k are decomposed: Bailey pairs, the kernel identity, the limiting Bailey lemma and the chain, the unit pairs relative to 1 and q (Agarwal's identity), Andrews' limiting chain (Theorem 2), the identities (2.5), and their form as the Nahm sums of A_r = (2 min(i, j)), which HabiroNahmSeries requests. Andrews' identities for 1 < i < k need the Bailey lattice (Warnaar §3); no consumer needs them."
     },
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.1",
