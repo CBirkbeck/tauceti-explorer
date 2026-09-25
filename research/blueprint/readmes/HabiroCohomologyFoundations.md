@@ -1,0 +1,5981 @@
+# q-Hodge filtrations and Habiro cohomology
+
+*Roadmap `HabiroCohomologyFoundations`: the complete blueprint, assembled from its two reviewed parts.*
+
+This document is definitive. Its machine form is the two part packets, `research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json` (stages HQ.1–HQ.7) and `research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json` (stage HQ.8), and it is generated from them as corrected by their independent reviews (REV-HabiroCohomologyFoundations--HQ.1 and REV-HabiroCohomologyFoundations--HQ.8), so that the two agree. The suggested Lean file `research/blueprint/suggested/HabiroCohomologyFoundations.lean` is a naming proposal, not an implementation; implementationStatus is `unchecked` for every node. Pins: Mathlib `082e2d3`, Tau Ceti `f790474`.
+
+## Purpose and scope
+
+This roadmap owns the cohomology of the standalone Habiro family: the reusable algebraic foundations that extend the relative cyclotomic rings of HabiroRings to cohomology. Its target is Wagner's q-Hodge and Habiro descent theory, with the source's hypotheses, including the number-field comparison and the trace-theoretic instances.
+
+- **HQ.1** builds the global q-de Rham complex q-Ω_{S/A} of a smooth algebra over a Λ-ring. The local q-crystalline theory is imported from PrismaticCohomology PR.6; the global object is glued from its p-completions and rational de Rham data along a denominator bound uniform in the prime (Wagner, Appendix A).
+- **HQ.2** passes to animated inputs. It defines the derived q-de Rham complex q-dR_{R/A}, the filtered coefficient ring (q−1)^⋆A[q] and its derived quotients, the base change and rational comparisons, and the décalage applications.
+- **HQ.3** defines q-Hodge filtrations (Definition 3.2) and the q-Hodge complex q-Hdg. It proves Habiro descent: q-Hdg factors symmetric monoidally through the Habiro-complete category of HabiroRings HR.2. Modulo q^m − 1 it carries a filtration with q-de Rham–Witt graded pieces (Theorem 3.11). The twisted and framed versions are also here.
+- **HQ.4** builds the positive-degree q-de Rham–Witt complexes q-W_mΩ, as initial q-V-systems with Frobenius, Verschiebung and ghost maps, but without restriction maps. It also builds their étale base change, the twisted q-de Rham complexes glued from p-adic Frobenii, the Nygaard filtration and the fracture squares.
+- **HQ.5** proves the existence theorems: a canonical q-Hodge filtration on smooth algebras with the primes up to the relative dimension inverted (Theorem 4.11), with its partial-operad multiplicativity, and the quasi-regular class with condition (R).
+- **HQ.5-trace** imports the trace-theoretic existence theorem over connective spherical lifts from RefinedTraceMethods RT.4.
+- **HQ.6** states the algebraic-against-analytic comparison with Scholze's analytic Habiro stack as a named problem, with its domain and coefficient change.
+- **HQ.7** holds the acceptance suite.
+- **HQ.8** is the comparison atlas. It builds the squares against prismatic, q-crystalline, A_inf, décalage, Nygaard and crystalline cohomology and the specialisation at q = 1, each on the intersection of the hypothesis sets of its imported maps, together with the loss ledger and the staging rule that keeps the trace comparison from defining the filtration it compares.
+
+The blueprint has 135 nodes, 118 in part one and 17 in part two. Both parts are `partial`: every gap is recorded below with the nodes that need it. A canonical q-Hodge filtration for every ring, and an unconditional identification with Scholze's analytic Habiro stack, are not asserted.
+
+## Boundaries
+
+The roadmap imports everything that is not q-specific and plans nothing that another roadmap owns. The suppliers and the consumers below are those of the atlas stages and of the requests in the two packets; the requests section at the end lists each import with the nodes that need it.
+
+**Suppliers.**
+- **HabiroRings.** HR.1–HR.5: Λ-rings, perfectly covered bases, Habiro-complete modules, cyclotomic descent, q-Witt rings in degree zero, and the relative Habiro ring. HQ.3 requires HR.2, and HQ.4 requires HR.4.
+- **HabiroCyclotomicCompletions.** HC.1 and HC.3: the classical Habiro ring and its Taylor maps.
+- **PrismaticCohomology.** PR.0–PR.3 and PR.6: δ-rings, prisms, the q-de Rham prism (ℤ_p⟦q−1⟧, [p]_q), and the local q-crystalline site with its framed complex and p-complete comparison.
+- **DerivedDeRhamCohomology.** DD.0–DD.4 (HQ.1 requires DD.2, HQ.2 requires DD.6): derived de Rham cohomology, the Hodge filtration and derived completion.
+- **CrystallineCohomology.** CR.0, CR.2 and CR.4: ordinary de Rham–Witt, with its genuine restriction maps, and the crystalline comparison.
+- **AInfCohomology.** AI.1 and AI.3: the décalage functor Lη and the A_inf objects.
+- **EnhancedDerivedSheaves.** E0, E1, E4, E5, E5:abstract and E5:presentability: ∞-categories, derived categories, filtered objects, animation and symmetric monoidal structures.
+- **CohomologyComparisons.** CP.1 and CP.6: the classical comparisons, required by HQ.8.
+- **RefinedTraceMethods.** RT.4:q-Hodge and RT.4:Habiro-comparison for HQ.5-trace; RT.6 for the syntomic side of HQ.8, under the staging rule.
+- **AnalyticHabiroStack** HS.3, for the analytic side of HQ.6, and **PerfectoidQuotients** Q3.
+
+**Consumers.**
+- **HabiroRings HR.6** requires HQ.3–HQ.5 and owns the degree-zero identification of Habiro cohomology of an étale algebra with the relative Habiro ring (Wagner, Corollary 3.13). This roadmap exports the completed cohomology object to it and does not state that corollary itself.
+- **RefinedTraceMethods RT.4:q-Hodge** requires HQ.3.
+
+HabiroRings HR.6's later cohomology interface is not a prerequisite of any HQ layer.
+
+## Conventions
+
+The notation follows Wagner's. The two parts used variant spellings (`qdR`, `qΩ`, `qHdg`, `qW_m`, "decalage"). In this document, the prose of every node is written with the spellings below; names of Lean declarations, code spans and literal source excerpts keep their own form.
+
+- **q-integers.** `[n]_q = 1 + q + ⋯ + q^{n−1}`. The q-de Rham prism is (ℤ_p⟦q−1⟧, [p]_q); its ideal is generated by `[p]_q = Φ_p(q)`, not by q − 1.
+- **The complexes.**
+  - q-Ω_{S/A} is the global q-de Rham complex of a smooth A-algebra S (HQ.1).
+  - q-dR_{R/A} is the derived q-de Rham complex of an animated A-algebra (HQ.2).
+  - q-Hdg_{R/A} is the q-Hodge complex of a q-Hodge-filtered input (HQ.3).
+  - q-W_m(R/A) is the relative q-Witt ring (HabiroRings HR.4).
+  - q-W_mΩ_{R/A} is the m-truncated q-de Rham–Witt complex (HQ.4).
+  - dR and Ω* are the derived and ordinary de Rham complexes.
+- **Filtrations.**
+  - A filtered object is descending and constant in degrees at most zero.
+  - The filtered coefficient ring is (q−1)^⋆A[q], presented as A[β, t]/(βt − (q−1)) with β in degree 1 and t in degree −1.
+  - fil^⋆M/(q^m − 1) always means the base change with q^m − 1 in filtration degree one, not the degreewise quotient.
+- **Completions.**
+  - Completions are derived.
+  - Local objects at a prime p, for instance q-Ω_{Ŝ_p/Â_p}, are written as functors of the global input, which is p-completed first.
+  - The Habiro-complete category and the Habiro ring are those of HabiroRings HR.2 and HabiroCyclotomicCompletions HC.1.
+- **The two bases of the atlas (HQ.8).**
+  - The q-de Rham prism over ℤ_p⟦q−1⟧.
+  - The perfectoid base A_inf = W(O^♭), with q = [ε] and θ([ε]) = 1.
+  - Base change from the first to the second is ℤ_p⟦q−1⟧ → A_inf, q ↦ [ε].
+- **Décalage.** Lη_{(q−1)} is the décalage functor of AInfCohomology.
+- **Numbering.** Statement numbers are those of arXiv:2510.04782v2 and arXiv:2410.23078v5.
+- **Identifiers.** Node ids are `HabiroCohomologyFoundations:<layer>/<slug>`; below they are written without the roadmap prefix.
+
+## Sources
+
+Every statement below is taken from these sources, at the versions recorded; locators name the statement and, where the packets give it, the page. Excerpts are quoted literally, from the LaTeX source or the PDF text.
+
+- **q-Hodge complexes over the Habiro ring**, Ferdinand Wagner. arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers. <https://arxiv.org/abs/2510.04782> (source id `wagner-q-hodge-habiro`).
+- **q-Witt vectors and q-Hodge complexes**, Ferdinand Wagner. arXiv:2410.23078v5, LaTeX source, with the same per-section numbering convention as the companion paper. <https://arxiv.org/abs/2410.23078> (source id `wagner-q-witt`).
+- **q-de Rham cohomology and topological Hochschild homology over ku**, Ferdinand Wagner. arXiv:2510.06057v1, LaTeX source, with the same per-section numbering convention as the companion papers. <https://arxiv.org/abs/2510.06057> (source id `wagner-ku-q-de-rham`).
+- **q-Hodge complexes and refined TC^−**, Samuel Meyer and Ferdinand Wagner. arXiv:2410.23115v4 (8 October 2025), PDF; section 3.2 read (paragraph 3.15, Lemmas 3.16 and 3.17); v3 consulted for numbering <https://arxiv.org/abs/2410.23115> (source id `meyer-wagner-q-hodge-refined-tc`).
+- **Prisms and prismatic cohomology**, Bhargav Bhatt and Peter Scholze. arXiv:1905.08229v4, LaTeX source. Theorem-like environments share one counter per section, so the numbering is section.counter; this is the numbering the main source cites. <https://arxiv.org/abs/1905.08229> (source id `bhatt-scholze-prisms`).
+- **Integral p-adic Hodge theory**, Bhargav Bhatt, Matthew Morrow and Peter Scholze. arXiv:1602.03148v3, LaTeX source, with the same per-section numbering convention. <https://arxiv.org/abs/1602.03148> (source id `bms-integral-p-adic-hodge`).
+- **Topological Hochschild homology and integral p-adic Hodge theory**, Bhargav Bhatt, Matthew Morrow and Peter Scholze. arXiv:1802.03261v2, LaTeX source, with the same per-section numbering convention. <https://arxiv.org/abs/1802.03261> (source id `bms-thh-integral-p-adic-hodge`).
+- **Canonical q-deformations in arithmetic geometry**, Peter Scholze. arXiv:1606.01796v1, LaTeX source, with the same per-section numbering convention. <https://arxiv.org/abs/1606.01796> (source id `scholze-canonical-q-deformations`).
+
+The files read, with their SHA-256:
+
+- preprint: https://arxiv.org/abs/2510.04782v2, SHA-256 `9c3384558718…`
+- preprint: https://arxiv.org/abs/2410.23078v5, SHA-256 `800822a7f26d…`
+- preprint: https://arxiv.org/abs/2510.06057v1, SHA-256 `9a23a2b000b8…`
+- preprint: https://arxiv.org/abs/2410.23115v4, SHA-256 `4479788e04da…`
+- preprint: https://arxiv.org/abs/1905.08229v4, SHA-256 `ff3378f06a25…`
+- preprint: https://arxiv.org/abs/1606.01796v1, SHA-256 `3facd5b95532…`
+- preprint: https://arxiv.org/abs/1602.03148v3, SHA-256 `ff989b40b086…`
+- preprint: https://arxiv.org/abs/1802.03261v2, SHA-256 `30968bad2ccc…`
+
+## What the pinned libraries have
+
+Neither library has any of this roadmap's objects: no derived q-de Rham complex, no q-Hodge filtration, no Habiro cohomology and no q-de Rham–Witt complex. The nodes build on these pinned declarations, each read at its module:
+
+- `mathlib:Algebra.Etale` (Mathlib/RingTheory/Etale/Basic.lean): Etale algebras, the input class for the perfect-regular presentations and for the framings this roadmap uses.
+- `mathlib:Algebra.Smooth` (Mathlib/RingTheory/Smooth/Basic.lean): Smooth algebras; the class over which the existence theorem for q-Hodge filtrations is stated.
+- `mathlib:CategoryTheory.FilteredObject` (Mathlib/CategoryTheory/Filtration/Basic.lean): An object with a filtration indexed by a category I, given as a functor I ⥤ MonoOver X (every step a subobject), with filtration-compatible morphisms and the class IsStrictHom of strict morphisms. Filtrations by monomorphisms only; the underived ancestor of, and not a substitute for, filtered objects of a stable ∞-category, whose transition maps are arbitrary. Not a prerequisite of any node.
+- `mathlib:CategoryTheory.Tor` (Mathlib/CategoryTheory/Monoidal/Tor.lean): Left-derived functors of the tensor product in a monoidal abelian category; the nearest thing to the derived tensor product this roadmap separates from the ordinary one.
+- `mathlib:Condensed` (Mathlib/Condensed/Basic.lean): Condensed objects. Neither library has solid condensed spectra, analytic rings or analytic stacks, so the analytic side of the comparison layer cannot yet be stated in Lean.
+- `mathlib:Ideal.Filtration` (Mathlib/RingTheory/Filtration.lean): An I-filtration of a module: a decreasing ℕ-indexed sequence of submodules N i with I • N i ≤ N (i+1), not required to start at the whole module, with stability and the Artin–Rees lemma. It is an underived, submodule-valued ancestor of the filtered objects of HQ.2. It does not provide filtrations in a stable ∞-category or their gradeds and completions, and is not a prerequisite of any node.
+- `mathlib:KaehlerDifferential` (Mathlib/RingTheory/Kaehler/Basic.lean): The module of Kaehler differentials. Neither library has the de Rham complex as exterior powers with a differential, nor the derived de Rham complex, nor a Hodge filtration.
+- `mathlib:Polynomial.comp` (Mathlib/Algebra/Polynomial/Eval/Defs.lean): Composition of polynomials, by which the substitution of q times the variable is expressed in the suggested Lean file.
+- `mathlib:Polynomial.cyclotomic_prime` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): For a prime p, the p-th cyclotomic polynomial is the geometric sum of the first p powers of the variable; this identifies [p]_q with the p-th cyclotomic polynomial, the generator of the q-de Rham prism ideal.
+- `mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): For a prime p and n ≥ 0, cyclotomic (p^(n+1)) R = ∑_{i<p} (X^(p^n))^i: the cyclotomic polynomial of order p^(n+1) is [p] evaluated at q^(p^n). It is not the q-integer [p^(n+1)]_q, which is the product of the cyclotomic polynomials of orders p, …, p^(n+1) (Polynomial.prod_cyclotomic_eq_geom_sum).
+- `mathlib:Polynomial.derivative_X_pow` (Mathlib/Algebra/Polynomial/Derivative.lean): The derivative of a power of the variable; the specialisation at the parameter value one of the q-difference operator on powers.
+- `mathlib:Polynomial.eval_geom_sum` (Mathlib/Algebra/Polynomial/Eval/Defs.lean): Evaluation of a geometric sum of polynomials; with the evaluation at one it gives that the q-integer of n specialises to n.
+- `mathlib:Polynomial.eval_one_cyclotomic_prime` (Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean): The value at one of the p-th cyclotomic polynomial is p; this is the specialisation of the prism ideal generator at the parameter value one.
+- `mathlib:Polynomial.prod_cyclotomic_eq_geom_sum` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): For 0 < n, ∏ over the divisors i ≠ 1 of n of cyclotomic i R equals ∑_{i<n} X^i = [n]_q (CommRing R). In particular [p^k]_q is the product of the cyclotomic polynomials of orders p, …, p^k; this is the factorisation behind the q-integers [p^α]_q used in the twisted complexes.
+- `mathlib:RingTheory.Sequence.IsRegular` (Mathlib/RingTheory/Regular/RegularSequence.lean): Regular sequences on a module: weakly regular with M/(rs)M ≠ 0. A near miss for the Koszul-regular sequences of the quasi-regular inputs (the file's own TODO lists Koszul-regular sequences as missing); cited only for the compatibility that a regular sequence is Koszul-regular.
+- `mathlib:TruncatedWittVector` (Mathlib/RingTheory/WittVector/Truncated.lean): Truncated p-typical Witt vectors, which carry genuine restriction maps; the contrast with the q-Witt rings, which do not.
+- `mathlib:WittVector.frobenius` (Mathlib/RingTheory/WittVector/Frobenius.lean): The Frobenius on p-typical Witt vectors in degree zero; the classical analogue of the Frobenius of a q-FV-system, which has no restriction to accompany it.
+- `mathlib:WittVector.frobenius_verschiebung` (Mathlib/RingTheory/WittVector/Identities.lean): For p-typical Witt vectors over a commutative ring with p prime, frobenius (verschiebung x) = x * p; the classical analogue of the relation F o V = m/d of a q-FV-system, used by its compatibility test.
+- `mathlib:WittVector.ghostMap` (Mathlib/RingTheory/WittVector/Basic.lean): The ghost map of p-typical Witt vectors, the classical analogue of the ghost maps of this roadmap.
+- `mathlib:WittVector.ghostMap.bijective_of_invertible` (Mathlib/RingTheory/WittVector/Basic.lean): Bijectivity of the ghost map when p is invertible; the classical analogue of the statement that the ghost maps become isomorphisms after inverting the index, and the reason the integral statements need torsion hypotheses.
+- `mathlib:WittVector.verschiebung` (Mathlib/RingTheory/WittVector/Verschiebung.lean): The Verschiebung on p-typical Witt vectors in degree zero.
+- `mathlib:WittVector.verschiebung_frobenius` (Mathlib/RingTheory/WittVector/Identities.lean): verschiebung (frobenius x) = x * p, only under [CharP R p]; the contrast with the q-relation V o F = [m/d]_{q^d}, which holds without a characteristic hypothesis.
+- `mathlib:WittVector.verschiebung_mul_frobenius` (Mathlib/RingTheory/WittVector/Identities.lean): The projection formula verschiebung (x * frobenius y) = verschiebung x * y for p-typical Witt vectors; the classical analogue of the q-FV projection formula.
+- `mathlib:geom_sum_mul` (Mathlib/Algebra/Ring/GeomSum.lean): The identity that the geometric sum of the first n powers of x, multiplied by x-1, is x^n-1, in any ring. This is the q-integer identity that [n]_q times (q-1) is q^n-1.
+- `mathlib:IsCyclotomicExtension.Rat.associated_zeta_sub_one_pow_prime` (Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean): For p prime and ζ a primitive p-th root of unity in a field K, (ζ − 1)^{p−1} is associated to p in the ring of integers of K. The node needs it in ℤ_p[ζ_p] = ℤ_p⟦q−1⟧/[p]_q and reduces to it by base change.
+- `mathlib:Polynomial.cyclotomic_prime_mul_X_sub_one` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): cyclotomic p R * (X − 1) = X^p − 1 for [Fact p.Prime]: the Frobenius carries q − 1 into the prism ideal.
+- `mathlib:Polynomial.cyclotomic_three` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): cyclotomic 3 R = X^2 + X + 1: the case p = 3 of the unit relation, (q − 1)^2 + 3q = [3]_q.
+- `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one` (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean): The product of the cyclotomic polynomials over the divisors of n is the n-th power of the variable minus one; the identity behind the factorisation of the elements the Habiro completion is taken at.
+- `mathlib:PreTilt` (Mathlib/RingTheory/Perfection.lean): The tilt O♭ = Perfection (ModP O p) p of a commutative ring O, a commutative ring of characteristic p when p is prime and not a unit in O; W(PreTilt O p) is A_inf(O). Cited by the bases lemma. Neither library has the δ-structure of A_inf as a prism or the complex AΩ.
+- `mathlib:WittVector.fontaineTheta` (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean): Fontaine's θ : W(O♭) →+* O for O p-adically complete with p not a unit.
+- `mathlib:WittVector.fontaineTheta_teichmuller` (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean): θ([x]) = untilt(x) for x ∈ O♭; for ε = (1, ζ_p, …) this is 1, so q − 1 ∈ ker θ.
+- `mathlib:WittVector.teichmuller` (Mathlib/RingTheory/WittVector/Teichmuller.lean): The Teichmüller map R →* W(R); applied to ε ∈ O♭ it gives q = [ε] ∈ A_inf.
+
+## Layer overview
+
+| Layer | Title | Nodes | Planets | Coverage |
+|---|---|---|---|---|
+| HQ.1 | q-differentials and coordinate comparisons | 18 | 5 | partial |
+| HQ.2 | Animated inputs and derived q-de Rham | 11 | 3 | source_decomposed |
+| HQ.3 | q-Hodge filtrations and modification | 24 | 6 | partial |
+| HQ.4 | q-Witt and cyclotomic descent | 30 | 6 | source_decomposed |
+| HQ.5 | Existence classes and number fields | 25 | 6 | source_decomposed |
+| HQ.5-trace | Trace-theoretic existence | 5 | 2 | source_decomposed |
+| HQ.6 | Algebraic and analytic boundaries | 3 | 1 | source_decomposed |
+| HQ.7 | Acceptance tests and Lean boundary | 2 | 0 | source_decomposed |
+| HQ.8 | Crystalline, A_inf and prismatic comparison atlas | 17 | 6 | partial |
+
+Each layer section below opens with the layer's coverage record, then states every node: its statement and hypotheses, the proof outline, for definitions and constructions the API and the unit tests, its acceptance checks, its dependencies and its sources.
+
+## HQ.1 — q-differentials and coordinate comparisons
+
+*Coverage: partial.* 18 nodes, 10 of them added by the independent review. The division of labour with the prismatic roadmap, which owns the local q-crystalline site, the framed complex and the p-complete comparison over the q-de Rham prism whose ideal is generated by the p-th q-integer; then the appendix's gluing in full: the coordinate-free rationalised q-crystalline comparison, the two denominator estimates for the delta-map, the q-divided power and the iterated ordinary divided power, the bound uniform in the prime that makes the product over all primes converge, the framed comparison with the logarithmic formula for the partial q-derivative and its compatibility square, the global complex as a pullback, its four properties with base change, and its lift to a derived commutative algebra through cosimplicial divided-power realisations.
+
+- Remaining: Étale (or Zariski) descent of the global q-de Rham complex on smooth A-algebras. The stage text asks for it ('prove descent including the cocycle identities'); the source does not state it. See the gap 'Étale descent for the global q-de Rham complex'.
+
+### The local q-crystalline calculation is imported; only the global gluing is owned
+
+`HQ.1/what-this-layer-imports-and-what-it-owns` · comparison
+
+The local theory of the q-de Rham complex at a single prime is not constructed here. Fix a prime p and a Λ-ring A that is p-torsion free, so that (Â_p⟦q−1⟧, (q−1)) is a q-PD pair. For a p-completely smooth Â_p-algebra S, the q-crystalline cohomology of S relative to that q-PD pair is the (p, q−1)-complete q-de Rham complex q-Ω_{S/Â_p}. For a p-completely étale framing it is computed by the coordinate-dependent q-difference complex, whose differential sends the n-th power of a coordinate to [n]_q times its (n−1)-st power times the differential of the coordinate, obeys the twisted Leibniz rule and squares to zero. And q-Ω_{S/Â_p} is prismatic cohomology of the Frobenius twist S^{(p)}[ζ_p], where S^{(p)} is the p-completed base change of S along ψ^p, relative to the q-de Rham prism (Â_p⟦q−1⟧, [p]_q). All of this belongs to the prismatic roadmap and is imported. What this layer owns is the gluing of those p-complete objects with rational de Rham data into one global object over A⟦q−1⟧, together with the comparisons that make the gluing well posed. The ideal (q−1) is the ideal of the q-PD pair relative to which q-crystalline cohomology is taken. It is not a prism ideal, because q−1 is not a distinguished element. The prism ideal is ([p]_q), a different ideal: Â_p⟦q−1⟧/([p]_q) is Â_p[ζ_p], while Â_p⟦q−1⟧/(q−1) is Â_p.
+
+**Hypotheses.**
+
+- A is a Λ-ring that is p-torsion free for every prime p (the hypothesis of Theorem A.1). This layer needs no perfect-covering assumption.
+- For each prime p, PrismaticCohomology:PR.6 (Bhatt–Scholze §16) supplies the local q-crystalline site, its q-PD envelopes, the framed complexes and the comparison with prismatic cohomology; none of them is re-derived here.
+- The q-integer [n]_q is the geometric sum of the first n powers of q. Its identities are in the pinned Mathlib and are cited as baseline, not planned.
+
+**Proof.**
+
+1. List the local inputs that the prismatic roadmap supplies and that this layer consumes: the q-PD pair (Â_p⟦q−1⟧, (q−1)); q-PD envelopes (Bhatt–Scholze Lemma 16.10) with their base change modulo q−1; the q-divided power γ_q and its multiplicativity (Bhatt–Scholze Remark 16.6 and Lemma 16.7); q-crystalline cohomology of p-completely smooth Â_p-algebras; the q-de Rham complex of a framed q-PD datum and its quasi-isomorphism with q-crystalline cohomology (Bhatt–Scholze Construction 16.20 and Theorem 16.22); and the identification with prismatic cohomology of the Frobenius twist (Bhatt–Scholze Theorem 16.18).
+2. Record the interface checks on the q-integers as baseline citations. [n]_q·(q−1) = q^n − 1 is geom_sum_mul. The value n of [n]_q at q = 1 is Polynomial.eval_geom_sum followed by evaluating the constant sum. [p]_q is the p-th cyclotomic polynomial for p prime (Polynomial.cyclotomic_prime), with value p at q = 1 (Polynomial.eval_one_cyclotomic_prime). The cyclotomic polynomial of order p^(k+1) is [p] evaluated at q^(p^k) (Polynomial.cyclotomic_prime_pow_eq_geom_sum). [n]_q is the product of the cyclotomic polynomials of the divisors d > 1 of n (Polynomial.prod_cyclotomic_eq_geom_sum), so [p^k]_q is the product of the cyclotomic polynomials of orders p, p^2, …, p^k.
+3. Record the prism explicitly: the q-de Rham prism is (Â_p⟦q−1⟧, [p]_q), with quotient Â_p[ζ_p]. The Frobenius twist in the prismatic comparison is the p-completed base change along ψ^p.
+4. State the boundary of this layer: coordinatewise formulas are computation tools inside a chart and are never a globally canonical definition. The global object is defined by the pullback square of the global-complex node.
+
+**Acceptance.**
+
+- A reader can point to each local statement this layer uses and name the roadmap stage that owns it.
+- No node of this packet re-proves a statement about the local q-crystalline site or the framed p-complete complex.
+- The q-integer identities are cited from the pinned Mathlib by name and module, and each is described by what the Lean statement actually says.
+- The prismatic comparison carries its Frobenius twist and ζ_p.
+
+**Depends on.** other roadmaps: `PrismaticCohomology:PR.6`, `HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations`; libraries: `mathlib:geom_sum_mul`, `mathlib:Polynomial.eval_geom_sum`, `mathlib:Polynomial.cyclotomic_prime`, `mathlib:Polynomial.cyclotomic_prime_pow_eq_geom_sum`, `mathlib:Polynomial.eval_one_cyclotomic_prime`, `mathlib:Polynomial.prod_cyclotomic_eq_geom_sum`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Appendix A, opening paragraph (arXiv v2, p. 69): “Let p be a prime. In [BS19, §16], Bhatt and Scholze construct a functorial (p, q−1)-complete q-de Rham complex relative to any q-PD pair (D, I). This verifies Scholze’s conjecture [Sch17, Conjecture 3.1] after p-completion, but leaves open the global case.” — The division of labour: the p-complete theory is Bhatt–Scholze's and is imported; the appendix, and so this layer, is about the global case.
+- `wagner-q-hodge-habiro`, Theorem A.1(b): “For all primes p, the p-completion (q-Ω−/A)∧p ≃ Δ(−)(p)[ζp]/ÂpJq−1K agrees with prismatic cohomology relative to the q-de Rham prism (ÂpJq−1K, [p]q). Here we denote the p-adic Frobenius twist by (−)(p) := (−⊗A,ψp A)∧p.” — The prism, its ideal [p]_q, and the Frobenius twist with ζ_p adjoined.
+- `wagner-q-hodge-habiro`, §A.1, first paragraph: “Fix a prime p. Then (ÂpJq−1K, (q−1)) is a q-PD pair as in [BS19, Definition 16.1] and so we can use q-crystalline cohomology to construct a functorial (p, q−1)-complete q-de Rham complex q-ΩS/Âp for every p-completely smooth Âp-algebra S.” — The q-PD pair, with ideal (q−1), relative to which the local complex is defined.
+
+### After rationalisation, derived q-de Rham cohomology is a base change of derived de Rham cohomology
+
+`HQ.1/rationalised-q-crystalline-comparison` · theorem · planet “Rationalised q-crystalline comparison”
+
+Fix a prime p and a Λ-ring A that is p-torsion free. For every p-complete animated Â_p-algebra R there is an equivalence of E∞-algebras over (Â_p ⊗ ℚ)⟦q−1⟧, functorial in R, between (q-dR_{R/Â_p} ⊗^L_ℤ ℚ)^∧_{(q−1)} and (dR_{R/Â_p} ⊗^L_ℤ ℚ)⟦q−1⟧. The first is the (q−1)-completed rationalisation of the local derived q-de Rham complex; the second is the power series ring over the rationalised p-completed derived de Rham complex. Modulo q−1 it is the identification of both sides with dR_{R/Â_p} ⊗ ℚ. The equivalence is built coordinate-freely from the definition of the q-de Rham complex by q-crystalline cohomology, without choosing a framing.
+
+**Hypotheses.**
+
+- A is a p-torsion free Λ-ring and p is fixed; R is a p-complete animated Â_p-algebra.
+- All q-de Rham and de Rham complexes relative to a p-complete ring are implicitly p-completed (Convention A.3).
+- Rationalisation is the derived tensor product with ℚ. On the q-de Rham side the result is then completed at q−1.
+
+**Proof.**
+
+1. Reduce by animation to p-completely smooth Â_p-algebras S. For these the local derived complexes agree with the underived ones. So q-dR_{S/Â_p} is q-crystalline cohomology RΓ_qcrys(S/Â_p⟦q−1⟧), and dR_{S/Â_p} is crystalline cohomology RΓ_crys(S/Â_p) (by the derived de Rham–crystalline comparison).
+2. Choose, functorially, a surjection P ↠ S from a p-completely ind-smooth δ-Â_p-algebra, and extend δ to P⟦q−1⟧ by δ(q) = 0. Let J be the kernel, D the p-completed PD envelope of J, and qD the q-PD envelope (Bhatt–Scholze Lemma 16.10). By Čech–Alexander functoriality it suffices to construct a functorial equivalence (qD ⊗ ℚ)^∧_{(q−1)} ≃ (D ⊗ ℚ)⟦q−1⟧.
+3. The composite P → qD → (qD ⊗ ℚ)^∧_{(q−1)} factors uniquely through the un-p-completed PD envelope D° of J, because J has divided powers in a ℚ-algebra.
+4. Extend over the p-completion D = D°⟦t⟧/(t − p). By the iterated divided power expansion (Lemma A.6), for every n each p-power series with coefficients in D° converges p-adically in (qD ⊗ ℚ)/(q−1)^n. Pass to the limit over n and extend (q−1)-linearly to a map (D ⊗ ℚ)⟦q−1⟧ → (qD ⊗ ℚ)^∧_{(q−1)}.
+5. Modulo q−1 this map is the identity of D ⊗ ℚ, by the base change property of q-PD envelopes (Bhatt–Scholze Lemma 16.10(3)). Both sides are (q−1)-complete, so the map is an equivalence by the derived Nakayama lemma.
+6. Check functoriality in S, and hence in R after animation.
+
+**Acceptance.**
+
+- The equivalence is stated without reference to a framing.
+- Its reduction modulo q−1 is the identity on the rationalised derived de Rham complex.
+- The convergence step cites the iterated divided power expansion. It does not assume, without that expansion, that divided powers of J lie in qD ⊗ ℚ.
+- Only one map is constructed. It is inverted by checking modulo q−1 with derived Nakayama, not by building an inverse.
+
+**Depends on.** this roadmap: `HQ.1/what-this-layer-imports-and-what-it-owns`, `HQ.1/the-local-derived-q-de-rham-complex`, `HQ.1/divided-power-denominators-in-the-q-pd-envelope`; other roadmaps: `PrismaticCohomology:PR.6`, `PrismaticCohomology:PR.0`, `CrystallineCohomology:CR.0`, `DerivedDeRhamCohomology:DD.2`, `DerivedDeRhamCohomology:DD.4`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma A.4: “A.4. Lemma. — For all p-complete animated Âp-algebras R there is a functorial equivalence of E∞-(Âp ⊗Z Q)Jq−1K-algebras (q-dRR/Âp ⊗LZ Q)∧(q−1) ≃ (dRR/Âp ⊗LZ Q)Jq−1K.” — The statement of the node.
+- `wagner-q-hodge-habiro`, §A.1, second paragraph: “In coordinates, such an equivalence was already constructed in [Sch17, Lemma 4.1] (see A.8 for a review), but here we need a different argument: We want a coordinate-independent equivalence, so we have to work with the definition of the q-de Rham complex via q-crystalline cohomology.” — Why the coordinate-free argument is needed.
+- `wagner-q-hodge-habiro`, Proof of Lemma A.4: “By Lemma A.6 below, for every fixed n ⩾ 0, every p-power series in D◦ converges in the p-adic topology on (q-D ⊗Z Q)/(q−1)n, so we indeed get our desired extension D → (q-D ⊗Z Q)∧(q−1).” — The convergence step, which rests on Lemma A.6.
+- `wagner-q-hodge-habiro`, Proof of Lemma A.4, last paragraph: “Whether this is an equivalence can be checked modulo (q−1) by the derived Nakayama lemma. Then the base change property from [BS19, Lemma 16.10(3)] finishes the proof” — Invertibility modulo q−1 by derived Nakayama.
+
+### The iterated divided power expansion in the rationalised q-PD envelope
+
+`HQ.1/divided-power-denominators-in-the-q-pd-envelope` · lemma
+
+Fix a prime p and a p-torsion free Λ-ring A. Let S be a p-completely smooth Â_p-algebra, and P ↠ S a surjection from a p-completely ind-smooth δ-Â_p-algebra, with δ extended to P⟦q−1⟧ by δ(q) = 0. Let J be its kernel, D the p-completed PD envelope and qD the q-PD envelope, and write γ(x) = x^p/p on qD ⊗ ℚ. For every x in J and every n ≥ 1 there are y_0, …, y_n in qD such that y_0 admits q-divided powers in qD and, in qD ⊗ ℚ, γ^(n)(x) = y_0 + Σ_{i=1}^{n} p^{−2(p^{i−1}+⋯+p+1)} (q−1)^{(p−2)+i} y_i. Here γ^(n) is the n-fold iterate of γ.
+
+**Hypotheses.**
+
+- P, J, D and qD are the data of the proof of Lemma A.4. The δ-structure on P is any one that makes P a δ-Â_p-algebra; no framing is needed.
+- p is invertible in qD ⊗ ℚ, so γ is defined there. The statement is an identity in qD ⊗ ℚ; nothing is claimed about γ^(n)(x) lying in qD.
+- The exponents are exactly the source's: 2(p^{i−1}+⋯+1) for p and (p−2)+i for q−1.
+
+**Proof.**
+
+1. Write [p]_q = pu + (q−1)^{p−1}, with u a unit of ℤ_p⟦q−1⟧ congruent to 1 modulo q−1. Then ([p]_q − p)/p = (u − 1) + p^{−1}(q−1)^{p−1}.
+2. Case n = 1: γ(x) = γ_q(x) + (([p]_q − p)/p)(γ_q(x) + δ(x)). Here γ_q(x) admits q-divided powers, since x ∈ J (Bhatt–Scholze Lemma 16.7). The term (u − 1)(γ_q(x) + δ(x)) is a multiple of q−1 in qD, so it also admits q-divided powers. The remaining term p^{−1}(q−1)^{p−1}(γ_q(x) + δ(x)) has the required shape for i = 1.
+3. Inductive step: write γ^(n)(x) = y_0 + z_1 + ⋯ + z_n with each z_i of the stated shape. Apply γ(y) = γ_q(y) + (([p]_q − p)/p)(γ_q(y) + δ(y)), which holds whenever γ_q(y) is defined.
+4. Expand γ_q and δ of the sum using the additivity formulas γ_q(a+b) = γ_q(a) + γ_q(b) + Σ_{i=1}^{p−1} p^{−1}C(p,i)a^i b^{p−i} and δ(a+b) = δ(a) + δ(b) − Σ_{i=1}^{p−1} p^{−1}C(p,i)a^i b^{p−i}. Bound γ_q(z_i) and δ(z_i) by Lemma A.5. Bound the mixed monomials y_0^{α_0}z_1^{α_1}⋯z_n^{α_n} (with α_i < p and Σα_i = p) by splitting into the cases α_0 = p−1 and α_0 < p−1.
+5. Collect terms. Each is either a multiple of q−1 in qD, which admits q-divided powers, or lies in p^{−2(p^i+⋯+1)}(q−1)^{(p−2)+i+1}qD for some i ≤ n. This is the claimed shape for γ^(n+1)(x).
+
+**Acceptance.**
+
+- Every exponent in the statement is the source's, in particular 2(p^{i−1}+⋯+1) for p and (p−2)+i for q−1.
+- The statement is an identity in qD ⊗ ℚ. Only the leading term y_0 is asserted to admit q-divided powers.
+- The proof cites the two estimates of Lemma A.5 and the additivity formulas, not an unproved bound.
+
+**Depends on.** this roadmap: `HQ.1/delta-and-q-divided-power-denominator-estimates`, `HQ.1/what-this-layer-imports-and-what-it-owns`; other roadmaps: `PrismaticCohomology:PR.6`, `CrystallineCohomology:CR.0`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma A.6: “A.6. Lemma. — Let x ∈ J. For every n ⩾ 1, there are elements y0, . . . , yn ∈ q-D such that y0 admits q-divided powers in q-D and γ(n)(x) = y0 + Σ_{i=1}^n p−2(pi−1+···+p+1)(q−1)(p−2)+i yi holds in q-D ⊗Z Q” — The statement, with the exact exponents.
+- `wagner-q-hodge-habiro`, Proof of Lemma A.6, case n = 1: “Moreover, writing [p]q = pu + (q−1)p−1, we find that ([p]q − p)/p = (u−1) + p−1(q−1)p−1. Then (u−1)(γq(x) + δ(x)) admits q-divided powers since u ≡ 1 mod (q−1).” — The decomposition of [p]_q used in the induction.
+
+### One denominator that works for every prime at once
+
+`HQ.1/a-denominator-bound-uniform-in-the-prime` · theorem
+
+For n ≥ 0 let N_n be the product, over the primes ℓ ≤ n, of ℓ^{2(ℓ^{n−1}+⋯+ℓ+1)} (so N_0 = N_1 = 1). Fix a prime p, with P, D and qD as in the proof of Lemma A.4. The unique continuous extension D → qD/(q−1)^n ⊗ ℚ of P → qD/(q−1)^n ⊗ ℚ factors through the submodule N_n^{−1}qD/(q−1)^n, whatever p is. Consequently, for every animated A-algebra R and every n there are canonical maps dR_{R̂_p/Â_p} → N_n^{−1}q-dR_{R̂_p/Â_p}/(q−1)^n. Taking the product over all primes p and the limit over n gives a map (Π_p dR_{R̂_p/Â_p} ⊗^L ℚ)⟦q−1⟧ → (Π_p q-dR_{R̂_p/Â_p} ⊗^L ℚ)^∧_{(q−1)}. It is compatible with Lemma A.4 prime by prime, and it is an equivalence.
+
+**Hypotheses.**
+
+- A is a Λ-ring that is p-torsion free for every p, and R is an animated A-algebra. The products are over all primes; for each p the complexes are relative to Â_p and implicitly p-completed.
+- Rationalisation does not commute with the infinite product over p. The bound N_n does not depend on p, and that is what makes the prime-by-prime maps land in the rationalisation of the product, not only in the product of the rationalisations.
+
+**Proof.**
+
+1. By the iterated divided power expansion, γ^(k)(x) for x in J is y_0 plus terms p^{−e(i)}(q−1)^{(p−2)+i}y_i, where e(i) = 2(p^{i−1}+⋯+1). Modulo (q−1)^n only the terms with (p−2)+i < n survive: none when p > n, and only those with i ≤ n−1 when p ≤ n.
+2. The un-p-completed envelope D° is generated as a P-module by products of iterated divided powers γ^(k)(x) with x in J, since a divided power x^[m] is a p-adic unit times such a product. In a product of expansion terms, both the (q−1)-exponents and the p-exponents add. The function e is superadditive, e(a)+e(b) ≤ e(a+b), so any product that survives modulo (q−1)^n has p-exponent at most e(n−1). That divides the power of p in N_n. Hence the image of D° lies in N_n^{−1}qD/(q−1)^n.
+3. N_n^{−1}qD/(q−1)^n is p-complete, so the extension over D = (D°)^∧_p lands in it too.
+4. By Čech–Alexander functoriality and animation, obtain canonical maps dR_{R̂_p/Â_p} → N_n^{−1}q-dR_{R̂_p/Â_p}/(q−1)^n for all animated R and all n, compatible in n.
+5. Take the product over p, which is possible because N_n does not depend on p. Then rationalise and pass to the limit over n. The result is the displayed map, compatible with Lemma A.4 at each p.
+6. Modulo q−1 the map is the identity of Π_p dR_{R̂_p/Â_p} ⊗ ℚ, so it is an equivalence by derived Nakayama.
+
+**Acceptance.**
+
+- The bound N_n is written out and is visibly independent of p.
+- The argument for why primes larger than n contribute nothing is recorded.
+- The passage from single iterated divided powers to products (superadditivity of the p-exponent) is recorded.
+- The resulting map is checked to be an equivalence modulo q−1, not asserted to be one before that check.
+
+**Depends on.** this roadmap: `HQ.1/divided-power-denominators-in-the-q-pd-envelope`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-local-derived-q-de-rham-complex`; other roadmaps: `CrystallineCohomology:CR.0`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph A.11: “Fix n and put Nn := Π_{ℓ⩽n} ℓ^{2(ℓn−1+···+ℓ+1)}, where the product is taken over all primes ℓ ⩽ n. […] But in fact, Lemma A.6 shows that this extension already factors through N−1n q-D/(q−1)n, no matter how our implicit prime p is chosen.” — The definition of the bound and its independence of p.
+- `wagner-q-hodge-habiro`, Paragraph A.11, end: “Taking the product over all p and the limit over all n allows us to construct a map […] compatible with the one from Lemma A.4. This map is an equivalence as indicated, as one immediately checks modulo q−1.” — How the bound is used, and how the resulting map is checked.
+
+### The explicit framed comparison after rationalisation
+
+`HQ.1/the-coordinate-comparison-and-its-compatibility` · comparison
+
+Let B be either Â_p for a prime p (with all complexes implicitly p-completed) or A itself. Let S be a (p-completely) smooth B-algebra with a (p-completely) étale framing □ in coordinates T_1, …, T_d. After rationalisation and (q−1)-completion the q-partial derivatives satisfy q∂_i = (log(q)/(q−1) + Σ_{n≥2} log(q)^n/(n!(q−1)) · (∂_iT_i)^{(n−1)}) ∂_i. Here log(q) is the Taylor series of the logarithm at q = 1, and (∂_iT_i)^{(n−1)} is the (n−1)-fold iterate of the operator 'multiply by T_i, then apply ∂_i'. It is not a divided power: the n! is already displayed, and the paper writes γ^(n) for iterates. The operator in parentheses is an automorphism congruent to the identity modulo q−1. It commutes with ∂_j for j ≠ i but not with ∂_i. The Koszul twist lemma then gives an explicit isomorphism of complexes (q-Ω*_{S/B,□} ⊗ ℚ)^∧_{(q−1)} ≅ (Ω*_{S/B} ⊗ ℚ)⟦q−1⟧. More generally, let P ↠ S be a surjection from a p-completely ind-smooth Â_p-algebra with a p-completely ind-étale framing, D its p-completed PD envelope and qD its q-PD envelope. Then there is an explicit isomorphism (q-Ω̆*_{qD/Â_p,□} ⊗ ℚ)^∧_{(q−1)} ≅ (Ω̆*_{D/Â_p} ⊗ ℚ)⟦q−1⟧ between the rationalised q-PD and PD de Rham complexes. It is compatible with the identification (qD ⊗ ℚ)^∧_{(q−1)} ≅ (D ⊗ ℚ)⟦q−1⟧ of Lemma A.4.
+
+**Hypotheses.**
+
+- The framing is (p-completely) étale. For the PD version, the δ-structure on P is the one with δ(x_i) = 0 on the framing coordinates, extended uniquely along the ind-étale map (Bhatt–Scholze Lemma 2.18).
+- log(q) is used only after rationalisation and (q−1)-completion, where log(q)/(q−1) is a unit.
+- The case B = A, without completion, is the one used in the proof of Theorem A.1(d). The source states it as 'the same argument as in A.8'.
+
+**Proof.**
+
+1. Rationally, the automorphism γ_i of S⟦q−1⟧ with γ_i(T_i) = qT_i is exp(log(q)T_i∂_i). Expand q∂_i = (γ_i − 1)/((q−1)T_i) and use T_i^{−1}(T_i∂_i)^n = (∂_iT_i)^{n−1}∂_i to get the displayed formula (Bhatt–Morrow–Scholze I, Lemma 12.4).
+2. The operator in parentheses is congruent to 1 modulo q−1, hence an automorphism after (q−1)-completion, and it commutes with ∂_j for j ≠ i.
+3. Apply the Koszul twist lemma to the commuting endomorphisms ∂_1, …, ∂_d and these automorphisms. This gives the explicit isomorphism of complexes, over B = Â_p and over B = A.
+4. For the PD version, show that the formula for q∂_i in terms of ∂_i survives on (qD ⊗ ℚ)^∧_{(q−1)} ≅ (D ⊗ ℚ)⟦q−1⟧. For each n the images of (P ⊗ ℚ)⟦q−1⟧ in (qD ⊗ ℚ)/(q−1)^n and in (D ⊗ ℚ)⟦q−1⟧/(q−1)^n are p-adically dense, and on (P ⊗ ℚ)⟦q−1⟧ the formula holds.
+5. Apply the Koszul twist lemma again, to the PD complexes.
+
+**Acceptance.**
+
+- The formula for q∂_i is recorded with its coefficients, and (∂_iT_i)^{(n−1)} is read as an iterate.
+- The Koszul argument is invoked with the exact commutation hypotheses, including that the automorphism of index i need not commute with ∂_i.
+- Three versions are covered: the chart version over Â_p, the PD version for a surjection, and the version over A used for Theorem A.1(d).
+
+**Depends on.** this roadmap: `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-koszul-twist-isomorphism`, `HQ.1/the-coordinate-dependent-q-de-rham-complex`; other roadmaps: `PrismaticCohomology:PR.6`, `PrismaticCohomology:PR.0`, `CrystallineCohomology:CR.0`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph A.8: “One first observes that, after rationalisation, the partial q-derivatives q-∂i can be computed in terms of the usual partial derivative ∂i via the formula q-∂i = (log(q)/(q−1) + Σn⩾2 log(q)n/(n!(q−1)) (∂iTi)(n−1)) ∂i ; see [BMS18, Lemma 12.4].” — The formula, as printed. The superscript (n−1) denotes an iterate.
+- `wagner-q-hodge-habiro`, Lemma A.9: “A.9. Lemma. — With notation as above, there is again an explicit isomorphism of complexes (q-Ω̆∗q-D/Âp,□ ⊗Z Q)∧(q−1) ≅ (Ω̆∗D/Âp ⊗Z Q)Jq−1K.” — The PD version.
+- `wagner-q-hodge-habiro`, Proof of Lemma A.9: “But for every fixed n, the images of the diagonal maps in the diagram […] are dense for the p-adic topology and for elements of (P ⊗Z Q)Jq−1K the formula is clear.” — The density argument.
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1, part (d): “For (d), suppose S is equipped with an étale framing □: A[x1, . . . , xd] → S. The same argument as in A.8 provides an isomorphism (q-Ω∗S/A,□ ⊗Z Q)∧(q−1) ≅ (Ω∗S/A ⊗Z Q)Jq−1K.” — The version over A.
+
+### The global q-de Rham complex, as a pullback of p-completions and rational de Rham data
+
+`HQ.1/the-global-q-de-rham-complex` · construction · planet “Global q-de Rham complex”
+
+Let A be a Λ-ring that is p-torsion free for every prime p, and let S be a smooth A-algebra. The global q-de Rham complex q-Ω_{S/A} is the pullback of a square with three other corners. The upper right corner is Π_p q-Ω_{Ŝ_p/Â_p}, the product over all primes of the p-complete q-de Rham complexes. The lower left corner is (Ω*_{S/A} ⊗^L ℚ)⟦q−1⟧, and the lower right corner is (Π_p Ω*_{Ŝ_p/Â_p} ⊗^L ℚ)⟦q−1⟧. The lower map is induced by the maps from Ω*_{S/A} to its p-completions. The right vertical map is the rationalisation map Π_p q-Ω_{Ŝ_p/Â_p} → (Π_p q-Ω_{Ŝ_p/Â_p} ⊗^L ℚ)^∧_{(q−1)} followed by the inverse of the equivalence of the uniform-bound node. This uses the identifications q-Ω_{Ŝ_p/Â_p} ≃ q-dR_{Ŝ_p/Â_p} and Ω*_{Ŝ_p/Â_p} ≃ dR_{Ŝ_p/Â_p}, since animation does not change p-completed values on smooth algebras. The right vertical map is not itself an equivalence. The pullback is taken in (q−1)-complete E∞-algebras over A⟦q−1⟧, and q-Ω_{S/A} is functorial in S.
+
+**Hypotheses.**
+
+- A is p-torsion free for every prime p, as in Theorem A.1. This is the hypothesis under which the source takes (Â_p⟦q−1⟧, (q−1)) to be a q-PD pair for every p (§A.1).
+- The right-hand vertical map is the one produced by the uniform denominator bound, not an arbitrary choice of comparison.
+- No global q-crystalline site is constructed; the object is defined by the pullback. This is the source's strategy (a), not Kedlaya's strategy (b).
+
+**Proof.**
+
+1. Form the three corners: the product of the p-complete local complexes, the rational de Rham side, and the common rationalised product.
+2. Identify q-Ω_{Ŝ_p/Â_p} ≃ q-dR_{Ŝ_p/Â_p} and Ω*_{Ŝ_p/Â_p} ≃ dR_{Ŝ_p/Â_p} for smooth S, so that the uniform-bound equivalence applies to the corners.
+3. Define the right-hand vertical map as rationalisation followed by the inverse of the uniform-bound equivalence. Define the lower horizontal map by rationalising Ω*_{S/A} → Π_p Ω*_{Ŝ_p/Â_p}.
+4. Take the pullback in (q−1)-complete E∞-algebras over A⟦q−1⟧. Limits of E∞-algebras are computed on underlying objects, and (q−1)-complete objects are closed under limits.
+5. Check functoriality in S: each corner is functorial and both maps are natural.
+
+**API.**
+
+- `qOmega` (constructor): For a Λ-ring A that is p-torsion free for all p and a smooth A-algebra S, the object q-Ω_{S/A} of (q−1)-complete E∞-algebras over A⟦q−1⟧.
+- `qOmega.isPullback` (characterisation): The defining square, with its four corners and two maps named, is a pullback square. This characterises the object.
+- `qOmega.toPCompletion` (projection): For each prime p, the map q-Ω_{S/A} → q-Ω_{Ŝ_p/Â_p}. It identifies the p-completion of q-Ω_{S/A} with q-Ω_{Ŝ_p/Â_p}.
+- `qOmega.toRational` (projection): The map q-Ω_{S/A} → (Ω*_{S/A} ⊗ ℚ)⟦q−1⟧. It identifies the (q−1)-completed rationalisation of q-Ω_{S/A} with its target.
+- `qOmega.map` (functoriality): A map S → S′ of smooth A-algebras induces q-Ω_{S/A} → q-Ω_{S′/A}, with qOmega.map_id and qOmega.map_comp.
+- `qOmega.modQSubOne` (compatibility): q-Ω_{S/A}/(q−1) ≃ Ω*_{S/A}, naturally in S (Theorem A.1(a)).
+- `qOmega.baseChange` (compatibility): The base change equivalence (q-Ω_{S/A} ⊗^L_A A′)^∧_{(q−1)} ≃ q-Ω_{(S⊗_A A′)/A′} (node HQ.1/base-change-for-the-global-complex).
+- `qOmega.equivFramed` (equivalence): For an étale framing □ of S, an equivalence q-Ω_{S/A} ≃ q-Ω*_{S/A,□} of underlying objects (node HQ.1/the-framed-description-of-the-global-complex).
+
+**Unit tests.**
+
+- `qOmega_modQSubOne_polynomial` (computation): For A = ℤ and S = ℤ[x], q-Ω_{S/A}/(q−1) is the two-term complex ℤ[x] → ℤ[x]dx of that ring and its module of differentials.
+- `qOmega_of_rational_base` (degenerate): If A is a ℚ-algebra, every Â_p vanishes, so both right-hand corners vanish and q-Ω_{S/A} is Ω*_{S/A}⟦q−1⟧, the trivial q-deformation.
+- `qOmega_framed_polynomial` (compatibility): For A = ℤ and S = ℤ[x] with the identity framing, q-Ω_{S/A} is the q-difference complex ℤ[x]⟦q−1⟧ → ℤ[x]⟦q−1⟧dx, x^n ↦ [n]_q x^{n−1}dx.
+- `qOmega_ne_prod_pCompletions` (non-example): For A = S = ℤ, q-Ω_{S/A} is ℤ⟦q−1⟧, while the product over all primes of the p-complete complexes is Π_p ℤ_p⟦q−1⟧. A definition that dropped the rational corner would already be wrong here.
+
+**Acceptance.**
+
+- The construction names all three corners and both maps of the square.
+- The definition uses the uniform bound node and would not typecheck without it.
+- Nothing in the construction refers to a choice of framing.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.2: Its animation is the derived q-de Rham complex, the object every q-Hodge filtration filters.
+- HabiroCohomologyFoundations:HQ.4: Its décalages at the q-integers and their Frobenius gluings are the twisted q-de Rham complexes (paragraph 3.14).
+- Wagner, q-Hodge complexes, Example 3.12 (HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case): Its framed description carries the coordinate q-Hodge filtration.
+- HabiroCohomologyFoundations:HQ.8: It is one side of every square in the comparison atlas.
+
+**Depends on.** this roadmap: `HQ.1/a-denominator-bound-uniform-in-the-prime`, `HQ.1/the-local-derived-q-de-rham-complex`; other roadmaps: `PrismaticCohomology:PR.6`, `DerivedDeRhamCohomology:DD.1`, `DerivedDeRhamCohomology:DD.4`, `EnhancedDerivedSheaves:E5`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Construction A.12: “A.12. Construction. — For all smooth A-algebras S, we construct the q-de Rham complex of S over A as the pullback […] Here the right vertical map is the one constructed in A.11 above.” — The construction and the provenance of the right vertical map.
+- `wagner-q-hodge-habiro`, Appendix A, strategy (a): “(a) One can glue the global q-de Rham complex from its p-completions and its rationalisation using an arithmetic fracture square.” — The global object is glued by an arithmetic fracture square, not defined by a site.
+
+### The global complex deforms de Rham, is prismatic at every prime, and is rationally trivial
+
+`HQ.1/what-the-global-complex-satisfies` · theorem · planet “Properties of the global q-de Rham complex”
+
+Let A be a Λ-ring that is p-torsion free for all primes p. The functor S ↦ q-Ω_{S/A}, from smooth A-algebras to (q−1)-complete E∞-algebras over A⟦q−1⟧, satisfies: (a) q-Ω_{S/A}/(q−1) ≃ Ω*_{S/A}, naturally in S, so it is a q-deformation of the de Rham complex; (b) for every prime p, (q-Ω_{S/A})^∧_p ≃ q-Ω_{Ŝ_p/Â_p} ≃ Δ_{S^{(p)}[ζ_p]/Â_p⟦q−1⟧}, where the right-hand side is prismatic cohomology of the p-adic Frobenius twist S^{(p)} = (S ⊗_{A,ψ^p} A)^∧_p with ζ_p adjoined, relative to the q-de Rham prism (Â_p⟦q−1⟧, [p]_q); (c) (q-Ω_{S/A} ⊗^L ℚ)^∧_{(q−1)} ≃ (Ω*_{S/A} ⊗^L ℚ)⟦q−1⟧, the trivial q-deformation.
+
+**Hypotheses.**
+
+- A is p-torsion free for all primes p.
+- In (b) the Frobenius twist is the p-completed base change along the Adams operation ψ^p, and the prism ideal is ([p]_q).
+
+**Proof.**
+
+1. (a) Reduce the defining square modulo q−1. Cofibres commute with products and with rationalisation, and the p-complete corner reduces to the p-completed de Rham complex. So the corners become Π_p Ω*_{Ŝ_p/Â_p}, Ω*_{S/A} ⊗ ℚ and (Π_p Ω*_{Ŝ_p/Â_p}) ⊗ ℚ. This is the arithmetic fracture square of Ω*_{S/A}, which is a pullback, so the reduction of q-Ω_{S/A} is Ω*_{S/A}.
+2. (b) p-complete the defining square. The two lower corners are rational and vanish, and the factors of the product at primes ℓ ≠ p vanish. So (q-Ω_{S/A})^∧_p ≃ q-Ω_{Ŝ_p/Â_p}. Then apply the imported identification of q-crystalline cohomology with prismatic cohomology of the Frobenius twist (Bhatt–Scholze Theorem 16.18).
+3. (c) Rationalise the square and complete it at q−1. The right vertical map becomes an equivalence by the uniform-bound node, so the left vertical map does too.
+
+**Acceptance.**
+
+- Each property is checked against the defining square rather than assumed.
+- Property (b) names [p]_q as the prism ideal and includes the Frobenius twist and ζ_p.
+- The vanishing of the factors at primes ℓ ≠ p after p-completion is recorded.
+
+**Depends on.** this roadmap: `HQ.1/the-global-q-de-rham-complex`, `HQ.1/what-this-layer-imports-and-what-it-owns`, `HQ.1/a-denominator-bound-uniform-in-the-prime`; other roadmaps: `PrismaticCohomology:PR.6`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem A.1(a) and (c): “(a) q-Ω−/A/(q−1) ≃ Ω∗−/A agrees with the usual de Rham complex functor. […] (c) After rationalisation, (q-Ω−/A ⊗LZ Q)∧(q−1) ≃ (Ω−/A ⊗LZ Q)Jq−1K becomes the trivial q-deformation.” — Parts (a) and (c).
+- `wagner-q-hodge-habiro`, Theorem A.1(b): “For all primes p, the p-completion (q-Ω−/A)∧p ≃ Δ(−)(p)[ζp]/ÂpJq−1K agrees with prismatic cohomology relative to the q-de Rham prism (ÂpJq−1K, [p]q). Here we denote the p-adic Frobenius twist by (−)(p) := (−⊗A,ψp A)∧p.” — Part (b), with the Frobenius twist.
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1: “Modulo (q−1), the pullback reduces to the usual arithmetic fracture square for ΩR/A, proving (a). By construction, (q-ΩS/A)∧p ≃ q-ΩŜp/Âp, and so (b) follows from [BS19, Theorem 16.18]. Part (c) follows again from the construction.” — How (a) to (c) are read off the square. 'Ω_{R/A}' in the printed proof is a misprint for Ω_{S/A} (source issue E109).
+
+### The global complex lifts to a derived commutative algebra, by cosimplicial PD realisations
+
+`HQ.1/the-derived-commutative-lift` · construction · planet “Derived commutative lift”
+
+The functor q-Ω_{−/A} lifts canonically along the forgetful functor from (q−1)-complete derived commutative A⟦q−1⟧-algebras (Raksit, Definition 4.2.22) to (q−1)-complete E∞-A⟦q−1⟧-algebras. Limits and colimits of derived commutative algebras are computed on underlying E∞-algebras (Raksit, Proposition 4.2.27). So it suffices to lift the corners of the defining pullback square and its two maps. Cosimplicial limits are also computed on underlying objects, so it suffices to give functorial realisations of Ω*_{S/A}, Ω*_{Ŝ_p/Â_p} and q-Ω_{Ŝ_p/Â_p} by cosimplicial static rings, compatible with the maps of the square. For the p-complete corners these are the Čech–Alexander realisations by PD and q-PD envelopes. For Ω*_{S/A} it is the totalisation of the PD envelopes of a Čech nerve (the de Rham totalisation lemma). The maps of the square are induced by maps of cosimplicial rings: the completion maps, and the envelope-level maps of Lemma A.4 and paragraph A.11.
+
+**Hypotheses.**
+
+- The surjection onto S from an ind-smooth A-algebra is chosen functorially, for instance the polynomial algebra on the underlying set of S.
+- Limits and colimits of derived commutative algebras are computed on underlying E-infinity algebras; this is the imported fact that makes the corner-by-corner argument work.
+- The resulting structure is a derived commutative algebra structure, which is strictly more than an E-infinity structure; no claim is made that every E-infinity structure lifts.
+
+**Proof.**
+
+1. Reduce to lifting the corners and the maps of the pullback square, using that the forgetful functor preserves and reflects limits (Raksit, Proposition 4.2.27).
+2. Lift the p-complete corners through the Čech–Alexander realisations by p-completed PD and q-PD envelopes, which are cosimplicial static rings.
+3. Lift the rational corner through the de Rham totalisation lemma, rationalised and (q−1)-completed.
+4. Check that the lower horizontal map and the right vertical map come from maps of cosimplicial rings. The former is given by the completion maps of envelopes, the latter by the envelope-level maps D → N_n^{−1}qD/(q−1)^n of the uniform-bound node.
+5. Ω*_{S/A} is a commutative differential graded algebra, so Raksit's construction gives it a second derived commutative structure. The totalisation lemma identifies the two.
+
+**API.**
+
+- `qOmegaDAlg` (constructor): The lift of q-Ω_{−/A} to (q−1)-complete derived commutative A⟦q−1⟧-algebras.
+- `qOmegaDAlg.forget` (projection): Its composite with the forgetful functor to E∞-algebras is q-Ω_{−/A}.
+- `qOmegaDAlg.isPullback` (characterisation): It is the pullback, in (q−1)-complete derived commutative algebras, of the lifted corners.
+- `qOmegaDAlg.corners` (compatibility): On each corner of the defining square it is the derived commutative structure of the cosimplicial realisation named there.
+- `qOmegaDAlg.map` (functoriality): Functorial in S and natural in the base A.
+
+**Unit tests.**
+
+- `qOmegaDAlg_forget` (compatibility): Applying the forgetful functor recovers the E∞ q-de Rham complex, with the same three properties (a) to (c).
+- `qOmegaDAlg_modQSubOne` (compatibility): Modulo q−1 the lift is Ω*_{S/A} with the derived commutative structure of its commutative differential graded algebra structure.
+- `deRham_ne_zerothEnvelope` (non-example): For A = S = ℤ and P = ℤ[T] with T ↦ 0, the zeroth envelope D_P(J) is the divided power polynomial ring ℤ⟨T⟩, while Tot D^• is ℤ = Ω*_{ℤ/ℤ}. Taking the zeroth term instead of the totalisation is wrong.
+- `qOmegaDAlg_base` (degenerate): For S = A the lift is the unit A⟦q−1⟧.
+
+**Acceptance.**
+
+- The argument is corner by corner and cites the fact that limits are computed on underlying E-infinity algebras.
+- The totalisation statement for the ordinary de Rham complex is proved and not assumed.
+- The distinction between an E-infinity structure and a derived commutative structure is stated.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: The derived commutative upgrade of Habiro descent needs the q-de Rham complex to carry this structure, not merely an E-infinity structure.
+- HabiroCohomologyFoundations:HQ.5: The canonical filtration on quasi-regular quotients is asserted to be a filtered derived commutative algebra, which presupposes this lift.
+
+**Depends on.** this roadmap: `HQ.1/the-global-q-de-rham-complex`, `HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes`, `HQ.1/a-denominator-bound-uniform-in-the-prime`; other roadmaps: `EnhancedDerivedSheaves:E5`, `PrismaticCohomology:PR.6`, `CrystallineCohomology:CR.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph A.13: “The key observation is that all limits and colimits in derived commutative AJq−1K-algebras can be computed on the level of underlying E∞-AJq−1K-algebras by [Rak21, Proposition 4.2.27]. Thus, by compatibility with pullbacks, it’ll be enough to lift the three components of the pullback” — The strategy of the construction.
+- `wagner-q-hodge-habiro`, Paragraph A.13, continued: “By compatibility with cosimplicial limits, it’ll be enough to construct functorial cosimplicial realisations of ΩS/A, ΩŜp/Âp, and q-ΩŜp/Âp. For the latter two, the comparison with (q-)crystalline cohomology easily provides such realisations.” — The reduction to cosimplicial realisations.
+
+### The local derived q-de Rham complex at a prime, and its agreement with the underived one on smooth algebras
+
+`HQ.1/the-local-derived-q-de-rham-complex` · construction · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Fix a prime p and a Λ-ring A that is p-torsion free. For every p-completely smooth Â_p-algebra S, let q-Ω_{S/Â_p} be the (p, q−1)-complete q-de Rham complex: q-crystalline cohomology of S relative to the q-PD pair (Â_p⟦q−1⟧, (q−1)), imported from PR.6. The local derived q-de Rham complex q-dR_{−/Â_p} is its animation, with values in (p, q−1)-complete E∞-algebras over Â_p⟦q−1⟧. It is the functor on p-complete animated Â_p-algebras obtained by left Kan extension from p-completed polynomial Â_p-algebras, followed by p-completion. Animation leaves the values on p-completely smooth Â_p-algebras unchanged: the canonical map q-dR_{S/Â_p} → q-Ω_{S/Â_p} is an equivalence. One checks this modulo (p, q−1), where it becomes the equivalence between derived de Rham and de Rham complexes of a smooth algebra in characteristic p. Modulo q−1, q-dR_{R/Â_p} is the p-completed derived de Rham complex dR_{R/Â_p}.
+
+**Hypotheses.**
+
+- p is fixed, and all complexes relative to p-complete rings are implicitly p-completed (Convention A.3).
+- The agreement with the underived complex holds for p-completely smooth algebras and only p-adically. Globally, animation changes the values on smooth algebras (HQ.2 node on animation).
+- The characteristic p input is the equivalence dR_{T/k} ≃ Ω*_{T/k} for T smooth over an 𝔽_p-algebra k.
+
+**Proof.**
+
+1. Restrict q-Ω_{−/Â_p} to p-completed polynomial Â_p-algebras, left Kan extend along the inclusion into p-complete animated Â_p-algebras, and p-complete. The result preserves sifted colimits of p-complete objects.
+2. For S p-completely smooth, compare q-dR_{S/Â_p} with q-Ω_{S/Â_p} by the canonical map. Both are (p, q−1)-complete, so it suffices to check modulo (p, q−1).
+3. Modulo q−1, q-Ω_{S/Â_p} is the p-completed de Rham complex. The q-PD envelope modulo q−1 is the PD envelope (Bhatt–Scholze Lemma 16.10(3)), and crystalline cohomology of a smooth algebra is its de Rham complex. Also modulo q−1, q-dR is the animation of that, the p-completed derived de Rham complex.
+4. Modulo p this is the map dR_{(S/p)/(A/p)} → Ω*_{(S/p)/(A/p)}, an equivalence for smooth algebras in characteristic p.
+5. Lift the E∞-structure by animating the E∞-structures on the values on polynomial algebras.
+
+**API.**
+
+- `qdRLocal` (constructor): For a prime p, the functor q-dR_{−/Â_p} from p-complete animated Â_p-algebras to (p, q−1)-complete E∞-Â_p⟦q−1⟧-algebras.
+- `qdRLocal.equivQOmega` (characterisation): For p-completely smooth S, the canonical map q-dR_{S/Â_p} → q-Ω_{S/Â_p} is an equivalence.
+- `qdRLocal.modQSubOne` (projection): q-dR_{R/Â_p}/(q−1) ≃ dR_{R/Â_p}, p-completed.
+- `qdRLocal.leftKanExtension` (universal-property): It preserves sifted colimits of p-complete animated algebras (computed with p-completion), and is the unique such extension of its restriction to p-completed polynomial algebras.
+- `qdRLocal.map` (functoriality): Functorial in R, and in A along maps of p-torsion free Λ-rings.
+
+**Unit tests.**
+
+- `qdRLocal_base` (degenerate): For R = Â_p the value is Â_p⟦q−1⟧.
+- `qdRLocal_polynomial` (computation): For R = Â_p⟨x⟩, the p-completed polynomial ring in one variable, the value is the completed two-term complex Â_p⟨x⟩⟦q−1⟧ → Â_p⟨x⟩⟦q−1⟧dx, x^n ↦ [n]_q x^{n−1}dx.
+- `qdRLocal_modQSubOne` (compatibility): Modulo q−1 the value is the p-completed derived de Rham complex dR_{R/Â_p}; for R smooth, the p-completed de Rham complex.
+- `qdRLocal_Fp` (non-example): For A = ℤ and R = 𝔽_p, the value modulo q−1 is dR_{𝔽_p/ℤ_p} ≃ ℤ_p, crystalline cohomology of 𝔽_p over ℤ_p, not 𝔽_p. The derived complex of a non-smooth quotient is not a q-de Rham complex of the quotient.
+
+**Acceptance.**
+
+- The construction is by animation of the imported local complex, not by a new site.
+- The agreement with q-Ω on smooth inputs is proved modulo (p, q−1), and is stated only p-adically.
+- The quotient by q−1 is the p-completed derived de Rham complex.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Lemma A.4: The rationalised q-crystalline comparison is an equivalence of animations, reduced to smooth algebras by the agreement with q-Ω.
+- Wagner, q-Hodge complexes, paragraphs A.11, A.12 and A.14: Its product over all primes is the upper right corner of the squares defining the global complexes.
+- Wagner, q-Hodge complexes, Definition 3.2(c_p) (HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations): The p-completed rational condition is a condition on the p-completion of the derived complex, which is this local object.
+
+**Depends on.** this roadmap: `HQ.1/what-this-layer-imports-and-what-it-owns`; other roadmaps: `PrismaticCohomology:PR.6`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `DerivedDeRhamCohomology:DD.1`, `DerivedDeRhamCohomology:DD.3`, `DerivedDeRhamCohomology:DD.4`, `CrystallineCohomology:CR.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, §A.1, first paragraph: “We let q-dR−/Âp denote its non-abelian derived functor (or animation), which is now defined for all p-complete animated Âp-algebras. Observe that animation leaves the values on p-completely smooth Âp-algebras unchanged, as can be seen modulo (p, q−1)” — The definition by animation and the agreement on smooth algebras.
+- `wagner-q-hodge-habiro`, Convention A.3: “A.3. Convention. — Throughout §A, to increase readability and avoid excessive use of completions, all (q-)de Rham complexes or cotangent complexes relative to a p-complete ring will be implicitly p-completed.” — The implicit p-completion under which the construction is read.
+
+### Denominator estimates for δ and for the q-divided power in the rationalised q-PD envelope
+
+`HQ.1/delta-and-q-divided-power-denominator-estimates` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Take P, J, D and qD as in the proof of Lemma A.4. Extend the δ-structure of qD uniquely to (qD ⊗ ℚ)^∧_{(q−1)} (Bhatt–Scholze Lemmas 2.15 and 2.17), with Frobenius φ, and put γ_q(x) = φ(x)/[p]_q − δ(x), defined on all of (qD ⊗ ℚ)^∧_{(q−1)} because p and [p]_q are invertible there. Then: (a) for all n ≥ 1 and α ≥ 1, δ maps (q−1)^n qD into itself and p^{−α}(q−1)^n qD into p^{−(pα+1)}(q−1)^n qD; (b) for all n ≥ 1 and α ≥ 1, γ_q maps (q−1)^n qD into (q−1)^{n+1} qD and p^{−α}(q−1)^n qD into p^{−(pα+1)}(q−1)^{n+1} qD.
+
+**Hypotheses.**
+
+- qD is flat over ℤ_p⟦q−1⟧, hence p-torsion free. This identifies qD ∩ p^{−1}(q−1)^n qD with (q−1)^n qD.
+- Part (b) uses part (a). Both are proved in one short argument and form one declaration.
+
+**Proof.**
+
+1. (a) For x = p^{−α}(q−1)^n y with y in qD, δ(x) = (φ(x) − x^p)/p = (q^p−1)^n φ(y)/p^{α+1} − (q−1)^{pn}y^p/p^{pα+1}. Since q−1 divides q^p−1, this lies in p^{−(pα+1)}(q−1)^n qD. For α = 0 the left side lies in qD, and qD ∩ p^{−1}(q−1)^n qD = (q−1)^n qD by flatness.
+2. (b) Compute γ_q(q−1) = −(q−1)^2 Σ_{i=2}^{p−1} p^{−1}C(p,i)(q−1)^{i−2}, which is divisible by (q−1)^2.
+3. The relation γ_q(fx) = φ(f)γ_q(x) − x^pδ(f) (Bhatt–Scholze Remark 16.6) gives γ_q((q−1)^n x) = φ((q−1)^{n−1}x)γ_q(q−1) − (q−1)^pδ((q−1)^{n−1}x). By (a) this is divisible by (q−1)^{n+1}.
+4. Write γ_q(p^{−α}(q−1)^n x) = p^{−α}γ_q((q−1)^n x) − (q−1)^{np}x^pδ(p^{−α}), with δ(p^{−α}) in p^{−(pα+1)}ℤ. Since np ≥ n+1, both terms lie in p^{−(pα+1)}(q−1)^{n+1}qD. The printed proof ends with exponent n; the computation gives n+1, as the statement claims (source issue E103).
+
+**Acceptance.**
+
+- Both parts carry the source's exponents.
+- The flatness of qD over ℤ_p⟦q−1⟧ is cited where the case α = 0 is deduced.
+- The final exponent n+1 in (b) is justified by np ≥ n+1, not read off the printed proof.
+
+**Depends on.** this roadmap: `HQ.1/what-this-layer-imports-and-what-it-owns`; other roadmaps: `PrismaticCohomology:PR.6`, `PrismaticCohomology:PR.0`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma A.5: “(a) For all n ⩾ 1 and all α ⩾ 1, the map δ sends (q−1)n q-D into itself, and p−α(q−1)n q-D into p−(pα+1)(q−1)n q-D. (b) For all n ⩾ 1 and all α ⩾ 1, the map γq sends (q−1)n q-D into (q−1)n+1 q-D, and p−α(q−1)n q-D into p−(pα+1)(q−1)n+1 q-D.” — The two estimates.
+- `wagner-q-hodge-habiro`, §A.1, notation before Lemma A.5: “According to [BS19, Lemmas 2.15 and 2.17], we may uniquely extend the δ-structure from q-D to (q-D ⊗Z Q)∧(q−1). […] γ(x) = xp/p and γq(x) = ϕ(x)/[p]q − δ(x)” — The extension of δ and the definitions of γ and γ_q.
+- `wagner-q-hodge-habiro`, Proof of Lemma A.5(b), last sentence: “Now ϕ(p−α) = p−α and δ(p−α) is contained in p−(pα+1) q-D, hence γq(p−α(q−1)nx) is contained in p−(pα+1)(q−1)n q-D. This finishes the proof of (b).” — The printed exponent n, recorded as misprint E103; the statement's n+1 is what the computation gives.
+
+### The reverse expansion: iterated q-divided powers in the rationalised PD envelope
+
+`HQ.1/the-reverse-divided-power-expansion` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Take P, J, D and qD as in the proof of Lemma A.4, and compute γ_q in (D ⊗ ℚ)⟦q−1⟧ through the equivalence of that lemma. (a) For every x in J and n ≥ 1 there is an infinite sequence y_0, y_1, … in D such that y_0 admits divided powers and γ_q^(n)(x) = y_0 + Σ_{i≥1} p^{−2(p^{i−1}+⋯+1)}(q−1)^{(p−2)+i} y_i in (D ⊗ ℚ)⟦q−1⟧. (b) Consequently, for every animated A-algebra R and every n ≥ 0 there is an N such that the canonical map (q-dR_{R/A})^∧_p → (dR_{R/A})^∧_p[1/p]⟦q−1⟧/(q−1)^n factors through p^{−N}(dR_{R/A})^∧_p⟦q−1⟧/(q−1)^n. Part (b) is the form in which the source uses the remark.
+
+**Hypotheses.**
+
+- The source notes that the remark is not used in the proof of Theorem A.1. It is used later, in the proofs of Lemma 3.29 and Lemma 4.27, in the form (b).
+- The sum in (a) is infinite and converges (q−1)-adically. The bound N in (b) depends on n and p; unlike the forward direction, no bound uniform in p is claimed.
+- (a) and (b) are kept together because the source cites them as one remark; (b) is a direct consequence of (a).
+
+**Proof.**
+
+1. Write γ_q(x) = (γ(x) + (([p]_q − p)/p)δ(x)) · p/[p]_q and [p]_q = pu + (q−1)^{p−1}.
+2. Induct on n. Check that the operations γ, (u−1)δ and p^{−1}(q−1)^{p−1}δ preserve expressions of the stated shape, using the additivity formulas for γ and δ.
+3. u is a unit of ℤ_p⟦q−1⟧, so multiplication by p/[p]_q = u^{−1}Σ_{i≥0} p^{−i}u^{−i}(q−1)^{(p−1)i} also preserves expressions of the stated shape.
+4. For (b), fix n. Modulo (q−1)^n only terms with (p−2)+i < n survive, so the denominators are bounded. Products are bounded by the superadditivity argument of the uniform-bound node. Apply this on the envelopes of a Čech–Alexander resolution, and pass to animated R.
+
+**Acceptance.**
+
+- The exponents match those of Lemma A.6.
+- Part (b) is stated as the consumers use it, and its dependence on p is explicit.
+
+**Depends on.** this roadmap: `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/delta-and-q-divided-power-denominator-estimates`; other roadmaps: `CrystallineCohomology:CR.0`, `PrismaticCohomology:PR.6`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark A.7: “A.7. Remark. — There’s also an analogue of Lemma A.6 with the roles of D and q-D reversed. For every x ∈ J and n ⩾ 1, there’s an infinite sequence y0, y1, . . . , ∈ D such that y0 admits divided powers” — Part (a).
+- `wagner-q-hodge-habiro`, Appendix A, sentence before Remark A.7: “The following remark is irrelevant for our proof of Theorem A.1, but it is occasionally useful for technical arguments.” — Not used for Theorem A.1.
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.29, footnote (3.6): “(3.6)Recall from Remark A.7 that for every fixed n ⩾ 0 there exists an N such that the canonical map (q-dRR/A)∧p → (dRR/A)∧p[1/p]Jq−1K/(q−1)n already factors through p−N(dRR/A)∧pJq−1K/(q−1)n.” — Part (b), as used for the Nygaard filtration.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.27: “By Remark A.7, the canonical map q-dRR/A → (dRR/A ⊗Z Q)Jq−1K/(q−1)n already factors through p−N dRR/AJq−1K/(q−1)n for sufficiently large N.” — Part (b), as used for flat base change of the naive filtration.
+
+### Koszul complexes are unchanged by twisting each endomorphism by a suitably commuting automorphism
+
+`HQ.1/the-koszul-twist-isomorphism` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let M be an abelian group with commuting endomorphisms g_1, …, g_d and commuting automorphisms h_1, …, h_d, such that h_i commutes with g_j whenever i ≠ j; h_i need not commute with g_i. Then the endomorphisms h_1g_1, …, h_dg_d commute, and there is an isomorphism of Koszul complexes Kos*(M; g_1, …, g_d) ≅ Kos*(M; h_1g_1, …, h_dg_d). On the summand indexed by a subset I of {1, …, d} it is given by h_I, the product of the h_i for i in I.
+
+**Hypotheses.**
+
+- No commutation of h_i with g_i is assumed. The footnote to paragraph A.8 records that it fails in the case at hand.
+- The Koszul complex of commuting endomorphisms is imported from AInfCohomology:AI.1.
+
+**Proof.**
+
+1. Show that h_ig_i and h_jg_j commute for i ≠ j: the h commute, the g commute, and h_i commutes with g_j.
+2. Define the map on the summand of index I as h_I. It is an isomorphism because each h_i is.
+3. Check compatibility with the differentials. For j not in I, h_{I∪{j}}g_j = h_Ih_jg_j and h_jg_jh_I = h_Ih_jg_j, because h_I commutes with g_j when j is not in I.
+
+**Acceptance.**
+
+- The commutation hypotheses are exactly those of paragraph A.8.
+- The explicit form of the isomorphism is recorded, so it can be composed with the formula for the q-derivatives.
+
+**Depends on.** other roadmaps: `AInfCohomology:AI.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph A.8: “If M is an abelian group together with commuting endomorphisms g1, . . . , gd and commuting automorphisms h1, . . . , hd such that hi commutes with gj for i ≠ j one always has an isomorphism Kos∗(M, (g1, . . . , gd)) ≅ Kos∗(M, (h1g1, . . . , hdgd)) of Koszul complexes.” — The statement.
+- `wagner-q-hodge-habiro`, Paragraph A.8, footnote (A.1): “(A.1)We don’t require hi to commute with gi (and it’s not true in the case at hand).” — The warning about the index-i commutation.
+
+### The coordinate-free and the explicit framed comparisons agree
+
+`HQ.1/the-compatibility-square` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+In the situation of the PD version of the framed comparison, consider the square with these four arrows. Top: the coordinate-free equivalence of Lemma A.4, (RΓ_qcrys(S/Â_p⟦q−1⟧) ⊗^L ℚ)^∧_{(q−1)} ≃ (RΓ_crys(S/Â_p) ⊗^L ℚ)⟦q−1⟧. Bottom: the explicit isomorphism (q-Ω̆*_{qD/Â_p,□} ⊗ ℚ)^∧_{(q−1)} ≅ (Ω̆*_{D/Â_p} ⊗ ℚ)⟦q−1⟧. Left: the quasi-isomorphism of q-crystalline cohomology with the q-PD de Rham complex (Bhatt–Scholze Theorem 16.22). Right: the usual quasi-isomorphism of crystalline cohomology with the PD de Rham complex. This square commutes.
+
+**Hypotheses.**
+
+- P ↠ S, the framing, D and qD are as in the framed comparison node.
+- Commutativity is proved, not assumed: the two horizontal identifications are constructed independently.
+
+**Proof.**
+
+1. Let P^• be the degreewise p-completed Čech nerve of Â_p → P, J^• the kernel of the augmentation to S, D^• the p-completed PD envelopes and qD^• the q-PD envelopes. Form the double complexes M^{•,*} of PD de Rham complexes of D^• and qM^{•,*} of q-PD de Rham complexes of qD^•.
+2. By the proof of Bhatt–Scholze Theorem 16.22, Tot(qM^{•,*}) is quasi-isomorphic both to the zeroth column (the q-PD de Rham complex of qD) and to the totalisation of the zeroth row, Tot(qD^•), which is RΓ_qcrys. The same holds for M^{•,*} and RΓ_crys (Stacks Tag 07LG).
+3. Apply the explicit PD comparison columnwise to get an isomorphism of cosimplicial complexes (qM^{•,*} ⊗ ℚ)^∧_{(q−1)} ≅ (M^{•,*} ⊗ ℚ)⟦q−1⟧.
+4. On zeroth columns it is the explicit PD comparison; on zeroth rows it is the isomorphism of Lemma A.4 on each qD^k. Hence the square commutes.
+
+**Acceptance.**
+
+- The square is stated with all four maps named.
+- The proof uses the Čech–Alexander double complex and identifies both edges, rather than asserting commutativity.
+
+**Depends on.** this roadmap: `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-coordinate-comparison-and-its-compatibility`; other roadmaps: `PrismaticCohomology:PR.6`, `CrystallineCohomology:CR.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma A.10: “Here the left vertical arrow is the quasi-isomorphism from [BS19, Theorem 16.22] and the right vertical arrow is the usual quasi-isomorphism between crystalline cohomology and PD-de Rham complexes.” — The vertical arrows of the square.
+- `wagner-q-hodge-habiro`, Proof of Lemma A.10: “Applying Lemma A.9 column-wise gives an isomorphism of cosimplicial complexes (q-M•,∗ ⊗Z Q)∧(q−1) ≅ (M•,∗ ⊗Z Q)Jq−1K. On 0th columns, this is the isomorphism from Lemma A.9, whereas on 0th rows it is the isomorphism from Lemma A.4.” — Why the square commutes.
+
+### The coordinate-dependent q-de Rham complex of a framed smooth algebra
+
+`HQ.1/the-coordinate-dependent-q-de-rham-complex` · construction · planet “Coordinate-dependent q-de Rham complex” · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S be a smooth A-algebra and □: A[x_1, …, x_d] → S an étale framing. For each i let γ_i be the unique A⟦q−1⟧-algebra automorphism of S⟦q−1⟧ that sends x_i to qx_i, fixes x_j for j ≠ i, and is the identity modulo q−1. It exists and is unique because S is étale over A[x_1, …, x_d] and S⟦q−1⟧ is (q−1)-complete. Then γ_i − 1 takes values in (q−1)x_iS⟦q−1⟧, and the q-partial derivatives q∂_i = (γ_i − 1)/((q−1)x_i) commute. The coordinate-dependent q-de Rham complex q-Ω*_{S/A,□} is their Koszul complex, written S⟦q−1⟧ → Ω^1_{S/A}⟦q−1⟧ → ⋯ → Ω^d_{S/A}⟦q−1⟧ with differential q∇ = Σ_i q∂_i dx_i. This is Scholze's complex [Sch17, §3], which the source cites; it depends on the framing.
+
+**Hypotheses.**
+
+- The framing is étale; no Λ-structure on S is used. The complex is defined over any base ring A, and is used with A a p-torsion free Λ-ring.
+- γ_i ≡ id modulo x_i, because the induced automorphism of S⟦q−1⟧/x_i is the identity by uniqueness of étale lifts. Also x_i and q−1 form a regular sequence on S⟦q−1⟧, since S is flat over A[x_1, …, x_d]. Together these give divisibility by (q−1)x_i.
+- The p-completion of this complex is the p-complete framed complex imported from PR.6.
+
+**Proof.**
+
+1. Construct γ_i by the infinitesimal lifting property of the étale map A[x_1, …, x_d] → S along the thickenings S⟦q−1⟧/(q−1)^n → S, and pass to the limit.
+2. Show that the γ_i commute, by uniqueness of lifts.
+3. Show that γ_i − 1 is divisible by (q−1)x_i: it vanishes modulo q−1 and modulo x_i, and (x_i, q−1) is a regular sequence on S⟦q−1⟧.
+4. Define q∂_i. Check that they commute and satisfy q∂_i(x_i^n) = [n]_q x_i^{n−1} and the twisted Leibniz rule q∂_i(fg) = q∂_i(f)γ_i(g) + f q∂_i(g).
+5. Form the Koszul complex and identify its terms with Ω^k_{S/A}⟦q−1⟧ through the basis dx_{i_1} ∧ ⋯ ∧ dx_{i_k}.
+
+**API.**
+
+- `qOmegaFramed` (constructor): For an étale framing □ of a smooth A-algebra S, the complex q-Ω*_{S/A,□} of A⟦q−1⟧-modules.
+- `qOmegaFramed.gamma` (data): The commuting automorphisms γ_i of S⟦q−1⟧, each congruent to the identity modulo q−1 and modulo x_i.
+- `qOmegaFramed.qPartial` (data): q∂_i = (γ_i − 1)/((q−1)x_i), an A⟦q−1⟧-linear endomorphism of S⟦q−1⟧.
+- `qOmegaFramed.qPartial_X_pow` (simp): q∂_i(x_i^n) = [n]_q x_i^{n−1}, and q∂_i(x_j) = 0 for j ≠ i.
+- `qOmegaFramed.qPartial_mul` (relation): The twisted Leibniz rule q∂_i(fg) = q∂_i(f)γ_i(g) + f q∂_i(g).
+- `qOmegaFramed.qPartial_comm` (relation): q∂_i and q∂_j commute.
+- `qOmegaFramed.modQSubOne` (compatibility): Modulo q−1, q-Ω*_{S/A,□} is the de Rham complex Ω*_{S/A}, and q∂_i reduces to ∂_i.
+- `qOmegaFramed.pCompletion` (compatibility): Its p-completion is the p-complete framed complex of Ŝ_p over Â_p imported from PR.6, which computes q-crystalline cohomology.
+- `qOmegaFramed.equivQOmega` (equivalence): The identification with q-Ω_{S/A} of Theorem A.1(d) (framed-description node).
+
+**Unit tests.**
+
+- `qOmegaFramed_polynomial` (computation): For A = ℤ, S = ℤ[x] and the identity framing, q-Ω* is ℤ[x]⟦q−1⟧ → ℤ[x]⟦q−1⟧dx with x^n ↦ [n]_q x^{n−1}dx. For instance x^3 ↦ (1+q+q^2)x^2dx, which is 7x^2dx at q = 2.
+- `qOmegaFramed_etale` (degenerate): For d = 0 (S étale over A, empty framing) the complex is S⟦q−1⟧ in degree 0.
+- `qOmegaFramed_modQSubOne` (compatibility): Modulo q−1 the differential is the de Rham differential: for S = A[x], x^n ↦ n x^{n−1}dx.
+- `qOmegaFramed_not_leibniz` (non-example): The ordinary Leibniz rule fails. q∂(x·x) = (1+q)x, while x·q∂(x) + q∂(x)·x = 2x. The twisted rule q∂(x·x) = q∂(x)·γ(x) + x·q∂(x) = qx + x holds.
+
+**Acceptance.**
+
+- The automorphisms γ_i are constructed and not assumed.
+- The divisibility by (q−1)x_i is proved.
+- The dependence on the framing is stated.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Theorem A.1(d): The underlying object of the global complex of a framed smooth algebra is this complex.
+- Wagner, q-Hodge complexes, paragraph 1.10 and Example 3.12 (HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case): The coordinate q-Hodge filtration (q−1)^{max(n−*,0)} and the coordinate q-Hodge complex are defined on it.
+- HabiroCohomologyFoundations:HQ.5/framed-and-fixed-point-descriptions-of-the-canonical-filtration: The canonical smooth filtration is compared with the coordinate filtration on this complex.
+
+**Depends on.** this roadmap: `HQ.1/what-this-layer-imports-and-what-it-owns`; other roadmaps: `AInfCohomology:AI.1`; libraries: `mathlib:Algebra.Etale`, `mathlib:KaehlerDifferential`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem A.1(d): “(d) For every framed smooth A-algebra (S, □), the underlying object of q-ΩS/A in the derived ∞-category of AJq−1K can be represented as q-ΩS/A ≃ q-Ω∗S/A,□, where q-Ω∗S/A,□ denotes the coordinate-dependent q-de Rham complex as in [Sch17, §3].” — The complex as the source uses it, with its citation of [Sch17, §3].
+- `wagner-q-hodge-habiro`, Paragraph 1.10: “Let (S, □) be a framed smooth algebra over Z. That is, S is smooth over Z and □: Z[x1, . . . , xn] → S is an étale map. In this case, the q-de Rham complex q-ΩS/Z can be represented by the explicit complex […] defined in [Sch17, §3].” — The explicit form of the complex.
+- `wagner-q-hodge-habiro`, Example 3.12: “By the infinitesimal lifting property of formally étale morphisms, there exists a unique dashed arrow γ(m)i making the diagram commutative. […] It’s also straightforward to check that γi ≡ id mod xi.” — The construction of the γ_i by étale lifting, in the Habiro setting, and γ_i ≡ id mod x_i.
+
+### For a framed smooth algebra, the global complex is the coordinate-dependent complex (Theorem A.1(d))
+
+`HQ.1/the-framed-description-of-the-global-complex` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a Λ-ring that is p-torsion free for all primes p, S a smooth A-algebra, and □: A[x_1, …, x_d] → S an étale framing. Then the underlying object of q-Ω_{S/A} in the derived ∞-category of A⟦q−1⟧ is equivalent to the coordinate-dependent complex q-Ω*_{S/A,□}. The equivalence identifies the defining pullback square of q-Ω_{S/A} with the (q−1)-completed arithmetic fracture square of q-Ω*_{S/A,□}. It concerns underlying objects only: the framed complex is not asserted to be functorial or canonical.
+
+**Hypotheses.**
+
+- The framing is étale. The statement concerns the underlying object in the derived ∞-category of A⟦q−1⟧, not the E∞-structure.
+- For each p, the p-completed framed complex computes q-crystalline cohomology of Ŝ_p (Bhatt–Scholze Theorem 16.22).
+
+**Proof.**
+
+1. Write the (q−1)-completed arithmetic fracture square of q-Ω*_{S/A,□}. Its corners are the complex itself, the product over p of its p-completions, its rationalisation completed at q−1, and the rationalised product.
+2. Identify the p-completion of q-Ω*_{S/A,□} with the p-complete framed complex of Ŝ_p over Â_p, and that with q-Ω_{Ŝ_p/Â_p} = RΓ_qcrys by Bhatt–Scholze Theorem 16.22.
+3. Identify the rationalisation with (Ω*_{S/A} ⊗ ℚ)⟦q−1⟧ by the explicit framed comparison over A.
+4. By the compatibility square, under these identifications the right vertical map of the fracture square is the map of the uniform-bound node used in the defining square of q-Ω_{S/A}.
+5. So the two pullback squares are equivalent, hence q-Ω_{S/A} ≃ q-Ω*_{S/A,□}.
+
+**Acceptance.**
+
+- The proof uses the compatibility square and does not identify the two right vertical maps by fiat.
+- The fracture square used is the one over all primes, completed at q−1.
+- The statement is about the underlying object and names the framing.
+
+**Depends on.** this roadmap: `HQ.1/the-global-q-de-rham-complex`, `HQ.1/the-coordinate-dependent-q-de-rham-complex`, `HQ.1/the-coordinate-comparison-and-its-compatibility`, `HQ.1/the-compatibility-square`; other roadmaps: `PrismaticCohomology:PR.6`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem A.1(d): “(d) For every framed smooth A-algebra (S, □), the underlying object of q-ΩS/A in the derived ∞-category of AJq−1K can be represented as q-ΩS/A ≃ q-Ω∗S/A,□, where q-Ω∗S/A,□ denotes the coordinate-dependent q-de Rham complex as in [Sch17, §3].” — The statement.
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1, part (d): “The compatibility check from Lemma A.10 now allows us to identify the pullback square for q-ΩS/A with the usual arithmetic fracture square for the complex q-Ω∗S/A,□, completed at (q−1). This shows q-ΩS/A ≃ q-Ω∗S/A,□, as desired.” — The proof by comparison of fracture squares.
+
+### Base change for the global q-de Rham complex, with its (q−1)-completion
+
+`HQ.1/base-change-for-the-global-complex` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A → A′ be a map of Λ-rings with A and A′ both p-torsion free for all primes p. For every smooth A-algebra S there is a canonical equivalence (q-Ω_{S/A} ⊗^L_A A′)^∧_{(q−1)} ≃ q-Ω_{(S⊗_A A′)/A′}, natural in S. Modulo q−1 it is the usual base change equivalence Ω*_{S/A} ⊗^L_A A′ ≃ Ω*_{(S⊗_A A′)/A′} of de Rham complexes. The (q−1)-completion is part of the statement: already for A = ℤ, A′ = ℚ and S = ℤ, the uncompleted base change ℤ⟦q−1⟧ ⊗ ℚ is not ℚ⟦q−1⟧.
+
+**Hypotheses.**
+
+- A′ is not assumed flat over A. The tensor product is the derived one. S ⊗_A A′ is smooth over A′, and since S is flat over A the ordinary and derived tensor products of S agree.
+- The base change map is built corner by corner from the defining pullback square.
+
+**Proof.**
+
+1. Construct the map on each corner of the defining square: on the p-complete corners by functoriality of q-crystalline cohomology along Â_p⟦q−1⟧ → Â′_p⟦q−1⟧, and on the rational corners by functoriality of the de Rham complex. These are compatible with the right vertical map, whose construction on envelopes is functorial in the base.
+2. Take the induced map of pullbacks, and (q−1)-complete the source.
+3. Reduce modulo q−1: the map becomes the base change map for de Rham complexes of smooth algebras, an equivalence.
+4. Both sides are (q−1)-complete, so the map is an equivalence by the derived Nakayama lemma.
+
+**Acceptance.**
+
+- The (q−1)-completion appears in the statement, with the example showing it cannot be dropped.
+- The equivalence is deduced modulo q−1 by derived Nakayama, as in the source.
+
+**Depends on.** this roadmap: `HQ.1/the-global-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`; other roadmaps: `PrismaticCohomology:PR.6`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem A.1, final paragraph: “Moreover, if A → A′ is a map of Λ-rings such that A′ is also p-torsion free for all primes p, there’s a canonical base change equivalence (q-Ω−/A ⊗LA A′)∧(q−1) ≃ q-Ω(−⊗AA′)/A′. Modulo (q−1) this reduces to the usual base change equivalence of the de Rham complex.” — The statement.
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1, last paragraph: “For the additional assertion, it’s clear from the construction that a base change morphism […] exists and that it reduces modulo (q−1) to the usual base change equivalence for the de Rham complex. In particular, it must be an equivalence as well.” — The proof by reduction modulo q−1.
+
+### Comparison maps between framed models, and the cocycle identity
+
+`HQ.1/framing-independence-and-the-cocycle-identity` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S be a smooth A-algebra with étale framings □, □′ and □″. The composite of the equivalences of the framed-description node, q-Ω*_{S/A,□} ≃ q-Ω_{S/A} ≃ q-Ω*_{S/A,□′}, is an equivalence c_{□′,□} in the derived ∞-category of A⟦q−1⟧ that depends only on the two framings. Moreover c_{□,□} is the identity and c_{□″,□′} ∘ c_{□′,□} ≃ c_{□″,□}. These comparison maps are what framing independence means for the global object. No chart-by-chart gluing is needed, because q-Ω_{S/A} is defined without charts.
+
+**Hypotheses.**
+
+- The framings are étale. The comparison maps are between underlying objects.
+- The source does not state these maps; they are formal consequences of Theorem A.1(d). They are recorded because the stage text asks for framing independence by coherent comparison maps.
+
+**Proof.**
+
+1. Define c_{□′,□} as the composite of the equivalence for □ with the inverse of the one for □′.
+2. The identity and cocycle identities hold because all the maps factor through the single object q-Ω_{S/A}.
+
+**Acceptance.**
+
+- The comparison maps factor through the chart-free global complex.
+- The cocycle identity is stated.
+
+**Depends on.** this roadmap: `HQ.1/the-framed-description-of-the-global-complex`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem A.1(d): “(d) For every framed smooth A-algebra (S, □), the underlying object of q-ΩS/A in the derived ∞-category of AJq−1K can be represented as q-ΩS/A ≃ q-Ω∗S/A,□, where q-Ω∗S/A,□ denotes the coordinate-dependent q-de Rham complex as in [Sch17, §3].” — The equivalence for each framing, from which the comparison maps are composed.
+- `wagner-q-hodge-habiro`, Appendix A, strategy (a): “(a) One can glue the global q-de Rham complex from its p-completions and its rationalisation using an arithmetic fracture square.” — The chart-free construction that makes the comparison maps formal.
+
+### The de Rham complex of a smooth algebra is the totalisation of the PD envelopes of a Čech nerve
+
+`HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S be a smooth A-algebra and P ↠ S a surjection from an ind-smooth A-algebra; functorially, P = A[T_s : s ∈ S]. Let P^• be the Čech nerve of A → P, J^• the kernel of the augmentation P^• ↠ S, and D^• = D_{P^•}(J^•) the PD envelopes. Then Ω*_{S/A} ≃ Tot D^•. The equivalence holds as derived commutative A-algebras, where Ω*_{S/A} carries the structure coming from its commutative differential graded algebra structure (Raksit, Definition 5.1.10).
+
+**Hypotheses.**
+
+- The PD envelopes are the ordinary ones, not p-completed.
+- The derived commutative structure on Tot D^• is that of a totalisation of static rings. The one on Ω*_{S/A} comes from its structure of commutative differential graded algebra.
+
+**Proof.**
+
+1. Form the cosimplicial complex M^{•,*} = Ω̆*_{D^•/A} of PD de Rham complexes.
+2. Each column M^{i,*} is quasi-isomorphic to M^{0,*}, and M^{0,*} to Ω*_{S/A}, by the PD Poincaré lemma.
+3. Each row M^{•,j} with j > 0 is nullhomotopic (Stacks Tag 07L7, applied to the cosimplicial ring D^•).
+4. Hence Tot M^{•,*} is quasi-isomorphic both to the zeroth row, Tot D^•, and to Ω*_{S/A}. This adapts the proof of Bhatt–Scholze Theorem 16.22.
+5. All maps involved are maps of commutative differential graded algebras, so the identification holds in derived commutative A-algebras.
+
+**Acceptance.**
+
+- The totalisation statement is proved, not assumed.
+- The two derived commutative structures on Ω*_{S/A} are identified.
+
+**Depends on.** other roadmaps: `CrystallineCohomology:CR.0`, `CrystallineCohomology:CR.2`, `EnhancedDerivedSheaves:E5`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph A.13, second paragraph: “Then ΩS/A ≃ Tot DP•(J•) holds by a straightforward adaptation of the proof of [BS19, Theorem 16.22]: […] checks that each column Mi,∗ is quasi-isomorphic to M0,∗ (this is the Poincaré lemma) and that each row M•,j for j > 0 is nullhomotopic” — The statement and its two checks.
+- `wagner-q-hodge-habiro`, Paragraph A.13, last paragraph: “But the argument above shows that ΩS/A ≃ Tot DP•(J•) holds true as derived commutative A-algebras.” — The identification as derived commutative algebras.
+
+## HQ.2 — Animated inputs and derived q-de Rham
+
+*Coverage: source_decomposed.* 11 nodes, 3 of them added by the independent review. The filtered, graded, derived-quotient and completion conventions the whole roadmap uses, with the detection principle; the graded presentation of the filtered coefficient ring by two generators whose product is the deformation parameter, which is the device that produces both the conjugate and the q-Witt filtrations; the quotient convention that places the deformation parameter in filtration degree one; the derived q-de Rham complex by animation, with the explicit record of where animation changes the answer and where it does not; base change with its completion hypothesis; the two rational comparisons with the source's statement that the p-completed one is a separate axiom; what the décalage import supplies and what is owned; and the smooth comparison identifying the underived complex with the q-Hodge completion of the derived one.
+
+### The filtered, graded, derived-quotient and completion conventions, imported and fixed
+
+`HQ.2/filtered-graded-and-completion-conventions` · comparison
+
+The following are imported from DerivedDeRhamCohomology:DD.1 and EnhancedDerivedSheaves:E1/E4; this roadmap fixes for them the conventions of the source's paragraph 1.22. For a stable ∞-category C take graded objects Gr(C) and descendingly filtered objects Fil(C), indexed by the integers, with transition maps fil^{n+1} → fil^n and associated graded gr^n = cofib(fil^{n+1} → fil^n). Filtrations constant in degrees ≤ 0 are written from fil^0. Ascending filtrations fil_n have gr_n = cofib(fil_{n−1} → fil_n). A filtration is exhaustive if X ≃ colim_{n→−∞} fil^n and complete if lim_{n→∞} fil^n ≃ 0. The completion is lim_n cofib(fil^{⋆+n} → fil^⋆), and every filtration is the pullback of its completion along X → X̂. When the tensor product of C commutes with colimits in each variable, Gr(C) and Fil(C) carry Day convolution. Moreover Fil(C) ≃ Mod_{1_Gr[t]}(Gr(C)) with t in degree −1, the associated graded being base change along t ↦ 0. For f in a ring R and M in D(R), M/f = cofib(f: M → M), iterated for sequences; it agrees with the ordinary quotient only for Koszul-regular sequences. For a graded ring R^* and f of degree i, M^*/f = cofib(f: M(i) → M), and the same notation is used for filtered objects regarded as graded 1_Gr[t]-modules. The derived (f_1, …, f_r)-completion is lim_n M/(f_1^n, …, f_r^n). For a principal ideal (f), the square with corners M, M̂_f, M[1/f] and M̂_f[1/f] is a pullback (the arithmetic fracture square when f is an integer). Finally, if M is complete and M/(f_1, …, f_r) has vanishing homology in some degree, then so does M.
+
+**Hypotheses.**
+
+- The ambient category is stable. For the monoidal statements, its tensor product commutes with colimits in each variable.
+- These are imports. What this roadmap owns is the specific coefficient ring and quotient convention of the next two nodes. The arithmetic fracture square over all primes, which HQ.1 uses, is requested from DD.1 separately.
+
+**Proof.**
+
+1. Name the imported interface in DD.1 and E1/E4 for each item: filtered and graded objects, Day convolution, the Rees description, derived quotients, derived completion, fracture squares and the detection principle.
+2. Fix the indexing conventions for descending and ascending filtrations and their associated gradeds. This corrects two notational slips in paragraph 1.22(a) (source issues E107 and E108).
+3. Fix the graded derived quotient convention M^*/f = cofib(f: M(i) → M). The next node takes its quotients by β and t this way.
+4. Record the derived-versus-ordinary quotient warning, and the detection principle with its completeness hypothesis.
+
+**Acceptance.**
+
+- Every convention a later node relies on is stated here once.
+- The derived-versus-ordinary quotient warning is explicit: for M = ℤ/p and f = p the derived quotient has homology in two degrees, the ordinary quotient in one.
+- The detection principle carries its completeness hypothesis: M = ℚ is not p-complete, ℚ/p = 0 and ℚ ≠ 0.
+- For the (q−1)-adic filtration on A⟦q−1⟧, gr^n is the free A-module of rank one on the class of (q−1)^n for n ≥ 0, and zero for n < 0. Shifting the indexing by one would break this.
+- No object of this node is defined here; each is cited to its owner.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: Every clause of the definition of a q-Hodge filtration is a statement about filtered modules in these conventions.
+- HabiroCohomologyFoundations:HQ.4: The Nygaard and stupid filtrations, and their associated gradeds, are taken in these conventions.
+- HabiroCohomologyFoundations:HQ.1: The global complex is defined by a fracture square in exactly this sense.
+
+**Depends on.** other roadmaps: `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E4`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.22(a): “We say that fil⋆X is an exhaustive filtration on X if X ≃ colimn→−∞ filn X. We say that a filtered object fil⋆X is complete if 0 ≃ limn→∞ filn X. […] We’ll often refer to this by saying that every filtration is the pullback of its completion.” — Exhaustive and complete filtrations, and the pullback-of-its-completion principle.
+- `wagner-q-hodge-habiro`, Paragraph 1.22(c): “We warn the reader that for ordinary R-modules M, the derived quotient M/(f1, . . . , fr) agrees with the usual quotient only if (f1, . . . , fr) is a Koszul-regular sequence on M.” — The derived quotient warning.
+- `wagner-q-hodge-habiro`, Paragraph 1.22(c), graded case: “Similarly, if R∗ is a graded ring, f ∈ Ri is a homogeneous element of degree i, and M∗ ∈ ModR∗Gr(D(Z)), we put M∗/f := cofib(f: M(i) → M) and define M∗/(f1, . . . , fr) analogously.” — The graded derived quotient convention.
+- `wagner-q-hodge-habiro`, Paragraph 1.22(d): “The following fact will be used countless times: If M is (f1, . . . , fr)-complete, and the homology of M/(f1, . . . , fr) vanishes in some degree d, then also the homology of M must vanish in degree d.” — The detection principle, with its completeness hypothesis.
+
+### The filtered coefficient ring as a graded ring with one generator in each direction
+
+`HQ.2/the-graded-presentation-of-the-coefficient-ring` · definition
+
+Under the equivalence of filtered objects with graded modules over 1_Gr[t], the filtered ring (q−1)^⋆A[q] (the (q−1)-adic filtration on the polynomial ring A[q]) corresponds to the graded polynomial ring A[β, t], with β in degree 1, t in degree −1, and q = 1 + βt; that is, βt = q−1. Here t is the filtration parameter, and β is q−1 placed in filtration degree 1. Regard a filtered (q−1)^⋆A[q]-module M as a graded A[β, t]-module. Then M/t is the associated graded gr^*M. M/β is the quotient of M by q−1 in the sense of the quotient convention, with q−1 in filtration degree one. M/(β, t) is the associated graded of M/β. For a q-Hodge filtration these become gr_qHdg, the Hodge filtration and its associated graded (HQ.3). With q^m−1 in place of q−1, the filtered ring (q^m−1)^⋆A[q] corresponds to A[q, β, t]/(βt − (q^m−1)) with q in degree 0.
+
+**Hypotheses.**
+
+- A is the base Λ-ring. The presentation is the Rees-algebra description of the filtered ring and carries no extra data. It uses that q^m−1 is a nonzerodivisor on A[q].
+- Degrees are fixed once: t, the filtration parameter, has degree −1, and β, the deformation parameter, has degree 1.
+- For m ≥ 2 the graded ring is not a polynomial ring in β and t: q remains a generator of degree 0.
+
+**Proof.**
+
+1. The graded ring attached to the (q^m−1)-adic filtration on A[q] is ⊕_n (q^m−1)^n A[q] t^{−n}, with (q^m−1)^n A[q] = A[q] for n ≤ 0. It is generated over A[q][t] by β = (q^m−1)t^{−1}. Since q^m−1 is a nonzerodivisor, the only relation is βt = q^m−1.
+2. For m = 1, q = 1 + βt, so the ring is the polynomial ring A[β, t].
+3. Compute the quotients of the ring itself. A[β,t]/t = A[β], with q ↦ 1, is the associated graded ⊕_n (q−1)^n A[q]/(q−1)^{n+1}A[q]. A[β,t]/β = A[t] is the trivially filtered ring A. A[β,t]/(β,t) = A.
+4. For modules: M/t is the associated graded, by the Rees description. M/β = cofib(β: M(1) → M) has n-th piece cofib((q−1): fil^{n−1}M → fil^nM), which is the quotient convention.
+5. Record that this presentation is the device by which HQ.3 produces the conjugate and q-Witt filtrations from one abstract lemma.
+
+**API.**
+
+- `coefficientRing` (constructor): The graded ring A[q, β, t]/(βt − (q^m−1)) for m ≥ 1, with |q| = 0, |β| = 1, |t| = −1. For m = 1 it is the polynomial ring A[β, t] with q = 1 + βt.
+- `coefficientRing.equivFiltered` (equivalence): The identification of filtered (q^m−1)^⋆A[q]-modules with graded coefficientRing-modules, natural in A.
+- `coefficientRing.mod_t` (projection): Modding out t is passage to the associated graded.
+- `coefficientRing.mod_beta` (projection): Modding out β is the quotient by q^m−1 in filtration degree one (the quotient convention).
+- `coefficientRing.mod_beta_t` (compatibility): Modding out both is the associated graded of the quotient by β.
+- `coefficientRing.q_eq` (relation): q = 1 + βt when m = 1, and βt = q^m−1 in general.
+
+**Unit tests.**
+
+- `coefficientRing_relation` (characterisation): In A[β, t], βt = q − 1 with q = 1 + βt. A presentation with βt = q, or with the degrees of β and t exchanged, fails this.
+- `coefficientRing_mod_t` (computation): A[β, t]/t is A[β], the graded ring ⊕_{n≥0} A·β^n. This is the associated graded ⊕_n (q−1)^nA[q]/(q−1)^{n+1}A[q] of the (q−1)-adic filtration, and q maps to 1 in it.
+- `coefficientRing_mod_beta` (computation): A[β, t]/β is A[t], the filtered ring A with the trivial filtration (A in degrees ≤ 0, zero in positive degrees). q maps to 1.
+- `coefficientRing_q_ne_zero` (non-example): Modulo β the image of q is 1, not 0. The presentation is of the (q−1)-adic filtration; for the q-adic one the relation would be βt = q, and q would map to 0.
+
+**Acceptance.**
+
+- The degrees of both generators and their product relation are stated.
+- The three quotients are computed and named.
+- The twisted version with q^m-1 is included, since the descent argument uses it for every m.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, proof of Lemma 3.9 (HabiroCohomologyFoundations:HQ.3/the-conjugate-filtration): The conjugate filtration and its associated graded are computed by the abstract graded lemma in this presentation.
+- Wagner, q-Hodge complexes, proof outline of Theorem 3.11: The twisted presentation with q^m−1 computes the q-de Rham–Witt filtration by the same lemma.
+- Wagner, q-Hodge complexes, proof of Proposition 3.7: Symmetric monoidality of the q-Hodge complex is checked after inverting β, which only makes sense in this presentation.
+- Wagner, q-Hodge complexes, footnote (3.2) to Lemma 3.9 (HabiroCohomologyFoundations:HQ.5-trace): (q−1)^⋆ℤ⟦q−1⟧ is identified with ℤ[β]⟦t⟧ ≅ π_{2*}(ku^{hS^1}), with β the Bott element.
+
+**Depends on.** this roadmap: `HQ.2/filtered-graded-and-completion-conventions`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.9: “To avoid ambiguous notation, let us identify the filtered ring (q−1)⋆A[q] with the graded ring A[β, t], where |β| = 1, |t| = −1, and βt = q−1. The filtered structure on A[β, t] comes from the A[t]-module structure (see 1.22), so t can be regarded as the filtration parameter” — The presentation and the roles of the two generators.
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.9, continued: “If we regard fil⋆q-Hdg q-dRR/A as a graded A[β, t]-module, then fil⋆q-Hdg q-dRR/A/β ≃ fil⋆Hdg dRR/A and fil⋆q-Hdg q-dRR/A/t ≃ gr∗q-Hdg q-dRR/A” — The two quotients for a q-Hodge filtration, the first by Definition 3.2(b).
+- `wagner-q-hodge-habiro`, Proof outline of Theorem 3.11: “for this we identify the filtered ring (qm−1)⋆A[q] with the graded ring A[q, β, t]/(βt−(qm−1)), where |q| = 0, |β| = 1, and |t| = −1” — The twisted version, used for every m.
+
+### The quotient of a filtered module by q^m-1 places the element in filtration degree one
+
+`HQ.2/the-quotient-convention-for-filtered-modules` · definition
+
+For a filtered module fil^⋆M over the filtered ring (q^m−1)^⋆A[q], the quotient fil^⋆M/(q^m−1) always means the base change in filtered objects along the filtered ring map (q^m−1)^⋆A[q] → A[q]/(q^m−1), where the target has its trivial filtration. Equivalently, it is the quotient by q^m−1 regarded as an element of filtration degree one; in the graded presentation this is the quotient by β. Its n-th piece is cofib((q^m−1): fil^{n−1}M → fil^nM). This is not the degreewise quotient, whose n-th piece is cofib((q^m−1): fil^nM → fil^nM). For m = 1 the target ring is A[q]/(q−1) = A, which is how the source writes it. The source writes A for every m, which is a misprint for m ≥ 2 (source issue E102): base change to A would also kill q−1.
+
+**Hypotheses.**
+
+- fil^⋆M is a filtered module over (q^m−1)^⋆A[q], in which q^m−1 sits in filtration degree one.
+- The convention applies to every quotient by q^m−1 in this roadmap, including those in the definition of a q-Hodge filtration, the twisted q-Hodge filtrations and the descent theorem.
+
+**Proof.**
+
+1. Define the quotient as base change along (q^m−1)^⋆A[q] → A[q]/(q^m−1), with the target trivially filtered. In the graded presentation this is the quotient map by β.
+2. β is a nonzerodivisor on the graded ring, so the base change is cofib(β: M(1) → M). Its n-th piece is the cofibre of multiplication by q^m−1 from fil^{n−1}M to fil^nM.
+3. Contrast it with the degreewise quotient on the (q−1)-adic filtration of A[q] (see the tests).
+4. Record that the convention is the quotient by β in the graded presentation.
+
+**API.**
+
+- `filQuotient` (constructor): The quotient of a filtered (q^m−1)^⋆A[q]-module by q^m−1, as base change to the trivially filtered A[q]/(q^m−1).
+- `filQuotient.piece` (characterisation): Its n-th piece is cofib((q^m−1): fil^{n−1}M → fil^nM).
+- `filQuotient.eq_mod_beta` (compatibility): In the graded presentation it is the quotient by β.
+- `filQuotient.piece_of_nonpos` (projection): For a filtration constant in degrees ≤ 0 and n ≤ 0, the n-th piece is the ordinary derived quotient M/(q^m−1) of the underlying object.
+- `filQuotient.map` (functoriality): It is a functor, symmetric monoidal for Day convolution because it is a base change.
+
+**Unit tests.**
+
+- `filQuotient_coefficientRing` (computation): For fil^⋆M = (q−1)^⋆A[q] and m = 1, the quotient is A in filtration degrees ≤ 0 and 0 in degrees ≥ 1. Multiplication by q−1 from (q−1)^{n−1}A[q] to (q−1)^nA[q] is an isomorphism for n ≥ 1, so the result is the unit filtered ring A.
+- `filQuotient_piece_of_nonpos` (degenerate): In filtration degrees ≤ 0, for a filtration constant there, the quotient is the ordinary derived quotient of the underlying object.
+- `filQuotient_ne_degreewise` (non-example): The degreewise quotient of (q−1)^⋆A[q] by q−1 has n-th piece (q−1)^nA[q]/(q−1)^{n+1}A[q] ≅ A for every n ≥ 0, with zero transition maps between positive degrees. It is nonzero in degree 1, where the convention gives 0.
+- `filQuotient_eq_mod_beta` (compatibility): Under the graded presentation, the quotient is cofib(β: M(1) → M).
+
+**Acceptance.**
+
+- The convention is stated once, with its formula for the n-th piece.
+- The contrast with the degreewise quotient is recorded, since taking the wrong one makes the q-deformation clause of the q-Hodge filtration false.
+- The convention is tied to the graded presentation.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: Clause (b) of the definition of a q-Hodge filtration is an equivalence of filtered modules after this quotient; with the degreewise quotient the clause would be false.
+- HabiroCohomologyFoundations:HQ.4: The identification of the twisted q-de Rham complex modulo q^m-1 with the q-de Rham-Witt complex is stated with this convention.
+
+**Depends on.** this roadmap: `HQ.2/filtered-graded-and-completion-conventions`, `HQ.2/the-graded-presentation-of-the-coefficient-ring`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Convention 3.1: “For such a filtered module fil⋆M, we always let fil⋆M/(qm−1) denote the base change fil⋆M/(qm−1) := fil⋆M ⊗L(qm−1)⋆A[q] A in filtered objects, or in other words, the quotient by (qm−1) sitting in filtration degree 1, not filtration degree 0.” — The convention. The printed base change to A is a misprint for m ≥ 2 (E102).
+- `wagner-q-hodge-habiro`, Convention 3.1, continued: “In particular, the nth filtered piece of the quotient fil⋆M/(qm−1) will be cofib((qm−1): filn−1 M → filn M).” — The formula for the n-th piece, which is correct as printed.
+
+### The derived q-de Rham complex, by animation of the global complex on polynomial algebras
+
+`HQ.2/the-derived-q-de-rham-complex` · construction · planet “Derived q-de Rham complex”
+
+Let A be a Λ-ring that is p-torsion free for all primes p. The derived q-de Rham complex q-dR_{−/A} is the animation of the global q-de Rham complex. It is the unique sifted-colimit-preserving functor from animated A-algebras to (q−1)-complete E∞-algebras over A⟦q−1⟧ (sifted colimits being computed as (q−1)-completed colimits) whose restriction to polynomial A-algebras in finitely many variables is q-Ω_{−/A}. For a simplicial resolution P_• → R by such polynomial algebras, q-dR_{R/A} is the (q−1)-completion of the geometric realisation of q-Ω_{P_•/A}, independently of the resolution. The functor lifts to (q−1)-complete derived commutative A⟦q−1⟧-algebras. Moreover q-dR_{−/A}/(q−1) ≃ dR_{−/A}, and for every prime p, (q-dR_{R/A})^∧_p ≃ q-dR_{R̂_p/Â_p}, the local derived complex. Finally, q-dR_{R/A} sits in a pullback square with corners Π_p q-dR_{R̂_p/Â_p}, (dR_{R/A} ⊗^L ℚ)⟦q−1⟧ and (Π_p dR_{R̂_p/Â_p} ⊗^L ℚ)⟦q−1⟧, whose right vertical map comes from the uniform-bound node.
+
+**Hypotheses.**
+
+- A is a Λ-ring that is p-torsion free for all primes p, the hypothesis of paragraph A.14. The later layers take A perfectly covered, which implies this.
+- The extension is by the universal property of animation: animated A-algebras are freely generated under sifted colimits by polynomial A-algebras in finitely many variables.
+- The values on polynomial algebras are the global q-de Rham complexes. The values on general smooth algebras are not (see the next node).
+
+**Proof.**
+
+1. Restrict q-Ω_{−/A} to polynomial A-algebras in finitely many variables, and extend it uniquely to a sifted-colimit-preserving functor into (q−1)-complete objects. Resolution independence and the formula by the (q−1)-completed geometric realisation are the universal property.
+2. Quotienting by q−1 commutes with colimits, so q-dR_{−/A}/(q−1) is the animation of Ω*_{−/A}, which is dR_{−/A}.
+3. p-completion commutes with animation into p-complete objects, and the p-completion of q-Ω_{P/A} is q-Ω_{P̂_p/Â_p}. Hence (q-dR_{R/A})^∧_p ≃ q-dR_{R̂_p/Â_p}.
+4. Maps out of a left Kan extension are determined by their values on polynomial algebras, where the maps from q-dR_{R/A} to the corners are those of the defining square of q-Ω. So the square commutes, with right vertical map from the uniform-bound node.
+5. The square is a pullback. All corners are (q−1)-complete, and modulo q−1 the square is the arithmetic fracture square of dR_{R/A}, using (dR_{R/A})^∧_p ≃ dR_{R̂_p/Â_p}. Conclude by derived Nakayama. This replaces the source's 'by construction': the product over p need not commute with the colimits that define the animation (source issue E106).
+6. The derived commutative lift follows because colimits of derived commutative algebras are computed on underlying objects.
+
+**API.**
+
+- `qdR` (constructor): A sifted-colimit-preserving functor from animated A-algebras to (q−1)-complete E∞-algebras over A⟦q−1⟧.
+- `qdR.onPolynomial` (characterisation): Its restriction to polynomial A-algebras in finitely many variables is q-Ω_{−/A}.
+- `qdR.ofResolution` (characterisation): For a simplicial polynomial resolution P_• → R, q-dR_{R/A} is the (q−1)-completed geometric realisation of q-Ω_{P_•/A}. The colimit is formed before completing, and the result does not depend on the resolution.
+- `qdR.modQSubOne` (projection): q-dR_{R/A}/(q−1) ≃ dR_{R/A}.
+- `qdR.pCompletion` (compatibility): (q-dR_{R/A})^∧_p ≃ q-dR_{R̂_p/Â_p}, the local derived complex.
+- `qdR.isPullback` (characterisation): The pullback square with the three named corners, for every animated A-algebra.
+- `qdR.leftKanExtension` (universal-property): It preserves sifted colimits and is the unique such extension of its restriction to polynomial algebras; maps out of it are determined on polynomial algebras.
+- `qdR.toDAlg` (structure): It lifts to (q−1)-complete derived commutative A⟦q−1⟧-algebras.
+- `qdR.map` (functoriality): Functorial in R.
+
+**Unit tests.**
+
+- `qdR_polynomial` (computation): For A = ℤ and R = ℤ[x], q-dR_{R/A} is q-Ω_{ℤ[x]/ℤ}, the two-term complex ℤ[x]⟦q−1⟧ → ℤ[x]⟦q−1⟧dx with x^n ↦ [n]_q x^{n−1}dx.
+- `qdR_modQSubOne` (compatibility): q-dR_{R/A}/(q−1) ≃ dR_{R/A}; for R a polynomial A-algebra this is Ω*_{R/A}.
+- `qdR_filteredColimit` (characterisation): For a filtered colimit of polynomial algebras, the value is the (q−1)-completed colimit of the values. A construction through limits would fail this.
+- `qdR_ne_qOmega_laurent` (non-example): For A = ℚ and S = ℚ[x, x^{−1}], which is smooth and a localisation of a polynomial algebra, q-dR_{S/ℚ} ≃ ℚ⟦q−1⟧, because derived de Rham cohomology of any ℚ-algebra over ℚ is ℚ. But q-Ω_{S/ℚ} = Ω*_{S/ℚ}⟦q−1⟧ has H^1 ≅ ℚ⟦q−1⟧, spanned by dx/x.
+
+**Acceptance.**
+
+- The construction is by the universal property of animation and not by a new site.
+- The pullback square is stated for the derived functor and is not merely asserted for the underived one.
+- The values are recorded as agreeing with the underived functor on polynomial algebras only.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: It is the object a q-Hodge filtration filters; the definition of that filtration is a list of conditions on filtrations of this complex.
+- HabiroCohomologyFoundations:HQ.5: The canonical filtrations for smooth and for quasi-regular inputs are built on it, in the second case by a one-categorical preimage inside a static ring.
+- RefinedTraceMethods:RT.4:q-Hodge: The trace-theoretic construction produces a filtration of this same complex.
+
+**Depends on.** this roadmap: `HQ.1/the-global-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`, `HQ.1/the-derived-commutative-lift`, `HQ.1/the-local-derived-q-de-rham-complex`, `HQ.1/a-denominator-bound-uniform-in-the-prime`; other roadmaps: `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `EnhancedDerivedSheaves:E5:animation/sifted-colimits`, `DerivedDeRhamCohomology:DD.1`, `DerivedDeRhamCohomology:DD.2`, `HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.22(b): “We’ll often use the fact that any functor F: PolyA → D into an ∞-category with all sifted colimits can be uniquely extended to a sifted colimits preserving functor LF: AniAlgA → D. We often call LF the animation or the (non-abelian) derived functor of F.” — The universal property by which the derived functor is defined.
+- `wagner-q-hodge-habiro`, Paragraph A.14: “We let q-dR−/A denote the animation of q-Ω−/A. For all animated A-algebras R, we call q-dRR/A the derived q-de Rham complex of R over A. By construction, it sits inside a pullback square” — The definition and the pullback square. 'By construction' needs the argument recorded in E106.
+- `wagner-q-hodge-habiro`, Paragraph A.14, continued: “It’s still true that q-dR−/A/(q−1) ≃ dR−/A and that q-dR−/A lifts canonically to (q−1)-complete derived commutative AJq−1K-algebras (this follows immediately from compatibility with colimits as explained in A.13).” — The reduction modulo q−1 and the derived commutative lift.
+
+### Where animation changes the answer, and where it does not
+
+`HQ.2/animation-does-not-preserve-the-values-on-smooth-algebras` · comparison
+
+After p-completion, animation leaves the values on p-completely smooth algebras unchanged: for S p-completely smooth over Â_p, q-dR_{S/Â_p} ≃ q-Ω_{S/Â_p} (the local derived node). This is checked modulo (p, q−1), where it is the corresponding fact for derived de Rham cohomology in characteristic p. Globally it fails. q-dR_{R/A} agrees with q-Ω_{R/A} on polynomial A-algebras, but not on all smooth A-algebras. The failure is already present at q = 1 in characteristic zero: for A = ℚ and S = ℚ[x, x^{−1}], q-dR_{S/ℚ} ≃ ℚ⟦q−1⟧ while q-Ω_{S/ℚ} = Ω*_{S/ℚ}⟦q−1⟧ has H^1 ≠ 0. For a smooth S, Ω*_{S/A} is the Hodge completion of dR_{S/A}. The q-analogue, available once a q-Hodge filtration is chosen, is Proposition 3.47(a): q-Ω_{S/A} is the completion of q-dR_{S/A} at the q-Hodge filtration.
+
+**Hypotheses.**
+
+- The p-complete statement is about p-completely smooth algebras over the p-completion of the base.
+- The global failure is a statement about the underived functor of the previous stage versus its animation, not about two different animations.
+- The repair presupposes a chosen q-Hodge filtration, which is the datum of the next stage.
+
+**Proof.**
+
+1. Cite the p-complete agreement from the local derived node.
+2. Exhibit the global failure. For A = ℚ both complexes reduce to their rational corners. dR_{S/ℚ} ≃ ℚ for every ℚ-algebra S, since this holds on polynomial algebras by the Poincaré lemma and passes to animations. And H^1_dR(ℚ[x, x^{−1}]) ≠ 0.
+3. Record that Ω*_{S/A} is the Hodge-completed derived de Rham complex, so the discrepancy is exactly a completion.
+4. Record the q-analogue as the statement proved in the smooth comparison node, available only once a q-Hodge filtration is chosen.
+
+**Acceptance.**
+
+- The two regimes, p-complete and global, are separated, and each is stated with its hypotheses.
+- The claim that animation preserves smooth values is never made globally.
+- The global failure is witnessed by an explicit example.
+- The repair is stated as a completion, not as an equivalence of the uncompleted objects.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/the-local-derived-q-de-rham-complex`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph A.14, second paragraph: “However, in contrast to the p-complete situation, it’s no longer true that the values on smooth A-algebras remain unchanged under animation (only the values on polynomial algebras do). In fact, this already fails for the derived de Rham complex in characteristic 0.” — The global failure, in the source's words.
+- `wagner-q-hodge-habiro`, §A.1, first paragraph: “We let q-dR−/Âp denote its non-abelian derived functor (or animation), which is now defined for all p-complete animated Âp-algebras. Observe that animation leaves the values on p-completely smooth Âp-algebras unchanged, as can be seen modulo (p, q−1)” — The p-complete agreement.
+
+### Base change for the derived q-de Rham complex, with the completion it requires
+
+`HQ.2/derived-base-change-and-its-completion-hypotheses` · theorem
+
+Let A → A′ be a map of Λ-rings, both p-torsion free for every prime p. For every animated A-algebra R, the canonical map (q-dR_{R/A} ⊗^L_A A′)^∧_{(q−1)} → q-dR_{(R ⊗^L_A A′)/A′} is an equivalence, where R ⊗^L_A A′ is the animated base change. Modulo q−1 it is the base change equivalence for derived de Rham complexes. The (q−1)-completion is part of the statement: for A = ℤ, A′ = ℚ and R = ℤ, the uncompleted base change is ℤ⟦q−1⟧ ⊗ ℚ, not ℚ⟦q−1⟧. Both tensor products are derived, and A′ is not assumed flat over A. The smooth case is the base change clause of Theorem A.1 (HQ.1). The source does not state the animated case, which follows by animation.
+
+**Hypotheses.**
+
+- A and A′ are p-torsion free for every prime p; A′ need not be flat over A.
+- The base change is derived and then completed at q−1.
+- For the animated statement, both sides are sifted-colimit-preserving functors of R with values in (q−1)-complete objects.
+
+**Proof.**
+
+1. On a polynomial A-algebra P, R ⊗^L_A A′ = P ⊗_A A′ is a polynomial A′-algebra, and the map is the base change equivalence for q-Ω of the HQ.1 base-change node.
+2. The source functor R ↦ (q-dR_{R/A} ⊗^L_A A′)^∧_{(q−1)} preserves sifted colimits into (q−1)-complete objects. So does R ↦ q-dR_{(R⊗^L_A A′)/A′}, because R ↦ R ⊗^L_A A′ preserves sifted colimits and sends polynomial algebras to polynomial algebras.
+3. Two sifted-colimit-preserving functors that agree on polynomial algebras agree, so the map is an equivalence.
+4. Reduce modulo q−1 to identify the map with base change for derived de Rham complexes.
+
+**Acceptance.**
+
+- The (q−1)-completion appears in the statement, with the example showing it cannot be dropped.
+- The tensor products are derived, and the animated base change is R ⊗^L_A A′.
+- The animated version is deduced from the smooth one by animation, and the node says that the source states only the smooth one.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/base-change-for-the-global-complex`, `HQ.2/filtered-graded-and-completion-conventions`; other roadmaps: `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem A.1, final paragraph: “Moreover, if A → A′ is a map of Λ-rings such that A′ is also p-torsion free for all primes p, there’s a canonical base change equivalence (q-Ω−/A ⊗LA A′)∧(q−1) ≃ q-Ω(−⊗AA′)/A′. Modulo (q−1) this reduces to the usual base change equivalence of the de Rham complex.” — The smooth statement from which the animated one is deduced.
+- `wagner-q-hodge-habiro`, Paragraph 1.22(b): “We’ll often use the fact that any functor F: PolyA → D into an ∞-category with all sifted colimits can be uniquely extended to a sifted colimits preserving functor LF: AniAlgA → D. We often call LF the animation or the (non-abelian) derived functor of F.” — The universal property used to pass to animations.
+
+### The two rational comparisons are compatible, and the p-completed one is a separate condition on filtrations
+
+`HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom` · theorem
+
+For every animated A-algebra R and prime p, consider the rational comparison (q-dR_{R/A} ⊗^L ℚ)^∧_{(q−1)} ≃ (dR_{R/A} ⊗^L ℚ)⟦q−1⟧ and the p-completed rational comparison ((q-dR_{R/A})^∧_p[1/p])^∧_{(q−1)} ≃ ((dR_{R/A})^∧_p[1/p])⟦q−1⟧. They form a commutative square whose vertical maps are induced by the map from the rationalisation to the rationalised p-completion, and both reduce modulo q−1 to the identity of the corresponding de Rham complexes. This square is the unfiltered shadow of the compatibility that Definition 3.2(c_p) requires of a q-Hodge filtration. As conditions on a filtration, (c_p) is not known to follow from (a) to (c): the source says it does not seem to, and treats it as a crucial assumption. This packet records that as an open question and proves nothing about it. Every later node that needs (c_p) carries it as a hypothesis, as Definition 3.2 does.
+
+**Hypotheses.**
+
+- R is an animated A-algebra, and A is a Λ-ring that is p-torsion free for all p. The later layers take A perfectly covered.
+- The first comparison is the global rationalisation. The second is p-completion, then inverting p, then (q−1)-completion, in that order.
+- The independence is the source's assessment, not a theorem. Nothing here depends on it being true or false.
+
+**Proof.**
+
+1. Both comparisons come from the defining pullback square of q-dR_{R/A}: the rational one from its lower left corner, the p-completed one from Lemma A.4 applied to R̂_p through the upper right corner.
+2. The compatibility is paragraph A.11's statement that the all-primes map agrees with Lemma A.4 at each prime, composed with the projection to the p-th factor.
+3. Reduce modulo q−1 to see that both comparisons are the identity.
+4. Record the source's Remark 1.8 on (c_p), and cite it wherever a later node uses (c_p). Its essential use is the gluing step in the proof of Proposition 3.47(a).
+
+**Acceptance.**
+
+- Both comparisons are named, with the exact order of completion, localisation and rationalisation.
+- The compatibility square is written out with its maps.
+- The independence is recorded as an open question with an attribution, and no node treats it as proved.
+
+**Depends on.** this roadmap: `HQ.2/the-rational-comparison-for-the-derived-complex`, `HQ.2/the-p-completed-rational-comparison`, `HQ.1/a-denominator-bound-uniform-in-the-prime`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 1.8: “The conditions from Definition 1.6(c) and (cp) are natural to ask in view of (q-dRR/Z ⊗LZ Q)∧(q−1) ≃ (dRR/Z ⊗LZ Q)Jq−1K and (q-dRR/Z)∧p[1/p]∧(q−1) ≃ (dRR/Z)∧p[1/p]Jq−1K; see Theorem A.1(c) and Lemma A.5.” — The two comparisons whose filtered versions are conditions (c) and (c_p). 'Lemma A.5' is a misprint for Lemma A.4 (E101).
+- `wagner-q-hodge-habiro`, Remark 1.8, continued: “It doesn’t seem to be the case that (cp) follows from the other conditions and it will be a crucial assumption.” — The source's statement that (c_p) is independent and crucial.
+- `wagner-q-hodge-habiro`, Section 3.1, paragraph before Definition 3.2: “For technical reasons, we also need to require the same for the rationalisations of the p-completed (q-)de Rham complexes, which is why we have to include condition (cp) below.” — Why both conditions are imposed.
+
+### The décalage functor is imported; the q-specific applications are owned here
+
+`HQ.2/what-the-decalage-import-supplies` · comparison
+
+Imported from AInfCohomology:AI.1: the Berthelot–Ogus décalage functor Lη_f at a nonzerodivisor f, its cohomology formula, its natural filtration, and its commutation with completion at the same element f (Bhatt–Morrow–Scholze I, Lemma 6.20). Imported from PrismaticCohomology:PR.3: the relative Frobenius equivalence of prismatic cohomology with the décalage at the prism ideal (Bhatt–Scholze Theorem 15.3). This roadmap owns their use at q−1 and at the q-integers [m]_q. (i) For α ≥ 1, (Lη_{[p^α]_q} q-Ω_{S/A})^∧_p ≃ Lη_{[p^α]_q}(q-Ω_{S/A})^∧_p. Indeed q-Ω_{S/A} is (q−1)-complete, so p-completion agrees with [p^α]_q-completion, as [p^α]_q ≡ p^α modulo q−1; and Lη_{[p^α]_q} commutes with [p^α]_q-completion. For α = 0 the décalage is the identity. (ii) Take (B, J) = (Â_p⟦q−1⟧, [p]_q) and T = Ŝ_p^{(p)}[ζ_p], the Frobenius-twisted algebra of Theorem A.1(b), so that (q-Ω_{S/A})^∧_p ≃ Δ_{T/B}. The relative Frobenius gives Δ_{T/B} ⊗̂_{B,φ_B} B ≃ Lη_J Δ_{T/B}, where φ_B is ψ^p on Â_p and q ↦ q^p. (iii) For smooth S with a q-Hodge filtration, Lη_{(q−1)} of the q-Hodge complex is q-Ω_{S/A} (the smooth comparison node). The natural filtrations of the décalage functors do not glue across these pieces, which is why a q-Hodge filtration is needed as extra datum.
+
+**Hypotheses.**
+
+- AInfCohomology:AI.1 supplies the generic décalage functor, its filtration and its commutation with completion at the same element. PrismaticCohomology:PR.3 supplies the relative Frobenius equivalence.
+- The (q−1)-completeness of q-Ω_{S/A} is used only to identify p-completion with [p^α]_q-completion. The commutation of Lη_f with f-completion needs no such hypothesis.
+- The failure of the natural décalage filtrations to glue is recorded, with the source's reason. It is not proved impossible in general.
+
+**Proof.**
+
+1. Name the imported interface: Lη_f, its cohomology formula, its natural filtration, its commutation with f-completion, and the relative Frobenius equivalence.
+2. Prove (i). For α ≥ 1 the ideals (p, q−1) and ([p^α]_q, q−1) have the same radical, so for a (q−1)-complete object p-completion equals [p^α]_q-completion, which commutes with Lη_{[p^α]_q}. For α = 0 there is nothing to prove.
+3. Prove (ii) by combining (i) with Theorem A.1(b) and the relative Frobenius equivalence, using the Frobenius twist of Theorem A.1(b).
+4. Record (iii) as the smooth comparison node.
+5. Record the non-gluing with the source's reason. The filtration on Lη_{[1]_q} = id is trivial, and the trivial filtration on the Frobenius twist is not compatible with the natural filtration on Lη_{[p]_q}(q-Ω_{S/A})^∧_p.
+
+**Acceptance.**
+
+- Every use of décalage in this packet is either an import named here or one of the three listed applications.
+- The completion argument states that the object is (q−1)-complete, and treats α = 0 separately.
+- The prismatic identification carries the Frobenius twist.
+- The non-gluing is stated as an obstruction with its reason, not as a theorem that gluing is impossible.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`; other roadmaps: `AInfCohomology:AI.1`, `PrismaticCohomology:PR.3`, `PrismaticCohomology:PR.6`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.14: “Now (Lη[pα]q q-ΩS/A)∧p ≃ Lη[pα]q(q-ΩS/A)∧p. Indeed, q-ΩS/A is (q−1)-complete, so p-completion agrees with [pα]q-completion, which always commutes with Lη[pα]q (see [BMS18, Lemma 6.20]).” — The completion argument (i). For α = 0 it needs the separate remark recorded in E105.
+- `wagner-q-hodge-habiro`, Paragraph 3.14, continued: “Finally, if (B, J) denotes the prism (ÂpJq−1K, [p]q) and T := Ŝp[ζp], then (q-ΩS/A)∧p ≃ ΔT/B, and so the desired gluing equivalence can be constructed using the general fact that the relative Frobenius induces an equivalence (see [BS19, Theorem 15.3])” — The relative Frobenius application (ii). T must carry the Frobenius twist of Theorem A.1(b) (E104).
+- `wagner-q-hodge-habiro`, Remark 3.49: “The filtration on Lη[1]q ≃ id is trivial. But the trivial filtration on (q-ΩS/A ⊗LA[q],ψp A[q])∧[p]q will not be compatible with the natural filtration on Lη[p]q(q-ΩS/A)∧p, so gluing fails.” — The source's reason why the natural décalage filtrations do not glue.
+
+### The combined Hodge and (q−1)-adic filtration
+
+`HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration` · definition · planet “Combined Hodge and (q−1)-adic filtration” · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For an animated A-algebra R, the combined Hodge and (q−1)-adic filtration fil^⋆_{(Hdg,q−1)}(dR_{R/A} ⊗^L ℚ)⟦q−1⟧ is the (q−1)-completed Day-convolution tensor product of the Hodge filtration fil^⋆_Hdg(dR_{R/A} ⊗^L ℚ) with the (q−1)-adic filtration on ℚ⟦q−1⟧. It is a filtered module over (q−1)^⋆(A ⊗ ℚ)[q], with n-th step the (q−1)-completion of colim_{i+j≥n} fil^i_Hdg ⊗ (q−1)^jℚ[q]. The same construction with (dR_{R/A})^∧_p[1/p] and Â_p[1/p] gives the p-completed variant fil^⋆_{(Hdg,q−1)}((dR_{R/A})^∧_p[1/p])⟦q−1⟧. In filtration degrees ≤ 0 they are the underlying objects (dR_{R/A} ⊗ ℚ)⟦q−1⟧ and ((dR_{R/A})^∧_p[1/p])⟦q−1⟧.
+
+**Hypotheses.**
+
+- The Hodge filtration is the one on derived de Rham cohomology, imported from DerivedDeRhamCohomology:DD.2 as a filtered object before completion.
+- The tensor product is Day convolution followed by (q−1)-completion. No Hodge completion is taken.
+- The filtration exists for every animated R. It is the target of clauses (c) and (c_p) of a q-Hodge filtration.
+
+**Proof.**
+
+1. Take the Hodge-filtered derived de Rham complex from DD.2, and rationalise it (for the variant: p-complete it and invert p).
+2. Take its Day-convolution tensor product with the (q−1)-adic filtration on ℚ[q] (for the variant: on Â_p[1/p][q]) and complete at q−1, using the imported filtered conventions.
+3. Compute the associated graded: gr^n ≃ ⊕_{i+j=n} gr^i_Hdg ⊗ ℚ·(q−1)^j, since gr is symmetric monoidal for Day convolution.
+4. Compute the quotient by q−1 in filtration degree one: it is fil^⋆_Hdg(dR_{R/A} ⊗ ℚ). This is the bottom right map of the diagram in Definition 3.2(c).
+5. Record functoriality in R, and the map from the rational to the p-completed rational variant.
+
+**API.**
+
+- `combinedFiltration` (constructor): fil^⋆_{(Hdg,q−1)}(dR_{R/A} ⊗ ℚ)⟦q−1⟧, a filtered (q−1)^⋆(A ⊗ ℚ)[q]-module, functorial in R.
+- `combinedFiltration.pComplete` (constructor): The p-completed variant on ((dR_{R/A})^∧_p[1/p])⟦q−1⟧.
+- `combinedFiltration.gr` (characterisation): gr^n ≃ ⊕_{i+j=n} gr^i_Hdg(dR_{R/A} ⊗ ℚ)·(q−1)^j.
+- `combinedFiltration.quotient` (compatibility): Its quotient by q−1 in filtration degree one is the rationalised Hodge filtration fil^⋆_Hdg(dR_{R/A} ⊗ ℚ).
+- `combinedFiltration.of_nonpos` (projection): In filtration degrees ≤ 0 it is (dR_{R/A} ⊗ ℚ)⟦q−1⟧.
+- `combinedFiltration.toPComplete` (functoriality): The canonical map from the rational to the p-completed rational variant, natural in R.
+- `combinedFiltration.completion_smooth` (characterisation): For S smooth over A, the completion of (dR_{S/A} ⊗ ℚ)⟦q−1⟧ at this filtration is (Ω*_{S/A} ⊗ ℚ)⟦q−1⟧.
+
+**Unit tests.**
+
+- `combinedFiltration_base` (degenerate): For R = A the Hodge filtration is A in degree 0 and nothing above, and the combined filtration is the (q−1)-adic filtration on (A ⊗ ℚ)⟦q−1⟧.
+- `combinedFiltration_polynomial` (computation): For R = A[x], the n-th step is the subcomplex (q−1)^nA_ℚ[x]⟦q−1⟧ → (q−1)^{max(n−1,0)}A_ℚ[x]⟦q−1⟧dx of (Ω*_{A[x]/A} ⊗ ℚ)⟦q−1⟧. In particular fil^1 contains dx and q−1 but not 1.
+- `combinedFiltration_ne_hodge` (non-example): It is not the Hodge filtration tensored with the trivial filtration on ℚ⟦q−1⟧. For R = A[x] that would give fil^1 = Ω^{≥1}⟦q−1⟧, which does not contain q−1; the combined fil^1 does.
+- `combinedFiltration_quotient` (compatibility): Its quotient by q−1 in filtration degree one is fil^⋆_Hdg(dR_{R/A} ⊗ ℚ), as the diagram of Definition 3.2(c) requires.
+
+**Acceptance.**
+
+- The construction is the source's: a (q−1)-completed tensor product of the Hodge and (q−1)-adic filtrations.
+- The p-completed variant is constructed as well, since Definition 3.2(c_p) needs it.
+- The associated graded and the quotient by q−1 are computed.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Definition 3.2(c) and (c_p) (HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations): It is the target of the rational and p-completed rational data c_ℚ and c_{ℚ_p} of a q-Hodge filtration.
+- Wagner, q-Hodge complexes, proof of Proposition 3.47(a): For smooth S its completion is (Ω*_{S/A} ⊗ ℚ)⟦q−1⟧, which gives the rational half of q-Ω ≃ q-Hodge completion.
+- Wagner, q-Hodge complexes, §4 (HabiroCohomologyFoundations:HQ.5/the-naive-filtration-for-quasi-regular-inputs, HQ.5/the-canonical-smooth-q-hodge-filtration): The naive and canonical filtrations are preimages or pullbacks of it.
+
+**Depends on.** this roadmap: `HQ.2/filtered-graded-and-completion-conventions`, `HQ.2/the-graded-presentation-of-the-coefficient-ring`, `HQ.2/the-quotient-convention-for-filtered-modules`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Definition 3.2(c): “where fil⋆(Hdg,q−1) denotes the (q−1)-completed tensor product of the Hodge filtration on dRR/A and the (q−1)-adic filtration on QJq−1K; in the following, we’ll often call this the combined Hodge and (q−1)-adic filtration.” — The definition and the name.
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.47(a): “Consequently, (dRS/A ⊗LZ Q)Jq−1K∧(Hdg,q−1) ≃ (ΩS/A ⊗LZ Q)Jq−1K, which yields the desired equivalence rationally. The data from Definition 3.2(cp) ensures that the p-complete and rational equivalences glue” — Its completion for smooth S, used to compare with q-Ω.
+
+### The rational comparison for the derived q-de Rham complex
+
+`HQ.2/the-rational-comparison-for-the-derived-complex` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a Λ-ring that is p-torsion free for all primes p. For every animated A-algebra R there is a functorial equivalence of E∞-algebras over (A ⊗ ℚ)⟦q−1⟧, (q-dR_{R/A} ⊗^L_ℤ ℚ)^∧_{(q−1)} ≃ (dR_{R/A} ⊗^L_ℤ ℚ)⟦q−1⟧, which is the identity of dR_{R/A} ⊗ ℚ modulo q−1. For smooth S and the underived complex this is Theorem A.1(c).
+
+**Hypotheses.**
+
+- The rationalisation is the derived tensor product with ℚ, followed by (q−1)-completion on the left.
+- The equivalence comes from the lower left corner of the pullback square of the derived complex; no coordinates are chosen.
+
+**Proof.**
+
+1. Tensor the pullback square of q-dR_{R/A} with ℚ and complete at q−1; both operations preserve pullbacks.
+2. The right vertical map becomes (Π_p q-dR_{R̂_p/Â_p} ⊗ ℚ)^∧_{(q−1)} → (Π_p dR_{R̂_p/Â_p} ⊗ ℚ)⟦q−1⟧, the inverse of the uniform-bound equivalence, hence an equivalence.
+3. Therefore the left vertical map (q-dR_{R/A} ⊗ ℚ)^∧_{(q−1)} → (dR_{R/A} ⊗ ℚ)⟦q−1⟧ is an equivalence.
+4. Reduce modulo q−1 to check that it is the identity.
+
+**Acceptance.**
+
+- The order is: rationalise, then complete at q−1.
+- The proof goes through the pullback square and the uniform bound, not through a framing.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/a-denominator-bound-uniform-in-the-prime`, `HQ.1/what-the-global-complex-satisfies`; other roadmaps: `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Section 3.1, paragraph before Definition 3.2: “In addition to the obvious q-deformation condition (b), we also wish the filtration to be compatible with the rational equivalence (q-dRR/A ⊗LZ Q)∧(q−1) ≃ (dRR/A ⊗LZ Q)Jq−1K, which leads to condition (c).” — The rational equivalence that condition (c) lifts.
+- `wagner-q-hodge-habiro`, Theorem A.1(a) and (c): “(a) q-Ω−/A/(q−1) ≃ Ω∗−/A agrees with the usual de Rham complex functor. […] (c) After rationalisation, (q-Ω−/A ⊗LZ Q)∧(q−1) ≃ (Ω−/A ⊗LZ Q)Jq−1K becomes the trivial q-deformation.” — The smooth underived case.
+
+### The p-completed rational comparison for the derived q-de Rham complex
+
+`HQ.2/the-p-completed-rational-comparison` · theorem · planet “p-completed rational comparison” · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a Λ-ring that is p-torsion free for all primes p, and let p be a prime. For every animated A-algebra R there is a functorial equivalence of E∞-algebras over Â_p[1/p]⟦q−1⟧, ((q-dR_{R/A})^∧_p[1/p])^∧_{(q−1)} ≃ ((dR_{R/A})^∧_p[1/p])⟦q−1⟧, obtained by p-completing, then inverting p, then completing at q−1. It is Lemma A.4 applied to R̂_p, through the identifications (q-dR_{R/A})^∧_p ≃ q-dR_{R̂_p/Â_p} and (dR_{R/A})^∧_p ≃ dR_{R̂_p/Â_p}. The source cites it in Remark 1.8 as 'Lemma A.5', a misprint for Lemma A.4 (source issue E101). It is a separate statement from the rational comparison, because rationalisation and p-completion do not commute.
+
+**Hypotheses.**
+
+- The order of operations is p-completion, inverting p, then (q−1)-completion.
+- The (q−1)-completion after inverting p is not redundant: ℤ_p⟦q−1⟧[1/p] is not (q−1)-complete, since Σ_n p^{−n}(q−1)^n does not lie in it.
+
+**Proof.**
+
+1. p-complete the pullback square of q-dR_{R/A}. The rational corners vanish, and the factors at primes ℓ ≠ p vanish, so (q-dR_{R/A})^∧_p ≃ q-dR_{R̂_p/Â_p}. Similarly (dR_{R/A})^∧_p ≃ dR_{R̂_p/Â_p}.
+2. Apply the rationalised q-crystalline comparison (Lemma A.4) to the p-complete animated Â_p-algebra R̂_p. For a p-complete object, tensoring with ℚ is inverting p.
+3. Check functoriality, and that the equivalence is the identity modulo q−1.
+
+**Acceptance.**
+
+- The order of completions and localisation is explicit.
+- The identification of the p-completion of the global derived complex with the local derived complex is proved from the pullback square.
+- The source's cross-reference is corrected to Lemma A.4.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-local-derived-q-de-rham-complex`; other roadmaps: `DerivedDeRhamCohomology:DD.1`, `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 1.8: “The conditions from Definition 1.6(c) and (cp) are natural to ask in view of (q-dRR/Z ⊗LZ Q)∧(q−1) ≃ (dRR/Z ⊗LZ Q)Jq−1K and (q-dRR/Z)∧p[1/p]∧(q−1) ≃ (dRR/Z)∧p[1/p]Jq−1K; see Theorem A.1(c) and Lemma A.5.” — The statement as the source cites it; 'Lemma A.5' is the misprint E101.
+- `wagner-q-hodge-habiro`, Lemma A.4: “A.4. Lemma. — For all p-complete animated Âp-algebras R there is a functorial equivalence of E∞-(Âp ⊗Z Q)Jq−1K-algebras (q-dRR/Âp ⊗LZ Q)∧(q−1) ≃ (dRR/Âp ⊗LZ Q)Jq−1K.” — The local comparison it is deduced from.
+- `wagner-q-hodge-habiro`, Section 3.1, paragraph before Definition 3.2: “For technical reasons, we also need to require the same for the rationalisations of the p-completed (q-)de Rham complexes, which is why we have to include condition (cp) below.” — Why the separate p-completed comparison is needed.
+
+## HQ.3 — q-Hodge filtrations and modification
+
+*Coverage: partial.* 24 nodes, 10 of them added by the independent review. The definition of a q-Hodge filtration with all four clauses and every coherence datum; the no-go lemma; the q-Hodge complex with the interchangeability of a filtration and its completion; the symmetric monoidal structure on pairs and on the q-Hodge complex functor; the conjugate filtration and the abstract graded colimit lemma that computes it; the twisted q-Hodge filtration p-adically by recursion and globally by gluing, with the independence of the auxiliary integer; the partial descents with the denominator lemma; the Habiro-Hodge complex and the descent theorem in both clauses; the coordinate model with its explicit Koszul complex over the relative Habiro ring and the etale specialisation; and the operadic and derived commutative upgrades with the Bockstein identification.
+
+- Remaining: Base-change maps of the Habiro-Hodge complex along maps of perfectly covered Lambda-rings, which the stage text asks for and the source does not provide (see the gap 'Base change of the Habiro-Hodge complex along maps of Lambda-rings is not in the source'); finite products are realised by the strict monoidality node and its Kuenneth API item.
+
+### For smooth inputs, q-Omega is the q-Hodge completion of the derived complex and the décalage of the q-Hodge complex
+
+`HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion` · theorem · also realises HQ.2
+
+Let S be a smooth A-algebra, where A is a perfectly covered Λ-ring, and suppose q-dR_{S/A} is equipped with a q-Hodge filtration. Then: (a) q-Ω_{S/A} ≃ q-dR̂_{S/A}, the completion of q-dR_{S/A} at the q-Hodge filtration; (b) Lη_{(q−1)} q-Hdg_{S/A} ≃ q-Ω_{S/A}, so that Lη_{(q−1)} of the Habiro–Hodge complex is a Habiro descent of q-Ω_{S/A}. The source prints q-Ω_{R/A} in (b); R is a misprint for S (source issue E2). Neither statement asserts that the uncompleted derived complex agrees with the underived one; for a general smooth algebra it does not.
+
+**Hypotheses.**
+
+- S is smooth over the perfectly covered Λ-ring A (the standing assumption of Section 3).
+- A q-Hodge filtration on the derived complex has been chosen. Both statements depend on that choice as data, though (a) identifies the completion with an object defined without it.
+- The proof of (a) uses the p-completed rational datum c_{ℚ_p} of Definition 3.2(c_p) to glue the p-adic and rational identifications.
+- The décalage is the Berthelot–Ogus functor at the element q−1.
+
+**Proof.**
+
+1. (a) Use the arithmetic fracture square. After p-completion, both q-dR_{S/A} → q-Ω_{S/A} and q-dR_{S/A} → q-dR̂_{S/A} are equivalences. This is checked modulo q−1, where they become (Ω*_{S/A})^∧_p ≃ (dR_{S/A})^∧_p ≃ (dR̂_{S/A})^∧_p.
+2. Rationally, dR_{S/A} ⊗ ℚ → Ω*_{S/A} ⊗ ℚ is the Hodge completion. So the completion of (dR_{S/A} ⊗ ℚ)⟦q−1⟧ at the combined Hodge and (q−1)-adic filtration is (Ω*_{S/A} ⊗ ℚ)⟦q−1⟧. Through the datum c_ℚ this identifies the rationalised q-Hodge completion with the rationalised q-Ω_{S/A}.
+3. Glue the p-complete and rational identifications using the datum c_{ℚ_p} of Definition 3.2(c_p) and its compatibility with c_ℚ.
+4. (b) The map q-dR_{S/A} → q-Hdg_{S/A} factors through q-dR̂_{S/A}, because the n-th step becomes divisible by (q−1)^n in the (q−1)-complete q-Hdg_{S/A}. Consider the filtered map from the q-Hodge filtration on q-dR̂_{S/A}, extended to negative degrees by powers of q−1, to the (q−1)-adic filtration on q-Hdg_{S/A}.
+5. The source of this map is connective for the Beilinson t-structure. gr^n_qHdg q-dR_{S/A} has a finite filtration by multiplication by q−1 from gr^0 up to gr^n. Its graded pieces Σ^{−i}Ω^i_{S/A} come from the conjugate filtration, so it is concentrated in cohomological degrees ≤ n. The same argument gives gr^n ≃ τ^{≤n}(q-Hdg_{S/A}/(q−1)).
+6. By Bhatt–Morrow–Scholze II, Theorem 5.4(2) and Proposition 5.8, the source is the Beilinson-connective cover of the target, and q-dR̂_{S/A} ≃ Lη_{(q−1)} q-Hdg_{S/A}. Combine this with (a).
+7. Lη_{(q−1)} commutes with (q−1)-completion (Bhatt–Morrow–Scholze I, Lemma 6.20). Hence Lη_{(q−1)} of the Habiro–Hodge complex is a Habiro descent of q-Ω_{S/A}.
+
+**Acceptance.**
+
+- Both clauses carry the hypothesis that a q-Hodge filtration has been chosen.
+- The first clause is about the completion at the q-Hodge filtration, not about the Hodge completion of the de Rham complex alone.
+- The proof of (a) names the use of the (c_p) datum.
+- The packet contains no statement that the derived and underived q-de Rham complexes of a smooth algebra agree.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/animation-does-not-preserve-the-values-on-smooth-algebras`, `HQ.2/what-the-decalage-import-supplies`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`, `HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom`, `HQ.3/q-hodge-filtrations`, `HQ.3/the-q-hodge-complex`, `HQ.3/the-conjugate-filtration`, `HQ.3/the-habiro-hodge-complex`; other roadmaps: `AInfCohomology:AI.1`, `DerivedDeRhamCohomology:DD.2`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.47: “(a) q-ΩS/A ≃ q-dR̂S/A is the completion of q-dRS/A at the q-Hodge filtration fil⋆q-Hdg. (b) We have Lη(q−1) q-HdgS/A ≃ q-ΩR/A. In particular, Lη(q−1) q-HhdgS/A is a Habiro descent of q-ΩS/A.” — The two clauses. The printed q-ΩR/A is the misprint E2.
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.47(a): “Consequently, (dRS/A ⊗LZ Q)Jq−1K∧(Hdg,q−1) ≃ (ΩS/A ⊗LZ Q)Jq−1K, which yields the desired equivalence rationally. The data from Definition 3.2(cp) ensures that the p-complete and rational equivalences glue” — The rational step and the use of (c_p).
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.47(b): “We claim that the top row is the connective cover of the bottom row in the Beilinson t-structure. If we can prove this, then [BMS2, Proposition 5.8] will show q-dR̂S/A ≃ Lη(q−1) q-HdgS/A” — The Beilinson t-structure argument.
+- `wagner-q-hodge-habiro`, Remark 3.6: “But note that even if R = S is smooth over A, the underived q-de Rham complex q-ΩS/A usually doesn’t agree with the derived q-de Rham complex q-dRS/A, because Ω∗S/A and dRS/A usually differ in characteristic 0.” — The explicit statement that the two complexes differ.
+
+### q-Hodge filtrations: the four conditions and the coherences between them
+
+`HQ.3/q-hodge-filtrations` · definition · planet “q-Hodge filtration”
+
+Let A be a perfectly covered Lambda-ring and R an animated A-algebra. A q-Hodge filtration on the derived q-de Rham complex of R over A is a filtered module over the filtered ring given by the (q-1)-adic filtration on the polynomial ring in q over A, indexed by the non-negative integers and constant below zero, equipped with: (a) an equivalence of modules over the polynomial ring in q from the derived q-de Rham complex onto the zeroth filtration step, so that the filtration is a descending filtration on that complex; (b) an equivalence of filtered A-modules from the quotient of the filtration by q-1, taken in the sense that q-1 sits in filtration degree one, onto the Hodge filtration on the derived de Rham complex, agreeing in filtration degrees at most zero with the usual identification; (c) an equivalence of filtered modules from the (q-1)-completed rationalisation of the filtration onto the combined Hodge and (q-1)-adic filtration on the power series ring in q-1 over the rationalised derived de Rham complex, agreeing in degrees at most zero with the usual identification and fitting with (b) into a commutative square; and (c_p) for every prime p an equivalence of filtered modules from the (q-1)-completed localisation at p of the p-completed filtration onto the combined Hodge and (q-1)-adic filtration on the power series ring over the p-completed derived de Rham complex with p inverted, agreeing in degrees at most zero with the usual identification, compatible with (c) in a commutative square, compatible with (b) in a second commutative square, and with those two compatibilities themselves compatible. Since these are statements in higher category theory, every compatibility is itself a datum. Pairs consisting of an animated A-algebra and a q-Hodge filtration on its derived q-de Rham complex form a category, expressible as an iterated pullback of the category of animated A-algebras with categories of filtered modules.
+
+**Hypotheses.**
+
+- A is a perfectly covered Lambda-ring; R is an animated A-algebra.
+- The quotient by q-1 in clause (b) is the filtered quotient of the conventions stage, with q-1 in filtration degree one; with the degreewise quotient the clause would be a different and false condition.
+- Clause (c_p) is a separate axiom: the source records that it does not appear to follow from the others and that it is a crucial assumption.
+- Every equivalence is required to agree in filtration degrees at most zero with the already-known unfiltered identification.
+
+**Proof.**
+
+1. Fix the filtered coefficient ring and the indexing convention, and require the filtration to be a module over it.
+2. Impose clause (a) and read it as saying that the filtration is a descending filtration on the derived q-de Rham complex.
+3. Impose clause (b) with the filtered quotient convention and its agreement in degrees at most zero.
+4. Impose clause (c) with its agreement in degrees at most zero and its commutative square with (b).
+5. Impose clause (c_p) with its agreement in degrees at most zero, its square with (c), its square with (b) and the compatibility between those two squares.
+6. Assemble the category of pairs as an iterated pullback of the category of animated A-algebras with categories of filtered modules.
+
+**API.**
+
+- `QHodgeFiltration` (structure): The data of a q-Hodge filtration on the derived q-de Rham complex of an animated A-algebra: a filtered (q-1)^* A[q]-module with the equivalences c_0, c_{(q-1)}, c_Q, c_{Q_p} and all the coherences of Definition 3.2.
+- `QHodgeFiltration.zerothEquiv` (projection): Clause (a): the equivalence from the derived q-de Rham complex onto the zeroth step.
+- `QHodgeFiltration.modQSubOneEquiv` (characterisation): Clause (b): the equivalence c_{(q-1)} from the filtered quotient by q-1 onto the Hodge filtration of derived de Rham cohomology, agreeing in degrees at most zero with the unfiltered one.
+- `QHodgeFiltration.rationalEquiv` (compatibility): Clause (c): the equivalence c_Q with the combined Hodge and (q-1)-adic filtration after (q-1)-completed rationalisation, with its square against c_{(q-1)}.
+- `QHodgeFiltration.pAdicRationalEquiv` (compatibility): Clause (c_p): the equivalence c_{Q_p}, with its squares against c_Q and c_{(q-1)} and the compatibility between them.
+- `PairsCat` (structure): The category of pairs (R, q-Hodge filtration), as an iterated pullback of animated A-algebras and categories of filtered modules, with the forgetful functor PairsCat.forget to animated A-algebras.
+- `PairsCat.forget_filtration` (projection): The forgetful functor to (q-1)-complete filtered (q-1)^* A[q]-modules.
+- `QHodgeFiltration.ofUnderived` (constructor): For smooth S, a filtration of the underived q-de Rham complex satisfying the analogues of (a) to (c_p) pulls back along the map from the derived complex to a q-Hodge filtration (Remark 3.6).
+- `QHodgeFiltration.ofRational` (example): Over a Q-algebra A the combined Hodge and (q-1)-adic filtration, transported along the rational comparison, is a q-Hodge filtration.
+
+**Unit tests.**
+
+- `QHodgeFiltration.dimOneDetermined` (characterisation): For S smooth over Z of relative dimension at most one, any filtered q-deformation of the Hodge filtration on the q-de Rham complex is (q-1)^{n-1} times its first step in every degree n >= 1, since the Hodge filtration vanishes from degree two on (paragraph 1.14).
+- `QHodgeFiltration.naivePullback` (non-example): For smooth S, the pullback of the Hodge filtration along the map from the q-de Rham complex to the de Rham complex contains (q-1) times the whole complex in every step, so it satisfies clause (c) only in degrees at most one (paragraph 1.14); already for S = Z its second step is (q-1) Z[[q-1]] instead of (q-1)^2 Z[[q-1]], so it is not a q-Hodge filtration.
+- `QHodgeFiltration.agreement_nonpos` (characterisation): In filtration degrees at most zero each of c_{(q-1)}, c_Q and c_{Q_p} is the already-known unfiltered identification; a definition without this requirement admits filtrations whose zeroth step is identified with the q-de Rham complex by an arbitrary automorphism.
+- `QHodgeFiltration.ofRational` (degenerate): If A is a Q-algebra, the combined Hodge and (q-1)-adic filtration is a q-Hodge filtration (clause (c_p) is vacuous because every p-completion vanishes), so the forgetful functor is essentially surjective; this is the case Lemma 3.3 excludes.
+
+**Acceptance.**
+
+- All four clauses appear, and (c_p) is present and not derived from the others.
+- Every clause carries its agreement in filtration degrees at most zero.
+- The coherence data are listed as data and not left implicit.
+- The definition is stated for the derived q-de Rham complex; the underived variant is obtained by pullback, as the following node records.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: The q-Hodge complex and the whole descent are functors on the category of pairs, so the definition fixes their domain.
+- HabiroCohomologyFoundations:HQ.5: Both existence theorems produce sections of the forgetful functor, so they are statements about this definition.
+- RefinedTraceMethods:RT.4:q-Hodge: The trace-theoretic construction produces an object of this category, which is how its output enters this roadmap.
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/the-quotient-convention-for-filtered-modules`, `HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom`, `HQ.2/filtered-graded-and-completion-conventions`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`, `HQ.2/the-rational-comparison-for-the-derived-complex`, `HQ.2/the-p-completed-rational-comparison`, `HQ.1/the-local-derived-q-de-rham-complex`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `DerivedDeRhamCohomology:DD.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Definition 3.2: “A \emph{$q$-Hodge filtration on $\qdeRham_{R/A}$} is a filtered $(q-1)^\star A[q]$-module” — The definition of the node (clauses (a) to (c_p) follow).
+- `wagner-q-hodge-habiro`, Definition 3.2(b): “An equivalence of filtered $A$-modules \begin{equation*} c_{(q-1)}\colon \fil_{\qHodge}^\star \qdeRham_{R/A}/(q-1)\overset{\simeq}{\longrightarrow} \fil_{\Hodge}^\star \deRham_{R/A}\,, \end{equation*}” — Clause (b), with the quotient of Convention 3.1.
+- `wagner-q-hodge-habiro`, Definition 3.2(c_p): “For every prime~$p$, an equivalence of filtered $(q-1)^\star \widehat{A}_p[1/p]\qpower$-modules” — Clause (c_p).
+- `wagner-q-hodge-habiro`, Definition 3.2, footnote: “Since we're working with $\infty$-categories, each compatibility is again a datum that needs to be provided.” — That the coherences are data.
+- `wagner-q-hodge-habiro`, Definition 3.2, last paragraph: “Formally, the $\infty$-category $\cat{AniAlg}_A^{\qHodge}$ can be expressed as an iterated pullback of $\cat{AniAlg}_A$ and several $\infty$-categories of filtered modules; this is straightforward, but not very enlightening, so we omit the details.” — The category of pairs, whose construction the source omits.
+- `wagner-q-hodge-habiro`, Remark 1.8: “It doesn't seem to be the case that~\cref{enum:qHodgeIntrocp} follows from the other conditions and it will be a crucial assumption.” — The independence of clause (c_p).
+
+### The forgetful functor is not essentially surjective, so it has no section
+
+`HQ.3/no-functorial-choice-of-q-hodge-filtration` · theorem · planet “No functorial q-Hodge filtration”
+
+Let A be a perfectly covered Lambda-ring which is not an algebra over the rationals. Then the forgetful functor from pairs to animated A-algebras is not essentially surjective: there is an animated A-algebra whose derived q-de Rham complex admits no q-Hodge filtration at all. In particular the forgetful functor admits no section, not even when restricted to the full subcategory of smooth A-algebras, because a section on smooth algebras could be animated to a section on all animated algebras.
+
+**Hypotheses.**
+
+- A is not an algebra over the rationals, so that some p-completion of A is non-zero.
+- The witness is the quotient of the free p-complete perfect delta-ring on one generator by that generator.
+- The argument uses clause (c_p) of the definition; it is not available if that clause is dropped.
+
+**Proof.**
+
+1. Choose a prime p with the p-completion of A non-zero, and let R be the quotient of the free p-complete perfect delta-ring over the p-completion of A on a generator x by x; R is an animated A-algebra.
+2. Apply the witness lemma: the derived q-de Rham complex of R admits no filtration satisfying clauses (b) and (c_p), so R has no preimage under the forgetful functor, which is therefore not essentially surjective.
+3. Deduce that there is no section even over smooth A-algebras: a section on smooth algebras restricts to polynomial algebras and extends by animation (sifted-colimit extension) to a section on all animated A-algebras, which would contradict the previous step.
+
+**Acceptance.**
+
+- The hypothesis that A is not a rational algebra is present and used.
+- The witness object and the reason it fails are both recorded.
+- The deduction from non-essential-surjectivity to the absence of a section on smooth algebras is by animation and is written out.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.3/the-witness-admits-no-q-hodge-filtration`; other roadmaps: `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.3: “If $A$ is not a $\IQ$-algebra, then the forgetful functor $\cat{AniAlg}_A^{\qHodge}\rightarrow \cat{AniAlg}_A$ is not essentially surjective. In particular, it has no section, not even when restricted to the full subcategory $\cat{Sm}_A\subseteq \cat{AniAlg}_A$ of smooth $A$-algebras.” — The statement of the node.
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 3.3: “This shows that $\cat{AniAlg}_A^{\qHodge}\rightarrow \cat{AniAlg}_A$ is not essentially surjective. Hence it can't have a section, not even over $\cat{Sm}_A\subseteq \cat{AniAlg}_A$, because we could always animate to extend such a section to all of $\cat{AniAlg}_A$.” — The deduction by animation.
+
+### The q-Hodge complex, as the completed colimit of the filtration along multiplication by q-1
+
+`HQ.3/the-q-hodge-complex` · construction · planet “q-Hodge complex”
+
+Given a pair of an animated A-algebra R and a q-Hodge filtration on its derived q-de Rham complex, the q-Hodge complex is the (q-1)-completion of the colimit of the sequence fil^0 -> fil^1 -> fil^2 -> ... whose maps are multiplication by q-1. It does not matter whether the filtration or its completion is used, since every element of the i-th step becomes divisible by (q-1)^i in the colimit and the result is (q-1)-complete. If S is smooth and a filtration of the underived q-de Rham complex of S is given that satisfies the analogues of clauses (a) to (c_p), its pullback along the canonical map from the derived to the underived complex is a q-Hodge filtration, because the de Rham complex of S is the Hodge completion of the derived one and every filtration is the pullback of its completion; the associated q-Hodge complex is computed by the same colimit on the underived filtration. This is how the coordinate-dependent construction on a framed smooth algebra produces an object of the theory.
+
+**Hypotheses.**
+
+- The pair is an object of the category of the definition node.
+- The colimit is taken in the derived category over the polynomial ring in q, before completion.
+- The interchangeability of the filtration with its completion is a statement about this construction and not about the filtrations themselves.
+
+**Proof.**
+
+1. Form the sequential colimit along multiplication by q-1 and complete at q-1.
+2. Show that the result is unchanged if the filtration is replaced by its completion: each element of the i-th step becomes divisible by (q-1)^i in the colimit and the target is (q-1)-complete.
+3. For smooth S and a filtration on the underived complex satisfying the analogues of (a) to (c_p), pull it back along the derived-to-underived map; the clauses transfer because the de Rham complex of S is the Hodge completion of the derived de Rham complex and every filtration is the pullback of its completion.
+4. Identify the q-Hodge complex of the pullback with the colimit computed on the underived filtration, using that the two filtrations have the same completion.
+
+**API.**
+
+- `qHodge` (constructor): For a pair, the (q-1)-complete A[q]-module given by the completed colimit along multiplication by q-1.
+- `qHodge.ofCompletion` (characterisation): The construction is unchanged when the filtration is replaced by its completion.
+- `qHodge.map` (functoriality): A functor from the category of pairs to (q-1)-complete A[q]-modules, with map_id and map_comp.
+- `qHodge.ofUnderived` (compatibility): For smooth S and a filtration of the underived complex satisfying the analogues of the clauses, the q-Hodge complex of the pulled-back filtration is the colimit computed on the underived filtration.
+- `qHodge.modQSubOne` (projection): Its reduction modulo q-1 carries the conjugate filtration.
+- `qHodge.framed` (example): For a framed smooth algebra with the coordinate filtration, it is the q-difference complex with every differential multiplied by q-1.
+
+**Unit tests.**
+
+- `qHodge.framed` (computation): For a framed smooth algebra with the coordinate filtration (q-1)^{max(n - *, 0)}, the q-Hodge complex is the q-difference complex with every differential multiplied by q-1.
+- `qHodge.polynomial_one` (computation): For S = A[x] with the coordinate filtration, the q-Hodge complex is A[x][[q-1]] -> A[x][[q-1]] dx with x^n -> (q^n - 1) x^{n-1} dx, whereas the q-de Rham complex has x^n -> [n]_q x^{n-1} dx.
+- `qHodge.ofCompletion` (characterisation): Replacing the filtration by its completion does not change the answer; a construction that omitted the final (q-1)-completion would fail this.
+- `qHodge.ne_qdR` (non-example): The q-Hodge complex is not the q-de Rham complex: in the polynomial example the cokernel of the differential in degree one has the summand A[[q-1]]/(q-1) x^0 dx, zero for the q-de Rham complex since [1]_q = 1.
+
+**Acceptance.**
+
+- The construction is stated with the completion and with the colimit in the right order.
+- The interchangeability with the completion is proved and not assumed.
+- The smooth transfer between underived and derived filtrations is recorded as a construction with its justification.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: The descent theorem factors this functor through the Habiro-complete objects.
+- HabiroCohomologyFoundations:HQ.2: Its décalage at q-1 is the underived q-de Rham complex for smooth inputs.
+- RefinedTraceMethods:RT.4:q-Hodge: Its rationalised form is the graded piece of an even filtration on a topological cyclic homology object.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.2/filtered-graded-and-completion-conventions`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.5: “Given a $q$-Hodge filtration $\fil^\star\qdeRham_{R/A}$ for $R$ over $A$, we can construct the \emph{$q$-Hodge complex} as” — The construction.
+- `wagner-q-hodge-habiro`, Remark 3.6: “If we're given a filtration $\fil_{\qHodge}^\star \qOmega_{S/A}$ that satisfies the obvious analogues of \cref{def:qHodgeFiltration}\cref{enum:qHodgeFiltrationOnqdR}--\cref{enum:qHodgeRationalpComplete}, then its pullback along the canonical map” — The transfer, with its hypothesis.
+- `wagner-q-hodge-habiro`, Remark 3.6: “Finally, let us remark that in the definition of the $q$-Hodge complex it doesn't matter whether we use $\fil_{\qHodge}^\star\qdeRham_{R/A}$ or its completion” — Completion invariance.
+
+### The category of pairs is symmetric monoidal and the q-Hodge complex functor is monoidal
+
+`HQ.3/the-symmetric-monoidal-structure-on-pairs` · theorem
+
+The category of pairs of an animated A-algebra and a q-Hodge filtration carries a canonical symmetric monoidal structure, in which the tensor product of two pairs has underlying algebra the derived tensor product over A and underlying filtration the (q-1)-completed derived tensor product of the two filtrations over the filtered coefficient ring. With this structure the q-Hodge complex functor into (q-1)-complete modules over the polynomial ring in q carries a canonical symmetric monoidal structure, not merely a lax one.
+
+**Hypotheses.**
+
+- The tensor product of filtrations is taken as filtered modules over the filtered coefficient ring and is then completed at q-1.
+- Strict, as opposed to lax, monoidality is proved after reduction modulo q-1, which is legitimate because the values are (q-1)-complete.
+
+**Proof.**
+
+1. Express the category of pairs as an iterated pullback of symmetric monoidal categories along symmetric monoidal functors, so that it inherits a symmetric monoidal structure and both forgetful functors become symmetric monoidal; this gives the formula for the tensor product.
+2. Construct a lax symmetric monoidal structure on the q-Hodge complex functor by writing it as the zeroth filtration step of a localisation, using that localisation is symmetric monoidal and that taking the zeroth step is lax symmetric monoidal.
+3. Reduce the verification of strict monoidality modulo q-1, using completeness of the values.
+4. Equip the conjugate filtration with a compatible lax symmetric monoidal structure and observe that its associated graded is the Hodge-graded de Rham functor, which is symmetric monoidal.
+5. Check strict monoidality of the conjugate filtration on associated gradeds and conclude.
+
+**Acceptance.**
+
+- The formula for the tensor product of two pairs is recorded, including the completion.
+- The passage from lax to strict monoidality is by reduction modulo q-1 and is justified by completeness.
+- The proof cites the symmetric monoidality of the Hodge-graded de Rham functor as its base case.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.3/the-q-hodge-complex`, `HQ.3/the-conjugate-filtration`, `HQ.3/the-abstract-colimit-filtration-lemma`; other roadmaps: `DerivedDeRhamCohomology:DD.1`, `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.7: “$\cat{AniAlg}_A^{\qHodge}$ admits a canonical symmetric monoidal structure. The tensor product of two objects $(R_1, \fil_{\qHodge}^\star \qdeRham_{R_1/A})$ and $(R_2, \fil_{\qHodge}^\star \qdeRham_{R_2/A})$ is given by” — The statement (the formula follows).
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.7: “Since localising is symmetric monoidal and passing to the $0$\textsuperscript{th} filtration step is lax symmetric monoidal, we get a lax symmetric monoidal structure on $\qHodge_{-/A}$.” — The lax structure.
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.7: “Strict symmetric monoidality of $ \fil_\star^\mathrm{conj}(\qHodge_{-/A}/(q-1))$ can now be checked on the associated graded, so we win since it's well-known that $\gr_{\Hodge}^*\deRham_{-/A}$ is symmetric monoidal.” — The base case.
+
+### The conjugate filtration on the q-Hodge complex modulo q-1, and its associated graded
+
+`HQ.3/the-conjugate-filtration` · construction
+
+Let a pair be given. Localising the filtration at q-1 and completing gives the (q-1)-adic filtration on the q-Hodge complex. Before taking the colimit the diagram is a bifiltered object with one ascending filtration, given by the steps of the colimit, and one descending filtration, given by the filtration on each step. Passing to the associated graded in the descending direction exhibits the reduction of the q-Hodge complex modulo q-1 as the colimit of the associated graded pieces along multiplication by q-1, and this presentation is an exhaustive ascending filtration, the conjugate filtration. Its associated graded is the shifted derived de Rham forms, equivalently the associated graded of the Hodge filtration on the derived de Rham complex.
+
+**Hypotheses.**
+
+- The pair is an object of the category of the definition node.
+- The two directions of the bifiltration must not be interchanged; the conjugate filtration is the ascending one.
+- The identification of the associated graded uses clause (b) of the definition of a q-Hodge filtration.
+
+**Proof.**
+
+1. Localise the filtered module at q-1 and observe that after completing the filtration one obtains the (q-1)-adic filtration on the q-Hodge complex.
+2. Regard the pre-colimit diagram as a bifiltered object and pass to the associated graded in the descending direction.
+3. Define the conjugate filtration as the resulting exhaustive ascending filtration on the reduction modulo q-1.
+4. Compute its associated graded through the graded presentation of the coefficient ring and the abstract colimit lemma of the next node, using that modding out the degree one generator gives the Hodge filtration and modding out the degree minus one generator gives the associated graded.
+
+**API.**
+
+- `qHodge.conjFil` (constructor): The exhaustive ascending filtration on the reduction of the q-Hodge complex modulo q-1, given by the colimit of the Hodge-graded pieces along multiplication by q-1.
+- `qHodge.gr_conjFil` (characterisation): Its n-th graded piece is the n-th derived de Rham form shifted by -n, equivalently the n-th Hodge graded piece of derived de Rham cohomology.
+- `qHodge.conjFil_exhaustive` (characterisation): Its colimit is the whole reduction modulo q-1.
+- `qHodge.conjFil_zero` (simp): The zeroth step is the zeroth Hodge graded piece, which is R.
+- `qHodge.conjFil_laxMonoidal` (compatibility): A lax symmetric monoidal structure compatible with the one on the reduction modulo q-1, whose associated graded is the symmetric monoidal Hodge-graded de Rham functor.
+
+**Unit tests.**
+
+- `qHodge.conjFil_zero` (computation): The zeroth step, and zeroth graded piece, is R, the zeroth Hodge graded piece of derived de Rham cohomology.
+- `qHodge.conjFil_smooth_finite` (computation): For S smooth of relative dimension d, the n-th graded piece is Omega^n_{S/A} in cohomological degree n, which vanishes for n > d and is non-zero for n = d when S is non-zero; so the filtration reaches the whole object exactly at stage d.
+- `qHodge.conjFil_ascending` (non-example): The conjugate filtration is ascending; reading the bifiltration in the other direction yields the (q-1)-adic filtration on the q-Hodge complex instead, whose graded pieces are copies of the reduction modulo q-1, not the shifted de Rham forms.
+- `qHodge.conjFil_underlying` (non-example): Its underlying object is the reduction of the q-Hodge complex modulo q-1, not the de Rham complex: for A = Z and S = Z[x] with the coordinate filtration it has H^1 = Z[x] dx (the differential x^n -> (q^n-1) x^{n-1} dx vanishes modulo q-1), while H^1 of the de Rham complex of Z[x] is the torsion module, the sum over n of Z/n.
+
+**Acceptance.**
+
+- The bifiltration and the direction of each filtration are recorded.
+- The identification of the associated graded is derived from the abstract lemma and clause (b), not asserted.
+- The filtration is stated to be exhaustive.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: It is the case m equal to one of the ascending filtration in the descent theorem, and the proof of the general case is modelled on it.
+- HabiroCohomologyFoundations:HQ.3: It is the vehicle for checking strict symmetric monoidality of the q-Hodge complex functor.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.3/the-q-hodge-complex`, `HQ.2/the-graded-presentation-of-the-coefficient-ring`, `HQ.3/the-abstract-colimit-filtration-lemma`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.8: “Before taking the colimit, the diagram above can be regarded as a bifiltered object, with one ascending (\enquote{horizontal}) filtration, given by the steps in the colimit, and one descending (\enquote{vertical}) filtration,” — The bifiltration.
+- `wagner-q-hodge-habiro`, Lemma 3.9: “The associated graded of the conjugate filtration $ \fil_\star^\mathrm{conj}\qHodge_{R/A}/(q-1)$ is given by \begin{equation*} \gr_*^{\mathrm{conj}}\bigl(\qHodge_{R/A}/(q-1)\bigr)\simeq \Sigma^{-*}\deRham_{R/A}^*\simeq\gr_{\Hodge}^*\deRham_{R/A}\,.” — Its associated graded.
+
+### One graded lemma produces both the conjugate filtration and the q-Witt filtration
+
+`HQ.3/the-abstract-colimit-filtration-lemma` · theorem
+
+Let M be a graded module over the graded ring obtained from A by adjoining a generator of degree one and a generator of degree minus one. Then the degree-zero part of the base change of M along inverting the degree one generator, taken modulo the product of the two generators, admits a canonical exhaustive ascending filtration whose associated graded is the quotient of M by both generators. The proof filters the localisation of the polynomial ring on the degree one generator by the powers of that generator, whose associated graded is the direct sum of shifted copies of A, and transports that filtration along the base change.
+
+**Hypotheses.**
+
+- M is an arbitrary graded module over the stated graded ring; no completeness or connectivity hypothesis is needed.
+- The filtration produced is the one that the conjugate filtration and the q-Witt filtration both are, once the graded presentation of the coefficient ring is fixed.
+- The same statement with q adjoined in degree zero gives the twisted case.
+
+**Proof.**
+
+1. Rewrite the degree-zero part of the localisation modulo the product of the generators as the degree-zero part of the base change of the quotient by the degree minus one generator.
+2. Filter the localisation of the polynomial ring on the degree one generator by the ascending filtration whose terms are the shifted copies of that polynomial ring, with transition maps multiplication by the generator, and whose colimit is the localisation.
+3. Base change M along that filtration and take degree-zero parts to obtain an exhaustive ascending filtration.
+4. Compute the associated graded of the filtration on the polynomial ring as the direct sum of shifted copies of A, and deduce that the associated graded of the resulting filtration on M is the quotient of M by both generators.
+
+**Acceptance.**
+
+- The lemma is stated for an arbitrary graded module, so that it can be applied for every index m.
+- The proof of the identification of the associated graded is recorded.
+- The filtration produced is identified with the conjugate filtration by inspection, and that identification is recorded as part of the statement's use.
+
+**Depends on.** this roadmap: `HQ.2/the-graded-presentation-of-the-coefficient-ring`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.10: “Let $M^*$ be a graded module over the graded ring $A[\beta,t]$, where $\abs{\beta}=1$, $\abs{t}=-1$. Then $(M^*\lotimes_{A[\beta]}A[\beta^{\pm 1}])_0/(\beta t)$ admits a canonical exhaustive ascending filtration whose associated graded is $M^*/(\beta,t)$.” — The statement of the node.
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.10: “Since the associated graded of $\beta^{-\star}A[\beta]$ is $\bigoplus_{i\in\IZ}A(-i)$, the associated graded of the filtration we've just constructed is indeed” — The key step of the proof.
+
+### The p-adic twisted q-Hodge filtration, by recursion on the exponent
+
+`HQ.3/the-twisted-q-hodge-filtration-p-adically` · construction
+
+Fix a prime p. For a pair (R, q-Hodge filtration), define filtrations on the p-completed twisted derived q-de Rham complexes of index p^a by recursion on a. For a = 0 the twisted complex is the derived q-de Rham complex and the filtration is the given q-Hodge filtration, p-completed. For a >= 1, rescale the filtration of index p^{a-1} by Phi_{p^a}(q), meaning that its transition maps are multiplied by Phi_{p^a}(q), equip the p-completed twisted complex of index p^{a-1} with its Phi_{p^a}(q)-adic filtration, and take the pullback of filtered objects whose other leg is the prismatic Nygaard filtration of the p-completed twisted complex of index p^a mapping by the relative Frobenius. By induction the result is a filtered module over (q^{p^a}-1)^* A[q]. Reducing the defining square modulo q^{p^a}-1 (with the quotient convention) gives the Hodge-against-Nygaard square, so the reduction of the twisted q-Hodge filtration is the p-completed animated stupid filtration on q-W_{p^a} dR. The construction is lax symmetric monoidal in the pair, and there are canonical maps from the filtration of index p^a to that of index p^{a-1}, compatible with the relative Frobenius, forming a symmetric monoidal transformation.
+
+**Hypotheses.**
+
+- p is fixed and the recursion is on the exponent a.
+- Rescaling a filtration by a polynomial is restriction along the map of graded rings Z[q, t] -> Z[q, t] sending t to that polynomial times t; it is lax symmetric monoidal but not symmetric monoidal.
+- The Frobenius leg is a symmetric monoidal transformation, proved by quasi-syntomic descent to large quasi-syntomic algebras, where the filtrations are by ideals.
+- The source writes fil_{Hhdg} (the q-Witt Hodge filtration) in paragraphs 3.32, 3.34 and 3.35 where it means the twisted q-Hodge filtration fil_{qHhdg} (source issue E3).
+
+**Proof.**
+
+1. Set the base case to the p-completed given q-Hodge filtration.
+2. Define the rescaling by Phi_{p^a}(q) and record it as restriction along t -> Phi_{p^a}(q) t.
+3. Form the pullback with legs the prismatic Nygaard filtration (via the relative Frobenius) and the rescaled previous filtration, and equip it inductively with its filtered (q^{p^a}-1)^* A[q]-module structure.
+4. Reduce the square modulo q^{p^a}-1 and identify it with the Hodge-against-Nygaard square, by induction on a and the Nygaard comparison; deduce that the reduction is the animated stupid filtration.
+5. Equip the construction with a lax symmetric monoidal structure: the base case is symmetric monoidal (Proposition 3.7), the rescaling is lax, and the Frobenius leg is symmetric monoidal by quasi-syntomic descent.
+6. Construct the canonical maps to the previous index, using that the rescaling of a filtration in non-negative degrees maps back to the filtration, and record that they form a symmetric monoidal transformation.
+
+**API.**
+
+- `twistedQHodgeFil_pAdic` (constructor): For a prime p and a >= 0, the filtration on the p-completed twisted derived q-de Rham complex of index p^a.
+- `twistedQHodgeFil_pAdic_zero` (simp): For a = 0 it is the p-completed given q-Hodge filtration.
+- `twistedQHodgeFil_pAdic_succ` (characterisation): For a >= 1 it is the pullback of the prismatic Nygaard filtration and the Phi_{p^a}(q)-rescaled filtration of index p^{a-1}.
+- `filRescale` (constructor): The rescaling of a filtration by a polynomial f, restriction along t -> f t; lax symmetric monoidal.
+- `twistedQHodgeFil_pAdic_mod` (compatibility): Its reduction modulo q^{p^a}-1 is the p-completed animated stupid filtration on q-W_{p^a} dR.
+- `twistedQHodgeFil_pAdic.transition` (data): The canonical map to the filtration of index p^{a-1}, compatible with the relative Frobenius; a symmetric monoidal transformation.
+- `twistedQHodgeFil_pAdic.laxMonoidal` (structure): The lax symmetric monoidal structure in the pair.
+- `twistedQHodgeFil_pAdic_rational` (equivalence): After inverting p and completing at Phi_{p^a}(q) it is the combined Hodge and Phi_{p^a}(q)-adic filtration (the first compatibility lemma node).
+
+**Unit tests.**
+
+- `twistedQHodgeFil_pAdic_zero` (degenerate): For a = 0 the filtration is the p-completion of the given q-Hodge filtration.
+- `twistedQHodgeFil_pAdic_mod` (characterisation): Reducing modulo q^{p^a}-1 gives the stupid filtration on the p-completed q-de Rham-Witt complex; a construction producing the Nygaard filtration instead fails this already for S = A and a = 1, where the first Nygaard term is non-zero in degree zero.
+- `filRescale_notMonoidal` (non-example): Rescaling by Phi_p(q) is lax but not strong monoidal: it does not preserve the unit, since the rescaled unit filtration (A[q] in every non-negative degree with transition maps multiplication by Phi_p(q)) is not equivalent to the unit filtration (transition maps the identity), Phi_p(q) not being a unit of A[q].
+- `twistedQHodgeFil_pAdic_rational` (compatibility): After inverting p and completing at Phi_{p^a}(q), the filtration is the combined Hodge and Phi_{p^a}(q)-adic filtration on the p-completion of dR_{R/A} base-changed along psi^{p^a}; for a = 0 this is clause (c_p).
+
+**Acceptance.**
+
+- The recursion, its base case and its inductive step are all written down.
+- The rescaling is defined precisely and its monoidality is recorded as lax.
+- The reduction modulo the cyclotomic element is identified with the Hodge-against-Nygaard square and hence with the stupid filtration.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: It is the p-complete input to the global twisted q-Hodge filtration.
+- HabiroCohomologyFoundations:HQ.3: Its reduction is what makes the descent theorem's identification of associated gradeds come out as the q-de Rham-Witt forms.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.3/the-symmetric-monoidal-structure-on-pairs`, `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.4/the-nygaard-comparison`, `HQ.4/hodge-against-nygaard`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.2/the-quotient-convention-for-filtered-modules`, `HQ.2/the-graded-presentation-of-the-coefficient-ring`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.32: “Let's first construct the filtration for prime powers $m=p^\alpha$ and after $p$-completion. We'll use a recursive definition.” — The recursive construction.
+- `wagner-q-hodge-habiro`, Paragraph 3.32: “Then we define $ \fil_{\Hhodge_{p^\alpha}}^\star \bigl(\qdeRham_{R/A}^{(p^\alpha)}\bigr)_p^\complete$ as the following pullback of filtered objects:” — The pullback (printed with the misprint E3).
+- `wagner-q-hodge-habiro`, Remark 3.33: “If we reduce the pullback diagram above modulo $(q^{p^\alpha}-1)$ (where we invoke Convention~\cref{conv:QuotientConvention} as usual), we obtain the pullback diagram from \cref{lem:HodgevsNygaard}. Indeed, this follows via induction on~$\alpha$, using \cref{prop:NygaardComparison}.” — The reduction.
+- `wagner-q-hodge-habiro`, Paragraph 3.34: “Second, the functor that \enquote{rescales} a filtration by $\Phi_{p^\alpha}(q)$ as in \cref{con:TwistedqHodgeFiltrationpAdic} is lax symmetric monoidal.” — Lax monoidality of the rescaling.
+- `wagner-q-hodge-habiro`, Paragraph 3.35: “It follows from the construction in~\cref{con:TwistedqHodgeFiltrationpAdic} that we have a canonical map” — The transition maps.
+
+### The global twisted q-Hodge filtration, glued along a fracture square
+
+`HQ.3/the-twisted-q-hodge-filtration-globally` · construction · planet “Twisted q-Hodge filtration”
+
+Fix m and a non-zero integer N divisible by m. Using the animated fracture square of the m-th twisted derived q-de Rham complex, put a filtration on each factor: (a) on the factors obtained by inverting N and completing at Phi_d(q), for d | m, the q-Hodge filtration base-changed along psi^d; (b) on the p-completed, p-inverted factors, for p | N and d | m, again the base-changed q-Hodge filtration; (c) on the (p, Phi_{d_p}(q))-complete factors, for p | N and d_p | m_p, the p-adic twisted q-Hodge filtration of index p^{v_p(m)} base-changed along psi^{d_p}. Each is a filtered module over (q^m-1)^* A[q]. The filtrations (a) and (b) agree by inspection; (c) and (b) agree because, after reducing by base change to m = p^a, both are identified with the combined Hodge and Phi_{p^a}(q)-adic filtration, by the two compatibility lemmas of the p-adic construction and clause (c_p). The glued filtration does not depend on N: enlarging N to N' only replaces the lower left corner by a pullback over primes l | N' not dividing N, which do not divide m, so the iterated Frobenii there are identities and the filtrations are the base-changed q-Hodge filtration; letting N run through a totally ordered cofinal family, such as the factorials n! with n >= m, and taking the limit gives a canonical construction. The result is functorial and lax symmetric monoidal in the pair. For n | m there are canonical maps to the filtration of index n (projection to the factors indexed by divisors of n, followed on the p-complete factors by the p-adic transition maps), forming a symmetric monoidal transformation of lax symmetric monoidal functors.
+
+**Hypotheses.**
+
+- m is a positive integer and N a non-zero multiple of it; the construction is then shown to be independent of N.
+- The compatibility of the p-complete and the rational filtrations uses clause (c_p) of the definition of a q-Hodge filtration and the two lemmas of the previous node.
+- The individual transition maps are constructed; the full functoriality over the divisibility poset is not, and is not needed because limits over that poset may be computed along the factorials.
+
+**Proof.**
+
+1. Write the animated fracture square for the m-th twisted complex with the chosen N.
+2. Put the three families of filtrations on the three families of factors, and record that each is a module over the filtered ring for q^m-1.
+3. Check compatibility of the rational and the p-inverted factors by inspection.
+4. Check compatibility of the p-complete and the p-inverted factors by base change to the prime power case and the two compatibility lemmas, identifying both with the combined Hodge and cyclotomic-adic filtration.
+5. Check independence of N by comparing the fracture squares for N and a multiple, noting that the additional primes do not divide m so the iterated Frobenii are identities.
+6. Take the limit over a cofinal totally ordered family of N to get a canonical construction, and record lax symmetric monoidality and the transition maps.
+
+**API.**
+
+- `twistedQHodgeFil` (constructor): For each positive integer m, a filtration on the m-th twisted derived q-de Rham complex, functorial in the pair.
+- `twistedQHodgeFil.gluing` (characterisation): Its restrictions to the factors of the fracture square are the three families of filtrations (a), (b), (c).
+- `twistedQHodgeFil.indep` (characterisation): The construction does not depend on the auxiliary integer N.
+- `twistedQHodgeFil_mod` (compatibility): Its reduction modulo q^m-1 is the animated stupid filtration on q-W_m dR (the Proposition 3.39 node).
+- `twistedQHodgeFil.transition` (data): For n | m, the canonical map to the filtration of index n; the maps form a symmetric monoidal transformation.
+- `twistedQHodgeFil.laxMonoidal` (structure): The lax symmetric monoidal structure in the pair.
+- `twistedQHodgeFil_one` (example): For m = 1 it is the given q-Hodge filtration.
+
+**Unit tests.**
+
+- `twistedQHodgeFil_one` (degenerate): For m = 1 the twisted complex is the derived q-de Rham complex and the filtration is the given q-Hodge filtration.
+- `twistedQHodgeFil_mod` (characterisation): Its reduction modulo q^m-1 is the animated stupid filtration on q-W_m dR, whose n-th graded piece is q-W_m dR^n shifted by -n.
+- `twistedQHodgeFil.indep` (characterisation): The filtrations built with N and with a multiple N' agree; a construction depending on N would not be canonical.
+- `twistedQHodgeFil_rationalFactor` (computation): On the factor obtained by inverting N and completing at Phi_d(q), d | m, the filtration is the q-Hodge filtration base-changed along psi^d; in particular for R smooth with the coordinate filtration it is (q-1)^{max(n - *, 0)} base-changed along psi^d, that is Phi_d(q)^{max(n - *, 0)} up to units.
+
+**Acceptance.**
+
+- All three families of filtrations are named and their pairwise compatibilities are proved, not assumed.
+- Independence of N is proved and the canonical form of the construction is recorded.
+- The reduction modulo q^m-1 is identified with the stupid filtration on the derived q-de Rham-Witt complex.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: The m-truncated Habiro descent is defined by adjoining this filtration divided by powers of q^m-1.
+- HabiroCohomologyFoundations:HQ.3: Its reduction is what identifies the graded pieces in the descent theorem with the q-de Rham-Witt forms.
+
+**Depends on.** this roadmap: `HQ.3/the-twisted-q-hodge-filtration-p-adically`, `HQ.3/the-p-adic-twisted-filtration-after-inverting-p`, `HQ.3/the-p-adic-twisted-filtration-at-lower-cyclotomic-points`, `HQ.3/q-hodge-filtrations`, `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.38: “To construct $\fil_{\qHhodge_m}^\star \qdeRham_{R/A}^{(m)}$, we'll equip each factor of the pullback above with a filtration and then check that these filtrations are compatible.” — The construction.
+- `wagner-q-hodge-habiro`, Paragraph 3.38: “To check that \cref{enum:TwistedqHodgeFiltrationpAdic} and \cref{enum:TwistedqHodgeFiltrationpAdicRational} are compatible, we may reduce via base change to the case where $m=p^\alpha$ is a power of~$p$.” — The compatibility check.
+- `wagner-q-hodge-habiro`, Paragraph 3.38: “To get a canonical construction, we can let $N$ vary through a totally ordered initial sub-poset of $\IN$ (like $\{n!\}_{n\geqslant m}$) and then take the limit.” — Independence of N.
+- `wagner-q-hodge-habiro`, Paragraph 3.41: “It's clear from the construction that these maps $ \fil_{\qHhodge_m}^\star \qdeRham_{R/A}^{(m)}\rightarrow \fil_{\qHhodge_n}^\star \qdeRham_{R/A}^{(n)}$ assemble canonically into a symmetric monoidal transformation of lax symmetric monoidal functors.” — The transition maps.
+
+### Adjoining the twisted filtration divided by powers of q^m-1, and its compatibility in m
+
+`HQ.3/the-m-truncated-descent` · construction
+
+For each m, the m-th partial descent of a pair is the (q^m-1)-completion of the colimit of the twisted q-Hodge filtration along multiplication by q^m-1, fil^0 -> fil^1 -> ... ; informally it is obtained from the m-th twisted complex by adjoining the i-th filtration step divided by (q^m-1)^i for all i >= 1. By the argument of the q-Hodge complex it is lax symmetric monoidal in the pair. For m = 1 it is the q-Hodge complex. Its compatibility for divisors of m and the denominator lemma it rests on are separate nodes.
+
+**Hypotheses.**
+
+- The pair is an object of the category of pairs; m is a positive integer.
+- The colimit is taken before completing, and the completion is at q^m-1.
+
+**Proof.**
+
+1. Define the partial descent as the completed colimit along multiplication by q^m-1.
+2. Equip it with a lax symmetric monoidal structure as for the q-Hodge complex: localise the filtered module at q^m-1 (symmetric monoidal) and take the zeroth step (lax symmetric monoidal).
+3. For m = 1 compare with the definition of the q-Hodge complex.
+
+**API.**
+
+- `partialDescent` (constructor): For each positive integer m, the (q^m-1)-complete A[q]-module obtained as the completed colimit of the twisted q-Hodge filtration along q^m-1, functorial in the pair.
+- `partialDescent_one` (example): For m = 1 it is the q-Hodge complex.
+- `partialDescent.laxMonoidal` (structure): The lax symmetric monoidal structure in the pair.
+- `partialDescent.completion` (characterisation): For n | m, the (q^n-1)-completion of the m-th partial descent is the n-th (the Proposition 3.43 node).
+- `partialDescent_mod` (characterisation): Its reduction modulo q^m-1 is the colimit of the graded pieces of the twisted q-Hodge filtration along q^m-1, an exhaustive ascending filtration.
+
+**Unit tests.**
+
+- `partialDescent_one` (degenerate): For m = 1 the partial descent is the q-Hodge complex, since the twisted complex is the q-de Rham complex and the filtration is the given one.
+- `partialDescent.completion` (characterisation): For n | m the (q^n-1)-completion of the m-th partial descent is the n-th.
+- `partialDescent_framed_rational` (computation): For a framed smooth S with the coordinate filtration, after inverting N and completing at Phi_d(q) the m-th partial descent is the psi^d-twisted coordinate complex with every differential multiplied by Phi_d(q) up to a unit.
+- `partialDescent_isComplete` (characterisation): Each partial descent is (q^m-1)-complete by construction, so the limit over m is Habiro-complete.
+
+**Acceptance.**
+
+- The informal description by adjoining divided filtration steps is matched with the formal colimit definition.
+- The case m = 1 is the q-Hodge complex.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: The Habiro-Hodge complex is the limit over m of the partial descents.
+- HabiroCohomologyFoundations:HQ.3: The ascending filtration of the descent theorem is read off from the partial descent modulo q^m-1.
+
+**Depends on.** this roadmap: `HQ.3/the-twisted-q-hodge-filtration-globally`, `HQ.3/the-q-hodge-complex`, `HQ.3/the-symmetric-monoidal-structure-on-pairs`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.42: “For all $m\in\IN$, we consider the colimit \begin{equation*} \qHhodge_{R/A,m}\coloneqq \colimit\Bigl( \fil_{\qHhodge_m}^{0}\qdeRham_{R/A}^{(m)}\xrightarrow{(q^m-1)} \fil_{\qHhodge_m}^{1}\qdeRham_{R/A}^{(m)}\xrightarrow{(q^m-1)}\dotso\Bigr)_{(q^m-1)}^\complete\,.” — The construction.
+- `wagner-q-hodge-habiro`, Paragraph 3.45: “The same argument as in the proof of \cref{lem:qHodgeSymmetricMonoidal} allows us to equip $\qHhodge_{-/A, m}$ with a lax symmetric monoidal structure for all $m\in\IN$;” — Lax monoidality.
+
+### The Habiro-Hodge complex, and the symmetric monoidality of the descent
+
+`HQ.3/the-habiro-hodge-complex` · construction · planet “Habiro-Hodge complex”
+
+The Habiro-Hodge complex of a pair is the limit over the positive integers, ordered by divisibility, of the partial descents; the limit may be computed along the cofinal sequence of factorials, so only the individual transition equivalences are needed. It is Habiro-complete, its (q^m-1)-completions are the partial descents, and its (q-1)-completion is the q-Hodge complex. It carries a lax symmetric monoidal structure, compatible with the one on the q-Hodge complex, obtained as in the monoidality proof for the q-Hodge complex and compatible with the transition equivalences; this gives a lax symmetric monoidal lift of the q-Hodge complex functor through the Habiro-complete objects.
+
+**Hypotheses.**
+
+- The pair is an object of the category of the definition node.
+- The limit may be computed along the cofinal sequence of factorials, which is why only the individual transition maps are needed.
+- Habiro-completeness is in the sense of the coefficient roadmap, namely the limit over m of the completions at q^m-1.
+
+**Proof.**
+
+1. Form the limit of the partial descents along the divisibility poset, or equivalently along the factorials.
+2. Check Habiro-completeness and that the (q^m-1)-completions, in particular the (q-1)-completion, are the partial descents and the q-Hodge complex, using the compatibility proposition.
+3. Transport the lax symmetric monoidal structure from the partial descents, using that the transition equivalences are compatible with it.
+
+**API.**
+
+- `qHabiroHodge` (constructor): For a pair, the Habiro-complete object of the derived category of A[q] given by the limit of the partial descents.
+- `qHabiroHodge.qSubOneCompletion` (projection): Its (q-1)-completion is the q-Hodge complex.
+- `qHabiroHodge.completion` (characterisation): Its (q^m-1)-completion is the m-th partial descent.
+- `qHabiroHodge.limit_factorial` (characterisation): The limit may be computed along the factorials.
+- `qHabiroHodge.map` (functoriality): A functor on the category of pairs, with map_id and map_comp.
+- `qHabiroHodge.laxMonoidal` (structure): The lax symmetric monoidal structure, compatible with the one on the q-Hodge complex; it is strict (the Lemma 3.46 node).
+- `qHabiroHodge.tensorEquiv` (compatibility): For finitely many pairs, the canonical map from the completed tensor product of their Habiro-Hodge complexes to the Habiro-Hodge complex of their tensor product in the category of pairs is an equivalence (the Kuenneth form of strict monoidality).
+
+**Unit tests.**
+
+- `qHabiroHodge_etale` (computation): For an etale A-algebra with its q-Hodge filtration, the Habiro-Hodge complex is the relative Habiro ring (the etale-case node).
+- `qHabiroHodge.qSubOneCompletion` (characterisation): Its (q-1)-completion is the q-Hodge complex; a construction returning the q-de Rham complex instead fails this already for S = A[x] with the coordinate filtration.
+- `qHabiroHodge_smoothCohomology` (computation): For smooth S with a q-Hodge filtration, the cohomology of its reduction modulo q^m-1 is q-W_m Omega_{S/A}, as graded A[q]/(q^m-1)-modules, and as graded algebras when the pair is at least an E_1-algebra in the category of pairs.
+- `qHabiroHodge_ne_qdR` (non-example): It descends the q-Hodge complex, not the q-de Rham complex; the latter is recovered only after the décalage at q-1, and only for smooth inputs.
+
+**Acceptance.**
+
+- The limit is over the divisibility poset and its computation along the factorials is recorded.
+- The relation to the q-Hodge complex is stated as a (q-1)-completion.
+- Only the lax structure is constructed here; strictness is the next node.
+
+**Used by.**
+
+- HabiroRings:HR.6: In degree zero, for finite etale inputs, it is the relative Habiro ring of that roadmap.
+- HabiroCohomologyFoundations:HQ.5: Its sheafified form on a smooth scheme is algebraic Habiro cohomology.
+- HabiroCohomologyFoundations:HQ.2: Its décalage at q-1 is a Habiro descent of the underived q-de Rham complex for smooth inputs.
+
+**Depends on.** this roadmap: `HQ.3/the-m-truncated-descent`, `HQ.3/the-partial-descents-are-compatible`, `HQ.3/the-q-hodge-complex`, `HQ.3/the-symmetric-monoidal-structure-on-pairs`; other roadmaps: `HabiroRings:HR.2/habiro-complete-modules`, `HabiroRings:HR.2/the-monoidal-structure`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.45: “We define the \emph{Habiro--Hodge complex of $R$ over $A$} to be \begin{equation*} \qHhodge_{R/A}\coloneqq \limit_{m\in\IN}\qHhodge_{R/A, m}\,. \end{equation*}” — The definition.
+- `wagner-q-hodge-habiro`, Paragraph 3.45: “The same argument as in the proof of \cref{lem:qHodgeSymmetricMonoidal} allows us to equip $\qHhodge_{-/A, m}$ with a lax symmetric monoidal structure for all $m\in\IN$;” — The lax structure.
+- `wagner-q-hodge-habiro`, Paragraph 3.16: “To construct the Habiro descent eventually, we only need the individual maps, not the whole functor with all its higher coherences, since any $\limit_{m\in\IN}$ can be replaced by the limit over the sequential subdiagram given by $\{n!\}_{n\geqslant 1}$.” — The factorials.
+
+### The descent theorem: the q-Hodge complex factors symmetric monoidally through Habiro-complete objects
+
+`HQ.3/habiro-descent` · theorem · planet “Habiro descent”
+
+Let A be a perfectly covered Lambda-ring. The q-Hodge complex functor from the category of pairs to (q-1)-complete objects of the derived category of A[q] admits a symmetric monoidal factorisation through the Habiro-complete objects, followed by the (q-1)-completion functor; the lift is the Habiro-Hodge complex. The introduction (Theorem 1.11, for A = Z) calls the factorisation non-trivial: the Habiro-complete objects form a proper subcategory of the (q-1)-complete ones.
+
+**Hypotheses.**
+
+- A is a perfectly covered Lambda-ring; the pairs range over animated A-algebras with a chosen q-Hodge filtration.
+- The factorisation is through the Habiro-complete objects in the sense of the coefficient roadmap.
+
+**Proof.**
+
+1. Construct the twisted q-de Rham complexes, their Nygaard filtrations and the twisted q-Hodge filtrations (HQ.4 and the preceding HQ.3 nodes).
+2. Form the partial descents and prove they are compatible under completion, so that their limit, the Habiro-Hodge complex, is Habiro-complete with (q-1)-completion the q-Hodge complex; this proves the factorisation with a lax symmetric monoidal structure.
+3. Prove strict symmetric monoidality (the Lemma 3.46 node).
+
+**Acceptance.**
+
+- The factorisation is through the Habiro-complete objects and is called non-trivial.
+- Symmetric monoidality is strict.
+
+**Depends on.** this roadmap: `HQ.3/the-habiro-hodge-complex`, `HQ.3/the-partial-descents-are-compatible`, `HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal`; other roadmaps: `HabiroRings:HR.2/habiro-complete-modules`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem 3.11: “Let $A$ be a perfectly covered $\Lambda$-ring and $\cat{AniAlg}_A^{\qHodge}$ be the $\infty$-category of animated $A$-algebras equipped with a $q$-Hodge filtration on their $q$-de Rham complex.” — The setting.
+- `wagner-q-hodge-habiro`, Theorem 3.11(a): “Then the $q$-Hodge complex functor admits a symmetric monoidal factorisation” — Clause (a).
+- `wagner-q-hodge-habiro`, Theorem 1.11(a): “The $q$-Hodge complex functor $\qHodge_{-/\IZ}\colon \cat{AniAlg}_\IZ^{\qHodge}\rightarrow \widehat{\Dd}_{(q-1)}(\IZ[q])$ admits a non-trivial symmetric monoidal factorisation” — The introduction's form, with 'non-trivial'.
+
+### The framed q-Hodge filtration and its explicit Koszul model
+
+`HQ.3/the-coordinate-model-and-the-etale-case` · comparison
+
+Let S be smooth over A with an etale framing A[x_1, ..., x_n] -> S. The filtration of the coordinate-dependent q-de Rham complex whose n-th step is (q-1)^{max(n - *, 0)} times the complex, pulled back along the map from the derived complex, is a q-Hodge filtration once the data of the definition are constructed at the level of complexes and pulled back; the framed pair is an E_0-algebra in the category of pairs (the source announces an E-infinity refinement in its companion paper). Its q-Hodge complex is the coordinate-dependent q-Hodge complex, in which every q-differential is multiplied by q-1, because the framed filtration is already complete. The source asserts, without proof, an explicit model for its Habiro-Hodge complex: equip A[x_1, ..., x_n] with the toric Lambda-structure psi^m(x_i) = x_i^m, form the relative Habiro ring of S over A[x_1, ..., x_n], extend the endomorphism gamma_i scaling x_i by q to it factor by factor on the equaliser presentation (by the infinitesimal lifting property of the formally etale framing, on each factor completed at q - zeta_m), note gamma_i is congruent to the identity modulo x_i, and take the Koszul complex of the commuting operators (gamma_i - id)/x_i. Combined with Theorem 3.11(b) and Corollary 3.31 this gives H^*(Habiro-Hodge complex modulo q^m-1) = q-W_m Omega_{S/A} as graded A[q]/(q^m-1)-modules.
+
+**Hypotheses.**
+
+- S is smooth over A with a chosen etale framing; the filtration and the Koszul model depend on the framing, although the cohomology of the reduction modulo q^m-1 does not.
+- The toric Lambda-structure is the one with psi^m(x_i) = x_i^m.
+- The Koszul model is stated by the source without proof; it is not used by any other node of this packet.
+
+**Proof.**
+
+1. Define the framed filtration by the displayed formula and construct the data of the four clauses on the level of complexes, then pull back along the map from the derived complex.
+2. Identify the associated q-Hodge complex with the coordinate-dependent one, using that the framed filtration is complete and that the q-Hodge complex does not see completion.
+3. Deduce the cohomology of the reduction modulo q^m-1 from Theorem 3.11(b) and Corollary 3.31.
+4. Construct the scaling automorphisms of the relative Habiro ring factor by factor through the equaliser presentation and the infinitesimal lifting property, and check congruence to the identity modulo x_i.
+5. Identify the Koszul complex of (gamma_i - id)/x_i with the Habiro-Hodge complex by unravelling the descent; the source omits this step, recorded as a gap.
+
+**Acceptance.**
+
+- The framed filtration is given by an explicit formula and the pair is an E_0-algebra.
+- The Koszul model is described with the construction of the scaling operators and the reason they exist, and its unproved status is recorded.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.3/the-q-hodge-complex`, `HQ.3/habiro-descent`, `HQ.3/habiro-descent-the-q-de-rham-witt-filtration`, `HQ.3/the-habiro-hodge-complex`, `HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras`, `HQ.1/what-the-global-complex-satisfies`, `HQ.1/the-coordinate-dependent-q-de-rham-complex`; other roadmaps: `HabiroRings:HR.5/the-relative-habiro-ring`, `HabiroRings:HR.5/the-equaliser-presentation`, `HabiroCyclotomicCompletions:HC.3`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Example 3.12: “If $S$ is a smooth over $A$ and $\square\colon A[x_1,\dotsc,x_n]\rightarrow S$ is an étale framing, then we can define a filtration on the coordinate-dependent $q$-de Rham complex $\qOmega_{S/A, \square}^*$ via” — The framed filtration.
+- `wagner-q-hodge-habiro`, Example 3.12: “Therefore, the pair $(S, \fil_{\qHodge, \square}^\star \qdeRham_{S/A})$ determines an $\IE_0$-algebra in $\cat{AniAlg}_A^{\qHodge}$.” — The E_0-structure.
+- `wagner-q-hodge-habiro`, Example 3.12: “To this end, equip $A[x_1,\dotsc,x_n]$ with the \emph{toric $\Lambda$-$A$-algebra structure} in which the Adams operations are given by $\psi^m(x_i)=x_i^m$ and consider the relative Habiro ring $\Hh_{S/A[x_1,\dotsc,x_n]}$.” — The Koszul model's setting.
+- `wagner-q-hodge-habiro`, Example 3.12: “is an explicit complex representing $\qHhodge_{S/A, \square}$. This can be shown by unravelling the proof of \cref{thm:HabiroDescent} (which is less horrible than it sounds).” — The source's own statement that the proof is omitted.
+
+### Operadic and derived commutative upgrades of the descent, and the differential on cohomology
+
+`HQ.3/multiplicative-upgrades` · theorem
+
+Suppose the q-Hodge filtration of a pair is an E_n-algebra in filtered (q-1)^* A[q]-modules, 0 <= n <= infinity, compatibly with the E-infinity structure of the derived q-de Rham complex and with all the data of the definition, so that the pair is an E_n-algebra in the category of pairs. Then the Habiro-Hodge complex is an E_n-algebra in the Habiro-complete objects, the filtration of Theorem 3.11(b) on its reduction modulo q^m-1 is a filtered E_n-algebra, and the identification of its associated graded is a graded E_n-monoidal equivalence. If instead the filtration is a filtered derived commutative algebra over (q-1)^* A[q], compatible with the derived commutative structure of the derived q-de Rham complex and with all the data of the definition, then the Habiro-Hodge complex is a derived commutative A[q]-algebra, the filtration on its reduction is a filtered derived commutative algebra, and the associated graded identification is one of graded derived commutative algebras; by transfer of structure the associated graded is a derived differential graded algebra.
+
+**Hypotheses.**
+
+- The multiplicative hypothesis is on the filtration together with all the coherence data of the definition, not merely on the underlying complex.
+- The derived commutative version is proved in the source only as a sketch (Lemma 3.52).
+
+**Proof.**
+
+1. Deduce the E_n transport from the strict symmetric monoidality of the Habiro-Hodge complex functor and the lax symmetric monoidality of the filtration of Theorem 3.11(b).
+2. For the derived commutative transport, use that the Nygaard comparison and its rationalisation hold as filtered derived commutative equivalences (the HQ.4 multiplicativity node), trace through the constructions of the twisted q-Hodge filtrations and their transition maps, and view the partial descent as a filtered localisation followed by restriction to degree zero.
+3. By transfer of structure make the associated graded a derived differential graded algebra.
+
+**Acceptance.**
+
+- Every upgrade carries the hypothesis that the input already has the structure.
+- No upgrade beyond the input's structure is claimed.
+
+**Depends on.** this roadmap: `HQ.3/habiro-descent`, `HQ.3/habiro-descent-the-q-de-rham-witt-filtration`, `HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal`, `HQ.4/no-automatic-multiplicative-upgrade`, `HQ.1/the-derived-commutative-lift`; other roadmaps: `EnhancedDerivedSheaves:E5`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.50: “Suppose that the $q$-Hodge filtration $ \fil_{\qHodge}^\star \qdeRham_{R/A}$ can be equipped with the structure of an $\IE_n$-algebra in filtered $(q-1)^\star A[q]$-modules,” — The E_n hypothesis (the compatibility conditions follow in the source).
+- `wagner-q-hodge-habiro`, Lemma 3.52: “In the situation of \cref{par:qHhodgeDAlg}, $\qHhodge_{R/A}$ admits a canonical derived commutative $A[q]$-algebra structure.” — The derived commutative transport.
+
+### The q-divided power of the witness cannot be corrected into the p-th step
+
+`HQ.3/the-witness-admits-no-q-hodge-filtration` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let p be a prime with the p-completion of A non-zero, and let R be the quotient by x of the free p-complete perfect delta-ring on a generator x over the p-completion of A (the witness of Lemma 3.3); the same computation applies to the free p-complete delta-ring Z_p{x} over itself (Example 4.24 with exponent one). The p-completed derived q-de Rham complex of R is the q-PD envelope, (p, q-1)-completed, of the ideal (x), and is static; the Hodge filtration on the p-completed derived de Rham complex is the divided power filtration of the PD envelope. No element of the q-PD envelope that reduces modulo q-1 to the divided power x^p/p lies, after (q-1)-completed rationalisation, in the ideal (x, q-1)^p. Consequently the p-completed derived q-de Rham complex of R admits no filtration satisfying clauses (b) and (c_p) of a q-Hodge filtration.
+
+**Hypotheses.**
+
+- R is the quotient by x of a free p-complete (perfect) delta-ring; the exponent of x is one, which is exactly where the argument works.
+- Clause (c_p) is used; the statement says nothing about filtrations satisfying only (a) to (c).
+
+**Proof.**
+
+1. Identify the p-completed derived q-de Rham complex of R with the q-PD envelope of (x) and the p-completed derived de Rham complex with the PD envelope, and the Hodge filtration with the PD filtration (quasiregular quotient of a delta-ring).
+2. By clause (b), a q-Hodge filtration is then a descending chain of submodules whose p-th step contains a lift of x^p/p.
+3. Write [p]_q = p u + (q-1)^{p-1} with u a unit congruent to 1 modulo q-1, and expand the q-divided power phi(x)/[p]_q - delta(x) in the completed rationalisation; after removing terms in (x, q-1)^p and in (q-1) times the envelope, the term u^{-2} (q-1)^{p-1} delta(x)/p remains.
+4. Since delta(x) is not divisible by p (in Z_p{x} it is a polynomial variable; in the perfect delta-ring its reduction modulo p is a non-zero Witt coordinate of a perfect F_p-algebra), no modification by (q-1) times the envelope removes the non-integral multiple of delta(x); so no lift lies in (x, q-1)^p after rationalisation, contradicting clause (c_p). The source carries out this computation only for Z_p{x} and refers to it for the perfect witness (source issue E205).
+
+**Acceptance.**
+
+- The witness, the expansion and the failing term are all recorded.
+- The computation is carried out for exponent one; for exponents at least two the same computation succeeds, which is the HQ.5 well-behavedness theorem.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.2/the-derived-q-de-rham-complex`; other roadmaps: `PrismaticCohomology:PR.0`, `PrismaticCohomology:PR.6`, `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 3.3: “Let~$p$ be a prime such that $\widehat{A}_p\not\simeq 0$. Let $\widehat{A}_p\{x\}_\infty$ be the free $p$-complete perfect $\delta$-ring on a generator $x$. We'll show that the $q$-de Rham complex of $R\coloneqq \widehat{A}_p\{x\}_\infty/x$ admits no $q$-Hodge filtration.” — The witness.
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 3.3: “Using \cref{def:qHodgeFiltration}\cref{enum:qHodgeRationalpComplete}, we see that $\widetilde{\gamma}_q$ must also be contained in the ideal $(x,q-1)^p$ after completed rationalisation.” — The use of clause (c_p).
+- `wagner-q-hodge-habiro`, Example 4.24: “Write $[p]_q=pu+(q-1)^{p-1}$, where $u\equiv 1\mod q-1$. In particular, $u$ is a unit in $\q D_\alpha$.” — The expansion.
+- `wagner-q-hodge-habiro`, Example 4.24: “If $\alpha=1$, there's nothing we can do: No modification by elements from $(q-1)\q D_\alpha$ will ever get rid of a non-integral multiple of $\delta(x)$, as $\delta(x)$ is a polynomial variable in $\IZ_p\{x\}$.” — The failing term.
+
+### After inverting p the p-adic twisted q-Hodge filtration is the combined Hodge and cyclotomic-adic filtration
+
+`HQ.3/the-p-adic-twisted-filtration-after-inverting-p` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every prime p and every a >= 0 there is a canonical equivalence of filtered (q^{p^a}-1)^* A[q]-modules from the p-adic twisted q-Hodge filtration of index p^a, with p inverted and completed at Phi_{p^a}(q), onto the combined Hodge and Phi_{p^a}(q)-adic filtration on the p-completion of dR_{R/A} base-changed along psi^{p^a}, with p inverted, completed at Phi_{p^a}(q); it is compatible with the rational comparison of the p-completed derived q-de Rham complex.
+
+**Hypotheses.**
+
+- For a = 0 this is clause (c_p) of the q-Hodge filtration.
+
+**Proof.**
+
+1. For a = 0 use clause (c_p).
+2. For a >= 1, after inverting p and completing at Phi_{p^a}(q) the polynomial q^{p^{a-1}}-1 becomes invertible, so the filtration of index p^{a-1} becomes constant and the bottom map of the defining pullback an equivalence; hence so is the top map.
+3. Conclude by base change from the rationalised Nygaard filtration lemma.
+
+**Acceptance.**
+
+- The case a = 0 is recorded as the axiom (c_p).
+
+**Depends on.** this roadmap: `HQ.3/the-twisted-q-hodge-filtration-p-adically`, `HQ.4/the-nygaard-filtration-after-inverting-p`, `HQ.3/q-hodge-filtrations`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.36: “For all primes~$p$ and all $\alpha\geqslant 0$, there exists a canonical equivalence of filtered $(q^{p^\alpha}-1)^\star A[q]$-modules” — The statement (the equivalence follows).
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.36: “The desired assertion then follows via base change from \cref{lem:NygaardRationalisation}.” — The input.
+
+### At lower cyclotomic points the p-adic twisted q-Hodge filtrations of successive indices agree
+
+`HQ.3/the-p-adic-twisted-filtration-at-lower-cyclotomic-points` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every prime p, every a >= 1 and every 0 <= i <= a-1, the canonical map from the p-adic twisted q-Hodge filtration of index p^a to that of index p^{a-1} induces an equivalence of filtered (q^{p^a}-1)^* A[q]-modules after inverting p and completing at Phi_{p^i}(q).
+
+**Hypotheses.**
+
+- 0 <= i <= a-1; the statement is after inverting p and completing at Phi_{p^i}(q).
+
+**Proof.**
+
+1. After inverting p and completing at Phi_{p^i}(q), Phi_{p^a}(q) becomes invertible, so the rescaling has no effect and the prismatic Nygaard filtration of index p^a becomes constant.
+2. Hence the defining pullback collapses to the claimed equivalence.
+
+**Acceptance.**
+
+- The range of i is recorded.
+
+**Depends on.** this roadmap: `HQ.3/the-twisted-q-hodge-filtration-p-adically`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.37: “For all primes~$p$, all $\alpha\geqslant 1$, and all $0\leqslant i\leqslant \alpha-1$, the canonical map from \cref{par:TwistedqHodgeLaxSymmetricMonoidalII} induces an equivalence of filtered $(q^{p^\alpha}-1)^\star A[q]$-modules” — The statement.
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.37: “After $(-)[1/p]_{\Phi_{p^{\smash{i}}}(q)}^\complete$, the polynomial $\Phi_{p^\alpha}(q)$ becomes invertible. Consequently, the \enquote{rescaling} of filtrations in \cref{con:TwistedqHodgeFiltrationpAdic} has no effect anymore.” — The proof.
+
+### The twisted q-Hodge filtration reduces modulo q^m-1 to the stupid filtration on the derived q-de Rham-Witt complex
+
+`HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every pair and every m, the equivalence from the m-th twisted derived q-de Rham complex modulo q^m-1 to q-W_m dR_{R/A} (the animated deformation statement) upgrades canonically to an equivalence of filtered A[q]/(q^m-1)-modules from the twisted q-Hodge filtration modulo q^m-1, taken with the quotient convention, onto the animated stupid filtration fil_{Hdg_m} q-W_m dR_{R/A}. The equivalence is one of lax symmetric monoidal functors of the pair; so if the pair is an E_n-algebra in the category of pairs, it is an equivalence of filtered E_n-algebras.
+
+**Hypotheses.**
+
+- The quotient places q^m-1 in filtration degree one.
+- The equivalence is canonical and lax symmetric monoidal.
+
+**Proof.**
+
+1. Reduce each factor of the fracture square modulo q^m-1.
+2. On the (p, Phi_{d_p}(q))-complete factors, q^m-1 and Phi_{d_p}(q^{p^{v_p(m)}}) differ by a unit, and the reduction of the p-adic recursion gives the p-completed stupid filtration of index p^{v_p(m)} base-changed along psi^{d_p}; by the p-local decomposition the p-completed stupid filtration of index m is the product of these.
+3. On the rational factors, q^m-1 and Phi_d(q) differ by a unit, and the q-Hodge filtration modulo q-1, base-changed along psi^d, is the Hodge filtration base-changed along psi^d with zeta_d adjoined; by the ghost isomorphism after inverting m the stupid filtration with N inverted is the product of these. The same applies to the p-inverted factors.
+
+**Acceptance.**
+
+- The quotient convention is used; the lax monoidality of the equivalence is recorded.
+
+**Depends on.** this roadmap: `HQ.3/the-twisted-q-hodge-filtration-globally`, `HQ.3/the-twisted-q-hodge-filtration-p-adically`, `HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.4/the-p-local-decomposition`, `HQ.4/ghost-maps-and-what-they-do-not-define`, `HQ.2/the-quotient-convention-for-filtered-modules`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.39: “For all $m\in\IN$, the equivalence $\qdeRham_{R/A}^{(m)}/(q^m-1)\simeq \qIW_m\deRham_{R/A}$ from the animated version of \cref{prop:TwistedqDeRhamDeformsqDRW} upgrades canonically to an equivalence of filtered $A[q]/(q^m-1)$-modules” — The statement of the node.
+- `wagner-q-hodge-habiro`, Remark 3.40: “It follows from the proof that the equivalence in \cref{prop:TwistedqHodgeFiltrationqDeforms} is, in fact, an equivalence of lax symmetric monoidal functors” — The monoidal refinement.
+
+### Adjoining the Nygaard filtration divided by Phi_p(q) recovers the q-de Rham complex; divided by q^p-1 it gives zero
+
+`HQ.3/nygaard-denominators` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every animated A-algebra R and prime p, the relative Frobenius from the p-completed p-th twisted derived q-de Rham complex to the p-completed derived q-de Rham complex induces functorial equivalences: adjoining to the p-completed twisted complex the Nygaard filtration divided by powers of Phi_p(q), then (p, q-1)-completing, gives the p-completed derived q-de Rham complex; adjoining it divided by powers of q^p-1 gives the p-completed derived q-de Rham complex with q-1 inverted, (p, q-1)-completed, which is zero.
+
+**Hypotheses.**
+
+- The denominators are Phi_p(q) in the first statement and q^p-1 in the second; the second statement vanishes.
+
+**Proof.**
+
+1. For the first equivalence, reduce modulo Phi_p(q): as for the conjugate filtration, the reduction is the colimit of the Nygaard graded pieces along Phi_p(q), and the divided Frobenius maps the i-th graded piece isomorphically onto the i-th conjugate filtration step of the reduction modulo Phi_p(q) (Bhatt-Scholze Theorem 15.2 with quasi-syntomic descent and animation); the conjugate filtration is exhaustive.
+2. For the second, write the colimit as that of a Z_{>=0} x Z_{>=0}-shaped diagram (multiplication by Phi_p(q) horizontally and q-1 vertically), whose diagonal is coinitial; each row gives the q-de Rham complex by the first part, and the vertical colimit inverts q-1.
+
+**Acceptance.**
+
+- Both denominators are treated, including the vanishing one.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.3/the-conjugate-filtration`; other roadmaps: `PrismaticCohomology:PR.3`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.44: “The relative Frobenius $\phi_{p/A[q]}\colon \bigl(\qdeRham_{R/A}^{(p)}\bigr)_p^\complete\rightarrow (\qdeRham_{R/A})_p^\complete$ induces functorial equivalences” — The statement (the two equivalences follow).
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.43: “This is now purely an assertion about the Nygaard filtration. Via base change, we may reduce to the case $\alpha=1$. This case will be shown in \cref{lem:NygaardDenominators} below.” — Where it is used.
+
+### The partial descents are compatible under completion
+
+`HQ.3/the-partial-descents-are-compatible` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every pair, every positive integer m and every divisor n of m, the transition map of the twisted q-Hodge filtrations induces an equivalence from the (q^n-1)-completion of the m-th partial descent onto the n-th partial descent. In particular the m-th partial descent is a descent of the q-Hodge complex along Z[q] completed at q^m-1 -> Z[[q-1]].
+
+**Hypotheses.**
+
+- n | m; the completion is at q^n-1.
+
+**Proof.**
+
+1. Work factor by factor on the fracture square. On the rational factors for d | m: if d does not divide n the factor dies after (q^n-1)-completion, and if d | n then q^m-1 and q^n-1 are unit multiples of Phi_d(q), so adjoining divided powers of either gives the same result; the same for the p-inverted factors.
+2. On the (p, Phi_{d_p}(q))-complete factors, reduce by induction to m and n differing by one prime; if that prime is not p, q^m-1 and q^n-1 differ by a unit and the argument above applies.
+3. If n = m/p, reduce by base change along psi^{d_p} to m = p^a, n = p^{a-1}; the p-adic recursion gives a pullback square whose right vertical map adjoins the Nygaard filtration divided by powers of q^{p^a}-1, and it suffices that this map is an equivalence.
+4. Reduce to a = 1 by base change and apply the denominator lemma.
+
+**Acceptance.**
+
+- The factor-by-factor argument and the reduction to the denominator lemma are recorded.
+
+**Depends on.** this roadmap: `HQ.3/the-m-truncated-descent`, `HQ.3/the-twisted-q-hodge-filtration-globally`, `HQ.3/the-twisted-q-hodge-filtration-p-adically`, `HQ.3/nygaard-denominators`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.43: “Let $m\in\IN$. For all divisors $n\mid m$, the map from \cref{con:TwistedqHodgeFiltrationFunctorial} induces an equivalence” — The statement of the node.
+- `wagner-q-hodge-habiro`, Proposition 3.43: “In particular, $\qHhodge_{R/A, m}$ is a descent of $\qHodge_{R/A}$ along $\IZ[q]_{(q^m-1)}^\complete\rightarrow \IZ\qpower$.” — The descent consequence.
+
+### The Habiro-Hodge complex functor is symmetric monoidal
+
+`HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+The lax symmetric monoidal functor sending a pair to its Habiro-Hodge complex, with values in the Habiro-complete objects of the derived category of A[q], is symmetric monoidal.
+
+**Hypotheses.**
+
+- The target carries the completed tensor product of Habiro-complete objects (HabiroRings HR.2).
+
+**Proof.**
+
+1. It suffices that, for every m, the reduction modulo q^m-1 with q^d-1 inverted for all proper divisors d of m is symmetric monoidal.
+2. Equip the filtration of Theorem 3.11(b) with its lax symmetric monoidal structure and check on associated gradeds, which are the animated stupid filtration on q-W_m dR.
+3. That filtration is not symmetric monoidal on the nose; but after inverting q^d-1 for the proper divisors d, the first ghost map identifies it with the Hodge filtration on dR_{R/A} base-changed along psi^m with zeta_m adjoined, which is symmetric monoidal.
+4. For the claim, note that q-W_d Omega is (q^d-1)-torsion and dies, and compare universal properties to see that gh_1 is an isomorphism of complexes after this localisation; pass to animations.
+
+**Acceptance.**
+
+- The localisation at q^d-1 for proper divisors, and the use of gh_1, are recorded.
+
+**Depends on.** this roadmap: `HQ.3/the-habiro-hodge-complex`, `HQ.3/habiro-descent-the-q-de-rham-witt-filtration`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.4/ghost-maps-and-what-they-do-not-define`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `HabiroRings:HR.2/the-monoidal-structure`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.46: “The lax symmetric monoidal functor $\qHhodge_{-/A}\colon \cat{AniAlg}_A^{\qHodge}\rightarrow \widehat{\Dd}_\Hh(A[q])$ is, in fact, symmetric monoidal.” — The statement.
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.46: “However, once we invert $(q^d-1)$ for all divisors $d\mid m$, $d\neq m$, we claim that the first ghost map” — The mechanism.
+
+### The descent theorem, clause (b): the q-de Rham-Witt filtration on the reduction modulo q^m-1
+
+`HQ.3/habiro-descent-the-q-de-rham-witt-filtration` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a perfectly covered Lambda-ring. For every positive integer m, the quotient of the Habiro-Hodge complex by q^m-1 admits an exhaustive ascending filtration fil^{q-W_m Omega}, functorial in the pair, whose associated graded is the shifted derived m-truncated q-de Rham-Witt forms: its n-th graded piece is q-W_m dR^n_{R/A} shifted by -n, equivalently the n-th graded piece of the animated stupid filtration. The filtration carries a canonical lax symmetric monoidal structure compatible with the one on the quotient, and the identification of the associated graded is an equivalence of lax symmetric monoidal functors. For m = 1 it is the conjugate filtration.
+
+**Hypotheses.**
+
+- The graded pieces are the derived forms; for smooth inputs they are the shifted underived forms by the Corollary 3.31 node, but not in general.
+- The statement is a filtration with identified graded pieces, not an unfiltered equivalence with a q-de Rham-Witt complex.
+
+**Proof.**
+
+1. As for the conjugate filtration, the reduction of the m-th partial descent modulo q^m-1 is the colimit of the graded pieces of the twisted q-Hodge filtration along q^m-1; the colimit defines the exhaustive ascending filtration.
+2. Identify the filtered ring (q^m-1)^* A[q] with A[q, beta, t]/(beta t - (q^m-1)) and apply the abstract colimit lemma, with the reduction of the twisted q-Hodge filtration modulo q^m-1 (the Proposition 3.39 node), to compute the associated graded.
+3. The lax monoidality statements are formal, as for the conjugate filtration.
+
+**Acceptance.**
+
+- The derived forms and their shift are stated; the case m = 1 is the conjugate filtration.
+
+**Depends on.** this roadmap: `HQ.3/the-m-truncated-descent`, `HQ.3/the-habiro-hodge-complex`, `HQ.3/the-abstract-colimit-filtration-lemma`, `HQ.3/the-conjugate-filtration`, `HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration`, `HQ.3/the-partial-descents-are-compatible`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.2/the-graded-presentation-of-the-coefficient-ring`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem 3.11(b): “For all $m\in\IN$, the quotient $\qHhodge_{-/A}/(q^m-1)$ admits an exhaustive ascending filtration $ \fil_\star ^{\qIW_m\Omega}(\qHhodge_{-/A}/(q^m-1))$ with associated graded” — Clause (b).
+- `wagner-q-hodge-habiro`, Theorem 3.11(b): “Furthermore, $ \fil_\star ^{\qIW_m\Omega}(\qHhodge_{-/A}/(q^m-1))$ can be equipped with a canonical lax symmetric monoidal structure compatible with the one on $\qHhodge_{-/A}/(q^m-1)$, and the equivalence above is an equivalence of lax symmetric monoidal functors.” — The monoidal refinement.
+
+### For an etale algebra the Habiro-Hodge complex is the relative Habiro ring
+
+`HQ.3/the-etale-case` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+If R is etale over A, with its q-Hodge filtration (for etale R clause (b) forces the q-Hodge filtration to be the (q-1)-adic filtration, the framed filtration with no coordinates), then the Habiro-Hodge complex of R over A is the relative Habiro ring of R over A, as E-infinity algebras over the Habiro ring.
+
+**Hypotheses.**
+
+- R is etale over A.
+
+**Proof.**
+
+1. For etale R the derived q-de Rham-Witt forms vanish in positive degrees and q-W_m dR^0 = q-W_m(R/A) (Corollary 3.31 and etale base change of q-de Rham-Witt complexes), so Theorem 3.11(b) gives Habiro-Hodge complex modulo q^m-1 = q-W_m(R/A); the source's proof cites clause (a) at this point, a misprint for (b) (E207).
+2. The relative Habiro ring modulo q^m-1 is also q-W_m(R/A) (HabiroRings HR.4, the etale lift).
+3. By uniqueness of deformations of etale algebras these identifications lift uniquely to equivalences of E-infinity algebras between the (q^m-1)-completions, compatibly in m; pass to the limit.
+
+**Acceptance.**
+
+- The identification is of E-infinity algebras and uses uniqueness of etale deformations.
+
+**Depends on.** this roadmap: `HQ.3/habiro-descent`, `HQ.3/habiro-descent-the-q-de-rham-witt-filtration`, `HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras`, `HQ.4/etale-base-change-and-the-sheaf-property`; other roadmaps: `HabiroRings:HR.4/the-etale-lift`, `HabiroRings:HR.5/the-relative-habiro-ring`, `EnhancedDerivedSheaves:E5`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 3.13: “If $R$ is étale over $A$, then $\qHhodge_{R/A}$ is the relative Habiro ring $\Hh_{R/A}$ constructed in \cref{con:RelativeHabiroRing}.” — The statement.
+- `wagner-q-hodge-habiro`, Proof of Corollary 3.13: “By uniqueness of deformations of étale extensions, these automatically lift to a unique equivalence of $\IE_\infty$-$\Hh$-algebras $(\qHhodge_{R/A})_{(q^m-1)}^\complete\simeq \Hh_{R/A, m}$;” — The lifting step.
+
+### For smooth algebras the reduction modulo q^m-1 has cohomology the q-de Rham-Witt complex, with the Bockstein as differential
+
+`HQ.3/the-cohomology-of-the-reduction-for-smooth-algebras` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S be smooth over A with a q-Hodge filtration. Then: (a) the filtration of Theorem 3.11(b) on the reduction of the Habiro-Hodge complex modulo q^m-1 is its Whitehead (Postnikov) filtration, fil_n = tau^{<= n} in cohomological indexing; (b) the identification of the associated graded becomes an isomorphism of graded A[q]/(q^m-1)-modules from H^* of that reduction onto q-W_m Omega_{S/A}, and an isomorphism of graded algebras as soon as the pair is at least an E_1-algebra in the category of pairs; (c) under this isomorphism the differential of q-W_m Omega_{S/A} corresponds to the Bockstein differential for q^m-1.
+
+**Hypotheses.**
+
+- S smooth over A.
+- The algebra isomorphism needs the pair to be at least an E_1-algebra.
+- The source writes the Whitehead filtration as tau_{>= *}, while its proof uses tau^{<= *} (E208).
+
+**Proof.**
+
+1. By Corollary 3.31 each graded piece is concentrated in cohomological degree n; the filtration is bounded below, hence complete, so it is the Whitehead filtration; this gives (a) and the module isomorphism of (b).
+2. The algebra isomorphism follows from the E_1 transport of the multiplicative-upgrades node.
+3. For (c), present (q^m-1)^* A[q] as A[q, beta, t_m]/(beta t_m - (q^m-1)); compare the Bockstein cofibre sequence of the twisted filtration modulo t_m, after -tensor over A[beta] with the filtered ring beta^{-*} A[beta] and degree-zero part, with the Bockstein sequence of the stupid filtration, whose connecting map is the differential of q-W_m Omega.
+
+**Acceptance.**
+
+- The three clauses are stated with the E_1 hypothesis for (b) and the indexing of (a).
+
+**Depends on.** this roadmap: `HQ.3/habiro-descent-the-q-de-rham-witt-filtration`, `HQ.3/multiplicative-upgrades`, `HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration`, `HQ.3/the-abstract-colimit-filtration-lemma`, `HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 3.54: “Let $(S, \fil_{\qHodge}^\star\qdeRham_{S/A})\in \cat{AniAlg}_A^{\qHodge}$ be an object such that $S$ is smooth over~$A$. Then:” — The statement (the three clauses follow).
+- `wagner-q-hodge-habiro`, Corollary 3.54(c): “Under the isomorphism from \cref{enum:CohomologyOfHabiro}, the canonical differential on $\qIW_m\Omega_{S/A}^*$ corresponds to the Bockstein differential on $\H^*(\qHhodge_{S/A}/(q^m-1))$.” — Clause (c).
+
+## HQ.4 — q-Witt and cyclotomic descent
+
+*Coverage: source_decomposed.* 30 nodes, 17 of them added by the independent review, decomposed from the companion q-Witt paper together with the Nygaard subsection of the main source. The three categories of systems of differential graded algebras with all their axioms; the proof that no restriction operator exists and the observation that Langer and Zink's universal property survives the deletion of restrictions, which is what produces the comparison with ordinary de Rham-Witt complexes; the q-de Rham-Witt complex as the initial object with its two universal properties; the ghost maps with the exact torsion hypotheses their injectivity needs; etale base change and the sheaf property; the p-completion; the twisted q-de Rham complexes with their fracture square and transition maps; their reduction modulo the deformation parameter; the Nygaard filtration with its comparison, its fibre sequences and its descent; the Hodge-against-Nygaard square with the smooth derived-to-underived comparison; the cyclotomic descent with the distinction between a descended complex and a family of cohomology groups; and the discipline that multiplicative structure is carried and never created.
+
+### q-V-systems of commutative differential graded algebras, and the torsion-free variant
+
+`HQ.4/q-v-systems-of-differential-graded-algebras` · definition · planet “q-V-system”
+
+Fix a Lambda-ring A and an A-algebra R. A q-V-system of differential graded A-algebras over R is a family (P_m), indexed by the positive integers m, of commutative differential graded A[q]-algebras, equipped with: (a) for each m an A[q]-algebra map from the relative q-Witt ring q-W_m(R/A) to P_m^0; (b) for each pair of divisors d | m a map of graded A[q]-modules V_{m/d}: P_d -> P_m, the Verschiebung, compatible through the maps of (a) with the Verschiebungen of the relative q-Witt rings, transitive (V_{m/e} = V_{m/d} o V_{d/e} for every chain e | d | m), and satisfying the product rule V_{m/d}(w dh) = V_{m/d}(w) dV_{m/d}(h). In addition the V-Teichmueller condition (tau_V) is imposed: for all d | m, all forms w in P_d and all r in R, V_{m/d}(w) d tau_m(r) = V_{m/d}(w tau_d(r)^{m/d-1}) d V_{m/d}(tau_d(r)), where tau_m(r) and tau_d(r) are the Teichmueller lifts in q-W_m(R/A) and q-W_d(R/A). Morphisms are families of maps of differential graded A[q]-algebras compatible with (a) and (b). There are no restriction maps in the data. A torsion-free q-V-system is a family of degreewise Z-torsion-free differential graded A[q]-algebras with the structure (a) and (b) only; it is automatically a q-V-system, because (tau_V) always holds up to (m/d)^{m/d-1}-torsion, so the forgetful functor from torsion-free q-V-systems to q-V-systems is fully faithful. Two consequences hold in every q-V-system: V_n o d = n (d o V_n); and the composite q-W_m(R) -> q-W_m(R/A) -> P_m^0 -> P_m^1 is a V-divided-power derivation, indeed d V_p(x^p) = V_p(x^{p-1}) dV_p(x) for every prime factor p of m and every x in q-W_{m/p}(R/A).
+
+**Hypotheses.**
+
+- A is a Lambda-ring (a perfectly covered one in every later use) and R is an A-algebra; no smoothness is assumed for the definition.
+- The relative q-Witt rings, their Verschiebungen and their Teichmueller lifts are imported from HabiroRings HR.4 and are not defined here.
+- There are no restriction maps in the data; that none can be added compatibly with the Verschiebungen is the content of the no-restriction node.
+
+**Proof.**
+
+1. List the two pieces of structure: the map out of the q-Witt ring in degree zero, and the Verschiebungen for each pair of divisors.
+2. Impose transitivity of the Verschiebungen and their compatibility with the q-Witt Verschiebungen.
+3. Impose the product rule relating the Verschiebung of a product with a differential to the product of Verschiebungen.
+4. Impose the V-Teichmueller condition, and record that on torsion-free members it is automatic.
+5. Derive the two consequences: the commutation rule between the differential and the Verschiebung with its factor n, and the V-divided-power property of the composite into degree one.
+
+**API.**
+
+- `QVSystem` (structure): The category of q-V-systems of differential graded A-algebras over R, with morphisms the families of differential graded A[q]-algebra maps compatible with the structure maps from the q-Witt rings and with the Verschiebungen.
+- `QVSystem.fromQWitt` (data): For each m, the A[q]-algebra map from q-W_m(R/A) to the degree-zero part of the m-th member.
+- `QVSystem.verschiebung` (data): For each pair of divisors d | m, the Verschiebung V_{m/d}, a map of graded A[q]-modules.
+- `QVSystem.verschiebung_trans` (relation): V_{m/e} = V_{m/d} o V_{d/e} for every chain of divisors e | d | m.
+- `QVSystem.verschiebung_mul_d` (relation): The product rule V_{m/d}(w dh) = V_{m/d}(w) dV_{m/d}(h).
+- `QVSystem.teichmuller_V` (relation): The V-Teichmueller condition V_{m/d}(w) d tau_m(r) = V_{m/d}(w tau_d(r)^{m/d-1}) d V_{m/d}(tau_d(r)).
+- `QVSystem.verschiebung_comp_d` (relation): V_n o d = n (d o V_n) in every q-V-system.
+- `QVSystem.d_verschiebung_pow` (relation): d V_p(x^p) = V_p(x^{p-1}) dV_p(x) for every prime factor p of m and x in q-W_{m/p}(R/A); in particular the composite from q-W_m(R) to degree one is a V-divided-power derivation.
+- `TorsionFreeQVSystem.toQVSystem` (functoriality): The forgetful functor from torsion-free q-V-systems to q-V-systems, which is fully faithful.
+
+**Unit tests.**
+
+- `QVSystem.ghostSystem` (computation): The family m -> product over d | m of Omega_{R/A} tensored along the d-th Adams operation with A[zeta_d], with the product of the relative q-Witt ghost maps in degree zero and with V_{m/n}(w)_d = (m/n)^{i+1} w_d for d | n and 0 otherwise on a form w of degree i, is a q-V-system over R.
+- `QVSystem.ghostSystem_exponent` (non-example): Replacing the factor (m/n)^{i+1} in the ghost system by (m/n)^i breaks the product rule: for forms of degrees a and b the two sides of V(w dh) = V(w) dV(h) become (m/n)^{a+b+1} and (m/n)^{a+b} times the same form, so a definition with the naive exponent would exclude the ghost system.
+- `QVSystem.zero` (degenerate): The zero family (every P_m zero) is a q-V-system and is the terminal one; in particular nothing in the definition forces P_1 to be the de Rham complex, which holds only for the initial object.
+- `QVSystem.no_restriction` (non-example): Adding to the data A[q]-algebra maps P_m -> P_d commuting with the Verschiebungen would exclude the initial object: for A = R = Z, m = p and d = 1 such a map would give in degree zero a Z[q]-algebra map from Z[q]/Phi_p(q) to Z[q]/(q-1) = Z, which does not exist since it would force p = Phi_p(1) = 0 in Z.
+- `TorsionFreeQVSystem.teichmuller_V` (characterisation): A family satisfying (a) and (b) whose members are degreewise Z-torsion free satisfies (tau_V), so it is a q-V-system.
+
+**Acceptance.**
+
+- The data and the axioms are listed in full, with the V-Teichmueller condition written out.
+- The absence of restriction maps is explicit in the data.
+- The torsion-free variant is defined and its relation to the general one recorded as a fully faithful inclusion.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.4: The q-de Rham-Witt complex is defined as the initial object of this category, so the axioms are exactly what its universal property quantifies over.
+- HabiroCohomologyFoundations:HQ.4: The ghost system is shown to be a q-V-system, which is how the ghost maps are constructed.
+
+**Depends on.** other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`, `HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations`.
+
+**Sources.**
+
+- `wagner-q-witt`, Definition 3.1: “Fix an $A$-algebra $R$. A \emph{$q$-$V$-system of differential-graded $A$-algebras over $R$} is a system $(P_m^*)_{m\in\IN}$ of commutative differential-graded $A[q]$-algebras, equipped with the following additional structure:” — The definition of the node; clauses (a), (b) and the V-Teichmueller condition follow in the source.
+- `wagner-q-witt`, Definition 3.1, the V-Teichmueller condition: “For all $d\mid m$ and all $\omega\in P_d^*$, $r\in R$, one has\label{enum:TeichmuellerV} \begin{equation*} V_{m/d}(\omega)\d\tau_m(r)=V_{m/d}\bigl(\omega\tau_d(r)^{m/d-1}\bigr)\d V_{m/d}\tau_d(r)\,.” — The exact form of (tau_V).
+- `wagner-q-witt`, Definition 3.9 and Remark 3.10: “Note that every torsion-free $q$-$V$-system is also a $q$-$V$-system. Indeed, in general, the $V$-Teichmüller condition \cref{enum:TeichmuellerV} always holds up to $(m/d)^{m/d-1}$-torsion, so it's automatically true in the $\IZ$-torsion-free case.” — The torsion-free variant and why (tau_V) is automatic for it.
+- `wagner-q-witt`, Lemma 3.2: “Let $R$ be an $A$-algebra. In any $q$-$V$-system $(P_m^*)_{m\in\IN}$ over $R$, the Verschiebungen satisfy the relation \begin{equation*} V_{n}\circ \d=n(\d \circ V_n)\,.” — The first derived relation.
+- `wagner-q-witt`, Lemma 3.4: “the composition $\qIW_m(R)\rightarrow\qIW_m(R/A)\rightarrow P_m^0\rightarrow P_m^1$ is a $V$-PD-derivation. In fact, for any prime factor $p\mid m$ and all $x\in \qIW_{m/p}(R/A)$, we have the stronger condition” — The V-divided-power property.
+
+### q-FV-systems: the Frobenius operators and the relations they satisfy
+
+`HQ.4/q-fv-systems` · definition · planet “q-FV-system”
+
+A q-FV-system of differential graded A-algebras over R is a q-V-system (P_m) together with, for each pair of divisors d | m, a map of graded A[q]-algebras F_{m/d}: P_m -> P_d, the Frobenius, compatible through the structure maps with the Frobenius maps of the relative q-Witt rings, transitive (F_{m/e} = F_{d/e} o F_{m/d}), and satisfying: F_{m/d} o d o V_{m/d} = d; V_{m/d}(w F_{m/d}(h)) = V_{m/d}(w) h; F_n commutes with V_k whenever n and k are coprime; F_{m/d} o V_{m/d} = m/d; and V_{m/d} o F_{m/d} = [m/d]_{q^d}, the q-integer of m/d at q^d. In addition the F-Teichmueller condition (tau_F) is imposed: F_{m/d}(d tau_m(r)) = tau_d(r)^{m/d-1} d tau_d(r) for all r in R. They form a category with a forgetful functor to q-V-systems. In any q-FV-system d o F_n = n (F_n o d); the source prints this relation as d o F_n = n (d o V_n), which is a misprint (source issue E201). The product rule of the Verschiebung and (tau_V) are implied by the Frobenius relations and (tau_F).
+
+**Hypotheses.**
+
+- The underlying q-V-system is as in the previous node.
+- The Frobenius maps are maps of graded algebras, not merely of graded modules, in contrast with the Verschiebungen.
+- The last relation is the q-deformed one: the Verschiebung after the Frobenius is the q-integer of m/d at the d-th power of q, not the integer m/d.
+
+**Proof.**
+
+1. Add the Frobenius maps to the data of a q-V-system with their transitivity and compatibility with the q-Witt Frobenius.
+2. Impose the four relations with the Verschiebung, including the coprime commutation.
+3. Impose the two multiplication relations, taking care that the composite in one order is an integer and in the other a q-integer.
+4. Impose the F-Teichmueller condition.
+5. Record the resulting category and the forgetful functor to q-V-systems.
+
+**API.**
+
+- `QFVSystem` (structure): The category of q-FV-systems over R, with the forgetful functor QFVSystem.toQVSystem to q-V-systems.
+- `QFVSystem.frobenius` (data): For each pair of divisors d | m, the Frobenius F_{m/d}, a map of graded A[q]-algebras, transitive along chains of divisors.
+- `QFVSystem.frobenius_d_verschiebung` (relation): F_{m/d} o d o V_{m/d} = d.
+- `QFVSystem.verschiebung_mul_frobenius` (relation): The projection formula V_{m/d}(w F_{m/d}(h)) = V_{m/d}(w) h.
+- `QFVSystem.frobenius_verschiebung_comm` (relation): F_n o V_k = V_k o F_n whenever n and k are coprime.
+- `QFVSystem.frobenius_verschiebung` (relation): F_{m/d} o V_{m/d} is multiplication by the integer m/d.
+- `QFVSystem.verschiebung_frobenius` (relation): V_{m/d} o F_{m/d} is multiplication by the q-integer [m/d]_{q^d}.
+- `QFVSystem.teichmuller_F` (relation): F_{m/d}(d tau_m(r)) = tau_d(r)^{m/d-1} d tau_d(r).
+- `QFVSystem.d_frobenius` (relation): d o F_n = n (F_n o d), the mirror of the Verschiebung relation.
+
+**Unit tests.**
+
+- `QFVSystem.frobenius_verschiebung_self` (degenerate): For d = m both composites are the identity: F_{m/m} o V_{m/m} = 1 and V_{m/m} o F_{m/m} = [1]_{q^m} = 1.
+- `QFVSystem.verschiebung_frobenius_ne_nat` (computation): In degree zero of the initial q-FV-system for A = R = Z, V_2(F_2(1)) = V_2(1) = 1 + q in q-W_2(Z/Z); its ghost component in Z[q]/(q+1) = Z is 0, while that of 2 is 2, so V_2 o F_2 is not multiplication by 2. A definition with the integer m/d in both composites would exclude the initial object.
+- `QFVSystem.verschiebung_not_multiplicative` (non-example): The Verschiebung is not multiplicative: in q-W_2(Z/Z) = Z[q]/(q^2-1), V_2(1) V_2(1) = (1+q)^2 = 2(1+q), whose ghost components (4 at q = 1, 0 at q = -1) differ from those (2 at q = 1, 0 at q = -1) of V_2(1 . 1) = 1 + q. A definition making V a map of algebras would exclude the initial object.
+- `QFVSystem.frobenius_verschiebung_pTypical` (compatibility): In degree zero and for m/d = p, the relation F_p o V_p = p is the analogue of Mathlib's WittVector.frobenius_verschiebung (F(V x) = x * p for p-typical Witt vectors), and the projection formula is the analogue of WittVector.verschiebung_mul_frobenius; the relation V_p o F_p = [p]_{q^d} replaces WittVector.verschiebung_frobenius, which holds only in characteristic p.
+
+**Acceptance.**
+
+- Every relation is listed, and the asymmetry between the integer m/d and the q-integer of m/d is explicit.
+- The Frobenius is recorded as a map of graded algebras while the Verschiebung is only a map of graded modules.
+- The F-Teichmueller condition is written out.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.4: The q-de Rham-Witt complex is shown to carry a unique q-FV-structure and to be initial among q-FV-systems.
+- HabiroCohomologyFoundations:HQ.4: The twisted Frobenius, obtained by rescaling the Frobenius by a power of m/d in each degree, is what makes the transition maps of the twisted q-de Rham complexes differential graded algebra maps.
+
+**Depends on.** this roadmap: `HQ.4/q-v-systems-of-differential-graded-algebras`.
+
+**Sources.**
+
+- `wagner-q-witt`, Definition 3.6: “Fix an $A$-algebra $R$. A \emph{$q$-$FV$-system of differential-graded $A$-algebras over $R$} is a $q$-$V$-system $(P_m^*)_{m\in\IN}$ as in \cref{def:qVSystemOfCDGA} together with the following additional structure:” — The definition of the node.
+- `wagner-q-witt`, Definition 3.6(c): “Finally, we must have the familiar relations \begin{equation*} F_{m/d}\circ V_{m/d}=m/d\quad\text{and}\quad V_{m/d}\circ F_{m/d}=[m/d]_{q^{d}}\,.” — The asymmetry between the integer and the q-integer.
+- `wagner-q-witt`, Lemma 3.7 and its proof: “We write $n=m/d$ and use the conditions from \cref{def:qFVSystemOfCDGA}\cref{enum:qDeRhamWittConditionC} to compute that $\d F_{m/d}(\omega)=F_{m/d}(\d V_{m/d}F_{m/d}(\omega))=[m/d]_{q^d}F_{m/d}(\d\omega)$ for all $\omega\in P_m^*$.” — The proof establishes d o F_n = n (F_n o d); the printed statement has a misprint (E201).
+
+### Why there are no restrictions, and the comparison with ordinary de Rham-Witt that survives
+
+`HQ.4/there-are-no-restriction-operators-and-what-replaces-them` · theorem · planet “A theory without restrictions”
+
+The positive-degree theory has no restriction operators, for the degree-zero reason the coefficient roadmap owns: a map of Z[q]-algebras q-W_m(R) -> q-W_d(R) extending the restriction of big Witt vectors would commute with the Verschiebungen and so induce a Z[q]-algebra map R[zeta_m] = R[q]/Phi_m(q) -> R[q]/Phi_d(q) = R[zeta_d], which does not exist already when m is a prime power p^a and R is not of characteristic p; in particular there is no ring of untruncated q-Witt vectors formed as a limit along restrictions. Since the degree-zero part of the q-de Rham-Witt complex is the relative q-Witt ring, the q-de Rham-Witt complexes admit no restriction maps compatible with their Verschiebungen either, and the definitions of q-V-systems, q-FV-systems and torsion-free q-V-systems deliberately contain none. What replaces them is Langer and Zink's observation, which the source asserts by inspection of their construction: for a map of Z_(p)-algebras, the de Rham-Witt pro-complex remains initial in the category of FV-pro-complexes with the restriction maps deleted, because compatibility with the restrictions is never enforced in Langer-Zink's construction. That observation is the input of the comparison map with ordinary de Rham-Witt complexes, which is a separate node.
+
+**Hypotheses.**
+
+- The degree-zero obstruction needs m to be a prime power p^a and R not of characteristic p; that is the source's example.
+- The Langer-Zink observation is about FV-pro-complexes over a map of Z_(p)-algebras; the source calls its restriction-free category an informal definition and leaves the formalisation to the reader.
+- Nothing is claimed about compatibility with restrictions, because one side has none.
+
+**Proof.**
+
+1. Import the degree-zero obstruction for q-Witt rings from HabiroRings HR.4 (q-Witt v5 paragraph 2.14).
+2. Deduce the positive-degree statement: a restriction on q-de Rham-Witt complexes compatible with the Verschiebungen restricts in degree zero, where the complex is the relative q-Witt ring, to a map excluded by the degree-zero obstruction.
+3. Formalise the restriction-free category of FV-pro-complexes over a map of Z_(p)-algebras and prove that Langer-Zink's de Rham-Witt pro-complex is initial in it, by checking that their construction never uses the restriction maps; this is a statement about ordinary de Rham-Witt complexes, requested from CrystallineCohomology CR.4.
+
+**Acceptance.**
+
+- The degree-zero obstruction is imported, not re-proved, and its hypothesis is recorded.
+- The Langer-Zink observation is stated as what it is, a claim about ordinary de Rham-Witt complexes proved by inspection, requested from the owner of those complexes.
+- No comparison map is asserted here; it is the next node's.
+
+**Depends on.** this roadmap: `HQ.4/q-v-systems-of-differential-graded-algebras`, `HQ.4/q-fv-systems`, `HQ.4/the-q-de-rham-witt-complex`; other roadmaps: `HabiroRings:HR.4/there-is-no-restriction-map`, `CrystallineCohomology:CR.4`.
+
+**Sources.**
+
+- `wagner-q-witt`, Paragraph 2.14: “Unfortunately, it turns out that the usual restriction maps $\operatorname{Res}_{m/d}\colon \IW_m(R)\rightarrow \IW_d(R)$ do not extend to $\IZ[q]$-algebra morphisms between $\qIW_m(R)$ and $\qIW_d(R)$.” — The degree-zero obstruction the node imports.
+- `wagner-q-witt`, Paragraph 2.14: “which fails to exist even in very simple cases (e.g.\ $m=p^\alpha$ is a prime power, $R$ is not a ring of characteristic $p$).” — The hypothesis of the obstruction.
+- `wagner-q-witt`, Paragraph 3.11: “Surprisingly though, restrictions are also not needed for Langer--Zink's construction!” — The replacement for the restrictions.
+- `wagner-q-witt`, Paragraph 3.11: “(this is of course an informal definition; we leave it to the reader to formalise it). Then the de Rham--Witt pro-complex $(W_n\Omega_{S/R}^*)_{n\geqslant 1}$ is still initial in the category $\cat{CDGAlg}_{S/R}^{FV,\,(p)}$.” — The Langer-Zink observation and the source's own caveat that the category is informal.
+
+### The m-truncated q-de Rham-Witt complex, as the initial q-V-system
+
+`HQ.4/the-q-de-rham-witt-complex` · construction · planet “q-de Rham-Witt complex”
+
+For an A-algebra R the category of q-V-systems of differential graded A-algebras over R has an initial object (q-W_m Omega_{R/A})_m, the m-truncated q-de Rham-Witt complexes of R relative to A. It has two properties: (a) for every m the canonical map from the de Rham complex of q-W_m(R/A) over A[q] to q-W_m Omega_{R/A} is surjective, and for m = 1 it induces an isomorphism from the de Rham complex of R over A; (b) for every m the structure map induces an isomorphism from q-W_m(R/A) onto the degree-zero part q-W_m Omega^0_{R/A}. The construction is inductive in m: q-W_1 Omega is the de Rham complex, and q-W_m Omega is the quotient of the de Rham complex of q-W_m(R/A) over A[q] by the smallest differential graded ideal containing the V-type relations and the Teichmueller-type relations for all proper divisors of m. The same proof gives, for every truncation set S of positive integers, that (q-W_m Omega)_{m in S} is the initial S-truncated q-V-system; for S the divisors of m only a Lambda_m-structure on A is needed. The complex is functorial in R, and for a map of Lambda-rings A -> A' the canonical map q-W_m Omega_{R/A} tensored over A with A' -> q-W_m Omega_{R tensor_A A'/A'} is an isomorphism.
+
+**Hypotheses.**
+
+- A is a Lambda-ring and R an A-algebra; nothing more is needed for existence.
+- The construction is not (q-1)-completed; its degreewise (q-1)-completion is the object of the author's master's thesis, as the source's footnote to Definition 3.13 records.
+- Torsion-freeness is a theorem about smooth R, proved in the smooth-case node, and is false in general.
+
+**Proof.**
+
+1. Put q-W_1 Omega = the de Rham complex of R over A.
+2. For m > 1, assuming the complexes and Verschiebungen for proper divisors, form the quotient of the de Rham complex of q-W_m(R/A) over A[q] by the differential graded ideal generated by the V-type elements (sums of V(w_i) dV(x_{i,1}) ... dV(x_{i,j}) whose preimage relation vanishes in q-W_d Omega^j) and the Teichmueller-type elements V(x) d tau_m(r) - V(x tau_d(r)^{m/d-1}) dV(tau_d(r)), and define the Verschiebung on it by the displayed formula.
+3. Check properties (a) and (b) and initiality in the category of q-V-systems.
+4. Observe that the same construction, run over a truncation set, gives the truncated universal property.
+5. Prove base change along a map of Lambda-rings by checking the universal property of the base change, using the base change of the relative q-Witt rings from HR.4.
+
+**API.**
+
+- `qWittOmega` (constructor): For an A-algebra R and a positive integer m, the differential graded A[q]-algebra q-W_m Omega_{R/A}.
+- `qWittOmega.isInitial` (universal-property): The family is initial among q-V-systems over R: QVSystem.lift, its compatibility with the structure maps, and uniqueness.
+- `qWittOmega.isInitial_truncated` (universal-property): For every truncation set S, the family indexed by S is initial among S-truncated q-V-systems; for S the divisors of m only a Lambda_m-structure on A is needed.
+- `qWittOmega.degreeZeroEquiv` (projection): The structure map is an isomorphism from q-W_m(R/A) onto the degree-zero part.
+- `qWittOmega.oneEquiv` (example): For m = 1 it is the de Rham complex of R over A.
+- `qWittOmega.surjective_ofKaehler` (projection): The canonical map from the de Rham complex of q-W_m(R/A) over A[q] is surjective in every degree.
+- `qWittOmega.map` (functoriality): Functoriality in R, with map_id and map_comp, obtained from initiality.
+- `qWittOmega.baseChangeEquiv` (compatibility): Base change along a map of Lambda-rings A -> A' is an isomorphism.
+- `qWittOmega.torsionFree_of_smooth` (characterisation): For smooth R the members are degreewise Z-torsion free (proved in the smooth-case node).
+
+**Unit tests.**
+
+- `qWittOmega.degreeZero_one` (degenerate): For m = 1 the complex is the de Rham complex of R over A, and in degree zero the m-th member is q-W_m(R/A).
+- `qWittOmega.afterInvertingM` (computation): After inverting m, the ghost maps identify q-W_m Omega_{R/A} with the product over d | m of Omega_{R/A} tensored along the d-th Adams operation with A[1/m, zeta_d].
+- `qWittOmega.etaleBaseChange` (characterisation): For an etale map R -> R' of A-algebras, q-W_m Omega_{R'/A} is the extension of scalars of q-W_m Omega_{R/A} along q-W_m(R/A) -> q-W_m(R'/A); a construction failing this would not be an etale sheaf.
+- `qWittOmega.ofBase` (computation): For A = R = Z, q-W_m Omega_{Z/Z} is concentrated in degree zero, where it is q-W_m(Z/Z), isomorphic to Z[q]/(q^m - 1) (q-Witt v5 Remark 2.47 and Corollary 2.37 for the perfect Lambda-ring Z); a construction with a non-zero positive-degree part here would contradict the surjection from the de Rham complex of Z[q]/(q^m - 1) over Z[q], which vanishes in positive degrees.
+
+**Acceptance.**
+
+- The universal property among q-V-systems, the two properties (a) and (b), and the truncated universal property are stated.
+- Degree zero is identified with the relative q-Witt ring and m = 1 with the de Rham complex.
+- The Frobenius operators and torsion-freeness are not claimed here; they are the Frobenius node and the smooth-case node.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: It is the target of the descent theorem's second clause: the graded pieces of the ascending filtration on the Habiro-Hodge complex modulo q^m-1 are its shifted forms.
+- HabiroCohomologyFoundations:HQ.4: The twisted q-de Rham complex modulo q^m-1 is identified with it.
+- HabiroRings:HR.4: In degree zero it is the relative q-Witt ring that roadmap owns.
+
+**Depends on.** this roadmap: `HQ.4/q-v-systems-of-differential-graded-algebras`; other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`, `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-witt`, Proposition 3.12: “Let $R$ be an $A$-algebra. The category $\cat{CDGAlg}_{R/A}^{\q V}$ has an initial object $(\qIW_m\Omega_{R/A}^*)_{m\in\IN}$, which has the following properties:” — Existence.
+- `wagner-q-witt`, Proposition 3.12(a): “For all $m\in \IN$, the canonical map $\Omega_{\qIW_m(R/A)/A[q]}^*\rightarrow \qIW_m\Omega_{R/A}^*$ is surjective. For $m=1$, it induces an isomorphism $\Omega_{R/A}^*\cong \qIW_1\Omega_{R/A}^*$.” — Property (a).
+- `wagner-q-witt`, Definition 3.13: “Let $R$ be an $A$-algebra. For all $m\in\IN$, the differential-graded $A[q]$-algebra $\qIW_m\Omega_{R/A}^*$ from \cref{prop:qDRWExists} is called the \emph{$m$-truncated $q$-de Rham--Witt complex of $R$ relative to $A$}.” — The name.
+- `wagner-q-witt`, Remark 3.14: “As in \cref{rem:TruncatedUniversalPropertyRelative}, the proof of \cref{prop:qDRWExists} shows that a similar universal property also holds for every truncated system:” — The truncated universal property.
+- `wagner-q-witt`, Lemma 3.16: “If $A\rightarrow A'$ is a morphism of $\Lambda$-rings and $R$ is an $A$-algebra, then for all $m\in\IN$ the canonical map is an isomorphism \begin{equation*} \qIW_m\Omega_{R/A}^*\otimes_AA'\overset{\cong}{\longrightarrow}\qIW_m\Omega_{R\otimes_AA'/A'}^*\,.” — Base change.
+
+### Ghost maps on the q-de Rham-Witt complex, and the torsion hypotheses their injectivity needs
+
+`HQ.4/ghost-maps-and-what-they-do-not-define` · theorem
+
+For every A-algebra R and divisors d | m there are maps of differential graded A[q]-algebras gh_{m/d}: q-W_m Omega_{R/A} -> Omega_{R/A} tensored along the d-th Adams operation with A[zeta_d], extending the ghost maps of the relative q-Witt rings. They are constructed by making the family m -> product over d | m of these targets a q-V-system over R, with the product of the relative q-Witt ghost maps in degree zero and with V_{m/n}(w)_d = (m/n)^{i+1} w_d for d | n and 0 otherwise on a form w of degree i, and applying initiality. (i) After inverting m the ghost maps induce an isomorphism of differential graded A[q]-algebras from q-W_m Omega_{R/A}[1/m] onto the product over d | m of Omega_{R/A} tensored along the d-th Adams operation with A[1/m, zeta_d]. (ii) For m = p^a the image of V_p plus the image of dV_p is a differential graded ideal, and gh_1 induces a functorial isomorphism from the quotient of q-W_{p^a} Omega_{R/A} by it onto Omega_{R/A} tensored along the p^a-th Adams operation with A[zeta_{p^a}]. Integrally the ghost description is not a definition: in degree zero the ghost maps of the absolute q-Witt rings q-W_m(R) are jointly injective when R is p-torsion free for every prime factor p of m, and q-W_m(R) inherits p-torsion freeness and bounded p-power torsion from R; these degree-zero statements belong to HabiroRings HR.4 and are imported. In positive degrees injectivity holds for smooth R, where the complex is degreewise torsion free (smooth-case node).
+
+**Hypotheses.**
+
+- The ghost targets involve the d-th Adams operation and a primitive d-th root of unity; the family is indexed by the divisors of m.
+- Joint injectivity in degree zero is a theorem about the absolute q-Witt rings under the hypothesis that R is p-torsion free for every prime factor p of m; it is imported, not re-proved.
+- The isomorphism (i) is after inverting m, and m is not invertible in the cases the roadmap cares about.
+- Clause (ii) is for prime powers m = p^a and arbitrary R, over the perfectly covered base fixed in q-Witt v5 section 4.
+
+**Proof.**
+
+1. Exhibit the product of the ghost targets as a q-V-system, with the relative q-Witt ghost maps in degree zero and the Verschiebung with the factor (m/n)^{i+1}; check the product rule and (tau_V).
+2. Apply initiality of the q-de Rham-Witt complex to obtain the ghost maps.
+3. For (i), identify q-W_d Omega[1/m] with q-W_d Omega_{R[1/m]/A} by etale base change, note that the truncated family indexed by the divisors of m is the initial truncated q-V-system over R[1/m], and show that the ghost product is also initial, using that the relative q-Witt ghost maps become isomorphisms after inverting m (HR.4) and the relation V_n o d = n (d o V_n).
+4. For (ii), show that im V_p + im dV_p is a differential graded ideal using the projection formula and F o d o V = d, and identify the quotient with the initial truncated q-V-system whose lower members vanish, which is the de Rham complex of q-W_{p^a}(R/A)/im V_p = R tensored along the p^a-th Adams operation with A[zeta_{p^a}].
+5. Import the degree-zero injectivity and torsion statements from HR.4, and record that no unconditional description by ghost coordinates is available.
+
+**Acceptance.**
+
+- The Verschiebung formula on the ghost system carries the exponent i+1 and not i.
+- The isomorphism (i) is after inverting m and is not stated integrally.
+- The degree-zero torsion hypotheses are those of the absolute q-Witt rings and are imported; the positive-degree injectivity carries the smoothness hypothesis.
+- Clause (ii) identifies the kernel of gh_1 as im V_p + im dV_p.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/q-v-systems-of-differential-graded-algebras`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`, `HQ.4/etale-base-change-and-the-sheaf-property`; other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`.
+
+**Sources.**
+
+- `wagner-q-witt`, Paragraph 3.15: “\gh_{m/d}\colon \qIW_m\Omega_{R/A}^*\longrightarrow \Omega_{R/A}^*\otimes_{A,\psi^d}A[\zeta_d] \end{equation*} for all $d\mid m$, generalising the ghost maps for relative $q$-Witt vectors.” — The ghost maps.
+- `wagner-q-witt`, Paragraph 3.15: “If $\omega=(\omega_e)_{e\mid n}$ is homogeneous of degree $i$, we let $V_{m/n}(\omega)\coloneqq(V_{m/n}(\omega)_d)_{d\mid m}$, where \begin{equation*} V_{m/n}(\omega)_d\coloneqq \begin{cases*} (m/n)^{i+1}\omega_e & if $d=e\mid n$\\ 0 & else \end{cases*}\,.” — The exponent i+1.
+- `wagner-q-witt`, Corollary 3.34: “For any $A$-algebra $R$ and any positive integer $m$, the ghost maps from \cref{par:qdRWGhostMaps} induce isomorphisms of differential-graded-$A[q]$-algebras” — Clause (i).
+- `wagner-q-witt`, Lemma 4.5: “The subset $\IV_{p^\alpha}^*\coloneqq\im V_p+\im \d V_p\subseteq \qIW_{p^\alpha}\Omega_{R/A}^*$ is a differential-graded ideal and the ghost map $\gh_1$ from \cref{par:qdRWGhostMaps} induces a functorial isomorphism” — Clause (ii).
+- `wagner-q-witt`, Lemma 2.23: “If $R$ is $p$-torsion-free for all prime factors $p\mid m$, then the ghost maps $\gh_{m/d}\colon \qIW_m(R)\rightarrow R[\zeta_d]$ for $d\mid m$ are jointly injective.” — The imported degree-zero injectivity, for the absolute q-Witt rings.
+- `wagner-q-witt`, Corollary 2.22: “If $R$ is $p$-torsion-free, then so is $\qIW_m(R)$ for all positive integers $m$. Likewise, if $R$ has bounded $p^\infty$-torsion, then so has $\qIW_m(R)$.” — The imported inheritance of torsion properties.
+
+### Etale base change for the q-de Rham-Witt complex, and the resulting etale sheaf
+
+`HQ.4/etale-base-change-and-the-sheaf-property` · theorem
+
+Let R map to R' etale as A-algebras. Then the canonical morphism induces an isomorphism of differential graded algebras over the relative q-Witt ring of R' from the extension of scalars of the m-truncated q-de Rham-Witt complex of R along the map of q-Witt rings onto the m-truncated q-de Rham-Witt complex of R'. Consequently, for every m the functor sending an A-algebra to the E-infinity algebra underlying its m-truncated q-de Rham-Witt complex is an etale sheaf.
+
+**Hypotheses.**
+
+- The map from R to R' is etale; flatness alone is not claimed to suffice.
+- The extension of scalars is along q-W_m(R/A) -> q-W_m(R'/A), which is etale by the corresponding statement for relative q-Witt rings (q-Witt v5 Proposition 2.48), imported from HabiroRings HR.4.
+- The sheaf statement is for the E-infinity algebra underlying q-W_m Omega, for each fixed m, on all A-algebras.
+
+**Proof.**
+
+1. Use that q-W_m(R/A) -> q-W_m(R'/A) is etale (imported) and the lemma on etale extensions of differential graded algebras to equip the extension of scalars with its unique differential graded structure.
+2. Check that the resulting family is a q-V-system over R' and compare universal properties to deduce the isomorphism.
+3. For the sheaf property write q-W_m Omega as the limit of its stupid truncations, reduce to each q-W_m Omega^i, and using the isomorphism reduce to showing that R' -> q-W_m(R'/A) tensored over q-W_m(R/A) with a bounded-below complex is an etale sheaf; prove this by induction on m from the Koszul-type exact sequence for q-Witt rings (HR.4) and the vanishing of higher etale cohomology of quasi-coherent sheaves.
+
+**Acceptance.**
+
+- The isomorphism is stated as one of differential graded algebras over the q-Witt ring of the target.
+- The sheaf statement names the fixed m and the underlying E-infinity algebra.
+- The construction of the differential graded structure on the extension of scalars is listed as a step, since it is what the proof actually needs.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/etale-extension-of-a-differential-graded-algebra`; other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`, `HabiroRings:HR.4`.
+
+**Sources.**
+
+- `wagner-q-witt`, Proposition 3.31: “Let $R\rightarrow R'$ be an étale morphism of $A$-algebras. Then the canonical morphism $(\qIW_m\Omega_{R/A}^*)_{m\in\IN}\rightarrow (\qIW_m\Omega_{R'/A}^*)_{m\in\IN}$ induces isomorphisms of differential-graded $\qIW_m(R'/A)$-algebras” — The base change statement.
+- `wagner-q-witt`, Corollary 3.33: “sending an $A$-algebra $R$ to the $\IE_\infty$-$A[q]$-algebra underlying the differential-graded $A[q]$-algebra $\qIW_m\Omega_{R/A}^*$, is an étale sheaf.” — The sheaf property.
+- `wagner-q-witt`, Proposition 2.48: “Let $A$ be a $\Lambda$-ring, let $R\rightarrow R'$ be an étale morphism of $A$-algebras, and let $m$ be a positive integer. Then $\qIW_m(R/A)\rightarrow \qIW_m(R'/A)$ is étale again.” — The imported degree-zero input.
+
+### The smooth case: torsion-freeness, the framed q-Hodge comparison and the p-completion, proved together
+
+`HQ.4/the-p-completion-of-the-q-de-rham-witt-complex` · theorem
+
+Let A be a perfectly covered Lambda-ring and R a smooth A-algebra. (i) (Proposition 4.1) For every m, q-W_m Omega_{R/A} is degreewise Z-torsion free; hence the family is also initial among torsion-free q-V-systems, and the ghost maps of q-W_m Omega_{R/A} are injective in every degree. (ii) (Theorem 4.27) For every etale framing of R, the canonical morphism of q-FV-systems from the q-de Rham-Witt complexes to the cohomology of the coordinate-dependent q-Hodge complex modulo q^m-1 (the q-difference complex with every differential multiplied by q-1) induces isomorphisms from the degreewise (q-1)-completion of q-W_m Omega_{R/A} onto H^*(q-Hdg_{R/A,framed}/(q^m-1)), for all m. (iii) (Proposition 4.2) For every prime p and exponent a there is an equivalence of p-complete E-infinity A[q]-algebras from the p-completion of Omega_{R/A} derived-tensored along the p^a-th Adams operation with A[q]/(q^{p^a}-1) onto the p-completion of q-W_{p^a} Omega_{R/A}, functorial in smooth R; more generally, for m = p^a n with n prime to p, the p-completion of q-W_m Omega_{R/A} is the product over d | n of the p-completions of Omega_{R/A} derived-tensored along the p^a d-th Adams operation with A[q]/Phi_d(q^{p^a}).
+
+**Hypotheses.**
+
+- A is perfectly covered and R is smooth over A; the source proves the three statements only in that case.
+- The completion in (ii) is degreewise; by the bounded (q-1)-power-torsion lemma (q-Witt v5 Lemma 4.6) the derived and underived completions agree.
+- The equivalences in (iii) are of p-complete E-infinity algebras, functorial in R, and are not asserted integrally; they are in general incompatible with the rational ghost isomorphism (q-Witt v5 Remark 4.4).
+
+**Proof.**
+
+1. For m = p^a prove by induction on a four assertions (q-Witt v5 paragraph 4.3): (a_a) q-W_{p^a} Omega_R is degreewise p-torsion free; (b_a) clause (ii) after p-completion for m = p^a; (c_a) clause (iii) for m = p^a; (d_a) for a polynomial algebra, every form xi with d xi divisible by p is F_p(w) + p h; via the implications d_{a-1} => a_a => b_a => c_a => d_a.
+2. d_{a-1} => a_a: for a polynomial algebra, a p-torsion form lies in im V_p + im dV_p by the gh_1 quotient description, and injectivity of V_p with d_{a-1} forces it to vanish; for general smooth R use the etale sheaf property.
+3. a_a => b_a: compare the q-FV-system of the q-de Rham-Witt complexes with the q-FV-system formed by the cohomology of the framed q-Hodge complex modulo q^m-1 (Construction 4.26), using the Frobenius decompositions of the framed q-Hodge complex.
+4. b_a => c_a => d_a: construct the comparison map from the PD-de Rham complex of a PD-envelope of a surjection from a p-completely ind-smooth delta-algebra, check that it does not depend on the surjection (the category of surjections has coproducts, hence is weakly contractible), and prove it is an equivalence; read off d_a.
+5. Deduce the statements for arbitrary m from the prime-power case, the p-local decomposition and the ghost isomorphism after inverting m.
+6. The joint induction occupies q-Witt v5 sections 4.2 to 4.6 and is not decomposed into lemma nodes here; see the gap recorded by this review.
+
+**Acceptance.**
+
+- The three clauses carry the smoothness hypothesis and the perfectly covered base.
+- Both displayed equivalences of (iii) carry their cyclotomic quotients exactly.
+- Clause (ii) is an isomorphism with the (q-1)-completion of the q-de Rham-Witt complex, not with the complex itself.
+- The joint induction is recorded as one argument and its undecomposed status as a gap.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`, `HQ.4/ghost-maps-and-what-they-do-not-define`, `HQ.4/etale-base-change-and-the-sheaf-property`, `HQ.4/the-p-local-decomposition`, `HQ.1/what-this-layer-imports-and-what-it-owns`; other roadmaps: `PrismaticCohomology:PR.0`, `DerivedDeRhamCohomology:DD.4`.
+
+**Sources.**
+
+- `wagner-q-witt`, Proposition 4.1: “Let $R$ be smooth over $A$. Then $\qIW_m\Omega_{R/A}^*$ is degree-wise $\IZ$-torsion-free for all $m\in \IN$.” — Clause (i).
+- `wagner-q-witt`, Theorem 4.27: “Let $R$ be a smooth algebra over the perfectly covered $\Lambda$-ring $A$. Then the canonical morphism from \cref{con:qDRWtoqHodge} is an isomorphism” — Clause (ii).
+- `wagner-q-witt`, Proposition 4.2: “Let $R$ be smooth over $A$ and let $p$ be a prime. Then for every exponent~$\alpha$ there exists an equivalence of $p$-complete $\IE_\infty$-$A[q]$-algebras” — Clause (iii), prime-power case.
+- `wagner-q-witt`, Proposition 4.2: “More generally, if $m=p^\alpha n$, where $n$ is coprime to $p$, then there exists an equivalence of $p$-complete $\IE_\infty$-$A[q]$-algebras” — Clause (iii), general case.
+- `wagner-q-witt`, Paragraph 4.3 (battle plan): “To handle the special case $m=p^\alpha$, we'll prove all three results at once using an induction on $\alpha$.” — Why the three clauses form one node.
+
+### The twisted q-de Rham complexes, glued from décalage twists by the p-adic Frobenii
+
+`HQ.4/twisted-q-de-rham-complexes` · construction · planet “Twisted q-de Rham complex”
+
+Let A be a perfectly covered Lambda-ring, S a smooth A-algebra and m a positive integer. Global Adams operations on the q-de Rham complex do not exist, already for S etale over A, because Lambda-structures do not extend along etale maps; the best available structure is, for each prime p, a Frobenius on the p-completion. The m-th twisted q-de Rham complex is nevertheless constructed by gluing: for each divisor d of m take the completion at the cyclotomic polynomial of order d evaluated at q of the décalage at the q-integer of m/d of the q-de Rham complex, base changed along the Adams operation indexed by d; for each prime p with p times d dividing m supply the p-adic gluing equivalence, which after reducing to the case of a single prime is the equivalence induced by the relative Frobenius from the Frobenius twist of prismatic cohomology onto the décalage of prismatic cohomology at the prism ideal. The complete-descent principle then glues these into a single (q^m-1)-complete E-infinity algebra over the polynomial ring in q over A. Animating gives a functor on animated A-algebras agreeing with the underived one on polynomial algebras, but not on all smooth algebras. Whenever n divides m there is a map from the (q^n-1)-completion of the m-th twisted complex to the n-th, functorial in S; these maps are usually far from equivalences, and their limit over m is a pathological object which is not a Habiro descent of the q-de Rham complex, except when S is etale over A, where it recovers the relative Habiro ring.
+
+**Hypotheses.**
+
+- S is smooth over A and the gluing uses the complete-descent corollary of the coefficient roadmap.
+- The décalage functors are at the elements given by the q-integers of m/d, and the completions are at the cyclotomic polynomials.
+- The p-adic gluing equivalence is the relative Frobenius equivalence for prismatic cohomology and is imported.
+- The construction supplies the individual transition maps, not the whole functor from the divisibility poset with all its coherences.
+
+**Proof.**
+
+1. Record why global Adams operations do not exist and what replaces them.
+2. Define the local pieces indexed by the divisors of m, as completions of décalage twists of Adams base changes.
+3. Construct the p-adic gluing equivalences, reducing first to prime powers by inverting a unit factor, then using that p-completion agrees with completion at the relevant q-integer and commutes with the décalage, and finally the relative Frobenius equivalence for prismatic cohomology.
+4. Apply the complete-descent principle to glue the pieces into the twisted complex.
+5. Read off the arithmetic fracture square for the twisted complex and construct the transition maps for n dividing m, both from the gluing and from the fracture square.
+6. Record the failure of the limit over m to be a Habiro descent, and the etale exception.
+
+**API.**
+
+- `twistedQOmega` (constructor): For smooth S and a positive integer m, the (q^m-1)-complete E-infinity A[q]-algebra glued from the pieces E_d, functorial in S.
+- `twistedQOmega.cyclotomicCompletion` (projection): Its Phi_d(q)-completion, for d | m, is the piece E_d: the Phi_d-completed Adams base change of the décalage at [m/d]_q of the q-de Rham complex.
+- `twistedQOmega.fractureSquare` (characterisation): The arithmetic fracture pullback square (the fracture-square node).
+- `twistedQOmega.transition` (data): For n | m, the map from the (q^n-1)-completion of the m-th complex to the n-th, functorial in S.
+- `twistedQOmega.one` (example): For m = 1 it is the q-de Rham complex.
+- `twistedQOmega.pCompletion_primePower` (projection): For m = p^a its p-completion is the a-fold Frobenius twist of the p-completed q-de Rham complex, (q-1, p)-completed.
+- `twistedQdR` (functoriality): The animation, a functor from animated A-algebras to (q^m-1)-complete E-infinity A[q]-algebras, agreeing with twistedQOmega on polynomial algebras (not on all smooth algebras).
+
+**Unit tests.**
+
+- `twistedQOmega.one` (degenerate): For m = 1 the construction returns the q-de Rham complex, since the décalage at [1]_q = 1 is the identity and the only divisor is 1.
+- `twistedQOmega.mod` (characterisation): The quotient of the m-th twisted complex by q^m-1 is the m-truncated q-de Rham-Witt complex, and the transition map for d | m induces the rescaled Frobenius (the deformation node).
+- `twistedQOmega.etale_limit` (computation): For S etale over A the limit over m of the twisted complexes is the relative Habiro ring of S over A (Remark 3.17).
+- `twistedQOmega.transition_ne_equiv` (non-example): For A = Z and S = Z[x], the transition map from the (q-1)-completion of the p-th twisted complex to the first is, on the only surviving piece, the canonical map from the décalage at [p]_q of the q-de Rham complex to the q-de Rham complex; its image in H^1 lies in [p]_q times H^1, so it misses the class of x^{p-1} dx, which spans a summand Z[[q-1]]/[p]_q. The transition maps are not equivalences, which is why their limit is not a Habiro descent.
+
+**Acceptance.**
+
+- The construction never uses a global Adams operation.
+- Each gluing equivalence is named and its reduction to the relative Frobenius equivalence is recorded.
+- The transition maps are recorded as maps, without the claim that they assemble into a functor with all higher coherences.
+- The failure of the naive limit is stated.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.3: The twisted q-Hodge filtration is a filtration of this object, and the m-truncated Habiro descent is built by adjoining that filtration divided by powers of q^m-1.
+- HabiroCohomologyFoundations:HQ.4: Its Nygaard filtration is the auxiliary filtration through which the twisted q-Hodge filtration is defined.
+
+**Depends on.** this roadmap: `HQ.1/the-global-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/what-the-decalage-import-supplies`; other roadmaps: `HabiroRings:HR.3/the-complete-descent-corollary`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `PrismaticCohomology:PR.6`, `PrismaticCohomology:PR.3`, `AInfCohomology:AI.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.14: “Let $S$ be a smooth $A$-algebra. We'll construct a $(q^m-1)$-complete $\IE_\infty$-$A[q]$-algebra using \cref{cor:CompleteDescent}. In the notation of that corollary, take \begin{equation*} E_d\coloneqq \left(\L\eta_{[m/d]_q}\qOmega_{S/A}\lotimes_{A[q],\psi^d}A[q]\right)_{\Phi_d(q)}^\complete\,.” — The local pieces.
+- `wagner-q-hodge-habiro`, Section 3.3, opening: “However, such global Adams operations don't exist in general (this already fails if $S$ is étale over $A$, as $\Lambda$-structures usually don't extend along étale maps). The best we have is, for every prime $p$, a Frobenius $\phi_p$ on the $p$-completion $(\qOmega_{S/A})_p^\complete$.” — Why the naive Adams twist is unavailable and what replaces it.
+- `wagner-q-hodge-habiro`, Paragraph 3.14: “Finally, if $(B,J)$ denotes the prism $(\widehat{A}_p\qpower,[p]_q)$ and $T\coloneqq \widehat{S}_p[\zeta_p]$, then $(\qOmega_{S/A})_p^\complete\simeq \Prism_{T/B}$, and so the desired gluing equivalence can be constructed using the general fact that the relative Frobenius” — The p-adic gluing equivalence.
+- `wagner-q-hodge-habiro`, Paragraph 3.16: “Whenever $n\mid m$, there's a map of $\IE_\infty$-$A[q]$-algebras \begin{equation*} \bigl(\qOmega_{S/A}^{(m)}\bigr)_{(q^n-1)}^\complete\longrightarrow \qOmega_{S/A}^{(n)}\,, \end{equation*} functorial in $S$.” — The transition maps.
+- `wagner-q-hodge-habiro`, Remark 3.17: “but it will usually be a pathological object (unless $S$ is étale over $A$, in which case we recover \cref{con:RelativeHabiroRing}). In particular, it won't be a Habiro descent of $\qOmega_{S/A}$.” — The failure of the naive limit and the etale exception.
+
+### Reducing the twisted complex modulo q^m-1 gives the q-de Rham-Witt complex
+
+`HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex` · theorem
+
+Let A be a perfectly covered Lambda-ring and S a smooth A-algebra. There is an equivalence, functorial in S, of E-infinity algebras over A[q]/(q^m-1) from the quotient of the m-th twisted q-de Rham complex by q^m-1 onto the m-truncated q-de Rham-Witt complex of S over A. Under this identification, for d | m the map induced by the transition map from the m-th to the d-th twisted complex agrees with the rescaled Frobenius F~_{m/d}, given by (m/d)^n F_{m/d} in degree n; since d o F_{m/d} = (m/d)(F_{m/d} o d), this rescaling is what makes it a map of differential graded algebras (the source prints the relation as d o F_{m/d} = (m/d) o F_{m/d}, a misprint recorded as E202). The equivalence does not depend on the auxiliary integer N used in the fracture squares.
+
+**Hypotheses.**
+
+- S is smooth over A.
+- The rescaling of the Frobenius by a power of m/d depending on the degree is part of the statement.
+- The equivalence is independent of the auxiliary integer N used in the fracture squares.
+
+**Proof.**
+
+1. Write the fracture square of the twisted complex (fracture-square node) and that of the q-de Rham-Witt complex (q-Witt Corollary 4.37 node) with the same auxiliary integer N divisible by m.
+2. Reduce the first square modulo q^m-1 and check corner by corner that every occurrence of the q-de Rham complex may be replaced by the de Rham complex: q^m-1 and the relevant cyclotomic polynomial differ by a unit in each completed corner, and q-1 maps to zero under the relevant Adams operation.
+3. Identify the two squares and conclude the equivalence; check independence of N by comparing the squares for N and a multiple.
+4. For the transition maps compare the squares again with the same N; the only non-formal point is that under the p-complete identification F~_p and the crystalline Frobenius agree (the Corollary 4.38 node).
+
+**Acceptance.**
+
+- Both fracture squares are written and compared corner by corner.
+- The rescaling of the Frobenius is recorded with its degree-dependent factor and the reason for it.
+- Independence of the auxiliary integer is checked and not assumed.
+
+**Depends on.** this roadmap: `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent`, `HQ.4/the-arithmetic-fracture-square-for-q-de-rham-witt-complexes`, `HQ.4/the-rescaled-frobenius-is-the-crystalline-frobenius`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`, `HQ.4/the-q-de-rham-witt-complex`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.19: “Let $A$ be a perfectly covered $\Lambda$-ring and let $S$ be a smooth $A$-algebra. There's a functorial equivalence of $\IE_\infty$-$A[q]/(q^m-1)$-algebras” — The statement of the node.
+- `wagner-q-hodge-habiro`, Proposition 3.19: “Under this identification, the map $\qOmega_{S/A}^{(m)}/(q^m-1)\rightarrow \qOmega_{S/A}^{(d)}/(q^d-1)$ induced by \cref{con:TwistedqDeRhamFunctoriality} agrees with the map $\overtilde{F}_{m/d}$ above.” — The transition maps.
+- `wagner-q-hodge-habiro`, Section 3.3, before Proposition 3.19: “This satisfies $\d \circ F_{m/d}=(m/d)\circ F_{m/d}$.” — The printed relation, a misprint (E202); the rescaling is correct for d o F = (m/d) F o d.
+
+### The Nygaard filtration on q-de Rham-Witt complexes
+
+`HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes` · definition · planet “Nygaard filtration”
+
+Fix a prime p and an exponent a >= 1, and let S be smooth over A. The Nygaard filtration on q-W_{p^a} Omega_{S/A} is the descending filtration whose n-th term is the subcomplex p^{n-1} V_p(q-W_{p^{a-1}} Omega^0) -> p^{n-2} V_p(q-W_{p^{a-1}} Omega^1) -> ... -> p^0 V_p(q-W_{p^{a-1}} Omega^{n-1}) -> q-W_{p^a} Omega^n -> q-W_{p^a} Omega^{n+1} -> ... ; that is, in degree i < n it is p^{n-1-i} times the image of the Verschiebung from q-W_{p^{a-1}} Omega^i, and in degrees i >= n it is the whole complex. Its animation to animated A-algebras is the animated Nygaard filtration fil_N q-W_{p^a} dR.
+
+**Hypotheses.**
+
+- p is a fixed prime and a >= 1; the definition uses the Verschiebung from index p^{a-1} and is not made for a = 0.
+- The subcomplex has the explicit power p^{n-1-i} in each degree i below n.
+- The animated filtration is defined by animation from polynomial algebras.
+
+**Proof.**
+
+1. Define the n-th term degree by degree as stated and check that it is a subcomplex: d maps p^{n-1-i} V_p(q-W_{p^{a-1}} Omega^i) into p^{n-2-i} V_p(q-W_{p^{a-1}} Omega^{i+1}), because d V_p = p^{-1} V_p d on the image of V_p (V_p o d = p (d o V_p)).
+2. Check that the terms decrease in n and that the zeroth term is the whole complex.
+3. Animate from polynomial algebras.
+
+**API.**
+
+- `qWittOmega.nygaardFil` (constructor): For a prime p, a >= 1 and smooth S, the descending filtration by subcomplexes of q-W_{p^a} Omega_{S/A}.
+- `qWittOmega.nygaardFil_apply` (simp): Its n-th term in degree i is p^{n-1-i} V_p(q-W_{p^{a-1}} Omega^i) for i < n and q-W_{p^a} Omega^i for i >= n.
+- `qWittOmega.nygaardFil_zero` (simp): The zeroth term is the whole complex.
+- `qWittOmega.stupidFil_le_nygaardFil` (relation): The n-th stupid term is contained in the n-th Nygaard term.
+- `qWittDR.nygaardFil` (functoriality): The animated Nygaard filtration on animated A-algebras, agreeing with the underived one on smooth algebras after p-completion (the descent node).
+- `qWittOmega.nygaardFil_comparison` (equivalence): The unique functorial filtered equivalence with the prismatic Nygaard filtration of the twisted complex (the comparison node).
+
+**Unit tests.**
+
+- `qWittOmega.nygaardFil_zero` (degenerate): The zeroth term is the whole complex q-W_{p^a} Omega_{S/A}.
+- `qWittOmega.nygaardFil_two_deg_zero` (computation): In degree zero the second term is p V_p(q-W_{p^{a-1}}(S/A)) and the first is V_p(q-W_{p^{a-1}}(S/A)); a definition omitting the powers of p would make the two equal.
+- `qWittOmega.nygaardFil_ne_stupid` (non-example): The Nygaard filtration is not the stupid filtration: for S = A and a = 1 the first stupid term vanishes in degree zero, while the first Nygaard term contains V_p(1) = [p]_q, which is non-zero in q-W_p(A/A).
+- `qWittOmega.nygaardFil_rational` (computation): After p-completion, inverting p and completing at Phi_p(q), the ghost map gh_1 identifies the Nygaard filtration on q-W_p Omega with the Hodge filtration on Omega_{S/A} tensored along phi with A[zeta_p], p-completed with p inverted, since the images of V_p are (q-1)-torsion and die (proof of Lemma 3.29).
+
+**Acceptance.**
+
+- The explicit subcomplex is written with its powers of p.
+- The range a >= 1 is stated.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes over the Habiro ring, paragraph 3.32: The p-adic twisted q-Hodge filtration is a pullback one of whose legs is the prismatic Nygaard filtration, identified with this one modulo q^{p^a}-1.
+- Wagner, q-Hodge complexes over the Habiro ring, Lemma 3.30: The stupid filtration is the pullback of this filtration along the divided Frobenius.
+- Wagner, q-Hodge complexes over the Habiro ring, Proposition 3.22: It is identified with the prismatic Nygaard filtration modulo q^{p^a}-1.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/q-v-systems-of-differential-graded-algebras`; other roadmaps: `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.21: “Let $S$ be smooth over~$A$. The \emph{the Nygaard filtration} is the filtration $ \fil_\Nn^\star \qIW_m\Omega_{S/A}^*$ whose $n$\textsuperscript{th} term is the subcomplex $ \fil_\Nn^n\qIW_{p^\alpha}\Omega_{S/A}^*\subseteq \qIW_{p^\alpha}\Omega_{S/A}^*$ given by” — The definition (the displayed subcomplex follows).
+
+### The stupid filtration is the pullback of the Nygaard filtration along the divided Frobenius
+
+`HQ.4/hodge-against-nygaard` · theorem
+
+Let S be smooth over A, p a prime and a >= 1. For every n >= 0 the square whose upper left corner is the n-th term of the stupid filtration on q-W_{p^a} Omega_{S/A}, whose upper right corner is the n-th Nygaard term of the same complex, whose lower left corner is the n-th term of the stupid filtration on q-W_{p^{a-1}} Omega_{S/A}, whose lower right corner is q-W_{p^{a-1}} Omega_{S/A}, with right vertical map the divided Frobenius p^{-n} F~_p, is a pullback in the derived category of A[q].
+
+**Hypotheses.**
+
+- S is smooth over A, p is a prime and a >= 1.
+- The stupid filtration in degree n is the brutal truncation qW Omega^{>= n}.
+
+**Proof.**
+
+1. It suffices to show that the map induced on horizontal cofibres is an equivalence.
+2. The upper horizontal map is injective, so its cofibre is the cokernel, the complex p^{n-1} V_p(q-W_{p^{a-1}} Omega^0) -> ... -> p^0 V_p(q-W_{p^{a-1}} Omega^{n-1}) -> 0 -> ... .
+3. Under p^{-n} F~_p this complex maps isomorphically onto q-W_{p^{a-1}} Omega^0 -> ... -> q-W_{p^{a-1}} Omega^{n-1} -> 0 -> ..., using F_p o V_p = p and the injectivity of V_p, which holds because q-W_{p^{a-1}} Omega is degreewise p-torsion free.
+4. The latter complex is the cofibre of the lower horizontal map, which concludes.
+
+**Acceptance.**
+
+- The square is stated with all four corners and the divided Frobenius as its right vertical map.
+- The proof compares the horizontal cofibres directly.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes`, `HQ.4/the-divided-frobenius-on-nygaard-graded-pieces`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/q-fv-systems`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.30: “For all smooth $A$-algebras $S$, all primes~$p$ and all $\alpha\geqslant 1$ the diagram” — The statement (the square follows in the source).
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.30: “It's enough to check that the induced map on horizontal cofibres is an equivalence. Since $ \fil_{\Hhodge_{p^\alpha}}^n\qIW_{p^\alpha}\Omega_{S/A}^*\rightarrow \fil_\Nn^n\qIW_{p^\alpha}\Omega_{S/A}^*$ is injective, the cofibre agrees with the cokernel,” — The proof the steps record.
+
+### The arithmetic fracture square of the twisted q-de Rham complex
+
+`HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent` · theorem
+
+Let S be a smooth A-algebra, m a positive integer and N a non-zero integer divisible by m; for a prime p | N and a divisor d | m write m = p^{v_p(m)} m_p and d = p^{v_p(d)} d_p with m_p, d_p prime to p, and let phi_{p/A[q]} be the relative Frobenius from the q-de Rham complex base-changed along psi^p to its p-completion, coming from the identification with prismatic cohomology. Then there is a pullback square, functorial in S, whose upper left corner is the m-th twisted q-de Rham complex; whose upper right corner is the product over p | N and d_p | m_p of the (p, Phi_{d_p}(q))-completion of the q-de Rham complex base-changed along psi^{p^{v_p(m)} d_p}; whose lower left corner is the product over d | m of the Phi_d(q)-completion of the q-de Rham complex base-changed along psi^d to A[1/N, q]; whose lower right corner is the product over p | N and d | m of the Phi_d(q)-completion of the p-completion, with p inverted, of the q-de Rham complex base-changed along psi^d; and whose right vertical map has components the iterated relative Frobenii phi_{p/A[q]}^{v_p(m/d)}.
+
+**Hypotheses.**
+
+- S is smooth over A and N is a non-zero integer divisible by m.
+- The completions are at the stated cyclotomic polynomials and at the primes dividing N; the right vertical map is the iterated relative Frobenius with exponent v_p(m/d).
+- The décalage functors may be ignored in the corners because [m/d]_q becomes a unit there; this is part of the proof, not an extra hypothesis.
+
+**Proof.**
+
+1. Using the gluing of completions of the coefficient roadmap, identify the square with the (q^m-1)-completed arithmetic fracture square of the twisted complex, whose corners are its rationalisation away from N and its p-completions.
+2. Observe that [m/d]_q maps to a unit under psi^d: A[q] -> A[1/N, q] completed at Phi_d(q), so the décalage at [m/d]_q may be ignored in the lower left corner; similarly the décalage at [m/(p^{v_p(m)} d)]_q may be ignored in the right-hand corners.
+3. Read off the right vertical map from the p-adic gluing equivalences of the construction, which are iterated relative Frobenii.
+4. Check functoriality in S.
+
+**Acceptance.**
+
+- All four corners and the right vertical map are stated.
+- The reason the décalage functors disappear from the corners is recorded.
+- The square is functorial in S and holds for every admissible N.
+
+**Depends on.** this roadmap: `HQ.4/twisted-q-de-rham-complexes`; other roadmaps: `HabiroRings:HR.3/the-complete-descent-corollary`, `HabiroRings:HR.2/habiro-complete-modules`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.15: “Fix $m\in\IN$ and $N\neq 0$ divisible by $m$. For any prime $p\mid N$ and any divisor $d\mid m$ write $m=p^{v_p(m)}m_p$ and $d=p^{v_p(d)}d_p$, where $m_p$ and $d_p$ are coprime to $p$.” — The statement of the node (the square follows in the source).
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.15: “Here we also use that $[m/d]_q$ is mapped to a unit under $\psi^d\colon A[q]\rightarrow A[1/N,q]_{\Phi_d(q)}^\complete$, so we may ignore $\L\eta_{[m/d]_q}$ for any $d\mid m$ in the bottom left corner.” — Why the décalage disappears.
+
+### Multiplicative structure is carried, never created
+
+`HQ.4/no-automatic-multiplicative-upgrade` · comparison
+
+The HQ.4 constructions carry exactly the multiplicative structure their inputs carry and create none. The twisted q-de Rham complexes of a smooth algebra are E-infinity A[q]-algebras because each local piece is (décalage is lax symmetric monoidal, Adams base change and completion are symmetric monoidal) and the complete-descent gluing is one of E-infinity algebras. The animated stupid filtrations on the derived q-de Rham-Witt complexes carry canonical filtered derived commutative structures, built on polynomial algebras at the level of complexes and animated. The Nygaard comparison and its rationalisation hold as equivalences of filtered derived commutative algebras, which the source asserts on the ground that the proofs work in that setting. Nothing in the gluing produces a multiplicative structure on a descended object that its input lacks: the transport of an E_n or derived commutative structure from a q-Hodge filtration to the Habiro-Hodge complex is HQ.3's (multiplicative-upgrades), requires that structure on the filtration together with all the coherence data of the definition, and the source explicitly does not expect the Habiro-Hodge complex of a smooth scheme to carry an E-infinity structure.
+
+**Hypotheses.**
+
+- The derived commutative version of the Nygaard comparison is asserted by the source without separate proof ('the proofs work in this setting as well'); it is recorded as such.
+- The expectation that no E-infinity structure exists in general is the source's, and is not a theorem.
+
+**Proof.**
+
+1. Record the E-infinity structure of the twisted complexes from the construction.
+2. Construct the filtered derived commutative structure on the stupid filtrations on polynomial algebras and animate.
+3. Record the derived commutative form of the Nygaard comparison and of its rationalisation, with the source's justification.
+4. Record the source's non-expectation and its reason: the multiplication comes from the diagonal, which needs more primes inverted as the coherence increases.
+
+**Acceptance.**
+
+- Every multiplicative structure stated names where it comes from.
+- The non-expectation is attributed and not stated as a theorem.
+- No transport statement for the Habiro-Hodge complex is made here.
+
+**Depends on.** this roadmap: `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.4/the-nygaard-comparison`, `HQ.4/the-nygaard-filtration-after-inverting-p`; other roadmaps: `EnhancedDerivedSheaves:E5`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Section 3.8, opening: “The filtrations $ \fil_{\Hhodge_m}^\star \qIW_m\deRham_{R/A}$ admit canonical filtered derived commutative $A[q]/(q^m-1)$-algebra structures” — The structure on the stupid filtrations.
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 3.52: “First note that our results about the Nygaard filtration, specifically \cref{prop:NygaardComparison} and \cref{lem:NygaardRationalisation}, also hold true as equivalences of filtered derived commutative algebras, since the proofs work in this setting as well.” — The derived commutative Nygaard comparison, asserted.
+- `wagner-q-hodge-habiro`, Paragraph 1.17(c): “In fact, we don't even expect $\qHhodge_{X/\IZ}$ to carry an $\IE_\infty$-algebra structure!” — The non-expectation.
+
+### The q-de Rham-Witt complex carries unique Frobenii and is the initial q-FV-system
+
+`HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be an A-algebra. There is a unique choice of Frobenius operators F_{m/d}: q-W_m Omega_{R/A} -> q-W_d Omega_{R/A}, for all d | m, making the family of q-de Rham-Witt complexes a q-FV-system; with them the family is an initial object of the category of q-FV-systems over R. The rescaled Frobenius, equal to (m/d)^i F_{m/d} in degree i, is then a map of differential graded A[q]-algebras, because d o F_{m/d} = (m/d)(F_{m/d} o d).
+
+**Hypotheses.**
+
+- A is a Lambda-ring and R an A-algebra; no smoothness.
+- The Frobenius is a map of graded A[q]-algebras; only its degree-rescaled form commutes with the differential.
+
+**Proof.**
+
+1. Induct on m; for m = 1 there is nothing to construct, and it suffices to construct F_p: q-W_m Omega -> q-W_{m/p} Omega for one prime factor p of m at a time.
+2. Over A = Z, construct a Z[q]-linear derivation 'F_p d' from q-W_m(R) to q-W_{m/p} Omega^1 (q-Witt v5 Construction 3.22 with Lemmas 3.21 to 3.26), which a posteriori equals F_p o d.
+3. For an arbitrary Lambda-ring A, construct the graded A[q]-algebra map F_p from it by the universal property of Kaehler differentials (Construction 3.27).
+4. Verify all the relations of a q-FV-system and the F-Teichmueller condition (Lemmas 3.28 to 3.30), and deduce uniqueness and initiality from initiality among q-V-systems.
+5. Deduce that the rescaled Frobenius commutes with d from the relation d o F_n = n (F_n o d) of the q-FV-system node.
+
+**Acceptance.**
+
+- The Frobenii are proved unique, not merely constructed.
+- Initiality among q-FV-systems is a second universal property, distinct from initiality among q-V-systems.
+- The rescaled Frobenius is recorded with its degree-dependent factor.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/q-fv-systems`; other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`.
+
+**Sources.**
+
+- `wagner-q-witt`, Proposition 3.17: “Let $R$ be an $A$-algebra. There is a unique choice of Frobenius operators on $(\qIW_m\Omega_{R/A}^*)_{m\in\IN}$, making it into a $q$-$FV$-system. Moreover, this exhibits $(\qIW_m\Omega_{R/A}^*)_{m\in\IN}$ as an initial object of the category of $q$-FV-systems.” — The statement of the node.
+- `wagner-q-witt`, Paragraph 3.19 (battle plan): “Unfortunately, the proof of \cref{prop:qDRWHasFrobenii} will be rather laborious. We construct the Frobenii $F_{m/d}\colon\qIW_m\Omega_{R/A}^*\rightarrow \qIW_d\Omega_{R/A}^*$ using induction on $m$.” — The structure of the proof, which the steps record.
+- `wagner-q-hodge-habiro`, Section 3.3, before Proposition 3.19: “Therefore, if $\overtilde{F}_{m/d}$ is given by $(m/d)^nF_{m/d}$ in degree~$n$, then \begin{equation*} \overtilde{F}_{m/d}\colon \qIW_m\Omega_{S/A}^*\longrightarrow \qIW_d\Omega_{S/A}^* \end{equation*} is a map of differential-graded $A[q]/(q^m-1)$-algebras.” — The rescaled Frobenius.
+
+### The comparison map from ordinary de Rham-Witt complexes, compatible with Frobenius and Verschiebung
+
+`HQ.4/the-comparison-map-from-ordinary-de-rham-witt` · comparison · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a Z_(p)-algebra (with its Lambda-structure) and R an A-algebra. Sending a q-FV-system (P_m) to the family (P_{p^{n-1}})_{n >= 1} indexed by powers of p is a functor from q-FV-systems over R to FV-pro-complexes over R without restriction maps. By the restriction-free universal property of Langer-Zink's de Rham-Witt pro-complex, this induces, for every a >= 0, a map W_{a+1} Omega_{R/A} -> q-W_{p^a} Omega_{R/A} from the ordinary to the q-de Rham-Witt complex, compatible with Frobenii and Verschiebungen. No compatibility with restriction maps is asserted, and the map is not claimed to be an isomorphism.
+
+**Hypotheses.**
+
+- A is a Z_(p)-algebra; the ordinary side is Langer-Zink's relative de Rham-Witt complex.
+- The universal property used is the restriction-free one of the no-restriction node, requested from CrystallineCohomology CR.4.
+- Compatibility is with F and V only.
+
+**Proof.**
+
+1. Construct the forgetful functor from q-FV-systems to restriction-free FV-pro-complexes by restricting to indices p^{n-1}, checking that the q-FV relations specialise to the FV-pro-complex relations (the q-integer [p]_{q^d} acts as the corresponding element on a (q^{p^{n-1}}-1)-torsion object).
+2. Apply the restriction-free initiality of W Omega to the image of the q-de Rham-Witt complex with its Frobenii to obtain the maps.
+3. Read off compatibility with F and V from the fact that the maps are morphisms of FV-pro-complexes.
+
+**Acceptance.**
+
+- The index shift is recorded: W_{a+1} maps to q-W_{p^a}.
+- No restriction compatibility and no isomorphism is claimed.
+
+**Depends on.** this roadmap: `HQ.4/there-are-no-restriction-operators-and-what-replaces-them`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`; other roadmaps: `CrystallineCohomology:CR.4`.
+
+**Sources.**
+
+- `wagner-q-witt`, Remark 3.18: “As a consequence of \cref{par:WhoNeedsRestrictions} and \cref{prop:qDRWHasFrobenii}, we get a comparison map between ordinary and $q$-de Rham--Witt complexes in the case where $A$ a $\IZ_{(p)}$-algebra.” — The existence of the comparison map and its hypothesis.
+- `wagner-q-witt`, Remark 3.18: “for all $\alpha\geqslant 0$, compatible with Frobenii and Verschiebungen.” — The compatibilities, and nothing more.
+
+### An etale extension of the degree-zero part of a differential graded algebra extends uniquely
+
+`HQ.4/etale-extension-of-a-differential-graded-algebra` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let P be a differential graded A[q]-algebra concentrated in non-negative cohomological degrees and let P^0 -> S be an etale map of rings. Then the graded A[q]-algebra S tensor_{P^0} P admits a unique differential graded A[q]-algebra structure compatible with the one on P, and with it S tensor_{P^0} P is initial among differential graded P-algebras Q equipped with a ring map S -> Q^0 compatible with P^0 -> Q^0.
+
+**Hypotheses.**
+
+- P is concentrated in non-negative degrees; P^0 -> S is etale.
+
+**Proof.**
+
+1. Use that for an etale map the de Rham complex of S over A[q] is the base change of that of P^0, so a derivation from P^0 extends uniquely to S.
+2. Define the differential on S tensor_{P^0} P by the Leibniz rule from the extended derivation in degree zero and the differential of P, and check d o d = 0 and uniqueness.
+3. Check the universal property by extending maps degree by degree.
+
+**Acceptance.**
+
+- Uniqueness of the structure is proved, not only existence.
+- The universal property is stated.
+
+**Depends on.** other roadmaps: `DerivedDeRhamCohomology:DD.2`; libraries: `mathlib:Algebra.Etale`.
+
+**Sources.**
+
+- `wagner-q-witt`, Lemma 3.32: “let $P^0\rightarrow S$ be an étale morphism of rings. Then the graded $A[q]$-algebra $S\otimes_{P^0}P^*$ admits a unique differential-graded $A[q]$-algebra structure compatible with the one on $P^*$.” — The statement of the node.
+
+### p-locally the q-de Rham-Witt complex splits into Adams twists of the prime-power ones
+
+`HQ.4/the-p-local-decomposition` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be any A-algebra, p a prime and m = p^a n with a = v_p(m). There is an isomorphism of differential graded A_(p)[q]-algebras from the localisation of q-W_m Omega_{R/A} at p onto the product over d | n of q-W_{p^a} Omega_{R/A} tensored over A[q], along the map given by the d-th Adams operation and q -> q^d, with A_(p)[q]/Phi_d(q^{p^a}).
+
+**Hypotheses.**
+
+- R is an arbitrary A-algebra; the statement is after localisation at p.
+- The tensor product is along the Adams operation psi^d extended by q -> q^d.
+
+**Proof.**
+
+1. Equip the product with the structure of a q-FV-system over R, first in degree zero using the p-local decomposition of the q-Witt rings of A (HR.4) and the Chinese remainder theorem for A_(p)[q]/(q^m-1), checked on ghost components.
+2. Show that the family of products has the universal property of the family of p-localised q-de Rham-Witt complexes.
+
+**Acceptance.**
+
+- The statement is for arbitrary R and is only p-local.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`; other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`.
+
+**Sources.**
+
+- `wagner-q-witt`, Lemma 4.36: “Let $R$ be any $A$-algebra and let $m=p^\alpha n$ be an integer, where $\alpha=v_p(m)$ is the exponent of $p$ in the prime factorisation of $m$. Then there's an isomorphism of differential-graded $A_{(p)}[q]$-algebras” — The statement of the node.
+- `wagner-q-witt`, Proof sketch of Lemma 4.36: “We'll show that $(\Pi_m^*)_{m\in\IN}$ exhibits the same universal property as $((\qIW_m\Omega_{R/A}^*)_{(p)})_{m\in\IN}$. To do so, one must first construct the structure of a $q$-$FV$-system of differential-graded $A$-algebras over $R$ on $(\Pi_m^*)_{m\in\IN}$.” — The strategy.
+
+### The arithmetic fracture square of the q-de Rham-Witt complex
+
+`HQ.4/the-arithmetic-fracture-square-for-q-de-rham-witt-complexes` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be a smooth A-algebra over the perfectly covered Lambda-ring A, m a positive integer and N a non-zero integer divisible by m, with m = p^{v_p(m)} m_p and d = p^{v_p(d)} d_p as usual, and let phi_{p/A} be the relative Frobenius of the p-completed de Rham complex coming from its identification with crystalline cohomology of R/p over the p-completion of A. There is a pullback square, functorial in R, whose upper left corner is q-W_m Omega_{R/A}; whose upper right corner is the product over p | N and d_p | m_p of the p-completion of Omega_{R/A} derived-tensored along psi^{p^{v_p(m)} d_p} with A[q], modulo Phi_{d_p}(q^{p^{v_p(m)}}); whose lower left corner is the product over d | m of Omega_{R/A} derived-tensored along psi^d with A[1/N, q], modulo Phi_d(q); whose lower right corner is the product over p | N and d | m of the p-completion with p inverted of Omega_{R/A} derived-tensored along psi^d with A[q], modulo Phi_d(q); whose left vertical map is the product of the ghost maps; and whose right vertical map has components phi_{p/A}^{v_p(m/d)}.
+
+**Hypotheses.**
+
+- R is smooth over the perfectly covered A; N is non-zero and divisible by m.
+- phi_{p/A} is the crystalline Frobenius; the identification of the right-hand map with it is the content of the proof.
+
+**Proof.**
+
+1. Identify the lower left corner with q-W_m Omega[1/N] by the ghost isomorphism after inverting m, and the upper right corner with the product of the p-completions by the p-completion statement of the smooth-case node.
+2. Apply the arithmetic fracture square of q-W_m Omega.
+3. Prove that the resulting right vertical map is the product of iterated crystalline Frobenii: unravel the p-local decomposition, reduce by the universal property of the PD-de Rham complex to degree zero, and use that the comparison map from the PD-envelope satisfies gh o s = phi_{D/A}^{a-i}.
+
+**Acceptance.**
+
+- All four corners, the ghost maps and the Frobenius components are stated.
+- The cyclotomic quotients in the upper right corner are at Phi_{d_p}(q^{p^{v_p(m)}}).
+
+**Depends on.** this roadmap: `HQ.4/ghost-maps-and-what-they-do-not-define`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/the-p-local-decomposition`; other roadmaps: `DerivedDeRhamCohomology:DD.4`.
+
+**Sources.**
+
+- `wagner-q-witt`, Corollary 4.37: “Let $R$ be a smooth $A$-algebra, let $m\in\IN$, and let $N\neq 0$ be divisible by $m$. For every prime $p\mid N$ and every divisor $d\mid m$ write $m=p^{v_p(m)}m_p$ and $d=p^{v_p(d)}d_p$.” — The statement of the node (the square follows in the source).
+- `wagner-q-witt`, Proof of Corollary 4.37: “Using \cref{cor:qDRWTrivialAfterLocalisation} and \cref{prop:qDRWTrivialAfterpCompletion}, we can identify the bottom left and top right corner with $\qIW_m\Omega_{R/A}[1/N]$ and $\prod_{p\mid N}(\qIW_m\Omega_{R/A})_p^\complete$, respectively.” — The first step of the proof.
+
+### Under the p-complete identification the rescaled Frobenius is the crystalline Frobenius
+
+`HQ.4/the-rescaled-frobenius-is-the-crystalline-frobenius` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be a smooth A-algebra, p a prime and a >= 1. Under the p-complete equivalences of the smooth-case node between the p-completion of Omega_{R/A} derived-tensored along phi^a with A[q]/(q^{p^a}-1) and the p-completion of q-W_{p^a} Omega_{R/A} (and the same with a-1), the crystalline Frobenius phi_{p/A} corresponds to the rescaled Frobenius F~_p, which is (p)^i F_p in degree i.
+
+**Hypotheses.**
+
+- R is smooth over the perfectly covered A; the statement is after p-completion.
+
+**Proof.**
+
+1. Represent phi_{p/A} by the map of PD-de Rham complexes induced by the relative Frobenius of a PD-envelope D of a surjection from a p-completely ind-smooth delta-algebra.
+2. By the universal property of the PD-de Rham complex, compatibility with F~_p can be checked in degree zero.
+3. In degree zero it is F_p o s_{p^a/A} = s_{p^{a-1}/A} o phi_{D/A}, which holds by construction of the comparison map s.
+
+**Acceptance.**
+
+- The rescaling by p^i in degree i is part of the statement.
+
+**Depends on.** this roadmap: `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`; other roadmaps: `PrismaticCohomology:PR.0`, `DerivedDeRhamCohomology:DD.4`.
+
+**Sources.**
+
+- `wagner-q-witt`, Corollary 4.38: “Let $R$ be a smooth $A$-algebra, let~$p$ be a prime and let $\phi_{p/A}$ denote the crystalline Frobenius as in \cref{cor:qDRWArithmeticFractureSquare}. Then the following diagram commutes:” — The statement of the node (the square follows).
+- `wagner-q-hodge-habiro`, Proof sketch of Proposition 3.19: “The only non-trivial step is to check that under the equivalence $(\qIW_{p^\alpha}\Omega_{S/A})_p^\complete\simeq (\Omega_{S/A}\lotimes_{A,\psi^{p^{\alpha}}}A[q]/(q^{p^\alpha}-1))_p^\complete$ the maps $\overtilde{F}_p$ and $\phi_{p/A}$ get identified.” — Where the main source uses it.
+
+### No functorial q-Hodge complex has the q-de Rham-Witt complexes as functorial cohomology
+
+`HQ.4/no-functorial-q-hodge-complex-with-q-witt-cohomology` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a perfectly covered Lambda-ring which is not an algebra over the rationals. There is no functor q-Hdg from smooth A-algebras to derived (q-1)-complete A[[q-1]]-modules such that for every m there is a functorial isomorphism of graded A[[q-1]]-modules from the (q-1)-completed q-de Rham-Witt complex q-W_m Omega_{-/A} onto H^*(q-Hdg/^L(q^m-1)), and such that for d | m the projection q-Hdg/(q^m-1) -> q-Hdg/(q^d-1) induces the Frobenius F_{m/d}. Consequently a descent to the Habiro ring must be a descended complex, an object of the Habiro-complete derived category, and not a functorial family of cohomology groups with Frobenius transition maps; the descent of HQ.3 produces the former, and HQ.3's filtration on its reduction modulo q^m-1 has graded pieces the derived q-de Rham-Witt forms, not an unfiltered identification of cohomology.
+
+**Hypotheses.**
+
+- A is perfectly covered and not a Q-algebra; over Q such a functor exists and is no more interesting than the de Rham complex (q-Witt v5 Remark 5.2).
+- The impossibility is for functorial cohomology isomorphisms together with Frobenius transition maps.
+
+**Proof.**
+
+1. Choose p with the p-completion of A non-zero; put R = (O_C tensor A)^_p and W = (A_inf(O_C) tensor A)^_p with W/xi = R, where O_C is the ring of integers of a complete algebraically closed extension of Q_p and delta(xi) is a unit.
+2. Animate the hypothetical functor to a derived q-Hodge complex and put on its reductions the animated Postnikov (q-de Rham-Witt) filtration; compute the p-completed derived q-Hodge complexes of W and R (q-Witt v5 Lemma 5.6).
+3. Case m = 1: xi is divisible by q-1 in the p-completed derived q-Hodge complex of R; case m = p: phi(xi) - Phi_p(q) delta(xi) is divisible by q^p - 1.
+4. Reduce modulo p to see that delta(xi) is divisible by q-1, hence vanishes in R/p by the injectivity of Lemma 5.6(c); as delta(xi) is a unit, R/p = 0, contradicting derived Nakayama.
+5. Record the consequence for the form of the descent statement.
+
+**Acceptance.**
+
+- The hypothesis that A is not a Q-algebra is present and used.
+- The distinction between a descended complex and a family of cohomology groups is stated explicitly, as the HQ.4 stage text requires.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`; other roadmaps: `HabiroRings:HR.4/relative-q-witt-rings`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `PrismaticCohomology:PR.0`.
+
+**Sources.**
+
+- `wagner-q-witt`, Theorem 5.1: “If $A$ is not a $\IQ$-algebra, then there can be no functor \begin{equation*} \qHodge_{-/A}\colon \cat{Sm}_A\longrightarrow \widehat{\Dd}_{(q-1)}\bigl(A\qpower\bigr) \end{equation*} from the category of smooth $A$-algebras into the $\infty$-category of derived $(q-1)$-complete $A\qpower$-modules” — The statement of the node.
+- `wagner-q-hodge-habiro`, Paragraph 1.10: “In spite of this promising observation, we show in \cite[Theorem~\chref{5.1}]{qWitt} that it is \emph{impossible} to turn the $q$-Hodge complex into a functor of smooth $\IZ$-algebras,” — How the main source uses it.
+
+### The derived q-de Rham-Witt complex and the animated stupid filtration
+
+`HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration` · construction · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For each m, the derived m-truncated q-de Rham-Witt complex q-W_m dR_{-/A} is the non-abelian derived functor (animation) of R -> q-W_m Omega_{R/A} from polynomial A-algebras to animated A-algebras, with values in D(A[q]); the derived forms q-W_m dR^n_{-/A} are the animations of q-W_m Omega^n_{-/A}. The filtration fil_{Hdg_m} q-W_m dR_{-/A} is the animation of the stupid filtration, whose n-th term on a smooth algebra is the brutal truncation q-W_m Omega^{>= n}; it is a functor to filtered E-infinity A[q]/(q^m-1)-algebras, and its n-th graded piece is q-W_m dR^n shifted by -n. For m = 1 it is the Hodge filtration on the derived de Rham complex. It carries a canonical filtered derived commutative algebra structure, constructed on polynomial algebras at the level of complexes and then animated.
+
+**Hypotheses.**
+
+- The derived objects are defined by animation from polynomial algebras; on smooth algebras they are compared with the underived ones by a separate theorem (Corollary 3.31 node).
+- The graded pieces carry the shift by minus the degree.
+
+**Proof.**
+
+1. Restrict q-W_m Omega^n and the stupid filtration to polynomial A-algebras and left Kan extend along the inclusion into animated A-algebras.
+2. Compute the associated graded of the animated stupid filtration termwise: its n-th piece is the animation of q-W_m Omega^n placed in degree n.
+3. For m = 1 identify it with the Hodge filtration on derived de Rham cohomology, using q-W_1 Omega = Omega.
+4. Construct the filtered derived commutative structure on polynomial algebras from the commutative differential graded structure and animate.
+
+**API.**
+
+- `qWittDR` (constructor): The derived m-truncated q-de Rham-Witt complex, the animation of qWittOmega.
+- `qWittDR.form` (constructor): The derived forms q-W_m dR^n, the animations of q-W_m Omega^n.
+- `qWittDR.hodgeWittFil` (constructor): The animated stupid filtration fil_{Hdg_m} on qWittDR.
+- `qWittDR.gr_hodgeWittFil` (characterisation): Its n-th graded piece is q-W_m dR^n shifted by -n.
+- `qWittDR.one` (example): For m = 1, the Hodge filtration on derived de Rham cohomology.
+- `qWittDR.ofPolynomial` (compatibility): On polynomial algebras the derived objects are the underived ones.
+- `qWittDR.fil_derivedCommutative` (structure): The canonical filtered derived commutative A[q]/(q^m-1)-algebra structure.
+
+**Unit tests.**
+
+- `qWittDR.one` (degenerate): For m = 1 the filtration is the Hodge filtration on derived de Rham cohomology and its n-th graded piece is the n-th derived exterior power of the cotangent complex, shifted by -n.
+- `qWittDR.ofPolynomial` (compatibility): For a polynomial A-algebra P, q-W_m dR_{P/A} is q-W_m Omega_{P/A} and the filtration is the stupid filtration.
+- `qWittDR.gr_zero` (computation): The zeroth graded piece is q-W_m dR^0, which on a polynomial algebra is the relative q-Witt ring q-W_m(P/A) in degree zero.
+- `qWittDR.ne_nygaard` (non-example): The animated stupid filtration is not the Nygaard filtration: for S = A and m = p the first stupid term vanishes in degree zero, while the first Nygaard term in degree zero is the image of V_p, which contains V_p(1) = [p]_q, non-zero.
+
+**Acceptance.**
+
+- The filtration is the animation of the stupid filtration, not of a Nygaard-type filtration.
+- The graded pieces are identified with the shifted derived forms.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes over the Habiro ring, Theorem 3.11(b): The graded pieces of the filtration on the Habiro-Hodge complex modulo q^m-1 are the shifted derived forms.
+- Wagner, q-Hodge complexes over the Habiro ring, Proposition 3.39: The twisted q-Hodge filtration reduces modulo q^m-1 to the animated stupid filtration.
+- Wagner, q-Hodge complexes over the Habiro ring, Corollary 3.31: On smooth algebras the derived forms are the shifted underived ones.
+
+**Depends on.** this roadmap: `HQ.4/the-q-de-rham-witt-complex`; other roadmaps: `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `EnhancedDerivedSheaves:E5`, `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Section 3.2, before Theorem 3.11: “We let $\qIW_m\Omega_{-/A}^*$ denote the $m$-truncated $q$-de Rham Witt complex from \cite[Definition~\chref{3.12}]{qWitt} and $\qIW_m\deRham_{-/A}\colon \cat{AniAlg}_A\rightarrow \Dd(A[q])$ its non-abelian derived functor.” — The derived complex (the cited 'Definition 3.12' is Definition 3.13 of q-Witt v5, E206).
+- `wagner-q-hodge-habiro`, Section 3.5, opening: “For smooth $A$-algebras $S$, let $ \fil_{\Hhodge_m}^\star \qIW_m\Omega_{S/A}^*$ denote the stupid filtration given by $\qIW_m\Omega_{S/A}^{\smash{\geqslant} n,*}$ in degree~$n$.” — The stupid filtration; its animation follows.
+- `wagner-q-hodge-habiro`, Proof outline of Theorem 3.11: “For $m=1$, this is the Hodge filtration on $\deRham_{-/A}$; for higher $m$, it should be thought of as a $q$-Witt vector analogue of the Hodge filtration.” — The case m = 1.
+- `wagner-q-hodge-habiro`, Section 3.8, opening: “(if $R$ is a polynomial $A$-algebra, these structures can be constructed on the level of complexes, then one can pass to animations)” — The filtered derived commutative structure.
+
+### On smooth algebras the derived q-de Rham-Witt forms are the shifted underived forms
+
+`HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+If S is smooth over A, then for every m and every degree n >= 0 the derived q-de Rham-Witt form q-W_m dR^n_{S/A}, the animation of q-W_m Omega^n (HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration), is equivalent to q-W_m Omega^n_{S/A}, so the n-th graded piece of the animated stupid filtration is q-W_m Omega^n_{S/A} in cohomological degree n; equivalently the animated stupid filtration on q-W_m dR_{S/A} is the stupid filtration of the complex q-W_m Omega_{S/A}. Corollary 3.31 of the source states this with the other convention, in which q-W_m dR^n denotes the n-th graded piece itself (source issue E401).
+
+**Hypotheses.**
+
+- S is smooth over A; the statement is false for general animated inputs, where the derived objects are defined by animation.
+- The shift is by -n and is part of the statement.
+
+**Proof.**
+
+1. Reduce to checking the statement rationally and after p-completion for every prime p.
+2. Rationally, use the ghost isomorphism after inverting m, which splits q-W_m Omega^n into Adams twists of de Rham forms with roots of unity adjoined, and that the values of Omega^n on smooth algebras do not change under animation.
+3. After p-completion, use the p-local decomposition to reduce to m = p^a, and show that the stupid filtration on q-W_{p^a} Omega is unchanged by animation, by induction on a from the Hodge-against-Nygaard pullback square and the agreement of the animated and underived Nygaard filtrations on smooth inputs.
+
+**Acceptance.**
+
+- The smoothness hypothesis and the shift are stated.
+- The p-complete step is an induction on the exponent through the Hodge-against-Nygaard square.
+
+**Depends on.** this roadmap: `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.4/ghost-maps-and-what-they-do-not-define`, `HQ.4/the-p-local-decomposition`, `HQ.4/hodge-against-nygaard`, `HQ.4/nygaard-descent-and-smooth-agreement`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 3.31: “If $S$ is smooth over $A$, then $\qIW_m\deRham_{S/A}^n\simeq \Sigma^{-n}\qIW_m\Omega_{S/A}^n$ for all $m\in\IN$ and all degrees $n\geqslant 0$.” — The statement of the node.
+- `wagner-q-hodge-habiro`, Proof of Corollary 3.31: “This follows via induction on $\alpha$ from \cref{lem:HodgevsNygaard} and \cref{cor:NygaardQuasisyntomicDescent}\cref{enum:NygaardSmooth}.” — The p-complete step.
+
+### The prismatic Nygaard filtration on the p-completed twisted q-de Rham complexes
+
+`HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes` · construction · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Fix a prime p and let S be smooth over A. For a >= 0 the p-completion of the p^a-th twisted q-de Rham complex is the a-fold Frobenius twist of the p-completed q-de Rham complex, (p, q-1)-completed. For a = 1 the prismatic Nygaard filtration on it is the preimage of the filtered décalage filtration on the décalage at Phi_p(q) of the p-completed q-de Rham complex under the relative Frobenius equivalence; for a >= 2 it is obtained by pullback along phi^{a-1}: A[q] -> A[q]. These filtrations are filtered E-infinity algebras over the Phi_{p^a}(q)-adically filtered ring, hence over the (q^{p^a}-1)-adically filtered ring; they extend to animated A-algebras by animation.
+
+**Hypotheses.**
+
+- p is fixed; the filtration is defined for a >= 1.
+- The identification with prismatic cohomology is imported from PrismaticCohomology PR.6; the relative Frobenius equivalence and the Nygaard filtration of prismatic cohomology (Bhatt-Scholze section 15) from PR.3.
+
+**Proof.**
+
+1. Identify the p-completed twisted complex of index p^a with the a-fold Frobenius twist, from the fracture square.
+2. For a = 1 define the filtration as the preimage of the décalage filtration under the relative Frobenius equivalence onto the décalage at Phi_p(q).
+3. For a >= 2 pull back along phi^{a-1}, and record the filtered E-infinity structure over Phi_{p^a}(q)^* A[q].
+4. Animate.
+
+**API.**
+
+- `twistedQOmega.nygaardFil` (constructor): The prismatic Nygaard filtration on the p-completed p^a-th twisted complex, a >= 1.
+- `twistedQOmega.nygaardFil_eq_preimage` (characterisation): For a = 1 it is the preimage of the décalage filtration under the relative Frobenius.
+- `twistedQOmega.nygaardFil_pullback` (characterisation): For a >= 2 it is the pullback along phi^{a-1} of the a = 1 filtration.
+- `twistedQOmega.nygaardFil_module` (structure): A filtered E-infinity algebra over Phi_{p^a}(q)^* A[q], hence over (q^{p^a}-1)^* A[q].
+- `twistedQdR.nygaardFil` (functoriality): Its animation to animated A-algebras.
+
+**Unit tests.**
+
+- `twistedQOmega.nygaardFil_zero` (degenerate): The zeroth term is the whole p-completed twisted complex.
+- `twistedQOmega.nygaardFil_frobenius_div` (characterisation): When the p-completed twisted complex is static (as for large quasi-syntomic R), an element lies in the n-th term exactly when its relative Frobenius is divisible by Phi_p(q)^n (for a = 1); this is how the source computes it on Z_p<x^{1/p^infty}>/x.
+- `twistedQOmega.nygaardFil_perfectoidQuotient` (computation): For A = Z and R = Z_p<x^{1/p^infty}>/x, the n-th term of the Nygaard filtration on the p-completed p-th twisted complex is the completed span of Phi_p(q)^{max(n - floor(i), 0)} x^i/[floor(i)]_{q^p}! over i in N[1/p].
+- `twistedQOmega.nygaardFil_ne_adic` (non-example): It is not the Phi_p(q)-adic filtration: in the example above x^1/[1]_{q^p}! = x lies in the first term without being divisible by Phi_p(q).
+
+**Acceptance.**
+
+- The Frobenius twist identification, the preimage definition and the pullback for higher a are all stated.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes over the Habiro ring, paragraph 3.32: It is the right leg of the recursive pullback defining the p-adic twisted q-Hodge filtration.
+- Wagner, q-Hodge complexes over the Habiro ring, Lemma 3.44: Adjoining it divided by powers of Phi_p(q) recovers the p-completed q-de Rham complex.
+
+**Depends on.** this roadmap: `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent`; other roadmaps: `PrismaticCohomology:PR.6`, `PrismaticCohomology:PR.3`, `AInfCohomology:AI.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.20: “Since $q$-de Rham cohomology is a special case of prismatic cohomology, the general theory of Nygaard filtrations \cite[\S{\chref[section]{15}}]{Prismatic} provides a filtration $ \fil_\Nn^\star \bigl(\qOmega_{S/A}^{(p)}\bigr)_p^\complete$:” — The definition for a = 1 (the preimage description follows).
+- `wagner-q-hodge-habiro`, Paragraph 3.20: “Via pullback along $\phi^{\alpha-1}\colon A[q]\rightarrow A[q]$, we also get Nygaard filtrations $ \fil_\Nn^\star \bigl(\qOmega_{S/A}^{(p^\alpha)}\bigr)_p^\complete$ for all $\alpha\geqslant 2$.” — Higher exponents.
+
+### The divided Frobenius on the Nygaard graded pieces
+
+`HQ.4/the-divided-frobenius-on-nygaard-graded-pieces` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S be smooth over A, p a prime and a >= 1. For every n >= 0 the rescaled Frobenius F~_p restricted to the n-th Nygaard term of q-W_{p^a} Omega_{S/A} is divisible by p^n, and the divided Frobenius p^{-n} F~_p induces a map from the n-th Nygaard graded piece to the n-truncation tau^{<= n}(q-W_{p^{a-1}} Omega_{S/A}/p) which is surjective in degree n and an isomorphism in all other degrees.
+
+**Hypotheses.**
+
+- S smooth over A, a >= 1.
+- The target is the canonical truncation of the reduction modulo p.
+
+**Proof.**
+
+1. Divisibility by p^n is immediate from the definition and F_p o V_p = p.
+2. V_p is injective because q-W_{p^{a-1}} Omega is degreewise p-torsion free; hence the divided Frobenius is an isomorphism in degrees below n, and the graded piece vanishes above n.
+3. In degree n the map is F_p: q-W_{p^a} Omega^n / V_p -> q-W_{p^{a-1}} Omega^n / p, which lands in the kernel of d modulo p since d o F_p = p (F_p o d).
+4. Surjectivity onto that kernel: for a polynomial algebra this is assertion (d_{a-1}) of the smooth-case induction; for S etale over a polynomial algebra use etale base change; in general use a Zariski cover.
+
+**Acceptance.**
+
+- Surjective in degree n, bijective elsewhere; the target is the truncation of the reduction modulo p.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/etale-base-change-and-the-sheaf-property`, `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.23: “Let $S$ be smooth over $A$. For all $n\geqslant 0$, the Frobenius $\overtilde{F}_p$, when restricted to $ \fil_\Nn^n\qIW_{p^\alpha}\Omega_{S/A}^*$, is divisible by $p^n$.” — Divisibility (the map and its properties follow).
+
+### The kernel of the Frobenius on q-de Rham-Witt forms
+
+`HQ.4/the-kernel-of-the-frobenius` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S be smooth over A, p a prime and a >= 1. There are canonical isomorphisms from Omega^n_{S/A} tensored along phi^a with A[zeta_{p^a}] onto the kernel of F_p: q-W_{p^a} Omega^n -> q-W_{p^{a-1}} Omega^n, and onto the kernel of F_p: q-W_{p^a} Omega^n / V_p -> q-W_{p^{a-1}} Omega^n / p.
+
+**Hypotheses.**
+
+- S smooth over A, a >= 1.
+
+**Proof.**
+
+1. The second isomorphism: injectivity from F_p V_p = p and p-torsion freeness; surjectivity by subtracting V_p(h) when F_p(w) = p h.
+2. The first: show that gh_1 maps ker F_p isomorphically onto (zeta_p - 1) times the target; reduce to polynomial algebras by etale base change.
+3. Injectivity: an element of ker F_p and ker gh_1 is V_p(h_0) + dV_p(h_1) (the gh_1 quotient description); use (d_{a-1}) of the smooth-case induction and V_p F_p = Phi_{p^a}(q), V_p d = p d V_p to conclude it vanishes.
+4. Image: check after inverting p (ghost splitting) and after p-completion, where the framed q-Hodge comparison (Theorem 4.27 of q-Witt v5) and the direct summand of q-Witt v5 4.28 to 4.30 identify the image.
+
+**Acceptance.**
+
+- Both isomorphisms are stated; the identification goes through gh_1.
+
+**Depends on.** this roadmap: `HQ.4/the-divided-frobenius-on-nygaard-graded-pieces`, `HQ.4/ghost-maps-and-what-they-do-not-define`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/etale-base-change-and-the-sheaf-property`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.24: “Let $S$ be smooth over $A$. There exists canonical isomorphisms \begin{align*} \Omega_{S/A}^n\otimes_{A,\phi^\alpha}A[\zeta_{p^\alpha}]&\cong\ker\left(F_p\colon \qIW_{p^{\alpha}}\Omega_{S/A}^n\rightarrow \qIW_{p^{\alpha-1}}\Omega_{S/A}^n\right)” — The first isomorphism (the second follows in the source).
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.24: “In any case, we can now use \cite[Theorem~\chref{4.27}]{qWitt} to identify the $q$-de Rham--Witt Frobenius” — The use of q-Witt Theorem 4.27.
+
+### The Nygaard graded pieces sit in a cofibre sequence with the conjugate filtration
+
+`HQ.4/the-nygaard-cofibre-sequence` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be an animated A-algebra, p a prime and a >= 1, and let q-W_{p^a} dR denote the p-completed animation of the q-de Rham-Witt complex. For every n >= 0 there is a functorial divided Frobenius from the n-th graded piece of the animated Nygaard filtration to fil_n^conj(dR_{R/A}/p) derived-tensored along phi^{a-1} with A[q]/(q^{p^{a-1}}-1), whose fibre is the derived form dR^n_{R/A} derived-tensored along phi^a with A[zeta_{p^a}], shifted by -n. The source states this for all a >= 0; the case a = 0 is meaningless (E203).
+
+**Hypotheses.**
+
+- a >= 1 (the source prints a >= 0, a misprint).
+- fil^conj(dR/p) is the conjugate filtration, the animation of tau^{<= *}(Omega/p).
+
+**Proof.**
+
+1. For smooth S, the two previous lemmas give a short exact sequence of complexes from Omega^n[-n] tensored with A[zeta_{p^a}] through the Nygaard graded piece onto tau^{<= n}(q-W_{p^{a-1}} Omega/p).
+2. Identify q-W_{p^{a-1}} Omega/p with Omega/p tensored along phi^{a-1} with A[q]/(q^{p^{a-1}}-1) by the p-completion statement.
+3. Pass to animations.
+
+**Acceptance.**
+
+- The range of a is stated correctly and the misprint recorded.
+
+**Depends on.** this roadmap: `HQ.4/the-divided-frobenius-on-nygaard-graded-pieces`, `HQ.4/the-kernel-of-the-frobenius`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 3.25: “Let $R$ be an animated $A$-algebra and let $\qIW_{p^\alpha}\deRham_{-/A}$ denote the \embrace{$p$-completed} animations of the $q$-de Rham--Witt complex functors. For all $n\geqslant 0$ and all $\alpha\geqslant 0$, there exists a functorial divided Frobenius” — The statement, with the printed range a >= 0.
+
+### The animated Nygaard filtration satisfies quasi-syntomic descent and agrees with the underived one on smooth inputs
+
+`HQ.4/nygaard-descent-and-smooth-agreement` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let p be a prime and a >= 1. (a) For every n, the n-th term of the p-completed animated Nygaard filtration on q-W_{p^a} dR_{R/A} satisfies quasi-syntomic descent in the animated A-algebra R. (b) If R is smooth over A, it agrees with the p-completed underived Nygaard filtration on q-W_{p^a} Omega_{R/A}. The source states both for all a >= 0; the case a = 0 is meaningless (E203).
+
+**Hypotheses.**
+
+- The statements are after p-completion.
+- a >= 1.
+
+**Proof.**
+
+1. The p-completed derived complex is Omega derived-tensored along phi^a with A[q]/(q^{p^a}-1), which satisfies descent and agrees with its underived version on smooth inputs.
+2. It therefore suffices to prove both statements for the Nygaard graded pieces, and these follow from the cofibre sequence.
+
+**Acceptance.**
+
+- Both statements carry the p-completion.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-cofibre-sequence`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `PrismaticCohomology:PR.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 3.26: “For all animated $A$-algebras $R$ and all $\alpha\geqslant 0$, let us denote the animated Nygaard filtration by $ \fil_\Nn^n\qIW_{p^\alpha}\deRham_{R/A}$. Then:” — The statement, with the printed range a >= 0.
+
+### The fibre sequence for the prismatic Nygaard filtration modulo q^{p^a}-1
+
+`HQ.4/the-prismatic-nygaard-fibre-sequence` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be an animated A-algebra, p a prime and a >= 1, and let fil_{N,q} be the prismatic Nygaard filtration on the p-completed p^a-th twisted derived q-de Rham complex, reduced modulo q^{p^a}-1 with the quotient convention. For every n >= 0 there is a canonical map p^{-n} phi_{/A} from its n-th graded piece to fil_n^conj(dR_{R/A}/p) derived-tensored along phi^{a-1} with A[q]/(q^{p^{a-1}}-1), with fibre the p-completion of dR^n_{R/A} derived-tensored along phi^a with A[zeta_{p^a}], shifted by -n; the fibre inclusion is described by the diagram of Remark 3.28.
+
+**Hypotheses.**
+
+- a >= 1; the quotient by q^{p^a}-1 places it in filtration degree one.
+
+**Proof.**
+
+1. Divide the Frobenius on the n-th Nygaard term by Phi_{p^a}(q)^n; by the Nygaard theorem of prismatic cohomology (Bhatt-Scholze Theorem 15.2(2)), quasi-syntomic descent and animation, the divided Frobenius maps the (n-1)-st and n-th graded pieces isomorphically onto the conjugate filtration of the reduction modulo Phi_{p^a}(q).
+2. Compute the cofibre of multiplication by q^{p^{a-1}}-1 on the conjugate filtration using the base change result of Bhatt-Scholze Theorem 15.2(3), and read off the map.
+3. Identify the fibre by the Hodge-Tate comparison (Bhatt-Scholze Construction 7.6).
+
+**Acceptance.**
+
+- The fibre is identified, and the remark's diagram is recorded as part of the statement.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.2/the-quotient-convention-for-filtered-modules`; other roadmaps: `PrismaticCohomology:PR.3`, `PrismaticCohomology:PR.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.27: “Let $R$ be an animated $A$-algebra. For brevity, let us write \begin{equation*} \fil_{\Nn, \qOmega}^\star \coloneqq \fil_\Nn^\star \bigl(\qdeRham_{R/A}^{(p^\alpha)}\bigr)_p^\complete/(q^{p^\alpha}-1) \end{equation*}” — The statement (the map and its fibre follow).
+- `wagner-q-hodge-habiro`, Proof of Lemma 3.27: “The vertical arrows are equivalences by \cite[Theorem~\chref{15.2}(2)]{Prismatic} (plus quasi-syntomic descent and passing to animations to allow for arbitrary animated $A$-algebras $R$).” — The prismatic input.
+
+### The Nygaard filtration of the twisted complex reduces to the Nygaard filtration of the q-de Rham-Witt complex
+
+`HQ.4/the-nygaard-comparison` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For smooth A-algebras S, a prime p and a >= 1, there is a unique functorial equivalence of filtered E-infinity A[q]/(q^{p^a}-1)-algebras from the prismatic Nygaard filtration on the p-completed p^a-th twisted q-de Rham complex, reduced modulo q^{p^a}-1 with the quotient convention, onto the p-completed Nygaard filtration on q-W_{p^a} Omega_{S/A}, which in degree zero recovers the equivalence of the deformation node. The same holds as filtered derived commutative algebras.
+
+**Hypotheses.**
+
+- S smooth; the statement is after p-completion; the quotient places q^{p^a}-1 in filtration degree one.
+
+**Proof.**
+
+1. By quasi-syntomic descent (the descent node) reduce to large p-complete quasi-syntomic R, with a surjection from A_p<x_i^{1/p^infty}>, where both filtrations are filtrations by ideals of a static ring, so functoriality, multiplicativity and uniqueness are automatic.
+2. Induct on n: given equality of the n-th terms, compare the fibre sequences of the Nygaard cofibre sequence and the prismatic Nygaard fibre sequence, tracing the ghost map gh_1, so that it suffices to prove that one explicit square with the Hodge-Tate comparison commutes.
+3. Reduce to a = 1 and to A = Z by faithfully flat base change to the perfection; check the square on Z_p<x^{1/p^infty}>/x using that Phi_p(q)^{-n} phi(x^n/[n]_q!) is x^{pn}/([n]_{q^p}! Phi_p(q)^n), a unit multiple of the q-divided power, and extend by the method of Bhatt-Scholze section 12 (products, Andre's lemma, descent from R_infty).
+
+**Acceptance.**
+
+- Uniqueness and functoriality are proved; the degree-zero restriction is named.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-cofibre-sequence`, `HQ.4/nygaard-descent-and-smooth-agreement`, `HQ.4/the-prismatic-nygaard-fibre-sequence`, `HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex`, `HQ.4/ghost-maps-and-what-they-do-not-define`; other roadmaps: `PrismaticCohomology:PR.3`, `PerfectoidQuotients:Q3`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.22: “For smooth $A$-algebras $S$, there exists a unique functorial equivalence of filtered $\IE_\infty$-$A[q]/(q^{p^\alpha}-1)$-algebras” — The statement of the node.
+- `wagner-q-hodge-habiro`, Proof of Proposition 3.22: “Thanks to \cref{cor:NygaardQuasisyntomicDescent}, we can tackle the question using quasi-syntomic descent.” — The strategy.
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 3.52: “First note that our results about the Nygaard filtration, specifically \cref{prop:NygaardComparison} and \cref{lem:NygaardRationalisation}, also hold true as equivalences of filtered derived commutative algebras, since the proofs work in this setting as well.” — The derived commutative version.
+
+### After inverting p the Nygaard filtration is the combined Hodge and cyclotomic-adic filtration
+
+`HQ.4/the-nygaard-filtration-after-inverting-p` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every animated A-algebra R and prime p, the equivalence between the (q-1)-completed p-completed derived q-de Rham complex with p inverted and the power series ring over the p-completed derived de Rham complex with p inverted upgrades uniquely to an equivalence of filtered E-infinity A[1/p, q]-algebras from the prismatic Nygaard filtration on the p-completed p-th twisted derived q-de Rham complex, with p inverted and completed at Phi_p(q), onto the combined Hodge and Phi_p(q)-adic filtration on the p-completion of dR_{R/A} derived-tensored along phi, with p inverted, completed at Phi_p(q).
+
+**Hypotheses.**
+
+- The statement is after inverting p and completing at Phi_p(q).
+
+**Proof.**
+
+1. Construct the map for large p-complete quasi-syntomic R, where both filtrations are by ideals, reducing by faithfully flat base change to A = Z and by Bhatt-Scholze section 12 to Z_p<x^{1/p^infty}>/x, where the n-th Nygaard term becomes the ideal (x, Phi_p(q))^n after inverting p.
+2. Show it is an equivalence by reducing both sides modulo Phi_p(q) in filtration degree one: the right side gives the base-changed Hodge filtration, the left side, via the Nygaard comparison, the Nygaard filtration on q-W_p dR with p inverted, which gh_1 identifies with the base-changed Hodge filtration since the images of V_p are (q-1)-torsion.
+
+**Acceptance.**
+
+- Uniqueness is recorded; the right-hand side is the combined Hodge and Phi_p(q)-adic filtration.
+
+**Depends on.** this roadmap: `HQ.4/the-nygaard-comparison`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom`, `HQ.1/rationalised-q-crystalline-comparison`; other roadmaps: `PrismaticCohomology:PR.3`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 3.29: “The equivalence $(\qdeRham_{R/A})_p^\complete[1/p]_{(q-1)}^\complete\simeq (\deRham_{R/A})_p^\complete[1/p]\qpower$ upgrades uniquely to an equivalence of filtered $\IE_\infty$-$A[1/p,q]$-algebras” — The statement of the node.
+
+## HQ.5 — Existence classes and number fields
+
+*Coverage: source_decomposed.* 25 nodes, 11 of them added by the independent review. The truncation adjunction with its projection formula; the canonical smooth filtration with the two-regime factorisation argument; the framed and fixed-point descriptions; the functoriality across dimensions through a pushout of categories; the smooth existence theorem with both the base and the dimension bound; the partial-operad multiplicativity with the doubled and the r-fold bounds and the explicit statement that inverting up to the dimension gives no multiplication; algebraic Habiro cohomology of a scheme with perfectness over the Habiro completion of the localised ring; condition (R) and the quasi-lci inputs with the counterexample showing relative semiperfectness is not automatic; the naive filtration with its unconditional injectivity; the well-behavedness theorem with both conditions and the prime-two restriction on the implication between them; flat base change; the global quasi-regular section with its monoidality; the two uniqueness statements with the extra datum the smooth case needs; and the export to the coefficient roadmap with its boundary.
+
+### Filtrations supported in degrees at most n: the truncation functor, its oplax left adjoint on modules, and the relative truncation
+
+`HQ.5/truncated-filtered-objects-and-the-left-adjoint` · construction
+
+Let Fil^{≥0}D(Z) be the full subcategory of filtered objects of the derived ∞-category of Z (descending, maps fil^{i+1} → fil^i) that are constant in filtration degrees at most zero, and Fil^{[0,n]}D(Z) the full subcategory of those that also vanish in degrees at least n+1. (a) The functor τ*_n : Fil^{≥0}D(Z) → Fil^{[0,n]}D(Z) that keeps the degrees at most n and replaces every degree at least n+1 by zero is right adjoint to the inclusion (extension by zero) and left adjoint to the fully faithful functor that extends an object constantly above degree n; in particular it is a localisation. For filtered objects M and N the canonical map τ*_n(M ⊗^L τ*_n N) → τ*_n(M ⊗^L N) is an equivalence, so Fil^{[0,n]}D(Z) and τ*_n carry canonical symmetric monoidal structures. (b) For every filtered E∞-algebra T in Fil^{≥0}D(Z), the induced symmetric monoidal functor τ*_n : Mod_T(Fil^{≥0}D(Z)) → Mod_{τ*_n T}(Fil^{[0,n]}D(Z)) preserves all limits and colimits and has a left adjoint τ^T_{n,!}, which is oplax symmetric monoidal. (c) For a map T_1 → T_2 of filtered E∞-algebras and a τ*_n T_1-module M in Fil^{[0,n]}D(Z) there is a natural equivalence τ^{T_2}_{n,!}(M ⊗_{τ*_n T_1} τ*_n T_2) ≃ τ^{T_1}_{n,!}(M) ⊗_{T_1} T_2. (d) Every map inverted by τ*_{n+1} is inverted by τ*_n, so there is a unique symmetric monoidal functor τ*_{n,n+1} : Fil^{[0,n+1]}D(Z) → Fil^{[0,n]}D(Z) with τ*_{n,n+1} ∘ τ*_{n+1} ≃ τ*_n; on τ*_{n+1}T-modules it has an oplax symmetric monoidal left adjoint τ_{n,n+1,!}. (e) For T the filtered unit Z, τ^Z_{n,!} is the extension by zero and is fully faithful, because the right adjoint of τ*_n is.
+
+**Hypotheses.**
+
+- Filtered objects are descending and constant in degrees at most zero (the convention of HQ.2); τ*_n is defined on that subcategory.
+- τ*_n is the restriction to degrees at most n: it is RIGHT adjoint to the extension-by-zero inclusion and LEFT adjoint to the constant extension above n. The source prints 'left adjoint' for the first adjunction (source issue E301); every computation in the source uses the direction stated here.
+- τ^T_{n,!} is only oplax symmetric monoidal; nothing makes it lax, which is why the multiplicativity of the smooth construction is stated operadically.
+- (c) is natural in M and in the map T_1 → T_2.
+
+**Proof.**
+
+1. (a) Check the two adjunctions directly on components: a map from an object vanishing above n into M is the same as a compatible family of maps in degrees at most n, and so is a map from τ*_n M into an object extended constantly above n; the latter extension is fully faithful, so τ*_n is a localisation.
+2. (a) For the monoidality equivalence both sides preserve colimits in each variable, so it suffices to take M = Z(i) and N = Z(j) with i, j ≥ 0 (Z in degrees at most j, zero above): if j ≤ n the counit τ*_n Z(j) → Z(j) is an equivalence, and if j ≥ n+1 both τ*_n Z(i+j) and τ*_n Z(i+n) are Z(n). The symmetric monoidal structures then come from the general statement on symmetric monoidal localisations (Lurie, Higher Algebra, Proposition 2.2.1.9).
+3. (b) and (c) For any T_1 → T_2 the square formed by base change and τ*_n commutes; with T_1 the unit it shows that τ*_n on T-modules preserves limits and colimits, so τ^T_{n,!} exists by the adjoint functor theorem and is oplax symmetric monoidal as the left adjoint of a symmetric monoidal functor. Passing to left adjoints in the same square gives (c).
+4. (d) Factor τ*_n through the symmetric monoidal localisation τ*_{n+1} and argue as in (b) on modules.
+5. (e) In an adjoint triple the left adjoint is fully faithful exactly when the right adjoint is.
+
+**API.**
+
+- `TauCeti.QHodge.truncateFil` (constructor): τ*_n : Fil^{≥0}D(Z) → Fil^{[0,n]}D(Z), keeping degrees at most n.
+- `TauCeti.QHodge.truncateFil_apply` (simp): (τ*_n M)^i ≃ M^i for i ≤ n and (τ*_n M)^i ≃ 0 for i ≥ n+1, with the transition maps of M below n+1.
+- `TauCeti.QHodge.truncateFil_adjunction` (universal-property): Extension by zero ⊣ τ*_n ⊣ constant extension above n, the last functor fully faithful.
+- `TauCeti.QHodge.truncateFil_tensor` (characterisation): τ*_n(M ⊗^L τ*_n N) ≃ τ*_n(M ⊗^L N), making τ*_n symmetric monoidal.
+- `TauCeti.QHodge.truncateFilShriek` (constructor): τ^T_{n,!}, the oplax symmetric monoidal left adjoint of τ*_n on T-modules.
+- `TauCeti.QHodge.truncateFilShriek_baseChange` (compatibility): Clause (c): τ^{T_2}_{n,!}(M ⊗_{τ*_n T_1} τ*_n T_2) ≃ τ^{T_1}_{n,!}M ⊗_{T_1} T_2.
+- `TauCeti.QHodge.truncateFilRel` (constructor): Clause (d): τ*_{n,n+1} with τ*_{n,n+1} ∘ τ*_{n+1} ≃ τ*_n, and its oplax left adjoint τ_{n,n+1,!} on modules.
+- `TauCeti.QHodge.truncateFilShriek_unit_fullyFaithful` (characterisation): Clause (e): τ^Z_{n,!} is extension by zero and is fully faithful.
+
+**Unit tests.**
+
+- `TauCeti.QHodge.truncateFil_unit_shift` (computation): τ*_n Z(j) ≃ Z(min(j, n)) for all j ≥ 0, where Z(j) is Z in filtration degrees at most j and zero above.
+- `TauCeti.QHodge.truncateFil_of_vanishing` (degenerate): For M vanishing in degrees at least n+1 (for example the Hodge filtration of Ω_{S/A} with dim(S/A) ≤ n), τ^Z_{n,!} τ*_n M ≃ M.
+- `TauCeti.QHodge.truncateFil_ne_quotient` (non-example): τ*_n is not the quotient by the (n+1)-st step (the left adjoint of the inclusion): on Z(n+1) the quotient is zero while τ*_n Z(n+1) ≃ Z(n).
+- `TauCeti.QHodge.truncateFilShriek_adic` (computation): For T = (q−1)^⋆Z⟦q−1⟧ and M = τ*_n T, τ^T_{n,!} M ≃ T; in general τ^T_{n,!} continues a module above degree n by multiplication by powers of q−1, which is the intended (q−1)-adic continuation of Paragraph 4.1.
+
+**Acceptance.**
+
+- Both adjunctions of τ*_n are stated with their directions, and τ^T_{n,!} is recorded as oplax, not lax.
+- The projection formula (c) is obtained from the commuting square of right adjoints.
+- The relative truncation (d) and the full faithfulness (e) that the later nodes use are part of the node.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Paragraph 4.3: τ*_n restricts the combined filtration to degrees at most n and τ_{n,!} continues the pullback above n
+- Wagner, q-Hodge complexes, Lemmas 4.6 and 4.10: the base-change formula (c), the full faithfulness (e) and the relative truncation (d) compute the reductions modulo q−1
+- Wagner, q-Hodge complexes, Paragraph 4.14 and Corollary 4.16: the oplax structure of τ_{n,!} is why the multiplicativity is operadic
+
+**Depends on.** this roadmap: `HQ.2/filtered-graded-and-completion-conventions`; other roadmaps: `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E5:abstract`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.2, preamble: “Let Fil^{⩾0} D(Z) denote the full sub-∞-categories of filtered objects that are constant in filtration degrees ⋆ ⩽ 0. Let Fil^{[0,n]} D(Z) ⊆ Fil^{⩾0} D(Z) denote the full sub-∞-category of filtered objects that also vanish in filtration degree ⋆ ⩾ n+1.” — The two categories.
+- `wagner-q-hodge-habiro`, Lemma 4.2(a): “The inclusion Fil^{[0,n]} D(Z) → Fil^{⩾0} D(Z) has a left adjoint τ*_n, which on objects is given by replacing all filtration degrees ⋆ ⩾ n+1 by 0.” — The truncation functor; 'left' is the printed word, corrected to 'right' in source issue E301.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.2(a): “If j ⩽ n, then τ*_n Z(j) → Z(j) is an equivalence and the claim is clear. If j ⩾ n+1, then we must check that τ*_n Z(i+j) → τ*_n Z(i+n) is an equivalence. This is clear as both sides are just Z(n).” — The monoidality check, which uses the counit of the inclusion-truncation adjunction.
+- `wagner-q-hodge-habiro`, Lemma 4.2(b) and proof of (b), (c): “admits an oplax symmetric monoidal left adjoint τ^T_{n,!} ... Therefore the claimed left adjoint τ^T_{n,!} exists by Lurie’s adjoint functor theorem. ... By passing to left adjoints in the diagram above, we immediately obtain (c).” — Clauses (b) and (c) and how (c) is proved.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.10: “Since τ*_{n+1} is a symmetric monoidal localisation, there exists a unique (up to contractible choice) symmetric monoidal functor τ*_{n,n+1} such that” — Clause (d).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.6: “Since the right adjoint of τ*_n : Fil^{⩾0} D(Z) → Fil^{[0,n]} D(Z) is fully faithful, so is the left adjoint τ^Z_{n,!}, which yields the third equivalence.” — Clause (e).
+
+### The canonical q-Hodge filtration on a smooth algebra with small primes inverted
+
+`HQ.5/the-canonical-smooth-q-hodge-filtration` · construction
+
+Let A be a perfectly covered Λ-ring, S a smooth A-algebra of arbitrary relative dimension and n ≥ 1 an integer such that every prime p ≤ n is invertible in S. (i) The canonical map q-Ω_{S/A} → Ω_{S/A} factors through an E∞-A⟦q−1⟧-algebra map q-Ω_{S/A} → Ω_{S/A}⟦q−1⟧/(q−1)^n: by the construction of the global q-de Rham complex it suffices to check this after p-completion for each prime p; the p-completed map always factors through Ω^∧_p⟦q−1⟧/(q−1)^{p−1}, which suffices for p > n, and for p ≤ n the p-completion of q-Ω_{S/A} vanishes. (ii) Let fil^⋆_{(Hdg,q−1)} Ω_{S/A}⟦q−1⟧ be the (q−1)-completed tensor product of the Hodge filtration with the (q−1)-adic filtration of Z⟦q−1⟧, and fil^⋆_{(Hdg,q−1)}(Ω_{S/A}⟦q−1⟧/(q−1)^n) its reduction modulo (q−1)^n, regarded as an element in filtration degree n (on the unit this is the finite filtration by (q−1)^i Z⟦q−1⟧/(q−1)^n in degree i, which is not the (q−1)-adic filtration of the conventions). (iii) fil^{⋆≤n}_{q-Hdg,n} q-Ω_{S/A} is the pullback of τ*_n of that filtration along the map of (i), taken in τ*_n((q−1)^⋆A⟦q−1⟧)-modules in Fil^{[0,n]}D(Z). (iv) fil^⋆_{q-Hdg,n} q-Ω_{S/A} := (τ_{n,!} fil^{⋆≤n}_{q-Hdg,n} q-Ω_{S/A})^∧_{(q−1)}, a filtered (q−1)^⋆A⟦q−1⟧-module, and fil^⋆_{q-Hdg,n} q-dR_{S/A} is its pullback along q-dR_{S/A} → q-Ω_{S/A}. The construction is functorial in S. That it is a q-Hodge filtration when dim(S/A) ≤ n is the next node.
+
+**Hypotheses.**
+
+- A is a perfectly covered Λ-ring and S is smooth over A; the construction needs no bound on dim(S/A).
+- Every prime p ≤ n is invertible in S; this is what makes both halves of the factorisation argument work.
+- The reduction modulo (q−1)^n sits in filtration degree n and is not the (q−1)-adic filtration of the conventions.
+- The q-Hodge property needs dim(S/A) ≤ n in addition and is proved in the next node; the comparison of the constructions for n and n+1 is the functoriality node.
+
+**Proof.**
+
+1. Reduce the factorisation (i) to p-completions through the pullback description of the global q-de Rham complex; for p > n use the factorisation of the p-completed map through Ω^∧_p⟦q−1⟧/(q−1)^{p−1} given by the q-divided-power estimates of Appendix A (Lemma A.6), and for p ≤ n use that the p-completion vanishes because p is invertible in S.
+2. Form the combined Hodge and (q−1)-adic filtration on Ω_{S/A}⟦q−1⟧ (the Hodge filtration is the imported one of DD.2) and its reduction modulo (q−1)^n placed in filtration degree n.
+3. Apply τ*_n and form the pullback in τ*_n((q−1)^⋆A⟦q−1⟧)-modules in Fil^{[0,n]}D(Z), a symmetric monoidal category by the truncation node.
+4. Apply τ_{n,!}, complete at q−1, and pull back along q-dR_{S/A} → q-Ω_{S/A}; each step is functorial in S.
+
+**API.**
+
+- `TauCeti.QHodge.canonicalSmoothFiltration` (constructor): For S smooth over A with all primes p ≤ n invertible, the filtered (q−1)^⋆A⟦q−1⟧-module fil^⋆_{q-Hdg,n} q-Ω_{S/A} and its pullback to q-dR_{S/A}.
+- `TauCeti.QHodge.qOmega_factorisation` (characterisation): (i): the E∞-A⟦q−1⟧-algebra map q-Ω_{S/A} → Ω_{S/A}⟦q−1⟧/(q−1)^n lifting the canonical map to Ω_{S/A}.
+- `TauCeti.QHodge.canonicalSmoothFiltration_truncate` (characterisation): τ*_n of the filtration is the pullback of (iii).
+- `TauCeti.QHodge.canonicalSmoothFiltration_lift` (universal-property): Maps from fil^⋆_{q-Hdg,n} q-Ω_{S/A} to a (q−1)-complete filtered (q−1)^⋆A⟦q−1⟧-module N are maps from fil^{⋆≤n}_{q-Hdg,n} q-Ω_{S/A} to τ*_n N (adjunction and completion); this is how comparison maps are built.
+- `TauCeti.QHodge.canonicalSmoothFiltration_mod_q_sub_one` (projection): The reduction modulo q−1 (q−1 in filtration degree one) is τ^Z_{n,!} τ*_n fil^⋆_Hdg Ω_{S/A}.
+- `TauCeti.QHodge.canonicalSmoothFiltration_map` (functoriality): Functoriality in S among smooth A-algebras with the primes p ≤ n invertible, with identity and composition laws.
+- `TauCeti.QHodge.canonicalSmoothFiltration_framed` (compatibility): For an étale framing in n coordinates, the equivalence with the coordinate filtration (framed-comparison node).
+
+**Unit tests.**
+
+- `TauCeti.QHodge.canonicalSmoothFiltration_base` (degenerate): For S = A and n = 1 we have q-dR_{A/A} ≃ A⟦q−1⟧ and the filtration is the (q−1)-adic filtration (q−1)^i A⟦q−1⟧.
+- `TauCeti.QHodge.canonicalSmoothFiltration_line` (computation): For S = A[x] and n = 1 (no prime inverted), in the coordinate model the i-th step for i ≥ 1 is the subcomplex (q−1)^i A[x]⟦q−1⟧ → (q−1)^{i−1} A[x]⟦q−1⟧ dx: the pullback of the Hodge filtration in degree one continued (q−1)-adically (Paragraph 1.14).
+- `TauCeti.QHodge.canonicalSmoothFiltration_mod_of_dim_gt` (characterisation): If dim(S/A) > n the reduction modulo q−1 is τ^Z_{n,!} τ*_n of the Hodge filtration, which vanishes in degree n+1 while the Hodge filtration does not; so the q-Hodge property genuinely needs dim(S/A) ≤ n.
+- `TauCeti.QHodge.naivePullback_not_qHodge` (non-example): Without τ*_n, the pullback of the Hodge filtration along q-Ω_{S/A} → Ω_{S/A} contains (q−1)q-Ω_{S/A} in every step (Paragraph 1.14); for S = A[x] its second step contains q−1 times the unit, which violates the rational clause, since (q−1) ∉ (q−1)^2 A⟦q−1⟧ + (q−1) fil^1_Hdg.
+
+**Acceptance.**
+
+- The factorisation is argued in both regimes of primes.
+- The pullback is taken after τ*_n in the stated module category, and the continuation above degree n is τ_{n,!} followed by (q−1)-completion, not an informal (q−1)-adic extension.
+- No dimension hypothesis is used in the construction.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Lemma 4.6 and Theorem 4.11: under dim(S/A) ≤ n it is a q-Hodge filtration, and the constructions for varying n assemble into the canonical section
+- Wagner, q-Hodge complexes, Lemma 4.13 and Corollary 4.16: its truncation is symmetric monoidal in S, the input to the operadic multiplicativity
+- Wagner, q-Hodge complexes, Paragraph 1.21: the uniqueness of the smooth section is phrased through compatibility with the map of (i)
+- HabiroCohomologyFoundations:HQ.7: the acceptance tests on a polynomial ring and on a smooth scheme with the small primes inverted
+
+**Depends on.** this roadmap: `HQ.5/truncated-filtered-objects-and-the-left-adjoint`, `HQ.1/the-global-q-de-rham-complex`, `HQ.1/divided-power-denominators-in-the-q-pd-envelope`, `HQ.1/what-the-global-complex-satisfies`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/filtered-graded-and-completion-conventions`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`; other roadmaps: `DerivedDeRhamCohomology:DD.2`; libraries: `mathlib:Algebra.Smooth`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 4.1: “Let S be smooth of arbitrary dimension over A and let n be a positive integer such that all primes p ⩽n are invertible in S. This assumption ensures that the canonical map q-Ω_{S/A} → Ω_{S/A} factors through an E∞-A⟦q −1⟧-algebra map q-Ω_{S/A} → Ω_{S/A}⟦q −1⟧/(q −1)^n.” — Hypotheses and the factorisation (i).
+- `wagner-q-hodge-habiro`, Paragraph 4.1, continued: “In general, (q-Ω_{S/A})^∧_p → (Ω_{S/A})^∧_p factors through (q-Ω_{S/A})^∧_p → (Ω_{S/A})^∧_p⟦q −1⟧/(q −1)^{p−1} by Lemma A.6. For primes p > n, this does what we want. For p ⩽n, our assumption on S ensures that (q-Ω_{S/A})^∧_p vanishes, so this case is fine too.” — The two regimes.
+- `wagner-q-hodge-habiro`, Paragraph 4.1, footnote (4.1): “This is not the (q −1)-adic filtration in our sense, since the latter would be Z⟦q −1⟧/(q −1)^n in every degree, with transition maps given by multiplication by (q −1).” — The filtration of (ii) is not the adic one.
+- `wagner-q-hodge-habiro`, Paragraph 4.3: “Applying the functor τ_{n,!} from Lemma 4.2(b), we obtain a filtered (q −1)^⋆A⟦q −1⟧-module fil^⋆_{q-Hdg,n} q-Ω_{S/A} := τ_{n,!}(fil^{⋆⩽n}_{q-Hdg,n} q-Ω_{S/A})^∧_{(q−1)}. We can also take the pullback along q-dR_{S/A} → q-Ω_{S/A}” — Steps (iii) and (iv).
+
+### The canonical filtration of a framed smooth algebra is the coordinate filtration
+
+`HQ.5/framed-and-fixed-point-descriptions-of-the-canonical-filtration` · comparison
+
+Let S be smooth over A with every prime p ≤ n invertible, equipped with an étale framing □: A[x_1, …, x_n] → S (so dim(S/A) = n). Then there is an equivalence of filtered (q−1)^⋆A⟦q−1⟧-modules fil^⋆_{q-Hdg,n} q-Ω_{S/A} ≃ fil^⋆_{q-Hdg,□} q-Ω^∗_{S/A,□} between the canonical filtration and the coordinate filtration of the framed q-de Rham complex, whose i-th step is the subcomplex (q−1)^i S⟦q−1⟧ → (q−1)^{i−1} Ω^1_{S/A}⟦q−1⟧ → ⋯ → Ω^i_{S/A}⟦q−1⟧ → ⋯ → Ω^n_{S/A}⟦q−1⟧. The truncation τ*_n of the coordinate filtration satisfies the pullback square defining the canonical truncated filtration, the adjunction τ_{n,!} ⊣ τ*_n produces the comparison map, and it is an equivalence because both sides are (q−1)-complete and the map reduces modulo q−1 to the identity of the Hodge filtration.
+
+**Hypotheses.**
+
+- S carries an étale framing in n coordinates and every prime p ≤ n is invertible in S.
+- The coordinate filtration is the one of Example 3.12 (and Paragraph 1.10) on the framed q-de Rham complex.
+
+**Proof.**
+
+1. Check that τ*_n of the coordinate filtration fits into the pullback square defining fil^{⋆≤n}_{q-Hdg,n}; both are built from the same factorisation and the same combined filtration.
+2. Obtain the comparison map from the adjunction τ_{n,!} ⊣ τ*_n and the (q−1)-completeness of the target.
+3. Reduce modulo q−1: the source side becomes the Hodge filtration by the q-Hodge-property node (dim(S/A) = n), the target side by inspection of the coordinate filtration, and the map is the identity; conclude by (q−1)-completeness.
+
+**Acceptance.**
+
+- The comparison map comes from the adjunction, not from an explicit formula.
+- The equivalence is checked modulo q−1 using the calculation of Lemma 4.6.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.3/the-coordinate-model-and-the-etale-case`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 4.4: “If S satisfies the assumptions of 4.3 and is additionally equipped with an étale framing □: A[x_1, . . . , x_n] → S, then there exists an equivalence of filtered (q −1)^⋆A⟦q −1⟧-modules ... between the q-Hodge filtration from 4.3 and the one from Example 3.12.” — The statement.
+- `wagner-q-hodge-habiro`, Remark 4.4, proof: “Since τ_{n,!} was defined as a the left adjoint of τ*_n, we obtain the map above. To see that it is an equivalence, we may reduce modulo (q −1), where we get the identity on fil^⋆_{Hdg} Ω_{S/A} by inspection and Lemma 4.6 below.” — The argument.
+- `wagner-q-hodge-habiro`, Paragraph 1.10: “On this explicit complex, we can define a filtration fil^⋆_{q-Hdg,□} q-Ω^∗_{S/Z,□}, in which fil^i_{q-Hdg,□} is the subcomplex ((q −1)^i S⟦q −1⟧ → (q −1)^{i−1}Ω^1_{S/Z}⟦q −1⟧ → · · · → Ω^i_{S/Z}⟦q −1⟧ → · · · → Ω^n_{S/Z}⟦q −1⟧).” — The coordinate filtration written out.
+
+### The constructions for the bounds n and n+1 agree, and assemble into one functor
+
+`HQ.5/functoriality-across-dimensions` · theorem
+
+For non-negative integers n and d let Sm^{≤d}_{A[n!^{-1}]} be the category of smooth A-algebras S with dim(S/A) ≤ d in which every prime p ≤ n is invertible; let Sm^{≤n}_{A[dim!^{-1}]} be the full subcategory spanned by the union over d ≤ n of Sm^{≤d}_{A[d!^{-1}]}, and Sm_{A[dim!^{-1}]} the union over all n. (a) For every n ≥ 0 there is a natural equivalence (−, fil^⋆_{q-Hdg,n} q-dR_{−/A}) ≃ (−, fil^⋆_{q-Hdg,n+1} q-dR_{−/A}) in the ∞-category of functors Sm^{≤n}_{A[(n+1)!^{-1}]} → AniAlg^{q-Hdg}_A. (b) Consequently the functors (−, fil^⋆_{q-Hdg,n} q-dR_{−/A}) : Sm^{≤n}_{A[n!^{-1}]} → AniAlg^{q-Hdg}_A assemble, inductively along the pushouts of the previous lemma, into a single functor on Sm_{A[dim!^{-1}]}.
+
+**Hypotheses.**
+
+- All categories are full subcategories of smooth A-algebras cut out by the dimension bound and the invertibility of the small primes.
+- The equivalence (a) lives on the overlap Sm^{≤n}_{A[(n+1)!^{-1}]}, where both constructions are defined and are q-Hodge filtrations.
+- The assembled functor is defined on Sm_{A[dim!^{-1}]} only.
+
+**Proof.**
+
+1. Use the relative truncation τ*_{n,n+1} and its left adjoint τ_{n,n+1,!} (truncation node, clause (d)) for T = (q−1)^⋆A⟦q−1⟧.
+2. For S with dim(S/A) ≤ n and all p ≤ n+1 invertible, plug the projection Ω_{S/A}⟦q−1⟧/(q−1)^{n+1} → Ω_{S/A}⟦q−1⟧/(q−1)^n into the defining pullbacks to get τ*_{n,n+1} fil^{⋆≤n+1}_{q-Hdg,n+1} → fil^{⋆≤n}_{q-Hdg,n}; applying τ_{n,!}(−)^∧_{(q−1)} and the counit of τ_{n,n+1,!} ⊣ τ*_{n,n+1} gives a natural zigzag fil_{q-Hdg,n+1} q-Ω_{S/A} ← τ_{n,!}(τ*_{n,n+1} fil^{⋆≤n+1}_{q-Hdg,n+1})^∧_{(q−1)} → fil_{q-Hdg,n} q-Ω_{S/A}.
+3. Both maps are equivalences: everything is filtered (q−1)-complete, and modulo q−1 all three terms become fil^⋆_Hdg Ω_{S/A} by the calculation of the q-Hodge-property node, the maps becoming the identity. Pull back to q-dR_{S/A}.
+4. Build the functor on Sm^{≤n+1}_{A[dim!^{-1}]} from the functor on Sm^{≤n}_{A[dim!^{-1}]} and the one on Sm^{≤n+1}_{A[(n+1)!^{-1}]}, glued along (a), by the universal property of the pushout; take the union over n.
+
+**Acceptance.**
+
+- The equivalence is on the overlap category and is natural.
+- The comparison is proved by reduction modulo q−1 using the calculation of Lemma 4.6.
+- The resulting functor is recorded as defined on Sm_{A[dim!^{-1}]} only.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.5/the-pushout-of-categories-of-smooth-algebras`, `HQ.3/q-hodge-filtrations`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 4.8: “For all non-negative integers n and d let Sm^{⩽d}_{A[n!^{−1}]} be the category of all smooth A-algebras S of relative dimension dim(S/A) ⩽ d such that all primes p ⩽ n are invertible in S.” — The categories.
+- `wagner-q-hodge-habiro`, Lemma 4.10: “For all n ⩾ 0, in the ∞-category of functors Sm^{⩽n}_{A[(n+1)!^{−1}]} → AniAlg^{q-Hdg}_A, there exists a natural equivalence (−, fil^⋆_{q-Hdg,n} q-dR_{−/A}) ≃ (−, fil^⋆_{q-Hdg,n+1} q-dR_{−/A}).” — (a).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.10: “It is now straightforward to check that both morphisms are equivalences. Indeed, everything is filtered (q −1)-complete, so we may check this after reduction modulo (q −1). For the outer two terms, the reduction is fil^⋆_{Hdg} Ω_{S/A} by the calculation in the proof of Lemma 4.6.” — The argument.
+- `wagner-q-hodge-habiro`, Paragraph 4.8, end: “Our goal is to show that the functors above for varying n combine into a single functor defined on all of Sm_{A[dim!^{−1}]}. This will be achieved by the technical Lemmas 4.9 and 4.10 below.” — (b).
+
+### Existence away from small primes
+
+`HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras` · theorem · planet “Existence away from small primes”
+
+Let A be a perfectly covered Λ-ring and let S be a smooth A-algebra in which every prime p ≤ dim(S/A) is invertible. Then the derived q-de Rham complex q-dR_{S/A} admits a canonical q-Hodge filtration. More precisely, there is a functor (−, fil^⋆_{q-Hdg} q-dR_{−/A}) : Sm_{A[dim!^{-1}]} → AniAlg^{q-Hdg}_A which is a partial section of the forgetful functor AniAlg^{q-Hdg}_A → AniAlg_A. Both the base and the dimension bound are part of the statement: the primes inverted are those at most the relative dimension over A, and A is any perfectly covered Λ-ring.
+
+**Hypotheses.**
+
+- A is a perfectly covered Λ-ring.
+- The primes inverted in S are those p ≤ dim(S/A), the relative dimension over A.
+- The section is partial: by the no-go lemma it cannot be extended to all smooth A-algebras when A is not a Q-algebra. The source makes no claim that a smaller set of inverted primes fails, and neither does this node.
+
+**Proof.**
+
+1. For S with dim(S/A) = d take n = d: the canonical construction and the q-Hodge-property node give an object (S, fil^⋆_{q-Hdg,d} q-dR_{S/A}) of AniAlg^{q-Hdg}_A, functorially on Sm^{≤d}_{A[d!^{-1}]}.
+2. Assemble over d by the functoriality node; the resulting functor on Sm_{A[dim!^{-1}]} is a section of the forgetful functor by construction.
+3. Record the boundary given by the no-go lemma.
+
+**Acceptance.**
+
+- The dimension bound and the base hypothesis are both in the statement.
+- The conclusion is a functor, not merely an existence statement object by object.
+- The statement is recorded as a partial section, with the no-go theorem cited for why it cannot be total.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.5/functoriality-across-dimensions`, `HQ.3/q-hodge-filtrations`, `HQ.3/no-functorial-choice-of-q-hodge-filtration`; libraries: `mathlib:Algebra.Smooth`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem 4.11: “Let A be a perfectly covered Λ-ring and let S be a smooth A-algebra such that all primes p ⩽ dim(S/A) are invertible in S. Then q-dR_{S/A} admits a canonical q-Hodge filtration. More precisely, there exists a functor” — The statement (continued: the functor on Sm_{A[dim!^{−1}]} is a partial section of the forgetful functor).
+- `wagner-q-hodge-habiro`, Theorem 4.11, end: “which is a partial section of the forgetful functor AniAlg^{q-Hdg}_A → AniAlg_A.” — The functorial form.
+- `wagner-q-hodge-habiro`, Theorem 1.15: “The forgetful functor AniAlg^{q-Hdg}_Z → AniAlg_Z admits a section over the full subcategory Sm_{Z[dim!^{−1}]} ⊆ AniAlg_Z of smooth Z-algebras S such that all primes p ⩽ dim(S/Z) become invertible in S.” — The introduction's form, which the stage text cites.
+- `wagner-q-hodge-habiro`, Lemma 3.3: “If A is not a Q-algebra, then the forgetful functor AniAlg^{q-Hdg}_A → AniAlg_A is not essentially surjective. In particular, it has no section, not even when restricted to the full subcategory Sm_A ⊆ AniAlg_A of smooth A-algebras.” — The boundary.
+
+### The multiplicativity is operadic and partial: the category is not closed under tensor products
+
+`HQ.5/partial-operad-multiplicativity` · theorem · planet “Partial-operad multiplicativity”
+
+The canonical section of the existence theorem extends to a map of simplicial sets over N(Fin_*) from the partial sub-operad Sm⊗_{A[dim!^{-1}]} (previous definition node) to AniAlg^{q-Hdg,⊗}_A that sends admissible edges which are cocartesian in Sm⊗_A to cocartesian edges; the source states this as a functor of ∞-operads preserving all cocartesian lifts that exist in the source (Corollary 4.16), see source issue E305 for why the domain is not an ∞-operad. Sm_{A[dim!^{-1}]} is not closed under tensor products, and the source records no symmetric monoidal structure on it. The multiplicative structure transported to fil^⋆_{q-Hdg} q-dR_{S/A} is the one S has in the partial sub-operad: for S of relative dimension d, if every prime p ≤ 2d is invertible in S the multiplication is admissible and fil^⋆_{q-Hdg} q-dR_{S/A} acquires a homotopy-unital multiplication (A_2), and if for some r ≥ 3 every prime p ≤ r·d is invertible it acquires an A_r-structure (coherent associativity for up to r factors); commutativity is analogous. For arbitrary S in Sm_{A[dim!^{-1}]} the construction provides no multiplication, and for S of positive relative dimension an A_∞- or E∞-structure is provided only when every prime is invertible in S (étale algebras are closed under tensor products and need nothing).
+
+**Hypotheses.**
+
+- The domain is the partial sub-operad of admissible simplices; the full sub-operad spanned by Sm_{A[dim!^{-1}]} would not work, as the source warns.
+- The bounds are 2d for a multiplication and r·d for coherence through r factors, d the relative dimension over A.
+- τ_{n,!} is only oplax symmetric monoidal, which is why the statement is proved through the dual cartesian fibrations.
+- The source's proof is a sketch; composition of admissible edges is not addressed there (E305).
+
+**Proof.**
+
+1. For fixed n, the truncated construction is symmetric monoidal (Lemma 4.13 node); composing with τ_{n,!}(−)^∧_{(q−1)} gives an oplax functor, encoded on dual cartesian fibrations.
+2. By the Lemma 4.15 node, cartesian lifts whose sources have entries of dimension at most n are preserved; restrict to the dual of Sm^{≤n,⊗}_{A[n!^{-1}]}.
+3. Dualise back by the Barwick–Glasman–Nardin span construction, which applies to the restricted dual and returns Sm^{≤n,⊗}_{A[n!^{-1}]}, to get a map Sm^{≤n,⊗}_{A[n!^{-1}]} → AniAlg^{q-Hdg,⊗}_A preserving the existing cocartesian lifts.
+4. Build Sm⊗_{A[dim!^{-1}]} from the Sm^{≤n,⊗}_{A[n!^{-1}]} by the pushouts of the pushout node and glue using the analogue of the functoriality node, inductively in n.
+5. Read off the A_r-structures from the admissibility of the r-fold multiplication (definition node).
+
+**Acceptance.**
+
+- The failure of closure under tensor products is stated first, as a fact about the category.
+- The domain is defined precisely, with its non-fullness and its failure of composition recorded.
+- The bounds 2d and r·d are stated, and the statement does not claim more than the construction provides when only the primes up to d are inverted.
+
+**Depends on.** this roadmap: `HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras`, `HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted`, `HQ.5/the-truncated-construction-is-symmetric-monoidal`, `HQ.5/cartesian-lifts-in-bounded-dimension-are-preserved`, `HQ.5/the-pushout-of-categories-of-smooth-algebras`, `HQ.5/functoriality-across-dimensions`; other roadmaps: `EnhancedDerivedSheaves:E5:abstract`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 4.16: “The functor from Theorem 4.11 underlies a functor of ∞-operads Sm⊗_{A[dim!−1]} → AniAlg^{q-Hdg,⊗}_A, which preserves all cocartesian lifts that exist in the source.” — The statement, read with the corrected domain.
+- `wagner-q-hodge-habiro`, Paragraph 4.12, bounds: “For arbitrary S ∈ Sm_{A[dim!−1]} there’s nothing we can say. But as soon as all primes p ⩽ 2 dim(S/A) are invertible in S, the multiplication map S ⊗A S → S is a morphism in Sm_{A[dim!−1]}, and so S will have an A2-structure” — The bound 2d and the absence of a statement without it.
+- `wagner-q-hodge-habiro`, Paragraph 4.12, bounds, continued: “If for some r ⩾ 3 all primes p ⩽ r dim(S/A) are invertible in S, then the multiplication will be Ar; that is, coherently associative for up to r factors. A similar analysis works for commutativity.” — The bound r·d.
+- `wagner-q-hodge-habiro`, Proof sketch of Corollary 4.16: “Now the ∞-operad Sm⊗_{A[dim!−1]} is built from Sm^{⩽,⊗}_{A[n!−1]} for all n ⩾ 0 via a sequence of pushouts as in Lemma 4.9. Combining this with a straightforward analogue of Lemma 4.10, we can inductively construct the desired map of ∞-operads.” — The assembly.
+
+### Algebraic Habiro cohomology of a smooth scheme
+
+`HQ.5/algebraic-habiro-cohomology-of-a-scheme` · construction · planet “Algebraic Habiro cohomology”
+
+Let X be a smooth scheme over Z such that every prime p ≤ dim(X/Z) is invertible on X. Gluing the Habiro–Hodge complexes q-Hdg_{S/Z} of the canonical q-Hodge filtrations of the affine opens Spec S of X gives a canonical object q-Hdg_{X/Z} of D(X, H), the derived category of X with coefficients in the Habiro ring; its sheaf cohomology RΓ(X, q-Hdg_{X/Z}) is the algebraic Habiro cohomology of X. For every m, its reduction modulo q^m − 1 carries an exhaustive ascending filtration, glued from the second clause of the descent theorem, whose i-th graded piece is q-W_m Ω^i_{X/Z} placed in cohomological degree i.
+
+**Hypotheses.**
+
+- X is smooth over Z and every prime p ≤ dim(X/Z) is invertible on X. The source states this only over Z; the same construction over a perfectly covered Λ-ring A is not stated in the source and is not claimed.
+- The source asserts the gluing without proof; the proof steps below supply it from the descent theorem, the étale sheaf property of the q-de Rham–Witt complexes and the conservativity of cyclotomic reductions.
+
+**Proof.**
+
+1. On affines Spec S ⊆ X take the canonical q-Hodge filtration (existence theorem) and its Habiro–Hodge complex (descent theorem); both are functorial in étale maps, which preserve the relative dimension and the invertibility of the small primes.
+2. To glue it suffices to check descent for étale (in particular Zariski) covers. Habiro-complete objects are closed under limits, and reduction modulo Φ_m(q) commutes with limits, so by the joint conservativity of the reductions modulo q^m − 1 (Lemma B.3 with Remark B.5, imported from HR.2) descent reduces to descent for q-Hdg_{−/Z}/(q^m − 1).
+3. q-Hdg_{S/Z}/(q^m − 1) has an exhaustive ascending filtration (descent theorem (b)), finite because the dimension is bounded, whose i-th graded piece is q-W_m Ω^i_{S/Z} in cohomological degree i (by the smooth comparison of derived and underived q-de Rham–Witt complexes, Corollary 3.31); each q-W_m Ω^i is an étale sheaf, and finite filtrations preserve descent.
+4. Glue to q-Hdg_{X/Z} ∈ D(X, H) and define algebraic Habiro cohomology as RΓ(X, q-Hdg_{X/Z}).
+
+**API.**
+
+- `TauCeti.QHodge.algebraicHabiroCohomology` (constructor): For X smooth over Z with the primes p ≤ dim(X/Z) invertible, q-Hdg_{X/Z} ∈ D(X, H) and RΓ(X, q-Hdg_{X/Z}).
+- `TauCeti.QHodge.algebraicHabiroCohomology_affine` (characterisation): For X = Spec S, RΓ(X, q-Hdg_{X/Z}) ≃ q-Hdg_{S/Z}, the Habiro–Hodge complex of the canonical q-Hodge filtration.
+- `TauCeti.QHodge.algebraicHabiroCohomology_descent` (characterisation): q-Hdg_{−/Z} satisfies étale descent on smooth S with the small primes inverted.
+- `TauCeti.QHodge.algebraicHabiroCohomology_pullback` (functoriality): Pullback along étale maps of such schemes, with identity and composition laws.
+- `TauCeti.QHodge.algebraicHabiroCohomology_mod` (projection): Its reduction modulo q^m − 1 carries the ascending filtration whose i-th graded piece is RΓ(X, q-W_m Ω^i_{X/Z}) shifted to cohomological degree i.
+- `TauCeti.QHodge.algebraicHabiroCohomology_complete` (compatibility): Its (q−1)-completion is the q-Hodge complex (Theorem 3.11(a)), and its sections are Habiro-complete.
+
+**Unit tests.**
+
+- `TauCeti.QHodge.algebraicHabiroCohomology_etale` (degenerate): For X = Spec O_F[1/Δ] with F a number field of discriminant Δ, RΓ(X, q-Hdg_{X/Z}) is the ring H_{O_F[1/Δ]/Z}, which is the GSWZ Habiro ring of F (Corollaries 3.13 and 2.13).
+- `TauCeti.QHodge.algebraicHabiroCohomology_small_primes` (characterisation): Every prime p ≤ dim(X/Z) is invertible on RΓ(X, q-Hdg_{X/Z}), because it is invertible on X; so the theory contains no information at those primes (Paragraph 1.17(a)).
+- `TauCeti.QHodge.algebraicHabiroCohomology_line` (computation): For X = A^1_Z = Spec Z[x] (no prime inverted), RΓ is the Habiro–Hodge complex whose (q−1)-completion is Z[x]⟦q−1⟧ → Z[x]⟦q−1⟧ dx, x^m ↦ (q^m − 1) x^{m−1} dx.
+- `TauCeti.QHodge.algebraicHabiroCohomology_ne_qdR` (non-example): Its (q−1)-completion is the q-Hodge complex, not the q-de Rham complex: for Z[x] the differential sends x^m to (q^m − 1)x^{m−1}dx, not to [m]_q x^{m−1}dx (Paragraph 1.13).
+
+**Acceptance.**
+
+- The gluing is justified by descent for q-Hdg modulo q^m − 1 and the conservativity of cyclotomic reductions.
+- The hypotheses are the source's: smooth over Z with the primes up to the dimension inverted.
+- No perfectness is asserted in this node.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.6: It is the algebraic side of the comparison problem with the analytic Habiro stack.
+- HabiroCohomologyFoundations:HQ.7: It is what the acceptance test on a smooth scheme computes.
+- HabiroRings:HR.6: In relative dimension zero its degree-zero part is the relative Habiro ring.
+
+**Depends on.** this roadmap: `HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras`, `HQ.3/habiro-descent`, `HQ.3/the-habiro-hodge-complex`, `HQ.4/etale-base-change-and-the-sheaf-property`, `HQ.4/hodge-against-nygaard`; other roadmaps: `HabiroRings:HR.2/habiro-complete-modules`, `HabiroRings:HR.2/the-detection-results`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.16: “Combining Theorems 1.11 and 1.15 allows us to define canonical objects q-Hdg_{X/Z} ∈ D(X, H) for any smooth scheme X over Z such that all primes p ⩽ dim(X/Z) are invertible on X. The sheaf cohomology of q-Hdg_{X/Z} then deserves to be called the algebraic Habiro cohomology of X.” — The construction and the name.
+- `wagner-q-hodge-habiro`, Theorem 1.11(b): “For all m ∈ N, the quotient q-Hdg_{−/Z}/(q^m −1) admits an exhaustive ascending filtration fil^{q-WmΩ}_⋆(q-Hdg_{−/Z}/(q^m −1)) with associated graded ... ≃ Σ^{−∗} q-WmdR^∗_{−/Z}” — The filtration of the reduction modulo q^m − 1.
+
+### The rings of interest: p-completely perfectly covered bases, quasi-lci algebras and relative semiperfectness
+
+`HQ.5/the-quasi-lci-inputs-and-condition-R` · definition · planet “Condition (R)”
+
+Fix a prime p and work p-completely. A p-completely perfectly covered δ-ring is a p-complete δ-ring A whose map A → A_∞ to its p-completed colimit perfection is p-completely faithfully flat, equivalently whose Frobenius is p-completely flat; such an A is p-torsion free. A p-quasi-lci A-algebra is a p-complete ring R whose (p-completed) cotangent complex L_{R/A} has p-complete Tor-amplitude in homological degrees [0, 1] over R. It is relatively semiperfect (modulo p) if the relative Frobenius R/p ⊗_{A,φ} A → R/p is surjective; this forces Ω^1_{R/A}/p = 0, so L_{R/A} then has p-complete Tor-amplitude concentrated in degree 1. R has a perfect-regular presentation if R ≅ B/J with B a p-complete relatively perfect δ-A-algebra (the relative Frobenius (B ⊗_{A,φ} A)^∧_p → B is an isomorphism) and J generated by a Koszul-regular sequence. Globally, for a perfectly covered Λ-ring A, condition (R) on an A-algebra R is the hypothesis of Construction 4.28: for every prime p, R is p-torsion free, R̂_p is p-quasi-lci over Â_p, and R/p is relatively semiperfect over Â_p. The introduction phrases condition (R) as: for every p, R is p-torsion free, (dR_{R/Z})^∧_p is static and its Hodge filtration is a descending filtration of ideals; the body's conditions imply this (next node), and the theorems are proved under the body's conditions. Examples: a p-torsion free quotient of an étale algebra over a perfect Λ-ring by an ideal generated by a Koszul-regular sequence; p-complete algebras whose cotangent complex has Tor-amplitude in degree 1 need not be relatively semiperfect modulo p (for p ≥ 3, the source lifts an example from a MathOverflow answer of Gulotta).
+
+**Hypotheses.**
+
+- The p-complete notions are relative to a fixed prime; condition (R) quantifies over all primes.
+- Relative semiperfectness is not implied by the Tor-amplitude condition (Remark 4.20, p ≥ 3).
+- A perfect-regular presentation is a sufficient condition, not a characterisation.
+- The introduction's phrasing of (R) is implied by the body's conditions; the converse is not claimed by the source.
+
+**Proof.**
+
+1. Define p-completely perfectly covered δ-rings and derive p-torsion-freeness from that of perfect δ-rings.
+2. Define p-quasi-lci algebras by the p-complete Tor-amplitude of the p-completed cotangent complex (DD.0).
+3. Define relative semiperfectness and derive Ω^1_{R/A}/p = 0 and the concentration of L_{R/A} in degree 1.
+4. Define perfect-regular presentations with Koszul-regular sequences (requested from DD.0) and record the example classes and Remark 4.20.
+5. State condition (R) globally and record that it implies the introduction's phrasing by the staticity lemma.
+
+**API.**
+
+- `TauCeti.QHodge.PerfectlyCoveredDelta` (structure): A p-complete δ-ring whose Frobenius is p-completely flat; p-torsion free.
+- `TauCeti.QHodge.IsPQuasiLci` (structure): L_{R/A} has p-complete Tor-amplitude in homological degrees [0, 1].
+- `TauCeti.QHodge.IsRelSemiperfect` (structure): The relative Frobenius R/p ⊗_{A,φ} A → R/p is surjective.
+- `TauCeti.QHodge.IsRelSemiperfect.cotangent` (characterisation): Relative semiperfectness forces Ω^1_{R/A}/p = 0, so L_{R/A} is concentrated in degree 1.
+- `TauCeti.QHodge.PerfectRegularPresentation` (structure): R ≅ B/J with B relatively perfect over A and J generated by a Koszul-regular sequence.
+- `TauCeti.QHodge.ConditionR` (structure): For every p: p-torsion free, R̂_p p-quasi-lci over Â_p, R/p relatively semiperfect over Â_p.
+- `TauCeti.QHodge.ConditionR.of_etale_quotient` (example): A p-torsion free quotient of an étale algebra over a perfect Λ-ring by a Koszul-regular sequence satisfies (R).
+- `TauCeti.QHodge.KoszulRegular.of_isRegular` (compatibility): A sequence that is regular in Mathlib's sense (RingTheory.Sequence.IsRegular) is Koszul-regular.
+
+**Unit tests.**
+
+- `TauCeti.QHodge.ConditionR.free_delta_quotient` (computation): For A = Z_p{x}^∧_p (free p-complete δ-ring) and α ≥ 1, R = A/x^α has the perfect-regular presentation with B = A and J = (x^α), and satisfies the p-complete conditions (Example 4.24).
+- `TauCeti.QHodge.ConditionR.etale` (degenerate): An étale A-algebra satisfies the p-complete conditions: L_{R/A} = 0 and the relative Frobenius of R/p is an isomorphism.
+- `TauCeti.QHodge.IsRelSemiperfect.not_of_torAmplitude` (non-example): Tor-amplitude in degree 1 does not imply relative semiperfectness modulo p (Remark 4.20, p ≥ 3).
+- `TauCeti.QHodge.ConditionR.not_smooth` (non-example): A smooth A-algebra of positive relative dimension is p-quasi-lci but not relatively semiperfect, since Ω^1_{R/A}/p ≠ 0; so the two existence theorems overlap only in relative dimension zero (étale algebras).
+
+**Acceptance.**
+
+- All three p-complete conditions and the global condition are stated.
+- The relation between the body's and the introduction's phrasing is recorded as an implication with its direction.
+- The non-example of Remark 4.20 is recorded.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Construction 4.21: the naive filtration is a 1-categorical preimage, which needs the staticity these conditions give
+- Wagner, q-Hodge complexes, Construction 4.28 and Theorem 4.29: the global condition defines the domain of the canonical quasi-regular section
+- Wagner, q-de Rham cohomology and topological Hochschild homology over ku, 3.2 and 4.18: the trace-theoretic theorems assume the same p-quasi-lci condition, and their one-disc case the same relative semiperfectness
+
+**Depends on.** this roadmap: `HQ.2/the-derived-q-de-rham-complex`; other roadmaps: `HabiroRings:HR.1/perfectly-covered`, `PrismaticCohomology:PR.0`, `DerivedDeRhamCohomology:DD.0`; libraries: `mathlib:RingTheory.Sequence.IsRegular`, `mathlib:Algebra.Etale`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 4.17: “by which we mean a p-complete δ-ring for which the map A → A∞ into its p-completed colimit perfection is p-completely faithfully flat. Equivalently, the Frobenius ϕ: A → A is p-completely flat (as being faithful is automatic).” — p-completely perfectly covered δ-rings.
+- `wagner-q-hodge-habiro`, Paragraph 4.17, continued: “Additionally, we’ll usually assume that R/p is relatively semiperfect over A: That is, the relative Frobenius R/p ⊗_{A,ϕ} A ↠ R/p is surjective. This forces Ω^1_{R/A}/p to vanish, so L_{R/A} will have p-complete Tor-amplitude over R concentrated in degree 1.” — Relative semiperfectness.
+- `wagner-q-hodge-habiro`, Paragraph 4.17, end: “These are the quotients R ≅ B/J, where B is a p-complete relatively perfect δ-A-algebra, by which we mean that the relative Frobenius ϕ_{B/A} : (B ⊗_{A,ϕ} A)^∧_p → B is an isomorphism, and J ⊆ B is an ideal generated by a Koszul-regular sequence.” — Perfect-regular presentations.
+- `wagner-q-hodge-habiro`, Construction 4.28: “Let R be an A-algebra such that for all primes p, R is p-torsion free, the p-completion R̂p is p-quasi-lci over Âp, and R/p is relatively semiperfect over Âp.” — The global condition used by the theorems.
+- `wagner-q-hodge-habiro`, Paragraph 1.18: “(R) For all primes p, R is p-torsion free, the p-completed derived de Rham complex (dR_{R/Z})^∧_p is static, i.e. an actual ring concentrated in degree 0, and the Hodge filtration fil^⋆_{Hdg}(dR_{R/Z})^∧_p is a descending filtration of ideals.” — The introduction's phrasing.
+- `wagner-q-hodge-habiro`, Paragraph 1.18, example, and Remark 4.20: “Let B be a perfect Λ-ring, let B′ be an étale B-algebra, and let R ≅ B′/J, where J is generated by a Koszul-regular sequence. If R is p-torsion free, then it will satisfy the other conditions from (R) as well.” — The example class.
+- `wagner-q-hodge-habiro`, Remark 4.20: “There exist p-complete Zp-algebras whose cotangent complex has p-complete Tor-amplitude concentrated in degree 1, but whose reduction modulo p is not semiperfect. For example, if p ⩾ 3, the Fp-algebra constructed in [Gul21] can be lifted” — The non-example.
+
+### The one-categorical preimage filtration, and the injectivity that always holds
+
+`HQ.5/the-naive-filtration-for-quasi-regular-inputs` · construction
+
+Let A be a p-completely perfectly covered δ-ring and R a p-torsion free p-quasi-lci A-algebra with R/p relatively semiperfect over A. By the rationalised comparison, (q-dR_{R/A}[1/p])^∧_{(q−1)} ≃ dR_{R/A}[1/p]⟦q−1⟧, and by the staticity lemma both sides are static rings. Give the right-hand side the combined Hodge and (q−1)-adic filtration of Definition 3.2(c_p), a descending filtration by ideals, and define fil^⋆_{q-Hdg} q-dR_{R/A} as its 1-categorical preimage under q-dR_{R/A} → dR_{R/A}[1/p]⟦q−1⟧, that is, the pullback taken in the 1-category of filtered (q−1)^⋆A⟦q−1⟧-modules. It is a descending filtration of ideals of the static ring q-dR_{R/A}, hence a filtered E∞-algebra over (q−1)^⋆A⟦q−1⟧. The projection q-dR_{R/A} → dR_{R/A} induces a unique filtered map fil^⋆_{q-Hdg} q-dR_{R/A} → fil^⋆_Hdg dR_{R/A}, because the Hodge filtration is the preimage of its rationalisation. In general this filtration is not a q-deformation of the Hodge filtration.
+
+**Hypotheses.**
+
+- The preimage is taken in the 1-category, not derived; this is legitimate because both sides are static.
+- The filtration is by ideals in a static ring, which is why no coherence data have to be supplied by hand.
+- Nothing here asserts that the filtration is a q-deformation of the Hodge filtration; that is the well-behavedness theorem, under extra hypotheses.
+
+**Proof.**
+
+1. Record the rationalised comparison (Lemma A.4) and the staticity of both sides (staticity lemma).
+2. Equip the target with the combined Hodge and (q−1)-adic filtration, a filtration by ideals.
+3. Define the filtration as the 1-categorical preimage; being a filtration by ideals of a static ring, it is a filtered E∞-algebra.
+4. Construct the filtered map to the Hodge filtration: fil^⋆_Hdg dR_{R/A} is the preimage of fil^⋆_Hdg dR_{R/A}[1/p], since any filtration is the preimage of its completion and the maps Σ^{−n}∧^n L_{R/A} → Σ^{−n}∧^n L_{R/A}[1/p] on associated gradeds are injective (p-completely flat modules over a p-torsion free ring).
+
+**API.**
+
+- `TauCeti.QHodge.naiveFiltration` (constructor): For R as above, the descending filtration of ideals of the static ring q-dR_{R/A}.
+- `TauCeti.QHodge.naiveFiltration_mem_iff` (characterisation): x ∈ fil^i iff the image of x in dR_{R/A}[1/p]⟦q−1⟧ lies in the i-th step of the combined Hodge and (q−1)-adic filtration.
+- `TauCeti.QHodge.naiveFiltration_mul` (structure): fil^i · fil^j ⊆ fil^{i+j}, and (q−1) fil^i ⊆ fil^{i+1}: a filtered E∞-algebra over (q−1)^⋆A⟦q−1⟧.
+- `TauCeti.QHodge.naiveFiltration_toHodge` (projection): The unique filtered map to fil^⋆_Hdg dR_{R/A} induced by the projection.
+- `TauCeti.QHodge.naiveFiltration_injective_mod` (characterisation): The map from the reduction modulo q−1 to the Hodge filtration is degreewise injective (Lemma 4.26 node).
+- `TauCeti.QHodge.naiveFiltration_baseChange` (functoriality): Flat base change in A (Lemma 4.27 node) and functoriality in R.
+
+**Unit tests.**
+
+- `TauCeti.QHodge.naiveFiltration_etale` (degenerate): For R étale over A, q-dR_{R/A} = R⟦q−1⟧ (p-completed) and the filtration is the (q−1)-adic filtration; its reduction modulo q−1 is the Hodge filtration (R in degree 0).
+- `TauCeti.QHodge.naiveFiltration_exponent_one` (non-example): For A = Z_p{x}^∧_p and R = A/x, the filtration is not a q-deformation of the Hodge filtration (Example 4.24; exponent-one node).
+- `TauCeti.QHodge.naiveFiltration_exponent_two` (computation): For R = A/x^2, the element γ_q(x^2) − (u^{−1} − 1)δ(x^2) + u^{−2}(q−1)^{p−1}δ(x)^2, with [p]_q = pu + (q−1)^{p−1}, lies in fil^p and reduces to x^{2p}/p modulo q−1 (Example 4.24).
+- `TauCeti.QHodge.naiveFiltration_not_derived` (non-example): The derived pullback differs: its H^1 in filtration degree 1 contains the class of 1/p ∈ dR_{R/A}[1/p]⟦q−1⟧, which lies neither in the image of q-dR_{R/A} nor in the combined filtration's first step plus that image.
+
+**Acceptance.**
+
+- The preimage is explicitly 1-categorical and the reason that is allowed is recorded.
+- The filtered map to the Hodge filtration is constructed through the injectivity on associated gradeds.
+- The statement that the filtration is in general not a q-deformation is recorded.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Theorem 4.22: the well-behavedness theorem asks when the map to the Hodge filtration is an equivalence modulo q−1
+- Wagner, q-Hodge complexes, Construction 4.28: the global construction glues these p-complete filtrations with the rational combined filtration
+- Wagner, q-de Rham cohomology and topological Hochschild homology over ku, Theorem 4.17: the trace-theoretic filtration for a one-disc lift of R itself is this preimage
+
+**Depends on.** this roadmap: `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.3/q-hodge-filtrations`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.2/filtered-graded-and-completion-conventions`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Construction 4.21: “We now construct fil^⋆_{q-Hdg} q-dR_{R/A} as the 1-categorical (!) preimage of this filtration under q-dR_{R/A} → dR_{R/A}[1/p]⟦q −1⟧” — The construction.
+- `wagner-q-hodge-habiro`, Construction 4.21, continued: “We remark that fil^⋆_{q-Hdg} q-dR_{R/A} will be a descending filtration of ideals in the static ring q-dR_{R/A}, hence it’s automatically a filtered E∞-algebra over (q −1)^⋆A⟦q −1⟧.” — The multiplicative structure.
+- `wagner-q-hodge-habiro`, Construction 4.21, end: “Let us also remark that the canonical projection q-dR_{R/A} → dR_{R/A} induces a (necessarily unique) filtered map fil^⋆_{q-Hdg} q-dR_{R/A} → fil^⋆_{Hdg} dR_{R/A}.” — The map to the Hodge filtration.
+- `wagner-q-hodge-habiro`, Sentence after Construction 4.21: “In general, the q-Hodge filtration from Construction 4.21 will be nonsense. But it does behave as desired in the following cases:” — Not a q-deformation in general.
+
+### Higher powers of a Koszul-regular sequence make the naive filtration a q-deformation
+
+`HQ.5/when-the-naive-filtration-deforms-the-hodge-filtration` · theorem · planet “The well-behavedness theorem”
+
+Let A be a p-completely perfectly covered δ-ring and R a p-torsion free quasi-lci A-algebra with R/p relatively semiperfect over A. Suppose (a): there is a perfect-regular presentation R ≅ B/J with J generated by a Koszul-regular sequence of higher powers (x_1^{α_1}, …, x_r^{α_r}) with every α_i ≥ 2. Then the naive filtration is a q-deformation of the Hodge filtration: the canonical map induces an equivalence fil^⋆_{q-Hdg} q-dR_{R/A}/(q−1) ≃ fil^⋆_Hdg dR_{R/A}, the quotient taken in filtered (q−1)^⋆A⟦q−1⟧-modules with q−1 in filtration degree one. There is no restriction at p = 2. (The source's alternative hypothesis (b), a spherical E_1-lift of R_∞, is the HQ.5-trace node on the E_1-lift case.)
+
+**Hypotheses.**
+
+- The standing hypotheses of the naive filtration are in force.
+- The Koszul-regular sequence consists of powers with every exponent at least two; exponent one fails (exponent-one node).
+- No restriction on p; the case p = 2 is not subsumed by the E_1-lift case.
+
+**Proof.**
+
+1. By the injectivity lemma only surjectivity must be shown.
+2. By flat base change along the p-completely faithfully flat A → A_∞, assume A perfect; then q-dR_{R/A} ≃ q-dR_{R/Z_p}, so assume A = Z_p.
+3. Surjectivity follows once, for every generator x_i^{α_i} and every n ≥ 0, the n-fold iterated divided power γ^{(n)}(x_i^{α_i}) has a lift in the (p^n)-th step of the naive filtration, since these generate the PD-filtration; this reduces to the universal case A = Z_p{x}, R = Z_p{x}/x^α with α ≥ 2.
+4. In the universal case the lifts are constructed by Meyer–Wagner (q-Hodge complexes and refined TC^−, Lemma 3.16 in arXiv v4; the source cites it as Lemma 3.17, see source issue E302): polynomials Γ_n ∈ Z_p{x}[q] with (Γ_n)_α divisible by ∏_{i=1}^n Φ_{p^i}(q)^{p^{n−i}} in q-D_α, the quotient lying in the (p^n)-th step and reducing to γ^{(n)}(x^α) modulo q−1. The case n = 1 is the explicit modification of Example 4.24.
+
+**Acceptance.**
+
+- The exponents are at least two and the Koszul-regular sequence is of the powers.
+- The reduction to the universal case and the source of the lifts are stated.
+- No restriction at p = 2 is imposed.
+
+**Depends on.** this roadmap: `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-naive-filtration-is-injective-modulo-q-minus-one`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.5/flat-base-change-for-the-naive-filtration`, `HQ.5/the-exponent-one-quotient-is-not-a-q-deformation`, `HQ.2/derived-base-change-and-its-completion-hypotheses`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`; other roadmaps: `PrismaticCohomology:PR.0`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem 4.22: “Let A be a p-completely perfectly covered δ-ring and let R be a p-torsion free quasi-lci A-algebra such that R/p is relatively semiperfect over A. Suppose that one of the following two additional assumptions is satisfied:” — Standing hypotheses.
+- `wagner-q-hodge-habiro`, Theorem 4.22(a): “There exists a perfect-regular presentation R ≅ B/J, where the ideal J ⊆ B is generated by a Koszul-regular sequence of higher powers, that is, a Koszul-regular sequence (x_1^{α1}, . . . , x_r^{αr}) with αi ⩾ 2 for all i.” — Condition (a).
+- `wagner-q-hodge-habiro`, Theorem 4.22, conclusion: “the canonical map from Construction 4.21 induces an equivalence fil^⋆_{q-Hdg} q-dR_{R/A}/(q −1) ≃ fil^⋆_{Hdg} dR_{R/A}. Here we take the quotient in filtered (q −1)^⋆A⟦q −1⟧-modules, with (q −1) regarded as an element in filtration degree 1.” — The conclusion.
+- `wagner-q-hodge-habiro`, Proof of Theorem 4.22: “This reduces the problem to the universal case A = Zp{x} and R = Zp{x}/x^α for α ⩾ 2. In this case the desired lifts have been constructed in [MW24, Lemma 3.17].” — The reduction and the citation (the lemma is 3.16 in MW24 v4; source issue E302).
+- `meyer-wagner-q-hodge-refined-tc`, Lemma 3.16 (arXiv:2410.23115v4): “In particular, for all α ⩾ 2, (Γn)α is contained in the ideal (x^α, q −1)^{p^n}, and γ̃^{(n)}_q(x^α) := (Γn)α / ∏_{i=1}^{n} Φ_{p^i}(q)^{p^{n−i}} ∈ fil^{p^n}_{q-Hdg} q-Dα is a lift of the n-fold iterated divided power γ^{(n)}(x^α)” — The lifts in the universal case.
+- `meyer-wagner-q-hodge-refined-tc`, Paragraph 3.15 (arXiv:2410.23115v4): “Moreover, all of this works for all α ⩾ 2 without any restrictions in the case p = 2.” — No restriction at p = 2.
+
+### Flat base change, which reduces the well-behavedness theorem to a perfect base
+
+`HQ.5/flat-base-change-for-the-naive-filtration` · theorem
+
+Let R be a p-torsion free p-quasi-lci algebra over a p-completely perfectly covered delta-ring A whose reduction modulo p is relatively semiperfect, and let A map to A' by a p-completely flat map of delta-rings with A' also p-completely perfectly covered. Put R' for the p-completed base change. Then the canonical map from the (p,q-1)-completed base change of the naive filtration along A to A' onto the naive filtration of R' over A' is an equivalence.
+
+**Hypotheses.**
+
+- The map of delta-rings is p-completely flat and the target is again p-completely perfectly covered.
+- The base change is completed at p and at q-1.
+- The statement is about the naive filtration and not about arbitrary filtrations.
+
+**Proof.**
+
+1. Fix n. By Remark A.7 the map q-dR_{R/A} → (dR_{R/A} ⊗ Q)⟦q−1⟧/(q−1)^n factors through p^{−N} dR_{R/A}⟦q−1⟧/(q−1)^n for large N; since fil^n contains (q−1)^n q-dR_{R/A}, express fil^n as the pullback of p^{−N} fil^n_{(Hdg,q−1)} dR_{R/A}⟦q−1⟧/(q−1)^n along that map, as A⟦q−1⟧-modules.
+2. It suffices that this pullback is preserved by (−⊗^L_A A')^∧_{(p,q−1)}. Let P be the derived pullback; derived tensor products preserve it, so it suffices that (H^{−1}(P) ⊗^L_A A')^∧ is static.
+3. H^{−1}(P) is a quotient of the cokernel of q-dR_{R/A} → p^{−N} dR_{R/A}⟦q−1⟧/(q−1)^n, which is p^{nN}- and (q−1)^n-torsion; so H^{−1}(P) is bounded torsion, p-complete flatness of A → A' makes H^{−1}(P) ⊗^L_A A' static, and the completion changes nothing.
+4. Combine with base change for the derived q-de Rham and de Rham complexes to identify the result with the filtration of R' over A'.
+
+**Acceptance.**
+
+- The flatness hypothesis is used where it is needed, namely to commute the preimage with the base change.
+- The completions in the statement are recorded.
+- The use of the lemma in the proof of the well-behavedness theorem is recorded.
+
+**Depends on.** this roadmap: `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.1/divided-power-denominators-in-the-q-pd-envelope`, `HQ.2/derived-base-change-and-its-completion-hypotheses`, `HQ.1/the-reverse-divided-power-expansion`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.27: “Let R be a p-torsion free p-quasi-lci A-algebra such that R/p is relatively semiperfect over A. Let A → A′ be a p-completely flat morphism of δ-rings, where A′ is also p-completely perfectly covered, and put R′ := (R ⊗_A A′)^∧_p. Then the canonical map” — The statement (continued: the (p, q−1)-completed base change of the filtration maps by an equivalence to the filtration of R′).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.27: “By Remark A.7, the canonical map q-dR_{R/A} → (dR_{R/A} ⊗Z Q)⟦q −1⟧/(q −1)^n already factors through p^{−N} dR_{R/A}⟦q −1⟧/(q −1)^n for sufficiently large N.” — The denominator bound.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.27, continued: “We claim that H^{−1}(P) is (q −1)^n-torsion and p^m-torsion for sufficiently large m. Believing this for the moment, p-complete flatness of A → A′ guarantees that H^{−1}(P) ⊗^L_A A′ is static.” — The torsion argument.
+
+### The global filtration for quasi-regular inputs, and the section it defines
+
+`HQ.5/the-canonical-section-on-quasi-regular-inputs` · theorem · planet “Canonical section on quasi-regular inputs”
+
+Let A be a perfectly covered Λ-ring and R an A-algebra satisfying condition (R): for every prime p, R is p-torsion free, R̂_p is p-quasi-lci over Â_p and R/p is relatively semiperfect over Â_p. Define fil^⋆_{q-Hdg} q-dR_{R/A} as the pullback, in filtered E∞-algebras over (q−1)^⋆A⟦q−1⟧, of ∏_p fil^⋆_{q-Hdg} q-dR_{R̂_p/Â_p} (the p-complete naive filtrations) and fil^⋆_{(Hdg,q−1)}(dR_{R/A} ⊗^L Q)⟦q−1⟧ over fil^⋆_{(Hdg,q−1)}(∏_p dR_{R̂_p/Â_p} ⊗^L Q)⟦q−1⟧; the map from the product exists because both are filtrations by submodules, so only a set-level condition has to be checked. Let QReg^{q-Hdg}_A be the full subcategory of those R for which moreover, for every p, the p-complete naive filtration is a q-deformation of the Hodge filtration. Then Construction 4.28 defines a functor QReg^{q-Hdg}_A → CAlg(AniAlg^{q-Hdg}_A) which is a partial section of the forgetful functor CAlg(AniAlg^{q-Hdg}_A) → AniAlg_A; the filtration even carries a filtered derived commutative (q−1)^⋆A⟦q−1⟧-algebra structure compatible with all the data (Remark 4.31). By the well-behavedness theorem (a), QReg^{q-Hdg}_A contains every R that is p-torsion free for all p and has a presentation B/J with B a relatively perfect Λ-A-algebra and J generated by a Koszul-regular sequence of higher powers.
+
+**Hypotheses.**
+
+- The pullback is taken in filtered E∞-algebras, and its map from the product exists for the stated set-level reason.
+- Membership in QReg^{q-Hdg}_A requires, besides condition (R), the conclusion of the well-behavedness theorem at every prime; that theorem is what produces objects.
+- The domain is exactly QReg^{q-Hdg}_A, not every regular quotient.
+
+**Proof.**
+
+1. Construct the global filtration by the displayed pullback and check that the map from the product of the p-complete filtrations exists (a set-level condition on filtrations by submodules).
+2. Clause (a) of Definition 3.2: in degree 0 the square is the pullback square defining the global derived q-de Rham complex (Construction A.12, animated).
+3. Clause (b): modulo q−1 the square becomes the arithmetic fracture square of fil^⋆_Hdg dR_{R/A}, by the q-deformation hypothesis at every prime.
+4. Clauses (c) and (c_p): apply (−⊗^L Q)^∧_{(q−1)} and (−)^∧_p[1/p]^∧_{(q−1)} to the square.
+5. Upgrade to CAlg(AniAlg^{q-Hdg}_A) and make everything functorial by writing CAlg(AniAlg^{q-Hdg}_A) as an iterated pullback of CAlg of symmetric monoidal filtered categories; the rational factor is functorial already and the other factors are 1-categorical; the derived commutative upgrade follows the same pattern (Remark 4.31).
+6. Record the example class of Remark 4.30 from the well-behavedness theorem (a).
+
+**Acceptance.**
+
+- The gluing square is written with all its corners and the reason its map from the product exists.
+- The defining condition of QReg^{q-Hdg}_A is stated, and it is recorded that the well-behavedness theorem produces its objects.
+- The derived commutative upgrade is recorded.
+
+**Depends on.** this roadmap: `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5/when-the-naive-filtration-deforms-the-hodge-filtration`, `HQ.3/q-hodge-filtrations`, `HQ.1/the-global-q-de-rham-complex`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/the-derived-commutative-lift`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Construction 4.28: “Let R be an A-algebra such that for all primes p, R is p-torsion free, the p-completion R̂p is p-quasi-lci over Âp, and R/p is relatively semiperfect over Âp.” — Condition (R).
+- `wagner-q-hodge-habiro`, Construction 4.28, end: “To see that the right vertical map in the pullback exists, observe that we’re dealing with two filtrations by submodules, so there’s only a set-level condition to check” — The existence of the map.
+- `wagner-q-hodge-habiro`, Theorem 4.29: “Then Construction 4.28 determines a functor (−, fil^⋆_{q-Hdg} q-dR_{−/A}): QReg^{q-Hdg}_A → CAlg(AniAlg^{q-Hdg}_A), which is a partial section of the forgetful functor CAlg(AniAlg^{q-Hdg}_A) → AniAlg_A.” — The theorem (QReg^{q-Hdg}_A as in the statement).
+- `wagner-q-hodge-habiro`, Proof sketch of Theorem 4.29: “In degree 0, the pullback square from Construction 4.28 becomes the one from Construction A.12, which provides the datum from Definition 3.2(a). If we reduce the pullback from Construction 4.28 modulo (q −1), we’ll get the arithmetic fracture square for fil^⋆_{Hdg} dR_{R/A} by our assumptions on R.” — Clauses (a) and (b).
+- `wagner-q-hodge-habiro`, Remark 4.31: “We can not only equip fil^⋆_{q-Hdg} q-dR_{R/A} with a filtered E∞-algebra structure, but even with the structure of a filtered derived commutative (q −1)^⋆A⟦q −1⟧-algebra as in 3.51, and the various compatibilities all respect this structure.” — The derived commutative upgrade.
+- `wagner-q-hodge-habiro`, Remark 4.30: “For example, it contains the category QReg of A-algebras R which are p-torsion free for all primes p and can be written in the form R ≅ B/J, where B is a relatively perfect Λ-A-algebra” — The example class.
+
+### In what sense each section is unique, and what extra datum the smooth case needs
+
+`HQ.5/uniqueness-of-the-two-sections` · theorem
+
+(a) Quasi-regular case: for R ∈ QReg^{q-Hdg}_A, every q-Hodge filtration on q-dR_{R/A} admits a map to the canonical one of Theorem 4.29 compatible with the identity of q-dR_{R/A} (the canonical one is terminal), and the q-deformation clause makes any such map an equivalence; so the canonical section is the unique section over QReg^{q-Hdg}_A. (b) Smooth case: among q-Hodge filtrations on q-dR_{S/A} (S ∈ Sm_{A[dim!^{-1}]}, n = dim(S/A)) that are compatible with the map q-Ω_{S/A} → Ω_{S/A}⟦q−1⟧/(q−1)^n of the canonical construction, or alternatively whose p-completions carry a Z_p^×-action compatible with the one on p-completed q-de Rham cohomology (p-tilde-de Rham node), the canonical one is initial, and the q-deformation clause again makes it unique. Without one of these two additional compatibilities no uniqueness is claimed in the smooth case.
+
+**Hypotheses.**
+
+- Terminality in the quasi-regular case and initiality in the smooth case go in opposite directions; each is upgraded to uniqueness by the q-deformation clause.
+- The Z_p^×-action is the one induced on the prism by q ↦ q^u, transported through the prismatic comparison.
+- The source asserts both statements in Paragraph 1.21 and gives no proof in the body; the proof steps are this packet's and are recorded as such.
+
+**Proof.**
+
+1. (a) Let fil' be a q-Hodge filtration on q-dR_{R/A}. Its p-completions are filtrations by static submodules (modulo q−1 they are the Hodge filtration, which is by ideals under condition (R), and they are (q−1)-complete), and by the rational clauses their images lie in the combined Hodge and (q−1)-adic filtrations; since the canonical filtration is a 1-categorical preimage glued with the rational combined filtration, fil' maps to it.
+2. (a) The map is an equivalence modulo q−1 (both sides reduce to the Hodge filtration), hence an equivalence by (q−1)-completeness.
+3. (b) If fil' is compatible with q-Ω_{S/A} → Ω_{S/A}⟦q−1⟧/(q−1)^n, the pullback square defining the truncated canonical filtration gives τ*_n fil' → fil^{⋆≤n}_{q-Hdg,n}, an equivalence modulo q−1 and hence an equivalence; its inverse corresponds under τ_{n,!} ⊣ τ*_n to a map from the canonical filtration to fil', which is an equivalence modulo q−1 and hence an equivalence.
+4. (b) With the Z_p^×-action instead, run the same argument prime by prime with the p-tilde-de Rham description and glue with the rational combined filtration.
+5. Record that no uniqueness is claimed in the smooth case without one of the two compatibilities.
+
+**Acceptance.**
+
+- The two directions, terminal and initial, are recorded with the case each belongs to.
+- The two alternative additional data in the smooth case are both stated.
+- The absence of an unconditional uniqueness statement in the smooth case, and of a proof in the source, is recorded.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-section-on-quasi-regular-inputs`, `HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras`, `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.5/the-p-tilde-de-rham-description-of-the-canonical-filtration`, `HQ.3/q-hodge-filtrations`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.21: “In the quasi-regular case, it will be straightforward to see that the section we construct is terminal among all choices, and then the q-deformation condition from Definition 1.6(b) forces it to be unique.” — (a) and its status.
+- `wagner-q-hodge-habiro`, Paragraph 1.21, continued: “In the smooth case, we need to assume additionally that our q-Hodge filtrations are compatible with the morphism q-Ω_{S/A} → Ω_{S/A}⟦q −1⟧/(q −1)^n from 4.1 below, or alternatively, that fil^⋆_{q-Hdg}(q-dR_{R/Z})^∧_p acquires a Z_p^×-action” — (b), the two alternatives.
+- `wagner-q-hodge-habiro`, Paragraph 1.21, end: “If this additional compatibility is assumed, it will be straightforward to see that the section we construct is initial among all choices, and thus unique again by Definition 1.6(b).” — (b), initiality.
+
+### What is exported for finite etale arithmetic inputs, and the comparison that is not claimed
+
+`HQ.5/the-export-to-the-coefficient-roadmap` · comparison
+
+Let R be étale over A (for example R = O_F[1/Δ] over Z, F a number field of discriminant Δ). Then the canonical section applies with no prime inverted, and the Habiro–Hodge complex q-Hdg_{R/A} is the relative Habiro ring H_{R/A}, static (Corollary 3.13). What this roadmap proves and exports: (i) q-Hdg_{R/A}/(q^m − 1) ≃ q-W_m(R/A) ≃ H_{R/A}/(q^m − 1) for every m; (ii) the (q−1)-completion of q-Hdg_{R/A} is the q-Hodge complex, which for étale R is R⟦q−1⟧, and the comparison map H_{R/A} → R⟦q−1⟧ is the Taylor map at q = 1 of the equaliser presentation of H_{R/A} by Frobenius-glued cyclotomic Taylor maps (imported from HR.5); (iii) for R = O_F[1/Δ] this ring is the GSWZ Habiro ring of F (Corollary 2.13, imported from HR.5). The identification of the degree-zero coefficient object with the independently built relative ring, the module interfaces, and the modules indexed by K_3(F) with their possible loss of information on (q−1)-completion belong to HabiroRings HR.6 and HabiroNumberFields HB.6/HB.7, which consume this node; no node of this packet makes a statement about those modules. A ring comparison in relative dimension zero does not identify a K_3-indexed module with a cohomology class on a higher-dimensional scheme.
+
+**Hypotheses.**
+
+- R is étale over the perfectly covered Λ-ring A, so no prime is inverted and q-Hdg_{R/A} is static.
+- The Frobenius-glued Taylor presentation and the number-field comparison are HR.5's, imported with their hypotheses on the inverted integer.
+- HR.6, HB.6 and HB.7 consume this node; they are not its prerequisites (making them prerequisites closes a cycle, since HR.6 requires HQ.5).
+
+**Proof.**
+
+1. Specialise the existence theorem and the étale case of the descent theorem (Corollary 3.13) to R: q-Hdg_{R/A} ≃ H_{R/A}.
+2. Read off (i) from the proof of Corollary 3.13 and (ii) from the descent theorem (a) and the equaliser presentation of HR.5.
+3. Record (iii) from HR.5's number-field comparison, and the boundary with HR.6/HB.6/HB.7.
+
+**Acceptance.**
+
+- Each exported and imported statement is attributed to the roadmap that owns it.
+- The reduction is modulo q^m − 1 and the (q−1)-completion comparison is the Taylor map at q = 1.
+- No statement about K_3-indexed modules is made.
+
+**Depends on.** this roadmap: `HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras`, `HQ.3/habiro-descent`, `HQ.3/the-etale-case`; other roadmaps: `HabiroRings:HR.5/the-relative-habiro-ring`, `HabiroRings:HR.5/the-equaliser-presentation`, `HabiroRings:HR.5-number-field-comparison/the-number-field-ring`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Corollary 3.13: “If R is étale over A, then q-Hdg_{R/A} is the relative Habiro ring H_{R/A} constructed in 2.7.” — The identification that is exported.
+- `wagner-q-hodge-habiro`, Proof of Corollary 3.13: “If R is étale, then combining this observation with Theorem 3.11(a) and [Wag24, Proposition 3.31] shows q-Hdg_{R/A}/(q^m −1) ≃ q-Wm(R/A) ≃ H_{R/A}/(q^m −1).” — (i).
+- `wagner-q-hodge-habiro`, Corollary 2.13: “If F is a number field with discriminant ∆ and R := O_F[1/∆], then H_{R/Z} agrees with the Habiro ring H_R defined in [GSWZ24, Definition 1.1].” — (iii).
+- `wagner-q-hodge-habiro`, Paragraph 1.4: “This geometry would be completely invisible to any q-de Rham stack, as the regulator becomes trivial after (q −1)-completion!” — Why the K_3-indexed modules are the coefficient roadmaps' and can be lost on (q−1)-completion.
+
+### In relative dimension at most n the canonical filtration is a q-Hodge filtration
+
+`HQ.5/the-canonical-filtration-is-a-q-hodge-filtration` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let S and n be as in the canonical construction and assume in addition dim(S/A) ≤ n. Then (a) fil^⋆_{q-Hdg,n} q-Ω_{S/A}/(q−1) ≃ fil^⋆_Hdg Ω_{S/A}, with q−1 in filtration degree one; (b) (fil^⋆_{q-Hdg,n} q-Ω_{S/A} ⊗^L_Z Q)^∧_{(q−1)} ≃ fil^⋆_{(Hdg,q−1)}(Ω_{S/A} ⊗^L_Z Q)⟦q−1⟧ and, for every prime p, (fil^⋆_{q-Hdg,n}(q-Ω_{S/A})^∧_p[1/p])^∧_{(q−1)} ≃ fil^⋆_{(Hdg,q−1)}(Ω_{S/A})^∧_p[1/p]⟦q−1⟧; (c) consequently fil^⋆_{q-Hdg,n} q-dR_{S/A} carries, naturally in S, the structure of a q-Hodge filtration in the sense of Definition 3.2; (d) fil^⋆_{q-Hdg,n} q-Ω_{S/A} is the completion of fil^⋆_{q-Hdg,n} q-dR_{S/A}.
+
+**Hypotheses.**
+
+- dim(S/A) ≤ n, so that the Hodge filtration of Ω_{S/A} already lies in Fil^{[0,n]}D(Z); this is the only place the dimension bound enters.
+- Every prime p ≤ n is invertible in S (the standing hypothesis of the construction).
+
+**Proof.**
+
+1. (a) By the base-change formula for τ_{n,!} applied to (q−1)^⋆Z⟦q−1⟧ → Z, the reduction is τ^Z_{n,!} of the reduction of the truncated pullback, which is τ*_n fil^⋆_Hdg Ω_{S/A} by construction; since the Hodge filtration lies in Fil^{[0,n]}D(Z) and τ^Z_{n,!} is fully faithful, this is fil^⋆_Hdg Ω_{S/A}.
+2. (b) Apply (−⊗^L_Z Q)^∧_{(q−1)} to the defining pullback, using the rational comparison (q-Ω_{S/A} ⊗^L Q)^∧_{(q−1)} ≃ (Ω_{S/A} ⊗^L Q)⟦q−1⟧ of the global complex and the base-change formula for Z → Q and for Z → (q−1)^⋆Q⟦q−1⟧; the p-adic rational statement is proved in the same way.
+3. (c) Pull back along q-dR_{S/A} → q-Ω_{S/A}; the compatibilities required by Definition 3.2 are induced from those of q-dR_{S/A}.
+4. (d) By the smooth comparison (Proposition 3.47) q-Ω_{S/A} is the completion of q-dR_{S/A} at any q-Hodge filtration, and the filtration on q-dR_{S/A} is pulled back from q-Ω_{S/A}.
+
+**Acceptance.**
+
+- The dimension hypothesis is used exactly in (a), through the full faithfulness of τ^Z_{n,!}.
+- Both rational clauses are proved, the p-adic one separately, since the p-adic clause does not follow from the others.
+- (d) is deduced from Proposition 3.47 and not assumed.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`, `HQ.3/q-hodge-filtrations`, `HQ.1/what-the-global-complex-satisfies`, `HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom`, `HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.6: “With notation as in 4.1, assume additionally that dim(S/A) ⩽ n. Then fil^⋆_{q-Hdg,n} q-dR_{S/A} can naturally be equipped with the structure of a q-Hodge filtration as in Definition 3.2.” — (c).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.6: “To see the third equivalence, first observe that the Hodge filtration fil^⋆_{Hdg} Ω_{S/A} is already contained in Fil^{[0,n]} D(Z) because we assume dim(S/A) ⩽ n.” — Where the dimension bound enters, for (a).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.6, continued: “In a completely analogus way, we obtain natural equivalences ... for all primes p. Via pullback along q-dR_{S/A} → q-Ω_{S/A}, we obtain analogous equivalences for fil^⋆_{q-Hdg,n} q-dR_{S/A}.” — The p-adic rational clause of (b).
+- `wagner-q-hodge-habiro`, Lemma 4.7 and its proof: “With assumptions as in Lemma 4.6, fil^⋆_{q-Hdg,n} q-Ω_{S/A} is automatically the completion of fil^⋆_{q-Hdg,n} q-dR_{S/A}. Proof. By Proposition 3.47, q-Ω_{S/A} is automatically the completion of q-dR_{S/A} at the filtration fil^⋆_{q-Hdg,n} q-dR_{S/A}.” — (d).
+
+### The p-complete description through the p-tilde-de Rham complex
+
+`HQ.5/the-p-tilde-de-rham-description-of-the-canonical-filtration` · comparison · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Fix a prime p and let S and n be as in the canonical construction. The p-tilde-de Rham complex of Bhatt and Lurie is the homotopy fixed points of the action of μ_{p−1} ⊆ Z_p^× on (q-Ω_{S/A})^∧_p, where u ∈ Z_p^× acts on the prism (Z_p⟦q−1⟧, [p]_q) by q ↦ q^u and on (q-Ω_{S/A})^∧_p through the comparison with prismatic cohomology. The pullback of the Hodge filtration along its canonical map to (Ω_{S/A})^∧_p (no combined filtration is needed), extended by τ_{n,!} and base changed to (q−1)^⋆Z_p⟦q−1⟧, is a p-completed q-Hodge filtration of (q-Ω_{S/A})^∧_p. The source states that these p-complete filtrations, glued over all primes with the combined Hodge and (q−1)-adic filtration of (Ω_{S/A} ⊗^L Q)⟦q−1⟧, give the canonical filtration, and says that it does not spell the gluing argument out.
+
+**Hypotheses.**
+
+- The Z_p^×-action is transported from the prism through the prismatic comparison of the global q-de Rham complex (Theorem A.1(b)).
+- The agreement with the canonical filtration is asserted by the source without the gluing argument; the last proof step plans it and is flagged.
+- This description is the one the Z_p^×-variant of the smooth uniqueness statement refers to.
+
+**Proof.**
+
+1. Construct the μ_{p−1}-action on (q-Ω_{S/A})^∧_p from the action on the prism and the prismatic comparison, and form the homotopy fixed points.
+2. Pull back the Hodge filtration along the canonical map to (Ω_{S/A})^∧_p, apply τ_{n,!} and base change to (q−1)^⋆Z_p⟦q−1⟧.
+3. Glue with the rational combined filtration along the arithmetic fracture square of the global complex, and compare with the canonical filtration by the adjunction τ_{n,!} ⊣ τ*_n and reduction modulo q−1, as in the framed comparison; the source does not write this step out.
+
+**Acceptance.**
+
+- The group, its action on the prism and its transport through the prismatic comparison are specified.
+- The unspelled gluing step is flagged as such, not presented as proved in the source.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.1/what-the-global-complex-satisfies`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`; other roadmaps: `PrismaticCohomology:PR.6`, `EnhancedDerivedSheaves:E5:presentability`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 4.5: “Explicitly, it is the homotopy-fixed points of the action of µ_{p−1} ⊆ Z_p^× on (q-Ω_{S/A})^∧_p. Here u ∈ Z_p^× acts on the prism (Z_p⟦q −1⟧, [p]_q) via q ↦ q^u, which induces an action of Z_p^× on (q-Ω_{S/A})^∧_p via the comparison with prismatic cohomology (Theorem A.1(b)).” — The p-tilde-de Rham complex and the action.
+- `wagner-q-hodge-habiro`, Remark 4.5, continued: “These filtrations for all p can be glued with the combined Hodge and (q −1)-adic filtration on (Ω_{S/A} ⊗^L_Z Q)⟦q −1⟧ to get the same filtration fil^⋆_{q-Hdg,n} q-Ω_{S/A} as in 4.3. We prefer the construction in 4.3, since spelling out the gluing argument is a bit of a pain.” — The gluing claim and its status.
+
+### The categories with the bounds n and n+1 form a pushout of ∞-categories
+
+`HQ.5/the-pushout-of-categories-of-smooth-algebras` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+For every n ≥ 0 the commutative square of full inclusions with corners Sm^{≤n}_{A[(n+1)!^{-1}]}, Sm^{≤n+1}_{A[(n+1)!^{-1}]}, Sm^{≤n}_{A[dim!^{-1}]} and Sm^{≤n+1}_{A[dim!^{-1}]} (the last receiving the other three) is a pushout in the ∞-category of ∞-categories.
+
+**Hypotheses.**
+
+- The four categories are ordinary categories of A-algebras regarded as ∞-categories; the pushout is taken among ∞-categories.
+- The proof uses that fully faithful functors are stable under pushout of ∞-categories (an observation of Ramzi), which neither pinned library contains; it is requested from EnhancedDerivedSheaves E0.
+
+**Proof.**
+
+1. Let P be the pushout; the comparison functor P → Sm^{≤n+1}_{A[dim!^{-1}]} is essentially surjective.
+2. For full faithfulness reduce to objects coming from the two cofactors; when both come from the same cofactor, use that both legs are fully faithful and that fully faithful functors are preserved under pushouts.
+3. If S_1 comes from Sm^{≤n}_{A[dim!^{-1}]} and S_2 from Sm^{≤n+1}_{A[(n+1)!^{-1}]}: the inclusion Sm^{≤n}_{A[(n+1)!^{-1}]} → Sm^{≤n}_{A[dim!^{-1}]} has the left adjoint S ↦ S[1/(n+1)!], the pushout of that adjunction is again an adjunction, so S_1 may be replaced by S_1[1/(n+1)!].
+4. If S_1 comes from Sm^{≤n+1}_{A[(n+1)!^{-1}]} and S_2 from Sm^{≤n}_{A[dim!^{-1}]} with (n+1)! not invertible in S_2, there are no A-algebra maps S_1 → S_2, so both mapping spaces are empty.
+
+**Acceptance.**
+
+- The four corners are named and the square is stated as a pushout of ∞-categories.
+- The two mixed cases of the full-faithfulness argument are both treated.
+
+**Depends on.** other roadmaps: `EnhancedDerivedSheaves:E0`; libraries: `mathlib:Algebra.Smooth`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.9: “For all n ⩾ 0, the following diagram is a pushout of ∞-categories:” — The statement (the diagram is the square of the four categories).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.9: “By an observation of Maxime Ramzi [Ram], fully faithful functors are preserved under pushouts. Since both legs of our pushout are fully faithful, the claimed equivalence is clear if S1 and S2 come from the same cofactor.” — The main input.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.9, Case 2: “We may additionally assume that (n + 1)! is not invertible in S2; otherwise we would be in a case already covered. But then Hom(S1, S2) ≃ ∅ and so the map in question must be an equivalence, since only ∅ maps to ∅.” — The second mixed case.
+
+### The partial sub-operad of smooth algebras with the small primes inverted
+
+`HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted` · definition · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let Sm⊗_A → Fin_* be the ∞-operad of the symmetric monoidal structure ⊗_A on smooth A-algebras. Call an object (S_1, …, S_i) over ⟨i⟩ admissible if every S_j lies in Sm_{A[dim!^{-1}]}, and a morphism (S_1, …, S_i) → (S'_1, …, S'_{i'}) over α: ⟨i⟩ → ⟨i'⟩ admissible if its source and target are admissible and so is the target (⊗_{α(k)=j} S_k)_j of the cocartesian lift of α from its source (the source's conditions 4.12(a) and (b)). When A is not a Q-algebra (for example A = Z), admissible morphisms are not closed under composition (source issue E305), so they do not form a subcategory; when A is a Q-algebra every smooth A-algebra is admissible and the construction is the whole of Sm⊗_A. Sm⊗_{A[dim!^{-1}]} is therefore defined as the largest simplicial subset of the nerve of Sm⊗_A whose vertices and edges are admissible: a simplicial set over N(Fin_*), not an ∞-category, in which a composite of two admissible edges is present exactly when the composite edge is itself admissible. It contains the full subcategory Sm_{A[dim!^{-1}]} over ⟨1⟩, and it is not the full sub-operad spanned by it. For each n the same recipe with entries of dimension at most n inside Sm⊗_{A[n!^{-1}]} gives Sm^{≤n,⊗}_{A[n!^{-1}]}, and dually, with cartesian lifts in the dual fibration (Sm⊗_{A[n!^{-1}]})^∨ → Fin_*^{op}, its dual (Sm^{≤n,⊗}_{A[n!^{-1}]})^∨.
+
+**Hypotheses.**
+
+- Sm_{A[dim!^{-1}]} is the full subcategory of smooth A-algebras S in which every prime p ≤ dim(S/A) is invertible; it is not closed under ⊗_A.
+- The source calls this object a non-full sub-∞-operad; since its admissible morphisms do not compose, the node records it as a simplicial subset over N(Fin_*) (source issue E305). Everything the source deduces from it (the A_r-structures of Paragraph 4.12) uses only simplices all of whose edges are admissible.
+- The dual variant is needed for the oplax encoding of Paragraph 4.14.
+
+**Proof.**
+
+1. Define admissible objects and morphisms as in 4.12(a)(b); check that identities and cocartesian lifts of inert maps are admissible (the target of an inert lift is a sub-tuple).
+2. Exhibit the failure of composition: over A = Z, Z[x] → Z (x ↦ 0) on both factors is admissible over id_⟨2⟩, multiplication Z ⊗ Z → Z is admissible over ⟨2⟩ → ⟨1⟩, but their composite has cocartesian-lift target Z[x] ⊗ Z[x] = Z[x, y], in which 2 is not invertible.
+3. Define the simplicial subset, the bounded-dimension variant and its dual.
+
+**API.**
+
+- `TauCeti.QHodge.SmoothDimInv.admissible` (characterisation): A morphism over α is admissible iff source, target and the target of the cocartesian lift of α from the source are admissible objects.
+- `TauCeti.QHodge.SmoothDimInv.operadic` (constructor): The simplicial subset Sm⊗_{A[dim!^{-1}]} of the nerve of Sm⊗_A spanned by admissible vertices and edges, with its map to N(Fin_*).
+- `TauCeti.QHodge.SmoothDimInv.fibre_one` (compatibility): Its fibre over ⟨1⟩ is the full subcategory Sm_{A[dim!^{-1}]} of smooth A-algebras.
+- `TauCeti.QHodge.SmoothDimInv.mul_admissible` (characterisation): For S of relative dimension d the multiplication (S, S) → S over ⟨2⟩ → ⟨1⟩ is admissible iff every prime p ≤ 2d is invertible in S; the r-fold multiplication is admissible iff every prime p ≤ r·d is.
+- `TauCeti.QHodge.SmoothDimInv.boundedDim` (constructor): The bounded-dimension variant Sm^{≤n,⊗}_{A[n!^{-1}]} and its dual in (Sm⊗_{A[n!^{-1}]})^∨.
+- `TauCeti.QHodge.SmoothDimInv.etale` (example): On étale A-algebras (dimension zero) every morphism is admissible and the construction is the symmetric monoidal category of étale A-algebras.
+
+**Unit tests.**
+
+- `TauCeti.QHodge.SmoothDimInv.not_comp_closed` (non-example): Over A = Z: the edges (Z[x], Z[x]) → (Z, Z) over id_⟨2⟩ and (Z, Z) → Z over ⟨2⟩ → ⟨1⟩ are admissible but their composite is not, since Z[x] ⊗ Z[x] = Z[x, y] needs 2 inverted.
+- `TauCeti.QHodge.SmoothDimInv.mul_Z_x` (computation): Z[x] lies in Sm_{Z[dim!^{-1}]}, but its multiplication is not admissible; Z[1/2][x] has an admissible multiplication (an A_2-structure) but its triple product is not admissible, and Z[1/6][x] has an admissible triple product (A_3).
+- `TauCeti.QHodge.SmoothDimInv.fibre_one_full` (degenerate): Over ⟨1⟩ the condition (b) is vacuous, so the fibre is the full subcategory Sm_{A[dim!^{-1}]}.
+- `TauCeti.QHodge.SmoothDimInv.not_full` (non-example): The full sub-operad spanned by Sm_{Z[dim!^{-1}]} contains the multiplication of Z[x], which is not admissible; the two notions differ.
+
+**Acceptance.**
+
+- The two admissibility conditions are stated exactly, and the object is not called a subcategory.
+- The non-closure under tensor products and under composition are both recorded with explicit witnesses.
+
+**Used by.**
+
+- Wagner, q-Hodge complexes, Corollary 4.16: the domain of the operadic extension of the canonical section
+- Wagner, q-Hodge complexes, Paragraph 4.12: reading off the A_r-structures and the bounds 2d and r·d
+- Wagner, q-Hodge complexes, Paragraph 4.32: the same recipe defines the operadic domain for quasi-regular inputs
+
+**Depends on.** this roadmap: `HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras`; other roadmaps: `EnhancedDerivedSheaves:E5:abstract`; libraries: `mathlib:Algebra.Smooth`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 4.12: “Sm_{A[dim!−1]} is not closed under tensor products in Sm_A and we don’t see a way of equipping it with a symmetric monoidal structure.” — The problem the definition addresses.
+- `wagner-q-hodge-habiro`, Paragraph 4.12(b): “A morphism (S1, . . . , Si) → (S′1, . . . , S′i′) over α: ⟨i⟩ → ⟨i′⟩ is contained in Sm_{A[dim!−1]} if and only if both source and target satisfy the condition from (a) and the target of a cocartesian lift of α with source (S1, . . . , Si) also satisfies the condition from (a).” — The morphism condition.
+- `wagner-q-hodge-habiro`, Paragraph 4.12, warning: “Let us immediately warn the reader that Sm⊗_{A[dim!−1]} is not the full sub-∞-operad of Sm⊗_A spanned by the full subcategory Sm_{A[dim!−1]} ⊆ Sm_A, precisely because the condition from (b) yields a non-full sub-∞-operad.” — Non-fullness.
+- `wagner-q-hodge-habiro`, Proof sketch of Corollary 4.16: “As in 4.12, we can define a sub-∞-operad Sm^{⩽n,⊗}_{A[n!−1]} ⊆ Sm⊗_{A[n!−1]} given by those objects whose entries are of dimension ⩽ n and those morphisms that factor through a cocartesian lift of their image in Fin∗.” — The bounded-dimension variant.
+
+### The truncated canonical construction is symmetric monoidal
+
+`HQ.5/the-truncated-construction-is-symmetric-monoidal` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Fix n ≥ 0 and give the full subcategory of (q−1)-complete objects of Mod_{τ*_n((q−1)^⋆A⟦q−1⟧)}(Fil^{[0,n]}D(Z)) the (q−1)-completed tensor product. Then the functor S ↦ fil^{⋆≤n}_{q-Hdg,n} q-dR_{S/A} from Sm_{A[n!^{-1}]} (smooth A-algebras of any dimension with every prime p ≤ n invertible) to that category is symmetric monoidal.
+
+**Hypotheses.**
+
+- The functor is the truncated one, before τ_{n,!}; the dimension of S is unrestricted.
+- The source gives a proof sketch only.
+
+**Proof.**
+
+1. Obtain a lax symmetric monoidal structure from the construction (a pullback of lax symmetric monoidal functors).
+2. Check that the lax structure maps are equivalences modulo q−1, where they become the structure maps of τ*_n(fil^⋆_Hdg dR_{−/A}), which is symmetric monoidal because the Hodge filtration is and τ*_n is symmetric monoidal; conclude by (q−1)-completeness.
+
+**Acceptance.**
+
+- The functor is stated on the truncated filtration and on all dimensions.
+- The reduction modulo q−1 to the symmetric monoidality of the Hodge filtration is explicit.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `EnhancedDerivedSheaves:E5:abstract`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.13: “Then the functor fil^⋆_{q-Hdg,n} q-dR_{−/A} : Sm_{A[n!−1]} → Mod_{τ*_n((q−1)^⋆A⟦q−1⟧)}(Fil^{[0,n]} D(Z))^∧_{(q−1)} from 4.3 can be equipped with a symmetric monoidal structure.” — The statement.
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 4.13: “From the construction it’s straightforward to get a lax symmetric monoidal structure. Whether it is symmetric monoidal can be checked modulo (q −1), where we reduce to the fact that τ*_n(fil^⋆_{Hdg} dR_{−/A}) is symmetric monoidal.” — The argument.
+
+### In bounded dimension the oplax structure preserves cartesian lifts
+
+`HQ.5/cartesian-lifts-in-bounded-dimension-are-preserved` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Encode oplax symmetric monoidal functors C → D as functors (C⊗)^∨ → (D⊗)^∨ over Fin_*^{op} preserving cartesian lifts of inert morphisms, where (C⊗)^∨ is the cartesian fibration dual to C⊗ → Fin_* (described by spans, after Barwick–Glasman–Nardin). Composing the symmetric monoidal truncated construction with the oplax functor τ_{n,!}(−)^∧_{(q−1)} gives an oplax functor (Sm⊗_{A[n!^{-1}]})^∨ → (AniAlg^{q-Hdg,⊗}_A)^∨. If φ: (S'_1, …, S'_{i'}) → (S_1, …, S_i) is a cartesian morphism of (Sm⊗_{A[n!^{-1}]})^∨ with every S'_j of relative dimension at most n over A, then φ is sent to a cartesian morphism.
+
+**Hypotheses.**
+
+- The dimension bound is on the source of the cartesian morphism, whose entries are the tensor products; this is what makes the canonical filtration of a tensor product the completed tensor product of the filtrations.
+- The source gives a proof sketch only; the encoding of 4.14 and the span description are imported from EnhancedDerivedSheaves E5:abstract.
+
+**Proof.**
+
+1. Record the encoding of lax and oplax symmetric monoidal functors through a cocartesian fibration and its dual cartesian fibration.
+2. Reduce the claim to: if S_1 ⊗_A ⋯ ⊗_A S_i has relative dimension at most n, then fil^⋆_{q-Hdg,n} q-dR of the tensor product is the (q−1)-completed tensor product over (q−1)^⋆A⟦q−1⟧ of the filtrations of the factors.
+3. Check this modulo q−1, where it becomes the symmetric monoidality of the Hodge filtration, using the q-Hodge-property node for the tensor product (dimension at most n) and the truncated monoidality.
+
+**Acceptance.**
+
+- The encoding of oplax functors is stated with the dual fibration.
+- The dimension hypothesis is on the tensor products, where it is used.
+
+**Depends on.** this roadmap: `HQ.5/the-truncated-construction-is-symmetric-monoidal`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `EnhancedDerivedSheaves:E5:abstract`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 4.14: “Lax symmetric monoidal functors C → D are then encoded as functors C⊗ → D⊗ in Cat∞/Fin∗ that preserve cocartesian lifts of inert morphisms, whereas oplax symmetric monoidal functors are encoded as functors (C⊗)∨ → (D⊗)∨ in Cat∞/Finop∗ that preserve cartesian lifts of inert morphisms.” — The encoding.
+- `wagner-q-hodge-habiro`, Lemma 4.15: “If φ: (S′1, . . . , S′i′) → (S1, . . . , Si) is a cartesian morphism in (Sm⊗_{A[n!−1]})∨ such that S′1, . . . , S′i′ are all of relative dimension ⩽ n over A, then φ is sent to a cartesian morphism” — The statement.
+- `wagner-q-hodge-habiro`, Proof sketch of Lemma 4.15: “This essentially reduces to the observation that whenever a tensor product of smooth A[n!−1]-algebras S1 ⊗A · · · ⊗A Si has relative dimension ⩽ n over A, the q-Hodge filtration ... will agree with” — The reduction (to the completed tensor product of the filtrations).
+
+### Perfectness of algebraic Habiro cohomology for smooth proper schemes (asserted by the source without proof)
+
+`HQ.5/perfectness-for-smooth-proper-schemes` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let N be a positive integer divisible by every prime p ≤ d and let X be smooth and proper over Z[1/N] of relative dimension d. Then RΓ(X, q-Hdg_{X/Z}) is a perfect complex over the Habiro completion of H[1/N] (and not over H[1/N] itself, nor over the localisation of the completion).
+
+**Hypotheses.**
+
+- N is divisible by every prime p ≤ dim(X/Z), so that algebraic Habiro cohomology of X is defined.
+- The coefficient ring is the Habiro completion of H[1/N].
+- The source states this in its introduction as an example and gives no proof in the body (source issue E303); the node is planned with that status recorded as a gap.
+
+**Proof.**
+
+1. Reduce modulo q^m − 1 for every m: by the filtration of the previous node the reduction has a finite filtration whose i-th graded piece is RΓ(X, q-W_m Ω^i_{X/Z}) shifted to cohomological degree i; these must be shown perfect over Z[1/N][q]/(q^m − 1), a finiteness statement for the cohomology of q-de Rham–Witt complexes of smooth proper schemes that neither the source nor this packet supplies.
+2. Deduce perfectness of the Habiro-complete object RΓ(X, q-Hdg_{X/Z}) from perfectness of all its reductions, by a Nakayama-type criterion for Habiro-complete modules; Appendix B supplies conservativity and degree detection (HR.2) but not a perfectness criterion, which also has to be supplied.
+3. Both missing inputs are recorded in the gap 'Perfectness of algebraic Habiro cohomology is asserted in the source without proof'.
+
+**Acceptance.**
+
+- The coefficient ring is named exactly, with both hypotheses on N.
+- The absence of a proof in the source is recorded, not papered over.
+
+**Depends on.** this roadmap: `HQ.5/algebraic-habiro-cohomology-of-a-scheme`, `HQ.4/etale-base-change-and-the-sheaf-property`; other roadmaps: `HabiroRings:HR.2/habiro-complete-modules`, `HabiroRings:HR.2/the-detection-results`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.16, continued: “For example, if X is smooth and proper over Z[1/N], where N is also divisible by all primes p ⩽ dim(X/Z), then RΓ(X, q-Hdg_{X/Z}) will be a perfect complex over the Habiro-completion of H[1/N].” — The statement; the body contains no proof.
+
+### Staticity of de Rham and q-de Rham complexes of quasi-lci inputs
+
+`HQ.5/staticity-for-quasi-lci-inputs` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a p-completely perfectly covered δ-ring and R a p-torsion free A-algebra such that L_{R/A} has p-complete Tor-amplitude over R concentrated in degree 1. (a) The derived de Rham complex dR_{R/A}, its Hodge completion, every degree of the completed Hodge filtration, and the derived q-de Rham complex q-dR_{R/A} are static and p-torsion free (everything p-completed). (b) The uncompleted Hodge filtration fil^⋆_Hdg dR_{R/A} is static in every degree if and only if R/p is relatively semiperfect over A. (c) If R ≅ B/J has a perfect-regular presentation, then dR_{R/A} is the p-completed PD-envelope D_B(J), the Hodge filtration is its PD-filtration, and q-dR_{R/A} is the corresponding q-PD-envelope.
+
+**Hypotheses.**
+
+- Tor-amplitude concentrated in degree 1 (not [0, 1]) is assumed in (a) and (b).
+- (b) is an equivalence; the converse direction goes through the Nygaard filtration on derived de Rham–Witt complexes.
+
+**Proof.**
+
+1. (a) The associated graded of the completed Hodge filtration is Σ^{−∗}∧^∗ L_{R/A}, static and p-torsion free since Σ^{−1}L_{R/A} is p-completely flat over the p-torsion free R; q-dR_{R/A} is (q−1)-complete with q-dR/(q−1) ≃ dR, so it suffices to treat dR_{R/A}.
+2. Base change along the p-completely faithfully flat A → A_∞; since L_{A_∞/Z_p} ≃ 0, replace dR_{R_∞/A_∞} by dR_{R_∞/Z_p}; staticity then follows modulo p from the conjugate filtration of dR_{R̄_∞/F_p}, whose graded pieces are static (DD.3).
+3. (b) If R̄_∞ is semiperfect, the Hodge filtration of dR_{R̄_∞/F_p} is static by Bhatt–Morrow–Scholze (THH and integral p-adic Hodge theory, Proposition 8.14). Conversely, deriving their Lemma 8.3 gives fil^n_N WdR/p fil^{n−1}_N WdR ≃ fil^n_Hdg dR for the Nygaard filtration on derived de Rham–Witt complexes; inductively WdR and its Nygaard steps are static, so Frobenius on WdR_{R̄_∞/F_p} is surjective, hence so is Frobenius on R̄_∞.
+4. (c) Identify dR_{B/J} with the PD-envelope and q-dR with the q-PD-envelope of Bhatt–Scholze (Prisms and prismatic cohomology, Lemma 16.10).
+
+**Acceptance.**
+
+- Both directions of (b) are proved, the converse through the Nygaard filtration.
+- The reduction to a perfect base and to F_p is explicit.
+
+**Depends on.** this roadmap: `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`; other roadmaps: `DerivedDeRhamCohomology:DD.2`, `DerivedDeRhamCohomology:DD.3`, `PrismaticCohomology:PR.3`, `PrismaticCohomology:PR.6`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.18(a): “Let R be a p-torsion free A-algebra such that L_{R/A} has p-complete Tor-amplitude over R concentrated in degree 1. (a) The de Rham complex dR_{R/A}, its Hodge-completion, every degree in the completed Hodge filtration, and the q-de Rham complex q-dR_{R/A} are all static and p-torsion free.” — (a).
+- `wagner-q-hodge-habiro`, Lemma 4.18(b): “The un-completed Hodge filtration fil^⋆_{Hdg} dR_{R/A} is static in every degree if and only if R/p is relatively semiperfect over A.” — (b).
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.18(b): “In the case where R∞ is semiperfect, this holds by [BMS19, Proposition 8.14]. Conversely, assume fil^⋆_{Hdg} dR_{R∞/Fp} is degree-wise static.” — The two directions.
+- `wagner-q-hodge-habiro`, Remark 4.19: “dR_{R/A} ≃ D_B(J) is the (p-completed) PD-envelope of J, the Hodge filtration is just the PD-filtration, and the q-de Rham complex q-dR_{R/A} is the corresponding q-PD-envelope in the sense of [BS19, Lemma 16.10].” — (c).
+
+### The naive filtration is always injective modulo q−1
+
+`HQ.5/the-naive-filtration-is-injective-modulo-q-minus-one` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R be a p-torsion free p-quasi-lci A-algebra with R/p relatively semiperfect over A. The canonical map induces a degreewise injection fil^⋆_{q-Hdg} q-dR_{R/A}/(q−1) ↪ fil^⋆_Hdg dR_{R/A}, the quotient taken with q−1 in filtration degree one. Equivalently, (q−1) fil^{n−1}_{q-Hdg} q-dR_{R/A} = fil^n_{q-Hdg} q-dR_{R/A} ∩ (q−1) q-dR_{R/A} for all n.
+
+**Hypotheses.**
+
+- The standing hypotheses of the naive filtration; no presentation is needed.
+
+**Proof.**
+
+1. Reduce the equality of ideals to the analogous one for the combined Hodge and (q−1)-adic filtration on dR_{R/A}[1/p]⟦q−1⟧, using that the naive filtration is a preimage and that q−1 is a non-zero-divisor.
+2. Check it there directly: an element of (q−1) dR[1/p]⟦q−1⟧ lies in the n-th combined step iff its quotient by q−1 lies in the (n−1)-st.
+
+**Acceptance.**
+
+- The injectivity is stated for all degrees and without extra hypotheses.
+
+**Depends on.** this roadmap: `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.2/the-quotient-convention-for-filtered-modules`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Lemma 4.26: “Let R be a p-torsion free p-quasi-lci A-algebra such that R/p is relatively semiperfect over A. Then the canonical map from Construction 4.21 induces a degree-wise injection fil^⋆_{q-Hdg} q-dR_{R/A}/(q −1) ↪ fil^⋆_{Hdg} dR_{R/A}.” — The statement.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.26: “This immediately reduces to the analogous assertion for the combined Hodge and (q −1)-adic filtration on dR_{R/A}[1/p]⟦q −1⟧, which is straightforward to check.” — The argument.
+
+### For the quotient by x itself the naive filtration is not a q-deformation
+
+`HQ.5/the-exponent-one-quotient-is-not-a-q-deformation` · lemma · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A = Z_p{x}^∧_p be the free p-complete δ-ring on x and R = A/x. Then dR_{R/A} is the p-completed PD-envelope D_1 = Z_p{x}[φ(x)/p]^∧_p and q-dR_{R/A} the q-PD-envelope q-D_1 = Z_p{x}⟦q−1⟧[φ(x)/[p]_q]^∧_{(p,q−1)}, and fil^p_{q-Hdg} q-D_1 contains no lift of the divided power x^p/p: modulo (q−1) q-D_1 every lift differs from the q-divided power γ_q(x) = φ(x)/[p]_q − δ(x) by a non-integral multiple u^{−2}(q−1)^{p−1}δ(x)/p of the polynomial variable δ(x), which no element of (q−1) q-D_1 removes. Hence the naive filtration of A/x is not a q-deformation of the Hodge filtration; by flat base change the same holds for Z_p{x}_∞/x over the perfection. For A/x^α with α ≥ 2 the obstruction disappears because δ(x^α) splits into a multiple of x^{p(α−1)} and a multiple of p.
+
+**Hypotheses.**
+
+- The witness is the exponent-one quotient; it is the same object that witnesses the no-go lemma (over the perfection).
+- The computation is modulo terms divisible by (q−1)^p, which lie in the p-th step.
+
+**Proof.**
+
+1. Identify dR and q-dR with the PD- and q-PD-envelopes (staticity lemma (c)).
+2. Replace the combined filtration by its completion, the (x, q−1)-adic filtration of Q_p⟨δ(x), δ^2(x), …⟩⟦x, q−1⟧, and write [p]_q = pu + (q−1)^{p−1} with u ≡ 1 modulo q−1.
+3. Expand γ_q(x) there: x^p/[p]_q and the (q−1)^p error terms lie in the p-th step, (u^{−1} − 1)δ(x) lies in (q−1) q-D_1, and the remaining term u^{−2}(q−1)^{p−1}δ(x)/p cannot be removed by elements of (q−1) q-D_1 because δ(x) is a polynomial variable.
+4. Transport to the perfection by the flat base change lemma.
+
+**Acceptance.**
+
+- The obstruction term is written out, and the reason it cannot be removed is the polynomiality of δ(x).
+- The contrast with α ≥ 2 is recorded.
+
+**Depends on.** this roadmap: `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.5/flat-base-change-for-the-naive-filtration`; other roadmaps: `PrismaticCohomology:PR.0`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Example 4.24: “Let A := Zp{x}^∧_p be the free p-complete δ-ring on a generator x and let R := Zp{x}^∧_p/x^α for some α ⩾ 1. Then Theorem 4.22(a) will apply as soon as α ⩾ 2, but not for α = 1.” — The setting.
+- `wagner-q-hodge-habiro`, Example 4.24, continued: “If α = 1, there’s nothing we can do: No modification by elements from (q −1) q-Dα will ever get rid of a non-integral multiple of δ(x), as δ(x) is a polynomial variable in Zp{x}.” — The obstruction.
+- `wagner-q-hodge-habiro`, Example 4.24, end: “For α = 2, however, we have δ(x^2) = 2x^pδ(x) + pδ(x)^2.” — Why α ≥ 2 works.
+
+### Tensor products of quasi-regular inputs and the operadic structure of the section
+
+`HQ.5/tensor-products-in-the-quasi-regular-category` · theorem · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let R_1, R_2 ∈ QReg^{q-Hdg}_A and R := R_1 ⊗^L_A R_2. (a) If R is static and p-torsion free for every prime p, then R ∈ QReg^{q-Hdg}_A. (b) In that case the canonical map (fil^⋆_{q-Hdg} q-dR_{R_1/A} ⊗^L_{(q−1)^⋆A⟦q−1⟧} fil^⋆_{q-Hdg} q-dR_{R_2/A})^∧_{(q−1)} → fil^⋆_{q-Hdg} q-dR_{R/A} is an equivalence of filtered E∞-algebras over (q−1)^⋆A⟦q−1⟧. (c) QReg^{q-Hdg}_A is not closed under tensor products in AniAlg_A (R_1 ⊗^L_A R_2 may fail to be static or p-torsion free), and this is the only obstruction; with QReg^{q-Hdg,⊗}_A ⊆ AniAlg⊗_A the partial sub-operad defined as in the smooth case (entries in QReg^{q-Hdg}_A, morphisms whose cocartesian-lift target has entries in it), the functor of Theorem 4.29 extends to it, preserving the cocartesian lifts that exist; on the full subcategory of objects flat over A it is symmetric monoidal.
+
+**Hypotheses.**
+
+- The partial sub-operad is defined by the same recipe as in the smooth case and has the same failure of composition (source issue E305); on flat objects the problem disappears because tensor products stay in the category.
+- The source gives a proof of (a), (b) and a proof sketch of (c).
+
+**Proof.**
+
+1. (a) L_{R/A} ≃ (L_{R_1/A} ⊗^L_A R_2) ⊕ (R_1 ⊗^L_A L_{R_2/A}), so R̂_p is p-quasi-lci and R/p relatively semiperfect; by the injectivity lemma only surjectivity of the reduction modulo q−1 onto the Hodge filtration is needed, and it follows from the factors because fil^⋆_Hdg dR_{R̂_p/Â_p} ≃ (fil^⋆_Hdg dR_{R̂_{1,p}} ⊗^L_A fil^⋆_Hdg dR_{R̂_{2,p}})^∧_p.
+2. (b) Reduce both sides modulo q−1 and use that fil^⋆_Hdg dR_{−/A} is symmetric monoidal.
+3. (c) Write CAlg(AniAlg^{q-Hdg}_A)^⊗ as an iterated pullback of CAlg(−)^⊗ of symmetric monoidal filtered categories and construct the map factorwise, as in Theorem 4.29; preservation of existing cocartesian lifts is (b); for flat R_1, R_2 the tensor product is static and p-torsion free, so by (a) the restriction to flat objects is a cocartesian fibration and the functor is symmetric monoidal.
+
+**Acceptance.**
+
+- The only obstruction to closure (staticity and torsion-freeness) is stated as the hypothesis of (a).
+- Symmetric monoidality is claimed only on flat objects.
+
+**Depends on.** this roadmap: `HQ.5/the-canonical-section-on-quasi-regular-inputs`, `HQ.5/the-naive-filtration-is-injective-modulo-q-minus-one`, `HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted`; other roadmaps: `DerivedDeRhamCohomology:DD.0`, `DerivedDeRhamCohomology:DD.2`, `EnhancedDerivedSheaves:E5:abstract`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 4.32: “Note that QReg^{q-Hdg,⊗}_A → Fin∗ is not a cocartesian fibration, because QReg^{q-Hdg}_A is not closed under tensor products in AniAlg_A. The problem is that R1 ⊗^L_A R2 might not be static or not p-torsion free for some prime p.” — (c), the obstruction.
+- `wagner-q-hodge-habiro`, Lemma 4.33: “Let R1, R2 ∈ QReg^{q-Hdg}_A and put R := R1 ⊗^L_A R2. (a) If R is static and p-torsion free for all primes p, then also R ∈ QReg^{q-Hdg}_A.” — (a); (b) is the equivalence of filtered E∞-algebras that follows.
+- `wagner-q-hodge-habiro`, Corollary 4.34: “In particular, when we restrict to the full subcategory QReg^{q-Hdg,♭}_A ⊆ QReg^{q-Hdg}_A spanned by those R that are flat over A, the functor from Theorem 4.29 is symmetric monoidal.” — (c), the flat case.
+- `wagner-q-hodge-habiro`, Proof of Lemma 4.33: “Using L_{R/A} ≃ (L_{R1/A} ⊗^L_A R2) ⊕ (R1 ⊗^L_A L_{R2/A}), it’s clear that R̂p is again p-quasi-lci over Âp.” — The cotangent complex step.
+
+## HQ.5-trace — Trace-theoretic existence
+
+*Coverage: source_decomposed.* 5 nodes, 1 of them added by the independent review. The trace-theoretic existence theorem in both the imported introductory form and the body form with its full hypothesis list and its addendum at the prime two; the counterexample showing that a lift over connective complex K-theory does not suffice, together with the expectation about the image-of-J spectrum and its named obstruction; the one-disc refinement with the even-resolution hypotheses it carries in place of the two-discs assumption and the independence of the chosen lift; and the identification of the number-field Habiro ring as a limit of genuine fixed points.
+
+### q-Hodge filtrations from topological cyclic homology over connective complex K-theory
+
+`HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations` · theorem · planet “Trace-theoretic existence”
+
+Imported form (ku paper, Theorem 1.2): let R be a quasi-syntomic ring with 2 ∈ R^× admitting a lift to a connective E_2-ring spectrum S_R with S_R ⊗ Z ≃ R. Then q-dR_{R/Z} carries a q-deformation of the Hodge filtration, and the completion of this filtration agrees, up to the shift Σ^{−2∗}, with the graded pieces of the S^1-equivariant even filtration on TC^−(ku ⊗ S_R/ku). Body form (Theorem 4.27): let A be a perfectly covered Λ-ring such that for every p, Â_p has a p-complete connective E∞-lift S_{Â_p} with S_{Â_p} ⊗ Z_p ≃ Â_p whose Tate-valued Frobenius agrees on π_0 with the δ-ring Frobenius and carries an S^1-equivariant structure as a map of E∞-rings (3.1(tCp)); let R be a quasi-lci A-algebra (L_{R/A} of Tor-amplitude [0, 1]) such that for every p, R has bounded p^∞-torsion and R̂_p satisfies either (E_2): R̂_p lifts to a p-complete connective E_2-algebra in S_{Â_p}-modules, or (E_1): R̂_p is p-torsion free and has a p-quasi-syntomic cover R̂_p → R_∞ with R_∞/p relatively semiperfect over Â_p whose p-completed Čech nerve lifts to an augmented cosimplicial diagram of p-complete connective E_1-algebras in S_{Â_p}-modules; and assume the addendum (R2): R̂_2 satisfies (E_1), which holds in particular if 2 ∈ R^×. Then the comparison map ψ^0_R induces an equivalence between the completed q-Hodge filtration and Σ^{−2∗} gr^∗_{ev,hS^1} TC^−(ku_R/ku_A), with the reduction modulo β and the rationalisation identified with the Hodge and the combined Hodge and (q−1)-adic filtrations, so that (R, fil^⋆_{q-Hdg} q-dR_{R/A}) is canonically an object of AniAlg^{q-Hdg}_A. This roadmap imports the theorem from RefinedTraceMethods RT.4:q-Hodge and consumes the output only as an object of the category of pairs.
+
+**Hypotheses.**
+
+- RefinedTraceMethods RT.4:q-Hodge owns the construction and the comparison; this roadmap consumes the output as an object of the category of pairs.
+- Imported form: R quasi-syntomic, 2 invertible, a connective E_2-lift S_R over the sphere with S_R ⊗ Z ≃ R; a lift over ku alone does not suffice (next node).
+- Body form: the base satisfies 3.1(tCp) at every prime, the input is quasi-lci with bounded p^∞-torsion and satisfies (E_2) or (E_1) at each prime (not necessarily the same one), and (R2) is a genuine extra condition at p = 2.
+
+**Proof.**
+
+1. Import the construction of the even filtration on the negative topological cyclic homology of the lift relative to connective complex K-theory, in the solid condensed setting the source uses.
+2. Import the comparison of that filtration with the p-complete q-de Rham complex and the resulting p-complete q-Hodge filtration.
+3. Glue the p-complete filtrations with the rational combined Hodge and adic filtration to obtain a global filtration, which needs the addendum at the prime two.
+4. Verify the clauses of the definition of a q-Hodge filtration for the glued object: the reduction modulo the deformation parameter gives the Hodge filtration and the rationalisation gives the combined filtration.
+5. Record the resulting pair as an object of the category of pairs of this roadmap, and hence as an input to the descent theorem.
+
+**Acceptance.**
+
+- Both the imported and the body form of the hypotheses are recorded, and the difference between them is visible.
+- The addendum at the prime two is present.
+- The conclusion is stated as producing an object of the category of pairs, so that the descent theorem applies to it.
+
+**Depends on.** this roadmap: `HQ.3/q-hodge-filtrations`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.2/the-derived-q-de-rham-complex`; other roadmaps: `RefinedTraceMethods:RT.4:q-Hodge`, `RefinedTraceMethods:RT.6`.
+
+**Sources.**
+
+- `wagner-ku-q-de-rham`, Theorem 1.2: “Let R be a quasi-syntomic ring such that 2 ∈ R^×. Assume that R admits a lift to a connective E2-ring spectrum S_R such that S_R ⊗ Z ≃ R. Then the derived q-de Rham complex q-dR_{R/Z} can be equipped with a q-deformation of the Hodge filtration” — The imported form (continued: the completion agrees up to shift with the graded pieces of the S^1-equivariant even filtration on TC^−(ku ⊗ S_R/ku)).
+- `wagner-ku-q-de-rham`, 3.1(tCp): “A has a lift to a p-complete connective E∞-ring spectrum S_A such that S_A ⊗_{Sp} Zp ≃ A and such that the Tate-valued Frobenius ϕ^{tCp} : S_A → S_A^{tCp} agrees with the δ-ring Frobenius ϕ: A → A on π0.” — The base condition at each prime.
+- `wagner-ku-q-de-rham`, 3.2(E1): “R is p-torsion free and has a p-quasi-syntomic cover R → R∞ such that: (a) R∞/p is relatively semiperfect over A in the sense that its relative Frobenius over the δ-ring A is a surjection” — The one-disc condition (continued: the Čech nerve lifts to p-complete connective E1-algebras in S_A-modules).
+- `wagner-ku-q-de-rham`, 4.18(R) and 4.18a: “In addition, for every prime p, the ring R must have bounded p∞-torsion and its p-completion R̂p must satisfy one of the conditions 3.2(E2) or (E1) (but not necessarily the same for every p). ... (R2) The 2-adic completion R̂2 satisfies 3.2(E1).” — The global input conditions and the addendum.
+- `wagner-ku-q-de-rham`, Theorem 4.27: “Via these equivalences, (R, fil^⋆_{q-Hdg} q-dR_{R/A}) becomes canonically an object in the ∞-category AniAlg^{q-Hdg}_A from [Wag25, Definition 3.2].” — The output as an object of the category of pairs.
+
+### Why the spherical lift cannot be weakened to a lift over connective complex K-theory
+
+`HQ.5-trace/a-lift-over-connective-complex-k-theory-is-not-enough` · comparison
+
+The source asks whether the E_2-lift S_R of Theorem 1.2 can be replaced by an E_2-ku-algebra ku_R with ku_R ⊗_ku Z ≃ R; it knows no counterexample but considers it unlikely. The E_1-version is false for lifts over ku: for R = Z_p{x}_∞/x, with Z_p{x}_∞ the free p-complete perfect δ-ring on x, the perfect δ-ring lifts uniquely to the sphere spectrum, hence to ku, so ku_R := ku_{Z_p{x}_∞}/x carries an E_1-ku-algebra structure (Angeltveit, Corollary 3.2); but the filtration of Theorem 4.17 of the ku paper (the naive filtration) is not a q-deformation of the Hodge filtration for this R, so the p-complete version of Theorem 1.2 fails for it. The source expects that a lift to the connective image-of-J spectrum j = τ_{≥0}(S_{K(1)}) would suffice, but the argument needs a diagram THH(j)^∧_p → j → THH(Z_p)^∧_p to be S^1-equivariantly commutative, which it is not; this remains an expectation.
+
+**Hypotheses.**
+
+- The disproof is for the E_1-version with a lift over ku; for the E_2-version the source knows no counterexample.
+- The witness is the exponent-one quotient over the perfection, the same ring as the no-go lemma's witness.
+- The image-of-J statement is an expectation with a named obstruction, not a theorem.
+
+**Proof.**
+
+1. Exhibit the unique spherical lift of Z_p{x}_∞ and the E_1-ku-algebra structure on ku_{Z_p{x}_∞}/x (Angeltveit's theorem on A_∞-structures on quotients, imported; see the gap on structured ring spectra).
+2. If the p-complete E_1-version of Theorem 1.2 held for this lift, the resulting filtration would be the naive filtration (Theorem 4.17 of the ku paper) and would be a q-deformation of the Hodge filtration.
+3. Contradict this with the exponent-one computation (Example 4.24), transported to Z_p{x}_∞/x by flat base change.
+4. Record the image-of-J expectation and the non-commuting diagram.
+
+**Acceptance.**
+
+- The counterexample is given with both of its structures.
+- The distinction between the disproved one-disc version and the merely doubted two-discs version is kept.
+- The image-of-J expectation is recorded as an expectation, with its obstruction.
+
+**Depends on.** this roadmap: `HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`, `HQ.5-trace/the-one-disc-refinement-and-the-prime-two`, `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-exponent-one-quotient-is-not-a-q-deformation`, `HQ.3/no-functorial-choice-of-q-hodge-filtration`.
+
+**Sources.**
+
+- `wagner-ku-q-de-rham`, Paragraph 1.11: “It’s natural to ask if the E2-lift S_R in Theorem 1.2 can be replaced by the weaker datum of an E2-ku-algebra ku_R satisfying ku_R ⊗_ku Z ≃ R. Although we don’t know any counterexample, we consider this unlikely.” — The question and the assessment.
+- `wagner-ku-q-de-rham`, Paragraph 1.11, counterexample: “Since Zp{x}∞ is a perfect δ-ring, it lifts uniquely to ku (even to the sphere spectrum), and so ku_R := ku_{Zp{x}∞}/x can be equipped with an E1-ku-algebra structure via [Ang08, Corollary 3.2].” — The two structures of the witness.
+- `wagner-ku-q-de-rham`, Paragraph 1.11, conclusion: “However, it can be shown that the filtration fil^⋆_{q-Hdg}(q-dR_{R/Z})^∧_p from Theorem 4.17 is not a q-deformation of the Hodge filtration in this case (see [Wag25, Example 4.24]), and so the p-complete version of Theorem 1.2 cannot hold in this case.” — The disproof.
+- `wagner-ku-q-de-rham`, Paragraph 1.11, end: “Unfortunately, the diagram above is not S1-equivariantly commutative, similar to what happens for THH(Zp) → Zp → THH(Fp). But the issue doesn’t seem to be too serious.” — The obstruction for the image-of-J expectation.
+
+### The one-disc refinement carries its own resolution hypotheses, and what it buys
+
+`HQ.5-trace/the-one-disc-refinement-and-the-prime-two` · theorem · planet “The one-disc refinement”
+
+When R only has E_1-lifts, the even filtration of THH(ku ⊗ S_R/ku) is not defined, and the source uses an ad hoc one: assuming (at a prime p) the condition (E_1) — R p-torsion free with a p-quasi-syntomic cover R → R_∞, R_∞/p relatively semiperfect over A, and a lift of the p-completed Čech nerve to p-complete connective E_1-algebras in S_A-modules — set fil^⋆_ev THH(ku_R/ku_A)^∧_p := lim_Δ τ_{≥2⋆} THH(ku_{R^•_∞}/ku_A)^∧_p and take S^1-fixed points. With this, the p-complete comparison still holds, for p > 2 (Theorem 4.8) and also for p = 2 (Theorem 4.14, which uses an equivalence of Nikolaus, unpublished, whose argument the source gives, Theorem 4.16). If the cover is the identity, that is, R/p itself is relatively semiperfect and R has a p-complete connective E_1-lift in S_A-modules (A as in 3.1, p = 2 allowed), then the resulting q-Hodge filtration is the naive filtration: the 1-categorical preimage of the combined Hodge and (q−1)-adic filtration under q-dR_{R/A} → dR_{R/A}[1/p]⟦q−1⟧ (Theorem 4.17); in particular it is independent of the chosen E_1-lift and is a filtered E∞-algebra. For a general cover the filtration is a priori only a graded E_0-algebra, and its E∞-structure comes from Theorem 4.17 applied to R^•_∞ (Remark 4.15). The source expects the hypothesis 2 ∈ R^× of Theorem 1.2 to be removable once Devalapurkar's equivalence THH(Z_p[ζ_p]/S_p⟦q−1⟧)^∧_p ≃ τ_{≥0}(ku^{tC_p}) is proved at p = 2, and notes that the E_1-version holds unconditionally at p = 2. None of this is Theorem 1.2 with hypotheses removed: the E_1 case carries the cover and resolution hypotheses in place of the E_2-lift.
+
+**Hypotheses.**
+
+- The explicit description needs the identity cover: R/p relatively semiperfect over A and an E_1-lift of R itself; for a general cover only the limit description over the Čech nerve is available.
+- The independence of the lift is a consequence of the explicit description, not of the general construction.
+- At p = 2 the E_1 case rests on Theorem 4.14 of the ku paper, whose input (Theorem 4.16) is attributed to Nikolaus, unpublished, with an argument given in the paper.
+- The removability of 2 ∈ R^× in the E_2 case is an expectation conditional on Devalapurkar's equivalence at p = 2.
+
+**Proof.**
+
+1. Import the ad hoc even filtration over a cosimplicial E_1-resolution and the p-complete comparisons (Theorems 4.8 and 4.14) from RT.4:q-Hodge.
+2. For the identity cover, import Theorem 4.17: the filtration is static, is the preimage of its completion, and injectivity on associated gradeds (checked modulo β through HKR, using the staticity lemma of HQ.5) identifies it with the naive filtration.
+3. Deduce independence of the lift and the filtered E∞-structure from the description; for a general cover record Remark 4.15.
+4. Record the status at p = 2 for each version separately.
+
+**Acceptance.**
+
+- The ad hoc filtration is defined and its hypotheses are listed.
+- The explicit description is stated only for the identity cover, and the independence of the lift is derived from it.
+- The status at p = 2 is recorded for each version separately.
+
+**Depends on.** this roadmap: `HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`, `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5/staticity-for-quasi-lci-inputs`; other roadmaps: `RefinedTraceMethods:RT.4:q-Hodge`.
+
+**Sources.**
+
+- `wagner-ku-q-de-rham`, Paragraph 1.9: “More generally, it can happen that S_R admits a cosimplicial resolution by E1-algebras S_R → S_{R•} for which THH(ku ⊗ S_{R•}/ku)^∧_p is even. In this case, we can define an ad-hoc even filtration by” — The ad hoc filtration.
+- `wagner-ku-q-de-rham`, §4.3, opening: “Let A be a δ-ring as in 3.1 and suppose that R is an A-algebra satisfying 3.2(E1) for the identical cover id: R → R. In other words, R is a p-quasi-lci A-algebra with a lift to a p-complete connective E1-algebra S_R ∈ Alg_{E1}(Mod_{S_A}(Sp)) such that R/p is relatively semiperfect over A.” — The hypotheses of Theorem 4.17 (p = 2 allowed).
+- `wagner-ku-q-de-rham`, Theorem 4.17: “Under the assumptions above, the q-Hodge filtration fil^⋆_{q-Hdg} q-dR_{R/A} is the descending filtration by ideals given by the (1-categorical) preimage of the combined Hodge- and (q −1)-adic filtration under the rationalisation map” — The explicit description.
+- `wagner-ku-q-de-rham`, Theorem 4.17, end: “In particular, fil^⋆_{q-Hdg} q-dR_{R/A} is independent of the choice of the spherical E1-lift S_R, and canonically a filtered E∞-algebra over the filtered ring (q −1)^⋆A⟦q −1⟧.” — Independence of the lift.
+- `wagner-ku-q-de-rham`, Theorem 4.14 and Remark 4.15: “If R satisfies the assumptions from 3.2(E1), then the conclusions of Theorem 4.8 are true in the case p = 2 as well. ... A posteriori, we get an E∞-structure by applying Theorem 4.17 below to the given cosimplicial resolution R → R•∞.” — The case p = 2 and the general cover.
+- `wagner-ku-q-de-rham`, Paragraph 1.10: “We expect that the assumption 2 ∈ R× in Theorem 1.2 can be removed once Theorem 1.6 is proved for p = 2 as well. In any case, the E1-version of the theorem discussed above can be proved unconditionally for p = 2.” — The status at p = 2.
+
+### The Habiro ring of a number field as a limit of genuine fixed points
+
+`HQ.5-trace/the-number-field-ring-from-periodic-complex-k-theory` · comparison
+
+Import boundary. RefinedTraceMethods RT.4:Habiro-comparison owns the ku paper's Corollary 6.15: for a number field F and Δ divisible by 6 and by the discriminant of F, with S_{O_F[1/Δ]} the unique lift of O_F[1/Δ] to an étale extension of the sphere spectrum, H_{O_F[1/Δ]} ≅ π_0(lim_{m∈N} THH(KU ⊗ S_{O_F[1/Δ]}/KU)^{C_m h(S^1/C_m)}), the genuine C_m-fixed points followed by homotopy fixed points for the residual circle, the limit over the divisibility-ordered positive integers. This roadmap proves nothing about it; it is recorded because its left-hand side is the ring exported by the export node, and it is not a prerequisite of any node here.
+
+**Hypotheses.**
+
+- Δ is divisible by 6 and by the discriminant of F; this is stronger than the discriminant-only hypothesis of the ring's construction (HR.5).
+- The statement is about π_0 only.
+- Owned and proved by RT.4:Habiro-comparison; the source's proof cites the étale case of the descent theorem as Corollary 3.12, which is Corollary 3.13 in both arXiv versions of the Habiro paper (source issue E304).
+
+**Proof.**
+
+1. Import the statement from RT.4:Habiro-comparison.
+2. Record that its left-hand side is the ring exported by the export node (Corollaries 2.13 and 3.13), and that no node of this packet uses the statement.
+
+**Acceptance.**
+
+- The hypothesis on Δ is stated with both divisibility conditions.
+- The owner is named and no proof is claimed.
+
+**Depends on.** this roadmap: `HQ.5/the-export-to-the-coefficient-roadmap`; other roadmaps: `RefinedTraceMethods:RT.4:Habiro-comparison`.
+
+**Sources.**
+
+- `wagner-ku-q-de-rham`, Corollary 6.15: “Let F be a number field and let ∆ be divisible by 6 and by the discriminant of F. Let S_{O_F[1/∆]} denote the unique lift of O_F[1/∆] to an étale extension of S. Then H_{O_F[1/∆]} ≅ π0(lim_{m∈N} THH(KU ⊗ S_{O_F[1/∆]}/KU)^{Cm h(S1/Cm)}).” — The imported statement.
+- `wagner-ku-q-de-rham`, Proof of Corollary 6.15: “By [Wag25, Corollary 3.12], q-Hdg_{O_F[1/∆]/Z} ≃ H_{O_F[1/∆]}. In particular, the Habiro–Hodge complex must be static.” — The cross-reference that should read Corollary 3.13 (E304).
+
+### A spherical E_1-lift of the perfection makes the naive filtration a q-deformation
+
+`HQ.5-trace/the-spherical-e1-lift-case-of-the-well-behavedness-theorem` · theorem · also realises HQ.5 · added by REV-HabiroCohomologyFoundations--HQ.1
+
+Let A be a p-completely perfectly covered δ-ring and R a p-torsion free quasi-lci A-algebra with R/p relatively semiperfect over A. Suppose (b): R_∞ := (R ⊗_A A_∞)^∧_p admits a lift to a p-complete connective E_1-ring spectrum S_{R_∞} with R_∞ ≃ S_{R_∞} ⊗_{S_p} Z_p. Then the naive filtration is a q-deformation of the Hodge filtration: fil^⋆_{q-Hdg} q-dR_{R/A}/(q−1) ≃ fil^⋆_Hdg dR_{R/A}. The condition is an existence condition only; the filtration does not involve the lift. Relation to condition (a): for p > 2, a presentation as in the higher-powers theorem gives such a lift (lift B_∞ = (B ⊗_A A_∞)^∧_p uniquely to a connective p-complete E∞-ring and take S_{B_∞}/(x_1^{α_1}, …, x_r^{α_r}) with Burklund's E_1-structures), so the theorem in case (b) implies it in case (a); at p = 2 the same argument works only if every α_i is even and at least 4, so case (a) at p = 2 is not subsumed. Example: A = Z_p[x]^∧_p with δ(x) = 0 and R = A/(x − 1) ≅ Z_p satisfy (b) (even with an E∞-lift) but not (a).
+
+**Hypotheses.**
+
+- The lift is of R_∞, the base change to the perfection, not of R; the introduction's Theorem 1.19(b) asks for a lift of R, which implies this.
+- Only an E_1-structure is required.
+- The comparison with case (a) is as stated: from a presentation as in (a) one builds an E_1-lift, not conversely; the implication at p = 2 needs even exponents at least 4.
+
+**Proof.**
+
+1. By the injectivity lemma only surjectivity is needed; by flat base change along A → A_∞ assume A perfect, and then A = Z_p since q-dR_{R/A} ≃ q-dR_{R/Z_p}.
+2. Now R satisfies (E_1) of the ku paper for the identity cover, and Theorem 4.17 there (the one-disc node) identifies its trace-theoretic q-Hodge filtration with the naive filtration; by Theorems 4.8 and 4.14 there that filtration is a q-deformation of the Hodge filtration.
+3. For the relation with (a), use the unique spherical lift of a perfect δ-ring and Burklund's theorem on E_n-structures on quotients (Theorem 1.5 and Remark 5.5 of his paper), imported (gap on structured ring spectra).
+4. For the example, lift A to S_p[x]^∧_p and A → R to S_p[x]^∧_p → S_p, and base change to S_p[x^{1/p^∞}]^∧_p.
+
+**Acceptance.**
+
+- The lift is required of R_∞, and only as an E_1-ring.
+- The implication between the conditions is stated in the correct direction, with the restriction at p = 2.
+- The proof is the source's: a special case of the ku paper's Theorem 4.17.
+
+**Depends on.** this roadmap: `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-naive-filtration-is-injective-modulo-q-minus-one`, `HQ.5/flat-base-change-for-the-naive-filtration`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5-trace/the-one-disc-refinement-and-the-prime-two`, `HQ.2/derived-base-change-and-its-completion-hypotheses`; other roadmaps: `RefinedTraceMethods:RT.4:q-Hodge`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem 4.22(b): “The ring R∞ := (R ⊗_A A∞)^∧_p admits a lift to a p-complete connective E1-ring spectrum S_{R∞} satisfying R∞ ≃ S_{R∞} ⊗_{Sp} Zp.” — Condition (b).
+- `wagner-q-hodge-habiro`, Proof of Theorem 4.22: “By Lemma 4.26, we only need to check surjectivity. By Lemma 4.27, we can check this after the p-completely faithfully flat base change A → A∞ and thus assume that A is perfect.” — The reductions.
+- `wagner-q-hodge-habiro`, Proof of Theorem 4.22, case (b): “Then part (b) is a special case of [Wag25, Theorem 4.17].” — The proof of (b): the ku paper's Theorem 4.17.
+- `wagner-q-hodge-habiro`, Remark 4.23: “For primes p > 2, Theorem 4.22(b) implies (a). Indeed, if we put B∞ := (B ⊗_A A∞)^∧_p, then B∞ is a perfect δ-ring and so it lifts uniquely to a connective p-complete E∞-ring spectrum.” — The theorem in case (b) implies it in case (a): a presentation as in (a) yields an E1-lift.
+- `wagner-q-hodge-habiro`, Remark 4.23, p = 2: “so the same argument shows that Theorem 4.22(b) implies (a) if all αi are even and ⩾ 4. It is somewhat surprising that Theorem 4.22(a) is true without this additional restriction at p = 2.” — The restriction at p = 2.
+- `wagner-q-hodge-habiro`, Paragraph 1.19, end: “Note that Theorem 1.19(b) is purely an existence condition; the choice of S_R doesn’t matter!” — Existence condition only.
+- `wagner-q-hodge-habiro`, Example 4.25: “An example for Theorem 4.22(b) that is not covered by Theorem 4.22(a) is the case A ≅ Zp[x]^∧_p, with δ-structure defined by δ(x) = 0, and R ≅ A/(x −1) ≅ Zp.” — The example.
+
+## HQ.6 — Algebraic and analytic boundaries
+
+*Coverage: source_decomposed.* Three nodes. The comparison problem stated with its domain, its coefficient change and the transformation to be constructed, recorded as an expectation and not as a theorem; the three differences the source records, with the root-of-unity difference tied to the second clause of the descent theorem and the absence of a coherent commutative structure tied to the proved arity bounds; and the discipline that the analytic machinery supplies a language and not a comparison, with the one condensed statement this roadmap actually uses named and attributed.
+
+### The comparison problem, stated with its domain, its coefficient change and its status
+
+`HQ.6/the-algebraic-against-analytic-comparison-problem` · definition · planet “Algebraic against analytic”
+
+A named problem, not a theorem. Let X be a smooth scheme over Z on which every prime p ≤ dim(X/Z) is invertible, so that algebraic Habiro cohomology RΓ(X, q-Hdg_{X/Z}) is defined, and let the analytic Habiro cohomology of X be the sheaf cohomology of Scholze's analytic Habiro stack X^Hab, a module over the analytic Habiro ring H^an (the analytic objects are to be supplied by an owner outside this roadmap). The problem: construct, naturally in X, a comparison between the two after base change to a suitably completed localisation of H^an, and determine for which X it is an equivalence; the same at the level of rings (X = Spec O_F[1/Δ]: Spf H_{O_F[1/Δ]} against (Spec O_F[1/Δ])^Hab, which the source says do not precisely match) and of line bundles (the images of the regulator K_3(F) → Pic(H_{O_F[1/Δ]}) against line bundles on (Spec O_F[1/Δ])^Hab). The source's expectation is that algebraic and analytic Habiro cohomology become equal after that base change, and it stresses that the base change erases information on either side, so an equivalence after base change is not an equivalence of the theories. The problem is not used as a hypothesis or a theorem anywhere in this roadmap.
+
+**Hypotheses.**
+
+- The algebraic side requires the small primes to be invertible; the analytic side does not (first recorded difference).
+- The comparison is expected only after base change to a completed localisation of H^an, and that base change loses information.
+- The analytic objects have no accepted owner in the atlas: the request is to the draft roadmap AnalyticHabiroStack, whose source is a lecture course.
+
+**Proof.**
+
+1. Fix the algebraic side as the object constructed in the existence stage.
+2. Name the analytic side and the roadmap that owns it, together with the coefficient ring of the base change.
+3. State the problem as the construction of a natural transformation and the determination of its domain of validity.
+4. Record the expected answer as an expectation with its attribution, and record the information loss on either side.
+5. Record the discipline: the statement is never used as a hypothesis or a theorem elsewhere in this packet.
+
+**API.**
+
+- `TauCeti.QHodge.analyticComparisonProblem.domain` (characterisation): The class of X on which both sides are defined: smooth over Z with the primes p ≤ dim(X/Z) invertible.
+- `TauCeti.QHodge.analyticComparisonProblem.coefficients` (data): The coefficient change: base change of both sides to a completed localisation of H^an, to be named by the analytic owner.
+- `TauCeti.QHodge.analyticComparisonProblem.transformation` (data): The natural transformation to be constructed, at the levels of complexes, rings and line bundles.
+- `TauCeti.QHodge.analyticComparisonProblem.lossy` (relation): The base change is not conservative on either side; an equivalence after it is not an equivalence of the theories.
+- `TauCeti.QHodge.analyticComparisonProblem.unused` (other): No node of this roadmap uses the expected comparison as a hypothesis.
+
+**Unit tests.**
+
+- `TauCeti.QHodge.analyticComparisonProblem.dim_zero_mismatch` (non-example): Already for X = Spec O_F[1/Δ] the source says Spf H_{O_F[1/Δ]} does not precisely match (Spec O_F[1/Δ])^Hab; a formulation asserting an equivalence before the completed localisation fails this case.
+- `TauCeti.QHodge.analyticComparisonProblem.domain_small_primes` (degenerate): For X of relative dimension d without the primes p ≤ d inverted (for example A^2_Z), the algebraic side is not defined and the problem does not arise.
+- `TauCeti.QHodge.analyticComparisonProblem.small_primes_lost` (characterisation): For X over Z[1/N], the algebraic side has every prime p ≤ dim X inverted while the analytic side does not (N is not invertible everywhere on Z[1/N]^Hab); any comparison therefore has to invert those primes on the analytic side, which is part of the completed localisation.
+- `TauCeti.QHodge.analyticComparisonProblem.consumers` (degenerate): Within this packet only the other two HQ.6 nodes and the acceptance suite list the problem among their prerequisites, each to record a boundary.
+
+**Acceptance.**
+
+- The problem is stated with its domain, its coefficient change and the transformation expected.
+- The status is recorded as an expectation, with an attribution.
+- The discipline that it is not used as a theorem is recorded and is verifiable by inspecting the prerequisites of the other nodes.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.7: The acceptance suite records that no test may rely on this statement.
+- AnalyticHabiroStack:HS.3: That roadmap supplies the analytic object and the base-change functor, with its own source gaps.
+
+**Depends on.** this roadmap: `HQ.5/algebraic-habiro-cohomology-of-a-scheme`; other roadmaps: `AnalyticHabiroStack:HS.3`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.17: “It is not yet known how algebraic Habiro cohomology relates to the sheaf cohomology of Scholze’s analytic Habiro stack X^Hab, which we would like to call analytic Habiro cohomology for clarity.” — The problem.
+- `wagner-q-hodge-habiro`, Paragraph 1.17, continued: “We expect algebraic and analytic Habiro cohomology to become equal after base change to a suitably completed localisation of Scholze’s analytic Habiro ring H^an. Note, however, that this base change erases quite some information on either side” — The expectation and the information loss.
+- `wagner-q-hodge-habiro`, Paragraph 1.3: “In [Sch25], Scholze proposes a construction of an analytic Habiro stack X^Hab, which gives rise to a cohomology theory with coefficients in an analytic version H^an of the Habiro ring.” — The analytic side and its attribution.
+- `wagner-q-hodge-habiro`, Paragraph 1.4, footnote (1.3): “Note that Spf H_{O_F[1/∆]} doesn’t precisely match up with Scholze’s analytic Habiro stack (Spec O_F[1/∆])^Hab. See the discussion in 1.17.” — The ring level: no exact match even in dimension zero.
+- `wagner-q-hodge-habiro`, Paragraph 1.4: “Moreover, the authors construct a regulator map K3(F) → Pic(H_{O_F[1/∆]}) and show that certain q-series arising from perturbative Chern–Simons theory naturally form sections of the line bundles in the image of this regulator.” — The line-bundle level.
+
+### Small primes, roots of unity and the absence of a stacky approach
+
+`HQ.6/the-three-recorded-differences` · comparison
+
+The source records three concrete differences between the two theories, each of which must survive any comparison statement. First, evaluation at small primes: by construction the algebraic theory of a smooth scheme contains no information at primes at most the relative dimension, because those primes are inverted, whereas the analytic theory usually does contain non-trivial information at such primes, since the inverted integer is not invertible everywhere on the analytic stack. Second, evaluation at roots of unity: with the current construction the analytic stack becomes the algebraic de Rham stack when the parameter is specialised to a root of unity, so its cohomology is Grothendieck's infinitesimal cohomology, which is ill-behaved in positive characteristic; whereas in the algebraic theory the same specialisation yields q-de Rham-Witt cohomology by the second clause of the descent theorem, which is much closer to crystalline cohomology in positive characteristic. In particular the root-of-unity infinitesimal theory is not the algebraic q-de Rham-Witt specialisation. Third, the stacky approach: the analytic theory comes with one by construction, the algebraic theory is not expected to, and the source does not even expect the Habiro-Hodge complex of a smooth scheme to carry a homotopy-coherent commutative structure, for the reason made precise by the partial-operad statement: the multiplication comes from the diagonal, whose target has twice the dimension, so more and more primes must be inverted as the coherence increases.
+
+**Hypotheses.**
+
+- The first difference is a consequence of the construction of the algebraic theory.
+- The second is a statement about the current construction of the analytic stack.
+- The third is an expectation; Corollary 4.16 makes precise what the construction provides but proves no non-existence.
+
+**Proof.**
+
+1. Record the small-prime difference and its reason on each side.
+2. Record the root-of-unity difference, naming the infinitesimal cohomology on one side and the q-de Rham-Witt cohomology on the other, and the clause of the descent theorem that supplies the latter.
+3. Record the absence of a stacky approach and the heuristic for the absence of a coherent commutative structure, and tie it to the arity bounds proved in the existence stage.
+4. Record that each difference is a constraint any comparison statement must respect.
+
+**Acceptance.**
+
+- Each of the three differences is stated with the reason on each side.
+- The second difference names both cohomology theories and the clause of the descent theorem that gives the algebraic one.
+- The third is recorded as an expectation; what is proved is only the positive arity statement (Corollary 4.16), which does not show that no E∞-structure exists.
+
+**Depends on.** this roadmap: `HQ.6/the-algebraic-against-analytic-comparison-problem`, `HQ.3/habiro-descent`, `HQ.5/partial-operad-multiplicativity`, `HQ.4/no-automatic-multiplicative-upgrade`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.17(a): “By construction, algebraic Habiro cohomology of a smooth scheme X will contain no information at primes p ⩽ dim(X/Z). By contrast, analytic Habiro usually does contain non-trivial information at such primes, as N is not invertible everywhere on the Habiro stack Z[1/N]^Hab.” — The first difference.
+- `wagner-q-hodge-habiro`, Paragraph 1.17(b): “With the current construction, Scholze’s analytic Habiro stack becomes the algebraic de Rham stack if q is specialised to a root of unity. In particular, its cohomology will be Grothendieck’s infinitesimal cohomology, which is ill-behaved in characteristic p.” — The second difference, analytic side.
+- `wagner-q-hodge-habiro`, Paragraph 1.17(b), continued: “With algebraic Habiro cohomology, evaluation at roots of unity yields q-de Rham–Witt cohomology by Theorem 1.11(b), which is much closer to crystalline cohomology in characteristic p.” — The second difference, algebraic side.
+- `wagner-q-hodge-habiro`, Paragraph 1.17(c): “For algebraic Habiro cohomology, we don’t expect a stacky approach to exist. In fact, we don’t even expect q-Hdg_{X/Z} to carry an E∞-algebra structure!” — The third difference.
+- `wagner-q-hodge-habiro`, Paragraph 1.17(c), continued: “Thus, for the multiplication to be defined, we need to invert all primes p ⩽ dim(X × X/Z) = 2 dim(X/Z).” — Its reason.
+- `wagner-q-hodge-habiro`, Paragraph 1.17, end: “In the second half of §4.1 we’ll make the considerations from (c) precise, and we’ll show a formal monoidality statement in Corollary 4.16.” — The link to Corollary 4.16.
+
+### The discipline: a language for a comparison is not a comparison
+
+`HQ.6/what-may-not-be-inferred-from-the-analytic-side` · comparison
+
+The condensed and analytic-stack machinery of the campaign (solid condensed spectra, analytic rings, six-functor formalisms, the analytic Habiro stack) supplies a language in which the comparison problem can be posed; it does not supply a proof that the two theories agree, and nothing in this packet treats it as doing so. In particular: a six-functor formalism on the analytic side is not an input to any algebraic statement here; the analytic Habiro stack is attributed by the source to a lecture course with recordings, and statements resting on it are recorded as such; and the expected comparison is not a hypothesis of any K-theoretic, diamond-theoretic or Langlands-theoretic statement. The only condensed statement this roadmap uses directly is Lemma B.8 (the solidified tensor product preserves bounded-below Habiro-complete objects), owned by HabiroRings HR.2; the trace-theoretic import of HQ.5-trace rests on solid condensed methods owned by RefinedTraceMethods.
+
+**Hypotheses.**
+
+- The analytic-stack roadmap is a draft; until it is accepted, this layer has no supplier for its analytic side.
+- The only condensed statement used is the closure of bounded-below Habiro-complete objects under the solid tensor product, and it is imported.
+- Statements attributed to a lecture series are recorded with that attribution.
+
+**Proof.**
+
+1. List the analytic machinery and state precisely what it supplies, namely a language.
+2. State the three prohibitions: no six-functor input to an algebraic statement, no lecture-derived theorem, and no use of the expected comparison as a hypothesis.
+3. Record the one condensed statement this roadmap does use and name its owner.
+4. Record that the audit, and not a silent upgrade, is where the source-status questions are kept.
+
+**Acceptance.**
+
+- The three prohibitions are stated explicitly.
+- The one condensed import is named and attributed.
+- The status of lecture-based statements is recorded.
+
+**Depends on.** this roadmap: `HQ.6/the-algebraic-against-analytic-comparison-problem`; other roadmaps: `HabiroRings:HR.2/the-solid-comparison-is-bounded-below`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Appendix B, opening: “In this appendix we’ll study the Habiro completion functor (−)^∧_H := lim_{m∈N}(−)^∧_{(q^m−1)} and show that it behaves for all practical purposes like completion at a finitely generated ideal. We’ll also study Habiro completion in the setting of solid condensed mathematics.” — The condensed material the source supplies.
+- `wagner-q-hodge-habiro`, Lemma B.8: “The solidified tensor product −⊗■_{SH} − preserves bounded below Habiro-complete objects. In particular, the fully faithful functor Mod_{SH}(Sp)^∧_H → Mod_{SH}(Sp■) from B.7 is symmetric monoidal when restricted to bounded below objects.” — The one condensed statement this roadmap uses directly.
+- `wagner-q-hodge-habiro`, Bibliography, [Sch25]: “Habiro Cohomology, lecture course held at MPIM Bonn, Summer term 2025, Recordings available at https://archive.mpim-bonn.mpg.de/id/eprint/5155/.” — The analytic Habiro stack's only source is a lecture course.
+
+## HQ.7 — Acceptance tests and Lean boundary
+
+*Coverage: source_decomposed.* Two nodes. The acceptance suite, with five examples each tested against the specialisation at the parameter value one and the p-adic comparison, four structural checks each with a concrete witness, and the prohibition on assuming the algebraic-against-analytic comparison; and the executable boundary, which separates the elementary q-difference layer that can be stated against the pinned Mathlib polynomial API from the signature-only layer and names, for each item of the latter, the machinery whose absence prevents an executable statement.
+
+### The acceptance suite for this roadmap
+
+`HQ.7/the-acceptance-tests` · application
+
+Five examples, each checked against the specialisation q = 1 (de Rham) and the p-adic comparison over the q-de Rham prism (Z_p⟦q−1⟧, [p]_q): (1) A[x], where the canonical q-Hodge filtration exists with no prime inverted and is the coordinate filtration (q−1)^i A[x]⟦q−1⟧ → (q−1)^{i−1} A[x]⟦q−1⟧ dx; (2) the q-integer differential x^m ↦ [m]_q x^{m−1} dx at q = 1, where [m]_1 = m and the complex becomes the de Rham complex; (3) R = O_F[1/Δ] finite étale over Z[1/Δ], where q-Hdg_{R/Z} is H_{R/Z}, the GSWZ Habiro ring of F, and q-Hdg_{R/Z}/(q^m − 1) ≃ q-W_m(R/Z); (4) a smooth scheme X of relative dimension d with every prime p ≤ d inverted, where algebraic Habiro cohomology is defined and its reduction modulo q^m − 1 has the ascending filtration with q-W_m Ω^i in degree i; (5) R = Z[1/2][x] with the explicit E_∞-lift S_R = S[1/2][x], where the trace-theoretic filtration of Theorem 1.2 is, by Raksit's Theorem 6.10 of the ku paper, the coordinate filtration, hence agrees with the canonical smooth filtration of (1). Four structural checks, each with a witness: (a) a filtered object differs from its colimit modification: the q-Hodge complex of Z[x] has differential x^m ↦ (q^m − 1)x^{m−1} dx, the q-de Rham complex x^m ↦ [m]_q x^{m−1} dx; (b) derived torsion corrections are kept: for the q-Hodge complex M of Z[x], H^0(M/^L(q−1)) = Z[x] (the reduced differential vanishes) while H^0(M)/(q−1) = Z, the difference being the (q−1)-torsion of H^1(M) generated by the classes [m]_q x^{m−1} dx; (c) tensor powers leave the smooth existence category: Z[x] lies in Sm_{Z[dim!^{-1}]} but Z[x] ⊗ Z[x] = Z[x, y] does not, and the multiplication of Z[x] is not admissible (it is for Z[1/2][x]); (d) Hodge-completed against uncompleted: for Q[x^{±1}] the underived de Rham complex has H^1 = Q·dx/x, while the uncompleted derived de Rham complex over Q is Q (Poincaré lemma on polynomial algebras and left Kan extension), so q-dR and q-Ω differ on smooth inputs and only the Hodge completion recovers Ω. No test may assume the algebraic-against-analytic comparison.
+
+**Hypotheses.**
+
+- Each example is checked against the two specialisations named, and not against a third that the roadmap does not prove.
+- Structural check (d) is a characteristic-zero statement about derived against underived de Rham complexes (Remark 3.6).
+- The prohibition on the analytic comparison is part of the suite.
+
+**Proof.**
+
+1. Write out the five examples with the hypotheses each needs.
+2. For each, record the two specialisations that must commute and the node that supplies each side.
+3. Write out the four structural checks, each with a concrete witness.
+4. Record the prohibition on the analytic comparison and the reason.
+5. Record which node of this packet each test exercises, so that a failing test names a statement.
+
+**Acceptance.**
+
+- Every test names the node it exercises.
+- Every test has a concrete witness object, not merely a shape.
+- The prohibition on the analytic comparison is recorded.
+
+**Depends on.** this roadmap: `HQ.1/what-the-global-complex-satisfies`, `HQ.3/the-q-hodge-complex`, `HQ.3/habiro-descent`, `HQ.3/the-etale-case`, `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/framed-and-fixed-point-descriptions-of-the-canonical-filtration`, `HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras`, `HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted`, `HQ.5/partial-operad-multiplicativity`, `HQ.5/algebraic-habiro-cohomology-of-a-scheme`, `HQ.5/the-export-to-the-coefficient-roadmap`, `HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`, `HQ.2/animation-does-not-preserve-the-values-on-smooth-algebras`, `HQ.6/the-algebraic-against-analytic-comparison-problem`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 1.13: “In the (coordinate-dependent) q-de Rham complex of Z[x], the q-differential sends x^m ↦ [m]_q x^{m−1} dx, where [m]_q = 1 + q + · · · + q^{m−1} is the q-analogue of m. This formula gives “special treatment to q = 1”” — Examples (1), (2) and check (a); the formula is in Remark 1.13, not Paragraph 1.10.
+- `wagner-q-hodge-habiro`, Remark 1.13, continued: “So we should look for a complex with differentials that send x^m ↦ (q^m −1)x^{m−1} dx, which leads to the (coordinate-dependent) q-Hodge complex.” — Check (a).
+- `wagner-q-hodge-habiro`, Paragraph 1.10: “It’s straightforward to check that the associated q-Hodge complex in the sense of Definition 1.6 can be represented by the explicit complex ... in which all q-differentials in q-Ω_{S/Z,□} get multiplied by (q −1).” — Checks (a) and (b).
+- `wagner-q-hodge-habiro`, Paragraph 1.17(c): “Thus, for the multiplication to be defined, we need to invert all primes p ⩽ dim(X × X/Z) = 2 dim(X/Z).” — Check (c).
+- `wagner-q-hodge-habiro`, Remark 3.6: “But note that even if R = S is smooth over A, the underived q-de Rham complex q-Ω_{S/A} usually doesn’t agree with the derived q-de Rham complex q-dR_{S/A}, because Ω^∗_{S/A} and dR_{S/A} usually differ in characteristic 0.” — Check (d).
+- `wagner-ku-q-de-rham`, Theorem 6.10: “Then Σ^{−2∗} gr^i_ev TC^−(ku_{S,□}/ku_A) ≃ fil^⋆_{q-Hdg,□} q-Ω^∗_{S/A,□}.” — Example (5): the trace-theoretic filtration of a framed smooth algebra is the coordinate filtration.
+
+### What the suggested Lean file states, and what it does not
+
+`HQ.7/the-executable-boundary` · application
+
+The suggested Lean file has two layers. The executable layer is stated against the pinned Mathlib polynomial API and contains genuine definitions and statements: the q-integer [n]_q as a geometric sum with its identities ([0]_q = 0, [1]_q = 1, [n]_q (q − 1) = q^n − 1, [n]_1 = n, and [p]_q = Φ_p(q) for p prime), the Jackson q-difference operator on A[X] defined by its values x^n ↦ [n]_q x^{n−1} (not by an unproved placeholder), its twisted Leibniz rule and its specialisation at q = 1 to the derivative, and the q-Hodge differential (q − 1)·D_q with x^n ↦ (q^n − 1)x^{n−1} and its vanishing at q = 1. Everything above that layer (the derived q-de Rham complex, q-Hodge filtrations and pairs, the q-Hodge and Habiro–Hodge complexes, the q-de Rham–Witt complexes, the Nygaard filtration, the canonical sections, condition (R), algebraic Habiro cohomology, the comparison problem) is not built in either library, because filtered objects of an enhanced derived category, animation, décalage, δ-rings, prismatic cohomology and analytic stacks are absent from both at the pins. The suggested file states it against structures of data and laws that the owning roadmaps supply (each docstring names the owner, matching the packet's requests), with ∞-categorical content through its 1-categorical shadow and the omissions recorded in comments; by PROTOCOL section 13 nothing is declared with a placeholder type or proposition, a structure whose fields are True, a statement of type True, or an axiom.
+
+**Hypotheses.**
+
+- The pinned libraries supply the polynomial, geometric-sum and cyclotomic API, and the Witt-vector API in degree zero; everything else is absent, as the reviewed audit records.
+- The file was not compiled against the pinned commits by the author; the reviewer did not compile it either.
+- No axiom, no placeholder proposition or type, no True-valued field and no statement of type True is admitted.
+
+**Proof.**
+
+1. List the executable layer and the Mathlib declarations it builds on (geom_sum_mul, Polynomial.comp, Polynomial.derivative_X_pow, Polynomial.cyclotomic_prime).
+2. Define the q-difference operator by its values on monomials (for example through Polynomial.sum), and state its identities and the q-Hodge differential against Mathlib.
+3. For the signature layer, list each item by packet name in a comment, with the missing machinery that prevents a statement.
+4. Check the file for placeholder types, True-valued fields, statements of type True and axioms.
+
+**Acceptance.**
+
+- The executable and the left-out layers are separated and each item is assigned to one of them.
+- For each left-out item the missing machinery is named.
+- The file contains no placeholder definition, no True-typed declaration or field and no axiom; this is checkable by reading it.
+
+**Depends on.** this roadmap: `HQ.1/what-this-layer-imports-and-what-it-owns`, `HQ.3/q-hodge-filtrations`, `HQ.4/the-q-de-rham-witt-complex`; libraries: `mathlib:geom_sum_mul`, `mathlib:Polynomial.comp`, `mathlib:Polynomial.derivative_X_pow`, `mathlib:Polynomial.cyclotomic_prime`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 1.13: “In the (coordinate-dependent) q-de Rham complex of Z[x], the q-differential sends x^m ↦ [m]_q x^{m−1} dx, where [m]_q = 1 + q + · · · + q^{m−1} is the q-analogue of m.” — The executable layer's q-difference operator (the formula is in Remark 1.13, not Paragraph 1.10).
+- `wagner-q-hodge-habiro`, Remark 1.13, continued: “So we should look for a complex with differentials that send x^m ↦ (q^m −1)x^{m−1} dx, which leads to the (coordinate-dependent) q-Hodge complex.” — The q-Hodge differential.
+- `wagner-q-hodge-habiro`, Definition 3.2: “Let R be an animated A-algebra. A q-Hodge filtration on q-dR_{R/A} is a filtered (q −1)^⋆A[q]-module” — The contract that cannot be stated at the pinned baseline and is left out of the file.
+
+## HQ.8 — Crystalline, A_inf and prismatic comparison atlas
+
+*Coverage: partial.* 17 nodes, 2 of them added by the independent review. The record a square must carry, in seven items, and the two bases every square is stated over, with the congruences that identify completion ideals across corners; the statement of what the atlas does not prove. Then seven squares: the local prismatic one, which commutes with the gluing by construction; the q-crystalline one, with the compatibility of the framed and the coordinate-free comparisons; the A-infinity one over the perfectoid base, with the base change written out and its loss recorded; the décalage squares, with the three imported facts about the décalage and the obstruction that the canonical filtrations do not glue; the Nygaard one, with the uniqueness of the filtered equivalence; the crystalline one, through the cyclotomic specialisation and the map from the ordinary de Rham-Witt complex, which is not claimed to be an equivalence; and the specialisation at the parameter value one, with its torsion correction. Then the commutation theorem, which states the layer's assertion square by square with the argument for each; the information-loss ledger; the staging rule that keeps the trace comparison from defining the filtration it compares; and the acceptance suite with the executable boundary.
+
+- Remaining: State the compatibility of the A_inf square with the θ (de Rham) and Witt-reduction (crystalline) rows of CohomologyComparisons CP.1, the part of the stage's commutation with CP's maps that no node realises (gap: 'The A_inf square is not shown to be compatible with the classical specialisations of CohomologyComparisons CP.1').
+
+### The record a square of the atlas must carry
+
+`HQ.8/what-an-atlas-square-records` · definition
+
+A square of this atlas consists of four corners (cohomology theories or complexes, as functors on a named class of inputs), two comparison maps constructed by the roadmaps that own them, one map supplied by this roadmap (the global arithmetic gluing of HQ.1 or the q-Hodge modification of HQ.3) and the fourth map, together with a record of seven items, all written out before the square is asserted. (1) The base: the q-de Rham prism (Â_p⟦q−1⟧, [p]_q) at a prime p; the q-PD pair (Â_p⟦q−1⟧, (q−1)), whose ideal is not a prism ideal; the perfect prism (A_inf, [p]_q) with q = [ε] for a chosen compatible system ε of primitive p-power roots of unity, with its q-PD pair (A_inf, (ξ)), ξ = φ⁻¹([p]_q); the global coefficient ring A⟦q−1⟧ of a Λ-ring A with the ideal (q−1); or the ring A[q]/(q^m − 1). (2) The input class: smooth, smooth with a chosen q-Hodge filtration, p-completely smooth, smooth and proper, quasi-lci with the source's torsion conditions, or quasi-syntomic. (3) The ideal at which each corner is derived complete. (4) What is inverted, and in which order completion and inversion are taken: rationalising a p-completion and then completing at q−1 (clause (c_p) of a q-Hodge filtration) is not rationalising and then completing (clause (c)). (5) The Frobenius linearisation: the Adams operation ψ^p with q ↦ q^p, its α-fold iterate, the Frobenius pullback φ_A^* over A_inf, or none. (6) The filtration on each corner: none, Hodge, combined Hodge and (q−1)-adic, Nygaard, conjugate, stupid, twisted q-Hodge, décalage, or the q-de Rham–Witt filtration of the descent theorem. (7) The Tate or Breuil–Kisin twist by which the two sides differ. The record also says whether the comparison is an equivalence outright, an equivalence only after a named base change, a map not claimed to be an equivalence, or a short exact sequence. A square is asserted over the intersection of the hypothesis sets of its two imported maps, never over a larger class, and a comparison that is an equivalence only after a base change or localisation is recorded as that base change or localisation, with the functor written out.
+
+**Hypotheses.**
+
+- The four corners and the imported maps are supplied by the roadmaps and layers named in the square nodes and the requests; this layer constructs no corner.
+- The record is part of the statement of a square, not documentation added afterwards; it is data about the square and has no mathematical content of its own.
+- The order of completion and localisation is an item of the record because the two operations do not commute: the p-adic completion of ℚ is zero, and ℚ_p is not ℚ.
+
+**Proof.**
+
+1. Fix the vocabulary of each of the seven items and of the loss item, as in the statement.
+2. Fix the intersection rule: the input class of a square is the intersection of the input classes of its imported maps; widening it requires a new square with its own record.
+3. Fix the base-change rule: an equivalence only after a base change or localisation is recorded as that functor, written out, and never as an inverse equivalence of the original theories.
+4. Record that a comparison whose fourth map is only expected is not a square; the one such statement in this roadmap is the comparison of algebraic and analytic Habiro cohomology, kept by HQ.6 as a named problem.
+5. Write out the record of each of the eight squares of this layer (the api examples).
+
+**API.**
+
+- `AtlasSquare` (structure): The record of a square: base, input class, completion ideal, inversion, linearisation, source and target filtration, twist and loss, one field each.
+- `AtlasSquare.Base` (data): The base vocabulary: the q-de Rham prism at p, the q-PD pair (Â_p⟦q−1⟧, (q−1)) at p, the perfectoid base at p with its chosen ε, the global ring A⟦q−1⟧, or A[q]/(q^m − 1).
+- `AtlasSquare.InputClass` (data): The input classes: smooth, smooth with a q-Hodge filtration, p-completely smooth, smooth proper, quasi-lci, quasi-syntomic.
+- `AtlasSquare.CompletionIdeal` (data): The completion ideals: (p, q−1) (equivalently (p, [p]_q)), (p, ξ) in A_inf, (p), (q−1), (q^m − 1).
+- `AtlasSquare.Inversion` (data): Nothing inverted; p-complete then rationalise then complete at q−1; rationalise then complete at q−1.
+- `AtlasSquare.Linearisation` (data): None, ψ^p with q ↦ q^p, its α-fold iterate, or the Frobenius pullback φ_A^* over A_inf.
+- `AtlasSquare.Filtration` (data): None, Hodge, combined Hodge and (q−1)-adic, Nygaard, conjugate, stupid, twisted q-Hodge, décalage, q-de Rham–Witt.
+- `AtlasSquare.Twist` (data): Trivial, or a Breuil–Kisin twist {n}.
+- `AtlasSquare.Loss` (characterisation): Whether the comparison is an equivalence outright, after a named base change, a map only, or a short exact sequence.
+- `AtlasSquare.localPrismatic` (example): The record of the local prismatic square at p: q-de Rham prism, smooth, (p, q−1), nothing inverted, ψ^p, no filtration, trivial twist, outright.
+- `AtlasSquare.qCrystalline` (example): The record of the q-crystalline compatibility square: q-PD pair (Â_p⟦q−1⟧, (q−1)), p-completely smooth, (q−1), p-complete then rationalise, no linearisation, no filtration, outright.
+- `AtlasSquare.aInf` (example): The record of the A_inf square: perfectoid base with ε, smooth over ℤ, (p, ξ), nothing inverted, φ_A^*, no filtration, trivial twist, only after base change.
+- `AtlasSquare.decalageQSubOne` (example): The record of the décalage square at q−1: A⟦q−1⟧, smooth with a q-Hodge filtration, (q−1), nothing inverted, twisted q-Hodge filtration on the source, outright.
+- `AtlasSquare.decalagePrismIdeal` (example): The record of the décalage square at [p]_q: q-de Rham prism, smooth, (p, q−1), ψ^p, Nygaard on the source and décalage on the target, outright.
+- `AtlasSquare.nygaard` (example): The record of the Nygaard square at p and α: q-de Rham prism, smooth, (p), α-fold Frobenius twist, Nygaard on both sides, outright.
+- `AtlasSquare.crystalline` (example): The record of the crystalline square at p and α: A[q]/(q^{p^α} − 1), smooth, (p), ψ^{p^α}, q-de Rham–Witt filtration and stupid filtration, a map only.
+- `AtlasSquare.qEqOne` (example): The record of the square at q = 1: A⟦q−1⟧, smooth, (q−1), nothing inverted, conjugate and Hodge filtrations, a short exact sequence.
+
+**Unit tests.**
+
+- `AtlasSquare.localPrismatic_record` (computation): The local prismatic square has base the q-de Rham prism at p, completion (p, q−1), linearisation ψ^p and is an equivalence outright.
+- `AtlasSquare.localPrismatic_base_ne_qDeRhamPD` (non-example): The base of the local prismatic square is the prism ([p]_q), not the q-PD pair ((q−1)); a record that confused the two ideals would fail this.
+- `AtlasSquare.aInf_loss_ne_outright` (non-example): The A_inf square is not an equivalence outright: its loss is 'after base change'.
+- `AtlasSquare.qEqOne_filtrations` (computation): At q = 1 the deformed side carries the conjugate filtration, the classical side the Hodge filtration, and the comparison is a short exact sequence.
+- `AtlasSquare.completion_then_rationalise_ne` (non-example): The canonical map ℚ → ℚ_p is not surjective: completing at p and then inverting p is not inverting p, so a record without the order item would conflate clauses (c) and (c_p).
+- `AtlasSquare.pCompletion_of_rat_vanishes` (degenerate): The p-adic completion of the ℤ-module ℚ is zero, so a base change that begins with p-completion discards all rational information.
+
+**Acceptance.**
+
+- Each of the seven items is named with its vocabulary, and the base vocabulary distinguishes the prism ideal [p]_q from the q-PD ideal (q−1).
+- The intersection rule and the base-change rule are stated.
+- The records of the eight squares are written out and differ exactly where the square nodes say they differ.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.8: Every square node of this layer instantiates the record.
+- RefinedTraceMethods:RT.6: Asked, by request, to state the trace roadmap's syntomic squares in the same form, so that the staging rule can be checked mechanically.
+- CohomologyComparisons:CP.1: The classical integral comparison diagram, whose rows the ledger refers to, would carry the same record.
+
+**Depends on.** this roadmap: `HQ.1/what-the-global-complex-satisfies`, `HQ.2/filtered-graded-and-completion-conventions`, `HQ.3/q-hodge-filtrations`, `HQ.3/habiro-descent`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Appendix A, Theorem A.1(b), p. 69 (arXiv v2): “agrees with prismatic cohomology relative to the $q$-de Rham prism $(\widehat{A}_p\qpower,[p]_q)$. Here we denote the $p$-adic Frobenius twist by $(-)^{(p)}\coloneqq (-\otimes_{A,\psi^p}A)_p^\complete$.” — A square in the source's own form: it names the base prism, the completion and the Frobenius linearisation, which is what the record generalises.
+- `bhatt-scholze-prisms`, Notation 16.1 (arXiv v4): “Set $A = \mathbf{Z}_p\llbracket q-1\rrbracket$ with $\delta$-structure given by $\delta(q) = 0$, and let $[p]_q = \frac{q^p-1}{q-1} \in A$ be the $q$-analog of $p$. Note that $\phi(q-1) = q^p-1 \in [p]_q A$.” — The prism base and its Frobenius, the first entry of the base vocabulary.
+- `wagner-q-hodge-habiro`, Section 3.1, the paragraph before Definition 3.2, p. 20 (arXiv v2): “For technical reasons, we also need to require the same for the rationalisations of the $p$-completed ($q$-)de Rham complexes, which is why we have to include condition~\cref{enum:qHodgeRationalpComplete} below.” — Why the order of completion and inversion is an item of the record: clauses (c) and (c_p) differ.
+- `wagner-q-hodge-habiro`, Paragraph 1.17, p. 8 (arXiv v2): “It is not yet known how algebraic Habiro cohomology relates to the sheaf cohomology of Scholze's analytic Habiro stack $X^\mathrm{Hab}$” — Why the algebraic-against-analytic comparison is not a square.
+
+### The two bases, imported, and the congruences that identify completion ideals across corners
+
+`HQ.8/the-q-de-rham-prism-and-its-perfectoid-base` · lemma
+
+The atlas uses two bases, both owned by PrismaticCohomology. (i) The q-de Rham prism (ℤ_p⟦q−1⟧, [p]_q) with δ(q) = 0 and φ(q) = q^p (PR.0), base-changed to Â_p⟦q−1⟧ for a Λ-ring A that is p-torsion free, and its q-PD pair (ℤ_p⟦q−1⟧, (q−1)) (PR.6). (ii) For a perfectoid field C of characteristic 0 containing all p-power roots of unity and a chosen compatible system ε = (1, ζ_p, ζ_{p²}, …) ∈ O_C^♭, the perfect prism (A_inf, [p]_q) with A_inf = W(O_C^♭) and q = [ε], and the q-PD pair (A_inf, (ξ)), ξ = φ⁻¹([p]_q), with A_inf/(ξ) ≅ O_C (PR.6). The lemma consists of the facts about them that the squares use: (a) [p]_q = 1 + q + ⋯ + q^{p−1} is the p-th cyclotomic polynomial, [p]_q ≡ p modulo q−1, and φ(q−1) = q^p − 1 = (q−1)[p]_q lies in ([p]_q); (b) in ℤ_p⟦q−1⟧/[p]_q ≅ ℤ_p[ζ_p] the elements (q−1)^{p−1} and p differ by a unit; (c) consequently derived (p, [p]_q)-completion and derived (p, q−1)-completion coincide for complexes of ℤ_p⟦q−1⟧-modules (arXiv v4 of the source prints (p, [p]_q) on both sides, source issue E801); (d) the map ℤ_p⟦q−1⟧ → A_inf, q ↦ [ε], makes A_inf a perfect δ-ℤ_p⟦q−1⟧-algebra that is (p, q−1)-completely flat, hence flat, and faithfully flat; it is a map of bounded prisms (ℤ_p⟦q−1⟧, [p]_q) → (A_inf, [p]_q) and of q-PD pairs (ℤ_p⟦q−1⟧, (q−1)) → (A_inf, (ξ)), and it depends on ε; (e) Fontaine's θ : A_inf → O_C sends [ε] to 1, so q − 1 lies in ker θ = (ξ), and in A_inf the ideals (p, ξ), (p, [p]_q) and (p, q−1) have the same radical. Being a q-PD pair is a property of a δ-pair, not extra structure: a derived (p, [p]_q)-complete δ-pair (D, I) over (ℤ_p⟦q−1⟧, (q−1)) is one when φ(I) ⊂ [p]_q D and γ(I) ⊂ I, (D, ([p]_q)) is a bounded prism, and D/(q−1) is p-torsion free of finite (p, [p]_q)-complete Tor-amplitude over D.
+
+**Hypotheses.**
+
+- p is a prime; A is a Λ-ring that is p-torsion free; C is a perfectoid field of characteristic 0 containing all p-power roots of unity, with a chosen ε.
+- The bases and the notion of q-PD pair are imported from PrismaticCohomology PR.0 and PR.6; this node owns only the congruences, as the atlas uses them.
+- The flatness in (d) is (p, q−1)-complete flatness upgraded to flatness (Bhatt–Scholze Notation 17.1, citing Bhatt's Lemma 5.15); faithful flatness is Scholze's statement in section 4 of the Toulouse notes.
+
+**Proof.**
+
+1. (a) is in Mathlib: Polynomial.cyclotomic_prime and Polynomial.eval_one_cyclotomic_prime give [p]_q = Φ_p(q) and its value p at q = 1, and Polynomial.cyclotomic_prime_mul_X_sub_one (equivalently geom_sum_mul) gives q^p − 1 = (q−1)[p]_q; map along ℤ[q] → ℤ_p⟦q−1⟧.
+2. (b): ℤ_p⟦q−1⟧/[p]_q ≅ ℤ_p[ζ_p] by q ↦ ζ_p, and IsCyclotomicExtension.Rat.associated_zeta_sub_one_pow_prime makes (ζ_p − 1)^{p−1} an associate of p in the ring of integers of ℚ(ζ_p); base change to ℤ_p[ζ_p] preserves associatedness. For p = 3 the relation is the polynomial identity (q−1)² + 3q = [3]_q.
+3. (c): by (a), [p]_q ∈ (p, q−1), and by (b), (q−1)^{p−1} ∈ (p, [p]_q); derived completion at a finitely generated ideal depends only on its radical (DerivedDeRhamCohomology DD.1).
+4. (d) is imported from Bhatt–Scholze Notation 17.1 and Scholze's section 4 (PR.0, PR.6).
+5. (e): Mathlib's WittVector.fontaineTheta_teichmuller gives θ([ε]) = untilt(ε) = 1; [ε] − 1 = ξ·([ε^{1/p}] − 1) gives q − 1 ∈ (ξ); modulo p the images of ξ and q − 1 in O_C^♭ have valuations 1 and p/(p−1) ≤ 2, so ξ² ∈ (p, q−1) and the three radicals agree.
+6. Record the three conditions of a q-PD pair (Bhatt–Scholze Definition 16.2) and that (ℤ_p⟦q−1⟧, (q−1)) and (A_inf, (ξ)) satisfy them (Notation 17.1).
+
+**Acceptance.**
+
+- Both bases are named with their owners and their ideals, and the prism ideal [p]_q is distinguished from the q-PD ideal (q−1).
+- The identities of (a), and (b) for p = 3, are proved in the suggested file against Mathlib.
+- The completion agreement (c) is stated in its corrected form, with E801 cited.
+
+**Used by.**
+
+- HabiroCohomologyFoundations:HQ.8: Every square is stated over one of these two bases.
+- HabiroCohomologyFoundations:HQ.1: The p-complete corner of the global complex is prismatic cohomology over the first base.
+- CohomologyComparisons:CP.0: The dictionary of specialisations of the Witt vectors of the tilt is stated over the second base.
+
+**Depends on.** this roadmap: `HQ.1/what-this-layer-imports-and-what-it-owns`; other roadmaps: `PrismaticCohomology:PR.0`, `PrismaticCohomology:PR.6`, `DerivedDeRhamCohomology:DD.1`; libraries: `mathlib:Polynomial.cyclotomic_prime`, `mathlib:Polynomial.eval_one_cyclotomic_prime`, `mathlib:Polynomial.cyclotomic_prime_mul_X_sub_one`, `mathlib:geom_sum_mul`, `mathlib:Polynomial.cyclotomic_three`, `mathlib:IsCyclotomicExtension.Rat.associated_zeta_sub_one_pow_prime`, `mathlib:PreTilt`, `mathlib:WittVector.teichmuller`, `mathlib:WittVector.fontaineTheta`, `mathlib:WittVector.fontaineTheta_teichmuller`.
+
+**Sources.**
+
+- `bhatt-scholze-prisms`, Notation 16.1 (arXiv v4): “We shall often use without comment the congruence $[p]_q = p \mod (q-1)$ and that $(q-1)^{p-1}$ and $p$ differ by a multiplicative unit in $A/[p]_q \cong \mathbf{Z}_p[\zeta_p]$, where $\zeta_p$ is a primitive $p$-th root of $1$.” — Congruences (a) and (b).
+- `bhatt-scholze-prisms`, Definition 16.2 and the paragraph after it (arXiv v4): “Unlike the classical crystalline theory, being a $q$-PD pair is a property of a $\delta$-pair $(D,I)$ rather than extra structure.” — q-PD pairs are a property, with the three conditions of Definition 16.2.
+- `bhatt-scholze-prisms`, Notation 17.1 (arXiv v4): “This allows us to view $A$ as a perfect $\delta$-$\mathbf{Z}_p\llbracket q-1\rrbracket$-algebra that is $(p,q-1)$-completely flat and thus also genuinely flat (see \cite[Lemma 5.15]{BhattCM}). Let $\xi = \phi^{-1}([p]_q)$, so $(A,\xi)$ is a $q$-PD pair” — The perfectoid base, its flatness and its q-PD pair, (d).
+- `scholze-canonical-q-deformations`, Section 4, the paragraph after Lemma 4.1 (arXiv v1): “Moreover, one gets a map $\bb Z_p[[q-1]]\to A_\mathrm{inf}$ sending $q$ to $[\epsilon]$, making $A_\mathrm{inf}$ a faithfully flat $\bb Z_p[[q-1]]$-algebra.” — Faithful flatness in (d).
+
+### What the atlas does not assert
+
+`HQ.8/what-this-atlas-does-not-prove` · comparison
+
+First, no unconditional equivalence of integral Habiro cohomology with crystalline, A_inf or étale cohomology is intended or asserted: every square is asserted over the intersection of the hypothesis sets of its imported maps, and the A_inf square is an equivalence only after p-completion followed by base change along ℤ_p⟦q−1⟧ → A_inf, q ↦ [ε]. Second, a comparison that loses information is recorded as that base change or localisation, with the functor written out, and never as an inverse equivalence on the original categories: base change to the perfectoid base keeps only the prime p (the p-adic completion of a rational complex is zero), depends on ε and is not conservative; and the q-Hodge complex determines the q-de Rham complex only for smooth inputs, through Lη_{(q−1)} (Proposition 3.47(b)), while for general animated inputs no Habiro descent of the derived q-de Rham complex is known (Remark 3.48). Third, the atlas is not an input to the constructions it compares: no filtration in this roadmap is defined by a comparison theorem it is meant to prove, and the staging rule enforces this. Fourth, the comparison of algebraic with analytic Habiro cohomology is not a square: it is expected only after base change to a completed localisation of the analytic Habiro ring, which erases information on both sides (paragraph 1.17), and HQ.6 keeps it as a named problem.
+
+**Hypotheses.**
+
+- The squares of this layer are asserted over intersections of hypothesis sets; widening a class requires a new square.
+- The base changes named here are the ones the atlas uses; no other is implied.
+- The third clause is a constraint on the whole roadmap, checkable against the prerequisites of every node.
+
+**Proof.**
+
+1. State the first clause and record which squares are equivalences outright and which only after a named base change.
+2. State the second clause, with the loss of the A_inf base change and the scope of Proposition 3.47(b) against Remark 3.48.
+3. State the third clause and point to the staging rule for its enforcement.
+4. State the fourth clause and point to HQ.6.
+
+**Acceptance.**
+
+- The four clauses are stated and each is checkable against the other nodes.
+- No node of this layer asserts an equivalence outside an intersection of hypothesis sets.
+- The analytic comparison is excluded explicitly.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HQ.6/the-algebraic-against-analytic-comparison-problem`, `HQ.6/what-may-not-be-inferred-from-the-analytic-side`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.17, p. 8 (arXiv v2): “We expect algebraic and analytic Habiro cohomology to become equal after base change to a suitably completed localisation of Scholze's analytic Habiro ring $\Hh^\mathrm{an}$. Note, however, that this base change erases quite some information on either side” — The fourth clause, and the model for the second: a comparison expected only after a base change that loses information.
+- `wagner-q-hodge-habiro`, Remark 3.48, p. 49 (arXiv v2): “For an arbitrary object $(R,\fil_{\qHodge}^\star \qdeRham_{R/A})$ in $\cat{AniAlg}_A^{\qHodge}$, without a smoothness assumption on~$R$, we don't know how to construct a Habiro descent of $\qdeRham_{R/A}$.” — The scope of the q-Hodge modification in the second clause.
+- `bhatt-scholze-prisms`, Theorem 17.2 (arXiv v4): “All these maps are isomorphisms of $E_\infty$-$A$-algebras compatible with the Frobenius.” — The A_inf comparison is an equivalence over its own base; the atlas records that its base is the perfectoid one.
+
+### The p-complete square: the global complex against prismatic cohomology over the q-de Rham prism
+
+`HQ.8/the-local-prismatic-square` · theorem · planet “Prismatic comparison over the q-de Rham prism”
+
+Let A be a Λ-ring that is p-torsion free for every prime p, let S be a smooth A-algebra and p a prime. By the construction of the global q-de Rham complex as a pullback (Construction A.12), its p-completion is the upper right corner at p: (q-Ω_{S/A})^∧_p ≃ q-Ω_{Ŝ_p/Â_p}, q-crystalline cohomology of Ŝ_p relative to the q-PD pair (Â_p⟦q−1⟧, (q−1)). Bhatt–Scholze Theorem 16.18 identifies this with prismatic cohomology Δ_{S^{(p)}[ζ_p]/Â_p⟦q−1⟧} of the p-adic Frobenius twist S^{(p)} = (S ⊗_{A,ψ^p} A)^∧_p with ζ_p adjoined, relative to the q-de Rham prism (Â_p⟦q−1⟧, [p]_q). The composite is Theorem A.1(b), and the global arithmetic gluing commutes with it by construction. Record: base the q-de Rham prism at p; input smooth over A; completion (p, q−1), equivalently (p, [p]_q); nothing inverted; linearisation ψ^p with q ↦ q^p; no filtration on either side (the statement is an equivalence of E∞-algebras; the Nygaard filtration lives on the Frobenius twist of this complex and belongs to the Nygaard square); twist trivial; an equivalence outright, with no base change.
+
+**Hypotheses.**
+
+- A is a Λ-ring, p-torsion free for all primes; S is smooth over A; p is a prime.
+- The Frobenius twist is the p-completed base change along the p-th Adams operation ψ^p of A.
+- Both identifications are imported: the corner from HQ.1, Theorem 16.18 from PrismaticCohomology PR.6; the layer adds the record.
+
+**Proof.**
+
+1. Recall the pullback of Construction A.12 and that its p-completion is its upper right factor at p, (q-Ω_{S/A})^∧_p ≃ q-Ω_{Ŝ_p/Â_p} (HQ.1).
+2. Apply Bhatt–Scholze Theorem 16.18 to the q-PD pair (Â_p⟦q−1⟧, (q−1)): the map D/I → D/([p]_q) induced by φ_D is ψ^p followed by Â_p → Â_p[ζ_p], so R^{(1)} = S^{(p)}[ζ_p] (PR.6).
+3. The composite is Theorem A.1(b); write out the record.
+
+**Acceptance.**
+
+- The p-completion is identified by construction, not assumed.
+- The Frobenius twist and ζ_p are present, and the prism ideal is [p]_q, not q−1.
+- The record has no filtration and the square is an equivalence with no base change.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.1/the-global-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`; other roadmaps: `PrismaticCohomology:PR.6`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Appendix A, Theorem A.1(b), p. 69 (arXiv v2): “agrees with prismatic cohomology relative to the $q$-de Rham prism $(\widehat{A}_p\qpower,[p]_q)$. Here we denote the $p$-adic Frobenius twist by $(-)^{(p)}\coloneqq (-\otimes_{A,\psi^p}A)_p^\complete$.” — The square, in the source's statement.
+- `wagner-q-hodge-habiro`, Construction A.12, p. 75 (arXiv v2): “For all smooth $A$-algebras $S$, we construct the \emph{$q$-de Rham complex of $S$ over $A$} as the pullback” — The gluing whose p-completion is the corner.
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1, p. 75 (arXiv v2): “By construction, $(\qOmega_{S/A})_p^\complete\simeq \qOmega_{\smash{\widehat{S}}_p/\smash{\widehat{A}}_p}$, and so \cref{enum:GlobalqDeRhamPrismatic} follows from \cite[Theorem~\chref{16.18}]{Prismatic}.” — Why the commutation is by construction.
+- `bhatt-scholze-prisms`, Theorem 16.18 (arXiv v4): “Let $R^{(1)}$ be the $p$-completely smooth $D/([p]_q)$-algebra defined via $p$-completed base change along the map $D/I \to D/([p]_q)$ induced by $\phi_D$.” — The Frobenius twist in the imported identification.
+
+### q-crystalline cohomology against the framed q-de Rham complex, and the coordinate-free comparison
+
+`HQ.8/the-q-crystalline-square` · theorem · planet “q-de Rham and q-crystalline comparison”
+
+Let (D, I) be a q-PD pair with D flat over ℤ_p⟦q−1⟧ and R a p-completely smooth D/I-algebra. For a framed D-algebra (P, S), with P p-completely ind-smooth over D and p-completely ind-étale coordinates {X_s}_{s∈S}, and the kernel J of a D-algebra surjection P → R, each scaling γ_s (X_s ↦ qX_s, X_t ↦ X_t for t ≠ s) extends uniquely to an automorphism of the q-PD envelope D_{J,q}(P) congruent to the identity modulo qX_s − X_s (Lemma 16.21); the q-derivatives ∇_{q,s} = (γ_s(f) − f)/(qX_s − X_s) lift ∂/∂X_s modulo q−1, and their Koszul complex q-Ω^{∗,□}_{D_{J,q}(P)/D} is canonically quasi-isomorphic to q-crystalline cohomology q-Ω_{R/D} (Theorem 16.22). This is imported from PrismaticCohomology PR.6. The square of this atlas is its compatibility with the coordinate-free comparison of HQ.1: for (D, I) = (Â_p⟦q−1⟧, (q−1)) and S p-completely smooth over Â_p, the square whose top arrow is the equivalence (RΓ_qcrys(S/Â_p⟦q−1⟧) ⊗^L ℚ)^∧_{(q−1)} ≃ (RΓ_crys(S/Â_p) ⊗^L ℚ)⟦q−1⟧ of Lemma A.4, bottom arrow the explicit framed isomorphism of Lemma A.9, left arrow the rationalised quasi-isomorphism of Theorem 16.22 and right arrow the quasi-isomorphism of crystalline cohomology with the PD de Rham complex, commutes (Lemma A.10, owned by HQ.1). Record of the compatibility square: base the q-PD pair (Â_p⟦q−1⟧, (q−1)); input p-completely smooth over Â_p with a surjection from a framed p-completely ind-smooth algebra; the p-completion is rationalised and then completed at q−1 (the order of clause (c_p)); no Frobenius linearisation; no filtration; twist trivial; an equivalence outright. The Koszul models depend on the framing; the coordinate-free arrows do not.
+
+**Hypotheses.**
+
+- (D, I) is a q-PD pair in the sense of Bhatt–Scholze Definition 16.2 with D flat over ℤ_p⟦q−1⟧, the standing hypothesis of their section 16.3; R is p-completely smooth over D/I.
+- The uniqueness of the extension of γ_s and its congruence modulo qX_s − X_s are part of the imported statement.
+- The compatibility square lives after p-completion, rationalisation and (q−1)-completion; it asserts nothing integrally.
+
+**Proof.**
+
+1. Recall Constructions 16.19 and 16.20 and Lemma 16.21 (PR.6).
+2. Recall Theorem 16.22 and its cosimplicial proof (PR.6).
+3. The commutativity is Lemma A.10 (HQ.1/the-compatibility-square), proved there by applying Lemma A.9 column-wise to the cosimplicial complexes of the proof of Theorem 16.22.
+4. Write out the record and separate what depends on the framing from what does not.
+
+**Acceptance.**
+
+- The imported statement is given with the flatness hypothesis on D and the data of the framed q-PD datum.
+- The compatibility square is stated with all four arrows named and attributed to their owners.
+- The record places the rationalisation after the p-completion.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.8/the-local-prismatic-square`, `HQ.1/the-compatibility-square`, `HQ.1/the-coordinate-comparison-and-its-compatibility`, `HQ.1/rationalised-q-crystalline-comparison`; other roadmaps: `PrismaticCohomology:PR.6`.
+
+**Sources.**
+
+- `bhatt-scholze-prisms`, Section 16.3, opening (arXiv v4): “In this section, we fix a $q$-PD pair $(D,I)$ with $D$ being $A$-flat as well as a $p$-completely smooth $D/I$-algebra $R$.” — The standing hypothesis of the imported comparison.
+- `bhatt-scholze-prisms`, Lemma 16.21 (arXiv v4): “For each $s \in S$, the automorphism $\gamma_s$ of $P$ extends uniquely to an automorphism of $D_{J,q}(P)$ that is congruent to the identity modulo $qX_s - X_s$.” — The extension of the coordinate scalings.
+- `bhatt-scholze-prisms`, Theorem 16.22 (arXiv v4): “Let $(P,S,J)$ be a framed $q$-PD datum in the sense of Construction~\ref{FramedqPDqdR}. Then there is a canonical quasi-isomorphism $q\Omega_{R/D} \simeq q\Omega_{D_{J,q}(P)/D}^{\ast,\square}$.” — The imported comparison.
+- `wagner-q-hodge-habiro`, Lemma A.10, p. 74 (arXiv v2): “Here the left vertical arrow is the quasi-isomorphism from \cite[Theorem~\textup{\chref{16.22}}]{Prismatic} and the right vertical arrow is the usual quasi-isomorphism between crystalline cohomology and PD-de Rham complexes.” — The compatibility square, owned by HQ.1.
+
+### The A-infinity square, over the perfectoid base
+
+`HQ.8/the-a-infinity-square` · theorem · planet “Comparison with AΩ”
+
+Fix a prime p, a perfectoid field C of characteristic 0 containing all p-power roots of unity and a compatible system ε = (1, ζ_p, ζ_{p²}, …) ∈ O_C^♭; put q = [ε] ∈ A_inf = W(O_C^♭) and ξ = φ⁻¹([p]_q). Imported (Bhatt–Scholze Theorem 17.2, PR.6): for every p-completely smooth O_C-algebra R there are canonical isomorphisms AΩ_R ≃ q-Ω_{R/A_inf} ≃ Δ_{R^{(1)}/A_inf} = φ_A^*Δ_{R/A_inf} of E∞-A_inf-algebras compatible with the Frobenius, where q-Ω_{R/A_inf} is q-crystalline cohomology over the q-PD pair (A_inf, (ξ)) and AΩ_R is the complex of Bhatt–Morrow–Scholze (AInfCohomology AI.3); the proof gives an E_1-isomorphism, upgraded to E∞ by left Kan extension to quasiregular semiperfectoid algebras and quasi-syntomic descent (Remark 17.3). The square of this atlas is Scholze's Conjecture 4.3 for the global complex: for a smooth ℤ-algebra S and R = (S ⊗_ℤ O_C)^∧_p there is an equivalence q-Ω_{S/ℤ} ⊗̂_{ℤ⟦q−1⟧} A_inf ≃ AΩ_R, the tensor product (p, ξ)-adically completed along q ↦ [ε], natural in S. It is the composite of Theorem A.1(b) (the local prismatic square), completed base change of prismatic cohomology along the map of bounded prisms (ℤ_p⟦q−1⟧, [p]_q) → (A_inf, [p]_q) (Bhatt–Scholze Corollary 4.12), the identification of the Frobenius twist R^{(1)} with the base change of Ŝ_p[ζ_p] to A_inf/[p]_q, Theorem 16.18 for (A_inf, (ξ)), and Theorem 17.2. The same holds for a smooth A-algebra S over a Λ-ring A that is p-torsion free for all primes and carries a δ-ring map Â_p → A_inf, with R = (S ⊗_A O_C)^∧_p. Record: base the perfectoid one with its chosen ε; input smooth over ℤ (or over such an A); completion (p, ξ), equivalently (p, q−1) in A_inf; nothing inverted; linearisation the Frobenius pullback φ_A^*; no filtration; twist trivial; an equivalence only after the base change (−)^∧_p ⊗̂_{ℤ_p⟦q−1⟧} A_inf, which kills every rational complex and every ℓ-adic component for ℓ ≠ p, is not conservative, and depends on ε, while AΩ_R does not.
+
+**Hypotheses.**
+
+- C is a perfectoid field of characteristic 0 containing all p-power roots of unity, with a chosen ε; S is smooth over ℤ, or over a Λ-ring A, p-torsion free for all primes, with a δ-ring map Â_p → A_inf; R = (S ⊗ O_C)^∧_p is p-completely smooth over O_C.
+- The E∞-upgrade of Theorem 17.2 is Remark 17.3 and is recorded, not assumed.
+- The base change to the perfectoid base is not conservative; the square is not an equivalence of the original theories.
+
+**Proof.**
+
+1. Theorem A.1(b) at p (the local prismatic square): (q-Ω_{S/ℤ})^∧_p ≃ Δ_{Ŝ_p[ζ_p]/ℤ_p⟦q−1⟧}, since ψ^p is the identity on ℤ_p.
+2. The map ℤ_p⟦q−1⟧ → A_inf, q ↦ [ε], is a map of bounded prisms (ℤ_p⟦q−1⟧, [p]_q) → (A_inf, [p]_q) (bases lemma); completed base change of prismatic cohomology (Bhatt–Scholze Corollary 4.12, PR.1) gives an equivalence with Δ_{Y/A_inf}, Y the base change of Ŝ_p[ζ_p] to A_inf/[p]_q.
+3. Identify Y with R^{(1)} = R ⊗̂_{O_C,φ} A_inf/[p]_q: both are the p-completed base change of S along ℤ → A_inf/[p]_q, as S is defined over ℤ (for a general A this uses that Â_p → A_inf is a δ-ring map).
+4. Theorem 16.18 for (A_inf, (ξ)) gives Δ_{R^{(1)}/A_inf} ≃ q-Ω_{R/A_inf}, and Theorem 17.2 gives q-Ω_{R/A_inf} ≃ AΩ_R (PR.6).
+5. The (p, [p]_q)-, (p, ξ)- and (p, q−1)-completions agree in A_inf (bases lemma (e)).
+6. Record the strategy of Theorem 17.2, imported: for very small R, the explicit complexes colim_Σ Kos(D_{J_Σ,q}(P_Σ); ∇_{q,s}) and colim_Σ η_{q−1}Kos(A_inf(R_{Σ,∞}); σ_s − 1) and a natural quasi-isomorphism between them, glued over a basis of very small opens.
+7. Write out the record and the loss.
+
+**Acceptance.**
+
+- The hypotheses on C, ε and R are stated, and the square is stated after the base change q ↦ [ε], (p, ξ)-completed.
+- Each step of the composite names its owner: HQ.1, PrismaticCohomology PR.0, PR.1 and PR.6, AInfCohomology AI.3.
+- The loss is recorded: not conservative, and dependent on ε although AΩ_R is not.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.8/the-local-prismatic-square`, `HQ.1/what-the-global-complex-satisfies`; other roadmaps: `PrismaticCohomology:PR.0`, `PrismaticCohomology:PR.1`, `PrismaticCohomology:PR.6`, `AInfCohomology:AI.3`.
+
+**Sources.**
+
+- `bhatt-scholze-prisms`, Notation 17.1 (arXiv v4): “Choosing a compatible system $\{\zeta_{p^n} \in \mu_{p^n}(C)\}$ of primitive $p$-power roots of $1$, we obtain the rank $1$ element $q = [\underline{\epsilon}] \in A := A_{\inf}(\mathcal{O}_C)$, where $\epsilon=(1,\zeta_p,\ldots)\in \mathcal O_C^\flat$.” — The perfectoid base and its dependence on ε.
+- `bhatt-scholze-prisms`, Theorem 17.2 and Remark 17.3 (arXiv v4): “The proof will a priori give an isomorphism of $E_1$-$A$-algebras functorially in $R$ and compatibly with the Frobenius. However, this can be upgraded to an isomorphism of $E_\infty$-$A$-algebras a posteriori” — The imported comparison and its E∞-upgrade.
+- `bhatt-scholze-prisms`, Proof of Theorem 17.2 (arXiv v4): “we shall build, for each $\Sigma \in \mathcal{C}_S$, explicit functorial complexes computing $q\Omega_{R/A}$ and $A\Omega_{R/A}$ and a natural (in $R$ and a choice of $\Sigma \in \mathcal{C}_S$) quasi-isomorphism between them.” — The proof strategy, recorded as imported.
+- `bhatt-scholze-prisms`, Theorem 1.8(5) (Corollary 4.12) (arXiv v4): “Let $(A,I)\to (B,J)$ be a map of bounded prisms, and let $Y=X\times_{\Spf(A/I)} \Spf(B/J)$. Then the natural map induces an isomorphism” — Base change along the map of prisms q ↦ [ε].
+- `scholze-canonical-q-deformations`, Conjecture 4.3 (arXiv v1): “Let $R$ be a smooth $\bb Z$-algebra, and let $R_\roi$ be the $p$-adic completion of $R\otimes_{\bb Z} \roi$. Then, for the $q$-de~Rham complex $q\!\op-\!\Omega_R$ given by Conjecture~\ref{ConjA}, one has (functorially in $R$)” — The form of the square: the global complex base-changed to A_inf is AΩ.
+
+### The décalage square at q − 1
+
+`HQ.8/the-decalage-squares` · theorem
+
+Let A be a perfectly covered Λ-ring and (S, fil^⋆_{q-Hdg} q-dR_{S/A}) a pair in which S is smooth over A. Then Lη_{(q−1)} q-Hdg_{S/A} ≃ q-Ω_{S/A}, and Lη_{(q−1)} of the Habiro–Hodge complex is a Habiro descent of q-Ω_{S/A} (Proposition 3.47(b), owned by HQ.3; the source prints q-Ω_{R/A}, source issue E2). The imported facts about the décalage it rests on (AInfCohomology AI.1): for an invertible ideal I and an I-torsion-free complex C, H^i(η_I C) ≅ (H^i(C)/H^i(C)[I]) ⊗ I^{⊗i}, so η_I preserves quasi-isomorphisms between I-torsion-free complexes and descends to Lη_I on the derived category (BMS1 Lemma 6.4), which is not exact (BMS1 Remark 6.6); for I invertible and locally free of rank one in a replete topos, Lη_I commutes with derived I-adic completion and with the limit of its reductions modulo I^n (BMS1 Lemma 6.20); and for I defining a Cartier divisor, Lη_I K is the complex underlying the Beilinson-connective cover τ^{≤0}_B of the I-adic filtration I^⋆ ⊗ K (BMS2 Proposition 5.8). The proof of Proposition 3.47(b) shows that the q-Hodge-completed filtration is that connective cover of the (q−1)-adic filtration of q-Hdg_{S/A}. Record: base the global ring A⟦q−1⟧ with (q−1); input smooth with a chosen q-Hodge filtration; completion q−1; nothing inverted; no Frobenius linearisation; the q-Hodge filtration on the source and none on the target; twist trivial; an equivalence outright on that class and on no larger one.
+
+**Hypotheses.**
+
+- A is perfectly covered and S is smooth; a q-Hodge filtration is part of the input, so the square is a statement about pairs, not about smooth algebras.
+- BMS1 Lemma 6.20 needs I invertible and locally free of rank one, in a replete topos; BMS2 Proposition 5.8 needs I to define a Cartier divisor.
+- Lη_I is not exact, and no exactness is used.
+
+**Proof.**
+
+1. Record the imported facts with their hypotheses (AI.1, through HQ.2/what-the-décalage-import-supplies).
+2. Import Proposition 3.47(b) (HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion): the completed q-Hodge filtration is the Beilinson-connective cover of the (q−1)-adic filtration of the q-Hodge complex, so BMS2 Proposition 5.8 identifies Lη_{(q−1)} q-Hdg_{S/A} with the completed derived complex, which is q-Ω_{S/A} by Proposition 3.47(a); BMS1 Lemma 6.20 gives the Habiro descent.
+3. Write out the record.
+
+**Acceptance.**
+
+- Each imported fact is stated with its hypothesis, in particular invertibility, local freeness of rank one and the Cartier divisor condition.
+- The square is asserted only for smooth inputs with a chosen q-Hodge filtration.
+- Source issue E2 is cited for the printed q-Ω_{R/A}.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.2/what-the-decalage-import-supplies`, `HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HQ.3/the-habiro-hodge-complex`; other roadmaps: `AInfCohomology:AI.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proposition 3.47(b), p. 48 (arXiv v2): “We have $\L\eta_{(q-1)}\qHodge_{S/A}\simeq \qOmega_{R/A}$. In particular, $\L\eta_{(q-1)}\qHhodge_{S/A}$ is a Habiro descent of $\qOmega_{S/A}$.” — The square; q-Ω_{R/A} is the misprint E2.
+- `bms-integral-p-adic-hodge`, Lemma 6.4 (arXiv v3): “Let $C^\blob\in K(\roi_T)$ be an $\cal I$-torsion-free complex. Then there is a canonical isomorphism” — The cohomology of the décalage (the displayed formula follows the excerpt).
+- `bms-integral-p-adic-hodge`, Lemma 6.20 (arXiv v3): “Assume that $\cal I\subset \roi_T$ is an invertible ideal sheaf which is locally free of rank $1$. Let $C\in D(\roi_T)$ with derived $\cal I$-adic completion $\hat{C}$. Then the natural maps” — Commutation with completion at the same ideal, with its hypothesis.
+- `bms-thh-integral-p-adic-hodge`, Proposition 5.8 (arXiv v2): “Then $L\eta_I K$ identifies with the $R$-complex underlying $\tau^{\leq 0}_B (I^\f \otimes K)$.” — The canonical filtration on the décalage.
+
+### The Nygaard filtrations on the two sides, and the staging that keeps the argument non-circular
+
+`HQ.8/the-nygaard-square` · theorem
+
+Let A be a perfectly covered Λ-ring, p a prime, α ≥ 1 and S a smooth A-algebra. On the prismatic side, for a bounded prism (B, J) the Nygaard filtration is defined on large quasi-syntomic algebras by Frobenius divisibility, Fil^i_N Δ^{(1)}_{T/B} = {x : φ_{T/B}(x) ∈ J^i Δ_{T/B}}, and extended by quasi-syntomic descent, with gr^i_N RΓ_Δ(X/B)^{(1)} ≅ τ^{≤i} Δ̄_{R/B}{i} for an affine smooth p-adic formal scheme X = Spf R over B/J (Bhatt–Scholze Theorems 15.2 and 15.3, PR.3); on (q-Ω^{(p)}_{S/A})^∧_p it is the preimage of the décalage filtration under the relative Frobenius, and for α ≥ 2 its pullback along φ^{α−1} (paragraph 3.20, HQ.4). On the q-de Rham–Witt side the n-th term is the explicit subcomplex p^{n−1}V_p(q-W_{p^{α−1}}Ω^0) → ⋯ → p^0V_p(q-W_{p^{α−1}}Ω^{n−1}) → q-W_{p^α}Ω^n → q-W_{p^α}Ω^{n+1} → ⋯ (paragraph 3.21, HQ.4). The square is Proposition 3.22, owned by HQ.4: there is a unique functorial equivalence of filtered E∞-A[q]/(q^{p^α}−1)-algebras from fil^⋆_N(q-Ω^{(p^α)}_{S/A})^∧_p/(q^{p^α}−1), the quotient taken with q^{p^α}−1 in filtration degree one, onto fil^⋆_N(q-W_{p^α}Ω_{S/A})^∧_p, recovering in filtration degree 0 the equivalence of Proposition 3.19. Record: base the q-de Rham prism at p, twisted α−1 times and reduced modulo q^{p^α}−1; input smooth over A; completion p; nothing inverted; linearisation the α-fold Frobenius twist; the Nygaard filtration on both sides; twist trivial; an equivalence outright, and unique. The square rests on the prismatic Nygaard filtration of PR.3, never on the trace roadmap's syntomic comparison (staging rule).
+
+**Hypotheses.**
+
+- A is perfectly covered, S is smooth over A, and α ≥ 1.
+- The quotient by q^{p^α}−1 follows the filtered quotient convention (q^{p^α}−1 in filtration degree one); with the degreewise quotient the statement is false.
+- The prismatic Nygaard filtration is defined by Frobenius divisibility and descent (PR.3), not by a comparison with topological Hochschild homology.
+
+**Proof.**
+
+1. Recall the prismatic construction (PR.3) and its expression on the twisted complex as the preimage of the décalage filtration (HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes, through the décalage square at the prism ideal).
+2. Recall the explicit filtration on the q-de Rham–Witt complex (HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes).
+3. Import Proposition 3.22 (HQ.4/the-nygaard-comparison), with its degree-zero restriction Proposition 3.19 (HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex).
+4. Write out the record and the staging constraint.
+
+**Acceptance.**
+
+- Both filtrations are described, one by its construction and one by its explicit terms.
+- The quotient is by q^{p^α}−1 with the filtered quotient convention, not by a cyclotomic element, and the equivalence is unique with a fixed degree-zero restriction.
+- No prerequisite of this node is a RefinedTraceMethods stage.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.4/the-nygaard-comparison`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes`, `HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex`, `HQ.2/the-quotient-convention-for-filtered-modules`; other roadmaps: `PrismaticCohomology:PR.3`.
+
+**Sources.**
+
+- `bhatt-scholze-prisms`, Theorem 15.2 (arXiv v4): “\mathrm{Fil}^i_N \Prism_{S/A}^{(1)} = \{x\in \Prism_{S/A}^{(1)}\mid \phi_{S/A}(x)\in I^i \Prism_{S/A}\}” — The prismatic Nygaard filtration is defined by Frobenius divisibility.
+- `bhatt-scholze-prisms`, Theorem 15.3 (arXiv v4): “Let $(A,I)$ be a bounded prism and let $X=\Spf R$ be an affine smooth $p$-adic formal scheme over $A/I$.” — The hypotheses under which it is extended by descent.
+- `wagner-q-hodge-habiro`, Proposition 3.22, p. 32 (arXiv v2): “For smooth $A$-algebras $S$, there exists a unique functorial equivalence of filtered $\IE_\infty$-$A[q]/(q^{p^\alpha}-1)$-algebras” — The square, owned by HQ.4.
+- `wagner-q-hodge-habiro`, Proposition 3.22, p. 32 (arXiv v2): “\embrace{the quotient on the left-hand side is taken in accordance with Convention~\cref{conv:QuotientConvention}} which in degree~$0$ recovers the equivalence” — The quotient convention and the degree-zero restriction.
+
+### The cyclotomic specialisation: q-de Rham-Witt against ordinary de Rham-Witt and crystalline cohomology
+
+`HQ.8/the-crystalline-and-de-rham-witt-square` · theorem · planet “Ordinary to q-de Rham–Witt comparison”
+
+Three statements make the square, over a perfectly covered Λ-ring A and a smooth A-algebra S. First, for every m ≥ 1 the quotient qHhdg_{S/A}/(q^m−1) of the Habiro–Hodge complex of a pair carries an exhaustive ascending filtration with associated graded Σ^{−∗}q-W_m dR^∗_{S/A} (Theorem 3.11(b), HQ.3), for smooth S the derived q-de Rham–Witt forms are the underived ones, Σ^{−n}q-W_m dR^n_{S/A} ≃ q-W_mΩ^n_{S/A} (HQ.4), and the m-th twisted q-de Rham complex reduces to q-Ω^{(m)}_{S/A}/(q^m−1) ≃ q-W_mΩ_{S/A} (Proposition 3.19, HQ.4). Second, after p-completion the q-de Rham–Witt complex is explicit: for every α there is an equivalence of p-complete E∞-A[q]-algebras (Ω_{S/A} ⊗^L_{A,ψ^{p^α}} A[q]/(q^{p^α}−1))^∧_p ≃ (q-W_{p^α}Ω_{S/A})^∧_p, and for m = p^α n with n prime to p, (q-W_mΩ_{S/A})^∧_p ≃ ∏_{d|n}(Ω_{S/A} ⊗^L_{A,ψ^{p^α d}} A[q]/Φ_d(q^{p^α}))^∧_p, functorially in S (q-Witt Proposition 4.2, HQ.4). Third, if A is moreover a ℤ_(p)-algebra, the forgetful functor from q-FV-systems to FV-pro-complexes without restriction maps and the restriction-free universal property of Langer–Zink's de Rham–Witt pro-complex give maps W_{α+1}Ω^∗_{S/A} → q-W_{p^α}Ω^∗_{S/A} for all α ≥ 0, compatible with Frobenius and Verschiebung (q-Witt Remark 3.18, HQ.4). The crystalline corner is the classical one, imported from CrystallineCohomology CR.4: for a smooth algebra over a perfect field k of characteristic p the de Rham–Witt complex computes crystalline cohomology over W(k) (Illusie, recalled in BMS1 Theorem 1.10(i)), and the relative de Rham–Witt complex of a ℤ_(p)-algebra reduces to that of the reduction by base change along A → A/I (BMS1 Corollary 10.10); the square reaches crystalline cohomology only through that reduction. Record: base A[q]/(q^{p^α}−1), p-adically the q-de Rham prism twisted α−1 times and reduced modulo q^{p^α}−1; input smooth over A (a ℤ_(p)-algebra for the third statement); completion p; nothing inverted; linearisation the Adams operation ψ^{p^α}; the q-de Rham–Witt filtration of Theorem 3.11(b) on the Habiro side and the stupid filtration on the q-de Rham–Witt complex; twist trivial. The map from W_{α+1}Ω is not claimed to be an equivalence, and it is not compatible with restriction maps, which the q-de Rham–Witt complexes do not have.
+
+**Hypotheses.**
+
+- A is a perfectly covered Λ-ring and S is smooth over A for the first two statements; the third needs A to be a ℤ_(p)-algebra.
+- The crystalline identification of the classical corner is imported at the level of statements (gap).
+- No clause asserts that W_{α+1}Ω^∗_{S/A} → q-W_{p^α}Ω^∗_{S/A} is an isomorphism.
+
+**Proof.**
+
+1. Import Theorem 3.11(b) and the smooth comparison of derived and underived q-de Rham–Witt forms (HQ.3/habiro-descent-the-q-de-rham-witt-filtration, HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras).
+2. Import Proposition 3.19 (HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex).
+3. Import q-Witt Proposition 4.2 (HQ.4/the-p-completion-of-the-q-de-rham-witt-complex); the general case uses q^m − 1 = ∏_{d|m} Φ_d(q) (Mathlib Polynomial.prod_cyclotomic_eq_X_pow_sub_one).
+4. Import the comparison map of q-Witt Remark 3.18 (HQ.4/the-comparison-map-from-ordinary-de-rham-witt) and the classical crystalline identification (CR.4).
+5. Assemble the square and write out the record, with the map not claimed to be an equivalence.
+
+**Acceptance.**
+
+- All three statements are given with their hypotheses.
+- The two operator systems, with and without restriction maps, are distinguished, and the map is not called an equivalence.
+- The record names the filtration on each side separately.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.3/habiro-descent-the-q-de-rham-witt-filtration`, `HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras`, `HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/the-comparison-map-from-ordinary-de-rham-witt`, `HQ.4/there-are-no-restriction-operators-and-what-replaces-them`; other roadmaps: `CrystallineCohomology:CR.4`; libraries: `mathlib:Polynomial.prod_cyclotomic_eq_X_pow_sub_one`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Theorem 3.11(b), p. 25 (arXiv v2): “For all $m\in\IN$, the quotient $\qHhodge_{-/A}/(q^m-1)$ admits an exhaustive ascending filtration $ \fil_\star ^{\qIW_m\Omega}(\qHhodge_{-/A}/(q^m-1))$ with associated graded” — The first statement.
+- `wagner-q-witt`, Proposition 4.2 (arXiv v5): “Let $R$ be smooth over $A$ and let $p$ be a prime. Then for every exponent~$\alpha$ there exists an equivalence of $p$-complete $\IE_\infty$-$A[q]$-algebras” — The second statement.
+- `wagner-q-witt`, Remark 3.18 (arXiv v5): “As a consequence of \cref{par:WhoNeedsRestrictions} and \cref{prop:qDRWHasFrobenii}, we get a comparison map between ordinary and $q$-de Rham--Witt complexes in the case where $A$ a $\IZ_{(p)}$-algebra.” — The third statement and its hypothesis.
+- `wagner-q-hodge-habiro`, Proposition 3.19, p. 31 (arXiv v2): “Let $A$ be a perfectly covered $\Lambda$-ring and let $S$ be a smooth $A$-algebra. There's a functorial equivalence of $\IE_\infty$-$A[q]/(q^m-1)$-algebras” — The reduction of the twisted complex modulo q^m − 1.
+- `bms-integral-p-adic-hodge`, Theorem 1.10(i) (arXiv v3): “Here, the tensor product is $p$-adically completed, and the right side denotes the de~Rham--Witt complex of $\frak X_k$, which computes crystalline cohomology of $\frak X_k$.” — The classical crystalline corner, imported from CR.4.
+
+### The specialisation at the parameter value one, with its torsion correction
+
+`HQ.8/the-de-rham-square` · theorem · planet “Specialisation at q = 1”
+
+Setting q = 1 means reducing modulo q − 1, and four statements make the square. (a) For a Λ-ring A that is p-torsion free for all primes, q-Ω_{−/A}/(q−1) ≃ Ω^∗_{−/A} on smooth A-algebras (Theorem A.1(a), HQ.1), and the derived complex satisfies q-dR_{−/A}/(q−1) ≃ dR_{−/A} (paragraph A.14, HQ.2; DerivedDeRhamCohomology DD.2). (b) For a perfectly covered A, a q-Hodge filtration reduces modulo q−1, in the filtered sense with q−1 in filtration degree one, to the Hodge filtration: fil^⋆_{q-Hdg} q-dR_{R/A}/(q−1) ≃ fil^⋆_Hdg dR_{R/A} (Definition 3.2(b), HQ.3). (c) The q-Hodge complex modulo q−1 is not the de Rham complex: it carries the conjugate filtration, an exhaustive ascending filtration with gr^conj_∗(q-Hdg_{R/A}/(q−1)) ≃ Σ^{−∗}dR^∗_{R/A} ≃ gr^∗_Hdg dR_{R/A} (paragraph 3.8 and Lemma 3.9, HQ.3). (d) The specialisation is not exact on cohomology: since q−1 is a nonzerodivisor on A⟦q−1⟧, q-Ω_{S/A}/(q−1) is the cofibre of q−1 on q-Ω_{S/A}, and (a) gives short exact sequences 0 → H^i(q-Ω_{S/A})/(q−1) → H^i_dR(S/A) → H^{i+1}(q-Ω_{S/A})[q−1] → 0, the last term the (q−1)-torsion; after gluing, for a smooth scheme X over ℤ proper over ℤ[1/N] this and (q−1)-completeness make the q-de Rham cohomology groups finitely generated over ℤ[1/N]⟦q−1⟧. Scholze states (d) conditionally on his Conjecture 3.1, which Theorem A.1 supplies. Record: base the global ring A⟦q−1⟧ with the ideal (q−1), not a prism; input smooth for (a) and (d), animated with a chosen q-Hodge filtration for (b) and (c); completion q−1; nothing inverted; no Frobenius linearisation; the conjugate filtration on the deformed side and the Hodge filtration on the classical side; twist trivial; the comparison on cohomology is a short exact sequence with a torsion term, not an isomorphism.
+
+**Hypotheses.**
+
+- The filtered quotient convention is in force for (b): q−1 sits in filtration degree one, and with the degreewise quotient (b) is false.
+- (b) and (c) need a chosen q-Hodge filtration over a perfectly covered A; (a) and (d) need only a Λ-ring A that is p-torsion free for all primes.
+- (d) is the long exact sequence of multiplication by q−1, a routine consequence of (a).
+
+**Proof.**
+
+1. Import (a) from HQ.1 (Theorem A.1(a)) and HQ.2 (paragraph A.14).
+2. Import (b) from HQ.3/q-hodge-filtrations and (c) from HQ.3/the-conjugate-filtration.
+3. Derive (d) from the cofibre sequence of q−1 on q-Ω_{S/A} and (a); glue over a Zariski cover for schemes, and deduce finiteness in the proper case from (q−1)-completeness.
+4. Write out the record, with the torsion term as part of the square.
+
+**Acceptance.**
+
+- All four statements are given with their hypotheses.
+- The filtered quotient convention is named, since with the degreewise quotient (b) is false.
+- The torsion correction is stated as a short exact sequence and not as an isomorphism.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.1/what-the-global-complex-satisfies`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/the-quotient-convention-for-filtered-modules`, `HQ.3/q-hodge-filtrations`, `HQ.3/the-conjugate-filtration`; other roadmaps: `DerivedDeRhamCohomology:DD.2`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Appendix A, Theorem A.1(a), p. 69 (arXiv v2): “$\qOmega_{-/A}/(q-1)\simeq \Omega_{-/A}^*$ agrees with the usual de Rham complex functor.” — Statement (a), underived.
+- `wagner-q-hodge-habiro`, Paragraph A.14, p. 76 (arXiv v2): “It's still true that $\qdeRham_{-/A}/(q-1)\simeq \deRham_{-/A}$” — Statement (a), derived.
+- `wagner-q-hodge-habiro`, Definition 3.2(b), p. 20 (arXiv v2): “In other words, the filtration $ \fil_{\qHodge}^\star \qdeRham_{R/A}$ has to be a $(q-1)$-deformation of the Hodge filtration.” — Statement (b).
+- `wagner-q-hodge-habiro`, Lemma 3.9, p. 23 (arXiv v2): “The associated graded of the conjugate filtration $ \fil_\star^\mathrm{conj}\qHodge_{R/A}/(q-1)$ is given by” — Statement (c).
+- `scholze-canonical-q-deformations`, Section 3, after Remark 3.2 (arXiv v1): “Specializing at $q=1$ gives de~Rham cohomology; more precisely, taking into account the $\Tor_1$-term, we have short exact sequences” — Statement (d).
+- `scholze-canonical-q-deformations`, Section 3, after Remark 3.2 (arXiv v1): “If the conjecture is true, then we can glue the complexes $q\!\op-\!\Omega_R$ to get a deformation $q\!\op-\!\Omega_X$ of the de~Rham complex for any smooth scheme $X$ over $\bb Z$.” — The conditional form in the source, now unconditional by Theorem A.1.
+
+### The global gluing and the q-Hodge modification commute with the imported local maps
+
+`HQ.8/the-commutation-theorem` · theorem · planet “Commutation on the intersection of hypotheses”
+
+This is what the layer asserts, as the conjunction of its eight squares. For each square with its record, the global arithmetic gluing of HQ.1 and the q-Hodge modification of HQ.3 commute with the imported maps on the input class of the record, which is the intersection of the hypothesis sets of the imported maps. Square by square: local prismatic — by construction, since the p-completion of the defining pullback is its upper right corner (proof of Theorem A.1(b)); q-crystalline — Lemma A.10, the compatibility of the coordinate-free and framed comparisons after rationalisation; A_inf — Theorem A.1(b), base change of prismatic cohomology along the map of bounded prisms q ↦ [ε], Theorem 16.18 for both q-PD pairs and Theorem 17.2, so an equivalence only after that base change; décalage at q−1 — Proposition 3.47(b) with the commutation of Lη_{(q−1)} with (q−1)-completion; décalage at [p]_q — the relative Frobenius equivalence of Bhatt–Scholze Theorem 15.3 transported through the local prismatic square; Nygaard — existence and uniqueness in Proposition 3.22; crystalline — Proposition 3.19, reducing the twisted complex modulo q^m − 1 to the q-de Rham–Witt complex, with q-Witt Proposition 4.2 and the comparison map of q-Witt Remark 3.18; q = 1 — the reduction of the defining pullback modulo q − 1 to the arithmetic fracture square of the de Rham complex (proof of Theorem A.1(a)). No commutation is asserted outside those input classes, and no comparison that needs a base change is recorded as an equivalence before it. The compatibility of the A_inf square with the classical specialisations of CohomologyComparisons CP.1 (θ, θ̃, Witt reduction, A_cris, μ-inversion) is not part of this theorem; it is a recorded gap.
+
+**Hypotheses.**
+
+- Each square has a complete record and its imported maps are constructed by the layers and roadmaps named in its node.
+- The intersection of the hypothesis sets is read off the records and is not enlarged.
+- The theorem introduces no argument beyond those of its squares; the q-Hodge modification is a functor on pairs, so every statement about it presupposes a chosen q-Hodge filtration.
+
+**Proof.**
+
+1. For each square, identify the imported maps and the map this roadmap supplies.
+2. Read off the input class from the record.
+3. Cite the argument listed for that square, each of which is proved in the square node, in an earlier layer, or imported.
+4. Record, for each square, whether the comparison is an equivalence outright or only after a named base change.
+5. Record that the eight squares are the complete list for this layer, that the syntomic squares belong to the trace roadmap, and that the compatibility with CP.1 is a gap.
+
+**Acceptance.**
+
+- Every square has its commutation argument named.
+- The input class is recorded for each.
+- No commutation is asserted outside those classes, and the CP.1 compatibility is recorded as a gap rather than asserted.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/what-this-atlas-does-not-prove`, `HQ.8/the-local-prismatic-square`, `HQ.8/the-q-crystalline-square`, `HQ.8/the-a-infinity-square`, `HQ.8/the-decalage-squares`, `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.8/the-nygaard-square`, `HQ.8/the-crystalline-and-de-rham-witt-square`, `HQ.8/the-de-rham-square`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1, p. 75 (arXiv v2): “Modulo $(q-1)$, the pullback reduces to the usual arithmetic fracture square for $\Omega_{R/A}$, proving \cref{enum:GlobalqDeRhamDeformsDeRham}.” — The q = 1 commutation (Ω_{R/A} is the misprint E109 for Ω_{S/A}).
+- `wagner-q-hodge-habiro`, Proof of Theorem A.1, p. 75 (arXiv v2): “By construction, $(\qOmega_{S/A})_p^\complete\simeq \qOmega_{\smash{\widehat{S}}_p/\smash{\widehat{A}}_p}$, and so \cref{enum:GlobalqDeRhamPrismatic} follows from \cite[Theorem~\chref{16.18}]{Prismatic}.” — The local prismatic commutation, and the first step of the A_inf one.
+- `wagner-q-hodge-habiro`, Proposition 3.19, p. 31 (arXiv v2): “Let $A$ be a perfectly covered $\Lambda$-ring and let $S$ be a smooth $A$-algebra. There's a functorial equivalence of $\IE_\infty$-$A[q]/(q^m-1)$-algebras” — The crystalline commutation.
+- `wagner-q-hodge-habiro`, Proposition 3.22, p. 32 (arXiv v2): “For smooth $A$-algebras $S$, there exists a unique functorial equivalence of filtered $\IE_\infty$-$A[q]/(q^{p^\alpha}-1)$-algebras” — The Nygaard commutation.
+
+### The information-loss ledger
+
+`HQ.8/what-each-square-loses` · comparison
+
+Each square is recorded with what its comparison discards, so that no chain of squares is read as an equivalence of the theories at its ends. Local prismatic: nothing is lost at p, but the square sees only p. q-crystalline: the Koszul models depend on the framing, only the coordinate-free arrows are canonical, and the compatibility square holds only after p-completion, rationalisation and (q−1)-completion. A_inf: the base change (−)^∧_p ⊗̂_{ℤ_p⟦q−1⟧} A_inf along q ↦ [ε] kills every rational complex and every ℓ-adic component for ℓ ≠ p, so it is not conservative; it is flat, even faithfully flat, but only after p-completion; and it depends on ε, while AΩ_R does not. Décalage at q−1: an equivalence only for smooth inputs with a chosen q-Hodge filtration, and Lη is not exact. Décalage at [p]_q: an equivalence at p only, and the canonical filtrations of the décalages do not glue across the arithmetic fracture square. Nygaard: an equivalence only after p-completion and reduction modulo q^{p^α} − 1. Crystalline: W_{α+1}Ω → q-W_{p^α}Ω is a map, not an equivalence, and forgets the restriction maps; the crystalline corner is reached only by reduction to characteristic p. q = 1: a short exact sequence with a (q−1)-torsion term, not an isomorphism on cohomology. Étale: there is no étale square; the classical étale comparison of AΩ, after inverting μ = q − 1, for proper smooth formal schemes over O_C (the μ-inversion row of CohomologyComparisons CP.1, AInfCohomology AI.4 and AI.5), is reached from this roadmap only along the composite of the non-conservative base change to A_inf and the localisation at μ, and it is recorded here rather than as a square. Upstream: algebraic Habiro cohomology of a smooth scheme contains no information at primes at most its relative dimension, because those primes are inverted to construct the q-Hodge filtration (paragraph 1.17(a)); that loss is upstream of the atlas and constrains every square that starts from it.
+
+**Hypotheses.**
+
+- Each entry of the ledger refers to a square of this layer or to the construction of the object the squares start from.
+- The upstream entry is a property of the construction of algebraic Habiro cohomology, not of any square.
+- Loss is recorded as the failure of conservativity of a named functor or as a named non-equivalence, not as a vague caveat.
+
+**Proof.**
+
+1. Go through the squares in the order of the layer and record, for each, the functor along which it is an equivalence and what that functor discards.
+2. Record the absent étale square and the composite along which the étale comparison would be reached.
+3. Record the upstream loss at small primes and name the construction it comes from.
+4. Record that a composite of squares is an equivalence only along the composite of the named functors.
+
+**Acceptance.**
+
+- Every square of the layer appears in the ledger, and so does the absent étale square.
+- Each entry names a functor and what it discards.
+- The upstream loss is attributed to the construction that causes it.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/what-this-atlas-does-not-prove`, `HQ.8/the-commutation-theorem`, `HQ.8/the-decalage-filtrations-do-not-glue`, `HQ.5/algebraic-habiro-cohomology-of-a-scheme`, `HQ.6/the-three-recorded-differences`; other roadmaps: `CohomologyComparisons:CP.1`, `CohomologyComparisons:CP.6`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 1.17(a), p. 8 (arXiv v2): “By construction, algebraic Habiro cohomology of a smooth scheme $X$ will contain no information at primes $p\leqslant \dim(X/\IZ)$.” — The upstream loss.
+- `bhatt-scholze-prisms`, Notation 17.1 (arXiv v4): “This allows us to view $A$ as a perfect $\delta$-$\mathbf{Z}_p\llbracket q-1\rrbracket$-algebra that is $(p,q-1)$-completely flat and thus also genuinely flat” — The A_inf base change: flat, but only after p-completion.
+- `scholze-canonical-q-deformations`, Conjecture 4.3, footnote (arXiv v1): “This map $\bb Z[[q-1]]\to A_\inf$ depends on a choice of $p$-power roots of unity, while the right-hand side does not.” — The dependence on ε of the A_inf base change.
+- `bms-integral-p-adic-hodge`, Remark 6.6 (arXiv v3): “The functor $L\eta_{\cal I}:D(\roi_T) \to D(\roi_T)$ constructed above is {\em not} exact.” — The décalage entry.
+
+### Why the trace comparison comes after the prismatic construction and not before
+
+`HQ.8/the-staging-rule` · comparison
+
+The trace roadmap (RefinedTraceMethods RT.6) constructs comparisons between topological Hochschild homology and prismatic cohomology with their Nygaard and syntomic filtrations, for quasi-syntomic inputs. In this atlas they may be used only after the prismatic roadmap has constructed its objects independently, and the trace roadmap's proofs import the early prismatic stages, not this atlas. The reason: the prismatic Nygaard filtration is defined by Frobenius divisibility on large quasi-syntomic algebras and quasi-syntomic descent (Bhatt–Scholze Theorems 15.2 and 15.3, PR.3), and on the twisted q-de Rham complex it is the preimage of the décalage filtration under the relative Frobenius (paragraph 3.20); the trace construction instead defines a filtration on gr^0 TC^− by quasi-syntomic descent of the double-speed Postnikov filtration (BMS2 Theorem 1.12) and then identifies it with the prismatic one. Feeding that identification back into a definition would define a filtration by the comparison theorem it is meant to prove. The rule, checked against prerequisites: (i) no node of this layer that uses or identifies a Nygaard filtration has a RefinedTraceMethods stage among its prerequisites (the Nygaard square rests on PR.3 and HQ.4); (ii) the trace-theoretic existence statement of HQ.5-trace imports RefinedTraceMethods RT.4:q-Hodge and RT.6, whose stated prerequisites are PR.0 to PR.3, AI.1, DD.2, RT.2 and RT.4:topological, and HQ.3 for RT.4:q-Hodge, none of them this layer or PR.6; (iii) the syntomic squares belong to the trace roadmap.
+
+**Hypotheses.**
+
+- The rule constrains the direction of dependence between three roadmaps and is checkable against the prerequisites of the nodes and stages involved.
+- The trace-theoretic existence statement of HQ.5-trace imports from the trace roadmap; this layer does not feed back into it.
+- The rule does not say that the trace comparison is doubtful; it says it may not be used to define what it compares.
+
+**Proof.**
+
+1. State the rule in both directions.
+2. Give the reason: the prismatic Nygaard filtration is defined by Frobenius divisibility and descent, and the trace filtration is defined by descent from topological Hochschild homology and compared afterwards.
+3. Check (i) against the prerequisites of this layer's nodes and (ii) against the prerequisites of HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations and the stated prerequisites of RT.4:q-Hodge and RT.6.
+4. Record that the syntomic squares belong to the trace roadmap and are not part of this atlas.
+
+**Acceptance.**
+
+- The rule is stated in both directions with its reason.
+- Checks (i) and (ii) are recorded as acceptance conditions and pass.
+- The boundary between this atlas and the trace roadmap's squares is stated.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-nygaard-square`, `HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`; other roadmaps: `RefinedTraceMethods:RT.6`, `PrismaticCohomology:PR.3`.
+
+**Sources.**
+
+- `bhatt-scholze-prisms`, Theorem 15.3 (arXiv v4): “and we endow prismatic cohomology with the Nygaard filtration” — The prismatic Nygaard filtration is defined here, by descent from Theorem 15.2, not by a comparison.
+- `wagner-q-hodge-habiro`, Paragraph 3.20, p. 32 (arXiv v2): “It is the preimage of the filtered décalage filtration on $\L\eta_{\Phi_p(q)}(\qOmega_{S/A})_p^\complete$ under the relative Frobenius” — Its expression on the twisted q-de Rham complex.
+- `bms-thh-integral-p-adic-hodge`, Theorem 1.12(3) (arXiv v2): “The filtered $E_\infty$-ring $\widehat{\Prism}_A = \gr^0 \TC^-(A; \mathbb Z_p) = \gr^0 \TP(A;\mathbb Z_p)$ with its Nygaard filtration $\calN^{\geq \f}\widehat{\Prism}_A$ is an $E_\infty$-algebra” — The trace construction produces a Nygaard filtration from topological cyclic homology.
+- `wagner-ku-q-de-rham`, Theorem 1.2 (arXiv v1): “Let $R$ be a quasi-syntomic ring such that $2\in R^\times$. Assume that $R$ admits a lift to a connective $\IE_2$-ring spectrum $\IS_R$ such that $\IS_R\otimes\IZ\simeq R$.” — The trace-theoretic existence statement the staging rule is about.
+
+### The acceptance suite for the atlas
+
+`HQ.8/the-acceptance-tests` · application
+
+Eight tests, one per square, and three structural checks. Local prismatic: for A = ℤ and S = ℤ[x], (q-Ω_{ℤ[x]/ℤ})^∧_p is prismatic cohomology of ℤ_p⟨x⟩[ζ_p] relative to (ℤ_p⟦q−1⟧, [p]_q) (ψ^p is the identity on ℤ_p), and the prism ideal is generated by [p]_q, which specialises to p at q = 1, while q − 1 specialises to 0. q-crystalline: two framings of the same p-completely smooth algebra give Koszul models related through q-crystalline cohomology, and both satisfy Lemma A.10. A_inf: for S = ℤ[x], the equivalence q-Ω_{ℤ[x]/ℤ} ⊗̂ A_inf ≃ AΩ_{O_C⟨x⟩} is stated after (p, ξ)-completed base change along q ↦ [ε], and that base change kills q-Ω_{ℤ[x]/ℤ} ⊗ ℚ. Décalage at q−1: for a framed smooth S with the coordinate q-Hodge filtration (paragraph 1.10), whose q-Hodge complex has differentials (q−1)q∇, Lη_{(q−1)} takes (q−1)^i Ω^i_S⟦q−1⟧ in degree i and returns the coordinate q-de Rham complex with differentials q∇. Décalage at [p]_q: for S = A = ℤ, both sides are ℤ_p⟦q−1⟧ in degree 0. Nygaard: in cohomological degree 0 the first Nygaard term of q-W_{p^α}Ω_{S/A} is V_p(q-W_{p^{α−1}}(S)) and the second is p·V_p(q-W_{p^{α−1}}(S)), and the degree-zero restriction is Proposition 3.19. Crystalline: for S = A = ℤ and α = 1, (q-W_pΩ_{ℤ/ℤ})^∧_p ≃ ℤ_p[q]/(q^p − 1). q = 1: for S = ℤ[T] over ℤ, H^0(q-Ω) = ℤ⟦q−1⟧, H^1(q-Ω) is the (q−1)-completed direct sum of ℤ⟦q−1⟧/[n+1]_q over n ≥ 0, H^2 = 0, so H^1(q-Ω)/(q−1) = ⊕_{n≥0} ℤ/(n+1) = H^1_dR(ℤ[T]/ℤ), and the torsion terms vanish because q − 1 and [n+1]_q are coprime in ℤ⟦q−1⟧ (Scholze prints this computation with the free summand and the index range of ℤ[T^{±1}], source issue E802). The three structural checks: each square's record is complete; no square is asserted outside its input class; and no prerequisite of the Nygaard square or of the décalage squares is a RefinedTraceMethods stage.
+
+**Hypotheses.**
+
+- Each test names the square it exercises and the node that supplies each side.
+- The three structural checks are about the layer as a whole and belong to no single square.
+- No test may assume the analytic comparison, which is not a square.
+
+**Proof.**
+
+1. Write out the eight per-square tests with concrete witnesses.
+2. Write out the three structural checks and how each is checked against the packet.
+3. Record which node each test exercises, so that a failing test names a statement.
+4. Record the prohibition on the analytic comparison.
+
+**Acceptance.**
+
+- Every test names its square and its witness.
+- The three structural checks are stated and each is mechanically checkable against the packet.
+- The q = 1 test uses the corrected computation for ℤ[T], with E802 cited.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-local-prismatic-square`, `HQ.8/the-q-crystalline-square`, `HQ.8/the-a-infinity-square`, `HQ.8/the-decalage-squares`, `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.8/the-nygaard-square`, `HQ.8/the-crystalline-and-de-rham-witt-square`, `HQ.8/the-de-rham-square`, `HQ.8/the-commutation-theorem`, `HQ.8/the-staging-rule`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 1.13, p. 7 (arXiv v2): “In the (coordinate-dependent) $q$-de Rham complex of $\IZ[x]$, the $q$-differential sends $x^m\mapsto [m]_q x^{m-1}\d x$, where $[m]_q=1+q+\dotsb+q^{m-1}$ is the $q$-analogue of $m$.” — The witness for the local prismatic and q = 1 tests.
+- `wagner-q-hodge-habiro`, Paragraph 1.10, p. 6 (arXiv v2): “in which all $q$-differentials in $\qOmega_{S/\IZ,\square}$ get multiplied by $(q-1)$.” — The witness for the décalage test.
+- `scholze-canonical-q-deformations`, Section 2, footnote (arXiv v1): “A related observation is that $H^1_\dR(\bb A^1_{\bb Z})=\bigoplus_{n\geq 0} \bb Z/(n+1)\bb Z\neq 0$” — The de Rham side of the q = 1 test.
+- `bhatt-scholze-prisms`, Theorem 17.2 (arXiv v4): “All these maps are isomorphisms of $E_\infty$-$A$-algebras compatible with the Frobenius.” — The statement the A_inf test exercises.
+
+### What the suggested Lean file states for the atlas, and what it does not
+
+`HQ.8/the-executable-boundary` · application
+
+The suggested Lean file has three parts. The executable layer is stated against Mathlib and proved: [p]_q is the p-th cyclotomic polynomial and the geometric sum (qDeRhamPrism.prismIdeal_eq_geomSum, from Polynomial.cyclotomic_prime); its value at q = 1 is p (qDeRhamPrism.eval_one_prismIdeal, Polynomial.eval_one_cyclotomic_prime); q^p − 1 = (q−1)[p]_q (qDeRhamPrism.X_pow_sub_one_eq, Polynomial.cyclotomic_prime_mul_X_sub_one); the case p = 3 of the unit relation, (q−1)² + 3q = [3]_q (qDeRhamPrism.sub_one_sq_add_three_mul_X, Polynomial.cyclotomic_three); the association of (ζ_p − 1)^{p−1} with p (qDeRhamPrism.sub_one_pow_associated, IsCyclotomicExtension.Rat.associated_zeta_sub_one_pow_prime); and θ([ε]) = untilt(ε) in A_inf = W(O♭) (perfectoidBase.theta_teichmuller, WittVector.fontaineTheta_teichmuller). The record is the structure AtlasSquare with one field per item and the eight records written out; its unit tests are checked by unfolding the records, and two are Mathlib statements about ℚ, ℚ_p and the p-adic completion of ℚ. Every corner is imported: each square is stated against a structure of data and laws whose docstring names the owner of each field (LocalPrismaticData, QCrystallineData, AInfSquareData, DécalageQSubOneData, DécalagePrismIdealData, NygaardSquareData, CrystallineSquareData, QEqOneData), and each square is the composite of the imported identifications (localPrismaticSquare, qCrystallineSquare, aInfSquare, décalageSquareQSubOne, décalageSquarePrismIdeal, nygaardSquare with nygaardSquare_unique, crystallineSquare, deRhamSquare with deRhamSquare.derived); the torsion sequence at q = 1 is stated for modules (deRhamSquare.torsionSequence). ∞-categories are represented by Mathlib categories supplied by their owners and read as their 1-categorical shadows. The commutation theorem is the conjunction of the square declarations; the staging rule, the acceptance suite and the failure of the décalage filtrations to glue are recorded in comments. No Prop-valued field or hypothesis stands for a comparison, no statement is trivially true, and no axiom is used.
+
+**Hypotheses.**
+
+- The pinned libraries contain no prismatic, crystalline, A_inf, décalage or q-de Rham object (the reviewed audit, layer HQ.8); they contain the cyclotomic and geometric-sum API, Witt vectors, the tilt PreTilt, the Teichmüller map and Fontaine's θ.
+- The file elaborates at the pinned commits; its only warnings are for the three unproved statements (two unit tests and the torsion sequence).
+- The record structure makes an incomplete square unstatable; it has no mathematical content of its own.
+
+**Proof.**
+
+1. List the executable arithmetic and the Mathlib declarations it uses.
+2. Declare the record structure with its fields and the eight records, with the unit tests.
+3. Declare, for each square, the structure of imported data with the owner of each field, and the square as the composite of the imported identifications.
+4. Record in comments what is not declared: the commutation theorem as one statement, the staging rule, the acceptance suite and the obstruction to gluing.
+
+**Acceptance.**
+
+- The executable layer is small, proved, and named exactly.
+- The record structure has one field per item of the record, and the correspondence is checkable.
+- Every imported field names its owner, matching the requests of the packet.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.8/the-acceptance-tests`; libraries: `mathlib:Polynomial.cyclotomic_prime`, `mathlib:Polynomial.eval_one_cyclotomic_prime`, `mathlib:Polynomial.cyclotomic_prime_mul_X_sub_one`, `mathlib:Polynomial.cyclotomic_three`, `mathlib:IsCyclotomicExtension.Rat.associated_zeta_sub_one_pow_prime`, `mathlib:WittVector.fontaineTheta_teichmuller`.
+
+**Sources.**
+
+- `bhatt-scholze-prisms`, Notation 16.1 (arXiv v4): “Note that $\phi(q-1) = q^p-1 \in [p]_q A$. We shall often use without comment the congruence $[p]_q = p \mod (q-1)$” — The two arithmetic facts the executable layer proves.
+- `wagner-q-hodge-habiro`, Appendix A, Theorem A.1(b), p. 69 (arXiv v2): “agrees with prismatic cohomology relative to the $q$-de Rham prism $(\widehat{A}_p\qpower,[p]_q)$.” — A statement declared against imported data, since neither side exists in either pinned library.
+
+### The décalage square at the prism ideal: the relative Frobenius of the p-completed q-de Rham complex
+
+`HQ.8/the-decalage-square-at-the-prism-ideal` · theorem · added by REV-HabiroCohomologyFoundations--HQ.8
+
+Let A be a perfectly covered Λ-ring, p a prime and S a smooth A-algebra. Put (B, J) = (Â_p⟦q−1⟧, [p]_q) and T = S^{(p)}[ζ_p], so that (q-Ω_{S/A})^∧_p ≃ Δ_{T/B} (the local prismatic square). The relative Frobenius of prismatic cohomology is an equivalence φ_{/B} : Δ_{T/B} ⊗̂_{B,φ_B} B ≃ Lη_J Δ_{T/B} (Bhatt–Scholze Theorem 15.3, PrismaticCohomology PR.3), where φ_B is ψ^p on Â_p and q ↦ q^p. Transported through the local prismatic square it is φ_{/A[q]} : (q-Ω^{(p)}_{S/A})^∧_p ≃ Lη_{[p]_q}(q-Ω_{S/A})^∧_p, where (q-Ω^{(p)}_{S/A})^∧_p ≃ (q-Ω_{S/A} ⊗_{A[q],φ} A[q])^∧_{(p,q−1)} is the Frobenius twist (Lemma 3.15). It is the p-adic gluing datum of the twisted q-de Rham complexes (paragraph 3.14; the source there writes T = Ŝ_p[ζ_p] without the Frobenius twist, source issue E104), and the prismatic Nygaard filtration on the twisted complex is the preimage under it of the filtered décalage filtration (paragraph 3.20). Record: base the q-de Rham prism at p; input smooth over A; completion (p, q−1); nothing inverted; linearisation ψ^p with q ↦ q^p; the Nygaard filtration on the source and the décalage filtration on the target; twist trivial; an equivalence outright.
+
+**Hypotheses.**
+
+- A is perfectly covered and S is smooth over A; p is a prime.
+- Theorem 15.3 needs a bounded prism and an affine smooth p-adic formal scheme over its quotient; (B, J) is bounded and T is p-completely smooth over B/J = Â_p[ζ_p].
+- The equivalence is imported; the layer adds the transport through the local prismatic square and the record.
+
+**Proof.**
+
+1. Identify (q-Ω_{S/A})^∧_p with Δ_{T/B} by the local prismatic square.
+2. Apply Bhatt–Scholze Theorem 15.3 to (B, J) and T (PR.3).
+3. Identify Δ_{T/B} ⊗̂_{B,φ_B} B with the Frobenius twist (q-Ω^{(p)}_{S/A})^∧_p (Lemma 3.15, HQ.4/twisted-q-de-rham-complexes).
+4. Record that the Nygaard filtration of the Nygaard square is the preimage of the décalage filtration under this equivalence (paragraph 3.20, HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes), and write out the record.
+
+**Acceptance.**
+
+- The Frobenius twist S^{(p)} is present in T, as corrected by E104.
+- The equivalence is attributed to Bhatt–Scholze Theorem 15.3 and PR.3, and the décalage to AI.1.
+- The record names the Nygaard filtration on the source and the décalage filtration on the target.
+
+**Depends on.** this roadmap: `HQ.8/what-an-atlas-square-records`, `HQ.8/the-local-prismatic-square`, `HQ.2/what-the-decalage-import-supplies`, `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`; other roadmaps: `PrismaticCohomology:PR.3`, `AInfCohomology:AI.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Paragraph 3.14, p. 29 (arXiv v2): “then $(\qOmega_{S/A})_p^\complete\simeq \Prism_{T/B}$, and so the desired gluing equivalence can be constructed using the general fact that the relative Frobenius” — The square, as the gluing datum of the twisted complexes (with E104).
+- `bhatt-scholze-prisms`, Theorem 15.3 (arXiv v4): “using the d\'ecalage functor $L\eta_I$ as e.g.~in \cite{BMS1}. The map” — The relative Frobenius factors through the décalage and the factorisation is an isomorphism.
+- `wagner-q-hodge-habiro`, Paragraph 3.20, p. 32 (arXiv v2): “It is the preimage of the filtered décalage filtration on $\L\eta_{\Phi_p(q)}(\qOmega_{S/A})_p^\complete$ under the relative Frobenius” — The Nygaard filtration as the preimage of the décalage filtration.
+
+### The canonical filtrations of the décalages do not glue, which is why a q-Hodge filtration is extra datum
+
+`HQ.8/the-decalage-filtrations-do-not-glue` · comparison · added by REV-HabiroCohomologyFoundations--HQ.8
+
+The décalages Lη_{[m/d]_q} entering the twisted q-de Rham complexes carry canonical filtrations (BMS2 Proposition 5.8), and these do not glue to filtrations on q-Ω^{(m)}_{S/A}. Already for m = p: in the pullback square exhibiting q-Ω^{(p)}_{S/A} with corners Lη_{[p]_q}q-Ω_{S/A}, (q-Ω_{S/A} ⊗_{A[q],ψ^p} A[q])^∧_{[p]_q} and Lη_{[p]_q}(q-Ω_{S/A})^∧_p, the filtration on Lη_{[1]_q} = id is trivial, and the trivial filtration on the Frobenius twist is not compatible with the natural filtration on Lη_{[p]_q}(q-Ω_{S/A})^∧_p. A global Nygaard filtration on the Frobenius twist would have to be the Nygaard filtration p-adically, the combined Hodge and [p]_q-adic filtration rationally (Lemma 3.29), and at each prime ℓ ≠ p a filtration becoming the latter after inverting ℓ; the source knows no such filtration unless a q-Hodge filtration is given. This is recorded as an obstruction to the most natural construction, not as a theorem that no Habiro descent of q-Ω_{S/A} exists without a q-Hodge filtration.
+
+**Hypotheses.**
+
+- A is perfectly covered and S is smooth over A; the statement concerns the canonical filtrations of BMS2 Proposition 5.8 and no other.
+- No no-go theorem is asserted; the source says one seems hard to get.
+- The obstruction is the reason the décalage square at q−1 needs a chosen q-Hodge filtration.
+
+**Proof.**
+
+1. Recall the canonical filtration of Lη_I (BMS2 Proposition 5.8, AI.1) and the pullback square of the twisted complex for m = p (Lemma 3.15, HQ.4/twisted-q-de-rham-complexes).
+2. Observe that the filtration on Lη_{[1]_q} = id is trivial while the one on Lη_{[p]_q}(q-Ω_{S/A})^∧_p is the décalage filtration, which the relative Frobenius identifies with the Nygaard filtration (the décalage square at the prism ideal), so the trivial filtration is not compatible with it.
+3. Record the three local requirements a global filtration would have to meet (Lemma 3.29, HQ.4/the-nygaard-filtration-after-inverting-p) and that the source knows no such filtration without a q-Hodge filtration.
+
+**Acceptance.**
+
+- The obstruction is stated for m = p with its reason.
+- It is not upgraded to a no-go theorem.
+- The link to the need for a q-Hodge filtration is recorded.
+
+**Depends on.** this roadmap: `HQ.8/the-decalage-squares`, `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.2/what-the-decalage-import-supplies`, `HQ.4/twisted-q-de-rham-complexes`, `HQ.4/the-nygaard-filtration-after-inverting-p`; other roadmaps: `AInfCohomology:AI.1`.
+
+**Sources.**
+
+- `wagner-q-hodge-habiro`, Remark 3.18, p. 30 (arXiv v2): “The Berthelot--Ogus décalage functors $\L\eta_{[m/d]_q}$ and $\L\eta_{[n/d]_q}$ come equipped with canonical filtrations (see \cite[Proposition~\chref{5.8}]{BMS2}).” — The canonical filtrations.
+- `wagner-q-hodge-habiro`, Remark 3.49, p. 49 (arXiv v2): “However, the filtrations on $\L\eta_{[m/d]_q}$ \emph{do not} glue. This can already be seen in the case $m=p$.” — The obstruction.
+- `wagner-q-hodge-habiro`, Remark 3.49, p. 49 (arXiv v2): “The filtration on $\L\eta_{[1]_q}\simeq \id$ is trivial. But the trivial filtration on $(\qOmega_{S/A}\lotimes_{A[q],\psi^p}A[q])_{[p]_q}^\complete$ will not be compatible with the natural filtration on $\L\eta_{[p]_q}(\qOmega_{S/A})_p^\complete$, so gluing fails.” — The reason, in the source's words.
+- `wagner-q-hodge-habiro`, Remark 3.49, p. 49 (arXiv v2): “While it seems hard to get any definite no-go theorem, let us at least explain why the most natural attempt doesn't work.” — Why it is not a no-go theorem.
+
+## Mistakes found in the sources
+
+Recorded under PROTOCOL.md section 18. Each has been checked at its locator by an independent review; the nodes above use the corrected statements.
+
+### HabiroCohomologyFoundations/E1 — misprint (affects nothing)
+
+- **Where:** ``, Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display.
+- **Printed:** The filtered module is displayed as the diagram whose first two terms are both the zeroth filtration step, with the arrow pointing from the second to the first.
+- **Correction:** The second term should be the first filtration step: the display should read the zeroth step, then the first step, then the second, with arrows pointing leftwards.
+- **Reason:** The very next clause of the same definition requires the filtration to be descending with the zeroth step the derived q-de Rham complex, and the body definition of the same notion displays the diagram correctly with the steps indexed zero, one, two.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E2 — misprint (affects nothing)
+
+- **Where:** ``, Section 3, the proposition on Habiro descent for q-de Rham complexes (Proposition 3.47), clause (b).
+- **Printed:** The clause reads that the decalage at q-1 of the q-Hodge complex of S over A is the q-de Rham complex of R over A.
+- **Correction:** The right-hand side should be the q-de Rham complex of S over A; the letter R does not occur in the statement of this proposition.
+- **Reason:** The proposition fixes a pair whose underlying algebra is called S and is assumed smooth over A; the following sentence of the same clause, and the whole proof, are about S. The letter R is the name used for a general animated algebra elsewhere in the section.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E3 — misprint (affects nothing)
+
+- **Where:** ``, Section 3, the construction of the twisted q-Hodge filtration p-adically and the two paragraphs on its lax symmetric monoidal structure (paragraphs 3.32, 3.34 and 3.35).
+- **Printed:** Three displays write the symbol for the q-Witt analogue of the Hodge filtration, the one defined on q-de Rham-Witt complexes, applied to the p-completed twisted q-de Rham complex.
+- **Correction:** In all three places the symbol should be the one for the twisted q-Hodge filtration, the object the construction is defining; the q-Witt Hodge filtration is a filtration of a different object.
+- **Reason:** The construction is labelled as the one defining the twisted q-Hodge filtration, the recursion is on that object, and the very next display in the same subsection, as well as the global construction and the deformation proposition, use the twisted q-Hodge symbol for the same object. The two symbols denote filtrations of different complexes, so the printed form does not typecheck.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E101 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Remark 1.8, p. 5 (arXiv v2).
+- **Printed:** see Theorem A.1(c) and Lemma A.5
+- **Correction:** The second equivalence, (q-dR)^∧_p[1/p]^∧_{(q−1)} ≃ (dR)^∧_p[1/p]⟦q−1⟧, is Lemma A.4 (applied to R̂_p), not Lemma A.5.
+- **Reason:** Lemma A.5 is the technical estimate for δ and γ_q in (qD ⊗ ℚ)^∧_{(q−1)}. The rationalised q-crystalline equivalence is Lemma A.4, whose label the text evidently meant.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E102 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Convention 3.1, p. 20 (arXiv v2).
+- **Printed:** fil⋆M/(qm−1) := fil⋆M ⊗L(qm−1)⋆A[q] A
+- **Correction:** The base change should be to A[q]/(q^m−1) with its trivial filtration. For m = 1 this is A, as printed.
+- **Reason:** Under the Rees presentation A[q, β, t]/(βt − (q^m−1)), base change to A sends q to 1 and so also kills q−1. For m ≥ 2 that is not the quotient by q^m−1. The formula stated next in the same convention, n-th piece cofib((q^m−1): fil^{n−1} → fil^n), is the base change to A[q]/(q^m−1). Later uses (Definition 3.2(b) for m = 1, and the twisted filtrations over A[q]/(q^m−1)) agree with it.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E103 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Proof of Lemma A.5(b), last sentence, p. 71 (arXiv v2).
+- **Printed:** hence γq(p−α(q−1)nx) is contained in p−(pα+1)(q−1)n q-D
+- **Correction:** The conclusion should be p^{−(pα+1)}(q−1)^{n+1} qD, as stated in Lemma A.5(b).
+- **Reason:** The first term, p^{−α}γ_q((q−1)^n x), lies in p^{−α}(q−1)^{n+1}qD by the previous step. The second, (q−1)^{np}x^pδ(p^{−α}), lies in p^{−(pα+1)}(q−1)^{np}qD, and np ≥ n+1 for n ≥ 1 and p ≥ 2. So the proof gives exactly the stated exponent n+1; the printed n is weaker than what is claimed.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E104 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph 3.14 (Twisted q-de Rham complexes), last part, p. 29 (arXiv v2).
+- **Printed:** if (B, J) denotes the prism (ÂpJq−1K, [p]q) and T := Ŝp[ζp], then (q-ΩS/A)∧p ≃ ΔT/B
+- **Correction:** T should be the Frobenius twist Ŝ_p^{(p)}[ζ_p], with Ŝ_p^{(p)} = (S ⊗_{A,ψ^p} A)^∧_p, as in Theorem A.1(b). The two agree when ψ^p is the identity on Â_p, for instance for A = ℤ.
+- **Reason:** Theorem A.1(b) of the same paper, and Bhatt–Scholze Theorem 16.18 (arXiv:1905.08229, checked), identify q-crystalline cohomology with prismatic cohomology of the base change along the Frobenius of D, which on Â_p is ψ^p. For A with nontrivial ψ^p, such as a toric polynomial ring, Ŝ_p[ζ_p] and Ŝ_p^{(p)}[ζ_p] are different B/J-algebras. The gluing argument only needs (q-Ω)^∧_p to be Δ_{T/B} for some smooth B/J-algebra T, so it is unaffected.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E105 — gap (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph 3.14 (Twisted q-de Rham complexes), p. 29 (arXiv v2).
+- **Printed:** Indeed, q-ΩS/A is (q−1)-complete, so p-completion agrees with [pα]q-completion
+- **Correction:** The argument needs α ≥ 1. For α = v_p(m/pd) = 0 the claim (Lη_{[1]_q} q-Ω)^∧_p ≃ Lη_{[1]_q}(q-Ω)^∧_p holds trivially, since Lη_1 is the identity, but not for the stated reason.
+- **Reason:** [1]_q = 1, and completion at a unit is zero, so for α = 0 'p-completion agrees with [p^α]_q-completion' is false. For α ≥ 1, [p^α]_q ≡ p^α modulo q−1, so the two completions agree on (q−1)-complete objects.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E106 — gap (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph A.14, first paragraph, p. 76 (arXiv v2).
+- **Printed:** By construction, it sits inside a pullback square
+- **Correction:** The square with upper right corner Π_p q-dR_{R̂_p/Â_p} is a pullback because all its corners are (q−1)-complete and, modulo q−1, it is the arithmetic fracture square of dR_{R/A} (using (dR_{R/A})^∧_p ≃ dR_{R̂_p/Â_p}); derived Nakayama then applies.
+- **Reason:** Animating the defining square of q-Ω gives a pullback of the animated corners. But the animation of S ↦ Π_p q-Ω_{Ŝ_p/Â_p} is not obviously Π_p q-dR_{R̂_p/Â_p}: infinite products need not commute with the geometric realisations that compute the animation, because the terms are not uniformly bounded. So 'by construction' does not justify the square as displayed. The argument in the correction does.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E107 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph 1.22(a), p. 10 (arXiv v2).
+- **Printed:** we let Gr(C) and Fil(Sp) denote the ∞-categories of graded and (descendingly) filtered objects in C
+- **Correction:** Fil(C), not Fil(Sp).
+- **Reason:** The sentence defines both categories for a general stable C, and the next paragraph writes Fil(C).
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E108 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph 1.22(a), ascending filtrations, p. 11 (arXiv v2).
+- **Printed:** the associated graded by gr∗X, where grnX := cofib(fil^{n−1}X → fil^nX) (superscript indices in the LaTeX source)
+- **Correction:** gr_nX := cofib(fil_{n−1}X → fil_nX), with subscripts, since ascending filtrations are written fil_n.
+- **Reason:** The LaTeX writes \gr_nX := \cofib(\fil^{n-1}X → \fil^nX), using the superscript indices of descending filtrations for an ascending one.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E109 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Proof of Theorem A.1, first paragraph, p. 75 (arXiv v2).
+- **Printed:** the pullback reduces to the usual arithmetic fracture square for ΩR/A
+- **Correction:** Ω_{S/A}: the proof concerns a smooth A-algebra S, and R does not occur.
+- **Reason:** Same slip as E2, where R is used for S. The construction and the rest of the proof are about S.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E201 — misprint (affects nothing)
+
+- **Where:** `wagner-q-witt`, q-Witt vectors and q-Hodge complexes (arXiv:2410.23078v5), Lemma 3.7, p. 39.
+- **Printed:** d o F_n = n (d o V_n)
+- **Correction:** d o F_n = n (F_n o d)
+- **Reason:** The proof computes d F_{m/d}(w) = F_{m/d}(d V_{m/d} F_{m/d}(w)) = [m/d]_{q^d} F_{m/d}(dw), i.e. d o F = (m/d)(F o d); the printed right-hand side d o V_n does not even have the same source and target as d o F_n.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E202 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), section 3.3, the paragraph before Proposition 3.19, p. 31.
+- **Printed:** This satisfies d o F_{m/d} = (m/d) o F_{m/d}.
+- **Correction:** d o F_{m/d} = (m/d)(F_{m/d} o d)
+- **Reason:** The next sentence rescales F by (m/d)^n in degree n to obtain a map of differential graded algebras, which is right exactly for d o F = (m/d)(F o d) (q-Witt v5 Lemma 3.7, proof); the printed relation compares maps of different degrees.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E203 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), Corollaries 3.25 and 3.26, pp. 34-35.
+- **Printed:** For all n >= 0 and all alpha >= 0 ... (Corollary 3.25); For all animated A-algebras R and all alpha >= 0 ... (Corollary 3.26)
+- **Correction:** alpha >= 1 in both corollaries.
+- **Reason:** The Nygaard filtration of paragraph 3.21 is defined through the Verschiebung from index p^{alpha-1}, and Corollary 3.25's target involves phi^{alpha-1} and q^{p^{alpha-1}}; for alpha = 0 neither makes sense. Lemmas 3.23 and 3.24, from which the corollaries are deduced, and Lemma 3.30 are for alpha >= 1.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E204 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Lemma 3.27, p. 35.
+- **Printed:** fil_n^conj(qdR^{(p^{alpha-1})}/Phi_{p^alpha}(q))/(q^{p^alpha - 1} - 1)
+- **Correction:** The quotient is by q^{p^{alpha-1}} - 1.
+- **Reason:** The right-hand side of the same display and the statement of the lemma involve A[q]/(q^{p^{alpha-1}}-1); q^{p^alpha - 1} - 1 is a different polynomial.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E205 — gap (affects the proof)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof sketch of Lemma 3.3, p. 22, and Example 4.24.
+- **Printed:** it is straightforward to check that the prismatic envelope above doesn't contain any gamma~_q(x) with these properties (for the details, see Example 4.24 below).
+- **Correction:** Example 4.24 carries out the computation for the free (non-perfect) p-complete delta-ring Z_p{x} over itself, where delta(x) is a polynomial variable. For the witness of Lemma 3.3, the free p-complete perfect delta-ring over the p-completion of A, the same computation needs that delta(x) is not divisible by p there; this holds because its reduction modulo p is a non-zero Witt coordinate of a perfect F_p-algebra. The packet's witness lemma supplies this step.
+- **Reason:** The referenced example is about a different ring; the transfer is routine but not stated.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E206 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), section 3.2, the sentence before Theorem 3.11, p. 25.
+- **Printed:** the m-truncated q-de Rham Witt complex from [Wag24, Definition 3.12]
+- **Correction:** [Wag24, Definition 3.13]
+- **Reason:** In q-Witt v5 (the version cited, of the same date), 3.12 is the existence proposition and 3.13 the definition; the introduction of the same paper (paragraph 1.10) cites Definition 3.13.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E207 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Corollary 3.13, p. 27.
+- **Printed:** If R is etale, then combining this observation with Theorem 3.11(a) and [Wag24, Proposition 3.31] shows ...
+- **Correction:** Theorem 3.11(b)
+- **Reason:** The identification of the Habiro-Hodge complex modulo q^m-1 with q-W_m(R/A) comes from the filtration of clause (b), whose graded pieces vanish in positive degrees for etale R; clause (a) only asserts the factorisation.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E208 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), Corollary 3.54(a), p. 51.
+- **Printed:** fil^{qW_m Omega}_* is the Whitehead filtration tau_{>= *}(qHhdg/(q^m-1))
+- **Correction:** tau^{<= *}, in the cohomological indexing the proof uses.
+- **Reason:** The filtration is ascending in *, while tau_{>= *} in homological indexing is descending; the proof of the same corollary writes tau^{<= *} and tau^{<= * + 1}.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E209 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof sketch of Proposition 3.19, the fracture square, p. 31.
+- **Printed:** the upper right corner is taken modulo Phi_{d_p}(q^{v_p(m)})
+- **Correction:** modulo Phi_{d_p}(q^{p^{v_p(m)}})
+- **Reason:** The quoted source, q-Witt v5 Corollary 4.37, has Phi_{d_p}(q^{p^{v_p(m)}}), and so do Proposition 4.2 of q-Witt v5 and the proof of Proposition 3.39 of this paper.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E210 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Lemma 3.46, p. 47.
+- **Printed:** for any ordinary R-algebra A
+- **Correction:** for any ordinary A-algebra R
+- **Reason:** A is the fixed base Lambda-ring throughout section 3 and q-W_d Omega_{R/A} is formed for A-algebras R.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E211 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), paragraph 3.21, p. 32.
+- **Printed:** The the Nygaard filtration is the filtration fil_N qW_m Omega whose n-th term is the subcomplex fil_N^n qW_{p^alpha} Omega
+- **Correction:** the filtration fil_N q-W_{p^alpha} Omega
+- **Reason:** The definition is for the prime-power index p^alpha, as the displayed subcomplex and every later use show.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E301 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Lemma 4.2(a), p. 54, arXiv:2510.04782v2 (identical in v1).
+- **Printed:** The inclusion Fil^{[0,n]} D(Z) → Fil^{⩾0} D(Z) has a left adjoint τ*_n, which on objects is given by replacing all filtration degrees ⋆ ⩾ n+1 by 0.
+- **Correction:** The functor that replaces the degrees ⩾ n+1 by 0 is the RIGHT adjoint of the inclusion (extension by zero); it is the left adjoint of the fully faithful functor extending an object constantly above degree n, and is therefore a localisation. The left adjoint of the inclusion would be the quotient by the (n+1)-st step.
+- **Reason:** A map from an object Y vanishing above n into M is a family of maps Y^i → M^i for i ≤ n with no further condition, so Hom(ιY, M) = Hom(Y, τ*_n M); a map M → ιY must in addition kill M^{n+1} → M^n. Test: for M = Z(j), j ≥ n+1, and Y = Z(n), Hom(τ*_n M, Y) = Z while Hom(M, ιY) = 0. The source's own proof uses the stated direction: it writes the counit τ*_n Z(j) → Z(j) and says τ*_n Z(i+j) and τ*_n Z(i+n) are both Z(n), and the proof of Lemma 4.6 uses that the right adjoint of τ*_n is fully faithful.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E302 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Proof of Theorem 4.22, p. 66, arXiv:2510.04782v2 (identical in v1).
+- **Printed:** In this case the desired lifts have been constructed in [MW24, Lemma 3.17].
+- **Correction:** [MW24, Lemma 3.16]: in Meyer–Wagner arXiv:2410.23115v4 (8 October 2025, the version current with the source) Lemma 3.16 constructs the lifts γ̃^{(n)}_q(x^α) ∈ fil^{p^n}; Lemma 3.17 is the auxiliary statement that certain quotients Z_p{x}[q]/J are p-torsion free, used in the proof of 3.16. In v3 of the preprint neither number is this lemma.
+- **Reason:** Read Meyer–Wagner v4 section 3.2 (Lemmas 3.16 and 3.17) and v3's numbering (3.16 is a base change lemma, 3.17 a paragraph); the source's Example 4.24 itself refers to [MW24, §3.2] for these lifts.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E303 — gap (affects a stated result)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph 1.16, p. 8, arXiv:2510.04782v2 (v1 states the same claim over 'the completion of H[1/N]' without the word 'Habiro', and without 'tentative' in the next sentence).
+- **Printed:** For example, if X is smooth and proper over Z[1/N], where N is also divisible by all primes p ⩽ dim(X/Z), then RΓ(X, q-Hdg_{X/Z}) will be a perfect complex over the Habiro-completion of H[1/N].
+- **Correction:** The claim needs a proof, which the paper does not give: neither the gluing of q-Hdg to schemes nor perfectness is treated in the body. A proof would need perfectness of the cohomology of q-W_m Ω^i of smooth proper schemes over Z[1/N][q]/(q^m − 1) and a criterion deducing perfectness of a Habiro-complete object from its reductions modulo q^m − 1 (Appendix B gives only conservativity and degree detection).
+- **Reason:** Searched the body for any scheme-level statement or perfectness claim: the only occurrences are in Paragraph 1.16. The claim is plausible but not routine: the reductions modulo q^m − 1 are filtered by q-de Rham–Witt cohomology, whose finiteness over the mixed-characteristic base is not established in the paper, and Habiro completion is a limit over all m.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E304 — misprint (affects nothing)
+
+- **Where:** `wagner-ku-q-de-rham`, Proof of Corollary 6.15, p. 86, arXiv:2510.06057v1.
+- **Printed:** By [Wag25, Corollary 3.12], q-Hdg_{O_F[1/∆]/Z} ≃ H_{O_F[1/∆]}.
+- **Correction:** [Wag25, Corollary 3.13] (the étale case of the descent theorem); 3.12 is an Example (the framed smooth case) in both arXiv versions of the q-Hodge paper.
+- **Reason:** Checked the numbering in arXiv:2510.04782v1 and v2: 3.12 Example, 3.13 Corollary (if R is étale over A, q-Hdg_{R/A} is H_{R/A}). The same companion paper's other hard-coded references to the q-Hodge paper are partly off as well (it cites a Proposition 3.49 where 3.49 is a Remark), which suggests numbering from an earlier draft.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E305 — error (affects a stated result)
+
+- **Where:** `wagner-q-hodge-habiro`, Paragraph 4.12(b) and Corollary 4.16, pp. 58–60, arXiv:2510.04782v2 (identical in v1); the same recipe in Paragraph 4.32.
+- **Printed:** A morphism (S1, . . . , Si) → (S′1, . . . , S′i′) over α: ⟨i⟩ → ⟨i′⟩ is contained in Sm_{A[dim!−1]} if and only if both source and target satisfy the condition from (a) and the target of a cocartesian lift of α with source (S1, . . . , Si) also satisfies the condition from (a).
+- **Correction:** When A is not a Q-algebra (for A a Q-algebra every smooth A-algebra lies in Sm_{A[dim!^{-1}]} and the class is closed): The morphisms so described are not closed under composition, so they do not define a sub-∞-operad (a subcategory of Sm⊗_A); the stated 'equivalent' form (morphisms that factor through a cocartesian lift of their image) is a different, larger class. Corollary 4.16 should be read with the domain the largest simplicial subset of Sm⊗_A whose vertices and edges satisfy (a) and (b), and 'functor of ∞-operads' as a map of simplicial sets over N(Fin_*) preserving the cocartesian edges it contains; the A_r-conclusions of 4.12 only use simplices all of whose edges satisfy (b).
+- **Reason:** Over A = Z: f = (x ↦ 0, x ↦ 0): (Z[x], Z[x]) → (Z, Z) over id_⟨2⟩ satisfies (b) (its lift target is its source, with entries of dimension 1, no prime needed); the multiplication g: (Z, Z) → Z over ⟨2⟩ → ⟨1⟩ satisfies (b) (Z ⊗ Z = Z); but g ∘ f has cocartesian-lift target Z[x] ⊗ Z[x] = Z[x, y], of dimension 2 with 2 not invertible, so it fails (b). It does factor through the cocartesian lift g, so it belongs to the 'equivalent' class. The same example shows that the bounded variant Sm^{⩽1,⊗}_{Z[1!^{−1}]} used in the proof of Corollary 4.16 is not closed under composition.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E401 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, Section 3, the paragraph after Example 3.12 (printed p. 26 of arXiv:2510.04782v2), against the sentence before the twisted q-Hodge filtrations, the display defining gr of the animated stupid filtration, and Corollary 3.31.
+- **Printed:** As we'll see in \cref{cor:qDRWSmoothAnimation} below, $\Sigma^{-n}\qIW_m\deRham_{S/A}^n\simeq \qIW_m\Omega_{S/A}^n$ holds for all $n$.
+- **Correction:** The paper uses two conventions for q-W_m dR^n that differ by the shift Σ^{-n}. With its definition of q-W_m dR^n as the n-th graded piece of the animated stupid filtration fil_{Hhodge_m} (gr^n_{Hhodge_m} q-W_m dR ≃ q-W_m dR^n), Corollary 3.31 is right, and the sentence after Example 3.12 should read q-W_m dR^n_{S/A} ≃ Σ^{-n} q-W_m Ω^n_{S/A}. The graded identifications Σ^{-*} q-W_m dR^* of Theorem 3.11(b) are to be read with one fixed convention; the blueprint states them convention-free, with q-W_m Ω^i in cohomological degree i.
+- **Reason:** The sentence after Example 3.12 and Corollary 3.31 (to which it refers) assert Σ^{-n} X ≃ Y and X ≃ Σ^{-n} Y for the same X = q-W_m dR^n and Y = q-W_m Ω^n, which cannot both hold for n ≥ 1 unless Y is zero. The definition by animating the stupid filtration places q-W_m Ω^n in cohomological degree n in the n-th graded piece, which is Corollary 3.31's form. Found by reviewer R3 while checking HQ.5; checked by the coordinating reviewer in the LaTeX source (lines 883, 923, 941 and 1410 of the e-print).
+- **Known:** none found.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.1.
+
+### HabiroCohomologyFoundations/E801 — misprint (affects nothing)
+
+- **Where:** `bhatt-scholze-prisms`, Notation 16.1, p. 106, arXiv:1905.08229v4.
+- **Printed:** In particular, derived $(p,[p]_q)$-completion coincides with derived $(p,[p]_q)$-completion for any complex of $A$-modules.
+- **Correction:** derived (p, [p]_q)-completion coincides with derived (p, q−1)-completion for any complex of A-modules.
+- **Reason:** The sentence is deduced ('In particular') from the two congruences just stated: [p]_q ≡ p modulo q−1 puts [p]_q in (p, q−1), and (q−1)^{p−1} = p·unit modulo [p]_q puts (q−1)^{p−1} in (p, [p]_q), so the two ideals have the same radical and define the same derived completion. As printed the sentence is a tautology. arXiv v1, v2 and v3 print (p, q−1).
+- **Known:** new in arXiv v4; v1, v2 and v3 of arXiv:1905.08229 print the correct (p, q−1); the published version (Annals of Mathematics 196, 2022) was not checked.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.8.
+
+### HabiroCohomologyFoundations/E802 — misprint (affects nothing)
+
+- **Where:** `scholze-canonical-q-deformations`, Section 3, the example R = ℤ[T], p. 6, arXiv:1606.01796v1.
+- **Printed:** H^1(q\!\op-\!\Omega^\bullet_{R[[q-1]]/\bb Z[[q-1]]}) = \bb Z[[q-1]]\oplus \widehat{\bigoplus}_{n\in \bb Z,n\neq -1} \bb Z[[q-1]] / [n+1]_q \bb Z[[q-1]]
+- **Correction:** For R = ℤ[T]: H^1 is the (q−1)-completed direct sum over n ≥ 0 of ℤ⟦q−1⟧/[n+1]_q, with no free summand. The printed formula is the one for the Laurent polynomial ring ℤ[T^{±1}] (the example G_m of section 2), with [n+1]_q read as (q^{n+1} − 1)/(q − 1) for n + 1 < 0.
+- **Reason:** In q-Ω_{ℤ[T]}, ∇_q(T^n) = [n]_q T^{n−1}dT for n ≥ 0 only, so the cokernel of ∇_q is the completed sum of ℤ⟦q−1⟧/[m+1]_q · T^m dT over m ≥ 0; the free summand is the class of dT/T, which does not exist in Ω^1_{ℤ[T]}. At q = 1 the corrected formula gives ⊕_{n≥0} ℤ/(n+1) = H^1_dR(A^1_ℤ), the value in the paper's own footnote, while the printed one gives the G_m answer ℤ ⊕ ⊕_{n≠−1} ℤ/(n+1) of section 2.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.8.
+
+### HabiroCohomologyFoundations/E803 — misprint (affects nothing)
+
+- **Where:** `bhatt-scholze-prisms`, Construction 16.19, p. 114, arXiv:1905.08229v4 (identical in v1–v3).
+- **Printed:** \nabla_q:P \to \Omega^1_{P/S} := \widehat{\bigoplus}_{s \in S} P dX_s
+- **Correction:** Ω^1_{P/D}: the continuous differentials of P over the base D, free on the dX_s.
+- **Reason:** S is the set of coordinates, not a ring; the next display of the same construction and Construction 16.20 write Ω^1_{P/D}.
+- **Known:** new; present in all four arXiv versions.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.8.
+
+### HabiroCohomologyFoundations/E804 — misprint (affects nothing)
+
+- **Where:** `bhatt-scholze-prisms`, Construction 16.20, p. 114, arXiv:1905.08229v4 (identical in v1–v3).
+- **Printed:** Let DJ,q(P) be the q-PD envelope as in Construction 16.10.
+- **Correction:** as in Lemma 16.10 (Existence of q-PD envelopes).
+- **Reason:** The label qPDEnvConstruct is on Lemma 16.10; there is no Construction 16.10.
+- **Known:** new; present in all four arXiv versions.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.8.
+
+### HabiroCohomologyFoundations/E805 — misprint (affects nothing)
+
+- **Where:** `wagner-q-hodge-habiro`, §A.1, first paragraph, p. 70, arXiv:2510.04782v2 (identical in v1).
+- **Printed:** Then (ÂpJq −1K, (q −1)) is a q-PD pair as in [BS19, Definition 16.1]
+- **Correction:** [BS19, Definition 16.2].
+- **Reason:** In Bhatt–Scholze (arXiv v4, the numbering the paper cites elsewhere: Theorems 15.3, 16.18, 16.22, Lemma 16.10) 16.1 is the Notation fixing ℤ_p⟦q−1⟧ and [p]_q, and q-PD pairs are Definition 16.2.
+- **Known:** new.
+- **Review:** confirmed by REV-HabiroCohomologyFoundations--HQ.8.
+
+## Gaps
+
+### The trace-theoretic construction was imported, not decomposed
+
+The companion paper on connective complex K-theory was obtained and its statements were read, but its sections on the solid even filtration, on solid topological Hochschild homology and on genuine equivariant Habiro descent were not. This roadmap's stage text says to import that theorem from RefinedTraceMethods RT.4, and that is what the four nodes do: they state the hypotheses in both the introductory and the body form and record what may not be weakened. NEXT SOURCE ACTION: the trace roadmap must decompose the solid even filtration and the comparison with p-complete q-de Rham cohomology; until it does, the existence statement for trace-theoretic inputs rests on a cited theorem and not on a decomposed proof.
+
+Needed by: `HQ.5-trace`.
+
+### The analytic side of the comparison layer has no obtainable source and no atlas owner
+
+The analytic Habiro stack is attributed by the source to a lecture series, which was not obtained; the only description used here is the source's own summary of the three differences. Moreover the roadmap that would own the analytic side, AnalyticHabiroStack, exists only as a draft under research/blueprint/roadmaps and is not in the atlas, so the request filed against its third stage has no accepted owner. The three nodes of HQ.6 therefore state the problem, the three differences and the discipline, and prove nothing about the analytic side. NEXT SOURCE ACTION: obtain a written source for the analytic Habiro stack, and accept the draft roadmap or name another owner for the analytic object.
+
+Needed by: `HQ.6`.
+
+### The solid condensed appendix was read only at its final statement
+
+The main source's second appendix ends with the statement that bounded-below Habiro-complete objects are closed under the solid tensor product. That statement is what the monoidal structure on Habiro-complete objects rests on, and it is owned by the coefficient roadmap. Its proof and the condensed recollections preceding it were not read here. NEXT SOURCE ACTION: the coefficient roadmap should decompose that appendix; this roadmap imports the conclusion by node.
+
+Needed by: `HQ.3`, `HQ.6`.
+
+### Étale descent for the global q-de Rham complex
+
+The stage text asks HQ.1 to 'prove descent including the cocycle identities'. The source defines q-Ω_{S/A} without charts (Construction A.12). Framing independence and the cocycle identity for comparison maps between framed models are therefore formal (node HQ.1/framing-independence-and-the-cocycle-identity). But the source never states that S ↦ q-Ω_{S/A} is an étale (or Zariski) sheaf on smooth A-algebras, which gluing to smooth schemes requires. Route: check descent on the three corners of the defining square, using étale descent for prismatic cohomology at each p (PrismaticCohomology) and for the quasi-coherent terms of Ω*_{S/A}. Products, pullbacks and (q−1)-completion commute with limits. Rationalisation commutes with the totalisation of cosimplicial objects confined to a fixed range of cohomological degrees, and Ω* has amplitude bounded by the relative dimension. No node carries this yet.
+
+Needed by: `HQ.1`.
+
+### The proofs of the section 4 technical lemmas were read only as statements
+
+The truncation lemma with its projection formula, the pushout and comparison lemmas for functoriality across dimensions, the cartesian-lift lemma and the proof of the well-behavedness theorem beyond the worked example (Wagner, q-Hodge complexes over the Habiro ring, section 4) were decomposed from their statements; the proof steps of the HQ.5 nodes record the source's outline, not a verified reading. NEXT SOURCE ACTION: read those proofs.
+
+Needed by: `HQ.5`.
+
+### The q-de Rham-Witt constructions of q-Witt v5 sections 3.3 to 4.6 are not decomposed
+
+Two results the roadmap rests on are proved in the companion paper over many pages and are planned here as single nodes whose steps follow the source's battle plans: the construction of the Frobenii (q-Witt v5 Proposition 3.17, proved in 3.19 to 3.30 by constructing a derivation 'F_p d' and verifying the relations), and the smooth case, where Propositions 4.1 and 4.2 and Theorem 4.27 are proved together by the four-part induction of paragraph 4.3 (d_{a-1} => a_a => b_a => c_a => d_a) with the Frobenius decompositions of the framed q-Hodge complex (4.7 to 4.17) and the comparison map from PD-envelopes (4.28 to 4.35). NEXT SOURCE ACTION: decompose each into lemma nodes; for the induction, one node per implication with the exponent as a parameter, plus the global deduction of 4.36 onwards.
+
+Needed by: `HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`.
+
+### The Koszul model of the framed Habiro-Hodge complex is asserted without proof
+
+Example 3.12 of the main source states that the Koszul complex of the operators (gamma_i - id)/x_i on the relative Habiro ring of S over A[x_1, ..., x_n] represents the Habiro-Hodge complex of the framed pair, and says it 'can be shown by unravelling the proof of Theorem 3.11'; the model is attributed to Scholze's lecture series, which was not obtained. No other node uses the model. NEXT SOURCE ACTION: unravel the construction (twisted q-Hodge filtrations of the framed filtration, partial descents, limit) for the framed filtration, or obtain the lecture.
+
+Needed by: `HQ.3/the-coordinate-model-and-the-etale-case`.
+
+### Base change of the Habiro-Hodge complex along maps of Lambda-rings is not in the source
+
+The HQ.3 stage text asks to 'construct its finite products and base-change maps in the proven range'. Finite products, read as the Kuenneth equivalence for finite tensor products of pairs, are realised by the strict symmetric monoidality node (Lemma 3.46) and the API item qHabiroHodge.tensorEquiv. The source proves no base change along a map of perfectly covered Lambda-rings A -> A' for q-Hodge filtrations, pairs or Habiro-Hodge complexes (it proves one only for the global q-de Rham complex, Theorem A.1, and for q-de Rham-Witt complexes, q-Witt Lemma 3.16). NEXT ACTION: either restate the stage target, or add a node constructing the base-change functor on pairs (via Theorem A.1's base change) and the comparison map of Habiro-Hodge complexes, recording that it is not claimed to be an equivalence.
+
+Needed by: `HQ.3`.
+
+### Langer-Zink's restriction-free universal property is informal in the source
+
+q-Witt v5 paragraph 3.11 asserts that the de Rham-Witt pro-complex is initial among FV-pro-complexes with the restriction maps deleted, calls this category 'an informal definition' and leaves its formalisation to the reader, justifying initiality by 'skimming' Langer-Zink section 1.3. The comparison map of Remark 3.18 depends on it. NEXT SOURCE ACTION: CrystallineCohomology CR.4 is asked (request below) to state and prove it with its construction of the relative de Rham-Witt complex.
+
+Needed by: `HQ.4/there-are-no-restriction-operators-and-what-replaces-them`, `HQ.4/the-comparison-map-from-ordinary-de-rham-witt`.
+
+### The proofs of the long technical lemmas of section 3 were read only as statements
+
+Section 3 contains technical lemmas whose statements this packet decomposes but whose proofs were not read line by line by the author: the Nygaard fibre sequences and their comparison, the two compatibility lemmas for the twisted filtration after inverting p, the partial descent proposition and the monoidality lemma for the descent. The section 4 proofs (HQ.5) were read by the independent review, which rewrote those proof steps. NEXT SOURCE ACTION: read the section 3 proofs and confirm or replace the recorded strategies.
+
+Needed by: `HQ.3`, `HQ.4`.
+
+### The author's thesis was not obtained, and the Meyer–Wagner preprint was read only in its section 3.2
+
+Meyer and Wagner, q-Hodge complexes and refined TC^− (arXiv:2410.23115v4) was obtained by the independent review; its section 3.2 (Lemmas 3.16 and 3.17: explicit lifts of iterated divided powers in the q-Hodge filtration of Z_p{x}/x^α for α ≥ 2) was read and is now a source of HQ.5/when-the-naive-filtration-deforms-the-hodge-filtration, which closes the HQ.5 part of the former gap. The rest of that preprint, which the source cites for an earlier form of the q-Hodge complex, and the author's 2026 thesis listed by the campaign document, were not read. NEXT SOURCE ACTION: read the remainder of arXiv:2410.23115 for HQ.3 and obtain the thesis.
+
+Needed by: `HQ.3`.
+
+### Perfectness of algebraic Habiro cohomology is asserted in the source without proof
+
+Paragraph 1.16 of the q-Hodge paper states that for X smooth and proper over Z[1/N], N divisible by every prime at most dim X, RΓ(X, q-Hdg_{X/Z}) is a perfect complex over the Habiro completion of H[1/N]; the body contains no proof (source issue E303). A proof needs (i) perfectness over Z[1/N][q]/(q^m − 1) of the cohomology of the q-de Rham–Witt complexes q-W_m Ω^i of a smooth proper scheme, which neither the source nor this packet supplies, and (ii) a Nakayama-type criterion deducing perfectness of a Habiro-complete object from perfectness of all its reductions modulo q^m − 1, which Appendix B does not state (it gives conservativity and degree detection only). NEXT SOURCE ACTION: ask the author or find a written proof; otherwise supply (i) from the q-Witt paper and (ii) in HabiroRings HR.2.
+
+Needed by: `HQ.5/perfectness-for-smooth-proper-schemes`.
+
+### Structured ring spectra inputs of the trace-theoretic remarks have no owner
+
+Remark 4.23 of the q-Hodge paper (relation between the two conditions of Theorem 4.22) uses Burklund's theorem on E_n-structures on quotients of ring spectra (Theorem 1.5 and Remark 5.5 of his paper) and the unique lift of a perfect δ-ring to a connective p-complete E∞-ring (spherical Witt vectors); paragraph 1.11 of the ku paper uses Angeltveit's theorem on A∞-structures on quotients (Corollary 3.2). No atlas stage plans these. They enter only a remark and a counterexample, not a construction. NEXT ACTION: assign them to RefinedTraceMethods RT.4 or to StableHomotopyKTheory.
+
+Needed by: `HQ.5-trace/the-spherical-e1-lift-case-of-the-well-behavedness-theorem`, `HQ.5-trace/a-lift-over-connective-complex-k-theory-is-not-enough`.
+
+### The trace roadmap's syntomic squares are outside this atlas and unread
+
+The staging rule fixes the direction of dependence between this atlas, the prismatic roadmap and the trace roadmap, and it was stated from the shape of the trace construction rather than from a reading of it: only the statement of the filtration theorem of the trace source was read. NEXT SOURCE ACTION: the trace roadmap must state its syntomic squares in the same seven-item form, so that the staging rule can be checked mechanically rather than by reading prose.
+
+Needed by: `HQ.8`.
+
+### The proofs of the imported comparison theorems were read as statements and strategies, not line by line
+
+Bhatt–Scholze Theorem 16.22 was read with its cosimplicial proof; Theorem 17.2 was read with the construction of its two explicit complexes for very small algebras (colimits over finite sets Σ of units) but not the verification that the comparison map is an isomorphism; Theorems 15.2 and 15.3 were read as statements with the outline of their proofs. All three are imported (PR.6, PR.3) and the atlas uses only their statements. NEXT SOURCE ACTION: whoever blueprints PR.6 and PR.3 reads those proofs in full; nothing in this layer depends on their internal steps.
+
+Needed by: `HQ.8/the-a-infinity-square`, `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.8/the-nygaard-square`.
+
+### The classical crystalline corner is imported at the level of its statements
+
+The crystalline square maps Langer–Zink's W_{α+1}Ω_{S/A} to q-W_{p^α}Ω_{S/A} (q-Witt Remark 3.18) and identifies the source with crystalline cohomology only through reduction of the base (BMS1 Corollary 10.10) and, over a perfect field, Illusie's comparison (recalled in BMS1 Theorem 1.10(i)). None of this is proved here. In addition, q-Witt Remark 3.18 obtains its map from the universal property of FV-pro-complexes over R/ℤ_(p), while stating it for W_{α+1}Ω_{R/A}; the factorisation through the relative complex (killing d of the image of W_{α+1}(A)) is not argued in the source and should be checked by HQ.4 or CR.4. NEXT SOURCE ACTION: CR.4 decomposes the relative de Rham–Witt complex with its restriction maps, its base change along A → A/I and its crystalline comparison, so that the two operator systems stay apart.
+
+Needed by: `HQ.8/the-crystalline-and-de-rham-witt-square`.
+
+### No square is stated for the étale comparison
+
+The ledger records the absent étale square: for proper smooth formal schemes over O_C, the étale comparison of AΩ after inverting μ = q − 1 (the μ-inversion row of CP.1, AI.4–AI.5) composed with the A_inf square would give an étale comparison of q-de Rham cohomology after base change to A_inf[1/μ], which is the form of Scholze's Conjecture 3.3 after base change. It would be an equivalence only along the composite of the non-conservative base change to A_inf and the localisation at μ, and it needs the proper case, which the affine squares of this layer do not treat. NEXT SOURCE ACTION: decide, with CohomologyComparisons, whether this composite gets a square with its own record or remains a ledger entry.
+
+Needed by: `HQ.8/what-each-square-loses`.
+
+### The A_inf square is not shown to be compatible with the classical specialisations of CohomologyComparisons CP.1
+
+The stage asks the gluing to commute with the local maps of CP among others. Under q-Ω_{S/ℤ} ⊗̂ A_inf ≃ AΩ_R (the A_inf square), reduction along θ (with q − 1 ∈ ker θ) should match Theorem A.1(a) base-changed to O_C against CP.1's de Rham row AΩ_R ⊗^L_{A_inf,θ} O_C ≃ Ω_{R/O_C}, and reduction along A_inf → W(k) should match the crystalline square against CP.1's Witt row. No source read states these compatibilities; Bhatt–Scholze §18 (uniqueness of comparison isomorphisms compatible with the Hodge–Tate structure map) is the expected tool. NEXT SOURCE ACTION: read Bhatt–Scholze §18 and state the two compatibilities as squares with records, or record that they need CP.1's own uniqueness statements.
+
+Needed by: `HQ.8/the-commutation-theorem`, `HQ.8/the-a-infinity-square`.
+
+## Requests
+
+What this roadmap imports, by supplier. The two parts' requests to the same supplier are listed together.
+
+### AInfCohomology:AI.1
+
+The Berthelot–Ogus décalage functor Lη_f at a nonzerodivisor f: its cohomology formula with the torsion correction, its lax symmetric monoidal structure, its natural filtration, and its commutation with f-completion (Bhatt–Morrow–Scholze I, Lemma 6.20). Also the Beilinson t-structure on complete filtered objects, identifying Lη_f M with the Beilinson-connective cover of the f-adic filtration of M (Bhatt–Morrow–Scholze II, Theorem 5.4(2) and Proposition 5.8). And Koszul complexes of commuting endomorphisms. HQ.2 and HQ.4 own only the applications at q−1 and the q-integers.
+
+Needed by: `HQ.1/the-coordinate-dependent-q-de-rham-complex`, `HQ.1/the-koszul-twist-isomorphism`, `HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HQ.2/what-the-decalage-import-supplies`, `HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.4/twisted-q-de-rham-complexes`.
+
+The décalage Lη_I at an invertible ideal: the cohomology formula H^i(η_I C) ≅ (H^i(C)/H^i(C)[I]) ⊗ I^{⊗i} (BMS1 Lemma 6.4), its non-exactness (Remark 6.6), its commutation with derived I-completion for I locally free of rank one in a replete topos (Lemma 6.20), and the identification of Lη_I K with the Beilinson-connective cover of the I-adic filtration (BMS2 Proposition 5.8).
+
+Needed by: `HQ.8/the-decalage-squares`, `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.8/the-decalage-filtrations-do-not-glue`.
+
+### AInfCohomology:AI.3
+
+The complex AΩ_R for p-completely smooth O_C-algebras R, as an E∞-A_inf-algebra with its Frobenius, which is a corner of the A_inf square.
+
+Needed by: `HQ.8/the-a-infinity-square`.
+
+### AnalyticHabiroStack:HS.3
+
+The analytic Habiro stack, its sheaf cohomology, the analytic Habiro ring and the completed localisation along which the comparison of HQ.6 is expected, together with the six-functor formalism in which the comparison would be stated. This supplier is a draft roadmap that is not yet in the atlas; until it is accepted HQ.6 has no owner for its analytic side.
+
+Needed by: `HQ.6/the-algebraic-against-analytic-comparison-problem`.
+
+### CohomologyComparisons:CP.1
+
+Commutativity of the classical integral comparison diagram, which the companion part's comparison atlas must commute with and which this part cites only as the boundary of what it does not prove.
+
+The integral comparison diagram for AΩ (θ, θ̃, Witt reduction, A_cris and μ-inversion rows), used by the ledger to place the absent étale square, and by the recorded gap on the compatibility of the A_inf square with the θ and Witt rows.
+
+Needed by: `HQ.8/what-each-square-loses`.
+
+### CohomologyComparisons:CP.6
+
+The global compatibility of the classical comparisons, for the same reason.
+
+The p-adic and q = 1 specialisation diagrams exported to Habiro consumers, which the ledger's étale and q = 1 entries refer to; no unconditional identification of algebraic Habiro cohomology is requested.
+
+Needed by: `HQ.8/what-each-square-loses`.
+
+### CrystallineCohomology:CR.0
+
+Divided power envelopes D_P(J) of the kernel J of a surjection P ↠ S from an ind-smooth (respectively p-completely ind-smooth) algebra onto a smooth (respectively p-completely smooth) one, their p-completions, and their functoriality in (P, J), including for Čech nerves. Also the fact that in the p-torsion free case a divided power x^[m] is a p-adic unit times a product of iterated p-th divided powers, and the PD de Rham complex Ω̆*_{D/B}.
+
+Needed by: `HQ.1/a-denominator-bound-uniform-in-the-prime`, `HQ.1/delta-and-q-divided-power-denominator-estimates`, `HQ.1/divided-power-denominators-in-the-q-pd-envelope`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-coordinate-comparison-and-its-compatibility`, `HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes`, `HQ.1/the-reverse-divided-power-expansion`.
+
+### CrystallineCohomology:CR.2
+
+Crystalline cohomology RΓ_crys(S/B) of a (p-completely) smooth algebra, and its computation by the PD de Rham complex of the envelope of a surjection from an ind-smooth algebra. This includes the Čech–Alexander double complex (Stacks Tag 07LG), the PD Poincaré lemma, and the nullhomotopy of the rows of positive degree (Stacks Tag 07L7).
+
+Needed by: `HQ.1/the-compatibility-square`, `HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes`, `HQ.1/the-derived-commutative-lift`, `HQ.1/the-local-derived-q-de-rham-complex`.
+
+### CrystallineCohomology:CR.4
+
+The ordinary relative de Rham-Witt complexes of Langer and Zink over Z_(p)-algebras, with their genuine restriction maps, Frobenius, Verschiebung and dlog, and their universal property among FV-pro-complexes; and the stronger statement that the de Rham-Witt pro-complex is initial in the category of FV-pro-complexes with the restriction maps deleted (q-Witt v5 paragraph 3.11, Langer-Zink section 1.3 read without restrictions), so that HQ.4 can construct the comparison maps W_{a+1} Omega -> q-W_{p^a} Omega compatible with F and V.
+
+Needed by: `HQ.4/the-comparison-map-from-ordinary-de-rham-witt`, `HQ.4/there-are-no-restriction-operators-and-what-replaces-them`.
+
+Langer–Zink relative de Rham–Witt complexes W_rΩ_{R/A} of ℤ_(p)-algebras with R, F, V, their universal property without restriction maps (q-Witt paragraph 3.11), their base change along A → A/I (BMS1 Corollary 10.10), and for smooth algebras over a perfect field k the comparison with crystalline cohomology over W_r(k) (Illusie; BMS1 Theorem 1.10(i)).
+
+Needed by: `HQ.8/the-crystalline-and-de-rham-witt-square`.
+
+### DerivedDeRhamCohomology:DD.0
+
+The p-completed cotangent complex with its p-complete Tor-amplitude, transitivity and derived base change, including L_{R_1 ⊗^L_A R_2/A} ≃ (L_{R_1/A} ⊗^L_A R_2) ⊕ (R_1 ⊗^L_A L_{R_2/A}); and Koszul-regular sequences (the Koszul complex has homology only in degree 0), with: a regular sequence in Mathlib's sense is Koszul-regular; a sequence of powers of a Koszul-regular sequence is Koszul-regular; and for J generated by a Koszul-regular sequence, L_{(B/J)/B} ≃ (J/J^2)[1] with J/J^2 free.
+
+Needed by: `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.5/tensor-products-in-the-quasi-regular-category`, `HQ.5/the-quasi-lci-inputs-and-condition-R`.
+
+### DerivedDeRhamCohomology:DD.1
+
+Complete filtered objects in an enhanced derived category over a filtered coefficient ring, with their associated graded, completion, Rees description and completed filtered tensor product. Also: derived completion at a finitely generated ideal with derived Nakayama; the fracture square for a principal ideal; the arithmetic fracture square over all primes (for every M in D(ℤ), M is the pullback of Π_p M^∧_p and M ⊗ ℚ over (Π_p M^∧_p) ⊗ ℚ); and the commutation of derived completion and of quotients by elements with products. HQ.2 fixes the conventions and the specific coefficient ring.
+
+Needed by: `HQ.1/a-denominator-bound-uniform-in-the-prime`, `HQ.1/base-change-for-the-global-complex`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-framed-description-of-the-global-complex`, `HQ.1/the-global-q-de-rham-complex`, `HQ.1/the-local-derived-q-de-rham-complex`, `HQ.1/what-the-global-complex-satisfies`, `HQ.2/filtered-graded-and-completion-conventions`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/the-p-completed-rational-comparison`, `HQ.2/the-rational-comparison-for-the-derived-complex`, `HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HQ.3/q-hodge-filtrations`, `HQ.3/the-symmetric-monoidal-structure-on-pairs`.
+
+Derived I-completion for a finitely generated ideal I and its independence of generators, so that derived completion depends only on the radical of I: used for (p, q−1) and (p, [p]_q) over ℤ_p⟦q−1⟧ and for (p, ξ), (p, [p]_q), (p, q−1) over A_inf.
+
+Needed by: `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`.
+
+### DerivedDeRhamCohomology:DD.2
+
+The derived de Rham complex from polynomial resolutions with its Hodge filtration, its Hodge completion and its filtered base change, including the fact that the ordinary de Rham complex of a smooth algebra is the Hodge completion of the derived one. Every clause of the definition of a q-Hodge filtration is stated against this object. In addition, the symmetric monoidality of the Hodge filtration, its arithmetic fracture square and its filtered base change, which the section 4 proofs check modulo q−1.
+
+Needed by: `HQ.1/rationalised-q-crystalline-comparison`, `HQ.2/animation-does-not-preserve-the-values-on-smooth-algebras`, `HQ.2/derived-base-change-and-its-completion-hypotheses`, `HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration`, `HQ.2/the-derived-q-de-rham-complex`, `HQ.2/the-p-completed-rational-comparison`, `HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion`, `HQ.3/q-hodge-filtrations`, `HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal`, `HQ.3/the-q-hodge-complex`, `HQ.3/the-symmetric-monoidal-structure-on-pairs`, `HQ.3/the-witness-admits-no-q-hodge-filtration`, `HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras`, `HQ.4/etale-extension-of-a-differential-graded-algebra`, `HQ.4/nygaard-descent-and-smooth-agreement`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`, `HQ.4/the-nygaard-cofibre-sequence`, `HQ.4/the-q-de-rham-witt-complex`, `HQ.5/cartesian-lifts-in-bounded-dimension-are-preserved`, `HQ.5/flat-base-change-for-the-naive-filtration`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.5/tensor-products-in-the-quasi-regular-category`, `HQ.5/the-canonical-filtration-is-a-q-hodge-filtration`, `HQ.5/the-canonical-section-on-quasi-regular-inputs`, `HQ.5/the-canonical-smooth-q-hodge-filtration`, `HQ.5/the-naive-filtration-for-quasi-regular-inputs`, `HQ.5/the-truncated-construction-is-symmetric-monoidal`.
+
+The derived de Rham complex with its Hodge filtration, the classical corner of the square at q = 1, and the reduction q-dR_{−/A}/(q−1) ≃ dR_{−/A} it is compared with.
+
+Needed by: `HQ.8/the-de-rham-square`.
+
+### DerivedDeRhamCohomology:DD.3
+
+For a smooth algebra T over an 𝔽_p-algebra k, the canonical map dR_{T/k} → Ω*_{T/k} is an equivalence (derived Cartier theory). Also: The increasing exhaustive conjugate filtration on the derived de Rham complex of an F_p-algebra, with graded pieces the shifted exterior powers of the Frobenius-twisted cotangent complex, used to prove staticity in Lemma 4.18(a).
+
+Needed by: `HQ.1/the-local-derived-q-de-rham-complex`, `HQ.5/staticity-for-quasi-lci-inputs`.
+
+### DerivedDeRhamCohomology:DD.4
+
+The comparison of p-completed derived de Rham cohomology with crystalline cohomology for p-completely smooth algebras over a p-torsion free p-complete base (Bhatt, Theorem 3.27, in p-completed form). It gives dR_{S/Â_p} ≃ RΓ_crys(S/Â_p) ≃ Ω*_{S/Â_p} after p-completion.
+
+Needed by: `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-global-q-de-rham-complex`, `HQ.1/the-local-derived-q-de-rham-complex`, `HQ.4/the-arithmetic-fracture-square-for-q-de-rham-witt-complexes`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/the-rescaled-frobenius-is-the-crystalline-frobenius`.
+
+### EnhancedDerivedSheaves:E0
+
+Pushouts in the ∞-category of ∞-categories, with the fact that fully faithful functors are stable under pushout (the observation of Ramzi used in Lemma 4.9 of the q-Hodge paper) and that a pushout of adjunctions along fully faithful functors is again an adjunction.
+
+Needed by: `HQ.5/the-pushout-of-categories-of-smooth-algebras`.
+
+### EnhancedDerivedSheaves:E1
+
+The enhanced derived category of a ring with its derived tensor product and its presentability, which is the ambient category of every filtered object in this packet, together with the adjoint functor theorem for presentable ∞-categories (used to construct τ_{n,!}).
+
+Needed by: `HQ.2/filtered-graded-and-completion-conventions`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`.
+
+### EnhancedDerivedSheaves:E4
+
+Derived completion at a finitely generated ideal in the enhanced setting, with the fracture square for a principal ideal and the detection principle for complete objects; HQ.2 records the conventions, not the theory.
+
+Needed by: `HQ.2/filtered-graded-and-completion-conventions`.
+
+### EnhancedDerivedSheaves:E5
+
+Derived commutative algebras in the sense of Raksit, their filtered, graded and differential graded variants, and the fact that limits and colimits in them are computed on underlying objects. The derived commutative lift of HQ.1 and the upgrades of HQ.3 rest on this.
+
+Needed by: `HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes`, `HQ.1/the-derived-commutative-lift`, `HQ.1/the-global-q-de-rham-complex`, `HQ.3/multiplicative-upgrades`, `HQ.3/the-etale-case`, `HQ.4/no-automatic-multiplicative-upgrade`, `HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration`.
+
+### EnhancedDerivedSheaves:E5:abstract
+
+(1) Symmetric monoidal localisations (Lurie, Higher Algebra, 2.2.1.9) and the oplax symmetric monoidal structure on a left adjoint of a symmetric monoidal functor; (2) module categories over E∞-algebras with base change; (3) the encoding of lax and oplax symmetric monoidal functors by maps of cocartesian fibrations over Fin_* and of the dual cartesian fibrations over Fin_*^op, with the Barwick–Glasman–Nardin span description of the dual, applicable to simplicial subsets that are not fibrations; (4) simplicial subsets of an ∞-operad cut out by conditions on vertices and edges, and maps of them over N(Fin_*) preserving a class of cocartesian edges.
+
+Needed by: `HQ.5/cartesian-lifts-in-bounded-dimension-are-preserved`, `HQ.5/partial-operad-multiplicativity`, `HQ.5/tensor-products-in-the-quasi-regular-category`, `HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted`, `HQ.5/the-truncated-construction-is-symmetric-monoidal`, `HQ.5/truncated-filtered-objects-and-the-left-adjoint`.
+
+### EnhancedDerivedSheaves:E5:presentability
+
+Actions of a finite group on an object of a stable ∞-category and their homotopy fixed points, functorially, for the μ_{p−1}-fixed points defining the p-tilde-de Rham complex.
+
+Needed by: `HQ.5/the-p-tilde-de-rham-description-of-the-canonical-filtration`.
+
+### HabiroCyclotomicCompletions:HC.1
+
+The classical cyclotomic completion with its cofinal factorial tower, which is the underived ancestor of the Habiro completion this roadmap works over.
+
+### HabiroCyclotomicCompletions:HC.3
+
+Evaluation at a root of unity and the Taylor map, with the re-expansion that needs topological nilpotence, which the explicit coordinate model of HQ.3 uses to build the scaling automorphisms.
+
+Needed by: `HQ.3/the-coordinate-model-and-the-etale-case`.
+
+### HabiroRings:HR.1
+
+Lambda-rings with commuting Adams operations and perfectly covered Lambda-rings in both equivalent descriptions, with the consequence that the base is torsion free. Every statement of this roadmap is relative to such a base.
+
+### HabiroRings:HR.2
+
+Habiro-complete objects, the Habiro completion functor, the detection results and the completed monoidal structure, and the record that the solid comparison is a bounded-below statement. The descent theorem of HQ.3 factors through this category.
+
+### HabiroRings:HR.3
+
+The complete-descent principle for gluing cyclotomically complete algebras along prime edges, which is what the twisted q-de Rham complexes of HQ.4 are glued with.
+
+### HabiroRings:HR.4
+
+The degree-zero relative q-Witt rings with their Frobenius, Verschiebung and Teichmueller lifts; the obstruction to restriction maps (q-Witt v5 paragraph 2.14); joint injectivity of the ghost maps of the absolute q-Witt rings when R is p-torsion free for the prime factors of m (Lemma 2.23) and the inheritance of p-torsion freeness and bounded p-power torsion (Corollary 2.22); the ghost isomorphism after inverting m (Example 2.38) and localisation q-W_m(R[1/m]/A) = q-W_m(R/A)[1/m]; the identification q-W_m(R) = q-W_m(R/A_inf) over a perfect Lambda-ring (Remark 2.47) and base change along maps of Lambda-rings (Lemma 2.46); the augmented Koszul exact sequence of Verschiebungen and gh_1 (Proposition 2.15); etale base change: for R -> R' etale, q-W_m(R/A) -> q-W_m(R'/A) is etale and compatible with the Frobenii (Proposition 2.48, Lemma 2.50, Corollary 2.51); and the p-local decomposition of q-Witt rings used by q-Witt Lemma 4.36. HQ.4 owns only the positive-degree extension.
+
+Needed by: `HQ.4/etale-base-change-and-the-sheaf-property`, `HQ.4/ghost-maps-and-what-they-do-not-define`, `HQ.4/no-functorial-q-hodge-complex-with-q-witt-cohomology`, `HQ.4/the-p-local-decomposition`, `HQ.4/there-are-no-restriction-operators-and-what-replaces-them`.
+
+### HabiroRings:HR.5
+
+The relative Habiro ring as a limit, with its equaliser presentation by compatible cyclotomic Taylor series and the convergence of the substitutions, which the coordinate model of HQ.3 and the etale specialisation use.
+
+### PerfectoidQuotients:Q3
+
+Andre's lemma in the form of Bhatt-Scholze Theorem 7.14: every integral perfectoid ring R' has a p-completely faithfully flat perfectoid extension in which given elements acquire compatible systems of p-power roots, as used to reduce the Nygaard comparison from quotients of perfectoid rings by regular sequences to the case of elements with compatible p-power roots.
+
+Needed by: `HQ.4/the-nygaard-comparison`.
+
+### PrismaticCohomology:PR.0
+
+The delta-ring interface at a single prime: free delta-rings, perfect delta-rings and their unique lifts, the p-completed colimit perfection (the witness of Lemma 3.3 and the quasi-regular inputs of HQ.5); q-PD and prismatic envelopes of quasiregular quotients of delta-rings; the delta-structure on the PD-envelope of a surjection from a p-completely ind-smooth delta-algebra (Bhatt-Scholze Corollary 2.39), used by the comparison map of the smooth-case node and by the crystalline Frobenius identification; and A_inf of a perfectoid ring with its delta-structure and a generator xi with delta(xi) a unit, used by the no-go theorem 5.1 of q-Witt v5. Also: the unique extension of δ-structures along localisations, derived completions and (p-completely) étale maps (Bhatt–Scholze Lemmas 2.15, 2.17 and 2.18); and the free p-complete δ-ring ℤ_p{x} with the identity δ(x²) = 2x^pδ(x) + pδ(x)² (Example 4.24).
+
+Needed by: `HQ.1/delta-and-q-divided-power-denominator-estimates`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-coordinate-comparison-and-its-compatibility`, `HQ.3/the-witness-admits-no-q-hodge-filtration`, `HQ.4/no-functorial-q-hodge-complex-with-q-witt-cohomology`, `HQ.4/the-p-completion-of-the-q-de-rham-witt-complex`, `HQ.4/the-rescaled-frobenius-is-the-crystalline-frobenius`, `HQ.5/the-exponent-one-quotient-is-not-a-q-deformation`, `HQ.5/the-quasi-lci-inputs-and-condition-R`, `HQ.5/when-the-naive-filtration-deforms-the-hodge-filtration`.
+
+The q-de Rham prism (ℤ_p⟦q−1⟧, [p]_q) with δ(q) = 0 and its base change to Â_p⟦q−1⟧ for a p-torsion free Λ-ring A; the perfect prism (A_inf, [p]_q) with q = [ε] for a perfectoid field C ⊇ μ_{p^∞}; and the map of bounded prisms (ℤ_p⟦q−1⟧, [p]_q) → (A_inf, [p]_q), q ↦ [ε], with its (p, q−1)-complete flatness (Bhatt–Scholze Notation 17.1).
+
+Needed by: `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.8/the-a-infinity-square`.
+
+### PrismaticCohomology:PR.1
+
+Completed base change of relative prismatic cohomology along a map of bounded prisms (Bhatt–Scholze Theorem 1.8(5), Corollary 4.12), applied to (ℤ_p⟦q−1⟧, [p]_q) → (A_inf, [p]_q).
+
+Needed by: `HQ.8/the-a-infinity-square`.
+
+### PrismaticCohomology:PR.2
+
+The derived Hodge-Tate comparison (Bhatt-Scholze Construction 7.6: the conjugate filtration on the reduction of derived prismatic cohomology modulo the ideal, with graded pieces the shifted derived exterior powers of the cotangent complex), and quasi-syntomic descent for derived prismatic cohomology, as used for the fibre of the prismatic Nygaard sequence and for the descent of the animated Nygaard filtration.
+
+Needed by: `HQ.4/nygaard-descent-and-smooth-agreement`, `HQ.4/the-prismatic-nygaard-fibre-sequence`.
+
+### PrismaticCohomology:PR.3
+
+For the q-de Rham prism (Z_p[[q-1]] over the p-completion of A, ideal [p]_q): the Nygaard filtration on relative prismatic cohomology as the preimage of the décalage filtration under the relative Frobenius; the relative Frobenius equivalence from the Frobenius twist onto the décalage at the prism ideal (Bhatt-Scholze Theorem 15.3); the identification of the divided-Frobenius Nygaard graded pieces with the conjugate filtration of the reduction modulo the ideal, and its base change (Theorem 15.2(2), (3)); quasi-syntomic descent for these; and the method of section 12 for checking identities of filtrations on large quasi-syntomic algebras. The relative Frobenius equivalence in the form Δ_{T/B} ⊗̂^L_{B,φ_B} B ≃ Lη_J Δ_{T/B} for a bounded prism (B, J) and a smooth p-adic formal B/J-algebra T, applied to (Â_p⟦q−1⟧, [p]_q) (the décalage import of HQ.2). For HQ.5: For a semiperfect F_p-algebra S, the Hodge filtration of dR_{S/F_p} is static in each degree (Bhatt–Morrow–Scholze, THH and integral p-adic Hodge theory, Proposition 8.14); and the derived form of their Lemma 8.3 for any F_p-algebra: fil^n_N WdR/p fil^{n−1}_N WdR ≃ fil^n_Hdg dR, for the Nygaard filtration on the derived de Rham–Witt complex.
+
+Needed by: `HQ.2/what-the-decalage-import-supplies`, `HQ.3/nygaard-denominators`, `HQ.4/the-nygaard-comparison`, `HQ.4/the-nygaard-filtration-after-inverting-p`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.4/the-prismatic-nygaard-fibre-sequence`, `HQ.4/twisted-q-de-rham-complexes`, `HQ.5/staticity-for-quasi-lci-inputs`.
+
+The Nygaard filtration on relative prismatic cohomology, defined on large quasi-syntomic algebras by Frobenius divisibility and extended by quasi-syntomic descent, with gr^i_N ≅ τ^{≤i}Δ̄{i}, and the factorisation of the relative Frobenius through an isomorphism φ_A^*RΓ_Δ(X/A) ≃ Lη_I RΓ_Δ(X/A) (Bhatt–Scholze Theorems 15.2, 15.3), for the q-de Rham prism.
+
+Needed by: `HQ.8/the-decalage-square-at-the-prism-ideal`, `HQ.8/the-nygaard-square`, `HQ.8/the-staging-rule`.
+
+### PrismaticCohomology:PR.6
+
+The local q-crystalline theory of Bhatt–Scholze §16, over a p-torsion free p-complete δ-ring base. It comprises: q-PD pairs, including (Â_p⟦q−1⟧, (q−1)); q-PD envelopes (Lemma 16.10) with their base change modulo q−1 (16.10(3)) and flatness over ℤ_p⟦q−1⟧; the relations for γ_q (Remark 16.6) and stability of q-divided powers (Lemma 16.7); q-crystalline cohomology with its Čech–Alexander model; the q-PD de Rham complex of a framed q-PD datum (Construction 16.20) and its quasi-isomorphism with q-crystalline cohomology (Theorem 16.22); the p-complete framed complex with change of framing; and the identification of q-crystalline cohomology with prismatic cohomology of the Frobenius twist relative to (Â_p⟦q−1⟧, [p]_q) (Theorem 16.18). HQ.1 owns only the global gluing. Also: the framed q-difference complex with the formula for the differential on powers of a coordinate, the twisted Leibniz rule and the vanishing of the square of the differential, and the cocycle identities for change of framing; and the action of ℤ_p^× on the q-de Rham prism (ℤ_p⟦q−1⟧, [p]_q) by q ↦ q^u with the induced action on p-completed q-de Rham cohomology through the prismatic comparison (Remark 4.5).
+
+Needed by: `HQ.1/base-change-for-the-global-complex`, `HQ.1/delta-and-q-divided-power-denominator-estimates`, `HQ.1/divided-power-denominators-in-the-q-pd-envelope`, `HQ.1/rationalised-q-crystalline-comparison`, `HQ.1/the-compatibility-square`, `HQ.1/the-coordinate-comparison-and-its-compatibility`, `HQ.1/the-derived-commutative-lift`, `HQ.1/the-framed-description-of-the-global-complex`, `HQ.1/the-global-q-de-rham-complex`, `HQ.1/the-local-derived-q-de-rham-complex`, `HQ.1/the-reverse-divided-power-expansion`, `HQ.1/what-the-global-complex-satisfies`, `HQ.1/what-this-layer-imports-and-what-it-owns`, `HQ.2/what-the-decalage-import-supplies`, `HQ.3/the-witness-admits-no-q-hodge-filtration`, `HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes`, `HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes`, `HQ.4/twisted-q-de-rham-complexes`, `HQ.5/framed-and-fixed-point-descriptions-of-the-canonical-filtration`, `HQ.5/staticity-for-quasi-lci-inputs`, `HQ.5/the-p-tilde-de-rham-description-of-the-canonical-filtration`.
+
+Bhatt–Scholze §§16–17 in the parts this atlas consumes: q-PD pairs (Definition 16.2), including (ℤ_p⟦q−1⟧, (q−1)) and (A_inf, (ξ)) (Notation 17.1); the q-de Rham complex of a framed q-PD datum over a q-PD pair (D, I) with D flat over ℤ_p⟦q−1⟧ (Constructions 16.19–16.20, Lemma 16.21) and its quasi-isomorphism with q-crystalline cohomology (Theorem 16.22); the identification of q-crystalline cohomology with prismatic cohomology of the Frobenius twist (Theorem 16.18) for both q-PD pairs; and AΩ_R ≃ q-Ω_{R/A_inf} ≃ φ_A^*Δ_{R/A_inf} as E∞-A_inf-algebras compatible with Frobenius (Theorem 17.2, Remark 17.3). The Nygaard filtration is requested from PR.3, not here.
+
+Needed by: `HQ.8/the-q-de-rham-prism-and-its-perfectoid-base`, `HQ.8/the-local-prismatic-square`, `HQ.8/the-q-crystalline-square`, `HQ.8/the-a-infinity-square`.
+
+### RefinedTraceMethods:RT.4:Habiro-comparison
+
+The ku paper's Corollary 6.15 for R = O_F[1/Δ] with Δ divisible by 6 and by the discriminant of F and the specified étale spherical lift, as that stage plans it.
+
+Needed by: `HQ.5-trace/the-number-field-ring-from-periodic-complex-k-theory`.
+
+### RefinedTraceMethods:RT.4:q-Hodge
+
+The ku paper's Theorems 1.2 and 4.27 with their exact hypotheses (a perfectly covered base satisfying 3.1(tCp) at every prime; a quasi-lci input with bounded p^∞-torsion satisfying at each prime 3.2(E_2) or 3.2(E_1), the latter including p-torsion-freeness, a p-quasi-syntomic cover with relatively semiperfect reduction and an E_1-lift of the Čech nerve in S_{Â_p}-modules; the addendum (R2)), with the output as an object of AniAlg^{q-Hdg}_A; the p-complete comparisons Theorems 4.8 (p > 2) and 4.14 (p = 2, (E_1)); and Theorem 4.17: for R p-quasi-lci with R/p relatively semiperfect and a p-complete connective E_1-lift of R itself (p = 2 allowed), the q-Hodge filtration is the 1-categorical preimage of the combined filtration, independent of the lift.
+
+Needed by: `HQ.5-trace/the-one-disc-refinement-and-the-prime-two`, `HQ.5-trace/the-spherical-e1-lift-case-of-the-well-behavedness-theorem`, `HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`.
+
+### RefinedTraceMethods:RT.6
+
+The quasi-syntomic comparison of topological Hochschild homology with prismatic cohomology and the Nygaard and syntomic filtrations, which the trace-theoretic import of HQ.5-trace and the comparison atlas of the companion part depend on.
+
+Needed by: `HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations`.
+
+The quasi-syntomic comparison of topological Hochschild homology with prismatic cohomology, with its Nygaard and syntomic filtrations, stated in the record form of this atlas so that the staging rule is checkable. It is used only after PrismaticCohomology PR.3 has constructed the Nygaard filtration independently.
+
+Needed by: `HQ.8/the-staging-rule`.
+
+## Structural proposals
+
+### The restructuring proposal for this family has not been accepted, so this packet follows the current atlas
+
+*note-structure-not-accepted.* The proposal RS-10 assigns this roadmap a narrowed HQ.1 and HQ.4 and moves the positive-degree q-de Rham-Witt theory to a draft roadmap on q-Witt vectors. Its recorded review status is that changes are needed: the report requires removing seven existing atlas edges, sixty-five supplier links for the narrowed layers are missing, and three of its target roadmaps, including the q-Witt one and the analytic Habiro stack, are not in the atlas at all. The job instruction is then to work with the current structure and say so, which is what this packet does: HQ.4 plans the positive-degree q-de Rham-Witt complex, its Frobenii, its ghost maps and its etale base change, and HQ.1 plans the whole global gluing. A worker who picks up this roadmap after RS-10 is accepted must not plan that material a second time in the q-Witt roadmap; the thirteen nodes of HQ.4 and the first six of HQ.1 are exactly what would move.
+
+### HQ.2 is asked to prove a statement about objects defined in HQ.3
+
+*propose-link.* The stage text of HQ.2 assigns the proposition comparing the underived q-de Rham complex with the q-Hodge completion of the derived one and with the décalage of the q-Hodge complex. Both halves of that statement quantify over pairs of an algebra and a chosen q-Hodge filtration, which is the object HQ.3 defines, and the second half mentions the Habiro-Hodge complex, which HQ.3 constructs. The packet follows the stage text and places the node in HQ.2, with prerequisites on three HQ.3 nodes. Either the atlas should record a supply edge from HQ.3 to HQ.2 for this statement, or the statement should move to HQ.3; as things stand the layer ordering suggests a dependency that runs the other way.
+
+### HQ.5 carries three independent bodies of work
+
+*propose-split.* HQ.5 asks for the smooth existence theorem with its dimension-dependent inversion of small primes and its partial-operad multiplicativity; for the quasi-regular existence theory under condition (R) with its own construction, its own base change and its own monoidality; and for the export of the completed cohomology object to the coefficient roadmap. The three share only the definition of a q-Hodge filtration: the smooth theory works with a truncation adjunction on filtered objects, the quasi-regular theory with one-categorical preimages inside static rings, and the export with the etale specialisation of the descent theorem. For the atlas they would read better as three sub-layers, and the fourteen nodes of this packet already fall into the three groups of six, six and two.
+
+### HQ.7 is audited as a process layer but is planned here as two nodes
+
+*note-audit-verdict.* The reviewed library audit gives HQ.7 the verdict that it is a process layer, and the job instruction says that such a layer is not mathematics and should get no nodes. This packet nevertheless plans two nodes for it, as the packet for the coefficient roadmap did for its own acceptance layer: the acceptance suite is a list of statements with concrete witnesses, each naming the node it exercises, and the executable boundary is a statement about what the suggested Lean file does and does not prove. Both are checkable claims rather than process. The alternative would be to close HQ.7 with no nodes and to move the acceptance tests into the acceptance lists of the nodes they exercise, where most of them already appear; that would be a reasonable restructuring but would lose the four structural checks, which are about the roadmap as a whole and belong to no single node.
+
+### The syntomic squares belong to the trace roadmap, not to this atlas
+
+*note-ownership.* The stage text names the trace roadmap's quasi-syntomic comparison among the inputs and fixes the order in which it may be used. This packet takes that further: the squares whose corners are topological, namely those relating topological Hochschild homology and its variants to prismatic cohomology, are stated by that roadmap and not here, and this atlas records only the staging rule and the fact that its own squares do not depend on them. If the atlas were later to absorb those squares it would have to absorb their hypotheses as well, and the risk the staging rule guards against would return. The recommendation is to leave the syntomic squares where they are and to ask that roadmap to state them in the seven-item form.
+
+### There is no etale square, and the reason should be recorded in the atlas rather than inferred
+
+*note-missing-square.* The stage text lists the global compatibility of the classical comparisons among the inputs, and a reader may expect a square with an etale corner. There is none, because the only available route is the A-infinity square followed by the classical comparisons, and the composite is an equivalence only along a composite of base changes neither of which is conservative. This packet records that in the information-loss ledger and in a gap. A cleaner structure would be for the stage text itself to say that the etale corner is reached only through the perfectoid base, so that the absence is visible before a worker starts.
+
+### HQ.8 mixes a discipline and a list of theorems
+
+*propose-split.* Three of the fifteen nodes fix a discipline: what a square records, what the atlas does not prove, and the staging rule; two more are the ledger and the acceptance suite. The remaining ten are the squares and the theorem that they commute. For the atlas the two halves would read better as sub-layers, one for the record and the discipline and one for the squares, since a reader who wants the comparison statements does not need the discipline first, while a reviewer checking the discipline does not need the squares.
+
+## Dependencies between the layers
+
+Within the roadmap, the nodes of each layer use the nodes of these other layers. The graph is acyclic; HQ.4 precedes HQ.3 in it, as the atlas has HQ.3 requiring HQ.4, although the layers are numbered the other way round.
+
+- **HQ.2** uses HQ.1.
+- **HQ.3** uses HQ.1, HQ.2, HQ.4.
+- **HQ.4** uses HQ.1, HQ.2.
+- **HQ.5** uses HQ.1, HQ.2, HQ.3, HQ.4.
+- **HQ.5-trace** uses HQ.2, HQ.3, HQ.5.
+- **HQ.6** uses HQ.3, HQ.4, HQ.5.
+- **HQ.7** uses HQ.1, HQ.2, HQ.3, HQ.4, HQ.5, HQ.5-trace, HQ.6.
+- **HQ.8** uses HQ.1, HQ.2, HQ.3, HQ.4, HQ.5, HQ.5-trace, HQ.6.
+
+The atlas requirements of each layer:
+
+- **HQ.1** requires `DerivedDeRhamCohomology:DD.2`, `PrismaticCohomology:PR.6`.
+- **HQ.2** requires `AInfCohomology:AI.1`, `DerivedDeRhamCohomology:DD.6`, `HabiroCohomologyFoundations:HQ.1`.
+- **HQ.3** requires `HabiroCohomologyFoundations:HQ.2`, `HabiroCohomologyFoundations:HQ.4`, `HabiroRings:HR.2`.
+- **HQ.4** requires `CrystallineCohomology:CR.4`, `HabiroCohomologyFoundations:HQ.2`, `HabiroRings:HR.4`.
+- **HQ.5** requires `HabiroCohomologyFoundations:HQ.3`, `HabiroCohomologyFoundations:HQ.4`.
+- **HQ.5-trace** requires `HabiroCohomologyFoundations:HQ.5`, `RefinedTraceMethods:RT.4:q-Hodge`.
+- **HQ.6** requires `HabiroCohomologyFoundations:HQ.5`.
+- **HQ.7** requires `HabiroCohomologyFoundations:HQ.6`.
+- **HQ.8** requires `CohomologyComparisons:CP.1`, `CohomologyComparisons:CP.6`, `HabiroCohomologyFoundations:HQ.1`, `HabiroCohomologyFoundations:HQ.2`, `HabiroCohomologyFoundations:HQ.3`, `HabiroCohomologyFoundations:HQ.4`, `HabiroCohomologyFoundations:HQ.5`, `RefinedTraceMethods:RT.6`.
+
+## What this blueprint does not claim
+
+- **Canonical filtrations.** No canonical q-Hodge filtration is asserted for every ring. Lemma 3.3 rules out a section over all animated algebras, and even over all smooth algebras without localisation. Existence is claimed only in the classes of HQ.5 and HQ.5-trace, with their hypotheses: the primes up to the relative dimension inverted, condition (R), or a connective spherical E₂-lift with 2 inverted.
+- **Multiplicativity.** No unrestricted E∞-structure is asserted. The multiplicativity of the canonical section is that of a partial operad (Corollary 4.16), with the source's r·d bound for r-fold products.
+- **The analytic comparison.** No identification of algebraic Habiro cohomology with Scholze's analytic Habiro stack is asserted. HQ.6 keeps the comparison as a named problem, with its domain, its coefficient change and the information it loses.
+- **Integral comparisons.** No unconditional equivalence of integral Habiro cohomology with crystalline, A_inf or étale cohomology is asserted. Each square of HQ.8 holds on the intersection of the hypothesis sets of its imported maps, and a comparison that loses information is recorded as a base change or localisation.
+- **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states what the pinned Mathlib can express; the rest is recorded there as comments.
