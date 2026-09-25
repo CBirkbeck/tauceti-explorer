@@ -250,6 +250,116 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packets/ArithmeticKTheory--N.1.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "66a047520a5fe117",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-ArithmeticKTheory--N.1",
+   "sha256": "4b51ea9eb30d407f6e44b8e204e622d633398373790bbb5d84541d100d50cb7e",
+   "to": [
+    "data/blueprints/ArithmeticKTheory--N.1.json",
+    "data/blueprints/ArithmeticKTheory--N.1.md"
+   ]
+  },
+  "research/blueprint/packets/EllipticKTheory.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "1f540a8f0f3fa1f9",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-EllipticKTheory",
+   "sha256": "a267374bf1844e6c3ae1a85cd815f9c146e795b6c5d7b0351f7a0150b3aade04",
+   "to": [
+    "data/blueprints/EllipticKTheory.json",
+    "data/blueprints/EllipticKTheory.md"
+   ]
+  },
+  "research/blueprint/packets/EllipticRegulators.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "8aebf53299458e95",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-EllipticRegulators",
+   "sha256": "8c8adb88398485e13e93ecebc5eadfe8600d684cd94b0a273d1327588f9fa766",
+   "to": [
+    "data/blueprints/EllipticRegulators.json",
+    "data/blueprints/EllipticRegulators.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroCyclotomicCompletions.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "0e009156d6289d53",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-HabiroCyclotomicCompletions",
+   "sha256": "8c78181e54669682102500158cf934aa102adb38fd0af43cca7417623495b50a",
+   "to": [
+    "data/blueprints/HabiroCyclotomicCompletions.json",
+    "data/blueprints/HabiroCyclotomicCompletions.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroNahmSeries.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "678216b92664ea78",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-HabiroNahmSeries",
+   "sha256": "7ab3404dceb0a9510ba5007558e3712b106216c15209c96464397636aeec59a2",
+   "to": [
+    "data/blueprints/HabiroNahmSeries.json",
+    "data/blueprints/HabiroNahmSeries.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroNumberFields.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "f3c354b80886c99c",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-HabiroNumberFields",
+   "sha256": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
+   "to": [
+    "data/blueprints/HabiroNumberFields.json",
+    "data/blueprints/HabiroNumberFields.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroRings.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "1fcd7476876fe2b4",
+   "reviewDate": "2026-09-25",
+   "reviewer": "independent-review-REV-HabiroRings",
+   "sha256": "69de020866ae518ae403287753e316f08f6f7411b50f09671e17ccf9f0b019f8",
+   "to": [
+    "data/blueprints/HabiroRings.json",
+    "data/blueprints/HabiroRings.md"
+   ]
+  },
+  "research/blueprint/packets/K2SymbolsBrauer--T.3.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "217c9c48d022eed3",
+   "reviewDate": "2026-09-24",
+   "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3",
+   "sha256": "2f6d249a186a84fd2d5e79c950a1f825a7ed89a019bb1b408d62caed1e6f73ec",
+   "to": [
+    "data/blueprints/K2SymbolsBrauer--T.3.json",
+    "data/blueprints/K2SymbolsBrauer--T.3.md"
+   ]
+  },
+  "research/blueprint/packets/K3BlochGroups.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "6468c3f59077d870",
+   "reviewDate": "2026-09-24",
+   "reviewer": "independent-review-REV-K3BlochGroups",
+   "sha256": "38feb891718d9d0463885d2028cfd67f163ca70c7a939646d9edf7abc83cfe06",
+   "to": [
+    "data/blueprints/K3BlochGroups.json",
+    "data/blueprints/K3BlochGroups.md"
+   ]
+  },
+  "research/blueprint/packets/Polylogarithms.json": {
+   "promotedAt": "2026-09-25T14:41:24Z",
+   "review": "5c94a3568480f39f",
+   "reviewDate": "2026-09-24",
+   "reviewer": "independent-review-REV-Polylogarithms",
+   "sha256": "2cb09d18d91fb86a9a3b6e32c727e93a2fb57aa302257bace65e21571844384f",
+   "to": [
+    "data/blueprints/Polylogarithms.json",
+    "data/blueprints/Polylogarithms.md"
+   ]
+  },
   "research/blueprint/restructure/RS-01.result.json": {
    "promotedAt": "2026-09-23T20:18:27Z",
    "review": "5541318cf6f46151",

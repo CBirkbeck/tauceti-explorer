@@ -77,7 +77,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.052
+  "declarationsVsDistance": 0.026
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -684,7 +684,17 @@
     "missingLayers": 182.0,
     "missingTargets": 975.0,
     "depth": 25,
-    "suppliers": 48
+    "suppliers": 48,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 44,
+     "missingDeclarations": 44,
+     "depth": 10,
+     "layersCovered": 7,
+     "layers": 9,
+     "sourcePages": 67
+    }
    },
    "measurement": 6.07,
    "judgements": 7,
@@ -1915,7 +1925,17 @@
     "missingLayers": 136.0,
     "missingTargets": 746.1,
     "depth": 19,
-    "suppliers": 35
+    "suppliers": 35,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 52,
+     "missingDeclarations": 52,
+     "depth": 13,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 80
+    }
    },
    "measurement": 5.7,
    "judgements": 8,
@@ -1938,7 +1958,17 @@
     "missingLayers": 636.5,
     "missingTargets": 2941.9,
     "depth": 92,
-    "suppliers": 108
+    "suppliers": 108,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 75,
+     "missingDeclarations": 75,
+     "depth": 16,
+     "layersCovered": 8,
+     "layers": 8,
+     "sourcePages": 94
+    }
    },
    "measurement": 8.81,
    "judgements": 11,
@@ -2626,7 +2656,17 @@
     "missingLayers": 5.0,
     "missingTargets": 17.5,
     "depth": 5,
-    "suppliers": 0
+    "suppliers": 0,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 48,
+     "missingDeclarations": 48,
+     "depth": 15,
+     "layersCovered": 5,
+     "layers": 5,
+     "sourcePages": 29
+    }
    },
    "measurement": 2.42,
    "judgements": 7,
@@ -2661,7 +2701,17 @@
     "missingLayers": 235.5,
     "missingTargets": 1222.2,
     "depth": 26,
-    "suppliers": 59
+    "suppliers": 59,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 109,
+     "missingDeclarations": 109,
+     "depth": 19,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 57
+    }
    },
    "measurement": 6.28,
    "judgements": 11,
@@ -2684,7 +2734,17 @@
     "missingLayers": 229.0,
     "missingTargets": 1200.7,
     "depth": 25,
-    "suppliers": 58
+    "suppliers": 58,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 67,
+     "missingDeclarations": 67,
+     "depth": 17,
+     "layersCovered": 4,
+     "layers": 4,
+     "sourcePages": 55
+    }
    },
    "measurement": 6.24,
    "judgements": 10,
@@ -2715,7 +2775,17 @@
     "missingLayers": 252.5,
     "missingTargets": 1255.5,
     "depth": 41,
-    "suppliers": 57
+    "suppliers": 57,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 50,
+     "missingDeclarations": 50,
+     "depth": 16,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 33
+    }
    },
    "measurement": 6.72,
    "judgements": 10,
@@ -3010,7 +3080,17 @@
     "missingLayers": 48.0,
     "missingTargets": 229.0,
     "depth": 10,
-    "suppliers": 12
+    "suppliers": 12,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 58,
+     "missingDeclarations": 58,
+     "depth": 21,
+     "layersCovered": 6,
+     "layers": 10,
+     "sourcePages": 40
+    }
    },
    "measurement": 4.52,
    "judgements": 11,
@@ -3037,7 +3117,17 @@
     "missingLayers": 135.0,
     "missingTargets": 723.1,
     "depth": 22,
-    "suppliers": 34
+    "suppliers": 34,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 102,
+     "missingDeclarations": 102,
+     "depth": 18,
+     "layersCovered": 6,
+     "layers": 6,
+     "sourcePages": 41
+    }
    },
    "measurement": 5.76,
    "judgements": 11,
@@ -4005,7 +4095,17 @@
     "missingLayers": 205.5,
     "missingTargets": 1093.4,
     "depth": 21,
-    "suppliers": 56
+    "suppliers": 56,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 75,
+     "missingDeclarations": 75,
+     "depth": 11,
+     "layersCovered": 6,
+     "layers": 6,
+     "sourcePages": 45
+    }
    },
    "measurement": 6.05,
    "judgements": 11,

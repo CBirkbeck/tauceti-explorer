@@ -1,8 +1,8 @@
 {
   "roadmaps": 211,
-  "stages": 2608,
+  "stages": 2767,
   "originalStages": 1962,
-  "sourceRefinements": 646,
+  "sourceRefinements": 805,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -382,19 +382,80 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 2507,
+  "mathematicalStars": 2666,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 110,
   "bibliographicSources": 46,
-  "roadmapEdges": 1610,
-  "stageEdges": 7361,
+  "roadmapEdges": 1636,
+  "stageEdges": 7707,
   "reviewedLinkPackets": 25,
-  "promotedBlueprints": [],
+  "promotedBlueprints": [
+    {
+      "file": "ArithmeticKTheory--N.1",
+      "roadmap": "ArithmeticKTheory",
+      "nodes": 44,
+      "reviewer": "independent-review-REV-ArithmeticKTheory--N.1"
+    },
+    {
+      "file": "EllipticKTheory",
+      "roadmap": "EllipticKTheory",
+      "nodes": 52,
+      "reviewer": "independent-review-REV-EllipticKTheory"
+    },
+    {
+      "file": "EllipticRegulators",
+      "roadmap": "EllipticRegulators",
+      "nodes": 75,
+      "reviewer": "independent-review-REV-EllipticRegulators"
+    },
+    {
+      "file": "HabiroCyclotomicCompletions",
+      "roadmap": "HabiroCyclotomicCompletions",
+      "nodes": 48,
+      "reviewer": "independent-review-REV-HabiroCyclotomicCompletions"
+    },
+    {
+      "file": "HabiroNahmSeries",
+      "roadmap": "HabiroNahmSeries",
+      "nodes": 109,
+      "reviewer": "independent-review-REV-HabiroNahmSeries"
+    },
+    {
+      "file": "HabiroNumberFields",
+      "roadmap": "HabiroNumberFields",
+      "nodes": 67,
+      "reviewer": "independent-review-REV-HabiroNumberFields"
+    },
+    {
+      "file": "HabiroRings",
+      "roadmap": "HabiroRings",
+      "nodes": 50,
+      "reviewer": "independent-review-REV-HabiroRings"
+    },
+    {
+      "file": "K2SymbolsBrauer--T.3",
+      "roadmap": "K2SymbolsBrauer",
+      "nodes": 58,
+      "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3"
+    },
+    {
+      "file": "K3BlochGroups",
+      "roadmap": "K3BlochGroups",
+      "nodes": 102,
+      "reviewer": "independent-review-REV-K3BlochGroups"
+    },
+    {
+      "file": "Polylogarithms",
+      "roadmap": "Polylogarithms",
+      "nodes": 75,
+      "reviewer": "independent-review-REV-Polylogarithms"
+    }
+  ],
   "sourceDocuments": 296,
-  "htmlBytes": 29846658,
-  "htmlSha256": "b9a47682c8866649b80a99c75d91b23907748555903c0f0d1e27d8c2c4efadc5",
+  "htmlBytes": 30416612,
+  "htmlSha256": "9287d31b38a77e96bb30d85456d9b39e226c97bbb31e1e4a0b35ebc6999016aa",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -423,7 +484,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "1a689997ae215f1983e7ec6639ae736fe12044f607a366bb04e08808a06cc020",
+    "data/roadmap-distances.json": "727fa32bfdccbde2e944200ce80fc692f686e76287537f60a4d87ac76f39426d",
     "data/galaxy-layout.json": "d36eb9d7a38c5e6e3ccd31e31ffbf9849ce192348586cc0fd60d2451ce568cf3",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -481,6 +542,26 @@
     "data/decompositions/VectorBundlesAndIsocrystals.json": "fdbac76db40806c39866334c8b06f46f938a7c806c886caa06b0020a8172dd9f",
     "data/decompositions/WeightsInEtaleCohomology.json": "4a41151244faf21477866c23a4cd43d5a212e2fbafac8a6b5504f0e19d5f3b43",
     "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41",
+    "data/blueprints/ArithmeticKTheory--N.1.json": "4b51ea9eb30d407f6e44b8e204e622d633398373790bbb5d84541d100d50cb7e",
+    "data/blueprints/ArithmeticKTheory--N.1.md": "d305a3727d30abf8bc426bd6b28f91d972d4ed6eb5c4dc406d8e83c0bf4ccc94",
+    "data/blueprints/EllipticKTheory.json": "a267374bf1844e6c3ae1a85cd815f9c146e795b6c5d7b0351f7a0150b3aade04",
+    "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
+    "data/blueprints/EllipticRegulators.json": "8c8adb88398485e13e93ecebc5eadfe8600d684cd94b0a273d1327588f9fa766",
+    "data/blueprints/EllipticRegulators.md": "baf53c80d1390de28048768d6f0de2315bc2663e9a6fc0acdf700c1c6cc4bffb",
+    "data/blueprints/HabiroCyclotomicCompletions.json": "8c78181e54669682102500158cf934aa102adb38fd0af43cca7417623495b50a",
+    "data/blueprints/HabiroCyclotomicCompletions.md": "4639b41bf3f48f54a55066d96efa11ab071b16e2da2437309f6971dc97624a06",
+    "data/blueprints/HabiroNahmSeries.json": "7ab3404dceb0a9510ba5007558e3712b106216c15209c96464397636aeec59a2",
+    "data/blueprints/HabiroNahmSeries.md": "fd93fe92c97c860c380842b6c64a91159a1e2338960a17259c082ee8629d7ee5",
+    "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",
+    "data/blueprints/HabiroNumberFields.md": "6dacd129ca08c9fc3747d9ffb451223707b6b47e1b9f78aebe03a907cf11df9d",
+    "data/blueprints/HabiroRings.json": "69de020866ae518ae403287753e316f08f6f7411b50f09671e17ccf9f0b019f8",
+    "data/blueprints/HabiroRings.md": "998ce8769807a9f35c5735dd9873712763e6c0d769cc0c2d483b1bee472e98f2",
+    "data/blueprints/K2SymbolsBrauer--T.3.json": "2f6d249a186a84fd2d5e79c950a1f825a7ed89a019bb1b408d62caed1e6f73ec",
+    "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
+    "data/blueprints/K3BlochGroups.json": "38feb891718d9d0463885d2028cfd67f163ca70c7a939646d9edf7abc83cfe06",
+    "data/blueprints/K3BlochGroups.md": "c625ad3d75966aebecec13e7db1db868903f9d66de595e28208c4fd82c3afd55",
+    "data/blueprints/Polylogarithms.json": "2cb09d18d91fb86a9a3b6e32c727e93a2fb57aa302257bace65e21571844384f",
+    "data/blueprints/Polylogarithms.md": "010b7847408a01f3e73e680b1adee5851d2a3f5127cb8a5955cf6e877c8c7c22",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
     "data/links/tauceti_TauCetiRoadmap_AdicSpaces.json": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425",
