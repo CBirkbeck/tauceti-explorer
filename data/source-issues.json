@@ -129747,6 +129747,687 @@
    "reviewReason": "Checked against Milne IV §5."
   },
   {
+   "id": "FiniteFieldsAndCharacterSums/E201",
+   "kind": "misprint",
+   "locator": "§4 'Jacobi sums', first display, p. 4 (the author's PDF read on 2026-09-25)",
+   "printed": "For two multiplicative characters χ1 and χ2 on F×q, their Jacobi sum is J(χ1, χ2) = Σ_{c∈Fqn} χ1(c)χ2(1 − c).",
+   "correction": "The sum runs over c ∈ F_q: J(χ1, χ2) = Σ_{c ∈ F_q} χ1(c)χ2(1 − c).",
+   "reason": "χ1, χ2 are characters of F_q^× and are not defined on F_(q^n); the rest of §4 (the character modulo T(T − 1) on F_q[T] and the linear coefficient Σ_{c ≠ 0, −1} χ1(c)χ2(1 + c)) uses the sum over F_q. The subscript is carried over from the lifted sums of §3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the handout's page on the author's site (https://kconrad.math.uconn.edu/blurbs/), which lists no errata",
+    "the text of the other two Conrad texts read here, which define J over F_q"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Keith Conrad, L-functions for Gauss and Jacobi sums, Expository handout, the author's PDF (5 pages), read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E202",
+   "kind": "misprint",
+   "locator": "§6, first paragraph, p. 31 (arXiv v3; the Inventiones version was not seen)",
+   "printed": "Let Tp denote the subring of Fp((1/T)) composed of those Laurent series X(T) = Σ_{j⩽−1} cjT^j.",
+   "correction": "T_p is an additive subgroup (a non-unital subring: the maximal ideal (1/T)F_p[[1/T]] of F_p[[1/T]]); it does not contain 1.",
+   "reason": "1 = T^0 has c_0 = 1, so 1 ∉ T_p; T_p is closed under addition and multiplication but is not a unital subring. The paper uses only its additive group structure and Haar measure, so nothing depends on the word.",
+   "affects": "nothing",
+   "known": "new (the paper extraction's item PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/14 already warns 'do not claim a unital subring' in its API, but records no finding)",
+   "searched": [
+    "arXiv 2007.14567 abstract page: v3 is the latest version",
+    "the paper extraction's 26 recorded findings (E1–E26) and their review, none of which concerns §6's definition of T_p"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, Invent. Math. 233 (2023), 1041–1120; read as arXiv:2007.14567v3 (marked final version; printed page = PDF page); the SHA-256 matches the paper extraction's record; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E301",
+   "kind": "misprint",
+   "locator": "Chapter 5, Lemma 5.7(2), printed p. 70 (version of 14 September 2021)",
+   "printed": "k + 1 − (d − 1)(deg(g) − 1) ⩽ dim H(k) ⩽ k + 1",
+   "correction": "k + 1 − (q − 1)(d − 1) ⩽ dim H(k) ⩽ k + 1 (here deg(g) = d and the curve is y^q − y = g(x); the bound of Lemma 4.24 transported by the dictionary (d, deg g) ↔ (q, d) that the same page states).",
+   "reason": "In section 5 d = deg(g), so the printed (d − 1)(deg(g) − 1) = (d − 1)² is the Kummer bound of Lemma 4.24 copied without the dictionary d ↔ q; the same lemma states k0 = (d − 1)(q − 1) correctly. Counterexample to the printed inequality: q = 5, d = 2 (curve y^5 − y = g(x), deg g = 2): the pole degrees are 5δ + 2i with 0 ≤ i < 5, so H(3) is spanned by 1 and Y and dim H(3) = 2, while the printed lower bound is 3 + 1 − 1 = 3. The corrected bound gives 0. Only the equality dim H(k) = k + 1 − γ for k ⩾ k0 is used later, so the argument is unaffected.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the author's lecture-notes page https://people.math.ethz.ch/~kowalski/lecture-notes.html (single version of 14 September 2021, no errata)",
+    "the notes' own acknowledgments and remarks"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E302",
+   "kind": "gap",
+   "locator": "Chapter 3, Theorem 3.1, printed p. 31, with Chapter 4, section 4.2 (Proposition 4.14(2), Theorem 4.17 and the paragraph after it), printed pp. 50-52",
+   "printed": "Then, provided there is no polynomial h ∈ ¯Fq[X] such that g = hd, we have (3.1) |Σ x∈Fq χ(g(x))| ⩽ (m − 1)√q.",
+   "correction": "The notes prove (3.1) only when gcd(deg g, d) = 1 (and, by Remark 4.23, for non-squarefree g of such degree): Theorem 4.17 assumes (deg(g), d) = 1. The general case needs another argument — Stepanov's method for arbitrary absolutely irreducible y^d = g(x), or the cohomological route taken by FF.2/weil-bound-multiplicative.",
+   "reason": "Proposition 4.14(2) is deduced from Theorem 4.17 through Lemma 4.16, and Theorem 4.17 carries the hypothesis (deg(g), d) = 1. A Möbius substitution x ↦ α + 1/t moving a root of multiplicity k to infinity changes the degree class to −k modulo d, which need not be coprime to d: for d = 6 and g = x²(x − 1)³(x − 2)³(x − 3)² (degree 10, not a constant times a sixth power) every root has multiplicity 2 or 3 and no substitution gives a degree prime to 6.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the lecture-notes page https://people.math.ethz.ch/~kowalski/lecture-notes.html (one version, no errata)",
+    "the notes themselves: section 4.2 states the restriction ('in the case where g has degree coprime with d') but Theorem 3.1 and Proposition 4.14(2) are stated without it"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E303",
+   "kind": "gap",
+   "locator": "Chapter 5, Lemma 5.11 and the proof of Proposition 5.9, printed pp. 72-76",
+   "printed": "Let Fq be a finite field, ψ a non-trivial character of Fq, g ∈ Fq[X] a non-constant polynomial in Fq[X] of degree d, with g(0) = 0.",
+   "correction": "Before applying Lemma 5.11 in the proof of Proposition 5.9, reduce to g(0) = 0: S_ν(g, ψ) = ψ(ν·g(0))·S_ν(g − g(0), ψ), so Z(g, ψ; T) = Z(g − g(0), ψ; ψ(g(0))T), which is a polynomial of the same degree.",
+   "reason": "Proposition 5.9 has no hypothesis g(0) = 0 and its proof invokes Lemma 5.11; for g(0) ≠ 0, η(X) = ψ(g(0)) can be ≠ 1, so part (1) of the lemma (X ∈ ker η) fails and the character does not factor through C(d + 1) as stated. The rescaling repairs the proof; FF.2/additive-l-function-is-polynomial uses a proof that needs no such reduction.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the lecture-notes page https://people.math.ethz.ch/~kowalski/lecture-notes.html (one version, no errata)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E304",
+   "kind": "misprint",
+   "locator": "Chapter 4, end of section 4.3, printed p. 63",
+   "printed": "Hence, for q > q0 = max((γ + 1)4, k2 0), we obtain",
+   "correction": "q0 = max((γ + 1)^4, (2k0)^2), as the preceding sentence requires.",
+   "reason": "k = ⌊γm/(γ + 1)⌋ + γ + 1 ≥ k0 needs m = √q > 2k0 when γ ≥ 1; q > k0² gives only m > k0. The value of q0 is nevertheless unchanged: γ = (d − 1)(deg g − 1)/2 = k0/2 and (k0/2 + 1)^4 ≥ (2k0)^2 always ((k0/2 − 1)^2 ≥ 0), so max((γ + 1)^4, (2k0)^2) = (γ + 1)^4.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the lecture-notes page https://people.math.ethz.ch/~kowalski/lecture-notes.html (one version, no errata)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E305",
+   "kind": "misprint",
+   "locator": "Chapter 5, display (5.2) after Lemma 5.3, printed p. 68",
+   "printed": "(5.2) |{(x, y) ∈ Fq2ν × Fq2ν | yq − y = g(x)}| ⩽ q2ν + Dqν where C depends only on d and q.",
+   "correction": "'where D depends only on d and q' (or C in both places, as in Theorem 5.2).",
+   "reason": "The constant is named D in the display and C in the sentence that qualifies it.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the lecture-notes page https://people.math.ethz.ch/~kowalski/lecture-notes.html (one version, no errata)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E306",
+   "kind": "misprint",
+   "locator": "[Sommes trig.] Exemple 3.5, volume p. 190 (read from the page image of the IAS scan of LNM 569)",
+   "printed": "on a ψ(a^p−a) = 0 . ... Cette somme est nulle pour f de la forme g^p−g .",
+   "correction": "ψ(a^p − a) = 1, and for f = g^p − g the sum S'_f equals the number of rational points where f is finite: the sum is trivial (no cancellation), not zero.",
+   "reason": "Tr_{F_q/F_p}(a^p − a) = 0 because the trace is invariant under the p-power Frobenius, so ψ(a^p − a) = exp(0) = 1, and then every term ψ((g^p − g)(x)) of S'_f equals 1. The intended meaning — the Artin–Schreier trivial phases must be removed — is clear from the modification that follows, which is correct.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the IAS scan of the published volume (no errata leaf)",
+    "the EXT-08 decomposition of the same passage in research/expansion/external/EXT-08, which quotes the modification but does not record the slip"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Pierre Deligne, Cohomologie etale (SGA 4 1/2), expose 'Application de la formule des traces aux sommes trigonometriques' [Sommes trig.], Lecture Notes in Mathematics 569, Springer 1977, pp. 168-232; scan served by the Institute for Advanced Study (publications.ias.edu, file Number32.pdf, 351 pages); accessed 2026-09-25. This is the roadmap's source DELIGNE.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E307",
+   "kind": "error",
+   "locator": "section 4.2.3, p. 12 (arXiv v3)",
+   "printed": "If f ∈ Fq(X) − Fq, the pull-back sheaf Lψ(f) is geometrically irreducible and has conductor 1 + number of poles of f + sum of multiplicities of the poles of f.",
+   "correction": "C(L_ψ(f)) = 1 + #{x : v*_x(f) > 0} + Σ_x v*_x(f), with v* the modified pole order of Sommes trig. Exemple 3.5; this is at most 1 + #poles + Σ multiplicities, with equality when every pole order is prime to p. If f = g^p − g + c then L_ψ(f) is geometrically trivial of conductor 1.",
+   "reason": "Sw_x(L_ψ(f)) = v*_x(f) (Sommes trig. (3.5.4)), smaller than the pole order when p divides it. For f = X^p: Tr(x^p) = Tr(x)^p, so L_ψ(X^p) ≅ L_{ψ′}(X) with ψ′ = ψ ∘ Frob_p, of conductor 3, whereas the printed formula gives p + 2; for f = X^p − X the sheaf is trivial.",
+   "affects": "a stated result",
+   "known": "none found",
+   "searched": [
+    "the arXiv listing of 1712.03173 (versions v1, v2, v3; v3 read)",
+    "the published version in Contemporary Mathematics 740 was not accessible"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Etienne Fouvry, Emmanuel Kowalski, Philippe Michel, Will Sawin, Lectures on Applied l-adic Cohomology, arXiv:1712.03173v3 (16 April 2019), 68 pages; published in Contemporary Mathematics 740 (2019); arXiv version read; accessed 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E308",
+   "kind": "misprint",
+   "locator": "section 4.2.4, p. 12 (arXiv v3), the displayed definitions of Kl_{k,ψ}(x; q) and Kl_{k,ψ}(x; q^n)",
+   "printed": "Klk,ψ(x; q) = ⋆k timesψ(x) = 1/q(k−1)2 Σ x1,...,xk∈F×q, x1.....xk=x ψ(x1 + . . . + xk)",
+   "correction": "the normalising factor is q^{−(k−1)/2} (and q^{−n(k−1)/2} over F_{q^n}), as in section 2.2 and as forced by k − 1 convolutions each normalised by q^{−1/2}.",
+   "reason": "The page image shows the exponent '(k−1)2'; the k-fold convolution with the normalisation 1/q^{1/2} per convolution (displayed just above) gives q^{−(k−1)/2}, and section 2.2 of the same text defines Kl_k with 1/q^{(k−1)/2}.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the arXiv listing of 1712.03173 (v3 read)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Etienne Fouvry, Emmanuel Kowalski, Philippe Michel, Will Sawin, Lectures on Applied l-adic Cohomology, arXiv:1712.03173v3 (16 April 2019), 68 pages; published in Contemporary Mathematics 740 (2019); arXiv version read; accessed 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E309",
+   "kind": "misprint",
+   "locator": "proof of Lemma 3.2, p. 910 (arXiv v3 p. 17)",
+   "printed": "Hi c(X, ϕ∗Lψ) = Hi−2 c (X × A1, ϕ∗Lψ ⊠ Qℓ)",
+   "correction": "H^i_c(X, ϕ^*L_ψ) = H^{i+2}_c(X × A¹, ϕ^*L_ψ ⊠ ℚ_ℓ)(1).",
+   "reason": "Künneth with H*_c(A¹, ℚ_ℓ) = ℚ_ℓ(−1)[−2] shifts degrees up by 2; the chain ends in 0 in every degree, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "PAPER-BROWNING-SAWIN-20/E11 (the paper extraction's finding, confirmed by REV-PAPER-BROWNING-SAWIN-20); no published correction",
+   "searched": [
+    "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json (E11 and its review)",
+    "arXiv listing 1711.10451 (v3 is the final version)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Tim Browning and Will Sawin, A geometric version of the circle method, arXiv:1711.10451v3 (19 February 2020; published Ann. of Math. 191 (2020), 893-948); arXiv v3 read, published locators taken from the reviewed extraction PAPER-BROWNING-SAWIN-20; accessed 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E401",
+   "kind": "misprint",
+   "locator": "Exercise 20.7, printed p. 537 (PDF p. 555), Version 2 as read",
+   "printed": "Show that the expected running time bound of Theorem 20.6 still holds (you may assume p = 2 for simplicity).",
+   "correction": "'Theorem 20.6' should be 'Theorem 20.7'.",
+   "reason": "The exercise modifies Algorithm EDF, whose expected running-time bound (for p = 2) is Theorem 20.7; Theorem 20.6 is the deterministic bound O(ℓ³ len(q)) of Algorithm DDF, which has no expectation and no dependence on p = 2.",
+   "affects": "nothing",
+   "known": "none found; not in the author's errata list errata-v2.pdf (last updated 28 March 2017)",
+   "searched": [
+    "https://shoup.net/ntb/errata-v2.pdf (read 2026-09-25)",
+    "the book's page https://shoup.net/ntb/"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Victor Shoup, A Computational Introduction to Number Theory and Algebra (Version 2), Version 2, the author's freely distributable PDF (598 pages); printed page = PDF page − 18; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E402",
+   "kind": "misprint",
+   "locator": "proof of Theorem 20.7, printed p. 535, line beginning E[Lij] = …",
+   "printed": "E[Lij] = Σ_{n≥1} P[Lij ≥ n] = Σ_{i≥1} 2^(−(n−1)) = 2",
+   "correction": "The index of the second summation should be n, not i: Σ_{n≥1} 2^(−(n−1)) = 2.",
+   "reason": "The summand depends on n; with index i the sum is meaningless.",
+   "affects": "nothing",
+   "known": "Listed in the author's errata (errata-v2.pdf, p. 535 entry, Elena Kirshanova, 2 October 2014).",
+   "searched": [
+    "https://shoup.net/ntb/errata-v2.pdf (read 2026-09-25)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Victor Shoup, A Computational Introduction to Number Theory and Algebra (Version 2), Version 2, the author's freely distributable PDF (598 pages); printed page = PDF page − 18; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E403",
+   "kind": "misprint",
+   "locator": "Lecture 7 (Fall 2023) §7.10, p. 8, and §7.11 item 4, p. 9",
+   "printed": "Algorithm 8.2 Given α1, . . . , αm ∈ Fq compute α1^(−1), . . . , αm^(−1) as follows: […] In the context of Algorithm 8.1, if we are using a table of baby steps",
+   "correction": "In Lecture 7 the batch-inversion algorithm is Algorithm 7.10 and the baby-steps giant-steps algorithm it refers to is Algorithm 7.9 (also in §7.11 item 4, 'modify Algorithm 8.1' means Algorithm 7.9).",
+   "reason": "Lecture 7 numbers its algorithms 7.4, 7.8, 7.9; the labels 8.1, 8.2 are left from an earlier numbering, and Lecture 8's Algorithm 8.1 is Schoof's algorithm.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the Fall 2023 lecture notes on the course page (math.mit.edu/classes/18.783/2023/LectureNotes7.pdf, LectureNotes8.pdf)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Andrew V. Sutherland, 18.783 Elliptic Curves, lecture notes, MIT, Fall 2023: Lecture 3 (14 Sept 2023), Lecture 7 (3 Oct 2023), Lecture 8 (5 Oct 2023), read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E404",
+   "kind": "gap",
+   "locator": "proof of Theorem 7.33 (existence), p. 122, Version 3.08",
+   "printed": "Suppose we have constructed monic polynomials gn, hn such that f − gnhn ≡ 0 mod π^(n+1)A[X] […] Because g0 and h0 are monic and relatively prime, Lemma 7.34 shows that such polynomials exist.",
+   "correction": "Add: the sequences (gn), (hn) have coefficients that are Cauchy in the π-adic topology (g_{n+1} ≡ g_n mod π^(n+1)), so by completeness of A they converge to monic g, h of degrees deg g0, deg h0, and f − gh ∈ ⋂ π^n A[X] = 0.",
+   "reason": "The proof ends with the inductive step; the passage to the limit, which is where completeness of A is used, and the conclusion f = gh are not written.",
+   "affects": "the proof",
+   "known": "none found",
+   "searched": [
+    "the current version (v3.08) at https://www.jmilne.org/math/CourseNotes/ANT.pdf, read in full at the locator"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "J. S. Milne, Algebraic Number Theory (course notes), Version 3.08, 19 July 2020, read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E405",
+   "kind": "misprint",
+   "locator": "Lecture 8 (Fall 2023) §8.1, p. 2",
+   "printed": "Recall from Lecture 4 that the distinct roots of f in Fq are precisely the roots of gcd(xq −x, f(x)).",
+   "correction": "In the Fall 2023 notes this is Lecture 3, §3.10.2 ('Using GCDs to find roots').",
+   "reason": "Lecture 4 of Fall 2023 is 'Isogenies'; the gcd statement is in Lecture 3 §3.10.2.",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the Fall 2023 lecture notes 3, 4 and 8 on the course page"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Andrew V. Sutherland, 18.783 Elliptic Curves, lecture notes, MIT, Fall 2023: Lecture 3 (14 Sept 2023), Lecture 7 (3 Oct 2023), Lecture 8 (5 Oct 2023), read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E501",
+   "kind": "error",
+   "locator": "Chapter 4, §4.5, printed p. 109 (public draft of October 14, 2009)",
+   "printed": "For each divisor e of d the Galois ring S contains the ring GR(p^n, e) and this accounts for all the subrings of S.",
+   "correction": "The Galois subrings (subrings R′ that are local with maximal ideal pR′, equivalently Galois extensions of Z/(p^n) inside S) are exactly the GR(p^n, e) with e | d; other subrings exist.",
+   "reason": "In S = GR(4, 2) = (Z/4)[x]/(x² + x + 1) the set Z/4 + 2S is closed under addition and multiplication, contains 1, and has 4·4/2 = 8 elements, while GR(4, 1) and GR(4, 2) have 4 and 16 elements.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E502",
+   "kind": "gap",
+   "locator": "Chapter 1, proof of Theorem 1.6, printed p. 11 (arXiv v1)",
+   "printed": "Suppose that f has exactly j roots in Fq. Then b(q−1)q−1 = −∑c∈Fq f(c)^{q−1} = −(q −j) = j, and since 0 ⩽ j ⩽ q −1 we have b(q−1)q−1 = 1 if and only if j = 1.",
+   "correction": "Only 'j = 1 ⇒ b = 1' holds; b is j reduced mod p, so b = 1 iff j ≡ 1 (mod p). Theorem 1.6 remains true because its proof only needs this implication (and a permutation polynomial has exactly one root).",
+   "reason": "q = 9: X⁴ − 1 has j = 4 roots in F₉ (the fourth roots of unity in the cyclic group of order 8), yet −(9 − 4) = −5 = 1 in F₃, so the reduction of (X⁴ − 1)⁸ is monic of degree 8.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv abs page of 1211.6044 (v1 is the only version)",
+    "web search for a corrected version of the thesis (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Christopher J. Shallue, Permutation polynomials of finite fields, arXiv:1211.6044v1 (23 November 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E503",
+   "kind": "misprint",
+   "locator": "Chapter 1, Theorem 1.16, printed p. 15 (arXiv v1)",
+   "printed": "If each ai is an element of Fq then L(x) is a PP of Fqm if and only if gcd(∑_{i=0}^{m−1} a_i x^i, x^i − 1) = 1.",
+   "correction": "gcd(∑_{i=0}^{m−1} a_i x^i, x^m − 1) = 1.",
+   "reason": "The exponent i is the bound summation variable; the criterion (Lidl–Niederreiter Theorem 7.24) uses x^m − 1, as the associate of x^{q^m} − x.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abs page of 1211.6044 (v1 is the only version)",
+    "web search for a corrected version of the thesis (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Christopher J. Shallue, Permutation polynomials of finite fields, arXiv:1211.6044v1 (23 November 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E504",
+   "kind": "error",
+   "locator": "Chapter 1, Corollary 1.8 and proof, printed p. 11 (arXiv v1)",
+   "printed": "Corollary 1.8. If q ≡ 1 mod n then there is no PP of Fq of degree n.",
+   "correction": "Add n ≥ 2 (equivalently n > 1): if n ≥ 2 and n | q − 1 there is no permutation polynomial of degree n.",
+   "reason": "For n = 1 the hypothesis q ≡ 1 mod 1 always holds, but every linear polynomial ax + b with a ≠ 0 is a permutation polynomial; the proof applies Hermite's condition (2) with t = m = (q − 1)/n, which requires m ≤ q − 2, i.e. n ≥ 2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv abs page of 1211.6044 (v1 is the only version)",
+    "web search for a corrected version of the thesis (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Christopher J. Shallue, Permutation polynomials of finite fields, arXiv:1211.6044v1 (23 November 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E505",
+   "kind": "error",
+   "locator": "Chapter 4, §4.5, printed p. 110 (public draft)",
+   "printed": "It follows that, in general, S× contains cyclic subgroups of order (p^d −1)p^{n−1} and that |S×| = (p^d −1)p^{d(n−1)}.",
+   "correction": "The cyclic-subgroup claim holds for p odd, and for p = 2 when d ≥ 2 or n ≤ 2; for p = 2, d = 1, n ≥ 3 the largest cyclic subgroup of (Z/2^n)^× has order 2^{n−2}.",
+   "reason": "(Z/8)^× = {1, 3, 5, 7} has exponent 2, so it has no cyclic subgroup of order (2 − 1)·2² = 4; this also follows from the source's own Proposition 4.2.1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E506",
+   "kind": "misprint",
+   "locator": "Chapter 6, Example 6.1.3 and Table 6.1, printed pp. 154–155 (public draft)",
+   "printed": "Example 6.1.3. As a first example, take R = F2 and consider the recurrence a4 = a1 + a0. This recurrence corresponds to the connection polynomial q(x) = x^4 + x + 1",
+   "correction": "By (6.2), q(x) = −1 + ∑ q_i x^i with q_3 = q_4 = 1, i.e. q(x) = x^4 + x^3 + 1 (as the caption of Table 6.1 says); x^4 + x + 1 is its reciprocal, the characteristic polynomial.",
+   "reason": "a4 = q1a3 + q2a2 + q3a1 + q4a0 with a4 = a1 + a0 gives q3 = q4 = 1 and q1 = q2 = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E507",
+   "kind": "gap",
+   "locator": "Chapter 13, proof of Proposition 13.1.2(4), printed p. 313 (public draft)",
+   "printed": "Every LFSR sequence satisfies the shift and add condition, so part (4) is just a restatement of Proposition 11.2.4.",
+   "correction": "The shift-and-add property holds for m-sequences (a(n) + c·a(n + τ) = Tr(A(1 + cα^τ)α^n) is a shift because α generates L^×), not for every LFSR sequence; Proposition 11.2.4 concerns de Bruijn sequences, not shift-and-add.",
+   "reason": "Over F₂ the sequence 1, 0, 1, 0, … satisfies a_n = a_{n−2}, and a + (its 1-shift) = 1, 1, 1, …, which is not a shift of a.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E508",
+   "kind": "misprint",
+   "locator": "Chapter 6, Theorems 6.6.8 and 6.6.9, printed pp. 173–175 (public draft)",
+   "printed": "Then there exist m unique sequences b(1), b(2), · · · , b(m−1), each of which satisfies the linear recurrence defined by f(x), such that, for all n ≥ 0, an = ∑_{i=0}^{m−1} δi(n)b(i)n .",
+   "correction": "The m sequences are b^(0), …, b^(m−1) (and 'a0, a1, … in k' should read 'in F'); in Theorem 6.6.8 the constants are A_1, …, A_m and the system has m unknowns (not r).",
+   "reason": "The sum runs over i = 0, …, m − 1, so m sequences indexed from 0 are needed; the list b(1), …, b(m−1) has m − 1 entries.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E509",
+   "kind": "error",
+   "locator": "Chapter 14, §14.8, printed p. 339 (public draft)",
+   "printed": "In either case, let us consider the autocorrelation A(τ) with shift τ ≢ 0 (mod p). (Note that A(0) = p.)",
+   "correction": "A(0) = p − 1 + |ψ(0)|²: it is p for the Legendre sequence (ψ(0) = 1) and p − 1 for a Dirichlet sequence with ψ(0) = 0.",
+   "reason": "A(0) = ∑_{x=0}^{p−1} |ψ(x)|², and the term x = 0 contributes |ψ(0)|².",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E510",
+   "kind": "error",
+   "locator": "Chapter 13, Proposition 13.2.1(3) and its proof, printed pp. 313–314 (public draft)",
+   "printed": "3. The decimation a[d] is a left shift of a if and only if d is a power of |F|.",
+   "correction": "a[d] is a left shift of a iff d ≡ |F|^j (mod |F|^r − 1) for some j. (In the proof, '1 ≤ d ≤ |L| − 1' and 'relatively prime to |L| − 1' should read |E|.)",
+   "reason": "a[d] depends only on d modulo the period |F|^r − 1: over F₂ with r = 2, d = 7 ≡ 1 (mod 3) gives a[7] = a, although 7 is not a power of 2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E511",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 37, printed p. 17 (arXiv v1)",
+   "printed": "This yields the converse inclusion CΩ(P1, P, (f)0 −P) ⊆ Γ(x, f, Fq) and concludes the proof.",
+   "correction": "CΩ(P¹, P, (f)₀ − P∞) ⊆ Γ(x, f, F_q).",
+   "reason": "The theorem and the first half of the proof use the divisor (f)₀ − P∞.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abs page of 2009.01281 (all listed versions)",
+    "web search for an erratum (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Alain Couvreur and Hugues Randriambololona, Algebraic geometry codes and some applications, arXiv:2009.01281v1 (2 September 2020); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E512",
+   "kind": "error",
+   "locator": "Chapter 13, Proposition 13.3.1 and proof, printed pp. 314–315 (public draft)",
+   "printed": "Let z = (q^{n−m} −1)/(q −1). Proposition 13.3.1. IF d = (|K| −1)/(|E| −1), then depending on ω, the decimation b = a[d] is either a shift of the m-sequence c (for d −z values of ω) or the zero sequence of length |E| −1 (for d −z values of ω).",
+   "correction": "The statement is about the d columns t of the array (not about ω): there are z = (q^{n−m} − 1)/(q^m − 1) zero columns and d − z columns that are shifts of c.",
+   "reason": "For q = 2, n = 4, m = 2 (d = 5): the kernel of Tr_{K/E} is a 1-dimensional E-subspace, i.e. one E^×-coset among the 5, so exactly one column is zero, while (q^{n−m} − 1)/(q − 1) = 3; the counting identity of the proof, N₁(q^{m−1} − 1) + N₀(q^m − 1) = q^{n−1} − 1, also gives N₀ = 1. The second 'd − z' should be 'z'.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E513",
+   "kind": "error",
+   "locator": "Chapter 1, proof of Theorem 1.17, printed p. 15 (arXiv v1)",
+   "printed": "If c = a^{−1}b then we have f(x) = ax^{p^h} + b = a(x^{p^h} + c) = a(x + c)^{p^h}.",
+   "correction": "Take c′ ∈ F_q with c′^{p^h} = a^{−1}b (it exists since F_q is perfect); then f(x) = a(x + c′)^{p^h}. The conclusion of the sufficiency part is unaffected.",
+   "reason": "(x + c)^{p^h} = x^{p^h} + c^{p^h}, which differs from x^{p^h} + c unless c^{p^h} = c; e.g. over F₄ with p^h = 2 and c = ω: (x + ω)² = x² + ω² ≠ x² + ω.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv abs page of 1211.6044 (v1 is the only version)",
+    "web search for a corrected version of the thesis (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Christopher J. Shallue, Permutation polynomials of finite fields, arXiv:1211.6044v1 (23 November 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E514",
+   "kind": "misprint",
+   "locator": "§8, printed p. 4 (arXiv v1)",
+   "printed": "Katz [3], Li [5] proved that |λi(a)| ≤ 2√q for i = 1, . . . , q −1, which confirms that Xa(δ, a) is Ramanujan.",
+   "correction": "X_q(δ, a).",
+   "reason": "The graphs are named X_q(δ, a) throughout the note.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abs page of math/9411217 (all listed versions)",
+    "web search for an erratum (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Jinghua Kuang, Eigenfunctions on the Finite Poincaré Plane, arXiv:math/9411217v1 (29 November 1994); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E515",
+   "kind": "misprint",
+   "locator": "Chapter 3, §3.3.a, printed p. 77 (public draft)",
+   "printed": "But if the characteristic of F is odd then half the elements are squares, and the quadratic character η : F× → {0, 1} is defined by η(x) = 1 if x = a^2 for some a ∈ F and η(x) = −1 otherwise.",
+   "correction": "η : F^× → {1, −1}.",
+   "reason": "The definition itself assigns the value −1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the authors' pages (www.cs.uky.edu/~klapper, the PDF of October 14, 2009, which is the only public version)",
+    "the Cambridge University Press page of the 2012 book (no public errata list found)",
+    "web search for 'Algebraic Shift Register Sequences errata' (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Mark Goresky and Andrew Klapper, Algebraic Shift Register Sequences, Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E601",
+   "kind": "error",
+   "locator": "Chapter 3, Corollary 3.3, printed p. 32 (version of September 14, 2021)",
+   "printed": "Let g ∈ Z[X] be a cubic polynomial with no multiple root in C, or in other words, such that the discriminant of f is non-zero; for instance, take g = X3 + aX + b where ∆ = a3 −27b2 ≠ 0.",
+   "correction": "The discriminant of X³ + aX + b is −4a³ − 27b² (and 'discriminant of f' should read 'of g').",
+   "reason": "For a = −3, b = 2, g = (X − 1)²(X + 2) has a double root, but a³ − 27b² = −27 − 108 = −135 ≠ 0; for a = 3, b = 1, a³ − 27b² = 0 although g has three distinct roots (−4a³ − 27b² = −135).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the author's page at people.math.ethz.ch/~kowalski (the version of September 14, 2021 is the latest found)",
+    "web search for errata to the notes (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E602",
+   "kind": "gap",
+   "locator": "Chapter 3, proof of Corollary 3.3, printed p. 32 (version of September 14, 2021)",
+   "printed": "Thus we have |∑_{0⩽x⩽p−1} (g(x)/p)| ⩽ 2√p, for all primes p ⩾ p0 = max(3, p1, p2), where p1 is the largest prime divisor of a3, and p2 that of ∆.",
+   "correction": "The bound needs p ∤ a₃Δ, so it holds for p > max(3, p₁, p₂) (p = p₁ or p = p₂ must be excluded); the final 'for all primes' bound is unaffected after adjusting the constant.",
+   "reason": "For p = p₂ the reduction of g has a repeated root, so the theorem is applied with m = 3 outside its hypothesis.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's page at people.math.ethz.ch/~kowalski",
+    "web search for errata (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums/E603",
+   "kind": "misprint",
+   "locator": "Chapter 4, Remark 4.29, printed p. 65 (version of September 14, 2021)",
+   "printed": "if q is odd and g ∈ Fq[X] is monic squarefree of degree 3, say g = X3 + aX + b, we obtain |{(x, y) ∈ Fq × Fq | y2 = x3 + ax + b}| = q −a where |a| ⩽ 2√q.",
+   "correction": "Use a different letter for the trace: #{(x, y) : y² = x³ + ax + b} = q − t with |t| ≤ 2√q.",
+   "reason": "The letter a is already the coefficient of x; |a| ≤ 2√q is not a statement about that coefficient.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's page at people.math.ethz.ch/~kowalski",
+    "web search for errata (none found)"
+   ],
+   "owner": "FiniteFieldsAndCharacterSums",
+   "file": "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+   "citation": "Emmanuel Kowalski, Exponential sums over finite fields: elementary methods, Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
