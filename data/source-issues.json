@@ -127185,6 +127185,494 @@
    "reviewReason": null
   },
   {
+   "id": "ColemanIntegration/E1",
+   "kind": "misprint",
+   "locator": "Section 2, opening paragraph, p. 3 (arXiv v2; identical in arXiv v1)",
+   "printed": "a homomorphism Log : C_p^x -> C_p whose restriction to the disc {x in C_p : |x - 1| < 1} is given by the logarithm series log(x) = sum_{i=1}^infinity (1-x)^i/i.",
+   "correction": "log(x) = -sum_{i >= 1} (1 - x)^i / i = sum_{i >= 1} (-1)^(i+1) (x - 1)^i / i.",
+   "reason": "For x = 1 + h with h small the logarithm is h + O(h^2), while the printed series gives -h + O(h^2); the printed series is -log(x).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 1004.4936 (versions v1 of 28 April 2010 and v2 of 4 May 2010): the misprint is in both",
+    "the published ANTS IX version (LNCS 6197) was not accessible"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Jennifer S. Balakrishnan, Robert W. Bradshaw, Kiran S. Kedlaya, Explicit Coleman integration for hyperelliptic curves, arXiv:1004.4936v2 (ANTS IX, LNCS 6197, 2010); v1 also checked for the source issues",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E2",
+   "kind": "misprint",
+   "locator": "Section 3.3, Algorithm 11, step 2, p. 8 (arXiv v2)",
+   "printed": "As the eigenvalues of the matrix M are algebraic integers of C_p-norm p^(m/2) != 1 (see [21, Section 2]), the matrix M - I is invertible",
+   "correction": "The eigenvalues are algebraic integers of complex absolute value p^(m/2) under every embedding into C (Weil numbers of weight 1); hence none equals 1 and M - I is invertible.",
+   "reason": "An algebraic integer has C_p-norm at most 1, so no eigenvalue can have C_p-norm p^(m/2) > 1; for an ordinary curve some eigenvalues are p-adic units. The argument needs the archimedean absolute value (Riemann hypothesis for curves).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv versions v1 and v2 of 1004.4936",
+    "the published ANTS IX version was not accessible"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Jennifer S. Balakrishnan, Robert W. Bradshaw, Kiran S. Kedlaya, Explicit Coleman integration for hyperelliptic curves, arXiv:1004.4936v2 (ANTS IX, LNCS 6197, 2010); v1 also checked for the source issues",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E3",
+   "kind": "misprint",
+   "locator": "Section 1.3.3, formula for the action of phi on points, p. 7 (author copy of 7 November 2010)",
+   "printed": "phi(z) = (sigma^(-1) g_1(z), . . . , sigma^(-1) g_1(z)) .",
+   "correction": "phi(z) = (sigma^(-1) g_1(z), ..., sigma^(-1) g_n(z)).",
+   "reason": "g_i = phi(t_i) for i = 1, ..., n; the i-th coordinate of phi(z) is sigma^(-1) g_i(z).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author copy on Besser's page (only version available to us)",
+    "the Springer version was not accessible"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Heidelberg lectures on Coleman integration, author copy dated 7 November 2010, from the author's page, read 2026-09-25; published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, pp. 3-52",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E4",
+   "kind": "misprint",
+   "locator": "Section 1.4, proof of Lemma 1, p. 8",
+   "printed": "Then sigma^r is the identity on K and so we obtain the equation x = M_r x + d^i . ... This shows that x = (I - M_r)^(-1) d^i",
+   "correction": "x = M_r x + d_r and x = (I - M_r)^(-1) d_r, where d_r is the constant term obtained after r iterations (the index is r, not i).",
+   "reason": "The iterated equation is sigma^i(x) = M_i x + d^i for each i; specialising to i = r (where sigma^r = id) gives the displayed equation with d^r.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author copy on Besser's page",
+    "the Springer version was not accessible"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Heidelberg lectures on Coleman integration, author copy dated 7 November 2010, from the author's page, read 2026-09-25; published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, pp. 3-52",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E5",
+   "kind": "gap",
+   "locator": "Section 1.4, end of the proof of Theorem 2 (independence of phi), p. 9",
+   "printed": "This follows because one can show that the function H(x, y) = int_x^y omega is in fact an analytic function in two variables on the space of pairs (x, y) reducing to the same point, and that then the function h may be taken to be the pullback of H via the map (phi, phi') (we do not give full details here).",
+   "correction": "A complete argument: expand F_omega(phi'(x)) around phi(x) by Taylor's formula; the series sum_k ((phi' - phi)^k/k!) phi^*(partial^(k-1) f) converges on a strict neighbourhood because |phi' - phi| <= |pi| and |1/k| grows polynomially, and gives an overconvergent h with h(x) = int_(phi(x))^(phi'(x)) omega (ColemanIntegration:L1/taylor-homotopy).",
+   "reason": "The analyticity of H on the tube of the diagonal and the identification of h are asserted without proof; the author says so.",
+   "affects": "the proof",
+   "known": "stated in the source itself ('we do not give full details here')",
+   "searched": [
+    "the author copy on Besser's page",
+    "Besser, Math. Ann. 322 (2002) (arXiv:math/0011269), which proves independence by the Tannakian route (Corollary 3.2) instead"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Heidelberg lectures on Coleman integration, author copy dated 7 November 2010, from the author's page, read 2026-09-25; published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, pp. 3-52",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E6",
+   "kind": "misprint",
+   "locator": "Section 1.3.2, definition of T_n^dagger, p. 5",
+   "printed": "T_n^dagger = { sum a_I t^I , a_I in R, exists r > 1 such that lim_{I -> infinity} |a_I| r^I = 0 }",
+   "correction": "The condition is |a_I| r^(|I|) -> 0, with |I| = i_1 + ... + i_n (as in the preceding definition of O(B°_n)).",
+   "reason": "r is a real number and I a multi-index; r^I has no meaning unless read as r^(|I|).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author copy on Besser's page"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Heidelberg lectures on Coleman integration, author copy dated 7 November 2010, from the author's page, read 2026-09-25; published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, pp. 3-52",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E7",
+   "kind": "misprint",
+   "locator": "Proposition 5.3, p. 16 (arXiv v1)",
+   "printed": "Let A_Col,1(T) = A(T) and let A_Col,n+1(T) be the product inside A_Col(T) of A(T) with {f in A_Col(T), df in Omega^1(T) . A_Col,n-1(T)}.",
+   "correction": "... with {f in A_Col(T), df in Omega^1(T) . A_Col,n(T)}.",
+   "reason": "With n - 1 the recursion refers to A_Col,0(T), which is not defined, when n = 1; Proposition 5.5 and Coleman's recursion M_(i+1) = A . int(W_i) use the previous step n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of math/0011269 (single version v1)",
+    "the Math. Ann. version was not accessible"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Coleman integration using the Tannakian formalism, arXiv:math/0011269v1 (published Math. Ann. 322 (2002))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E8",
+   "kind": "misprint",
+   "locator": "Definition 4.7, p. 13 (arXiv v1)",
+   "printed": "we immediately obtain a ring homomorphism f^* : A_Col(T) -> A_Col(T') and maps f^* Omega^i_Col(T) -> Omega^i_Col(T) compatible with the differentials",
+   "correction": "maps f^* : Omega^i_Col(T) -> Omega^i_Col(T').",
+   "reason": "Pullback along f : T' -> T lands in forms on T', as for functions in the same sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of math/0011269 (single version v1)"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Coleman integration using the Tannakian formalism, arXiv:math/0011269v1 (published Math. Ann. 322 (2002))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E9",
+   "kind": "gap",
+   "locator": "Theorem 6.1(ii), p. 36, and its proof, pp. 37-38 (arXiv v2)",
+   "printed": "L_p(theta, 1) = -(1 - theta(p)p^-1) (1/G(theta^-1)) sum_{c in (Z/NZ)^x} theta^-1(c) log_p(1 - eps_N^c).",
+   "correction": "The notes use log_p on elements of Q_p(mu_N)^x without defining it on C_p^x; read it as the Iwasawa branch (log_p(p) = 0). For non-trivial theta the value does not depend on the branch: v_p(1 - eps_N^c) is the same for all c in (Z/NZ)^x and sum_c theta^-1(c) = 0, so the branch terms (b - a) v_p(1 - eps_N^c) cancel.",
+   "reason": "Only Lemma 4.? on the exponential and the logarithm on 1 + pZ_p appear before Section 6; when N is a power of p, 1 - eps_N^c is not a unit (valuation 1/(p^(n-1)(p - 1))), so log_p(1 - eps_N^c) depends on the branch.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2309.15692 v2 full text (search for log_p, logarithm and branch)",
+    "the arXiv abstract page (versions v1, v2)"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E10",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.6, arXiv v1 and v2, p. 10 (the published version, p. 877, has the corrected text)",
+   "printed": "According to [Col82, Proposition 7.1], Li_{n,a}(z) − Li_{n−1,a}(z) log(z) extends to an analytic function on |1−z| < 1.",
+   "correction": "Li_{n,a}(z) − (1/(n−1))·Li_{n−1,a}(z)·log(z) extends to an analytic function on |1 − z| < 1 (the function γ_n used in the next line).",
+   "reason": "On the residue disc of 1, Li_n = λ_n − log(z)^{n−1}log(1 − z)/(n − 1)! with λ_n analytic (ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs); hence Li_n − log(z)Li_{n−1} = λ_n − log(z)λ_{n−1} + (n − 2)/(n − 1)!·log(z)^{n−1}log(1 − z), which is not analytic at 1 for n ≥ 3, while with the factor 1/(n − 1) the logarithmic terms cancel.",
+   "affects": "nothing",
+   "known": "corrected in the published version, Ann. Sci. École Norm. Sup. 36 (2003), p. 877",
+   "searched": [
+    "arXiv:math/0110334v1",
+    "arXiv:math/0110334v2",
+    "published version (numdam PDF)"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, Ann. Sci. École Norm. Sup. (4) 36 (2003), 867-924 (version of record, read from numdam, PDF sha256 c269f455db5fc0b69452a620d639b3a9d44d56b59ce9d79ec78cd1e5a00fb872); arXiv:math/0110334v2 (sha256 67b19d01ef3da4fdc8c2a3406868fa93abd2ac49782fb536614b2f051f2ed498) and v1 (sha256 043218c8ce5fc058ecb5db1ec779928fb99bcc5fdcf8317b4fb438d1ab5051b8) compared at every cited passage",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E11",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.6, arXiv v1 and v2, pp. 10-11 (the published version, p. 877, has the corrected text)",
+   "printed": "For |z − 1| < 1 this relation now reads C = m^{n−1} · m · C, which shows C = 0 as required.",
+   "correction": "For |z − 1| < 1 and m = p this relation now reads C = m^{n−1}·m·C (for general m it reads C = m^{n−1}·p^{v_p(m)}·C).",
+   "reason": "For z in the residue disc of 1, ζz lies in that disc only for ζ of p-power order; the other terms vanish because γ_n = 0 off the residue discs of 1 and ∞. The conclusion C = 0 holds for every m ≥ 2.",
+   "affects": "nothing",
+   "known": "corrected in the published version, Ann. Sci. École Norm. Sup. 36 (2003), p. 877 ('For |z − 1| < 1 and m = p')",
+   "searched": [
+    "arXiv:math/0110334v1",
+    "arXiv:math/0110334v2",
+    "published version (numdam PDF)"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, Ann. Sci. École Norm. Sup. (4) 36 (2003), 867-924 (version of record, read from numdam, PDF sha256 c269f455db5fc0b69452a620d639b3a9d44d56b59ce9d79ec78cd1e5a00fb872); arXiv:math/0110334v2 (sha256 67b19d01ef3da4fdc8c2a3406868fa93abd2ac49782fb536614b2f051f2ed498) and v1 (sha256 043218c8ce5fc058ecb5db1ec779928fb99bcc5fdcf8317b4fb438d1ab5051b8) compared at every cited passage",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E12",
+   "kind": "misprint",
+   "locator": "§1, p. 869 of the published version (also arXiv v1 and v2, p. 3)",
+   "printed": "The function Li_n(z) extends to a locally analytic function on C_p \\ {1} with Li_n(z) = 0 for n ⩾ 1.",
+   "correction": "... with Li_n(0) = 0 for n ⩾ 1.",
+   "reason": "Li_n is not identically zero (on the open unit disc it is Σ z^k/k^n, as the previous sentence says); the intended normalisation is the value at 0, matching lim_{z→0} Li_n(z) = 0 two sentences earlier.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0110334v1",
+    "arXiv:math/0110334v2",
+    "published version (numdam PDF)"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, Ann. Sci. École Norm. Sup. (4) 36 (2003), 867-924 (version of record, read from numdam, PDF sha256 c269f455db5fc0b69452a620d639b3a9d44d56b59ce9d79ec78cd1e5a00fb872); arXiv:math/0110334v2 (sha256 67b19d01ef3da4fdc8c2a3406868fa93abd2ac49782fb536614b2f051f2ed498) and v1 (sha256 043218c8ce5fc058ecb5db1ec779928fb99bcc5fdcf8317b4fb438d1ab5051b8) compared at every cited passage",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E13",
+   "kind": "misprint",
+   "locator": "§4, p. 19 (arXiv v2; the same sentence in arXiv v1)",
+   "printed": "Any such extension will be called a branch of the p-adic polylogarithm.",
+   "correction": "Any such extension will be called a branch of the p-adic logarithm.",
+   "reason": "The sentence concerns the extensions log_p : C_p^* → C_p of the logarithm on O_{C_p}^*, fixed by the choice of log_p(p); the polylogarithms are introduced only in the next paragraph.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:0707.3682v1",
+    "arXiv:0707.3682v2"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Paul Buckingham, Rob de Jeu, Xavier-François Roblot, On the p-adic Beilinson conjecture for number fields, arXiv:0707.3682v2 (published in Pure Appl. Math. Q. 5 (2009)); v1 (sha256 537c87812ca798644303597eb4e649d2220bfe03a2ceb7a7b9926fae80c176ac) compared at the misprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E14",
+   "kind": "misprint",
+   "locator": "§0, the system (*_1) before Theorem A', p. 345 (Bull. SMF 119 (1991), version of record)",
+   "printed": "(*_1) ℓ′_1 = 1/(z − 1), ℓ′_2 = ℓ_1/z, ..., ℓ′_n = ℓ_{n−1}/z",
+   "correction": "ℓ′_1 = 1/(1 − z) (so that ℓ_1(z) = −log(1 − z) = Li_1(z)).",
+   "reason": "With the initial condition lim_{z→0} ℓ_k(z) = 0 of (**_2), the printed system gives ℓ_1 = log(1 − z) = −Σ z^n/n and ℓ_k = −Σ z^n/n^k, contradicting the next paragraph ('The function Li_k(z) is analytic at 0 and has the convergent Taylor expansion Σ z^n/n^k at 0') and the functional equation (*) on p. 362.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the numdam scan of the published article (no erratum found in the journal volume index on numdam)"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Zdzisław Wojtkowiak, A note on functional equations of the p-adic polylogarithms, Bull. Soc. Math. France 119 (1991), no. 3, 343-370 (version of record; numdam scan, PDF sha256 3c29dd4f28f92bf84357ac423860d43b2aab91f840a3620333fabe84fd22e97e; page images of pp. 345 and 362-364 checked)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E15",
+   "kind": "error",
+   "locator": "Theorem 6.7(ii), p. 39 (arXiv v2); p. 154 (Ess. Number Th. 4 (2025))",
+   "printed": "L_p(θ,k) = (1 − θ(p)p^{−k}) (1/G(θ^{−1})) Σ_{c∈(Z/NZ)^×} θ^{−1}(c) Li_{k,p}(ε_N^c).",
+   "correction": "L_p(θω^{1−k}, k) = (1 − θ(p)p^{−k}) G(θ^{−1})^{−1} Σ_c θ^{−1}(c) Li_k(ε_N^c), with Li_k Coleman's polylogarithm (Iwasawa branch); equivalently L_p(θ,k) is given by the same formula for the primitive character attached to θω^{k−1}. The printed statement holds exactly when (p − 1) divides k − 1.",
+   "reason": "With RJW's Definition 5.18, L_p(ψ, s) vanishes identically for odd ψ, while the right side vanishes exactly when θ(−1) = (−1)^k; for even k the two sides therefore vanish for opposite parities of θ. Numerically, p = 5, θ = χ_{−3}, k = 2: L_5(θ,2) = 0 but the right side is 2 + 5 + 2·5^2 + ⋯ = L_5(θω^{−1},2) (agreement to O(5^39)); p = 11, θ = χ_5, k = 3: L_11(θ,3) = 5 + 11 + ⋯, right side 7 + 4·11 + ⋯ = L_11(θω^{−2},3). BHYY Theorem 1.1 and BBdJR Proposition 4.17 state Coleman's formula for L_p(χω^{1−k}, k).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E16",
+   "kind": "gap",
+   "locator": "Remark 6.6 and Theorem 6.7(ii), p. 39 (arXiv v2); p. 154 (version of record)",
+   "printed": "Coleman constructed p-adic analogues Li_{k,p}(z), which are locally analytic functions on C_p∖{1}, and showed:",
+   "correction": "Li_{k,p} must be Coleman's polylogarithm Li_k (Coleman function with Li_1(z) = −log_p(1 − z), z dLi_k/dz = Li_{k−1}, Li_k(z) = Σ z^n/n^k near 0), not the modified Li_k^{(p)}(z) = Li_k(z) − p^{−k}Li_k(z^p), and the branch must be fixed (the character sums do not depend on it).",
+   "reason": "Locally analytic solutions of the differential equations are determined only up to locally constant functions, and changing Li_{k,p} by a constant on one residue class changes the right side (ColemanIntegration:L3/coleman-functions-versus-locally-analytic). With the Euler factor printed, Li_{k,p} = Li_k^{(p)} would give the factor (1 − θ(p)p^{−k})^2 for p ∤ N, contradicting the case k = 1 (Theorem 6.1).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E17",
+   "kind": "gap",
+   "locator": "§6.2, (6.2), Lemmas 6.4 and 6.5 and the proof of Theorem 6.1(ii), pp. 36-38 (arXiv v2); pp. 149-153 (version of record)",
+   "printed": "Let θ be a non-trivial Dirichlet character, which as usual we write in the form χη, where χ has conductor p^n and η has conductor D prime to p. ... L_p(θ,1) := ∫_{Z_p^×} χ(x)x^{−1}·μ_η = ∫_{Z_p^×} x^{−1}·μ_θ.",
+   "correction": "For D = 1 (pure p-power conductor) μ_η and μ_θ = (μ_η)_χ are not defined (RJW Theorem 5.7 requires D > 1), and the rational function F_θ of Lemma 5.12 has poles at ε^{−c} − 1 inside the open unit disc, so it is no Amice transform; the step F̃_θ = (F̃_η)_χ with F̃_η ∈ R^+ in the proof of Lemma 6.4 fails since F̃_1 = −log T. The case D = 1 must use the smoothed measure: L_p(χ,1) = (χ(a) − 1)^{−1} ∫_{Z_p^×} x^{−1}·(μ_a)_χ, and the twist by χ of RJW's F̃_a of §7 (ColemanIntegration:L3/negative-moments-of-smoothed-measure at k = 1).",
+   "reason": "Residues: F_θ = −G^{−1} Σ θ^{−1}(c)/((1+T)ε^c − 1) has simple poles at the distinct points T = ε^{−c} − 1, |ε^{−c} − 1| < 1, with residues −G^{−1}θ^{−1}(c)ε^{−c} ≠ 0. The corrected argument gives Theorem 6.1(ii) for conductor p^n, checked numerically for p = 5, θ = ω^2 (to O(5^34)) and p = 3, N = 9 (to O(3^38)).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E18",
+   "kind": "misprint",
+   "locator": "proof of Lemma 6.4, p. 38 (arXiv v2); p. 152 (version of record)",
+   "printed": "F̃_θ(T) = (F̃_η)_χ(T) = −(1/G(χ^{−1})) Σ_{c∈(Z/p^nZ)^×} χ^{−1}(c) F̃_η((1+T)ε_{p^n}^c − 1).",
+   "correction": "The twist of Lemma 5.4 has the factor +1/G(χ^{−1}): F̃_θ(T) = (1/G(χ^{−1})) Σ_c χ^{−1}(c) F̃_η((1+T)ε_{p^n}^c − 1), for ε_N = ε_{p^n}ε_D.",
+   "reason": "Lemma 5.4 prints A_{μ_χ}(T) = (1/G(χ^{−1})) Σ χ(c)^{−1} A_μ((1+T)ε^c − 1); with ε_N = ε_{p^n}ε_D and the Chinese remainder theorem, G(θ^{−1}) = G(χ^{−1})G(η^{−1}) and the + sign reproduces F̃_θ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E19",
+   "kind": "misprint",
+   "locator": "proof of Theorem 6.1(ii), case (1), p. 38 (arXiv v2); p. 153 (version of record)",
+   "printed": "First assume that n > 1, so that χ ≠ 1;",
+   "correction": "First assume that n ≥ 1, so that χ ≠ 1;",
+   "reason": "Case (2) treats n = 0 only, so n = 1 (conductor Dp) would be covered by neither case; χ ≠ 1 holds for every n ≥ 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E20",
+   "kind": "misprint",
+   "locator": "proof of Theorem 6.1(i), p. 36 (arXiv v2); p. 149 (version of record)",
+   "printed": "L(θ,s) = Σ_{a∈(Z/NZ)^×} θ(a) Σ_{n≡a (mod D)} n^{−s}.",
+   "correction": "Σ_{n ≡ a (mod N)} n^{−s}.",
+   "reason": "θ has conductor N and the next line uses the indicator of n ≡ a mod N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E21",
+   "kind": "misprint",
+   "locator": "proof of Lemma 6.5, p. 38 (arXiv v2); p. 152 (version of record)",
+   "printed": "∂ log((1+T)ε_D^c − 1) = ... and the fact that Σ_{c∈(Z/DZ)^×} θ^{−1}(c) = 0.",
+   "correction": "ε_N^c and (Z/NZ)^× in place of ε_D^c and (Z/DZ)^×.",
+   "reason": "The lemma concerns θ of conductor N = Dp^n and F_θ of Lemma 5.12, which is written with ε_{Dp^n}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E22",
+   "kind": "misprint",
+   "locator": "proof of Lemma 7.5, p. 43 (arXiv v2); p. 158 (version of record)",
+   "printed": "((1 − φ∘ψ)F̃_a)(0) = F̃_a(0) − (φ∘ψ)F̃_a(0) = −log_p(a) − p^{−1}log_p(a) = −(1 − p^{−1})log_p(a),",
+   "correction": "= −log_p(a) + p^{−1}log_p(a) = −(1 − p^{−1})log_p(a).",
+   "reason": "F̃_a(0) = −log_p(a) and (φ∘ψ)F̃_a(0) = −p^{−1}log_p(a) are both printed one line earlier; their difference is −log_p(a) + p^{−1}log_p(a).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E23",
+   "kind": "gap",
+   "locator": "proof of Theorem 6.1(i), end, p. 37 (arXiv v2); p. 150 (version of record)",
+   "printed": "Thus we may consider the Taylor series expansion −log(1−ε_N^c) = Σ_{n≥1} ε_N^{nc} n^{−1}. Substituting this into (6.1), we see the series converges at s=1 to the required result.",
+   "correction": "Two facts are needed: Σ_n ε^{nc} n^{−s} converges uniformly for real s ∈ [1, 2] (Dirichlet's test with bounded partial sums), so its value at s = 1 is the limit as s → 1^+ of the continued function; and Σ_n ε^{nc}/n = −log(1 − ε^c) by Abel's limit theorem, the series converging at the boundary point ε^c ≠ 1.",
+   "reason": "At |z| = 1 the Taylor series of −log(1 − z) converges only conditionally, and identifying the value of the continued L-function at s = 1 with the value of the series needs the continuity in s.",
+   "affects": "the proof",
+   "known": "The proof in the source RJW cite, Washington, Introduction to Cyclotomic Fields (GTM 83), Theorem 4.9, supplies these steps; that book was not read here",
+   "searched": [
+    "arXiv 2309.15692 abstract page, 25 Sep 2026: versions v1 (27 Sep 2023) and v2 (19 Dec 2024); v2 read",
+    "version of record, Essential Number Theory 4 (2025) 101-216 (msp.org PDF, 25 Sep 2026), read at the cited page: text unchanged",
+    "the journal's article page lists no erratum"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ColemanIntegration/E24",
+   "kind": "misprint",
+   "locator": "Definition 3.6, p. 11 (arXiv v2)",
+   "printed": "for ∗ = ∞ or p we let R_{n,∞}(M_π^E) be the determinant of the pairing [·,·]_∗",
+   "correction": "we let R_{n,∗}(M_π^E) be the determinant of the pairing [·,·]_∗",
+   "reason": "The definition covers both ∗ = ∞ and ∗ = p, and R_{n,p}(M_π^E) is used in Conjecture 3.18(2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 0707.3682v2 read (25 Sep 2026); the journal version (Pure Appl. Math. Q. 5 (2009)) was not consulted"
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Amnon Besser, Paul Buckingham, Rob de Jeu, Xavier-François Roblot, On the p-adic Beilinson conjecture for number fields, arXiv:0707.3682v2 (published in Pure Appl. Math. Q. 5 (2009)); v1 (sha256 537c87812ca798644303597eb4e649d2220bfe03a2ceb7a7b9926fae80c176ac) compared at the misprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DeformationAndDerivedPatchingAlgebra/E1",
    "kind": "misprint",
    "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
