@@ -18370,10 +18370,11 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-HabiroCyclotomicCompletions"
-   ]
+   ],
+   "note": "claimed on GitHub issue #746"
   },
   {
    "id": "REV-HabiroCohomologyFoundations--HQ.1",
@@ -18520,11 +18521,12 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroRings.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-HabiroCyclotomicCompletions"
    ],
-   "note": "claimed on GitHub issue #749"
+   "note": "deliverables arrived from an external worker on issue #749",
+   "finishedAt": "2026-09-25T00:34:01Z"
   },
   {
    "id": "REV-HabiroRings",
