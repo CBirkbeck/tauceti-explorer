@@ -6,14 +6,13 @@ Assembly of the roadmap *q-Hodge filtrations and Habiro cohomology* from its two
 
 - `research/blueprint/readmes/HabiroCohomologyFoundations.md`: the full roadmap document (new).
 - `research/blueprint/suggested/HabiroCohomologyFoundations.lean`: the joined suggested Lean file (new).
-- `research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json` and `--HQ.8.json`: prose counts corrected; see below.
 - `research/blueprint/handoff/ASM-HabiroCohomologyFoundations.md`: this note.
 
 ## What was done
 
 - **The roadmap document.** Both reviews ended `needs_changes` for one reason only: the part documents still described the uncorrected packets, which had grown from 66 to 118 nodes and from 15 to 17. The assembled document is therefore generated from the two corrected packets, so that it agrees with them node for node: every statement, hypothesis, proof outline, API item, unit test, acceptance check, dependency and source excerpt. The introduction is written for it: purpose and scope, boundaries against the supplier and consumer roadmaps, conventions, sources with their versions and hashes, the pinned library declarations, and a layer overview. The closing sections merge both parts' source issues, gaps, requests and structural proposals. All 429 excerpts appear verbatim.
 - **Notation.** The parts wrote `qdR`/`q-dR`, `qΩ`/`q-Ω`, `qHdg`/`q-Hdg`, `qW_m`/`q-W_m` and 'decalage'/'décalage'. The document uses Wagner's hyphenated forms and 'décalage' throughout its prose, and says so under Conventions; Lean names, code spans and literal excerpts keep their own form. The packets are unchanged in this respect.
-- **Cross-part prerequisites.** Every HQ.8 prerequisite pointing into part one names an existing HQ.1 node id, and HQ.1 never refers to HQ.8; nothing needed fixing. The node graph and the stage graph are acyclic, checked against atlas `requires` and `stageEdges` and the node prerequisites of every packet on main, with the reviewed HabiroRings packet (PR #2907).
+- **Cross-part prerequisites.** Every HQ.8 prerequisite pointing into part one names an existing HQ.1 node id, and HQ.1 never refers to HQ.8; nothing needed fixing. The node graph and the stage graph are acyclic, checked against atlas `requires` and `stageEdges` and the node prerequisites of every packet on main, with the reviewed HabiroRings packet (PR #2907). Cross-part references needed no fix, so the part packets are unchanged.
 - **`check_blueprint.py --index`**: 0 errors and 0 warnings on both part packets.
 - **The Lean file.**
   - It is the two reviewed part files, joined with one module note, one import block (the union, 52 Mathlib modules) and the two bodies in order, part one then part two.
@@ -21,19 +20,20 @@ Assembly of the roadmap *q-Hodge filtrations and Habiro cohomology* from its two
   - It elaborates with `lake env lean` against Mathlib 082e2d3 with exit code 0; the only warnings are 428 `declaration uses 'sorry'`, the parts' 425 and 3.
   - Part one's `set_option autoImplicit false` is kept: it only makes elaboration stricter.
 
-## Changes to the part packets
+## Stale prose in the part packets
 
-No node's mathematics was changed, and no review verdict was touched. Only prose counts that predated the reviews were corrected:
+The part packets are not deliverables of this job and are unchanged. Some of their prose counts predate the reviews, and the document therefore omits them; they should be corrected in the packets by a job that owns them:
 
-- **Coverage notes.** Seven coverage notes opened with the pre-review node count. They now give the actual count and how many nodes the review added:
-  - HQ.1: 18 nodes, 10 added;
-  - HQ.2: 11, 3 added;
-  - HQ.3: 24, 10 added;
-  - HQ.4: 30, 17 added;
-  - HQ.5: 25, 11 added;
-  - HQ.5-trace: 5, 1 added;
-  - HQ.8: 17, 2 added.
-- **Summaries.** HQ.1's summary said 'Sixty-six nodes' and 'Three misprints'; it now gives 118 nodes and 29 source issues. HQ.8's said 'Fifteen nodes'; it now says seventeen.
+- **Coverage notes.** Seven of them open with the pre-review node count; the actual counts, with the number of nodes the review added, are:
+  - HQ.1: 18, 10 added (the note says eight);
+  - HQ.2: 11, 3 added (nine);
+  - HQ.3: 24, 10 added (thirteen);
+  - HQ.4: 30, 17 added (thirteen);
+  - HQ.5: 25, 11 added (fourteen);
+  - HQ.5-trace: 5, 1 added (four);
+  - HQ.8: 17, 2 added (fifteen).
+  - The document's layer overview gives the correct counts.
+- **Summaries.** HQ.1's summary says 'Sixty-six nodes' (118) and 'Three misprints' (29 source issues). HQ.8's says 'Fifteen nodes' (17).
 
 ## Structural proposals of the parts
 
