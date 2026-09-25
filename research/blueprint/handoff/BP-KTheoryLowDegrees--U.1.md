@@ -36,7 +36,7 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
 ## Correction to the accepted RS-18
 
 The first checkpoint did not follow two decisions of the accepted restructuring RS-18, which binds this job. This correction restores them:
-- **The DVR boundary (RS-18 owner 13).** SchemeKTheoryOperations S.3 owns the localisation boundary and its unit-valuation normalisation. U.5 keeps its explicit cokernel-length boundary on the classical K₁, now the planet "Explicit valuation boundary". The new node U.5/dvr-boundary-localisation-comparison proves that this boundary equals S.3's composed with the loop map λ : K₁(L) → π₁K(L), which needs only the functoriality of BGL(−)⁺, not U.6. S.3 is imported through a request, and the restructure entry that gave the boundary to U.5 is withdrawn.
+- **The DVR boundary (RS-18 owner 13).** SchemeKTheoryOperations S.3 owns the localisation boundary and its unit-valuation normalisation. U.5 keeps its explicit cokernel-length boundary on the classical K₁, now the planet "Explicit valuation boundary". The new node U.5/dvr-boundary-localisation-comparison proves that this boundary equals S.3's composed with the loop map λ : K₁(L) → π₁K(L), which needs only the functoriality of BGL(−)⁺, not U.6. It cites S.3's nodes S.3/dvr-boundary, S.3/dvr-boundary-unit-valuation and S.3/unit-loop-class (blueprinted in SchemeKTheoryOperations), and the restructure entry that gave the boundary to U.5 is withdrawn.
 - **The relative fibre (RS-18 owner 35).** U.6/relative-K1-homotopy-comparison cites GeneralAlgebraicKTheory K.5's fibre again. The comparison stays a U.6 node realising U.5, because it needs U.6's π₁BGL(A)⁺ = K₁(A).
 - **A pending cycle outside this packet.** Open blueprint pull requests make K.5 cite a node of the combined stage GeneralAlgebraicKTheory:K.2, which requires K.2:low-degree-comparisons, downstream of U.6. That would put K.5 and, through K.6, SchemeKTheoryOperations S.2 and S.3 downstream of U.6, against RS-18. The restructure entry asks K.5 to cite K.2:plus nodes instead. On main there is no cycle.
 
@@ -79,7 +79,6 @@ The first checkpoint did not follow two decisions of the accepted restructuring 
 
 - Milnor patching and the K₀ Mayer–Vietoris sequence for U.5/ideal-sequence-degree-zero (gap; proposed for Z.1).
 - The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) awaits K2SymbolsBrauer T.1:plus and T.6, blocked by the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure).
-- Receive SchemeKTheoryOperations S.3's DVR localisation boundary and its unit-valuation normalisation (request).
 
 **U.6** (partial):
 
@@ -105,7 +104,6 @@ The first checkpoint did not follow two decisions of the accepted restructuring 
 - **tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters** (1 nodes): For K(ζ_m)/K and 𝔭 ∤ m, the arithmetic Frobenius sends ζ_m to ζ_m^{N𝔭}. Layer 4's text: 'Prove that for 𝔭 ∤ m the arithmetic Frobenius sends ζ_m to ζ_m ^ 𝔑𝔭'.
 - **tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary** (2 nodes): Every open subgroup of IdeleClassGroup K contains RaySubgroup 𝔪 for some modulus 𝔪; rayClassQuotient : IdeleClassGroup K →* RayClassGroup 𝔪 is surjective with kernel RaySubgroup 𝔪; and the class of a prime idèle at 𝔭 ∤ 𝔪 maps to the ray class of 𝔭. Layer 7's text: 'Prove openness, antitonicity, and rayClassQuotient … with surjectivity and kernel RaySubgroup 𝔪 … Prove that every open subgroup of th…
 - **tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles** (2 nodes): The idèle norm on Mathlib's NumberField.IdeleClassGroup and the compactness of its norm-one subgroup IdeleClassGroup.normOne (the idèle group and idèle class group themselves are in Mathlib 082e2d3) — BMS (A.4) 'C⁰ is compact'. Layer 6's text: 'define the closed norm-one subgroup IdeleClassGroup.normOne. Prove its compactness'.
-- **SchemeKTheoryOperations:S.3** (2 nodes): For a discrete valuation ring O with fraction field L and residue field k: the boundary ∂_S : K₁(L) → K₀(k) of the localisation sequence K(k) → K(O) → K(L), and its unit-valuation normalisation ∂_S(λ(u)) = v(u)·[k] for u ∈ L^×, with λ : L^× → π₁K(L) the loop of a 1 × 1 matrix. RS-18 gives this boundary to S.3 (owner 13: 'DVR unit boundary equals valuation with the uniformizer normalization'), and …
 
 ## Structural proposals
 
