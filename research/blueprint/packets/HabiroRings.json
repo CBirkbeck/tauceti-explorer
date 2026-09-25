@@ -1,0 +1,1985 @@
+{
+  "roadmapId": "HabiroRings",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "status": "partial",
+  "scope": [
+    "HabiroRings:HR.1",
+    "HabiroRings:HR.2",
+    "HabiroRings:HR.3",
+    "HabiroRings:HR.4",
+    "HabiroRings:HR.5",
+    "HabiroRings:HR.5-number-field-comparison",
+    "HabiroRings:HR.6",
+    "HabiroRings:HR.7"
+  ],
+  "summary": "The blueprint for the whole of the relative Habiro-ring roadmap: relative bases and the local Frobenius (HR.1), Habiro-complete modules with their detection results (HR.2), finite cyclotomic descent (HR.3), relative q-Witt rings and the finite etale lift (HR.4), the relative Habiro ring with its equaliser presentation and the comparisons with the classical and the number-field rings (HR.5 and its number-field part), the coefficient and cohomology interfaces (HR.6) and the acceptance tests with the executable boundary (HR.7). Twenty-seven nodes from one source, Ferdinand Wagner's 'q-Hodge complexes over the Habiro ring', taken from the arXiv as LaTeX and hash-recorded; it is the paper the stage texts cite throughout by numbered statement. There is no integrated decomposition for this roadmap. Nothing of any of this exists in either pinned library and the packet cites no baseline declaration: there are no Lambda-rings with commuting Adams operations, no Habiro completion, no q-Witt vectors and no descent machinery of this shape, so every node is either new work or an import from one of the eight prerequisite roadmaps. The packet's own contribution beyond restating the source is to carry the stage texts' cautions as hypotheses and non-examples: Lambda-ring means the arithmetic notion and never an Iwasawa algebra; perfect covering is not automatic; there need be no global Frobenius endomorphism of the algebra; completion is not inverting the elements q to the m minus one; the detection results of the appendix are what prove staticity, rather than an assumption that completion is exact; the descent diagram degenerates because of an arithmetic computation and that is not a licence to glue arbitrary pairwise isomorphisms; there is no restriction operator on q-Witt rings, so the transition maps are named Frobenius; the equaliser is written with the full cyclotomic coefficient algebra rather than one p-adic embedding; and the proof line asserting that the cyclotomic polynomial stays irreducible modulo every prime not dividing its order is false as stated, with the fifth cyclotomic polynomial over the field with eleven elements as the counterexample and componentwise idempotent descent as the repair. That last is a proof obligation in the adopted route, not a claim that the equaliser theorem fails.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": []
+  },
+  "sources": [
+    {
+      "id": "Wagner.qHodgeHabiro.2025",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2, LaTeX source. The source numbers its statements by label rather than by section, so locators here give the section and the statement's role; the stage texts' numbering refers to a printed version that could not be matched statement by statement.",
+      "url": "https://arxiv.org/abs/2510.04782",
+      "sha256": "9c338455871808eb2265681199279607b4b179b3973752d48eca3f711bc25b47",
+      "accessed": "2026-09-25",
+      "readSections": [
+        "Downloaded from the arXiv e-print endpoint as LaTeX source; the hash recorded is of the gzipped file the endpoint returns. Quotations are from that source with the mathematics written out in words.",
+        "§1, the introduction: the definition of a perfectly covered Lambda-ring with its equivalent description and its three examples, the descent theorem in its introductory form with the q-de Rham-Witt comparison, the recollection of the q-de Rham-Witt complexes from the companion paper, and the paragraph on the Habiro ring of a number field with the hypotheses on the inverted integer.",
+        "§2, the relative Habiro rings: the unique Frobenius lift on the completion of an etale algebra with the linearised Frobenius as an equivalence, the local algebras, the general descent principle and the complete-descent corollary with its proof strategy, the q-Witt comparison theorem with staticity and uniqueness, the equaliser lemma with its proof after completion at each prime, the corollary identifying the ring with the number-field one, and the remark giving the classical Taylor presentation.",
+        "The appendix on Habiro completion: the completion functor, the claim that it behaves like completion at a finitely generated ideal, and the definition of Habiro-complete spectra by killing an idempotent.",
+        "NOT read: §3 and the later sections on Habiro descent for q-Hodge complexes in full, the twisted q-de Rham complexes, and the body of the appendix beyond its opening. The companion q-Witt paper was not obtained at all."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
+      "parentStageId": "HabiroRings:HR.1",
+      "realises": [
+        "HabiroRings:HR.1"
+      ],
+      "title": "Torsion-free Lambda-rings with commuting Adams operations",
+      "kind": "definition",
+      "statement": "The base of the whole roadmap is a LAMBDA-RING in the arithmetic sense: a commutative ring with lambda-operations, equivalently with a family of Adams operations indexed by the positive integers that commute with one another and satisfy the Frobenius congruence at each prime, that the operation at a prime is the identity modulo that prime. The composition law is that the operation at a product is the composite of the operations at the factors. This is NOT an Iwasawa algebra, and the packet uses a name that cannot be confused with one. The generic delta-ring interface at a single prime is imported from the prismatic roadmap; what belongs here is the all-prime structure with its commutation.",
+      "hypotheses": [
+        "The ring is commutative and torsion free; torsion freeness is what makes the Adams operations determine the lambda-structure.",
+        "The Adams operations commute and the one at a prime is congruent to the identity modulo that prime.",
+        "The delta-structure at a single prime is the prismatic roadmap's; this node states the compatible family over all primes."
+      ],
+      "proofSteps": [
+        "Define the Adams operations with their commutation and congruence conditions.",
+        "Prove the composition law for a product of indices.",
+        "Record the equivalence with the lambda-ring structure for a torsion-free ring.",
+        "Record the import of the single-prime delta-ring interface and say exactly which part is new.",
+        "Record the standing examples: the integers, the free Lambda-rings on a set of generators, and a polynomial ring with the toric structure in which the higher lambda-operations of a generator vanish.",
+        "State the naming rule: Lambda-ring here always means the arithmetic notion and never an Iwasawa algebra."
+      ],
+      "acceptance": [
+        "The integers form a Lambda-ring with every Adams operation the identity.",
+        "A free Lambda-ring on a set of generators is one.",
+        "A polynomial ring with the toric structure is one.",
+        "The name is the arithmetic one and is not an Iwasawa algebra."
+      ],
+      "prerequisites": [
+        "PrismaticCohomology:PR.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1.1, the paragraph fixing the base",
+          "excerpt": "In the following, we work relative to a Lambda-ring A which is perfectly covered in the sense that there exists a faithfully flat Lambda-morphism A -> A_infinity into a perfect Lambda-ring. Equivalently, the Adams operations psi^m : A -> A are all faithfully flat. This condition is satisfied in all examples of interest; for example, it holds for Z, for any free Lambda-ring on a set of ...",
+          "match": "The base of the paper with the three standing examples, verbatim from the LaTeX source, with the mathematics written out in words."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Lambda-rings with commuting Adams operations"
+      },
+      "api": [
+        {
+          "name": "LambdaRing",
+          "role": "structure",
+          "statement": "A torsion-free ring with commuting Adams operations."
+        },
+        {
+          "name": "LambdaRing.adams",
+          "role": "projection",
+          "statement": "The operation at an index."
+        },
+        {
+          "name": "LambdaRing.adams_comm",
+          "role": "characterisation",
+          "statement": "Their commutation."
+        },
+        {
+          "name": "LambdaRing.frobCongruence",
+          "role": "characterisation",
+          "statement": "The congruence at a prime."
+        },
+        {
+          "name": "LambdaRing.adams_mul",
+          "role": "characterisation",
+          "statement": "The composition law at a product."
+        },
+        {
+          "name": "LambdaRing.toric",
+          "role": "example",
+          "statement": "The toric structure on a polynomial ring."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.1, perfect cover",
+          "how": "The covering condition is a condition on these operations."
+        },
+        {
+          "where": "HR.4",
+          "how": "The q-Witt rings are relative to this base."
+        },
+        {
+          "where": "HR.5",
+          "how": "The coefficients of the equaliser are twisted by these operations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "integers",
+          "statement": "The integers with the identity operations form a Lambda-ring."
+        },
+        {
+          "name": "toric",
+          "statement": "The toric structure on a polynomial ring is one."
+        },
+        {
+          "name": "congruence",
+          "statement": "The operation at a prime is the identity modulo that prime."
+        },
+        {
+          "name": "not_iwasawa",
+          "statement": "The name is the arithmetic one; an Iwasawa algebra is a different object."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.1/perfectly-covered",
+      "parentStageId": "HabiroRings:HR.1",
+      "realises": [
+        "HabiroRings:HR.1"
+      ],
+      "title": "Perfectly covered Lambda-rings, in two equivalent descriptions",
+      "kind": "definition",
+      "statement": "A Lambda-ring is PERFECTLY COVERED when it admits a faithfully flat map of Lambda-rings into a perfect one; equivalently, when every Adams operation is faithfully flat. The source states both descriptions and records that the condition holds in the examples of interest but NOT for every Lambda-ring, which is the caution the stage text repeats. The condition has an immediate consequence the later layers use: a perfectly covered base is torsion free at every prime, because the perfect cover is, and hence its completions are static.",
+      "hypotheses": [
+        "The cover is by a perfect Lambda-ring, that is one on which the Adams operation at each prime is an isomorphism.",
+        "The equivalence of the two descriptions is stated in the companion q-Witt paper and is cited, not reproved.",
+        "The condition is not automatic and the packet never assumes it of an unnamed base."
+      ],
+      "proofSteps": [
+        "State both descriptions and record the reference for their equivalence.",
+        "Prove the torsion-freeness consequence at each prime.",
+        "Deduce that the completions of the base are static, which the later constructions use.",
+        "Record the three examples of the previous node as instances.",
+        "Record the non-example: a general Lambda-ring need not be perfectly covered, and no statement of this roadmap applies to one."
+      ],
+      "acceptance": [
+        "The integers, the free Lambda-rings and the toric polynomial rings are perfectly covered.",
+        "A perfectly covered base is torsion free at every prime and its completions are static.",
+        "Not every Lambda-ring is perfectly covered.",
+        "The two descriptions are equivalent, by the cited companion paper."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1.1, the same paragraph",
+          "excerpt": "a Lambda-ring A which is perfectly covered in the sense that there exists a faithfully flat Lambda-morphism A -> A_infinity into a perfect Lambda-ring. Equivalently, the Adams operations psi^m : A -> A are all faithfully flat.",
+          "match": "The definition in both forms, verbatim."
+        },
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the construction of the relative Habiro rings",
+          "excerpt": "We also remark that A being perfectly covered implies that A is p-torsion free (because this is true for the perfect Lambda-ring A_infinity), and so all p-completions above are static.",
+          "match": "The torsion-freeness consequence and the staticity it gives, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Perfectly covered bases"
+      },
+      "api": [
+        {
+          "name": "IsPerfectlyCovered",
+          "role": "data",
+          "statement": "The condition on a Lambda-ring."
+        },
+        {
+          "name": "IsPerfectlyCovered.flat_adams",
+          "role": "characterisation",
+          "statement": "The equivalent description by faithful flatness of the operations."
+        },
+        {
+          "name": "IsPerfectlyCovered.torsionFree",
+          "role": "characterisation",
+          "statement": "Torsion freeness at each prime."
+        },
+        {
+          "name": "IsPerfectlyCovered.completion_static",
+          "role": "characterisation",
+          "statement": "Staticity of the completions."
+        },
+        {
+          "name": "IsPerfectlyCovered.examples",
+          "role": "example",
+          "statement": "The three standing examples."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.1, the etale Frobenius lift",
+          "how": "The lift is constructed over a perfectly covered base."
+        },
+        {
+          "where": "HR.3 and HR.4",
+          "how": "Both descent and the q-Witt comparison assume it."
+        },
+        {
+          "where": "HR.5",
+          "how": "The relative Habiro ring is defined over such a base."
+        }
+      ],
+      "tests": [
+        {
+          "name": "integers",
+          "statement": "The integers are perfectly covered."
+        },
+        {
+          "name": "torsion_free",
+          "statement": "A perfectly covered base is torsion free at each prime."
+        },
+        {
+          "name": "not_automatic",
+          "statement": "A general Lambda-ring need not be perfectly covered."
+        },
+        {
+          "name": "static_completions",
+          "statement": "The completions of such a base are static, which later constructions use."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.1/the-etale-frobenius-lift",
+      "parentStageId": "HabiroRings:HR.1",
+      "realises": [
+        "HabiroRings:HR.1"
+      ],
+      "title": "The Frobenius lift on an etale algebra and its linearisation",
+      "kind": "construction",
+      "statement": "For an etale algebra over a perfectly covered base, the Adams operation at a prime extends UNIQUELY to a Frobenius lift on the completion of that algebra at the prime, and the linearised relative Frobenius, from the completed base change along that Adams operation to the completion, is an EQUIVALENCE. The source checks this modulo the prime, where it is the classical statement about etale algebras. There need not be a global Frobenius endomorphism of the algebra: the lift lives on the completions, and every later construction respects that.",
+      "hypotheses": [
+        "The algebra is etale over the base and the base is perfectly covered.",
+        "The completion is at a prime; the base change is along the Adams operation at that prime and is itself completed.",
+        "The uniqueness of the lift is part of the statement and is what makes the construction functorial."
+      ],
+      "proofSteps": [
+        "State the existence and uniqueness of the lift on the completion.",
+        "Define the linearised relative Frobenius and state that it is an equivalence.",
+        "Record the source's proof strategy: check modulo the prime and invoke the classical statement for etale algebras.",
+        "Record the functoriality, the base-change squares and the iterates at prime powers, keeping completed tensor products explicit.",
+        "State the non-example: there need not be a global Frobenius endomorphism of the algebra, so no construction may use one."
+      ],
+      "acceptance": [
+        "The lift exists and is unique on the completion.",
+        "The linearised relative Frobenius is an equivalence.",
+        "There need not be a global Frobenius endomorphism of the algebra.",
+        "Completed tensor products are kept explicit and are not replaced by ordinary ones."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.1/perfectly-covered",
+        "PrismaticCohomology:PR.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, Relative Habiro rings",
+          "excerpt": "Let R be an etale A-algebra. For all primes p, the p-th Adams operation psi^p : A -> A can be uniquely extended to a Frobenius lift phi_p on the p-completion of R. Let us denote by phi_{p/A} the linearised Frobenius, from the p-completion of the base change of the p-completion of R along psi^p, to the p-completion of R. It is an equivalence as indicated. Indeed, this can be checked modulo ...",
+          "match": "The lift and the linearisation with the proof strategy, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The relative Frobenius"
+      },
+      "api": [
+        {
+          "name": "frobLift",
+          "role": "data",
+          "statement": "The Frobenius lift on the completion."
+        },
+        {
+          "name": "frobLift_unique",
+          "role": "characterisation",
+          "statement": "Its uniqueness."
+        },
+        {
+          "name": "linearisedFrob",
+          "role": "data",
+          "statement": "The linearised relative Frobenius."
+        },
+        {
+          "name": "linearisedFrob_equiv",
+          "role": "characterisation",
+          "statement": "That it is an equivalence."
+        },
+        {
+          "name": "linearisedFrob_baseChange",
+          "role": "compatibility",
+          "statement": "The base-change squares."
+        },
+        {
+          "name": "linearisedFrob_iterate",
+          "role": "compatibility",
+          "statement": "The prime-power iterates."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.3",
+          "how": "The prime-edge gluing maps of the descent are these linearisations."
+        },
+        {
+          "where": "HR.4",
+          "how": "The etale lift is assembled from them."
+        },
+        {
+          "where": "HR.5",
+          "how": "The second arrow of the equaliser is this Frobenius followed by re-expansion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "unique",
+          "statement": "The lift is unique."
+        },
+        {
+          "name": "equivalence",
+          "statement": "The linearised Frobenius is an equivalence."
+        },
+        {
+          "name": "no_global",
+          "statement": "There need not be a global Frobenius endomorphism of the algebra."
+        },
+        {
+          "name": "iterates",
+          "statement": "The prime-power iterates compose as expected."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.1/morphisms-of-pairs",
+      "parentStageId": "HabiroRings:HR.1",
+      "realises": [
+        "HabiroRings:HR.1"
+      ],
+      "title": "Morphisms of pairs and the naturality that follows",
+      "kind": "comparison",
+      "statement": "The objects of this roadmap are PAIRS consisting of a perfectly covered base and an etale algebra over it, and a morphism of pairs is a map of algebras over a map of bases that is compatible with the Lambda-structures. Every construction of the later layers is natural for these morphisms and for no larger class: in particular a map of algebras that does not respect the Adams operations induces nothing. This node fixes the category and records the naturality claims that the later layers are entitled to make.",
+      "hypotheses": [
+        "The base map is a map of Lambda-rings between perfectly covered bases; the algebra map is over it and the algebras are etale.",
+        "Compatibility with the Lambda-structure is part of the data of a morphism, not a property to be checked later.",
+        "Naturality statements downstream are for this category."
+      ],
+      "proofSteps": [
+        "Define the category of pairs and its morphisms.",
+        "Prove that the Frobenius lifts and their linearisations are natural for these morphisms.",
+        "Record which constructions of the later layers are functorial on this category.",
+        "State the non-example: a ring map that does not respect the Adams operations is not a morphism here and induces nothing.",
+        "Record the base-change squares that the naturality produces."
+      ],
+      "acceptance": [
+        "The Frobenius lift is natural for morphisms of pairs.",
+        "A map not respecting the Adams operations is not a morphism of pairs.",
+        "Every later naturality statement is for this category."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.1/the-etale-frobenius-lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, Relative Habiro rings",
+          "excerpt": "For all m, let us now define a (q^m - 1)-complete E-infinity A[q]-algebra H_{R/A, m}",
+          "match": "The construction is stated for a pair of a base and an algebra, and everything downstream is functorial in that pair; this node fixes what a morphism of pairs is."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.2/habiro-complete-modules",
+      "parentStageId": "HabiroRings:HR.2",
+      "realises": [
+        "HabiroRings:HR.2"
+      ],
+      "title": "Habiro-complete modules and the completion functor",
+      "kind": "definition",
+      "statement": "A module over the Laurent ring in q is HABIRO-COMPLETE when its derived mapping object out of the localisation that inverts every q to the m minus one vanishes; equivalently, when it lies in the full subcategory obtained by killing that idempotent algebra. The HABIRO COMPLETION is the limit over all m of the completions at q to the m minus one, indexed by divisibility, and it is the left adjoint to the inclusion of the complete objects; it is idempotent, and the factorial tower is cofinal in the divisibility system, so the limit may be computed along it. The source's appendix shows that the functor behaves for all practical purposes like completion at a finitely generated ideal, and that is the form in which this layer states it.",
+      "hypotheses": [
+        "The ambient category is the derived category of modules over the Laurent ring in q, or its spectral analogue.",
+        "The localisation inverts every q to the m minus one and is an idempotent algebra over the Laurent ring, which is what makes the subcategory a Bousfield localisation.",
+        "The cofinality of the factorial tower is the statement of the classical roadmap and is imported."
+      ],
+      "proofSteps": [
+        "Define the localisation and record that it is idempotent.",
+        "Define Habiro-complete objects by the vanishing of the derived mapping object out of it.",
+        "Define the completion functor as the limit over the divisibility system and prove that it is left adjoint to the inclusion.",
+        "Prove idempotence of the completion.",
+        "Prove that the factorial tower is cofinal, citing the classical roadmap, and deduce the limit description along it.",
+        "Prove that q is invertible in the completed coefficient ring, and record the distinction the stage text insists on: completion is not adjoining inverses of the elements q to the m minus one."
+      ],
+      "acceptance": [
+        "The completion is idempotent and left adjoint to the inclusion.",
+        "The factorial tower computes the same limit.",
+        "q is invertible in the completed coefficient ring.",
+        "Completion is not the same as inverting the elements q to the m minus one; the two are opposite operations."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.1",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Appendix, Habiro-complete spectra",
+          "excerpt": "In this appendix we'll study the Habiro completion functor, the limit over m of the completions at q^m - 1, and show that it behaves for all practical purposes like completion at a finitely generated ideal. ... let us denote the localisation of Z[q^{pm 1}] inverting all q^m - 1 by R, and let S_R be its obvious spherical lift. Then S_R is an idempotent algebra over S[q^{pm 1}] and we ...",
+          "match": "The definition of Habiro-complete objects by killing an idempotent, and the claim about the completion functor, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Habiro-complete modules"
+      },
+      "api": [
+        {
+          "name": "HabiroLocalisation",
+          "role": "data",
+          "statement": "The localisation inverting every q to the m minus one."
+        },
+        {
+          "name": "IsHabiroComplete",
+          "role": "data",
+          "statement": "The completeness condition."
+        },
+        {
+          "name": "habiroCompletion",
+          "role": "data",
+          "statement": "The completion functor."
+        },
+        {
+          "name": "habiroCompletion_adjoint",
+          "role": "characterisation",
+          "statement": "It is left adjoint to the inclusion."
+        },
+        {
+          "name": "habiroCompletion_idempotent",
+          "role": "characterisation",
+          "statement": "Idempotence."
+        },
+        {
+          "name": "habiroCompletion_factorial",
+          "role": "characterisation",
+          "statement": "The limit along the factorial tower."
+        },
+        {
+          "name": "q_invertible",
+          "role": "characterisation",
+          "statement": "q is invertible in the completed ring."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.4",
+          "how": "The staticity proof uses the detection results, which are statements about these objects."
+        },
+        {
+          "where": "HR.5",
+          "how": "The relative Habiro ring is Habiro-complete and the equaliser comparison is checked there."
+        },
+        {
+          "where": "HR.6",
+          "how": "The exported module interfaces are of these objects."
+        }
+      ],
+      "tests": [
+        {
+          "name": "idempotent",
+          "statement": "The completion is idempotent."
+        },
+        {
+          "name": "factorial_tower",
+          "statement": "The factorial tower computes the same limit."
+        },
+        {
+          "name": "q_unit",
+          "statement": "q is invertible after completion."
+        },
+        {
+          "name": "not_inverting",
+          "statement": "Completion is not inverting the elements q to the m minus one; a construction that confused them would invert what it meant to complete."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.2/the-detection-results",
+      "parentStageId": "HabiroRings:HR.2",
+      "realises": [
+        "HabiroRings:HR.2"
+      ],
+      "title": "Detecting completeness, conservativity and degree bounds",
+      "kind": "theorem",
+      "statement": "The appendix's working tools are four: the two-term resolution of the localised module, which is what makes the completion computable; completeness detected on homotopy groups, so that a spectral object is complete exactly when each of its homotopy modules is; joint conservativity of the cyclotomic reductions, so that a map is an equivalence exactly when all its reductions modulo the cyclotomic polynomials are; and the detection of degree bounds and of staticity by the same reductions. The last is what the staticity proof of HR.4 uses, and the stage text insists that it be used rather than an assumption that completion is exact on arbitrary inputs.",
+      "hypotheses": [
+        "The objects are Habiro-complete modules or spectra over the Laurent ring in q.",
+        "The conservativity is joint over all the cyclotomic reductions, not at a single one.",
+        "The detection statements are for complete objects; without completeness they fail."
+      ],
+      "proofSteps": [
+        "State the two-term resolution of the localised module.",
+        "State the detection of completeness on homotopy groups.",
+        "State the joint conservativity of the cyclotomic reductions.",
+        "State the detection of degree bounds and staticity.",
+        "Record that all derived-limit corrections are carried: a derived inverse limit is never replaced by an ordinary one without proof.",
+        "Record how HR.4's staticity proof consumes the fourth statement."
+      ],
+      "acceptance": [
+        "A complete object is static exactly when its cyclotomic reductions are.",
+        "The reductions are jointly conservative.",
+        "Completeness is detected on homotopy groups.",
+        "No derived inverse limit is replaced by an ordinary one without proof."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.2/habiro-complete-modules",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Appendix, the Habiro completion functor",
+          "excerpt": "show that it behaves for all practical purposes like completion at a finitely generated ideal",
+          "match": "The appendix’s claim, of which the four detection statements are the working form; the packet states them as the stage text lists them and records that their numbering in the printed version could not be matched exactly."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.2/the-monoidal-structure",
+      "parentStageId": "HabiroRings:HR.2",
+      "realises": [
+        "HabiroRings:HR.2"
+      ],
+      "title": "The completed tensor product and its unit",
+      "kind": "construction",
+      "statement": "Habiro-complete modules carry a symmetric monoidal structure given by completing the ordinary tensor product, with the completed Laurent ring as unit. The construction is the standard one for a Bousfield localisation at a smashing or idempotent-killing localisation and this node records which of the two it is, since the properties that follow differ. The spectral version is imported from the stable-homotopy roadmap with the SAME localisation comparison proved rather than assumed, which is the stage text's requirement.",
+      "hypotheses": [
+        "The localisation is by killing an idempotent algebra, which is what the previous node establishes.",
+        "The unit is the completion of the Laurent ring, not the Laurent ring itself.",
+        "The spectral version is over the sphere with q inverted, and the comparison of the two localisations is proved."
+      ],
+      "proofSteps": [
+        "Construct the completed tensor product and prove that it is symmetric monoidal.",
+        "Identify the unit and prove that it is the completion of the Laurent ring.",
+        "Record which kind of localisation this is and what follows from it.",
+        "Record the spectral version and the comparison, and state that it is proved here rather than assumed.",
+        "Record the compatibility of the completion functor with the tensor product."
+      ],
+      "acceptance": [
+        "The unit is the completed Laurent ring, not the Laurent ring.",
+        "The completion functor is monoidal for these structures.",
+        "The spectral comparison is proved, not assumed."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.2/the-detection-results",
+        "StableHomotopyKTheory:H.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Appendix, Habiro-complete spectra",
+          "excerpt": "S_R is an idempotent algebra over S[q^{pm 1}] and we define the infinity-category of Habiro-complete spectra to be the full subcategory obtained by killing the idempotent S_R.",
+          "match": "The spectral setting in which the monoidal structure is built, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "habiroTensor",
+          "role": "data",
+          "statement": "The completed tensor product."
+        },
+        {
+          "name": "habiroTensor_unit",
+          "role": "characterisation",
+          "statement": "Its unit is the completed Laurent ring."
+        },
+        {
+          "name": "habiroTensor_symmetric",
+          "role": "structure",
+          "statement": "The symmetric monoidal structure."
+        },
+        {
+          "name": "habiroCompletion_monoidal",
+          "role": "compatibility",
+          "statement": "The completion functor is monoidal."
+        },
+        {
+          "name": "spectral_comparison",
+          "role": "relation",
+          "statement": "The comparison with the spectral localisation, proved."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.5",
+          "how": "The base-change statements are about this tensor product."
+        },
+        {
+          "where": "HR.6",
+          "how": "The exported perfect complexes and invertible modules are for this structure."
+        },
+        {
+          "where": "HabiroNumberFields:HB.7",
+          "how": "The modules there are compared with invertible objects here."
+        }
+      ],
+      "tests": [
+        {
+          "name": "unit",
+          "statement": "The unit is the completed Laurent ring."
+        },
+        {
+          "name": "monoidal_completion",
+          "statement": "The completion functor is monoidal."
+        },
+        {
+          "name": "spectral",
+          "statement": "The spectral comparison holds and is proved."
+        },
+        {
+          "name": "not_ordinary_tensor",
+          "statement": "The ordinary tensor product of two complete objects need not be complete."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.2/the-solid-comparison-is-bounded-below",
+      "parentStageId": "HabiroRings:HR.2",
+      "realises": [
+        "HabiroRings:HR.2"
+      ],
+      "title": "The solid comparison is a bounded-below statement",
+      "kind": "comparison",
+      "statement": "The appendix also compares Habiro completion with the solid tensor product of condensed mathematics. That comparison is a BOUNDED-BELOW statement: it uses the qualified solid formalism of the v-stack roadmap and it is not an unrestricted preservation statement for unbounded objects, and neither is it a claim that the two completions agree on all inputs. This node states the comparison with its bound, names the roadmap that owns the solid formalism, and records the two readings that are not available.",
+      "hypotheses": [
+        "The objects are bounded below; the comparison is not asserted for unbounded ones.",
+        "The solid formalism is the qualified one the v-stack roadmap supplies, whose restrictions are recorded there.",
+        "The comparison is with the solid tensor product, not with an arbitrary completion."
+      ],
+      "proofSteps": [
+        "State the comparison with its boundedness hypothesis.",
+        "Name the owner of the solid formalism and the restrictions it carries.",
+        "State the two non-examples: unrestricted unbounded preservation, and an identification of the two completions on all inputs.",
+        "Record what the comparison is used for in the later layers."
+      ],
+      "acceptance": [
+        "The comparison holds for bounded-below objects.",
+        "It is not an unrestricted unbounded statement.",
+        "It is not an identification of the two completions on all inputs."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.2/the-monoidal-structure",
+        "VStackSheavesAndLisseCategories:VS2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "Appendix, the opening",
+          "excerpt": "We'll also study Habiro completion in the setting of solid condensed mathematics.",
+          "match": "The subject of the comparison, verbatim; the boundedness qualification is the stage text’s and is recorded as a hypothesis here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "The divisor poset, the cyclotomic closed sets and their intersections",
+      "kind": "construction",
+      "statement": "Fix a positive integer. Its positive divisors form a finite poset, and to each divisor is attached the closed subset of the spectrum of the polynomial ring in q where the corresponding cyclotomic polynomial vanishes; together they cover the closed subset where q to that power minus one vanishes. The intersections are what make the descent manageable: two divisors whose ratio is not a prime power have EMPTY intersection after completion, and the surviving intersections are organised by prime-power chains. This node computes them, which is the input the descent corollary needs.",
+      "hypotheses": [
+        "The integer is positive; the divisors are its positive divisors and the poset is by divisibility.",
+        "The intersections are computed after completion at the relevant ideals; the emptiness statements are statements about those completions.",
+        "The computation uses the comaximality of cyclotomic polynomials whose orders have a ratio that is not a prime power, which the classical roadmap proves."
+      ],
+      "proofSteps": [
+        "Define the poset and the closed sets and prove that they cover.",
+        "Compute the pairwise intersections, with the emptiness statement for a ratio that is not a prime power.",
+        "Organise the surviving intersections by prime-power chains.",
+        "Record the comaximality input from the classical roadmap.",
+        "Record the consequence: in the descent diagram only the prime edges carry data, which is what removes the coherence problem."
+      ],
+      "acceptance": [
+        "Two divisors whose ratio is not a prime power have empty intersection after completion.",
+        "The surviving intersections are indexed by prime edges.",
+        "The closed sets cover the vanishing locus of q to the power minus one.",
+        "This is what makes the descent diagram carry no higher coherence."
+      ],
+      "prerequisites": [
+        "HabiroCyclotomicCompletions:HC.4",
+        "EnhancedDerivedSheaves:E0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the proof of the descent corollary",
+          "excerpt": "The idea is to apply descent for R = A[q] and the cover of the vanishing locus of q^m - 1 by the vanishing loci of the Phi_d(q) for d dividing m. The simplifications come from the observation that many intersections are empty.",
+          "match": "The cover and the emptiness of many intersections, verbatim, which is exactly this node’s computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "divisorPoset",
+          "role": "data",
+          "statement": "The finite poset of divisors."
+        },
+        {
+          "name": "cycloClosedSet",
+          "role": "data",
+          "statement": "The closed set attached to a divisor."
+        },
+        {
+          "name": "cycloClosedSet_cover",
+          "role": "characterisation",
+          "statement": "That they cover."
+        },
+        {
+          "name": "intersection_empty",
+          "role": "characterisation",
+          "statement": "Emptiness for a non-prime-power ratio."
+        },
+        {
+          "name": "primeEdges",
+          "role": "data",
+          "statement": "The surviving intersections, indexed by prime edges."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.3, the descent corollary",
+          "how": "The corollary is stated on this diagram."
+        },
+        {
+          "where": "HR.4",
+          "how": "The etale lift is assembled along the prime edges."
+        },
+        {
+          "where": "HabiroCyclotomicCompletions:HC.5",
+          "how": "The same computation underlies the Chinese remainder decomposition there."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cover",
+          "statement": "The closed sets cover."
+        },
+        {
+          "name": "empty_intersection",
+          "statement": "Two divisors with ratio six have empty intersection after completion."
+        },
+        {
+          "name": "prime_edges",
+          "statement": "The surviving intersections are the prime edges."
+        },
+        {
+          "name": "finite",
+          "statement": "The poset is finite, which is what makes the descent a finite gluing problem."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.3/the-complete-descent-corollary",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "Gluing cyclotomically complete algebras along prime edges",
+      "kind": "theorem",
+      "statement": "Given, for each divisor of a fixed integer, a derived complete algebra at the corresponding cyclotomic polynomial, and for each prime edge an equivalence of the completions at that prime, there is a UNIQUE complete algebra at q to the power minus one whose cyclotomic completions are the given ones and whose prime-edge comparisons are the given equivalences. The point, which the source states explicitly, is that NO higher coherence data has to be provided: the intersections of the previous node are empty except along the prime edges, so the descent diagram degenerates. That is a theorem about this diagram and not a licence to glue arbitrary pairwise isomorphisms.",
+      "hypotheses": [
+        "The algebras are derived complete at the respective cyclotomic polynomials and are E-infinity over the polynomial ring in q over the base.",
+        "The gluing data is an equivalence of the completions at the prime, for each pair of divisors related by a prime.",
+        "The conclusion is unique existence, so the construction is determined and not merely possible."
+      ],
+      "proofSteps": [
+        "State the data and the conclusion.",
+        "Record the source's own remark that no coherence data is needed, and why: the emptiness computation of the previous node.",
+        "Record the proof strategy, which applies descent for the cover of the vanishing locus and uses the emptiness to collapse the diagram.",
+        "State the morphism-level statement: the construction is functorial in the data, so a map of gluing data induces a map of the glued algebras, which the stage text demands.",
+        "State the non-example: without the emptiness computation the same diagram would require coherence, and gluing arbitrary pairwise isomorphisms is not licensed."
+      ],
+      "acceptance": [
+        "The glued algebra exists and is unique.",
+        "Its cyclotomic completions are the given data and its prime-edge comparisons the given equivalences.",
+        "No higher coherence data is required, and this is a theorem about this diagram.",
+        "The construction is functorial in the data."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+        "HabiroRings:HR.2/habiro-complete-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the descent corollary",
+          "excerpt": "In the case that we're actually interested in, the descent diagram simplifies considerably; in particular, no coherence data needs to be provided! Let m be a positive integer. Suppose we're given the following data: for all divisors d of m, a derived Phi_d(q)-complete E-infinity A[q]-algebra E_d; for all divisors pd of m, where p is a prime, an equivalence of E-infinity A[q]-algebras h_d ...",
+          "match": "The corollary with its data and its unique conclusion, and the source’s own emphasis that no coherence data is needed, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The cyclotomic descent corollary"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.3/the-morphism-level-statement",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "The comparison is an equivalence of categories, not an object",
+      "kind": "theorem",
+      "statement": "The descent corollary produces an object with prescribed completions; the stage text asks for more, namely that the comparison be an equivalence between the category of gluing data and the category of complete algebras, with its universal property at the level of morphisms. This node states that equivalence, records what it adds over the object statement — that a map of glued algebras is the same thing as a compatible family of maps of the local data — and records the joint conservativity and right-Kan-extension conditions that the generic descent argument requires and that the previous nodes verify.",
+      "hypotheses": [
+        "The categories are those of the descent diagram and of complete algebras at q to the power minus one.",
+        "The generic descent argument needs joint conservativity of the local restrictions and a right-Kan-extension condition, both verified by the intersection computation.",
+        "The equivalence is of infinity-categories, so it includes the mapping spaces."
+      ],
+      "proofSteps": [
+        "State the equivalence of categories.",
+        "Record what it gives at the level of morphisms.",
+        "Record the two conditions the generic argument requires and where they were verified.",
+        "State the non-example: an object with the right completions is not by itself a solution to the descent problem, because the morphism-level statement can fail.",
+        "Record the use: HR.4 constructs its transition maps through this statement."
+      ],
+      "acceptance": [
+        "A map of glued algebras is a compatible family of maps of the local data.",
+        "The two conditions of the generic argument hold for this diagram.",
+        "An object statement alone does not give the descent equivalence."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/the-complete-descent-corollary",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the general descent principle",
+          "excerpt": "To construct H_{R/A}, we'll first construct the completions at each Phi_m(q) and then glue them together using a very general descent principle that we'll explain in this subsection.",
+          "match": "The descent principle of which the corollary is the special case, verbatim; the morphism-level statement is what makes it a principle rather than a construction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.3/what-the-degeneration-does-not-license",
+      "parentStageId": "HabiroRings:HR.3",
+      "realises": [
+        "HabiroRings:HR.3"
+      ],
+      "title": "What the absence of coherence data does not license",
+      "kind": "comparison",
+      "statement": "The descent diagram of this layer degenerates because of an arithmetic fact about cyclotomic polynomials, and the stage text warns against reading the degeneration as a general permission. Two readings are excluded here. First, gluing arbitrary pairwise isomorphisms without coherence: that is legitimate only for a diagram whose higher intersections vanish, and the vanishing is the theorem of the first node. Second, transporting the degeneration to a diagram indexed by a poset that is not the divisor poset of a single integer, where the intersections need not vanish.",
+      "hypotheses": [
+        "The degeneration is a property of the divisor poset with the cyclotomic closed sets.",
+        "For a general cover the higher intersections do not vanish and the coherence data is genuinely needed.",
+        "The warning is about the shape of the argument, not about its correctness here."
+      ],
+      "proofSteps": [
+        "State the degeneration and the fact it rests on.",
+        "State the first non-example, with a diagram where pairwise gluing is not enough.",
+        "State the second, with a poset for which the computation fails.",
+        "Record the rule: every use of the corollary names the integer whose divisors index it."
+      ],
+      "acceptance": [
+        "The degeneration holds for the divisor poset of an integer with the cyclotomic closed sets.",
+        "It does not hold for a general cover.",
+        "Pairwise isomorphisms without coherence do not glue in general."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/the-morphism-level-statement",
+        "HabiroRings:HR.3/the-divisor-poset-and-its-intersections"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the descent corollary",
+          "excerpt": "In the case that we're actually interested in, the descent diagram simplifies considerably; in particular, no coherence data needs to be provided!",
+          "match": "The source’s own framing, verbatim: the simplification is for the case at hand and is not a general principle."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.4/relative-q-witt-rings",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "The degree-zero relative q-Witt rings",
+      "kind": "definition",
+      "statement": "For a positive integer, the RELATIVE q-WITT RING of an algebra over a perfectly covered base is the degree-zero part of the q-de Rham-Witt theory of the companion paper: an algebra over the polynomial ring in q modulo q to that power minus one, defined by a universal property with a quotient construction, and described by ghost components under a torsion hypothesis. It is functorial in the pair, and it carries Frobenius and Verschiebung operators in the exact domains the source establishes. The positive-degree q-de Rham-Witt complex is an EXTENSION of these rings and is owned by the cohomology roadmap; it is not a second construction of them.",
+      "hypotheses": [
+        "The base is perfectly covered and the algebra is over it; the degree-zero part is the one this layer owns.",
+        "The ghost description holds under the torsion hypotheses the source states and not in general.",
+        "The Frobenius and Verschiebung operators are defined in the domains the source gives, which are not the whole of the classical Witt-vector API."
+      ],
+      "proofSteps": [
+        "Define the ring by its quotient and universal construction.",
+        "Prove the ghost description under its torsion hypotheses.",
+        "Construct the Frobenius and Verschiebung operators in the stated domains and record what is NOT available.",
+        "Prove functoriality in the pair.",
+        "Record the boundary with the cohomology roadmap, which owns the positive-degree complex, and state that this layer does not construct a second version of these rings."
+      ],
+      "acceptance": [
+        "The ghost description holds under the torsion hypothesis.",
+        "The Frobenius and Verschiebung are defined in the stated domains only.",
+        "The ring is functorial in the pair.",
+        "The positive-degree complex is an extension owned elsewhere."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.1/perfectly-covered",
+        "HabiroCohomologyFoundations:HQ.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1, the introduction, on the companion paper",
+          "excerpt": "In a previous work of the author, we showed that for all m the cohomology of the coordinate-dependent q-Hodge complex modulo q^m - 1 agrees with the (q-1)-completion of a certain object, which we call the m-truncated q-de Rham-Witt complex. The system of these objects satisfies a similar universal property as the de Rham-Witt pro-complex and so it is functorial.",
+          "match": "The q-de Rham-Witt complexes with their universal property, verbatim; the degree-zero part is the relative q-Witt ring this node owns."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Relative q-Witt rings"
+      },
+      "api": [
+        {
+          "name": "qWitt",
+          "role": "data",
+          "statement": "The relative q-Witt ring at an integer."
+        },
+        {
+          "name": "qWitt.universal",
+          "role": "characterisation",
+          "statement": "Its universal property."
+        },
+        {
+          "name": "qWitt.ghost",
+          "role": "characterisation",
+          "statement": "The ghost description under the torsion hypothesis."
+        },
+        {
+          "name": "qWitt.frobenius",
+          "role": "data",
+          "statement": "The Frobenius operator in its domain."
+        },
+        {
+          "name": "qWitt.verschiebung",
+          "role": "data",
+          "statement": "The Verschiebung in its domain."
+        },
+        {
+          "name": "qWitt.functorial",
+          "role": "functoriality",
+          "statement": "Functoriality in the pair."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.4, the etale lift",
+          "how": "The lift is characterised by its quotient being this ring."
+        },
+        {
+          "where": "HQ.4",
+          "how": "The positive-degree complex extends these rings."
+        },
+        {
+          "where": "HR.7",
+          "how": "The acceptance tests check the transition map against the Frobenius."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ghost_hypothesis",
+          "statement": "The ghost description needs the torsion hypothesis; without it it fails."
+        },
+        {
+          "name": "functorial",
+          "statement": "The ring is functorial in the pair."
+        },
+        {
+          "name": "degree_zero_only",
+          "statement": "This layer owns the degree-zero part only."
+        },
+        {
+          "name": "operators_domains",
+          "statement": "The operators are defined in the stated domains and not on the whole ring."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.4/there-is-no-restriction-map",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "There is no compatible restriction operator on q-Witt rings",
+      "kind": "comparison",
+      "statement": "The classical Witt vectors carry restriction maps along divisibility, and the stage text warns that the q-theory does NOT: the companion paper proves an obstruction, and there is no compatible extension of the ordinary restriction to this q-Witt theory, hence no big q-Witt ring in the naive sense. This node states the obstruction as the source states it, records that the transition maps of the next node are the FROBENIUS and not a restriction, and forbids an interface that names a restriction operator it cannot provide.",
+      "hypotheses": [
+        "The comparison is with the ordinary Witt restriction maps along divisibility.",
+        "The obstruction is proved in the companion paper's first section and is cited here.",
+        "The transition maps that DO exist are the ones of the next node, and they are Frobenius maps."
+      ],
+      "proofSteps": [
+        "State the obstruction and its source.",
+        "Record what the classical theory has and this one does not.",
+        "State the rule: no interface may expose a restriction operator, and the transition maps are named Frobenius.",
+        "Record the consequence for the pro-structure: the system of q-Witt rings is a pro-object for the Frobenius maps and not for restrictions.",
+        "Record the non-example: an unrestricted big q-Witt ring built from a restriction system does not exist."
+      ],
+      "acceptance": [
+        "There is no compatible restriction operator.",
+        "The transition maps are Frobenius maps.",
+        "No big q-Witt ring in the naive sense exists.",
+        "An interface that named a restriction would be exposing something the theory does not have."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/relative-q-witt-rings"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1, the introduction, on the companion paper",
+          "excerpt": "The system of the m-truncated q-de Rham-Witt complexes satisfies a similar universal property as the de Rham-Witt pro-complex",
+          "match": "The pro-structure the theory does have, verbatim; the stage text records that the companion paper proves there is no compatible restriction, and this node states that as the boundary."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.4/the-etale-lift",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "The relative Habiro ring at an integer, as the unique etale lift",
+      "kind": "theorem",
+      "statement": "For each positive integer, gluing the local algebras at the cyclotomic polynomials along the prime edges by the linearised Frobenius of HR.1 produces a complete algebra at q to the power minus one, and the theorem identifies it: its quotient by q to the power minus one is the relative q-Witt ring, and it is the UNIQUE lift of that etale algebra to a complete algebra over the completed polynomial ring. In particular it is STATIC, an ordinary ring rather than a higher one, and so is the limit over all integers. The staticity is proved through the detection results of HR.2 and not by assuming that completion is exact.",
+      "hypotheses": [
+        "The base is perfectly covered; the algebra is over it, and for the etale-lift statement the relevant etaleness is that of the q-Witt ring over the quotient ring.",
+        "The local algebras are the completions of the base changes along the Adams operations, and the gluing maps are the linearisations of HR.1.",
+        "Uniqueness is as a complete algebra over the completed polynomial ring, which is what makes the construction canonical."
+      ],
+      "proofSteps": [
+        "Assemble the local data and the prime-edge equivalences and apply the descent corollary.",
+        "State the quotient identification with the q-Witt ring.",
+        "State the uniqueness as an etale lift.",
+        "Deduce staticity, using the detection result of HR.2 rather than an exactness assumption.",
+        "Deduce staticity of the limit over all integers.",
+        "Record the naturality of the quotient identification and the invariance under an equivalent etale presentation."
+      ],
+      "acceptance": [
+        "The quotient by q to the power minus one is the relative q-Witt ring.",
+        "The lift is unique, so the construction is canonical.",
+        "Both the finite stage and the limit are ordinary rings.",
+        "The staticity proof uses the detection result and not an exactness assumption."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.3/the-complete-descent-corollary",
+        "HabiroRings:HR.4/relative-q-witt-rings",
+        "HabiroRings:HR.1/the-etale-frobenius-lift",
+        "HabiroRings:HR.2/the-detection-results"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the q-Witt comparison theorem",
+          "excerpt": "Let A be a perfectly covered Lambda-ring, R an A-algebra, and m a positive integer. Then H_{R/A, m}/(q^m - 1) is equivalent to qW_m(R/A). In fact, H_{R/A, m} is the unique lift of the etale A[q]/(q^m - 1)-algebra qW_m(R/A) to a (q^m - 1)-complete E-infinity algebra over the (q^m - 1)-completion of A[q]. In particular, H_{R/A, m} is an ordinary ring for all m, and the same is true for the ...",
+          "match": "The theorem with the quotient identification, the uniqueness and the staticity, verbatim."
+        },
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the construction",
+          "excerpt": "For every d dividing m, let E_d be the Phi_d(q)-completion of (R tensor_{A, psi^d} A)[q], and for every pd dividing m, where p is a prime, let the gluing equivalence h_d be the A[q]-linear map induced by phi_{p/A}.",
+          "match": "The local data and the gluing maps, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The unique etale lift"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.4/the-transitions-are-frobenius",
+      "parentStageId": "HabiroRings:HR.4",
+      "realises": [
+        "HabiroRings:HR.4"
+      ],
+      "title": "The transition maps and what they induce on q-Witt rings",
+      "kind": "theorem",
+      "statement": "For each divisor there is a transition map from the ring at the multiple to the ring at the divisor, obtained from the descent construction; the transitions compose, and on the quotients they induce the FROBENIUS operator of the q-Witt rings, not the restriction operator. Naming them correctly is the point: the previous node has shown that no restriction operator exists, so a map called by that name would be claiming something false. This node constructs the transitions, proves the composition law and identifies the induced map.",
+      "hypotheses": [
+        "The divisor relation is divisibility; the transitions are along it.",
+        "The identification on quotients is with the Frobenius at the ratio of the two integers.",
+        "The composition law is for a chain of divisors."
+      ],
+      "proofSteps": [
+        "Construct the transition maps from the descent construction.",
+        "Prove the composition law.",
+        "Identify the induced map on the quotients with the Frobenius at the ratio.",
+        "Record the source's own remark making that identification.",
+        "State the naming rule and the reason for it.",
+        "Record the naturality of the whole system in the pair."
+      ],
+      "acceptance": [
+        "The transitions compose.",
+        "On quotients they induce the Frobenius at the ratio.",
+        "They are not restriction maps and are not named as such.",
+        "The system is natural in the pair."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/the-etale-lift",
+        "HabiroRings:HR.4/there-is-no-restriction-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the proof of the q-Witt comparison",
+          "excerpt": "If p is prime and pd divides m, then the ghost maps for the usual Witt vectors satisfy gh_{m/d}(x) = gh_{m/pd}(x)^p. It follows that the ghost maps for relative q-Witt vectors fit into a commutative diagram",
+          "match": "The ghost relation that identifies the induced map, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.5/the-relative-habiro-ring",
+      "parentStageId": "HabiroRings:HR.5",
+      "realises": [
+        "HabiroRings:HR.5"
+      ],
+      "title": "The relative Habiro ring as a limit",
+      "kind": "construction",
+      "statement": "The RELATIVE HABIRO RING of an etale algebra over a perfectly covered base is the limit of the rings of HR.4 over all positive integers, along the transition maps. The divisor system and any cofinal factorial sequence give canonically equivalent limits, so the ring may be computed along either. It is complete in the sense of HR.2 and it has the universal property of a complete ring for continuous maps; every functorial map of the relative etale construction is inherited by it. Base change holds under the flatness and completion hypotheses the construction supports, and no unrestricted tensor formula is part of the interface.",
+      "hypotheses": [
+        "The base is perfectly covered and the algebra is etale over it.",
+        "The limit is along the transition maps of HR.4, which are Frobenius maps on the quotients.",
+        "Base change is asserted only under the stated hypotheses; the general formula is not claimed."
+      ],
+      "proofSteps": [
+        "Define the ring as the limit and prove that it is well defined.",
+        "Prove that the divisor system and a cofinal factorial sequence give equivalent limits.",
+        "Prove completeness and state the universal property.",
+        "Record the inherited functorial maps.",
+        "State the base-change statement with its hypotheses and record what is not claimed.",
+        "Record staticity, which the theorem of HR.4 gives for the limit as well as for each stage."
+      ],
+      "acceptance": [
+        "The ring is static, an ordinary ring.",
+        "The divisor and factorial limits agree.",
+        "Base change holds under the stated hypotheses only.",
+        "The ring is Habiro-complete in the sense of HR.2."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.4/the-etale-lift",
+        "HabiroRings:HR.2/habiro-complete-modules",
+        "HabiroRings:HR.4/the-transitions-are-frobenius"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the section opening",
+          "excerpt": "relative Habiro ring H_{R/A} for any etale algebra R over A, and to relate this construction to the theory of q-Witt vectors. In the case where A = Z, our construction H_{R/Z} recovers the ring H_R from the Habiro ring of a number field paper. As we'll see, the construction of H_{R/A} is a special case of a much more general construction. However, the general case is vastly more ...",
+          "match": "The construction and its scope, verbatim, including the source’s own note that the etale case is the accessible one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The relative Habiro ring"
+      },
+      "api": [
+        {
+          "name": "relativeHabiro",
+          "role": "data",
+          "statement": "The limit over the integers."
+        },
+        {
+          "name": "relativeHabiro_factorial",
+          "role": "characterisation",
+          "statement": "Equivalence with the factorial limit."
+        },
+        {
+          "name": "relativeHabiro_static",
+          "role": "characterisation",
+          "statement": "Staticity."
+        },
+        {
+          "name": "relativeHabiro_complete",
+          "role": "characterisation",
+          "statement": "Habiro-completeness."
+        },
+        {
+          "name": "relativeHabiro_universal",
+          "role": "characterisation",
+          "statement": "The universal property."
+        },
+        {
+          "name": "relativeHabiro_baseChange",
+          "role": "compatibility",
+          "statement": "Base change under its hypotheses."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.5, the equaliser",
+          "how": "The presentation is of this ring."
+        },
+        {
+          "where": "HR.6",
+          "how": "The cohomology comparison identifies its coefficient object with this ring."
+        },
+        {
+          "where": "HabiroNumberFields:HB.6",
+          "how": "The number-field ring is the case of the integers as base."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factorial",
+          "statement": "The factorial limit gives the same ring."
+        },
+        {
+          "name": "static",
+          "statement": "The ring is an ordinary ring."
+        },
+        {
+          "name": "no_general_base_change",
+          "statement": "No unrestricted base-change formula is claimed."
+        },
+        {
+          "name": "universal",
+          "statement": "A continuous map into a complete ring factors through it."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.5/the-equaliser-presentation",
+      "parentStageId": "HabiroRings:HR.5",
+      "realises": [
+        "HabiroRings:HR.5"
+      ],
+      "title": "The equaliser presentation by compatible cyclotomic Taylor series",
+      "kind": "theorem",
+      "statement": "The relative Habiro ring is the EQUALISER of two maps between products of power-series rings: the product over all integers of the power series in the variable q minus the root of unity of that order, with coefficients the base change of the algebra along the corresponding Adams operation with the root adjoined; and the product over pairs of a prime and an integer of the corresponding completed rings. The two arrows are the CANONICAL map, which re-expands a series at the coarser root, and the FROBENIUS, which applies the relative Frobenius and then re-expands. The equaliser may be taken in E-infinity algebras or in ordinary ones, and the source proves the comparison by checking it after completion at each prime and rationally at each cyclotomic polynomial.",
+      "hypotheses": [
+        "The algebra is etale over a perfectly covered base.",
+        "The two arrows are the ones the source names; the second is the relative Frobenius followed by re-expansion and not either alone.",
+        "The check is after completion at each prime and rationally at each cyclotomic polynomial, which is legitimate because both sides are Habiro-complete."
+      ],
+      "proofSteps": [
+        "State the equaliser with both products and both arrows.",
+        "Record the source's proof strategy: compare with the equaliser built from the cyclotomic completions, use staticity and coconnectivity to get a map, and check after the two families of completions.",
+        "Record the prime-completion step, in which the factors at other primes die and the surviving Frobenii become equivalences.",
+        "Record that the equaliser may be taken in either category, which is the source's parenthesis.",
+        "Record the intuition the source gives: the ring consists of power series that can be Taylor-expanded around each root of unity, and whenever two expansions can be compared p-adically they must agree."
+      ],
+      "acceptance": [
+        "The equaliser may be taken in E-infinity algebras or in ordinary ones.",
+        "The two arrows are the canonical map and the Frobenius followed by re-expansion.",
+        "The comparison is checked after completion at each prime and rationally at each cyclotomic polynomial.",
+        "The presentation makes precise the intuition that the ring is one of Taylor-expandable series."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5/the-relative-habiro-ring",
+        "HabiroRings:HR.1/the-etale-frobenius-lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the comparison lemma",
+          "excerpt": "The ring H_{R/A} agrees with the following equaliser (which can be taken both in E-infinity A[q]-algebras or in ordinary A[q]-algebras): H_{R/A} is the equaliser of the canonical map and the Frobenius, from the product over m of (R tensor_{A, psi^m} A)[zeta_m][[q - zeta_m]] to the product over p and m of the p-completion of (R-hat_p tensor_{A, psi^m} A)[zeta_{pm}][[q - zeta_m]].",
+          "match": "The equaliser with both arrows, verbatim."
+        },
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the proof of the comparison lemma",
+          "excerpt": "Since both sides are Habiro-complete, whether this map is an equivalence can be checked after p-completion for all primes and after rationalised completion at each Phi_d(q). Proof after l-completion. After l-completion, all factors with p not l die, and the surviving Frobenii become equivalences.",
+          "match": "The proof strategy, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The equaliser presentation"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.5/roots-choices-and-substitutions",
+      "parentStageId": "HabiroRings:HR.5",
+      "realises": [
+        "HabiroRings:HR.5"
+      ],
+      "title": "Root choices, their change and the convergence of the substitutions",
+      "kind": "construction",
+      "statement": "The equaliser is written with a chosen root of unity of each order, and the re-expansion maps substitute the difference of two roots into a power series. This node constructs the choices, proves that the presentation is invariant under changing them, and proves that the substitutions converge — which is the same statement the classical roadmap proves, that the difference of two roots is topologically nilpotent in the relevant completion. The stage text adds a requirement this node carries: work with the FULL cyclotomic coefficient algebra, or with all of its finite etale factors, rather than silently choosing one p-adic embedding of a root.",
+      "hypotheses": [
+        "The roots are chosen for each order; the change of choice is by a Galois element or by a power.",
+        "The substitution is of the difference of two roots, in the completion at a prime.",
+        "The coefficient algebra is the full one; a single embedding is a choice that must not be made silently."
+      ],
+      "proofSteps": [
+        "Construct the choices and the re-expansion maps.",
+        "Prove the invariance of the presentation under change of choice.",
+        "Prove convergence of the substitutions from topological nilpotence, citing the classical roadmap's statement.",
+        "State the full-algebra requirement and record what goes wrong with a single embedding.",
+        "Record the source's own description of the maps as re-expansion morphisms."
+      ],
+      "acceptance": [
+        "The presentation does not depend on the chosen roots.",
+        "The substitutions converge, by topological nilpotence.",
+        "The coefficient algebra is the full cyclotomic one; a single embedding loses the other factors.",
+        "The re-expansion maps are the ones the source names."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5/the-equaliser-presentation",
+        "HabiroCyclotomicCompletions:HC.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the remark on the classical ring",
+          "excerpt": "Here the Frobenius is just given by the reexpansion morphisms from Z[zeta_{pm}][[q - zeta_{pm}]] to Z_p[zeta_{pm}][[q - zeta_m]] for all p and all m. This gives precise meaning to the intuition that the Habiro ring is the ring of power series that can be Taylor-expanded around each root of unity. Whenever two such expansions can be compared p-adically, they must coincide.",
+          "match": "The re-expansion maps and the intuition they make precise, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "rootChoice",
+          "role": "data",
+          "statement": "A choice of root of unity at each order."
+        },
+        {
+          "name": "reExpansion",
+          "role": "data",
+          "statement": "The re-expansion map."
+        },
+        {
+          "name": "reExpansion_converges",
+          "role": "characterisation",
+          "statement": "Convergence from topological nilpotence."
+        },
+        {
+          "name": "presentation_indep_of_choice",
+          "role": "characterisation",
+          "statement": "Invariance under change of choice."
+        },
+        {
+          "name": "fullCyclotomicAlgebra",
+          "role": "relation",
+          "statement": "The requirement to keep the full coefficient algebra."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HR.5, the number-field comparison",
+          "how": "The comparison is read off the presentation with these choices."
+        },
+        {
+          "where": "HR.7",
+          "how": "The acceptance test on two elements with the same value and different expansions uses them."
+        },
+        {
+          "where": "HabiroNumberFields:HB.6",
+          "how": "The same substitution lemma is stated there."
+        }
+      ],
+      "tests": [
+        {
+          "name": "change_of_choice",
+          "statement": "Changing the chosen roots does not change the ring."
+        },
+        {
+          "name": "converges",
+          "statement": "The substitutions converge."
+        },
+        {
+          "name": "full_algebra",
+          "statement": "Keeping one embedding instead of the full algebra loses information."
+        },
+        {
+          "name": "classical_case",
+          "statement": "For the integers the presentation is the classical Taylor description."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.5/the-cyclotomic-splitting-repair",
+      "parentStageId": "HabiroRings:HR.5",
+      "realises": [
+        "HabiroRings:HR.5"
+      ],
+      "title": "A proof line that needs repair: the cyclotomic polynomial need not stay irreducible",
+      "kind": "comparison",
+      "statement": "The adopted route contains a proof line asserting that the cyclotomic polynomial of an order is irreducible modulo every prime not dividing that order. That is FALSE as stated: the polynomial is separable there and its quotient algebra is finite etale, but it can split — the fifth cyclotomic polynomial over the field with eleven elements is the standing counterexample. The repair is to carry out the arithmetic fracture step componentwise, by idempotent descent over the finite etale algebra, and to reassemble. This node states the defect, the counterexample and the repair, and records that it is a proof obligation in the route and not a claim that the theorem is false.",
+      "hypotheses": [
+        "The prime does not divide the order; the quotient of the polynomial ring by the cyclotomic polynomial is then finite etale over the residue field.",
+        "Finite etale does not mean a field: it is a finite product of fields, one for each factor.",
+        "The repair is idempotent descent over that product, followed by reassembly."
+      ],
+      "proofSteps": [
+        "State the assertion as it appears and say precisely what is true instead: separability and finite etaleness, not irreducibility.",
+        "Give the counterexample explicitly and compute the number of factors.",
+        "State the repair: perform the fracture componentwise and reassemble by idempotent descent.",
+        "Record that the equaliser theorem itself is not in doubt; what is in doubt is one line of one proof.",
+        "Record the acceptance test the stage text attaches to this, which is exactly the counterexample."
+      ],
+      "acceptance": [
+        "The cyclotomic polynomial is separable modulo a prime not dividing its order, and its quotient is finite etale.",
+        "It need not be irreducible: the fifth one splits over the field with eleven elements.",
+        "The repair is componentwise fracture with idempotent descent.",
+        "The theorem is not false; one proof line needs the repair."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5/the-equaliser-presentation",
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the proof of the comparison lemma",
+          "excerpt": "After l-completion, all factors in E with p not l die, and the surviving Frobenii become equivalences.",
+          "match": "The fracture step of the proof, verbatim; the stage text records that the line justifying it by irreducibility of the cyclotomic polynomial modulo the prime needs the repair this node states."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.5-number-field-comparison/the-classical-ring",
+      "parentStageId": "HabiroRings:HR.5-number-field-comparison",
+      "realises": [
+        "HabiroRings:HR.5-number-field-comparison"
+      ],
+      "title": "Recovering the classical Habiro ring",
+      "kind": "theorem",
+      "statement": "Taking the base and the algebra both to be the integers, the equaliser presentation becomes the classical description of the Habiro ring: the equaliser of the canonical and the re-expansion maps between the product over all orders of the power series over the cyclotomic integers and the product over pairs of a prime and an order of the corresponding p-adic rings. The source states exactly this, and the comparison with the classical roadmap's inverse-limit construction is what makes the two descriptions the same object.",
+      "hypotheses": [
+        "The base and the algebra are the integers; the roots are the ordinary roots of unity.",
+        "The comparison with the inverse-limit construction is with the classical roadmap's ring at all orders.",
+        "The identification is of rings, and it is compatible with the projections on both sides."
+      ],
+      "proofSteps": [
+        "Specialise the equaliser presentation.",
+        "Record the source's own statement of the resulting description.",
+        "Compare with the classical roadmap's inverse limit and prove that the two agree, matching the projections.",
+        "Record the intuition the source attaches to it.",
+        "Record what the comparison needs from the classical roadmap, namely its first four layers."
+      ],
+      "acceptance": [
+        "The specialisation is the classical Taylor description.",
+        "It agrees with the classical inverse-limit construction, with matching projections.",
+        "The comparison uses the classical roadmap's first four layers."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5/the-equaliser-presentation",
+        "HabiroCyclotomicCompletions:HC.1",
+        "HabiroCyclotomicCompletions:HC.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the remark on the classical ring",
+          "excerpt": "In the special case where R = Z, we obtain the following presentation of the ordinary Habiro ring: H is the equaliser of the canonical map and the Frobenius, from the product over m of Z[zeta_m][[q - zeta_m]] to the product over p and m of Z_p[zeta_{pm}][[q - zeta_m]].",
+          "match": "The classical specialisation, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
+      "parentStageId": "HabiroRings:HR.5-number-field-comparison",
+      "realises": [
+        "HabiroRings:HR.5-number-field-comparison"
+      ],
+      "title": "Recovering the Habiro ring of a number field",
+      "kind": "theorem",
+      "statement": "For a number field and the ring of integers with the discriminant inverted, the relative Habiro ring over the integers agrees with the Frobenius-glued ring the number-field roadmap constructs. The source states this as a corollary of the equaliser presentation, and the comparison is an identification of RINGS: it matches the two Frobenius-gluing conditions, the two families of coefficient algebras and the two systems of projections, and it is the point at which the general construction of this roadmap and the explicit one of that roadmap meet.",
+      "hypotheses": [
+        "The field is a number field and the inverted integer is divisible by the discriminant, and by six where the module theory of the other roadmap needs it.",
+        "The comparison is with the ring of that roadmap's Definition, which is the Frobenius-glued family of power series.",
+        "The identification matches the gluing conditions, not merely the underlying sets."
+      ],
+      "proofSteps": [
+        "Specialise the equaliser presentation to the base of the integers and the algebra of S-integers.",
+        "Match the equaliser's two arrows with the gluing condition of the number-field roadmap.",
+        "Record the source's own corollary.",
+        "Record what the comparison requires of the other roadmap, namely its already-constructed ring and its substitution lemma.",
+        "Record the stage text's point that this roadmap's ring can be constructed first and that the comparison is not an input to the other construction."
+      ],
+      "acceptance": [
+        "The two rings agree, with their gluing conditions matched.",
+        "The comparison is a corollary of the equaliser presentation.",
+        "Neither construction is an input to the other; the comparison is a theorem about both."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5-number-field-comparison/the-classical-ring",
+        "HabiroNumberFields:HB.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the corollary after the comparison lemma",
+          "excerpt": "If F is a number field with discriminant Delta and R is O_F[1/Delta], then H_{R/Z} agrees with the Habiro ring H_R defined in the Habiro ring of a number field paper. Proof. This follows immediately from the comparison lemma.",
+          "match": "The comparison with the number-field ring, verbatim."
+        },
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1, the introduction, on the number-field ring",
+          "excerpt": "Let F be a number field and let Delta be divisible by 6 times the discriminant of F. Garoufalidis, Scholze, Wheeler and Zagier construct a certain formally etale H-algebra: the Habiro ring of the number field F.",
+          "match": "The hypotheses on the inverted integer, verbatim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The number-field comparison"
+      }
+    },
+    {
+      "id": "HabiroRings:HR.6/the-degree-zero-identification",
+      "parentStageId": "HabiroRings:HR.6",
+      "realises": [
+        "HabiroRings:HR.6"
+      ],
+      "title": "Identifying the coefficient object of Habiro cohomology with the relative ring",
+      "kind": "comparison",
+      "statement": "Once the cohomology roadmap has constructed the Habiro-Hodge complex and its comparisons, its degree-zero part is identified with the relative Habiro ring of HR.5, compatibly with multiplication, with every cyclotomic specialisation, with the completion at q minus one and with the functoriality in pairs. The cohomology functor and its filtered comparisons are that roadmap's; what this layer supplies is the identification of the coefficient object with the ring built here independently. The source's descent theorem is the statement that makes the identification possible, and it is quoted here rather than reproved.",
+      "hypotheses": [
+        "The pair is a perfectly covered base with an algebra satisfying the hypotheses the cohomology roadmap imposes.",
+        "The identification is of E-infinity algebras and is compatible with the four structures listed.",
+        "The cohomology functor is imported; this node states only the identification."
+      ],
+      "proofSteps": [
+        "Record the descent theorem that produces the Habiro-level object.",
+        "State the degree-zero identification with the ring of HR.5.",
+        "State the four compatibilities: multiplication, cyclotomic specialisations, the completion at q minus one, and functoriality in pairs.",
+        "Record the boundary: the cohomology functor, its filtrations and its comparisons belong to the cohomology roadmap.",
+        "Record the quotient identification with the q-Witt complexes, which is the same theorem's second half and which the cohomology roadmap owns in positive degrees."
+      ],
+      "acceptance": [
+        "The degree-zero part is the relative Habiro ring.",
+        "The identification respects multiplication, the specialisations, the completion and the functoriality.",
+        "The cohomology functor itself is imported and is not constructed here."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5/the-relative-habiro-ring",
+        "HabiroCohomologyFoundations:HQ.5",
+        "HabiroCohomologyFoundations:HQ.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1, the descent theorem in the introduction",
+          "excerpt": "The q-Hodge complex functor admits a non-trivial symmetric monoidal factorisation through the Habiro-complete objects. ... For all m, the quotient by q^m - 1 admits a functorial exhaustive ascending filtration whose associated graded is the m-truncated q-de Rham-Witt complex.",
+          "match": "The descent theorem and the q-de Rham-Witt comparison, verbatim; the degree-zero identification of this node is what connects its coefficient object with the ring of HR.5."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.6/the-module-interfaces",
+      "parentStageId": "HabiroRings:HR.6",
+      "realises": [
+        "HabiroRings:HR.6"
+      ],
+      "title": "What is exported to the cohomology roadmap, and what is imported back",
+      "kind": "construction",
+      "statement": "This layer exports the complete modules of HR.2, derived scalar extension, perfect complexes and the comparison of invertible modules, and it imports the modules graded by the third K-group from the number-field roadmap. What it proves about those is ONLY the scalar-extension and Picard comparisons that roadmap supports: it does not construct a new third K-group and does not assume that every module is free. It also records, through an actual completion map, what information can disappear after completion at q minus one, and states that a line module graded by a K-theory class is not automatically a higher-degree cohomology class on a scheme.",
+      "hypotheses": [
+        "The modules are Habiro-complete in the sense of HR.2; the graded ones are the number-field roadmap's.",
+        "The Picard comparison is only for the invertible objects both sides actually have.",
+        "The completion at q minus one is a map, and the information it loses is exhibited rather than asserted."
+      ],
+      "proofSteps": [
+        "List the exported objects with the node that supplies each.",
+        "State the import from the number-field roadmap and exactly what is proved about it.",
+        "Exhibit the completion map at q minus one and what it kills.",
+        "State the two non-examples: no new third K-group is constructed, and a graded line module is not a cohomology class.",
+        "Record the freeness caution: not every module is free, which the number-field roadmap also states."
+      ],
+      "acceptance": [
+        "The exported objects each have a supplying node.",
+        "Only the comparisons the number-field roadmap supports are proved.",
+        "Completion at q minus one loses information, exhibited by an explicit map.",
+        "A graded line module is not a higher-degree cohomology class."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.2/the-monoidal-structure",
+        "HabiroNumberFields:HB.7",
+        "HabiroRings:HR.6/the-degree-zero-identification"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1, on the number-field ring and its regulator",
+          "excerpt": "Moreover, the authors construct a regulator map from K_3(F) to ...",
+          "match": "The K-theoretic grading whose modules this layer imports, verbatim as far as the source states it here; the modules themselves are the number-field roadmap’s."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "exportedCompleteModules",
+          "role": "data",
+          "statement": "The complete modules exported."
+        },
+        {
+          "name": "derivedScalarExtension",
+          "role": "data",
+          "statement": "Derived scalar extension along a map of pairs."
+        },
+        {
+          "name": "perfectComplexes",
+          "role": "data",
+          "statement": "The perfect complexes exported."
+        },
+        {
+          "name": "picardComparison",
+          "role": "characterisation",
+          "statement": "The comparison of invertible modules, as far as supported."
+        },
+        {
+          "name": "completionAtQMinusOne",
+          "role": "data",
+          "statement": "The completion map at q minus one, with what it kills."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HQ.5",
+          "how": "The cohomology roadmap consumes these interfaces."
+        },
+        {
+          "where": "HabiroNumberFields:HB.7",
+          "how": "The graded modules are imported from there and compared."
+        },
+        {
+          "where": "HR.7",
+          "how": "The acceptance tests include the degree-zero comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "no_new_K3",
+          "statement": "No third K-group is constructed here."
+        },
+        {
+          "name": "not_free",
+          "statement": "Not every module is free; the comparison does not assume it."
+        },
+        {
+          "name": "completion_loses",
+          "statement": "The completion at q minus one kills information, exhibited by the map."
+        },
+        {
+          "name": "line_not_class",
+          "statement": "A graded line module is not a higher-degree cohomology class."
+        }
+      ]
+    },
+    {
+      "id": "HabiroRings:HR.6/the-late-return-edge",
+      "parentStageId": "HabiroRings:HR.6",
+      "realises": [
+        "HabiroRings:HR.6"
+      ],
+      "title": "This is a late return edge, not a cycle",
+      "kind": "comparison",
+      "statement": "The dependency between this roadmap and the cohomology roadmap runs in both directions but not in a circle: the first five layers here precede the cohomology roadmap's middle layers, and this layer consumes those completed stages afterwards. The stage text calls it a late return edge and this node records the ordering explicitly, together with the boundary for the crystalline, A-infinity and prismatic comparisons, which enter through the cohomology roadmap's last layer and through their own owners and never through a second construction inside this roadmap.",
+      "hypotheses": [
+        "The ordering is: HR.1 to HR.5, then the cohomology roadmap's construction layers, then HR.6.",
+        "The comparisons named enter through their owners; this roadmap builds none of them.",
+        "The edge is one of consumption, not of construction."
+      ],
+      "proofSteps": [
+        "State the ordering explicitly.",
+        "Record that HR.1 to HR.5 do not depend on the cohomology roadmap.",
+        "Record the boundary for the three comparisons.",
+        "State the rule: no construction inside this roadmap duplicates a comparison owned elsewhere."
+      ],
+      "acceptance": [
+        "The first five layers are independent of the cohomology roadmap.",
+        "This layer consumes its completed stages.",
+        "The crystalline, A-infinity and prismatic comparisons are owned elsewhere."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.6/the-degree-zero-identification",
+        "HabiroCohomologyFoundations:HQ.8",
+        "PrismaticCohomology:PR.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§1, the introduction",
+          "excerpt": "As we'll see, the construction of H_{R/A} is a special case of a much more general construction. However, the general case is vastly more technical, and we hope that discussing the etale case first will make the general case easier.",
+          "match": "The source’s own ordering of the material, verbatim: the etale construction comes first and the general descent afterwards, which is the ordering this node records."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.7/the-acceptance-tests",
+      "parentStageId": "HabiroRings:HR.7",
+      "realises": [
+        "HabiroRings:HR.7"
+      ],
+      "title": "The required acceptance tests",
+      "kind": "comparison",
+      "statement": "The layer is accepted when seven computations have been carried out: the base and the algebra both the integers; a non-trivial finite etale arithmetic algebra; a toric Lambda-base; a localisation at a prime with the resulting behaviour of the cyclotomic components; the fifth cyclotomic polynomial over the field with eleven elements, which guards the finite-etale-versus-field distinction of HR.5; two elements with the same value at a chosen root but different full Taylor expansions there; and the degree-zero cohomology comparison. Each test is attached here to the node it exercises, and three structural checks are added: that the q-Witt transition is the Frobenius, that the square diagrams commute, and that no ring action uses incompatible constant families.",
+      "hypotheses": [
+        "The tests are over the bases and algebras named; the fifth test is the counterexample of HR.5.",
+        "A test is carried out when its data are exhibited, not when its existence is asserted.",
+        "The three structural checks are about the interfaces rather than about particular objects."
+      ],
+      "proofSteps": [
+        "List the seven tests with the node each exercises.",
+        "State the standard for a test being carried out.",
+        "State the three structural checks.",
+        "Record why the fifth and sixth tests are required: they are the two places where a plausible shortcut is wrong.",
+        "Record the boundary with the cohomology roadmap for the seventh."
+      ],
+      "acceptance": [
+        "Every test has a node that supplies what it exercises.",
+        "The fifth test is the splitting counterexample and guards the repair of HR.5.",
+        "The sixth distinguishes a value from a full Taylor expansion.",
+        "The transition map is the Frobenius, not a restriction."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.5/the-cyclotomic-splitting-repair",
+        "HabiroRings:HR.4/the-transitions-are-frobenius",
+        "HabiroRings:HR.6/the-degree-zero-identification",
+        "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the construction",
+          "excerpt": "For every d dividing m, let E_d be the Phi_d(q)-completion of (R tensor_{A, psi^d} A)[q]",
+          "match": "The construction the tests exercise, verbatim; the tests themselves are the stage text’s and are attached here to the nodes that supply them."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HabiroRings:HR.7/the-executable-boundary",
+      "parentStageId": "HabiroRings:HR.7",
+      "realises": [
+        "HabiroRings:HR.7"
+      ],
+      "title": "What the suggested Lean file is, and what it is not",
+      "kind": "comparison",
+      "statement": "The suggested Lean file for this roadmap proves a concrete equaliser-ring universal property against the current library, with abstract input maps that will later be instantiated by the canonical and Frobenius Taylor maps of HR.5. That is a useful skeleton and it is NOT a Habiro construction: the coefficient, topology, completion and descent contracts of HR.1 to HR.6 all remain required, and no placeholder proposition or axiom stands in for any of them. This node states the boundary so that the file is read for what it is.",
+      "hypotheses": [
+        "The universal property proved is that of an equaliser of two maps of rings, with no Habiro content.",
+        "The input maps are abstract; instantiating them is the work of HR.5.",
+        "No axiom or placeholder is admitted for any of the contracts."
+      ],
+      "proofSteps": [
+        "State what the file proves.",
+        "State what remains to be supplied, layer by layer.",
+        "State the rule about placeholders and axioms.",
+        "Record how the instantiation will proceed once HR.5's maps exist.",
+        "Record that the generic equaliser is also what the number-field roadmap's presentation would instantiate, so the skeleton is shared."
+      ],
+      "acceptance": [
+        "The generic equaliser is not a Habiro construction.",
+        "Every contract of the earlier layers remains required.",
+        "No placeholder or axiom stands for a contract.",
+        "The skeleton is shared with the number-field presentation."
+      ],
+      "prerequisites": [
+        "HabiroRings:HR.7/the-acceptance-tests",
+        "HabiroRings:HR.5/the-equaliser-presentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "Wagner.qHodgeHabiro.2025",
+          "locator": "§2, the comparison lemma",
+          "excerpt": "The ring H_{R/A} agrees with the following equaliser (which can be taken both in E-infinity A[q]-algebras or in ordinary A[q]-algebras)",
+          "match": "The equaliser the Lean skeleton abstracts, verbatim; the abstraction keeps the shape and drops all the content, which is what this node records."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroRings:HR.1",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Four nodes. Lambda-rings with commuting Adams operations, with the Frobenius congruence and the composition law, the three standing examples and the naming rule that keeps them apart from Iwasawa algebras; perfect covering in both of the source's equivalent descriptions, with the consequence that the base is torsion free and its completions static, and with the explicit record that the condition is not automatic; the unique Frobenius lift on the completion of an etale algebra with the linearised relative Frobenius as an equivalence, its functoriality, base-change squares and prime-power iterates, completed tensor products kept explicit and the stage text's warning that there need be no global Frobenius endomorphism; and the category of pairs, which fixes the class of morphisms every later naturality statement is for."
+    },
+    {
+      "stageId": "HabiroRings:HR.2",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Four nodes. Habiro-complete objects defined by killing the idempotent that inverts every q to the m minus one, with the completion functor, its adjointness and idempotence, the cofinal factorial tower imported from the classical roadmap, the invertibility of q after completion and the stage text's distinction between completing and inverting; the four detection results of the appendix — the two-term resolution, completeness on homotopy groups, joint conservativity of the cyclotomic reductions and detection of degree bounds and staticity — with the statement that derived limits are never replaced by ordinary ones without proof; the completed tensor product with its unit and the spectral comparison proved rather than assumed; and the solid comparison, stated as the bounded-below statement it is, with the two readings that are excluded."
+    },
+    {
+      "stageId": "HabiroRings:HR.3",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Four nodes. The divisor poset with the cyclotomic closed sets and the intersection computation, in which two divisors whose ratio is not a prime power have empty intersection and the survivors are the prime edges; the complete-descent corollary, with its unique conclusion and the source's own emphasis that no coherence data is needed; the morphism-level statement, which the stage text demands and which makes the comparison an equivalence of categories rather than a construction of an object; and the node that says what the degeneration does not license, namely gluing arbitrary pairwise isomorphisms or transporting the argument to a diagram whose higher intersections do not vanish."
+    },
+    {
+      "stageId": "HabiroRings:HR.4",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Four nodes. The degree-zero relative q-Witt rings with their universal construction, the ghost description under its torsion hypotheses, the Frobenius and Verschiebung in the domains the source gives, and the boundary with the cohomology roadmap, which owns the positive-degree complex; the obstruction to a restriction operator, which the stage text insists be proved rather than worked around, with the consequence that no big q-Witt ring in the naive sense exists; the etale lift, which is the source's theorem that the glued object's quotient is the q-Witt ring, that it is the unique such lift and that it and the limit are static, with the staticity proved through HR.2's detection result as the stage text requires; and the transition maps, which compose and induce the FROBENIUS on quotients, named so rather than by the restriction operator the theory does not have."
+    },
+    {
+      "stageId": "HabiroRings:HR.5",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Four nodes. The relative Habiro ring as the limit, with the equivalence of the divisor and factorial systems, completeness, the universal property and base change under its own hypotheses rather than an unrestricted formula; the equaliser presentation, with both arrows named — the canonical re-expansion and the relative Frobenius followed by re-expansion — and with the source's proof strategy of checking after completion at each prime and rationally at each cyclotomic polynomial; the root choices with their change-of-choice invariance and the convergence of the substitutions, carrying the stage text's requirement that the full cyclotomic coefficient algebra be kept; and the repair node, which states the false proof line, gives the splitting counterexample and prescribes componentwise idempotent descent, while recording that the theorem itself is not in doubt."
+    },
+    {
+      "stageId": "HabiroRings:HR.5-number-field-comparison",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Two nodes. The classical Habiro ring, recovered by specialising the equaliser to the integers and compared with the classical roadmap's inverse limit with matching projections; and the number-field ring, recovered as the source's corollary and compared with the Frobenius-glued ring the number-field roadmap constructs, with the gluing conditions matched rather than only the underlying sets, and with the stage text's note that neither construction is an input to the other."
+    },
+    {
+      "stageId": "HabiroRings:HR.6",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Three nodes. The degree-zero identification of the coefficient object of Habiro cohomology with the ring of HR.5, with the four compatibilities the stage text lists and with the cohomology functor imported rather than constructed; the module interfaces, exporting complete modules, derived scalar extension, perfect complexes and the Picard comparison, importing the K-three-graded modules from the number-field roadmap and proving only what that roadmap supports, with an explicit completion map exhibiting what is lost at q minus one and with the warning that a graded line module is not a cohomology class; and the ordering node, which records that this is a late return edge and not a cycle and that the crystalline, A-infinity and prismatic comparisons enter through their own owners."
+    },
+    {
+      "stageId": "HabiroRings:HR.7",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "Two nodes. The seven acceptance tests, each attached to the node it exercises, with the three structural checks the stage text adds and with the reason the splitting test and the value-versus-expansion test are required; and the executable boundary, which states what the suggested Lean file proves — a generic equaliser universal property with abstract input maps — and what it does not, namely any of the coefficient, topology, completion or descent contracts, for which no placeholder or axiom is admitted."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The companion q-Witt paper was not obtained",
+      "neededBy": [
+        "HabiroRings:HR.4",
+        "HabiroRings:HR.1"
+      ],
+      "detail": "HR.4 is about the relative q-Witt rings, and the stage text cites the companion paper by section for their construction, their ghost description and, crucially, the obstruction to a restriction operator. That paper was not obtained: the source read cites it throughout but does not restate those results. The HR.4 nodes therefore state the rings and the obstruction as the stage text states them, with the attribution, and decompose neither. The same paper is cited for the equivalence of the two descriptions of perfect covering in HR.1. NEXT SOURCE ACTION: obtain Wagner's q-Witt paper and decompose the construction of the relative q-Witt rings, the ghost description and the no-restriction obstruction."
+    },
+    {
+      "title": "The appendix was read only at its opening",
+      "neededBy": [
+        "HabiroRings:HR.2"
+      ],
+      "detail": "The appendix's definition of Habiro-complete spectra and its claim about the completion functor were read; the four detection results the stage text names, and the solid comparison, were not read in their own statements, and the printed numbering the stage text uses could not be matched to the labels in the source. The HR.2 nodes state them as the stage text lists them and record that. NEXT SOURCE ACTION: read the appendix in full and match each statement to the stage text's numbering."
+    },
+    {
+      "title": "The later sections on Habiro descent were not read",
+      "neededBy": [
+        "HabiroRings:HR.6"
+      ],
+      "detail": "The descent theorem was read in its introductory form, which is what HR.6's identification rests on; its proof and the whole treatment of twisted q-de Rham complexes were not read. HR.6's nodes state the identification and its compatibilities and decompose no proof. NEXT SOURCE ACTION: read the descent section in full; it is also what the cohomology roadmap needs."
+    },
+    {
+      "title": "The stage texts' numbering could not be matched to the source read",
+      "neededBy": [
+        "HabiroRings:HR.3",
+        "HabiroRings:HR.4",
+        "HabiroRings:HR.5"
+      ],
+      "detail": "The stage texts cite Corollary 2.4, Theorem 2.9, Remark 2.10, Lemma 2.12, Corollary 2.13, Remark 2.14 and Corollary 3.13, and Appendix items B.2, B.3, B.4 and B.8. The version read numbers its statements by label and its printed numbering differs; each cited statement was located BY CONTENT and the locators in this packet give the section and the role rather than the number. NEXT SOURCE ACTION: obtain the version the stage texts were written against, or renumber the stage texts against the current one, so that a reader can follow the citations directly."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PrismaticCohomology:PR.0",
+      "need": "The generic delta-ring interface at a single prime, which HR.1 imports; the commuting all-prime Lambda-structure is this roadmap's own."
+    },
+    {
+      "supplier": "HabiroCyclotomicCompletions:HC.1",
+      "need": "The ordinary inverse-limit completion with its cofinal factorial tower, which HR.2 imports and HR.5 compares with."
+    },
+    {
+      "supplier": "HabiroCyclotomicCompletions:HC.3",
+      "need": "The substitution and re-expansion lemma under topological nilpotence, which HR.5's root choices need."
+    },
+    {
+      "supplier": "HabiroCyclotomicCompletions:HC.4",
+      "need": "The comaximality of cyclotomic polynomials with non-prime-power ratio, which is the arithmetic input to HR.3's intersection computation."
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "Generic derived completion, of which the Habiro completion of HR.2 is a specialisation."
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E0",
+      "need": "The enhanced module and localisation machinery HR.2 and HR.3 are built in."
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E5:abstract",
+      "need": "The abstract descent and conservativity statements HR.2's detection results and HR.3's morphism-level statement specialise."
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.3",
+      "need": "The spectral setting for the monoidal structure of HR.2, with the localisation comparison proved rather than assumed."
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS2",
+      "need": "The qualified solid formalism, in which HR.2's bounded-below solid comparison is stated."
+    },
+    {
+      "supplier": "HabiroCohomologyFoundations:HQ.3",
+      "need": "The construction of the Habiro cohomology functor, whose coefficient object HR.6 identifies."
+    },
+    {
+      "supplier": "HabiroCohomologyFoundations:HQ.4",
+      "need": "The positive-degree q-de Rham-Witt complex, which extends HR.4's rings and which this roadmap does not construct a second time."
+    },
+    {
+      "supplier": "HabiroCohomologyFoundations:HQ.5",
+      "need": "The filtered comparisons HR.6 consumes."
+    },
+    {
+      "supplier": "HabiroCohomologyFoundations:HQ.8",
+      "need": "The crystalline, A-infinity and prismatic comparisons, which enter through that layer and their own owners and never through a construction inside this roadmap."
+    },
+    {
+      "supplier": "HabiroNumberFields:HB.6",
+      "need": "The explicit Frobenius-glued ring of a number field, which HR.5's number-field comparison identifies with the relative construction; the stage text records that either may be built first."
+    },
+    {
+      "supplier": "HabiroNumberFields:HB.7",
+      "need": "The K-three-graded modules, which HR.6 imports and about which it proves only the scalar-extension and Picard comparisons that roadmap supports."
+    }
+  ],
+  "restructure": [
+    {
+      "kind": "note-source-boundary",
+      "title": "The stage texts' citation numbering does not match the available version of the source",
+      "detail": "Every stage text of this roadmap cites the source by numbered statement — Corollary 2.4, Theorem 2.9, Lemma 2.12 and so on. The version available on the arXiv numbers by label and its printed numbering differs, so each citation had to be resolved by content. The stage texts should either name the version they were written against or be renumbered, because a reader who looks up Theorem 2.9 in the current version will not find the etale lift there."
+    },
+    {
+      "kind": "note-missing-source",
+      "title": "HR.4 has no obtainable source for its central objects",
+      "detail": "The relative q-Witt rings, their ghost description and the obstruction to a restriction operator are all in the companion q-Witt paper, which the source read cites but does not restate and which was not obtained here. HR.4's stage text should name that paper explicitly as its implementation source, as the other layers name this one, so that the dependency is visible before a worker starts."
+    },
+    {
+      "kind": "propose-split",
+      "title": "HR.2 carries a general theory and a specific one",
+      "detail": "HR.2 asks both for the generic derived-completion machinery, imported from three other roadmaps, and for the Habiro-specific completion with its detection results and its monoidal and solid comparisons. The first is import and glue; the second is the appendix's content. As one layer it cannot record that the imports are available now while the appendix is still being read. The four nodes divide one to three along that line."
+    }
+  ]
+}
