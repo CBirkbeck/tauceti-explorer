@@ -20301,11 +20301,12 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--D.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #966"
   },
   {
    "id": "REV-PadicHodgeRegulators--D.1",
@@ -20401,9 +20402,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--P7.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #968"
+   "note": "released on GitHub issue #968"
   },
   {
    "id": "REV-PadicHodgeTheory--P7",
