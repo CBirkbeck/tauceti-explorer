@@ -1,1477 +1,2224 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/HabiroNahmSeries.md` is definitive. These statements
-suggest Lean forms so that contributors and reviewers can converge on names and
-signatures. They claim no implementation.
+`research/blueprint/readmes/HabiroNahmSeries.md` is definitive. These statements suggest
+Lean forms so that contributors and reviewers can converge on names and signatures. They
+claim no implementation.
 
-BP-HabiroNahmSeries: partial prototype, implementationStatus = unchecked.
+BP-HabiroNahmSeries, revised by the independent review REV-HabiroNahmSeries: partial
+prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-No Lean toolchain at those commits was available in this session, so elaboration
-has not been established and the file was not compiled.
+Synced with the reviewed packet (109 nodes) and elaborated with the Lean toolchain of
+Mathlib 082e2d3 against its prebuilt library: `sorry` is the only warning. The file imports
+only Mathlib; the Tau Ceti declarations the packet cites (the translation-orbit width of a
+cusp, the multivariate Gaussian density) are named in comments.
 
-The reviewed library audit AUDIT-14 records HB.5a as PARTLY BUILT and HB.3, HB.4,
-HB.5, HB.8, HB.9 and HB.10 as NOT BUILT, and reading the pinned declaration index
-confirms it: no finite q-Pochhammer symbols (an explicit TODO in Mathlib), no Nahm
-sums, no Bloch group, no five-term relation, no K_3, no dilogarithm beyond Li_1 on
-the unit disc, no cyclic quantum dilogarithm, no Euler-Maclaurin formula with
-remainder, no Poisson summation, no multivariable formal logarithm, no plethystic
-exponential, no Habiro ring or module, and no p-adic dilogarithm.
+Conventions fixed here (see the packet's sourceIssues for the corrections).
+* GZ Theorem 3.1 with the root of unity `χ_α = e(s(a,m)/2)` (Dedekind sum) and the corrected
+  all-orders series; CGZ Theorem 7.1 assumes `n` odd.
+* CGZ's Rogers dilogarithm is `π²/6` minus the standard one and GZ's (8) is its negative;
+  `λ = L(ξ_A)/(4π²)` and `C₀(A) = -λ`.
+* GSWZ: `ℚ(q) = RatFunc ℚ`, multi-indices `Fin N →₀ ℕ`, expansions at `ζ_m` in `T = t^{1/m}`;
+  the t-deformed equations are `1 - z_j = (-1)^{A_jj} t_j ∏_i z_i^{A_ij}` (index `i`), and
+  level-m admissibility uses the corrected ring (poles at `Φ_d` with `m ∣ d`,
+  `gcd(d/m, m) > 1` allowed).
 
-What the pinned libraries do have is imported and never redefined:
+Objects another roadmap owns are not re-planned: the Bloch groups (K3BlochGroups), the
+polylogarithms (Polylogarithms P.1), the q-Pochhammer symbols (QSeriesPartitionsAndMockModularForms
+QM.0), the cyclic quantum dilogarithm, `P_ζ`, `R_ζ`, the Habiro ring and its K₃-indexed modules
+(HabiroNumberFields HB.2, HB.6, HB.7) and the p-adic dilogarithm (PadicHodgeRegulators D.1).
+Where a statement needs one of them, a few-line Mathlib stand-in is given or the item is named
+in a comment.
 
-* Mathlib `eulerFunction` with its product and pentagonal expansions, and
-  `Multipliable`/`tprod`: the infinite Pochhammer symbol at x = q.
-* Mathlib `Polynomial.bernoulli` and `bernoulli`: the expansion of the logarithm of
-  the Pochhammer symbol at a root of unity.
-* Mathlib `StrictConvexOn`, `StrictConvexOn.eq_of_isMinOn`,
-  `IsCompact.exists_isMinOn`, `Matrix.PosDef`, `Matrix.PosDef.det_pos`: the whole
-  existence-and-uniqueness argument for the distinguished Nahm solution.
-* Mathlib `integral_gaussian` and Tau Ceti `multivariateGaussianPDFReal`: the
-  normalisation that formal Gaussian integration imitates.
-* Mathlib `Subgroup.IsArithmetic`, `Subgroup.isArithmetic_iff_finiteIndex`,
-  `IsCusp`, `isCusp_SL2Z_iff`, `OnePoint.exists_mem_SL2`, `CuspOrbits`,
-  `Subgroup.strictWidthInfty`, `Function.Periodic.qParam`,
-  `Function.Periodic.cuspFunction`, and Tau Ceti `cuspTranslationOrbitWidth`:
-  almost all of HB.5a.
-* Mathlib `Polynomial.cyclotomic`, `LaurentPolynomial`, `ArithmeticFunction.moebius`,
-  `MvPowerSeries`, `PowerSeries.log`: the carriers of admissibility.
-
-The Bloch group, the five-term relation, the CGZ convention, Suslin's sequence, the
-classical polylogarithm, the Bloch-Wigner function and the weight-two regulator are
-imported from K3BlochGroups and Polylogarithms by node identifier and are not
-prototyped here; the cyclic quantum dilogarithm, the unit of a Bloch class, the
-Habiro ring and its K_3-indexed modules are requested from HabiroNumberFields.
-Where a statement quantifies over an object requested from another roadmap the
-prototype uses `True` as a placeholder, in the style of the other suggested files
-of this programme.
+Parts: HB.3–HB.4 (namespace `HabiroNahmSeries.HB34`), HB.5a–HB.5 (`HabiroNahmSeries.HB5`), HB.8
+(`HabiroNahmSeries.HB8`), HB.9–HB.10 (`HabiroNahmSeries.HB910`). Nodes, API items and tests
+without a Lean form here are listed as `-- name: not stated; needs …` comments.
 -/
-import Mathlib.Algebra.MvPolynomial.Basic
-import Mathlib.Algebra.MvPolynomial.Eval
-import Mathlib.Algebra.Polynomial.Laurent
+
 import Mathlib.Analysis.Asymptotics.Defs
+import Mathlib.Analysis.Calculus.ContDiff.Basic
 import Mathlib.Analysis.Complex.Periodic
 import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
-import Mathlib.Analysis.Convex.Function
 import Mathlib.Analysis.Matrix.PosDef
-import Mathlib.Analysis.Meromorphic.Basic
+import Mathlib.Analysis.Meromorphic.Order
+import Mathlib.Analysis.Meromorphic.TrailingCoefficient
+import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Combinatorics.Enumerative.Pentagonal.EulerFunction
+import Mathlib.Data.Finsupp.Weight
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.FieldTheory.RatFunc.AsPolynomial
+import Mathlib.GroupTheory.FiniteAbelian.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.LinearAlgebra.Matrix.Symmetric
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
-import Mathlib.NumberTheory.Bernoulli
 import Mathlib.NumberTheory.BernoulliPolynomials
-import Mathlib.NumberTheory.ModularForms.ArithmeticSubgroups
+import Mathlib.NumberTheory.Cyclotomic.Basic
+import Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots
+import Mathlib.NumberTheory.ModularForms.BoundedAtCusp
+import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.NumberTheory.ModularForms.Cusps
-import Mathlib.NumberTheory.ModularForms.SlashActions
+import Mathlib.NumberTheory.ModularForms.Discriminant
+import Mathlib.NumberTheory.ModularForms.EisensteinSeries.Basic
+import Mathlib.NumberTheory.ModularForms.NormTrace
+import Mathlib.NumberTheory.ModularForms.QExpansion
 import Mathlib.NumberTheory.ModularForms.SlashInvariantForms
 import Mathlib.NumberTheory.NumberField.Basic
-import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
+import Mathlib.NumberTheory.NumberField.Discriminant.Defs
 import Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings
-import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.NumberTheory.ZetaValues
+import Mathlib.RingTheory.AdicCompletion.Algebra
 import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.RingTheory.Algebraic.Defs
-import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.Etale.Basic
+import Mathlib.RingTheory.LaurentSeries
+import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.Algebra.MvPolynomial.PDeriv
+import Mathlib.RingTheory.MvPowerSeries.PiTopology
+import Mathlib.RingTheory.MvPowerSeries.Substitution
+import Mathlib.RingTheory.Norm.Defs
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
-import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.PowerSeries.Exp
+import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.RingTheory.PowerSeries.Log
-import Mathlib.Topology.Algebra.InfiniteSum.Defs
-import Mathlib.Topology.Order.Compact
-import TauCeti.NumberTheory.ModularForms.Norm.Cusps
-import TauCeti.Probability.Distributions.Gaussian.Density
+import Mathlib.RingTheory.PowerSeries.PiTopology
+import Mathlib.Topology.Instances.AddCircle.Defs
+
+section PartHB34
+
+/-!
+# HB.3–HB.4: Nahm equations, Bloch classes and root-of-unity asymptotics (checker A)
+
+Mathlib-only.  Objects owned by other roadmaps (the Bloch groups of K3BlochGroups, the cyclic
+quantum dilogarithm and `P_ζ`, `R_ζ`, `η_ζ` of HabiroNumberFields HB.2, the Dedekind sum and the
+eta multiplier of QSeriesPartitionsAndMockModularForms QM.1, the q-Pochhammer symbols of QM.0)
+are either written out here in plain Mathlib terms (when a few lines suffice, so that the
+statements below have real types) or left out; the packet imports them by node id.
+Every body is `sorry`; no statement is `True` and no predicate is `sorry`.
+-/
+
+open Complex Real Matrix Filter Asymptotics Topology
+open scoped BigOperators
 
 noncomputable section
 
-namespace TauCeti.NahmSeries
-
-universe u
-
-/-! ## HB.3 Nahm equations and their Bloch classes -/
-
-/-- nahm-data: Two separate bundled input records. An ANALYTIC Nahm datum is a
-triple (A, B, C) with A a symmetric positive definite r x r matrix over the
-rationals, B a rational column vector and C a rational number; a denominator
-of the datum is a positive integer d with d Q(n) integral for all integer
-vectors n, where Q(n) = (1/2) n^t A n + B n + C. A FORMAL Nahm datum is a
-single symmetric matrix A with integer entries and no positivity assumption.
-The analytic datum is the input of the convergent q-hypergeometric sum and
-of the root-of-unity asymptotics; the formal datum is the input of the
-multivariable admissible series of GSWZ. Neither record is a special case of
-the other: positivity is never imposed on a formal identity, and integrality
-is never imposed on a convergence theorem. -/
--- The analytic Nahm datum: A symmetric positive definite over the rationals, B a rational vector, C a rational number.
-def NahmDatum : True := by sorry
-
--- The positive definiteness of A carried by an analytic datum.
-theorem NahmDatum.posDef : True := by sorry
-
--- The formal Nahm datum: a symmetric integral matrix A.
-def FormalNahmDatum : True := by sorry
-
--- The predicate that d is a denominator of the quadratic function of the datum.
-def NahmDatum.IsDenominator : True := by sorry
-
--- The predicate that D is a strong denominator.
-def NahmDatum.IsStrongDenominator : True := by sorry
-
--- Twice a denominator is a strong denominator.
-theorem NahmDatum.isStrongDenominator_two_mul : True := by sorry
-
--- A positive definite formal datum gives an analytic datum with B = 0 and C = 0.
-theorem FormalNahmDatum.toNahmDatum : True := by sorry
-
--- Two analytic data with the same A, B and C are equal.
-theorem NahmDatum.ext : True := by sorry
-
-example : True := by sorry -- unit test `rogers_ramanujan_is_analytic`: A = (2), B = 0, C = -1/60 satisfies the analytic predicate.
-example : True := by sorry -- unit test `knot_matrix_not_posdef`: A = (1 1; 1 1) is symmetric and integral but not positive definite, so it is a formal and not an analytic datum.
-example : True := by sorry -- unit test `half_integral_not_formal`: A = (3/2 1/2; 1/2 3/2) is an analytic datum whose entries are not integers.
-example : True := by sorry -- unit test `strong_denominator_two`: For A = (2), B = 0, C = 0 the integer 1 is a denominator and 2 is a strong denominator.
-
-/-- nahm-equations: For a symmetric matrix A = (a_ij) of size N, Nahm's
-equations are the system 1 - X_i = product over j of X_j^{a_ij}, for i = 1,
-..., N, in the unknowns X = (X_1, ..., X_N). The system is written
-symbolically as 1 - X = X^A. Over the reals with X in (0,1)^N the powers are
-the real powers of positive reals and the equations make sense for rational
-A; over a field, and for integral A, they are a system of N polynomial
-equations after clearing denominators, and define a zero-dimensional scheme
-for generic A. The t-deformed system of GSWZ is a separate object and is
-defined in HB.8. -/
--- The predicate that a point of the open cube satisfies Nahm's equations for A.
-def NahmEq : True := by sorry
-
--- Every coordinate of a solution is strictly between zero and one, by definition of the carrier.
-theorem NahmEq.pos : True := by sorry
-
--- The ideal cutting out Nahm's equations for an integral A over a commutative ring.
-def NahmEqScheme : True := by sorry
-
--- For integral A a point of the open cube satisfies the real form exactly when it satisfies the scheme form.
-theorem NahmEq.iff_scheme : True := by sorry
-
--- The predicate depends only on A and the point.
-theorem NahmEq.congr : True := by sorry
-
--- A ring homomorphism carries a solution of the scheme form to a solution of the scheme form.
-theorem NahmEq.map : True := by sorry
-
-example : True := by sorry -- unit test `golden_ratio`: For A = (2) the point X = (sqrt 5 - 1)/2 satisfies the equations and lies in (0,1).
-example : True := by sorry -- unit test `eight_five_five_four`: For A = (8 5; 5 4) the numerical point (0.88483..., 0.78939...) satisfies the equations to the stated precision.
-example : True := by sorry -- unit test `boundary_rejected`: The point X = 1 does not satisfy the equations for any A, because 1 - X_i = 0 while the right-hand side is 1.
-example : True := by sorry -- unit test `symmetry_not_needed`: The predicate is defined for an arbitrary square A, and symmetry is used only later; the equations for a non-symmetric A are still a legitimate system.
-
-/-- distinguished-solution: Let A be a symmetric positive definite N x N matrix
-with rational entries. Then Nahm's equations have exactly one solution X^A =
-(X_1, ..., X_N) with 0 < X_i < 1 for every i. It is called the distinguished
-solution and is the unique critical point on the open cube of the strictly
-concave potential W(u) = -(1/2) u^t A u - sum_i Li_2(e^{u_i}) in the
-coordinates u_i = log X_i. -/
-theorem DistinguishedSolution : True := by sorry
-
-/-- algebraicity-and-the-nahm-field: Let A be symmetric with rational entries
-and let X be an isolated solution of Nahm's equations over the complex
-numbers with all coordinates different from 0 and 1. Then every coordinate
-of X is an algebraic number, and the field F = Q(X_1, ..., X_N) they
-generate is a number field. The solution is called non-degenerate when the
-Jacobian of the system at X is invertible, equivalently when the quantity
-delta = product_j z_j^{-A_jj} det(diag(1 - z) A + diag(z)) is non-zero; the
-distinguished solution of a positive definite A is always non-degenerate,
-because that determinant is the determinant of the positive definite matrix
-A + diag(z/(1-z)) times a non-zero monomial. -/
-theorem AlgebraicityAndTheNahmField : True := by sorry
-
-/-- bloch-class-of-a-solution: Let A be symmetric and let X be a solution of
-Nahm's equations over a field F with all coordinates different from 0 and 1.
-The element [X] = [X_1] + ... + [X_N] of the free abelian group on F lies in
-the kernel of the boundary map d(x) = (x) wedge (1 - x), because d([X]) =
-sum_i (X_i) wedge (1 - X_i) = sum_{i,j} a_ij (X_i) wedge (X_j) = 0 by the
-symmetry of A. It therefore defines an element xi_A of the Bloch group of F.
-When A is integral the computation is an identity in the antisymmetric
-square as it stands; when A is only rational the identity holds after
-tensoring with the rationals, and the integral class is obtained by clearing
-denominators, that is by taking the class of the multiple by a common
-denominator of A. -/
--- The element xi_A of the Bloch group of F attached to a solution X.
-def nahmBlochClass : True := by sorry
-
--- The boundary of the underlying element of the free abelian group vanishes.
-theorem nahmBlochClass_boundary : True := by sorry
-
--- The class is the sum over i of the classes of the coordinates.
-theorem nahmBlochClass_eq_sum : True := by sorry
-
--- A field embedding carries the class of a solution to the class of its image.
-theorem nahmBlochClass_map : True := by sorry
-
--- For rational A, the class of the denominator-cleared solution and its relation to the rational class.
-theorem nahmBlochClass_clearDenominators : True := by sorry
-
--- Two solutions with the same coordinates give the same class.
-theorem nahmBlochClass_congr : True := by sorry
-
-example : True := by sorry -- unit test `boundary_vanishes`: For A = (2) and X the solution of 1 - X = X^2, the boundary of [X] vanishes in the antisymmetric quotient.
-example : True := by sorry -- unit test `torsion_example`: For A = (8 5; 5 4) the class is annihilated by 60 in the Bloch group of the quartic field of discriminant -5^2 . 19.
-example : True := by sorry -- unit test `nontorsion_example`: For the second Galois orbit of the same equations, over the quartic field defined by z_1^4 - z_1^3 + 3 z_1^2 - 3 z_1 + 1, the class is not torsion.
-example : True := by sorry -- unit test `diagonal_two_torsion`: For a diagonal A with odd diagonal entry the diagonal contribution is a two-torsion element, which is zero in the exterior square and need not be zero in the antisymmetric quotient.
-
-/-- general-nondegenerate-class: For a formal Nahm datum A and a non-degenerate
-solution z of the (undeformed) equations 1 - z_j = (-1)^{A_jj} product_i
-z_i^{A_ij}, set K = Q(z), R = O_K[1/Delta] with Delta divisible by 2, by 3
-and by the discriminant of K, and let xi = sum_j [z_j] in B(K). Adjoin a
-square root of the discriminant delta to form R[delta^{-1/2}], and record
-the Galois involution sending the square root to its negative. This is the
-data that indexes the Habiro module of HB.9; the sign (-1)^{A_jj} of the
-GSWZ normalisation differs from the CGZ normalisation of the analytic Nahm
-equations, and the two must not be conflated. -/
--- The ring R = O_K[1/Delta] attached to a non-degenerate solution.
-def nahmRing : True := by sorry
-
--- The ring R[delta^{-1/2}] with a chosen square root of the discriminant inverted.
-def nahmRing.deltaInv : True := by sorry
-
--- The involution of R[delta^{-1/2}] over R negating the square root.
-def nahmRing.involution : True := by sorry
-
--- The involution is an involution.
-theorem nahmRing.involution_sq : True := by sorry
-
--- The Bloch class xi attached to the solution.
-def nahmRing.class : True := by sorry
-
--- The discriminant is a unit in R[delta^{-1/2}].
-theorem nahmRing.delta_isUnit : True := by sorry
-
-example : True := by sorry -- unit test `cubic_ring`: For A = (3) the ring is Z[z, 1/23] with z^3 - z + 1 = 0.
-example : True := by sorry -- unit test `quartic_ring`: For A = (8 5; 5 4) the ring is O_F[1/(5 . 19)] for the quartic field F of discriminant -5^2 . 19.
-example : True := by sorry -- unit test `involution_nontrivial`: The involution is not the identity when delta is not a square in R.
-example : True := by sorry -- unit test `delta_unit`: The discriminant is invertible in R[delta^{-1/2}], and its square root squares to it.
-
-/-- embeddings-and-regulator-evaluations: For the field F generated by a
-solution, construct all complex embeddings and the evaluations D(sigma X) =
-sum_i D(sigma X_i) of the Bloch-Wigner dilogarithm, and the real number
-L(xi_A) = sum_i L(X_i) built from the Rogers dilogarithm in the CGZ
-normalisation, where L(x) = pi^2/6 - Li_2(x) - (1/2) log(x) log(1 - x) for 0
-< x < 1, extended to the projective line over the reals with values in the
-reals modulo (pi^2/2) Z. The class xi_A is torsion exactly when D(sigma X)
-vanishes for every embedding sigma, and in that case L(xi_A) is a rational
-multiple of pi^2. -/
--- The Rogers dilogarithm in the CGZ normalisation, as a function on the projective line over the reals with values modulo (pi^2/2) Z.
-def rogersDilog : True := by sorry
-
--- The Rogers dilogarithm kills the five-term relations, so it descends to the Bloch group of the reals.
-theorem rogersDilog_five_term : True := by sorry
-
--- Its values at 0, 1 and infinity are pi^2/6, 0 and -pi^2/6.
-theorem rogersDilog_zero_one_infty : True := by sorry
-
--- The tuple of Bloch-Wigner evaluations of the class at all complex embeddings.
-def nahmRegulator : True := by sorry
-
--- The class is torsion exactly when every evaluation vanishes.
-theorem nahmRegulator_eq_zero_iff_torsion : True := by sorry
-
--- If the class is torsion then L of the class is a rational multiple of pi squared.
-theorem rogersDilog_rational_of_torsion : True := by sorry
-
-example : True := by sorry -- unit test `rogers_at_golden`: For A = (2) the value of L at the distinguished solution is pi^2/10 modulo the lattice.
-example : True := by sorry -- unit test `rogers_normalisation`: L(1) = 0 and L(0) = pi^2/6 in this normalisation, which differs from the standard one by pi^2/6.
-example : True := by sorry -- unit test `regulator_vanishes_torsion`: For A = (8 5; 5 4) every Bloch-Wigner evaluation of the class vanishes.
-example : True := by sorry -- unit test `regulator_nonzero_nontorsion`: For the second quartic orbit of the same matrix some evaluation is non-zero.
-
-/-- torsion-in-the-algebraic-closure: The Bloch groups of the algebraic numbers
-and of the complex numbers are uniquely divisible, hence torsion free.
-Therefore the image of xi_A in the Bloch group of the algebraic numbers
-vanishes exactly when xi_A is torsion in the Bloch group of the field F it
-is defined over. The two formulations of Nahm's conjecture, vanishing in the
-Bloch group of the algebraic numbers and torsion in the Bloch group of the
-smallest field containing the coordinates, are equivalent for this reason
-and for no other. -/
-theorem TorsionInTheAlgebraicClosure : True := by sorry
-
-/-! ## HB.4 Root-of-unity asymptotics -/
-
-/-- q-pochhammer-symbols: Define the finite symbol (x;q)_n = product_{j=0}^{n-1}
-(1 - q^j x) for a natural number n, the quantum factorial (q;q)_n =
-(1-q)(1-q^2)...(1-q^n), and the infinite symbol (x;q)_infinity = product_{n
->= 0} (1 - q^n x), which is multipliable and holomorphic in x for |q| < 1.
-Record the shift identity (x;q)_{n+1} = (1 - q^n x)(x;q)_n, the identity
-(1-x)(qx;q)_infinity = (x;q)_infinity, the inversion (x;q^{-1})_infinity =
-1/(qx;q)_infinity, the reflection (q^{-1};q^{-1})_n = (-1)^n q^{-n(n+1)/2}
-(q;q)_n, and the two logarithmic expansions log (x;q)_infinity = -sum_{l>=1}
-x^l/(l(1-q^l)) and its Bernoulli form at q = 1 + x. -/
--- The finite symbol (x;q)_n.
-def qPochhammer : True := by sorry
-
--- The shift identity (x;q)_{n+1} = (1 - q^n x) (x;q)_n.
-theorem qPochhammer_succ : True := by sorry
-
--- The quantum factorial (q;q)_n.
-def qFactorial : True := by sorry
-
--- The infinite symbol (x;q)_infinity for |q| < 1.
-def qPochhammerInf : True := by sorry
-
--- The defining product is multipliable for |q| < 1.
-theorem qPochhammerInf_multipliable : True := by sorry
-
--- The identity (1-x)(qx;q)_infinity = (x;q)_infinity.
-theorem qPochhammerInf_shift : True := by sorry
-
--- The inversion identity relating q and q inverse.
-theorem qPochhammerInf_inv : True := by sorry
-
--- The logarithmic expansion with the 1/(l(1-q^l)) coefficients.
-theorem log_qPochhammerInf : True := by sorry
-
--- At x = q the infinite symbol is the pinned Euler function.
-theorem qPochhammerInf_eq_eulerFunction : True := by sorry
-
-example : True := by sorry -- unit test `pochhammer_zero`: (x;q)_0 = 1 and (q;q)_0 = 1.
-example : True := by sorry -- unit test `pochhammer_one`: (x;q)_1 = 1 - x.
-example : True := by sorry -- unit test `euler_function_agreement`: For |q| < 1 the value of (q;q)_infinity agrees with the pinned Euler function.
-example : True := by sorry -- unit test `reflection`: (q^{-1};q^{-1})_n = (-1)^n q^{-n(n+1)/2} (q;q)_n, which is the identity behind F_A(t,q) = F_{I-A}(t,q^{-1}).
-
-/-- analytic-nahm-sum: For an analytic Nahm datum (A,B,C) put f_{A,B,C}(q) = q^C
-sum over n in the non-negative integer vectors of q^{(1/2) n^t A n + B n}
-divided by (q)_{n_1} ... (q)_{n_N}. This is a formal Puiseux series with
-integer coefficients in q^{1/d} for any denominator d of the datum, and it
-converges in the punctured unit disc, defining a holomorphic function of tau
-in the upper half-plane through f(tau) = f_{A,B,C}(e^{2 pi i tau}) with the
-convention (e^{2 pi i tau})^lambda = e^{2 pi i tau lambda}. The factor q^C
-is part of the data and is never absorbed silently: it shifts the leading
-exponent of every expansion and, in the modular cases, it is exactly what
-makes the function modular. -/
--- The Puiseux series f_{A,B,C}(q).
-def nahmSum : True := by sorry
-
--- The coefficient of a given rational power of q, a finite sum over the lattice points on a quadric.
-theorem nahmSum_coeff : True := by sorry
-
--- Coefficientwise summability, from the positive definiteness of A.
-theorem nahmSum_summable : True := by sorry
-
--- Absolute convergence and holomorphy on the punctured unit disc.
-theorem nahmSum_analytic : True := by sorry
-
--- f_{A,B,C} = e(C tau) f_{A,B,0} in the upper half-plane form.
-theorem nahmSum_shift_C : True := by sorry
-
--- The holomorphic function on the upper half-plane attached to the series.
-theorem nahmSum_upperHalfPlane : True := by sorry
-
--- The series depends only on the datum.
-theorem nahmSum_congr : True := by sorry
-
-example : True := by sorry -- unit test `rogers_ramanujan_series`: For A = (2), B = 0, C = 0 the first coefficients of the sum are 1, 1, 1, 2, 2, 3, ... after the Rogers-Ramanujan product expansion.
-example : True := by sorry -- unit test `empty_sum`: The coefficient of q^C is 1, coming from n = 0.
-example : True := by sorry -- unit test `convergence_radius`: The series converges for every q with 0 < |q| < 1 and diverges at |q| = 1 when N is at least one.
-example : True := by sorry -- unit test `C_shift`: Changing C by an integer multiplies the series by an integral power of q and changes no coefficient pattern.
-
-/-- cyclic-dilogarithm-interface: The cyclic quantum dilogarithm D_zeta(x) =
-product_{t=1}^{m-1} (1 - zeta^t x)^t, for zeta a primitive m-th root of
-unity, and its m-th root taken with the principal branch of each factor, are
-owned by HabiroNumberFields HB.2 and are imported here. This layer uses
-exactly three of its properties: the quasi-periodicity D_zeta(zeta
-x)/D_zeta(x) = (1-x)^m/(1-x^m); the evaluation D_zeta(zeta^k theta) =
-(theta;zeta)_k^m D_zeta(theta)/(1-z)^k when theta^m = z, which uses Nahm's
-equation to rewrite the denominator; and the value D_zeta(1) with
-D_zeta(1)^{24m} = m^{12m}. Nothing about the cyclic dilogarithm is proved
-here. -/
-theorem CyclicDilogarithmInterface : True := by sorry
-
-/-- pochhammer-radial-asymptotics: Let |w| < 1, let q = zeta e^{-epsilon/m} with
-zeta a primitive m-th root of unity, let nu be a complex number with nu
-epsilon tending to 0, and set z = w^m. Then log (q w e^{-nu epsilon/m};
-q)_infinity equals minus Li_2(z)/(m epsilon) minus (nu/m - 1/2) log(1 - z)
-minus (epsilon nu^2/(2m)) z/(1-z) minus (1/m) log D_zeta(w) minus log(1 - w)
-plus a remainder psi_{w,zeta}(nu,epsilon) which has an explicit all-orders
-asymptotic expansion in the Bernoulli polynomials and the polylogarithms of
-non-positive index, namely minus the sum over r at least 2 and t from 1 to m
-of (B_r(1 - (t+nu)/m) - delta_{r,2} nu^2/m^2) Li_{2-r}(zeta^t w)
-epsilon^{r-1}/r!, in which the coefficient of nu^n is O(epsilon^{2n/3}). -/
-theorem PochhammerRadialAsymptotics : True := by sorry
-
-/-- summand-asymptotics: Fix a residue class k modulo m and write n_i =
-epsilon^{-1} log(1/z_i) + epsilon^{-1/2} x_i, where z is the distinguished
-solution and q = zeta e^{-epsilon/m}. Then the summand of the Nahm sum,
-normalised by e^{-epsilon Q(n)/m}, equals (epsilon/(2 pi))^{N/2}
-e^{Lambda/(m epsilon)} times an explicit product of algebraic prefactors in
-theta_i = z_i^{1/m}, the cyclic dilogarithms D_zeta(theta_i)^{-1/m} and the
-finite symbols (theta_i;zeta)_{k_i}, times the Gaussian factor e^{-x^t
-A-tilde x/m} and the remainder terms psi. Here Lambda = -sum_j L(z_j) is
-built from the Rogers dilogarithm and A-tilde = A + diag(z/(1-z)) is the
-Hessian; A-tilde is positive definite, so the Gaussian factor is genuinely
-peaked, and the peak is at the distinguished solution. -/
-theorem SummandAsymptotics : True := by sorry
-
-/-- formal-gaussian-integration: For a symmetric invertible matrix Lambda over a
-Q-algebra, define the formal Gaussian integral of a function f(x,h) in the
-completed ring of series in x with h-adic control by applying the
-exponential of (h/2) times the inverse-Lambda Laplacian and evaluating at x
-= 0. Equivalently, in one variable, the integral of sum_j c_j x^j is sum_l
-(2l-1)!! c_{2l} Lambda^{-l}. This formally computes the ratio of the
-Gaussian integral of f against the Gaussian weight to the Gaussian integral
-of the weight, and is defined without any measure theory. The construction
-is meaningful exactly when the valuations of the coefficients tend to
-infinity, which is why the source's domain is the ring of series in w, w^3
-h^{-1} and h. -/
--- The bracket attached to a symmetric invertible Lambda.
-def formalGaussian : True := by sorry
-
--- The bracket of a constant is that constant.
-theorem formalGaussian_const : True := by sorry
-
--- The bracket of an odd monomial vanishes.
-theorem formalGaussian_odd : True := by sorry
-
--- The bracket of a quadratic monomial is the corresponding entry of h times the inverse of Lambda.
-theorem formalGaussian_sq : True := by sorry
-
--- Linearity in the integrand.
-theorem formalGaussian_linear : True := by sorry
-
--- Behaviour under an invertible linear change of the integration variable.
-theorem formalGaussian_changeOfVariables : True := by sorry
-
--- The translation rule used for the periodicity of the congruence-class terms.
-theorem formalGaussian_translate : True := by sorry
-
-example : True := by sorry -- unit test `second_moment`: With Lambda = 1 in one variable the bracket of x^2 is h.
-example : True := by sorry -- unit test `fourth_moment`: With Lambda = 1 the bracket of x^4 is 3 h^2.
-example : True := by sorry -- unit test `odd_vanishes`: The bracket of x^3 is zero.
-example : True := by sorry -- unit test `diagonal_factorises`: For a diagonal Lambda the bracket of a product of functions of separate variables is the product of the brackets.
-
-/-- gauss-sum-and-congruence-splitting: Split the Nahm sum over the residue
-classes of n modulo m and modulo a strong denominator D, and define the
-quadratic Gauss sum G(Q,alpha) = D^{-N} sum over k in (Z/DZ)^N of e(alpha-
-bar Q(k)), where alpha is a rational with denominator m prime to D and
-alpha-bar is its reduction modulo D. The sum is independent of the choice of
-strong denominator. The asymptotic expansion of the whole Nahm sum is the
-Gauss sum times the sum over the m-classes of zeta^{Q(k)-bar} times the
-class asymptotics, which is where the arithmetic of the exponent and the
-analysis of the summand separate. -/
--- The normalised quadratic Gauss sum G(Q,alpha).
-def gaussSum : True := by sorry
-
--- Independence of the choice of strong denominator.
-theorem gaussSum_independent : True := by sorry
-
--- The value at an integral alpha is 1.
-theorem gaussSum_int : True := by sorry
-
--- The behaviour under alpha to alpha + 1.
-theorem gaussSum_add_one : True := by sorry
-
--- The decomposition of the Nahm sum into its congruence-class pieces.
-theorem nahmSum_split : True := by sorry
-
--- The splitting is a finite sum of series.
-theorem nahmSum_split_finite : True := by sorry
-
-example : True := by sorry -- unit test `trivial_alpha`: G(Q,0) = 1.
-example : True := by sorry -- unit test `rank_one_quadratic`: For A = (2), B = 0 and alpha = 1/5 the Gauss sum is the normalised quadratic Gauss sum modulo 5.
-example : True := by sorry -- unit test `independence`: Computing G(Q,alpha) with D and with 2D gives the same value.
-example : True := by sorry -- unit test `splitting_recovers`: Summing the congruence pieces over all classes recovers the original series coefficientwise.
-
-/-- radial-asymptotic-expansion: Let Q(x) = (1/2) x^t A x + B x come from an
-analytic Nahm datum, let alpha be a rational whose denominator m is odd and
-prime to a denominator of Q, and let zeta = e(alpha). Then, as epsilon
-decreases to 0, e^{-Lambda/(m epsilon)} f_Q(alpha + i epsilon/(2 pi m)) is
-asymptotic to chi^N m^{-N/2} c(Q) G(Q,alpha) S_{Q,zeta}(epsilon), where chi
-= e(binom(m-1,2) alpha/12) is a twelfth root of zeta, c(Q) =
-det(A-tilde)^{-1/2} product_i theta_i^{B_i} (1-z_i)^{1/2 - 1/m}, G(Q,alpha)
-is the Gauss sum, and S_{Q,zeta}(epsilon) is the explicit power series given
-by the cyclic dilogarithms, the finite symbols and the formal Gaussian
-integrals of the congruence classes. Moreover S_{Q,zeta}(epsilon)^m lies in
-F_m[[epsilon]], where F is generated by the d-th roots of the coordinates of
-the distinguished solution and F_m adjoins zeta. -/
-theorem RadialAsymptoticExpansion : True := by sorry
-
-/-- poisson-summation-and-remainders: Three estimates make the expansion an all-
-orders asymptotic statement rather than a formal manipulation. First, for
-lambda < -1/2 the lattice sum may be truncated to |x_i| < epsilon^{lambda +
-1/2} with an error that is O(epsilon^K) for every K. Second, for lambda >
--2/3 and every K the integrand may be replaced by its expansion to order K
-with an error o(epsilon^{K(3 lambda + 2)}). Third, for a polynomial P and
-lambda < -1/2 the truncated lattice sum of P against the Gaussian is
-asymptotic to (m epsilon)^{-N/2} times the corresponding Gaussian integral,
-and in particular is independent of the shift of the lattice. The ranges of
-lambda in the first two overlap, which is what makes the argument close. In
-addition, the sum over the residue classes modulo a strong denominator D has
-the same asymptotics for every class. -/
-theorem PoissonSummationAndRemainders : True := by sorry
-
-/-- simplified-form-and-the-unit: In the form CGZ use, for A and B as above and
-n a positive integer coprime to the denominators of A and B, and for every
-primitive n-th root of unity zeta, one has f_{A,B}(zeta e^{-h/n}) = mu omega
-e^{L(xi_A)/(n h)} (Phi_zeta(h) + O(h^K)) for every K as h decreases to 0,
-where omega^2 lies in F, mu = e(r(n-1)(n-2)/(24 n)), and Phi_zeta(h) =
-Phi_{A,B,zeta}(h) is an explicit power series with Phi_zeta(h)^n in F_n[[h]]
-and P_zeta(xi_A)^{1/n} D_zeta(1)^{r/n} Phi_zeta(h) in F_n[[h]]. If moreover
-Phi_zeta(0)^n is non-zero, its image in F_n^* modulo n-th powers lies in the
-chi^{-1}-eigenspace. -/
-theorem SimplifiedFormAndTheUnit : True := by sorry
-
-/-- unit-corollary-and-nonvanishing: If Phi_zeta(0) is non-zero, then the
-product of the power series Phi_zeta(h) with the n-th root of any unit
-representing R_zeta(xi_A) lies in F_n[[h]]. The proof is two lines from the
-previous theorem: the constant term times the n-th root of the unit lies in
-F_n, and the ratio Phi_zeta(h)/Phi_zeta(0) is a power series with constant
-term 1 whose n-th power lies in F_n[[h]], hence lies in F_n[[h]] itself. The
-corollary is vacuous when Phi vanishes identically, and any statement that
-divides by Phi_zeta(0) carries the non-vanishing hypothesis explicitly. -/
-theorem UnitCorollaryAndNonvanishing : True := by sorry
-
-/-- acceptance-andrews-gordon: For odd n, let eta_zeta be the n-torsion element
-of the Bloch group of the maximal real subfield of the n-th cyclotomic field
-defined in CGZ Section 1.2, where zeta is a primitive n-th root of unity.
-Then R_zeta(eta_zeta) = zeta^2. The proof is an application of the radial
-asymptotics to a specific family: the Andrews-Gordon Nahm sums f_n =
-f_{A_n,0} with A_n = (2 min(i,j)) of size (n-3)/2, which have a product
-expansion and are therefore modular up to a power of q, so that their
-asymptotics at a root of unity can be computed twice, once by modularity and
-once by the expansion of this layer, and the comparison yields the value of
-the unit. -/
-theorem AcceptanceAndrewsGordon : True := by sorry
-
-/-- coefficient-versus-radial-asymptotics: Let G(q) = sum_n c(n) q^n be analytic
-in the open unit disc with a radial expansion at q = 1 of the form G(e^{-z})
-asymptotic to e^{C^2/(4z)} sum over alpha of A_alpha z^alpha, where C is a
-positive real and the exponents alpha tend to infinity, and assume the
-technical decay hypothesis that for every N there is theta_N with theta_N =
-o(N) such that the modulus of G(e^{-h + i theta}) is less than h^N
-e^{C^2/(4h)} for small positive h and |theta| larger than theta_N. Then the
-coefficients satisfy c(n) asymptotic to (1/2) sqrt(C/(2 pi)) n^{-3/4} e^{C
-sqrt n} times an explicit double sum over l and alpha involving the double
-factorials, binomial coefficients and the A_alpha. For a Nahm sum the
-exponents alpha are natural numbers and the hypotheses hold. -/
-theorem CoefficientVersusRadialAsymptotics : True := by sorry
-
-/-! ## HB.5a Finite-index modular functions at cusps -/
-
-/-- finite-index-subgroups: A modular group for this layer is a subgroup Gamma
-of SL(2,Z) of finite index. It is NOT assumed to be a congruence subgroup,
-and no algebraic model of a modular curve is used anywhere in the layer.
-Record the pinned facts: Mathlib's arithmetic subgroups of GL(2,R) are those
-commensurable with SL(2,Z), and for a subgroup of SL(2,Z) being arithmetic
-is equivalent to having finite index, so the generality this layer needs is
-already the pinned default; the congruence condition is a separate predicate
-that no statement below uses. -/
--- A subgroup of SL(2,Z) of finite index.
-def ModularSubgroup : True := by sorry
-
--- The finite-index hypothesis.
-theorem ModularSubgroup.finiteIndex : True := by sorry
-
--- Agreement with Mathlib's arithmeticity predicate.
-theorem ModularSubgroup.isArithmetic : True := by sorry
-
--- The intersection of two finite-index subgroups.
-def ModularSubgroup.inter : True := by sorry
-
--- The intersection again has finite index.
-theorem ModularSubgroup.inter_finiteIndex : True := by sorry
-
--- Whether minus the identity belongs to the subgroup.
-def ModularSubgroup.negOne : True := by sorry
-
-example : True := by sorry -- unit test `full_group`: SL(2,Z) itself is a legitimate input with index 1.
-example : True := by sorry -- unit test `principal_congruence`: Gamma(M) is a legitimate input, and its index is the standard one.
-example : True := by sorry -- unit test `intersection_index`: The intersection of Gamma with Gamma(M) has index at most the product of the two indices.
-example : True := by sorry -- unit test `no_congruence_used`: No statement of this layer refers to a congruence predicate; the tests are stated for an arbitrary finite-index subgroup.
-
-/-- cusps-and-scaling-matrices: The cusps of a finite-index subgroup Gamma are
-the points of the projective line over the rationals inside the boundary of
-the upper half-plane, and Gamma has finitely many orbits on them. For every
-cusp c there is a scaling matrix, that is an element g of SL(2,Z) with g .
-infinity = c; transport of a statement at c to a statement at infinity is
-conjugation by g. Record from the pinned libraries: the cusps of an
-arithmetic subgroup are exactly the rational points together with infinity,
-every cusp is g . infinity for some g in SL(2,Z), and the orbit set is
-finite. -/
--- The set of cusps of a finite-index subgroup, the rational projective line.
-def cuspSet : True := by sorry
-
--- A choice of g in SL(2,Z) with g . infinity = c.
-def scalingMatrix : True := by sorry
-
--- The defining property of a scaling matrix.
-theorem scalingMatrix_spec : True := by sorry
-
--- Two scaling matrices for the same cusp differ by an element of the stabiliser of infinity.
-theorem scalingMatrix_unique_up_to_stabiliser : True := by sorry
-
--- The set of Gamma-orbits of cusps is finite.
-theorem cuspOrbits_finite : True := by sorry
-
--- Transport of an invariant function to the cusp infinity by the slash action of a scaling matrix.
-theorem transport : True := by sorry
-
-example : True := by sorry -- unit test `infinity_identity`: The identity is a scaling matrix for the cusp infinity.
-example : True := by sorry -- unit test `zero_S`: S = (0 -1; 1 0) is a scaling matrix for the cusp 0.
-example : True := by sorry -- unit test `rational_cusp`: For coprime b and d the matrix with first column (b,d) is a scaling matrix for b/d.
-example : True := by sorry -- unit test `finitely_many_orbits`: For Gamma(2) the number of cusp orbits is three.
-
-/-- cusp-width: The width of a cusp c of Gamma is the least positive integer w
-such that the conjugate by a scaling matrix of the translation by w belongs
-to Gamma, equivalently the size of the orbit of the coset of the scaling
-matrix under the translation subgroup acting on the coset space. The width
-is independent of the choice of scaling matrix. Two conventions must be kept
-apart: when minus the identity belongs to Gamma the orbit width is the
-classical width, and otherwise it is either the classical width or twice it;
-the sum of the widths over the orbits is the index. Tau Ceti carries the
-orbit-based width at every cusp and Mathlib carries the strict width at
-infinity, and both are cited rather than rebuilt. -/
--- The width of a cusp of Gamma.
-def cuspWidth : True := by sorry
-
--- The width is a positive integer.
-theorem cuspWidth_pos : True := by sorry
-
--- The conjugated translation by the width belongs to Gamma, and no smaller positive integer works.
-theorem cuspWidth_spec : True := by sorry
-
--- Independence of the choice of scaling matrix.
-theorem cuspWidth_independent : True := by sorry
-
--- Agreement with Tau Ceti's orbit width.
-theorem cuspWidth_eq_tauceti : True := by sorry
-
--- Agreement with Mathlib's strict width at infinity.
-theorem cuspWidth_infty_eq_mathlib : True := by sorry
-
--- The widths sum to the index over a set of orbit representatives.
-theorem sum_cuspWidth_eq_index : True := by sorry
-
-example : True := by sorry -- unit test `full_group_width_one`: Every cusp of SL(2,Z) has width 1.
-example : True := by sorry -- unit test `principal_width`: Every cusp of Gamma(M) has width M.
-example : True := by sorry -- unit test `gamma0p`: For Gamma_0(p) the widths at infinity and at 0 are 1 and p.
-example : True := by sorry -- unit test `widths_sum_to_index`: For Gamma_0(p) the widths sum to p + 1, the index.
-
-/-- modular-function-of-finite-index: A modular function for Gamma is a
-meromorphic function on the upper half-plane, invariant under the weight-
-zero action of Gamma, which is meromorphic at every cusp: for each cusp with
-its scaling matrix and width, the transported function has a Laurent
-expansion in the local parameter with finite principal part. No holomorphy
-is assumed on the upper half-plane or at the cusps, and no algebraic model
-of the quotient is used. Mathlib has weight-zero slash-invariant forms with
-no analytic condition and proves that weight-zero holomorphic modular forms
-are constant; the meromorphic notion with Laurent expansions at cusps is
-what this layer adds. -/
--- A weight-zero Gamma-invariant meromorphic function, meromorphic at every cusp.
-def ModularFunction : True := by sorry
-
--- The invariance under the slash action.
-theorem ModularFunction.invariant : True := by sorry
-
--- Meromorphy at each cusp, with finite principal part.
-theorem ModularFunction.meromorphicAtCusp : True := by sorry
-
--- The constant functions are modular functions.
-def ModularFunction.const : True := by sorry
-
--- The modular functions form a field.
-theorem ModularFunction.field : True := by sorry
-
--- Meromorphy at a cusp does not depend on the scaling matrix chosen.
-theorem ModularFunction.meromorphicAtCusp_independent : True := by sorry
-
--- Two modular functions agreeing as functions are equal.
-theorem ModularFunction.ext : True := by sorry
-
-example : True := by sorry -- unit test `constants`: Every constant is a modular function for every Gamma.
-example : True := by sorry -- unit test `j_function`: The j-function is a modular function for SL(2,Z) with a pole of order one at the cusp in the local parameter.
-example : True := by sorry -- unit test `weight_zero_holomorphic_constant`: A holomorphic modular function with no pole at any cusp is constant, which is the pinned weight-zero statement.
-example : True := by sorry -- unit test `essential_singularity_excluded`: A function whose transported expansion has infinitely many negative powers is not a modular function.
-
-/-- local-parameter-and-laurent-expansion: Let c be a cusp of Gamma of width w
-with scaling matrix g. The local parameter is q_c(z) = exp(2 pi i z / w),
-whose absolute value is exp(-2 pi Im(z)/w); the transported function f
-slashed by g is invariant under translation by w, hence is a function of
-q_c, and meromorphy at the cusp says exactly that this function extends
-meromorphically to the punctured disc with a finite principal part.
-Consequently f slashed by g has a Laurent expansion sum over n at least n_0
-of a_n q_c^n with a_{n_0} non-zero, unless the transported function is
-identically zero, which is a case that must be separated. -/
-theorem LocalParameterAndLaurentExpansion : True := by sorry
-
-/-- radial-growth-at-a-cusp: Let f be a modular function for Gamma, not
-identically zero, and let c = b/d be a cusp with width w and leading Laurent
-exponent n_0 at c. Then along the radial approach z = c + i y with y
-decreasing to 0, the transported function satisfies f(z) = a_{n_0} exp(-2 pi
-i n_0 c / w) exp(2 pi n_0 / (w y)) (1 + O(exp(-2 pi/(w y)))). In particular
-the exponential rate is 2 pi n_0/w, a rational multiple of pi determined by
-the integer leading exponent and the rational cusp data, and there is no
-other possible rate: a modular function grows like exp(constant/y) with the
-constant in (2 pi/w) Z, and never like exp(c/y) with an irrational multiple. -/
-theorem RadialGrowthAtACusp : True := by sorry
-
-/-- supplier-interface: The Nahm application uses exactly four facts from this
-layer, and the layer exists to supply them. First, for an element gamma = (a
-b; c d) of Gamma and the radial parameter epsilon = d h/(1 - i c h-bar), the
-invariance gives f_{A,B,C}(e^{-epsilon}) = f_{A,B,C}(zeta e^{-h/d}) with
-zeta = e(b/d), so a radial approach to 1 becomes a radial approach to a root
-of unity of order dividing d. Second, the exponential rate of a modular
-function along a radial approach is a rational multiple of pi squared, which
-forces lambda = L(xi_A)/(4 pi^2) to be rational. Third, the error term in
-the expansion at a cusp is exponentially small, not merely O(epsilon).
-Fourth, Gamma may be shrunk by intersecting with Gamma(M), so that the
-denominators d avoid any fixed finite set of primes. No other property of
-modular functions is used, and in particular no congruence hypothesis, no
-algebraic model and no Fourier coefficient arithmetic. -/
-theorem SupplierInterface : True := by sorry
-
-/-! ## HB.5 The proved implication in Nahm's conjecture -/
-
-/-- nahm-conjecture-statement: For a symmetric positive definite rational matrix
-A define three properties. (a) The class [X] vanishes in the Bloch group of
-the complex numbers for EVERY solution X of Nahm's equations. (b) The
-special class xi_A attached to the distinguished solution vanishes. (c) The
-function f_{A,B,C} is modular for SOME rational vector B and rational number
-C. Trivially (a) implies (b). Nahm's conjecture is the pair of implications
-(a) implies (c) and (c) implies (b). Both stronger forms are false: (b)
-alone does not imply (c), by Zagier's matrix (8 5; 5 4), and (c) does not
-require (a), by the Vlasenko-Zwegers matrix (3/2 1/2; 1/2 3/2). Only (c)
-implies (b) is a theorem, and it is the endpoint of this layer. -/
--- The property that every solution has vanishing class.
-def NahmProperty.a : True := by sorry
-
--- The property that the distinguished solution has vanishing class.
-def NahmProperty.b : True := by sorry
-
--- The property that some f_{A,B,C} is modular.
-def NahmProperty.c : True := by sorry
-
--- Property (a) implies property (b).
-theorem NahmProperty.a_imp_b : True := by sorry
-
--- The conjectural implication from (a) to (c), stated and not proved.
-def NahmConjecture.aImpC : True := by sorry
-
--- The implication from (c) to (b), which is the theorem of this layer.
-def NahmConjecture.cImpB : True := by sorry
-
--- Zagier's counterexample matrix, recorded as data.
-theorem NahmProperty.b_not_imp_c : True := by sorry
-
--- The Vlasenko-Zwegers counterexample matrix, recorded as data.
-theorem NahmProperty.c_not_imp_a : True := by sorry
-
-example : True := by sorry -- unit test `rogers_ramanujan_all_three`: For A = (2) all three properties hold.
-example : True := by sorry -- unit test `zagier_matrix_b_not_c`: For A = (8 5; 5 4) property (b) holds and property (c) fails.
-example : True := by sorry -- unit test `vlasenko_zwegers_c_not_a`: For A = (3/2 1/2; 1/2 3/2) property (c) holds and property (a) fails.
-example : True := by sorry -- unit test `a_implies_b`: Property (a) implies property (b) for every A, with no hypothesis beyond positive definiteness.
-
-/-- expansion-at-one: Every Nahm sum has an expansion near q = 1 of the form
-f_{A,B,C}(e^{-epsilon}) = e^{L(xi_A)/epsilon} (K + O(epsilon)) as epsilon
-decreases to 0, where K is a non-zero algebraic number some power of which
-lies in the field F generated by the distinguished solution. If moreover
-f_{A,B,C} is modular, the error term O(epsilon) may be replaced by
-O(e^{-c/epsilon}) for some positive c, and the number lambda = L(xi_A)/(4
-pi^2) is rational. -/
-theorem ExpansionAtOne : True := by sorry
-
-/-- comparison-of-expansions: Assume f_{A,B,C} is modular for a finite-index
-subgroup Gamma, and let gamma = (a b; c d) be an element of Gamma. Taking
-epsilon = d h/(1 - i c h-bar) with h-bar = h/(2 pi), the invariance gives
-f_{A,B,C}(e^{-epsilon}) = f_{A,B,C}(zeta e^{-h/d}) with zeta = e(b/d).
-Comparing the expansion at 1 with the radial expansion at zeta, both of
-which are available, yields mu e^{L(xi_A)/(h d)} Phi_zeta(h) = e^{L(xi_A)/(h
-d)} (K e(lambda c/d) + O(h)), hence Phi_zeta(0) = mu^{-1} K e(lambda c/d).
-In particular Phi_zeta(0) is non-zero, and a fixed power of it, with
-exponent independent of d, lies in F_n for n = d. -/
-theorem ComparisonOfExpansions : True := by sorry
-
-/-- torsion-from-unbounded-orders: Let G be a finitely generated abelian group
-and let x be an element of G such that x lies in nG for infinitely many
-positive integers n. Then x is torsion. Equivalently, if the image of x in
-G/nG vanishes for an unbounded set of n, then the free part of x vanishes.
-The proof is the structure theorem: write G as the sum of a free part of
-finite rank and a finite torsion part, and observe that a non-zero element
-of the free part has a non-zero coordinate, which is divisible by only
-finitely many n. -/
-theorem TorsionFromUnboundedOrders : True := by sorry
-
-/-- modularity-implies-torsion: Let A be a symmetric positive definite rational
-matrix, B a rational vector and C a rational number, and let xi_A be the
-Bloch class of the distinguished solution in the Bloch group of the field F
-it generates. If f_{A,B,C} is a modular function, that is if its upper half-
-plane form is invariant under a subgroup of finite index of SL(2,Z), then
-xi_A is a torsion element of B(F). Equivalently, xi_A vanishes in the Bloch
-group of the algebraic numbers. This is the implication (c) implies (b) of
-Nahm's conjecture, and it is the only implication that is proved. -/
-theorem ModularityImpliesTorsion : True := by sorry
-
-/-- excluded-primes-and-hypotheses: Two finiteness statements make the argument
-legitimate. First, the radial expansion of HB.4 requires the order n of the
-root of unity to be odd and coprime to a denominator of the datum, so the
-orders that may be used are exactly those prime to a fixed integer;
-shrinking Gamma by intersecting with Gamma(M) for a suitable M arranges that
-every denominator d arising from an element of Gamma satisfies this. Second,
-the unit map and its injectivity statement exclude only the primes dividing
-a fixed exceptional integer coming from the Chern class comparison, which is
-a finite set. Hence the family of admissible orders is still unbounded,
-which is what the torsion argument needs. -/
-theorem ExcludedPrimesAndHypotheses : True := by sorry
-
-/-- boundaries-of-the-implication: Four statements are explicitly not proved and
-must not be inferred. First, the converse implication from the vanishing of
-the Bloch class to modularity is not proved for general A, and CGZ record
-that it does not even have a sufficiently precise formulation. Second, the
-torsion of the class is not a modularity test: A = (8 5; 5 4) has a torsion
-class and is not modular. Third, the theorem is for modular FUNCTIONS of
-weight zero; the apparently more general modular-form statement reduces to
-it, and the reduction, not an independent proof, is what covers it. Fourth,
-the generality of a finite-index subgroup is part of the theorem, and
-replacing it by a congruence subgroup would prove a weaker statement; the
-expectation that a modular Nahm sum is automatically modular for a
-congruence subgroup rests on an unbounded-denominator conjecture and is not
-used anywhere. -/
-theorem BoundariesOfTheImplication : True := by sorry
-
-/-- valuation-bound-at-every-cusp: Suppose the Nahm sum f_Q is modular, and for
-a rational point P of the projective line define its valuation v_P(f_Q) as
-the smallest exponent of q in the Fourier expansion of f_Q transported to
-infinity by an element of SL(2,Z) sending infinity to P; this is independent
-of the choice. Put C_0(A) = -Lambda(xi_A)/(2 pi)^2 with the Garoufalidis-
-Zagier normalisation of the Rogers dilogarithm. Then v_P(f_Q) is at least
-C_0(A) for every rational P, with equality at P = 0. In particular, at P =
-infinity the valuation is the minimum of Q over the non-negative integer
-vectors, so that minimum is at least C_0(A); and when the quadratic part is
-non-negative on that set, which holds for every modular triple of rank at
-most three in the literature, the valuation at infinity is C itself, so C is
-at least C_0(A). -/
-theorem ValuationBoundAtEveryCusp : True := by sorry
-
-/-! ## HB.8 Admissibility and integrality: GSWZ Theorem 6 -/
-
-/-- admissible-series: For a positive integer N and variables t = (t_1,...,t_N),
-an admissible series is a power series F(t,q) over the rational function
-field in q with F(t,q) = 1 + O(t) whose logarithm has the form log F(t,q) =
-minus the sum over non-zero n in the non-negative integer vectors and over l
-at least 1 of L_n(q^l) t^{l n}/(l (1 - q^l)), where each L_n(q) is a LAURENT
-POLYNOMIAL with integer coefficients. The integrality of the L_n is the
-whole content: the displayed shape with L_n merely a rational function
-imposes nothing. -/
--- The predicate that a power series is admissible.
-def Admissible : True := by sorry
-
--- The Laurent polynomials L_n attached to an admissible series.
-theorem Admissible.L : True := by sorry
-
--- The L_n are uniquely determined by the series.
-theorem Admissible.L_unique : True := by sorry
-
--- The product of admissible series is admissible, with L adding.
-def Admissible.mul : True := by sorry
-
--- The inverse of an admissible series is admissible.
-def Admissible.inv : True := by sorry
-
--- Admissibility is preserved by inverting q.
-theorem Admissible.qInv : True := by sorry
-
--- The infinite Pochhammer symbol is admissible.
-theorem Admissible.pochhammer : True := by sorry
-
-example : True := by sorry -- unit test `pochhammer_admissible`: The infinite Pochhammer symbol is admissible with L_1 = 1.
-example : True := by sorry -- unit test `product_admissible`: The product of two admissible series is admissible.
-example : True := by sorry -- unit test `qinv_admissible`: If F is admissible then so is F with q inverted.
-example : True := by sorry -- unit test `rational_L_not_admissible`: A series with L_1(q) = 1/(1-q) satisfies the displayed shape but is not admissible.
-
-/-- product-expansion-and-dt-exponents: Every power series F(t,q) over the
-Laurent series field in q with F(0,q) = 1 has a unique expansion as a
-product over non-zero n and over integers i of (q^i t^n;
-q)_infinity^{c_{n,i}} with integer exponents c_{n,i}, where for each n the
-exponents vanish for all sufficiently negative i. The series is admissible
-exactly when, for each fixed n, only finitely many c_{n,i} are non-zero, and
-in that case L_n(q) = sum_i c_{n,i} q^i. The exponents are the generalised
-Donaldson-Thomas invariants. -/
-theorem ProductExpansionAndDtExponents : True := by sorry
-
-/-- expansion-at-roots-of-unity: For an admissible series F and each positive
-integer m, set Phi_m(t,x) = F(t^{1/m}, zeta_m + x). Then Phi_m lies in
-exp(V(t)/(m^2 log(1 + x/zeta_m))) times delta(t)^{-1/2} times U_m(t) times
-(1 + x t^{1/m} times power series), where V(t) = sum_n L_n(1) Li_2(t^n) is
-the potential, delta(t) is the exponential of an explicit combination of
-L_n(1) and L_n'(1) against Li_1, and U_m(t) is the explicit constant
-recorded in the source. The rescaling of t by an m-th root is forced: the
-residue of the logarithm at zeta_m is V(t^m)/m^2, so without it the
-expansion is not a power series in t. -/
--- The collection Phi_m of expansions of an admissible series at the roots of unity.
-def admissibleExpansion : True := by sorry
-
--- The potential V(t) of an admissible series.
-def potential : True := by sorry
-
--- The series delta(t).
-def discriminantSeries : True := by sorry
-
--- The series U_m(t) for each m.
-def constantSeries : True := by sorry
-
--- The displayed shape of the expansion.
-theorem admissibleExpansion_shape : True := by sorry
-
--- V determines the values L_n(1) and conversely.
-theorem potential_determines_values : True := by sorry
-
--- A single Phi_m determines F.
-theorem expansion_determines_series : True := by sorry
-
-example : True := by sorry -- unit test `pochhammer_potential`: For the infinite Pochhammer symbol the potential is Li_2(t).
-example : True := by sorry -- unit test `constant_term_one`: Phi_m(0,x) = 1 for every m.
-example : True := by sorry -- unit test `recognition`: Two admissible series with the same Phi_1 are equal.
-example : True := by sorry -- unit test `rescaling_needed`: Without the rescaling of t the coefficient of x^{-1} is V(t^m)/m^2, which is not the potential of the series.
-
-/-- dwork-quotient-admissible: If F is admissible then for every prime p and
-every positive integer m not divisible by p, the difference log F(t^{p/m},
-q^p) - p log F(t^{1/m}, q), expanded at q = zeta_m + x, lies in (p/x) times
-the p-local power series ring in t^{1/m} and x over the m-th cyclotomic
-integers. The proof is one line from the definition: the logarithm of
-F(t^p,q^p)/F(t,q)^p is p times the sub-sum of the defining series over the l
-prime to p, and every term of that sub-sum is p-integral after expansion at
-a root of unity of order prime to p. -/
-theorem DworkQuotientAdmissible : True := by sorry
-
-/-- series-F-A: For a symmetric integral N by N matrix A define F_A(t,q) as the
-sum over non-negative integer vectors n of (-1)^{diag(A).n} q^{(n^t A n +
-diag(A).n)/2} t^n divided by the product of the (q;q)_{n_j}. It satisfies
-the linear q-difference system F_A(t,q) - F_A(sigma_j t, q) = (-1)^{A_jj}
-t_j q^{A_jj} F_A(prod_i sigma_i^{A_ij} t, q) for j = 1,...,N, where sigma_j
-multiplies t_j by q, and this system together with F_A(0,q) = 1 determines
-F_A uniquely. It also satisfies the reflection F_A(t,q) = F_{I-A}(t,q^{-1}). -/
--- The series F_A(t,q) attached to a formal Nahm datum.
-def seriesFA : True := by sorry
-
--- F_A(0,q) = 1.
-theorem seriesFA_zero : True := by sorry
-
--- The q-difference system.
-theorem seriesFA_qdiff : True := by sorry
-
--- The system with the initial condition determines the series.
-theorem seriesFA_unique : True := by sorry
-
--- The reflection F_A(t,q) = F_{I-A}(t,q^{-1}).
-theorem seriesFA_reflect : True := by sorry
-
--- The ratios G_j(t,q) and the Riccati system they satisfy.
-def seriesFA_ratio : True := by sorry
-
--- The ratios have Laurent polynomial coefficients.
-theorem seriesFA_ratio_integral : True := by sorry
-
-example : True := by sorry -- unit test `rank_one_three`: For A = (3) the series is the displayed sum and satisfies F(t,q) - F(qt,q) + q^3 t F(q^3 t,q) = 0.
-example : True := by sorry -- unit test `zero_matrix`: For A = 0 the series is the reciprocal of the infinite Pochhammer symbol in t.
-example : True := by sorry -- unit test `constant_term`: The coefficient of t^0 is 1.
-example : True := by sorry -- unit test `reflection`: For A = (3) the reflection identity gives F_{(3)}(t,q) = F_{(-2)}(t,q^{-1}).
-
-/-- t-deformed-nahm-equations: Setting q = 1 and replacing the shift operators
-by unknowns z_j(t) turns the q-difference system into the t-deformed Nahm
-equations 1 - z_j(t) = (-1)^{A_jj} t_j product_i z_i(t)^{A_ij} with z(0) =
-1. They have a unique solution in formal power series with integer
-coefficients, given by an explicit hypergeometric series; in rank one, with
-1 - z = t(-z)^A, the solution is the sum over k of (-1)^{(A+1)k} binom(Ak,k)
-t^k/((A-1)k+1). They define the ring S obtained from the Laurent polynomial
-ring in t, z and the inverse square root of the discriminant delta(t) =
-product_j z_j(t)^{-A_jj} det(diag(1-z(t)) A + diag(z(t))) by the equations,
-which after inverting 2 is an etale algebra over the polynomial ring in t;
-and its level m variants S^{(m)}, which adjoin a primitive m-th root of
-unity and m-th roots of the t. -/
--- The unique power series solution z(t) with z(0) = 1.
-def tNahmSolution : True := by sorry
-
--- Its coefficients are integers.
-theorem tNahmSolution_integral : True := by sorry
-
--- It satisfies the t-deformed equations.
-theorem tNahmSolution_spec : True := by sorry
-
--- The discriminant delta(t).
-def discriminant : True := by sorry
-
--- delta(0) = 1.
-theorem discriminant_zero : True := by sorry
-
--- The ring S and its level m variants.
-def ringS : True := by sorry
-
--- After inverting 2 the ring S is etale over the polynomial ring in t.
-theorem ringS_etale : True := by sorry
-
--- The Galois action multiplying the m-th roots of z by roots of unity.
-def ringS_galois : True := by sorry
-
--- The specialisation t = 1 onto the ring of HB.3.
-theorem ringS_specialise : True := by sorry
-
-example : True := by sorry -- unit test `rank_one_three_solution`: For A = (3) the first coefficients of z(t) are 1, 1, 3, 12, 55, 273.
-example : True := by sorry -- unit test `zero_matrix_solution`: For A = 0 the solution is z_j = 1 - t_j and delta = 1.
-example : True := by sorry -- unit test `discriminant_series`: For A = (3) the first coefficients of delta(t) are 1, -5, -3, -10, -42.
-example : True := by sorry -- unit test `specialisation_at_one`: Specialising t = 1 in the equations gives the Nahm equations in the GSWZ sign convention.
-
-/-- potential-pole-lemma: For every symmetric integral A there is a power series
-V_A(t) over the rationals such that for every positive integer m, log F_A(t,
-zeta_m + x) equals zeta_m V_A(t^m)/(m^2 x) plus a term of order zero in x.
-The same holds for the congruence variants F_{A,m,k} with the same V_A. The
-proof is deferred to the identification theorem, from which both follow by
-the explicit formula for the formal Gaussian integrals; alternatively it
-follows from the q-difference equations by the WKB algorithm. -/
-theorem PotentialPoleLemma : True := by sorry
-
-/-- finite-support-theorem: For every symmetric integral matrix A, the unique
-integers c_{n,i} in the product expansion of F_A have finite support: for
-each fixed non-zero n, all but finitely many c_{n,i} vanish. Equivalently
-F_A is admissible. This is GSWZ Theorem 6, which they attribute to
-Kontsevich-Soibelman and Efimov and reprove elementarily; the proof given
-here is the elementary one, through the Riccati system for the ratios and
-the potential lemma, and does not import a general Donaldson-Thomas
-integrality theorem. -/
-theorem FiniteSupportTheorem : True := by sorry
-
-/-- level-m-admissible-series: Fix a positive integer m. Every series F(t,q)
-with F = 1 + O(t) over the Laurent series field in q with m inverted can be
-written uniquely as the exponential of minus the sum over n at least 1 and
-over l prime to m of L_n(q^l) t^{nl}/(l (1 - q^{m l})), with L_n a Laurent
-series with m inverted. The series is level m admissible when each L_n lies
-in the ring obtained from the Laurent polynomials with m inverted by
-inverting the cyclotomic polynomials Phi_d with d not congruent to 0 modulo
-m, and moreover L_n(zeta_m) is integral away from m. Level 1 admissible is
-ordinary admissible. -/
--- The predicate of level m admissibility.
-def LevelAdmissible : True := by sorry
-
--- The Laurent series L_n of a level m decomposition.
-theorem LevelAdmissible.L : True := by sorry
-
--- Uniqueness of the decomposition.
-theorem LevelAdmissible.L_unique : True := by sorry
-
--- Level 1 admissibility is ordinary admissibility.
-theorem LevelAdmissible.one : True := by sorry
-
--- The building block as a Moebius-weighted product of Pochhammer symbols.
-theorem LevelAdmissible.moebiusProduct : True := by sorry
-
--- The residue of the logarithm at a root of unity of order divisible by m.
-theorem LevelAdmissible.residue : True := by sorry
-
-example : True := by sorry -- unit test `level_one`: A level 1 admissible series is admissible.
-example : True := by sorry -- unit test `moebius_m_two`: For m = 2 the building block is the ratio of two Pochhammer symbols with the Moebius weights 1 and -1/2.
-example : True := by sorry -- unit test `pochhammer_level_m`: The Pochhammer symbol in t with q replaced by q^m is level m admissible.
-example : True := by sorry -- unit test `value_condition_independent`: A series satisfying the membership condition and failing the value condition at zeta_m is not level m admissible.
-
-/-- congruence-sums-are-level-m-admissible: Fix a symmetric integral A, a
-positive integer m and a residue class k in {0,...,m-1}^N, and let
-F_{A,m,k}(t,q) be the sum defining F_A restricted to the n congruent to k
-modulo m, normalised as in GSWZ equation (FAmdef). Then F_{A,m,k}(t^{1/m},q)
-is level m admissible. Moreover the Dwork-type quotient of a level m
-admissible series is p-integral in the same strong sense as for admissible
-series: for all primes p and positive m' with mm' prime to p, log
-F(t^{p/m'},q^p) - p log F(t^{1/m'},q) lies in (p/x) times the p-local
-coefficient ring at q = zeta_{mm'} + x. -/
-theorem CongruenceSumsAreLevelMAdmissible : True := by sorry
-
-/-- fgi-collection: For a symmetric integral A and each m, define
-Phi^FGI_{A,m}(t,x) as the sum over the residue classes k modulo m of the
-formal Gaussian integrals I_{A,m,k}(t^{1/m},x), where each I_{A,m,k} is the
-explicit expression of GSWZ equation (Ikdef): a prefactor built from the
-exponential of V(t^m)/(m^2 log(1+x/zeta_m)), the square root of m^N
-det(-Lambda(t^m)) times the product of the 1 - z_j^{1/m}, and products of
-the quantities (1 - zeta_m^{k+l} z^{1/m})/(1 - zeta_m^{l+k}) raised to
-explicit rational powers, times the formal Gaussian integral, against the
-matrix Lambda(t) = -A - diag(z(t)/(1 - z(t))), of the product of the
-regularised Pochhammer factors psi. The integrals are m-periodic in k, so
-the sum makes sense, and the exponential prefactor is independent of k, so
-the Gaussians are equi-peaked. -/
--- The regularised Pochhammer factor psi.
-def fgiFactor : True := by sorry
-
--- It lies in the domain of the formal Gaussian integration.
-theorem fgiFactor_mem : True := by sorry
-
--- The integral I_{A,m,k}.
-def fgiIntegral : True := by sorry
-
--- The m-periodicity in k.
-theorem fgiIntegral_periodic : True := by sorry
-
--- The collection Phi^FGI_{A,m}.
-def fgiCollection : True := by sorry
-
--- The exponential prefactor is independent of k.
-theorem fgiCollection_prefactor : True := by sorry
-
--- The refined pieces CS_{A,m,k} and their relation to the collection.
-def fgiRefined : True := by sorry
-
-example : True := by sorry -- unit test `m_one`: For m = 1 the collection is a single formal Gaussian integral.
-example : True := by sorry -- unit test `periodicity`: I_{A,m,k} and I_{A,m,k+m e_j} agree.
-example : True := by sorry -- unit test `critical_point`: The critical point of the exponent is the t-deformed solution.
-example : True := by sorry -- unit test `refined_relation`: CS_{A,1,0}(t, zeta_{m}+x) equals the collection evaluated at t^{m}.
-
-/-- fgi-coefficients-in-S: For every positive integer m, the logarithm of
-Phi^FGI_{A,m}(t,x) lies in V^FGI(t)/(m^2 log(1+x/zeta_m)) minus half the
-logarithm of delta^FGI(t) plus the logarithm of U^FGI_m(t) plus x times the
-rationalised ring S^{(m)}, and moreover delta^FGI lies in S and m^{Nm}
-(U^FGI_m)^{2m} lies in S^{(m)}. The proof of the last inclusion uses the
-identity D_{zeta_m}(1)^{24m} = m^{12m}, which GSWZ deduce from the
-multiplier system of the Dedekind eta function and which is proved here
-directly: D_{zeta_m}(1)^m is the product over l from 1 to m-1 of (1 -
-zeta_m^l)^l, and pairing l with m - l together with the product formula for
-the (1 - zeta_m^l) gives its square as m^m times a sixth root of unity,
-whence the twenty-fourth power is m^{12m}. -/
-theorem FgiCoefficientsInS : True := by sorry
-
-/-- q-difference-for-the-gaussian-collection: For each m and each residue class
-k, the normalised refined piece t^k CS_{A,m,k}(t,q) satisfies the same
-order-m linear q-difference system, with q-binomial coefficients, that the
-congruence sum t^k F_{A,m,k}(t,q) satisfies. The proof is a change of
-variables in the Gaussian integration: the integrals I_{A,mm',l} satisfy the
-same first-order relations in l that the series satisfy in the congruence
-class, and the q-binomial identity then assembles them into the order-m
-equation. -/
-theorem QDifferenceForTheGaussianCollection : True := by sorry
-
-/-- identification-theorem: For every symmetric integral A, every positive
-integer m and every residue class k, the congruence sum F_{A,m,k}(t^{1/m},q)
-equals the refined Gaussian piece CS_{A,m,k}(t,q) as elements of the Laurent
-series ring in x with power series coefficients in t, for q = zeta_{mm'} + x
-and any m'. Summing over the classes gives Phi_A(t,q) = Phi^FGI_A(t,q),
-which is GSWZ Theorem 3. Consequently the potential, the discriminant and
-the constants computed from the admissible side agree with those computed
-from the Gaussian side, and the potential lemma and its level m version
-follow. -/
-theorem IdentificationTheorem : True := by sorry
-
-/-- wkb-algebraicity: There is a second, independent route to the algebraicity
-of the coefficients, which does not use formal Gaussian integration: the WKB
-method applied to the linear q-difference system. In rank one, writing the
-solution as the exponential of a sum of c_k(t) h^k and studying the ratio
-G(t;h) = F(e^h t;h)/F(t;h) written as z(t) times the exponential of a sum of
-b_k(t) h^k, one proves that b_1 = A(A-1)X^2/2 and that b_k lies in X Delta
-Q[X] for k at least 2, where X = (t/z) dz/dt and Delta = X(AX+1)((A-1)X+1);
-integrating then gives c_k in X Q[X] for k at least 1. Hence every
-coefficient of the expansion is an algebraic function of t. -/
-theorem WkbAlgebraicity : True := by sorry
-
-/-- potential-determines-the-matrix: If F_A is the q-hypergeometric series of a
-symmetric integral A and V = V_A is its potential, then V determines A and
-hence F_A. The proof is two identities: t_j times the partial derivative of
-V with respect to t_j is log z_j(t), so V determines the t-deformed
-solution; and the Hessian of V is minus A minus the diagonal matrix of
-z/(1-z), so V determines A. -/
-theorem PotentialDeterminesTheMatrix : True := by sorry
-
-/-- acceptance-rank-one: The rank one case A = (3) is the layer's acceptance
-case, and every convention of the layer is checked against it. The series
-F(t,q) = sum_k (-1)^k q^{3k(k+1)/2} t^k/(q;q)_k satisfies F(t,q) - F(qt,q) +
-q^3 t F(q^3 t,q) = 0; its Donaldson-Thomas exponents are non-negative and
-supported in 3n+1 at most i at most n^2+n+1, with the exception c_{1,3} = 1;
-the deformed solution of 1 - z = -t z^3 is 1 + t + 3t^2 + 12t^3 + 55t^4 +
-...; the discriminant is 1 - 5t - 3t^2 - 10t^3 - ...; the potential is t +
-5t^2/4 + 28t^3/9 + 165t^4/16 + ...; and the ratio G satisfies the Riccati
-equation 1 - G(t,q) + q^3 t G(t,q)G(qt,q)G(q^2t,q) = 0, with the coefficient
-of x^k in G(t,1+x) lying in delta^{-3k} Z[t^{pm 1},z]. The product identity
-z(t) = product over n of (1-t^n)^{-n sum_i c_{n,i}} holds and proves that
-the exponent of 1 - t^n in that product is divisible by n. -/
-theorem AcceptanceRankOne : True := by sorry
-
-/-! ## HB.9 Frobenius congruences and module membership -/
-
-/-- p-adic-polylogarithm-integrality: Write Li_n^{(p)}(t) = Li_n(t) - p^{-n}
-Li_n(t^p), the sum of t^k/k^n over the k prime to p. Then Li_n^{(p)}(t) lies
-in the p-adic completion of the ring obtained from the integers by adjoining
-t and the inverse of 1 - t. Consequently, for every prime p, the difference
-log (t^p;q^p)_infinity - p log (t;q)_infinity lies in p/x times that
-completed ring with x adjoined, for q = 1 + x; and for a root of unity zeta
-different from 1 whose order is not a power of p, the corresponding function
-of x is meromorphic on the unit disc with a simple pole at 0 and residue p
-Li_2^{(p)}(zeta). -/
-theorem PAdicPolylogarithmIntegrality : True := by sorry
-
-/-- dwork-difference-for-the-gaussian-data: For all primes p and positive
-integers m prime to p, the difference log CS_{A,m,k}(t^p,q^p) - p log
-CS_{A,m,k}(t,q) lies in x^{-1} times the p-completed ring S^{(m)} with 1/p
-and the m-th roots of z adjoined. The proof reduces to two statements: that
-V(t^p)/p - p V(t) lies in p times the p-completion of S, and that the
-analogous difference for delta^{-1} U_{m,k}^2 lies in p times the
-p-completion of S^{(m)} with the m-th roots of z adjoined. Both are proved
-by writing the Frobenius of z as z^p times the exponential of p times an
-element of the completed ring and expanding the polylogarithms, using the
-integrality of the p-th version of the polylogarithm at 1 - z. -/
-theorem DworkDifferenceForTheGaussianData : True := by sorry
-
-/-- frobenius-congruence: Fix a symmetric integral A, a positive integer m and a
-residue class k in {0,...,m-1}^N. Then for every prime p with m prime to p,
-log F_{A,m,k}(t^{p/m}, q^p) - p log F_{A,m,k}(t^{1/m}, q) lies in (p/x)
-times the p-completion of S^{(m)} with the m-th roots of z adjoined, in the
-power series ring in x, where q = zeta_m + x. This is GSWZ Theorem 4. It
-combines two facts that are separately weaker: the level m admissible Dwork
-lemma, which gives p-integrality but in the wrong ring, and the Gaussian
-Dwork lemma, which gives membership in the right ring but with 1/p adjoined;
-the intersection of the two is the statement, and proving that the
-intersection is the smaller ring is the last step. -/
-theorem FrobeniusCongruence : True := by sorry
-
-/-- habiro-module-interface: The Habiro ring H_R of a number field, the modules
-H_{R,xi} indexed by an element xi of the third K-group, the unit
-epsilon_m(xi) attached to a root of unity of order m, and the restriction of
-a collection to the roots of unity of order prime to Delta are constructed
-by HabiroNumberFields HB.6 and HB.7 and are imported here. This layer uses
-exactly four properties: the defining gluing condition for a section of the
-module, the multiplicativity of epsilon_m against the additivity of the
-p-adic regulator, the statement that the module with xi zero is the ring,
-and the fact that the constant term of a section at an m-th root of unity
-lies in the ring with epsilon_m^{1/m} adjoined. -/
-theorem HabiroModuleInterface : True := by sorry
-
-/-- constant-term-is-the-unit: For m prime to Delta, the constant term of the
-expansion Phi_{A,z,m}(x) at the m-th root of unity is epsilon_m(xi)^{1/m}
-times an element of the field K with the m-th roots of unity adjoined, where
-xi is the Bloch class of the non-degenerate solution z. This is the point at
-which the analytic and the arithmetic halves of the whole roadmap meet, and
-it is not proved here: it follows from CGZ Theorem 1.6 together with its
-equation (14) and from Hutchinson's comparison between the finite Chern
-class and the cyclic quantum dilogarithm, both of which are owned by
-HabiroNumberFields HB.1 and HB.2. -/
-theorem ConstantTermIsTheUnit : True := by sorry
-
-/-- gluing-by-uniqueness-of-q-difference-solutions: The gluing condition for the
-collection attached to A is proved by a uniqueness argument. For a positive
-integer gamma, consider the products of gamma shifted copies of the series
-at q^gamma with one copy at q^{-1}, indexed by an integer vector and an
-integer; they satisfy a system of gamma plus two q-difference equations,
-which has a unique power series solution of the form 1 + O(t). Since both
-the collection and its Frobenius twist satisfy the same system, they agree;
-re-expanding at a root of unity of order divisible by p and specialising t =
-1 then gives the gluing condition. The argument is written out for a one by
-one matrix and asserted to be analogous in general. -/
-theorem GluingByUniquenessOfQDifferenceSolutions : True := by sorry
-
-/-- module-membership: Fix a symmetric integral matrix A and a non-degenerate
-solution z of the Nahm equations with associated Bloch class xi. Then the
-collection Phi_{A,z}, obtained from the collection of A by specialising t =
-1 and removing the principal part of the logarithm, lies in the module
-H_{R[delta^{-1/2}],xi} restricted to the roots of unity of order prime to
-Delta. This is GSWZ Theorem 5. All four hypotheses are load-bearing: non-
-degeneracy, the adjunction of the inverse square root of the discriminant,
-the restriction to orders prime to Delta, and the indexing of the module by
-the Bloch class of the chosen solution. -/
-theorem ModuleMembership : True := by sorry
-
-/-- symmetrisation-and-torsion-corollaries: Three consequences. First, the
-constant term of the expansion at an m-th root of unity of order prime to
-Delta lies in R with the root of unity adjoined; for the matrix of the 4_1
-knot this is the integrality of an explicit finite sum, which seems hard to
-prove directly. Second, the product of the collection with its image under q
-to q^{-1} lies in the Habiro ring, and if r xi vanishes in the third K-group
-then the r-th power of the collection lies in the Habiro ring of the ring
-with the inverse square root of the discriminant. Third, an orbit of the
-Nahm equations is Bloch-torsion exactly when the 2r-th power of the
-collection lies in the Habiro ring, where r is the order of the torsion
-element; the forward direction is the second statement and the converse
-follows from the fact that the vanishing of the Bloch-Wigner dilogarithms at
-all complex embeddings forces torsion, or from the triviality of the unit
-for all but finitely many m. -/
-theorem SymmetrisationAndTorsionCorollaries : True := by sorry
-
-/-- descendants-by-specialisation: Specialising t = q^nu, that is t_j = q^{nu_j}
-for an integer vector nu, defines a collection Phi_{A,z,nu} which again lies
-in the module over the ring with the inverse square root of the
-discriminant, restricted to the orders prime to Delta. The proof is the same
-as for the specialisation t = 1 and is omitted by the source. These are the
-descendants, and they multiply the supply of explicit elements of the Habiro
-modules: for a fixed A and z one obtains a family indexed by the integer
-vectors nu, whose span is expected to be large inside the module. -/
--- The collection Phi_{A,z,nu} for an integer vector nu.
-def descendant : True := by sorry
-
--- The descendant at nu = 0 is the original collection.
-theorem descendant_zero : True := by sorry
-
--- Every descendant lies in the restricted module.
-theorem descendant_mem : True := by sorry
-
--- The family of descendants indexed by the integer vectors.
-def descendant_family : True := by sorry
-
--- The number of independent descendants is bounded by the holonomic rank of the q-holonomic module of the Nahm sum.
-theorem descendant_holonomic_rank : True := by sorry
-
-example : True := by sorry -- unit test `nu_zero`: The descendant at nu = 0 is the collection itself.
-example : True := by sorry -- unit test `quartic_descendants`: For the 60-torsion example the descendants for eight values of nu exhibit the same Delta-integrality.
-example : True := by sorry -- unit test `membership`: Every descendant lies in the restricted module over the ring with the inverse square root of the discriminant.
-example : True := by sorry -- unit test `rank_bound`: For the 60-torsion example the holonomic rank is 8, so eight descendants suffice.
-
-/-- p-adic-regulator-input: The arithmetic side of the layer rests on three
-imported statements about the p-adic regulator, all proved in GSWZ Section
-3.1 and owned jointly with PadicHodgeRegulators and HabiroNumberFields.
-First, if z is a unit of the p-completed ring with |z - 1| at least 1 then
-D_p(z) lies in p^2 times that ring, where D_p is Coleman's p-adic
-dilogarithm corrected by half the product of the logarithms. Second, the
-span over the p-adic integers of the values p^{-2} D_p(zeta) at the roots of
-unity of the unramified extension of degree s is the whole ring of integers
-of that extension; the proof is a counting argument with the finite
-polylogarithm of Kontsevich. Third, for p > 3 the map D_p is an isomorphism
-from the p-adic K-theory of the local field onto p^2 times its ring of
-integers, and that K-group is generated by the classes of roots of unity. -/
-theorem PAdicRegulatorInput : True := by sorry
-
-/-- hypotheses-that-cannot-be-dropped: Four hypotheses of GSWZ Theorem 5 change
-the statement if dropped, and each is recorded here with what goes wrong.
-Non-degeneracy: without it the discriminant vanishes, the ring with its
-inverse square root is the zero ring, and the Frobenius congruence has no
-content. The square root of the discriminant: the source states the theorem
-over R[delta^{-1/2}] and records that the element lies in the minus-one
-eigenspace of the involution, so the extension is not cosmetic. The
-restriction to orders prime to Delta: GSWZ say the unrestricted statement is
-probably true and follows if the comparison theorem of CGZ holds for every
-m, which is not known. The indexing by the Bloch class: the module depends
-on xi, and the theorem is false with xi replaced by zero unless the class is
-torsion, which is the content of the corollary. -/
-theorem HypothesesThatCannotBeDropped : True := by sorry
-
-/-- verifying-the-defining-conditions: The modules of HabiroNumberFields HB.7
-are defined by two conditions on a collection of power series: an
-integrality and gluing condition relating the Frobenius twist of the
-collection to its p-th power, and a condition relating the constant terms to
-the unit of the class. GSWZ Section 3.2 supplies the tools that verify them
-and constructs explicit local sections. The tools are: a variant of Dwork's
-lemma, saying that a series with constant term one and coefficients in the
-field is integral exactly when the Frobenius-twisted ratio is congruent to
-one modulo p times the variable; a corollary applying it to the exponential
-of a collection satisfying the displayed congruence; a lemma producing, for
-each m prime to p, a unique p-adic exponent correcting the collection so
-that the sigma-gluing holds for every p-adic unit sigma; and the resulting
-uniqueness of the lift of an invertible section to all roots of unity. The
-explicit local sections are built from the infinite Pochhammer symbol alone,
-with constant term the unit. -/
-theorem VerifyingTheDefiningConditions : True := by sorry
-
-/-! ## HB.10 Explicit examples and boundaries -/
-
-/-- symmetrisation-and-residue-formula: For a symmetric integral matrix A
-consider the auxiliary sum J_A(t,w,q) over the non-negative integer vectors
-of (-q^{1/2})^{n^t A n} q^{diag(A).n/2} w^{An} t^n divided by (qw;q)_n.
-Expanded at q = zeta_m + x it lies in an explicit localisation of the
-Laurent polynomial ring in w over the m-th cyclotomic integers, with
-denominators only the 1 - t_i^m P_i(w^m), where P_i(z) = (-1)^{A_ii} (1 -
-z_i)^{-1} product_j z_j^{A_ij}. Define Psi_{A,m}(t,x) as the sum of the
-residues of t^{-1/m} J_A(t^{1/m},w,zeta_m+x) dw/w over the w with w^m = z,
-where z runs over the solutions of t_i P_i(z) = 1. Then Psi_A(t,q) equals
-the symmetrisation Phi_A(t,q) Phi_A(t,q^{-1}), and in particular that
-symmetrisation has integral coefficients in the m-th cyclotomic integers. -/
-theorem SymmetrisationAndResidueFormula : True := by sorry
-
-/-- descendant-elements-of-the-habiro-ring: Specialise t = 1 and assume that the
-equations t_i P_i(z) = 1 define a reduced zero-dimensional scheme over the
-rationals; fix one solution z, which generates a number field K, and write
-Psi_{A,mu,nu,z} for the corresponding collection. Then Psi_{A,mu,nu,z} lies
-in the Habiro ring H_R for all integer vectors mu and nu. This follows by
-combining the identification theorem, the symmetrisation theorem and the
-module membership: the symmetrisation is indexed by the zero class, so it
-lands in the ring and not merely in a module. -/
-theorem DescendantElementsOfTheHabiroRing : True := by sorry
-
-/-- cubic-example: For the rank one matrix A = (3) the auxiliary sum is J(t,w,q)
-= sum_k (-1)^k q^{3k(k+1)/2} w^{3k} t^k/(qw;q)_k. Expanding at q = 1 + x
-gives an explicit rational function of w and t at each order, whose first
-three terms the source displays, and the residue formula gives Psi_1(t,x)
-with the displayed first coefficients. Specialising t = 1 produces the
-element of the Habiro ring of R = Z[z,1/23], where z^3 - z + 1 = 0 generates
-the cubic field of discriminant -23, with expansion (2z^2 + 3z - 9)/23 +
-((-6477 z^2 - 5311 z + 4318)/23^4) x^2 + O(x^3), and the discriminant is
-delta = -2t - t/(1-z) = -t z^2 - t z + (-3t+1). -/
-theorem CubicExample : True := by sorry
-
-/-- nonabelian-quartic-example: For A = (8 5; 5 4), symmetric positive definite,
-the Nahm equations 1 - z_1 = z_1^8 z_2^5 and 1 - z_2 = z_1^5 z_2^4 have
-eight solutions in two Galois orbits over two quartic fields, one given by
-z_1^4 + z_1^3 + 3 z_1^2 - 3 z_1 - 1 = 0 with z_2 = (-9 z_1^3 - 6 z_1^2 - 25
-z_1 + 37)/5, the other by z_1^4 - z_1^3 + 3 z_1^2 - 3 z_1 + 1 = 0 with z_2 =
-z_1^3 + 3 z_1. The distinguished solution is (0.88483..., 0.78939...) in the
-real embedding of the first field, which has signature (2,1) and
-discriminant -5^2 times 19; its Bloch class is 60-torsion, and the
-corresponding series raised to the sixtieth power lies in the Habiro ring of
-the ring of integers with 5 and 19 inverted, conjecturally, and provably
-after inverting 6. The class attached to the second quartic field is not
-torsion and its series exhibits no integrality. -/
-theorem NonabelianQuarticExample : True := by sorry
-
-/-- knot-matrices-and-the-topological-boundary: Three formal Nahm data reproduce
-the perturbative series of the three simplest hyperbolic knots: A = (1 1; 1
-1) for the figure-eight knot, A = (2 1 1; 1 1 0; 1 0 1) for the knot 5_2,
-and A = (1 0 1; 0 1 2; 1 2 4) for the (-2,3,7) pretzel knot. More generally,
-from a triangulation with Neumann-Zagier matrices (A|B) such that B inverse
-times A is integral, one takes A_Nahm = I - B^{-1}A. What the theorems of
-this roadmap give for these data is membership of an explicit series in an
-explicit Habiro module. They do NOT give that the series is a topological
-invariant of the knot, that it is independent of the triangulation, that it
-computes a Chern-Simons quantity, or that the knot invariant is quantum
-modular; each of those is a separate theorem with its own source, and none
-is planned here. -/
-theorem KnotMatricesAndTheTopologicalBoundary : True := by sorry
-
-/-- p-adic-computations-example: The p-adic side of the examples is computed by
-Hensel lifting: if xi generates K with minimal polynomial P and p is
-unramified, then lifting the factorisation of P modulo p lifts the Frobenius
-of the residue field to an automorphism of the p-completion of R, and the
-lifting is constructive. The source uses this to compute the Frobenius
-endomorphism explicitly and to check the gluing conditions numerically, and
-gives a worked example illustrating the isomorphism between the p-adic
-K-theory of a local field and p^2 times its ring of integers. -/
-theorem PAdicComputationsExample : True := by sorry
-
-/-- modularity-examples-and-their-lesson: Two examples show what modularity
-contributes. The quadratic Gauss sum gives the collection F_m = (sum over k
-modulo m of zeta_m^{k^2})(sum over k of zeta_m^{-k^2})/m, which equals 1 for
-m congruent to 1 or 3 modulo 4, 0 for m congruent to 2 and 2 for m divisible
-by 4, and is an almost trivial element of the Habiro ring with 2 inverted;
-the variant with a fourth root of unity gives a slightly less trivial
-element over the ring with i and 1/2. The Rogers-Ramanujan example is
-genuinely arithmetic: the function J(z,q), a one-variable deformation, has
-the property that its expansion at zeta_m lies in an explicit localisation,
-and the residues over the m-th roots of the golden-ratio unit give constants
-F_m(u) in the field generated by the square root of 5 and the m-th roots of
-unity, whose first values the source lists. -/
-theorem ModularityExamplesAndTheirLesson : True := by sorry
-
-/-- export-interfaces-and-non-consequences: The objects this roadmap produces
-and exports are: the coefficient rings S, S^{(m)} and their specialisations;
-the collections attached to a formal Nahm datum and a non-degenerate
-solution, with their descendants; the Frobenius congruence; the Bloch class
-and its order; and the explicit identities checked in the examples. They are
-consumed by HabiroRings HR.6, which is the coefficient and cohomology
-interface, and by HabiroCohomologyFoundations HQ.5 to HQ.8. What does NOT
-follow, and must be proved by its owner with its own foundations, is: the
-q-Hodge complex, the crystalline, A-inf and prismatic comparisons, and any
-Fargues-Fontaine geometry; and in particular membership of a series in a
-K-three-indexed Habiro module does not by itself produce a cohomology class
-on an arbitrary scheme. -/
-theorem ExportInterfacesAndNonConsequences : True := by sorry
-
-/-- knot-series-pair-example: The knots 5_2 and the (-2,3,7)-pretzel knot have
-the same cubic trace field, generated by a root of alpha^3 - alpha^2 + 1 =
-0, and are scissors congruent, so their Bloch classes agree modulo
-6-torsion; nevertheless no relation between their series was found. Their
-series can be computed in three ways: from the Kashaev invariant
-numerically, from the associated q-series numerically, or exactly by formal
-Gaussian integration, the last of which produces four hundred coefficients.
-The product of the series of 5_2 with the series of the pretzel knot
-evaluated at minus x/(1+x), that is with q inverted, has denominators only
-at 2 and 23, the denominator of the coefficient of x^400 being 2^1997 times
-23^581, and its constant term is the product of the inverse square roots of
-the two delta invariants, namely 1 over the square root of 2 times (2
-alpha^2 - 2 alpha + 3). The two series are nevertheless genuinely different:
-the coefficients of the 5_2 series see only the cubic field, while those of
-the pretzel knot see in addition the real cyclotomic field of discriminant
-49, so even the ranks of the two etale algebras differ. -/
-theorem KnotSeriesPairExample : True := by sorry
-
-end TauCeti.NahmSeries
+namespace HabiroNahmSeries.HB34
+
+variable {N : ℕ}
+
+/-! ## HB.3/nahm-data -/
+
+/-- An analytic Nahm datum `(A, B, C)`: `A` symmetric positive definite over `ℚ`. -/
+structure NahmDatum (N : ℕ) where
+  A : Matrix (Fin N) (Fin N) ℚ
+  B : Fin N → ℚ
+  C : ℚ
+  isSymm : A.IsSymm
+  posDef : (A.map ((↑) : ℚ → ℝ)).PosDef
+
+/-- A formal Nahm datum: a symmetric integral matrix, no positivity. -/
+structure FormalNahmDatum (N : ℕ) where
+  A : Matrix (Fin N) (Fin N) ℤ
+  isSymm : A.IsSymm
+
+/-- `Q(n) = ½ nᵗ A n + B n + C`. -/
+def NahmDatum.Q (P : NahmDatum N) (n : Fin N → ℤ) : ℚ :=
+  (1 / 2 : ℚ) * ∑ i, ∑ j, P.A i j * n i * n j + ∑ i, P.B i * n i + P.C
+
+/-- The real matrix `A`. -/
+def NahmDatum.Areal (P : NahmDatum N) : Matrix (Fin N) (Fin N) ℝ := P.A.map ((↑) : ℚ → ℝ)
+
+def NahmDatum.IsDenominator (P : NahmDatum N) (d : ℕ) : Prop :=
+  0 < d ∧ ∀ n : Fin N → ℤ, ∃ t : ℤ, (d : ℚ) * P.Q n = t
+
+def NahmDatum.IsStrongDenominator (P : NahmDatum N) (D : ℕ) : Prop :=
+  0 < D ∧ ∀ k l : Fin N → ℤ, (∀ i, (D : ℤ) ∣ k i - l i) → ∃ t : ℤ, P.Q k - P.Q l = t
+
+theorem NahmDatum.isStrongDenominator_two_mul (P : NahmDatum N) {d : ℕ}
+    (hd : P.IsDenominator d) : P.IsStrongDenominator (2 * d) := sorry
+
+@[ext] theorem NahmDatum.ext' {P P' : NahmDatum N} (hA : P.A = P'.A) (hB : P.B = P'.B)
+    (hC : P.C = P'.C) : P = P' := sorry
+
+/-- A positive definite formal datum as an analytic datum with `B = 0`, `C = 0`. -/
+def FormalNahmDatum.toNahmDatum (F : FormalNahmDatum N)
+    (h : (F.A.map ((↑) : ℤ → ℝ)).PosDef) : NahmDatum N where
+  A := F.A.map ((↑) : ℤ → ℚ)
+  B := 0
+  C := 0
+  isSymm := sorry
+  posDef := sorry
+
+theorem FormalNahmDatum.toNahmDatum_injective {F F' : FormalNahmDatum N}
+    (h : (F.A.map ((↑) : ℤ → ℝ)).PosDef) (h' : (F'.A.map ((↑) : ℤ → ℝ)).PosDef)
+    (e : F.toNahmDatum h = F'.toNahmDatum h') : F = F' := sorry
+
+-- test `rogers_ramanujan_is_analytic` (computation)
+example : ∃ P : NahmDatum 1, P.A = !![2] ∧ P.B = ![0] ∧ P.C = -1 / 60 ∧ P.IsDenominator 60 :=
+  sorry
+-- test `knot_matrix_not_posdef` (non-example)
+example : ¬ (!![1, 1; 1, 1] : Matrix (Fin 2) (Fin 2) ℝ).PosDef := sorry
+-- test `half_integral_not_formal` (non-example)
+example : (!![3 / 2, 1 / 2; 1 / 2, 3 / 2] : Matrix (Fin 2) (Fin 2) ℝ).PosDef := sorry
+-- test `strong_denominator_not_multiple` (non-example): `Q(n) = n²/4`
+example (P : NahmDatum 1) (hA : P.A = !![1 / 2]) (hB : P.B = 0) (hC : P.C = 0) :
+    P.IsStrongDenominator 2 ∧ ¬ P.IsDenominator 2 := sorry
+
+
+-- NahmDatum.posDef: the field `posDef` of `NahmDatum` (positive definiteness of `A` over `ℝ`).
+
+-- test `strong_denominator_two` (computation)
+example (P : NahmDatum 1) (hA : P.A = !![2]) (hB : P.B = 0) (hC : P.C = 0) :
+    P.IsDenominator 1 ∧ P.IsStrongDenominator 1 ∧ P.IsStrongDenominator 2 := sorry
+
+-- test `toNahmDatum_injective` (characterisation): `FormalNahmDatum.toNahmDatum_injective` above, and
+-- the image has `B = 0` and `C = 0`
+example (F : FormalNahmDatum N) (h : (F.A.map ((↑) : ℤ → ℝ)).PosDef) :
+    (F.toNahmDatum h).B = 0 ∧ (F.toNahmDatum h).C = 0 := sorry
+
+/-! ## HB.3/nahm-equations -/
+
+/-- Nahm's equations on the open cube, with real powers. -/
+def NahmEq (A : Matrix (Fin N) (Fin N) ℝ) (X : Fin N → ℝ) : Prop :=
+  (∀ i, 0 < X i ∧ X i < 1) ∧ ∀ i, 1 - X i = ∏ j, X j ^ A i j
+
+/-- The signed Laurent form `1 - zᵢ = εᵢ ∏ⱼ zⱼ^{aᵢⱼ}` over a commutative ring. CGZ: `ε = 1`;
+GSWZ (41): `εᵢ = (-1)^{aᵢᵢ}`. -/
+def SignedNahmEq {R : Type*} [CommRing R] (A : Matrix (Fin N) (Fin N) ℤ) (ε : Fin N → ℤˣ)
+    (z : Fin N → Rˣ) : Prop :=
+  ∀ i, 1 - (z i : R) = ((ε i : ℤ) : R) * ((∏ j, z j ^ A i j : Rˣ) : R)
+
+theorem NahmEq.pos {A : Matrix (Fin N) (Fin N) ℝ} {X : Fin N → ℝ} (h : NahmEq A X) (i : Fin N) :
+    0 < X i ∧ X i < 1 := h.1 i
+
+theorem NahmEq.iff_signedNahmEq (A : Matrix (Fin N) (Fin N) ℤ) (X : Fin N → ℝ)
+    (hX : ∀ i, 0 < X i) :
+    NahmEq (A.map ((↑) : ℤ → ℝ)) X ↔
+      (∀ i, X i < 1) ∧ SignedNahmEq A 1 (fun i => Units.mk0 (X i) (hX i).ne') := sorry
+
+theorem SignedNahmEq.map {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S)
+    {A : Matrix (Fin N) (Fin N) ℤ} {ε : Fin N → ℤˣ} {z : Fin N → Rˣ} (h : SignedNahmEq A ε z) :
+    SignedNahmEq A ε (fun i => Units.map f.toMonoidHom (z i)) := sorry
+
+theorem SignedNahmEq.gswz_eq_cgz_of_even {R : Type*} [CommRing R] (A : Matrix (Fin N) (Fin N) ℤ)
+    (hA : ∀ i, Even (A i i)) (z : Fin N → Rˣ) :
+    SignedNahmEq A (fun i => (-1) ^ (A i i).natAbs) z ↔ SignedNahmEq A 1 z := sorry
+
+theorem NahmEq.perm (A : Matrix (Fin N) (Fin N) ℝ) (σ : Equiv.Perm (Fin N)) (X : Fin N → ℝ) :
+    NahmEq A X ↔ NahmEq (A.submatrix σ σ) (X ∘ σ) := sorry
+
+-- test `golden_ratio` (computation)
+example : NahmEq (!![2] : Matrix (Fin 1) (Fin 1) ℝ) ![(√5 - 1) / 2] := sorry
+-- test `boundary_rejected` (non-example)
+example (A : Matrix (Fin N) (Fin N) ℝ) (X : Fin N → ℝ) (i : Fin N) (h : X i = 1) : ¬ NahmEq A X :=
+  sorry
+-- test `sign_convention` (non-example): for `A = (3)` the CGZ root of `X³ + X - 1` is not a root
+-- of the GSWZ polynomial `z³ - z + 1`
+example (x : ℝ) (hx : x ^ 3 + x - 1 = 0) : x ^ 3 - x + 1 ≠ 0 := sorry
+
+
+-- test `eight_five_five_four` (computation): the distinguished point of `A = (8 5; 5 4)`
+example : ∃ X : Fin 2 → ℝ, NahmEq (!![8, 5; 5, 4] : Matrix (Fin 2) (Fin 2) ℝ) X ∧
+    |X 0 - 0.884829| < 1e-6 ∧ |X 1 - 0.789393| < 1e-6 := sorry
+
+-- test `permutation_equivariance` (compatibility)
+example (X : Fin 2 → ℝ) (h : NahmEq (!![4, 1; 1, 1] : Matrix (Fin 2) (Fin 2) ℝ) X) :
+    NahmEq (!![1, 1; 1, 4] : Matrix (Fin 2) (Fin 2) ℝ) ![X 1, X 0] := sorry
+
+/-! ## HB.3/distinguished-solution -/
+
+theorem existsUnique_nahmEq (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef) :
+    ∃! X, NahmEq A X := sorry
+
+def distinguishedSolution (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef) : Fin N → ℝ :=
+  (existsUnique_nahmEq A hA).exists.choose
+
+theorem nahmEq_distinguishedSolution (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef) :
+    NahmEq A (distinguishedSolution A hA) := sorry
+
+/-- `Ã = A + diag(z/(1-z))` is positive definite at the distinguished solution. -/
+theorem posDef_hessian (A : Matrix (Fin N) (Fin N) ℝ) (hA : A.PosDef) :
+    (A + Matrix.diagonal fun i =>
+      distinguishedSolution A hA i / (1 - distinguishedSolution A hA i)).PosDef := sorry
+
+-- acceptance: uniqueness fails without positivity
+example : ¬ ∃! X, NahmEq (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℝ) X := sorry
+
+/-! ## HB.3/nondegenerate-solution-and-discriminant and algebraicity -/
+
+/-- GSWZ's `δ(z) = ∏ⱼ zⱼ^{-aⱼⱼ} det(diag(1 - z) A + diag z)`. -/
+def nahmDiscriminant {K : Type*} [Field K] (A : Matrix (Fin N) (Fin N) ℤ) (z : Fin N → Kˣ) : K :=
+  ((∏ j, z j ^ (-A j j) : Kˣ) : K) *
+    (Matrix.diagonal (fun i => 1 - (z i : K)) * A.map ((↑) : ℤ → K) +
+      Matrix.diagonal (fun i => (z i : K))).det
+
+def IsNondegenerate {K : Type*} [Field K] (A : Matrix (Fin N) (Fin N) ℤ) (z : Fin N → Kˣ) : Prop :=
+  nahmDiscriminant A z ≠ 0
+
+theorem nahmDiscriminant_map {K L : Type*} [Field K] [Field L] (f : K →+* L)
+    (A : Matrix (Fin N) (Fin N) ℤ) (z : Fin N → Kˣ) :
+    nahmDiscriminant A (fun i => Units.map f.toMonoidHom (z i)) = f (nahmDiscriminant A z) := sorry
+
+-- test `degenerate_line` (non-example)
+example (t : ℝ) (ht0 : t ≠ 0) (ht1 : t ≠ 1) :
+    nahmDiscriminant (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+      ![Units.mk0 t ht0, Units.mk0 (1 - t) (sub_ne_zero.2 (Ne.symm ht1))] = 0 := sorry
+
+/-- Non-degeneracy is the invertibility of the logarithmic Jacobian `diag(1 - z) A + diag z`. -/
+theorem isNondegenerate_iff_jacobian {K : Type*} [Field K] (A : Matrix (Fin N) (Fin N) ℤ)
+    (z : Fin N → Kˣ) :
+    IsNondegenerate A z ↔
+      (Matrix.diagonal (fun i => 1 - (z i : K)) * A.map ((↑) : ℤ → K) +
+        Matrix.diagonal (fun i => (z i : K))).det ≠ 0 := sorry
+
+/-- The distinguished solution of a positive definite integral `A` is non-degenerate. -/
+theorem isNondegenerate_distinguished (A : Matrix (Fin N) (Fin N) ℤ)
+    (hA : (A.map ((↑) : ℤ → ℝ)).PosDef) (z : Fin N → ℝˣ)
+    (hz : ∀ i, (z i : ℝ) = distinguishedSolution (A.map ((↑) : ℤ → ℝ)) hA i) :
+    IsNondegenerate A z := sorry
+
+-- test `discriminant_golden` (computation): `δ = z⁻²(2 - z)` for `A = (2)`
+example (z : Fin 1 → ℝˣ) (hz : (z 0 : ℝ) = (√5 - 1) / 2) :
+    nahmDiscriminant (!![2] : Matrix (Fin 1) (Fin 1) ℤ) z = ((z 0 : ℝ) ^ 2)⁻¹ * (2 - z 0) := sorry
+
+-- test `discriminant_cubic_norm` (computation): GSWZ sign, `z³ - z + 1 = 0`, norm `±23`
+example (K : Type*) [Field K] [NumberField K] (z : Fin 1 → Kˣ) (hz : (z 0 : K) ^ 3 - z 0 + 1 = 0) :
+    Algebra.norm ℚ (nahmDiscriminant (!![3] : Matrix (Fin 1) (Fin 1) ℤ) z) = 23 ∨
+      Algebra.norm ℚ (nahmDiscriminant (!![3] : Matrix (Fin 1) (Fin 1) ℤ) z) = -23 := sorry
+
+-- test `distinguished_positive` (computation)
+example (z : Fin 2 → ℝˣ) (hz : NahmEq (!![8, 5; 5, 4] : Matrix (Fin 2) (Fin 2) ℝ) fun i => (z i : ℝ)) :
+    0 < nahmDiscriminant (!![8, 5; 5, 4] : Matrix (Fin 2) (Fin 2) ℤ) z := sorry
+
+/-- HB.3/nondegenerate-points-are-algebraic. -/
+theorem isAlgebraic_of_jacobian_ne_zero (f : Fin N → MvPolynomial (Fin N) ℚ) (p : Fin N → ℂ)
+    (hp : ∀ i, MvPolynomial.aeval p (f i) = 0)
+    (hJ : (Matrix.of fun i j => MvPolynomial.aeval p (MvPolynomial.pderiv j (f i))).det ≠ 0)
+    (i : Fin N) : IsAlgebraic ℚ (p i) := sorry
+
+/-- HB.3/algebraicity-and-the-nahm-field. -/
+theorem isAlgebraic_distinguishedSolution (P : NahmDatum N) (i : Fin N) :
+    IsAlgebraic ℚ (distinguishedSolution P.Areal P.posDef i) := sorry
+
+/-! ## HB.3/bloch-class-of-a-solution and the Suslin obstruction -/
+
+/-- CGZ's boundary `Σᵢ Xᵢ ∧ (1 - Xᵢ)` in the exterior square `⋀²_ℤ Fˣ`. -/
+def cgzBoundary {F : Type*} [Field F] (X : Fin N → F) (hX : ∀ i, X i ≠ 0 ∧ X i ≠ 1) :
+    ↥(⋀[ℤ]^2 (Additive Fˣ)) :=
+  ∑ i, exteriorPower.ιMulti ℤ 2
+    ![Additive.ofMul (Units.mk0 (X i) (hX i).1),
+      Additive.ofMul (Units.mk0 (1 - X i) (sub_ne_zero.2 (hX i).2.symm))]
+
+theorem cgzBoundary_eq_zero {F : Type*} [Field F] (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (X : Fin N → F) (hX : ∀ i, X i ≠ 0 ∧ X i ≠ 1)
+    (h : SignedNahmEq A 1 (fun i => Units.mk0 (X i) (hX i).1)) : cgzBoundary X hX = 0 := sorry
+
+/-- Suslin's target: the antisymmetric quotient `M ⊗ M / ⟨a ⊗ b + b ⊗ a⟩`. -/
+abbrev AntisymSquare (M : Type*) [AddCommGroup M] : Type _ :=
+  (TensorProduct ℤ M M) ⧸ LinearMap.range (LinearMap.id + (TensorProduct.comm ℤ M M).toLinearMap)
+
+def antisymBoundary {F : Type*} [Field F] (X : Fin N → F) (hX : ∀ i, X i ≠ 0 ∧ X i ≠ 1) :
+    AntisymSquare (Additive Fˣ) :=
+  ∑ i, Submodule.Quotient.mk
+    (Additive.ofMul (Units.mk0 (X i) (hX i).1) ⊗ₜ[ℤ]
+      Additive.ofMul (Units.mk0 (1 - X i) (sub_ne_zero.2 (hX i).2.symm)))
+
+/-- HB.3/suslin-obstruction-of-the-nahm-element: the boundary is `y ∧ y`, `y = ∏ Xᵢ^{aᵢᵢ}`. -/
+theorem antisymBoundary_eq {F : Type*} [Field F] (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (X : Fin N → F) (hX : ∀ i, X i ≠ 0 ∧ X i ≠ 1)
+    (h : SignedNahmEq A 1 (fun i => Units.mk0 (X i) (hX i).1)) :
+    antisymBoundary X hX =
+      Submodule.Quotient.mk
+        (Additive.ofMul (∏ i, Units.mk0 (X i) (hX i).1 ^ A i i) ⊗ₜ[ℤ]
+          Additive.ofMul (∏ i, Units.mk0 (X i) (hX i).1 ^ A i i)) := sorry
+
+-- test `half_not_suslin` (non-example): for `A = (1)`, `X = 1/2`
+example (h : ∀ i : Fin 1, (![1 / 2] : Fin 1 → ℚ) i ≠ 0 ∧ (![1 / 2] : Fin 1 → ℚ) i ≠ 1) :
+    antisymBoundary (![1 / 2] : Fin 1 → ℚ) h ≠ 0 := sorry
+
+
+-- test `boundary_vanishes` (computation): `X ∧ (1 - X) = 0` for `A = (2)` over a field with `X² + X = 1`
+example {F : Type*} [Field F] (X : F) (hX : X ^ 2 + X - 1 = 0) (h : ∀ i : Fin 1, (![X] : Fin 1 → F) i ≠ 0 ∧ (![X] : Fin 1 → F) i ≠ 1) :
+    cgzBoundary (![X] : Fin 1 → F) h = 0 := sorry
+
+-- test `half_is_cgz_bloch` (computation): `[1/2]` has vanishing CGZ boundary (A = (1))
+example (h : ∀ i : Fin 1, (![1 / 2] : Fin 1 → ℚ) i ≠ 0 ∧ (![1 / 2] : Fin 1 → ℚ) i ≠ 1) :
+    cgzBoundary (![1 / 2] : Fin 1 → ℚ) h = 0 := sorry
+
+-- The Bloch-group items need the CGZ Bloch group `B_CGZ(F)` of K3BlochGroups V.3, which is not in the
+-- pinned libraries (the HB.5 part below has a stand-in `CGZBlochGroup` for its own statements):
+-- nahmElement: not stated; needs the free abelian group `ℤ[F]` of K3BlochGroups V.3 (`Finsupp`-based there).
+-- nahmElement_boundary: not stated; `cgzBoundary_eq_zero` above is its content in `⋀²_ℤ Fˣ`.
+-- nahmBlochClass_eq_sum: not stated; needs `B_CGZ(F)` of K3BlochGroups V.3.
+-- nahmBlochClass_map: not stated; needs the functoriality `cgzBloch.map` of K3BlochGroups V.3.
+-- nahmBlochClass_clearDenominators: not stated; needs `B_CGZ(F) ⊗ ℚ` of K3BlochGroups V.3.
+-- Test torsion_example: not stated; needs `B_CGZ(F)` and the five-term certificate of K3BlochGroups V.6.
+-- Test map_compatibility: not stated; needs `cgzBloch.map` of K3BlochGroups V.3.
+
+/-! ## HB.3/embeddings-and-regulator-evaluations (the Rogers value) -/
+
+/-- `Li₂` on `[0,1]` by its series. -/
+def dilog (x : ℝ) : ℝ := ∑' k : ℕ, x ^ (k + 1) / ((k : ℝ) + 1) ^ 2
+
+/-- CGZ's Rogers dilogarithm on `(0,1)`: `π²/6` minus the standard one. -/
+def rogersCGZ (x : ℝ) : ℝ := π ^ 2 / 6 - dilog x - Real.log x * Real.log (1 - x) / 2
+
+/-- GZ's normalisation (8) is the negative of CGZ's. -/
+theorem rogersGZ_eq_neg (x : ℝ) :
+    dilog x + Real.log x * Real.log (1 - x) / 2 - π ^ 2 / 6 = -rogersCGZ x := sorry
+
+-- test `rogers_at_golden` (computation): `π²/15`, not `π²/10`
+example : rogersCGZ ((√5 - 1) / 2) = π ^ 2 / 15 := sorry
+-- test `rogers_nahm_rank_two` (computation)
+example (h : (!![4, 1; 1, 1] : Matrix (Fin 2) (Fin 2) ℝ).PosDef) :
+    ∑ i, rogersCGZ (distinguishedSolution _ h i) = 7 * π ^ 2 / 60 := sorry
+
+
+-- test `rogers_normalisation` (computation): `L(0) = π²/6`, `L(1) = 0`, and `L + L_std = π²/6`
+example : rogersCGZ 0 = π ^ 2 / 6 ∧ rogersCGZ 1 = 0 ∧
+    ∀ x, 0 < x → x < 1 → rogersCGZ x + (dilog x + Real.log x * Real.log (1 - x) / 2) = π ^ 2 / 6 := sorry
+
+-- The regulator items need the Bloch–Wigner function on all of `ℂ` (Polylogarithms:P.1/bloch-wigner-dilogarithm)
+-- and the Bloch group (K3BlochGroups V.3), neither in the pinned libraries:
+-- nahmRegulator: not stated; needs `Polylogarithms:P.1/bloch-wigner-dilogarithm` and `NumberField.ComplexEmbedding`.
+-- nahmRegulator_conj: not stated; needs nahmRegulator.
+-- nahmRegulator_eq_cgzBloch: not stated; needs nahmRegulator and `B_CGZ(F)`.
+-- rogersValue_rat_of_torsion: not stated; needs `B_CGZ(F)` (torsion of the class).
+-- Test regulator_vanishes_torsion: not stated; needs nahmRegulator.
+-- Test regulator_nonzero_nontorsion: not stated; needs nahmRegulator.
+
+/-! ## HB.4/q-pochhammer-symbols (analytic evaluation; the formal symbols are QM.0's) -/
+
+def qPochhammerFin (x q : ℂ) (n : ℕ) : ℂ := ∏ j ∈ Finset.range n, (1 - q ^ j * x)
+
+def qPochhammerInfFun (x q : ℂ) : ℂ := ∏' n : ℕ, (1 - q ^ n * x)
+
+theorem multipliable_qPochhammerInfFun (x q : ℂ) (hq : ‖q‖ < 1) :
+    Multipliable fun n : ℕ => 1 - q ^ n * x := sorry
+
+theorem qPochhammerInfFun_self (q : ℂ) (hq : ‖q‖ < 1) :
+    qPochhammerInfFun q q = eulerFunction q := sorry
+
+theorem qPochhammerInfFun_shift (x q : ℂ) (hq : ‖q‖ < 1) :
+    qPochhammerInfFun x q = (1 - x) * qPochhammerInfFun (q * x) q := sorry
+
+theorem log_qPochhammerInfFun (x q : ℂ) (hx : ‖x‖ < 1) (hq : ‖q‖ < 1) :
+    Complex.log (qPochhammerInfFun x q) =
+      -∑' l : ℕ, x ^ (l + 1) / (((l : ℂ) + 1) * (1 - q ^ (l + 1))) := sorry
+
+/-! ## HB.4/analytic-nahm-sum -/
+
+/-- `f_{A,B,C}(τ) = Σₙ e(τ Q(n)) / ∏ᵢ (q;q)_{nᵢ}`, `q = e(τ)`, for `Im τ > 0`. -/
+def nahmSum (P : NahmDatum N) (τ : ℂ) : ℂ :=
+  ∑' n : Fin N → ℕ,
+    Complex.exp (2 * π * I * τ * (P.Q fun i => (n i : ℤ))) /
+      ∏ i, qPochhammerFin (Complex.exp (2 * π * I * τ)) (Complex.exp (2 * π * I * τ)) (n i)
+
+theorem nahmSum_summable (P : NahmDatum N) (τ : ℂ) (hτ : 0 < τ.im) :
+    Summable fun n : Fin N → ℕ =>
+      Complex.exp (2 * π * I * τ * (P.Q fun i => (n i : ℤ))) /
+        ∏ i, qPochhammerFin (Complex.exp (2 * π * I * τ)) (Complex.exp (2 * π * I * τ)) (n i) :=
+  sorry
+
+theorem nahmSum_analytic (P : NahmDatum N) :
+    DifferentiableOn ℂ (nahmSum P) {τ | 0 < τ.im} := sorry
+
+theorem nahmSum_shift_C (P : NahmDatum N) (τ : ℂ) :
+    nahmSum P τ = Complex.exp (2 * π * I * P.C * τ) * nahmSum { P with C := 0 } τ := sorry
+
+
+/-- The holomorphic function on the upper half-plane attached to the series. -/
+def nahmSum_upperHalfPlane (P : NahmDatum N) : UpperHalfPlane → ℂ := fun τ => nahmSum P τ
+
+/-- The series depends only on the datum `(A, B, C)`. -/
+theorem nahmSum_congr {P P' : NahmDatum N} (hA : P.A = P'.A) (hB : P.B = P'.B) (hC : P.C = P'.C) :
+    nahmSum P = nahmSum P' := sorry
+
+-- test `C_shift` (compatibility): `nahmSum_shift_C` above.
+
+-- test `product_of_blocks` (compatibility): `f_{diag(2,2),0,0} = G(q)²`
+example (P : NahmDatum 2) (hA : P.A = !![2, 0; 0, 2]) (hB : P.B = 0) (hC : P.C = 0)
+    (Q : NahmDatum 1) (hQA : Q.A = !![2]) (hQB : Q.B = 0) (hQC : Q.C = 0) (τ : ℂ) (hτ : 0 < τ.im) :
+    nahmSum P τ = nahmSum Q τ ^ 2 := sorry
+
+-- The coefficient statements need the Nahm sum as a formal Puiseux series in `q` (the q-series of
+-- QSeriesPartitionsAndMockModularForms QM.0); here it is the analytic function of `τ`:
+-- nahmSum_coeff: not stated; needs the formal q-series form of the Nahm sum (QM.0).
+-- Test rogers_ramanujan_series: not stated; needs nahmSum_coeff.
+-- Test leading_term: not stated; needs nahmSum_coeff.
+-- Test negative_B: not stated; needs nahmSum_coeff.
+
+/-! ## HB.4/cyclic-dilogarithm-interface (the polynomial is HabiroNumberFields HB.2's) -/
+
+def cyclicDilog (ζ x : ℂ) (m : ℕ) : ℂ := ∏ t ∈ Finset.Ico 1 m, (1 - ζ ^ t * x) ^ t
+
+/-- The principal `m`-th root `exp((1/m) Σ t Log(1 - ζᵗ x))`. -/
+def cyclicDilogRoot (ζ x : ℂ) (m : ℕ) : ℂ :=
+  Complex.exp ((∑ t ∈ Finset.Ico 1 m, (t : ℂ) * Complex.log (1 - ζ ^ t * x)) / m)
+
+theorem cyclicDilog_mul_root {ζ : ℂ} {m : ℕ} (hζ : IsPrimitiveRoot ζ m) (x : ℂ) :
+    cyclicDilog ζ (ζ * x) m * (1 - x ^ m) = cyclicDilog ζ x m * (1 - x) ^ m := sorry
+
+theorem cyclicDilog_one_pow_24 {ζ : ℂ} {m : ℕ} (hζ : IsPrimitiveRoot ζ m) :
+    cyclicDilog ζ 1 m ^ 24 = (m : ℂ) ^ (12 * m) := sorry
+
+-- non-example: the packet's `D_ζ(1)^{24m} = m^{12m}` fails for `m = 3`
+example : cyclicDilog (Complex.exp (2 * π * I / 3)) 1 3 ^ 72 ≠ (3 : ℂ) ^ 36 := sorry
+
+theorem cyclicDilogRoot_zeta_pow {ζ : ℂ} {m : ℕ} (hζ : IsPrimitiveRoot ζ m) (θ : ℝ)
+    (hθ : 0 < θ ∧ θ < 1) (k : ℕ) :
+    cyclicDilogRoot ζ (ζ ^ k * θ) m =
+      qPochhammerFin θ ζ k * cyclicDilogRoot ζ θ m / ((1 - (θ : ℂ) ^ m) ^ ((k : ℂ) / m)) := sorry
+
+/-- The Dedekind sum `s(a,m) = Σ_{t=1}^{m-1} (t/m - 1/2)({at/m} - 1/2)`, `gcd(a,m) = 1`. -/
+def dedekindSum (a : ℤ) (m : ℕ) : ℚ :=
+  ∑ t ∈ Finset.Ico 1 m, ((t : ℚ) / m - 1 / 2) * (Int.fract ((a * t : ℚ) / m) - 1 / 2)
+
+theorem cyclicDilogRoot_one (a : ℤ) (m : ℕ) (hm : 0 < m) (ha : IsCoprime a m) :
+    cyclicDilogRoot (Complex.exp (2 * π * I * a / m)) 1 m =
+      Real.sqrt m * Complex.exp (π * I * dedekindSum a m) := sorry
+
+/-! ## HB.4/euler-function-at-a-root-of-unity -/
+
+theorem eulerFunction_radial (a : ℤ) (m : ℕ) (hm : 0 < m) (ha : IsCoprime a m) :
+    ∃ c > 0, (fun ε : ℝ =>
+        (eulerFunction (Complex.exp (2 * π * I * a / m) * Real.exp (-ε / m)))⁻¹ -
+          Complex.exp (π * I * dedekindSum a m) * Real.sqrt (ε / (2 * π)) *
+            Real.exp (π ^ 2 / (6 * m * ε) - ε / (24 * m)))
+      =O[𝓝[>] 0] fun ε : ℝ => Real.sqrt ε * Real.exp (π ^ 2 / (6 * m * ε) - c / ε) := sorry
+
+/-! ## HB.4/pochhammer-radial-asymptotics (GZ Lemma 2.1 with a uniform remainder) -/
+
+def dilogC (z : ℂ) : ℂ := ∑' k : ℕ, z ^ (k + 1) / ((k : ℂ) + 1) ^ 2
+
+/-- `Li_{-s}(y) = Σ k^s y^k` for `|y| < 1`. -/
+def polylogNeg (s : ℕ) (y : ℂ) : ℂ := ∑' k : ℕ, ((k : ℂ) + 1) ^ s * y ^ (k + 1)
+
+/-- `c_r(ν) = -Σ_{t=1}^{m} (B_r(1 - (t+ν)/m) - δ_{r,2} ν²/m²) Li_{2-r}(ζᵗ w)/r!`, `r ≥ 2`. -/
+def psiCoeff (m : ℕ) (ζ w : ℂ) (ν : ℝ) (r : ℕ) : ℂ :=
+  -∑ t ∈ Finset.Icc 1 m,
+    ((((Polynomial.bernoulli r).map (algebraMap ℚ ℂ)).eval (1 - ((t : ℂ) + ν) / m) -
+        (if r = 2 then (ν : ℂ) ^ 2 / (m : ℂ) ^ 2 else 0)) *
+      polylogNeg (r - 2) (ζ ^ t * w)) / (r.factorial : ℂ)
+
+theorem log_qPochhammer_radial {ζ : ℂ} {m : ℕ} (hζ : IsPrimitiveRoot ζ m) (hm : 0 < m)
+    (w₀ : ℝ) (hw₀ : w₀ < 1) (K : ℕ) (hK : 2 ≤ K) :
+    ∃ C : ℝ, ∀ (w : ℂ) (ε ν : ℝ), ‖w‖ ≤ w₀ → 0 < ε → ε ≤ 1 → |ν| * ε ≤ 1 →
+      ‖Complex.log
+          (qPochhammerInfFun (ζ * Real.exp (-ε / m) * w * Real.exp (-ν * ε / m))
+            (ζ * Real.exp (-ε / m))) -
+        (-dilogC (w ^ m) / (m * ε) - ((ν : ℂ) / m - 1 / 2) * Complex.log (1 - w ^ m) -
+          (ε * ν ^ 2 / (2 * m) : ℝ) * (w ^ m / (1 - w ^ m)) -
+          Complex.log (cyclicDilogRoot ζ w m) - Complex.log (1 - w)) -
+        ∑ r ∈ Finset.Icc 2 K, psiCoeff m ζ w ν r * (ε : ℂ) ^ (r - 1)‖ ≤
+        C * ε⁻¹ * (ε * (1 + |ν|)) ^ (K + 1) := sorry
+
+/-! ## HB.4/euler-maclaurin-with-remainder -/
+
+theorem euler_maclaurin (K : ℕ) (hK : 1 ≤ K) (φ : ℝ → ℂ) (hφ : ContDiff ℝ K φ)
+    (hint : ∀ j ≤ K, MeasureTheory.IntegrableOn (iteratedDeriv j φ) (Set.Ici 0))
+    (β ε : ℝ) (hβ : 0 ≤ β ∧ β < 1) (hε : 0 < ε) :
+    ‖∑' j : ℕ, φ ((j + β) * ε) - (ε⁻¹ * ∫ y in Set.Ici (0 : ℝ), φ y) +
+        ∑ r ∈ Finset.Icc 1 K, ((bernoulliFun r β / r.factorial : ℝ) : ℂ) * (ε : ℂ) ^ (r - 1) *
+          iteratedDeriv (r - 1) φ 0‖ ≤
+      (⨆ y : ℝ, |bernoulliFun K (Int.fract y)|) / K.factorial * ε ^ (K - 1) *
+        ∫ y in Set.Ici (0 : ℝ), ‖iteratedDeriv K φ y‖ := sorry
+
+/-! ## HB.4/formal-gaussian-integration and HB.4/gaussian-moments -/
+
+/-- `Δ_{Λ⁻¹} = Σ (Λ⁻¹)ᵢⱼ ∂ᵢ∂ⱼ` on polynomials. -/
+def gaussLaplacian (L : Matrix (Fin N) (Fin N) ℝ) :
+    MvPolynomial (Fin N) ℝ →ₗ[ℝ] MvPolynomial (Fin N) ℝ :=
+  ∑ i, ∑ j, L i j • ((MvPolynomial.pderiv i).toLinearMap ∘ₗ (MvPolynomial.pderiv j).toLinearMap)
+
+/-- The formal Gaussian bracket at `h = 1`: `Σₙ (Δ_{Λ⁻¹}ⁿ f)(0)/(2ⁿ n!)` (a finite sum). -/
+def formalGaussian (Λ : Matrix (Fin N) (Fin N) ℝ) (f : MvPolynomial (Fin N) ℝ) : ℝ :=
+  ∑ n ∈ Finset.range (f.totalDegree + 1),
+    ((2 : ℝ) ^ n * n.factorial)⁻¹ * MvPolynomial.eval 0 ((gaussLaplacian Λ⁻¹)^[n] f)
+
+theorem formalGaussian_const (Λ : Matrix (Fin N) (Fin N) ℝ) (c : ℝ) :
+    formalGaussian Λ (MvPolynomial.C c) = c := sorry
+
+theorem formalGaussian_sq (Λ : Matrix (Fin N) (Fin N) ℝ) (i j : Fin N) :
+    formalGaussian Λ (MvPolynomial.X i * MvPolynomial.X j) = Λ⁻¹ i j := sorry
+
+-- test `fourth_moment` (computation)
+example : formalGaussian (1 : Matrix (Fin 1) (Fin 1) ℝ) (MvPolynomial.X 0 ^ 4) = 3 := sorry
+-- test `odd_vanishes` (degenerate)
+example : formalGaussian (1 : Matrix (Fin 1) (Fin 1) ℝ) (MvPolynomial.X 0 ^ 3) = 0 := sorry
+-- test `off_diagonal_second_moment` (computation)
+example : formalGaussian (!![2, 1; 1, 2] : Matrix (Fin 2) (Fin 2) ℝ)
+    (MvPolynomial.X 0 * MvPolynomial.X 1) = -1 / 3 := sorry
+
+theorem integral_mul_gaussian (Λ : Matrix (Fin N) (Fin N) ℝ) (hΛ : Λ.PosDef)
+    (f : MvPolynomial (Fin N) ℝ) :
+    ∫ x : Fin N → ℝ, MvPolynomial.eval x f * Real.exp (-(x ⬝ᵥ Λ.mulVec x) / 2) =
+      (2 * π) ^ ((N : ℝ) / 2) * Λ.det ^ (-(1 / 2 : ℝ)) * formalGaussian Λ f := sorry
+
+
+/-- The bracket of an odd polynomial vanishes. -/
+theorem formalGaussian_odd (Λ : Matrix (Fin N) (Fin N) ℝ) (f : MvPolynomial (Fin N) ℝ)
+    (hf : ∀ n ∈ f.support, Odd (n.sum fun _ e => e)) : formalGaussian Λ f = 0 := sorry
+
+/-- Linearity in the integrand. -/
+theorem formalGaussian_linear (Λ : Matrix (Fin N) (Fin N) ℝ) : IsLinearMap ℝ (formalGaussian Λ) := sorry
+
+/-- An invertible linear change of the variable `w = M v`. -/
+theorem formalGaussian_changeOfVariables (Λ M : Matrix (Fin N) (Fin N) ℝ) (hM : IsUnit M.det)
+    (f : MvPolynomial (Fin N) ℝ) :
+    formalGaussian (M.transpose * Λ * M)
+        (MvPolynomial.aeval (fun i => ∑ j, M i j • MvPolynomial.X j) f) = formalGaussian Λ f := sorry
+
+-- formalGaussian_translate: not stated; the translation rule multiplies the integrand by `e^{wᵗΛc}`, a
+-- formal power series in the loop parameter, which a polynomial bracket cannot take (it needs the
+-- `ℝ[[h]]`-valued bracket of HB.8's Gaussian collection).
+
+-- test `second_moment` (computation): with `Λ = 1` in one variable the bracket of `w²` is `h = 1`
+example : formalGaussian (1 : Matrix (Fin 1) (Fin 1) ℝ) (MvPolynomial.X 0 ^ 2) = 1 := sorry
+
+-- test `diagonal_factorises` (compatibility)
+example (a b : ℝ) (f g : Polynomial ℝ) :
+    formalGaussian (Matrix.diagonal ![a, b])
+        (Polynomial.aeval (MvPolynomial.X 0) f * Polynomial.aeval (MvPolynomial.X 1) g) =
+      formalGaussian (!![a] : Matrix (Fin 1) (Fin 1) ℝ) (Polynomial.aeval (MvPolynomial.X 0) f) *
+        formalGaussian (!![b] : Matrix (Fin 1) (Fin 1) ℝ) (Polynomial.aeval (MvPolynomial.X 0) g) := sorry
+
+-- test `gz_normalisation` (compatibility): `integral_mul_gaussian` above.
+
+/-! ## HB.4/lattice-sums-by-poisson-summation -/
+
+theorem tsum_lattice_mul_gaussian (Λ : Matrix (Fin N) (Fin N) ℝ) (hΛ : Λ.PosDef)
+    (f : MvPolynomial (Fin N) ℝ) :
+    ∃ c > 0, ∀ x₀ : Fin N → ℝ, (fun s : ℝ =>
+        (∑' n : Fin N → ℤ,
+          MvPolynomial.eval (fun i => s * (n i + x₀ i)) f *
+            Real.exp (-(s ^ 2) * ((fun i => (n i : ℝ) + x₀ i) ⬝ᵥ
+              Λ.mulVec (fun i => (n i : ℝ) + x₀ i)) / 2)) -
+          s⁻¹ ^ N * ∫ x : Fin N → ℝ, MvPolynomial.eval x f * Real.exp (-(x ⬝ᵥ Λ.mulVec x) / 2))
+      =O[𝓝[>] 0] fun s : ℝ => Real.exp (-c / s ^ 2) := sorry
+
+/-! ## HB.4/gauss-sum-and-congruence-splitting -/
+
+/-- `G(Q, a/m) = D^{-N} Σ_{k mod D} e(ᾱ Q(k))`, `ᾱ = a m⁻¹ mod D`, `D` a strong denominator
+divisible by a denominator. -/
+def gaussSum (P : NahmDatum N) (a : ℤ) (m D : ℕ) : ℂ :=
+  ((D : ℂ) ^ N)⁻¹ * ∑ k : Fin N → Fin D,
+    Complex.exp (2 * π * I * (((a : ZMod D) * (m : ZMod D)⁻¹).val : ℂ) *
+      (P.Q fun i => ((k i : ℕ) : ℤ)))
+
+theorem gaussSum_of_integral (P : NahmDatum N) (hQ : ∀ n, ∃ t : ℤ, P.Q n = t) (a : ℤ) (m D : ℕ)
+    (hD : 0 < D) : gaussSum P a m D = 1 := sorry
+
+theorem gaussSum_independent (P : NahmDatum N) (a : ℤ) (m d D D' : ℕ) (hd : P.IsDenominator d)
+    (hD : d ∣ D) (hD' : d ∣ D') (hDs : P.IsStrongDenominator D) (hDs' : P.IsStrongDenominator D')
+    (hm : Nat.Coprime m D) (hm' : Nat.Coprime m D') : gaussSum P a m D = gaussSum P a m D' := sorry
+
+-- test `vanishing` (computation): `A = (1)`, `B = 0`, `α = 1/3`, `D = 2`
+example (P : NahmDatum 1) (hA : P.A = !![1]) (hB : P.B = 0) (hC : P.C = 0) :
+    gaussSum P 1 3 2 = 0 := sorry
+
+
+/-- `G(Q, α)` depends only on `ᾱ` modulo a denominator: `α ↦ α + d`. -/
+theorem gaussSum_periodic (P : NahmDatum N) (a : ℤ) (m d D : ℕ) (hd : P.IsDenominator d) (hD : d ∣ D)
+    (hDs : P.IsStrongDenominator D) (hm : Nat.Coprime m D) :
+    gaussSum P (a + d * m) m D = gaussSum P a m D := sorry
+
+-- nahmSum_split: not stated; needs the congruence pieces `f^{[k,k′]}` as functions of `ε`, which are not
+-- defined here (GZ (25)-(26)).
+-- nahmSum_split_finite: not stated; needs nahmSum_split.
+-- Test splitting_recovers: not stated; needs nahmSum_split.
+
+-- test `integral_Q` (computation): `A = (2)`, `B = 0`
+example (P : NahmDatum 1) (hA : P.A = !![2]) (hB : P.B = 0) (hC : P.C = 0) (a : ℤ) (m D : ℕ)
+    (hD : 0 < D) : gaussSum P a m D = 1 := sorry
+
+-- test `rank_one_nonreal` (computation): `A = (2/3)`, `B = 1/3`, `α = 1/5`
+example (P : NahmDatum 1) (hA : P.A = !![2 / 3]) (hB : P.B = ![1 / 3]) (hC : P.C = 0) :
+    gaussSum P 1 5 6 = Complex.exp (2 * π * I / 12) / (Real.sqrt 3 : ℂ) := sorry
+
+-- test `independence` (characterisation): `D = 2d` and `D = 4d` give the same value
+example (P : NahmDatum N) (a : ℤ) (m d : ℕ) (hd : P.IsDenominator d)
+    (h2 : P.IsStrongDenominator (2 * d)) (h4 : P.IsStrongDenominator (4 * d)) (hm : Nat.Coprime m (4 * d)) :
+    gaussSum P a m (2 * d) = gaussSum P a m (4 * d) := sorry
+
+-- test `not_modulo_small_D` (non-example): for `Q(n) = n²/4`, `c = 1` and `c = 3` differ modulo 2
+example : (∑ k : Fin 2, Complex.exp (2 * π * I * 1 * ((k : ℕ) : ℂ) ^ 2 / 4)) / 2 ≠
+    (∑ k : Fin 2, Complex.exp (2 * π * I * 3 * ((k : ℕ) : ℂ) ^ 2 / 4)) / 2 := sorry
+
+/-! ## HB.4/radial-asymptotic-expansion (corrected GZ Theorem 3.1) -/
+
+/-- `Q̄(k) = Q(k)` reduced modulo `m` through the inverse of its denominator. -/
+def qbar (P : NahmDatum N) (m : ℕ) (k : Fin N → ℤ) : ZMod m :=
+  ((P.Q k).num : ZMod m) * ((P.Q k).den : ZMod m)⁻¹
+
+/-- `Λ = Σ L(zᵢ)` (CGZ normalisation) `= L(ξ_A)`. -/
+def nahmLambda (P : NahmDatum N) : ℝ :=
+  ∑ i, rogersCGZ (distinguishedSolution P.Areal P.posDef i)
+
+/-- The constant term `χ_α^N m^{-N/2} c(Q) G(Q,α) S_{Q,ζ}(0)` with `χ_α = e(s(a,m)/2)`. -/
+def radialConstant (P : NahmDatum N) (a : ℤ) (m D : ℕ) : ℂ :=
+  let z := distinguishedSolution P.Areal P.posDef
+  let θ : Fin N → ℝ := fun i => z i ^ (1 / (m : ℝ))
+  let ζ : ℂ := Complex.exp (2 * π * I * a / m)
+  let At : Matrix (Fin N) (Fin N) ℝ := P.Areal + Matrix.diagonal fun i => z i / (1 - z i)
+  Complex.exp (π * I * dedekindSum a m) ^ N * (((m : ℝ) ^ (-(N : ℝ) / 2) : ℝ) : ℂ) *
+    ((At.det ^ (-(1 / 2 : ℝ)) * ∏ i, θ i ^ (P.B i : ℝ) * (1 - z i) ^ ((1 : ℝ) / 2 - 1 / m) : ℝ) :
+      ℂ) *
+    gaussSum P a m D * (∏ i, (cyclicDilogRoot ζ (ζ * θ i) m)⁻¹) *
+    ∑ k : Fin N → Fin m, ζ ^ (qbar P m fun i => ((k i : ℕ) : ℤ)).val *
+      ∏ i, ((θ i ^ ((P.Areal.mulVec fun j => ((k j : ℕ) : ℝ)) i) : ℝ) : ℂ) /
+        qPochhammerFin (ζ * θ i) ζ (k i)
+
+theorem nahmSum_radial_expansion (P : NahmDatum N) (hC : P.C = 0) (a : ℤ) (m d : ℕ)
+    (hm : Odd m) (ham : IsCoprime a m) (hd : P.IsDenominator d) (hmd : Nat.Coprime m d) :
+    ∃ c : ℕ → ℂ, c 0 = radialConstant P a m (2 * d) ∧ ∀ K : ℕ,
+      (fun ε : ℝ => Complex.exp (-(nahmLambda P) / (m * ε)) *
+          nahmSum P ((a : ℂ) / m + I * ε / (2 * π * m)) -
+        ∑ k ∈ Finset.range K, c k * (ε : ℂ) ^ k) =O[𝓝[>] 0] fun ε : ℝ => (ε : ℂ) ^ K := sorry
+
+-- acceptance (computation): Andrews–Gordon `n = 5`, `A = (2)`, `α = 1/5`
+example (P : NahmDatum 1) (hA : P.A = !![2]) (hB : P.B = 0) (hC : P.C = 0) :
+    radialConstant P 1 5 2 = Complex.exp (2 * π * I * (5 / 24 - 1 / 8 + 1 / 60 - 1 / 100)) :=
+  sorry
+-- non-example: GZ's printed `χ = e(binom(m-1,2) α/12)` is wrong at `α = 2/3`
+example : Complex.exp (π * I * dedekindSum 2 3) ≠ Complex.exp (2 * π * I * (2 / 3 / 12)) := sorry
+
+
+/-! ## HB.3/embeddings-and-regulator-evaluations (continued): the Rogers value -/
+
+/-- `L(ξ_A) = Σᵢ L(Xᵢ)` in `ℝ/(π²/2)ℤ` for the distinguished solution (CGZ normalisation). -/
+def rogersValue (P : NahmDatum N) : AddCircle (π ^ 2 / 2) := (nahmLambda P : AddCircle (π ^ 2 / 2))
+
+/-- `rogersValue = -Σ L_GZ(Xᵢ) = Λ`, with GZ's `L_GZ = Li₂ + ½ log · log(1 - ·) - π²/6`. -/
+theorem rogersValue_eq_neg_gz (P : NahmDatum N) :
+    rogersValue P = ((-∑ i, (dilog (distinguishedSolution P.Areal P.posDef i) +
+      Real.log (distinguishedSolution P.Areal P.posDef i) *
+        Real.log (1 - distinguishedSolution P.Areal P.posDef i) / 2 - π ^ 2 / 6) : ℝ) :
+      AddCircle (π ^ 2 / 2)) := sorry
+
+/-! ## HB.4/kummer-invariance-of-the-expansion (at `ε = 0`) -/
+
+/-- `T(θ) = Σ_k ζ^{Q̄(k)} ∏ᵢ θᵢ^{(Ak)ᵢ}/(ζθᵢ;ζ)_{kᵢ}` for `A` with natural entries and
+`Q̄(k) = ½ kᵗAk + Bk` computed in `ZMod m` (`m` odd). -/
+def kummerSum {m : ℕ} (A : Matrix (Fin N) (Fin N) ℕ) (B : Fin N → ZMod m) (ζ : ℂ)
+    (θ : Fin N → ℂ) : ℂ :=
+  ∑ k : Fin N → Fin m,
+    ζ ^ ((2 : ZMod m)⁻¹ * ∑ i, ∑ j, (A i j : ZMod m) * ((k i : ℕ) : ZMod m) * ((k j : ℕ) : ZMod m) +
+        ∑ i, B i * ((k i : ℕ) : ZMod m)).val *
+      ∏ i, θ i ^ (∑ j, A i j * (k j : ℕ)) / qPochhammerFin (ζ * θ i) ζ (k i)
+
+/-- `S^m` at `ε = 0` does not depend on the choice of the `m`-th roots `θᵢ` of the solution. -/
+theorem kummerSum_invariant {m : ℕ} (hm : Odd m) (A : Matrix (Fin N) (Fin N) ℕ)
+    (B : Fin N → ZMod m) {ζ : ℂ} (hζ : IsPrimitiveRoot ζ m) (θ : Fin N → ℂ)
+    (hN : ∀ i, 1 - θ i ^ m = ∏ j, (θ j ^ m) ^ A i j) (s : Fin N → ℕ) :
+    kummerSum A B ζ (fun i => ζ ^ s i * θ i) ^ m / ∏ i, cyclicDilog ζ (ζ * (ζ ^ s i * θ i)) m =
+      kummerSum A B ζ θ ^ m / ∏ i, cyclicDilog ζ (ζ * θ i) m := sorry
+
+/-! ### HB.3–HB.4 items without a Lean form here -/
+
+-- HB.3/general-nondegenerate-class: not stated; the ring `R[δ^{-1/2}]` over `O_K[1/Δ]` is constructible from
+-- Mathlib (`IsLocalization.Away`, `AdjoinRoot`), but the node's class `ξ ∈ K₃(K)` needs K3BlochGroups V.4/V.5.
+-- nahmRing: not stated; `R[δ^{-1/2}] = R[T]/(δT² - 1)` with `R = O_K[1/Δ]`, left to the node's owner with the class.
+-- nahmRing.deltaInv: not stated; needs nahmRing.
+-- nahmRing.involution: not stated; needs nahmRing.
+-- nahmRing.involution_sq: not stated; needs nahmRing.
+-- nahmRing.class: not stated; needs `K₃(K)` (K3BlochGroups V.4/V.5).
+-- nahmRing.delta_isUnit: not stated; needs nahmRing.
+-- Test cubic_ring: not stated; needs nahmRing.
+-- Test quartic_ring: not stated; needs nahmRing.
+-- Test involution_nontrivial: not stated; needs nahmRing.involution.
+-- Test delta_unit: not stated; needs nahmRing.delta_isUnit.
+-- Test sign_not_cgz: not stated; needs nahmRing.
+-- HB.3/torsion-criterion-by-regulators: not stated; needs `B_CGZ(F)` (K3BlochGroups V.3) and the Bloch–Wigner
+--   function (Polylogarithms P.1), with Borel's injectivity (BorelRegulators R.4).
+-- HB.3/torsion-in-the-algebraic-closure: not stated; needs `B(ℚ̄)` and its unique divisibility (K3BlochGroups V.4).
+-- HB.4/summand-asymptotics: not stated; the corrected GZ Proposition 2.2 expands the summand along
+--   `n = ε⁻¹ log(1/z) + ε^{-1/2} x` in `ε^{1/2}`, and needs the ψ-series of `log_qPochhammer_radial` as a formal
+--   series in `x` and `ε^{1/2}`, which is not set up here.
+-- HB.4/summand-tail-bound: not stated; needs the summand of HB.4/summand-asymptotics.
+-- HB.4/poisson-summation-and-remainders: not stated; it combines `tsum_lattice_mul_gaussian` with the summand
+--   expansion, which is not set up here.
+-- HB.4/galois-equivariance-of-the-expansion: not stated; needs the all-orders series `S_{Q,ζ}(ε)` as a formal
+--   power series, of which `radialConstant` is the constant term.
+-- HB.4/simplified-form-and-the-unit: not stated; needs `P_ζ` of HabiroNumberFields HB.2.
+-- HB.4/unit-corollary-and-nonvanishing: not stated; needs `P_ζ` and `R_ζ` of HabiroNumberFields HB.2.
+-- HB.4/andrews-gordon-radial-constant: not stated; needs the Andrews–Gordon identity at every odd modulus
+--   (requested from QSeriesPartitionsAndMockModularForms QM.0) and the Rogers value of CGZ (47).
+-- HB.4/acceptance-andrews-gordon: not stated; needs `R_ζ` and `η_ζ` of HabiroNumberFields HB.2 (CGZ Theorem 7.4).
+
+end HabiroNahmSeries.HB34
+
+end
+
+end PartHB34
+
+section PartHB5
+
+/-!
+# HB.5a–HB.5: modular functions at the cusps and the Nahm implication (checker B)
+
+This is not the roadmap and is not exhaustive; the packet is definitive. Only Mathlib is
+imported. Objects owned by other nodes (Nahm sums, the Rogers dilogarithm, the CGZ Bloch group)
+appear as local stand-ins in the shape HB.5 uses, each tied to the HB.3–HB.4 declaration above by
+a bridge lemma. Every body is `sorry`.
+-/
+
+noncomputable section
+
+open UpperHalfPlane Complex Filter Asymptotics Matrix.SpecialLinearGroup OnePoint
+open scoped MatrixGroups ModularForm Topology Real Pointwise Manifold
+
+namespace HabiroNahmSeries.HB5
+
+
+/-! ## HB.5a/finite-index-subgroups -/
+
+-- HB.5a/finite-index-subgroups: a comparison node; Mathlib's `Subgroup.FiniteIndex`,
+-- `Subgroup.isArithmetic_iff_finiteIndex`, `Subgroup.index_inf_le`, `CongruenceSubgroup.instFiniteIndexGamma`
+-- and `Subgroup.exists_pow_mem_of_index_ne_zero` are used as they are, and nothing new is stated.
+
+/-! ## HB.5a/cusps-and-scaling-matrices (Mathlib supplies cusps, `isCusp_SL2Z_iff'`, finiteness) -/
+
+/-- For coprime `b d`, an element of `SL(2, ℤ)` with first column `(b, d)`. -/
+def scalingMatrixOfCoprime {b d : ℤ} (h : IsCoprime b d) : SL(2, ℤ) := sorry
+
+theorem scalingMatrixOfCoprime_zero_zero {b d : ℤ} (h : IsCoprime b d) :
+    scalingMatrixOfCoprime h 0 0 = b := sorry
+
+theorem scalingMatrixOfCoprime_one_zero {b d : ℤ} (h : IsCoprime b d) :
+    scalingMatrixOfCoprime h 1 0 = d := sorry
+
+/-- Two scaling matrices of the same cusp differ by `±T^k`. -/
+theorem eq_mul_T_zpow_of_smul_infty_eq {g g' : SL(2, ℤ)}
+    (h : mapGL ℝ g • (∞ : OnePoint ℝ) = mapGL ℝ g' • (∞ : OnePoint ℝ)) :
+    ∃ k : ℤ, g' = g * ModularGroup.T ^ k ∨ g' = -(g * ModularGroup.T ^ k) := sorry
+
+-- test `S_smul_infty` (computation)
+example : mapGL ℝ ModularGroup.S • (∞ : OnePoint ℝ) = ((0 : ℝ) : OnePoint ℝ) := sorry
+
+-- test `card_cuspOrbits_Gamma_two` (computation)
+example : Nat.card (CuspOrbits
+    ((CongruenceSubgroup.Gamma 2 : Subgroup SL(2, ℤ)) : Subgroup (GL (Fin 2) ℝ))) = 3 := sorry
+
+-- test `scalingMatrix_not_unique` (non-example)
+example : mapGL ℝ ModularGroup.T • (∞ : OnePoint ℝ) = mapGL ℝ (1 : SL(2, ℤ)) • (∞ : OnePoint ℝ) ∧
+    ModularGroup.T ≠ 1 := sorry
+
+
+theorem scalingMatrixOfCoprime_smul_infty {b d : ℤ} (h : IsCoprime b d) (hd : d ≠ 0) :
+    mapGL ℝ (scalingMatrixOfCoprime h) • (∞ : OnePoint ℝ) = (((b : ℝ) / d : ℝ) : OnePoint ℝ) := sorry
+
+/-- In weight zero, `(f ∣ g (±T^k))(τ) = (f ∣ g)(τ + k)`. -/
+theorem slash_mul_T_zpow_weight_zero (f : ℍ → ℂ) (g : SL(2, ℤ)) (k : ℤ) (τ : ℍ) :
+    (f ∣[(0 : ℤ)] (g * ModularGroup.T ^ k)) τ = (f ∣[(0 : ℤ)] g) ((ModularGroup.T ^ k) • τ) ∧
+      (f ∣[(0 : ℤ)] (g * -(ModularGroup.T ^ k))) τ = (f ∣[(0 : ℤ)] g) ((ModularGroup.T ^ k) • τ) :=
+  sorry
+
+-- test `one_smul_infty` (degenerate)
+example : mapGL ℝ (1 : SL(2, ℤ)) • (∞ : OnePoint ℝ) = ∞ := sorry
+
+-- test `scalingMatrix_two_five` (computation)
+example : ∃ g : SL(2, ℤ), (g : Matrix (Fin 2) (Fin 2) ℤ) = !![2, 1; 5, 3] ∧
+    mapGL ℝ g • (∞ : OnePoint ℝ) = (((2 : ℝ) / 5 : ℝ) : OnePoint ℝ) := sorry
+
+/-! ## HB.5a/cusp-width -/
+
+theorem exists_cuspWidth (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (g : SL(2, ℤ)) :
+    ∃ n : ℕ, 0 < n ∧
+      (g * ModularGroup.T ^ n * g⁻¹ ∈ Γ ∨ -(g * ModularGroup.T ^ n * g⁻¹) ∈ Γ) := sorry
+
+open Classical in
+/-- The classical width of `Γ` at the cusp `g • ∞`. -/
+def cuspWidth (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (g : SL(2, ℤ)) : ℕ :=
+  Nat.find (exists_cuspWidth Γ g)
+
+section Width
+
+variable (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (g : SL(2, ℤ))
+
+theorem cuspWidth_pos : 0 < cuspWidth Γ g := sorry
+
+theorem cuspWidth_spec (n : ℕ) :
+    cuspWidth Γ g ∣ n ↔
+      (g * ModularGroup.T ^ n * g⁻¹ ∈ Γ ∨ -(g * ModularGroup.T ^ n * g⁻¹) ∈ Γ) := sorry
+
+@[simp] theorem cuspWidth_mul_T_zpow (k : ℤ) :
+    cuspWidth Γ (g * ModularGroup.T ^ k) = cuspWidth Γ g := sorry
+
+@[simp] theorem cuspWidth_neg : cuspWidth Γ (-g) = cuspWidth Γ g := sorry
+
+theorem cuspWidth_mem_mul {γ : SL(2, ℤ)} (hγ : γ ∈ Γ) :
+    cuspWidth Γ (γ * g) = cuspWidth Γ g := sorry
+
+/-- Compatibility with Mathlib's classical width at `∞` of the conjugate group `g⁻¹ Γ g`. -/
+theorem cuspWidth_eq_widthInfty :
+    (cuspWidth Γ g : ℝ) =
+      (ConjAct.toConjAct (mapGL ℝ g)⁻¹ • (Γ : Subgroup (GL (Fin 2) ℝ))).widthInfty := sorry
+
+/-- The strict width (Mathlib's `strictWidthInfty` of the conjugate, Tau Ceti's orbit width)
+is the classical width or twice it. -/
+theorem strictWidth_eq_cuspWidth_or_two_mul :
+    (ConjAct.toConjAct (mapGL ℝ g)⁻¹ • (Γ : Subgroup (GL (Fin 2) ℝ))).strictWidthInfty
+        = cuspWidth Γ g ∨
+      (ConjAct.toConjAct (mapGL ℝ g)⁻¹ • (Γ : Subgroup (GL (Fin 2) ℝ))).strictWidthInfty
+        = 2 * cuspWidth Γ g := sorry
+
+end Width
+
+-- test `cuspWidth_top` (degenerate)
+example (g : SL(2, ℤ)) : cuspWidth ⊤ g = 1 := sorry
+
+-- test `cuspWidth_Gamma` (computation)
+example (N : ℕ) [NeZero N] (g : SL(2, ℤ)) : cuspWidth (CongruenceSubgroup.Gamma N) g = N := sorry
+
+-- test `cuspWidth_Gamma0_prime` (computation)
+example (p : ℕ) [NeZero p] (hp : p.Prime) :
+    cuspWidth (CongruenceSubgroup.Gamma0 p) 1 = 1 ∧
+      cuspWidth (CongruenceSubgroup.Gamma0 p) ModularGroup.S = p := sorry
+
+-- test `sum_cuspWidth_Gamma_three_ne_index` (non-example): four cusps of width 3, index 24
+example : (CongruenceSubgroup.Gamma 3).index = 24 ∧
+    Nat.card (CuspOrbits
+      ((CongruenceSubgroup.Gamma 3 : Subgroup SL(2, ℤ)) : Subgroup (GL (Fin 2) ℝ))) = 4 ∧
+    ∀ g : SL(2, ℤ), cuspWidth (CongruenceSubgroup.Gamma 3) g = 3 := sorry
+
+
+-- sum_cuspWidth_eq_index_adjoinNegOne: not stated; it needs a scaling matrix for each element of Mathlib's
+-- `CuspOrbits`, and the pinned API gives the orbits without a representative map.
+
+-- test `cuspWidth_eq_widthInfty_Gamma0` (compatibility)
+example (N : ℕ) [NeZero N] : cuspWidth (CongruenceSubgroup.Gamma0 N) 1 = 1 := sorry
+
+/-! ## HB.5a/modular-function-of-finite-index -/
+
+/-- Weight-zero `Γ`-invariant functions, meromorphic on `ℍ` and at every cusp. -/
+structure ModularFunction (Γ : Subgroup SL(2, ℤ)) where
+  toFun : ℍ → ℂ
+  slash_eq' : ∀ γ ∈ Γ, toFun ∣[(0 : ℤ)] γ = toFun
+  meromorphicOn' : MeromorphicOn (toFun ∘ ofComplex) {z : ℂ | 0 < z.im}
+  meromorphicAt_cusp' : ∀ (g : SL(2, ℤ)) (h : ℝ), 0 < h →
+    Function.Periodic ((toFun ∣[(0 : ℤ)] g) ∘ ofComplex) h →
+    MeromorphicAt (Function.Periodic.cuspFunction h ((toFun ∣[(0 : ℤ)] g) ∘ ofComplex)) 0
+
+namespace ModularFunction
+
+variable {Γ : Subgroup SL(2, ℤ)}
+
+instance : FunLike (ModularFunction Γ) ℍ ℂ where
+  coe f := f.toFun
+  coe_injective f g h := by cases f; cases g; congr
+
+@[ext] theorem ext {f g : ModularFunction Γ} (h : ∀ τ, f τ = g τ) : f = g := sorry
+
+theorem slash_eq (f : ModularFunction Γ) {γ : SL(2, ℤ)} (hγ : γ ∈ Γ) :
+    (⇑f) ∣[(0 : ℤ)] γ = ⇑f := sorry
+
+/-- The constant modular function. -/
+def const (Γ : Subgroup SL(2, ℤ)) (c : ℂ) : ModularFunction Γ := sorry
+
+-- test `ModularFunction.const_apply` (computation)
+@[simp] theorem const_apply (c : ℂ) (τ : ℍ) : const Γ c τ = c := sorry
+
+instance instCommRing : CommRing (ModularFunction Γ) := sorry
+
+instance : Algebra ℂ (ModularFunction Γ) := sorry
+
+/-- The coercion to functions is an injective `ℂ`-algebra map (the modular functions are NOT a
+field in this representation). -/
+def coeAlgHom : ModularFunction Γ →ₐ[ℂ] (ℍ → ℂ) := sorry
+
+theorem coeAlgHom_injective : Function.Injective (coeAlgHom (Γ := Γ)) := sorry
+
+/-- A modular function for `Γ` is one for every subgroup of `Γ`. -/
+def restrict {Γ' : Subgroup SL(2, ℤ)} (h : Γ' ≤ Γ) (f : ModularFunction Γ) :
+    ModularFunction Γ' := sorry
+
+/-- Weight-zero Mathlib modular forms are modular functions. -/
+def ofModularForm (f : ModularForm (Γ : Subgroup (GL (Fin 2) ℝ)) 0) : ModularFunction Γ :=
+  sorry
+
+theorem meromorphicAt_cuspFunction (f : ModularFunction Γ) (g : SL(2, ℤ)) {h : ℝ}
+    (hh : 0 < h) (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h) :
+    MeromorphicAt (Function.Periodic.cuspFunction h (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex)) 0 :=
+  sorry
+
+theorem eq_const_of_holomorphic_of_bounded [Γ.FiniteIndex] (f : ModularFunction Γ)
+    (hf : MDifferentiable 𝓘(ℂ) 𝓘(ℂ) (⇑f))
+    (hb : ∀ c : OnePoint ℝ, IsCusp c (Γ : Subgroup (GL (Fin 2) ℝ)) → OnePoint.IsBoundedAt c (⇑f) 0) :
+    ∃ c : ℂ, f = const Γ c := sorry
+
+/-- `f ∘ ofComplex` is meromorphic on the open upper half-plane. -/
+theorem meromorphicOn (f : ModularFunction Γ) :
+    MeromorphicOn (⇑f ∘ ofComplex) {z : ℂ | 0 < z.im} := sorry
+
+/-- Meromorphy at `0` of the cusp function for one period gives it for every period. -/
+theorem meromorphicAt_cuspFunction_iff_of_period (f : ModularFunction Γ) (g : SL(2, ℤ)) {h h' : ℝ}
+    (hh : 0 < h) (hh' : 0 < h')
+    (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    (hper' : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h') :
+    MeromorphicAt (Function.Periodic.cuspFunction h (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex)) 0 ↔
+      MeromorphicAt (Function.Periodic.cuspFunction h' (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex)) 0 := sorry
+
+-- test `ofModularForm_const` (characterisation)
+example [Γ.FiniteIndex] (f : ModularForm (Γ : Subgroup (GL (Fin 2) ℝ)) 0) :
+    ∃ c : ℂ, ofModularForm f = const Γ c := sorry
+
+end ModularFunction
+
+/-- `j = E₄³ / Δ` from Mathlib's `ModularForm.E₄` and `ModularForm.discriminant`. -/
+def jInvariant (τ : ℍ) : ℂ := (ModularForm.E₄ τ) ^ 3 / ModularForm.discriminant τ
+
+def jModularFunction : ModularFunction (⊤ : Subgroup SL(2, ℤ)) := sorry
+
+theorem coe_jModularFunction : ⇑jModularFunction = jInvariant := sorry
+
+-- test `inv_jInvariant_modularFunction` (characterisation): poles in `ℍ` are allowed
+example : ∃ f : ModularFunction (⊤ : Subgroup SL(2, ℤ)),
+    ⇑f = (fun τ ↦ (jInvariant τ)⁻¹) ∧ ¬ MDifferentiable 𝓘(ℂ) 𝓘(ℂ) (⇑f) := sorry
+
+-- test `exp_jInvariant_not_modularFunction` (non-example): essential singularity at `∞`
+example : ¬ ∃ f : ModularFunction (⊤ : Subgroup SL(2, ℤ)),
+    ⇑f = fun τ ↦ Complex.exp (jInvariant τ) := sorry
+
+
+-- test `jInvariant_modularFunction` (computation): `jModularFunction` with `coe_jModularFunction` above,
+-- and its order `-1` and leading coefficient `1` at `∞` are the test `orderAtCusp_jInvariant` below.
+
+/-! ## HB.5a/laurent-expansion-at-a-cusp -/
+
+/-- The order at the cusp `g • ∞`, read in the period `h`. -/
+def orderAtCusp (f : ℍ → ℂ) (g : SL(2, ℤ)) (h : ℝ) : WithTop ℤ :=
+  meromorphicOrderAt (Function.Periodic.cuspFunction h ((f ∣[(0 : ℤ)] g) ∘ ofComplex)) 0
+
+/-- The leading Laurent coefficient at the cusp `g • ∞`, read in the period `h`. -/
+def leadingCoeffAtCusp (f : ℍ → ℂ) (g : SL(2, ℤ)) (h : ℝ) : ℂ :=
+  meromorphicTrailingCoeffAt (Function.Periodic.cuspFunction h ((f ∣[(0 : ℤ)] g) ∘ ofComplex)) 0
+
+theorem orderAtCusp_eq_top_iff {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ)
+    (g : SL(2, ℤ)) {h : ℝ} (hh : 0 < h)
+    (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h) :
+    orderAtCusp f g h = ⊤ ↔ ∀ᶠ τ in atImInfty, ((⇑f) ∣[(0 : ℤ)] g) τ = 0 := sorry
+
+theorem leadingCoeffAtCusp_ne_zero {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ)
+    (g : SL(2, ℤ)) {h : ℝ} (hh : 0 < h)
+    (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    (hne : orderAtCusp f g h ≠ ⊤) : leadingCoeffAtCusp f g h ≠ 0 := sorry
+
+theorem orderAtCusp_mul_period {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ)
+    (g : SL(2, ℤ)) {h : ℝ} (hh : 0 < h)
+    (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h) (m : ℕ) (hm : 0 < m) :
+    orderAtCusp f g (m * h) = (m : WithTop ℤ) * orderAtCusp f g h := sorry
+
+@[simp] theorem orderAtCusp_mul_T_zpow (f : ℍ → ℂ) (g : SL(2, ℤ)) (h : ℝ) (k : ℤ) :
+    orderAtCusp f (g * ModularGroup.T ^ k) h = orderAtCusp f g h := sorry
+
+-- test `orderAtCusp_zero` (degenerate)
+example (g : SL(2, ℤ)) (h : ℝ) : orderAtCusp 0 g h = ⊤ ∧ leadingCoeffAtCusp 0 g h = 0 := sorry
+
+-- test `orderAtCusp_jInvariant` (computation)
+example : orderAtCusp jInvariant 1 1 = ((-1 : ℤ) : WithTop ℤ) ∧
+    leadingCoeffAtCusp jInvariant 1 1 = 1 := sorry
+
+-- test `orderAtCusp_two_mul` (characterisation): the rate order/period is period-independent
+example : orderAtCusp jInvariant 1 2 = ((-2 : ℤ) : WithTop ℤ) := sorry
+
+
+theorem tendsto_leadingCoeffAtCusp {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ) (g : SL(2, ℤ))
+    {h : ℝ} (hh : 0 < h) (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    {n₀ : ℤ} (hn₀ : orderAtCusp f g h = n₀) :
+    Tendsto (fun τ : ℍ ↦ Function.Periodic.qParam h τ ^ (-n₀) * ((⇑f) ∣[(0 : ℤ)] g) τ) atImInfty
+      (𝓝 (leadingCoeffAtCusp f g h)) := sorry
+
+theorem orderAtCusp_mul {Γ : Subgroup SL(2, ℤ)} (f f' : ModularFunction Γ) (g : SL(2, ℤ)) {h : ℝ}
+    (hh : 0 < h) (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    (hper' : Function.Periodic (((⇑f') ∣[(0 : ℤ)] g) ∘ ofComplex) h) :
+    orderAtCusp (fun τ ↦ f τ * f' τ) g h = orderAtCusp f g h + orderAtCusp f' g h ∧
+      leadingCoeffAtCusp (fun τ ↦ f τ * f' τ) g h = leadingCoeffAtCusp f g h * leadingCoeffAtCusp f' g h :=
+  sorry
+
+-- test `orderAtCusp_const` (computation)
+example (c : ℂ) (hc : c ≠ 0) (g : SL(2, ℤ)) {h : ℝ} (hh : 0 < h) :
+    orderAtCusp (fun _ ↦ c) g h = 0 ∧ leadingCoeffAtCusp (fun _ ↦ c) g h = c := sorry
+
+-- Test orderAtCusp_eq_tauceti: not stated; it compares with Tau Ceti's `qExpansionOrderAtCusp`, and this
+-- file imports Mathlib only.
+
+/-! ## HB.5a/local-parameter-and-laurent-expansion -/
+
+/-- `f ∣ g = F ∘ q_h` near `i∞` with `F(q) = qⁿ⁰ G(q)`, `G` analytic at `0`, `G(0) = a_{g,h}(f)`. -/
+theorem ModularFunction.eq_qParam_zpow_mul {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ)
+    (g : SL(2, ℤ)) {h : ℝ} (hh : 0 < h) (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    {n₀ : ℤ} (hn₀ : orderAtCusp f g h = n₀) :
+    ∃ G : ℂ → ℂ, AnalyticAt ℂ G 0 ∧ G 0 = leadingCoeffAtCusp f g h ∧
+      ∀ᶠ τ in atImInfty, ((⇑f) ∣[(0 : ℤ)] g) τ =
+        Function.Periodic.qParam h τ ^ n₀ * G (Function.Periodic.qParam h τ) := sorry
+
+/-! ## HB.5a/radial-growth-at-a-cusp -/
+
+/-- Uniform growth at a cusp (along `atImInfty`, i.e. uniformly in `Re τ`). -/
+theorem ModularFunction.isBigO_sub_leading {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ)
+    (g : SL(2, ℤ)) {h : ℝ} (hh : 0 < h)
+    (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    {n₀ : ℤ} (hn₀ : orderAtCusp f g h = n₀) :
+    (fun τ : ℍ ↦ ((⇑f) ∣[(0 : ℤ)] g) τ -
+        leadingCoeffAtCusp f g h * Function.Periodic.qParam h (τ : ℂ) ^ n₀)
+      =O[atImInfty] fun τ ↦ Real.exp (-2 * π * (n₀ + 1) * τ.im / h) := sorry
+
+/-- Radial growth at the finite cusp `b/d`, `g = (b β; d δ)`: rate `-2π n₀/(h d² y)`, phase
+`e(-n₀ δ/(d h))`. -/
+theorem ModularFunction.tendsto_radial {Γ : Subgroup SL(2, ℤ)} (f : ModularFunction Γ)
+    (g : SL(2, ℤ)) (hd : 0 < g 1 0) {h : ℝ} (hh : 0 < h)
+    (hper : Function.Periodic (((⇑f) ∣[(0 : ℤ)] g) ∘ ofComplex) h)
+    {n₀ : ℤ} (hn₀ : orderAtCusp f g h = n₀) :
+    Tendsto (fun y : ℝ ↦ f (ofComplex ((g 0 0 : ℂ) / (g 1 0 : ℂ) + y * Complex.I)) /
+        (Complex.exp (-2 * π * Complex.I * n₀ * (g 1 1 : ℂ) / ((g 1 0 : ℂ) * h)) *
+          Real.exp (-2 * π * n₀ / (h * (g 1 0 : ℝ) ^ 2 * y))))
+      (𝓝[>] 0) (𝓝 (leadingCoeffAtCusp f g h)) := sorry
+
+/-! ## HB.5a/supplier-interface -/
+
+/-- CGZ's transport identity, as an identity of complex numbers. -/
+theorem transport_identity (a b c d : ℤ) (hdet : a * d - b * c = 1) (hd : d ≠ 0) (h : ℝ) :
+    let ħ : ℂ := ((h / (2 * π) : ℝ) : ℂ)
+    let ε : ℂ := d * h / (1 - Complex.I * c * ħ)
+    let w : ℂ := Complex.I * ε / (2 * π)
+    (a * w + b) / (c * w + d) = (b + Complex.I * ħ) / d := sorry
+
+theorem re_inv_transportParam (c d : ℤ) (hd : 0 < d) {h : ℝ} (hh : 0 < h) :
+    (1 / ((d : ℂ) * h / (1 - Complex.I * c * ((h / (2 * π) : ℝ) : ℂ)))).re = 1 / (d * h) := sorry
+
+theorem isCoprime_lowerRight_of_mem_Gamma {M : ℕ} {γ : SL(2, ℤ)}
+    (hγ : γ ∈ CongruenceSubgroup.Gamma M) : IsCoprime (γ 1 1) (M : ℤ) := sorry
+
+theorem infinite_lowerRight_of_finiteIndex (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (M : ℕ)
+    [NeZero M] :
+    {d : ℕ | 0 < d ∧ ∃ γ ∈ Γ ⊓ CongruenceSubgroup.Gamma M,
+      γ 1 1 = d ∨ γ 1 1 = -(d : ℤ)}.Infinite := sorry
+
+/-! ## HB.5 — stand-ins for HB.3/HB.4 objects in the shape HB.5 uses (bridge lemmas below) -/
+
+/-- Stand-in for `HB.4/q-pochhammer-symbols`: `(q; q)_n`. -/
+abbrev qFactorial (q : ℂ) (n : ℕ) : ℂ := HB34.qPochhammerFin q q n
+
+/-- `Q(n) = ½ nᵀAn + Bn + C`. -/
+def nahmQ {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ) (n : Fin r → ℕ) : ℚ :=
+  (1 / 2 : ℚ) * ∑ i, ∑ j, (n i : ℚ) * A i j * n j + ∑ i, B i * n i + C
+
+/-- Stand-in for `HB.4/analytic-nahm-sum`: `τ ↦ f_{A,B,C}(e(τ))`. -/
+def nahmSum {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ) (τ : ℍ) : ℂ :=
+  ∑' n : Fin r → ℕ, Complex.exp (2 * π * Complex.I * (nahmQ A B C n : ℂ) * τ) /
+    ∏ i, qFactorial (Complex.exp (2 * π * Complex.I * τ)) (n i)
+
+/-- CGZ's "modular": invariance under a finite-index subgroup, nothing at the cusps. -/
+def IsModularNahmSum {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ) : Prop :=
+  ∃ Γ : Subgroup SL(2, ℤ), Γ.FiniteIndex ∧
+    ∀ γ ∈ Γ, ∀ τ : ℍ, nahmSum A B C (γ • τ) = nahmSum A B C τ
+
+/-- The Rogers dilogarithm in the CGZ normalisation on `(0, 1)` (`HB.3/embeddings-and-regulator-evaluations`). -/
+abbrev rogersL : ℝ → ℝ := HB34.rogersCGZ
+
+/-- Stand-in for `HB.3/distinguished-solution`. -/
+def IsDistinguishedNahmSolution {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (X : Fin r → ℝ) : Prop :=
+  (∀ i, 0 < X i ∧ X i < 1) ∧ ∀ i, 1 - X i = ∏ j, X j ^ ((A i j : ℚ) : ℝ)
+
+/-- `λ = L(ξ_A)/(4π²)`; `C₀(A) = -λ`. -/
+def nahmLambda {r : ℕ} (X : Fin r → ℝ) : ℝ := (∑ i, rogersL (X i)) / (4 * π ^ 2)
+
+/-- Bridge to HB.4: for an analytic Nahm datum the stand-in Nahm sum is `HB34.nahmSum`. -/
+theorem nahmSum_eq_HB34 {r : ℕ} (P : HB34.NahmDatum r) (τ : ℍ) :
+    nahmSum P.A P.B P.C τ = HB34.nahmSum P τ := sorry
+
+/-- Bridge to HB.3: the distinguished solution of `HB.3/distinguished-solution` is distinguished here. -/
+theorem isDistinguished_HB34 {r : ℕ} (P : HB34.NahmDatum r) :
+    IsDistinguishedNahmSolution P.A (HB34.distinguishedSolution P.Areal P.posDef) := sorry
+
+/-- Bridge to HB.4: `λ = Λ/(4π²)` with `Λ = HB34.nahmLambda`. -/
+theorem nahmLambda_eq_HB34 {r : ℕ} (P : HB34.NahmDatum r) :
+    nahmLambda (HB34.distinguishedSolution P.Areal P.posDef) = HB34.nahmLambda P / (4 * π ^ 2) := sorry
+
+-- tests of HB.5/nahm-conjecture-statement (computation, degenerate)
+example : rogersL (1 / 2) = π ^ 2 / 12 := sorry
+example : rogersL ((Real.sqrt 5 - 1) / 2) = π ^ 2 / 15 := sorry
+example : IsDistinguishedNahmSolution !![(2 : ℚ)] ![(Real.sqrt 5 - 1) / 2] := sorry
+-- test `rank_one_lambda` (computation): `A = (2)` gives `λ = 1/60`
+example : nahmLambda ![(Real.sqrt 5 - 1) / 2] = 1 / 60 := sorry
+-- test `rank_zero` (degenerate)
+example (C : ℚ) : IsModularNahmSum (r := 0) 0 0 C ↔ C = 0 := sorry
+
+/-! ## HB.5/nahm-sum-meromorphic-at-every-cusp -/
+
+theorem norm_nahmSum_le {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (B : Fin r → ℚ) (C : ℚ)
+    (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) (τ : ℍ) :
+    ‖nahmSum A B C τ‖ ≤ ‖nahmSum A B C (ofComplex ((τ.im : ℂ) * Complex.I))‖ := sorry
+
+theorem exists_modularFunction_of_isModularNahmSum {r : ℕ} {A : Matrix (Fin r) (Fin r) ℚ}
+    {B : Fin r → ℚ} {C : ℚ} (hA : (A.map ((↑) : ℚ → ℝ)).PosDef)
+    (hmod : IsModularNahmSum A B C) :
+    ∃ (Γ : Subgroup SL(2, ℤ)) (_ : Γ.FiniteIndex) (f : ModularFunction Γ),
+      ⇑f = nahmSum A B C := sorry
+
+/-! ## HB.5/expansion-at-one (uniform in the complex parameter) -/
+
+theorem nahmLambda_rat_of_isModular {r : ℕ} {A : Matrix (Fin r) (Fin r) ℚ} {B : Fin r → ℚ}
+    {C : ℚ} (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) {X : Fin r → ℝ}
+    (hX : IsDistinguishedNahmSolution A X) (hmod : IsModularNahmSum A B C) :
+    ∃ q : ℚ, nahmLambda X = q := sorry
+
+theorem nahmSum_expansion_at_one {r : ℕ} {A : Matrix (Fin r) (Fin r) ℚ} {B : Fin r → ℚ}
+    {C : ℚ} (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) {X : Fin r → ℝ}
+    (hX : IsDistinguishedNahmSolution A X) (hmod : IsModularNahmSum A B C) :
+    ∃ K : ℂ, K ≠ 0 ∧ ∃ κ : ℝ, 0 < κ ∧
+      (fun ε : ℂ ↦ nahmSum A B C (ofComplex (Complex.I * ε / (2 * π))) *
+          Complex.exp (-(4 * π ^ 2 * nahmLambda X : ℝ) / ε) - K)
+        =O[Filter.comap (fun ε : ℂ ↦ (1 / ε).re) atTop]
+          fun ε ↦ Real.exp (-κ * (1 / ε).re) := sorry
+
+/-! ## HB.5/comparison-of-expansions (the corrected constant, abstracted from HB.4's `Φ`) -/
+
+theorem comparison_constant {F : ℂ → ℂ} {K μ ω : ℂ} {Φ : ℝ → ℂ} {C lam : ℚ} {b c d : ℤ}
+    (hd : 0 < d) (hμ : μ ≠ 0) (hω : ω ≠ 0)
+    (h1 : Tendsto (fun h : ℝ ↦
+        F ((d : ℂ) * h / (1 - Complex.I * c * ((h / (2 * π) : ℝ) : ℂ))) *
+          Complex.exp (-((4 * π ^ 2 * lam : ℝ) : ℂ) /
+            ((d : ℂ) * h / (1 - Complex.I * c * ((h / (2 * π) : ℝ) : ℂ))))) (𝓝[>] 0) (𝓝 K))
+    (h2 : Tendsto (fun h : ℝ ↦
+        F ((d : ℂ) * h / (1 - Complex.I * c * ((h / (2 * π) : ℝ) : ℂ))) *
+          Complex.exp (-((4 * π ^ 2 * lam : ℝ) : ℂ) / ((d : ℂ) * h)) -
+        Complex.exp (2 * π * Complex.I * (C : ℂ) * b / d) * μ * ω * Φ h) (𝓝[>] 0) (𝓝 0))
+    (hΦ : ContinuousWithinAt Φ (Set.Ioi 0) 0) :
+    Φ 0 = μ⁻¹ * ω⁻¹ * Complex.exp (-2 * π * Complex.I * (C : ℂ) * b / d) *
+      Complex.exp (-2 * π * Complex.I * (lam : ℂ) * c / d) * K := sorry
+
+/-! ## HB.5/torsion-from-unbounded-orders -/
+
+theorem isOfFinAddOrder_of_infinite_dvd {G : Type*} [AddCommGroup G] [AddGroup.FG G] (x : G)
+    (h : {n : ℕ | ∃ y : G, n • y = x}.Infinite) : IsOfFinAddOrder x := sorry
+
+-- test (computation): in `ℤ` such an element is `0`
+example (x : ℤ) (h : {n : ℕ | ∃ y : ℤ, n • y = x}.Infinite) : x = 0 := sorry
+-- test (degenerate): every element of a finite group
+example {G : Type*} [AddCommGroup G] [Finite G] (x : G) : IsOfFinAddOrder x := sorry
+-- test (non-example): one `n` is not enough
+example : (∃ y : ℤ, (1 : ℕ) • y = 1) ∧ ¬ IsOfFinAddOrder (1 : ℤ) := sorry
+
+/-! ## HB.5 — stand-in for `K3BlochGroups:V.3/cgz-bloch-group` (`Option F` is `ℙ¹(F)`) -/
+
+abbrev BlochChains (F : Type*) : Type _ := Option F →₀ ℤ
+
+/-- `[X] ↦ X ∧ (1 - X)`, and `[0], [1], [∞] ↦ 0`. -/
+def blochBoundary (F : Type*) [Field F] : BlochChains F →+ ⋀[ℤ]^2 (Additive Fˣ) := sorry
+
+/-- The subgroup generated by the five-term elements `ξ_{X,Y}`. -/
+def fiveTermRelations (F : Type*) [Field F] : AddSubgroup (BlochChains F) := sorry
+
+abbrev CGZBlochGroup (F : Type*) [Field F] : Type _ :=
+  (blochBoundary F).ker ⧸ (fiveTermRelations F).addSubgroupOf (blochBoundary F).ker
+
+def CGZBlochGroup.map {F K : Type*} [Field F] [Field K] (σ : F →+* K) :
+    CGZBlochGroup F →+ CGZBlochGroup K := sorry
+
+/-! ## HB.5/torsion-criterion-for-the-cgz-bloch-group -/
+
+theorem isOfFinAddOrder_of_infinite_odd_dvd {F : Type*} [Field F] [NumberField F]
+    (x : CGZBlochGroup F) (h : {n : ℕ | Odd n ∧ ∃ y, n • y = x}.Infinite) :
+    IsOfFinAddOrder x := sorry
+
+/-! ## HB.5/excluded-primes-and-hypotheses -/
+
+/-- `M = 2 D M_F` with `M_F` supplied by HabiroNumberFields HB.1/the-excluded-primes (here a
+parameter): every admissible order is odd and prime to `D` and `M_F`. -/
+theorem admissible_orders {D MF : ℕ} (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex]
+    [NeZero (2 * D * MF)] :
+    {d : ℕ | 0 < d ∧ ∃ γ ∈ Γ ⊓ CongruenceSubgroup.Gamma (2 * D * MF),
+        γ 1 1 = d ∨ γ 1 1 = -(d : ℤ)}.Infinite ∧
+      ∀ d : ℕ, (∃ γ ∈ Γ ⊓ CongruenceSubgroup.Gamma (2 * D * MF),
+          γ 1 1 = d ∨ γ 1 1 = -(d : ℤ)) → Odd d ∧ Nat.Coprime d D ∧ Nat.Coprime d MF := sorry
+
+/-! ## HB.5/modularity-implies-torsion (CGZ Theorem 7.5) and HB.5/introductory-formulation -/
+
+abbrev nahmField {r : ℕ} (X : Fin r → ℝ) : IntermediateField ℚ ℝ :=
+  IntermediateField.adjoin ℚ (Set.range X)
+
+/-- Stand-in for `HB.3/bloch-class-of-a-solution` (denominators cleared for rational `A`). -/
+def nahmBlochClass {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (X : Fin r → ℝ)
+    (hX : IsDistinguishedNahmSolution A X) : CGZBlochGroup (nahmField X) := sorry
+
+theorem isOfFinAddOrder_nahmBlochClass_of_isModular {r : ℕ} {A : Matrix (Fin r) (Fin r) ℚ}
+    (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) {X : Fin r → ℝ} (hX : IsDistinguishedNahmSolution A X)
+    {B : Fin r → ℚ} {C : ℚ} (hmod : IsModularNahmSum A B C) :
+    IsOfFinAddOrder (nahmBlochClass A X hX) := sorry
+
+theorem nahmBlochClass_map_eq_zero_of_isModular {r : ℕ} {A : Matrix (Fin r) (Fin r) ℚ}
+    (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) {X : Fin r → ℝ} (hX : IsDistinguishedNahmSolution A X)
+    {B : Fin r → ℚ} {C : ℚ} (hmod : IsModularNahmSum A B C)
+    (σ : nahmField X →+* AlgebraicClosure ℚ) :
+    CGZBlochGroup.map σ (nahmBlochClass A X hX) = 0 := sorry
+
+
+/-! ## HB.5/nahm-conjecture-statement (the three properties) -/
+
+/-- (b): the class of the distinguished solution is torsion, i.e. vanishes in `B(ℚ̄)`. -/
+def NahmProperty.b {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) : Prop :=
+  ∀ (X : Fin r → ℝ) (hX : IsDistinguishedNahmSolution A X), IsOfFinAddOrder (nahmBlochClass A X hX)
+
+/-- (c): some `f_{A,B,C}` is modular. -/
+def NahmProperty.c {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) : Prop :=
+  ∃ (B : Fin r → ℚ) (C : ℚ), IsModularNahmSum A B C
+
+/-- The theorem of this layer (CGZ Theorem 7.5): (c) implies (b) for positive definite `A`. -/
+theorem NahmConjecture.cImpB {r : ℕ} (A : Matrix (Fin r) (Fin r) ℚ) (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) :
+    NahmProperty.c A → NahmProperty.b A := sorry
+
+/-- Zagier's matrix: (b) holds and (c) fails. -/
+def NahmProperty.b_not_imp_c : Matrix (Fin 2) (Fin 2) ℚ := !![8, 5; 5, 4]
+
+/-- The Vlasenko–Zwegers matrix: (c) holds and (a) fails. -/
+def NahmProperty.c_not_imp_a : Matrix (Fin 2) (Fin 2) ℚ := !![3 / 2, 1 / 2; 1 / 2, 3 / 2]
+
+-- Property (a) quantifies over every complex solution, whose classes live in `B(ℂ)` (K3BlochGroups V.3 over
+-- `ℂ`); the stand-in here covers the distinguished real solution only:
+-- NahmProperty.a: not stated; needs the Bloch class of every complex solution in `B(ℂ)`.
+-- NahmProperty.a_imp_b: not stated; needs NahmProperty.a.
+-- NahmConjecture.aImpC: not stated; a conjecture (CGZ §7.1), and it needs NahmProperty.a.
+-- Test a_implies_b: not stated; needs NahmProperty.a.
+
+-- test `rogers_ramanujan_all_three` (computation): (b) and (c) for `A = (2)`; (a) needs NahmProperty.a
+example : NahmProperty.b !![(2 : ℚ)] ∧ NahmProperty.c !![(2 : ℚ)] := sorry
+
+-- test `zagier_matrix_b_not_c` (non-example): the failure of (c) rests on Zagier's survey (gap)
+example : NahmProperty.b NahmProperty.b_not_imp_c ∧ ¬ NahmProperty.c NahmProperty.b_not_imp_c := sorry
+
+-- test `vlasenko_zwegers_c_not_a` (non-example): (c) holds; the failure of (a) needs NahmProperty.a
+example : NahmProperty.c NahmProperty.c_not_imp_a := sorry
+
+/-! ## HB.5/boundaries-of-the-implication -/
+
+-- HB.5/boundaries-of-the-implication: records what is not proved (the converse, modular forms of non-zero
+-- weight, the congruence property); no statement follows, so nothing is stated.
+
+/-! ## HB.5/valuation-bound-at-every-cusp (restricted to the cusps the proof reaches) -/
+
+theorem nahmSum_orderAtCusp_ge {r : ℕ} {A : Matrix (Fin r) (Fin r) ℚ} {B : Fin r → ℚ} {C : ℚ}
+    (hA : (A.map ((↑) : ℚ → ℝ)).PosDef) {X : Fin r → ℝ} (hX : IsDistinguishedNahmSolution A X)
+    (hmod : IsModularNahmSum A B C) {D : ℕ} (hD : ∀ n, ((D : ℚ) * nahmQ A B C n).den = 1)
+    (g : SL(2, ℤ)) (hc : 0 < g 1 0) (hodd : Odd (g 1 0)) (hcop : IsCoprime (g 1 0) (D : ℤ))
+    {h : ℕ} (hh : 0 < h)
+    (hper : Function.Periodic ((nahmSum A B C ∣[(0 : ℤ)] g) ∘ ofComplex) h) :
+    ((orderAtCusp (nahmSum A B C) g h).untop₀ : ℝ) / h ≥ -nahmLambda X := sorry
+
+end HabiroNahmSeries.HB5
+
+end
+
+end PartHB5
+
+section PartHB8
+
+/-!
+# HB.8: admissible series and formal Gaussian integration (checker C)
+
+Proofs are `sorry`; a few data definitions whose construction is routine but long
+(the Laurent expansion at a root of unity, the automorphism q ↦ q⁻¹, the Frobenius
+q ↦ q^l on Laurent series) are also `sorry`. No statement is `True`, and no
+`Prop` is defined as `sorry`.
+
+Conventions. `Qq = ℚ(q) = RatFunc ℚ`; series in t = (t₀,…,t_{N-1}) are
+`MvPowerSeries (Fin N) _`; multi-indices are `Fin N →₀ ℕ`. Expansions at a root of
+unity ζ of order m are written in T = t^{1/m}: we substitute t ↦ T^m instead of
+using fractional powers, so Φ_m(T^m, x) = F(T, ζ + x).
+-/
+
+noncomputable section
+
+open scoped LaurentPolynomial RatFunc
+
+namespace HabiroNahmSeries.HB8
+
+/-! ### The formal ambient: ℚ(q), multi-indices, logarithm and exponential -/
+
+/-- The field `ℚ(q)` in which GSWZ Definition 1.7 places the coefficients. -/
+abbrev Qq : Type := RatFunc ℚ
+
+/-- The indeterminate `q`. -/
+def q : Qq := RatFunc.X
+
+theorem q_ne_zero : q ≠ 0 := sorry
+
+/-- Multi-indices `n ∈ ℕ^N`. -/
+abbrev Idx (N : ℕ) : Type := Fin N →₀ ℕ
+
+variable {N : ℕ}
+
+/-- `L(q^l) ∈ ℚ(q)` for an integral Laurent polynomial `L`. -/
+def evalQPow (L : ℤ[T;T⁻¹]) (l : ℕ) : Qq :=
+  LaurentPolynomial.eval₂ (Int.castRingHom Qq) (Units.mk0 (q ^ l) (pow_ne_zero l q_ne_zero)) L
+
+/-- Coordinatewise quotient `n / l` of a multi-index. -/
+def Idx.divNat (n : Idx N) (l : ℕ) : Idx N := n.mapRange (· / l) (Nat.zero_div l)
+
+/-- GSWZ (27): the series `-∑_{n ≠ 0} ∑_{l ≥ 1} L_n(q^l) t^{l n} / (l (1 - q^l))`;
+its coefficient at `e` is the finite sum over the `l ≥ 1` dividing every `e i`. -/
+def admissibleLog (L : Idx N → ℤ[T;T⁻¹]) : MvPowerSeries (Fin N) Qq :=
+  fun e => -∑ l ∈ (Finset.Icc 1 (Finsupp.degree e)).filter (fun l => ∀ i, l ∣ e i),
+    evalQPow (L (Idx.divNat e l)) l / ((l : Qq) * (1 - q ^ l))
+
+/-- The formal logarithm `log (1 + (F - 1))`; meaningful when `constantCoeff F = 1`. -/
+def mvLog {R : Type*} [CommRing R] [Algebra ℚ R] (F : MvPowerSeries (Fin N) R) :
+    MvPowerSeries (Fin N) R :=
+  PowerSeries.subst (F - 1) (PowerSeries.log ℚ)
+
+/-- The formal exponential; meaningful when `constantCoeff G = 0`. -/
+def mvExp {R : Type*} [CommRing R] [Algebra ℚ R] (G : MvPowerSeries (Fin N) R) :
+    MvPowerSeries (Fin N) R :=
+  PowerSeries.subst G (PowerSeries.exp ℚ)
+
+/-- The automorphism `q ↦ q⁻¹` of `ℚ(q)`. -/
+def qInv : Qq ≃ₐ[ℚ] Qq := sorry
+
+theorem qInv_q : qInv q = q⁻¹ := sorry
+
+/-- The shift `σ_j : t_j ↦ q t_j` (Mathlib's `MvPowerSeries.rescale`). -/
+def shift (j : Fin N) : MvPowerSeries (Fin N) Qq →+* MvPowerSeries (Fin N) Qq :=
+  MvPowerSeries.rescale (Function.update 1 j q)
+
+/-! ### Formal Pochhammer symbol (new node `HB.8/formal-pochhammer-symbol`) -/
+
+/-- The primitive `m`-th root of unity of `CyclotomicField m ℚ`: Mathlib's `IsCyclotomicExtension.zeta`, with
+the instance `CyclotomicField.isCyclotomicExtension` passed explicitly (instance search does not find it at the
+pinned commit). -/
+def zetaQ (m : ℕ) [NeZero m] : CyclotomicField m ℚ :=
+  @IsCyclotomicExtension.zeta m _ ℚ (CyclotomicField m ℚ) _ _ _ (CyclotomicField.isCyclotomicExtension m ℚ)
+
+theorem zetaQ_spec (m : ℕ) [NeZero m] : IsPrimitiveRoot (zetaQ m) m :=
+  @IsCyclotomicExtension.zeta_spec m _ ℚ (CyclotomicField m ℚ) _ _ _ (CyclotomicField.isCyclotomicExtension m ℚ)
+
+/-- Euler's series `(x;q)_∞ = ∑_k (-1)^k q^{k(k-1)/2} x^k / (q;q)_k ∈ ℚ(q)[[x]]`. -/
+def eulerPoch : PowerSeries Qq :=
+  PowerSeries.mk fun k => (-1) ^ k * q ^ (k * (k - 1) / 2) / ∏ j ∈ Finset.range k, (1 - q ^ (j + 1))
+
+/-- `(c t^n; q)_∞` for a coefficient `c` and a nonzero multi-index `n`. -/
+def poch (c : Qq) (n : Idx N) : MvPowerSeries (Fin N) Qq :=
+  PowerSeries.subst (MvPowerSeries.monomial n c) eulerPoch
+
+theorem mvLog_poch (n : Idx N) (hn : n ≠ 0) :
+    mvLog (poch 1 n) =
+      fun e => -∑ l ∈ (Finset.Icc (1 : ℕ) (Finsupp.degree e)).filter (fun l => e = l • n),
+        1 / (((l : ℕ) : Qq) * (1 - q ^ l)) := sorry
+
+theorem poch_shift_one (j : Fin N) :
+    (1 - MvPowerSeries.X j) * shift j (poch 1 (Finsupp.single j 1)) = poch 1 (Finsupp.single j 1) :=
+  sorry
+
+theorem map_qInv_poch (j : Fin N) :
+    MvPowerSeries.map qInv.toRingHom (poch 1 (Finsupp.single j 1)) *
+      poch q (Finsupp.single j 1) = 1 := sorry
+
+
+-- poch_toLaurentSeries: not stated; its target is QSeriesPartitionsAndMockModularForms QM.0's product
+-- `∏ⱼ (1 - qʲ x)` in `ℤ((q))⟦x⟧`, which this file does not import.
+
+-- test `euler_coeff_two` (computation)
+example : PowerSeries.coeff 2 eulerPoch = q / ((1 - q) * (1 - q ^ 2)) := sorry
+
+-- test `log_formula` (characterisation): `mvLog_poch` above.
+
+-- test `qinv_identity` (compatibility): `(x; q⁻¹)_∞ (qx; q)_∞ = 1`
+example : MvPowerSeries.map qInv.toRingHom (poch (N := 1) 1 (Finsupp.single 0 1)) *
+    poch (N := 1) q (Finsupp.single 0 1) = 1 := sorry
+
+-- Test not_the_analytic_product: not stated; it concerns the divergence of `∏ⱼ (1 - q⁻ʲ x)` in `ℤ((q))⟦x⟧`,
+-- whose topology is not set up in this file.
+
+/-! ### Admissible series (node `HB.8/admissible-series`) -/
+
+/-- GSWZ Definition 1.7. -/
+def Admissible (F : MvPowerSeries (Fin N) Qq) : Prop :=
+  MvPowerSeries.constantCoeff F = 1 ∧
+    ∃ L : Idx N → ℤ[T;T⁻¹], L 0 = 0 ∧ mvLog F = admissibleLog L
+
+/-- The Laurent polynomials `L_n` of an admissible series. -/
+def Admissible.L {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) : Idx N → ℤ[T;T⁻¹] :=
+  Classical.choose hF.2
+
+theorem Admissible.mvLog_eq {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) :
+    mvLog F = admissibleLog hF.L := sorry
+
+theorem Admissible.L_unique {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F)
+    (L : Idx N → ℤ[T;T⁻¹]) (h0 : L 0 = 0) (h : mvLog F = admissibleLog L) : L = hF.L := sorry
+
+theorem admissible_one : Admissible (1 : MvPowerSeries (Fin N) Qq) := sorry
+
+theorem Admissible.mul {F G : MvPowerSeries (Fin N) Qq} (hF : Admissible F)
+    (hG : Admissible G) : Admissible (F * G) := sorry
+
+theorem Admissible.L_mul {F G : MvPowerSeries (Fin N) Qq} (hF : Admissible F)
+    (hG : Admissible G) : (hF.mul hG).L = hF.L + hG.L := sorry
+
+theorem Admissible.inv {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) :
+    Admissible F⁻¹ := sorry
+
+/-- GSWZ (61): admissibility is invariant under `q ↦ q⁻¹`; `L_n` becomes `-q L_n(q⁻¹)`. -/
+theorem Admissible.map_qInv {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) :
+    Admissible (MvPowerSeries.map qInv.toRingHom F) := sorry
+
+theorem Admissible.L_map_qInv {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) (n : Idx N) :
+    hF.map_qInv.L n = -LaurentPolynomial.T 1 * LaurentPolynomial.invert (hF.L n) := sorry
+
+/-- Admissibility is invariant under `σ_j`; `L_n` becomes `q^{n_j} L_n`. -/
+theorem Admissible.shift {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) (j : Fin N) :
+    Admissible (shift j F) := sorry
+
+theorem admissible_poch (n : Idx N) (hn : n ≠ 0) : Admissible (poch 1 n) := sorry
+
+-- unit test `pochhammer_admissible` (computation)
+example : ∃ h : Admissible (poch (N := 1) 1 (Finsupp.single 0 1)),
+    h.L = fun n => if n = Finsupp.single 0 1 then 1 else 0 := sorry
+
+-- unit test `qinv_pochhammer` (computation): (t;q⁻¹)_∞ = 1/(qt;q)_∞ has L₁ = -q
+example : ∃ h : Admissible (MvPowerSeries.map qInv.toRingHom (poch (N := 1) 1 (Finsupp.single 0 1))),
+    h.L (Finsupp.single 0 1) = -LaurentPolynomial.T 1 := sorry
+
+-- unit test `neg_t_not_admissible` (non-example): (-t;q)_∞ has L₂ = 1/(1+q)
+example : ¬ Admissible (MvPowerSeries.rescale (fun _ => (-1 : Qq))
+    (poch (N := 1) 1 (Finsupp.single 0 1))) := sorry
+
+-- unit test `integral_exponents_not_admissible` (non-example): ∏_{i ≥ 0} (q^i t;q)_∞
+example : ¬ Admissible (mvExp (N := 1) (fun e => -∑ l ∈ (Finset.Icc 1 (e 0)).filter
+    (fun l => e = Finsupp.single 0 l), 1 / ((l : Qq) * (1 - q ^ l) ^ 2))) := sorry
+
+
+-- test `product_admissible` (compatibility): `Admissible.L_mul` above.
+
+/-! ### The product expansion over ℤ((q)) (node `HB.8/product-expansion-and-dt-exponents`) -/
+
+/-- The Frobenius `q ↦ q^l` on Laurent series. -/
+def lsFrob {R : Type*} [CommRing R] (l : ℕ) (hl : 0 < l) : LaurentSeries R →+* LaurentSeries R :=
+  sorry
+
+/-- `-∑_{n ≠ 0} ∑_{l ≥ 1} L_n(q^l) t^{l n} / (l (1 - q^l))` for Laurent-series `L_n`. -/
+def admissibleLogLS (L : Idx N → LaurentSeries ℚ) : MvPowerSeries (Fin N) (LaurentSeries ℚ) :=
+  fun e => -∑ l ∈ (Finset.Icc 1 (Finsupp.degree e)).filter (fun l => ∀ i, l ∣ e i),
+    if hl : 0 < l then lsFrob l hl (L (Idx.divNat e l)) / ((l : LaurentSeries ℚ) *
+      (1 - (HahnSeries.single (1 : ℤ) (1 : ℚ)) ^ l)) else 0
+
+/-- The coefficient map `ℤ((q)) → ℚ((q))`. -/
+def lsCast : LaurentSeries ℤ →+* LaurentSeries ℚ := sorry
+
+/-- Existence and uniqueness of the generalised DT exponents (GSWZ (28), proof of Theorem 6,
+first paragraph): `c_{n,·}` are the coefficients of `L_n ∈ ℤ((q))`; `c_{n,i} = 0` for `i ≪ 0`
+is automatic because `L_n` is a Laurent series. -/
+theorem exists_unique_dt_exponents (F : MvPowerSeries (Fin N) (LaurentSeries ℤ))
+    (hF : MvPowerSeries.constantCoeff F = 1) :
+    ∃! L : Idx N → LaurentSeries ℤ, L 0 = 0 ∧
+      mvLog (MvPowerSeries.map lsCast F) = admissibleLogLS (fun n => lsCast (L n)) := sorry
+
+/-- Admissibility is finite support of the DT exponents (GSWZ §1.6 after (28)). -/
+theorem admissible_iff_finite_support (F : MvPowerSeries (Fin N) Qq)
+    (hF : MvPowerSeries.constantCoeff F = 1) :
+    Admissible F ↔ ∃ L : Idx N → LaurentSeries ℤ, L 0 = 0 ∧ (∀ n, (L n).support.Finite) ∧
+      mvLog (MvPowerSeries.map (algebraMap Qq (LaurentSeries ℚ)) F) =
+        admissibleLogLS (fun n => lsCast (L n)) := sorry
+
+/-! ### Laurent expansion at a root of unity (new node `HB.8/laurent-expansion-at-a-root-of-unity`) -/
+
+/-- `f(q) ↦ f(ζ + x) ∈ K((x))` for a field `K ⊇ ℚ` and `ζ ∈ K`. -/
+def expandAt {K : Type*} [Field K] [Algebra ℚ K] (ζ : K) : Qq →+* LaurentSeries K := sorry
+
+theorem expandAt_q {K : Type*} [Field K] [Algebra ℚ K] (ζ : K) :
+    expandAt ζ q = HahnSeries.C ζ + HahnSeries.single 1 1 := sorry
+
+theorem expandAt_injective {K : Type*} [Field K] [Algebra ℚ K] (ζ : K) :
+    Function.Injective (expandAt ζ) := sorry
+
+/-- `Φ_m(T^m, x) = F(T, ζ_m + x)`: the collection of GSWZ (30), in the variable `T = t^{1/m}`. -/
+def admissibleExpansion (m : ℕ) [NeZero m] (F : MvPowerSeries (Fin N) Qq) :
+    MvPowerSeries (Fin N) (LaurentSeries (CyclotomicField m ℚ)) :=
+  MvPowerSeries.map (expandAt (zetaQ m)) F
+
+
+-- expandAt_taylor: not stated; it compares with HabiroCyclotomicCompletions HC.3's Taylor map at `ζ`.
+
+-- test `expand_one_sub_q_at_one` (computation): `E₁(1/(1 - q)) = -x⁻¹`
+example : expandAt (1 : ℚ) (1 / (1 - q)) = -HahnSeries.single (-1) 1 := sorry
+
+-- test `expand_polynomial` (computation): `E_ζ(q²) = ζ² + 2ζx + x²`
+example {K : Type*} [Field K] [Algebra ℚ K] (ζ : K) :
+    expandAt ζ (q ^ 2) = HahnSeries.C (ζ ^ 2) + HahnSeries.C (2 * ζ) * HahnSeries.single 1 1 +
+      HahnSeries.single 2 1 := sorry
+
+-- test `expand_injective` (characterisation): `expandAt_injective` above.
+
+/-! ### Potential, discriminant and constants (node `HB.8/expansion-at-roots-of-unity`) -/
+
+/-- The formal polylogarithm `Li_s(X) = ∑_{k ≥ 1} X^k / k^s` (P.1's `polylogSeries`). -/
+def polylogSeries (s : ℤ) : PowerSeries ℚ :=
+  PowerSeries.mk fun k => if k = 0 then 0 else ((k : ℚ) ^ s)⁻¹
+
+/-- `Li_s(c t^n)` as a multivariable series. -/
+def polylogAt {R : Type*} [CommRing R] [Algebra ℚ R] (s : ℤ) (c : R) (n : Idx N) :
+    MvPowerSeries (Fin N) R :=
+  PowerSeries.subst (MvPowerSeries.monomial n c) (polylogSeries s)
+
+/-- `L_n(1)` and `L_n'(1)`. -/
+def valOne (L : ℤ[T;T⁻¹]) : ℚ := LaurentPolynomial.eval₂ (Int.castRingHom ℚ) 1 L
+def derivOne (L : ℤ[T;T⁻¹]) : ℚ := ∑ i ∈ L.coeff.support, (L.coeff i : ℚ) * i
+
+/-- GSWZ (65): `V(t) = ∑_n L_n(1) Li₂(t^n)` (coefficientwise a finite sum). -/
+def potential {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) : MvPowerSeries (Fin N) ℚ :=
+  fun e => ∑ n ∈ (Finset.Iic e).filter (· ≠ 0), valOne (hF.L n) * MvPowerSeries.coeff e (polylogAt 2 1 n)
+
+/-- GSWZ (66): `log δ(t) = ∑_n (L_n(1) - 2 L_n'(1)) Li₁(t^n)`. -/
+def logDiscriminantSeries {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) :
+    MvPowerSeries (Fin N) ℚ :=
+  fun e => ∑ n ∈ (Finset.Iic e).filter (· ≠ 0),
+    (valOne (hF.L n) - 2 * derivOne (hF.L n)) * MvPowerSeries.coeff e (polylogAt 1 1 n)
+
+/-- GSWZ (67) WITH THE SIGN CORRECTED (first term `+ (m-1)/(2m)`), written in `T = t^{1/m}`:
+`u_m(T^m) = (m-1)/(2m) ∑ L_n(1) Li₁(T^{mn}) + (1-m)/m ∑ L_n'(1) Li₁(T^{mn})
+            - ∑_{j=1}^{m-1} ∑_n L_n(ζ^j)/(1-ζ^j) ∑_{k mod m} ζ^{-kj}/m Li₁(ζ^k T^n)`. -/
+def logConstantSeries (m : ℕ) [NeZero m] {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) :
+    MvPowerSeries (Fin N) (CyclotomicField m ℚ) := sorry
+
+/-- Extraction of the `x^j` coefficient of every `t`-coefficient. -/
+def coeffX {K : Type*} [Field K] (j : ℤ) (G : MvPowerSeries (Fin N) (LaurentSeries K)) :
+    MvPowerSeries (Fin N) K :=
+  fun e => (MvPowerSeries.coeff e G).coeff j
+
+/-- `V(T^m)`: the substitution `t ↦ T^m` of a rational series into `K[[T]]`. -/
+def substPow {K : Type*} [Field K] [Algebra ℚ K] (m : ℕ) (V : MvPowerSeries (Fin N) ℚ) :
+    MvPowerSeries (Fin N) K :=
+  MvPowerSeries.subst (fun i => (MvPowerSeries.X i : MvPowerSeries (Fin N) K) ^ m) V
+
+/-- GSWZ Lemma 2.3, polar part: the `x^{-1}` coefficient of `log F(T, ζ_m + x)` is `ζ_m V(T^m)/m²`. -/
+theorem admissibleExpansion_polar (m : ℕ) [NeZero m] {F : MvPowerSeries (Fin N) Qq}
+    (hF : Admissible F) :
+    coeffX (-1) (mvLog (admissibleExpansion m F)) =
+      MvPowerSeries.C (zetaQ m /
+        (m : CyclotomicField m ℚ) ^ 2) * substPow m (potential hF) := sorry
+
+/-- GSWZ Lemma 2.3, constant term, with the CORRECTED `u_m` of `logConstantSeries`:
+`V(T^m)/(2m²) - ½ log δ(T^m) + u_m(T)`. -/
+theorem admissibleExpansion_constant (m : ℕ) [NeZero m] {F : MvPowerSeries (Fin N) Qq}
+    (hF : Admissible F) :
+    coeffX 0 (mvLog (admissibleExpansion m F)) =
+      MvPowerSeries.C (1 / (2 * (m : CyclotomicField m ℚ) ^ 2)) * substPow m (potential hF) -
+        MvPowerSeries.C (1 / 2 : CyclotomicField m ℚ) * substPow m (logDiscriminantSeries hF) +
+        logConstantSeries m hF := sorry
+
+/-- GSWZ Corollary 2.4(a): `V` determines the values `L_n(1)`. -/
+theorem potential_inj_valOne {F G : MvPowerSeries (Fin N) Qq} (hF : Admissible F)
+    (hG : Admissible G) : potential hF = potential hG ↔ ∀ n, valOne (hF.L n) = valOne (hG.L n) :=
+  sorry
+
+-- unit test `pochhammer_constant_m_two` (computation): for (t;q)_∞ and m = 2,
+-- U₂ = (1 + t^{1/2})^{-1/2}, i.e. u₂(T) = -½ log(1+T); the printed (67) gives (1 - t^{1/2})^{1/2}.
+example (h : Admissible (poch (N := 1) 1 (Finsupp.single 0 1))) :
+    logConstantSeries 2 h = -(1 / 2 : CyclotomicField 2 ℚ) •
+      mvLog (1 + MvPowerSeries.X 0) := sorry
+
+-- unit test `same_potential_different_series` (non-example for "V determines F"):
+example (h₁ : Admissible (poch (N := 1) 1 (Finsupp.single 0 1)))
+    (h₂ : Admissible (poch (N := 1) q (Finsupp.single 0 1))) :
+    potential h₁ = potential h₂ ∧ logDiscriminantSeries h₁ ≠ logDiscriminantSeries h₂ := sorry
+
+
+/-- `Φ_m(0, x) = 1`. -/
+theorem admissibleExpansion_zero (m : ℕ) [NeZero m] {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) :
+    MvPowerSeries.constantCoeff (admissibleExpansion m F) = 1 := sorry
+
+-- test `pochhammer_potential` (computation): for `(t;q)_∞` the potential is `Li₂(t)`
+example (h : Admissible (poch (N := 1) 1 (Finsupp.single 0 1))) :
+    potential h = polylogAt 2 (1 : ℚ) (Finsupp.single 0 1) := sorry
+
+-- test `constant_term_one` (degenerate)
+example (m : ℕ) [NeZero m] : admissibleExpansion m (1 : MvPowerSeries (Fin N) Qq) = 1 := sorry
+
+-- Test polar_part_three: not stated separately; it is the case `A = (3)`, `m = 2` of
+-- `admissibleExpansion_polar` above, and needs the coefficients `V = t + 5t²/4 + 28t³/9 + …` of `potential`.
+
+/-! ### The Dwork quotient (node `HB.8/dwork-quotient-admissible`) -/
+
+/-- `c ∈ K` is `p`-integral: a quotient of an algebraic integer by an integer prime to `p`. -/
+def PIntegral {K : Type*} [Field K] [NumberField K] (p : ℕ) (c : K) : Prop :=
+  ∃ a : NumberField.RingOfIntegers K, ∃ s : ℤ, ¬ (p : ℤ) ∣ s ∧ c = (a : K) / s
+
+/-- The Frobenius `q ↦ q^p` of `ℚ(q)`. -/
+def frobQ (p : ℕ) : Qq →+* Qq := sorry
+
+/-- GSWZ Lemma 2.5 (75), in `T = t^{1/m}` and after multiplying by `x`: every coefficient of
+`x · [log F(T^p, q^p) - p log F(T, q)]` at `q = ζ_m + x` lies in `p ℤ_(p)[ζ_m]`. -/
+theorem Admissible.dwork (m p : ℕ) [NeZero m] [Fact p.Prime] (hmp : Nat.Coprime m p)
+    {F : MvPowerSeries (Fin N) Qq} (hF : Admissible F) (e : Idx N) (j : ℤ) :
+    ∃ c : CyclotomicField m ℚ, PIntegral p c ∧
+      (MvPowerSeries.coeff e
+        (MvPowerSeries.C (HahnSeries.single 1 1) *
+          MvPowerSeries.map (expandAt (zetaQ m))
+            (mvLog (MvPowerSeries.map (frobQ p)
+                (MvPowerSeries.subst (fun i => (MvPowerSeries.X i : MvPowerSeries (Fin N) Qq) ^ p) F)) -
+              (p : Qq) • mvLog F))).coeff j = p * c := sorry
+
+-- acceptance `dwork_fails_p_dividing_m` (non-example): for F = (t;q)_∞, m = p = 2 the difference
+-- has no pole at x = 0 but its coefficient 2/(1 - q) = 1/(1 - x/2) at t^{1/2} is not 2-integral.
+
+/-! ### The series F_A (node `HB.8/series-F-A`) -/
+
+/-- The diagonal pairing `diag(A)·n`. -/
+def diagDot (A : Matrix (Fin N) (Fin N) ℤ) (n : Idx N) : ℤ := ∑ j, A j j * n j
+
+/-- The quadratic form `nᵀ A n`. -/
+def quadForm (A : Matrix (Fin N) (Fin N) ℤ) (n : Idx N) : ℤ := ∑ i, ∑ j, (n i : ℤ) * A i j * n j
+
+/-- GSWZ (31). -/
+def seriesFA (A : Matrix (Fin N) (Fin N) ℤ) : MvPowerSeries (Fin N) Qq := fun n =>
+  (-1) ^ (diagDot A n).natAbs * q ^ ((quadForm A n + diagDot A n) / 2) /
+    ∏ j, ∏ r ∈ Finset.range (n j), (1 - q ^ (r + 1))
+
+theorem seriesFA_constantCoeff (A : Matrix (Fin N) (Fin N) ℤ) :
+    MvPowerSeries.constantCoeff (seriesFA A) = 1 := sorry
+
+theorem even_quadForm_add_diagDot (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (n : Idx N) :
+    Even (quadForm A n + diagDot A n) := sorry
+
+/-- GSWZ (33). -/
+theorem seriesFA_qdiff (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (j : Fin N) :
+    seriesFA A - shift j (seriesFA A) =
+      MvPowerSeries.C ((-1) ^ (A j j).natAbs * q ^ (A j j)) * MvPowerSeries.X j *
+        MvPowerSeries.rescale (fun i => q ^ (A i j)) (seriesFA A) := sorry
+
+theorem seriesFA_unique (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (G : MvPowerSeries (Fin N) Qq) (h0 : MvPowerSeries.constantCoeff G = 1)
+    (h : ∀ j, G - shift j G = MvPowerSeries.C ((-1) ^ (A j j).natAbs * q ^ (A j j)) *
+      MvPowerSeries.X j * MvPowerSeries.rescale (fun i => q ^ (A i j)) G) :
+    G = seriesFA A := sorry
+
+/-- GSWZ (78). -/
+theorem seriesFA_reflect (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) :
+    MvPowerSeries.map qInv.toRingHom (seriesFA (1 - A)) = seriesFA A := sorry
+
+-- unit test `rank_one_three` (computation)
+example : seriesFA (N := 1) !![3] - shift 0 (seriesFA !![3]) +
+    MvPowerSeries.C (q ^ 3) * MvPowerSeries.X 0 *
+      MvPowerSeries.rescale (fun _ => q ^ 3) (seriesFA !![3]) = 0 := sorry
+
+-- unit test `zero_matrix` (degenerate)
+example : seriesFA (N := 2) 0 * (poch 1 (Finsupp.single 0 1) * poch 1 (Finsupp.single 1 1)) = 1 :=
+  sorry
+
+-- unit test `reflection_three` (computation)
+example : MvPowerSeries.map qInv.toRingHom (seriesFA (N := 1) !![-2]) = seriesFA !![3] := sorry
+
+
+/-- `F₀ = ∏ⱼ (tⱼ;q)_∞⁻¹`. -/
+theorem seriesFA_zero :
+    seriesFA (0 : Matrix (Fin N) (Fin N) ℤ) * ∏ j, poch 1 (Finsupp.single j 1) = 1 := sorry
+
+-- test `sign_normalisation` (non-example to dropping the sign): `F_(1) = (qt;q)_∞`
+example : seriesFA (N := 1) !![1] = poch q (Finsupp.single 0 1) := sorry
+
+/-! ### Ratios and the corrected Riccati system (new node `HB.8/ratio-riccati-system`) -/
+
+/-- `G_j = F_A(σ_j t)/F_A(t)`. -/
+def ratioFA (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) : MvPowerSeries (Fin N) Qq :=
+  shift j (seriesFA A) * (seriesFA A)⁻¹
+
+/-- The CORRECTED system replacing GSWZ (89):
+`1 - G_j = (-q)^{A_jj} t_j · F_A(∏_i σ_i^{A_ij} t)/F_A(t)`. -/
+theorem one_sub_ratioFA (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (j : Fin N) :
+    1 - ratioFA A j = MvPowerSeries.C ((-q) ^ (A j j)) * MvPowerSeries.X j *
+      (MvPowerSeries.rescale (fun i => q ^ (A i j)) (seriesFA A) * (seriesFA A)⁻¹) := sorry
+
+/-- The ratios have integral Laurent-polynomial coefficients. -/
+theorem ratioFA_coeff_mem (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (j : Fin N)
+    (e : Idx N) : ∃ P : ℤ[T;T⁻¹], MvPowerSeries.coeff e (ratioFA A j) = evalQPow P 1 := sorry
+
+/-! ### Integral plethystic logarithm over ℤ[q^{±1}] (new node `HB.8/integral-plethystic-logarithm`) -/
+
+/-- `∑_{n ≠ 0} ∑_{l ≥ 1} M_n(q^l) t^{l n} / l`. -/
+def plethysticLog (M : Idx N → ℤ[T;T⁻¹]) : MvPowerSeries (Fin N) Qq :=
+  fun e => ∑ l ∈ (Finset.Icc 1 (Finsupp.degree e)).filter (fun l => ∀ i, l ∣ e i),
+    evalQPow (M (Idx.divNat e l)) l / (l : Qq)
+
+theorem exists_unique_plethysticLog (G : MvPowerSeries (Fin N) Qq)
+    (hG : MvPowerSeries.constantCoeff G = 1)
+    (hint : ∀ e, ∃ P : ℤ[T;T⁻¹], MvPowerSeries.coeff e G = evalQPow P 1) :
+    ∃! M : Idx N → ℤ[T;T⁻¹], M 0 = 0 ∧ mvLog G = plethysticLog M := sorry
+
+/-! ### Pole location (new node `HB.8/pole-location-lemma`) -/
+
+/-- If `L · [n_i]_q` is an integral Laurent polynomial for every `i` with `n_i ≠ 0` and `L` is not,
+then `L` has a pole at a primitive `a`-th root of unity with `1 < a` and `a ∣ n_i` for all `i`. -/
+theorem pole_of_not_laurent (n : Idx N) (hn : n ≠ 0) (L : Qq)
+    (h : ∀ i, n i ≠ 0 → ∃ P : ℤ[T;T⁻¹], L * ∑ r ∈ Finset.range (n i), q ^ r = evalQPow P 1)
+    (hL : ¬ ∃ P : ℤ[T;T⁻¹], L = evalQPow P 1) :
+    ∃ a : ℕ, 1 < a ∧ (∀ i, a ∣ n i) ∧
+      Polynomial.cyclotomic a ℚ ∣ RatFunc.denom L := sorry
+
+/-! ### The potential lemma and Theorem 6 (nodes `HB.8/potential-pole-lemma`,
+`HB.8/finite-support-theorem`) -/
+
+/-- The `x^{-1}` coefficient (in `LaurentSeries`) of each `t`-coefficient. -/
+def residueSeries {K : Type*} [Field K] (G : MvPowerSeries (Fin N) (LaurentSeries K)) :
+    MvPowerSeries (Fin N) K :=
+  fun e => (MvPowerSeries.coeff e G).coeff (-1)
+
+/-- GSWZ Lemma 2.6 (79): `log F_A(t, ζ_m + x) = ζ_m V(t^m)/(m² x) + O(x⁰)` with one `V`. -/
+theorem potential_pole_lemma (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) :
+    ∃ V : MvPowerSeries (Fin N) ℚ, ∀ (m : ℕ) [NeZero m],
+      residueSeries (mvLog (admissibleExpansion m (seriesFA A))) =
+        MvPowerSeries.C (zetaQ m /
+          (m : CyclotomicField m ℚ) ^ 2) * substPow m V := sorry
+
+/-- GSWZ Theorem 6. -/
+theorem seriesFA_admissible (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) :
+    Admissible (seriesFA A) := sorry
+
+-- test `rank_one_three_L` (computation)
+example (h : Admissible (seriesFA (N := 1) !![3])) :
+    h.L (Finsupp.single 0 1) = LaurentPolynomial.T 3 ∧
+    h.L (Finsupp.single 0 2) = LaurentPolynomial.T 7 ∧
+    h.L (Finsupp.single 0 3) =
+      LaurentPolynomial.T 10 + LaurentPolynomial.T 11 + LaurentPolynomial.T 13 := sorry
+
+-- acceptance `dt_exponent_twenty` (computation, stress test)
+example (h : Admissible (seriesFA (N := 1) !![3])) : (h.L (Finsupp.single 0 20)).coeff 142 = 44549701024 :=
+  sorry
+
+-- acceptance `dt_support_not_exact` (non-example to the word "exactly")
+example (h : Admissible (seriesFA (N := 1) !![3])) : (h.L (Finsupp.single 0 3)).coeff 12 = 0 := sorry
+
+/-! ### The t-deformed Nahm equations (node `HB.8/t-deformed-nahm-equations`) -/
+
+/-- The unique solution `z(t) ∈ (1 + t ℤ[[t]])^N` of `1 - z_j = (-1)^{A_jj} t_j ∏_i z_i^{A_ij}`
+(GSWZ (34) with the index corrected to `z_i`). -/
+def tNahmSolution (A : Matrix (Fin N) (Fin N) ℤ) : Fin N → (MvPowerSeries (Fin N) ℤ)ˣ := sorry
+
+theorem tNahmSolution_spec (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) :
+    1 - (tNahmSolution A j : MvPowerSeries (Fin N) ℤ) =
+      MvPowerSeries.C ((-1) ^ (A j j).natAbs) * MvPowerSeries.X j *
+        ((∏ i, tNahmSolution A i ^ (A i j) : (MvPowerSeries (Fin N) ℤ)ˣ) : MvPowerSeries (Fin N) ℤ) :=
+  sorry
+
+theorem tNahmSolution_constantCoeff (A : Matrix (Fin N) (Fin N) ℤ) (j : Fin N) :
+    MvPowerSeries.constantCoeff (tNahmSolution A j : MvPowerSeries (Fin N) ℤ) = 1 := sorry
+
+/-- GSWZ (36): `δ(t) = ∏ z_j^{-A_jj} det(diag(1 - z) A + diag z)`. -/
+def tDiscriminant (A : Matrix (Fin N) (Fin N) ℤ) : MvPowerSeries (Fin N) ℤ :=
+  ((∏ j, tNahmSolution A j ^ (-A j j) : (MvPowerSeries (Fin N) ℤ)ˣ) : MvPowerSeries (Fin N) ℤ) *
+    Matrix.det (Matrix.diagonal (fun j => 1 - (tNahmSolution A j : MvPowerSeries (Fin N) ℤ)) *
+        A.map (Int.castRingHom _) +
+      Matrix.diagonal (fun j => (tNahmSolution A j : MvPowerSeries (Fin N) ℤ)))
+
+theorem tDiscriminant_constantCoeff (A : Matrix (Fin N) (Fin N) ℤ) :
+    MvPowerSeries.constantCoeff (tDiscriminant A) = 1 := sorry
+
+-- unit test `rank_one_three_solution` (computation): 1, 1, 3, 12, 55, 273
+example : ∀ k < 6, MvPowerSeries.coeff (Finsupp.single 0 k)
+    (tNahmSolution (N := 1) !![3] 0 : MvPowerSeries (Fin 1) ℤ) = [1, 1, 3, 12, 55, 273].getD k 0 :=
+  sorry
+
+-- unit test `zero_matrix_discriminant` (degenerate; replaces the false "δ = 1")
+example : tDiscriminant (N := 2) 0 = (1 - MvPowerSeries.X 0) * (1 - MvPowerSeries.X 1) := sorry
+
+-- unit test `rank_one_three_discriminant` (computation): δ = 1 - 5t - 3t² - 10t³ - 42t⁴ - …
+example : ∀ k < 5, MvPowerSeries.coeff (Finsupp.single 0 k) (tDiscriminant (N := 1) !![3]) =
+    [1, -5, -3, -10, -42].getD k 0 := sorry
+
+
+/-- Uniqueness: a solution in `1 + t ℤ⟦t⟧` is `z(t)`. -/
+theorem tNahmSolution_unique (A : Matrix (Fin N) (Fin N) ℤ) (z : Fin N → (MvPowerSeries (Fin N) ℤ)ˣ)
+    (hz0 : ∀ j, MvPowerSeries.constantCoeff (z j : MvPowerSeries (Fin N) ℤ) = 1)
+    (hz : ∀ j, 1 - (z j : MvPowerSeries (Fin N) ℤ) =
+      MvPowerSeries.C ((-1) ^ (A j j).natAbs) * MvPowerSeries.X j *
+        ((∏ i, z i ^ (A i j) : (MvPowerSeries (Fin N) ℤ)ˣ) : MvPowerSeries (Fin N) ℤ)) :
+    z = tNahmSolution A := sorry
+
+-- jacobian_eq_discriminant: not stated; it needs the Jacobian of the system in the variables `z`, i.e.
+-- partial derivatives of power series in the unknowns, which are not set up here.
+
+-- Test index_slip: not stated; it compares with the solution of the misprinted system
+-- `1 - z_j = ±t_j z_j^{Σᵢ A_ij}`, which is not defined here.
+
+/-! ### The rings S and S^(m) (node `HB.8/ring-S-and-its-level-m-variants`) -/
+
+/-- The ring `S` of GSWZ (35): variables `t_j, t_j', z_j, z_j', w` with `t t' = 1`, `z z' = 1`,
+the equations (34) and `w² δ = 1`. The relations are written with nonnegative exponents. -/
+abbrev SVars (N : ℕ) : Type := (Fin N ⊕ Fin N) ⊕ ((Fin N ⊕ Fin N) ⊕ Unit)
+
+def ringSRelations (A : Matrix (Fin N) (Fin N) ℤ) : Set (MvPolynomial (SVars N) ℤ) := sorry
+
+def ringS (A : Matrix (Fin N) (Fin N) ℤ) : Type :=
+  MvPolynomial (SVars N) ℤ ⧸ Ideal.span (ringSRelations A)
+
+instance (A : Matrix (Fin N) (Fin N) ℤ) : CommRing (ringS A) :=
+  inferInstanceAs (CommRing (MvPolynomial (SVars N) ℤ ⧸ Ideal.span (ringSRelations A)))
+
+instance ringSAlgebra (A : Matrix (Fin N) (Fin N) ℤ) : Algebra (MvPolynomial (Fin N) ℤ) (ringS A) :=
+  sorry
+
+/-- After inverting 2, `S` is étale over `ℤ[t]` (GSWZ after (36)). -/
+theorem ringS_etale (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) :
+    Algebra.Etale (MvPolynomial (Fin N) ℤ) (Localization.Away (2 : ringS A)) := sorry
+
+
+-- ringSm: not stated; needs `ζ_m` and `t^{±1/m}` adjoined to `ringS A` (a tensor product with `ℤ[ζ_m]` and a
+-- Kummer extension).
+-- ringS_toPowerSeries: not stated; its target is a completion `ℤ[1/2]((t))` in which `t⁻¹` exists.
+-- ringS_specialise: not stated; its target `R[δ^{-1/2}]` is HB.3/general-nondegenerate-class, not stated in
+-- the HB.3–HB.4 part.
+
+-- test `ringS_zero_matrix` (degenerate): for `A = 0`, `z = 1 - t` in `S`
+example : (Ideal.Quotient.mk (Ideal.span (ringSRelations (N := 1) 0))
+      (MvPolynomial.X (Sum.inr (Sum.inl (Sum.inl 0)))) : ringS (N := 1) 0) =
+    Ideal.Quotient.mk _ (1 - MvPolynomial.X (Sum.inl (Sum.inl 0))) := sorry
+
+-- Test ringS_etale_three: not stated; it needs the element `δ` of `ringS !![3]`, whose presentation
+-- `ringSRelations` is left abstract here.
+-- Test ringS_not_etale_without_delta: not stated; it needs the ring before inverting `δ`.
+
+/-! ### Level m admissibility, CORRECTED (node `HB.8/level-m-admissible-series`) -/
+
+/-- The allowed denominators of the corrected definition: `Φ_d` with `m ∤ d`, or `m ∣ d` and
+`gcd(d/m, m) > 1`. GSWZ Definition 2.8 allows only `m ∤ d`, which Theorem 7 violates. -/
+def LevelAllowed (m d : ℕ) : Prop := ¬ m ∣ d ∨ (m ∣ d ∧ 1 < Nat.gcd (d / m) m)
+
+/-- `L ∈ ℤ[1/m, q^{±1}, Φ_d^{-1} : LevelAllowed m d]`, as an element of `ℚ(q)`. -/
+def InLevelRing (m : ℕ) (L : Qq) : Prop :=
+  ∃ (P : ℤ[T;T⁻¹]) (k : ℕ) (D : Finset ℕ) (e : ℕ → ℕ), (∀ d ∈ D, 0 < d ∧ LevelAllowed m d) ∧
+    L * (m : Qq) ^ k * ∏ d ∈ D, (algebraMap (Polynomial ℚ) Qq (Polynomial.cyclotomic d ℚ)) ^ e d =
+      evalQPow P 1
+
+/-- Lemma 2.7 (90) for general `N`: `log F = -∑_n ∑_{(l,m)=1} L_n(q^l) t^{l n}/(l (1 - q^{m l}))`. -/
+def levelLog (m : ℕ) (L : Idx N → Qq) : MvPowerSeries (Fin N) Qq :=
+  fun e => -∑ l ∈ (Finset.Icc 1 (Finsupp.degree e)).filter (fun l => Nat.Coprime l m ∧ ∀ i, l ∣ e i),
+    RatFunc.eval RatFunc.C (q ^ l) (L (Idx.divNat e l)) /
+      ((l : Qq) * (1 - q ^ (m * l)))
+
+def LevelAdmissible (m : ℕ) [NeZero m] (F : MvPowerSeries (Fin N) Qq) : Prop :=
+  MvPowerSeries.constantCoeff F = 1 ∧
+    ∃ L : Idx N → Qq, L 0 = 0 ∧ mvLog F = levelLog m L ∧ (∀ n, InLevelRing m (L n)) ∧
+      ∀ n, ∃ r : ℚ, (∃ k : ℕ, ∃ z : ℤ, r = z / (m : ℚ) ^ k) ∧
+        RatFunc.eval (algebraMap ℚ (CyclotomicField m ℚ))
+          (zetaQ m) (L n) =
+          algebraMap ℚ (CyclotomicField m ℚ) r
+
+theorem levelAdmissible_one_iff (F : MvPowerSeries (Fin N) Qq) :
+    LevelAdmissible 1 F ↔ Admissible F := sorry
+
+-- unit test `pochhammer_level_m` (compatibility): (t;q²)_∞ is level-2 admissible in the CORRECTED
+-- sense (its L₂ = 1/(2(1+q²)) has a Φ₄-pole, allowed since gcd(4/2, 2) = 2 > 1; forbidden by GSWZ (93))
+example : LevelAdmissible 2 (mvExp (N := 1) (fun e => -∑ l ∈ (Finset.Icc 1 (e 0)).filter
+    (fun l => e = Finsupp.single 0 l), 1 / ((l : Qq) * (1 - q ^ (2 * l))))) := sorry
+
+-- unit test `building_block_m_two` (computation): (t;q²)_∞ (t²;q⁴)_∞^{-1/2} has L₁ = 1, L_n = 0 (n ≥ 2)
+-- unit test `value_condition` (non-example): m = 3, L₁ = q (the block (qt;q³)_∞(q³t³;q⁹)_∞^{-1/3})
+-- satisfies membership but L₁(ζ₃) = ζ₃ ∉ ℤ[1/3].
+
+
+/-- The `L_n` of a level-`m` admissible series. -/
+def LevelAdmissible.L {m : ℕ} [NeZero m] {F : MvPowerSeries (Fin N) Qq} (h : LevelAdmissible m F) :
+    Idx N → Qq :=
+  h.2.choose
+
+theorem LevelAdmissible.L_unique {m : ℕ} [NeZero m] {F : MvPowerSeries (Fin N) Qq}
+    (h : LevelAdmissible m F) (L : Idx N → Qq) (h0 : L 0 = 0) (hL : mvLog F = levelLog m L) :
+    L = h.L := sorry
+
+-- levelBuildingBlock_eq_prod: not stated; it needs Pochhammer symbols with base `q^{dm}` and rational powers
+-- `(·)^{μ(d)/d}` of power series (as `mvExp` of a multiple of `mvLog`), which are not set up here.
+
+-- test `level_one` (characterisation): `levelAdmissible_one_iff` above.
+
+/-! ### Congruence sums (new node `HB.8/congruence-sum-series`) and corrected Theorem 7 -/
+
+/-- GSWZ (32): `F_{A,m,k}(t,q) = ∑_{n ≡ k (m)} (-1)^{diag(A)(n-k)} q^{(nᵀAn - kᵀAk + diag(A)(n-k))/2}
+t^{n-k} / ∏_j (q^{k_j+1};q)_{n_j-k_j}`. -/
+def congruenceSum (A : Matrix (Fin N) (Fin N) ℤ) (m : ℕ) (k : Idx N) : MvPowerSeries (Fin N) Qq :=
+  fun e =>
+    let n : Idx N := e + k
+    if ∀ j, m ∣ e j then
+      (-1) ^ (diagDot A e).natAbs * q ^ ((quadForm A n - quadForm A k + diagDot A e) / 2) /
+        ∏ j, ∏ r ∈ Finset.range (e j), (1 - q ^ (k j + 1 + r))
+    else 0
+
+/-- The order-`m` equation with the CORRECT sign `(-1)^{A_jj m}` (GSWZ (98) omits it, (137) and
+(165) print `(-1)^{A_jj m(m+1)/2}`), for `H = t^k F_{A,m,k}`. -/
+theorem congruenceSum_qdiff (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm) (m : ℕ) [NeZero m]
+    (k : Idx N) (hk : ∀ j, k j < m) (j : Fin N) :
+    let H := MvPowerSeries.monomial k 1 * congruenceSum A m k
+    ∑ ℓ ∈ Finset.range (m + 1),
+        MvPowerSeries.C ((-1) ^ ℓ * q⁻¹ ^ (ℓ * (ℓ - 1) / 2) *
+          ((∏ r ∈ Finset.range m, (1 - q⁻¹ ^ (r + 1))) /
+            ((∏ r ∈ Finset.range ℓ, (1 - q⁻¹ ^ (r + 1))) *
+             ∏ r ∈ Finset.range (m - ℓ), (1 - q⁻¹ ^ (r + 1))))) *
+          (⇑(shift j))^[ℓ] H =
+      MvPowerSeries.C ((-1) ^ ((A j j).natAbs * m) * q ^ (A j j * ((m * (m + 1) / 2 : ℕ) : ℤ))) *
+        MvPowerSeries.X j ^ m * MvPowerSeries.rescale (fun i => q ^ ((m : ℤ) * A i j)) H := sorry
+
+/-- Corrected GSWZ Theorem 7, in `T = t^{1/m}`: `F_{A,m,k}(T, q)` is a series in `T^m`;
+the statement is that `F_{A,m,k}(t^{1/m}, q)` is level-`m` admissible in the corrected sense. -/
+theorem congruenceSum_levelAdmissible (A : Matrix (Fin N) (Fin N) ℤ) (hA : A.IsSymm)
+    (m : ℕ) [NeZero m] (k : Idx N) (hk : ∀ j, k j < m) :
+    ∃ G : MvPowerSeries (Fin N) Qq, LevelAdmissible m G ∧
+      MvPowerSeries.subst (fun i => (MvPowerSeries.X i : MvPowerSeries (Fin N) Qq) ^ m) G =
+        congruenceSum A m k := sorry
+
+-- test `congruence_sum_needs_corrected_ring` (non-example to GSWZ (93)): for `A = 0`, `m = 2`, `k = 0` the
+-- coefficient `L₂` of `F_{0,2,0}(t^{1/2},q) = ∑_j t^j/(q;q)_{2j}` has the factor `Φ₄` in its denominator;
+-- the series is level-2 admissible in the corrected sense only.
+example : ∃ G : MvPowerSeries (Fin 1) Qq, LevelAdmissible 2 G ∧
+    MvPowerSeries.subst (fun i => (MvPowerSeries.X i : MvPowerSeries (Fin 1) Qq) ^ 2) G =
+      congruenceSum 0 2 0 := sorry
+
+/-- `F_{A,1,0} = F_A`. -/
+theorem congruenceSum_one (A : Matrix (Fin N) (Fin N) ℤ) : congruenceSum A 1 0 = seriesFA A := sorry
+
+-- test `m_one` (degenerate): with `congruenceSum_one`, the system `congruenceSum_qdiff` at `m = 1` is
+-- `seriesFA_qdiff`.
+
+-- test `zero_matrix_m_two` (computation): `F_{0,2,0} = (1/(t;q)_∞ + 1/(-t;q)_∞)/2`
+example : (2 : MvPowerSeries (Fin 1) Qq) * congruenceSum 0 2 0 =
+    (poch 1 (Finsupp.single 0 1))⁻¹ +
+      (MvPowerSeries.rescale (fun _ => (-1 : Qq)) (poch 1 (Finsupp.single 0 1)))⁻¹ := sorry
+
+-- congruenceSum_unique: not stated; it needs the solution space `t^k K((x))⟦t^m⟧` of the order-`m` system.
+-- congruenceSum_split: not stated; it needs the weights `w_{k'}` of the splitting into classes modulo `am`.
+-- Test sign_m_three: not stated; it checks that the printed (98) fails at order `t⁴`, and the printed
+-- system is not defined here (`congruenceSum_qdiff` has the corrected sign).
+
+/-! ### The Gaussian side of GSWZ §2.5–2.7 and the remaining HB.8 nodes -/
+
+-- These need the formal Gaussian bracket with coefficients in `ℚ(ζ_m, z^{1/m})⟦t⟧` and a loop parameter
+-- (GSWZ (115)-(118)); the HB.3–HB.4 part has `formalGaussian` for real polynomial integrands only.
+-- HB.8/fgi-collection: not stated; needs that bracket.
+-- fgiFactor: not stated; needs the regularised Pochhammer factor ψ of GSWZ (Psikdef) over that ring.
+-- fgiFactor_mem: not stated; needs fgiFactor.
+-- fgiIntegral: not stated; needs the bracket.
+-- fgiIntegral_periodic: not stated; needs fgiIntegral (it is HB.8/periodicity-of-the-gaussian-integrals).
+-- fgiCollection: not stated; needs fgiIntegral.
+-- fgiCollection_prefactor: not stated; needs fgiCollection.
+-- fgiRefined: not stated; needs fgiIntegral.
+-- Test m_one: not stated; needs fgiCollection (the `m = 1` case of HB.8/fgi-collection).
+-- Test critical_point: not stated; needs the phase function of GSWZ (115).
+-- Test lambda_determinant: not stated; needs `Λ(t)`, which is defined from fgiFactor.
+-- Test refined_relation: not stated; needs fgiRefined and `CS_{A,m,k}`.
+-- HB.8/periodicity-of-the-gaussian-integrals: not stated; needs fgiIntegral.
+-- HB.8/q-difference-for-the-gaussian-collection: not stated; needs fgiCollection.
+-- HB.8/gaussian-pieces-are-power-series-in-t: not stated; needs fgiRefined.
+-- HB.8/identification-theorem: not stated; needs fgiRefined and `CS_{A,m,k}` (GSWZ Theorem 8).
+-- HB.8/fgi-coefficients-in-S: not stated; needs fgiCollection and the map `ringS A → ℚ(z)⟦t⟧`.
+-- HB.8/residues-of-congruence-sums: not stated; needs the expansion of `congruenceSum` at `ζ_{am}` for
+--   `gcd(a, m) > 1` (the corrected `admissibleExpansion_polar` at level `m`).
+-- HB.8/congruence-sums-are-level-m-admissible: `congruenceSum_levelAdmissible` above (corrected Theorem 7).
+-- HB.8/wkb-algebraicity: not stated; needs the WKB recursion of GSWZ §2.6 for the ratios `ratioFA`.
+-- HB.8/equality-of-invariants: not stated; needs fgiCollection (its potential, discriminant and constants).
+-- HB.8/potential-determines-the-matrix: not stated; it needs the Hessian identity (169) in the variables
+--   `log z`, i.e. derivatives of `potential` along `tNahmSolution`.
+-- HB.8/acceptance-rank-one: its displays are the tests `rank_one_three`, `rank_one_three_solution`,
+--   `rank_one_three_discriminant` and `rank_one_three_L` above; the product identity is not stated.
+-- HB.8/dwork-quotient-level-m: not stated; the level-`m` analogue of `Admissible.dwork` needs the Frobenius
+--   `q ↦ q^p` on the corrected level ring.
+-- HB.8/admissible-recognition: not stated; it recognises admissibility from the expansions at all roots
+--   of unity, and needs `admissibleExpansion` at every level.
+
+end HabiroNahmSeries.HB8
+
+end
+
+end PartHB8
+
+section PartHB910
+
+/-! # HB.9–HB.10: Habiro integrality and the worked examples (checker D)
+
+The rank-one series, the Dwork difference at `q = 1 + x`, the coefficient ring and its Frobenius,
+and the numerical facts behind the examples (tests of the named nodes). -/
+
+open PowerSeries
+open scoped PowerSeries.WithPiTopology
+
+namespace HabiroNahmSeries.HB910
+
+/-- The rank-one GSWZ series `F_A(t,q) = Σ (-1)^{an} q^{(an²+an)/2} tⁿ/(q;q)_n` for `a ≥ 0`,
+as a power series in `t` over `ℤ⟦q⟧`. -/
+noncomputable def qFactorial (n : ℕ) : PowerSeries ℤ := ∏ i ∈ Finset.range n, (1 - X ^ (i + 1))
+
+noncomputable def rankOneSeries (a : ℕ) : PowerSeries (PowerSeries ℤ) :=
+  PowerSeries.mk fun n =>
+    (-1) ^ (a * n) * X ^ ((a * n ^ 2 + a * n) / 2) * invOfUnit (qFactorial n) 1
+
+/-- `HB.10/rank-one-product-identities` (i): Euler, `F_0 = (t;q)_∞⁻¹`. -/
+theorem rankOneSeries_zero_mul_pochhammer :
+    HasProd (fun j : ℕ => (1 - C (X ^ j) * X : PowerSeries (PowerSeries ℤ)))
+      (invOfUnit (rankOneSeries 0) 1) := by sorry
+
+/-- `HB.10/rank-one-product-identities` (ii): Euler, `F_1 = (qt;q)_∞`. -/
+theorem rankOneSeries_one :
+    HasProd (fun j : ℕ => (1 - C (X ^ (j + 1)) * X : PowerSeries (PowerSeries ℤ)))
+      (rankOneSeries 1) := by sorry
+
+/-- `HB.10/rank-one-product-identities` (iii): the q-difference equation (33) for `N = 1`. -/
+theorem rankOneSeries_qdiff (a : ℕ) :
+    rankOneSeries a - rescale (X : PowerSeries ℤ) (rankOneSeries a) =
+      C ((-1) ^ a * X ^ a) * X * rescale ((X : PowerSeries ℤ) ^ a) (rankOneSeries a) := by sorry
+
+/-- The power-series solution of `1 - z = (-1)^a t z^a`, `z(0) = 1`. -/
+noncomputable def zSeries (a : ℕ) : PowerSeries ℤ := sorry
+
+theorem zSeries_spec (a : ℕ) : 1 - zSeries a = (-1) ^ a * X * zSeries a ^ a := by sorry
+
+/-- `HB.10/rank-one-product-identities` (iv), test: GSWZ (239). -/
+example : (Finset.range 7).image (fun n => coeff n (zSeries 3)) = {1, 1, 3, 12, 55, 273, 1428} := by sorry
+
+/-! ### Theorem 4 in rank one, `m = 1`, in its p-integral form -/
+
+/-- `F_A(t, 1+x)` as a power series in `t` over Laurent series in `x` (`a : ℤ`). -/
+noncomputable def atOne (a : ℤ) (q : RatFunc ℚ) : PowerSeries (LaurentSeries ℚ) :=
+  PowerSeries.mk fun n =>
+    ((((-1 : RatFunc ℚ) ^ (a * n).natAbs) * q ^ ((a * n ^ 2 + a * n) / 2) /
+      ∏ i ∈ Finset.range n, (1 - q ^ (i + 1)) : RatFunc ℚ) : LaurentSeries ℚ)
+
+/-- The Dwork difference `log F(t^p, q^p) - p log F(t, q)` at `q = 1 + x`. -/
+noncomputable def dworkDiff (a : ℤ) (p : ℕ) : PowerSeries (LaurentSeries ℚ) :=
+  logOf (PowerSeries.mk fun n => if p ∣ n then coeff (n / p) (atOne a ((1 + RatFunc.X) ^ p)) else 0)
+    - (p : LaurentSeries ℚ) • logOf (atOne a (1 + RatFunc.X))
+
+/-- `HB.9/frobenius-congruence`, test (necessary condition of GSWZ (39), `N = m = 1`, `p` odd):
+the pole is at most simple and every coefficient is `p` times a `p`-adic integer. -/
+theorem dworkDiff_pIntegral (a : ℤ) (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (j : ℕ) (r : ℤ) :
+    (r < -1 → (coeff j (dworkDiff a p)).coeff r = 0) ∧
+      ‖(((coeff j (dworkDiff a p)).coeff r / p : ℚ) : ℚ_[p])‖ ≤ 1 := by sorry
+
+/-- The pole is really there: the `x⁻¹` coefficient at `t¹` is `-p` for `a = 1`
+(rules out the reading `p·x`). -/
+example (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) : (coeff 1 (dworkDiff 1 p)).coeff (-1) = -p := by sorry
+
+/-! ### The coefficient ring, its Frobenius and the specialisation (rank one) -/
+
+/-- `ℤ[t^{±1}]`-algebra `ℤ[t^{±1}][z]/(1 - z - (-1)^a t z^a)` before inverting `z`, `δ`,
+adjoining `δ^{-1/2}`. -/
+noncomputable def nahmRingPre (a : ℕ) : Type :=
+  AdjoinRoot (1 - Polynomial.X - Polynomial.C ((-1) ^ a * LaurentPolynomial.T 1) * Polynomial.X ^ a :
+    Polynomial (LaurentPolynomial ℤ))
+
+/-- `HB.9/frobenius-on-the-coefficient-ring`: the Frobenius lift on the `p`-adic completion of the
+coefficient ring (`S` with `δ`, `z` inverted and `δ^{-1/2}` adjoined), `t ↦ t^p`. -/
+noncomputable def frobeniusCoeff (S : Type) [CommRing S] (p : ℕ) :
+    AdicCompletion (Ideal.span {(p : S)}) S →+* AdicCompletion (Ideal.span {(p : S)}) S := sorry
+
+-- test `frobeniusCoeff_congr` (compatibility): the case `A = (3)`, `p = 7` of the lemma below.
+theorem frobeniusCoeff_sub_pow_mem (S : Type) [CommRing S] (p : ℕ)
+    (s : AdicCompletion (Ideal.span {(p : S)}) S) :
+    frobeniusCoeff S p s - s ^ p ∈
+      Ideal.span {(p : AdicCompletion (Ideal.span {(p : S)}) S)} := by sorry
+
+/-- `HB.9/specialisation-at-one`, test (A = (3)): `(2z²+3z-9)·δ = 27t - 4` over `ℚ(t)`. -/
+example :
+    let P : Polynomial (RatFunc ℚ) := Polynomial.C RatFunc.X * Polynomial.X ^ 3 - Polynomial.X + 1
+    let z : AdjoinRoot P := AdjoinRoot.root P
+    let t : AdjoinRoot P := AdjoinRoot.of P RatFunc.X
+    (2 * z ^ 2 + 3 * z - 9) * (-t * z ^ 2 - t * z + 1 - 3 * t) = 27 * t - 4 := by sorry
+
+/-- `HB.10/cubic-example`, test, and test `specOne_cubic_delta` (computation) of `HB.9/specialisation-at-one`:
+at `t = 1`, `(2z²+3z-9)·δ = 23` with `δ = -z²-z-2`, so `1/δ = (2z²+3z-9)/23`. -/
+example :
+    let P : Polynomial ℚ := Polynomial.X ^ 3 - Polynomial.X + 1
+    let z : AdjoinRoot P := AdjoinRoot.root P
+    (2 * z ^ 2 + 3 * z - 9) * (-z ^ 2 - z - 2) = 23 := by sorry
+
+/-- `HB.10/cubic-example`, test: the field has discriminant `-23`. -/
+theorem discr_cubic (K : Type*) [Field K] [NumberField K] (z : K) (hz : z ^ 3 - z + 1 = 0)
+    (hgen : IntermediateField.adjoin ℚ {z} = ⊤) : NumberField.discr K = -23 := by sorry
+
+/-- `HB.10/nonabelian-quartic-example`, test: the Nahm equations (256) hold on the first orbit (257). -/
+example :
+    let P : Polynomial ℚ := Polynomial.X ^ 4 + Polynomial.X ^ 3 + 3 * Polynomial.X ^ 2 - 3 * Polynomial.X - 1
+    let z₁ : AdjoinRoot P := AdjoinRoot.root P
+    let z₂ : AdjoinRoot P := AdjoinRoot.of P (1 / 5 : ℚ) * (-9 * z₁ ^ 3 - 6 * z₁ ^ 2 - 25 * z₁ + 37)
+    1 - z₁ = z₁ ^ 8 * z₂ ^ 5 ∧ 1 - z₂ = z₁ ^ 5 * z₂ ^ 4 := by sorry
+
+/-- `HB.10/nonabelian-quartic-example`, test: the field discriminant is `-5²·19`, not `-5⁴·19`. -/
+theorem discr_quartic (F : Type*) [Field F] [NumberField F] (z : F)
+    (hz : z ^ 4 + z ^ 3 + 3 * z ^ 2 - 3 * z - 1 = 0)
+    (hgen : IntermediateField.adjoin ℚ {z} = ⊤) : NumberField.discr F = -475 := by sorry
+
+/-- `HB.10/knot-series-pair-example`, test: `-24α²+32α-26 = -2(2α²-2α+3)²` (GSWZ (280) is false). -/
+example :
+    let P : Polynomial ℚ := Polynomial.X ^ 3 - Polynomial.X ^ 2 + 1
+    let α : AdjoinRoot P := AdjoinRoot.root P
+    32 * α - 24 * α ^ 2 - 26 = -2 * (2 * α ^ 2 - 2 * α + 3) ^ 2 := by sorry
+
+/-- `HB.10/modularity-examples-and-their-lesson`, test (289). -/
+theorem gaussSum_normSq (m : ℕ) [NeZero m] :
+    (1 / (m : ℂ)) * (∑ k : ZMod m, Complex.exp (2 * Real.pi * Complex.I * (k.val ^ 2 : ℕ) / m)) *
+      (∑ k : ZMod m, Complex.exp (-2 * Real.pi * Complex.I * (k.val ^ 2 : ℕ) / m)) =
+      if m % 4 = 2 then 0 else if m % 4 = 0 then 2 else 1 := by sorry
+
+/-- (290) corrected: the value is `-½(1+i^{-m})²`, i.e. `-2` when `4 ∣ m`. -/
+theorem gaussSum_sq (m : ℕ) [NeZero m] :
+    (Complex.I / m) * (∑ k : ZMod m, Complex.exp (2 * Real.pi * Complex.I * (k.val ^ 2 : ℕ) / m)) ^ 2 =
+      -(1 / 2) * (1 + Complex.I ^ (-(m : ℤ))) ^ 2 := by sorry
+
+/-- `HB.10/figure-eight-example`, test: `δ = (2 - ζ₆)/ζ₆` squares to `-3`. -/
+example (ζ : ℂ) (hζ : ζ ^ 2 - ζ + 1 = 0) : ((2 - ζ) / ζ) ^ 2 = -3 := by sorry
+
+/-! ### HB.9–HB.10 items without a Lean form here
+
+The Habiro ring `H_R` and its K₃-indexed modules `H_{R,ξ}` (HabiroNumberFields HB.6, HB.7), the units
+`ε_m(ξ)` (HabiroNumberFields HB.2) and the p-adic dilogarithm `D_p` (PadicHodgeRegulators D.1) are not in the
+pinned libraries, and the presentation of `S` (HB.8's `ringS`) is left abstract; the items below need them. -/
+
+-- frobeniusCoeff_t: not stated; needs the elements `t^{1/m}` and `ζ_m` of the completion of `S^{(m)}[z^{1/m}]`.
+-- frobeniusCoeff_unique: not stated; needs frobeniusCoeff_t.
+-- frobeniusCoeff_embed: not stated; needs the embedding `ι` of `S` into `ℚ(ζ_m)⟦t^{1/m}⟧`.
+-- frobeniusCoeff_z: not stated; needs the element `z` of the completed ring.
+-- frobeniusCoeff_specOne: not stated; needs specOne.
+-- Test frobeniusCoeff_A_zero: not stated; needs the presentation of `S` for `A = 0`.
+-- Test frobeniusCoeff_z_series: not stated; needs frobeniusCoeff_embed.
+-- Test frobeniusCoeff_not_id: not stated; needs frobeniusCoeff_t.
+-- specOne: not stated; needs `R[δ^{-1/2}]` of HB.3/general-nondegenerate-class and the presentation of `S`.
+-- specOne_level: not stated; needs specOne.
+-- specOne_z: not stated; needs specOne.
+-- specOne_frobenius: not stated; needs specOne and frobeniusCoeff.
+-- specOne_galois: not stated; needs specOne_level.
+-- Test specOne_zero: not stated; needs specOne.
+-- Test specOne_needs_sqrt: not stated; needs specOne.
+-- descendant: not stated; needs the collection `f_{A,z}` of HB.9/module-membership, valued in `δ^{-1/2}ε_m(ξ)^{1/m}K[ζ_m]⟦x⟧`.
+-- descendant_zero: not stated; needs descendant.
+-- descendant_constantCoeff: not stated; needs descendant.
+-- descendant_mem: not stated; needs descendant and `H_{R,ξ}` (HabiroNumberFields HB.7).
+-- descendant_nahmSum: not stated; needs descendant and the asymptotic series of HB.4.
+-- Test descendant_nu_zero: not stated; needs descendant.
+-- Test descendant_cubic_constant: not stated; needs descendant.
+-- Test descendant_not_ring_map: not stated; needs specOne.
+-- Test descendant_quartic_integrality: not stated; needs descendant.
+-- HB.9/descendants-by-specialisation: the items above.
+-- HB.9/dwork-difference-for-the-gaussian-data: not stated; needs HB.8's Gaussian collection and `S_p`.
+-- HB.9/habiro-module-interface: a comparison with HabiroNumberFields HB.6/HB.7; nothing new is stated.
+-- HB.9/constant-term-is-the-unit: not stated; needs `ε_m(ξ)` (HabiroNumberFields HB.2) and the collection.
+-- HB.9/gluing-by-uniqueness-of-q-difference-solutions: not stated; needs `H_R` (HabiroNumberFields HB.6).
+-- HB.9/potential-and-the-p-adic-dilogarithm: not stated; needs `D_p` (PadicHodgeRegulators D.1) and specOne.
+-- HB.9/module-membership: not stated; needs `H_{R,ξ}` (HabiroNumberFields HB.7) and the collection (GSWZ Theorem 5).
+-- HB.9/p-adic-regulator-input: a comparison with PadicHodgeRegulators D.3/D.4; nothing new is stated.
+-- HB.9/torsion-powers-lie-in-the-ring: not stated; needs `H_R` and the Bloch class (GSWZ Corollary 1.11(b)).
+-- HB.9/bloch-torsion-converse: not stated; needs `H_R` and the Bloch class.
+-- HB.9/hypotheses-that-cannot-be-dropped: records non-implications; nothing is stated.
+-- HB.9/verifying-the-defining-conditions: a comparison with HabiroNumberFields HB.7's conditions; nothing new.
+-- HB.9/constant-terms-of-the-series: not stated; needs the collection and `ε_m(ξ)`.
+-- HB.9/symmetrisation-lies-in-the-ring: not stated; needs `H_{R[δ^{-1}]}` (GSWZ Corollary 1.11(a)).
+-- HB.10/symmetrisation-and-residue-formula: not stated; needs the residue collection of GSWZ Theorem 11.
+-- HB.10/descendant-elements-of-the-habiro-ring: not stated; needs descendant and `H_R` (GSWZ Theorem 12).
+-- HB.10/knot-matrices-and-the-topological-boundary: an application recording data; its numerical checks
+--   are in ArithmeticQuantumTopology QT.5's terms and are not stated here.
+-- HB.10/p-adic-computations-example: an application; its factorisation of `α³ - α² + 1` modulo 5 is not stated.
+-- HB.10/export-interfaces-and-non-consequences: records exports and non-consequences; nothing is stated.
+
+end HabiroNahmSeries.HB910
+
+end PartHB910
