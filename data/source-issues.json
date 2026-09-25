@@ -128037,6 +128037,328 @@
    "reviewReason": null
   },
   {
+   "id": "EllipticKTheory/E1",
+   "kind": "gap",
+   "locator": "VI.6, opening discussion before Harder's Theorem 6.1, PDF p. 510 (printed p. 502)",
+   "printed": "By III.7.2(a) (due to Bass and Tate), the kernel K2(X) of ∂ is finite of order prime to p.",
+   "correction": "III.7.2(a) (printed p. 245) states only that K^M_n(F) = 0 for n ≥ 3 for a global function field. The finiteness of the tame kernel K_2(X) needs another reference (Bass–Tate [21], or Harder's Theorem 6.1 with n = 2, whose p-part is III.6.7: K_2(F) has no p-torsion).",
+   "reason": "Reading III.7.2(a): 'If F has transcendence degree 1 over a finite field …, Bass and Tate proved in [21] that KnM(F) = 0 for all n ≥ 3.' Nothing about K_2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "The combined draft of 29 August 2013 itself. (III.6, III.7)"
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found independently by checkers A and B; the review read III.7.2(a) (PDF p. 253): it concerns Milnor K-groups in degree at least three only."
+  },
+  {
+   "id": "EllipticKTheory/E2",
+   "kind": "gap",
+   "locator": "VI.6, opening discussion, PDF p. 510 (printed p. 502)",
+   "printed": "By classical Weil reciprocity V.6.12.1, the cokernel of ∂ is F×q, so K1(X) ≅ F×q × F×q.",
+   "correction": "Weil reciprocity V.6.12.1 (Σ_x N_{k(x)/k} ∂_x(a) = 0) shows only that the norm ⊕N: ⊕_x k(x)^× → F_q^× vanishes on im ∂, hence a surjection coker ∂ → F_q^×. Injectivity needs a further input, e.g.: SK_1(R) = 0 for the coordinate ring R of X minus one closed point x_0 (III.2.5.1) gives SK_1(X) ⊆ (i_{x0})_*F_{q^d}^×, so |coker ∂| divides q^{deg x0} − 1; using two closed points of coprime degree gives |coker ∂| ≤ q − 1.",
+   "reason": "V.6.12.1 as printed is the vanishing of a composite, not the exactness of ⊕_x k(x)^× → F_q^× at the middle; exactness is Moore's reciprocity for global function fields or the SK_1 argument above.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "The combined draft of 29 August 2013 itself."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "The review read V.6.12.1 (PDF p. 424): it states that the normed sum of residues vanishes, which gives a surjection coker ∂ → F_q^× and not its injectivity."
+  },
+  {
+   "id": "EllipticKTheory/E3",
+   "kind": "gap",
+   "locator": "VI.6, opening discussion, PDF p. 510 (printed p. 502)",
+   "printed": "It is classical (see [85, I.6]) that there is a unique smooth projective curve X over Fq whose function field is F.",
+   "correction": "Over F_q the regular projective model exists and is unique (Stacks Theorem 53.2.6, tag 0BY1) and is smooth because F_q is perfect (Stacks Lemma 53.2.8, tag 0BY3); Hartshorne I.6 works over an algebraically closed field.",
+   "reason": "The cited reference [85, I.6] (Hartshorne, Chapter I, Section 6) assumes an algebraically closed ground field.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "Stacks project tags 0BY1 and 0BY3 (online, 2026-09-25)."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker A; the claim is true and only the citation's scope is at issue."
+  },
+  {
+   "id": "EllipticKTheory/E4",
+   "kind": "misprint",
+   "locator": "Corollary VI.6.2(a), PDF p. 511 (printed p. 503)",
+   "printed": "K1(R) = R^x = Fq^x x Z^s, |S| = s - 1;",
+   "correction": "|S| = s + 1, i.e. K1(R) = R^x = Fq^x x Z^(|S|-1).",
+   "reason": "For S = {infinity} on P^1, R = Fq[t] and R^x = Fq^x has rank 0 = |S| - 1, while the printed relation gives rank s = |S| + 1 = 2. The book's own Example I.5.17 (PDF p. 67) states R^x = F^x (+) Z^(|S|-1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The combined draft's Example I.5.17 (consistent with the correction).",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Checked by the review against Example I.5.17 (PDF p. 67) and the case R = F_q[t]."
+  },
+  {
+   "id": "EllipticKTheory/E5",
+   "kind": "error",
+   "locator": "Paragraph before Example VI.6.5 and Example VI.6.5, PDF p. 512 (printed p. 504)",
+   "printed": "use the identity H*et(X, Ql(i)) = H*et(Xbar, Ql(i))^G, which follows from the spectral sequence H^p(G, H*et(Xbar, Ql(i))) => H*et(X, Ql(i)) since H^p(G, -) is torsion for p > 0 ... Taking G-invariants yields H1et(X, Ql(i)) = 0 for all i.",
+   "correction": "For Ql-coefficients H^1(G, M) = M/(phi* - 1)M need not vanish. There is an exact sequence 0 -> H^(n-1)(Xbar, Ql(i))_G -> H^n(X, Ql(i)) -> H^n(Xbar, Ql(i))^G -> 0; the identity holds when phi* - 1 is invertible on H*(Xbar, Ql(i)), e.g. for i >= 2 (the only case used in Lemma VI.6.6). H^1(X, Ql(i)) = 0 for i != 0, but H^1(X, Ql) contains H^1(G, Ql) = Ql, and H^3(X, Ql(1)) = H^1(G, H^2(Xbar, Ql(1))) = Ql.",
+   "reason": "The book's own sequence (6.5.1), 0 -> M^G -> M -> M -> H^1(G, M) -> 0 with M = Ql and phi* = 1, gives H^1(G, Ql) = Ql, which is not torsion; the Hochschild-Serre edge map H^1(G, H^0(Xbar, Ql)) -> H^1(X, Ql) is injective.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "Lemma VI.6.6 checked: it assumes i >= 2, where the corrected statement agrees."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C; the review checked the argument with M = Q_ℓ and φ* = 1 in the source's own sequence (6.5.1), and that Lemma VI.6.6 uses only i ≥ 2."
+  },
+  {
+   "id": "EllipticKTheory/E6",
+   "kind": "misprint",
+   "locator": "Proof of Theorem VI.6.4, PDF p. 512 (printed p. 504)",
+   "printed": "the edge maps are the e-invariants K2i(X; Z/l^inf) -> H0et(Xbar, Z/l^inf(i)) = Z/l^inf(i) of 6.3",
+   "correction": "K2i(Xbar; Z/l^inf) -> H0et(Xbar, Z/l^inf(i)): the spectral sequence in this proof is the one for Xbar.",
+   "reason": "The proof computes Kn(Xbar; Z/l^inf); the edge map of its motivic spectral sequence has source K2i(Xbar; Z/l^inf).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "The combined draft of 29 August 2013 itself."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C; the proof computes K_n(X̄; Z/ℓ^∞)."
+  },
+  {
+   "id": "EllipticKTheory/E7",
+   "kind": "misprint",
+   "locator": "Weil Reciprocity Formula III.6.5.3, proof, PDF p. 244 (printed p. 236)",
+   "printed": "By Example 6.1.7, K2F(t) is generated by linear symbols of the form {a, t-b}.",
+   "correction": "K2F(t) is generated by K2(F) together with the symbols {a, t - b} (Example 6.1.7 lists {a, b} and {t - a, b}); the constant symbols have trivial tame symbols, so the proof is unaffected.",
+   "reason": "The leading-coefficient map lambda of Example 6.1.2 kills every {a, t - b} and is the identity on the direct summand K2(F), which is nonzero for F algebraically closed of characteristic 0 (e.g. uniquely divisible and nonzero for F = C).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "The combined draft, Examples III.6.1.2 and III.6.1.7; errata listing unavailable (see E1)."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C; the constant symbols have trivial tame symbols, so the proof stands."
+  },
+  {
+   "id": "EllipticKTheory/E8",
+   "kind": "misprint",
+   "locator": "V.6.6, Dedekind Domains, PDF p. 417 (printed p. 409)",
+   "printed": "Then R and F and regular, as are the residue fields R/p",
+   "correction": "Then R and F are regular, as are the residue fields R/p",
+   "reason": "Grammar; the meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "The combined draft of 29 August 2013 itself."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Read by the review at the locator."
+  },
+  {
+   "id": "EllipticKTheory/E9",
+   "kind": "misprint",
+   "locator": "V.6.6, the proof that ∂ is the tame symbol, PDF p. 417 (printed p. 409)",
+   "printed": "In this case, we know that ∂ in K∗(R)-linear",
+   "correction": "we know that ∂ is K∗(R)-linear",
+   "reason": "Grammar.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 September 2014 (read in full; none of its entries concerns this passage)",
+    "The author's errata link sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, reached from the K-book home page, returned HTTP 404 on 2026-09-25.",
+    "The combined draft of 29 August 2013 itself."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Read by the review at the locator."
+  },
+  {
+   "id": "EllipticKTheory/E10",
+   "kind": "misprint",
+   "locator": "V.3.11 Proper Transfer, PDF p. 403 (printed p. 395); published GSM 145 p. 434 l. 20",
+   "printed": "Let FX denote the Waldhausen category of homologically bounded complexes of flasque OX-modules whose stalks have cardinality at most κ",
+   "correction": "insert 'pseudocoherent' before 'complexes of flasque'",
+   "reason": "Without pseudocoherence the category does not compute G(X); the AMS errata list makes this correction.",
+   "affects": "the proof",
+   "known": "AMS errata list for GSM 145 (2 Sep 2014): 'p.434 l.20 (V.3.11): insert ’pseudocoherent’ before ’complexes of flasque’'",
+   "searched": [
+    "AMS errata list for GSM 145 dated 2 Sep 2014"
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; not asserted identical to the printed edition (Graduate Studies in Mathematics 145, American Mathematical Society, 2013), which was compared only through the AMS errata list of 2 September 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "The AMS errata list (read by the review) has exactly this entry; recorded as known."
+  },
+  {
+   "id": "EllipticKTheory/E11",
+   "kind": "gap",
+   "locator": "Lecture 10, definition (10.1.2), printed p. 76 (supplied scan PDF p. 88)",
+   "printed": "For a in E_C, a != 0, let f_a denote the function with zero of order C at a and pole of order C at 0. Define S_a in Ker(tame) by S_a = {rho, f_a} (mod Image k(E)* (x) k*).",
+   "correction": "Only C{rho, f_a} is correctable in general (Proposition 10.1.1); define S_a in Ker(tame) (x) Z[1/C], or modulo torsion, as (1/C) times the corrected C{rho, f_a}.",
+   "reason": "C = 2, E: y^2 = x^3 - x over Q (all 2-torsion rational), a = (0,0), rho = 1/y, f_a = x: tame{rho, f_a} = (-1, 1, -1, 1) at ((0,0), (1,0), (-1,0), O); its image in Pic(E) (x) Q^x is (1,0) (x) (-1) != 0 in E(Q) (x) Q^x = (Q^x/Q^x2)^2, so no element of the image of k(E)* (x) k* corrects it (the top row of (10.1.1) is exact). Computed in PARI by checker C.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The supplied scan of CRM Monograph 11 only; no errata list for the monograph was found or searched online."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (the 1978 Irvine lectures). Read in the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 PDF pages, image only; printed page = PDF page - 12).",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C with a PARI computation; the review checked that the top row of (10.1.1) is exact, so a non-zero image in Pic(E) ⊗ Q^× cannot be corrected."
+  },
+  {
+   "id": "EllipticKTheory/E12",
+   "kind": "gap",
+   "locator": "Proof of Proposition 10.1.1, printed p. 76",
+   "printed": "Clearly tame{f, g}^C -> 0 in Pic(E) (x) k*,",
+   "correction": "The image of tame{f, g} = sum of (x) (x) c_x is (O) (x) prod c_x + sum (x - O) (x) c_x; the first term vanishes by Weil reciprocity (all points rational), and C kills the second because C E_C = 0. State the use of reciprocity.",
+   "reason": "Without reciprocity the degree component (O) (x) (prod c_x)^C need not vanish.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The supplied scan only."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (the 1978 Irvine lectures). Read in the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 PDF pages, image only; printed page = PDF page - 12).",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C; the degree part of tame{f, g} is killed by Weil reciprocity, not by C."
+  },
+  {
+   "id": "EllipticKTheory/E13",
+   "kind": "misprint",
+   "locator": "Lecture 11, 11.1, first sentence, printed p. 87",
+   "printed": "we will show how Theorem 10.3.2 leads to a regulator formula",
+   "correction": "Theorem 10.2.1 (10.3.2 is the lemma sum n e^(2 pi i n x) = -(4 sin^2 pi x)^(-1)); the same page later says 'Our fundamental result, Theorem 10.2.1'.",
+   "reason": "Lecture 10 has Theorem 10.2.1 and Lemma 10.3.2, no Theorem 10.3.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The supplied scan only. Flag for EllipticRegulators (ER.5)."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Spencer J. Bloch, Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves, CRM Monograph Series 11, American Mathematical Society, 2000 (the 1978 Irvine lectures). Read in the programme's supplied scan SUP_Bloch_HigherRegulators_2000 (110 PDF pages, image only; printed page = PDF page - 12).",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C in the supplied scan; relevant to EllipticRegulators ER.5."
+  },
+  {
+   "id": "EllipticKTheory/E14",
+   "kind": "misprint",
+   "locator": "Theorem 1.1.6(i), p. 4 of the author preprint k1.pdf",
+   "printed": "(i) If c : M → N is a morphism in Mk then c(H^i_{M/o}(M, n)) ⊂ H^i_{M/o}(, n).",
+   "correction": "c(H^i_{M/o}(M, n)) ⊂ H^i_{M/o}(N, n)",
+   "reason": "The target motive N is missing from the second group.",
+   "affects": "nothing",
+   "known": "new (the published NATO volume was not checked)",
+   "searched": [
+    "author's preprint only; the Springer version is paywalled"
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "A. J. Scholl, Integral elements in K-theory and products of modular curves, Author's preprint k1.pdf (22 pp.); published in The Arithmetic and Geometry of Algebraic Cycles (Banff 1998), NATO Sci. Ser. C 548 (2000), 467–489 — the published version was not read",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker B; the target motive is missing from the second group."
+  },
+  {
+   "id": "EllipticKTheory/E15",
+   "kind": "misprint",
+   "locator": "Discussion after Theorem 5.5, p. 15, notes dated 21 Nov 2015",
+   "printed": "Theorem 4.7 implies that such a W must be a minimal Weierstrass model of its generic fiber E.",
+   "correction": "Corollary 4.7 implies …",
+   "reason": "The result cited is numbered Corollary 4.7 (p. 12); there is no Theorem 4.7.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Conrad's papers page (only this version found)"
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Brian Conrad, Minimal models for elliptic curves, Lecture notes dated November 21, 2015",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker B; the notes number the result Corollary 4.7."
+  },
+  {
+   "id": "EllipticKTheory/E16",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.2(1), p. 8, arXiv:2605.11100v1",
+   "printed": "c4 = 16(1 - u^2 + u^4) and Delta = 16u^4(u^2 - 1)^4",
+   "correction": "Delta = 16u^4(u^2 - 1)^2.",
+   "reason": "For y^2 = x(x+1)(x+u^2), Delta = 16 (0+1)^2 (0+u^2)^2 (u^2-1)^2; PARI's discriminant of [0, 1+u^2, 0, u^2, 0] factors as 16 u^4 (u-1)^2 (u+1)^2 (u = 4: 2^12 3^2 5^2), and part (3)'s minimal discriminant (u/4)^4 (u^2-1)^2 is Delta / 2^12.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2605.11100v1 (the only version listed on 2026-09-25)."
+   ],
+   "owner": "EllipticKTheory",
+   "file": "research/blueprint/packets/EllipticKTheory.json",
+   "citation": "Neil Dummigan, Vasily Golyshev, Rob de Jeu, Matt Kerr, The 2-part of the Bloch-Kato conjecture, and indivisibility results, for K2 of some elliptic curves, arXiv:2605.11100v1 (11 May 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-EllipticKTheory",
+   "reviewReason": "Found by checker C with PARI; the review checked Δ = 16 u^4 (u^2 − 1)^2 from the roots 0, −1, −u^2 (Δ = 16 ∏ (e_i − e_j)^2)."
+  },
+  {
    "id": "FaltingsFinitenessAndIsogenyTheorems/E1",
    "kind": "misprint",
    "locator": "§2, Bemerkung d), p. 351; §3, p. 354 (the metric ‖α‖²_v)",
@@ -146992,7 +147314,6 @@
   "BunGAndNewtonStrata",
   "CohomologyComparisons",
   "DiamondsAndVStacks",
-  "EllipticKTheory",
   "EllipticRegulators",
   "EnhancedDerivedSheaves",
   "EnhancedDerivedSheaves",
