@@ -141740,6 +141740,626 @@
    "reviewReason": null
   },
   {
+   "id": "SchemeKTheoryOperations/E1",
+   "kind": "error",
+   "locator": "Remark V.3.4.2 (PDF p. 395, book p. 387)",
+   "printed": "This is illustrated when X is the affine line with a double origin over a field, since (as we saw in II, 8.2.4 and Ex. 9.10) G0(X) = Z ⊕Z but K0VB(X) = Z.",
+   "correction": "The example must be affine n-space with a double origin for n ≥ 2 (the affine plane, as in II.8.2.4 and Ex. II.9.10(d)); for the affine line with double origin K0VB(X) ≅ K0(X) ≅ G0(X) ≅ Z ⊕ Z and Theorem V.3.4's conclusion holds.",
+   "reason": "For n = 1 the two charts meet in A^1 − 0 = Spec k[t, t^{-1}], which is affine, so X has affine diagonal (Totaro §1: 'An ∪An−0 An has affine diagonal for n = 1 but not for n ≥ 2'); being quasi-compact and regular, X has the resolution property (Stacks 0F8A), hence K0(Vect X) ≅ K0(X) (Stacks 0FDJ) ≅ G0(X) (Stacks 0FDI). Directly: the line bundles L_m glued from O on the two charts by t^m are pairwise non-isomorphic, so Pic(X) ≅ Z, and rank and determinant map K0VB(X) onto Z ⊕ Pic(X) ≅ Z ⊕ Z, so K0VB(X) ≠ Z. The places the remark cites (II.8.2.4, Ex. II.9.10) themselves require n ≥ 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's errata list Kbook.errata.pdf (no entry for V.3.4.2)",
+    "the cited II.8.2.4 and Ex. II.9.10 of the same draft (both state n ≥ 2)",
+    "the published AMS edition was not available"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E2",
+   "kind": "error",
+   "locator": "Proper Transfer V.3.11 (PDF p. 403, book p. 395)",
+   "printed": "Let FX denote the Waldhausen category of homologically bounded complexes of flasque OX-modules whose stalks have cardinality at most κ for a suitably large κ",
+   "correction": "F_X must consist of homologically bounded pseudo-coherent complexes of flasque O_X-modules (TT 3.11.5); only then does F_X ⊂ Ch^hb_pcoh(X) induce K(F_X) ≃ G(X).",
+   "reason": "Without pseudo-coherence F_X contains arbitrary bounded complexes of flasque modules, whose homotopy category is not that of Ch^hb_pcoh(X), so the Resolution Theorem V.3.9 does not identify K(F_X) with G(X).",
+   "affects": "the proof",
+   "known": "Weibel, Corrections to the K-book, p. 434 l. 20 (V.3.11): insert 'pseudocoherent' before 'complexes of flasque'",
+   "searched": [
+    "the author's errata list Kbook.errata.pdf"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E3",
+   "kind": "misprint",
+   "locator": "Proposition 37.5 (tag 0F8I), Derived Categories of Schemes, version ed88ff78",
+   "printed": "is an exact functor of trianglated categories",
+   "correction": "is an exact functor of triangulated categories",
+   "reason": "Spelling slip; the same sentence continues 'an equivalence ... of triangulated categories'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the online tag page https://stacks.math.columbia.edu/tag/0F8I (read 2026-09-25; still reads 'trianglated')"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "The Stacks Project Authors, The Stacks Project, Chapter Derived Categories of Schemes (tag 08CU), Chapter PDF perfect.pdf, version ed88ff78 compiled 14 July 2026.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E4",
+   "kind": "gap",
+   "locator": "Lemma 46.8(2) (tag 08C9), Cohomology of Sheaves",
+   "printed": "We omit the proof of (2).",
+   "correction": "If α : E• → F• is zero in D(O_X), choose a quasi-isomorphism s : F• → G• with s∘α null-homotopic; then α factors in K(O_X) through the acyclic homotopy fibre of s, and a map from the strictly perfect E• to an acyclic complex is locally null-homotopic by Lemma 46.6(1), so α is locally null-homotopic.",
+   "reason": "The omitted argument uses only Lemma 46.6 and the description of morphisms in D(O_X) by calculus of fractions.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the online Stacks Project (the lemma reads the same)"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "The Stacks Project Authors, The Stacks Project, Chapter Cohomology of Sheaves (tag 01DW), Chapter PDF cohomology.pdf, version ed88ff78 compiled 14 July 2026; results cited by section numbers and tags.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E5",
+   "kind": "gap",
+   "locator": "Lemma 36.10 (tag 0F8C), proof, Derived Categories of Schemes",
+   "printed": "this reduces to the case where X is Noetherian (small detail omitted).",
+   "correction": "The reduction needs a noetherian approximation X = lim X_i (Limits 5.4) with X_i having the resolution property (Lemma 36.9) and an argument that affine diagonal descends from some X_i to X (affine morphisms are stable under base change and the diagonal of X is the base change of that of X_i along X × X → X_i × X_i); the detail is not written in the source.",
+   "reason": "The omitted step is the non-noetherian case, which the node records as a gap.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the online Stacks Project version of the tag"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "The Stacks Project Authors, The Stacks Project, Chapter Derived Categories of Schemes (tag 08CU), Chapter PDF perfect.pdf, version ed88ff78 compiled 14 July 2026.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E6",
+   "kind": "misprint",
+   "locator": "Proposition 3.18, p. 321",
+   "printed": "Let (3.18.1) be a pullback diagram of quasi-coherent schemes, with f a quasi-separated map.",
+   "correction": "Let (3.18.1) be a pullback diagram of quasi-compact schemes, with f a quasi-separated map.",
+   "reason": "'Quasi-coherent' is not a property of schemes; the proof uses the base change theorem 2.5.6, whose hypotheses are Y quasi-compact and f quasi-compact and quasi-separated, and 3.17 just before is stated for quasi-compact Y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "no errata list for the Festschrift article was found; the K-book's Ex. V.3.11 restates the result for noetherian schemes"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E7",
+   "kind": "misprint",
+   "locator": "2.4.4, p. 302",
+   "printed": "On a general scheme, the prefect complexes are the locally finitely presented objects in the “homotopy-stack” of derived categories.",
+   "correction": "On a general scheme, the perfect complexes are the locally finitely presented objects in the “homotopy-stack” of derived categories.",
+   "reason": "Spelling slip ('prefect' for 'perfect'); the paragraph summarises Theorem 2.4.3 on perfect complexes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "no errata list for the Festschrift article was found"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E8",
+   "kind": "misprint",
+   "locator": "5.10, p. 13 (preprint of 16 June 2003)",
+   "printed": "Let X be a quasi-compact and quasi-seperated scheme",
+   "correction": "Let X be a quasi-compact and quasi-separated scheme",
+   "reason": "Spelling slip (also in 7.3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the preprint only; the published Math. Z. version was not compared"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Marco Schlichting, Negative K-theory of derived categories, Author preprint dated 16 June 2003 (28 pages), the file the reviewed GeneralAlgebraicKTheory decomposition records; the published version (Math. Z. 253, 2006) was not compared.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E9",
+   "kind": "error",
+   "locator": "V.6.6.4, change of parameter for the specialisation map (PDF p. 418)",
+   "printed": "if u ∈R× is such that s′ = us then λs′(a) = λs(a) + (−1)n{u, ∂a}.",
+   "correction": "With the right-linear boundary used in V.6.6.1 and V.6.7 (∂{s, a} = {∂s, a}) and graded commutativity, λ_{us}(a) = λ_s(a) − {ū, ∂a} = λ_s(a) + (−1)^n{∂a, ū}; the printed sign is correct for odd n and wrong for even n.",
+   "reason": "λ_{us}(a) − λ_s(a) = ∂{u, a} = (−1)^n ∂{a, u} = (−1)^n{∂a, ū} = −{ū, ∂a}. For n = 2 and a = {s, w} (w a unit): ∂{u, s, w} = −∂{s, u, w} = −{ū, w̄}, while the printed formula gives +{ū, ∂a} = +{ū, w̄}; {ū, w̄} need not be 2-torsion.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E10",
+   "kind": "misprint",
+   "locator": "Exercise V.6.9(b) (PDF p. 428)",
+   "printed": "If X is the node Spec(k[x, y]/(y2 −x3 −x)), show that Gn(X) ∼= Gn(k) ⊕ Gn−1(k) for all n.",
+   "correction": "The node is Spec k[x, y]/(y² − x² − x³) (Example I.3.10.2, char k ≠ 2).",
+   "reason": "y² = x³ + x is smooth when char k ≠ 2 (the partials 2y and 3x² + 1 do not vanish together on the curve), an affine elliptic curve with G_0 = ℤ ⊕ Pic, which contains the 2-torsion class of (0, 0) over k = ℚ; so the stated G_n formula fails for the printed equation and holds for the nodal cubic by Ex. 6.9(a).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E11",
+   "kind": "misprint",
+   "locator": "Exercise V.5.3 (PDF p. 413)",
+   "printed": "for x ∈Kj(A/B) and y ∈Kn(C) the element {x, y} ∈Kn+i(A′/B′) satisﬁes ∂({x, y}) = {∂(x), y} in Kn+i(B′).",
+   "correction": "{x, y} ∈ K_{n+j}(A'/B') and ∂({x, y}) ∈ K_{n+j−1}(B').",
+   "reason": "The product of degrees j and n has degree n + j, and the boundary lowers degree by one; there is no index i in the statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E12",
+   "kind": "misprint",
+   "locator": "Proof of Theorem V.9.6 (PDF p. 447)",
+   "printed": "Let A = k[t1, ..., tr] be the polynomial subalgebra of R given by Lemma 9.6.1",
+   "correction": "given by Lemma 9.6.2 (the normalisation lemma); 9.6.1 is the proposition being proved.",
+   "reason": "Lemma 9.6.2 provides the projection finite on Z and smooth at T; Proposition 9.6.1 is the effacement statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E13",
+   "kind": "error",
+   "locator": "Theorem V.9.6 (PDF p. 446)",
+   "printed": "Let R be an algebra of ﬁnite type over a ﬁeld, and let A = S−1R be the semilocal ring of R at a ﬁnite set of prime ideals. Then Conjecture 9.3 holds for A",
+   "correction": "Add the hypothesis that R_p is regular for every p in the finite set (Quillen, Theorem 5.11); the proof's first step ('We may replace R by R[1/f], f ∈ S, to assume that R is smooth') uses it.",
+   "reason": "For the local ring A of ℝ + xℂ[x] at (x, ix) (a finite-type ℝ-algebra), G_0(A) ≅ ℤ ⊕ ℤ/2 by Ex. V.6.1, so K_0M^1(A) → K_0M^0(A) is nonzero and the conclusion fails without regularity.",
+   "affects": "a stated result",
+   "known": "Quillen, Higher algebraic K-theory I, §7 Theorem 5.11 states the regularity hypothesis",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator",
+    "Quillen 1973 §7.5"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E14",
+   "kind": "error",
+   "locator": "Proposition V.9.8.1 (PDF p. 449)",
+   "printed": "Assume that X is a regular quasi-projective scheme, or more generally that the Gersten-Quillen conjecture 9.3 holds for the local rings of X.",
+   "correction": "Assume that X is a regular quasi-projective scheme over a field (so that Theorem 9.6 applies to its local rings), or more generally that 9.3 holds for the local rings of X.",
+   "reason": "For a regular quasi-projective scheme over ℤ (for example over a mixed-characteristic DVR) the Gersten–Quillen conjecture for its local rings is not known (V.6.9, V.9.7.1(d)), so the first hypothesis does not imply the second.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E15",
+   "kind": "misprint",
+   "locator": "Proof of Theorem V.6.9.1 (PDF p. 422)",
+   "printed": "∂p{a′, s′} = {a′, ∂ps′} for all p",
+   "correction": "With the right-linear boundary of V.6.6.1, ∂{a', s'} = (−1)^{n−1}{a', ∂s'} for a' of degree n − 1.",
+   "reason": "Right linearity and graded commutativity give ∂{a', s'} = (−1)^{n−1}∂{s', a'} = (−1)^{n−1}{∂s', a'}; the surjectivity conclusion is unaffected because the sign is a unit.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The author's errata list for the K-book (2 pages, read in full)",
+    "The published AMS GSM 145 corrections listed there",
+    "The K-book text around the locator"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E16",
+   "kind": "misprint",
+   "locator": "Corollary V.1.5.1, PDF p. 377 (book p. 369), author copy of 29 August 2013",
+   "printed": "As a ring, K∗(Pn X) ∼= K∗(X)⊗Z K0(Pn Z) ∼= K∗(X)[z]/(zr+1).",
+   "correction": "K_*(P^n_X) ≅ K_*(X)[z]/(z^{n+1}).",
+   "reason": "P^n_X is the projective bundle of the trivial bundle of rank n + 1; the letter r refers to Theorem V.1.5's rank r + 1 bundle and is undefined here. II.8.6 gives K_0(P^r_ℤ) = ℤ[z]/(z^{r+1}) in its own notation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E17",
+   "kind": "misprint",
+   "locator": "Lemma V.1.5.2, proof, PDF p. 377 (book p. 369)",
+   "printed": "By Additivity ( 1.2.1), ιn has Pr i=1(−1)iλi as a homotopy inverse.",
+   "correction": "ι_n has Σ_{i=1}^{r+1} (−1)^{i−1} λ_i as a homotopy inverse.",
+   "reason": "The Koszul resolution 0 → F → F(1) ⊗ π^*E^∨ → ⋯ → F(r + 1) ⊗ π^*Λ^{r+1}E^∨ → 0 has r + 1 terms after F, and additivity gives [F] = Σ_{i≥1} (−1)^{i−1}[λ_iF]; the K-book's own II.8.7.10 states 'the map Σ_{i>0} (−1)^{i−1}u_i is an inverse'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E18",
+   "kind": "misprint",
+   "locator": "Proposition II.8.7.10, proof (PDF p. 160) and Lemma V.1.5.2, proof (PDF p. 377)",
+   "printed": "0 →F →F(1) ⊗X E →· · · →F(r + 1) ⊗X ∧r+1E →0",
+   "correction": "0 → F → F(1) ⊗ π^*E^∨ → ⋯ → F(r + 1) ⊗ π^*Λ^{r+1}E^∨ → 0, with the dual bundle E^∨.",
+   "reason": "With the K-book's convention P(E) = Proj(Sym E) (I.5.8), the tautological map is π^*E → O(1), a section of π^*E^∨ ⊗ O(1); its Koszul complex has terms π^*Λ^iE^∨ ⊗ O(i) (Thomason–Trobaugh (4.6.2)). For E = L ⊕ O with L not self-dual the complex with E has no canonical differential. For trivial E the two agree.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E19",
+   "kind": "error",
+   "locator": "Theorem V.6.2, proof, PDF p. 415 (book p. 407)",
+   "printed": "Let Mb gr(S) denote the Serre subcategory of all graded modules M in Mgr(S) with only ﬁnitely many nonzero Mn, i.e., graded t- torsion modules.",
+   "correction": "M^b_gr(S) must be the Serre subcategory of finitely generated graded S-modules annihilated by a power of t; this is not the same as having finitely many non-zero components.",
+   "reason": "For S = R[st, t], S/tS ≅ R[st] is t-torsion with every homogeneous component non-zero; the proof needs it inside the subcategory ('M^b_gr(S) has the same K-theory as its subcategory Mgr(S/tS)') and needs the t-torsion modules as kernel of M ↦ M/(t − 1)M. With 'finitely many non-zero M_n' both steps fail. The same wording recurs in Theorem V.6.4 through 'the rest of the proof is the same'. (For Theorem V.6.14 and P^r the description is correct.)",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E20",
+   "kind": "misprint",
+   "locator": "Remark V.8.3.2, PDF p. 440 (book p. 432)",
+   "printed": "the groups Kn(X) may also be inductively deﬁned to be the cokernel LKn+1(X) of Kn+1(X[t]) ⊕Kn+1(X[1/t]) →Kn+1(R[t, 1/t]).",
+   "correction": "… → K_{n+1}(X[t, 1/t]).",
+   "reason": "The remark concerns a scheme X; R is not defined there (the ring notation of Theorem V.8.2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E21",
+   "kind": "misprint",
+   "locator": "Lemma IV.12.8(2), PDF p. 372 (book p. 364)",
+   "printed": "KH(X × Spec(Z[x, x−1]) ≃KH(X) × Ω−1KH(R)",
+   "correction": "KH(X × Spec ℤ[x, x⁻¹]) ≃ KH(X) × Ω⁻¹KH(X).",
+   "reason": "The lemma is about a scheme X; the displayed isomorphism on homotopy groups that follows is KH_n(X[x, x⁻¹]) ≅ KH_n(X) ⊕ KH_{n−1}(X).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E22",
+   "kind": "misprint",
+   "locator": "Exercise V.3.3, PDF p. 405 (book p. 397)",
+   "printed": "consider the subcategory Mm(S) of graded B-modules M with M = Fm(M).",
+   "correction": "… of graded S-modules M with M = F_m(M).",
+   "reason": "No ring B occurs in Example V.3.5.2 or the exercise; the graded ring is S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E23",
+   "kind": "misprint",
+   "locator": "Exercise V.3.4, PDF p. 405 (book p. 397)",
+   "printed": "Hint: Consider S-modules which are acyclic for both ⊗SR and ⊗SS.",
+   "correction": "… acyclic for both ⊗_S R and ⊗_R S.",
+   "reason": "Every S-module is acyclic for ⊗_S S; the hint needs modules Tor-independent for base change along S → R and R → S.",
+   "affects": "nothing",
+   "known": "Weibel's published errata list: 'p.434 Ex.V.3.4: ⊗SS should be ⊗RS'",
+   "searched": [
+    "Weibel's errata list for the K-book (Wayback copy of Kbook.errata.pdf, read in full)",
+    "the corresponding passages of the author copy"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E24",
+   "kind": "misprint",
+   "locator": "Section 4.8, Lemma numbered 4.8.4 (p. 334; PDF p. 88), scan of the published article",
+   "printed": "4.8.4. Lemma. On the exact category of 0-regular coherent sheaves on PE, there are exact functors Ti",
+   "correction": "The lemma is 4.8.3.",
+   "reason": "The next paragraph is also numbered 4.8.4, and 4.8.5 and 4.9 cite 'the exact sequence of 4.8.3' and 'From 4.8.3, 4.8.4, and 4.8.5' for this lemma.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Thomason 1993 §4 (corrections to [TT])",
+    "the text of Thomason–Trobaugh around 4.8"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E25",
+   "kind": "misprint",
+   "locator": "Section 4.6 (p. 331; PDF p. 85)",
+   "printed": "Thus the Kozsul complex of π∗E ⊗ O(−1) → O is acyclic",
+   "correction": "Koszul complex.",
+   "reason": "Spelling of the name; the same paragraph writes 'Koszul' two lines below.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Thomason 1993 §4 (corrections to [TT])"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E26",
+   "kind": "error",
+   "locator": "Theorem 1.9.8 (p. 271; PDF p. 25), as used in 4.11 (p. 336)",
+   "printed": "This will follow from the approximation theorem in the form 1.9.8, set up by the dual of 1.9.7",
+   "correction": "Theorem 1.9.8 needs the additional hypothesis that a retract up to weak equivalence of an object weakly equivalent to zero is itself weakly equivalent to zero (Thomason 1993, Hypothèse 4.1.1); it holds when weak equivalences are quasi-isomorphisms, so 4.11 is unaffected.",
+   "reason": "Thomason 1993 §4.1 gives a counterexample: bounded complexes of finite-dimensional vector spaces with weak equivalences the maps preserving Euler characteristic; the homotopy category is equivalent to 0 but K_0 is ℤ.",
+   "affects": "a stated result",
+   "known": "Thomason, Les K-groupes d'un schéma éclaté …, Invent. Math. 112 (1993), §4, 'Une correction à l'article de Thomason et de Trobaugh'",
+   "searched": [
+    "Thomason 1993 §4"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E27",
+   "kind": "gap",
+   "locator": "Theorem 6.1(b), proof (p. 354; PDF p. 108)",
+   "printed": "(A careful calculation of ∂T(T) by building categorical models of everything via [Th3], and considering our choice of signs in forming a Mayer-Vietoris sequence from a homotopy cartesian square yields that in fact ∂T T = 1.",
+   "correction": "The calculation of the sign ∂_T(T) = +1 is not given; the proof establishes ∂_T(T) = ±1, which is all 6.1(b) as stated needs.",
+   "reason": "The proof shows ∂_T(T) generates K_0(ℤ) = ℤ, hence ±1; the parenthetical sign claim depends on conventions not recorded in the paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Thomason 1993 §4 (corrections to [TT])",
+    "K-book V.8.2–8.3, which computes the localisation boundary ∂(t) = [R[t]/tR[t]] instead"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "R. W. Thomason and Thomas Trobaugh, Higher algebraic K-theory of schemes and of derived categories, The Grothendieck Festschrift, vol. III, Progr. Math. 88, Birkhäuser 1990, pp. 247–435; scanned copy of 189 PDF pages, printed page = PDF page + 246. Quotations follow the rendered page images (the text layer is OCR).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E28",
+   "kind": "misprint",
+   "locator": "Ex. II.8.7 (printed p. 157, PDF p. 165) and the proof of Corollary II.8.9.1 (printed p. 155, PDF p. 163), author-hosted draft of 29 August 2013",
+   "printed": "Show that ci([OZ]) = (−1)i(i−1)![Z] in CHi(X).",
+   "correction": "c_i([O_Z]) = (−1)^{i−1}(i − 1)![Z].",
+   "reason": "For a divisor D (i = 1), [O_D] = 1 − [O(−D)] and c_1(O_D) = −c_1(O(−D)) = [D], whereas the printed formula gives −[D]. For i = 2 and a complete intersection of D_1, D_2, ch([O_Z]) = (1 − e^{−D_1})(1 − e^{−D_2}) = D_1D_2 + ⋯, so ch_2 = [Z]; with c_1 = 0, ch_2 = (c_1² − 2c_2)/2 = −c_2, so c_2 = −[Z] = (−1)^{2−1}1![Z].",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata to GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for pp. 155 or 157",
+    "the author's K-book page (2026-09-25)"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E29",
+   "kind": "misprint",
+   "locator": "Example IV.5.4.1 (printed p. 313, PDF p. 321), author-hosted draft of 29 August 2013",
+   "printed": "When n = 1 and a ∈A× is regarded as an element of K1(A), the formulas λk(a) = a and ψk(a) = ak are immediate from the formula 5.2 for λk A.",
+   "correction": "λ^k(a) = a^{(−1)^{k−1}} (in additive notation λ^k(a) = (−1)^{k−1}a), and ψ^k(a) = a^k.",
+   "reason": "By Corollary IV.5.5.1, ψ^k = (−1)^{k−1}kλ^k on K_1(A); with λ^k(a) = a this would give ψ²(a) = a^{−2}, contradicting ψ²(a) = a². Directly: a is the image of x = [ρ] − 1 for the rank-one representation ρ of ℤ by a, and λ_t(x) = (1 + [ρ]t)/(1 + t) has t^k-coefficient (−1)^{k−1}([ρ] − 1). Formula 5.2 for P of rank one gives λ^k_P = Σ_{i<k}(−1)^iΛ^{k−i}_P = (−1)^{k−1}Λ^1_P.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata to GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for p. 313",
+    "the author's K-book page (2026-09-25)"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E30",
+   "kind": "misprint",
+   "locator": "II.4, Chern character, expansion of ch (printed p. 100, PDF p. 108), author-hosted draft of 29 August 2013",
+   "printed": "ch(x) = ε(x) + c1(x) + 1 2[c1(x)2 −c2(x)] + 1 6[c1(x)3 −3c1(x)c2(x) + 3c3(x)] + · · ·",
+   "correction": "The degree-two term is (1/2)[c_1(x)² − 2c_2(x)].",
+   "reason": "For p = ℓ_1 + ℓ_2 with Chern roots a, b: ch_2(p) = (a² + b²)/2 = ((a + b)² − 2ab)/2 = (c_1² − 2c_2)/2. The degree-three term printed is correct: (a³ + b³ + c³)/6 = (c_1³ − 3c_1c_2 + 3c_3)/6.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata to GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for p. 100",
+    "the author's K-book page (2026-09-25)"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SchemeKTheoryOperations/E31",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5, pp. 513–514 (Canad. J. Math. 37, published version)",
+   "printed": "D'après [32] le morphisme π_{−q}(V_N) → π_{−q}(V) est surjectif (resp. bijectif) si N ≥ −q (resp. N ≥ −q + 1).",
+   "correction": "The reference should be [33] (Suslin, Stability in algebraic K-theory, LNM 966), as in the proof of Lemme 1 and in 2.4–2.6; the same applies to 'est surjectif [32]' on p. 514.",
+   "reason": "[32] in the bibliography is Stienstra, 'Cartier–Dieudonné theory for the Chow groups', which does not treat stability of Volodin's spaces; the statement is Suslin's surjective stability, which Soulé attributes to [33] elsewhere in the paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the article page of Canad. J. Math. 37 (1985) at cambridge.org (2026-09-25): no erratum or corrigendum listed",
+    "Crossref search for an erratum to DOI 10.4153/CJM-1985-029-x (2026-09-25): none"
+   ],
+   "owner": "SchemeKTheoryOperations",
+   "file": "research/blueprint/packets/SchemeKTheoryOperations.json",
+   "citation": "Christophe Soulé, Opérations en K-théorie algébrique, Canadian Journal of Mathematics 37 (1985), no. 3, 488–550 (published version, from the journal's open archive)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E1",
    "kind": "misprint",
    "locator": "§1.6, arXiv v3 p. 7; published p. 902; compare Theorem 10.1 on published p. 969.",
