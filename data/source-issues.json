@@ -130287,7 +130287,7 @@
    ],
    "owner": "HabiroCohomologyFoundations",
    "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
-   "citation": "Ferdinand Wagner, ku and q-de Rham cohomology, arXiv:2510.06057v1, LaTeX source, with the same per-section numbering convention as the companion papers.",
+   "citation": "Ferdinand Wagner, q-de Rham cohomology and topological Hochschild homology over ku, arXiv:2510.06057v1, LaTeX source, with the same per-section numbering convention as the companion papers.",
    "status": "confirmed",
    "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
    "reviewReason": "Checked against both versions of the cited paper."
