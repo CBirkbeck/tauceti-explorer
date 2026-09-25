@@ -15057,8 +15057,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory--N.1",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #352"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #352",
+   "finishedAt": "2026-09-25T04:02:52Z"
   },
   {
    "id": "BP-ArithmeticKTheory--N.7",
@@ -18557,7 +18558,8 @@
    ],
    "avoidAccountOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/REV-HabiroRings.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #426"
   },
   {
    "id": "BP-HeckeStacksAndLocalShtukas",
