@@ -56,7 +56,7 @@ Two of the first pass's structural proposals are replaced:
 | Layer | Status | Nodes | What remains |
 |---|---|---|---|
 | CA.0 | closed | 1 | nothing |
-| CA.1 | partial | 34 | biquadratic reciprocity (the one public statement read is wrong: E203, E204); Stickelberger's theorem and the Eisenstein-reciprocity lemmas; explicit Hilbert symbols at the places above n |
+| CA.1 | partial | 34 | biquadratic reciprocity (the one public statement read is wrong: E203, E204); the two inputs of Eisenstein reciprocity besides Stickelberger's relation (which FiniteFieldsAndCharacterSums FF.1 now plans); explicit Hilbert symbols at the places above n |
 | CA.2 | partial | 48 | Ward's strong divisibility of elliptic divisibility sequences (needs gcd(W₃, W₄) = 1); Cobham's theorem (decompose Krebs, arXiv:1801.06704) |
 | CA.3 | partial | 37 | Int(𝓞_K) beyond the regular-basis criterion (Pólya group; no public proof); the equality case of Perron's criterion |
 | CA.4 | source decomposed | 74 | nothing in the sources; Catalan–Mihăilescu is a gap (no owner) |
