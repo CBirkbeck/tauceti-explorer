@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5142 new mistakes confirmed · 1089 awaiting review · 479 already corrected in print · 78 rejected on review · 27 extractions and packets not yet checked.
+5142 new mistakes confirmed · 1089 awaiting review · 479 already corrected in print · 78 rejected on review · 28 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -14383,4 +14383,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `ArithmeticKTheory`, `BunGAndNewtonStrata`, `CohomologyComparisons`, `DiamondsAndVStacks`, `EllipticRegulators`, `EnhancedDerivedSheaves`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HabiroCyclotomicCompletions`, `HabiroNahmSeries`, `HabiroNumberFields`, `HabiroRings`, `HeckeStacksAndLocalShtukas`, `HigherLocalFieldsAndHigherClassFieldTheory`, `KatoEulerSystems`, `LanglandsParameterStacks`, `PerfectoidSpaces`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`, `VectorBundlesAndIsocrystals`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `ArithmeticKTheory`, `BunGAndNewtonStrata`, `CohomologyComparisons`, `DiamondsAndVStacks`, `EllipticRegulators`, `EnhancedDerivedSheaves`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HabiroCohomologyFoundations`, `HabiroCyclotomicCompletions`, `HabiroNahmSeries`, `HabiroNumberFields`, `HabiroRings`, `HeckeStacksAndLocalShtukas`, `HigherLocalFieldsAndHigherClassFieldTheory`, `KatoEulerSystems`, `LanglandsParameterStacks`, `PerfectoidSpaces`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`, `VectorBundlesAndIsocrystals`.
