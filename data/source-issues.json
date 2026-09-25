@@ -130269,9 +130269,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
    "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on the rendered page 11 of arXiv:1105.0865v5 (SHA-256 matches the packet): Theorem 2.10 prints 'the space of formal periods P (Definition 2.4) agrees with the comparison algebra A1,2 (Definition 2.8)'; P is Definition 2.8, A_{1,2} is Definition 2.1, and Definition 2.4 is the space of periods P_{1,2}."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E2",
@@ -130288,9 +130288,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
    "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on page 13: the proof of Corollary 3.4 prints 'By Theorems 2.6 and 2.9'; 2.9 is Remark 2.9 (on Kontsevich's definition) and the identification P = P_{1,2} is Theorem 2.10."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E3",
@@ -130308,9 +130308,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
    "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked in weil.tex at commit a04446e (SHA-256 matches the packet): the proof of Lemma 0FG0 displays six expressions (five equalities) and justifies them as 'first', 'second', 'third', 'fourth' and again 'fourth'; the last is the fifth (functoriality of proper pushforward). The live tag page prints the same."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E4",
@@ -130328,9 +130328,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
    "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked: the proof of Lemma 0FG5 (2) opens 'Recall that [Gamma_f]_*(beta) = pr_{1,*}([Gamma_f] . pr_2^*beta)', which is the defining formula of the pullback [Gamma_f]^*(beta). A misprint whose intended meaning is clear from the statement of (2); its 'affects' should be 'nothing' rather than 'the proof', since the proof is right as intended."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E5",
@@ -130347,9 +130347,857 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
    "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked: the proof of Lemma 0FG5 (1) prints 'Then we coclude because'."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E6",
+   "kind": "misprint",
+   "locator": "Example 0FG1 (tag 0FG1), last sentence",
+   "printed": "Hence [Gamma_f] in CH^*(X × Y) tensor Q is contained in Corr^0(X × Y), i.e., [Gamma_f] is a correspondence of degree 0 from X to Y.",
+   "correction": "Corr^0(X, Y).",
+   "reason": "Corr^r is defined for a pair of schemes, Corr^r(X, Y); the same sentence goes on to say that [Gamma_f] is a correspondence of degree 0 from X to Y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b",
+    "the live tag page https://stacks.math.columbia.edu/tag/0FG1 and its comments, read 2026-09-24",
+    "the tag page for Section 0FFZ, whose two comments concern other slips"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Found by this reviewer while checking the excerpt of MC.0/graph-correspondence."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E7",
+   "kind": "misprint",
+   "locator": "Lemma 0FGD (tag 0FGD), proof of part (2)",
+   "printed": "Thus a' = a' o b o a' = c_2 o a' and b' = b' o a' o b' = b' o c_2.",
+   "correction": "a' = a' o b' o a' = c_2 o a'.",
+   "reason": "b is the correspondence of part (1), of degree zero from X to Spec(k); a' o b o a' is not even defined in the right degree. The argument uses b' o a' = 1, proved two sentences earlier, and a' o b' = c_2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b",
+    "the live tag page https://stacks.math.columbia.edu/tag/0FGD and its comments, read 2026-09-24",
+    "the four comments on the tag page (2024 to 2025) concern other slips in the same proof, which were fixed; this one is still printed"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Found by this reviewer while checking MC.1/lefschetz-motive."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E8",
+   "kind": "misprint",
+   "locator": "Lemma 0FGI (tag 0FGI), proof, the displayed intersection product on X^5",
+   "printed": "[pr^{12345,-1}_{23}(Delta) cap pr^{12345,-1}_{14}(Delta)] . [pr^{12345,-1}_{34}(Delta) cap pr^{12345,-1}_{15}(Delta)] = [small diagonal in X^5]",
+   "correction": "The second factor is pr^{12345,-1}_{34}(Delta) cap pr^{12345,-1}_{25}(Delta).",
+   "reason": "The second factor is the pullback along pr^{12345}_{2345} of 1 tensor [Delta], which on X^3 × X is pr_{23}^{-1}(Delta) cap pr_{14}^{-1}(Delta); in the coordinates 2, 3, 4, 5 of X^5 this is pr_{34}^{-1}(Delta) cap pr_{25}^{-1}(Delta). With either index the intersection is the small diagonal, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b",
+    "the live tag page https://stacks.math.columbia.edu/tag/0FGI and its comments, read 2026-09-24",
+    "the tag page has no comments"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Found by this reviewer while checking MC.1/motive-dual."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E9",
+   "kind": "error",
+   "locator": "Lemma 0FGR (tag 0FGR), statement and last line of the proof",
+   "printed": "[Delta_P] = (sum over i = 0, ..., r - 1 of (r - 1 choose i) c_{r-1-i}(pr_1^*S^dual) cap c_1(pr_2^*O_P(1))^i) cap (p × p)^*[Delta_X]",
+   "correction": "Every coefficient is 1: [Delta_P] = (sum over i = 0, ..., r - 1 of c_{r-1-i}(pr_1^*S^dual) . c_1(pr_2^*O_P(1))^i) cap (p × p)^*[Delta_X].",
+   "reason": "The proof identifies [Delta_P] with the top Chern class c_{r-1}(q_1^*S^dual tensor q_2^*O_P(1)) and expands it by Chow Homology Lemma 02UD, c_i(E tensor L) = sum over j of binom(rk E - i + j, j) c_{i-j}(E) c_1(L)^j; in top degree i = rk E = r - 1 every coefficient is binom(j, j) = 1, not binom(r - 1, j). Check: X = Spec(k), E = k^3, P = P^2, c_j(S^dual) = h^j; the printed formula gives h_1^2 + 2 h_1 h_2 + h_2^2, whose product with the class of L × L' (two lines) is 2, while the diagonal meets L × L' in the single point L cap L'; the corrected formula gives h_1^2 + h_1 h_2 + h_2^2, the Kuenneth decomposition of the diagonal. For r <= 2 the two agree.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b",
+    "the live tag page https://stacks.math.columbia.edu/tag/0FGR and its comments, read 2026-09-24",
+    "the tag page for Section 0FGP, whose two comments (2021) concern the transpose in the definition of c_i and were fixed; the tag page for 0FGR has no comments"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Found by this reviewer while checking MC.1/diagonal-of-projective-bundle; the consumer in the source (Lemma 'ok-for-projective-bundle' in Section 0FID) needs only the corrected formula."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E10",
+   "kind": "error",
+   "locator": "Page 448, first sentence of the proof of Theorem 1, and the statement of Theorem 1 (version of record, Invent. math. 107 (1992), read from the scan in the Regensburg repository)",
+   "printed": "Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation.",
+   "correction": "Exclude the trivial relation, under which every cycle is equivalent to zero: numerical equivalence is the coarsest adequate relation other than the trivial one (equivalently, among those with A^0(Spec k) = F). Theorem 1 holds for adequate relations other than the trivial one.",
+   "reason": "The trivial relation satisfies the conditions for adequacy (pullback, pushforward and intersection are well defined modulo it) and is strictly coarser than numerical equivalence, since it kills [Spec k]. For it every A^j(X) is zero, so M_k is the zero category, which is semisimple abelian, and every A^{dim X}(X × X) is the zero algebra, which is finite-dimensional and semisimple; so a) and b) of Theorem 1 hold and c) fails. The proof of a) => c) uses End(1) = F, which fails exactly for the trivial relation. For any other adequate relation A^0(Spec k) = F and the stated comparison holds (proof in MC.0/numerical-equivalence).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the Regensburg repository record epub.uni-regensburg.de/26642 (a scan of the published article, SHA-256 f2a285cb7ba9f53a1dcb3844e41901dd4f8391cc2655b1b8195bc7a62a277fab), which lists no erratum or corrigendum",
+    "the six pages of the article, which contain no remark excluding the trivial relation",
+    "Milne's expository article, which makes the same informal claim ('The coarsest such equivalence relation is numerical equivalence')"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Uwe Jannsen, Motives, numerical equivalence, and semi-simplicity, Inventiones mathematicae 107 (1992), 447-452; the author's copy in the University of Regensburg repository",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Found by this reviewer while checking MC.0/adequate-equivalence-relation and MC.0/numerical-equivalence; the MC.3 node for Theorem 1 needs the added hypothesis."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E11",
+   "kind": "misprint",
+   "locator": "Lemma 0FG8 (tag 0FG8), last sentence of the proof",
+   "printed": "In other words, going either way around the diagram we obtain the element of Corr^d(X × Y, Spec(k)) corresponding to the cycle Gamma_f in X × Y.",
+   "correction": "Corr^{-e}(X × Y, Spec(k)) (which is CH^d(X × Y) tensor Q).",
+   "reason": "Both composites in the diagram have degree -e: id tensor a^t has degree d - e, eta_X degree 0 and [X] degree -d, and a tensor id, eta_Y and [Y] have degrees 0, 0 and -e. Corr^r(X × Y, Spec(k)) is CH^{d+e+r}(X × Y), so the class of Gamma_f, of codimension d, lies in degree -e; Corr^d(X × Y, Spec(k)) = CH^{2d+e}(X × Y) is zero for d positive.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b",
+    "the live tag page https://stacks.math.columbia.edu/tag/0FG8 and its comments, read 2026-09-24",
+    "the tag page has no comments"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Found by this reviewer while adding MC.0/graph-against-diagonals."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E12",
+   "kind": "misprint",
+   "locator": "Lemma 0FH1, proof, the paragraph constructing (D3) and the paragraph proving (A)(a) and (A)(b); weil.tex lines 1712 and 1721 at the pinned commit",
+   "printed": "H^*(X) ⊗ F[−2d] = G(h(X)(d)) → G(1) = F ... G(h(X)(d)) = H^*(X) ⊗ F[−2d] is a left dual to H^*(X)",
+   "correction": "F[2d] in both places: G(h(X)(d)) = H^*(X) ⊗ G(1(d)) and G(1(d)) ≅ F[2d], which has F in degree −2d.",
+   "reason": "The same proof fixes F[n] to have F in degree −n and an isomorphism F[2n] → G(1(n)). With F[−2d], F sits in degree 2d and the degree zero part of H^*(X) ⊗ F[−2d] is H^{−2d}(X) = 0, contradicting the next sentence, which extracts ∫_X : H^{2d}(X) → F from degree zero.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "tag page 0FH1",
+    "weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E13",
+   "kind": "gap",
+   "locator": "Proposition 0FH3 with its proof",
+   "printed": "A classical Weil cohomology theory is the same thing as a Q-linear functor G ... together with an isomorphism F[2] → G(1(1)) ... Conversely, given H^* we get a functor G by the construction of Lemma 0FH2.",
+   "correction": "The proof should show that the two constructions are mutually inverse: the data recovered from the functor of Lemma 0FH2 with the normalisation given by ∫ over P^1 are the original pullbacks, cup product, cycle classes and traces, and the functor rebuilt from the theory attached to (G, F[2] → G(1(1))) is isomorphic to G as a symmetric monoidal functor compatibly with the normalisation. The blueprint supplies this as MC.2/realization-round-trip.",
+   "reason": "The proof constructs a theory from a functor and a functor from a theory and checks the two extra conditions, but never composes the constructions. 'The same thing' asserts a bijection, and the recovery of the cycle class and trace maps depends on the chosen normalisation, which the proof does not follow through the round trip.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "tag page 0FH3",
+    "weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E14",
+   "kind": "misprint",
+   "locator": "Lemma 0FH2, proof, the justification of the fourth equality (weil.tex line 1895; the same slip recurs in Lemma 0FHL, line 3090)",
+   "printed": "The fourth equalith holds by axiom (C)(a) and the fact that the Gysin map agrees with flat pullback for flat morphisms",
+   "correction": "The fourth equality holds by axiom (C)(a) ...",
+   "reason": "A spelling slip; the justification is otherwise correct.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "tag pages 0FH2 and 0FHL",
+    "weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E15",
+   "kind": "gap",
+   "locator": "page 449, proof of Lemma 2, the displayed inclusion; the author's scanned copy of the Inventiones article (Regensburg repository), the version read",
+   "printed": "since otherwise (0 0; Hom(M, N) 0) ⊆ (End(M) Hom(N, M); Hom(M, N) End(N)) = End(M ⊕ N) was a non-trivial nilpotent two-sided ideal.",
+   "correction": "From the hypothesis that all composites M → N → M vanish, the displayed corner is a left ideal of square zero; closure under right multiplication needs the composites N → M → N to vanish too, which is true in context (a nonzero one would make g : N → M split, hence an isomorphism since M is indecomposable, and then some composite M → N → M would be nonzero) but is not argued. Alternatively, a semisimple algebra has no nonzero nilpotent left ideal, which suffices.",
+   "reason": "In End(M ⊕ N) with Hom(M, N) in the lower left corner, [[a, b], [c, d]] · [[0, 0], [h, 0]] = [[b ∘ h, 0], [d ∘ h, 0]] lies in the corner because b ∘ h = 0 by hypothesis, but [[0, 0], [h, 0]] · [[a, b], [c, d]] = [[0, 0], [h ∘ a, h ∘ b]] has the entry h ∘ b in End(N), which the hypothesis does not control.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Regensburg repository record of the author's copy, which lists no erratum",
+    "Crossref metadata for DOI 10.1007/BF01231898, which records no update or erratum",
+    "the Springer article page, which refused automated access"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Uwe Jannsen, Motives, numerical equivalence, and semi-simplicity, Inventiones mathematicae 107 (1992), 447-452; the author's copy in the University of Regensburg repository",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E16",
+   "kind": "misprint",
+   "locator": "page 451, proof of Corollary 2, the display defining the grading; the author's scanned copy of the Inventiones article, the version read",
+   "printed": "(X, p, m)^r = (X, pπ^{r+2m}, r)",
+   "correction": "(X, p, m)^r = (X, pπ^{r+2m}, m): the twist is unchanged.",
+   "reason": "The graded pieces must be direct summands of (X, p, m), cut out by the central idempotents pπ^{r+2m}, and so carry the same twist m; with twist r the object is not a summand of (X, p, m) when r ≠ m, since morphisms (X, q, r) → (X, p, m) are correspondences of degree m − r. The index r + 2m is right: (X, π^i, m) has cohomology H^i(X) in degree i − 2m.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Regensburg repository record, which lists no erratum",
+    "Crossref metadata for DOI 10.1007/BF01231898, which records no update or erratum",
+    "the Springer article page, which refused automated access"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Uwe Jannsen, Motives, numerical equivalence, and semi-simplicity, Inventiones mathematicae 107 (1992), 447-452; the author's copy in the University of Regensburg repository",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E17",
+   "kind": "misprint",
+   "locator": "Example 0FHZ (Section 0FHY, Weil cohomology theories II); weil.tex lines 3637 and 3639 at the pinned commit",
+   "printed": "satisfying all classical axioms (A), (B), (C), except for possibly the classical axioms (A)(a) and (A)(d). However, if E is an elliptic curve over k, then we find dim H^{−1}(E) = 1, i.e., axiom (A)(a) is indeed violated.",
+   "correction": "(A)(c) in both places: Lemma 0FH1, which the example applies, leaves open (A)(c) and (A)(d), and a nonzero H^{−1}(E) violates the vanishing range (A)(c); (A)(a), finite dimensionality, holds.",
+   "reason": "Lemma 0FH1 states the exceptions as (A)(c) and (A)(d). In the example H^n(E) collects the Hodge groups H^{p,q} with n = 3p − q, so H^{−1}(E) = H^{0,1}, H^0 = H^{0,0}, H^2 = H^{1,1}, H^3 = H^{1,0}, all finite-dimensional; what fails is vanishing outside [0, 2].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "tag page 0FHZ",
+    "weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E18",
+   "kind": "gap",
+   "locator": "Lemma 0FH2, proof, first paragraph",
+   "printed": "Since every smooth projective scheme is canonically a disjoint union of smooth projective varieties, it suffices to construct G on the category whose objects are smooth projective varieties and whose morphisms are correspondences of degree 0. (Some details omitted.)",
+   "correction": "The extension of a classical theory from varieties to smooth projective schemes, with the componentwise pullback, cycle class, trace and Künneth maps, has to be constructed and checked; the blueprint does this in MC.2/weil-cohomology-of-schemes.",
+   "reason": "The universal property of motives (Lemma 0FGH) is stated for functors on all smooth projective schemes, while a classical theory is defined on varieties; the reduction is asserted with details omitted.",
+   "affects": "the proof",
+   "known": "the source flags the omission itself",
+   "searched": [
+    "tag page 0FH2",
+    "weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E19",
+   "kind": "misprint",
+   "locator": "Lemma 0FFV, first line of the proof; homology.tex line 4074 at commit a04446e57ec1fbc252a871afcec7752fb2807b14",
+   "printed": "As unit we take By Categories, Definition 0FFP we have maps η : 1 → V ⊗ W, ε : W ⊗ V → 1",
+   "correction": "Delete the stray fragment 'As unit we take'; the proof begins with 'By Categories, Definition ...'.",
+   "reason": "The fragment is an unfinished sentence left before the first real sentence of the proof; nothing depends on it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "tag page 0FFV, which prints the same text and has no comments",
+    "homology.tex at the pinned commit (SHA-256 483caf01...)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Homological Algebra\" (tag 0111), LaTeX source homology.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locator in the version read by the reviewer who found it; see reason."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E20",
+   "kind": "misprint",
+   "locator": "Lecture 13, Example 13.17, p. 103 (Clay PDF)",
+   "printed": "C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2]",
+   "correction": "The middle term should be C_*(Z_tr(G_m)/Z)[1], equivalently C_*Z_tr(G_m^{wedge 1})[1].",
+   "reason": "By Lemma 2.13, Z_tr(G_m) = Z + Z_tr(G_m, 1), and by Definition 3.1, Z(1) = C_*Z_tr(G_m^{wedge 1})[-1]; so C_*Z_tr(G_m)[1] = Z[1] + Z(1)[2], which is not Z(1)[2]. The argument (the Mayer-Vietoris sequence with C_*Z_tr(A1)/Z = 0) produces the quotient by Z.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked against Definition 3.1 and Lemma 2.13 of the same source, and the rendered page."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E21",
+   "kind": "gap",
+   "locator": "Lecture 15, Corollary 15.13 and Theorem 15.15, pp. 123-124",
+   "printed": "COROLLARY 15.13. Let X be a smooth scheme and Z a smooth subscheme of pure codimension c. ... THEOREM 15.15. Let X be a smooth scheme over a perfect field",
+   "correction": "As proved in the source, Corollary 15.13 and Theorem 15.15 need k perfect and admitting resolution of singularities: the proof of 15.13 uses Theorem 13.26 twice (for X' -> X and for the blow-up of X x A^1 along Z x 0), and 13.26 assumes resolution; 15.15 is proved from the Gysin map of 15.13. Either add the hypothesis or supply a proof of the smooth-centre case without it.",
+   "reason": "Theorem 13.26 begins 'Assume that resolution of singularities holds over k', and its proof uses Theorem 13.25, which assumes resolution over a perfect field. Corollary 15.13 carries no hypothesis and Theorem 15.15 only 'over a perfect field'.",
+   "affects": "the proof",
+   "known": "new (the statements are true over any perfect field by Voevodsky's 'Triangulated categories of motives over a field', not read here)",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked the hypotheses of 13.25, 13.26, 15.13 and 15.15 and the proofs of 15.13 and 15.15."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E22",
+   "kind": "misprint",
+   "locator": "Lecture 15, proof of Corollary 15.5, p. 121",
+   "printed": "the quasi-isomorphism Z_tr(Pn-1) -> +Z(i)[i] factors through it. ... C_*Z_tr(Pn) -> Z(n)[n] -> C_*Z_tr(Pn-1)[1].",
+   "correction": "Z(i)[i] should be Z(i)[2i], and Z(n)[n] should be Z(n)[2n].",
+   "reason": "Theorem 15.2 identifies the quotient with Z(n)[2n] and the statement of 15.5 has summands Z(i)[2i].",
+   "affects": "nothing",
+   "known": "The authors' corrections list, entry 'p.121 line 11: Z(i)[i] should be Z(i)[2i]; on line 13, Z(n)[n] should be Z(n)[2n]'.",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "The misprint is in the text read and is corrected in the authors' list."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E23",
+   "kind": "misprint",
+   "locator": "Lecture 20, proof of Proposition 20.1, p. 167",
+   "printed": "We set d = dimX and compute in DM^{eff,-}_Nis: CH^d(X x Y) = H^{2d,d}(X x Y,Z)",
+   "correction": "d = dim Y: the chain passes through duality with T = Y of dimension d, and Hom_Chow(Y, X) = CH_{dim X}(X x Y) = CH^{dim Y}(X x Y).",
+   "reason": "Duality (16.24) with T = Y introduces the twist by dim Y; with d = dim X the third equality of the chain fails unless dim X = dim Y.",
+   "affects": "the proof",
+   "known": "The authors' corrections list, entries 'p.167, line 13: HomChow(Y, X) should be CHdim Y (X x Y)' and 'p.167, line -5: We set d = dim Y (not dim X)'.",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "The misprint is in the text read and is corrected in the authors' list."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E24",
+   "kind": "gap",
+   "locator": "Lecture 20, Proposition 20.1 and Remark 20.2, pp. 167-168",
+   "printed": "Then Grothendieck's category of effective Chow motives embeds contravariantly into DM^eff_gm(k,Z) ... in the sense that if X and Y are two smooth projective schemes, then Hom_Chow(Y,X) = Hom(M(X),M(Y)).",
+   "correction": "The proof of 20.1 gives, for each pair (X, Y), an isomorphism of Hom groups through a chain of identifications; that these isomorphisms are compatible with composition of correspondences and with the tensor product, which a (tensor) functor requires, is asserted in Remark 20.2 but not proved.",
+   "reason": "The chain CH^d(X x Y) = H^{2d,d}(X x Y) = Hom(M(X x Y), Z(d)[2d]) = Hom(M(X)(d)[2d], M(Y)(d)[2d]) = Hom(M(X), M(Y)) involves duality and cancellation isomorphisms whose compatibility with composition of correspondences is a separate statement; the source does not address it.",
+   "affects": "the proof",
+   "known": "new (Voevodsky's 'Triangulated categories of motives over a field' constructs the functor; not read here)",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked the proof of 20.1 and Remark 20.2."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E25",
+   "kind": "gap",
+   "locator": "Corollary 13.14, Proposition 13.15, Corollary 13.16 (p. 103), Theorem 13.26 (p. 106), Corollary 15.5 and Theorem 15.12 (pp. 121-123), Theorem 16.8 (p. 127), Example 16.14 and Theorem 16.15 (p. 129), Corollary 19.9 (p. 161)",
+   "printed": "COROLLARY 13.14. Let f : C1 -> C2 be a map of bounded above cochain complexes of presheaves with transfers.",
+   "correction": "These results are stated without 'k perfect' but their proofs use Theorem 13.12 or 13.8 (through 13.14, 15.2, 16.12 or 16.7) or Theorem 13.25, each of which assumes k perfect; as proved in the source they hold over perfect fields.",
+   "reason": "13.12 and 13.25 are stated for a perfect field; 13.14 is proved from 13.12, 13.15 and 13.16 from 13.14, 15.5 and 15.12 from 15.2 (which says perfectness is needed for 13.8), 16.8 from 16.12, 16.14 and 19.9 from 16.7, and 13.26 and 16.15 from 13.25.",
+   "affects": "a stated result",
+   "known": "new (the introduction warns that 13.8 needs a perfect field, but the listed statements omit it)",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked the hypothesis of each statement against the results its proof cites."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E26",
+   "kind": "misprint",
+   "locator": "Theorem 15.12 and display (14.5.2), pp. 111 and 123",
+   "printed": "Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM, and p is the projection onto the factor Z_tr(X).",
+   "correction": "The canonical map of Construction 15.10 goes from Z_tr(P(E)) to the sum: sigma_i : Z_tr(P) -> Z_tr(X) tensor Z(i)[2i]; the display should read Z_tr(P(E)) -> +_{i=0}^n Z_tr(X)(i)[2i].",
+   "reason": "Construction 15.10 defines sigma_i from Z_tr(P) to Z_tr(X)(i)[2i], and 'p is the projection onto the factor Z_tr(X)' only makes sense for a map out of Z_tr(P(E)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked against Construction 15.10."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E27",
+   "kind": "misprint",
+   "locator": "Lecture 16, Definition 16.1, p. 125",
+   "printed": "Let T be any scheme of finite type over k and m >= 0 an integer. The presheaf z_equi(T,r) on Sm/k is defined as follows.",
+   "correction": "m should be r.",
+   "reason": "The definition and everything after it use r; m does not occur again.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf)",
+    "the freely posted Clay PDF of the book, which is the version read"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology, Clay Mathematics Monographs 2, American Mathematical Society, 2006; the freely posted Clay Mathematics Institute PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked in the definition."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E28",
+   "kind": "error",
+   "locator": "Lemma 1.12(2) and (3), with the proof of (2), p. 7, arXiv v5",
+   "printed": "(2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n). (3) Let X be a smooth variety, Z in X a smooth, irreducible, closed subvariety of pure codimension n. Then H^{2n}_Z(X) = 1(-n).",
+   "correction": "In (2) Z must be geometrically irreducible, and in (3) Z must be geometrically connected (for Z smooth, geometrically irreducible); in general the proof of (3) gives H^{2n}_Z(X) = H^0_Nori(Z)(-n). In the proof of (2) the map is the restriction H^{2n}_Nori(P^N) -> H^{2n}_Nori(Z), not the reverse.",
+   "reason": "Varieties are reduced separated schemes of finite type over Q, not necessarily geometrically irreducible. For Z = {0, infinity} in P^1 (n = 0), or Z = Spec Q(i), H^0(Z(C); Q) = Q^2, so H^0_Nori(Z) is not 1(0). For X = A^1 over Q and Z = V(t^2 + 1), which is smooth and irreducible of codimension 1, H^2_Z(X) realises to H^2_{Z(C)}(C; Q) = Q^2, so it is not 1(-1). The proof of (3) itself starts from the Gysin isomorphism H^0(Z) = H^{2n}_Z(X). Lemma 1.13 applies (3) to the diagonal of W, so it needs W geometrically connected or the replacement of 1(-i) by H^0_Nori(W)(-i); Theorem 1.14 is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked with the counterexamples in singular cohomology, which the faithful fibre functor detects."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E29",
+   "kind": "error",
+   "locator": "Proof of Theorem 1.6, p. 5, against Definition B.14 (pp. 20-21) and Remark B.19(2) (p. 24), arXiv v5",
+   "printed": "Properties (2) and (3) depend on a choice of a sign convention such that the boundary map d is compatible with cup products in the first variable and compatible up to sign in the second variable.",
+   "correction": "Definition B.14 puts the sign in the first variable (condition (2): T(g x id) = (-1)^{|g||h|} T(g) tensor id) and none in the second (condition (3)), as Remark B.19(2) says. With the usual conventions d(a x b) = da x b and d(a x b) = (-1)^{|a|} a x db for the cross product, singular cohomology satisfies B.14 with tau^{-1}(a tensor b) = (-1)^{|a||b|} a x b, not with the plain cross product.",
+   "reason": "Remark B.19(2): 'We were able to drop the condition by shifting the sign condition in the definition of a multiplicative diagram to the first variable.' The description in the proof of Theorem 1.6 still has the sign in the second variable. A direct computation with the stated conventions checks conditions (1)-(3) of B.14 for the normalisation given.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked against Definition B.14 on the rendered page 20 and Remark B.19(2)."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E30",
+   "kind": "gap",
+   "locator": "Proof of Theorem 1.6, p. 5, arXiv v5",
+   "printed": "D^eff_Nori is a graded diagram in the sense of Definition B.14. It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i').",
+   "correction": "A product structure in the sense of Definition B.14 (or Remark B.17) must also send a pair (coboundary edge, identity) to an edge (or path). The source defines the product on vertices only, and in general no edge or path of D^eff_Nori has the required ends; the construction needs an enlarged diagram, for instance with excision edges, together with a check that the diagram category is unchanged.",
+   "reason": "For a coboundary edge (Y, Z, i) -> (X, Y, i + 1) and a vertex (X', Y', j) the product must go from (Y x X', Y x Y' union Z x X', i + j) to (X x X', X x Y' union Y x X', i + j + 1). Coboundary edges into the target start at (X x Y' union Y x X', V); functoriality edges out of (Y x X', ...) go to pairs mapping to Y x X', and X x Y' union Y x X' admits no map to Y x X' restricting to the identity unless Y is a retract of X (it is not for Y two points of X = A^1).",
+   "affects": "the proof",
+   "known": "new (not checked against the authors' 2017 book)",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked by enumerating the edges of Definition 1.1 with the given ends."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E31",
+   "kind": "gap",
+   "locator": "Proposition D.3 and its proof, pp. 30 and 33, arXiv v5",
+   "printed": "Then there is a natural contravariant triangulated functor R : C^b(Z[Var]) -> D^b(A) on the category of bounded homological complexes in Z[Var] such that for every good pair (X, Y, i) we have H^j(R(Cone(Y -> X)) = 0 for j not i, T(X, Y, i) for j = i",
+   "correction": "The proof constructs R on objects and morphisms and asserts independence of the choices, but does not show that R is triangulated, that its values are bounded, or that H^j(R(Cone(Y -> X))) is concentrated in degree i; and the statement writes T(X, Y, i) for good pairs although T is defined only on very good pairs (for good pairs the value is H^i of the cone by Definition D.4).",
+   "reason": "The proof on p. 33 consists of the definition of R on objects and on morphisms through refinements; the other assertions of the proposition, including the comparison with singular cohomology, are not addressed.",
+   "affects": "the proof",
+   "known": "new (not checked against the authors' 2017 book)",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked the proof of D.3 as printed."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E32",
+   "kind": "misprint",
+   "locator": "Proof of Proposition B.16, pp. 22-23, arXiv v5",
+   "printed": "Left and right commute by property (3) up to the same sign (-1)^{|g||a|}. ... The associativity assumption (3) for representations of diagrams with product structure implies the coassociativity of mu*.",
+   "correction": "The first reference should be property (2) (the one with the sign, for edges in the first variable) and the second property (4) (associativity).",
+   "reason": "In Definition B.14, (2) is the condition with the sign (-1)^{|g||h|} for g x id, (3) the sign-free condition for id x g, and (4) the associativity condition.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked against the numbering of Definition B.14."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E33",
+   "kind": "misprint",
+   "locator": "Proof of Corollary D.11, p. 31, arXiv v5",
+   "printed": "By construction F_{n-1}X - F_{n-1}X is smooth and hence the pair is very good.",
+   "correction": "F_nX - F_{n-1}X is smooth.",
+   "reason": "F_{n-1}X - F_{n-1}X is empty; the very good condition asks that X - Y = F_nX - F_{n-1}X be smooth, which the choice of F_{n-1}X containing the singular locus gives.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on the rendered page 31."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E34",
+   "kind": "misprint",
+   "locator": "Definition 1.1(1), p. 4, arXiv v5",
+   "printed": "The diagram D^eff of effective pairs consists of triples (X, Y, i) ... There are two types of edges between effective good pairs:",
+   "correction": "'between effective pairs': D^eff contains all effective pairs, and D^eff_Nori is then defined as its full subdiagram on good pairs.",
+   "reason": "Good pairs are defined only in part (2), as a full subdiagram of D^eff; the sentence comes from Definition D.1(2), where D^eff denotes the diagram of good pairs, so the notation D^eff means different diagrams in Section 1 and in Appendix D.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked against parts (2) and (3) of the definition and Definition D.1."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E35",
+   "kind": "misprint",
+   "locator": "Definition 1.3 (p. 4) and Definition 1.11 (p. 7), arXiv v5",
+   "printed": "We put 1(-1) = H^1_Nori(G_m, {1}) in MM^eff_Nori. ... Definition 1.11. Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.",
+   "correction": "Definition 1.11 should read 1(-1) = H^1_Nori(G_m, {1}), as in Definition 1.3; the two objects are canonically isomorphic.",
+   "reason": "(G_m, empty, 1) is not a good pair, since H^0(C^*; Q) is nonzero, so H^1_Nori(G_m) is defined only through Corollary 1.7; the long exact sequence of the triple (G_m, {1}, empty), with H^0(G_m) -> H^0({1}) an isomorphism, identifies it with H^1_Nori(G_m, {1}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded",
+    "the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked in singular cohomology and against Corollary 1.7."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E36",
+   "kind": "gap",
+   "locator": "Section 2, the setting paragraph before Definition 2.1 (page 9), and Section 3, the setting paragraph before Lemma 3.1 (page 12), arXiv:1105.0865v5",
+   "printed": "Let D be a graded diagram with commutative product structure (see Definition B.14), T1, T2 : D → Q-Mod two representations.",
+   "correction": "T_1 and T_2 must be unital graded multiplicative representations in the sense of Definition B.14, and in Section 3 the isomorphism ϕ : T_1 ⊗ K → T_2 ⊗ K must be compatible with the multiplicative structures.",
+   "reason": "Lemma 2.2 (the ring structure on A_{1,2}), Proposition 2.5 (the product (p × p′, ω ⊗ ω′, γ ⊗ γ′) needs T_i(p × p′) ≅ T_i(p) ⊗ T_i(p′)), Theorem 2.6 as an isomorphism of algebras, and Lemma 3.2 and Theorem 3.3 (tensor automorphisms and tensor isomorphisms need T_2 to extend to a tensor functor) all use the isomorphisms τ of Definition B.14 for both representations and the compatibility of ϕ with them; for mere representations none of these structures is defined. The application to de Rham and singular cohomology on good pairs satisfies the hypotheses.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at the locators: the setting paragraphs say only 'two representations', while the multiplication in Proposition 2.5 and the proof of Lemma 2.2 (via Proposition B.16) need the τ of both."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E37",
+   "kind": "gap",
+   "locator": "Proof of Theorem 2.10 (page 11), arXiv:1105.0865v5",
+   "printed": "We first restrict to the effective situation. ... Hence by Theorem 2.6 P^eff_{1,2} = A^eff_{1,2} and P_{1,2} = A_{1,2}.",
+   "correction": "On the diagram of all pairs, singular and de Rham cohomology are not graded multiplicative representations, so Theorem 2.6 gives only an isomorphism of vector spaces there. The algebra structure must be taken through the diagram of good pairs, where both cohomologies are graded multiplicative, using the analogue of Corollary 1.7 that the comparison algebras of all pairs and of good pairs agree (which the source invokes only in the proof of Corollary 2.11), and checking that the product of P^+ matches on generators.",
+   "reason": "For a pair (X, Y) that is not good, H^{i+i′} of the product pair is the sum over a + b = i + i′ of H^a(X, Y) ⊗ H^b(X′, Y′) and not H^i ⊗ H^{i′}, so the isomorphisms τ of Definition B.14 do not exist; Proposition B.16, Lemma B.21 and Proposition B.22, on which the multiplicative statements rest, all assume a graded multiplicative representation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked: Definition 1.1 and the proof of Theorem 1.6 put the multiplicative structure on good pairs only, and Assumption B.20 and Lemma B.21 require a graded multiplicative representation."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E38",
+   "kind": "error",
+   "locator": "Proof of Theorem 2.6 (page 10), arXiv:1105.0865v5",
+   "printed": "By definition P_{1,2} is the subspace of ∏_{p∈D} T_1(p) ⊗ T_2(p)^∨ of elements satisfying the relations induced by D. By definition A_{1,2}(T) is the subspace of ∏_{p∈D} Hom(T_1(p), T_2(p))^∨ of elements satisfying the relations induced by D.",
+   "correction": "Both are quotients, not subspaces: for finite D, P_{1,2} is the quotient of the sum of the T_1(p) ⊗ T_2(p)^∨ by the span of the elements T_1(f)ω ⊗ γ − ω ⊗ T_2(f)^∨γ, one for each edge f, and A_{1,2} = Hom(T_1|D, T_2|D)^∨ is the quotient of the dual of the product of the Hom(T_1(p), T_2(p)) by the annihilator of the subspace Hom(T_1|D, T_2|D) cut out by the edge conditions, which is the span of the same elements. With 'quotient' the conclusion 'this is the same thing' holds.",
+   "reason": "Definition 2.4 presents P_{1,2} by generators and relations, which is a quotient; Definition 2.1 takes the dual of the subspace Hom(T_1|F, T_2|F), which is a quotient of the dual of the ambient product. The elements of the product 'satisfying the relations' form neither space.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on the rendered page 10; the theorem stands with the corrected proof, which the packet's node already follows."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E39",
+   "kind": "gap",
+   "locator": "Proof of Corollary 3.4 (page 13), arXiv:1105.0865v5, against Theorem 1.14 (page 8)",
+   "printed": "Finally note that G_1 = G_mot is the motivic fundamental group by definition.",
+   "correction": "With T_1 = H*_dR and T_2 = H* as in Theorem 2.10, G_1 = Aut⊗(H*_dR), whereas Theorem 1.14 defines G_mot = Spec A(D_Nori, H*) through singular cohomology, that is G_mot = G_2. Moreover Lemma 3.2 needs C(T_1) = C(D, H*_dR) to be neutral Tannakian, which the paper proves only for C(D_Nori, H*). The proof should take the base category MM_Nori = C(D_Nori, H*), extend H*_dR to it by Lemma 3.1 with the roles exchanged, and use ι : X_{1,2} ≅ X_{2,1}; then Spec P is a torsor under G_mot = G_2 acting by composition, and under the de Rham group on the other side, so the corollary holds as stated.",
+   "reason": "Theorem 1.14: 'Its Tannaka dual is given by Gmot = Spec(A(DNori, H∗))', with H* relative singular cohomology (Definition 1.1 and the paragraph after it); Section 3 applies Lemma 3.2 to C(T_1) with T_1 = H*_dR.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked at both locators; the statement of Corollary 3.4 survives because X_{1,2} is a torsor under both groups."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E40",
+   "kind": "misprint",
+   "locator": "Introduction, the sentence before Theorem 0.2 (page 2), arXiv:1105.0865v5",
+   "printed": "The main aim of this note is to provide the proof (see Corollary 2.11) of the following result:",
+   "correction": "Read 'see Corollary 3.4'. Corollary 2.11 is the restriction of the generators of P to very good pairs; the torsor statement is Corollary 3.4.",
+   "reason": "Corollary 3.4 on page 13 states that P has a natural torsor structure under G_mot, which is Theorem 0.2; Corollary 2.11 on page 11 concerns the generators of P.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked against the numbering of Sections 2 and 3."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E41",
+   "kind": "misprint",
+   "locator": "Definition 2.8, the product on P^+ (page 10), arXiv:1105.0865v5; Definition 0.1 (page 2) has a different slip",
+   "printed": "(X, D, ω, γ)(X′, D′, ω′, γ′) = (X × X′, D × X′ ∪ D′ × X, ω ∧ ω′, γ × γ′)",
+   "correction": "The subvariety of X × X′ is D × X′ ∪ X × D′. Definition 0.1 prints D × X′ ∪ X′ × D, which is also wrong.",
+   "reason": "D′ × X is a subvariety of X′ × X, not of X × X′; the product of pairs in the proof of Theorem 1.6 is (X × X′, X × Y′ ∪ Y × X′), with the factors in the right order.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on the rendered pages 2 and 10."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E42",
+   "kind": "error",
+   "locator": "Appendix A, Propositions A.4 and A.6 (pages 15 to 16), arXiv:1105.0865v5",
+   "printed": "Let G_l = X^2/∼_l ... Then µ_l is well-defined on G_l and turns G_l into a group. ... Proposition A.6. Let X be a torsor in the category of affine schemes. Then there are affine group schemes G_l and G_r",
+   "correction": "Both propositions need X nonempty (for Proposition A.6, X nonempty over a field, or faithfully flat over the base). Definition A.1 admits the empty set as a torsor, and then G_l is empty, which is not a group.",
+   "reason": "For X = ∅ the axioms of Definition A.1 hold vacuously, X × X is empty, so G_l is empty and has no neutral element; the proof takes (x, x) for some x in X as the neutral element. The same happens for the empty affine scheme in Proposition A.6.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum",
+    "the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked: the definition allows the empty set and the proof of Proposition A.4 uses an element x of X; in the application X_{1,2} is nonempty, so nothing downstream changes."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E43",
+   "kind": "misprint",
+   "locator": "Section 2, the paragraph on the separable-closure variant (page 6), author's copy",
+   "printed": "every class in H^{2a}(X, Q_l(i)) fixed by some open subgroup of Gal(k_s/k) is represented by an algebraic cycle over some finite extension of k",
+   "correction": "Read Q_l(a).",
+   "reason": "Classes of codimension-a cycles lie in H^{2a}(X, Q_l(a)); the index i is not defined in the paragraph, and the next sentence identifies the variant with the usual conjecture, which uses Q_l(a).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy at the URL of the packet's source record, the only version read",
+    "the Bulletin of the AMS version was not compared; the finding is scoped to the author's copy"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Burt Totaro, Recent progress on the Tate conjecture, Bulletin of the American Mathematical Society 54 (2017), 575-590; the author's copy, 17 pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on the rendered page 6."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E44",
+   "kind": "misprint",
+   "locator": "Section 2, the paragraph after the Tate-Beilinson conjecture (page 7), author's copy",
+   "printed": "CH^1 of an elliptic curve X is the direct sum of Z with the Mordell-Weil group X(k), where X(k) maps to zero in H^2(X, Q_l(i)) ≅ Q_l.",
+   "correction": "Read H^2(X, Q_l(1)).",
+   "reason": "The cycle map on CH^1 lands in H^2(X, Q_l(1)), as in the displayed map CH^a(X) ⊗ Q → H^{2a}(X, Q_l(a)) just above with a = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's copy at the URL of the packet's source record, the only version read",
+    "the Bulletin of the AMS version was not compared; the finding is scoped to the author's copy"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "Burt Totaro, Recent progress on the Tate conjecture, Bulletin of the American Mathematical Society 54 (2017), 575-590; the author's copy, 17 pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked on the rendered page 7."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E45",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 0FH9, the paragraph proving that N is trivial on the fibres (weil.tex line 2304 at a04446e)",
+   "printed": "an invertible module $\\mathcal{L}'$ on $T \\times X$ and $k$-rational points $p, q \\in T$ such that $\\mathcal{M}_p \\cong \\mathcal{O}_X$ and $\\mathcal{M}_q = \\mathcal{L}$.",
+   "correction": "Read L′_p ≅ O_X and L′_q ≅ L.",
+   "reason": "The module just introduced on T × X is L′; M denotes the invertible module on Pic^n_{X/k} earlier in the proof. With T = X, p = x′, q = x and L′ = O(Δ) ⊗ pr_2^*O(−x′), the fibres are L′_{x′} = O_X and L′_x = O_X(x − x′) = L, as the proof needs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14",
+    "the tag page stacks.math.columbia.edu/tag/0FH9 as served on 24 September 2026, which shows the same text"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked in the pinned weil.tex and on the tag page."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E46",
+   "kind": "gap",
+   "locator": "Proof of Lemma 0FH9, the computation of π^*N (weil.tex line 2245 at a04446e)",
+   "printed": "in $\\Pic(X^n)$ by a calculation. Deails omitted; hint: this follows from the fact that $\\text{Norm}_\\pi$ ...",
+   "correction": "The identity π^*Norm_π(L_1) = (L_1 ⊗ ... ⊗ L_n)^{⊗(n−1)!} must be proved: the pullback of the norm is the tensor product of the translates σ^*L_1 over σ in the symmetric group, and each L_i occurs (n − 1)! times. 'Deails' is also a misprint for 'Details'.",
+   "reason": "The step is asserted with its details omitted, and the proof's conclusion π^*β_n = (n!)^n α_n rests on it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14",
+    "the tag page stacks.math.columbia.edu/tag/0FH9 as served on 24 September 2026, which shows the same text"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked in the pinned weil.tex and on the tag page."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E47",
+   "kind": "gap",
+   "locator": "Proof of Lemma 0FH9, the map S^n(X) → Pic^n (weil.tex line 2278 at a04446e)",
+   "printed": "For $n \\geq 2g - 1$ this morphism is a projective space bundle (details omitted; compare with the proof of Picard Schemes of Curves, Lemma 44.6.7).",
+   "correction": "It must be proved that f : S^n(X) → Pic^n_{X/k} is a projective space bundle for n ≥ 2g − 1, the fibre over a line bundle of degree n being the projective space of its sections, of constant dimension n − g + 1 by Riemann-Roch.",
+   "reason": "The step is asserted with its details omitted, and the vanishing c_1(N)^n = f^*(c_1(M)^n) = 0 rests on it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14",
+    "the tag page stacks.math.columbia.edu/tag/0FH9 as served on 24 September 2026, which shows the same text"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+   "citation": "The Stacks Project authors, The Stacks Project, chapter \"Weil Cohomology Theories\" (tag 0FFG), LaTeX source weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles",
+   "reviewReason": "Checked in the pinned weil.tex and on the tag page."
   },
   {
    "id": "PerfectoidSpaces/E1",
