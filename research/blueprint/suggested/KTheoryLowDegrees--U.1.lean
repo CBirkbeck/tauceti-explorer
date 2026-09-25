@@ -6483,7 +6483,12 @@ theorem projection_formula {S : Type u} [CommRing S] [Algebra A S]
 end K0Action
 
 /-! ### `KTheoryLowDegrees:U.5/dvr-boundary`, `U.5/dvr-boundary-valuation`,
-`U.5/dvr-units-sequence` -/
+`U.5/dvr-units-sequence`, `U.5/dvr-boundary-localisation-comparison`
+
+The localisation boundary of a DVR and its unit-valuation normalisation are
+`SchemeKTheoryOperations:S.3`'s (RS-18); `K1.dvrBoundary` below is the explicit cokernel-length
+boundary on the classical `K₁`, which `U.5/dvr-boundary-localisation-comparison` identifies with
+it. -/
 
 section DVR
 
@@ -6557,6 +6562,14 @@ theorem dvr_units_sequence (π : O) (hπ : Irreducible π) [Module.Finite O (Ide
       Function.Surjective (K1.dvrBoundary O L) ∧
       RingK0.of O O - RingK0.of O (Ideal.span {π}) = 0 := by
   sorry
+
+-- `TauCeti.KTheory.dvr_boundary_localisation_comparison`
+-- (`KTheoryLowDegrees:U.5/dvr-boundary-localisation-comparison`): not stated here; needs the
+-- K-theory spaces `K(L)`, `π₁ K(L)` with the loop map `λ : K₁(L) → π₁ K(L)` and the localisation
+-- boundary `∂_S : π₁ K(L) → K₀(k)` of `K(k) → K(O) → K(L)` (supplier:
+-- `SchemeKTheoryOperations:S.3`, with `StableHomotopyKTheory:H.1`, `H.3` and
+-- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`). Suggested form:
+-- `∂_S (λ x) = K1.dvrBoundary O L (Additive.ofMul x)` for every `x : K1 L`.
 
 -- test TauCeti.KTheory.K1.dvrBoundary_padic (computation)
 /- `O = ℤ_(p)` modelled as a DVR with fraction field `ℚ` in which `p` is a uniformiser:
@@ -6648,7 +6661,8 @@ namespace TauCeti.RelativeK1
 -- `TauCeti.RelativeK1.relative_K1_homotopy_comparison`
 -- (`KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`): not stated here; needs the K-theory
 -- spaces `K(A)`, the homotopy fibre `K(A, I)` of `K(A) → K(A/I)` and its homotopy groups `π₀`, `π₁`
--- (supplier: `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`,
+-- (supplier: `GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary` for the fibre,
+-- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`,
 -- `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`; the proof also needs
 -- `K2SymbolsBrauer:T.1` and `T.6`). Suggested form: `RelK1 I ≃* π₁ (K(A, I))` and
 -- `RelativeK0.RelK0 I ≃+ π₀ (K(A, I))`, compatible with `RelK1.toK1` and `RelativeK0.RelK0.toK0`.

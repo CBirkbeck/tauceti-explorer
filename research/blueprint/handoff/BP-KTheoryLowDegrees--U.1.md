@@ -11,8 +11,8 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
 
 ## What is closed
 
-- **183 nodes:** 10 applications, 7 comparisons, 30 constructions, 16 definitions, 68 lemmas, 52 theorems.
-  - By stage: Z.1 24, Z.2 24, U.1 25, U.2 18, U.3 27, U.4 30, U.5 21, U.6 14.
+- **184 nodes:** 10 applications, 8 comparisons, 30 constructions, 16 definitions, 68 lemmas, 52 theorems.
+  - By stage: Z.1 24, Z.2 24, U.1 25, U.2 18, U.3 27, U.4 30, U.5 22, U.6 14.
   - 379 API items and 200 unit tests, all with a §12 kind.
   - 44 planets, at most six per layer.
 - **Baseline:** 380 declarations, each read at its file and line at the pins.
@@ -24,8 +24,7 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
   - the Z.2 references of the companion packet, mapped to node ids in a restructure entry.
 - **Checks.**
   - `check_blueprint.py --index`: 0 errors, 0 warnings; `tests/test_blueprints.py`, `test_check_blueprint.py`, `test_errata.py`, `test_source_issues.py`, `test_promote.py`: 49 passed.
-  - Stage cycles: none. The check covers atlas `requires` and `stageEdges` plus the node prerequisites of every packet and decomposition on a freshly pulled main and in the open pull requests that change packets.
-  - U.6/relative-K1-homotopy-comparison forms the relative fibre from K.2:plus and H.2 and does not cite GeneralAlgebraicKTheory K.5. An open blueprint makes K.5 cite a node of the combined stage K.2, which would otherwise put U.6 on a cycle (restructure).
+  - Stage cycles: none on a freshly pulled main. The check covers atlas `requires` and `stageEdges` plus the node prerequisites of every packet and decomposition. With the open pull requests that change packets, the edges into K.5 and S.3 lie on the cycles through K.5's citation of the combined stage K.2 (see the correction section).
   - Every excerpt was checked against the source text layers or, for the numdam scans (Bass 1964, Dieudonné 1943, BMS 1967), against their OCR and rendered pages; none exceeds 300 characters.
   - The packet and the document contain no "sorry", Lean code or private paths.
 - **Source issues:** 10 mistakes are recorded (ids E101–E110, numbered clear of the companion part's E1–E12), with corrections; the nodes use the corrected statements.
@@ -33,6 +32,13 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
   - K-book Lemma II.2.1(2) needs "the map ℤ → K₀(R) is an isomorphism": M₂(F) has K₀ ≅ ℤ and a non-stably-free projective.
   - K-book III.1.2.4 attaches Dieudonné's exception (n = 2, D = 𝔽₂) to the wrong statement.
   - Misprints in the K-book (Ex. I.2.4(iii), II.2, III.1.3.3, III.1.8, V.6.9.1), Bass 1964 § 4 and BMS Theorem 3.5.
+
+## Correction to the accepted RS-18
+
+The first checkpoint did not follow two decisions of the accepted restructuring RS-18, which binds this job. This correction restores them:
+- **The DVR boundary (RS-18 owner 13).** SchemeKTheoryOperations S.3 owns the localisation boundary and its unit-valuation normalisation. U.5 keeps its explicit cokernel-length boundary on the classical K₁, now the planet "Explicit valuation boundary". The new node U.5/dvr-boundary-localisation-comparison proves that this boundary equals S.3's composed with the loop map λ : K₁(L) → π₁K(L), which needs only the functoriality of BGL(−)⁺, not U.6. S.3 is imported through a request, and the restructure entry that gave the boundary to U.5 is withdrawn.
+- **The relative fibre (RS-18 owner 35).** U.6/relative-K1-homotopy-comparison cites GeneralAlgebraicKTheory K.5's fibre again. The comparison stays a U.6 node realising U.5, because it needs U.6's π₁BGL(A)⁺ = K₁(A).
+- **A pending cycle outside this packet.** Open blueprint pull requests make K.5 cite a node of the combined stage GeneralAlgebraicKTheory:K.2, which requires K.2:low-degree-comparisons, downstream of U.6. That would put K.5 and, through K.6, SchemeKTheoryOperations S.2 and S.3 downstream of U.6, against RS-18. The restructure entry asks K.5 to cite K.2:plus nodes instead. On main there is no cycle.
 
 ## Conventions fixed here
 
@@ -73,6 +79,7 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
 
 - Milnor patching and the K₀ Mayer–Vietoris sequence for U.5/ideal-sequence-degree-zero (gap; proposed for Z.1).
 - The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) awaits K2SymbolsBrauer T.1:plus and T.6, blocked by the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure).
+- Receive SchemeKTheoryOperations S.3's DVR localisation boundary and its unit-valuation normalisation (request).
 
 **U.6** (partial):
 
@@ -98,6 +105,7 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
 - **tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters** (1 nodes): For K(ζ_m)/K and 𝔭 ∤ m, the arithmetic Frobenius sends ζ_m to ζ_m^{N𝔭}. Layer 4's text: 'Prove that for 𝔭 ∤ m the arithmetic Frobenius sends ζ_m to ζ_m ^ 𝔑𝔭'.
 - **tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary** (2 nodes): Every open subgroup of IdeleClassGroup K contains RaySubgroup 𝔪 for some modulus 𝔪; rayClassQuotient : IdeleClassGroup K →* RayClassGroup 𝔪 is surjective with kernel RaySubgroup 𝔪; and the class of a prime idèle at 𝔭 ∤ 𝔪 maps to the ray class of 𝔭. Layer 7's text: 'Prove openness, antitonicity, and rayClassQuotient … with surjectivity and kernel RaySubgroup 𝔪 … Prove that every open subgroup of th…
 - **tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles** (2 nodes): The idèle norm on Mathlib's NumberField.IdeleClassGroup and the compactness of its norm-one subgroup IdeleClassGroup.normOne (the idèle group and idèle class group themselves are in Mathlib 082e2d3) — BMS (A.4) 'C⁰ is compact'. Layer 6's text: 'define the closed norm-one subgroup IdeleClassGroup.normOne. Prove its compactness'.
+- **SchemeKTheoryOperations:S.3** (2 nodes): For a discrete valuation ring O with fraction field L and residue field k: the boundary ∂_S : K₁(L) → K₀(k) of the localisation sequence K(k) → K(O) → K(L), and its unit-valuation normalisation ∂_S(λ(u)) = v(u)·[k] for u ∈ L^×, with λ : L^× → π₁K(L) the loop of a 1 × 1 matrix. RS-18 gives this boundary to S.3 (owner 13: 'DVR unit boundary equals valuation with the uniformizer normalization'), and …
 
 ## Structural proposals
 
@@ -114,7 +122,6 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
 - **Ownership of the relative-K₁ comparison with the homotopy fibre** (rescope).
 - **Presentation of the S-integers as a localisation belongs upstream of U.4** (rescope).
 - **Milnor patching for Z.1** (rescope).
-- **Classical versus spectrum-level degree-one boundary** (rescope).
 
 ## Suggested Lean file
 
@@ -124,7 +131,7 @@ Part U.1 of *Explicit K₀: projectives, rank and determinant* (roadmap KTheoryL
 - **Coverage.**
   - 378 of the 379 API items are declarations under the packet names. `K1.module` is a comment: it needs the ring structure on K₀ from Z.3/finite-projective-monoidal.
   - All 200 tests are `example`s under `-- test <name> (<kind>)`. 53 of them close without `sorry`, a dozen as real computations over `ZMod 2`, `ZMod 3` and ℤ.
-  - 133 of the 137 theorem-type nodes are theorems with docstrings naming the node. The four U.6 homotopy nodes are comments: they need BGL(A)⁺, K-theory spaces and homotopy fibres, supplied by StableHomotopyKTheory H.1–H.3 and GeneralAlgebraicKTheory K.2:plus.
+  - 133 of the 138 theorem-type nodes are theorems with docstrings naming the node. Five are comments, because they need BGL(A)⁺, K-theory spaces and homotopy fibres (supplied by StableHomotopyKTheory H.1–H.3, GeneralAlgebraicKTheory K.2:plus and K.5, and SchemeKTheoryOperations S.3): the four U.6 homotopy nodes and U.5/dvr-boundary-localisation-comparison.
 - **Carriers are real definitions.**
   - GL(A) is Mathlib's `DirectLimit`; E_n(A) and E(A) are subgroup closures; K₁ is a quotient group; SK₁ is the kernel of the stable determinant.
   - Ring K₀ is `SplitK0` of `finiteProjectiveModules`, as in the Z.3 file; the rank lands in `LocallyConstant (PrimeSpectrum A) ℤ`.

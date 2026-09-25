@@ -498,7 +498,7 @@ Tau Ceti has ring K₀ through SplitK0 of the finite projectives, and both libra
 | U.2 | K₁ and its calculus | 18 | 4 | source_decomposed |
 | U.3 | Determinant, units and SK₁ | 27 | 6 | partial |
 | U.4 | S-integers and the arithmetic theorem | 30 | 6 | partial |
-| U.5 | Relative K₁ and maps | 21 | 6 | partial |
+| U.5 | Relative K₁ and maps | 22 | 6 | partial |
 | U.6 | Homotopy comparison and tests | 14 | 5 | partial |
 
 Each layer section below opens with the layer's coverage record, then states every node: its statement and hypotheses, the proof outline, for definitions and constructions the API and the unit tests, its acceptance checks, its dependencies and its sources.
@@ -5889,10 +5889,11 @@ Let F be a number field, S finite, A = O_{F,S} and 𝔭 a nonzero prime of A (a 
 
 ## U.5 — Relative K₁ and maps
 
-*Coverage: partial.* Targets: congruence subgroups and relative elementary groups (U.5/congruence-subgroup, relative-elementary-subgroup), the Relative Whitehead Lemma and [GL(A), GL(I)] = E(A, I) through the double ring, K₁(A, I) := GL(I)/E(A, I) (not a kernel), the relative determinant, the radical and split cases, the beginning of the relative sequence with its K₂ boundary target identified explicitly as ker(K₁(A, I) → K₁(A)) = (E(A) ∩ GL(I))/E(A, I) (the boundary map itself is K2SymbolsBrauer T.6's, which imports U.5), K₀(I) and the degree-zero ideal sequence; transfer by restriction of scalars for finite projective extensions, its determinant–norm formula, the field norm, base change and the projection formula against K₀ (with the K₀(A)-module structure on K₁); the classical boundary K₁(L) → K₀(k) of a DVR with ∂(π) = [k] and ∂ = v ∘ det, and the exact sequence 1 → K₁(O) → K₁(L) → K₀(k) → 0. The comparison with the homotopy-fibre relative K₁ (GeneralAlgebraicKTheory K.5) needs U.6's π₁BGL⁺ = K₁ and is realised by U.6/relative-K1-homotopy-comparison.
+*Coverage: partial.* Targets: congruence subgroups and relative elementary groups (U.5/congruence-subgroup, relative-elementary-subgroup), the Relative Whitehead Lemma and [GL(A), GL(I)] = E(A, I) through the double ring, K₁(A, I) := GL(I)/E(A, I) (not a kernel), the relative determinant, the radical and split cases, the beginning of the relative sequence with its K₂ boundary target identified explicitly as ker(K₁(A, I) → K₁(A)) = (E(A) ∩ GL(I))/E(A, I) (the boundary map itself is K2SymbolsBrauer T.6's, which imports U.5), K₀(I) and the degree-zero ideal sequence; transfer by restriction of scalars for finite projective extensions, its determinant–norm formula, the field norm, base change and the projection formula against K₀ (with the K₀(A)-module structure on K₁); the explicit cokernel-length boundary K₁(L) → K₀(k) of a DVR with ∂ = v ∘ det, the exact sequence 1 → K₁(O) → K₁(L) → K₀(k) → 0, and its comparison with the localisation boundary, which RS-18 gives to SchemeKTheoryOperations S.3 together with the normalisation ∂(π) = [k] (U.5/dvr-boundary-localisation-comparison; request to S.3). The comparison with the homotopy-fibre relative K₁ (GeneralAlgebraicKTheory K.5) needs U.6's π₁BGL⁺ = K₁ and is realised by U.6/relative-K1-homotopy-comparison.
 
 - Remaining: Milnor patching and the K₀ Mayer–Vietoris sequence for U.5/ideal-sequence-degree-zero (gap; proposed for Z.1).
 - Remaining: The homotopy-fibre comparison (U.6/relative-K1-homotopy-comparison) awaits K2SymbolsBrauer T.1:plus and T.6, blocked by the T.1 → GeneralAlgebraicKTheory:K.2 dependency (gap; restructure).
+- Remaining: Receive SchemeKTheoryOperations S.3's DVR localisation boundary and its unit-valuation normalisation (request).
 
 ### The congruence subgroups GL_n(A, I) and GL(I)
 
@@ -6620,14 +6621,14 @@ Let A be commutative and f : A → B with B a commutative A-algebra that is fini
 
 ### The boundary K₁(L) → K₀(k) of a discrete valuation ring
 
-`U.5/dvr-boundary` · construction · planet “Valuation boundary”
+`U.5/dvr-boundary` · construction · planet “Explicit valuation boundary”
 
 Let O be a discrete valuation ring with fraction field L and residue field k. For g ∈ GL_n(L) choose s ∈ O ∖ {0} with α := s·g ∈ M_n(O) (so α is injective on Oⁿ and coker α = Oⁿ/αOⁿ has finite length) and put ∂(g) := (ℓ_O(Oⁿ/αOⁿ) − n·ℓ_O(O/sO))·[k] ∈ K₀(k), with ℓ_O Mathlib's Module.length. This is independent of s, a homomorphism GL_n(L) → K₀(k) compatible with stabilisation, and so defines ∂ : K₁(L) → K₀(k). It is the boundary of K-book Lemma III.3.1 / Corollary III.3.1.1 for S = O ∖ {0} (∂(s) = [O/sO]), read in K₀(k) through the length of finite-length O-modules. Sign convention: ∂(s) = +[O/sO] for s ∈ O ∖ {0}, so ∂(π) = [k], matching K2SymbolsBrauer T.3's normalisation ∂[π] = [R/πR] = 1.
 
 **Hypotheses.**
 
 - O is a discrete valuation ring (Mathlib's IsDiscreteValuationRing) with fraction field L (IsFractionRing O L), residue field k and normalised valuation v : L^× → ℤ (IsDiscreteValuationRing.addVal extended to L^×), v(π) = 1 for a uniformiser π. K₀(k) ≅ ℤ by dimension (Z.2/division-ring-k0), [k] ↦ 1.
-- The identification of K₀ of finite-length O-modules with K₀(k) by length is built into the definition; the higher localisation boundary is SchemeKTheoryOperations S.3's.
+- The identification of K₀ of finite-length O-modules with K₀(k) by length is built into the definition; the localisation boundary and its unit-valuation normalisation are SchemeKTheoryOperations S.3's (RS-18 owner 13), and U.5/dvr-boundary-localisation-comparison identifies this explicit boundary with it.
 
 **Proof.**
 
@@ -6734,6 +6735,35 @@ In the setting of U.5/dvr-boundary, 1 → K₁(O) → K₁(L) →∂ K₀(k) →
 
 - `Kbook.2013`, Theorem III.3.2 (PDF p. 209; book p. 201): “Theorem 3.2. Let S be a multiplicatively closed set of central elements in a ring R. Then the map ∂of Lemma 3.1 fits into an exact sequence K1(R) →K1(S−1R) ∂−→K0(R on S) →K0(R) →K0(S−1R).” — The sequence, specialised to a DVR.
 
+### The explicit boundary is the localisation boundary
+
+`U.5/dvr-boundary-localisation-comparison` · comparison
+
+Let O be a discrete valuation ring with fraction field L and residue field k, and let ∂_S : K₁(L) → K₀(k) be the boundary of the localisation sequence K(k) → K(O) → K(L) of SchemeKTheoryOperations S.3, read on K₁(L) = π₁K(L). Let λ : K₁(L) = GL(L)/E(L) → π₁K(L) be the canonical map sending the class of g ∈ GL_n(L) to the loop of g in BGL(L) ⊂ BGL(L)⁺ (StableHomotopyKTheory H.1 and H.3, GeneralAlgebraicKTheory K.2:plus/plus-equals-Q). Then ∂_S ∘ λ = ∂, where ∂ is the explicit cokernel-length boundary of U.5/dvr-boundary. In particular both send the class of a uniformiser π to [k] ↦ 1 ∈ ℤ ≅ K₀(k), and both vanish on O^×.
+
+**Hypotheses.**
+
+- O is a discrete valuation ring (Mathlib's IsDiscreteValuationRing) with fraction field L, residue field k and normalised valuation v, v(π) = 1; K₀(k) ≅ ℤ by dimension (Z.2/division-ring-k0).
+- ∂_S and its unit-valuation normalisation ∂_S(λ(u)) = v(u)·[k] for u ∈ L^× are S.3's (RS-18 owner 13), imported through the request to SchemeKTheoryOperations:S.3. λ uses only the functoriality of BGL(−)⁺ and π₁BG = G; it does not use U.6's identification π₁BGL(L)⁺ ≅ GL(L)/E(L).
+
+**Proof.**
+
+1. Both sides are homomorphisms K₁(L) → K₀(k): ∂ by U.5/dvr-boundary, ∂_S ∘ λ as a composite of homomorphisms.
+2. K₁(L) is generated by the classes of 1 × 1 matrices u ∈ L^× (U.3/SK1-field: det is an isomorphism with inverse the unit section U.3/units-to-K1).
+3. On such a class, ∂(u) = v(u)·[k] (U.5/dvr-boundary-valuation) and ∂_S(λ(u)) = v(u)·[k] (S.3's normalisation). Hence the two homomorphisms agree on generators, so they are equal.
+
+**Acceptance.**
+
+- The composite ∂_S ∘ λ, not ∂_S on an abstract identification, is compared with ∂.
+- The uniformiser goes to [k] ↦ 1 on both sides, with S.3's sign convention; no second normalisation is fixed in U.5.
+
+**Depends on.** this roadmap: `U.5/dvr-boundary`, `U.5/dvr-boundary-valuation`, `U.3/SK1-field`, `U.3/units-to-K1`, `Z.2/division-ring-k0`; other roadmaps: `SchemeKTheoryOperations:S.3`, `StableHomotopyKTheory:H.1/nerve-and-classifying-space`, `StableHomotopyKTheory:H.3/plus-construction-universal-property`, `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`; libraries: `mathlib:IsDiscreteValuationRing`.
+
+**Sources.**
+
+- `Kbook.2013`, Lemma III.3.1 (PDF p. 206; book p. 198): “Then there is a group homomorphism K1(S−1R) ∂−→K0(R on S) sending each S-isomorphism α to the class [cone(α)] of the mapping cone of α.” — The boundary; the node takes R = O, S = O ∖ {0}.
+- `Kbook.2013`, Proof of Theorem V.6.9.1, PDF p. 422 (book p. 414); the printed 'III.1.1' is III.3.1.1 (KTheoryLowDegrees/E109): “If a′i ∈ R× is a lift of ai and s ∈ R is a parameter then ∂: K1(F) → K0(k) sends s to [k] by III.1.1.” — The boundary of the higher localisation sequence of a DVR, on K₁(F), is computed by the classical formula of Corollary III.3.1.1: a parameter goes to [k].
+
 ## U.6 — Homotopy comparison and tests
 
 *Coverage: partial.* π₁BGL(A)⁺ ≅ GL(A)/E(A) with loop classes, naturality, determinant and transfer (U.6/pi1-plus-construction, pi1-plus-determinant, pi1-plus-transfer), from StableHomotopyKTheory H.1/H.3 and GeneralAlgebraicKTheory K.2:plus node ids; computations K₁(ℤ) = {±1} (Tau Ceti's SL_n(ℤ) generation), K₁(𝔽_q) = 𝔽_q^×, K₁(ℤ[1/p]) = ℤ/2 ⊕ ℤ (by the Euclidean route, cross-checked with U.4), K₁ of a finite product of fields; tests: triangular determinant class, diag(g, g⁻¹) versus diag(g, 1), ∂(π) = 1. These are the computations that KTheoryFiniteLocalFields L.1, ArithmeticKTheory N.8 and GeneralAlgebraicKTheory K.2:low-degree-comparisons consume. The U.1–U.2 lemmas behind the tests (U.2/block-triangular-class, U.1/whitehead-diagonal) are cited, not restated.
@@ -6832,19 +6862,19 @@ Let f : A → B be a ring homomorphism with B free of rank d as a right A-module
 
 `U.6/relative-K1-homotopy-comparison` · comparison · also realises U.5
 
-Let A be a ring, I a two-sided ideal and K(A, I) the homotopy fibre of K(A) → K(A/I), formed from the K-theory spaces of GeneralAlgebraicKTheory K.2:plus with the homotopy fibre of StableHomotopyKTheory H.2 (GeneralAlgebraicKTheory K.5 defines relative K-theory as this fibre). There are natural isomorphisms K₁(A, I) = GL(I)/E(A, I) ≅ π₁K(A, I) (U.5/relative-K1) and K₀(I) ≅ π₀K(A, I) (U.5/relative-K0-of-ideal), compatible with the maps to K₁(A) ≅ π₁K(A) and K₀(A) (U.6/pi1-plus-construction, K.2:plus) and with the boundaries K₁(A/I) → K₀(I) and K₂(A/I) → K₁(A, I): the long exact homotopy sequence of the fibration ends in the classical sequence of U.5/relative-sequence-degree-one, U.5/ideal-sequence-degree-zero and K-book Theorem III.5.7.1.
+Let A be a ring, I a two-sided ideal and K(A, I) the homotopy fibre of K(A) → K(A/I) (GeneralAlgebraicKTheory K.5/relative-K-theory-and-excision-boundary, the owner of the generic relative fibre). There are natural isomorphisms K₁(A, I) = GL(I)/E(A, I) ≅ π₁K(A, I) (U.5/relative-K1) and K₀(I) ≅ π₀K(A, I) (U.5/relative-K0-of-ideal), compatible with the maps to K₁(A) ≅ π₁K(A) and K₀(A) (U.6/pi1-plus-construction, K.2:plus) and with the boundaries K₁(A/I) → K₀(I) and K₂(A/I) → K₁(A, I): the long exact homotopy sequence of the fibration ends in the classical sequence of U.5/relative-sequence-degree-one, U.5/ideal-sequence-degree-zero and K-book Theorem III.5.7.1.
 
 **Hypotheses.**
 
-- The K-theory spaces are K.2:plus's, the homotopy fibre and its exact sequence are H.2's, and the classical groups are U.5's.
+- The relative fibre is K.5's, its exact sequence H.2's, the K-theory spaces K.2:plus's and the classical groups U.5's.
 - The proof is a gap (see gaps): the K-book states the comparison as an exercise with a hint, and the proof needs π₂BGL(A)⁺ = K₂(A) (K2SymbolsBrauer T.1:plus) and the classical K₂-sequence (K2SymbolsBrauer T.6), which the atlas places downstream of U.6.
 
 **Proof.**
 
-1. The fibration gives ⋯ → π₂K(A/I) → π₁K(A, I) → π₁K(A) → π₁K(A/I) → π₀K(A, I) → K₀(A) → K₀(A/I) (H.2/homotopy-fibre-and-long-exact-sequence).
+1. The fibration gives ⋯ → π₂K(A/I) → π₁K(A, I) → π₁K(A) → π₁K(A/I) → π₀K(A, I) → K₀(A) → K₀(A/I) (H.2/homotopy-fibre-and-long-exact-sequence; K.5).
 2. Split case (the hint 'Use Ex. III.2.7'): for the double ring D = A ⊕ I with pr split by Δ (U.5/augmented-double-ring), the fibre sequence of K(D) → K(A) splits, so π₁K(D, 0 ⊕ I) = ker(K₁(D) → K₁(A)) = K₁(D, 0 ⊕ I) (U.5/relative-K1-split, U.6/pi1-plus-construction for D and A), and π₀K(D, 0 ⊕ I) = K₀(I) (the hint 'π₀K(R ⊕ I, 0 ⊕ I) must be K₀(I)').
 3. Compare the fibres of D → A (pr) and A → A/I along add : (D, 0 ⊕ I) → (A, I), and apply the five lemma to the two long exact sequences, using π₂ = K₂ and the classical relative K₂-sequence (gap: blocked imports).
-4. Naturality in (A, I) follows from that of H.2's fibre and of U.5's groups.
+4. Naturality in (A, I) follows from that of K.5's fibre and of U.5's groups.
 
 **Acceptance.**
 
@@ -6852,7 +6882,7 @@ Let A be a ring, I a two-sided ideal and K(A, I) the homotopy fibre of K(A) → 
 - A = ℤ/p², I = (p): π₁K(A, I) ≅ ℤ/p and π₀K(A, I) = K₀(I) = 0 (I radical).
 - K-book IV.1.11: 'K₀(R, I) and K₁(R, I) agree with the relative groups defined in Ex. II.2.3 and III.2.2'.
 
-**Depends on.** this roadmap: `U.6/pi1-plus-construction`, `U.5/relative-K1`, `U.5/relative-K0-of-ideal`, `U.5/relative-K1-split`, `U.5/augmented-double-ring`, `U.5/relative-sequence-degree-one`, `U.5/ideal-sequence-degree-zero`; other roadmaps: `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`, `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`.
+**Depends on.** this roadmap: `U.6/pi1-plus-construction`, `U.5/relative-K1`, `U.5/relative-K0-of-ideal`, `U.5/relative-K1-split`, `U.5/augmented-double-ring`, `U.5/relative-sequence-degree-one`, `U.5/ideal-sequence-degree-zero`; other roadmaps: `GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary`, `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`, `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`.
 
 **Sources.**
 
@@ -7114,7 +7144,7 @@ For every ring A and g ∈ GL_n(A), diag(g, g⁻¹) ∈ E_{2n}(A) and its class 
 
 `U.6/uniformiser-boundary-one` · application
 
-For a discrete valuation ring O with residue field k and any uniformiser π, the boundary of U.5/dvr-boundary satisfies ∂(π) = [k] ↦ 1 ∈ ℤ ≅ K₀(k), and ∂(uπ) = 1 for every u ∈ O^×, so the value does not depend on the uniformiser. For O = ℤ_(p): ∂(p) = ∂(−p) = 1; for O = k[[t]]: ∂(t) = 1; for O = ℤ[i]_(1+i): ∂(1 + i) = 1 and ∂(2) = 2 (2 = −i(1 + i)²).
+For a discrete valuation ring O with residue field k and any uniformiser π, the boundary of U.5/dvr-boundary, which equals S.3's localisation boundary (U.5/dvr-boundary-localisation-comparison), satisfies ∂(π) = [k] ↦ 1 ∈ ℤ ≅ K₀(k), and ∂(uπ) = 1 for every u ∈ O^×, so the value does not depend on the uniformiser. For O = ℤ_(p): ∂(p) = ∂(−p) = 1; for O = k[[t]]: ∂(t) = 1; for O = ℤ[i]_(1+i): ∂(1 + i) = 1 and ∂(2) = 2 (2 = −i(1 + i)²).
 
 **Hypotheses.**
 
@@ -7130,7 +7160,7 @@ For a discrete valuation ring O with residue field k and any uniformiser π, the
 - The normalisation matches K2SymbolsBrauer T.3/localization-boundary (∂[π] = [R/πR] = 1) and ArithmeticKTheory N.2 (divisor map).
 - A sign-reversed convention would give ∂(π) = −1 and fails this test.
 
-**Depends on.** this roadmap: `U.5/dvr-boundary-valuation`, `U.5/dvr-boundary`, `Z.2/division-ring-k0`; libraries: `mathlib:IsDiscreteValuationRing.addVal_uniformizer`.
+**Depends on.** this roadmap: `U.5/dvr-boundary-valuation`, `U.5/dvr-boundary`, `Z.2/division-ring-k0`, `U.5/dvr-boundary-localisation-comparison`; libraries: `mathlib:IsDiscreteValuationRing.addVal_uniformizer`.
 
 **Sources.**
 
@@ -7262,6 +7292,12 @@ Needed by: `U.6/relative-K1-homotopy-comparison`.
 
 What this roadmap imports, by supplier.
 
+### SchemeKTheoryOperations:S.3
+
+For a discrete valuation ring O with fraction field L and residue field k: the boundary ∂_S : K₁(L) → K₀(k) of the localisation sequence K(k) → K(O) → K(L), and its unit-valuation normalisation ∂_S(λ(u)) = v(u)·[k] for u ∈ L^×, with λ : L^× → π₁K(L) the loop of a 1 × 1 matrix. RS-18 gives this boundary to S.3 (owner 13: 'DVR unit boundary equals valuation with the uniformizer normalization'), and U.5's keeps read 'Import the DVR unit-valuation boundary from S.3 and prove the explicit determinant/relative-matrix comparison, with uniformizer sent to 1.'
+
+Needed by: `U.5/dvr-boundary-localisation-comparison`, `U.6/uniformiser-boundary-one`.
+
 ### tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev
 
 For a finite Galois (here abelian) extension L/K of number fields and σ ∈ Gal(L/K), infinitely many primes of K unramified in L with Frobenius σ — BMS (A.6). Layer 10's text: 'Derive, rather than reprove, the density of split-completely primes, the non-Galois statement via a Galois closure, infinitude of every Frobenius class, and the rational arithmetic-progression case.'
@@ -7354,7 +7390,7 @@ Needed by: `Z.1/ring-k0-morita`.
 
 ### Ownership of the relative-K₁ comparison with the homotopy fibre
 
-*rescope.* U.5's text asks for the comparison of K₁(A, I) with the homotopy-fibre relative K₁, but the comparison needs π₁BGL(A)⁺ = K₁(A), which is U.6's, and π₂ = K₂. GeneralAlgebraicKTheory's decomposition node K.5/relative-K-theory-and-excision-boundary asserts it too.
+*rescope.* RS-18 gives U.5 the comparison of K₁(A, I) with K.5's homotopy-fibre relative K₁, and K.5 the generic fibre (owner 35). The comparison needs π₁BGL(A)⁺ = K₁(A), which is U.6's, and π₂ = K₂; U.5 is upstream of U.6, so the comparison cannot be a U.5 node.
 
 ### Presentation of the S-integers as a localisation belongs upstream of U.4
 
@@ -7363,10 +7399,6 @@ Needed by: `Z.1/ring-k0-morita`.
 ### Milnor patching for Z.1
 
 *rescope.* Milnor patching (K-book I.2.6–2.7) and the Mayer–Vietoris sequence II.2.9 are unplanned; U.5/ideal-sequence-degree-zero needs them.
-
-### Classical versus spectrum-level degree-one boundary
-
-*rescope.* The library audit lists SchemeKTheoryOperations S.3 as duplicating U.5's boundary target. S.3 builds the boundary of the localisation fibre sequence on spectra; U.5 needs the boundary on the classical K₁(L) = GL(L)/E(L).
 
 ## Dependencies between the layers
 
