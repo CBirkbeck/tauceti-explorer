@@ -18562,8 +18562,9 @@
    ],
    "avoidAccountOf": "BP-HabiroRings",
    "prompt": "research/blueprint/prompts/REV-HabiroRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #426"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #426",
+   "finishedAt": "2026-09-25T06:40:07Z"
   },
   {
    "id": "BP-HeckeStacksAndLocalShtukas",
@@ -24659,7 +24660,8 @@
     "REV-HabiroCohomologyFoundations--HQ.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroCohomologyFoundations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #237"
   },
   {
    "id": "ASM-HeegnerPointEulerSystems",
