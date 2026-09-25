@@ -138516,6 +138516,774 @@
    "reviewReason": null
   },
   {
+   "id": "PadicHodgeTheory/E1",
+   "kind": "error",
+   "locator": "Section 2, p. 13 (and Proposition 1.4, p. 12; Proposition 2.31, p. 27), arXiv v3",
+   "printed": "Les rappels du chapitre précédent montrent que l’application f 7→ f (πK ) de BF dans B†K est un isomorphisme.",
+   "correction": "The coefficients lie in F' = K_0', the maximal unramified extension of F contained in K_infinity, which can be larger than F.",
+   "reason": "For p odd, y in Z_p^x a non-square mod p and K = Q_p(sqrt(y p*)), K is totally ramified over F = Q_p but K(zeta_p) contains sqrt(y), so ker(partial) on B^dagger_{rig,K} contains Q_p(sqrt y) (P7/robba-ring-of-p-adic-field, test robbaK.test_coefficients_Fprime).",
+   "affects": "a stated result",
+   "known": "Berger 2008 (arXiv:math/0406601v1) Appendice B, 'L’anneau B†K', and Berger's errata (2026), Section 1: the results of the 2002 paper are unaffected since (B^dagger_K)^{Gamma_K} = F.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E2",
+   "kind": "error",
+   "locator": "Introduction 0.3, p. 4-5, and Proposition 2.31, p. 27: alpha(K, r) = p^{-1/(e_K r)} with e_K = [K_infinity : F_infinity]",
+   "printed": "(où e_K = [K∞ : F∞] et r_n = (p − 1)p^{n−1}) (rendered page 4-5; the text layer splits the superscripts)",
+   "correction": "In the radius alpha(K, r) = p^{-1/(e_K r)} of Propositions 1.4 and 2.31, e_K must be the ramification index of K_infinity/F_infinity (so [K_infinity : F_infinity] = e_K [F' : F]), as in Berger 2008 Section I.2; the two agree exactly when F' = F.",
+   "reason": "pi is pi_K^{e} times a unit with e the ramification index of E_K/E_F, so the annulus p^{-1/r} <= |pi| < 1 corresponds to p^{-1/(e r)} <= |pi_K| < 1; with e replaced by e f (f = [F' : F] > 1) Proposition 2.31 would identify B^{dagger,r}_{rig,K} with functions on a strictly thinner annulus, which is false for fixed r (the union over r is unaffected).",
+   "affects": "a stated result",
+   "known": "new as an explicit correction: Berger 2008 Section I.2 states the corrected radius ('de degré de ramification eK ⩽ [K∞ : F∞ ]') without listing it in Appendice B, and Berger's 2026 errata does not list it.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E3",
+   "kind": "error",
+   "locator": "Section 2.4, p. 25 (and Section 1.2, p. 11): monodromy operator on B~^dagger_log",
+   "printed": "c’est-à-dire que N = −d/d log(π).",
+   "correction": "To recover Fontaine's (phi, N)-module D_st (N = -d/du, u = log[p~]) one must take N(log(pi)) = -p/(p-1).",
+   "reason": "v_E(epsilon - 1) = p/(p-1) = (p/(p-1)) v_E(p~), so log[epsilon - 1] = (p/(p-1)) log[p~] + (element of B~^+_rig) and Fontaine's N takes the value -p/(p-1) on it (P7/extended-localisation-maps, log_eq).",
+   "affects": "a stated result",
+   "known": "Berger 2008 Appendice B ('Monodromie') and Berger's errata (2026), Section 1.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E4",
+   "kind": "gap",
+   "locator": "Proposition 2.24, p. 24",
+   "printed": "Il existe une et une seule application log : Ã+ → B̃†rig[X] telle que log([x]) = log[x], log(p) = 0 et log(xy) = log(x) + log(y). (rendered page 24)",
+   "correction": "log is not defined at 0, and it is later used on A~^dagger (e.g. log(pi_K)); the extension to A~^dagger is needed (done by Colmez, Espaces vectoriels de dimension finie et représentations de de Rham).",
+   "reason": "log(pi_K) appears in B^dagger_{log,K} = B^dagger_{rig,K}[log pi_K] (Proposition 4.4) while pi_K is not in A~^+.",
+   "affects": "the proof",
+   "known": "Berger 2008 Appendice B and Berger's errata (2026), Section 1.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E5",
+   "kind": "error",
+   "locator": "Propositions 2.11 and 2.12, p. 17-19",
+   "printed": "Proposition 2.11. L’application x 7→ ι0 (x) est un morphisme in-",
+   "correction": "The statements on A~_I hold only if [p~]/p - 1 (resp. [p~^{p^n}]/p - 1) belongs to A~_I; otherwise replace A~_I by B~_I.",
+   "reason": "The kernel description uses the element [p~]/p - 1, which need not be integral on A~_I.",
+   "affects": "a stated result",
+   "known": "Berger's errata (2026), Section 1, 'Propositions 2.11 and 2.12'.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E6",
+   "kind": "misprint",
+   "locator": "Corollaire 2.20, p. 23",
+   "printed": "Corollaire 2.20 (Principe du maximum).",
+   "correction": "The condition on r should be r <= s, t, i.e. [s; t] contained in [r; +infinity[.",
+   "reason": "As printed ('I = [s; t] containing r') the interval need not lie in the domain of convergence.",
+   "affects": "nothing",
+   "known": "Berger's errata (2026), Section 1, 'Corollary 2.20'.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E7",
+   "kind": "error",
+   "locator": "Proof of Proposition 5.15, p. 54",
+   "printed": "en effet, il suffit de vérifier que ιn (Ns ) = Kn [[t]] ⊗K DdR (V ), c’est",
+   "correction": "Only density of the image of iota_n for the t-adic topology holds, which is what the rest of the proof uses.",
+   "reason": "As recorded by the author.",
+   "affects": "the proof",
+   "known": "Berger 2008 Appendice B ('Démonstration de la proposition 5.15') and Berger's errata (2026).",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E8",
+   "kind": "misprint",
+   "locator": "Proof of Théorème III.4.4, p. 22 (author PDF)",
+   "printed": "alors γ(x) − χ^{−j}(γ)x ∈ π^{j+1} B+rig,F ⊗B+F N(V) (rendered page 22; the pdftotext layer drops the superscripts)",
+   "correction": "gamma(x) - chi(gamma)^j x lies in pi^{j+1} B^+_{rig,F} tensor N(V).",
+   "reason": "For x = pi^j y, gamma(pi) = chi(gamma) pi mod pi^2 and gamma acts trivially on N(V)/pi N(V), so gamma(x) = chi(gamma)^j x mod pi^{j+1}; this is also the exponent used in the proof of Proposition II.1.1 ('γ(π^s) − π^s = (χ(γ)^s − 1)π^s + ···') and in the author's 2026 errata for this theorem ('γ − χ(γ)^j'). The argument works with either sign.",
+   "affects": "nothing",
+   "known": "new (Berger's 2026 errata corrects a missing step of this proof but not the exponent)",
+   "searched": [
+    "Berger, Errata for my articles (2026), Section 2",
+    "Compositio Mathematica 140 (2004) article page (no corrigendum listed)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E9",
+   "kind": "gap",
+   "locator": "Proof of Théorème III.4.4, last two lines, p. 22",
+   "printed": "alors ϕ(y) ∈ q^i(B̃+rig ⊗Qp V) et donc y ∈ Fil^i Dcris(V). (rendered page 22)",
+   "correction": "One only has y in Fil^i N(V) + pi N(V) a priori; applying gamma - chi(gamma)^j for j = 1, ..., i-1 (gamma non-torsion) shows y in Fil^i N(V).",
+   "reason": "The step identifying the preimage filtration is not justified as printed.",
+   "affects": "the proof",
+   "known": "Berger's errata (2026), Section 2, 'Theorem III.4.4'.",
+   "searched": [
+    "Berger, Errata for my articles (2026)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E10",
+   "kind": "gap",
+   "locator": "Définition III.4.1, p. 21",
+   "printed": "alors un module de Wach à poids dans [a; b] est un",
+   "correction": "Over B^+_F (where p is a unit) one must add that B_F tensor_{B^+_F} N is an etale (phi, Gamma)-module over B_F.",
+   "reason": "Without it the definition does not force N to come from a representation.",
+   "affects": "a stated result",
+   "known": "Berger's errata (2026), Section 2, 'Definition III.4.1'.",
+   "searched": [
+    "Berger, Errata for my articles (2026)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E11",
+   "kind": "gap",
+   "locator": "Théorème I.3.3 (2), p. 8",
+   "printed": "(2) le B†,pr",
+   "correction": "Require that B^{dagger,pr}_{rig,K} tensor D_r is the B^{dagger,pr}_{rig,K}-module generated by phi(D_r), which gives Mat(phi) in GL_d(B^{dagger,pr}_{rig,K}) as used later.",
+   "reason": "The weaker condition as printed does not give the invertibility used in the proof.",
+   "affects": "the proof",
+   "known": "Berger's errata (2026), Section 4, 'Theorem I.3.3'.",
+   "searched": [
+    "Berger, Errata for my articles (2026)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Équations différentielles p-adiques et (φ,N)-modules filtrés, arXiv:math/0406601v1 (29 Jun 2004); Astérisque 319 (2008)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E12",
+   "kind": "error",
+   "locator": "Section 8, Proposition 8.5, p. 49 (author's version of 3 Nov 2012; the same text in arXiv:1205.3463v2)",
+   "printed": "0 → B+dR,X ⊗_{f*proét B+dR,Y} f*proét OB+dR,Y → OB+dR,X → OB+dR,X ⊗OX Ω1X/Y → … is exact (an uncompleted tensor product in the first term)",
+   "correction": "The first term must be the completed tensor product B+dR,X ⊗̂_{f^{-1}B+dR,Y} f^{-1}OB+dR,Y (completion for the filtration; over the toric covers it is B+dR,X[[X_1, …, X_m]] in the base coordinates). With it the sequence is exact and strict exact.",
+   "reason": "Take X = T² → Y = T¹. Over X̃_K, OB+dR,X = B+dR,X[[X_1, X_2]] and ∇_{X/Y} = ∂/∂X_2 ⊗ dT_2, whose kernel is B+dR,X[[X_1]]. The section Σ_k [T_2♭]^k X_1^k lies in this kernel, but every element of the image of the uncompleted tensor product has X_1-coefficients in a finitely generated f^{-1}B+dR,Y-submodule, while the θ-images T_2^k of the coefficients [T_2♭]^k are linearly independent over the functions pulled back from Y; so exactness fails at OB+dR,X.",
+   "affects": "the proof",
+   "known": "new (the crystalline analogue, Tan–Tong Proposition 5.1 (1), is printed with a completed tensor product; the erratum does not mention Proposition 8.5)",
+   "searched": [
+    "Scholze's erratum (Forum Math. Pi 4 (2016) e6), items (1)-(3)",
+    "arXiv:1205.3463v2 (same wording)",
+    "Tan–Tong arXiv:1510.05543v2, Proposition 5.1",
+    "the published Forum of Mathematics, Pi version could not be opened (the publisher page served only the abstract)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E13",
+   "kind": "misprint",
+   "locator": "Section 7, proof of Theorem 7.6 (i), p. 43 (author's version; the same text in arXiv:1205.3463v2)",
+   "printed": "Similarly, lemma 6.19 shows that",
+   "correction": "Similarly, Corollary 6.19 shows that",
+   "reason": "There is no Lemma 6.19; the cited fact ν_*OB_dR = O_{X_ét} is Corollary 6.19.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Scholze's erratum",
+    "arXiv:1205.3463v2 (same wording)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E14",
+   "kind": "misprint",
+   "locator": "Section 6, Theorem 6.5, statement, p. 36 (author's version; the same text in arXiv:1205.3463v2)",
+   "printed": "Assume that U → Xproét is affinoid perfectoid, with Û = Spa(R, R+).",
+   "correction": "Assume that U ∈ Xproét is affinoid perfectoid, with Û = Spa(R, R+).",
+   "reason": "U is an object of the site, as in Lemma 4.10 ('Assume that U ∈ Xproét is affinoid perfectoid'); an arrow into a site is meaningless here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Scholze's erratum",
+    "arXiv:1205.3463v2 (same wording)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E15",
+   "kind": "misprint",
+   "locator": "Section 2.2, proof of Lemma 2.18, p. 18 (arXiv:1510.05543v2)",
+   "printed": "H^i(V, Fil^r Acris{⟨u_1, …, u_d⟩}/p^n) ≃ ⊕ H^i(V, Fil^{r−i_1−…−i_d} Acris/p^r)",
+   "correction": "… ≃ ⊕ H^i(V, Fil^{r−i_1−…−i_d} Acris/p^n)",
+   "reason": "The reduction is modulo p^n throughout the proof; r is the filtration index.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2 (v1 and the published Algebra & Number Theory version not read)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581 (published version not read); printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E16",
+   "kind": "misprint",
+   "locator": "Section 2.2, proof of Corollary 2.17, p. 16 (arXiv:1510.05543v2)",
+   "printed": "Fil^i OAcris|X̃ is the p-adic completion of Σ_{i_1, …, i_d ≥ 0} Fil^{i−(i_0+…+i_d)} Acris|X̃ u_1^{[i_1]} ⋯ u_d^{[i_d]}",
+   "correction": "Fil^{i−(i_1+…+i_d)} (there is no index i_0)",
+   "reason": "The sum runs over i_1, …, i_d, and Definition 2.12 has Fil^{r−(i_1+…+i_d)}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581 (published version not read); printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E17",
+   "kind": "gap",
+   "locator": "Section 2.4, proof of Proposition 2.23 (1), p. 22 (arXiv:1510.05543v2)",
+   "printed": "To finish the proof of (1), we only need to show the morphism B+cris → B+dR constructed above is injective. This can be done in the same way as [Bri, Proposition 6.2.1], and we omit the detail here.",
+   "correction": "An argument for the injectivity of A_cris(R, R^+) → B_dR^+(R, R^+) for perfectoid (R, R^+) over the completion of k̄ is needed (see the gap entry of this packet).",
+   "reason": "The injectivity is used for Corollaries 2.24-2.26 (no t-torsion, B_cris ⊂ B_dR, w_*OB_cris = O[1/p]); the cited proof is in Brinon's memoir for his rings, not for the pro-étale sheaf.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581 (published version not read); printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E18",
+   "kind": "misprint",
+   "locator": "Section 1, p. 3, and Section 3.2, p. 30 (arXiv:1510.05543v2)",
+   "printed": "It follows from the Poincaré lemma (Proposition 2.17) … analogous assertion for OBcris (Proposition 2.17).",
+   "correction": "Corollary 2.17",
+   "reason": "The crystalline Poincaré lemma is numbered Corollary 2.17 on p. 16 and is cited as Corollary 2.17 on p. 36.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581 (published version not read); printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E19",
+   "kind": "gap",
+   "locator": "Section 6, proof of Corollary 6.19, p. 41 (author's version)",
+   "printed": "Proof. The first part is clear.",
+   "correction": "ν_*OB_dR = O_{X_ét} needs an argument: the filtration of OB_dR is not complete, so one works with the complete filtrations of t^{-j}OB_dR^+ and the invariants of the degree-bounded polynomial pieces (node pushforward-of-structural-de-rham-sheaf).",
+   "reason": "OB_dR is the union of the ker θ-complete t^{-j}OB_dR^+ but is not complete for Fil^•, so vanishing of ν_* on the graded pieces gr^i OB_dR (i ≠ 0) does not directly give ν_*Fil¹OB_dR = 0.",
+   "affects": "the proof",
+   "known": "new as a source issue; the reviewed decomposition noted that 'The first part is clear' is not argued",
+   "searched": [
+    "Scholze's erratum",
+    "arXiv:1205.3463v2 (same wording)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E20",
+   "kind": "misprint",
+   "locator": "Example 8.1.3 (Katz), p. 104",
+   "printed": "This matrix has characteristic polynomial X^2 − 4p, so its roots are ±2√p.",
+   "correction": "The characteristic polynomial of [[p − 1, (p + 1)i], [(p + 1)i, −(p − 1)]] (i^2 = −1) is X^2 + 4p, with roots ±2i√p = ±2√(−p).",
+   "reason": "Trace 0 and determinant −(p − 1)^2 − (p + 1)^2i^2 = 4p; PARI charpoly for p = 3 gives x^2 + 12. The roots still have p-adic valuation 1/2, so the point of the example (eigenvalue valuations are not basis-invariant; slopes are 0 and 1) is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E21",
+   "kind": "gap",
+   "locator": "Lemma 8.1.8 and its footnote 1, p. 106",
+   "printed": "Proof. By the definition of being isoclinic, we can assume k is algebraically closed and we need to exhibit a decomposition of ∆α1 ⊗ ∆α2 into a direct sum of copies of ∆α1 +α2 . [footnote: need to insert proof!]",
+   "correction": "Supply a proof: over k̄, Δ_{s/r} ⊗ Δ_{s'/r'} has φ^{rr'} acting on the eigenvectors v ⊗ v' with φ^r v = p^s v, φ^{r'} v' = p^{s'} v' by p^{sr' + s'r}, which spans; so it is isoclinic of slope s/r + s'/r'.",
+   "reason": "The printed proof stops after the reduction, with the authors' footnote. The packet does not use the lemma: t_N(D ⊗ D') is computed with determinants (Fontaine–Ouyang Proposition 6.42).",
+   "affects": "the proof",
+   "known": "new (noted by the authors themselves)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E22",
+   "kind": "gap",
+   "locator": "Theorem 9.1.8, p. 133",
+   "printed": "Proof. Unfortunately, the proof was omitted from [21]. We do not know of a published reference. A proof will be included in the final version of these notes.",
+   "correction": "Injectivity of φ on A_cris is not needed for D_cris(V) and D_st(V) to be isocrystals: for admissible V the bijectivity of φ on D follows from the rank-one case of regularity (a period b of det V is a unit, so φ(b) ≠ 0) and B-C Exercise 7.4.10.",
+   "reason": "B-C use Theorem 9.1.8 to make φ on D_cris(V) injective (§8 introduction); the packet replaces this use (R06.2/dcris-dst-filtered-phi-n-modules).",
+   "affects": "the proof",
+   "known": "new (noted by the authors)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E23",
+   "kind": "gap",
+   "locator": "§9.1, after display (9.1.2), p. 129; and Fontaine–Ouyang §6.1.1, Exercise 6.3, p. 114",
+   "printed": "Rather more effort (which we omit) is required to prove that j is actually injective.",
+   "correction": "A proof of injectivity of A_cris → B_dR^+ is needed; everything identifying A_cris, B_cris with subrings of B_dR^+, B_dR depends on it.",
+   "reason": "Neither source proves it: B-C omit it, and F-O leave A^0_cris → A_cris injective as an exercise and then write 'by continuity A_cris ⊂ B_dR^+'. Recorded as the packet gap 'Injectivity of A_cris → B_dR^+'.",
+   "affects": "the proof",
+   "known": "new (the omission is acknowledged by B-C)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E24",
+   "kind": "misprint",
+   "locator": "Example 6.3.6, pp. 78–79",
+   "printed": "such that V′ and V′′ are de Rham (hence Hodge–Tate) and the Hodge–Tate weights of V′ are all strictly larger than those of V′′ , the representation V is de Rham.",
+   "correction": "In B-C's own convention (§2.3: C_K(q) has Hodge–Tate weight −q, equal to the degrees of D_HT and the jumps of D_dR) the hypothesis must read: the Hodge–Tate weights of V′ are all strictly smaller than those of V′′. The printed inequality is correct in the opposite (contravariant, HT(χ) = +1) convention, which is the one the example and proof use.",
+   "reason": "The example given is V′′ = Q_p, V′ = Q_p(r), r > 0, whose B-C weights are 0 and −r; and the proof arranges 'weights of V′ ≥ 1, those of V′′ ≤ 0' with D_dR(V′′) = (B_dR^+ ⊗ V′′)^{G_K} and C ⊗ V′ ≅ ⊕C(m_i), m_i ≥ 1, which requires the jumps of D_dR(V′′) ≥ 0 and B-C weights of V′ ≤ −1. Read literally in B-C's convention the statement would make every extension 0 → Q_p → V → Q_p(1) → 0 de Rham, contradicting B-C Example 6.3.5; the intended meaning is clear from the example and the proof (B-C mention the alternative contravariant convention at the end of §6.3's weight discussion).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E25",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 14.3.4, pp. 253–254 (with footnote 8)",
+   "printed": "Moving on to degree 1, we first handle the case η = 1, and then we shall deduce the general case. That is, we first prove H1 (GK , CK ) = 0.",
+   "correction": "'we first prove that H^1(G_K, C_K) is 1-dimensional over K' — which is what the following argument shows (H^1(G_K, C_K) ≅ Hom_cont(Z_p, K)).",
+   "reason": "The statement being proved (Theorem 2.2.7) says H^1_cont(G_K, C_K) is 1-dimensional, and the paragraph concludes exactly that. The same proof carries the authors' footnote 'need to finish writing the argument' at the H^0 step, which is nevertheless complete as printed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E26",
+   "kind": "gap",
+   "locator": "Proposition 9.3.9 (Colmez–Fontaine), footnote 2, p. 151",
+   "printed": "Should include proof of converse: if V st (D) is finite-dimensional then it is semistable using [14, Prop. 4.5], and if also δ(D) is surjective then D is weakly admissible (using proof of [14, Prop. 5.7]).",
+   "correction": "The converse is not proved in the notes (it needs Colmez–Fontaine's paper, not available).",
+   "reason": "The packet uses only the proved direction (R06.2/colmez-fontaine-bigness-criterion) and records the converse as not planned.",
+   "affects": "nothing",
+   "known": "new (noted by the authors)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E27",
+   "kind": "gap",
+   "locator": "Theorem 9.1.5 and its proof, p. 131",
+   "printed": "Unfortuntately, the proof of injectivity in [21, §4.1.2–4.1.3] is incomplete when e(K) > 1 since the generator ξpe of ker θ does not generate the kernel of the associated OK -algebra map",
+   "correction": "A complete proof of injectivity of K ⊗_{K_0} B_cris → B_dR is needed; the packet derives it from Colmez 2002 Proposition 8.14 (K ⊗_{K_0} B_max^+ ↪ B_dR^+) and B_cris^+ ⊆ B_max^+.",
+   "reason": "B-C say the repair consists of 'delicate direct calculations ... too tedious to be included here'.",
+   "affects": "the proof",
+   "known": "known to B-C (they point out the incompleteness in Fontaine's Astérisque 223 paper); repair available in Colmez 2002, Proposition 8.14",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Colmez 2002 (author's PDF) §8.5 read"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E28",
+   "kind": "gap",
+   "locator": "Proof of Theorem 6.14(2), p. 121",
+   "printed": "Note that Frac(K ⊗K0 Bcris ) is a finite extension over Ccris , thus log[$] is transcendental over Frac(K ⊗K0 Bcris ).",
+   "correction": "The argument presupposes that K ⊗_{K_0} B_cris → B_dR is injective (so that Frac(K ⊗ B_cris) is a field inside B_dR); this must be proved first (Colmez 2002, Proposition 8.14 route).",
+   "reason": "Without injectivity, K ⊗_{K_0} B_cris need not be a domain and 'Frac' is undefined; the same injectivity is the statement whose earlier proof Brinon–Conrad call incomplete (E27). Theorem 6.14(1) and Proposition 6.28 inherit the dependence.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E29",
+   "kind": "gap",
+   "locator": "Proof of Lemma 6.12, p. 120",
+   "printed": "Since S is separated by the p-adic topology, it suffices to show that if r ∈ N and α ∈ S − pS, then pr αu ∉ S.",
+   "correction": "p-adic separatedness of S = W(R)[[ξ/p]] ⊆ B_dR^+ needs a proof; it follows from Colmez's expansion θ_β (Colmez 2002 §8.4), which identifies S with O_C[[X]].",
+   "reason": "The claim is asserted without proof; Brinon–Conrad (proof sketch of Theorem 9.2.10) single it out as the delicate point.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E30",
+   "kind": "error",
+   "locator": "Exercise 5.18(3), p. 93",
+   "printed": "For K ⊂ C an algebraic closure of K inside C, there exists a unique continuous homomorphism s : K → BdR+ commuting with the action of GK such that θ(s(a)) = a, for all a ∈ K.",
+   "correction": "There is a unique G_K-equivariant homomorphism s: K̄ → B_dR^+ with θ∘s = id (Hensel lifting); its restriction to each finite extension of K is continuous, but s is not continuous on K̄ for the valuation topology.",
+   "reason": "If s were continuous, it would extend (B_dR^+ is complete for its natural topology) to a continuous G_K-equivariant ring section C → B_dR^+, which Exercise 5.18(2) itself says does not exist; Brinon–Conrad Remark 4.4.11 states the non-continuity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E31",
+   "kind": "misprint",
+   "locator": "Corollary 6.46, p. 137",
+   "printed": "then tN (∆) = tN (∆0 ) + tN (∆00 ).",
+   "correction": "t_H(Δ) = t_H(Δ′) + t_H(Δ′′) for a short exact sequence of filtered K-vector spaces.",
+   "reason": "The corollary is about filtered vector spaces and follows Proposition 6.45 on t_H; t_N is not defined for filtered vector spaces.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E32",
+   "kind": "gap",
+   "locator": "Remarque V.2.2, p. 22, with Proposition IV.2.2 (p. 18) and Corollaire III.2.5 (p. 17)",
+   "printed": "La démonstration ci-dessus utilise la construction D 7→ M(D) mais pas la caractérisation de l'image essentielle de ce foncteur, ce qui fait que notre démonstration n'utilise pas le théorème de monodromie p-adique",
+   "correction": "As written, the proof of Théorème V.2.1 does use the essential image: it invokes Proposition IV.2.2, whose proof uses Corollaire III.2.5, which is proved from Théorème III.2.4 (equivalence onto modules with locally trivial connection), whose essential-surjectivity part (Théorème III.2.3) uses Théorème III.2.1, the p-adic monodromy theorem of André–Kedlaya–Mebkhout. For sub-objects of M(D) the needed solutions can probably be obtained from those of M(D) directly, but the text does not do this.",
+   "reason": "Follow the chain of references in the proofs of IV.2.2 → III.2.5 → III.2.4 → III.2.3 → III.2.1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0406601 has a single version (v1); Berger's web page lists the Astérisque 319 version, not compared; Berger's own appendix B is an erratum to [Ber02] only"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Équations différentielles p-adiques et (φ,N)-modules filtrés, arXiv:math/0406601v1 (29 Jun 2004); Astérisque 319 (2008)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E33",
+   "kind": "gap",
+   "locator": "Theorem 9.1.10, p. 134",
+   "printed": "Proof. This is difficult; see [21, 5.3.7].",
+   "correction": "A proof of (Fil^0 B_cris)^{φ=1} = Q_p is needed; Fontaine–Ouyang Theorems 6.25–6.26 give one (via Propositions 6.18–6.24), which the packet uses.",
+   "reason": "The only reference given is Fontaine's Astérisque 223 paper (not available).",
+   "affects": "the proof",
+   "known": "known: proved in Fontaine–Ouyang §6.2",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E34",
+   "kind": "gap",
+   "locator": "Proposition 5.31(3) and its proof, p. 100",
+   "printed": "(3) is not so easy!",
+   "correction": "A proof that a non-split extension 0 → Q_p → V → Q_p(1) → 0 is not de Rham; Brinon–Conrad Example 6.3.5 derive it from de Rham ⇒ potentially semistable plus an Ext computation in weakly admissible modules.",
+   "reason": "No proof is given; the packet places this example as an acceptance item of R06.3, after the p-adic monodromy theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E35",
+   "kind": "misprint",
+   "locator": "Exemple 2.8 (1), p. 17 (arXiv v3)",
+   "printed": "Ã_[0;r_0] = A+_max",
+   "correction": "Ã_[0;r_0] = A_max.",
+   "reason": "Ã+{[p̃]/p} is the p-adic completion defining A_max.",
+   "affects": "nothing",
+   "known": "Berger 2008, Appendice B",
+   "searched": [
+    "Berger 2008 Appendice B"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E36",
+   "kind": "gap",
+   "locator": "Proposition 5.15, p. 54, with Lemme 4.6, p. 41 (arXiv v3)",
+   "printed": "Alors Ns est un B†,s rig,K -module libre de rang d, et ∇V (Ns ) ⊂ tNs",
+   "correction": "∇_V(N_s) ⊂ tN_s holds after replacing s by s' = r_{n_0} (and N_s by B†,s'_rig,K ⊗ N_s); for the original s it can fail when n_0 > n(s).",
+   "reason": "Lemma 4.6 concludes x ∈ tB†_rig,K on the annulus of r_{n_0}, not of s. For V = Q_p(−1) and n_0 > n(s), N_s = (t/h)B†,s_rig,K·e_{−1} with h = Π_{n(s)≤n<n_0}φ^{n−1}(q)/p, and ∇_V((t/h)e_{−1}) = −(t²∂h/h²)e_{−1} ∉ tN_s since ∂h/h has poles at the zeros of h. Theorem 5.10 is unaffected because N_dR(V) is formed over B†_rig,K.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Berger 2008 Appendice B (lists a different correction to the proof of Proposition 5.15)",
+    "berger-intro IV.4.1"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E37",
+   "kind": "misprint",
+   "locator": "§1.3.3, p. 16 (book draft read)",
+   "printed": "let τk ∈ Gk denote the geometric Frobenius … E(−1) is a one-dimensional E-vector space on which WK acts, such that IK acts trivially and the action of τk is multiplication by q−1",
+   "correction": "On E(−1) the geometric Frobenius acts by q (equivalently the arithmetic Frobenius by q^{−1}); with that twist the condition 'N: D → D(−1) is W_K-equivariant' gives ρ(τ_k)Nρ(τ_k)^{−1} = q^{−1}N, Deligne's relation.",
+   "reason": "As printed, N∘ρ(τ_k) = q^{−1}ρ(τ_k)∘N, i.e. ρ(τ_k)Nρ(τ_k)^{−1} = qN for the geometric Frobenius, contradicting Deligne 8.4.1 and FO's own §1.3.2, where Q_ℓ(−1) = Hom(Q_ℓ(1), Q_ℓ) carries the geometric Frobenius as q; the functor V ↦ (D_ℓ(V), N) would not land in Rep_E(WD_K) as printed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the Fontaine–Ouyang draft supplied (no errata list found)",
+    "Deligne 1973 via ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+    "Brinon–Conrad §8.2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E38",
+   "kind": "gap",
+   "locator": "Theorem 12.4.8 and Theorem 12.4.12, pp. 194–195 (version of 24 June 2009)",
+   "printed": "Theorem 12.4.8. There are exact quasi-inverse anti-equivalences between the category of strongly divisible lattices L with Filp L = 0 and the category of Zp [GK ]-lattices Λ in crystalline GK -representations with Hodge-Tate weights in the set {0, . . . , p − 1}.",
+   "correction": "The proof is incomplete in the notes (author footnotes 'need to say more', 'should sketch proof or give reference'); Theorem 12.4.12 is stated only for one-step filtrations. Neither is used as a prerequisite here.",
+   "reason": "The notes' own footnotes 3–7 mark the missing steps.",
+   "affects": "the proof",
+   "known": "the authors' footnotes in the preliminary version",
+   "searched": [
+    "Brinon–Conrad notes, version of 24 June 2009"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E39",
+   "kind": "misprint",
+   "locator": "III.1.1, p. 21 (arXiv v1)",
+   "printed": "AK = {Σ ak πK^k, ak ∈ OF , a−k → 0}, so that AK /p = kK ((πK ))",
+   "correction": "a_k ∈ O_{F'_K} with F'_K = K_∞ ∩ F^nr; with a_k ∈ O_F the reduction would be k((π_K)), not k_K((π_K)).",
+   "reason": "Same phenomenon as PadicHodgeTheory/E1 (the residue field of E_K is that of K_∞).",
+   "affects": "nothing",
+   "known": "Berger 2008, Appendice B (the corresponding correction to [Ber02])",
+   "searched": [
+    "Berger 2008 Appendice B"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory--P7.json",
+   "citation": "L. Berger, An introduction to the theory of p-adic representations, arXiv:math/0210184v1 (12 Oct 2002)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PerfectoidSpaces/E1",
    "kind": "gap",
    "locator": "Proofs of Theorem 5.3 (p. 28) and Theorem 5.8 (p. 31), first paragraph, arXiv v2",
