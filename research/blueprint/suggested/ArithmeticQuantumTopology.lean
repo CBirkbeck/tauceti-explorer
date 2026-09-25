@@ -260,10 +260,119 @@ example : True := by sorry              -- the regular ideal tetrahedron has sha
 example : True := by sorry              -- the three edge parameters multiply to -1
 example : True := by sorry              -- the figure-eight complement has both shapes that root
 
-/-! ## QT.6 and QT.7
+/-! ## Second pass: QT.1 and QT.4 additions
 
-No signature is proposed. Their sources were not acquired, and the packet records
-their coverage as `not_read`. Writing signatures for a state integral or for a
-quantum-modularity statement before reading a primary source would encode guesses. -/
+The abstract framework of Habiro--Le, and the general simple Lie type theorem.
+-/
+
+/-- QT.1/topological-ribbon-hopf-algebras. The abstract framework, over the ring
+of formal power series in one variable. Missing: the adic completion of a Hopf
+algebra and the notion of a topologically free module. -/
+variable (RibbonHopfTop : Type)
+
+/-- QT.1/core-subalgebras-and-twist-forms. A core subalgebra with its twist
+forms; the twist forms may be only PARTIALLY defined, and the normalising
+denominator must be checked invertible at each root of unity. -/
+variable (CoreSubalgebra : Type) (twistForm : CoreSubalgebra → Bool → Option ℂ)
+
+/-- The abstract theorem: a core subalgebra with twist forms gives an invariant
+of integral homology spheres. This is what the concrete construction instantiates. -/
+theorem coreSubalgebra_gives_invariant : True := by sorry
+
+/-- QT.1/root-of-unity-categories: the specialised category is NOT semisimple;
+the negligible modules must be discarded first. Three settings are kept apart:
+generic over the power series ring, the integral form, and the specialisation. -/
+theorem not_semisimple_at_root_of_unity : True := by sorry
+
+/-- QT.4/general-simple-lie-type. For each simple Lie algebra, over its
+ADMISSIBLE SET of orders. Outside that set the evaluation is still defined and is
+proposed as a definition -- an analytic continuation, not a theorem. -/
+theorem general_lie_type : True := by sorry
+
+theorem general_lie_type_projective_agreement : True := by sorry
+
+/-- QT.4/the-coefficient-ring-may-not-be-changed: over the rationals the
+completion is not a domain and the Taylor map is not injective, so no
+determination statement transfers. -/
+theorem determination_fails_over_the_rationals : True := by sorry
+
+/-! ## QT.6 State integrals, Nahm series and arithmetic asymptotics
+
+Decomposed in the second pass from Garoufalidis--Zagier. Every conjectural
+statement carries `Conjecture` in its name, so that a reader cannot mistake one
+for a theorem. No conjecture is used as a hypothesis anywhere in this file.
+-/
+
+/-- Knots. Missing, like framed links, from both pinned libraries; the Tau Ceti
+framed Gauss codes cited in the packet are the nearest available presentation. -/
+variable (Knot : Type)
+
+/-- QT.6/the-kashaev-invariant. The invariant lies in the ring of integers with a
+primitive root of unity adjoined; it is the value at `-1/N` of a one-periodic
+function on the rationals, determined uniquely by Galois invariance. -/
+def kashaevFunction (K : Knot) : ℚ → ℂ := by sorry
+
+theorem kashaevFunction_periodic (K : Knot) (x : ℚ) :
+    kashaevFunction K (x + 1) = kashaevFunction K x := by sorry
+
+/-- The uniqueness, from the Galois-invariance requirement. Without it the
+extension to a function on the rationals is not unique. -/
+theorem kashaevFunction_unique (K : Knot) : True := by sorry
+
+/-- Murakami--Murakami: the Kashaev invariant is an evaluation of the coloured
+Jones polynomial, which is what fixes its normalisation. -/
+theorem kashaev_eq_colouredJones (K : Knot) (N : ℕ) : True := by sorry
+
+/-- Unit test: for the figure-eight knot the first values are 1, 5, 13, 27,
+46 + 2√5 and 89. -/
+example : True := by sorry
+
+/-- QT.6/the-asymptotic-series. CONJECTURAL: a full asymptotic expansion to all
+orders, with the `N^{3/2}` prefactor and the complexified volume in the
+exponential. -/
+theorem Conjecture_asymptoticExpansion (K : Knot) : True := by sorry
+
+/-- CONJECTURAL, and separate from the above: the coefficients are algebraic and
+lie in `ζ₈ · δ^{-1/2} · F_K[[h]]` with `F_K` the trace field. -/
+theorem Conjecture_coefficientsAlgebraic (K : Knot) : True := by sorry
+
+/-- QT.6/formal-and-analytic: a saddle computation producing a series establishes
+nothing about asymptotics without the error analysis. -/
+theorem formal_is_not_analytic : True := by sorry
+
+/-! ## QT.7 Quantum modularity and arithmetic research statements
+
+No statement in this section is a theorem of this roadmap.
+-/
+
+/-- QT.7/the-quantum-modularity-conjecture. CONJECTURAL. The case
+`(a b; c d) = (0 -1; 1 0)` is the asymptotic expansion above. -/
+theorem Conjecture_quantumModularity (K : Knot) : True := by sorry
+
+/-- CONJECTURAL: Kashaev's volume conjecture, the special case. -/
+theorem Conjecture_volume (K : Knot) : True := by sorry
+
+/-- QT.7/the-example-ledger. The five labels, as a type, so that an entry cannot
+be recorded without one. -/
+inductive Provenance where
+  | proved : Provenance
+  | imported : Provenance
+  | computed : Provenance
+  | numerical : Provenance
+  | conjectural : Provenance
+
+/-- A ledger entry names the datum, the node that produces it and its label. -/
+structure LedgerEntry where
+  datum : String
+  node : String
+  status : Provenance
+
+/-- Unit test: the asymptotic-series column is conjectural in every row. -/
+example : (LedgerEntry.mk "Phi^(4_1)" "QT.6/the-asymptotic-series" Provenance.conjectural).status
+    = Provenance.conjectural := rfl
+
+/-- Unit test: the cyclotomic-coefficient column is proved. -/
+example : (LedgerEntry.mk "a_n(4_1)" "QT.2/cyclotomic-expansion" Provenance.proved).status
+    = Provenance.proved := rfl
 
 end TauCeti.QuantumTopology

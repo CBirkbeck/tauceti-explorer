@@ -37,10 +37,14 @@ Ohtsuki series (§§11, 12.2–12.6). On the geometric side: ideal tetrahedra, g
 combinatorial flattenings, the lifted five-term relation, the extended Bloch element and the volume and
 Chern–Simons theorem.
 
-**Out of scope here, and recorded as gaps.** The general Lie type variants of the unified invariant (Habiro–Lê),
-which are a separate paper that was not read; the rational homology sphere extension, which needs a different
-coefficient completion; the $p$-adic and mod $p$ quantum functions of §13 of the source; and the whole of QT.6 and
-QT.7, whose sources were not acquired. Those two stages carry coverage status `not_read`.
+**Out of scope in the first pass, and now partly in scope.** The first pass recorded four gaps of this kind. The
+second pass (see the section at the end of this document) closes four of them: the general Lie type variants are
+decomposed from Habiro–Lê; the rational homology sphere boundary is stated with its three reasons; and QT.6 and
+QT.7, which the first pass left unread, are decomposed from Garoufalidis–Zagier. What remains out of scope, and
+is still recorded as a gap, is the $p$-adic and mod $p$ quantum functions of §13 of the source; a primary
+state-integral source, with its contour, its normalisation and the non-compact quantum dilogarithm; the
+refinements of the quantum modularity conjecture; the construction of the integral core subalgebra for a general
+simple Lie algebra; and a primary source for any *proved* quantum-modular example.
 
 **Boundaries with neighbouring roadmaps.**
 
@@ -1226,27 +1230,137 @@ The Rogers dilogarithm gives a well-defined map from the covering surface to the
 
 ## QT.6 State integrals, Nahm series and arithmetic asymptotics
 
-*Coverage:* **not_read**. No source for this stage was acquired. The state integral, its contour and normalisation, the non-compact quantum dilogarithm, the Neumann-Zagier datum and the asymptotic expansion are all unread, and the requests record what the eventual nodes would import.
+Decomposed in the second pass from Garoufalidis–Zagier, *Knots, perturbative series and quantum modularity*
+(arXiv:2111.06645v3). The first pass left this layer unread and proposed no signature. What is decomposed is the
+Kashaev invariant and the conjectural asymptotics; **the state integral itself remains unread**, and that is now
+the layer's only substantive gap.
 
-No node is written for this layer. What it would need is recorded in the packet's gaps and requests, and
-is summarised under *What is missing* below.
+### Objects and statements
+
+#### The Kashaev invariant, its identification with a colored Jones evaluation, and the periodic function it defines
+
+`ArithmeticQuantumTopology:QT.6/the-kashaev-invariant-and-the-function-on-the-rationals` · *definition* · planet **The Kashaev invariant**
+
+For a knot and a positive integer the Kashaev invariant is an element of the ring of integers with a primitive root of unity of that order adjoined. Murakami and Murakami proved that it is the evaluation of the colored Jones polynomial in the corresponding colour at that root of unity, in the normalisation of the earlier layer. The Kashaev invariant is the value at minus one over the integer of a one-periodic function on the rationals, determined uniquely by the further requirement that it be a Galois-invariant function of the exponential of its argument; the uniqueness holds because every primitive root of a given order is a Galois conjugate of the standard one. For the figure-eight knot the invariant has the closed form given by the sum over the indices below the order of the squared absolute value of the q-Pochhammer symbol at the root of unity, and its first values are the integers one, five, thirteen, twenty-seven, forty-six plus twice the square root of five, and eighty-nine. This function on the rationals is the object all the asymptotic statements of this layer and the next are about.
+
+*Hypotheses.* (1) The knot is arbitrary for the definition; the asymptotic statements later add hyperbolicity. (2) The one-periodic function is determined by the Galois-invariance requirement, and that determination is part of the definition. (3) The identification with a colored Jones evaluation is a theorem, attributed, and fixes the normalisation.
+
+*Outline.* (1) Define the Kashaev invariant and record its value ring. (2) Record the identification with the colored Jones evaluation and the normalisation it fixes. (3) Construct the one-periodic function on the rationals and prove its uniqueness from the Galois-invariance requirement. (4) Record the closed form and the first values for the figure-eight knot, as the standing example.
+
+*Acceptance.* (1) The value ring is recorded. (2) The uniqueness of the periodic function is proved from the Galois requirement. (3) The standing example is given with explicit values.
+
+*API.* `kashaev-invariant` (constructor) The element of the ring of integers with a root of unity adjoined attached to a knot and a positive integer.; `colored-jones-identification` (equivalence) Its identification with the evaluation of the colored Jones polynomial in the corresponding colour.; `periodic-function` (constructor) The one-periodic Galois-invariant function on the rationals whose value at minus one over the integer is the invariant.; `uniqueness` (characterisation) The uniqueness of that function, from the Galois-invariance requirement.; `figure-eight` (example) The closed form and the first values for the figure-eight knot.
+
+*Unit tests.* `unknot` — For the unknot the Kashaev invariant is one for every order, and the periodic function is constant. `figure-eight-small-values` — The first six values for the figure-eight knot are one, five, thirteen, twenty-seven, forty-six plus twice the square root of five, and eighty-nine; a wrong normalisation would not reproduce them. `periodicity` — The function satisfies that its value at an argument plus one equals its value at the argument; this is what makes the statement at minus one over the integer meaningful. `galois-invariance-is-needed` — Without the Galois-invariance requirement the extension of the invariant to a function on the rationals is not unique; this is the non-example showing the requirement is not decorative.
+
+*Sources.* Section 1, on the original quantum modularity conjecture: The definition, the uniqueness of the periodic function and the identification with the colored Jones polynomial. Section 1, the displayed formula for the figure-eight knot: The closed form and the first values of the standing example.
+
+#### The conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in
+
+`ArithmeticQuantumTopology:QT.6/the-asymptotic-series-and-its-arithmetic` · *comparison*
+
+For a hyperbolic knot the conjecture, refining Kashaev's volume conjecture and made precise in the cited works, is that the Kashaev invariant has a full asymptotic expansion to all orders in the reciprocal of the integer: it is asymptotic to the three-halves power of the integer, times the exponential of the suitably normalised complexified volume times the integer, times a formal power series evaluated at twice pi times the imaginary unit over the integer. The complexified volume is the one of the previous layer, the combination of volume and Chern-Simons invariant. The power series is divergent, and it is further conjectured that its coefficients are algebraic: that it lies in the eighth root of unity times the inverse square root of a non-zero element of the trace field, times the power series ring over the trace field. For the figure-eight knot the trace field is the rationals with the square root of minus three adjoined and the first coefficients are the displayed ones; for the knot five two the trace field is the cubic field generated by the root with negative imaginary part of the displayed cubic. All of this is conjectural: nothing in this layer asserts that the expansion exists or that its coefficients are algebraic.
+
+*Hypotheses.* (1) The knot is hyperbolic; the complexified volume is the one attached to the complete structure. (2) The statement is an asymptotic expansion to all orders in the reciprocal, not a convergent expansion; the series is divergent. (3) The conjecture about the field of the coefficients is separate from the conjecture that the expansion exists.
+
+*Outline.* (1) Record the conjectured expansion with its exact prefactors: the three-halves power, the exponential of the complexified volume times the integer, and the argument of the series. (2) Record the conjecture about the coefficients and the field they lie in, with the eighth root of unity and the inverse square root of the element of the trace field. (3) Record the two worked examples with their trace fields and their first coefficients. (4) Record that the layer asserts none of this and that the statements are labelled conjectural.
+
+*Acceptance.* (1) Every prefactor of the expansion is written out. (2) The conjecture about the coefficients is stated separately from the existence conjecture. (3) The conjectural status is recorded on each clause.
+
+*Sources.* Section 1, the displayed asymptotic expansion: The conjectured expansion and the conjecture about its coefficients, with the exact prefactors. Section 1, the two worked examples: The two standing examples with their trace fields.
+
+#### The comparisons with the Habiro ring that are actually proved, and the ones that are not
+
+`ArithmeticQuantumTopology:QT.6/what-is-exported-to-the-habiro-roadmaps` · *comparison*
+
+The asymptotic layer and the Habiro roadmaps meet at exactly two places, and only those two are exported. First, the coefficients of the cyclotomic expansion of a knot and the unified invariant of a surgered homology sphere are elements of the cyclotomic completion, whose evaluation and Taylor theory is owned by the completion roadmap; every statement here about values at roots of unity or about expansions at a root goes through that theory and adds nothing to it. Second, the source of this layer constructs further elements of the Habiro ring attached to a knot and studies their relation to the asymptotic series; those constructions are recorded here as statements of that source, with their hypotheses, and are not re-proved. Everything else is not exported: in particular no statement of this layer produces a q-series belonging to the Habiro ring merely because it has values at roots of unity, and no asymptotic statement is used to prove an algebraic property of an element of the completion.
+
+*Hypotheses.* (1) The two export points are the only ones; the restriction is checkable against the prerequisites of this packet. (2) The further Habiro-ring elements of the source are recorded with their hypotheses and are not re-proved. (3) This node records an ownership boundary.
+
+*Outline.* (1) Name the first export point and the theory it goes through. (2) Name the second and record that it is quoted, not proved. (3) Record the two prohibitions and check them against the other nodes.
+
+*Acceptance.* (1) Both export points are named. (2) The quoted status of the second is recorded. (3) The two prohibitions are checkable.
+
+*Sources.* Section 4, the subsection on new elements of the Habiro ring: The second export point, recorded as a statement of the source.
+
+#### What a formal expansion establishes and what it does not
+
+`ArithmeticQuantumTopology:QT.6/formal-and-analytic-asymptotics-are-different-outputs` · *comparison*
+
+A formal expansion and an analytic asymptotic statement are different outputs and are kept apart throughout. A formal expansion is an identity in a ring of formal power series or a statement about the coefficients of such a series; it carries no error estimate and no domain. An analytic asymptotic statement asserts that a sequence of complex numbers is asymptotic to an expression, with a specified error at each order and a specified range of validity. The asymptotic expansion of the previous node is of the second kind and is conjectural; the constructions of the series by the four routes the source gives are of the first kind. Two prohibitions follow and are recorded. A stationary phase or saddle point computation that produces a series does not establish that the series is the asymptotic expansion of anything, unless the error analysis is carried out. And the volume conjecture and the quantum modularity conjecture are not established by exhibiting a formal expansion with the expected shape, however many coefficients agree numerically.
+
+*Hypotheses.* (1) The distinction is one of the kind of statement and is not about the difficulty of the proof. (2) The prohibitions are checkable against the statements of this packet. (3) Numerical agreement is evidence and is labelled as such in the next layer's ledger.
+
+*Outline.* (1) State the two kinds of output and what each carries. (2) Classify the statements of this layer into the two kinds. (3) Record the two prohibitions and check them against the other nodes. (4) Record that numerical agreement is evidence and is labelled in the ledger.
+
+*Acceptance.* (1) The two kinds are defined and every statement of the layer is classified. (2) The prohibitions are stated and checkable. (3) The status of numerical agreement is recorded.
+
+*Sources.* Section 1, on the original quantum modularity conjecture: That the statements in question are conjectures, which is the classification this node records.
 
 ### What is missing
 
-- Acquire and decompose a primary state-integral source and the asymptotic theorems for the chosen family.
-- Fix the exact comparison to be exported to the Nahm-series roadmap.
+A primary state-integral source: the integral, its contour, its normalisation and the non-compact quantum
+dilogarithm. And the refinements of the asymptotics source, which are named in the nodes and not decomposed.
 
 ## QT.7 Quantum modularity and arithmetic research statements
 
-*Coverage:* **not_read**. No source for this stage was acquired. Quantum modularity, the refined volume conjectures and arithmetic resurgence are stated in the roadmap without the definitions they need, and the Kashaev invariant, which they are about, is named nowhere in the roadmap.
+Decomposed in the second pass from the same source. **This layer contains no theorem of this roadmap**: every
+mathematical statement in it is a conjecture of its source, and the rest is the ledger and the labelling
+discipline that keep the conjectures from being read as results.
 
-No node is written for this layer. What it would need is recorded in the packet's gaps and requests, and
-is summarised under *What is missing* below.
+### Objects and statements
+
+#### The conjecture, with its exact normalisation and its domain
+
+`ArithmeticQuantumTopology:QT.7/the-quantum-modularity-conjecture` · *comparison*
+
+The quantum modularity conjecture, in its original form, asserts the following. Let a hyperbolic knot be given and let its one-periodic function on the rationals be as defined above. For a matrix in the modular group with lower left entry non-zero, the value of that function at the image of a large integer under the matrix is asymptotic to the lower left entry times the integer plus the lower right entry, raised to the three-halves power, times the exponential of the complexified volume times the integer plus the ratio of the lower right to the lower left entry, times a power series attached to the ratio of the upper left to the lower left entry, evaluated at twice pi times the imaginary unit divided by the lower left entry times the quantity lower left times the integer plus lower right. The case of the matrix with entries zero, minus one, one, zero recovers the asymptotic expansion of the previous layer. The conjecture is a conjecture: this roadmap states it with its exact normalisation, its domain and the power series it involves, and asserts no case of it. The source refines it in several directions, including a generalised form indexed by a set attached to the knot, a lift from constant terms to power series, and a refined form involving a matrix-valued cocycle; each refinement is a separate statement with its own hypotheses.
+
+*Hypotheses.* (1) The knot is hyperbolic; the matrix lies in the modular group with non-zero lower left entry. (2) The power series depends on the ratio of the upper left to the lower left entry and is one of the family the source constructs. (3) Every clause is conjectural, and the refinements are separate conjectures.
+
+*Outline.* (1) State the conjecture with all its prefactors and the argument of the power series. (2) Record that the case of the inversion matrix is the expansion of the previous layer. (3) Name the three refinements the source gives and record that each has its own hypotheses. (4) Record that no case is asserted here.
+
+*Acceptance.* (1) Every prefactor and the argument of the series are written out. (2) The specialisation to the previous layer's expansion is recorded. (3) The conjectural status of the statement and of each refinement is recorded.
+
+*Sources.* Section 1, the displayed generalisation of the volume conjecture: The conjecture with its exact normalisation, and the identification of the special case.
+
+#### A reproducible ledger linking the four kinds of data, for two knots
+
+`ArithmeticQuantumTopology:QT.7/the-example-ledger` · *construction* · planet **The example ledger**
+
+The layer's deliverable is a ledger with one row per example and one column per kind of datum, in which every entry names the node that produces it and the status of the statement that produces it. Two knots are carried in full. For the figure-eight knot: the cyclotomic coefficients of its colored Jones polynomials, which are Laurent polynomials produced by the expansion theorem and are proved; its Kashaev invariants at small orders, which are the displayed integers and are computed; the Reshetikhin-Turaev invariants of manifolds obtained by admissible surgery on it, which are evaluations of the unified invariant and are proved; its trace field and the Bloch and extended Bloch classes of its complement, which require a true ideal triangulation with a flattening and are proved subject to that; the volume and Chern-Simons invariant obtained from the regulator, proved; and the asymptotic series with its first coefficients, which is conjectural. For the knot five two the same columns, with the cubic trace field. The ledger's discipline is that a numerical agreement is recorded as a numerical agreement, a heuristic saddle computation as a heuristic, and a conjectural identity as a conjecture, each in its own column, and that a theorem entry names its primary proof and the exact family over which it holds.
+
+*Hypotheses.* (1) Each entry names the node producing it and the status of that node. (2) The two knots are the source's standing examples and the numbers quoted are the source's. (3) The ledger is a deliverable of this layer and is not a proof of anything.
+
+*Outline.* (1) Fix the columns: cyclotomic coefficients, Kashaev values, Reshetikhin-Turaev values at roots of unity, trace field and Bloch classes, volume and Chern-Simons, asymptotic series. (2) Fill the two rows from the nodes of this packet, recording for each entry the node and the status. (3) Record the labelling discipline: proved, computed, numerical, heuristic, conjectural. (4) Record that a theorem entry names its primary proof and the family over which it holds.
+
+*Acceptance.* (1) Every entry names its node and its status. (2) The labelling discipline is stated and applied. (3) No entry is labelled proved whose node is conjectural.
+
+*API.* `ledger` (structure) The table with one row per example and one column per kind of datum.; `columns` (data) The six columns: cyclotomic coefficients, Kashaev values, invariants at roots of unity, trace field and Bloch classes, volume and Chern-Simons, asymptotic series.; `provenance` (data) For each entry, the node that produces it.; `status` (data) For each entry, one of the five labels: proved, imported, computed, numerical, conjectural.; `rows` (example) The two rows, for the figure-eight knot and for the knot five two.
+
+*Unit tests.* `figure-eight-row` — Every entry of the figure-eight row is filled, and the Kashaev column reproduces the six values of the source. `status-consistency` — No entry is labelled proved whose producing node is conjectural; the asymptotic-series column is conjectural in both rows. `trace-field-column` — The trace field of the figure-eight knot is the rationals with the square root of minus three adjoined, and of the knot five two the cubic field of the displayed polynomial. `an-empty-column-is-not-an-agreement` — A column that cannot be filled for a row is recorded as empty and not as agreement; this is the discipline the ledger exists to enforce.
+
+*Sources.* Section 1, the table of values and the two displayed series: The two rows of the ledger, with the numbers the source gives.
+
+#### The labelling discipline, and what the suggested Lean file contains
+
+`ArithmeticQuantumTopology:QT.7/proved-cases-conjectures-and-the-executable-boundary` · *application*
+
+Two things are fixed here. The labelling discipline: every statement of this roadmap carries one of five labels, and the labels are visible in the packet. Proved means a primary source is named together with the exact family over which the statement holds. Imported means the statement is proved in a roadmap named in the requests and is used as a hypothesis here. Computed means a finite calculation, reproducible from the definitions. Numerical means agreement observed in examples, which is evidence and not a proof. Conjectural means the source states it as a conjecture; the volume conjecture, the quantum modularity conjecture and all its refinements, and the conjecture that the asymptotic series has algebraic coefficients are of this kind. The executable boundary: the suggested Lean file states the elementary arithmetic that the pinned libraries support, namely the quantum integer as a Chebyshev-type value and the q-Pochhammer symbol with its vanishing at roots of unity, together with the linking matrix and the homology criterion as matrix statements; everything above that, from ribbon Hopf algebras to the extended Bloch group, appears as a signature with its missing machinery named. No proposition standing for a conjecture is introduced as a hypothesis, and no axiom is used.
+
+*Hypotheses.* (1) The five labels are exhaustive for the statements of this packet and are checkable against the node kinds and the source references. (2) The pinned libraries contain monoidal, braided and rigid categories, Chebyshev polynomials, matrices and the complex logarithm, and nothing else relevant. (3) The file is not compiled.
+
+*Outline.* (1) Fix the five labels and their meanings. (2) Classify the statements of this packet and check that the conjectural ones are exactly those whose sources state them as conjectures. (3) List the executable content of the suggested Lean file and the libraries it uses. (4) List the signature-only content and name, for each, the missing machinery. (5) Record the prohibition on placeholder propositions and axioms.
+
+*Acceptance.* (1) The five labels are defined and the classification is checkable. (2) The executable content is small and named exactly. (3) For each signature the missing machinery is named.
+
+*Sources.* Section 1, on the original quantum modularity conjecture: The source's own labelling of its central statements as conjectures, which the discipline records. Section 13, the conjecture on the p-adic and mod p functions: An example of a statement in the main source that is a conjecture and must be labelled as one.
 
 ### What is missing
 
-- Define the Kashaev invariant and state the volume conjecture with its proved cases.
-- Acquire primary sources for each proved quantum-modular example before any conjecture is formulated.
+A primary source for any *proved* quantum-modular example, so that the ledger's asymptotic column has an entry
+labelled proved rather than conjectural; and the three refinements of the conjecture, which are named and not
+decomposed.
 
 ## Dependencies on other roadmaps
 
@@ -1305,3 +1419,168 @@ any of RS-10's changes.
 **The Lean file was not compiled.** `research/blueprint/suggested/ArithmeticQuantumTopology.lean` is a signature
 sketch. The pinned checkouts available here have no compiled dependency modules, so elaboration was not attempted;
 the packet records `implementationStatus` as `unchecked` and the file says the same in its header.
+
+## Second pass: what was added to QT.0 through QT.5
+
+The first pass of this blueprint (merged as pull request 2767) decomposed QT.0 to QT.5 from Habiro's paper and
+Neumann's paper. The second pass keeps all of it and adds sixteen nodes, of which the seven below sit in those
+layers; the other nine are the whole of QT.6 and QT.7 above. Two further primary sources were obtained for the
+purpose: Habiro–Lê, *Unified quantum invariants for integral homology spheres associated with simple Lie
+algebras* (arXiv:1503.03549v2), and the Garoufalidis–Zagier paper.
+
+### QT.1 — Ribbon Hopf algebras over a formal power series ring, and the category they present
+
+#### Ribbon Hopf algebras over a formal power series ring, and the category they present
+
+`ArithmeticQuantumTopology:QT.1/topological-ribbon-hopf-algebras` · *definition*
+
+Work over the ring of formal power series in one variable over the complex numbers, a local ring whose maximal ideal is generated by that variable and in which an element is invertible exactly when its constant term is non-zero. A topological ribbon Hopf algebra over it is a complete Hopf algebra in the adic topology equipped with a universal R-matrix, an invertible element of the completed tensor square satisfying the quasi-triangularity identities, and a ribbon element, a central invertible element whose square is the product of the Drinfeld element with its image under the antipode and which behaves as prescribed under the coproduct and the antipode. Modules that are topologically free over the ground ring form a braided monoidal category with duals and a twist, that is a ribbon category, and the braiding is given by the R-matrix followed by the flip while the twist is the action of the ribbon element. The pinned libraries contain the categorical half of this: braided monoidal categories, left and right rigid categories and their duals. They contain no quantised enveloping algebra, no R-matrix and no ribbon element, so the algebra half is entirely new work. This node states the abstract framework; the concrete instance over the three-dimensional simple Lie algebra, with its explicit ribbon element and its integral forms, is the subject of the neighbouring nodes of this layer and is where the atlas shows a planet.
+
+*Hypotheses.* (1) The ground ring is the formal power series ring in one variable over the complex numbers; completeness and separation in its adic topology are standing hypotheses on every module. (2) Topological freeness is required for the duality and trace constructions; a module that is not topologically free is outside the framework. (3) The correspondence with ribbon categories is a statement about topologically free modules, not about all modules.
+
+*Outline.* (1) Record the ground ring and its local structure, and the adic topology on modules with the notion of a zero-convergent family. (2) Define a topological ribbon Hopf algebra: the complete Hopf algebra, the R-matrix with the quasi-triangularity identities, and the ribbon element with its axioms. (3) Construct the braiding and the twist on topologically free modules and check the ribbon axioms. (4) Record which parts are present in the pinned libraries and which are not.
+
+*Acceptance.* (1) The axioms of the R-matrix and the ribbon element are listed in full. (2) The topological hypotheses are stated where they are used, in particular for duality. (3) The boundary with the pinned libraries is recorded.
+
+*API.* `ribbon-hopf-algebra` (structure) A complete Hopf algebra over the power series ring with an R-matrix and a ribbon element satisfying the listed axioms.; `r-matrix` (data) The invertible element of the completed tensor square, with the quasi-triangularity identities.; `ribbon-element` (data) The central invertible element with its coproduct and antipode axioms.; `module-category` (equivalence) Topologically free modules form a ribbon category, with braiding from the R-matrix and twist from the ribbon element.; `duals` (structure) Left and right duals on topologically free modules, with the evaluation and coevaluation maps.; `convergence` (characterisation) Zero-convergent families and the sums they define, which is what makes infinite expansions meaningful.
+
+*Unit tests.* `trivial-example` — The ground ring itself, with trivial R-matrix and ribbon element, is a topological ribbon Hopf algebra whose universal invariant is constant; this is the degenerate case. `twist-on-the-unit` — The twist on the tensor unit is the identity, which is the statement that the ribbon element acts trivially on the trivial module. `braiding-is-not-symmetric` — For the quantised enveloping algebra the braiding is not a symmetry: its square on a two-dimensional module is not the identity, which is exactly what makes the invariant see the knotting. `group-algebra-non-example` — The completed group algebra of an abelian group with trivial R-matrix gives a symmetric, not merely braided, category; its universal invariant cannot distinguish a knot from the unknot.
+
+*Sources.* Section 2, the subsections on modules over the power series ring and on topological ribbon Hopf algebras: The ground ring, its local structure and the convergence notion the universal invariant needs. Section 3, the subsection on the ribbon structure: The standing example, which is what the later layers actually use.
+
+### QT.1 — The abstract data that turns a ribbon Hopf algebra into an invariant of homology spheres
+
+#### The abstract data that turns a ribbon Hopf algebra into an invariant of homology spheres
+
+`ArithmeticQuantumTopology:QT.1/core-subalgebras-and-twist-forms` · *definition* · planet **Core subalgebras and twist forms**
+
+A core subalgebra of a topological ribbon Hopf algebra is a subalgebra, stable under the adjoint action and under the mirror automorphism, which contains the values of the universal invariant of algebraically split bottom tangles in the appropriate sense and on which the twist forms are defined. A twist form is a linear functional, defined on the core subalgebra or only partially defined there, which computes the effect of a plus or minus one framed surgery on a component; the two signs give two forms. The surgery normalisation of the Reshetikhin-Turaev type divides by the value of the twist form on the unit, and the construction requires that value to be invertible in the coefficient ring, which is a hypothesis on the algebra and the chosen root of unity and not an automatic fact. Given a core subalgebra with its twist forms, the value of the universal invariant of an admissible link at the twist elements is invariant under the Hoste moves and so defines an invariant of integral homology spheres; that is the abstract theorem the concrete constructions instantiate.
+
+*Hypotheses.* (1) The subalgebra must be stable under the adjoint action and the mirror automorphism; these are exactly the stabilities the Hoste-move invariance proof uses. (2) The twist forms may be only partially defined, and the construction then carries the domain of definition as a hypothesis. (3) Invertibility of the normalising denominator is a hypothesis to be checked at each root of unity, not a consequence.
+
+*Outline.* (1) Define a core subalgebra with its stability conditions and the requirement on the values of the universal invariant. (2) Define the twist forms, in both the everywhere-defined and the partially defined versions, and the surgery normalisation they give. (3) Record that the normalising denominator must be invertible and that this is checked case by case. (4) State the abstract theorem: a core subalgebra with twist forms gives an invariant of integral homology spheres, by invariance under the Hoste moves.
+
+*Acceptance.* (1) The stability conditions are stated and matched to the steps of the invariance proof. (2) The partial definition of the twist forms is carried, not suppressed. (3) The invertibility of the denominator is a stated hypothesis.
+
+*API.* `core-subalgebra` (structure) A subalgebra with the stated stabilities on which the twist forms are defined.; `twist-form` (data) The linear functional computing a plus or minus one framed surgery, possibly partially defined.; `normalisation` (constructor) The surgery normalisation, dividing by the value of the twist form on the unit.; `invertibility-hypothesis` (characterisation) The requirement that the normalising denominator be invertible, stated as a hypothesis.; `invariant` (universal-property) The theorem that a core subalgebra with twist forms gives an invariant of integral homology spheres.
+
+*Unit tests.* `the-integral-core-subalgebra` — For the quantised enveloping algebra of the three-dimensional simple Lie algebra there is an integral core subalgebra, and the resulting invariant is the one of the later layers. `denominator-at-a-root-of-unity` — At a root of unity the normalising denominator is a Gauss sum, and its non-vanishing is a condition on the order; it fails for some small orders, which is the excluded case. `stability-is-needed` — Without stability under the mirror automorphism the invariance under the inverse Hoste move fails; this is the non-example showing the condition is not decorative. `empty-presentation` — For the empty admissible link the construction returns the unit, which is the value on the three-sphere.
+
+*Sources.* Section 2, the subsection introducing core subalgebras: The abstract framework, in the companion paper's own words. Section 2, the subsection on partially defined twist forms and the theorem constructing the invariant: The theorem the whole roadmap instantiates.
+
+### QT.1 — What specialising at a root of unity does and does not give
+
+#### What specialising at a root of unity does and does not give
+
+`ArithmeticQuantumTopology:QT.1/root-of-unity-categories-are-not-generically-semisimple` · *comparison*
+
+Three distinct settings must be kept apart, and the roadmap keeps them apart. The first is the algebra over the formal power series ring, where the category of topologically free modules is a ribbon category and the universal invariant lives; nothing here is semisimple in the finite-dimensional sense and nothing is specialised. The second is an integral form over a ring of Laurent polynomials, where the colored invariants take their values and where the integrality statements are proved; passing from the first to the second is a theorem about the values of the universal invariant, not a change of notation. The third is the specialisation at a root of unity, where the representation category is not semisimple: tilting modules of zero quantum dimension must be discarded and the semisimplified quotient taken before a modular category is obtained, and the normalising denominators must be checked to be invertible. This roadmap never asserts semisimplicity at a root of unity, never identifies the integral form with the generic algebra, and states each comparison between the three settings as a separate statement with its own hypotheses.
+
+*Hypotheses.* (1) The three settings are distinguished throughout the packet; no node moves between them without a comparison statement. (2) Semisimplicity at a root of unity holds only after semisimplification and only for the admissible orders. (3) The comparison between the integral form and the generic algebra is a theorem of the sources and is cited, not assumed.
+
+*Outline.* (1) Name the three settings and the objects that live in each. (2) Record that the passage from the first to the second is the integrality theorem of the next layer. (3) Record that the passage to a root of unity requires discarding the modules of zero quantum dimension and taking the semisimplified quotient, and requires the admissible orders. (4) Record that no node of this packet asserts semisimplicity at a root of unity.
+
+*Acceptance.* (1) The three settings are named and separated. (2) Each passage between them is identified with a named statement elsewhere in the packet. (3) The absence of a semisimplicity claim is checkable against the other nodes.
+
+*Sources.* Section 8, the introduction to the recovery of the Reshetikhin-Turaev invariant: The statement that the specialised category is not semisimple and what has to be done instead. Section 11, the definition of the invariant at a root of unity: The localisation that makes the denominators invertible, which is the third setting.
+
+### QT.2 — Finite truncations, integrality of coefficients, and the order of operations
+
+#### Finite truncations, integrality of coefficients, and the order of operations
+
+`ArithmeticQuantumTopology:QT.2/truncations-and-what-may-be-done-before-completion` · *construction*
+
+Before any completion is taken, the cyclotomic expansion may be truncated at a finite order, giving a Laurent polynomial in the variable with integer coefficients which agrees with the colored invariant for every colour up to that order. The truncations are compatible: the truncation at a lower order is obtained from the one at a higher order by discarding the later terms, and evaluation at a root of unity of order at most the truncation order factors through the truncation, because the q-Pochhammer factor of index at least the order of the root vanishes there. That last observation is the whole reason the completion of the next layer is the right one: an element of the completion may be evaluated at a root of unity precisely because the defining tower kills the factors that vanish there. The order of operations matters and is fixed here: expand, prove integrality of the coefficients, truncate, and only then complete; completing first and expanding afterwards is a different and unsupported operation.
+
+*Hypotheses.* (1) The truncation is of the expansion in the fixed conventions, and its coefficients are the cyclotomic coefficients up to the given order. (2) The factorisation of the evaluation through the truncation uses the vanishing of the Pochhammer factor at a root of unity of small order. (3) The order of operations is a discipline of this roadmap and is checkable against the other nodes.
+
+*Outline.* (1) Define the truncation of the expansion at a finite order and record that it is a Laurent polynomial with integer coefficients. (2) Prove the compatibility of the truncations with each other. (3) Prove that evaluation at a root of unity of order at most the truncation order factors through the truncation. (4) Record the order of operations and check that every later node respects it.
+
+*Acceptance.* (1) The truncations and their compatibility are defined and proved. (2) The factorisation of the evaluation is proved from the vanishing of the Pochhammer factor. (3) The order of operations is stated and is checkable.
+
+*API.* `truncation` (constructor) The truncation of the cyclotomic expansion at a finite order, a Laurent polynomial with integer coefficients.; `compatibility` (compatibility) The truncations at different orders are compatible under discarding terms.; `evaluation-factors` (characterisation) Evaluation at a root of unity of order at most the truncation order factors through the truncation.; `order-of-operations` (relation) Expand, prove integrality, truncate, complete, in that order.
+
+*Unit tests.* `unknot-truncation` — Every truncation of the expansion of the unknot is one, since all higher cyclotomic coefficients vanish. `evaluation-at-a-small-root` — At a root of unity of order n the truncation at order n already computes the value, because the next Pochhammer factor vanishes. `compatibility` — The truncation at order n of the truncation at order m, for n at most m, is the truncation at order n. `completion-first-is-different` — Completing the ring of Laurent polynomials first and then attempting an expansion does not give the same coefficients; the expansion is a theorem about the invariant, not about the completed ring.
+
+*Sources.* Section 1, the subsection on the ring of analytic functions on the set of roots of unity: The vanishing that makes evaluation factor through a truncation, which is the content of the node.
+
+### QT.2 — What a cyclotomic expansion is not
+
+#### What a cyclotomic expansion is not
+
+`ArithmeticQuantumTopology:QT.2/an-expansion-is-a-theorem-about-an-invariant` · *comparison*
+
+A cyclotomic expansion is a theorem about a specific invariant in a specific normalisation, and not a property that a q-series acquires by being evaluable at roots of unity. Three things follow. The expansion is stated for the reduced colored Jones invariant of a knot in the conventions fixed above; the unreduced invariant has a different expansion and the coefficients are not the same. The expansion for links is not the expansion for knots: for links the statement available is the divisibility of the universal invariant on algebraically split zero-framed links, which is what the surgery sum needs, and it is weaker than a basis expansion. And a q-series that happens to lie in the cyclotomic completion has no canonical cyclotomic expansion attached to it by that membership alone; assigning one requires a theorem identifying it with an invariant in these conventions.
+
+*Hypotheses.* (1) The three statements are about the scope of the expansion theorem and prove nothing new. (2) The second point distinguishes the knot statement from the link statement, which is the one the surgery sum uses. (3) The third point is the boundary the stage text insists on.
+
+*Outline.* (1) Record that the expansion is stated for the reduced invariant in the fixed conventions. (2) Record that the link statement is a divisibility and not a basis expansion. (3) Record that membership in the completion does not produce an expansion. (4) Check that no node of this packet assigns a cyclotomic expansion to a q-series on the strength of membership alone.
+
+*Acceptance.* (1) The three points are stated and each is checkable against the other nodes. (2) The distinction between the knot and the link statements is explicit. (3) No node of this packet violates the third point.
+
+*Sources.* Section 1, the subsection on the ring of analytic functions: The property that membership in the completion does give, which is evaluation and determination, and not an expansion.
+
+### QT.3 — The domain of the invariant, and what a larger domain would require
+
+#### The domain of the invariant, and what a larger domain would require
+
+`ArithmeticQuantumTopology:QT.3/rational-homology-spheres-are-not-in-this-domain` · *comparison*
+
+The invariant of this layer is defined for integral homology spheres and not for general closed three-manifolds. Three reasons combine. The admissible presentations exist only for integral homology spheres, so the construction has no input for a rational homology sphere. The framing anomaly, and hence the dependence on a fourth root of the root of unity, disappears only for integral homology spheres, so the target ring would have to change. And the divisibility theorem that gives convergence is proved for algebraically split zero-framed links, which is what admissibility supplies. Extensions to rational homology spheres exist in the literature, with modified coefficient rings depending on the order of the first homology, and they are separate theorems with separate targets; this roadmap records them as such and does not silently include lens spaces in its domain.
+
+*Hypotheses.* (1) The three reasons are independent; removing any one of them still leaves the construction undefined. (2) The extensions cited change the target ring, so their statements are not this one with a weaker hypothesis. (3) Lens spaces are the standard example outside the domain.
+
+*Outline.* (1) Record that admissible presentations exist only for integral homology spheres. (2) Record that the fourth-root dependence returns for general manifolds. (3) Record that the divisibility theorem is about algebraically split zero-framed links. (4) Record the literature extending the invariant to rational homology spheres, with the changed targets, and state that they are separate theorems.
+
+*Acceptance.* (1) All three reasons are recorded. (2) The extensions are attributed and their changed targets are stated. (3) No node of this packet applies the invariant outside the domain.
+
+*Sources.* Section 1, the subsection on the main result and consequences: The literature extending the domain, and the fact that the target is modified.
+
+### QT.4 — The same theorem for every simple Lie algebra, with the restrictions it carries
+
+#### The same theorem for every simple Lie algebra, with the restrictions it carries
+
+`ArithmeticQuantumTopology:QT.4/general-simple-lie-type` · *theorem* · planet **General simple Lie type**
+
+For each finite dimensional simple complex Lie algebra there is a unique invariant of integral homology spheres with values in the cyclotomic completion of the polynomial ring in the variable whose evaluation at each root of unity in the admissible set for that Lie algebra is the Reshetikhin-Turaev invariant of the manifold at that root for that Lie algebra. The admissible set is a subset of the roots of unity determined by the Lie algebra, defined by a restriction on the order; there is a second such set for the projective version of the invariant, and on the intersection the two invariants agree. Outside the admissible set the evaluation of the unified invariant is still defined, and the source proposes to take it as the definition of the invariant there, an analytic continuation rather than a theorem. The consequences of the previous nodes carry over: algebraic integrality on the admissible set, Galois equivariance, determination by the values on a subset with a limit point and by the Taylor expansion at any root, and the value one at the trivial root. The proof is the instance, for the integral core subalgebra of the quantised enveloping algebra of the Lie algebra, of the abstract theorem that a core subalgebra with twist forms gives an invariant of integral homology spheres.
+
+*Hypotheses.* (1) The Lie algebra is finite dimensional simple complex; the admissible set of orders depends on it and is listed in the source. (2) The agreement with the projective version holds on the intersection of the two admissible sets. (3) The extension outside the admissible set is a definition by analytic continuation and is labelled as such.
+
+*Outline.* (1) Record the admissible sets for the invariant and for its projective version. (2) State the existence and uniqueness of the unified invariant for the Lie algebra. (3) Record the agreement with the projective version on the intersection. (4) Record the proposal to define the invariant outside the admissible set by evaluation, and mark it as a definition. (5) Record that the consequences of the previous nodes carry over, and that the proof is the instance of the abstract core subalgebra theorem.
+
+*Acceptance.* (1) The admissible sets are named and the restriction on the order is recorded as a hypothesis. (2) The analytic continuation is labelled as a definition, not a theorem. (3) The proof is identified with the abstract theorem of the ribbon layer.
+
+*Sources.* Section 1, Theorem 1.1: The main theorem of the companion paper, with its admissible set. Section 1, the subsection on analytic continuation: The proposal to extend the definition outside the admissible set, which is a definition and not a theorem. Section 1, Proposition 1.2 and Corollary 1.4: The projective comparison and the integrality in general Lie type.
+
+### QT.4 — Why the determination theorems do not transfer to other completions
+
+#### Why the determination theorems do not transfer to other completions
+
+`ArithmeticQuantumTopology:QT.4/the-coefficient-ring-may-not-be-changed` · *comparison*
+
+The determination and injectivity statements of this layer are about the cyclotomic completion of the polynomial ring over the integers, and they depend on that ground ring in an essential way. Over the rationals the analogous completion behaves differently: it is not an integral domain, and the Taylor expansion map is surjective but not injective, so an element is not determined by its expansion at a root. Consequently a statement proved here may not be imported into a localised or a twisted completion without a comparison theorem. Three concrete prohibitions follow. The determination by values on a set with a limit point may not be quoted for the rational completion. The integrality statement may not be quoted after inverting any integer, since the target of the evaluation changes. And the invariants of rational homology spheres constructed in the literature live in modified completions, so their determination statements are separate theorems and are not this one.
+
+*Hypotheses.* (1) The contrast is with the completion of the polynomial ring over the rationals, and is the source's own. (2) The prohibitions are about quoting, not about the mathematics being false in a modified setting; a modified setting needs its own theorem. (3) This node proves nothing and records a boundary.
+
+*Outline.* (1) Record the two failures over the rationals: the completion is not a domain, and the Taylor map is not injective. (2) Record the three prohibitions and check them against the other nodes of this packet. (3) Record that the rational homology sphere extensions live in modified completions.
+
+*Acceptance.* (1) The contrast with the rational completion is stated with both failures. (2) The three prohibitions are stated and checkable. (3) No node of this packet quotes a determination statement outside the integral completion.
+
+*Sources.* Section 1, the subsection on the ring of analytic functions: The contrast with the rational completion, which is the whole content of the boundary. Section 1, the subsection on the ring of analytic functions: The same point in the main source.
+
+### QT.5 — The four proof obligations between a knot diagram and a number-field Bloch class
+
+#### The four proof obligations between a knot diagram and a number-field Bloch class
+
+`ArithmeticQuantumTopology:QT.5/a-diagram-does-not-produce-a-bloch-class` · *comparison*
+
+Passing from a knot or a link to an element of the Bloch group of a number field is not automatic, and four obligations stand between them. Geometric existence: the complement must carry a complete hyperbolic structure of finite volume, which is a theorem about the manifold and not a property of a diagram. Triangulation: a true ideal triangulation must be exhibited, since the simplicial formula is stated for those and the triangulations produced by the standard software are not true. Flattening and branch data: a flattening must exist and be chosen, and the extended class depends on it through the chosen logarithms. Algebraicity and normalisation: the shape parameters must be shown to lie in a number field, the trace field, before a class in the Bloch group of that field is obtained, and the regulator normalisation must be fixed, since the target is only defined modulo pi squared. A numerical solution of the gluing equations discharges none of the four.
+
+*Hypotheses.* (1) The four obligations are independent; discharging three leaves the construction incomplete. (2) The dependence of the extended class on the flattening is genuine, and the class in the ordinary Bloch group is what is independent of it. (3) This node records a boundary and proves nothing.
+
+*Outline.* (1) List the four obligations and, for each, name the statement that discharges it. (2) Record that the standard software produces triangulations that are not true, so the simplicial formula does not apply to them directly. (3) Record the dependence on the flattening and on the branch choices. (4) Record that a numerical solution is not a geometric structure.
+
+*Acceptance.* (1) All four obligations are named with the statement that discharges each. (2) The status of software-produced triangulations is recorded. (3) No node of this packet produces a Bloch class from a diagram.
+
+*Sources.* Section 1, the introduction: The status of the triangulations the software produces, and that a separate theorem is needed for them.
+
