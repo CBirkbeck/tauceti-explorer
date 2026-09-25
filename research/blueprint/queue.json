@@ -14205,9 +14205,10 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #554"
+   "note": "deliverables arrived from an external worker on issue #554",
+   "finishedAt": "2026-09-25T00:11:50Z"
   },
   {
    "id": "REV-HabiroCyclotomicCompletions",
@@ -18464,10 +18465,11 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroNumberFields.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-HabiroCyclotomicCompletions"
-   ]
+   ],
+   "note": "claimed on GitHub issue #748"
   },
   {
    "id": "REV-HabiroNumberFields",
