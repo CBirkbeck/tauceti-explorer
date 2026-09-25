@@ -20195,11 +20195,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #964"
+   "note": "released on GitHub issue #964"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology",
@@ -20401,8 +20401,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--P7.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #968"
   },
   {
    "id": "REV-PadicHodgeTheory--P7",
