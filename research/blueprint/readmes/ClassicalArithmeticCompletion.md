@@ -594,8 +594,8 @@ not; `1 − ζ` is not.
 a rational integer `a ≠ ±1` prime to `l` and to `α`, `(α / a)_l = (a / α)_l` (Adhikari, Theorem 4.1).
 The proof goes through the Gauss sums `g(P)` of the characters `χ_P = (· / P)^(−1)`, their `l`-th
 powers `Φ(P) ∈ ℚ(ζ)`, Stickelberger's theorem `(Φ(P)) = P^γ`, the unit `ε(α) = ±1` for primary `α`, and
-the relation `(Φ(P) / P')_l = (N P' / P)_l`. The last three inputs are recorded as a gap: no layer of
-the atlas owns Stickelberger's theorem on Gauss sums.
+the relation `(Φ(P) / P')_l = (N P' / P)_l`. Stickelberger's theorem is FiniteFieldsAndCharacterSums FF.1's
+`FF.1/stickelberger-relation`; the other two inputs are recorded as a gap.
 
 ### Dependencies
 
@@ -633,7 +633,7 @@ square-class character and the conductor bound.
 - Biquadratic reciprocity in `ℤ[i]`: the one public statement read (Relyea, Theorem 4.4) is misstated
   and leaves "primary" undefined; a public source with the definition (`α ≡ 1 mod (1 + i)^3`) and a
   proof is needed, and the law is then planned on the power residue symbol with `n = 4`.
-- Stickelberger's theorem on Gauss sums and the two further inputs of Eisenstein reciprocity, with the
+- The two inputs of Eisenstein reciprocity besides Stickelberger's relation (which FF.1 plans), with the
   decomposition of Adhikari §4 into lemmas once an owner is fixed (Katre's article in the same
   proceedings is the public source).
 - Explicit formulas for the degree-`n` Hilbert symbol at places above `n`; the power reciprocity law
@@ -10085,9 +10085,9 @@ and every node that depends on one names it.
 
 The issue for this job names BP-FoundationsAndLibraryIntegration among its suppliers. That roadmap was retired on 16 September 2026 and is listed in data/roadmap-retirements.json, and the blueprint checker warns on any prerequisite naming one of its stages. No node of this packet names it, and the targets it would have supplied - the elementary arithmetic that CA.0 rests on - are cited directly to the pinned libraries instead. This is recorded here so that the maintainer can see that the supplier list of this job is stale rather than that the supplier was ignored.
 
-### Stickelberger's theorem on Gauss sums, and the two further inputs of the Eisenstein reciprocity proof, have no owner
+### The two inputs of the Eisenstein reciprocity proof besides Stickelberger's theorem have no owner
 
-The proof of Eisenstein reciprocity in the source read (Adhikari §4) rests on three inputs it does not prove: Stickelberger's theorem (Φ(P)) = P^γ, γ = Σ t σ_t^(-1) (Proposition 4.3, cited to Ireland–Rosen and to Katre's article in the same volume); ε(α) = ±1 for primary α (Proposition 4.6, cited to Ireland–Rosen); and (Φ(P) / P')_l = (N P' / P)_l for primes with coprime norms (cited to Ireland–Rosen). No stage of the atlas owns Stickelberger's theorem on Gauss sums (the reviewed audit of FiniteFieldsAndCharacterSums:FF.1 records it as absent from both libraries, and IntegralIwasawaTheory's Stickelberger elements are the equivariant ones of Brumer–Stark). A public source exists in the same proceedings: S. A. Katre, 'Gauss-Jacobi sums and Stickelberger's theorem' (bprim.org, jacn.pdf), not read here. Until an owner plans these three statements, the Eisenstein reciprocity node rests on them as a recorded gap.
+The proof of Eisenstein reciprocity in the source read (Adhikari §4) rests on three inputs it does not prove. The first, Stickelberger's theorem (Φ(P)) = P^γ, γ = Σ t σ_t^(-1) (Proposition 4.3), is now planned by FiniteFieldsAndCharacterSums FF.1 as FiniteFieldsAndCharacterSums:FF.1/stickelberger-relation, which the Eisenstein reciprocity node cites. The other two have no owner: ε(α) = ±1 for primary α (Proposition 4.6, cited to Ireland–Rosen), and (Φ(P) / P')_l = (N P' / P)_l for primes with coprime norms (cited to Ireland–Rosen). A public source for them exists in the same proceedings (S. A. Katre, 'Gauss-Jacobi sums and Stickelberger's theorem', bprim.org, jacn.pdf), not read here. Until an owner plans these two statements, the Eisenstein reciprocity node rests on them as a recorded gap.
 
 Needed by: `CA.1/eisenstein-reciprocity`.
 
