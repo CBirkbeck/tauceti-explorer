@@ -124207,6 +124207,478 @@
    "reviewReason": null
   },
   {
+   "id": "ArithmeticKTheory/E1",
+   "kind": "misprint",
+   "locator": "III.2.5 (Bass–Milnor–Serre), PDF p. 202 (book p. 194)",
+   "printed": "Theorem 2.5 (Bass-Milnor-Serre). Let R be an integrally closed subring of a number field F, and I an ideal of R. Then (1) If F has any embedding into ℝ then SK1(R, I) = 0. … The exponent ord_p n of p in the integer n is the minimum over all prime ideals 𝔭 of R containing I of the integer",
+   "correction": "I should be a nonzero ideal (and the formula in (2) read for I ≠ R); for I = R the theorem is SK₁(R) = 0, as III.1.3.6 states.",
+   "reason": "For I = 0 every prime, including (0), contains I, and the displayed formula would give n = w₁, whereas SK₁(R, 0) = 0 because GL(0) is trivial; for I = R the minimum is over the empty set. The intended statement, for nonzero I, is clear from the citation [19, 4.3]. The nodes of this packet cite III.1.3.6 for SK₁(O_{F,S}) = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for the published pages of this passage",
+    "the sourceIssues of the reviewed K2SymbolsBrauer packet (PR #2893) and of the other packets citing Kbook.2013 in research/blueprint/packets"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C1) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E2",
+   "kind": "misprint",
+   "locator": "V.6.6, Dedekind Domains, PDF p. 417 (book p. 409)",
+   "printed": "Then R and F and regular, as are the residue fields R/𝔭",
+   "correction": "Then R and F are regular, as are the residue fields R/𝔭",
+   "reason": "The sentence lists what is regular; 'and' is a slip for 'are'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for the published pages of this passage",
+    "the sourceIssues of the reviewed K2SymbolsBrauer packet (PR #2893) and of the other packets citing Kbook.2013 in research/blueprint/packets"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C1) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E3",
+   "kind": "misprint",
+   "locator": "V.6.6.1, the paragraph after (6.6.1), PDF p. 417 (book p. 409)",
+   "printed": "In this case, we know that ∂ in K∗(R)-linear",
+   "correction": "In this case, we know that ∂ is K∗(R)-linear",
+   "reason": "Grammar; the reviewed K2SymbolsBrauer packet reads it the same way in a match note but records no issue.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for the published pages of this passage",
+    "the sourceIssues of the reviewed K2SymbolsBrauer packet (PR #2893) and of the other packets citing Kbook.2013 in research/blueprint/packets"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C1) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E4",
+   "kind": "gap",
+   "locator": "V.6.8, proof of Theorem 6.8, PDF p. 420 (book p. 412)",
+   "printed": "From the computation of Kn(Fq) in IV.1.13 and the fact that Kn(R) is finitely generated (IV.6.9), we see that SKn(R) is 0 for n > 0 even, and is finite for n odd.",
+   "correction": "For R not of finite type over ℤ or 𝔽_q the finite generation of K_n(R) is not supplied by IV.6.9; reduce to that case by writing R as the filtered union of rings of S-integers with S finite (ℤ_(p) = colim ℤ[1/N], p ∤ N) and using that K_* and the kernel SK_n commute with filtered colimits.",
+   "reason": "Theorem 6.8 is stated for every Dedekind domain whose fraction field is global, but IV.6.9 (PDF p. 333) covers integrally closed subrings of a number field finite over ℤ and coordinate rings of smooth affine curves over a finite field. For R = ℤ_(p), K₁(R) = ℤ_(p)^× contains the independent primes ℓ ≠ p and is not finitely generated. The theorem is still true there by the colimit argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for the published pages of this passage",
+    "the sourceIssues of the reviewed K2SymbolsBrauer packet (PR #2893) and of the other packets citing Kbook.2013 in research/blueprint/packets"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C1) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E5",
+   "kind": "error",
+   "locator": "V.6.8, the remark after Proposition 6.8.1, PDF p. 420 (book p. 412)",
+   "printed": "The conclusion of 6.8.1 is false for n = 1. Indeed, the kernel of K0(R) → K0(F) is the finite group Pic(R), so K1(F; Z/ℓ) → ⊕K0(R/𝔭; Z/ℓ) is not onto.",
+   "correction": "The conclusion of 6.8.1 can fail for n = 1: the cokernel of ∂ : K₁(F; ℤ/ℓ) → ⊕K₀(R/𝔭; ℤ/ℓ) is Pic(R)/ℓ, so ∂ is onto exactly when Pic(R)/ℓ = 0.",
+   "reason": "The mod-ℓ sequence ends K₁(F; ℤ/ℓ) → ⊕ ℤ/ℓ → K₀(R)/ℓ = ℤ/ℓ ⊕ Pic(R)/ℓ → K₀(F)/ℓ = ℤ/ℓ → 0, so the image of ⊕ ℤ/ℓ is Pic(R)/ℓ. For R = ℤ, Pic = 0 and ℚ^×/ℓ → ⊕_p ℤ/ℓ is onto (p ↦ e_p); the remark's 'is false for n = 1' holds only when ℓ divides the class number, e.g. R = 𝓞 of ℚ(√−5), ℓ = 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for the published pages of this passage",
+    "the sourceIssues of the reviewed K2SymbolsBrauer packet (PR #2893) and of the other packets citing Kbook.2013 in research/blueprint/packets"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C1) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E6",
+   "kind": "misprint",
+   "locator": "V.6.8.1, proof, second paragraph, PDF p. 421 (book p. 413)",
+   "printed": "then multiplication by β^{i−1} induces an isomorphism ⊕Z/ℓ ≅ ⊕K1(R/𝔭)/ℓ → ⊕K2i−1(R/𝔭) by IV.1.13. That is, every element of ⊕K2i−1(R/𝔭) has the form β^{i−1}a for a in ⊕K1(R/𝔭). … Lifting a to s ∈ K2(F), the element x = β^{i−1}s of K2i(F; Z/ℓ) satisfies ∂(x) = β^{i−1}∂(x) = β^{i−1}a, as desired.",
+   "correction": "Multiplication by β^{i−1} is an isomorphism ⊕K₁(R/𝔭)/ℓ → ⊕K_{2i−1}(R/𝔭; ℤ/ℓ), every element of ⊕K_{2i−1}(R/𝔭; ℤ/ℓ) has the form β^{i−1}a, and ∂(x) = β^{i−1}∂(s) = β^{i−1}a.",
+   "reason": "β lies in K₂(R; ℤ/ℓ), so β^{i−1}a lies in K_{2i−1}(R/𝔭; ℤ/ℓ), which is the target in the diagram that follows; the integral group K_{2i−1}(𝔽_q) ≅ ℤ/(q^i − 1) is not ℤ/ℓ in general. '∂(x) = β^{i−1}∂(x)' is a slip for β^{i−1}∂(s), s being the lift. At primes 𝔭 over ℓ the identification ℤ/ℓ ≅ K₁(R/𝔭)/ℓ also fails (K₁(R/𝔭)/ℓ has order prime to the residue characteristic), though multiplication by β^{i−1} is still an isomorphism there.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): no entry for the published pages of this passage",
+    "the sourceIssues of the reviewed K2SymbolsBrauer packet (PR #2893) and of the other packets citing Kbook.2013 in research/blueprint/packets"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C1) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E7",
+   "kind": "error",
+   "locator": "V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413), in the author-hosted combined draft of 29 August 2013",
+   "printed": "In fact, divK2i(F) is isomorphic to the wild kernel, defined as the intersection (over all valuations v on F) of the kernels of all maps K2i(F) → K2i(Fv). This is proven in [225].",
+   "correction": "div K_{2i}(F) is a subgroup of the wild kernel of index at most two; they are equal when i is even or F is not special, and div K_{2i}(F) has index two in the wild kernel when i is odd and F is special (Hutchinson's condition). For K_2, div K_2(F) ≠ WK_2(F) exactly when F is special.",
+   "reason": "The cited paper [225] (Weibel, J. Pure Appl. Algebra 206 (2006) 222–244; author's preprint of 23 July 2004) proves this in Theorem A and Theorem 5.5, and its Example 5.6 (after Hutchinson) gives F = ℚ(√d), d < 0, d ≡ 2 (mod 16), for instance ℚ(√−14), where {−1, −1} lies in K^w_2(F) but not in div K_2(F) and K^w_2(F) ≅ div K_2(F) ⊕ ℤ/2. Both groups are finite subgroups of K_2(O_F), so they are not isomorphic. For i = 1 the K-book's wild kernel is the classical one: K_2(F) is torsion and K_2(F_v) is μ(F_v) plus a uniquely divisible group (Moore), so the kernel of K_2(F) → K_2(F_v) is the kernel of the Hilbert symbol.",
+   "affects": "a stated result",
+   "known": "Corrected in the reference the passage cites: Weibel, 'Higher wild kernels and divisibility in the K-theory of number fields', J. Pure Appl. Algebra 206 (2006), Theorem A (author copy https://sites.math.rutgers.edu/~weibel/archive/papers-dir/wildkernel.pdf, read on its pp. 1–2 and 13–15); for K_2, Hutchinson [Hu1, 4.4] as quoted there. Not in the K-book errata list.",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)",
+    "The cited paper [225], author's preprint at https://sites.math.rutgers.edu/~weibel/archive/papers-dir/wildkernel.pdf (SHA-256 2675756f…)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E8",
+   "kind": "misprint",
+   "locator": "VI.2.1.1, Example 2.1.1, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
+   "printed": "It is a pleasant exercise to show that w_i(F_q) = q^i − 1 for all i.",
+   "correction": "... for all i ≥ 1 (and w_{−i} = w_i; W_0(F_q) is infinite).",
+   "reason": "For i = 0 the formula gives 0 while W_0(F_q) = µ(F̄_q) is infinite; for i < 0, q^i − 1 is not an integer, and W_{−i}(F_q) = W_i(F_q) has order q^{|i|} − 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for Example VI.2.1.1"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E9",
+   "kind": "error",
+   "locator": "VI.2.1.2, Example 2.1.2, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
+   "printed": "w_10 = 1320 = 2^3 · 3 · 5 · 11",
+   "correction": "w_10(Q) = 264 = 2^3 · 3 · 11.",
+   "reason": "By Propositions 2.2–2.3, w_10^{(2)}(Q) = 2^{2+1} = 8, w_10^{(3)}(Q) = 3 and w_10^{(11)}(Q) = 11, while 5 does not divide w_10(Q) because 5 − 1 = 4 does not divide 10 — the example's own rule 'ℓ|w_i(Q) exactly when (ℓ−1) divides i'. Lemma 2.4 agrees: B_5/20 = (5/66)/20 = 1/264. Remark 2.4.2 agrees too: ζ_Q(−9) = −1/132 has denominator 264/2. 1320 = 66 · 20 is the unreduced denominator of B_5/20. A brute-force computation of the invariants of (ℤ/ℓ^ν)^× acting through the 10th power confirms 264; the other five printed values are right.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for Example VI.2.1.2"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E10",
+   "kind": "misprint",
+   "locator": "VI.2.1.3, Remark 2.1.3, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
+   "printed": "Since the map from π_{8k+3}(BO) = Z to π_{8k+3}(BU) = Z has image 2Z",
+   "correction": "Since the map from π_{8k+4}(BO) = Z to π_{8k+4}(BU) = Z has image 2Z",
+   "reason": "By Bott periodicity π_j(BU) = Z for even j and 0 for odd j, and π_j(BO) = π_{j−1}(O) is Z for j ≡ 0, 4 (mod 8) and 0 for j ≡ 3 (mod 8); the remark's own real e-invariant for i ≡ 2 (mod 4) lands in π_{2i}(BO) with 2i = 8k + 4, where complexification is multiplication by 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for Remark VI.2.1.3"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E11",
+   "kind": "misprint",
+   "locator": "VI.2.2.1, proof of Lemma 2.2.1, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
+   "printed": "ζ^{⊗i} is invariant under all of G precisely when the group Gal(F(ζ_{ℓ^ν})/F) has exponent i.",
+   "correction": "... precisely when the group Gal(F(ζ_{ℓ^ν})/F) has exponent dividing i.",
+   "reason": "Invariance under g means χ(g)^i ≡ 1 (mod ℓ^ν), i.e. the order of the image of g divides i; the lemma's statement says 'exponent dividing i'. For F = Q, ℓ = 3, ν = 1 and i = 4, (Z/3)^× has exponent 2, not 4, and µ_3(4) is invariant.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for Lemma VI.2.2.1"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E12",
+   "kind": "misprint",
+   "locator": "VI.2, the paragraph after Example 2.2.2, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
+   "printed": "Aut(µ_{2^ν}) = (Z/2^ν)^× contains two involutions if ν ≥ 3.",
+   "correction": "(Z/2^ν)^× contains three involutions (−1 and 2^{ν−1} ± 1) if ν ≥ 3; the point is that it is not cyclic.",
+   "reason": "(Z/2^ν)^× ≅ Z/2 × Z/2^{ν−2} for ν ≥ 3 has three elements of order 2; for ν = 3 they are 3, 5 and 7, each squaring to 1 modulo 8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for the paragraph before Proposition VI.2.3"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E13",
+   "kind": "error",
+   "locator": "VI.2, the paragraph after Proposition 2.3, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
+   "printed": "Both R and Q_2 are exceptional, and so are each of their subfields.",
+   "correction": "Q_2 and its subfields are exceptional, and so is every number field embeddable in R; R itself is non-exceptional under the definition given (as is the infinite subfield Q(ζ_{2^∞})^+ of R).",
+   "reason": "The definition asks that Gal(F(ζ_{2^ν})/F) be non-cyclic for large ν. For F = R this group is Gal(C/R) ≅ ℤ/2, cyclic; for F = Q(ζ_{2^∞})^+ it is {±1}. For a number field F ⊂ R the group contains −1 (complex conjugation) and has order tending to infinity, and a subgroup of (ℤ/2^ν)^× containing −1 of order at least 4 is not cyclic, so the conclusion for real number fields stands. Nothing in the book uses the exceptionality of R: Proposition 2.3 gives an infinite 2-part for R in cases (c) and (d) alike.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for the paragraph after Proposition VI.2.3"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E14",
+   "kind": "misprint",
+   "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513); published GSM 145, p. 564",
+   "printed": "The formulas for K0(OS) = Z ⊕ Pic(OS) and K1(OS) = O×S ≅ Zr2+|S|−1 ⊕ µ(F) are different;",
+   "correction": "K_1(O_S) = O_S^× ≅ ℤ^{r_1+r_2+|S|−1} ⊕ μ(F).",
+   "reason": "Dirichlet's S-unit theorem; for F = ℚ and S = {p}, ℤ[1/p]^× = ±p^ℤ has rank 1 = r_1 + r_2 + |S| − 1, not r_2 + |S| − 1 = 0. Theorem 8.4's row n = 1 is right because there r_1 = 0.",
+   "affects": "a stated result",
+   "known": "Weibel's corrections to GSM 145: 'p.564 line -6: Zr2+|S|−1 should be Zr1+r2+|S|−1' (the only occurrence for a general field is Classical Data 8.1)",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…): entry for p. 564 line −6"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E15",
+   "kind": "misprint",
+   "locator": "VI.8.1, Classical Data 8.1, PDF p. 521 (book p. 513), author-hosted draft of 29 August 2013",
+   "printed": "By Chapter IV, 1.18 and 6.9, the groups K_n(F) are finite when n is even and nonzero",
+   "correction": "... the groups K_n(O_S) are finite when n is even and nonzero; the groups K_n(F) are infinite torsion groups for even n > 0.",
+   "reason": "K_2(Q) is infinite (the tame symbol maps it onto ⊕_p F_p^×), and in general V.6.8 gives 0 → K_n(O_S) → K_n(F) → ⊕_p K_{n−1}(O_S/p) → 0 for even n ≥ 2, whose right-hand term is infinite. The cited IV.1.18 and IV.6.9 give finiteness for O_S (rank zero and finitely generated), not for F. The odd half of the sentence is right for F by V.6.8.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for VI.8.1 other than the K_1 rank (p. 564 line −6)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E16",
+   "kind": "error",
+   "locator": "VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513)",
+   "printed": "The Brauer group of OS is determined by the sequence 0 → Br(OS) → (Z/2)r1 ⊕ ∐v∈S finite (Q/Z) add −→ Q/Z → 0.",
+   "correction": "The sum map is onto Q/Z only when S contains a finite place; for S = ∅ the sequence is 0 → Br(O_F) → (ℤ/2)^{r_1} → ℤ/2 (onto if r_1 > 0), i.e. Br(O_F) ≅ (ℤ/2)^{max(r_1 − 1, 0)}.",
+   "reason": "For F = ℚ and O_S = ℤ the displayed sequence would read 0 → Br(ℤ) → ℤ/2 → ℚ/ℤ → 0, which is not exact at ℚ/ℤ. All uses of (8.1.1) in the source (Examples 8.3.1 and 8.3.2, the dimension count after (9.6.2), Exercise 9.1) have S non-empty.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E17",
+   "kind": "misprint",
+   "locator": "VI.8.2, proof (PDF p. 521; book p. 513)",
+   "printed": "Set R = OS[1/ℓ]. For each prime ideal p over ℓ, Kn−1(R/p) has no ℓ-torsion by IV.1.13.",
+   "correction": "K_{n−1}(O_S/𝔭) (the residue field of O_S at 𝔭; the argument also needs K_n(O_S/𝔭), which has no ℓ-torsion for the same reason).",
+   "reason": "𝔭 lies over ℓ and ℓ is inverted in R, so R/𝔭 = 0; the localisation sequence for O_S ⊂ O_S[1/ℓ] has the residue fields O_S/𝔭 of characteristic ℓ, whose positive-degree K-groups have order prime to ℓ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E18",
+   "kind": "error",
+   "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515); also the remark after Theorem 8.7 on the same page, author-hosted draft of 29 August 2013",
+   "printed": "If F is a number field, the zeta function ζ_F(s) has a pole of order r_2 at s = −1.",
+   "correction": "ζ_F(s) has a zero of order r_2 at s = −1 (and, after Theorem 8.7, a zero of order r_2 at s = 1 − 2k when F is not totally real).",
+   "reason": "ζ_F is holomorphic except for a simple pole at s = 1. By the functional equation the order of vanishing at s = 1 − 2k, k ≥ 1, is r_2. For F = Q(√−1), ζ_F(s) = ζ(s)L(s, χ_{−4}) with ζ(−1) = −1/12 ≠ 0 and L(−1, χ_{−4}) = 0 (χ_{−4} is odd), a simple zero, r_2 = 1. SpecialValuesBirchTate B.1's text already refuses the word 'pole' for the Handbook's version of this passage.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's errata list for the published K-book (GSM 145), Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…: no entry for VI.8.6 and VI.8.7"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C2) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E19",
+   "kind": "misprint",
+   "locator": "VI.8.8, proof (PDF p. 524; book p. 516)",
+   "printed": "By Theorem 9.12 in the next section, the power of 2 on the right side equals |H2et(OF[1/ℓ], Z2(2k))|/|H1et(OF[1/ℓ], Z2(2k))|.",
+   "correction": "|H^2_et(O_F[1/2]; ℤ_2(2k))| / |H^1_et(O_F[1/2]; ℤ_2(2k))|.",
+   "reason": "The coefficients are ℤ_2, so the ring is O_F[1/2]; ℓ here was the odd prime of the preceding paragraph.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E20",
+   "kind": "misprint",
+   "locator": "VI.9.4, Theorem 9.4, row n = 8k (PDF p. 527; book p. 519)",
+   "printed": "Kn(OS; Z/2∞) ≅ Z/w4k(F) for n = 8k,",
+   "correction": "ℤ/w^{(2)}_{4k}(F), the two-primary part (for k = 0 the group is K_0(O_S; ℚ_2/ℤ_2) ≅ ℚ_2/ℤ_2).",
+   "reason": "K_n(O_S; ℤ/2^∞) is a 2-primary torsion group, while w_{4k}(F) as defined in VI.2.1 has odd prime factors (w_4(ℚ) = 240); Theorem 9.11 states the convention 'write wi for w(2)i(F)' explicitly, Theorem 9.4 does not.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E21",
+   "kind": "misprint",
+   "locator": "VI.9.11, proof (PDF p. 532; book p. 524)",
+   "printed": "To determine the two-primary subgroup Kn(OS){2} of the finite group K2i+2(OS) when n = 2i + 2, … we note that H1(OS, Z/2∞(i)) is the direct sum of (Z/2∞)r and a finite group, which must be H2(OS, Z2(i))",
+   "correction": "With n = 2i + 2 the group compared with K_{2i+3}(O_S; ℤ/2^∞) is H^1(O_S; ℤ/2^∞(i+2)), whose finite part is H^2(O_S; ℤ_2(i+2)).",
+   "reason": "By Theorem 9.4, K_{2m−1}(O_S; ℤ/2^∞) involves H^1(O_S; ℤ/2^∞(m)); here 2m − 1 = 2i + 3, so m = i + 2, which matches the twists 4k+1, 4k+2, 4k+3, 4k+4 of Theorem 9.11 for n = 8k, …, 8k+6.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E22",
+   "kind": "misprint",
+   "locator": "VI.9.11, proof (PDF pp. 532–533; book pp. 524–525)",
+   "printed": "Since α1S(i) : H1(R; Z2(i)) → (Z/2)r1 must vanish on the divisible group (Z/2∞)r,",
+   "correction": "α^1_S(i) : H^1(R; ℤ/2^∞(i)) → (ℤ/2)^{r_1}; the divisible subgroup (ℤ/2^∞)^r lies in H^1 with ℚ_2/ℤ_2 coefficients, whose finite part is H^2(R; ℤ_2(i)).",
+   "reason": "H^1(R; ℤ_2(i)) is a finitely generated ℤ_2-module and has no divisible subgroup (ℤ/2^∞)^r; the preceding sentence of the proof is about H^1(O_S, ℤ/2^∞(i)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E23",
+   "kind": "misprint",
+   "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
+   "printed": "By Theorems 8.2 and 9.11, the ℓ-primary subgroup of K2i−2(OS) has order h2,i(ℓ) for all ℓ, except when ℓ = 2 and 2i−2 ≡ 6 (mod 8) when it is h1,i(2)/2r1.",
+   "correction": "… when it is h^{2,i}(2)/2^{r_1}.",
+   "reason": "For 2i − 2 ≡ 6 (mod 8) Theorem 9.11 gives the two-primary part H̃^2(R; ℤ_2(i)), the kernel of the surjection α^2(i) onto (ℤ/2)^{r_1}, of order h^{2,i}(2)/2^{r_1}; only with h^{2,i} does the product formula balance. For F = ℚ, i = 4: K_6(ℤ){2} = 0 (Corollary 9.8), whereas h^{1,4}(2)/2^{r_1} = w_4^{(2)}(ℚ)/2 = 16/2 = 8.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E24",
+   "kind": "gap",
+   "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
+   "printed": "Write hn,i(ℓ) for the order of Hnet(OS[1/ℓ]; Zℓ(i)). By Ex. 8.3, h1,i(ℓ) = w(ℓ)i(F).",
+   "correction": "The identity h^{1,i}(2) = w_i^{(2)}(F), used for ℓ = 2, needs its own argument: for F totally real and i even, H^1(O_S[1/2]; ℤ_2(i)) is finite (rank r_2 = 0) and H^0(O_S[1/2]; ℤ_2(i)) = 0, so the Bockstein sequence gives H^1(ℤ_2(i)) ≅ H^0(ℚ_2/ℤ_2(i)) = ℤ/w_i^{(2)}(F).",
+   "reason": "Exercise VI.8.3, which the proof cites, is stated only for an odd prime ℓ ('Let ℓ be an odd prime'), yet the next sentence uses h^{1,i}(2).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's list 'Corrections to The K-book' for GSM 145 (Wayback copy, SHA-256 ef7ed6d0…; the live URL returns 404): no entry for this passage",
+    "Weibel's archived papers page https://sites.math.rutgers.edu/~weibel/archive/papers-dir/papers.html (no later K-book corrections listed)"
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.1",
+   "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
    "id": "ArithmeticStatistics/E101",
    "kind": "misprint",
    "locator": "§3 opening, definition of a family defined by congruence conditions, printed p. 22 of arXiv:1006.1002v3 (the version read; the Annals version was not read)",
@@ -149056,7 +149528,6 @@
  ],
  "older": [],
  "unchecked": [
-  "ArithmeticKTheory",
   "BunGAndNewtonStrata",
   "CohomologyComparisons",
   "DiamondsAndVStacks",
