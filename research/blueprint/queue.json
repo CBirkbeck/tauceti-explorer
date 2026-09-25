@@ -18421,11 +18421,12 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-HabiroCyclotomicCompletions"
    ],
-   "note": "claimed on GitHub issue #747"
+   "note": "deliverables arrived from an external worker on issue #747",
+   "finishedAt": "2026-09-25T01:29:33Z"
   },
   {
    "id": "REV-HabiroCohomologyFoundations--HQ.8",
@@ -23205,14 +23206,14 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-HabiroCyclotomicCompletions",
     "BP-HabiroNahmSeries",
     "BP-K3BlochGroups"
    ],
-   "note": "released on GitHub issue #1024"
+   "note": "claimed on GitHub issue #1024"
   },
   {
    "id": "REV-ArithmeticQuantumTopology",
