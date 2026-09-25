@@ -24661,8 +24661,9 @@
     "REV-HabiroCohomologyFoundations--HQ.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-HabiroCohomologyFoundations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #237"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #237",
+   "finishedAt": "2026-09-25T07:00:43Z"
   },
   {
    "id": "ASM-HeegnerPointEulerSystems",
