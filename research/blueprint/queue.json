@@ -16894,8 +16894,9 @@
    ],
    "avoidAccountOf": "BP-EllipticKTheory",
    "prompt": "research/blueprint/prompts/REV-EllipticKTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #392"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #392",
+   "finishedAt": "2026-09-25T01:15:28Z"
   },
   {
    "id": "BP-EllipticRegulators",
@@ -16945,7 +16946,8 @@
    ],
    "avoidAccountOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #393"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
@@ -18418,10 +18420,11 @@
     "REV-RS-10"
    ],
    "prompt": "research/blueprint/prompts/BP-HabiroCohomologyFoundations--HQ.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-HabiroCyclotomicCompletions"
-   ]
+   ],
+   "note": "claimed on GitHub issue #747"
   },
   {
    "id": "REV-HabiroCohomologyFoundations--HQ.8",
