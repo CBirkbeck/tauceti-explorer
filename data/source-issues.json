@@ -129763,9 +129763,9 @@
    "owner": "HabiroCohomologyFoundations",
    "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
    "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Definition 1.6 in the LaTeX of arXiv:2510.04782v2 (and the PDF, p. 5) displays the filtration as fil^0 <- fil^0 <- ..., the second term being printed with index 0; the body Definition 3.2 has fil^0 <- fil^1 <- fil^2. A misprint affecting nothing, as recorded."
   },
   {
    "id": "HabiroCohomologyFoundations/E2",
@@ -129784,9 +129784,9 @@
    "owner": "HabiroCohomologyFoundations",
    "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
    "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Proposition 3.47(b) of arXiv v2 (PDF p. 48; LaTeX \\qOmega_{R/A}) prints Lη_{(q−1)}q-Hdg_{S/A} ≃ q-Ω_{R/A}. The proposition fixes a pair (S, fil) with S smooth, and R occurs nowhere else in it. The proof, the sentence that follows, Remark 3.6 and the introduction's Remark 1.13 all use S. v2 is the latest version."
   },
   {
    "id": "HabiroCohomologyFoundations/E3",
@@ -129805,9 +129805,533 @@
    "owner": "HabiroCohomologyFoundations",
    "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
    "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "In paragraphs 3.32, 3.34 and 3.35 the LaTeX writes \\Hhodge (the q-Witt Hodge filtration fil_{Hhdg}) where the diagram and the construction are of \\qHhodge (the twisted q-Hodge filtration fil_{qHhdg}); the macro file defines them as different symbols. A misprint affecting nothing, as recorded; the p-adic twisted q-Hodge node now records it in its hypotheses."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E101",
+   "kind": "misprint",
+   "locator": "Remark 1.8, p. 5 (arXiv v2)",
+   "printed": "see Theorem A.1(c) and Lemma A.5",
+   "correction": "The second equivalence, (q-dR)^∧_p[1/p]^∧_{(q−1)} ≃ (dR)^∧_p[1/p]⟦q−1⟧, is Lemma A.4 (applied to R̂_p), not Lemma A.5.",
+   "reason": "Lemma A.5 is the technical estimate for δ and γ_q in (qD ⊗ ℚ)^∧_{(q−1)}. The rationalised q-crystalline equivalence is Lemma A.4, whose label the text evidently meant.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Checked both lemmas in the PDF and LaTeX of v2."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E102",
+   "kind": "misprint",
+   "locator": "Convention 3.1, p. 20 (arXiv v2)",
+   "printed": "fil⋆M/(qm−1) := fil⋆M ⊗L(qm−1)⋆A[q] A",
+   "correction": "The base change should be to A[q]/(q^m−1) with its trivial filtration. For m = 1 this is A, as printed.",
+   "reason": "Under the Rees presentation A[q, β, t]/(βt − (q^m−1)), base change to A sends q to 1 and so also kills q−1. For m ≥ 2 that is not the quotient by q^m−1. The formula stated next in the same convention, n-th piece cofib((q^m−1): fil^{n−1} → fil^n), is the base change to A[q]/(q^m−1). Later uses (Definition 3.2(b) for m = 1, and the twisted filtrations over A[q]/(q^m−1)) agree with it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Verified by computing both base changes on the Rees ring."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E103",
+   "kind": "misprint",
+   "locator": "Proof of Lemma A.5(b), last sentence, p. 71 (arXiv v2)",
+   "printed": "hence γq(p−α(q−1)nx) is contained in p−(pα+1)(q−1)n q-D",
+   "correction": "The conclusion should be p^{−(pα+1)}(q−1)^{n+1} qD, as stated in Lemma A.5(b).",
+   "reason": "The first term, p^{−α}γ_q((q−1)^n x), lies in p^{−α}(q−1)^{n+1}qD by the previous step. The second, (q−1)^{np}x^pδ(p^{−α}), lies in p^{−(pα+1)}(q−1)^{np}qD, and np ≥ n+1 for n ≥ 1 and p ≥ 2. So the proof gives exactly the stated exponent n+1; the printed n is weaker than what is claimed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Arithmetic of the two terms checked."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E104",
+   "kind": "misprint",
+   "locator": "Paragraph 3.14 (Twisted q-de Rham complexes), last part, p. 29 (arXiv v2)",
+   "printed": "if (B, J) denotes the prism (ÂpJq−1K, [p]q) and T := Ŝp[ζp], then (q-ΩS/A)∧p ≃ ΔT/B",
+   "correction": "T should be the Frobenius twist Ŝ_p^{(p)}[ζ_p], with Ŝ_p^{(p)} = (S ⊗_{A,ψ^p} A)^∧_p, as in Theorem A.1(b). The two agree when ψ^p is the identity on Â_p, for instance for A = ℤ.",
+   "reason": "Theorem A.1(b) of the same paper, and Bhatt–Scholze Theorem 16.18 (arXiv:1905.08229, checked), identify q-crystalline cohomology with prismatic cohomology of the base change along the Frobenius of D, which on Â_p is ψ^p. For A with nontrivial ψ^p, such as a toric polynomial ring, Ŝ_p[ζ_p] and Ŝ_p^{(p)}[ζ_p] are different B/J-algebras. The gluing argument only needs (qΩ)^∧_p to be Δ_{T/B} for some smooth B/J-algebra T, so it is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements",
+    "Bhatt–Scholze, Prisms and prismatic cohomology, arXiv:1905.08229, Theorem 16.18"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Compared with Theorem A.1(b) and Bhatt–Scholze Theorem 16.18."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E105",
+   "kind": "gap",
+   "locator": "Paragraph 3.14 (Twisted q-de Rham complexes), p. 29 (arXiv v2)",
+   "printed": "Indeed, q-ΩS/A is (q−1)-complete, so p-completion agrees with [pα]q-completion",
+   "correction": "The argument needs α ≥ 1. For α = v_p(m/pd) = 0 the claim (Lη_{[1]_q} qΩ)^∧_p ≃ Lη_{[1]_q}(qΩ)^∧_p holds trivially, since Lη_1 is the identity, but not for the stated reason.",
+   "reason": "[1]_q = 1, and completion at a unit is zero, so for α = 0 'p-completion agrees with [p^α]_q-completion' is false. For α ≥ 1, [p^α]_q ≡ p^α modulo q−1, so the two completions agree on (q−1)-complete objects.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Degenerate case checked directly."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E106",
+   "kind": "gap",
+   "locator": "Paragraph A.14, first paragraph, p. 76 (arXiv v2)",
+   "printed": "By construction, it sits inside a pullback square",
+   "correction": "The square with upper right corner Π_p q-dR_{R̂_p/Â_p} is a pullback because all its corners are (q−1)-complete and, modulo q−1, it is the arithmetic fracture square of dR_{R/A} (using (dR_{R/A})^∧_p ≃ dR_{R̂_p/Â_p}); derived Nakayama then applies.",
+   "reason": "Animating the defining square of qΩ gives a pullback of the animated corners. But the animation of S ↦ Π_p qΩ_{Ŝ_p/Â_p} is not obviously Π_p qdR_{R̂_p/Â_p}: infinite products need not commute with the geometric realisations that compute the animation, because the terms are not uniformly bounded. So 'by construction' does not justify the square as displayed. The argument in the correction does.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "The repair was checked step by step; the displayed statement is true."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E107",
+   "kind": "misprint",
+   "locator": "Paragraph 1.22(a), p. 10 (arXiv v2)",
+   "printed": "we let Gr(C) and Fil(Sp) denote the ∞-categories of graded and (descendingly) filtered objects in C",
+   "correction": "Fil(C), not Fil(Sp).",
+   "reason": "The sentence defines both categories for a general stable C, and the next paragraph writes Fil(C).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Read in the PDF and the LaTeX."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E108",
+   "kind": "misprint",
+   "locator": "Paragraph 1.22(a), ascending filtrations, p. 11 (arXiv v2)",
+   "printed": "the associated graded by gr∗X, where grnX := cofib(fil^{n−1}X → fil^nX) (superscript indices in the LaTeX source)",
+   "correction": "gr_nX := cofib(fil_{n−1}X → fil_nX), with subscripts, since ascending filtrations are written fil_n.",
+   "reason": "The LaTeX writes \\gr_nX := \\cofib(\\fil^{n-1}X → \\fil^nX), using the superscript indices of descending filtrations for an ascending one.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Read in the LaTeX source (the PDF text extraction does not show index positions)."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E109",
+   "kind": "misprint",
+   "locator": "Proof of Theorem A.1, first paragraph, p. 75 (arXiv v2)",
+   "printed": "the pullback reduces to the usual arithmetic fracture square for ΩR/A",
+   "correction": "Ω_{S/A}: the proof concerns a smooth A-algebra S, and R does not occur.",
+   "reason": "Same slip as E2, where R is used for S. The construction and the rest of the proof are about S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Read in the PDF and the LaTeX."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E201",
+   "kind": "misprint",
+   "locator": "q-Witt vectors and q-Hodge complexes (arXiv:2410.23078v5), Lemma 3.7, p. 39",
+   "printed": "d o F_n = n (d o V_n)",
+   "correction": "d o F_n = n (F_n o d)",
+   "reason": "The proof computes d F_{m/d}(w) = F_{m/d}(d V_{m/d} F_{m/d}(w)) = [m/d]_{q^d} F_{m/d}(dw), i.e. d o F = (m/d)(F o d); the printed right-hand side d o V_n does not even have the same source and target as d o F_n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Witt vectors and q-Hodge complexes, arXiv:2410.23078v5, LaTeX source, with the same per-section numbering convention as the companion paper.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E202",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), section 3.3, the paragraph before Proposition 3.19, p. 31",
+   "printed": "This satisfies d o F_{m/d} = (m/d) o F_{m/d}.",
+   "correction": "d o F_{m/d} = (m/d)(F_{m/d} o d)",
+   "reason": "The next sentence rescales F by (m/d)^n in degree n to obtain a map of differential graded algebras, which is right exactly for d o F = (m/d)(F o d) (q-Witt v5 Lemma 3.7, proof); the printed relation compares maps of different degrees.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E203",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), Corollaries 3.25 and 3.26, pp. 34-35",
+   "printed": "For all n >= 0 and all alpha >= 0 ... (Corollary 3.25); For all animated A-algebras R and all alpha >= 0 ... (Corollary 3.26)",
+   "correction": "alpha >= 1 in both corollaries.",
+   "reason": "The Nygaard filtration of paragraph 3.21 is defined through the Verschiebung from index p^{alpha-1}, and Corollary 3.25's target involves phi^{alpha-1} and q^{p^{alpha-1}}; for alpha = 0 neither makes sense. Lemmas 3.23 and 3.24, from which the corollaries are deduced, and Lemma 3.30 are for alpha >= 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E204",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Lemma 3.27, p. 35",
+   "printed": "fil_n^conj(qdR^{(p^{alpha-1})}/Phi_{p^alpha}(q))/(q^{p^alpha - 1} - 1)",
+   "correction": "The quotient is by q^{p^{alpha-1}} - 1.",
+   "reason": "The right-hand side of the same display and the statement of the lemma involve A[q]/(q^{p^{alpha-1}}-1); q^{p^alpha - 1} - 1 is a different polynomial.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E205",
+   "kind": "gap",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof sketch of Lemma 3.3, p. 22, and Example 4.24",
+   "printed": "it is straightforward to check that the prismatic envelope above doesn't contain any gamma~_q(x) with these properties (for the details, see Example 4.24 below).",
+   "correction": "Example 4.24 carries out the computation for the free (non-perfect) p-complete delta-ring Z_p{x} over itself, where delta(x) is a polynomial variable. For the witness of Lemma 3.3, the free p-complete perfect delta-ring over the p-completion of A, the same computation needs that delta(x) is not divisible by p there; this holds because its reduction modulo p is a non-zero Witt coordinate of a perfect F_p-algebra. The packet's witness lemma supplies this step.",
+   "reason": "The referenced example is about a different ring; the transfer is routine but not stated.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E206",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), section 3.2, the sentence before Theorem 3.11, p. 25",
+   "printed": "the m-truncated q-de Rham Witt complex from [Wag24, Definition 3.12]",
+   "correction": "[Wag24, Definition 3.13]",
+   "reason": "In q-Witt v5 (the version cited, of the same date), 3.12 is the existence proposition and 3.13 the definition; the introduction of the same paper (paragraph 1.10) cites Definition 3.13.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E207",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Corollary 3.13, p. 27",
+   "printed": "If R is etale, then combining this observation with Theorem 3.11(a) and [Wag24, Proposition 3.31] shows ...",
+   "correction": "Theorem 3.11(b)",
+   "reason": "The identification of the Habiro-Hodge complex modulo q^m-1 with qW_m(R/A) comes from the filtration of clause (b), whose graded pieces vanish in positive degrees for etale R; clause (a) only asserts the factorisation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E208",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), Corollary 3.54(a), p. 51",
+   "printed": "fil^{qW_m Omega}_* is the Whitehead filtration tau_{>= *}(qHhdg/(q^m-1))",
+   "correction": "tau^{<= *}, in the cohomological indexing the proof uses.",
+   "reason": "The filtration is ascending in *, while tau_{>= *} in homological indexing is descending; the proof of the same corollary writes tau^{<= *} and tau^{<= * + 1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E209",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof sketch of Proposition 3.19, the fracture square, p. 31",
+   "printed": "the upper right corner is taken modulo Phi_{d_p}(q^{v_p(m)})",
+   "correction": "modulo Phi_{d_p}(q^{p^{v_p(m)}})",
+   "reason": "The quoted source, q-Witt v5 Corollary 4.37, has Phi_{d_p}(q^{p^{v_p(m)}}), and so do Proposition 4.2 of q-Witt v5 and the proof of Proposition 3.39 of this paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E210",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Lemma 3.46, p. 47",
+   "printed": "for any ordinary R-algebra A",
+   "correction": "for any ordinary A-algebra R",
+   "reason": "A is the fixed base Lambda-ring throughout section 3 and qW_d Omega_{R/A} is formed for A-algebras R.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E211",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), paragraph 3.21, p. 32",
+   "printed": "The the Nygaard filtration is the filtration fil_N qW_m Omega whose n-th term is the subcomplex fil_N^n qW_{p^alpha} Omega",
+   "correction": "the filtration fil_N qW_{p^alpha} Omega",
+   "reason": "The definition is for the prime-power index p^alpha, as the displayed subcomplex and every later use show.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Found and checked by the reviewer at the locator in the LaTeX e-print and the rendered PDF of the version read."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E301",
+   "kind": "misprint",
+   "locator": "Lemma 4.2(a), p. 54, arXiv:2510.04782v2 (identical in v1)",
+   "printed": "The inclusion Fil^{[0,n]} D(Z) → Fil^{⩾0} D(Z) has a left adjoint τ*_n, which on objects is given by replacing all filtration degrees ⋆ ⩾ n+1 by 0.",
+   "correction": "The functor that replaces the degrees ⩾ n+1 by 0 is the RIGHT adjoint of the inclusion (extension by zero); it is the left adjoint of the fully faithful functor extending an object constantly above degree n, and is therefore a localisation. The left adjoint of the inclusion would be the quotient by the (n+1)-st step.",
+   "reason": "A map from an object Y vanishing above n into M is a family of maps Y^i → M^i for i ≤ n with no further condition, so Hom(ιY, M) = Hom(Y, τ*_n M); a map M → ιY must in addition kill M^{n+1} → M^n. Test: for M = Z(j), j ≥ n+1, and Y = Z(n), Hom(τ*_n M, Y) = Z while Hom(M, ιY) = 0. The source's own proof uses the stated direction: it writes the counit τ*_n Z(j) → Z(j) and says τ*_n Z(i+j) and τ*_n Z(i+n) are both Z(n), and the proof of Lemma 4.6 uses that the right adjoint of τ*_n is fully faithful.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2 (same text)",
+    "the uses of the lemma in Paragraph 4.3 and the proofs of Lemmas 4.6 and 4.10",
+    "the author's companion ku paper (no restatement)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Checked by computing both adjunctions on components and against every use in the source; the construction is unaffected because every computation already uses the right-adjoint description."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E302",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.22, p. 66, arXiv:2510.04782v2 (identical in v1)",
+   "printed": "In this case the desired lifts have been constructed in [MW24, Lemma 3.17].",
+   "correction": "[MW24, Lemma 3.16]: in Meyer–Wagner arXiv:2410.23115v4 (8 October 2025, the version current with the source) Lemma 3.16 constructs the lifts γ̃^{(n)}_q(x^α) ∈ fil^{p^n}; Lemma 3.17 is the auxiliary statement that certain quotients Z_p{x}[q]/J are p-torsion free, used in the proof of 3.16. In v3 of the preprint neither number is this lemma.",
+   "reason": "Read Meyer–Wagner v4 section 3.2 (Lemmas 3.16 and 3.17) and v3's numbering (3.16 is a base change lemma, 3.17 a paragraph); the source's Example 4.24 itself refers to [MW24, §3.2] for these lifts.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2",
+    "arXiv:2410.23115v3 and v4 numbering"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Checked in both versions of both papers."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E303",
+   "kind": "gap",
+   "locator": "Paragraph 1.16, p. 8, arXiv:2510.04782v2 (v1 states the same claim over 'the completion of H[1/N]' without the word 'Habiro', and without 'tentative' in the next sentence)",
+   "printed": "For example, if X is smooth and proper over Z[1/N], where N is also divisible by all primes p ⩽ dim(X/Z), then RΓ(X, q-Hdg_{X/Z}) will be a perfect complex over the Habiro-completion of H[1/N].",
+   "correction": "The claim needs a proof, which the paper does not give: neither the gluing of q-Hdg to schemes nor perfectness is treated in the body. A proof would need perfectness of the cohomology of q-W_m Ω^i of smooth proper schemes over Z[1/N][q]/(q^m − 1) and a criterion deducing perfectness of a Habiro-complete object from its reductions modulo q^m − 1 (Appendix B gives only conservativity and degree detection).",
+   "reason": "Searched the body for any scheme-level statement or perfectness claim: the only occurrences are in Paragraph 1.16. The claim is plausible but not routine: the reductions modulo q^m − 1 are filtered by q-de Rham–Witt cohomology, whose finiteness over the mixed-characteristic base is not established in the paper, and Habiro completion is a limit over all m.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2, full text search for 'perfect' and 'proper' (v2 revised the sentence but added no proof)",
+    "the companion ku paper arXiv:2510.06057v1",
+    "the q-Witt paper arXiv:2410.23078v5 (no perfectness statement for the Habiro-completed object)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "The claim is asserted as an example in the introduction and nowhere proved; the missing inputs are named in the packet gap."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E304",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 6.15, p. 86, arXiv:2510.06057v1",
+   "printed": "By [Wag25, Corollary 3.12], q-Hdg_{O_F[1/∆]/Z} ≃ H_{O_F[1/∆]}.",
+   "correction": "[Wag25, Corollary 3.13] (the étale case of the descent theorem); 3.12 is an Example (the framed smooth case) in both arXiv versions of the q-Hodge paper.",
+   "reason": "Checked the numbering in arXiv:2510.04782v1 and v2: 3.12 Example, 3.13 Corollary (if R is étale over A, q-Hdg_{R/A} is H_{R/A}). The same companion paper's other hard-coded references to the q-Hodge paper are partly off as well (it cites a Proposition 3.49 where 3.49 is a Remark), which suggests numbering from an earlier draft.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.06057v1 (only version)",
+    "arXiv:2510.04782v1 and v2 numbering"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, ku and q-de Rham cohomology, arXiv:2510.06057v1, LaTeX source, with the same per-section numbering convention as the companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Checked against both versions of the cited paper."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E305",
+   "kind": "error",
+   "locator": "Paragraph 4.12(b) and Corollary 4.16, pp. 58–60, arXiv:2510.04782v2 (identical in v1); the same recipe in Paragraph 4.32",
+   "printed": "A morphism (S1, . . . , Si) → (S′1, . . . , S′i′) over α: ⟨i⟩ → ⟨i′⟩ is contained in Sm_{A[dim!−1]} if and only if both source and target satisfy the condition from (a) and the target of a cocartesian lift of α with source (S1, . . . , Si) also satisfies the condition from (a).",
+   "correction": "When A is not a Q-algebra (for A a Q-algebra every smooth A-algebra lies in Sm_{A[dim!^{-1}]} and the class is closed): The morphisms so described are not closed under composition, so they do not define a sub-∞-operad (a subcategory of Sm⊗_A); the stated 'equivalent' form (morphisms that factor through a cocartesian lift of their image) is a different, larger class. Corollary 4.16 should be read with the domain the largest simplicial subset of Sm⊗_A whose vertices and edges satisfy (a) and (b), and 'functor of ∞-operads' as a map of simplicial sets over N(Fin_*) preserving the cocartesian edges it contains; the A_r-conclusions of 4.12 only use simplices all of whose edges satisfy (b).",
+   "reason": "Over A = Z: f = (x ↦ 0, x ↦ 0): (Z[x], Z[x]) → (Z, Z) over id_⟨2⟩ satisfies (b) (its lift target is its source, with entries of dimension 1, no prime needed); the multiplication g: (Z, Z) → Z over ⟨2⟩ → ⟨1⟩ satisfies (b) (Z ⊗ Z = Z); but g ∘ f has cocartesian-lift target Z[x] ⊗ Z[x] = Z[x, y], of dimension 2 with 2 not invertible, so it fails (b). It does factor through the cocartesian lift g, so it belongs to the 'equivalent' class. The same example shows that the bounded variant Sm^{⩽1,⊗}_{Z[1!^{−1}]} used in the proof of Corollary 4.16 is not closed under composition.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2 (same text)",
+    "the proof sketch of Corollary 4.16 and Paragraph 4.32, which use the same recipe without addressing composition",
+    "the companion ku paper (no restatement)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Verified with the explicit composite over Z; the multiplicative conclusions survive on the corrected domain, but the object is not an ∞-operad as stated."
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E401",
+   "kind": "misprint",
+   "locator": "Section 3, the paragraph after Example 3.12 (printed p. 26 of arXiv:2510.04782v2), against the sentence before the twisted q-Hodge filtrations, the display defining gr of the animated stupid filtration, and Corollary 3.31",
+   "printed": "As we'll see in \\cref{cor:qDRWSmoothAnimation} below, $\\Sigma^{-n}\\qIW_m\\deRham_{S/A}^n\\simeq \\qIW_m\\Omega_{S/A}^n$ holds for all $n$.",
+   "correction": "The paper uses two conventions for q-W_m dR^n that differ by the shift Σ^{-n}. With its definition of q-W_m dR^n as the n-th graded piece of the animated stupid filtration fil_{Hhodge_m} (gr^n_{Hhodge_m} q-W_m dR ≃ q-W_m dR^n), Corollary 3.31 is right, and the sentence after Example 3.12 should read q-W_m dR^n_{S/A} ≃ Σ^{-n} q-W_m Ω^n_{S/A}. The graded identifications Σ^{-*} q-W_m dR^* of Theorem 3.11(b) are to be read with one fixed convention; the blueprint states them convention-free, with q-W_m Ω^i in cohomological degree i.",
+   "reason": "The sentence after Example 3.12 and Corollary 3.31 (to which it refers) assert Σ^{-n} X ≃ Y and X ≃ Σ^{-n} Y for the same X = q-W_m dR^n and Y = q-W_m Ω^n, which cannot both hold for n ≥ 1 unless Y is zero. The definition by animating the stupid filtration places q-W_m Ω^n in cohomological degree n in the n-th graded piece, which is Corollary 3.31's form. Found by reviewer R3 while checking HQ.5; checked by the coordinating reviewer in the LaTeX source (lines 883, 923, 941 and 1410 of the e-print).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the arXiv abstract page of arXiv:2510.04782, accessed 2026-09-25, which lists v2 as the latest version",
+    "the other statements of the same paper that use q-W_m dR^n (Theorem 3.11(b) and the displays of Sections 3 and 4)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring, arXiv:2510.04782v2, LaTeX source. Statements are numbered by a single counter per section, shared by the numbered paragraphs and the theorem environments, with lettered appendix sections; that is the numbering the stage texts use, and it is confirmed by the cross-references in the author's companion papers.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HabiroCohomologyFoundations--HQ.1",
+   "reviewReason": "Checked in the LaTeX source of arXiv:2510.04782v2: the two displays are inconsistent, and the definition of q-W_m dR^n as a graded piece of the animated stupid filtration matches Corollary 3.31."
   },
   {
    "id": "HabiroCyclotomicCompletions/E1",
